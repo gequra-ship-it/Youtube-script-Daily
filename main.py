@@ -1,5 +1,6 @@
 import os
 import time
+from datetime import datetime
 from google import genai
 from googleapiclient.discovery import build
 
@@ -57,11 +58,9 @@ def create_ai_studio_script(youtube_title, client):
 - 한글 번역: 
 """
     
-    # 끈기 있는 5회 재시도 로직 유지
     max_retries = 5
     for attempt in range(max_retries):
         try:
-            # 구글의 지시에 따라 최신 모델인 3.8-flash로 고정
             response = client.models.generate_content(model='gemini-3.8-flash', contents=prompt)
             print("✅ 대본 생성 성공!", flush=True)
             return response.text
@@ -73,7 +72,7 @@ def create_ai_studio_script(youtube_title, client):
                     print("⏳ 구글 서버 과부하입니다. 30초 후 다시 시도합니다...", flush=True)
                     time.sleep(30)
                 else:
-                    print("⚠️️ 5번 연속 서버 과부하로 대본 생성을 포기합니다.", flush=True)
+                    print("⚠ 5번 연속 서버 과부하로 대본 생성을 포기합니다.", flush=True)
             else:
                 break
     return None
@@ -89,7 +88,11 @@ if __name__ == "__main__":
         script_text = create_ai_studio_script(title, gemini_client)
         
         if script_text:
-            text_file_path = os.path.join(SAVE_DIR, "ai_studio_global_script.txt")
+            # 💡 덮어쓰기 방지: 코드가 실행될 때의 날짜와 시간을 파일명에 포함 (예: script_20261004_085130.txt)
+            current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"script_{current_time}.txt"
+            text_file_path = os.path.join(SAVE_DIR, filename)
+            
             with open(text_file_path, "w", encoding="utf-8") as f:
                 f.write(f"레퍼런스 주제: {title}\n\n")
                 f.write(script_text)
