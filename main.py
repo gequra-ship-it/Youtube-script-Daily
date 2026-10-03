@@ -57,22 +57,24 @@ def create_ai_studio_script(youtube_title, client):
 - 한글 번역: 
 """
     
-    # 끈기 있는 자동 재시도 로직 (최대 3번)
-    max_retries = 3
+    # 끈기를 대폭 상향: 30초 대기, 최대 5회 시도
+    max_retries = 5
     for attempt in range(max_retries):
         try:
-            response = client.models.generate_content(model='gemini-3.8-flash', contents=prompt)
+            # 가장 서버가 쾌적하고 안정적인 1.5-flash 모델로 변경
+            response = client.models.generate_content(model='gemini-1.5-flash', contents=prompt)
             print("✅ 대본 생성 성공!", flush=True)
             return response.text
         except Exception as e:
             error_msg = str(e)
             print(f"❌ 제미나이 통신 에러 (시도 {attempt+1}/{max_retries}): {error_msg}", flush=True)
-            if "503" in error_msg or "UNAVAILABLE" in error_msg:
+            # 503(과부하) 또는 429(요청 한도 초과) 에러 시 대기 후 재시도
+            if "503" in error_msg or "UNAVAILABLE" in error_msg or "429" in error_msg:
                 if attempt < max_retries - 1:
-                    print("⏳ 구글 서버 과부하입니다. 15초 후 다시 시도합니다...", flush=True)
-                    time.sleep(15)
+                    print("⏳ 구글 서버 과부하입니다. 30초 후 다시 시도합니다...", flush=True)
+                    time.sleep(30)
                 else:
-                    print("⚠️ 3번 연속 서버 과부하로 대본 생성을 포기합니다.", flush=True)
+                    print("⚠️ 5번 연속 서버 과부하로 대본 생성을 포기합니다.", flush=True)
             else:
                 break
     return None
@@ -94,4 +96,4 @@ if __name__ == "__main__":
                 f.write(script_text)
             print(f"🎉 모든 작업 성공! 파일 저장 완료: {text_file_path}", flush=True)
         else:
-            print("⚠️ 대본 생성 실패로 파일을 저장하지 못했습니다.", flush=True)
+            print("⚠️️ 대본 생성 실패로 파일을 저장하지 못했습니다.", flush=True)
