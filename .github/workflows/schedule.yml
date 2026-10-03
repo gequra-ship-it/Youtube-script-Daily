@@ -2,7 +2,8 @@ name: Daily Auto Script
 
 on:
   schedule:
-    - cron: '0 23 * * *' # 한국 시간 기준 매일 아침 8시 실행 (UTC 23:00)
+     - cron: '0 21 * * *' # 한국 시간 아침 6시 실행 (UTC 21:00)
+
   workflow_dispatch: # 수동으로 버튼 눌러서 실행하는 기능
 
 jobs:
