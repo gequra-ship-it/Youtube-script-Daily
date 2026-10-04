@@ -35,27 +35,29 @@ def create_ai_studio_script(youtube_title, client):
     if not GEMINI_API_KEY:
         return None
         
+    # 💡 AI가 절대 헷갈리지 않도록 강력한 지시와 예시를 추가했습니다.
     prompt = f"""
 너는 '글로벌 지식 전달'에 특화된 100만 해외 유튜버야.
 사용자가 AI 스튜디오를 이용해 정지된 이미지 슬라이드쇼 + 영어 TTS(성우) + 영어 자막 형식의 6분짜리 지식 롱폼 영상을 만들 예정이야.
 
 주제: "{youtube_title}"
 
-[작성 규칙]:
-1. 글로벌 시청자를 사로잡을 수 있는 원어민 영어 톤.
-2. [시각 자료]: AI 스튜디오에서 어떤 사진을 띄워야 할지 한국어로 지시할 것.
-3. [영어 자막]: 화면 정중앙에 띄울 짧은 문장 1개를 영어로 작성.
-4. [영어 TTS 대본]: 성우가 15~20초 정도 읽을 분량을 영어로 작성.
-5. [한글 번역]: 자막과 TTS 대본의 뜻을 요약한 한글 번역.
+[작성 규칙 - 매우 중요!]:
+1. [시각 자료]와 [한글 번역]은 반드시 **한국어(Korean)**로 작성해.
+2. [영어 자막]과 [영어 TTS]는 반드시 원어민 수준의 자연스러운 **영어(English)**로 작성해야 해!! 절대 한국어로 적지 마.
+3. [영어 자막]은 화면 정중앙에 띄울 짧은 영어 문장 1개.
+4. [영어 TTS]는 원어민 성우가 15~20초 정도 읽을 분량의 영어 대본.
 
-출력 양식:
-[영상 제목]: (영어 제목) / (한국어 제목)
+[출력 양식 예시]:
+[영상 제목]: The Secret of the Black Hole / 블랙홀의 비밀
 
 [슬라이드 1]
-- 시각 자료: 
-- 영어 자막: 
-- 영어 TTS: 
-- 한글 번역: 
+- 시각 자료: 거대한 블랙홀이 별을 집어삼키는 3D 그래픽 화면
+- 영어 자막: The Monster in the Dark
+- 영어 TTS: Did you know that there are monsters lurking in the darkness of space? Today, we are diving into the ultimate mystery: Black Holes.
+- 한글 번역: 우주의 어둠 속에 괴물이 숨어있다는 사실을 아시나요? 오늘 우리는 궁극의 미스터리, 블랙홀로 빠져들어 봅니다.
+
+위 예시처럼 슬라이드 15~20개 분량의 6분짜리 대본을 작성해줘.
 """
     
     max_retries = 5
@@ -88,7 +90,6 @@ if __name__ == "__main__":
         script_text = create_ai_studio_script(title, gemini_client)
         
         if script_text:
-            # 💡 덮어쓰기 방지: 코드가 실행될 때의 날짜와 시간을 파일명에 포함 (예: script_20261004_085130.txt)
             current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
             filename = f"script_{current_time}.txt"
             text_file_path = os.path.join(SAVE_DIR, filename)
