@@ -1,12 +1,9 @@
 import os
 import time
-import socket
+import concurrent.futures
 from datetime import datetime
 from google import genai
 from googleapiclient.discovery import build
-
-# 💡 좀비 커넥션 방지: 120초(2분) 동안 구글이 대답 없으면 강제로 통신 끊고 에러 발생시킴
-socket.setdefaulttimeout(120)
 
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
@@ -59,6 +56,10 @@ def get_unprocessed_top_video():
         print(f"❌ 유튜브 검색 중 에러 발생: {e}", flush=True)
         return None, None
 
+# 💡 스레드에서 실행할 제미나이 통신 함수 분리
+def call_gemini(client, prompt):
+    return client.models.generate_content(model='gemini-3.8-flash', contents=prompt)
+
 def create_ai_studio_script(youtube_title, client):
     print("🤖 제미나이 대본 기획 시작...", flush=True)
     if not GEMINI_API_KEY:
@@ -91,18 +92,31 @@ def create_ai_studio_script(youtube_title, client):
     max_retries = 5
     for attempt in range(max_retries):
         try:
-            response = client.models.generate_content(model='gemini-3.8-flash', contents=prompt)
+            # 💡 가장 강력한 하드 타임아웃 적용 (스톱워치 120초 설정)
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                future = executor.submit(call_gemini, client, prompt)
+                # 120초 안에 답변이 안 오면 TimeoutError를 강제로 터뜨림!
+                response = future.result(timeout=120)
+                
             print("✅ 대본 생성 성공!", flush=True)
             return response.text
-        except Exception as e:
-            error_msg = str(e)
-            print(f"❌ 제미나이 통신 에러 (시도 {attempt+1}/{max_retries}): {error_msg}", flush=True)
             
+        except concurrent.futures.TimeoutError:
+            print(f"❌ 제미나이 통신 에러 (시도 {attempt+1}/{max_retries}): 120초 무응답으로 인한 강제 종료", flush=True)
             if attempt < max_retries - 1:
                 print("⏳ 30초 후 다시 시도합니다...", flush=True)
                 time.sleep(30)
             else:
-                print("⚠ 5번 연속 통신 실패로 대본 생성을 포기합니다.", flush=True)
+                print("⚠ 5번 연속 무응답으로 대본 생성을 포기합니다.", flush=True)
+                
+        except Exception as e:
+            error_msg = str(e)
+            print(f"❌ 제미나이 통신 에러 (시도 {attempt+1}/{max_retries}): {error_msg}", flush=True)
+            if attempt < max_retries - 1:
+                print("⏳ 30초 후 다시 시도합니다...", flush=True)
+                time.sleep(30)
+            else:
+                print("⚠ 5번 연속 에러로 대본 생성을 포기합니다.", flush=True)
     return None
 
 if __name__ == "__main__":
@@ -126,10 +140,4 @@ if __name__ == "__main__":
                 f.write(script_text)
                 
             with open(HISTORY_FILE, "a", encoding="utf-8") as f:
-                f.write(f"{video_id}\n")
-                
-            print(f"🎉 모든 작업 성공! 파일 저장 완료: {text_file_path}", flush=True)
-        else:
-            print("⚠ 대본 생성 실패로 파일을 저장하지 못했습니다.", flush=True)
-    else:
-         print("⚠ 처리할 영상을 찾지 못해 작업을 종료합니다.", flush=True)
+                f.write
