@@ -1,8 +1,12 @@
 import os
 import time
+import socket
 from datetime import datetime
 from google import genai
 from googleapiclient.discovery import build
+
+# 💡 좀비 커넥션 방지: 120초(2분) 동안 구글이 대답 없으면 강제로 통신 끊고 에러 발생시킴
+socket.setdefaulttimeout(120)
 
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
@@ -19,7 +23,6 @@ def get_unprocessed_top_video():
     try:
         youtube = build("youtube", "v3", developerKey=YOUTUBE_API_KEY)
         
-        # '과학드림' 채널의 고유 ID를 찾습니다.
         channel_request = youtube.search().list(
             part="id", q="@sciencedream", type="channel", maxResults=1
         )
@@ -31,13 +34,11 @@ def get_unprocessed_top_video():
             
         channel_id = channel_response["items"][0]["id"]["channelId"]
         
-        # 진도표(history.txt)를 읽어와서 이미 작업한 영상 목록을 확인합니다.
         processed_videos = []
         if os.path.exists(HISTORY_FILE):
             with open(HISTORY_FILE, "r", encoding="utf-8") as f:
                 processed_videos = f.read().splitlines()
         
-        # 해당 채널에서 '조회수 높은 순'으로 영상 50개를 불러옵니다.
         video_request = youtube.search().list(
             part="snippet", channelId=channel_id, type="video", order="viewCount", maxResults=50
         )
@@ -97,9 +98,8 @@ def create_ai_studio_script(youtube_title, client):
             error_msg = str(e)
             print(f"❌ 제미나이 통신 에러 (시도 {attempt+1}/{max_retries}): {error_msg}", flush=True)
             
-            # 💡 수정됨: 연결 끊김, 과부하 등 어떤 통신 에러가 발생해도 무조건 30초 쉬고 5번까지 재도전하도록 변경
             if attempt < max_retries - 1:
-                print("⏳ 일시적인 통신 오류입니다. 30초 후 다시 시도합니다...", flush=True)
+                print("⏳ 30초 후 다시 시도합니다...", flush=True)
                 time.sleep(30)
             else:
                 print("⚠ 5번 연속 통신 실패로 대본 생성을 포기합니다.", flush=True)
