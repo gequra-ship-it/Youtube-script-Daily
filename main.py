@@ -1,6 +1,6 @@
 import os
 import time
-import concurrent.futures
+import multiprocessing
 from datetime import datetime
 from google import genai
 from googleapiclient.discovery import build
@@ -56,11 +56,18 @@ def get_unprocessed_top_video():
         print(f"❌ 유튜브 검색 중 에러 발생: {e}", flush=True)
         return None, None
 
-# 💡 스레드에서 실행할 제미나이 통신 함수 분리
-def call_gemini(client, prompt):
-    return client.models.generate_content(model='gemini-3.8-flash', contents=prompt)
+# 💡 '복제 인간'이 실행할 완전히 독립된 작업 지시서
+def fetch_gemini_response(api_key, prompt, return_dict):
+    try:
+        client = genai.Client(api_key=api_key)
+        response = client.models.generate_content(model='gemini-3.8-flash', contents=prompt)
+        return_dict['status'] = 'SUCCESS'
+        return_dict['text'] = response.text
+    except Exception as e:
+        return_dict['status'] = 'ERROR'
+        return_dict['text'] = str(e)
 
-def create_ai_studio_script(youtube_title, client):
+def create_ai_studio_script(youtube_title):
     print("🤖 제미나이 대본 기획 시작...", flush=True)
     if not GEMINI_API_KEY:
         return None
@@ -91,32 +98,44 @@ def create_ai_studio_script(youtube_title, client):
     
     max_retries = 5
     for attempt in range(max_retries):
-        try:
-            # 💡 가장 강력한 하드 타임아웃 적용 (스톱워치 120초 설정)
-            with concurrent.futures.ThreadPoolExecutor() as executor:
-                future = executor.submit(call_gemini, client, prompt)
-                # 120초 안에 답변이 안 오면 TimeoutError를 강제로 터뜨림!
-                response = future.result(timeout=120)
-                
-            print("✅ 대본 생성 성공!", flush=True)
-            return response.text
+        # 복제 인간(Process)과 결과를 주고받을 특수 메모장
+        manager = multiprocessing.Manager()
+        return_dict = manager.dict()
+        
+        # 독립된 프로세스(가상 컴퓨터) 생성 및 시작
+        p = multiprocessing.Process(target=fetch_gemini_response, args=(GEMINI_API_KEY, prompt, return_dict))
+        p.start()
+        
+        # 💡 타이머 시작: 정확히 120초만 칼같이 기다립니다.
+        p.join(120)
+        
+        # 120초가 지났는데도 프로세스가 살아있다? -> 즉시 강제 사살(Terminate)
+        if p.is_alive():
+            print(f"❌ 제미나이 통신 에러 (시도 {attempt+1}/{max_retries}): 120초 무응답, 연결 강제 절단(Kill)!", flush=True)
+            p.terminate()
+            p.join() # 시체(좀비 메모리) 정리
             
-        except concurrent.futures.TimeoutError:
-            print(f"❌ 제미나이 통신 에러 (시도 {attempt+1}/{max_retries}): 120초 무응답으로 인한 강제 종료", flush=True)
             if attempt < max_retries - 1:
                 print("⏳ 30초 후 다시 시도합니다...", flush=True)
                 time.sleep(30)
             else:
                 print("⚠ 5번 연속 무응답으로 대본 생성을 포기합니다.", flush=True)
-                
-        except Exception as e:
-            error_msg = str(e)
-            print(f"❌ 제미나이 통신 에러 (시도 {attempt+1}/{max_retries}): {error_msg}", flush=True)
-            if attempt < max_retries - 1:
-                print("⏳ 30초 후 다시 시도합니다...", flush=True)
-                time.sleep(30)
+        else:
+            # 120초 안에 정상적으로 처리가 완료된 경우
+            status = return_dict.get('status')
+            text = return_dict.get('text')
+            
+            if status == 'SUCCESS':
+                print("✅ 대본 생성 성공!", flush=True)
+                return text
             else:
-                print("⚠ 5번 연속 에러로 대본 생성을 포기합니다.", flush=True)
+                print(f"❌ 제미나이 내부 에러 (시도 {attempt+1}/{max_retries}): {text}", flush=True)
+                if attempt < max_retries - 1:
+                    print("⏳ 30초 후 다시 시도합니다...", flush=True)
+                    time.sleep(30)
+                else:
+                    print("⚠ 5번 연속 에러로 대본 생성을 포기합니다.", flush=True)
+                    
     return None
 
 if __name__ == "__main__":
@@ -127,8 +146,7 @@ if __name__ == "__main__":
     title, video_id = get_unprocessed_top_video()
     
     if title and video_id:
-        gemini_client = genai.Client(api_key=GEMINI_API_KEY)
-        script_text = create_ai_studio_script(title, gemini_client)
+        script_text = create_ai_studio_script(title)
         
         if script_text:
             current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -140,4 +158,10 @@ if __name__ == "__main__":
                 f.write(script_text)
                 
             with open(HISTORY_FILE, "a", encoding="utf-8") as f:
-                f.write
+                f.write(f"{video_id}\n")
+                
+            print(f"🎉 모든 작업 성공! 파일 저장 완료: {text_file_path}", flush=True)
+        else:
+            print("⚠ 대본 생성 실패로 파일을 저장하지 못했습니다.", flush=True)
+    else:
+         print("⚠ 처리할 영상을 찾지 못해 작업을 종료합니다.", flush=True)
