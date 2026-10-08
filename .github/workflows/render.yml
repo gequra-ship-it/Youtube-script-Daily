@@ -1,0 +1,70 @@
+name: render-video
+
+# 수동 실행: Actions 탭 > render-video > Run workflow > slug 입력 (render/<slug>/ 폴더를 렌더)
+# 테스트: render-pipeline 브랜치에 push하면 render/sample을 렌더(Drive 업로드는 비밀값이 있을 때만)
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "영상 슬러그 (render/<slug>/ 폴더 이름, 예: never-eat-humans)"
+        required: true
+        default: "sample"
+  push:
+    branches: [render-pipeline]
+    paths: ["render/sample/**", ".github/workflows/render.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    env:
+      SLUG: ${{ github.event.inputs.slug || 'sample' }}
+      RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install FFmpeg and rclone
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y ffmpeg rclone
+          ffmpeg -version | head -1
+          rclone version | head -1
+      - name: Find Chrome
+        run: |
+          CHROME=$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)
+          echo "chrome=$CHROME"
+          test -n "$CHROME"
+          echo "HYPERFRAMES_BROWSER_PATH=$CHROME" >> "$GITHUB_ENV"
+      - name: Render
+        working-directory: render/${{ env.SLUG }}
+        run: |
+          start=$(date +%s)
+          npx --yes hyperframes@0.8.141 render 2>&1 | tee render.log
+          echo "render seconds: $(( $(date +%s) - start ))"
+          ls -la renders
+      - name: Verify MP4
+        working-directory: render/${{ env.SLUG }}
+        run: |
+          f=$(ls renders/*.mp4 | head -1)
+          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,duration -of compact "$f"
+          ffmpeg -nostats -i "$f" -af ebur128 -f null - 2>&1 | grep -E "I:|LRA:" | tail -2
+          cp "$f" "$GITHUB_WORKSPACE/${SLUG}.mp4"
+      - name: Upload MP4 to Google Drive
+        if: ${{ env.RCLONE_CONF != '' }}
+        run: |
+          mkdir -p ~/.config/rclone
+          printf '%s' "$RCLONE_CONF" > ~/.config/rclone/rclone.conf
+          rclone copyto "${SLUG}.mp4" "gdrive:유튜브 자동화/Video & Thumbnail/${SLUG}/${SLUG}.mp4" --progress
+          rclone lsl "gdrive:유튜브 자동화/Video & Thumbnail/${SLUG}/"
+      - name: Keep MP4 as run artifact (small tests only)
+        if: ${{ env.SLUG == 'sample' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: sample-mp4
+          path: sample.mp4
+          retention-days: 3
