@@ -9,7 +9,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
-SAVE_DIR = "./scripts" 
+SAVE_DIR = "./scripts"
 HISTORY_FILE = os.path.join(SAVE_DIR, "history.txt")
 
 def get_unprocessed_top_video():
