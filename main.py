@@ -57,11 +57,9 @@ def get_unprocessed_top_video():
         print(f"❌ 유튜브 검색 중 에러 발생: {e}", flush=True)
         return None, None
 
-# 💡 원본 영상의 자막(스크립트)을 추출하는 함수
 def get_video_transcript(video_id):
     print("📜 원본 유튜브 영상 자막 추출 시도 중...", flush=True)
     try:
-        # 한국어, 영어, 일본어 등 가능한 자막을 우선순위로 가져옵니다.
         transcript_list = YouTubeTranscriptApi.get_transcript(video_id, languages=['ko', 'en', 'ja'])
         text = " ".join([t['text'] for t in transcript_list])
         print("✅ 원본 자막 추출 성공! (이 내용을 바탕으로 대본을 씁니다)", flush=True)
@@ -85,32 +83,33 @@ def create_ai_studio_script(youtube_title, transcript_text):
     if not GEMINI_API_KEY:
         return None
         
-    # 자막 유무에 따라 제공할 정보를 다르게 설정
     if transcript_text:
         source_material = f"""
 [원본 영상 제목]: "{youtube_title}"
-[원본 영상 실제 대본 내용 (이 내용을 완벽히 분석해서 우리만의 15분 대본으로 재창조할 것)]:
+[원본 영상 실제 대본 내용 (이 내용을 완벽히 분석해서 우리만의 15분 대본으로 뼈대에 살을 붙여 길게 재창조할 것)]:
 {transcript_text}
 """
     else:
         source_material = f"""
 [원본 영상 제목]: "{youtube_title}"
-(원본 자막을 구할 수 없습니다. 제목의 핵심 주제를 바탕으로 15분 분량의 깊이 있는 내용을 스스로 창작해 주세요.)
+(원본 자막을 구할 수 없습니다. 제목의 핵심 주제를 바탕으로 10분~15분 분량의 깊이 있는 내용을 스스로 길게 창작해 주세요.)
 """
 
+    # 💡 1,500단어 이상 롱폼 생성을 강제하기 위한 매우 디테일한 프롬프트
     prompt = f"""
-너는 '글로벌 지식 전달'에 특화된 100만 해외 유튜버야.
-사용자가 이 대본을 바탕으로 **15분짜리 아주 깊이 있는 지식 롱폼 영상**을 만들 예정이야.
+너는 '글로벌 지식 전달'에 특화된 100만 구독자 해외 유튜버야.
+사용자가 이 대본을 바탕으로 **10분에서 15분 길이(영어 단어 수 기준 최소 1,500단어 ~ 2,250단어)의 아주 깊이 있는 지식 롱폼 영상**을 만들 예정이야.
 
 {source_material}
 
-[작성 규칙 - 매우 중요!]:
-1. 분량: 15분 영상에 맞게 매우 구체적이고 깊이 있는 내용을 다뤄야 해. (원어민 성우가 읽었을 때 15분이 되려면 약 **35개~45개의 장면(Scene)**이 필요해).
-2. 타임라인(시간 표시)은 절대 넣지 마. 대신 편집자가 알아보기 쉽게 [장면 1], [장면 2] 식으로 번호를 매겨서 구분해줘.
-3. [시각 자료]와 [한글 번역]은 반드시 **한국어(Korean)**로 작성해.
-4. [영어 자막]과 [영어 TTS]는 반드시 원어민 수준의 자연스러운 **영어(English)**로 작성해야 해!! 절대 한국어로 적지 마.
-5. [영어 자막]은 화면 정중앙에 띄울 짧은 영어 문장 1개.
-6. [영어 TTS]는 원어민 성우가 15~20초 정도 읽을 분량의 영어 대본.
+[작성 규칙 - 매우 중요! 절대 어기지 마!]:
+1. **분량 강제 (가장 중요)**: 전체 [영어 TTS]의 단어 수를 모두 합쳤을 때 **무조건 1,500단어 이상**이 되어야 해! 내용을 요약하거나 건너뛰지 말고, 원본 자막의 모든 디테일과 예시를 살려서 최대한 길고 상세하게 풀어써.
+2. 장면(Scene) 수: 15분 분량을 꽉 채우기 위해 **최소 30개에서 40개의 장면(Scene)**으로 쪼개어 구성해.
+3. 각 장면의 대사량: 하나의 [영어 TTS] 블록 안에는 성우가 20초~30초간 쉴 새 없이 읽을 수 있도록 **최소 5문장~8문장 이상(약 60~100단어)**의 아주 풍부한 영어 대사를 작성해. 대충 한두 줄로 넘어가면 절대 안 돼.
+4. 타임라인(시간 표시)은 금지. [장면 1], [장면 2] 형식으로 번호만 매겨.
+5. [시각 자료]와 [한글 번역]은 반드시 **한국어(Korean)**로 작성.
+6. [영어 자막]과 [영어 TTS]는 반드시 원어민 수준의 자연스러운 **영어(English)**로 작성. (절대 한국어 섞지 말 것).
+7. [영어 자막]은 화면 정중앙에 띄울 짧은 핵심 영어 문장 1개.
 
 [출력 양식 예시]:
 [영상 제목]: The Secret of the Black Hole / 블랙홀의 비밀
@@ -118,76 +117,4 @@ def create_ai_studio_script(youtube_title, transcript_text):
 [장면 1]
 - 시각 자료: 거대한 블랙홀이 별을 집어삼키는 3D 그래픽 화면
 - 영어 자막: The Monster in the Dark
-- 영어 TTS: Did you know that there are monsters lurking in the darkness of space? Today, we are diving into the ultimate mystery: Black Holes.
-- 한글 번역: 우주의 어둠 속에 괴물이 숨어있다는 사실을 아시나요? 오늘 우리는 궁극의 미스터리, 블랙홀로 빠져들어 봅니다.
-
-위 예시처럼 [장면 35] 이상까지 기승전결이 완벽한 15분 분량의 대본을 꽉 채워서 작성해줘. 분량이 짧으면 안 돼.
-"""
-    
-    max_retries = 5
-    for attempt in range(max_retries):
-        manager = multiprocessing.Manager()
-        return_dict = manager.dict()
-        
-        p = multiprocessing.Process(target=fetch_gemini_response, args=(GEMINI_API_KEY, prompt, return_dict))
-        p.start()
-        
-        p.join(180)
-        
-        if p.is_alive():
-            print(f"❌ 제미나이 통신 에러 (시도 {attempt+1}/{max_retries}): 180초 무응답, 연결 강제 절단(Kill)!", flush=True)
-            p.terminate()
-            p.join() 
-            
-            if attempt < max_retries - 1:
-                print("⏳ 30초 후 다시 시도합니다...", flush=True)
-                time.sleep(30)
-            else:
-                print("⚠ 5번 연속 무응답으로 대본 생성을 포기합니다.", flush=True)
-        else:
-            status = return_dict.get('status')
-            text = return_dict.get('text')
-            
-            if status == 'SUCCESS':
-                print("✅ 15분 대본 생성 성공!", flush=True)
-                return text
-            else:
-                print(f"❌ 제미나이 내부 에러 (시도 {attempt+1}/{max_retries}): {text}", flush=True)
-                if attempt < max_retries - 1:
-                    print("⏳ 30초 후 다시 시도합니다...", flush=True)
-                    time.sleep(30)
-                else:
-                    print("⚠ 5번 연속 에러로 대본 생성을 포기합니다.", flush=True)
-                    
-    return None
-
-if __name__ == "__main__":
-    print("🚀 클라우드 대본 생성 작업 시작!", flush=True)
-    if not os.path.exists(SAVE_DIR):
-        os.makedirs(SAVE_DIR)
-            
-    title, video_id = get_unprocessed_top_video()
-    
-    if title and video_id:
-        # 💡 영상 아이디를 통해 원본 자막을 먼저 가져옵니다.
-        transcript_text = get_video_transcript(video_id)
-        
-        script_text = create_ai_studio_script(title, transcript_text)
-        
-        if script_text:
-            current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"script_{current_time}.txt"
-            text_file_path = os.path.join(SAVE_DIR, filename)
-            
-            with open(text_file_path, "w", encoding="utf-8") as f:
-                f.write(f"레퍼런스 주제: {title}\n\n")
-                f.write(script_text)
-                
-            with open(HISTORY_FILE, "a", encoding="utf-8") as f:
-                f.write(f"{video_id}\n")
-                
-            print(f"🎉 모든 작업 성공! 파일 저장 완료: {text_file_path}", flush=True)
-        else:
-            print("⚠ 대본 생성 실패로 파일을 저장하지 못했습니다.", flush=True)
-    else:
-         print("⚠ 처리할 영상을 찾지 못해 작업을 종료합니다.", flush=True)
+- 영어 TTS: Did you know that there are monsters lurking in the darkness of space? Today, we
