@@ -208,7 +208,9 @@ TR = {}; kind_of = {i: SCENES[i - 1][2] for i in SEL}; mix = ['fade', 'hard', 'w
 for idx, i in enumerate(SEL):
     if idx == 0 or kind_of[i] == 'chalk' or kind_of[SEL[idx - 1]] == 'chalk':
         TR[i] = ('hard', 0.0); continue
-    if i in WH:
+    if os.environ.get('ZOOM', '1') == '1':
+        TR[i] = ('zoom', 0.5)
+    elif i in WH:
         TR[i] = ('iris', 0.6)
     else:
         ty = mix[mk % len(mix)]; mk += 1
@@ -310,26 +312,32 @@ for (src, st, dd, tr, vol) in audio:
 js = ['<script>const tl=gsap.timeline({paused:true});']
 FOC = ['32% 62%', '68% 56%', '50% 44%', '62% 70%', '38% 46%', '72% 40%']
 # framings for the 2nd, 3rd... cut of a scene: (scale from, scale to, origin, x from, x to, y from, y to)
-def view(i, j):
-    if j == 0:
-        d = -20 if i % 2 == 0 else 20
-        return (1.06, 1.12, '50% 50%', -d, d, 0, 0)
-    f = lambda k: FOC[(i * 2 + j + k) % len(FOC)]
-    sg = 1 if (i + j) % 2 == 0 else -1
-    cyc = [(1.30, 1.40, f(0), 0, 0, 0, 0), (1.20, 1.20, '50% 50%', 60 * sg, -60 * sg, 0, 0),
-           (1.50, 1.38, f(2), 0, 0, 0, 0), (1.14, 1.26, f(4), 0, 0, 0, 0),
-           (1.22, 1.22, '50% 50%', 0, 0, -40 * sg, 40 * sg)]
-    return cyc[(i + j) % len(cyc)]
-TRSET = {'fade': ('{opacity:0}', '{opacity:1}'),
+# camera: hold -> one slow eased move -> hold, chained across the cuts of a scene (no jumps)
+FOCI = [(-.5, -.3, 1.18), (.4, .2, 1.22), (-.2, .4, 1.16), (.5, -.3, 1.20), (0, 0, 1.08), (-.4, .1, 1.20)]
+def wp(i, k):
+    if k == 0:
+        return (1.04, 0, 0)
+    fx, fy, sc = FOCI[(i + k - 1) % len(FOCI)]
+    return (sc, round(fx * (sc - 1) * 960 * .8), round(fy * (sc - 1) * 540 * .8))
+TRSET = {'zoom': ('{opacity:0}', '{opacity:1}'), 'fade': ('{opacity:0}', '{opacity:1}'),
          'wipel': ('{clipPath:"inset(0% 0% 0% 100%)"}', '{clipPath:"inset(0% 0% 0% 0%)"}'),
          'wipeu': ('{clipPath:"inset(100% 0% 0% 0%)"}', '{clipPath:"inset(0% 0% 0% 0%)"}'),
          'iris': ('{clipPath:"circle(0% at 50% 50%)"}', '{clipPath:"circle(75% at 50% 50%)"}')}
+CAMDONE = set()
 for n, c in enumerate(cuts):
     i = c['scene']; w = f'#w{i}'; t0 = c['t0']; t1 = c['t1']; v0 = c['vis0']
     js.append(f'tl.set("{w}",{{display:"block"}},{v0:.3f});tl.set("{w}",{{display:"none"}},{t1:.3f});')
     if c['kind'] == 'ill':
-        s_a, s_b, org, xa, xb, ya, yb = view(i, c['part'])
-        js.append(f'tl.fromTo("{w}",{{scale:{s_a},x:{xa},y:{ya},transformOrigin:"{org}"}},{{scale:{s_b},x:{xb},y:{yb},duration:{t1 - v0:.3f},ease:"none",immediateRender:false}},{v0:.3f});')
+        sc0, x0, y0 = wp(i, c['part']); sc1, x1, y1 = wp(i, c['part'] + 1)
+        mv = max(1.2, min(2.6, (t1 - t0) - 2.2)); ms = t0 + 1.6
+        if c['tr'] == 'zoom':   # arrive zoomed in on the centre, ease out to the resting frame
+            js.append(f'tl.fromTo("{w}",{{scale:2.4,x:0,y:0,transformOrigin:"50% 50%"}},{{scale:{sc0},x:{x0},y:{y0},duration:1.7,ease:"power3.out",immediateRender:false}},{v0:.3f});')
+        else:
+            js.append(f'tl.set("{w}",{{scale:{sc0},x:{x0},y:{y0},transformOrigin:"50% 50%"}},{v0:.3f});')
+        js.append(f'tl.to("{w}",{{scale:{sc1},x:{x1},y:{y1},duration:{mv:.3f},ease:"power2.inOut"}},{ms:.3f});')
+        nxt = [cc for cc in cuts if cc['t0'] >= t1 - 1e-6 and cc['kind'] == 'ill' and cc['first']]
+        if nxt and nxt[0]['tr'] == 'zoom' and c.get('last_of_scene', True) and not any(cc['scene'] == i and cc['t0'] > t0 for cc in cuts):
+            js.append(f'tl.to("{w}",{{scale:2.6,x:0,y:0,duration:1.1,ease:"power2.in"}},{t1 - 1.1:.3f});')
         if c['tr'] in TRSET:
             a0, a1 = TRSET[c['tr']]; T = t0 - v0
             js.append(f'tl.fromTo("{w}",{a0},Object.assign({a1},{{duration:{T:.3f},ease:"power1.inOut",immediateRender:false}}),{v0:.3f});')
