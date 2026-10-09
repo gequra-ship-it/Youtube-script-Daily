@@ -24,12 +24,14 @@ jobs:
       RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
     steps:
       - uses: actions/checkout@v4
-      - name: Pick slug
+      - name: Pick slugs
         run: |
-          if [ -n "${{ github.event.inputs.slug }}" ]; then S="${{ github.event.inputs.slug }}"
-          elif [ -f render/.slug ]; then S=$(tr -d '[:space:]' < render/.slug)
-          else S=sample; fi
-          echo "SLUG=$S" >> "$GITHUB_ENV"; echo "slug=$S"
+          # render/.slug may hold several slugs (one per line, e.g. "x" and "x-short"); a dispatch input may use commas
+          if [ -n "${{ github.event.inputs.slug }}" ]; then L=$(echo "${{ github.event.inputs.slug }}" | tr ',' '\n')
+          elif [ -f render/.slug ]; then L=$(cat render/.slug)
+          else L=sample; fi
+          echo "$L" | tr -d '\r' | sed 's/[[:space:]]//g' | grep -v '^$' > "$RUNNER_TEMP/slugs.txt"
+          cat "$RUNNER_TEMP/slugs.txt"
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -45,45 +47,42 @@ jobs:
           echo "chrome=$CHROME"
           test -n "$CHROME"
           echo "HYPERFRAMES_BROWSER_PATH=$CHROME" >> "$GITHUB_ENV"
-      - name: Render
-        working-directory: render/${{ env.SLUG }}
-        run: |
-          start=$(date +%s)
-          npx --yes hyperframes@0.8.141 render 2>&1 | tee render.log
-          echo "render seconds: $(( $(date +%s) - start ))"
-          ls -la renders
-      - name: Verify MP4
-        working-directory: render/${{ env.SLUG }}
-        run: |
-          f=$(ls renders/*.mp4 | head -1)
-          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,duration -of compact "$f"
-          ffmpeg -nostats -i "$f" -af ebur128 -f null - 2>&1 | grep -E "I:|LRA:" | tail -2
-          cp "$f" "$GITHUB_WORKSPACE/${SLUG}.mp4"
-          {
-            echo "render report ${SLUG} $(date -u +%FT%TZ)"
-            ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,duration -of compact "$f"
-            ffmpeg -nostats -i "$f" -af ebur128=peak=true -f null - 2>&1 | grep -E "I:|LRA:|Peak:" | tail -3
-            ls -la "$f"
-          } > "$GITHUB_WORKSPACE/render_report.txt"
-      - name: Upload MP4 to Google Drive
-        if: ${{ env.RCLONE_CONF != '' }}
+      - name: Render and deliver every slug
         env:
           # Drive 폴더 "유튜브 자동화 / Video & Thumbnail" 의 ID. rclone은 이 폴더 안으로만 접근한다.
           ROOT_ID: 1lBexNbmVvKNahw56d-s2rUVR5Qp76V3i
         run: |
-          mkdir -p ~/.config/rclone
-          printf '%s' "$RCLONE_CONF" > ~/.config/rclone/rclone.conf
-          DEST_DIR="$SLUG"
-          if [ "$SLUG" = "sample" ]; then DEST_DIR="_ci-test"; fi
-          rclone copyto "${SLUG}.mp4" "gdrive:${DEST_DIR}/${SLUG}.mp4" --drive-root-folder-id "$ROOT_ID" --drive-chunk-size 64M --progress
-          rclone copyto render_report.txt "gdrive:${DEST_DIR}/${SLUG}_render_report.txt" --drive-root-folder-id "$ROOT_ID"
-          # 썸네일·대본·제목/설명 파일(render/<slug>/deliver/)도 같은 Drive 폴더로 올린다
-          if [ -d "render/${SLUG}/deliver" ]; then
-            rclone copy "render/${SLUG}/deliver" "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID" --progress
-          fi
-          rclone lsl "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID"
+          if [ -n "$RCLONE_CONF" ]; then mkdir -p ~/.config/rclone; printf '%s' "$RCLONE_CONF" > ~/.config/rclone/rclone.conf; fi
+          while read -r SLUG; do
+            echo "=== $SLUG ==="
+            DEST_DIR="$SLUG"
+            case "$SLUG" in sample) DEST_DIR="_ci-test";; *-short) DEST_DIR="${SLUG%-short}/short";; esac
+            if [ -f "render/$SLUG/.dest" ]; then DEST_DIR=$(cat "render/$SLUG/.dest"); fi
+            if [ ! -f "render/$SLUG/.deliver_only" ]; then
+              ( cd "render/$SLUG"
+                start=$(date +%s)
+                npx --yes hyperframes@0.8.141 render 2>&1 | tee render.log
+                echo "render seconds: $(( $(date +%s) - start ))"
+                ls -la renders
+                f=$(ls renders/*.mp4 | head -1)
+                ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,duration -of compact "$f"
+                cp "$f" "$GITHUB_WORKSPACE/${SLUG}.mp4"
+                { echo "render report ${SLUG} $(date -u +%FT%TZ) render_seconds=$(( $(date +%s) - start ))"
+                  ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,duration -of compact "$f"
+                  ffmpeg -nostats -i "$f" -af ebur128=peak=true -f null - 2>&1 | grep -E "I:|LRA:|Peak:" | tail -3
+                  ls -la "$f"; } > "$GITHUB_WORKSPACE/${SLUG}_render_report.txt" )
+            fi
+            if [ -n "$RCLONE_CONF" ]; then
+              [ -f "${SLUG}.mp4" ] && rclone copyto "${SLUG}.mp4" "gdrive:${DEST_DIR}/${SLUG}.mp4" --drive-root-folder-id "$ROOT_ID" --drive-chunk-size 64M --progress
+              [ -f "${SLUG}_render_report.txt" ] && rclone copyto "${SLUG}_render_report.txt" "gdrive:${DEST_DIR}/${SLUG}_render_report.txt" --drive-root-folder-id "$ROOT_ID"
+              # 썸네일·대본·제목/설명 파일(render/<slug>/deliver/)도 같은 Drive 폴더로 올린다
+              if [ -d "render/${SLUG}/deliver" ]; then rclone copy "render/${SLUG}/deliver" "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID" --progress; fi
+              rclone lsl "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID"
+            fi
+            rm -f "${SLUG}.mp4"
+          done < "$RUNNER_TEMP/slugs.txt"
       - name: Keep MP4 as run artifact (small tests only)
-        if: ${{ env.SLUG == 'sample' }}
+        if: ${{ false }}
         uses: actions/upload-artifact@v4
         with:
           name: sample-mp4
