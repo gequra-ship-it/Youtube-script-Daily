@@ -11,7 +11,7 @@ words=sum(len(s[4].split()) for s in SCENES)
 L=[]
 L+= [ CFG.TITLE,
  "Miya's Lab · 내레이션 대본",
- f"영상 길이 {ts(d['total'])} (장면 간격 {d['gap']}초, 앞 여백 {d['lead']}초, 끝 여백 2.5초), 단어 수 {words}, 장면 {len(SCENES)}개, 컷 {len(d['cuts'])}개. 길이는 Kokoro 음성(am_michael)의 실제 길이 기준.",
+ f"영상 길이 {ts(d['total'])} (장면 간격 {d['gap']}초, 앞 여백 {d['lead']}초, 끝 여백 2.5초), 단어 수 {words}, 장면 {len(SCENES)}개, 그림 {len(d['cuts'])}장. 길이는 Kokoro 음성(am_michael)의 실제 길이 기준.",
  "TTS: 영어, 남성 1인(Kokoro am_michael), 정규화 -16.8 LUFS. 원문 대비 바뀐 점: 사실 확인으로 수치·표현을 수정하고 단정 표현에 단서를 붙임(채팅의 확인 표 참고).",
  "", "===== 1부: TTS 입력용 전문 (장면당 한 문단) =====",""]
 for s in SCENES: L+= [s[4],""]
@@ -23,13 +23,10 @@ for s in SCENES:
     kind='칠판' if s[2]=='chalk' else '일러스트'
     L.append(f"[{s[0]}] {ts(st)}–{ts(st+dd)} ({dd:.1f}s) {kind} · {s[1]}")
     L.append(s[4])
-    L.append("컷: "+", ".join(f"{c['id']} {ts(c['t0'])}–{ts(c['t1'])}" for c in cs))
-    sfx=[]
-    if i in CFG.WHOOSH:
-        wt=[t for t in d['whoosh'] if abs(t-st)<=0.7]
-        sfx.append(f"휙 @{ts(wt[0] if wt else st)}")
+    L.append("그림(의미 단위): "+", ".join(f"{c['id']} {ts(c['t0'])}–{ts(c['t1'])} [{c['tr']}]" for c in cs))
+    sfx=[f"{x['name']} @{ts(x['t'])}" for x in d.get('sfx',[]) if x['unit'] in {c['id'] for c in cs}]
     if i in CFG.CHALK: sfx.append("분필 @"+", ".join(ts(t) for t in d['chalk_pop'][str(i)]))
-    else: sfx.append("배경 효과음(저음 드론)")
+    if not sfx: sfx.append("없음")
     L.append("효과음: "+" · ".join(sfx)); L.append("")
 L+= ["===== 3부: 자막 줄 분할 (MP4 자막과 동일, 시작 시각) =====",""]
 cur=None
@@ -39,6 +36,10 @@ for c in d['caps']:
     L.append(f"{ts(c['t0'])}  {c['text']}")
 open(f'{OUT}/{slug}_script.txt','w',encoding='utf-8').write("\n".join(L)+"\n")
 
+if not CFG.CHAPTERS:   # Shorts: title + description + hashtags only (no chapters)
+    M=(f"슬러그 {slug}, 작성일 {__import__('datetime').date.today().isoformat()}. 쇼츠(세로 9:16) 제목·설명. 제목 {len(CFG.TITLE)}자. 쇼츠 전용 제목·해시태그 규칙은 공식 문서로 확인하지 못함(일반 영상 한도 제목 100자·설명 5,000자 적용).\n\n"
+       "=== TITLE ===\n"+CFG.TITLE+"\n\n=== DESCRIPTION ===\n"+"\n\n".join(CFG.DESC)+"\n\n"+CFG.HASHTAGS+"\n")
+    open(f'{OUT}/{slug}_metadata.txt','w',encoding='utf-8').write(M); print(M); raise SystemExit
 ch=CFG.CHAPTERS
 lines=[]
 prev=None
