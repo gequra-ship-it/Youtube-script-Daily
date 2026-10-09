@@ -11,7 +11,7 @@ on:
         default: "sample"
   push:
     branches: [render-pipeline]
-    paths: ["render/sample/**", ".github/workflows/render.yml"]
+    paths: ["render/sample/**", "render/.slug", ".github/workflows/render.yml"]
 
 permissions:
   contents: read
@@ -21,10 +21,15 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 300
     env:
-      SLUG: ${{ github.event.inputs.slug || 'sample' }}
       RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
     steps:
       - uses: actions/checkout@v4
+      - name: Pick slug
+        run: |
+          if [ -n "${{ github.event.inputs.slug }}" ]; then S="${{ github.event.inputs.slug }}"
+          elif [ -f render/.slug ]; then S=$(tr -d '[:space:]' < render/.slug)
+          else S=sample; fi
+          echo "SLUG=$S" >> "$GITHUB_ENV"; echo "slug=$S"
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -54,6 +59,12 @@ jobs:
           ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,duration -of compact "$f"
           ffmpeg -nostats -i "$f" -af ebur128 -f null - 2>&1 | grep -E "I:|LRA:" | tail -2
           cp "$f" "$GITHUB_WORKSPACE/${SLUG}.mp4"
+          {
+            echo "render report ${SLUG} $(date -u +%FT%TZ)"
+            ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,duration -of compact "$f"
+            ffmpeg -nostats -i "$f" -af ebur128=peak=true -f null - 2>&1 | grep -E "I:|LRA:|Peak:" | tail -3
+            ls -la "$f"
+          } > "$GITHUB_WORKSPACE/render_report.txt"
       - name: Upload MP4 to Google Drive
         if: ${{ env.RCLONE_CONF != '' }}
         env:
@@ -64,7 +75,8 @@ jobs:
           printf '%s' "$RCLONE_CONF" > ~/.config/rclone/rclone.conf
           DEST_DIR="$SLUG"
           if [ "$SLUG" = "sample" ]; then DEST_DIR="_ci-test"; fi
-          rclone copyto "${SLUG}.mp4" "gdrive:${DEST_DIR}/${SLUG}.mp4" --drive-root-folder-id "$ROOT_ID" --progress
+          rclone copyto "${SLUG}.mp4" "gdrive:${DEST_DIR}/${SLUG}.mp4" --drive-root-folder-id "$ROOT_ID" --drive-chunk-size 64M --progress
+          rclone copyto render_report.txt "gdrive:${DEST_DIR}/${SLUG}_render_report.txt" --drive-root-folder-id "$ROOT_ID"
           # 썸네일·대본·제목/설명 파일(render/<slug>/deliver/)도 같은 Drive 폴더로 올린다
           if [ -d "render/${SLUG}/deliver" ]; then
             rclone copy "render/${SLUG}/deliver" "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID" --progress
