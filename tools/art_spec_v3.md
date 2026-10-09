@@ -11,7 +11,7 @@ You draw ONE NEW PICTURE per narration unit (a sentence or clause, 2-7 s on scre
 Use plan.json `bg` for every unit of the scene: "paper" (warm #e5e3dd, thin ink lines #1b1830), "night" (#0b0a21..#16142f, lavender/gold lines, soft glow), "dusk" (peach #f3c290 -> pink #d68673 -> violet #7c4577). Units of one scene share bg, palette and character looks (same person = same clothes/skin/hair across the scene's units; use the first unit you draw as the model).
 
 ## Composition rules
-- Centre rule (v2): one round/bright focal object at (960,500), diameter 170-260 px. Radiating thin lines / rings around it.
+- Centre rule (v2): one round/bright focal object at (960,500), diameter 170-260 px. NO radiating lines and NO concentric rings (removed 2026-10-10: they repeated in every picture). Instead each picture gets a backdrop that fits its text (see art_spec_v4_backdrop.md): room, landscape, lab, microscope field, notebook page, timeline, etc.; vary it from unit to unit.
 - NEW: if `transition_in` is "match", the centre object of this picture must sit at (960,500) with ~the same size and colour family as the centre object of the PREVIOUS unit of the same scene (you draw them in order — look at your previous svg), because the cut grows the new picture out of that shape. Only vary what is inside/around it.
 - If `transition_in` is "slide": keep important content away from the far left/right 150 px.
 - NEW: the camera is STATIC unless the sidecar names a focus. Therefore the picture must read well as a still, and the objects mentioned in the text must be easy to see.
