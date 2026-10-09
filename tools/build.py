@@ -310,7 +310,7 @@ for n, c in enumerate(cuts):
 # mv animations (once per scene, for the whole scene span)
 MV = {'flame': ('pulse', .30), 'lamp': ('pulse', .5), 'lantern': ('pulse', .55), 'beacon': ('pulse', .7), 'glint': ('pulse', .6),
       'spark': ('pulse', .25), 'smoke': ('drift', 1.6), 'steam': ('drift', 1.3), 'stink': ('drift', 1.1), 'cells': ('drift', 1.8),
-      'rain': ('drift', .9), 'bell': ('swing', .8), 'knot': ('swing', 1.2), 'key': ('drift', .8)}
+      'antenna': ('sway', .35), 'rain': ('drift', .9), 'bell': ('swing', .8), 'knot': ('swing', 1.2), 'key': ('drift', .8)}
 for i in SEL:
     if SCENES[i - 1][2] == 'chalk': continue
     s0 = starts[i]; s1 = starts[SEL[SEL.index(i) + 1]] if SEL.index(i) + 1 < len(SEL) else TOTAL
@@ -326,6 +326,8 @@ for i in SEL:
             js.append(f'tl.fromTo(gsap.utils.toArray("{sel}")[{k}],{{scaleY:1,scaleX:1,transformOrigin:"50% 100%"}},{{scaleY:1.14,scaleX:.92,duration:{per:.3f},ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false}},{s0:.3f});')
         elif kind == 'drift':
             js.append(f'tl.fromTo(gsap.utils.toArray("{sel}")[{k}],{{y:0,x:0}},{{y:-14,x:6,duration:{per:.3f},ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false}},{s0:.3f});')
+        elif kind == 'sway':
+            js.append(f'tl.fromTo(gsap.utils.toArray("{sel}")[{k}],{{rotation:-7,transformOrigin:"50% 100%"}},{{rotation:7,duration:{per:.3f},ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false}},{s0:.3f});')
         else:
             js.append(f'tl.fromTo(gsap.utils.toArray("{sel}")[{k}],{{rotation:-5,transformOrigin:"50% 0%"}},{{rotation:5,duration:{per:.3f},ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false}},{s0:.3f});')
 for n, c in enumerate(caps):
