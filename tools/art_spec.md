@@ -12,7 +12,15 @@ Goal: flat 2D editorial illustration, like a Korean indie comic / webtoon backgr
 - Highly detailed background (foliage layers, roof thatch, windows, shelves, props), realistic human proportions, calm restrained faces (dot eyes, small mouth). No anime big eyes, no chibi, no 3D look, no neon, no glow, no lens flare.
 - NO gore, NO blood, NO nudity, NO violence shown, no weapons pointed at anyone. People are dignified. No real/famous persons, no recognizable logos.
 - Framing: the video crops this picture at several zoom levels (up to 1.5x) around different points, so spread 3+ distinct points of interest across left / center / right. Keep the bottom 200px free of important content (subtitles go there) and keep the top-right 160x160 corner empty-ish (logo). Keep important content inside x 120..1800, y 80..880.
-- Optional: wrap 1-3 small parts that could gently move (steam, flame, swinging item, floating particles, blinking light) as `<g id="mv-<name>">…</g>` — the origin of each should be roughly its own center-bottom if it's a flame etc. Everything must still look correct when static.
+- Motion groups (required for scenes with people, optional otherwise): wrap parts that should move as `<g id="mv-<type>-<unique>">…</g>`. Each group must still look correct when static, and each id must be unique inside the file (e.g. `mv-nod-doctor1`). Types and what the video does with them:
+  - `mv-breathe-*` torso/whole figure: scaleY 1 -> 1.03, pivot at bottom center, 2.2 s. Put EVERY standing/sitting person's body in one.
+  - `mv-nod-*` head (draw the head as its own group, pivot is the bottom center = neck): rotates +-3 deg, 1.8 s.
+  - `mv-lean-*` whole figure rotates +-2 deg around its feet, 3 s (people waiting, listening).
+  - `mv-arm-*` an arm drawn as its own group whose TOP is the shoulder: swings +-14 deg, 0.9 s (waving, stirring, writing).
+  - `mv-hand-*` a hand/forearm: lifts 10 px and tilts +-6 deg, 0.7 s (handing something over).
+  - `mv-walk-*` a whole figure walking: drifts 120 px sideways over 3.5 s with a small step bounce. Only use where a figure should cross the scene, and leave 60 px free on both sides of it.
+  - Others: `mv-flame` `mv-lamp` `mv-lantern` `mv-beacon` `mv-glint` `mv-spark` (pulse), `mv-smoke` `mv-steam` `mv-stink` `mv-cells` `mv-rain` `mv-key` (drift up), `mv-bell` `mv-knot` (swing), `mv-antenna` (sway).
+  - Aim for 3-6 motion groups per scene, at least one on each foreground person, spread over left / center / right so every zoomed crop still shows movement. A moving group must not overlap the bottom 200 px or the top-right corner.
 - Size under ~800 KB. Must be valid XML (`xmllint --noout file.svg`).
 
 ## Self-check (required)

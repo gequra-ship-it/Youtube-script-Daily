@@ -346,7 +346,8 @@ for n, c in enumerate(cuts):
 # mv animations (once per scene, for the whole scene span)
 MV = {'flame': ('pulse', .30), 'lamp': ('pulse', .5), 'lantern': ('pulse', .55), 'beacon': ('pulse', .7), 'glint': ('pulse', .6),
       'spark': ('pulse', .25), 'smoke': ('drift', 1.6), 'steam': ('drift', 1.3), 'stink': ('drift', 1.1), 'cells': ('drift', 1.8),
-      'antenna': ('sway', .35), 'rain': ('drift', .9), 'bell': ('swing', .8), 'knot': ('swing', 1.2), 'key': ('drift', .8)}
+      'antenna': ('sway', .35), 'breathe': ('breathe', 2.2), 'nod': ('nod', 1.8), 'lean': ('lean', 3.0), 'arm': ('arm', .9),
+      'walk': ('walk', 3.5), 'hand': ('hand', .7), 'rain': ('drift', .9), 'bell': ('swing', .8), 'knot': ('swing', 1.2), 'key': ('drift', .8)}
 for i in SEL:
     if SCENES[i - 1][2] == 'chalk': continue
     s0 = starts[i]; s1 = starts[SEL[SEL.index(i) + 1]] if SEL.index(i) + 1 < len(SEL) else TOTAL
@@ -358,10 +359,10 @@ for i in SEL:
         pm = rr.uniform(4, 8); rm = int(math.ceil(sp / pm)) - 1; dy = -rr.randint(70, 170); dx = rr.randint(-30, 30)
         js.append(f'tl.fromTo(gsap.utils.toArray("#w{i} .motes i")[{m}],{{x:0,y:0}},{{x:{dx},y:{dy},duration:{pm:.2f},ease:"sine.inOut",yoyo:true,repeat:{rm},immediateRender:false}},{max(s0 - 0.8, 0):.3f});')
     svg = load_svg(i, SCENES[i - 1][3])
-    names = re.findall(r'class="[^"]*\bmv (mv-[a-z]+)', svg)
+    names = re.findall(r'class="[^"]*\bmv (mv-[A-Za-z0-9-]+)', svg)
     cnt = {}
     for nm in names:
-        kind, per = MV.get(nm[3:], ('pulse', .5)); k = cnt.get(nm, 0); cnt[nm] = k + 1
+        kind, per = MV.get(nm[3:], MV.get(nm[3:].split('-')[0], ('pulse', .5))); k = cnt.get(nm, 0); cnt[nm] = k + 1
         sel = f'#w{i} .{nm}'
         # one tween per matched element index
         per = per * (1 + 0.13 * (k % 3)); rep = int(math.ceil((s1 - s0) / per)) - 1
@@ -369,6 +370,18 @@ for i in SEL:
             js.append(f'tl.fromTo(gsap.utils.toArray("{sel}")[{k}],{{scaleY:1,scaleX:1,transformOrigin:"50% 100%"}},{{scaleY:1.14,scaleX:.92,duration:{per:.3f},ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false}},{s0:.3f});')
         elif kind == 'drift':
             js.append(f'tl.fromTo(gsap.utils.toArray("{sel}")[{k}],{{y:0,x:0}},{{y:-14,x:6,duration:{per:.3f},ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false}},{s0:.3f});')
+        elif kind in ('breathe', 'nod', 'lean', 'arm', 'hand', 'walk'):
+            # character motion (people): origin chosen so the pivot looks natural; finite yoyo repeats (seek-safe)
+            g = f'gsap.utils.toArray("{sel}")[{k}]'; ease = f'ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false'
+            if kind == 'breathe': js.append(f'tl.fromTo({g},{{scaleY:1,transformOrigin:"50% 100%"}},{{scaleY:1.03,duration:{per:.3f},{ease}}},{s0:.3f});')
+            elif kind == 'nod': js.append(f'tl.fromTo({g},{{rotation:-3,transformOrigin:"50% 100%"}},{{rotation:3,duration:{per:.3f},{ease}}},{s0:.3f});')
+            elif kind == 'lean': js.append(f'tl.fromTo({g},{{rotation:-2,transformOrigin:"50% 100%"}},{{rotation:2,duration:{per:.3f},{ease}}},{s0:.3f});')
+            elif kind == 'arm': js.append(f'tl.fromTo({g},{{rotation:-14,transformOrigin:"50% 0%"}},{{rotation:14,duration:{per:.3f},{ease}}},{s0:.3f});')
+            elif kind == 'hand': js.append(f'tl.fromTo({g},{{y:0,rotation:-6,transformOrigin:"50% 100%"}},{{y:-10,rotation:6,duration:{per:.3f},{ease}}},{s0:.3f});')
+            else:  # walk: slow travel plus a step bounce (two tweens on the same group via x / y)
+                pb = 0.5; rb = int(math.ceil((s1 - s0) / pb)) - 1
+                js.append(f'tl.fromTo({g},{{x:-60}},{{x:60,duration:{per:.3f},{ease}}},{s0:.3f});')
+                js.append(f'tl.fromTo({g},{{y:0}},{{y:-9,duration:{pb},ease:"sine.inOut",yoyo:true,repeat:{rb},immediateRender:false}},{s0:.3f});')
         elif kind == 'sway':
             js.append(f'tl.fromTo(gsap.utils.toArray("{sel}")[{k}],{{rotation:-7,transformOrigin:"50% 100%"}},{{rotation:7,duration:{per:.3f},ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false}},{s0:.3f});')
         else:
