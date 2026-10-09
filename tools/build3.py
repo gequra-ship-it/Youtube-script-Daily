@@ -16,7 +16,7 @@ W, H = (1080, 1920) if VERT else (1920, 1080)
 CX, CY = (540, 860) if VERT else (960, 500)          # centre object position (zoom-through / match pivot)
 OUT = sys.argv[1] if len(sys.argv) > 1 else f'{REPO}/render/{SLUG}'
 SEL = [int(x) for x in os.environ.get('SEL', '').split(',') if x] or list(range(1, len(SCENES) + 1))
-LEAD, GAP, TAIL = 1.0, 0.8, 2.5
+LEAD, GAP, TAIL = (0.3, 0.5, 1.2) if VERT else (1.0, 0.8, 2.5)
 MAXU = 6.2            # target max seconds per unit (narration part); +gap keeps every unit <= 7 s
 timing = json.load(open(B + '/timing_base.json')); D = timing['D']
 BGMODE = getattr(CFG, 'BG', {})
