@@ -25,3 +25,9 @@ CHAPTERS = [(1, "The Ultimate Biological Taboo"), (2, "Mystery in the Highlands"
             (23, "Traces in Our DNA"), (26, "The Final Verdict")]   # (scene number, English Title Case, <=5 words); first becomes 00:00
 SOURCES = ["James Cole, University of Brighton, 2017 study on the calories in human bodies, Scientific Reports"]
 HASHTAGS = "#MiyasLab #Prions #Kuru #Science #Biology"
+
+# background mode per art theme (new look): paper / night / dusk
+BG = dict(lab='paper', highlands='dusk', patient='paper', doctors='paper', funeral='night', hut='paper', brain='night', particle='night',
+          fold='night', domino='paper', fire='night', immune='night', calendar='paper', cattle='dusk', archaeo='paper', hunters='dusk',
+          pyramid='paper', lock='night', insula='night', groups='paper', dna='night', highlands2='dusk', hospital='paper', scale='paper',
+          modern='dusk', night='night')
