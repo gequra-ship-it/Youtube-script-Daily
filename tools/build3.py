@@ -451,7 +451,7 @@ open(f'{OUT}/index.html', 'w', encoding='utf-8').write('\n'.join(h))
 
 for f in os.listdir(OUT):          # drop sfx files that no cue uses (keep the repo small)
     if f.startswith('sfx_') and f[4:-4] not in SFXLEN: os.remove(f'{OUT}/{f}')
-data = dict(slug=SLUG, total=TOTAL, lead=LEAD, gap=GAP, starts={str(k): v for k, v in starts.items()}, D={str(i): D[i - 1] for i in SEL},
+data = dict(slug=SLUG, total=TOTAL, lead=LEAD, gap=GAP, tail=TAIL, starts={str(k): v for k, v in starts.items()}, D={str(i): D[i - 1] for i in SEL},
             cuts=[dict(id=u['uid'], scene=u['scene'], kind=u['kind'], t0=u['t0'], t1=u['t1'], tr=u['tr'], text=u['text']) for u in units],
             caps=caps, sfx=cues, chalk=chalk_t, snap=snap_report, chalk_pop={str(k): v.get('pop') for k, v in CHALK.items() if 'pop' in v})
 json.dump(data, open(B + ('/build_data.json' if len(SEL) == len(SCENES) else '/build_data_partial.json'), 'w'), ensure_ascii=False, indent=1)
