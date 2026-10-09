@@ -25,7 +25,9 @@ for s in SCENES:
     L.append(s[4])
     L.append("컷: "+", ".join(f"{c['id']} {ts(c['t0'])}–{ts(c['t1'])}" for c in cs))
     sfx=[]
-    if i in CFG.WHOOSH: sfx.append(f"휙 @{ts(st)}")
+    if i in CFG.WHOOSH:
+        wt=[t for t in d['whoosh'] if abs(t-st)<=0.7]
+        sfx.append(f"휙 @{ts(wt[0] if wt else st)}")
     if i in CFG.CHALK: sfx.append("분필 @"+", ".join(ts(t) for t in d['chalk_pop'][str(i)]))
     else: sfx.append("배경 효과음(저음 드론)")
     L.append("효과음: "+" · ".join(sfx)); L.append("")

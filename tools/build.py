@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Build the HyperFrames composition for "never-eat-human-meat".
 # usage: python3 build.py [OUTDIR] ; env SEL="1,2,16" builds a partial test.
-import os, re, sys, json, html, shutil, subprocess, math
+import os, re, sys, json, html, shutil, subprocess, math, random
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 SCENES = load_scenes()
@@ -10,6 +10,7 @@ OUT = sys.argv[1] if len(sys.argv) > 1 else f'{REPO}/render/{SLUG}'
 os.makedirs(OUT, exist_ok=True)
 SEL = [int(x) for x in os.environ.get('SEL', '').split(',') if x] or list(range(1, len(SCENES) + 1))
 LEAD, GAP, TAIL = 1.0, 0.8, 2.5
+MOTES = 14
 timing = json.load(open(B + '/timing_base.json'))
 D = timing['D']
 
@@ -177,28 +178,44 @@ def chalk_html(i):
     return '\n'.join(out)
 
 # ---------- cuts ----------
-cuts = []   # dict(id, scene, kind, t0, t1)
-for i in SEL:
-    kind = SCENES[i - 1][2]; s0 = starts[i]
-    s1 = starts[SEL[SEL.index(i) + 1]] if SEL.index(i) + 1 < len(SEL) else TOTAL
-    if i == SEL[0]: s0c = 0.0
-    else: s0c = s0 - 0.0
+# Several cuts per illustrated scene (same SVG, different framing); transitions only between illustrated scenes.
+TARGET_CUT, MIN_CUT = 6.5, 3.2
+WH = load_config().WHOOSH
+scene_caps = {}
+for cp in caps: scene_caps.setdefault(cp['scene'], []).append(cp['t0'])
+cuts = []
+for idx, i in enumerate(SEL):
+    kind = SCENES[i - 1][2]
+    s0 = 0.0 if i == SEL[0] else starts[i]
+    s1 = starts[SEL[idx + 1]] if idx + 1 < len(SEL) else TOTAL
     if kind == 'chalk':
-        cuts.append(dict(scene=i, kind='chalk', t0=s0c if i == SEL[0] else s0, t1=s1))
-    else:
-        sb = [b for (_, a, b) in model[i]][:-1]
-        half = D[i - 1] / 2
-        if sb:
-            bt = s0 + min(sb, key=lambda x: abs(x - half))
-            cuts.append(dict(scene=i, kind='ill', part='wide', t0=s0c, t1=bt))
-            cuts.append(dict(scene=i, kind='ill', part='close', t0=bt, t1=s1))
-        else:
-            cuts.append(dict(scene=i, kind='ill', part='wide', t0=s0c, t1=s1))
-# fix: first scene's t0 and contiguity
-for k in range(1, len(cuts)):
-    cuts[k]['t0'] = cuts[k - 1]['t1'] if abs(cuts[k]['t0'] - cuts[k - 1]['t1']) < GAP + 0.01 else cuts[k]['t0']
+        cuts.append(dict(scene=i, kind='chalk', part=0, first=True, t0=s0, t1=s1)); continue
+    L = s1 - s0; n = max(1, round(L / TARGET_CUT))
+    cand = [t for t in scene_caps[i][1:] if s0 + MIN_CUT <= t <= s1 - MIN_CUT]
+    bounds = []
+    for k in range(1, n):
+        ideal = s0 + L * k / n
+        opts = [t for t in cand if not bounds or t >= bounds[-1] + MIN_CUT]
+        if not opts: break
+        bounds.append(min(opts, key=lambda t: abs(t - ideal)))
+    pts = [s0] + bounds + [s1]
+    for j in range(len(pts) - 1):
+        cuts.append(dict(scene=i, kind='ill', part=j, first=(j == 0), t0=pts[j], t1=pts[j + 1]))
 for n, c in enumerate(cuts, 1):
     c['id'] = f'C{n:03d}'
+# transitions into each illustrated scene (chalk boards and the first scene stay hard cuts, as before)
+TR = {}; kind_of = {i: SCENES[i - 1][2] for i in SEL}; mix = ['fade', 'hard', 'wipel', 'fade', 'wipeu', 'hard']; mk = int(os.environ.get('MIX0', '0'))
+for idx, i in enumerate(SEL):
+    if idx == 0 or kind_of[i] == 'chalk' or kind_of[SEL[idx - 1]] == 'chalk':
+        TR[i] = ('hard', 0.0); continue
+    if i in WH:
+        TR[i] = ('iris', 0.6)
+    else:
+        ty = mix[mk % len(mix)]; mk += 1
+        TR[i] = (ty, 0.0 if ty == 'hard' else 0.45)
+for c in cuts:
+    c['vis0'] = c['t0'] - (TR[c['scene']][1] if c['first'] else 0.0)
+    c['tr'] = TR[c['scene']][0] if c['first'] else 'cut'
 
 # ---------- html ----------
 h = []
@@ -210,10 +227,11 @@ h.append('''@font-face{font-family:Fredoka;src:url(Fredoka-700.woff2) format("wo
 #root{position:relative;width:1920px;height:1080px;overflow:hidden}
 .w{position:absolute;left:0;top:0;width:1920px;height:1080px;display:none;will-change:transform}
 .w svg{position:absolute;left:0;top:0;width:1920px;height:1080px}
-.cap{position:absolute;left:0;width:1920px;bottom:60px;display:flex;justify-content:center;opacity:0;z-index:30}
+.motes{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none}.motes i{position:absolute;display:block;border-radius:50%;background:#fff6dc}
+.cap{position:absolute;left:0;width:1920px;bottom:60px;display:flex;justify-content:center;opacity:0;z-index:1002}
 .cap span{font-family:Fredoka,sans-serif;font-weight:700;font-size:58px;line-height:54px;color:#fff;background:rgba(0,0,0,.62);border-radius:12px;padding:20px;white-space:nowrap}
-#logo{position:absolute;left:1799px;top:40px;width:81px;height:81px;z-index:40}
-#grain{position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:35;opacity:.35;pointer-events:none}
+#logo{position:absolute;left:1799px;top:40px;width:81px;height:81px;z-index:1003}
+#grain{position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:1001;opacity:.35;pointer-events:none}
 .chalk{position:absolute;left:0;top:0;width:1920px;height:1080px;display:none;background:
  radial-gradient(ellipse at 22% 30%,rgba(255,255,255,.05),transparent 45%),radial-gradient(ellipse at 70% 65%,rgba(255,255,255,.045),transparent 50%),
  radial-gradient(ellipse at 45% 90%,rgba(255,255,255,.04),transparent 40%),#2D4F40}
@@ -238,9 +256,12 @@ h.append(f'<div id="root" data-composition-id="main" data-start="0" data-duratio
 for i in SEL:
     kind = SCENES[i - 1][2]
     if kind == 'chalk':
-        h.append(f'<div class="w" id="w{i}" style="display:none">{chalk_html(i)}</div>')
+        h.append(f'<div class="w" id="w{i}" style="display:none;z-index:{i}">{chalk_html(i)}</div>')
     else:
-        h.append(f'<div class="w" id="w{i}">{load_svg(i, SCENES[i - 1][3])}</div>')
+        rr = random.Random(i * 7919); mo = []
+        for m in range(MOTES):
+            mo.append(f'<i style="left:{rr.randint(40, 1880)}px;top:{rr.randint(160, 1000)}px;width:{(sz := rr.randint(5, 10))}px;height:{sz}px;opacity:{rr.choice([.28, .36, .44, .5])}"></i>')
+        h.append(f'<div class="w" id="w{i}" style="z-index:{i}">{load_svg(i, SCENES[i - 1][3])}<div class="motes">{"".join(mo)}</div></div>')
 h.append('<img id="grain" src="grain.png"><img id="logo" src="logo.png">')
 for n, c in enumerate(caps):
     h.append(f'<div class="cap" id="c{n}"><span>{html.escape(c["text"], quote=False)}</span></div>')
@@ -250,11 +271,12 @@ audio = []   # (src, start, dur, track, vol)
 for i in SEL:
     run('ffmpeg', '-y', '-v', 'error', '-i', f'{B}/n{i:02d}.wav', '-c:a', 'aac', '-b:a', '192k', f'{OUT}/n{i:02d}.m4a')
     audio.append((f'n{i:02d}.m4a', starts[i], dur(f'{OUT}/n{i:02d}.m4a'), 0, 1))
-WH = load_config().WHOOSH
 whoosh_t = []
 for i in WH:
     if i in starts:
-        whoosh_t.append(starts[i]); audio.append(('whoosh.wav', starts[i], 1.2, 2, 1))
+        wt = starts[i] - (TR[i][1] if TR[i][0] == 'iris' else 0.0)
+        wt = max(wt, 0.0)
+        whoosh_t.append(wt); audio.append(('whoosh.wav', wt, 1.2, 2, 1))
 # ambient everywhere except chalk scenes
 amb_ranges = []; cur = 0.0
 for c in cuts:
@@ -286,18 +308,32 @@ for (src, st, dd, tr, vol) in audio:
 
 # timeline script
 js = ['<script>const tl=gsap.timeline({paused:true});']
-DIRS = [(-18, '50% 50%'), (18, '50% 50%')]
-FOC = ['32% 62%', '68% 56%', '50% 46%', '62% 68%', '38% 48%']
+FOC = ['32% 62%', '68% 56%', '50% 44%', '62% 70%', '38% 46%', '72% 40%']
+# framings for the 2nd, 3rd... cut of a scene: (scale from, scale to, origin, x from, x to, y from, y to)
+def view(i, j):
+    if j == 0:
+        d = -20 if i % 2 == 0 else 20
+        return (1.06, 1.12, '50% 50%', -d, d, 0, 0)
+    f = lambda k: FOC[(i * 2 + j + k) % len(FOC)]
+    sg = 1 if (i + j) % 2 == 0 else -1
+    cyc = [(1.30, 1.40, f(0), 0, 0, 0, 0), (1.20, 1.20, '50% 50%', 60 * sg, -60 * sg, 0, 0),
+           (1.50, 1.38, f(2), 0, 0, 0, 0), (1.14, 1.26, f(4), 0, 0, 0, 0),
+           (1.22, 1.22, '50% 50%', 0, 0, -40 * sg, 40 * sg)]
+    return cyc[(i + j) % len(cyc)]
+TRSET = {'fade': ('{opacity:0}', '{opacity:1}'),
+         'wipel': ('{clipPath:"inset(0% 0% 0% 100%)"}', '{clipPath:"inset(0% 0% 0% 0%)"}'),
+         'wipeu': ('{clipPath:"inset(100% 0% 0% 0%)"}', '{clipPath:"inset(0% 0% 0% 0%)"}'),
+         'iris': ('{clipPath:"circle(0% at 50% 50%)"}', '{clipPath:"circle(75% at 50% 50%)"}')}
 for n, c in enumerate(cuts):
-    i = c['scene']; w = f'#w{i}'; t0 = c['t0']; t1 = c['t1']
-    js.append(f'tl.set("{w}",{{display:"block"}},{t0:.3f});tl.set("{w}",{{display:"none"}},{t1:.3f});')
+    i = c['scene']; w = f'#w{i}'; t0 = c['t0']; t1 = c['t1']; v0 = c['vis0']
+    js.append(f'tl.set("{w}",{{display:"block"}},{v0:.3f});tl.set("{w}",{{display:"none"}},{t1:.3f});')
     if c['kind'] == 'ill':
-        if c['part'] == 'wide':
-            dx = -22 if i % 2 == 0 else 22
-            js.append(f'tl.fromTo("{w}",{{scale:1,x:0,y:0,transformOrigin:"50% 50%"}},{{scale:1.05,x:{dx},duration:{t1 - t0:.3f},ease:"none",immediateRender:false}},{t0:.3f});')
-        else:
-            fo = FOC[i % len(FOC)]
-            js.append(f'tl.fromTo("{w}",{{scale:1.3,x:0,y:0,transformOrigin:"{fo}"}},{{scale:1.36,duration:{t1 - t0:.3f},ease:"none",immediateRender:false}},{t0:.3f});')
+        s_a, s_b, org, xa, xb, ya, yb = view(i, c['part'])
+        js.append(f'tl.fromTo("{w}",{{scale:{s_a},x:{xa},y:{ya},transformOrigin:"{org}"}},{{scale:{s_b},x:{xb},y:{yb},duration:{t1 - v0:.3f},ease:"none",immediateRender:false}},{v0:.3f});')
+        if c['tr'] in TRSET:
+            a0, a1 = TRSET[c['tr']]; T = t0 - v0
+            js.append(f'tl.fromTo("{w}",{a0},Object.assign({a1},{{duration:{T:.3f},ease:"power1.inOut",immediateRender:false}}),{v0:.3f});')
+            js.append(f'tl.set("{w}",{{clipPath:"none",opacity:1}},{t0 + .001:.3f});')
     else:
         js.append(f'tl.set("#k{i}",{{display:"block"}},{t0:.3f});tl.set("#k{i}",{{display:"none"}},{t1:.3f});')
         ts = CHALK[i]['pop']
@@ -314,6 +350,13 @@ MV = {'flame': ('pulse', .30), 'lamp': ('pulse', .5), 'lantern': ('pulse', .55),
 for i in SEL:
     if SCENES[i - 1][2] == 'chalk': continue
     s0 = starts[i]; s1 = starts[SEL[SEL.index(i) + 1]] if SEL.index(i) + 1 < len(SEL) else TOTAL
+    # gentle float of the whole drawing + drifting dust motes (finite repeats, seek-safe)
+    sp = s1 - s0 + 0.8; per = 7.0; rep = int(math.ceil(sp / per)) - 1
+    js.append(f'tl.fromTo("#w{i} > svg",{{x:-12,y:-7}},{{x:12,y:7,duration:{per},ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false}},{max(s0 - 0.8, 0):.3f});')
+    rr = random.Random(i * 31 + 5)
+    for m in range(MOTES):
+        pm = rr.uniform(4, 8); rm = int(math.ceil(sp / pm)) - 1; dy = -rr.randint(70, 170); dx = rr.randint(-30, 30)
+        js.append(f'tl.fromTo(gsap.utils.toArray("#w{i} .motes i")[{m}],{{x:0,y:0}},{{x:{dx},y:{dy},duration:{pm:.2f},ease:"sine.inOut",yoyo:true,repeat:{rm},immediateRender:false}},{max(s0 - 0.8, 0):.3f});')
     svg = load_svg(i, SCENES[i - 1][3])
     names = re.findall(r'class="[^"]*\bmv (mv-[a-z]+)', svg)
     cnt = {}
