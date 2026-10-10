@@ -2,7 +2,7 @@
 
 Goal: redraw scenes in the style of the reference motion piece. LOOK at the reference first:
 /tmp/claude-0/-home-claude/5155a11f-00a7-5c8c-a875-26fa5c990302/scratchpad/ref/sheet1.png (32 frames, 1 per second) and t1.png/t2.png/t3.png in the same folder (transition sequences).
-Reference traits (measured/seen): two background modes — warm paper (#e5e3dd, sketchy thin pencil lines, radiating thin speed lines) and deep night navy (#0b0a21 to #16142f with soft vignette); rich but soft colour (purple #6b4bd6, magenta #d64b9a, gold #f2c14e, coral/orange #d9694a, teal, peach-to-pink sky gradients); thin hand-drawn ink lines, NOT thick black outlines; soft gradients and glow are allowed; hatching strokes for shading; small glowing focal element; one clear round/central focal object per shot.
+Reference traits (measured/seen): two background modes — warm paper (#e5e3dd, sketchy thin pencil lines) and deep night navy (#0b0a21 to #16142f with soft vignette); rich but soft colour (purple #6b4bd6, magenta #d64b9a, gold #f2c14e, coral/orange #d9694a, teal, peach-to-pink sky gradients); thin hand-drawn ink lines, NOT thick black outlines; soft gradients and glow are allowed; hatching strokes for shading; small glowing focal element; one clear round/central focal object per shot.
 
 ## File rules
 - Output: /home/claude/vid3/art/<id>.svg (ids are given in your task); previews /home/claude/vid3/art/preview/<id>.png.
@@ -21,7 +21,7 @@ Reference traits (measured/seen): two background modes — warm paper (#e5e3dd, 
 ## THE CENTRE RULE (most important)
 The video zooms INTO the exact centre of every picture (to 2.6x) to cut to the next scene, and arrives zoomed on the centre of the next one. So:
 - Put ONE round (or roughly round) focal object centred at (960, 500), diameter 170-260 px (an eye, lens, lamp, bowl, moon, cell, dial, porthole, flame, coin, doorway...) with a bright or high-contrast core. Everything else is arranged around it, nothing important on top of it.
-- Add faint radiating thin lines or concentric thin rings around that centre (reference does this) for pull.
+- Do NOT add radiating lines or concentric rings around the centre (removed 2026-10-10: they repeated in every picture). Give each picture a backdrop that fits its text instead — see tools/art_spec_v4_backdrop.md.
 - The centre object should relate to the NEXT scene's idea where natural, but at minimum must be round and bright.
 - Other points of interest: left (about x 400) and right (about x 1500) for the slow camera drift (zoom 1.04-1.22 over x +-80 px).
 
