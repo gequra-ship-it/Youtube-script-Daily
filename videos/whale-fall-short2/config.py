@@ -7,3 +7,4 @@ DESC = ["A whale fall goes through stages: scavengers strip the flesh, small ani
 HASHTAGS = "#MiyasLab #WhaleFall #DeepSea"
 SOURCES = []
 CHAPTERS = []
+PAL_DEFAULT = 'ocean'

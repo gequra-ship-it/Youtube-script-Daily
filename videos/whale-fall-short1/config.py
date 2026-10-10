@@ -7,3 +7,5 @@ DESC = ["Osedax, the bone-eating worm, has no mouth and no gut. It grows roots i
 HASHTAGS = "#MiyasLab #Osedax #DeepSea"
 SOURCES = []
 CHAPTERS = []
+PAL_DEFAULT = 'ocean'
+PAL = dict(found='lab')

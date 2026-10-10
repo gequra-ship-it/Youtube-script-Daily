@@ -22,6 +22,7 @@ Whale falls: a dead whale sinks to the deep seafloor and feeds an ecosystem for 
 - **People**: generic only (a viewer looking at the sea, scientists as hands/sleeves/notebooks, sailors as small silhouettes on an old ship). No real person, no faces.
 
 ## Notes
+- Colours: every plan.json unit has `pal` (palette `ocean` for most of the video; `history` for whaling and fossil scenes; `lab` for discovery, survey and ROV scenes). Use ONLY `pal` colours for backgrounds, lines, glows and `pal.accents` for main subjects (art_spec_v3.md). The colour codes in the character sheet below are the natural colours of the animals; tint them to harmonise with `pal`.
 - No text inside pictures (no letters, numbers, labels).
 - The deep sea is dark: most deep scenes use the night palette; keep animals readable with soft glow and thin light lines.
 - `focus` on 40-50 % of units; sfx on 35-45 % using ONLY the 25 library names in art_spec_v3.md (unpitched; vary — never the same name in two consecutive units). Good fits: bubble, drip, splash, sand, thud, flutter, stone, creak, page, pencil, wind, rustle.

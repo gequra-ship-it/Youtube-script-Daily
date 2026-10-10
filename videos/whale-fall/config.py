@@ -47,3 +47,6 @@ BG = dict(bluewhale='dusk', lastbreath='dusk', float='paper', explode='paper', d
           osedax='night', plumes='paper', roots='night', otherbones='paper', fossilbone='paper', plesiosaur='dusk',
           stepping='dusk', reef='night', woodfall='dusk', survey='paper', carbon='night', whaling='dusk', rov='night',
           cycle='dusk', ending='dusk')
+# Palettes (guideline 3-5): deep sea -> ocean; whaling/fossils -> history; research vessels and surveys -> lab
+PAL_DEFAULT = 'ocean'
+PAL = dict(whaling='history', fossilbone='history', plesiosaur='history', discovery='lab', survey='lab', rov='lab')
