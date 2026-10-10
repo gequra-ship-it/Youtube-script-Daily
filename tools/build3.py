@@ -103,8 +103,26 @@ def units_of(i):
         else:
             us.append(tuple(cur)); cur = [a, b]
     us.append(tuple(cur))
-    if len(us) > 1 and tchar(i, us[-1][1]) - tchar(i, us[-1][0]) < 2.0 and tchar(i, us[-1][1]) - tchar(i, us[-2][0]) <= MAXU + 0.8:
-        us = us[:-2] + [(us[-2][0], us[-1][1])]
+    if len(us) > 1 and tchar(i, us[-1][1]) - tchar(i, us[-1][0]) < 2.0:
+        # first try to move trailing atoms of the previous unit into the short last unit (keeps both <= MAXU)
+        span = lambda a, b: tchar(i, b) - tchar(i, a)
+        inner = [a for (a, b) in atoms if us[-2][0] < a < us[-2][1]]
+        fixed = False
+        for cut in reversed(inner):
+            if span(cut, us[-1][1]) > MAXU: break
+            if span(cut, us[-1][1]) >= 2.0 and span(us[-2][0], cut) >= 2.0:
+                us = us[:-2] + [(us[-2][0], cut), (cut, us[-1][1])]; fixed = True; break
+        if not fixed and span(us[-2][0], us[-1][1]) <= MAXU + 0.8:
+            us = us[:-2] + [(us[-2][0], us[-1][1])]
+    # a very short unit (< 1.6 s of narration, e.g. "Start with the hunter.") is merged into its neighbour
+    k = 0
+    while len(us) > 1 and k < len(us):
+        a, b = us[k]
+        if tchar(i, b) - tchar(i, a) < 1.6:
+            j = k + 1 if k + 1 < len(us) else k - 1
+            lo, hi = min(us[k][0], us[j][0]), max(us[k][1], us[j][1])
+            us = [u for m, u in enumerate(us) if m not in (k, j)]; us.insert(min(k, j), (lo, hi)); k = 0; continue
+        k += 1
     return us
 
 
