@@ -312,7 +312,7 @@ for k, c in enumerate(caps):
 
 # ---------- sound cues ----------
 cues = []   # dict(name, t, vol, pri)
-TRSND = {'zoom': ('swish', -0.85, 0.9), 'slide': ('swish', -0.6, 0.6), 'match': ('shimmer', -0.7, 0.8), 'wash': ('rustle', -0.5, 0.7)}
+TRSND = {'zoom': ('swish', -0.85, 0.9), 'slide': ('swish', -0.6, 0.6), 'match': ('hush', -0.7, 0.8), 'wash': ('rustle', -0.5, 0.7)}
 focus_cam = {}
 for u in units:
     nn = u['n']
@@ -344,9 +344,13 @@ for c in sorted(cues, key=lambda c: -c['pri']):
     if all(abs(c['t'] - k['t']) >= 0.9 for k in kept): kept.append(c)
 cues = sorted(kept, key=lambda c: c['t'])
 SFXLEN = {}
-for c in cues:
-    f = f'{OUT}/sfx_{c["name"]}.wav'
-    SFXLEN[c['name']] = dur(f)
+vcount = {}
+for c in cues:      # alias old names, cycle the 3 recorded variants of each sound
+    nm = sfx_lib.ALIAS.get(c['name'], c['name'])
+    if nm not in sfx_lib.LIB: raise SystemExit(f'unknown sfx name {nm} in {c["unit"]}')
+    k = vcount.get(nm, 0); vcount[nm] = k + 1; v = k % sfx_lib.VARIANTS + 1
+    c['file'] = f'sfx_{nm}{"" if v == 1 else "_" + str(v)}.wav'
+    if c['file'] not in SFXLEN: SFXLEN[c['file']] = dur(f'{OUT}/{c["file"]}')
 
 audio = []
 for i in SEL:
@@ -364,10 +368,18 @@ for i in SEL:
         for tt in ts: chalk_t.append(tt); audio.append(('chalk.wav', tt, 0.38, 1, 1))
 tracks_end = {}
 for c in cues:
-    d = SFXLEN[c['name']]; tr = 2
+    d = SFXLEN[c['file']]; tr = 2
     while tracks_end.get(tr, -1) > c['t'] + 1e-6: tr += 1
     tracks_end[tr] = c['t'] + d
-    audio.append((f'sfx_{c["name"]}.wav', c['t'], d, tr, c['vol']))
+    audio.append((c['file'], c['t'], d, tr, c['vol']))
+# ---------- background music (synthesised, ducked under the narration; SFX bgm off with NOBGM=1) ----------
+BGM_REPORT = None
+if os.environ.get('NOBGM') != '1':
+    import bgm_lib
+    BGM_REPORT = bgm_lib.make_bgm(f'{B}/bgm.wav', TOTAL, [(f'{B}/n{i:02d}.wav', starts[i]) for i in SEL], below_db=float(os.environ.get('BGM_BELOW', '13')))
+    run('ffmpeg', '-y', '-v', 'error', '-i', f'{B}/bgm.wav', '-c:a', 'aac', '-b:a', '96k', f'{OUT}/bgm.m4a')
+    audio.append(('bgm.m4a', 0.0, TOTAL, 20, 1))
+    print('bgm', {k: round(v, 1) for k, v in BGM_REPORT.items()})
 for (src, st, dd, tr, vol) in audio:
     h.append(f'<audio src="{src}" data-start="{st:.3f}" data-duration="{dd:.3f}" data-track-index="{tr}" data-volume="{vol}"></audio>')
 
@@ -450,7 +462,7 @@ h.append('\n'.join(js)); h.append('</div></body></html>')
 open(f'{OUT}/index.html', 'w', encoding='utf-8').write('\n'.join(h))
 
 for f in os.listdir(OUT):          # drop sfx files that no cue uses (keep the repo small)
-    if f.startswith('sfx_') and f[4:-4] not in SFXLEN: os.remove(f'{OUT}/{f}')
+    if f.startswith('sfx_') and f not in SFXLEN: os.remove(f'{OUT}/{f}')
 data = dict(slug=SLUG, total=TOTAL, lead=LEAD, gap=GAP, tail=TAIL, starts={str(k): v for k, v in starts.items()}, D={str(i): D[i - 1] for i in SEL},
             cuts=[dict(id=u['uid'], scene=u['scene'], kind=u['kind'], t0=u['t0'], t1=u['t1'], tr=u['tr'], text=u['text']) for u in units],
             caps=caps, sfx=cues, chalk=chalk_t, snap=snap_report, chalk_pop={str(k): v.get('pop') for k, v in CHALK.items() if 'pop' in v})

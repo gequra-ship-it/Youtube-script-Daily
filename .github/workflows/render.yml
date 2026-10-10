@@ -56,7 +56,7 @@ jobs:
           while read -r SLUG <&3; do
             echo "=== $SLUG ==="
             DEST_DIR="$SLUG"
-            case "$SLUG" in sample) DEST_DIR="_ci-test";; *-short) DEST_DIR="${SLUG%-short}/short";; esac
+            case "$SLUG" in sample) DEST_DIR="_ci-test";; *-short|*-short[0-9]) DEST_DIR="$(echo "$SLUG" | sed -E 's/-short[0-9]?$//')/short";; esac
             if [ -f "render/$SLUG/.dest" ]; then DEST_DIR=$(cat "render/$SLUG/.dest"); fi
             if [ ! -f "render/$SLUG/.deliver_only" ]; then
               ( cd "render/$SLUG"
