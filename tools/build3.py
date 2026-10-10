@@ -141,6 +141,13 @@ for i in SEL:
         t0 = (0.0 if i == SEL[0] else starts[i]) if k == 0 else starts[i] + tchar(i, a)
         t1 = s1_scene if k == len(us) - 1 else starts[i] + tchar(i, us[k + 1][0])
         units.append(dict(n=n, uid=f'U{n:03d}', scene=i, kind='ill', c0=a, c1=b, text=text[a:b].strip(), t0=t0, t1=t1))
+# partial test (SEL without scene 1): numbering restarts at 1, so take each picture's uid from the full plan.json instead
+_plan = f'{vdir()}/plan.json'
+if os.environ.get('SEL') and os.environ.get('PLAN') != '1' and os.path.exists(_plan):
+    _map = {(p['scene'], p['text']): p['uid'] for p in json.load(open(_plan))}
+    for u in units:
+        if u['kind'] == 'ill':
+            u['uid'] = _map.get((u['scene'], u['text']), u['uid'])
 for u in units:
     assert u['t1'] - u['t0'] > 1.5, ('unit too short', u)
 

@@ -28,3 +28,10 @@ Check: with the saved TTS wavs, steps 2-3 reproduce `render/never-eat-human-meat
 - `sfx_lib.py` v2: 25 quiet unpitched sounds x 3 variants (peak -24 dBFS). Old name `shimmer` is an alias of `hush`. Sidecar `sfx.name` list is in `art_spec_v3.md`.
 - `bgm_lib.py`: synthesised background music (own composition, no samples/vocals), highpass 250 Hz, ducked under the real narration (`n##.wav`), 13 dB below narration RMS (`BGM_BELOW`). `build3.py` writes `bgm.m4a` and adds it as audio track 20. `NOBGM=1` disables it.
 - Two Shorts per video: slugs `<slug>-short1`, `<slug>-short2` (also `-short`); the workflow uploads them to `<slug>/short/`. Put all three slugs in `render/.slug`.
+
+## 2026-10-10 (epomis-frog-hunter-v2)
+- Kokoro speed re-measured at ~163 words/min (not 126): plan ~3,100 words for a ~20 min video. Always check `audio_prep.py`'s total.
+- `build3.py`: very short units (<1.6 s) merge into a neighbour; a short last unit re-splits with the previous one. A partial `SEL=` build now takes picture uids from `plan.json` (before, numbering restarted at 1 and pictures were mismatched).
+- Picture agents: write a per-video `videos/<slug>/art_brief.md` (character sheet, own scratch folder per agent) and give it to every agent.
+- Workflow: Chrome warm-up, one render retry, continue with the next slug on failure.
+- Guideline copy: `docs/miyas-lab-guideline.md`.
