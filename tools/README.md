@@ -35,3 +35,7 @@ Check: with the saved TTS wavs, steps 2-3 reproduce `render/never-eat-human-meat
 - Picture agents: write a per-video `videos/<slug>/art_brief.md` (character sheet, own scratch folder per agent) and give it to every agent.
 - Workflow: Chrome warm-up, one render retry, continue with the next slug on failure.
 - Guideline copy: `docs/miyas-lab-guideline.md`.
+
+## Palettes (2026-10-10)
+- `palettes.py`: 10 topic palettes (ocean, forest, desert, ice, lab, history, space, storm, body, sunset). New video: set `PAL_DEFAULT` and optionally `PAL = {art_theme: palette}` in `config.py`, chosen from what the script is about (max 3 palettes per video). `build3.py PLAN=1` writes the chosen colours into every plan.json unit (`pal`) and the transition wash uses the scene's palette. Without `PAL_DEFAULT` the old purple/peach look (palette `sunset`) is used and PLAN=1 prints a warning.
+- Picture agents must use only `pal` colours (see art_spec_v3.md). Existing videos (`epomis-frog-hunter-v2`, `never-eat-human-meat-v4`) were drawn with the old colours and are NOT changed.

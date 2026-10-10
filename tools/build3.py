@@ -8,6 +8,7 @@ import os, re, sys, json, html, shutil, subprocess, math, random
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 import numpy as np
+import palettes
 SCENES = load_scenes()
 CFG = load_config()
 B = wdir() + '/build'
@@ -183,11 +184,12 @@ def art_path(u):
 
 
 if os.environ.get('PLAN') == '1':
+    if not getattr(CFG, 'PAL_DEFAULT', None): print('WARNING: config.py has no PAL_DEFAULT -> legacy purple/peach palette. Choose palettes from tools/palettes.py for this topic.')
     plan = []
     for k, u in enumerate(units):
         if u['kind'] == 'chalk': continue
         sc = SCENES[u['scene'] - 1]
-        plan.append(dict(uid=u['uid'], scene=u['scene'], title=sc[1], art_theme=sc[3], bg=BGMODE.get(sc[3], 'paper'), text=u['text'],
+        plan.append(dict(uid=u['uid'], scene=u['scene'], title=sc[1], art_theme=sc[3], bg=BGMODE.get(sc[3], 'paper'), pal=palettes.describe(palettes.for_theme(CFG, sc[3])), text=u['text'],
                          dur=round(u['t1'] - u['t0'], 2), transition_in=u['tr'], prev=units[k - 1]['text'] if k and units[k - 1]['scene'] == u['scene'] else '',
                          nxt=units[k + 1]['text'] if k + 1 < len(units) and units[k + 1]['scene'] == u['scene'] else ''))
     os.makedirs(vdir(), exist_ok=True)
@@ -283,7 +285,10 @@ def chalk_html(i):
 
 
 # ---------- html ----------
-WASHC = {'paper': '#ece4d1', 'night': '#14122b', 'dusk': '#5a4562'}
+WASHC = {'paper': '#ece4d1', 'night': '#14122b', 'dusk': '#5a4562'}      # old default; the palette of each scene overrides it (tools/palettes.py)
+def washc(u):
+    th = SCENES[u['scene'] - 1][3]; w = palettes.PALETTES[palettes.for_theme(CFG, th)]['wash']
+    return dict(zip(('paper', 'night', 'dusk'), w))
 h = ['<!doctype html><html lang="en"><head><meta charset="UTF-8">', f'<meta name="viewport" content="width={W}, height={H}">']
 h.append('<script src="gsap.min.js"></script><style>')
 capcss = (".cap{position:absolute;left:0;width:%dpx;bottom:%dpx;display:flex;justify-content:center;opacity:0;z-index:1002}"
@@ -445,7 +450,7 @@ for k, u in enumerate(units):
         js.append(f'tl.set("{T}",{{clipPath:"none"}},{t0 + .002:.3f});')
     elif tr == 'wash':
         bg = BGMODE.get(SCENES[u['scene'] - 1][3], 'paper')
-        js.append(f'tl.set("#wash",{{background:"{WASHC.get(bg, WASHC["paper"])}"}},{t0 - .5:.3f});')
+        js.append(f'tl.set("#wash",{{background:"{washc(u).get(bg, washc(u)["paper"])}"}},{t0 - .5:.3f});')
         js.append(f'tl.fromTo("#wash",{{opacity:0}},{{opacity:1,duration:.45,ease:"power1.in",immediateRender:false}},{t0 - .45:.3f});')
         js.append(f'tl.to("#wash",{{opacity:0,duration:.45,ease:"power1.out"}},{t0:.3f});')
     # --- exit (depends on how the NEXT unit comes in) ---

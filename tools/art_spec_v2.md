@@ -2,7 +2,7 @@
 
 Goal: redraw scenes in the style of the reference motion piece. LOOK at the reference first:
 /tmp/claude-0/-home-claude/5155a11f-00a7-5c8c-a875-26fa5c990302/scratchpad/ref/sheet1.png (32 frames, 1 per second) and t1.png/t2.png/t3.png in the same folder (transition sequences).
-Reference traits (measured/seen): two background modes — warm paper (#e5e3dd, sketchy thin pencil lines) and deep night navy (#0b0a21 to #16142f with soft vignette); rich but soft colour (purple #6b4bd6, magenta #d64b9a, gold #f2c14e, coral/orange #d9694a, teal, peach-to-pink sky gradients); thin hand-drawn ink lines, NOT thick black outlines; soft gradients and glow are allowed; hatching strokes for shading; small glowing focal element; one clear round/central focal object per shot.
+Reference traits (measured/seen): two background modes — warm paper (#e5e3dd, sketchy thin pencil lines) and deep night navy (#0b0a21 to #16142f with soft vignette); rich but soft colour. **COLOURS COME FROM THE VIDEO'S PALETTE (plan.json `pal`, defined in tools/palettes.py), not from this file**: the old defaults (purple #6b4bd6, magenta #d64b9a, orange #d9694a, peach-to-pink-to-violet dusk) are only for the 'sunset' palette and made every video look purple/orange (user complaint 2026-10-10); thin hand-drawn ink lines, NOT thick black outlines; soft gradients and glow are allowed; hatching strokes for shading; small glowing focal element; one clear round/central focal object per shot.
 
 ## File rules
 - Output: /home/claude/vid3/art/<id>.svg (ids are given in your task); previews /home/claude/vid3/art/preview/<id>.png.
@@ -13,7 +13,7 @@ Reference traits (measured/seen): two background modes — warm paper (#e5e3dd, 
 
 ## Look
 - Pick ONE background mode per scene: "paper" (everyday, human, historical, lab, hospital) or "night" (molecules, brain, space-like or abstract science, ominous ideas). Use at least 8 paper and at least 8 night scenes overall; the rest may be dusk/sky gradients (peach #f3c290 -> pink #d68673 -> violet #7c4577) like the sunflower/starling frames.
-- Linework: ink #1b1830 on paper scenes, coloured light lines (lavender #b9a6ff, gold) on night scenes; stroke-width 2.5-4 (up to 6 for the main subject); lines slightly wobbly (use cubic curves, not perfect geometry); 1-2 hatching groups for shading. NO uniform thick black outline around every object.
+- Linework: `pal.paper_ink` on paper scenes, `pal.night_line` (+ `pal.night_glow` for glows) on night scenes, `pal.dusk_ink` on dusk scenes; stroke-width 2.5-4 (up to 6 for the main subject); lines slightly wobbly (use cubic curves, not perfect geometry); 1-2 hatching groups for shading. NO uniform thick black outline around every object.
 - Shading: soft gradients on big forms (sky, glow, rounded bodies), hatching for texture. Colour fills may be saturated but harmonious; no neon-on-white.
 - People: simplified, dignified, readable silhouettes with a few clothing details, small dot eyes, calm faces; varied skin tones; respectful, no caricature. No gore, no blood, no nudity, no violence shown, no famous persons, no logos.
 - Story first: the picture must show the narration's idea clearly (see script.py scene text) via a metaphor object, not a busy crowd.

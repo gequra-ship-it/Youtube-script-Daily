@@ -7,5 +7,5 @@
 - Sidecar focus [x, y, scale] uses this 1080x1920 coordinate space (scale 1.5-2.0). Everything else as in art_spec_v3.md.
 - Previews: `SHOT_W=1080 SHOT_H=1920 python3 /home/claude/ht/tools/svgshot.py <dir> files...`
 - Output dir: /home/claude/ht/videos/never-eat-human-meat-short/art3/ ; plan: /home/claude/ht/videos/never-eat-human-meat-short/plan.json
-- Background modes in the plan (paper/night/dusk) as in v3. Same character/palette consistency inside a scene. Keep each svg under ~100 KB.
+- Background modes in the plan (paper/night/dusk) and the `pal` colours as in v3 (never default to purple/orange). Same character/palette consistency inside a scene. Keep each svg under ~100 KB.
 - Topic care: prions/kuru/cannibalism context — symbols and metaphors only, nothing graphic.
