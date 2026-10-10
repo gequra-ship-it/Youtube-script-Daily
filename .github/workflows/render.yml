@@ -47,11 +47,15 @@ jobs:
           echo "chrome=$CHROME"
           test -n "$CHROME"
           echo "HYPERFRAMES_BROWSER_PATH=$CHROME" >> "$GITHUB_ENV"
+          # warm up: the first Chrome start on a fresh runner can be slow and made hyperframes' own version check time out (run #13)
+          for i in 1 2 3; do timeout 120 "$CHROME" --version && break; sleep 5; done
+          timeout 120 "$CHROME" --headless=new --no-sandbox --disable-gpu --dump-dom about:blank > /dev/null 2>&1 || true
       - name: Render and deliver every slug
         env:
           # Drive 폴더 "유튜브 자동화 / Video & Thumbnail" 의 ID. rclone은 이 폴더 안으로만 접근한다.
           ROOT_ID: 1lBexNbmVvKNahw56d-s2rUVR5Qp76V3i
         run: |
+          FAILED=""
           if [ -n "$RCLONE_CONF" ]; then mkdir -p ~/.config/rclone; printf '%s' "$RCLONE_CONF" > ~/.config/rclone/rclone.conf; fi
           while read -r SLUG <&3; do
             echo "=== $SLUG ==="
@@ -61,16 +65,21 @@ jobs:
             if [ ! -f "render/$SLUG/.deliver_only" ]; then
               ( cd "render/$SLUG"
                 start=$(date +%s)
-                npx --yes hyperframes@0.8.141 render 2>&1 | tee render.log
+                for try in 1 2; do
+                  npx --yes hyperframes@0.8.141 render 2>&1 | tee render.log
+                  ls renders/*.mp4 >/dev/null 2>&1 && break
+                  echo "no mp4 after try $try, retrying"; "$HYPERFRAMES_BROWSER_PATH" --version || true; sleep 10
+                done
                 echo "render seconds: $(( $(date +%s) - start ))"
                 ls -la renders
-                f=$(ls renders/*.mp4 | head -1)
+                f=$(ls renders/*.mp4 2>/dev/null | head -1)
+                [ -n "$f" ] || exit 1
                 ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,duration -of compact "$f"
                 cp "$f" "$GITHUB_WORKSPACE/${SLUG}.mp4"
                 { echo "render report ${SLUG} $(date -u +%FT%TZ) render_seconds=$(( $(date +%s) - start ))"
                   ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,duration -of compact "$f"
                   ffmpeg -nostats -i "$f" -af ebur128=peak=true -f null - 2>&1 | grep -E "I:|LRA:|Peak:" | tail -3
-                  ls -la "$f"; } > "$GITHUB_WORKSPACE/${SLUG}_render_report.txt" )
+                  ls -la "$f"; } > "$GITHUB_WORKSPACE/${SLUG}_render_report.txt" ) || { echo "RENDER FAILED: $SLUG"; FAILED="$FAILED $SLUG"; }
             fi
             if [ -n "$RCLONE_CONF" ]; then
               [ -f "${SLUG}.mp4" ] && rclone copyto "${SLUG}.mp4" "gdrive:${DEST_DIR}/${SLUG}.mp4" --drive-root-folder-id "$ROOT_ID" --drive-chunk-size 64M --progress
@@ -81,6 +90,7 @@ jobs:
             fi
             rm -f "${SLUG}.mp4"
           done 3< "$RUNNER_TEMP/slugs.txt"
+          if [ -n "$FAILED" ]; then echo "failed slugs:$FAILED"; exit 1; fi
       - name: Keep MP4 as run artifact (small tests only)
         if: ${{ false }}
         uses: actions/upload-artifact@v4
