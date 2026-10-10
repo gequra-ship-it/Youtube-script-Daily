@@ -7,3 +7,5 @@ DESC = ["By day it shares a shelter with frogs and toads. At night, the adult Ep
 HASHTAGS = "#MiyasLab #Epomis #Beetles #Science"
 SOURCES = ["Gil Wizen and Avital Gasith (2011), ZooKeys 100: 181-191", "National Geographic"]
 CHAPTERS = []
+PAL_DEFAULT = 'forest'
+PAL = dict(poison='lab')

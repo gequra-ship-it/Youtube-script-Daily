@@ -32,3 +32,6 @@ BG = dict(pond='night', larva='paper', genus='paper', frogeye='night', worm='pap
           dodge='dusk', hooks='paper', feed='dusk', bones='paper', stages='dusk', evolve='dusk', lab='paper', labnote='paper', adult='dusk',
           diet='paper', shelter='night', ambush='night', bite='night', spine='paper', poison='dusk', tricksters='night',
           smallhunters='dusk', reflex='paper', map='paper', ending='night', experiment='paper', waterbug='dusk', question='paper')
+# Palettes (guideline 3-5, redrawn 2026-10-10): ponds, leaf litter, frogs, beetles -> forest; lab study and toxin chemistry -> lab; deep-sea anglerfish comparison -> ocean
+PAL_DEFAULT = 'forest'
+PAL = dict(lab='lab', experiment='lab', labnote='lab', poison='lab', tricksters='ocean')

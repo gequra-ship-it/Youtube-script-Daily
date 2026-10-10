@@ -7,3 +7,4 @@ DESC = ["A frog strikes at a tiny beetle larva and misses. In 382 lab trials, th
 HASHTAGS = "#MiyasLab #Epomis #Frogs #Science"
 SOURCES = ["Gil Wizen and Avital Gasith (2011), PLoS ONE 6(9): e25161"]
 CHAPTERS = []
+PAL_DEFAULT = 'forest'
