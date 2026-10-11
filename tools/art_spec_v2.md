@@ -33,7 +33,8 @@ Wrap moving parts as `<g id="mv-<type>-<unique>">...</g>`, each still correct wh
 - `mv-breathe-*` torso/whole figure (scaleY 1->1.03, pivot bottom centre, 2.2 s). EVERY person's body gets one.
 - `mv-nod-*` head as own group (pivot bottom centre = neck), +-3 deg, 1.8 s.
 - `mv-lean-*` whole figure +-2 deg around feet, 3 s.
-- `mv-arm-*` arm group whose TOP is the shoulder, +-14 deg, 0.9 s.
+- `mv-arm-*` arm group, +-7 deg, 1.4 s, rotating around the SHOULDER. The builder finds the shoulder automatically (tools/pivots.py): it takes the first <path>/<line>/<polyline> inside the group and uses whichever of its two ends is nearer the body (the nearest mv-breathe/mv-lean/mv-walk group). So draw each arm as an open path/line that STARTS or ENDS at the shoulder (not only a closed outline or ellipse), keep the whole arm (sleeve, forearm, hand) inside the one group, and put the group inside or next to the body group.
+- `mv-hand-*` small turn of +-5 deg around the hand's own centre (no lift).
 - `mv-hand-*` hand/forearm, lifts 10 px, +-6 deg, 0.7 s.
 - `mv-walk-*` whole walking figure, drifts 120 px over 3.5 s; leave 60 px free each side.
 - `mv-flame` `mv-lamp` `mv-lantern` `mv-beacon` `mv-glint` `mv-spark` (pulse), `mv-smoke` `mv-steam` `mv-stink` `mv-cells` `mv-rain` `mv-key` (drift up), `mv-bell` `mv-knot` (swing), `mv-antenna` (sway).

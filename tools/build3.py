@@ -43,7 +43,7 @@ TOTAL = round(starts[SEL[-1]] + D[SEL[-1] - 1] + TAIL, 3)
 def sentences(text):
     out = []
     for piece in re.split(r'(?<=[.?!])\s+', text.strip()):
-        if out and re.search(r'(?:^|\s)[A-Z]\.$', out[-1]):   # an initial like "George W. Bush" is not a sentence end
+        if out and re.search(r'(?:^|\s)(?:[A-Z][a-z]*|[A-Z]\.)\s[A-Z]\.$', out[-1]):   # a middle initial ("George W. Bush", "H. W.") is not a sentence end; "vitamin A." is
             out[-1] += ' ' + piece
         else:
             out.append(piece)
@@ -459,8 +459,10 @@ js = ['<script>const tl=gsap.timeline({paused:true});']
 ORG = f'{CX}px {CY}px'
 MV = {'flame': ('pulse', .30), 'lamp': ('pulse', .5), 'lantern': ('pulse', .55), 'beacon': ('pulse', .7), 'glint': ('pulse', .6),
       'spark': ('pulse', .25), 'smoke': ('drift', 1.6), 'steam': ('drift', 1.3), 'stink': ('drift', 1.1), 'cells': ('drift', 1.8),
-      'antenna': ('sway', .35), 'breathe': ('breathe', 2.2), 'nod': ('nod', 1.8), 'lean': ('lean', 3.0), 'arm': ('arm', .9),
-      'walk': ('walk', 3.5), 'hand': ('hand', .7), 'rain': ('drift', .9), 'bell': ('swing', .8), 'knot': ('swing', 1.2), 'key': ('drift', .8)}
+      'antenna': ('sway', .35), 'breathe': ('breathe', 2.2), 'nod': ('nod', 1.8), 'lean': ('lean', 3.0), 'arm': ('arm', 1.4),
+      'walk': ('walk', 3.5), 'hand': ('hand', 1.0), 'rain': ('drift', .9), 'bell': ('swing', .8), 'knot': ('swing', 1.2), 'key': ('drift', .8)}
+import pivots   # shoulder/wrist pivots for arm and hand groups (arms used to swing off the body)
+PIV = pivots.compute(sorted({art_path(u)[0] for u in units if u['kind'] != 'chalk'}), W, H, cache=f'{B}/pivots.json')
 for k, u in enumerate(units):
     nn = u['n']; t0, t1 = u['t0'], u['t1']; tr = u['tr']; T = f'#t{nn}'; Wq = f'#w{nn}'
     v0 = t0 - TIN[tr]
@@ -518,8 +520,12 @@ for k, u in enumerate(units):
         elif kind == 'breathe': js.append(f'tl.fromTo({g},{{scaleY:1,transformOrigin:"50% 100%"}},{{scaleY:1.03,duration:{per:.3f},{ease}}},{v0:.3f});')
         elif kind == 'nod': js.append(f'tl.fromTo({g},{{rotation:-3,transformOrigin:"50% 100%"}},{{rotation:3,duration:{per:.3f},{ease}}},{v0:.3f});')
         elif kind == 'lean': js.append(f'tl.fromTo({g},{{rotation:-2,transformOrigin:"50% 100%"}},{{rotation:2,duration:{per:.3f},{ease}}},{v0:.3f});')
-        elif kind == 'arm': js.append(f'tl.fromTo({g},{{rotation:-14,transformOrigin:"50% 0%"}},{{rotation:14,duration:{per:.3f},{ease}}},{v0:.3f});')
-        elif kind == 'hand': js.append(f'tl.fromTo({g},{{y:0,rotation:-6,transformOrigin:"50% 100%"}},{{y:-10,rotation:6,duration:{per:.3f},{ease}}},{v0:.3f});')
+        elif kind == 'arm':     # gentle swing around the shoulder (pivot from pivots.py, in SVG units)
+            pv = PIV.get(p, {}).get(nm)
+            org = f'transformOrigin:"{pv[0]:.1f}px {pv[1]:.1f}px"' if pv else 'transformOrigin:"50% 0%"'
+            js.append(f'tl.fromTo({g},{{rotation:-7,{org}}},{{rotation:7,duration:{per:.3f},{ease}}},{v0:.3f});')
+        elif kind == 'hand':    # small turn around the hand's own centre, no lift, so it stays on the wrist
+            js.append(f'tl.fromTo({g},{{rotation:-5,transformOrigin:"50% 50%"}},{{rotation:5,duration:{per:.3f},{ease}}},{v0:.3f});')
         elif kind == 'walk':
             pb = 0.5; rb = int(math.ceil(sp / pb)) - 1
             js.append(f'tl.fromTo({g},{{x:-60}},{{x:60,duration:{per:.3f},{ease}}},{v0:.3f});')
