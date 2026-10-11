@@ -37,6 +37,8 @@ def spoken_numbers(text):
         if v is None: continue
         if w in TENS and k + 1 < len(words) and words[k + 1] in SMALL and 0 < SMALL[words[k + 1]] < 10:
             out.add(str(v + SMALL[words[k + 1]]))
+        if k + 2 < len(words) and words[k + 1] == 'point' and words[k + 2] in SMALL and SMALL[words[k + 2]] < 10:
+            out.add(f'{v}.{SMALL[words[k + 2]]}')
         if k + 3 < len(words) and words[k + 1:k + 4] == ['and', 'a', 'half']:
             out.add(f'{v}.5')
         if k + 1 < len(words) and words[k + 1] == 'hundred' and v < 10: out.add(str(v * 100))

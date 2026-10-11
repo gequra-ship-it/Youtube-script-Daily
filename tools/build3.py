@@ -41,7 +41,13 @@ TOTAL = round(starts[SEL[-1]] + D[SEL[-1] - 1] + TAIL, 3)
 
 # ---------- sentence timing model (narration time of every character) ----------
 def sentences(text):
-    return re.split(r'(?<=[.?!])\s+', text.strip())
+    out = []
+    for piece in re.split(r'(?<=[.?!])\s+', text.strip()):
+        if out and re.search(r'(?:^|\s)[A-Z]\.$', out[-1]):   # an initial like "George W. Bush" is not a sentence end
+            out[-1] += ' ' + piece
+        else:
+            out.append(piece)
+    return out
 
 
 def pauses(i):
@@ -213,6 +219,8 @@ def split_lines(sent):
     words = sent.split(); lines = []; cur = []
     def clen(ws): return len(' '.join(ws))
     for w in words:
+        if cur and clen(cur + [w]) > LMAX + 6:   # a long word would overflow the line: break before it
+            lines.append(cur); cur = []
         cur.append(w)
         if clen(cur) >= LMAX or len(cur) >= WMAX:
             lines.append(cur); cur = []
