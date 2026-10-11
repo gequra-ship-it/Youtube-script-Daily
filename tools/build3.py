@@ -8,7 +8,7 @@ import os, re, sys, json, html, shutil, subprocess, math, random
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 import numpy as np
-import palettes
+import palettes, labels_lib
 SCENES = load_scenes()
 CFG = load_config()
 B = wdir() + '/build'
@@ -303,7 +303,7 @@ h.append('''@font-face{font-family:Fredoka;src:url(Fredoka-700.woff2) format("wo
 .w svg{position:absolute;left:0;top:0;width:%dpx;height:%dpx}
 #wash{position:absolute;left:0;top:0;width:%dpx;height:%dpx;opacity:0;z-index:1000;pointer-events:none}
 ''' % ((W, H) * 6))
-h.append(capcss)
+h.append(capcss); h.append(labels_lib.CSS)
 h.append('''#logo{position:absolute;left:1799px;top:40px;width:81px;height:81px;z-index:1003}
 #grain{position:absolute;left:0;top:0;width:@Wpx;height:@Hpx;z-index:1001;opacity:.35;pointer-events:none;object-fit:cover}
 .chalk{position:absolute;left:0;top:0;width:1920px;height:1080px;display:none;background:
@@ -327,7 +327,7 @@ h.append('''#logo{position:absolute;left:1799px;top:40px;width:81px;height:81px;
 '''.replace('@W', str(W)).replace('@H', str(H)))
 h.append('</style></head><body>')
 h.append(f'<div id="root" data-composition-id="main" data-start="0" data-duration="{TOTAL}" data-width="{W}" data-height="{H}">')
-fallback_used = []
+fallback_used = []; label_errors = []; label_items = {}
 for u in units:
     nn = u['n']
     if u['kind'] == 'chalk':
@@ -335,7 +335,13 @@ for u in units:
     else:
         p, fb = art_path(u)
         if fb: fallback_used.append(u['uid'])
-        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p)}</div></div>')
+        sc0 = side(u); th = SCENES[u['scene'] - 1][3]
+        lerr = labels_lib.check(sc0, u['text'], W, H, VERT)
+        if lerr: label_errors.append(f'{u["uid"]}: ' + '; '.join(lerr))
+        lin, lout, litems = ('', '', []) if lerr else labels_lib.html_for(nn, sc0, BGMODE.get(th, 'paper'), palettes.PALETTES[palettes.for_theme(CFG, th)], W, H, VERT)
+        label_items[nn] = litems
+        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p)}{lin}</div>{lout}</div>')
+if label_errors: raise SystemExit('on-screen text (labels) problems, fix the sidecars:\n  ' + '\n  '.join(label_errors))
 h.append('<div id="wash"></div><img id="grain" src="grain.png">' + ('' if VERT else '<img id="logo" src="logo.png">'))
 for k, c in enumerate(caps):
     h.append(f'<div class="cap" id="c{k}"><span>{html.escape(c["text"], quote=False)}</span></div>')
@@ -343,7 +349,7 @@ for k, c in enumerate(caps):
 # ---------- sound cues ----------
 cues = []   # dict(name, t, vol, pri)
 TRSND = {'zoom': ('swish', -0.85, 0.9), 'slide': ('swish', -0.6, 0.6), 'match': ('hush', -0.7, 0.8), 'wash': ('rustle', -0.5, 0.7)}
-focus_cam = {}
+focus_cam = {}; label_t = []
 for u in units:
     nn = u['n']
     if u['kind'] == 'chalk': continue
@@ -364,6 +370,9 @@ for u in units:
         if a > u['t0'] + 0.5:
             focus_cam[nn] = (a, f)
             if sc.get('focus_tick', True): cues.append(dict(name='tick', t=a + 0.35, vol=0.6, pri=1, unit=u['uid']))
+    for k2, (ty, lid, gid, l) in enumerate(label_items.get(nn, [])):
+        tl_ = tword(l.get('word')) or (u['t0'] + 0.4 + 0.5 * k2)
+        label_t.append((nn, ty, lid, gid, min(max(tl_ - 0.1, u['t0'] + 0.15), u['t1'] - 1.0)))
     for e in sc.get('sfx', []):
         te = tword(e.get('word'))
         if te is None: te = u['t0'] + 1.0
@@ -485,6 +494,15 @@ for k, u in enumerate(units):
             js.append(f'tl.fromTo({g},{{y:0}},{{y:-9,duration:{pb},ease:"sine.inOut",yoyo:true,repeat:{rb},immediateRender:false}},{v0:.3f});')
         elif kind == 'sway': js.append(f'tl.fromTo({g},{{rotation:-7,transformOrigin:"50% 100%"}},{{rotation:7,duration:{per:.3f},{ease}}},{v0:.3f});')
         else: js.append(f'tl.fromTo({g},{{rotation:-5,transformOrigin:"50% 0%"}},{{rotation:5,duration:{per:.3f},{ease}}},{v0:.3f});')
+for (nn, ty, lid, gid, tt) in label_t:          # on-screen text pops in when its words are spoken (guideline 3-6)
+    if ty == 'num':
+        js.append(f'tl.fromTo("#{lid}",{{opacity:0,x:-30}},{{opacity:1,x:0,duration:.3,ease:"power2.out",immediateRender:false}},{tt:.3f});')
+        continue
+    js.append(f'tl.fromTo("#{lid}s",{{opacity:0,scale:.6}},{{opacity:1,scale:1,duration:.25,ease:"back.out(2)",immediateRender:false}},{tt:.3f});')
+    if gid: js.append(f'tl.set("#{gid}",{{opacity:1}},{tt:.3f});')
+    if nn in focus_cam:       # keep the text the same size while the camera zooms in (it still follows its subject)
+        a, (fx, fy, s) = focus_cam[nn]
+        js.append(f'tl.fromTo("#{lid}",{{scale:1,transformOrigin:"0px 0px"}},{{scale:{1 / s:.4f},duration:1.4,ease:"power2.inOut",immediateRender:false}},{a:.3f});')
 for k, c in enumerate(caps):
     js.append(f'tl.set("#c{k}",{{opacity:1}},{c["t0"]:.3f});tl.set("#c{k}",{{opacity:0}},{c["t1"]:.3f});')
 js.append('window.__timelines=window.__timelines||{};window.__timelines["main"]=tl;</script>')
@@ -499,5 +517,5 @@ data = dict(slug=SLUG, total=TOTAL, lead=LEAD, gap=GAP, tail=TAIL, starts={str(k
 json.dump(data, open(B + ('/build_data.json' if len(SEL) == len(SCENES) else '/build_data_partial.json'), 'w'), ensure_ascii=False, indent=1)
 dd = [u['t1'] - u['t0'] for u in units]
 from collections import Counter
-print('total', TOTAL, 'units', len(units), 'avg', round(sum(dd) / len(dd), 2), 'max', round(max(dd), 2), 'caps', len(caps), 'sfx cues', len(cues), 'fallback art', len(fallback_used))
+print('labels', len(label_t), 'total', TOTAL, 'units', len(units), 'avg', round(sum(dd) / len(dd), 2), 'max', round(max(dd), 2), 'caps', len(caps), 'sfx cues', len(cues), 'fallback art', len(fallback_used))
 print('transitions', dict(Counter(u['tr'] for u in units)), 'focus cams', len(focus_cam))

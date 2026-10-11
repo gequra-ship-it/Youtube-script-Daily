@@ -35,3 +35,20 @@ Use plan.json `bg` for every unit of the scene: "paper" (base `pal.paper_base`, 
 
 ## Work method
 Draw units in the listed order. For each: read text (+prev/next), decide the picture, write svg + json, run svgshot for a batch of 3-4, Read the previews, fix at most once. Finish all your units. Final answer: one line per uid: `uid | centre | focus_word or - | sfx or -` and any problem.
+
+## On-screen text — sidecar "labels" (guideline 3-6, 2026-10-11)
+The SVG still has NO text. Text goes in the sidecar; the builder lays it over the picture as HTML (exact spelling, channel fonts). 0-3 labels per unit:
+```
+"labels": [
+ {"type": "name", "text": "Anomalocaris", "x": 1320, "y": 300, "to": [1180, 470], "word": "Anomalocaris"},
+ {"type": "num",  "text": "539 MILLION YEARS AGO", "word": "539 million"},
+ {"type": "say",  "text": "Still here!", "x": 1080, "y": 520, "to": [1272, 650]}
+]
+```
+- `name` (max 28 chars): the name of an animal, plant, place, era or object that is VISIBLE in your picture and SAID in this unit's text (same spelling, case may differ). x,y = centre of the label pill (about 34 px text, ~20 px per letter wide), `to` = a point on the subject (a thin pointer line + dot). Put the pill in empty space next to the subject, never over a face, the centre object or the thing the text is about. Do not repeat the same name in the next unit unless the picture changes subject.
+- `num` (max 26 chars, UPPER CASE): a number, date, size or share that is SAID in this unit (digits or number words; "four meters" -> "4 M" is fine, "nine meters" -> "10 M" is not). It is fixed at the top-left of the screen (x 80-700, y 60-140; vertical x 100-700, y 330-400): when you use it, keep that corner free of important content. Write it short: "~3.5 M LONG", "539 MILLION YEARS AGO", "90%+ OF FOSSILS".
+- `say` (max 4 words / 24 chars, no digits): a short speech bubble for an animal, a generic person or an object, `to` = its mouth. Only a reaction or feeling that fits the narration ("Still here!", "Too hot...", "Hmm?", "Not today!"), NEVER a fact, a number or a claim, and NEVER for a real named person. Use on about 1 unit in 8; keep it light and kind, not mocking.
+- `word` (optional): exact words from this unit's text; the label pops in when they are spoken (else ~0.4 s after the cut).
+- Safe area: landscape x 120-1800, y 80-860 (captions are below; no labels in the top-right logo corner x>1660, y<190); vertical x 100-940, y 300-1400. With a `focus`, labels move with the zoom (their size stays the same): the check also tests where they land after the zoom, so keep them close to the focus point.
+- Aim: about half of your units get at least one label — names when a creature/place first appears on screen, a num badge whenever the narration states a number. Chalkboard units get none.
+- Check + preview: `python3 /home/claude/youtube-script-daily/tools/labelshot.py <slug> <your preview dir> <uid> ...` prints problems (the build stops on any) and writes `<uid>_lab.png` with the labels and a sample caption on top — Read it and fix overlaps.
