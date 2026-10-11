@@ -65,10 +65,13 @@ jobs:
             if [ ! -f "render/$SLUG/.deliver_only" ]; then
               ( cd "render/$SLUG"
                 start=$(date +%s)
-                for try in 1 2; do
-                  npx --yes hyperframes@0.8.141 render 2>&1 | tee render.log
+                for try in 1 2 3; do
+                  npx --yes hyperframes@0.8.141 render 2>&1 | tee render$try.log
                   ls renders/*.mp4 >/dev/null 2>&1 && break
-                  echo "no mp4 after try $try, retrying"; "$HYPERFRAMES_BROWSER_PATH" --version || true; sleep 10
+                  echo "no mp4 after try $try, retrying"; "$HYPERFRAMES_BROWSER_PATH" --version || true
+                  # keep the end of each failed try's log so it reaches Drive (server logs cannot be read from the chat)
+                  { echo "=== try $try $(date -u +%FT%TZ)"; free -m; df -h . | tail -1; tail -60 render$try.log; } >> "$GITHUB_WORKSPACE/${SLUG}_render_error.txt"
+                  sleep 10
                 done
                 echo "render seconds: $(( $(date +%s) - start ))"
                 ls -la renders
@@ -83,12 +86,13 @@ jobs:
             fi
             if [ -n "$RCLONE_CONF" ]; then
               [ -f "${SLUG}.mp4" ] && rclone copyto "${SLUG}.mp4" "gdrive:${DEST_DIR}/${SLUG}.mp4" --drive-root-folder-id "$ROOT_ID" --drive-chunk-size 64M --progress
+              [ -f "${SLUG}_render_error.txt" ] && rclone copyto "${SLUG}_render_error.txt" "gdrive:${DEST_DIR}/${SLUG}_render_error.txt" --drive-root-folder-id "$ROOT_ID"
               [ -f "${SLUG}_render_report.txt" ] && rclone copyto "${SLUG}_render_report.txt" "gdrive:${DEST_DIR}/${SLUG}_render_report.txt" --drive-root-folder-id "$ROOT_ID"
               # 썸네일·대본·제목/설명 파일(render/<slug>/deliver/)도 같은 Drive 폴더로 올린다
               if [ -d "render/${SLUG}/deliver" ]; then rclone copy "render/${SLUG}/deliver" "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID" --progress; fi
               rclone lsl "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID"
             fi
-            rm -f "${SLUG}.mp4"
+            rm -f "${SLUG}.mp4" "${SLUG}_render_error.txt"
           done 3< "$RUNNER_TEMP/slugs.txt"
           if [ -n "$FAILED" ]; then echo "failed slugs:$FAILED"; exit 1; fi
       - name: Keep MP4 as run artifact (small tests only)
