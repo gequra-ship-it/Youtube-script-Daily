@@ -62,6 +62,8 @@ jobs:
             DEST_DIR="$SLUG"
             case "$SLUG" in sample) DEST_DIR="_ci-test";; *-short|*-short[0-9]) DEST_DIR="$(echo "$SLUG" | sed -E 's/-short[0-9]?$//')/short";; esac
             if [ -f "render/$SLUG/.dest" ]; then DEST_DIR=$(cat "render/$SLUG/.dest"); fi
+            # .outname: base name of the MP4/report in Drive (to replace a file the user renamed); .skip_deliver: do not re-upload deliver/
+            OUTNAME="$SLUG"; if [ -f "render/$SLUG/.outname" ]; then OUTNAME=$(cat "render/$SLUG/.outname"); fi
             if [ ! -f "render/$SLUG/.deliver_only" ]; then
               ( cd "render/$SLUG"
                 start=$(date +%s)
@@ -85,11 +87,11 @@ jobs:
                   ls -la "$f"; } > "$GITHUB_WORKSPACE/${SLUG}_render_report.txt" ) || { echo "RENDER FAILED: $SLUG"; FAILED="$FAILED $SLUG"; }
             fi
             if [ -n "$RCLONE_CONF" ]; then
-              [ -f "${SLUG}.mp4" ] && rclone copyto "${SLUG}.mp4" "gdrive:${DEST_DIR}/${SLUG}.mp4" --drive-root-folder-id "$ROOT_ID" --drive-chunk-size 64M --progress
-              [ -f "${SLUG}_render_error.txt" ] && rclone copyto "${SLUG}_render_error.txt" "gdrive:${DEST_DIR}/${SLUG}_render_error.txt" --drive-root-folder-id "$ROOT_ID"
-              [ -f "${SLUG}_render_report.txt" ] && rclone copyto "${SLUG}_render_report.txt" "gdrive:${DEST_DIR}/${SLUG}_render_report.txt" --drive-root-folder-id "$ROOT_ID"
+              [ -f "${SLUG}.mp4" ] && rclone copyto "${SLUG}.mp4" "gdrive:${DEST_DIR}/${OUTNAME}.mp4" --drive-root-folder-id "$ROOT_ID" --drive-chunk-size 64M --progress
+              [ -f "${SLUG}_render_error.txt" ] && rclone copyto "${SLUG}_render_error.txt" "gdrive:${DEST_DIR}/${OUTNAME}_render_error.txt" --drive-root-folder-id "$ROOT_ID"
+              [ -f "${SLUG}_render_report.txt" ] && rclone copyto "${SLUG}_render_report.txt" "gdrive:${DEST_DIR}/${OUTNAME}_render_report.txt" --drive-root-folder-id "$ROOT_ID"
               # 썸네일·대본·제목/설명 파일(render/<slug>/deliver/)도 같은 Drive 폴더로 올린다
-              if [ -d "render/${SLUG}/deliver" ]; then rclone copy "render/${SLUG}/deliver" "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID" --progress; fi
+              if [ -d "render/${SLUG}/deliver" ] && [ ! -f "render/${SLUG}/.skip_deliver" ]; then rclone copy "render/${SLUG}/deliver" "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID" --progress; fi
               rclone lsl "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID"
             fi
             rm -f "${SLUG}.mp4" "${SLUG}_render_error.txt"
