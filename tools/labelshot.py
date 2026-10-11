@@ -18,7 +18,7 @@ with sync_playwright() as pw:
         vert = 'viewBox="0 0 1080 1920"' in svg; W, H = (1080, 1920) if vert else (1920, 1080)
         errs = labels_lib.check(sc, p['text'], W, H, vert)
         if errs: bad += 1; print(uid, 'PROBLEMS:', '; '.join(errs))
-        inner, outer, _ = ('', '', []) if errs else labels_lib.html_for(0, sc, p['bg'], palettes.PALETTES[p['pal']['palette']], W, H, vert)
+        inner, outer, _ = ('', '', []) if errs else labels_lib.html_for(0, sc, p['bg'], palettes.PALETTES[p.get('pal', {}).get('palette', palettes.DEFAULT)], W, H, vert)
         page = (f'<!doctype html><html><head><meta charset="utf-8"><style>@font-face{{font-family:Fredoka;src:url(file://{A}/Fredoka-700.woff2)}}'
                 f'@font-face{{font-family:Patrick;src:url(file://{A}/PatrickHand-400.woff2)}}*{{margin:0;padding:0;box-sizing:border-box}}'
                 f'body{{width:{W}px;height:{H}px;position:relative;overflow:hidden}}.w{{position:absolute;left:0;top:0;width:{W}px;height:{H}px}}'

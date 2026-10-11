@@ -419,8 +419,32 @@ if os.environ.get('NOBGM') != '1':
     run('ffmpeg', '-y', '-v', 'error', '-i', f'{B}/bgm.wav', '-c:a', 'aac', '-b:a', '96k', f'{OUT}/bgm.m4a')
     audio.append(('bgm.m4a', 0.0, TOTAL, 20, 1))
     print('bgm', {k: round(v, 1) for k, v in BGM_REPORT.items()})
-for (src, st, dd, tr, vol) in audio:
-    h.append(f'<audio src="{src}" data-start="{st:.3f}" data-duration="{dd:.3f}" data-track-index="{tr}" data-volume="{vol}"></audio>')
+# ---------- one pre-mixed audio file (2026-10-11): the renderer's own mix of ~400 <audio> tracks hit its 300 s ffmpeg timeout
+# on the server ("audio_processing_failed: ffmpeg_timeout", paleozoic-chronicles run #21/#22). The same sum (start, length, volume)
+# is now done here with numpy and the page carries a single track. SEPARATE_AUDIO=1 keeps the old per-track layout.
+if os.environ.get('SEPARATE_AUDIO') == '1':
+    for (src, st, dd, tr, vol) in audio:
+        h.append(f'<audio src="{src}" data-start="{st:.3f}" data-duration="{dd:.3f}" data-track-index="{tr}" data-volume="{vol}"></audio>')
+else:
+    SR = 48000; mixbuf = np.zeros((int(TOTAL * SR) + SR, 2), dtype=np.float32); cache = {}
+    for (src, st, dd, tr, vol) in audio:
+        if src not in cache:
+            raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', f'{OUT}/{src}', '-f', 'f32le', '-ac', '2', '-ar', str(SR), '-'], capture_output=True).stdout
+            cache[src] = np.frombuffer(raw, dtype=np.float32).reshape(-1, 2)
+        a = cache[src][:int(dd * SR)]; i0 = int(round(st * SR)); a = a[:max(0, len(mixbuf) - i0)]
+        mixbuf[i0:i0 + len(a)] += a * float(vol)
+    mixbuf = mixbuf[:int(TOTAL * SR)]
+    peak = float(np.abs(mixbuf).max()) if len(mixbuf) else 0.0
+    if peak > 0.98: mixbuf *= 0.98 / peak
+    import wave
+    wf = wave.open(f'{B}/mix.wav', 'wb'); wf.setnchannels(2); wf.setsampwidth(2); wf.setframerate(SR)
+    wf.writeframes((np.clip(mixbuf, -1, 1) * 32767).astype('<i2').tobytes()); wf.close()
+    run('ffmpeg', '-y', '-v', 'error', '-i', f'{B}/mix.wav', '-c:a', 'aac', '-b:a', '192k', f'{OUT}/mix.m4a')
+    used = {x[0] for x in audio}
+    for f in used:                          # the separate pieces are no longer needed in the render folder
+        if f != 'mix.m4a' and os.path.exists(f'{OUT}/{f}'): os.remove(f'{OUT}/{f}')
+    h.append(f'<audio src="mix.m4a" data-start="0" data-duration="{TOTAL:.3f}" data-track-index="0" data-volume="1"></audio>')
+    print('audio premix', len(audio), 'pieces -> mix.m4a, peak', round(20 * math.log10(max(peak, 1e-9)), 1), 'dBFS')
 
 # ---------- timeline ----------
 js = ['<script>const tl=gsap.timeline({paused:true});']
@@ -510,7 +534,7 @@ h.append('\n'.join(js)); h.append('</div></body></html>')
 open(f'{OUT}/index.html', 'w', encoding='utf-8').write('\n'.join(h))
 
 for f in os.listdir(OUT):          # drop sfx files that no cue uses (keep the repo small)
-    if f.startswith('sfx_') and f not in SFXLEN: os.remove(f'{OUT}/{f}')
+    if f.startswith('sfx_') and f not in SFXLEN and os.path.exists(f'{OUT}/{f}'): os.remove(f'{OUT}/{f}')
 data = dict(slug=SLUG, total=TOTAL, lead=LEAD, gap=GAP, tail=TAIL, starts={str(k): v for k, v in starts.items()}, D={str(i): D[i - 1] for i in SEL},
             cuts=[dict(id=u['uid'], scene=u['scene'], kind=u['kind'], t0=u['t0'], t1=u['t1'], tr=u['tr'], text=u['text']) for u in units],
             caps=caps, sfx=cues, chalk=chalk_t, snap=snap_report, chalk_pop={str(k): v.get('pop') for k, v in CHALK.items() if 'pop' in v})

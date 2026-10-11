@@ -2,5 +2,22 @@
  "centre": "hot thermometer bulb at the sea surface, stem rising high",
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "~40 \u00b0C AT THE SURFACE",
+   "word": "40 degrees"
+  },
+  {
+   "type": "say",
+   "text": "Too hot...",
+   "x": 540,
+   "y": 680,
+   "to": [
+    420,
+    815
+   ]
+  }
+ ]
 }
