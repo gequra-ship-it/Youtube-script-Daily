@@ -192,38 +192,39 @@ if __name__ == "__main__":
     if title and video_id:
         transcript_chunks = get_video_transcript(video_id)
         
-        if transcript_chunks:
-            total_parts = len(transcript_chunks)
-            all_parts_success = True
+        # 💡 [핵심 수정 부분] 자막이 없더라도 포기하지 않고 '제목'을 재료로 1부작 대본을 만듭니다!
+        if not transcript_chunks:
+            transcript_chunks = [None] 
             
-            for i, chunk_text in enumerate(transcript_chunks):
-                part_num = i + 1
-                script_text = create_ai_studio_script(title, chunk_text, part_num, total_parts)
+        total_parts = len(transcript_chunks)
+        all_parts_success = True
+        
+        for i, chunk_text in enumerate(transcript_chunks):
+            part_num = i + 1
+            script_text = create_ai_studio_script(title, chunk_text, part_num, total_parts)
+            
+            if script_text:
+                current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+                filename = f"script_{current_time}_Part{part_num}.txt"
+                text_file_path = os.path.join(SAVE_DIR, filename)
                 
-                if script_text:
-                    current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-                    filename = f"script_{current_time}_Part{part_num}.txt"
-                    text_file_path = os.path.join(SAVE_DIR, filename)
+                with open(text_file_path, "w", encoding="utf-8") as f:
+                    f.write(f"레퍼런스 주제: {title} (총 {total_parts}부작 중 {part_num}부)\n\n")
+                    f.write(script_text)
                     
-                    with open(text_file_path, "w", encoding="utf-8") as f:
-                        f.write(f"레퍼런스 주제: {title} (총 {total_parts}부작 중 {part_num}부)\n\n")
-                        f.write(script_text)
-                        
-                    print(f"🎉 Part {part_num} 작업 성공! 파일 저장 완료: {text_file_path}", flush=True)
-                else:
-                    print(f"⚠ Part {part_num} 대본 생성 실패.", flush=True)
-                    all_parts_success = False
-                    break 
-                    
-                if part_num < total_parts:
-                    print("⏳ 다음 파트 생성을 위해 10초 대기 중...", flush=True)
-                    time.sleep(10)
-            
-            if all_parts_success:
-                with open(HISTORY_FILE, "a", encoding="utf-8") as f:
-                    f.write(f"{video_id}\n")
-                print("🏁 타겟 영상의 모든 파트 처리가 완료되어 진도표에 기록되었습니다.", flush=True)
-        else:
-             print("⚠ 자막을 추출하지 못해 작업을 종료합니다.", flush=True)
+                print(f"🎉 Part {part_num} 작업 성공! 파일 저장 완료: {text_file_path}", flush=True)
+            else:
+                print(f"⚠ Part {part_num} 대본 생성 실패.", flush=True)
+                all_parts_success = False
+                break 
+                
+            if part_num < total_parts:
+                print("⏳ 다음 파트 생성을 위해 10초 대기 중...", flush=True)
+                time.sleep(10)
+        
+        if all_parts_success:
+            with open(HISTORY_FILE, "a", encoding="utf-8") as f:
+                f.write(f"{video_id}\n")
+            print("🏁 타겟 영상의 모든 파트 처리가 완료되어 진도표에 기록되었습니다.", flush=True)
     else:
          print("⚠ 처리할 영상을 찾지 못해 작업을 종료합니다.", flush=True)
