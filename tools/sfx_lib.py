@@ -95,9 +95,46 @@ def stone():       # dull stone knock
 def flutter():     # wings / cloth flutter
     t = t_(0.8); return bp(noise(t), 500, 3000) * (np.abs(np.sin(2 * np.pi * 11 * t)) ** 1.5) * swell(t, 0.8)
 
+
+# ---- cosmic family (space videos): filtered noise only, no pitch. Still high-passed at 150 Hz and peak -24 dBFS. ----
+def riser():       # slow rising air swell (band moves up) -- builds towards a reveal
+    t = t_(2.2); n = noise(t); k = 3; out = np.zeros(len(t)); edges = np.geomspace(500, 7500, k + 1)
+    for i in range(k):
+        seg = bp(n, edges[i], edges[i + 1]) * np.clip((t - i * .55) / .9, 0, 1) * (1 - 0.0 * i)
+        out += seg
+    return out * (t / t[-1]) ** 2.2 * np.minimum((t[-1] - t) / .12, 1)
+def sparkle():     # sparse bright grains (high noise ticks), like starlight
+    t = t_(1.3); out = np.zeros(len(t))
+    for _ in range(22):
+        st = int(rng.uniform(0, .95) * SR); k = int(rng.uniform(.004, .012) * SR)
+        b = bp(rng.standard_normal(k) * np.exp(-np.arange(k) / (k / 4)), 4500, 11000)
+        out[st:st + k] += b[:len(out) - st] * rng.uniform(.3, 1)
+    return out * np.exp(-t * 1.6)
+def sweep():       # long airy pass-by (bandpass slides down)
+    t = t_(2.0); n = noise(t); a = bp(n, 1800, 6500) * swell(t, 2.0); b = bp(n, 600, 2200) * np.clip(t / 2.0, 0, 1) ** .5 * swell(t, 2.0)
+    return a * np.exp(-t * .3) * .8 + b * .4
+def bloom():       # soft expanding burst, e.g. a flare or a star appearing (noise swell, quick attack, long tail)
+    t = t_(1.5); return bp(noise(t), 300, 5000) * np.minimum(t / .06, 1) * np.exp(-t * 3.2)
+def starfall():    # descending shimmer of noise (falling meteor trail)
+    t = t_(1.2); n = noise(t); hi = bp(n, 3500, 9000) * np.exp(-t * 2.2); lo = bp(n, 800, 2600) * np.clip(t / .5, 0, 1) * np.exp(-t * 3)
+    return (hi * np.clip(1 - t / 1.2, 0, 1) + lo * .6) * np.minimum(t / .02, 1)
+def pulse():       # one soft rounded air pulse (distant signal), above 150 Hz
+    t = t_(0.5); return lp(bp(noise(t), 320, 1800), 1800) * np.minimum(t / .03, 1) * np.exp(-t * 9)
+def warp():        # fast rise then soft release (travelling between places)
+    t = t_(1.0); n = noise(t); up = bp(n, 700, 6000) * np.clip(t / .55, 0, 1) ** 2 * (t < .55)
+    dn = bp(n, 400, 3000) * np.exp(-(t - .55) * 7) * (t >= .55); return up + dn * .7
+def glimmer():     # very quiet cluster of soft high grains (light twinkle, ambient)
+    t = t_(1.0); out = np.zeros(len(t))
+    for _ in range(9):
+        st = int(rng.uniform(0, .8) * SR); k = int(rng.uniform(.006, .015) * SR)
+        b = bp(rng.standard_normal(k) * np.exp(-np.arange(k) / (k / 3)), 5500, 12000); out[st:st + k] += b[:len(out) - st] * rng.uniform(.3, .8)
+    return out
+COSMIC = dict(riser=riser, sparkle=sparkle, sweep=sweep, bloom=bloom, starfall=starfall, pulse=pulse, warp=warp, glimmer=glimmer)
+
 LIB = dict(swish=swish, hush=hush, tick=tick, crackle=crackle, bubble=bubble, wind=wind, bell=bell, click=click,
            creak=creak, drip=drip, thud=thud, chime=chime, rustle=rustle, pop=pop, pencil=pencil, page=page, cloth=cloth,
            woodblock=woodblock, sand=sand, rain=rain, splash=splash, step=step, breath=breath, stone=stone, flutter=flutter)
+LIB.update(COSMIC)
 ALIAS = {'shimmer': 'hush'}          # old name used by existing sidecars/plans
 VARIANTS = 3
 

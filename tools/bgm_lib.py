@@ -15,7 +15,14 @@ PROGS = [
     [[62, 65, 69, 72], [58, 62, 65, 69], [60, 64, 67, 72], [57, 64, 69, 72]],      # Dm Bb C Am
     [[57, 60, 64, 71], [65, 69, 72, 76], [60, 64, 67, 71], [55, 62, 67, 71]],      # Am9 Fmaj7 Cmaj7 G
 ]
+# cosmic style: open sus/add9 voicings, slower changes, wide detuned pad, slow high arpeggio (own composition)
+PROGS_COSMIC = [
+    [[57, 64, 71, 76], [53, 60, 67, 72], [55, 62, 69, 74], [52, 59, 66, 71]],      # Am9 Fmaj7 G6/9 Em9-ish
+    [[62, 69, 74, 76], [60, 67, 74, 79], [57, 64, 71, 76], [59, 66, 73, 78]],      # Dsus2 Csus2 Am9 B-ish
+    [[60, 67, 71, 76], [57, 64, 72, 76], [53, 60, 69, 72], [55, 62, 69, 74]],      # Cmaj9 Am add9 F6 G6/9
+]
 CHORD_S = 8.0
+CHORD_S_COSMIC = 12.0
 
 def _env(n, a, r):
     e = np.ones(n); na = int(a * SR); nr = int(r * SR)
@@ -23,7 +30,8 @@ def _env(n, a, r):
     e[:na] = np.linspace(0, 1, na) ** 2; e[n - nr:] = np.linspace(1, 0, nr) ** 2
     return e
 
-def synth(total, seed=5):
+def synth(total, seed=5, style='default'):
+    if style == 'cosmic': return synth_cosmic(total, seed)
     rng = np.random.default_rng(seed)
     nchord = int(total / CHORD_S) + 2
     n = int((nchord * CHORD_S + 14) * SR)
@@ -57,6 +65,43 @@ def synth(total, seed=5):
         out.append(ch[:int(total * SR)])
     return np.stack(out, 1)
 
+def synth_cosmic(total, seed=5):
+    rng = np.random.default_rng(seed); CS = CHORD_S_COSMIC
+    nchord = int(total / CS) + 2
+    n = int((nchord * CS + 18) * SR); L = np.zeros(n); R = np.zeros(n)
+    order = []
+    while len(order) < nchord:
+        p = int(rng.integers(len(PROGS_COSMIC)))
+        if order and p == order[-1][0]: continue
+        for k in range(4): order.append((p, k))
+    order = order[:nchord]
+    for ci, (pi, k) in enumerate(order):
+        chord = PROGS_COSMIC[pi][k]; t0 = int(ci * CS * SR); dl = int((CS + 5.0) * SR)
+        tt = np.arange(dl) / SR; env = _env(dl, 4.0, 5.0)
+        for mi, m in enumerate(chord):
+            for det, pan in ((-0.004, .6), (0.0, 0.0), (0.004, -.6)):          # three detuned voices -> wide, shimmering pad
+                f = hz(m) * (1 + det + rng.uniform(-.0006, .0006))
+                sw = 1 + .35 * np.sin(2 * np.pi * (.05 + .02 * mi) * tt + mi * 1.7)
+                x = (np.sin(2 * np.pi * f * tt) + .35 * np.sin(2 * np.pi * 2 * f * tt) * sw + .12 * np.sin(2 * np.pi * 3 * f * tt)) * env * .045
+                L[t0:t0 + dl] += x * (1 - pan) * .5 * 2; R[t0:t0 + dl] += x * (1 + pan) * .5 * 2
+        # slow high arpeggio: one note every 1.5 s (+- jitter), octave above the chord, long soft decay
+        for b_ in range(int(CS / 1.5)):
+            if rng.random() < .7:
+                m = int(chord[b_ % len(chord)]) + 12
+                st = max(0, t0 + int((b_ * 1.5 + rng.uniform(-.05, .1)) * SR)); dd = int(4.0 * SR); t2 = np.arange(dd) / SR
+                f = hz(m); x = (np.sin(2 * np.pi * f * t2) + .2 * np.sin(2 * np.pi * 2 * f * t2) * np.exp(-t2 * 4)) * np.exp(-t2 * 1.1) * np.minimum(t2 / .02, 1) * .03
+                pan = rng.uniform(-.7, .7); L[st:st + dd] += x * (1 - pan); R[st:st + dd] += x * (1 + pan)
+        # tiny echo of the pad: gentle delayed copy (poor man's reverb) added after the loop
+    for ch in (L, R):
+        d1 = int(.43 * SR); d2 = int(.81 * SR)
+        ch[d1:] += ch[:-d1] * .32; ch[d2:] += ch[:-d2] * .2
+    out = []
+    for ch in (L, R):
+        ch = sosfilt(butter(2, 250, 'hp', fs=SR, output='sos'), ch)
+        ch = sosfilt(butter(2, 6500, 'lp', fs=SR, output='sos'), ch)
+        out.append(ch[:int(total * SR)])
+    return np.stack(out, 1)
+
 def narration_envelope(files_starts, total, hop=0.05):
     """returns (rms per hop frame (linear), mask of speech) from narration files placed at start times"""
     nf = int(total / hop) + 2; rms = np.zeros(nf)
@@ -79,8 +124,8 @@ def duck_gain(rms, hop=0.05, close_s=0.6, up_db=4.0, atk=0.25, rel=1.2):
         c = hop / (atk if v < cur else rel); cur += (v - cur) * min(c, 1.0); g[i] = cur
     return g, sp2
 
-def make_bgm(path_wav, total, files_starts, below_db=13.0, seed=5):
-    x = synth(total, seed)
+def make_bgm(path_wav, total, files_starts, below_db=13.0, seed=5, style='default'):
+    x = synth(total, seed, style)
     rms = narration_envelope(files_starts, total)
     g, sp = duck_gain(rms)
     hop = 0.05; tt = np.arange(len(x)) / SR

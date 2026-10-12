@@ -39,3 +39,8 @@ Check: with the saved TTS wavs, steps 2-3 reproduce `render/never-eat-human-meat
 ## Palettes (2026-10-10)
 - `palettes.py`: 10 topic palettes (ocean, forest, desert, ice, lab, history, space, storm, body, sunset). New video: set `PAL_DEFAULT` and optionally `PAL = {art_theme: palette}` in `config.py`, chosen from what the script is about (max 3 palettes per video). `build3.py PLAN=1` writes the chosen colours into every plan.json unit (`pal`) and the transition wash uses the scene's palette. Without `PAL_DEFAULT` the old purple/peach look (palette `sunset`) is used and PLAN=1 prints a warning.
 - Picture agents must use only `pal` colours (see art_spec_v3.md). Existing videos (`epomis-frog-hunter-v2`, `never-eat-human-meat-v4`) were drawn with the old colours and are NOT changed.
+
+## 우주 모드 (2026-10-12)
+- `config.py`: `STYLE = 'cosmic'`, `PAL_DEFAULT = 'nebula'|'aurora'|'deepfield'|'solar'`. 그림은 `art_spec_cosmic.md`를 `art_spec_v3/v2/v4`와 함께 에이전트에게 준다.
+- 효과음 8종 추가(`sfx_lib.COSMIC`), 배경음악은 `STYLE='cosmic'`이면 `bgm_lib.synth_cosmic`(코드 변경 12초, 3중 디튠 패드, 느린 고음 아르페지오, 지연 에코, 저역통과 6.5kHz).
+- 확인: 합성과 주파수 분석만(150Hz 미만 에너지 비율 0.001 안팎). 실제 렌더·소리 판단은 안 함.

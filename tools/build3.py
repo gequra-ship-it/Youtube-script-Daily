@@ -424,7 +424,7 @@ for c in cues:
 BGM_REPORT = None
 if os.environ.get('NOBGM') != '1':
     import bgm_lib
-    BGM_REPORT = bgm_lib.make_bgm(f'{B}/bgm.wav', TOTAL, [(f'{B}/n{i:02d}.wav', starts[i]) for i in SEL], below_db=float(os.environ.get('BGM_BELOW', '13')))
+    BGM_REPORT = bgm_lib.make_bgm(f'{B}/bgm.wav', TOTAL, [(f'{B}/n{i:02d}.wav', starts[i]) for i in SEL], below_db=float(os.environ.get('BGM_BELOW', '13')), style=getattr(CFG, 'STYLE', 'default'))
     run('ffmpeg', '-y', '-v', 'error', '-i', f'{B}/bgm.wav', '-c:a', 'aac', '-b:a', '96k', f'{OUT}/bgm.m4a')
     audio.append(('bgm.m4a', 0.0, TOTAL, 20, 1))
     print('bgm', {k: round(v, 1) for k, v in BGM_REPORT.items()})
