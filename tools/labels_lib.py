@@ -43,6 +43,21 @@ def spoken_numbers(text):
             out.add(f'{v}.5')
         if k + 1 < len(words) and words[k + 1] == 'hundred' and v < 10: out.add(str(v * 100))
         out.add(str(v))
+    # scale words: "eleven thousand" -> 11000, "two hundred thousand" -> 200000, "a million" / "one million" -> 1000000
+    for k, w in enumerate(words):
+        if w not in ('thousand', 'million'): continue
+        mult = 1000 if w == 'thousand' else 1000000
+        j = k - 1; base = None
+        if j >= 0 and words[j] == 'hundred':
+            h = SMALL.get(words[j - 1]) if j >= 1 else None
+            base = (h or 1) * 100
+        elif j >= 0:
+            v = SMALL.get(words[j], TENS.get(words[j]))
+            if v is not None and j >= 1 and words[j - 1] in TENS and words[j] in SMALL: v += TENS[words[j - 1]]
+            if v is None and words[j] in ('a', 'one'): v = 1
+            base = v
+        if base is not None: out.add(str(base * mult))
+    out |= {x + '000' for x in re.findall(r'(\d+)(?:,\d{3})?\s+thousand', t)}
     if re.search(r'\bhalf\b', t): out.add('0.5')
     return out
 
