@@ -37,11 +37,23 @@ def get_unprocessed_top_video():
             video_id = item["id"]["videoId"]
             video_title = item["snippet"]["title"]
             
+            # 💡 [핵심 수정] 우주/과학 영상만 골라내는 엄격한 필터링 로직
+            allowed_keywords = ['우주', '지구', '태양', '행성', '블랙홀', '양자', '과학', '외계', '은하', '물리', '상대성', '차원', '빛', '빅뱅', '다중우주', '달', '별', '중력', '우주선', 'NASA', '나사', '엔트로피', '타임머신', '시간', '입자', '광속', '우주인']
+            excluded_keywords = ['영화', '마블', '어벤져스', '결말', '스포', '리뷰', '예고편', '쿠키', '드라마', '애니', '스파이더맨', '배트맨', '아이언맨', 'DC', 'MCU', '해석', '디즈니', '넷플릭스', '극장']
+            
+            # 1. 영화/애니메이션 관련 키워드가 제목에 하나라도 있으면 즉시 건너뜀
+            if any(ext_kw in video_title.upper() for ext_kw in excluded_keywords):
+                continue
+                
+            # 2. 우주/과학 관련 키워드가 제목에 단 하나라도 있어야만 통과
+            if not any(allow_kw in video_title for allow_kw in allowed_keywords):
+                continue
+
             if video_id not in processed_videos:
-                print(f"✅ 새로운 타겟 영상 발견: {video_title}", flush=True)
+                print(f"✅ 우주/과학 타겟 영상 발견: {video_title}", flush=True)
                 return video_title, video_id
                 
-        print("⚠️ 상위 50개 영상을 모두 처리했습니다!", flush=True)
+        print("⚠️ 상위 50개 영상 중 조건(우주/과학)에 맞는 새로운 영상을 찾지 못했습니다!", flush=True)
         return None, None
         
     except Exception as e:
@@ -192,7 +204,6 @@ if __name__ == "__main__":
     if title and video_id:
         transcript_chunks = get_video_transcript(video_id)
         
-        # 💡 [핵심 수정 부분] 자막이 없더라도 포기하지 않고 '제목'을 재료로 1부작 대본을 만듭니다!
         if not transcript_chunks:
             transcript_chunks = [None] 
             
