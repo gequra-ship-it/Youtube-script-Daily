@@ -120,16 +120,15 @@ def starfall():    # descending shimmer of noise (falling meteor trail)
     return (hi * np.clip(1 - t / 1.2, 0, 1) + lo * .6) * np.minimum(t / .02, 1)
 def pulse():       # one soft rounded air pulse (distant signal), above 150 Hz
     t = t_(0.5); return lp(bp(noise(t), 320, 1800), 1800) * np.minimum(t / .03, 1) * np.exp(-t * 9)
-def warp():        # fast rise then soft release (travelling between places)
-    t = t_(1.0); n = noise(t); up = bp(n, 700, 6000) * np.clip(t / .55, 0, 1) ** 2 * (t < .55)
-    dn = bp(n, 400, 3000) * np.exp(-(t - .55) * 7) * (t >= .55); return up + dn * .7
+def warp():        # very short sharp air flick (no slow swell -> not wave-like)
+    t = t_(0.28); return bp(noise(t), 1500, 7000) * np.minimum(t / .008, 1) * np.exp(-t * 16)
 def glimmer():     # very quiet cluster of soft high grains (light twinkle, ambient)
     t = t_(1.0); out = np.zeros(len(t))
     for _ in range(9):
         st = int(rng.uniform(0, .8) * SR); k = int(rng.uniform(.006, .015) * SR)
         b = bp(rng.standard_normal(k) * np.exp(-np.arange(k) / (k / 3)), 5500, 12000); out[st:st + k] += b[:len(out) - st] * rng.uniform(.3, .8)
     return out
-COSMIC = dict(riser=riser, sparkle=sparkle, sweep=sweep, bloom=bloom, starfall=starfall, pulse=pulse, warp=warp, glimmer=glimmer)
+COSMIC = dict(sparkle=sparkle, bloom=bloom, starfall=starfall, pulse=pulse, warp=warp, glimmer=glimmer)   # riser/sweep removed 2026-10-12: slow noise swells sounded like waves
 
 LIB = dict(swish=swish, hush=hush, tick=tick, crackle=crackle, bubble=bubble, wind=wind, bell=bell, click=click,
            creak=creak, drip=drip, thud=thud, chime=chime, rustle=rustle, pop=pop, pencil=pencil, page=page, cloth=cloth,
