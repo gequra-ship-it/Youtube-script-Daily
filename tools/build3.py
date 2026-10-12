@@ -358,6 +358,8 @@ for k, c in enumerate(caps):
 # ---------- sound cues ----------
 cues = []   # dict(name, t, vol, pri)
 TRSND = {'zoom': ('swish', -0.85, 0.9), 'slide': ('swish', -0.6, 0.6), 'match': ('hush', -0.7, 0.8), 'wash': ('rustle', -0.5, 0.7)}
+if getattr(CFG, 'STYLE', 'default') == 'cosmic':   # cosmic videos: no swish/hush (guideline 3-7)
+    TRSND = {'zoom': ('warp', -0.45, 0.8), 'slide': ('warp', -0.35, 0.5), 'match': ('glimmer', -0.5, 0.7), 'wash': ('sparkle', -0.4, 0.6)}
 focus_cam = {}; label_t = []
 for u in units:
     nn = u['n']
@@ -461,7 +463,9 @@ ORG = f'{CX}px {CY}px'
 MV = {'flame': ('pulse', .30), 'lamp': ('pulse', .5), 'lantern': ('pulse', .55), 'beacon': ('pulse', .7), 'glint': ('pulse', .6),
       'spark': ('pulse', .25), 'smoke': ('drift', 1.6), 'steam': ('drift', 1.3), 'stink': ('drift', 1.1), 'cells': ('drift', 1.8),
       'antenna': ('sway', .35), 'breathe': ('breathe', 2.2), 'nod': ('nod', 1.8), 'lean': ('lean', 3.0), 'arm': ('arm', 1.4),
-      'walk': ('walk', 3.5), 'hand': ('hand', 1.0), 'rain': ('drift', .9), 'bell': ('swing', .8), 'knot': ('swing', 1.2), 'key': ('drift', .8)}
+      'walk': ('walk', 3.5), 'hand': ('hand', 1.0), 'rain': ('drift', .9), 'bell': ('swing', .8), 'knot': ('swing', 1.2), 'key': ('drift', .8),
+      # cosmic mode (guideline 3-7)
+      'drift-nebula': ('nebula', 10.0), 'orbit': ('orbit', 24.0), 'pulse': ('glow', 1.6)}
 import pivots   # shoulder/wrist pivots for arm and hand groups (arms used to swing off the body)
 PIV = pivots.compute(sorted({art_path(u)[0] for u in units if u['kind'] != 'chalk'}), W, H, cache=f'{B}/pivots.json')
 for k, u in enumerate(units):
@@ -513,6 +517,7 @@ for k, u in enumerate(units):
     sp = t1 - v0 + 0.2
     for nm in re.findall(r'class="[^"]*\bmv (mv-[A-Za-z0-9-]+)', svg):
         kind, per = MV.get(nm[3:], MV.get(nm[3:].split('-')[0], ('pulse', .5))); kk = cnt.get(nm, 0); cnt[nm] = kk + 1
+        if re.match(r'mv-glint-s\d', nm): kind, per = 'twinkle', {'1': 1.6, '2': 2.1, '3': 2.7}.get(nm[10:11], 2.0)   # cosmic star tiers (3-7)
         g = f'gsap.utils.toArray("#w{nn} .{nm}")[{kk}]'
         per = per * (1 + 0.13 * (kk % 3)); rep = int(math.ceil(sp / per)) - 1
         ease = f'ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false'
@@ -531,6 +536,11 @@ for k, u in enumerate(units):
             pb = 0.5; rb = int(math.ceil(sp / pb)) - 1
             js.append(f'tl.fromTo({g},{{x:-60}},{{x:60,duration:{per:.3f},{ease}}},{v0:.3f});')
             js.append(f'tl.fromTo({g},{{y:0}},{{y:-9,duration:{pb},ease:"sine.inOut",yoyo:true,repeat:{rb},immediateRender:false}},{v0:.3f});')
+        elif kind == 'twinkle': js.append(f'tl.fromTo({g},{{opacity:1}},{{opacity:.35,duration:{per:.3f},{ease}}},{v0:.3f});')
+        elif kind == 'nebula': js.append(f'tl.fromTo({g},{{x:-25}},{{x:25,duration:{per:.3f},{ease}}},{v0:.3f});')
+        elif kind == 'glow': js.append(f'tl.fromTo({g},{{scale:1,opacity:.85,transformOrigin:"50% 50%"}},{{scale:1.06,opacity:1,duration:{per:.3f},{ease}}},{v0:.3f});')
+        elif kind == 'orbit':   # one-way turn around the group's centre (the group holds an invisible full orbit circle so its centre is the orbit centre)
+            js.append(f'tl.fromTo({g},{{rotation:0,transformOrigin:"50% 50%"}},{{rotation:{360 * sp / per:.1f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});')
         elif kind == 'sway': js.append(f'tl.fromTo({g},{{rotation:-7,transformOrigin:"50% 100%"}},{{rotation:7,duration:{per:.3f},{ease}}},{v0:.3f});')
         else: js.append(f'tl.fromTo({g},{{rotation:-5,transformOrigin:"50% 0%"}},{{rotation:5,duration:{per:.3f},{ease}}},{v0:.3f});')
 for (nn, ty, lid, gid, tt) in label_t:          # on-screen text pops in when its words are spoken (guideline 3-6)
