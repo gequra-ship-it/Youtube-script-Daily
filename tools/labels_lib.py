@@ -38,7 +38,9 @@ def spoken_numbers(text):
         if w in TENS and k + 1 < len(words) and words[k + 1] in SMALL and 0 < SMALL[words[k + 1]] < 10:
             out.add(str(v + SMALL[words[k + 1]]))
         if k + 2 < len(words) and words[k + 1] == 'point' and words[k + 2] in SMALL and SMALL[words[k + 2]] < 10:
-            out.add(f'{v}.{SMALL[words[k + 2]]}')
+            ds = ''; j = k + 2
+            while j < len(words) and words[j] in SMALL and SMALL[words[j]] < 10:
+                ds += str(SMALL[words[j]]); out.add(f'{v}.{ds}'); j += 1      # "one point six five" -> 1.6 and 1.65
         if k + 3 < len(words) and words[k + 1:k + 4] == ['and', 'a', 'half']:
             out.add(f'{v}.5')
         if k + 1 < len(words) and words[k + 1] == 'hundred' and v < 10: out.add(str(v * 100))
@@ -57,6 +59,15 @@ def spoken_numbers(text):
             if v is None and words[j] in ('a', 'one'): v = 1
             base = v
         if base is not None: out.add(str(base * mult))
+    # "a hundred and seventy" / "two hundred and five" -> 170 / 205
+    for k, w in enumerate(words):
+        if w != 'hundred' or k + 2 >= len(words) or words[k + 1] != 'and': continue
+        h = SMALL.get(words[k - 1]) if k >= 1 else None
+        h = h if h else 1
+        rest = TENS.get(words[k + 2], SMALL.get(words[k + 2]))
+        if rest is None: continue
+        if words[k + 2] in TENS and k + 3 < len(words) and words[k + 3] in SMALL and 0 < SMALL[words[k + 3]] < 10: rest += SMALL[words[k + 3]]
+        out.add(str(h * 100 + rest))
     out |= {x + '000' for x in re.findall(r'(\d+)(?:,\d{3})?\s+thousand', t)}
     if re.search(r'\bhalf\b', t): out.add('0.5')
     return out

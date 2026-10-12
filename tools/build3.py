@@ -43,7 +43,8 @@ TOTAL = round(starts[SEL[-1]] + D[SEL[-1] - 1] + TAIL, 3)
 def sentences(text):
     out = []
     for piece in re.split(r'(?<=[.?!])\s+', text.strip()):
-        if out and re.search(r'(?:^|\s)(?:[A-Z][a-z]*|[A-Z]\.)\s[A-Z]\.$', out[-1]):   # a middle initial ("George W. Bush", "H. W.") is not a sentence end; "vitamin A." is
+        if out and (re.search(r'(?:^|\s)(?:[A-Z][a-z]*|[A-Z]\.)\s[A-Z]\.$', out[-1])
+                    or (re.search(r'(?:^|\s)[A-Z]\.$', out[-1]) and re.match(r'[A-Z]\.(?:\s|$)', piece))):   # "C. M. Kosemen   # a middle initial ("George W. Bush", "H. W.") is not a sentence end; "vitamin A." is
             out[-1] += ' ' + piece
         else:
             out.append(piece)
