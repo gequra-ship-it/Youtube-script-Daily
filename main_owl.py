@@ -99,59 +99,94 @@ def fetch_gemini_response(api_key, prompt, return_dict):
         return_dict['status'] = 'ERROR'
         return_dict['text'] = str(e)
 
+def count_narration_words(script_text):
+    """[1부] TTS 입력용 전문의 영어 단어 수를 센다."""
+    try:
+        start = script_text.index("=== 1부")
+        body = script_text[start:].split("\n", 1)[1]
+        end = body.find("\n=== ")
+        if end != -1:
+            body = body[:end]
+        return len(body.split())
+    except (ValueError, IndexError):
+        return None
+
+def log_word_count(script_text, low, high):
+    words = count_narration_words(script_text)
+    if words is None:
+        print("⚠️ [1부] 구분선을 찾지 못했습니다. 출력 양식이 지침서와 다를 수 있습니다.", flush=True)
+    elif low and words < low:
+        print(f"⚠️ [1부] 영어 단어 수 {words}개: 목표 하한 {low}단어보다 짧습니다.", flush=True)
+    elif high and words > high:
+        print(f"⚠️ [1부] 영어 단어 수 {words}개: 목표 상한 {high}단어를 넘었습니다.", flush=True)
+    else:
+        print(f"📊 [1부] 영어 단어 수 {words}개 (Kokoro 약 163단어/분 기준 약 {words/163:.1f}분)", flush=True)
+
 def create_ai_studio_script(youtube_title, transcript_text, part_num, total_parts):
-    print(f"🤖 제미나이 20분 분량 대본 기획 시작... (시리즈 Part {part_num}/{total_parts})", flush=True)
+    print(f"🤖 제미나이 영어 내레이션 대본 기획 시작... (시리즈 Part {part_num}/{total_parts})", flush=True)
     if not GEMINI_API_KEY:
         return None
         
     if total_parts > 1:
         if part_num < total_parts:
-            connection_instruction = "이 대본은 내용이 방대하여 여러 편으로 나눈 시리즈 중 하나야. 대본의 마지막 장면(Scene)은 다음 편(Part)을 안 보고는 못 배기도록 아주 극적이고 긴장감 넘치는 클리프행어(To be continued...)로 끊어줘."
+            connection_instruction = "이 대본은 내용이 방대하여 여러 편으로 나눈 시리즈 중 하나야. [1부]의 마지막 문단은 다음 편(Part)을 안 보고는 못 배기도록 극적이고 긴장감 넘치는 클리프행어로 끊어줘. 이 편에서는 규칙 5의 결말(현대 일상 복귀, 구독 요청)을 쓰지 말고, 이 편에 없는 내용을 미리 풀지도 마."
         else:
-            connection_instruction = "이 대본은 시리즈의 마지막 편(Part)이야. 이전 편의 분위기를 자연스럽게 이어받고, 마지막에는 모든 궁금증을 폭발적으로 해소하며 웅장하게 마무리해."
+            connection_instruction = "이 대본은 시리즈의 마지막 편(Part)이야. 이전 편의 분위기를 자연스럽게 이어받고, 마지막에는 모든 궁금증을 해소하며 규칙 5의 결말(현대 일상 복귀, 구독 요청)로 웅장하게 마무리해."
     else:
-        connection_instruction = "이 대본은 단일 영상으로 끝나는 20분짜리 대본이야. 기승전결이 완벽하게 마무리되도록 해줘."
+        connection_instruction = "이 대본은 단일 영상으로 끝나는 대본이야. 기승전결이 완벽하게 마무리되도록 해줘."
 
     if transcript_text:
         source_material = f"""
 [원본 영상 제목]: "{youtube_title}" (전체 시리즈 중 Part {part_num}/{total_parts})
-[원본 영상 실제 대본 내용 (이 내용을 완벽히 분석해서 우리만의 20분 대본으로 길게 재창조할 것)]:
+[원본 영상 실제 대본 내용 (이 내용에 있는 사실만 근거로 삼아 우리만의 영어 내레이션으로 재구성할 것)]:
 {transcript_text}
 """
     else:
         source_material = f"""
 [원본 영상 제목]: "{youtube_title}"
-(원본 자막을 구할 수 없습니다. 제목의 핵심 주제를 바탕으로 20분 분량의 지식 대본을 스스로 창작해 주세요.)
+(원본 자막을 구할 수 없습니다. 제목의 핵심 주제를 바탕으로 쓰되, 확실히 아는 일반 지식만 사용하고 구체적인 숫자·연도·인명·연구는 지어내지 마세요. 확신이 없는 내용은 B등급(가설 표현)으로만 쓰세요.)
 """
 
     prompt = f"""
-너는 '글로벌 지식 전달'에 특화된 100만 구독자 해외 유튜버야.
-사용자가 이 대본을 바탕으로 **20분 길이(영어 단어 수 기준 최소 2,600단어 ~ 3,000단어)의 극적으로 몰입감 넘치는 지식 롱폼 영상**을 만들 예정이야.
+너는 'Miya's Lab' 채널의 영어 내레이션 작가야. 글로벌 시청자에게 우주·과학 지식을 몰입감 있게 전달하는 롱폼 영상의 **영어 내레이션 대본**을 쓴다. 이 대본은 그대로 TTS 음성과 그림 영상으로 만들어질 예정이야.
 
 {source_material}
 
-[작성 규칙 - 매우 중요! 절대 어기지 마!]:
-1. **분량 강제 (가장 중요)**: 전체 [영어 TTS]의 단어 수를 모두 합쳤을 때 **무조건 2,600단어 이상**이 되어야 해! 내용을 요약하지 말고, 최대한 디테일을 살려 길게 풀어써.
-2. **영화 내용 완전 삭제 (필터링)**: 원본 내용 중 '영화(Movie)', '시네마', '마블', '특정 영화 제목이나 영화 속 설정'과 관련된 언급, 비유, 예시가 단 한 줄이라도 있다면 대본에서 **100% 완전히 삭제해!!** 오직 '실제 과학적/역사적/미스터리적 사실과 지식'에만 집중해서 대본을 완벽히 재구성해.
-3. **과장과 극적 연출 허용**: 거짓말을 지어내면 안 되지만, 시청자가 미친 듯이 몰입해서 볼 수 있도록 사실을 바탕으로 한 아주 흥미진진한 묘사, 소름 돋는 연출, 약간 과장된 수사법(Dramatize)을 팍팍 섞어줘. 유튜브 시청자의 호기심을 극도로 자극해야 해.
-4. **시리즈 연결**: {connection_instruction}
-5. 장면(Scene) 수: 20분 분량을 꽉 채우기 위해 **최소 45개에서 55개의 장면(Scene)**으로 구성해.
-6. 각 장면의 대사량: 하나의 [영어 TTS] 블록 안에는 성우가 20초~30초간 쉴 새 없이 읽을 수 있도록 **최소 5문장~8문장 이상(약 60~100단어)**의 아주 풍부한 영어 대사를 작성해. 대충 한두 줄로 넘어가면 안 돼.
-7. 타임라인(시간 표시) 금지. [장면 1], [장면 2] 형식으로 번호만 매겨.
-8. [시각 자료]와 [한글 시각자료 내용 번역]은 반드시 **한국어(Korean)**로 작성.
-9. [영어 자막]과 [영어 TTS]는 반드시 원어민 수준의 자연스러운 **영어(English)**로 작성. (절대 한국어 섞지 말 것).
-10. [영어 자막]은 화면 정중앙에 띄울 짧은 핵심 영어 문장 1개.
+[작성 규칙 - 지침서 기준, 절대 어기지 마!]:
+1. **언어**: 영상에 들리고 보이는 것은 전부 영어야. [1부]는 영어 내레이션만 쓰고 한글, 이모지, 괄호 연출 메모, 타임코드, 장면 번호를 절대 넣지 마(TTS에 그대로 붙여 넣을 글이야). 원본이 한국어·일본어여도 자연스러운 영어로 옮겨 써. 숫자·단위·날짜는 영어 표기(예: "2.461 billion years ago", "380,000 km").
+2. **분량**: 이 영상은 우주·과학 주제(지침서의 우주 모드)라서 **분량 상·하한을 두지 않아.** 아래 원본 구간의 내용을 빠짐없이, 줄이거나 부풀리지 말고 그 길이대로 영어 내레이션으로 옮겨. (단 원본에 없는 내용을 늘리려고 지어내지는 마.)
+3. **문단 = 장면 하나**: [1부]는 문단마다 빈 줄로 구분해. 한 문단은 대본의 의미 단위 하나이고, 성우가 7초 안에 읽을 수 있게 **문장 하나(길어도 약 19단어 이하), 짧은 문장이면 두 개까지**만 써. 문장은 짧게(평균 15단어 안팎), 평서문과 의문문을 섞어.
+4. **말투**: 한 사람에게 이야기하듯 따뜻하고 공손한 대화체. 시청자를 "you"로 부르고 축약형(it's, don't)을 써도 돼. 수사 의문문은 영상 전체에서 8~18개.
+5. **구성**: ① 처음 60초 훅은 일상적인 감각("Take a look at your fingernails.") / 의외의 숫자나 사실 / 뒤집기 / 핵심 질문 / 출발 선언 중에서 골라 시작해. ② 본문은 구체적인 장면 묘사로 열고, 원리를 설명하고, 일상 비유를 들어. ③ 도입과 결말에 현대인의 일상 장면을 넣어. ④ 결말은 시청자의 현재로 돌아와 감성적으로 정리하고, 마지막에 주제에 맞는 은유로 구독을 부탁해. 채널은 "Miya's Lab" 또는 "this lab"이라고 부르고(철자 그대로), '서재(library)'라는 표현과 원본 채널 이름은 절대 쓰지 마.
+6. **사실 확인 (지어내기 금지)**: 존재하지 않는 사례·연구·숫자·인용·인물을 절대 만들지 마. 자극적으로 만드는 방법은 오직 '사실의 배열'(가장 놀라운 확인된 사실을 앞에, 반전은 확인된 사실로, 질문과 긴장감 있는 문장)이야. 모든 사실 주장을 아래 등급으로 나눠서 처리해:
+   - A: 아래 원본에 사실로 적혀 있는 내용 → 단정해서 써.
+   - B: 원본이 가설·추정·"의심된다"로 말한 내용, 또는 원본에는 없고 네 배경지식으로만 아는 내용 → "scientists suspect…", "one hypothesis is…"처럼 가설임을 밝혀서만 써. 구체적인 숫자·연도·인명·논문은 쓰지 마.
+   - C: 근거를 모르는 주장 → 쓰지 마. 모른다는 사실 자체가 확실할 때만 "No one knows for sure" 같은 미스터리 훅으로 바꿔.
+   - D: 원본이나 확실한 지식과 모순되는 틀린 주장 → 반드시 고쳐서 써.
+   등급이 애매하면 한 단계 보수적으로(A가 아니라 B로) 처리해. 너는 인터넷 검색을 할 수 없으니 네가 직접 확인했다고 말하지 마.
+7. **영화 내용 완전 삭제**: 원본에 '영화(movie)', '시네마', '마블', 특정 영화 제목이나 영화 속 설정에 대한 언급·비유·예시가 있으면 **한 줄도 남기지 말고 삭제**하고, 실제 과학적·역사적 사실과 지식만으로 재구성해.
+8. **몰입감 (사실 범위 안에서)**: 사실을 바꾸거나 지어내지 않는 선에서, 확인된 사실을 긴장감 있게 배열하고 소름 돋는 묘사와 호기심을 자극하는 질문을 써. 숫자·사례를 과장하거나 만들어내는 것은 금지야.
+9. **시리즈 연결**: {connection_instruction}
 
-[출력 양식 예시]:
-[영상 제목]: The Secret of the Black Hole / 블랙홀의 비밀 (Part 1/2)
+[출력 양식 - 이 구조와 구분선을 정확히 지켜]:
+[영상 제목]: <영어 Title Case, 70자 이하, 이모지 없음, 전부 대문자 금지, 영상에 없는 내용을 약속하지 않기> (Part {part_num}/{total_parts})
 
-[장면 1]
-- 시각 자료: 거대한 블랙홀이 별을 집어삼키는 3D 그래픽 화면
-- 영어 자막: The Monster in the Dark
-- 영어 TTS: Did you know that there are monsters lurking in the darkness of space? Today, we are diving into the ultimate mystery: Black Holes. These cosmic giants possess gravitational pulls so strong that not even light can escape their grasp. Imagine a vacuum cleaner large enough to swallow entire star systems whole, leaving absolutely nothing behind. We will explore how they form, where they hide, and what would happen if you were to fall into one.
-- 한글 번역: 우주의 어둠 속에 괴물이 숨어있다는 사실을 아시나요? 오늘 우리는 궁극의 미스터리, 블랙홀로 빠져들어 봅니다. 이 우주의 거인들은 빛조차 빠져나갈 수 없을 정도로 강력한 중력을 가지고 있습니다. 별의 무리를 통째로 집어삼키고 아무것도 남기지 않는 거대한 진공청소기를 상상해 보세요. 우리는 이것들이 어떻게 형성되는지, 어디에 숨어 있는지, 그리고 만약 당신이 그 안으로 떨어진다면 어떤 일이 벌어질지 알아볼 것입니다.
+=== 1부: TTS 입력용 전문 ===
+<영어 내레이션 문단들, 문단 사이 빈 줄>
 
-위 예시처럼 [영어 TTS] 부분의 분량을 길고 꽉 차게 작성해서, [장면 45] 이상까지 기승전결이 완벽한 2,600단어 이상의 롱폼 대본을 끝까지 출력해줘.
+=== 2부: 사실 확인 표 (한국어) ===
+| 항목 | 원문(또는 요지) | 등급(A~D) | 처리·근거 |
+|---|---|---|---|
+<대본에 쓴 주요 사실 주장을 전부 한 줄씩. B등급·D등급 처리를 반영한 항목은 처리 칸에 표시>
+
+=== 3부: 숏츠 대본 2편 ===
+[숏츠 1] 제목: <영어, Title Case>
+<영어 내레이션 약 150단어(140~160단어). 1부와 겹치지 않는 구간에서 가장 흥미로운 부분을 골라, 질문이나 의외의 사실로 시작해 첫 2초 안에 훅을 던지고, 마지막 한 줄은 본편을 보게 만드는 문장. 1부에 있는 사실만 사용>
+
+[숏츠 2] 제목: <영어, Title Case, 숏츠 1과 소재·훅이 겹치지 않게>
+<같은 규칙의 영어 내레이션 약 150단어>
+
+위 구조로 [1부]를 중간에 끊거나 요약하지 말고 끝까지 출력해줘. 2부와 3부까지 빠짐없이 출력해.
 """
     
     max_retries = 5
@@ -177,7 +212,8 @@ def create_ai_studio_script(youtube_title, transcript_text, part_num, total_part
             text = return_dict.get('text')
             
             if status == 'SUCCESS':
-                print(f"✅ 20분 분량(2,600단어 이상) 대본 생성 성공! (Part {part_num}/{total_parts})", flush=True)
+                print(f"✅ 대본 생성 성공! (Part {part_num}/{total_parts})", flush=True)
+                log_word_count(text, None, None)
                 return text
             else:
                 error_msg_lower = text.lower()

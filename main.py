@@ -84,48 +84,83 @@ def fetch_gemini_response(api_key, prompt, return_dict):
         return_dict['status'] = 'ERROR'
         return_dict['text'] = str(e)
 
+def count_narration_words(script_text):
+    """[1부] TTS 입력용 전문의 영어 단어 수를 센다."""
+    try:
+        start = script_text.index("=== 1부")
+        body = script_text[start:].split("\n", 1)[1]
+        end = body.find("\n=== ")
+        if end != -1:
+            body = body[:end]
+        return len(body.split())
+    except (ValueError, IndexError):
+        return None
+
+def log_word_count(script_text, low, high):
+    words = count_narration_words(script_text)
+    if words is None:
+        print("⚠️ [1부] 구분선을 찾지 못했습니다. 출력 양식이 지침서와 다를 수 있습니다.", flush=True)
+    elif low and words < low:
+        print(f"⚠️ [1부] 영어 단어 수 {words}개: 목표 하한 {low}단어보다 짧습니다.", flush=True)
+    elif high and words > high:
+        print(f"⚠️ [1부] 영어 단어 수 {words}개: 목표 상한 {high}단어를 넘었습니다.", flush=True)
+    else:
+        print(f"📊 [1부] 영어 단어 수 {words}개 (Kokoro 약 163단어/분 기준 약 {words/163:.1f}분)", flush=True)
+
 def create_ai_studio_script(youtube_title, transcript_text):
-    print("🤖 제미나이 20분 분량 대본 기획 시작...", flush=True)
+    print("🤖 제미나이 영어 내레이션 대본 기획 시작...", flush=True)
     if not GEMINI_API_KEY:
         return None
         
     if transcript_text:
         source_material = f"""
 [원본 영상 제목]: "{youtube_title}"
-[원본 영상 실제 대본 내용 (이 내용을 완벽히 분석해서 우리만의 20분 대본으로 뼈대에 살을 붙여 길게 재창조할 것)]:
+[원본 영상 실제 대본 내용 (이 내용에 있는 사실만 근거로 삼아 우리만의 영어 내레이션으로 재구성할 것)]:
 {transcript_text}
 """
     else:
         source_material = f"""
 [원본 영상 제목]: "{youtube_title}"
-(원본 자막을 구할 수 없습니다. 제목의 핵심 주제를 바탕으로 20분 분량의 깊이 있는 내용을 스스로 길게 창작해 주세요.)
+(원본 자막을 구할 수 없습니다. 제목의 핵심 주제를 바탕으로 쓰되, 확실히 아는 일반 지식만 사용하고 구체적인 숫자·연도·인명·연구는 지어내지 마세요. 확신이 없는 내용은 B등급(가설 표현)으로만 쓰세요.)
 """
 
     prompt = f"""
-너는 '글로벌 지식 전달'에 특화된 100만 구독자 해외 유튜버야.
-사용자가 이 대본을 바탕으로 **20분 길이(영어 단어 수 기준 최소 2,600단어 ~ 3,000단어)의 아주 깊이 있는 지식 롱폼 영상**을 만들 예정이야.
+너는 'Miya's Lab' 채널의 영어 내레이션 작가야. 글로벌 시청자에게 지식을 차분하고 깊이 있게 전달하는 롱폼 영상의 **영어 내레이션 대본**을 쓴다. 이 대본은 그대로 TTS 음성과 그림 영상으로 만들어질 예정이야.
 
 {source_material}
 
-[작성 규칙 - 매우 중요! 절대 어기지 마!]:
-1. **분량 강제 (가장 중요)**: 전체 [영어 TTS]의 단어 수를 모두 합쳤을 때 **무조건 2,600단어 이상**이 되어야 해! 내용을 요약하거나 건너뛰지 말고, 원본 자막의 모든 디테일과 예시를 살려서 최대한 길고 상세하게 풀어써.
-2. 장면(Scene) 수: 20분 분량을 꽉 채우기 위해 **최소 45개에서 55개의 장면(Scene)**으로 쪼개어 구성해.
-3. 각 장면의 대사량: 하나의 [영어 TTS] 블록 안에는 성우가 20초~30초간 쉴 새 없이 읽을 수 있도록 **최소 5문장~8문장 이상(약 60~100단어)**의 아주 풍부한 영어 대사를 작성해. 대충 한두 줄로 넘어가면 절대 안 돼.
-4. 타임라인(시간 표시)은 금지. [장면 1], [장면 2] 형식으로 번호만 매겨.
-5. [시각 자료]와 [한글 시각자료 내용 번역]은 반드시 **한국어(Korean)**로 작성.
-6. [영어 자막]과 [영어 TTS]는 반드시 원어민 수준의 자연스러운 **영어(English)**로 작성. (절대 한국어 섞지 말 것).
-7. [영어 자막]은 화면 정중앙에 띄울 짧은 핵심 영어 문장 1개.
+[작성 규칙 - 지침서 기준, 절대 어기지 마!]:
+1. **언어**: 영상에 들리고 보이는 것은 전부 영어야. [1부]는 영어 내레이션만 쓰고 한글, 이모지, 괄호 연출 메모, 타임코드, 장면 번호를 절대 넣지 마(TTS에 그대로 붙여 넣을 글이야). 원본이 한국어·일본어여도 자연스러운 영어로 옮겨 써. 숫자·단위·날짜는 영어 표기(예: "2.461 billion years ago", "380,000 km").
+2. **분량**: [1부] 영어 단어 수는 **약 3,100단어(허용 2,900~3,300단어)**로 맞춰. (Kokoro TTS가 분당 약 163단어로 읽으므로 영상 약 18~21분이 돼.) 2,900단어에 못 미치면 구체적인 장면 묘사, 원리 설명, 일상 비유, **원본에 있는 사례**로 보강하고, 3,300단어를 넘으면 반복과 곁가지를 덜어내. 원본 자막이 있으면 원본의 디테일과 예시를 최대한 살려.
+3. **문단 = 장면 하나**: [1부]는 문단마다 빈 줄로 구분해. 한 문단은 대본의 의미 단위 하나이고, 성우가 7초 안에 읽을 수 있게 **문장 하나(길어도 약 19단어 이하), 짧은 문장이면 두 개까지**만 써. 문장은 짧게(평균 15단어 안팎), 평서문과 의문문을 섞어.
+4. **말투**: 한 사람에게 이야기하듯 따뜻하고 공손한 대화체. 시청자를 "you"로 부르고 축약형(it's, don't)을 써도 돼. 수사 의문문은 영상 전체에서 8~18개.
+5. **구성**: ① 처음 60초 훅은 일상적인 감각("Take a look at your fingernails.") / 의외의 숫자나 사실 / 뒤집기 / 핵심 질문 / 출발 선언 중에서 골라 시작해. ② 본문은 구체적인 장면 묘사로 열고, 원리를 설명하고, 일상 비유를 들어. ③ 도입과 결말에 현대인의 일상 장면을 넣어. ④ 결말은 시청자의 현재로 돌아와 감성적으로 정리하고, 마지막에 주제에 맞는 은유로 구독을 부탁해. 채널은 "Miya's Lab" 또는 "this lab"이라고 부르고(철자 그대로), '서재(library)'라는 표현과 원본 채널 이름은 절대 쓰지 마.
+6. **사실 확인 (지어내기 금지)**: 존재하지 않는 사례·연구·숫자·인용·인물을 절대 만들지 마. 자극적으로 만드는 방법은 오직 '사실의 배열'(가장 놀라운 확인된 사실을 앞에, 반전은 확인된 사실로, 질문과 긴장감 있는 문장)이야. 모든 사실 주장을 아래 등급으로 나눠서 처리해:
+   - A: 아래 원본에 사실로 적혀 있는 내용 → 단정해서 써.
+   - B: 원본이 가설·추정·"의심된다"로 말한 내용, 또는 원본에는 없고 네 배경지식으로만 아는 내용 → "scientists suspect…", "one hypothesis is…"처럼 가설임을 밝혀서만 써. 구체적인 숫자·연도·인명·논문은 쓰지 마.
+   - C: 근거를 모르는 주장 → 쓰지 마. 모른다는 사실 자체가 확실할 때만 "No one knows for sure" 같은 미스터리 훅으로 바꿔.
+   - D: 원본이나 확실한 지식과 모순되는 틀린 주장 → 반드시 고쳐서 써.
+   등급이 애매하면 한 단계 보수적으로(A가 아니라 B로) 처리해. 너는 인터넷 검색을 할 수 없으니 네가 직접 확인했다고 말하지 마.
 
-[출력 양식 예시]:
-[영상 제목]: The Secret of the Black Hole / 블랙홀의 비밀
+[출력 양식 - 이 구조와 구분선을 정확히 지켜]:
+[영상 제목]: <영어 Title Case, 70자 이하, 이모지 없음, 전부 대문자 금지, 영상에 없는 내용을 약속하지 않기>
 
-[장면 1]
-- 시각 자료: 거대한 블랙홀이 별을 집어삼키는 3D 그래픽 화면
-- 영어 자막: The Monster in the Dark
-- 영어 TTS: Did you know that there are monsters lurking in the darkness of space? Today, we are diving into the ultimate mystery: Black Holes. These cosmic giants possess gravitational pulls so strong that not even light can escape their grasp. Imagine a vacuum cleaner large enough to swallow entire star systems whole, leaving absolutely nothing behind. We will explore how they form, where they hide, and what would happen if you were to fall into one.
-- 한글 번역: 우주의 어둠 속에 괴물이 숨어있다는 사실을 아시나요? 오늘 우리는 궁극의 미스터리, 블랙홀로 빠져들어 봅니다. 이 우주의 거인들은 빛조차 빠져나갈 수 없을 정도로 강력한 중력을 가지고 있습니다. 별의 무리를 통째로 집어삼키고 아무것도 남기지 않는 거대한 진공청소기를 상상해 보세요. 우리는 이것들이 어떻게 형성되는지, 어디에 숨어 있는지, 그리고 만약 당신이 그 안으로 떨어진다면 어떤 일이 벌어질지 알아볼 것입니다.
+=== 1부: TTS 입력용 전문 ===
+<영어 내레이션 문단들, 문단 사이 빈 줄>
 
-위 예시처럼 [영어 TTS] 부분의 분량을 길고 꽉 차게 작성해서, [장면 45] 이상까지 기승전결이 완벽한 2,600단어 이상의 롱폼 대본을 끝까지 출력해줘. 중간에 끊거나 요약하지 마.
+=== 2부: 사실 확인 표 (한국어) ===
+| 항목 | 원문(또는 요지) | 등급(A~D) | 처리·근거 |
+|---|---|---|---|
+<대본에 쓴 주요 사실 주장을 전부 한 줄씩. B등급·D등급 처리를 반영한 항목은 처리 칸에 표시>
+
+=== 3부: 숏츠 대본 2편 ===
+[숏츠 1] 제목: <영어, Title Case>
+<영어 내레이션 약 150단어(140~160단어). 1부와 겹치지 않는 구간에서 가장 흥미로운 부분을 골라, 질문이나 의외의 사실로 시작해 첫 2초 안에 훅을 던지고, 마지막 한 줄은 본편을 보게 만드는 문장. 1부에 있는 사실만 사용>
+
+[숏츠 2] 제목: <영어, Title Case, 숏츠 1과 소재·훅이 겹치지 않게>
+<같은 규칙의 영어 내레이션 약 150단어>
+
+위 구조로 [1부]를 중간에 끊거나 요약하지 말고 끝까지 출력해줘. 2부와 3부까지 빠짐없이 출력해.
 """
     
     max_retries = 5
@@ -153,7 +188,8 @@ def create_ai_studio_script(youtube_title, transcript_text):
             text = return_dict.get('text')
             
             if status == 'SUCCESS':
-                print("✅ 20분 분량(2,600단어 이상) 대본 생성 성공!", flush=True)
+                print("✅ 대본 생성 성공!", flush=True)
+                log_word_count(text, 2900, 3300)
                 return text
             else:
                 # 💡 제미나이 API 한도 초과 감지 기능 추가
