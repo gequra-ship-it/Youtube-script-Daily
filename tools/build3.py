@@ -458,9 +458,10 @@ else:
     print('audio premix', len(audio), 'pieces -> mix.m4a, peak', round(20 * math.log10(max(peak, 1e-9)), 1), 'dBFS')
 
 # ---------- timeline ----------
-js = ['<script>const tl=gsap.timeline({paused:true});']
+import motions  # centre-object motions (guideline 4-1)
+js = ['<script>' + motions.WRAP_JS + f'miyaWrapCores({CX},{CY});const tl=gsap.timeline({{paused:true}});']
 ORG = f'{CX}px {CY}px'
-MV = {'flame': ('pulse', .30), 'lamp': ('pulse', .5), 'lantern': ('pulse', .55), 'beacon': ('pulse', .7), 'glint': ('pulse', .6),
+MV = {'flame': ('pulse', .30), 'lamp': ('glow', 1.2), 'lantern': ('glow', 1.3), 'beacon': ('glow', 1.5), 'glint': ('glow', 1.4),
       'spark': ('pulse', .25), 'smoke': ('drift', 1.6), 'steam': ('drift', 1.3), 'stink': ('drift', 1.1), 'cells': ('drift', 1.8),
       'antenna': ('sway', .35), 'breathe': ('breathe', 2.2), 'nod': ('nod', 1.8), 'lean': ('lean', 3.0), 'arm': ('arm', 1.4),
       'walk': ('walk', 3.5), 'hand': ('hand', 1.0), 'rain': ('drift', .9), 'bell': ('swing', .8), 'knot': ('swing', 1.2), 'key': ('drift', .8),
@@ -468,6 +469,7 @@ MV = {'flame': ('pulse', .30), 'lamp': ('pulse', .5), 'lantern': ('pulse', .55),
       'drift-nebula': ('nebula', 10.0), 'orbit': ('orbit', 24.0), 'pulse': ('glow', 1.6)}
 import pivots   # shoulder/wrist pivots for arm and hand groups (arms used to swing off the body)
 PIV = pivots.compute(sorted({art_path(u)[0] for u in units if u['kind'] != 'chalk'}), W, H, cache=f'{B}/pivots.json')
+CORE_USED = []   # centre-motion type per picture, in order (checked after the loop)
 for k, u in enumerate(units):
     nn = u['n']; t0, t1 = u['t0'], u['t1']; tr = u['tr']; T = f'#t{nn}'; Wq = f'#w{nn}'
     v0 = t0 - TIN[tr]
@@ -519,6 +521,10 @@ for k, u in enumerate(units):
         kind, per = MV.get(nm[3:], MV.get(nm[3:].split('-')[0], ('pulse', .5))); kk = cnt.get(nm, 0); cnt[nm] = kk + 1
         if re.match(r'mv-glint-s\d', nm): kind, per = 'twinkle', {'1': 1.6, '2': 2.1, '3': 2.7}.get(nm[10:11], 2.0)   # cosmic star tiers (3-7)
         g = f'gsap.utils.toArray("#w{nn} .{nm}")[{kk}]'
+        if nm == 'mv-glint-core' or nm.startswith('mv-core-'):    # the round centre object: one of 13 motions, never the same twice in a row
+            ct = nm[8:].split('-')[0] if nm.startswith('mv-core-') else motions.legacy_core_type(len(CORE_USED))
+            js.extend(motions.core_js(ct, g, t0, v0, sp)); CORE_USED.append(ct)
+            continue
         per = per * (1 + 0.13 * (kk % 3)); rep = int(math.ceil(sp / per)) - 1
         ease = f'ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false'
         if kind == 'pulse': js.append(f'tl.fromTo({g},{{scaleY:1,scaleX:1,transformOrigin:"50% 100%"}},{{scaleY:1.14,scaleX:.92,duration:{per:.3f},{ease}}},{v0:.3f});')
@@ -543,6 +549,13 @@ for k, u in enumerate(units):
             js.append(f'tl.fromTo({g},{{rotation:0,transformOrigin:"50% 50%"}},{{rotation:{360 * sp / per:.1f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});')
         elif kind == 'sway': js.append(f'tl.fromTo({g},{{rotation:-7,transformOrigin:"50% 100%"}},{{rotation:7,duration:{per:.3f},{ease}}},{v0:.3f});')
         else: js.append(f'tl.fromTo({g},{{rotation:-5,transformOrigin:"50% 0%"}},{{rotation:5,duration:{per:.3f},{ease}}},{v0:.3f});')
+if CORE_USED:
+    from collections import Counter
+    cc = Counter(CORE_USED); rep_pairs = sum(1 for a, b in zip(CORE_USED, CORE_USED[1:]) if a == b)
+    print('centre motions:', dict(cc), '| distinct', len(cc), '| same type twice in a row:', rep_pairs)
+    if len(cc) < min(10, len(CORE_USED)): print('WARNING: fewer than 10 centre-motion types used (guideline 4-1)')
+    if rep_pairs: print('WARNING: the same centre motion appears in consecutive pictures')
+    if max(cc.values()) > .2 * len(CORE_USED) + 1: print('WARNING: one centre motion is over 20% of the pictures')
 for (nn, ty, lid, gid, tt) in label_t:          # on-screen text pops in when its words are spoken (guideline 3-6)
     if ty == 'num':
         js.append(f'tl.fromTo("#{lid}",{{opacity:0,x:-30}},{{opacity:1,x:0,duration:.3,ease:"power2.out",immediateRender:false}},{tt:.3f});')

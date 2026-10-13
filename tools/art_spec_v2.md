@@ -38,7 +38,7 @@ Wrap moving parts as `<g id="mv-<type>-<unique>">...</g>`, each still correct wh
 - `mv-hand-*` hand/forearm, lifts 10 px, +-6 deg, 0.7 s.
 - `mv-walk-*` whole walking figure, drifts 120 px over 3.5 s; leave 60 px free each side.
 - `mv-flame` `mv-lamp` `mv-lantern` `mv-beacon` `mv-glint` `mv-spark` (pulse), `mv-smoke` `mv-steam` `mv-stink` `mv-cells` `mv-rain` `mv-key` (drift up), `mv-bell` `mv-knot` (swing), `mv-antenna` (sway).
-- Always make the CENTRE object a pulse group: `<g id="mv-glint-core">` around its glow (opacity pulse). Aim for 3-6 groups per scene spread left/centre/right; none over the bottom 200 px or top-right corner. If a figure group has a transform attribute, wrap it in an outer group first.
+- Always make the CENTRE object a motion group `<g id="mv-core-<type>">` (types in `tools/motions.py`: spin, sway, orbit, glide, heartbeat, flicker, swell, tremble, approach, reveal, squeeze, wobble, roll; choose by the object, not the same type as the neighbouring picture). `<g id="mv-glint-core">` still works and is auto-assigned a type. Aim for 3-6 groups per scene spread left/centre/right; none over the bottom 200 px or top-right corner. If a figure group has a transform attribute, wrap it in an outer group first.
 
 ## Self-check (required)
 Render each svg to PNG with Chromium via Playwright (python or node; PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers, do NOT run playwright install; node executablePath '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'), 1920x1080, save to the preview path, LOOK at it (Read). Check: centre object present and bright, no stray shapes, nothing cut off, style matches the reference (not the old flat thick-outline look). 1-2 fix passes per scene at most.

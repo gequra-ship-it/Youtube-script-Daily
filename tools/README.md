@@ -44,3 +44,7 @@ Check: with the saved TTS wavs, steps 2-3 reproduce `render/never-eat-human-meat
 - `config.py`: `STYLE = 'cosmic'`, `PAL_DEFAULT = 'nebula'|'aurora'|'deepfield'|'solar'`. 그림은 `art_spec_cosmic.md`를 `art_spec_v3/v2/v4`와 함께 에이전트에게 준다.
 - 효과음 6종 추가(`sfx_lib.COSMIC`, riser·sweep는 파도 소리 같다는 지적으로 삭제), 배경음악은 `STYLE='cosmic'`이면 `bgm_lib.synth_cosmic`(코드 변경 12초, 3중 디튠 패드, 느린 고음 아르페지오, 지연 에코, 저역통과 6.5kHz).
 - 확인: 합성과 주파수 분석만(150Hz 미만 에너지 비율 0.001 안팎). 실제 렌더·소리 판단은 안 함.
+
+## Centre-object motions (2026-10-13)
+- `motions.py`: 13 motion types for the round centre object (`mv-core-<type>`: spin, sway, orbit, glide, heartbeat, flicker, swell, tremble, approach, reveal, squeeze, wobble, roll). The old `mv-glint-core` is auto-assigned a type by rotation (neighbouring pictures never match). `build3.py` prints the types used and warns if fewer than 10 are used, the same type repeats in a row, or one type is over 20%. Light groups (`glint`, `lamp`, `lantern`, `beacon`) now pulse in place instead of stretching vertically. Tested in headless Chromium only (seek-safe, per-type change); not yet seen in a rendered MP4.
+- `restyle_motion.py`: re-styles the centre motion of an already built `render/<slug>/index.html` in place (no TTS, no pictures needed): `python3 tools/restyle_motion.py render/<slug> ...`. Idempotent. Tested on `whale-fall-short1` only (page loads, 13 centre motions replaced, pictures unchanged before the motion starts).
