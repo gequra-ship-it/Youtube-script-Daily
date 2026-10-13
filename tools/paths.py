@@ -1,0 +1,26 @@
+# Shared paths and scene loader for the Miya's Lab pipeline.
+import os, importlib.util
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ASSETS = REPO + '/tools/assets'
+SLUG = os.environ.get('SLUG', '')
+WORK = os.environ.get('MIYA_WORK', '/tmp/miya-work')
+
+
+def vdir(slug=None):
+    return f'{REPO}/videos/{slug or SLUG}'
+
+
+def wdir(slug=None):
+    p = f'{WORK}/{slug or SLUG}'; os.makedirs(p, exist_ok=True); return p
+
+
+def load_scenes(slug=None):
+    spec = importlib.util.spec_from_file_location('script', vdir(slug) + '/script.py')
+    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    return m.SCENES
+
+
+def load_config(slug=None):
+    spec = importlib.util.spec_from_file_location('config', vdir(slug) + '/config.py')
+    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    return m
