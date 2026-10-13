@@ -349,7 +349,13 @@ for u in units:
         if lerr: label_errors.append(f'{u["uid"]}: ' + '; '.join(lerr))
         lin, lout, litems = ('', '', []) if lerr else labels_lib.html_for(nn, sc0, BGMODE.get(th, 'paper'), palettes.PALETTES[palettes.for_theme(CFG, th)], W, H, VERT)
         label_items[nn] = litems
-        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p)}{lin}</div>{lout}</div>')
+        spot = ''
+        fz = sc0.get('focus')
+        if fz and sc0.get('spot', True):   # focus spotlight: the rest of the picture dims while the camera pushes in (guideline 4-1)
+            fx, fy, fs = float(fz[0]), float(fz[1]), max(float(fz[2]), 1.0)
+            spot = (f'<div class="spot" id="sp{nn}" style="position:absolute;left:0;top:0;width:{W}px;height:{H}px;pointer-events:none;opacity:0;'
+                    f'background:radial-gradient(circle at {fx:.0f}px {fy:.0f}px,rgba(0,0,0,0) {.30 * W / fs:.0f}px,rgba(0,0,0,.5) {.62 * W / fs:.0f}px)"></div>')
+        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p)}{spot}{lin}</div>{lout}</div>')
 if label_errors: raise SystemExit('on-screen text (labels) problems, fix the sidecars:\n  ' + '\n  '.join(label_errors))
 h.append('<div id="wash"></div><img id="grain" src="grain.png">' + ('' if VERT else '<img id="logo" src="logo.png">'))
 for k, c in enumerate(caps):
@@ -514,6 +520,7 @@ for k, u in enumerate(units):
         a, (fx, fy, s) = focus_cam[nn]
         cxm = min(max(fx, W / 2 / s), W - W / 2 / s); cym = min(max(fy, H / 2 / s), H - H / 2 / s)
         js.append(f'tl.to("{Wq}",{{scale:{s},x:{W / 2 - cxm * s:.1f},y:{H / 2 - cym * s:.1f},duration:1.4,ease:"power2.inOut"}},{a:.3f});')
+        js.append(f'if(document.getElementById("sp{nn}"))tl.fromTo("#sp{nn}",{{opacity:0}},{{opacity:1,duration:1.4,ease:"power2.inOut",immediateRender:false}},{a:.3f});')
     # --- motion groups (finite, seek-safe) ---
     p, fb = art_path(u); svg = load_svg(nn, p); cnt = {}
     sp = t1 - v0 + 0.2
@@ -523,7 +530,7 @@ for k, u in enumerate(units):
         g = f'gsap.utils.toArray("#w{nn} .{nm}")[{kk}]'
         if nm == 'mv-glint-core' or nm.startswith('mv-core-'):    # the round centre object: one of 13 motions, never the same twice in a row
             ct = nm[8:].split('-')[0] if nm.startswith('mv-core-') else motions.legacy_core_type(len(CORE_USED))
-            js.extend(motions.core_js(ct, g, t0, v0, sp)); CORE_USED.append(ct)
+            js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]')); CORE_USED.append(ct)
             continue
         per = per * (1 + 0.13 * (kk % 3)); rep = int(math.ceil(sp / per)) - 1
         ease = f'ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false'
@@ -559,6 +566,7 @@ if CORE_USED:
 for (nn, ty, lid, gid, tt) in label_t:          # on-screen text pops in when its words are spoken (guideline 3-6)
     if ty == 'num':
         js.append(f'tl.fromTo("#{lid}",{{opacity:0,x:-30}},{{opacity:1,x:0,duration:.3,ease:"power2.out",immediateRender:false}},{tt:.3f});')
+        js.append(labels_lib.count_js(lid, tt))      # the number counts up from 0 as the badge comes in (guideline 3-6)
         continue
     js.append(f'tl.fromTo("#{lid}s",{{opacity:0,scale:.6}},{{opacity:1,scale:1,duration:.25,ease:"back.out(2)",immediateRender:false}},{tt:.3f});')
     if gid: js.append(f'tl.set("#{gid}",{{opacity:1}},{tt:.3f});')

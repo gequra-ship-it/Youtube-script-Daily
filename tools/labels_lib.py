@@ -144,7 +144,7 @@ def html_for(n, sc, bgmode, pal, W, H, vert):
         ty = l['type']; tx = html.escape(str(l['text']).strip(), quote=False); lid = f'L{n}_{k}'
         if ty == 'num':
             pos = 'left:100px;top:330px' if vert else 'left:80px;top:64px'
-            outer.append(f'<div class="badge {cls}" id="{lid}" style="{pos};--ink:{ink};--acc:{acc}">{tx}</div>')
+            outer.append(f'<div class="badge {cls}" id="{lid}" style="{pos};--ink:{ink};--acc:{acc}">{count_span(tx)}</div>')
             items.append(('num', lid, None, l)); continue
         x, y = float(l['x']), float(l['y']); to = l.get('to')
         g = ''
@@ -162,3 +162,21 @@ def html_for(n, sc, bgmode, pal, W, H, vert):
         items.append((ty, lid, f'{lid}g' if g else None, l))
     if ov: inner.insert(0, f'<svg class="labov" width="{W}" height="{H}" viewBox="0 0 {W} {H}">{"".join(ov)}</svg>')
     return ''.join(inner), ''.join(outer), items
+
+
+# Count-up for number badges (guideline 3-6, 2026-10-13): the first number in the badge counts up from 0.
+# Years (four digits 1000-2100 without a comma) do not count, "0 to 1859" would read oddly.
+def count_span(tx):
+    m = re.search(r'\d[\d,]*(?:\.\d+)?', tx)
+    if not m: return tx
+    raw = m.group(0); v = float(raw.replace(',', ''))
+    if re.fullmatch(r'\d{4}', raw) and 1000 <= v <= 2100: return tx
+    dec = len(raw.split('.')[1]) if '.' in raw else 0
+    return (tx[:m.start()] + f'<span class="cnt" data-v="{v}" data-dec="{dec}" data-grp="{1 if "," in raw else 0}">{raw}</span>' + tx[m.end():])
+
+
+def count_js(lid, tt):
+    """Seek-safe count-up: tweens the span's innerText, formatted by a modifier (no callbacks)."""
+    return (f'(function(){{var c=document.querySelector("#{lid} .cnt");if(!c)return;var v=+c.dataset.v,d=+c.dataset.dec,gp=c.dataset.grp==="1";'
+            f'tl.fromTo(c,{{innerText:0}},{{innerText:v,duration:.9,ease:"power2.out",immediateRender:false,'
+            f'modifiers:{{innerText:function(x){{return (+x).toLocaleString("en-US",{{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:gp}});}}}}}},{tt:.3f});}})();')

@@ -48,7 +48,7 @@ def restyle(path):
             if cls == 'mv-glint-core':
                 t0 = v0 + TIN[entry_kind('\n'.join(block_of[n]))]
                 ct = motions.legacy_core_type(ordinal); ordinal += 1; n_core += 1
-                out.extend(motions.core_js(ct, g, t0, v0, sp)); continue
+                out.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{n} .mv-ring")[{kk}]')); continue
             if re.match(r'mv-(glint|lamp|lantern|beacon)', cls):
                 per = {'glint': 1.4, 'lamp': 1.2, 'lantern': 1.3, 'beacon': 1.5}[cls.split('-')[1]] * (1 + 0.13 * (kk % 3)); rep = int(math.ceil(sp / per)) - 1
                 out.append(f'tl.fromTo({g},{{scale:1,opacity:.85,transformOrigin:"50% 50%"}},{{scale:1.06,opacity:1,duration:{per:.3f},ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false}},{v0:.3f});')
