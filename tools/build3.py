@@ -8,7 +8,7 @@ import os, re, sys, json, html, shutil, subprocess, math, random
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 import numpy as np
-import palettes, labels_lib
+import palettes, labels_lib, caption_hl
 SCENES = load_scenes()
 CFG = load_config()
 B = wdir() + '/build'
@@ -241,10 +241,10 @@ for i in SEL:
     for (s, a, b) in model[i]:
         ls = split_lines(s); ch = [len(x) + 1 for x in ls]; tot = sum(ch); c = 0
         for k, ltxt in enumerate(ls):
-            sc.append([ltxt, s0 + a + (b - a) * c / tot]); c += ch[k]
+            sc.append([ltxt, s0 + a + (b - a) * c / tot, s0 + a + (b - a) * (c + ch[k]) / tot]); c += ch[k]
     for k, cp in enumerate(sc):
         end = sc[k + 1][1] if k + 1 < len(sc) else s0 + D[i - 1] + 0.25
-        caps.append({'text': cp[0], 't0': cp[1], 't1': end, 'scene': i})
+        caps.append({'text': cp[0], 't0': cp[1], 't1': end, 'sp1': min(cp[2], end), 'scene': i})
 prev = -1
 for c in caps:
     assert c['t0'] < c['t1'] - 0.3, ('short/reversed caption', c)
@@ -302,7 +302,8 @@ h = ['<!doctype html><html lang="en"><head><meta charset="UTF-8">', f'<meta name
 h.append('<script src="gsap.min.js"></script><style>')
 capcss = (".cap{position:absolute;left:0;width:%dpx;bottom:%dpx;display:flex;justify-content:center;opacity:0;z-index:1002}"
           ".cap span{font-family:Fredoka,sans-serif;font-weight:700;font-size:%dpx;line-height:%dpx;color:#fff;background:rgba(0,0,0,.62);border-radius:12px;padding:20px;%s}"
-          % ((W, 360, 60, 68, 'white-space:normal;max-width:900px;text-align:center') if VERT else (W, 60, 58, 54, 'white-space:nowrap')))
+          % ((W, 360, 60, 68, 'white-space:normal;max-width:900px;text-align:center') if VERT else (W, 60, 58, 54, 'white-space:nowrap'))
+          + caption_hl.CSS)
 h.append('''@font-face{font-family:Fredoka;src:url(Fredoka-700.woff2) format("woff2");font-weight:700}
 @font-face{font-family:Patrick;src:url(PatrickHand-400.woff2) format("woff2");font-weight:400}
 *{margin:0;padding:0;box-sizing:border-box}html,body{width:%dpx;height:%dpx;overflow:hidden;background:#000}
@@ -349,11 +350,17 @@ for u in units:
         if lerr: label_errors.append(f'{u["uid"]}: ' + '; '.join(lerr))
         lin, lout, litems = ('', '', []) if lerr else labels_lib.html_for(nn, sc0, BGMODE.get(th, 'paper'), palettes.PALETTES[palettes.for_theme(CFG, th)], W, H, VERT)
         label_items[nn] = litems
-        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p)}{lin}</div>{lout}</div>')
+        spot = ''
+        fz = sc0.get('focus')
+        if fz and sc0.get('spot', True):   # focus spotlight: the rest of the picture dims while the camera pushes in (guideline 4-1)
+            fx, fy, fs = float(fz[0]), float(fz[1]), max(float(fz[2]), 1.0)
+            spot = (f'<div class="spot" id="sp{nn}" style="position:absolute;left:0;top:0;width:{W}px;height:{H}px;pointer-events:none;opacity:0;'
+                    f'background:radial-gradient(circle at {fx:.0f}px {fy:.0f}px,rgba(0,0,0,0) {.30 * W / fs:.0f}px,rgba(0,0,0,.5) {.62 * W / fs:.0f}px)"></div>')
+        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p)}{spot}{lin}</div>{lout}</div>')
 if label_errors: raise SystemExit('on-screen text (labels) problems, fix the sidecars:\n  ' + '\n  '.join(label_errors))
 h.append('<div id="wash"></div><img id="grain" src="grain.png">' + ('' if VERT else '<img id="logo" src="logo.png">'))
 for k, c in enumerate(caps):
-    h.append(f'<div class="cap" id="c{k}"><span>{html.escape(c["text"], quote=False)}</span></div>')
+    h.append(f'<div class="cap" id="c{k}"><span>{caption_hl.words_html(k, c["text"])}</span></div>')   # one <i> per word for the highlight
 
 # ---------- sound cues ----------
 cues = []   # dict(name, t, vol, pri)
@@ -459,7 +466,7 @@ else:
 
 # ---------- timeline ----------
 import motions  # centre-object motions (guideline 4-1)
-js = ['<script>' + motions.WRAP_JS + f'miyaWrapCores({CX},{CY});const tl=gsap.timeline({{paused:true}});']
+js = ['<script>' + motions.WRAP_JS + motions.CHALK_FIT_JS + f'miyaWrapCores({CX},{CY});const tl=gsap.timeline({{paused:true}});']
 ORG = f'{CX}px {CY}px'
 MV = {'flame': ('pulse', .30), 'lamp': ('glow', 1.2), 'lantern': ('glow', 1.3), 'beacon': ('glow', 1.5), 'glint': ('glow', 1.4),
       'spark': ('pulse', .25), 'smoke': ('drift', 1.6), 'steam': ('drift', 1.3), 'stink': ('drift', 1.1), 'cells': ('drift', 1.8),
@@ -514,6 +521,7 @@ for k, u in enumerate(units):
         a, (fx, fy, s) = focus_cam[nn]
         cxm = min(max(fx, W / 2 / s), W - W / 2 / s); cym = min(max(fy, H / 2 / s), H - H / 2 / s)
         js.append(f'tl.to("{Wq}",{{scale:{s},x:{W / 2 - cxm * s:.1f},y:{H / 2 - cym * s:.1f},duration:1.4,ease:"power2.inOut"}},{a:.3f});')
+        js.append(f'if(document.getElementById("sp{nn}"))tl.fromTo("#sp{nn}",{{opacity:0}},{{opacity:1,duration:1.4,ease:"power2.inOut",immediateRender:false}},{a:.3f});')
     # --- motion groups (finite, seek-safe) ---
     p, fb = art_path(u); svg = load_svg(nn, p); cnt = {}
     sp = t1 - v0 + 0.2
@@ -523,7 +531,7 @@ for k, u in enumerate(units):
         g = f'gsap.utils.toArray("#w{nn} .{nm}")[{kk}]'
         if nm == 'mv-glint-core' or nm.startswith('mv-core-'):    # the round centre object: one of 13 motions, never the same twice in a row
             ct = nm[8:].split('-')[0] if nm.startswith('mv-core-') else motions.legacy_core_type(len(CORE_USED))
-            js.extend(motions.core_js(ct, g, t0, v0, sp)); CORE_USED.append(ct)
+            js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]')); CORE_USED.append(ct)
             continue
         per = per * (1 + 0.13 * (kk % 3)); rep = int(math.ceil(sp / per)) - 1
         ease = f'ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false'
@@ -559,6 +567,7 @@ if CORE_USED:
 for (nn, ty, lid, gid, tt) in label_t:          # on-screen text pops in when its words are spoken (guideline 3-6)
     if ty == 'num':
         js.append(f'tl.fromTo("#{lid}",{{opacity:0,x:-30}},{{opacity:1,x:0,duration:.3,ease:"power2.out",immediateRender:false}},{tt:.3f});')
+        js.append(labels_lib.count_js(lid, tt))      # the number counts up from 0 as the badge comes in (guideline 3-6)
         continue
     js.append(f'tl.fromTo("#{lid}s",{{opacity:0,scale:.6}},{{opacity:1,scale:1,duration:.25,ease:"back.out(2)",immediateRender:false}},{tt:.3f});')
     if gid: js.append(f'tl.set("#{gid}",{{opacity:1}},{tt:.3f});')
@@ -567,6 +576,7 @@ for (nn, ty, lid, gid, tt) in label_t:          # on-screen text pops in when it
         js.append(f'tl.fromTo("#{lid}",{{scale:1,transformOrigin:"0px 0px"}},{{scale:{1 / s:.4f},duration:1.4,ease:"power2.inOut",immediateRender:false}},{a:.3f});')
 for k, c in enumerate(caps):
     js.append(f'tl.set("#c{k}",{{opacity:1}},{c["t0"]:.3f});tl.set("#c{k}",{{opacity:0}},{c["t1"]:.3f});')
+    js.append(caption_hl.highlight_js(k, c['text'], c['t0'], c['sp1']))   # spoken word turns yellow (guideline 5)
 js.append('window.__timelines=window.__timelines||{};window.__timelines["main"]=tl;</script>')
 h.append('\n'.join(js)); h.append('</div></body></html>')
 open(f'{OUT}/index.html', 'w', encoding='utf-8').write('\n'.join(h))
