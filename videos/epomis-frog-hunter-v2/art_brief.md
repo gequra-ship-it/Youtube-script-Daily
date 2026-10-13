@@ -1,6 +1,6 @@
 # epomis-frog-hunter-v2 — art brief (shared by all picture agents)
 
-Read fully, in this order: `/home/claude/youtube-script-daily/tools/art_spec_v2.md`, `tools/art_spec_v3.md`, `tools/art_spec_v4_backdrop.md` (the backdrop variety rules apply to NEW pictures too: no concentric rings, no radiating lines/rays/sunbursts; every picture gets a backdrop that fits its own text; neighbouring units must not share a backdrop kind; at most 2 of every 12 units share a kind). Vertical Shorts agents also read `tools/art_spec_v3_vertical.md`.
+Read fully: `tools/art_spec.md` (section 5 backdrop rules: the backdrop variety rules apply to NEW pictures too: no concentric rings, no radiating lines/rays/sunbursts; every picture gets a backdrop that fits its own text; neighbouring units must not share a backdrop kind; at most 2 of every 12 units share a kind). Vertical Shorts agents also follow section 10 of `tools/art_spec.md`.
 
 Paths in those specs that mention `/home/claude/ht/videos/never-eat-human-meat-v3/` mean, for this video:
 - plan: `/home/claude/youtube-script-daily/videos/<SLUG>/plan.json` (use the entries for YOUR uids; `bg`, `text`, `prev`, `nxt`, `transition_in`, `dur`)
@@ -21,6 +21,6 @@ Epomis ground beetles (Israel lab study, 2011). The larva lures frogs/toads by w
 
 ## Notes
 - No text inside pictures (no letters, numbers, labels).
-- `focus` on 40-50 % of units; sfx on 35-45 % using ONLY the 25 library names in art_spec_v3.md (unpitched; vary — never the same name in two consecutive units).
+- `focus` on 40-50 % of units; sfx on 35-45 % using ONLY the 25 library names in art_spec.md section 8 (unpitched; vary — never the same name in two consecutive units).
 - Motion groups: frogs `mv-breathe-<name>`; larva antennae `mv-antenna-<name>` when the text is about the lure; glowing centre `mv-glint-core`. Ids unique inside each file.
 - Final answer: one line per uid: `uid | centre | backdrop kind | focus_word or - | sfx or -`, plus problems left.

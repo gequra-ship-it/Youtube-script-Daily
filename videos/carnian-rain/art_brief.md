@@ -1,6 +1,6 @@
 # carnian-rain — art brief (shared by all picture agents)
 
-Read fully, in this order: `/home/claude/youtube-script-daily/tools/art_spec_v2.md`, `tools/art_spec_v3.md`, `tools/art_spec_v4_backdrop.md` (the backdrop variety rules apply to NEW pictures too: no concentric rings, no radiating lines/rays/sunbursts; every picture gets a backdrop that fits its own text; neighbouring units must not share a backdrop kind; at most 2 of every 12 units share a kind). Vertical Shorts agents also read `tools/art_spec_v3_vertical.md`.
+Read fully: `tools/art_spec.md` (section 5 backdrop rules: the backdrop variety rules apply to NEW pictures too: no concentric rings, no radiating lines/rays/sunbursts; every picture gets a backdrop that fits its own text; neighbouring units must not share a backdrop kind; at most 2 of every 12 units share a kind). Vertical Shorts agents also follow section 10 of `tools/art_spec.md`.
 
 Paths in those specs that mention `/home/claude/ht/videos/never-eat-human-meat-v3/` mean, for this video:
 - plan: `/home/claude/youtube-script-daily/videos/<SLUG>/plan.json` (use the entries for YOUR uids; `bg`, `text`, `prev`, `nxt`, `transition_in`, `dur`)
@@ -27,8 +27,8 @@ The Carnian Pluvial Episode, about 234-232 million years ago (Late Triassic): su
 - **Maps**: Pangaea as one C-shaped supercontinent around the equator inside one ocean; no labels.
 
 ## Notes
-- Colours: every plan.json unit has `pal` (palette `desert` for dry lands, volcanoes and dinosaurs; `forest` for rain, rivers, plants and amber; `ocean` for the sea scenes). Use ONLY `pal` colours for backgrounds, lines, glows and `pal.accents` for main subjects (art_spec_v3.md). The colour codes above are natural colours; tint them to harmonise with `pal`.
+- Colours: every plan.json unit has `pal` (palette `desert` for dry lands, volcanoes and dinosaurs; `forest` for rain, rivers, plants and amber; `ocean` for the sea scenes). Use ONLY `pal` colours for backgrounds, lines, glows and `pal.accents` for main subjects (art_spec.md section 3). The colour codes above are natural colours; tint them to harmonise with `pal`.
 - No text inside pictures (no letters, numbers, labels; time scales as blank tick marks only).
-- `focus` on 40-50 % of units; sfx on 35-45 % using ONLY the 25 library names in art_spec_v3.md (unpitched; vary — never the same name in two consecutive units). Good fits: rain, drip, wind, thud, stone, sand, step, crackle, bubble, splash, page, pencil, rustle.
+- `focus` on 40-50 % of units; sfx on 35-45 % using ONLY the 25 library names in art_spec.md section 8 (unpitched; vary — never the same name in two consecutive units). Good fits: rain, drip, wind, thud, stone, sand, step, crackle, bubble, splash, page, pencil, rustle.
 - Motion groups: animals and people `mv-breathe-<name>`, heads `mv-nod-<name>`, tails/legs `mv-arm-<name>`, rain/bubbles/gas `mv-cells-<name>` or `mv-rain-<name>`, plants `mv-lean-<name>`, lava glow `mv-flame-<name>`, glowing centre `mv-glint-core`. Ids unique inside each file.
 - Final answer: one line per uid: `uid | centre | backdrop kind | focus_word or - | sfx or -`, plus problems left.

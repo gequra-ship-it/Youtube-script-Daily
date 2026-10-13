@@ -1,6 +1,6 @@
 # paleozoic-chronicles — art brief (shared by all picture agents)
 
-Read fully, in this order: `/home/claude/youtube-script-daily/tools/art_spec_v2.md`, `tools/art_spec_v3.md`, `tools/art_spec_v4_backdrop.md` (the backdrop variety rules apply to NEW pictures too: no concentric rings, no radiating lines/rays/sunbursts; every picture gets a backdrop that fits its own text; neighbouring units must not share a backdrop kind; at most 2 of every 12 units share a kind). Vertical Shorts agents also read `tools/art_spec_v3_vertical.md`.
+Read fully: `tools/art_spec.md` (section 5 backdrop rules: the backdrop variety rules apply to NEW pictures too: no concentric rings, no radiating lines/rays/sunbursts; every picture gets a backdrop that fits its own text; neighbouring units must not share a backdrop kind; at most 2 of every 12 units share a kind). Vertical Shorts agents also follow section 10 of `tools/art_spec.md`.
 
 Paths in those specs that mention `/home/claude/ht/videos/never-eat-human-meat-v3/` mean, for this video:
 - plan: `/home/claude/youtube-script-daily/videos/<SLUG>/plan.json` (use the entries for YOUR uids; `bg`, `pal`, `text`, `prev`, `nxt`, `transition_in`, `dur`)
@@ -36,9 +36,9 @@ The Paleozoic Era, about 539 to 252 million years ago: Cambrian Explosion and th
 - **Maps**: Pangaea as one large C-shaped supercontinent in one ocean; Gondwana over the South Pole with ice; no labels.
 
 ## Notes
-- Colours: every plan.json unit has `pal` (`ocean` for Paleozoic seas, `forest` for land plants, coal forests and giant arthropods, `desert` for Permian Pangaea, the Great Dying and the opening/closing scenes). Use ONLY `pal` colours for backgrounds, lines, glows and `pal.accents` for main subjects (art_spec_v3.md). Natural colours above are guides; tint them to harmonise with `pal`.
+- Colours: every plan.json unit has `pal` (`ocean` for Paleozoic seas, `forest` for land plants, coal forests and giant arthropods, `desert` for Permian Pangaea, the Great Dying and the opening/closing scenes). Use ONLY `pal` colours for backgrounds, lines, glows and `pal.accents` for main subjects (art_spec.md section 3). Natural colours above are guides; tint them to harmonise with `pal`.
 - No text inside pictures (no letters, numbers, labels; time scales as blank tick marks only).
 - Death and extinction shown with symbols and mood (empty shells, fading reef, drifting gas), never gore.
-- `focus` on 40-50 % of units; sfx on 35-45 % using ONLY the 25 library names in art_spec_v3.md (unpitched; vary — never the same name in two consecutive units). Good fits: bubble, splash, drip, wind, sand, stone, thud, rustle, crackle, flutter, step, page, pencil.
+- `focus` on 40-50 % of units; sfx on 35-45 % using ONLY the 25 library names in art_spec.md section 8 (unpitched; vary — never the same name in two consecutive units). Good fits: bubble, splash, drip, wind, sand, stone, thud, rustle, crackle, flutter, step, page, pencil.
 - Motion groups: animals and people `mv-breathe-<name>`, heads `mv-nod-<name>`, tails/legs/claws `mv-arm-<name>`, bubbles/gas/spores `mv-cells-<name>`, plants `mv-lean-<name>`, lava glow `mv-flame-<name>`, glowing centre `mv-glint-core`. Ids unique inside each file.
 - Final answer: one line per uid: `uid | centre | backdrop kind | focus_word or - | sfx or -`, plus problems left.
