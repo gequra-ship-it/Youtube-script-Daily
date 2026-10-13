@@ -24,7 +24,13 @@
 - 병합 결과 `main`에는 `docs/`·`tools/`(약 5MB)가 추가되고 `render/`·`videos/`는 들어가지 않는다. `render-pipeline`에는 `main.py`·`main_owl.py`·`schedule_owl.yml`·`scripts/`·`scripts_owl/`가 추가된다(렌더와 무관, 크기 작음).
 - 시험 병합(작업 브랜치 → `render-pipeline`, 푸시 안 함): 충돌 0건, `render/.slug`와 `render.yml`은 바뀌지 않음(병합 푸시로 렌더가 새로 시작되지 않음).
 
-**실행 결과**: (예약 실행 후 채움)
+**실행 결과** (2026-10-13 14:07~14:20 UTC, 예약 실행)
+- 사전 조건: 재렌더 #50~#57이 모두 성공으로 끝난 뒤 실행(마지막 cosmic-prison #50이 13:56 UTC 완료). `render-pipeline`의 `docs/`·`tools/`가 작업 브랜치 `ec1b430`과 같음을 확인.
+- `render-pipeline`: 병합 커밋 `b71dd1e`(이전 `4b46670`). 충돌 3건(`docs/miyas-lab-guideline.md`, `tools/README.md`, `tools/art_spec.md`, 모두 양쪽 추가 AA)은 작업 브랜치 쪽을 택함. 옛 명세 5개(`art_spec_v2/v3/v3_vertical/v4_backdrop/cosmic.md`)는 git 기준으로 이 브랜치만 추가한 파일이라 병합 후에도 남아서 따로 삭제. `render/.slug`·`render.yml`은 바뀌지 않음.
+- 옛 명세 이름을 고친 영상별 문서 11개: `videos/carnian-rain`, `cosmic-prison`, `desert-oasis`, `dinosaur-restorations`, `epomis-frog-hunter-v2`, `left-handed-ten-percent`, `never-eat-human-meat-v4`, `paleozoic-chronicles`, `ribeiroia-monster-frogs`, `stolen-time`, `whale-fall`의 `art_brief.md`. 다른 세션의 절대 경로(`/home/claude/youtube-script-daily/tools/...`)도 레포 기준 경로로 바꿈.
+- `main`: 작업 브랜치로 빨리 감기(`e8d7dd3` → `5e99cf4`). 들어간 것은 `docs/`·`tools/`(약 5MB)와 `main.py`·`main_owl.py` 프롬프트 변경. `render/`·`videos/`는 들어가지 않음. 매일 대본 생성(예약 실행)은 다음 실행부터 새 프롬프트를 쓴다.
+- 재렌더 결과(같은 날 실행 #50~#57, 13종 기준 #42~#49는 중단): 8개 주제 모두 성공, Drive의 MP4 24개(롱폼 8, 숏츠 16)가 12:42~13:56 UTC에 같은 파일로 덮어써짐(파일 ID·생성일 유지). `Video & Thumbnail` 루트에는 분류 폴더 2개(`Space & Science`, `Life & History`)뿐이라 엉뚱한 새 폴더는 생기지 않음.
+- 작업 브랜치 `claude/epic-ritchie-0mujsz` 원격 삭제: **실패**. `git push origin --delete`가 두 번 모두 "the remote end hung up unexpectedly"로 끝났다(지침서 15-5 오류 대응에 적힌 것과 같은 증상). 브랜치 내용은 `main`(`5e99cf4`)과 `render-pipeline`(`b71dd1e`)에 모두 들어 있어 지워도 잃는 것이 없다. 사용자가 GitHub에서 직접 지운다(저장소 → Branches → 휴지통 아이콘).
 
 ### 2. 그림 명세 6개 → `tools/art_spec.md` 하나
 
