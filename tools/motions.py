@@ -121,3 +121,27 @@ function miyaWrapCores(cx,cy){
 function miyaStroked(g){return Array.prototype.filter.call(g.querySelectorAll('*'),function(e){return e.__len>0;});}
 function miyaFilled(g){return Array.prototype.filter.call(g.querySelectorAll('path,line,polyline,polygon,circle,ellipse,rect'),function(e){return !(e.__len>0);});}
 """
+
+# Chalkboard fit (guideline 7, 2026-10-13): long card values such as "sail-backed giant" wrapped to two lines and spilled
+# out of the 140 px card. At page load every value is kept on one line and shrunk until it fits its 560 px column, the
+# small left/right notes shrink until they fit the card height, and the title stays clear of the logo. Runs again when
+# the fonts have loaded (the first pass may measure with the fallback font).
+CHALK_FIT_JS = """
+function miyaFitChalk(){
+ document.querySelectorAll('.chalk').forEach(function(c){
+  var t=c.closest('.t'),pt=t?t.style.display:'',pv=t?t.style.visibility:'',pc=c.style.display;
+  if(t){t.style.display='block';t.style.visibility='hidden';} c.style.display='block';
+  c.querySelectorAll('.row .v').forEach(function(v){v.style.fontSize='';v.style.whiteSpace='nowrap';
+   var fs=parseFloat(getComputedStyle(v).fontSize);while(v.scrollWidth>v.clientWidth+1&&fs>28){fs-=2;v.style.fontSize=fs+'px';}});
+  c.querySelectorAll('.row .l,.row .n').forEach(function(e){e.style.fontSize='';e.style.lineHeight='';
+   var fs=parseFloat(getComputedStyle(e).fontSize);while(e.scrollHeight>118&&fs>14){fs-=1;e.style.fontSize=fs+'px';e.style.lineHeight='1.12';}});
+  var ct=c.querySelector('.ct');if(ct){ct.style.fontSize='';ct.style.whiteSpace='nowrap';
+   var fs=parseFloat(getComputedStyle(ct).fontSize);while(ct.getBoundingClientRect().right>1640&&fs>36){fs-=2;ct.style.fontSize=fs+'px';}}
+  var cc=c.querySelector('.cc');if(cc){cc.style.fontSize='';cc.style.whiteSpace='nowrap';
+   var rg=document.createRange();rg.selectNodeContents(cc);   // the box is 1920 px wide, so measure the text itself
+   var fs=parseFloat(getComputedStyle(cc).fontSize);while(rg.getBoundingClientRect().width>1700&&fs>22){fs-=2;cc.style.fontSize=fs+'px';}}
+  c.style.display=pc; if(t){t.style.display=pt;t.style.visibility=pv;}
+ });
+}
+miyaFitChalk(); if(document.fonts&&document.fonts.ready)document.fonts.ready.then(miyaFitChalk);
+"""
