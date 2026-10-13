@@ -458,7 +458,8 @@ else:
     print('audio premix', len(audio), 'pieces -> mix.m4a, peak', round(20 * math.log10(max(peak, 1e-9)), 1), 'dBFS')
 
 # ---------- timeline ----------
-js = ['<script>const tl=gsap.timeline({paused:true});']
+import motions  # centre-object motions (guideline 4-1)
+js = ['<script>' + motions.WRAP_JS + f'miyaWrapCores({CX},{CY});const tl=gsap.timeline({{paused:true}});']
 ORG = f'{CX}px {CY}px'
 MV = {'flame': ('pulse', .30), 'lamp': ('glow', 1.2), 'lantern': ('glow', 1.3), 'beacon': ('glow', 1.5), 'glint': ('glow', 1.4),
       'spark': ('pulse', .25), 'smoke': ('drift', 1.6), 'steam': ('drift', 1.3), 'stink': ('drift', 1.1), 'cells': ('drift', 1.8),
@@ -466,7 +467,6 @@ MV = {'flame': ('pulse', .30), 'lamp': ('glow', 1.2), 'lantern': ('glow', 1.3), 
       'walk': ('walk', 3.5), 'hand': ('hand', 1.0), 'rain': ('drift', .9), 'bell': ('swing', .8), 'knot': ('swing', 1.2), 'key': ('drift', .8),
       # cosmic mode (guideline 3-7)
       'drift-nebula': ('nebula', 10.0), 'orbit': ('orbit', 24.0), 'pulse': ('glow', 1.6)}
-import motions  # centre-object motions: 13 types (guideline 4-1)
 import pivots   # shoulder/wrist pivots for arm and hand groups (arms used to swing off the body)
 PIV = pivots.compute(sorted({art_path(u)[0] for u in units if u['kind'] != 'chalk'}), W, H, cache=f'{B}/pivots.json')
 CORE_USED = []   # centre-motion type per picture, in order (checked after the loop)
