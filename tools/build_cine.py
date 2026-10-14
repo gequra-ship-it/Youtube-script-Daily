@@ -2,7 +2,7 @@
 #   videos/<slug>/cine.json            chapters (stage / cuts), shots (scene type + params), beats per unit (tools/cine_spec.md)
 #   <work>/build/build_data.json       unit and caption times, chalk pop times (from: SLUG=x CINE=1 python3 tools/build3.py)
 #   render/<slug>/mix.m4a              the mixed narration + music + SFX (same command)
-# usage: SLUG=x [VERT=1] [SEL=1,2] python3 tools/build_cine.py      (SEL = the same partial selection as the CINE build)
+# usage: SLUG=x [VERT=1] [SEL=1,2] [CINE_JSON=f] python3 tools/build_cine.py [out dir]   (SEL = the same selection as the CINE build)
 # Chalkboard scenes become data cards over a slow star field. Shorts: VERT=1 (1080x1920).
 import os, re, sys, json, glob, shutil, colorsys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -14,7 +14,7 @@ VERT = os.environ.get('VERT') == '1'; W, H = (1080, 1920) if VERT else (1920, 10
 SEL = [int(x) for x in os.environ.get('SEL', '').split(',') if x]
 B = wdir() + '/build'; OUT = sys.argv[1] if len(sys.argv) > 1 else f'{REPO}/render/{SLUG}'
 D = json.load(open(B + ('/build_data_partial.json' if SEL else '/build_data.json')))
-CJ = json.load(open(vdir() + '/cine.json'))
+CJ = json.load(open(os.environ.get('CINE_JSON') or vdir() + '/cine.json'))   # CINE_JSON=<file>: a test layout
 CINE_DIR = REPO + '/tools/cine'
 errors, warns = [], []
 

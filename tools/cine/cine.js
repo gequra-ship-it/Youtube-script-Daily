@@ -30,7 +30,11 @@ function env() { return _env || (_env = new T.PMREMGenerator(R).fromScene(new Ro
 function cue(name, fallback) { if (name == null) return fallback; if (typeof name === 'number') return name; const v = C.cues[name]; if (v == null) { if (fallback == null) console.warn('cue missing', name); return fallback == null ? 1e9 : fallback; } return v; }
 function unit(uid) { return C.units.find(u => u.uid === uid); }
 // put the subject left or right of centre without moving the camera (frac of width, + = subject to the right)
-function side(cam, frac) { if (VERT) { cam.clearViewOffset(); return; } cam.setViewOffset(W, H, -W * frac, 0, W, H); }
+function side(cam, frac) {
+  if (VERT) {   // Shorts: keep the landscape horizontal field of view, so the subject fits the narrow frame
+    if (!cam.userData.vfit) { cam.userData.vfit = 1; const h = 2 * Math.atan(Math.tan(cam.fov * Math.PI / 360) * 16 / 9 * .62); cam.fov = 2 * Math.atan(Math.tan(h / 2) * H / W) * 180 / Math.PI; cam.updateProjectionMatrix(); }
+    cam.clearViewOffset(); return; }
+  cam.setViewOffset(W, H, -W * frac, 0, W, H); }
 
 // scene files load BEFORE this file and register themselves: (window.MIYA = window.MIYA || {scenes: {}}).scenes.<type> = (ctx, params) => ...
 window.MIYA = window.MIYA || {};

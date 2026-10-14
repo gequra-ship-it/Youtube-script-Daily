@@ -192,7 +192,7 @@ for k, u in enumerate(units):
     last2.append(u['tr']); TR_COUNT[u['tr']] = TR_COUNT.get(u['tr'], 0) + 1
 CINE = os.environ.get('CINE') == '1'
 if CINE:   # transitions come from videos/<slug>/cine.json: a chapter's or shot's first unit carries its transition (for its sound)
-    _cine = json.load(open(f'{vdir()}/cine.json'))
+    _cine = json.load(open(os.environ.get('CINE_JSON') or f'{vdir()}/cine.json'))
     _first = {}
     for _ch in _cine['chapters']:
         _shots = _ch.get('shots') or [dict(frm=_ch['from'], tr=_ch.get('tr', 'dip'))]
