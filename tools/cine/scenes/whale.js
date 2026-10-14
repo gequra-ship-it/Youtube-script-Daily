@@ -38,10 +38,11 @@
   function makeWhale(scale) {
     const grp = new T.Group();
     const b = K.body({ length: L, seg: 140, ring: 56, belly: .22, ridge: .08,
-      width: s => (.1 + 2.25 * prof(s)) * (.45 + .55 * sm(.03, .3, s)) * (s > .86 ? .92 + .2 * sm(.86, .97, s) * (1 - sm(.97, 1, s)) : 1),
-      height: s => (.1 + 1.95 * prof(s)) * (s > .85 ? .82 : 1) });
+      width: s => (.16 + 2.25 * prof(s)) * (.55 + .45 * sm(.03, .3, s)) * (s > .86 ? .92 + .2 * sm(.86, .97, s) * (1 - sm(.97, 1, s)) : 1),
+      height: s => (.3 + 1.85 * prof(s)) * (s > .85 ? .82 : 1) });   // a thick tail stock (laterally flattened) carries the flukes
     const mesh = new T.Mesh(b.geo, skin); grp.add(mesh);
     const fl = new T.Mesh(K.fin([[0, 0], [1.2, .9], [3.6, 1.9], [4.1, 1.6], [2.4, .4], [1.0, -.15], [2.4, -.75], [4.1, -1.65], [3.6, -1.95], [1.2, -.95]].map(([x, y]) => [-x, y]), .35), fins);
+    fl.geometry.translate(-2.05, 0, 0);   // pivot at the root (the fin was centred), so it hinges on the tail stock
     fl.rotation.x = Math.PI / 2; grp.add(fl);
     const pecG = K.fin([[0, 0], [.6, .35], [2.2, .38], [4.2, .12], [4.6, -.05], [2.4, -.32], [.6, -.35]].map(([x, y]) => [-x, y]), .16); pecG.translate(-2.3, 0, 0);   // root at the origin, tip pointing back
     const pecL = new T.Mesh(pecG, fins), pecR = new T.Mesh(pecG, fins); grp.add(pecL, pecR);
@@ -53,14 +54,14 @@
     return { grp, update(t, A) {
       b.deform((s) => [0, wave(s, t, A), 0]);
       const y0 = wave(0, t, A), y1 = wave(.03, t, A), sl = Math.atan2(y1 - y0, L * .03);
-      fl.position.set(-L / 2 - 1.6, y0, 0); fl.rotation.set(Math.PI / 2, -sl * 1.6, 0);
+      fl.position.set(-L / 2 + .7, y0, 0); fl.rotation.set(Math.PI / 2, -sl * 1.6, 0);
       const ys = wave(.68, t, A); const hp = .1 + 1.95 * prof(.68), wp = (.1 + 2.25 * prof(.68));
       pecL.position.set(L * .18, ys - hp * .55, wp * .82); pecL.rotation.set(.35, .3, .55); pecR.position.set(L * .18, ys - hp * .55, -wp * .82); pecR.rotation.set(-.35, -.3, .55);
       const yd = wave(.27, t, A); dor.position.set(L * (.27 - .5), yd + (.1 + 1.95 * prof(.27)) * 1.0, 0); dor.rotation.set(0, 0, 0);
       const ye = wave(.88, t, A); const we = (.1 + 2.25 * prof(.88)) * 1.0; eye.position.set(L * .38, ye - .25, we * .97); eye2.position.set(L * .38, ye - .25, -we * .97);
     } };
   }
-  const W = makeWhale(1); S.add(W.grp);
+  const W = makeWhale(1); S.add(W.grp); W.grp.rotation.order = 'ZYX';   // pitch (z) in world space after the roll (x)
   const calf = makeWhale(.36); S.add(calf.grp); calf.grp.visible = false;
   // ghost basketball court (28 x 15 m) for scale
   const cp = [], rect = (x0, z0, x1, z1) => cp.push(x0, 0, z0, x1, 0, z0, x1, 0, z0, x1, 0, z1, x1, 0, z1, x0, 0, z1, x0, 0, z1, x0, 0, z0);
@@ -72,34 +73,53 @@
   const NB = 700, bub = ctx.points(NB, { size: .55, opacity: .9, color: '#e6f6ff' }); S.add(bub); const br = K.rng(31), bb = []; for (let i = 0; i < NB; i++) bb.push([br() - .5, br() - .5, br() - .5, br()]);
   // light and particles
   const shafts = K.shafts(S, { n: 11, top: 70, height: 150, spread: 160, depth: 100, opacity: .1, color: '#a8dcff' });
-  const snow = K.snow(S, { n: 3500, box: [120, 70, 70], size: .22, opacity: .5, fall: .35 });
+  const snow = K.snow(S, { n: 4500, box: [120, 90, 80], size: .26, opacity: .6, fall: .35 });
+  const NG = 260, gas = ctx.points(NG, { size: .35, opacity: .8, color: '#dff4ff' }); S.add(gas); const gr2 = K.rng(55), gb = []; for (let i = 0; i < NG; i++) gb.push([gr2() - .5, gr2(), gr2() - .5, gr2()]);
   const surf = K.surfaceFromBelow(S, { y: 62, opacity: .35 });
   const glowN = 160, bio = ctx.points(glowN, { size: .6, color: '#5ff0ff' }); S.add(bio); const bo = K.rng(77), bp = []; for (let i = 0; i < glowN; i++) bp.push([(bo() - .5) * 90, -40 - bo() * 30, (bo() - .5) * 60, bo()]);
   const cam = new T.PerspectiveCamera(36, ctx.W / ctx.H, .1, 1200); ctx.side(cam, p.side == null ? .12 : p.side);
   const at = (c, d) => c == null ? 0 : sm(cue(c), cue(c) + d, ctx.t);
   return { scene: S, camera: cam, draw(t, u) {
     ctx.t = t;
-    const sink = at(p.sink, 6), deep = at(p.deep, 5), stop = at(p.exhale, 4);
-    const A = 1.25 * (1 - stop * .9);
-    // travel: swims forward, slows after the last breath; sinking moves it down and tips it
-    const xw = u * 1.6 - sink * 4, yw = 6 - sink * 30 - deep * 12;
-    W.grp.position.set(xw, yw, 0); W.grp.rotation.set(sink * .5, 0, -sink * .28 + .04 * Math.sin(u * .4));
+    // the fall: after the last breath the body stops, rolls belly-up, tips head-down and sinks for the rest of the shot
+    // (accelerating, then steady). The camera stays high and follows late, so the body drops away below it into the dark.
+    const ts = p.sink != null ? cue(p.sink) : 1e9, f = Math.max(0, t - ts), sink = sm(0, 3, f), deep = at(p.deep, 5), stop = at(p.exhale, 4);
+    const fall = d => d <= 0 ? 0 : d < 3 ? 1.6 * d * d : 14.4 + 9.6 * (d - 3);
+    const A = 1.25 * (1 - stop * .95);
+    const uS = Math.min(u, ts - ctx.t0), X = d => uS * 1.6 + Math.min(Math.max(d, 0), 4) * .4, xw = X(f), yw = 6 - fall(f);
+    W.grp.position.set(xw, yw, 0);
+    W.grp.rotation.set(Math.PI * .8 * sm(.3, 6, f), 0, -.5 * sm(0, 4, f) + .04 * Math.sin(u * .4) * (1 - sink));
     W.update(t, A);
-    const cv = at(p.calf, 4) * (1 - sink); calf.grp.visible = cv > .01;
-    if (calf.grp.visible) { calf.grp.position.set(xw - 4 + (1 - cv) * -30, yw - 5.5 + Math.sin(u * .5) * .4, 6.5); calf.update(t + .9, 1.1); }
+    // the calf turns away when the mother stops
+    const cv = at(p.calf, 4), cgo = stop; calf.grp.visible = cv > .01 && cgo < .99;
+    if (calf.grp.visible) { calf.grp.position.set(xw - 4 + (1 - cv) * -30 - cgo * 22, yw + f * 0 - 5.5 + Math.sin(u * .5) * .4, 6.5 + cgo * 14); calf.grp.rotation.y = cgo * .7; calf.update(t + .9, 1.1); }
     court.material.opacity = .7 * at(p.court, 1.2) * (1 - at(p.courtOff, 1)); court.position.set(xw, yw - 4.2, 0);
-    const bv = at(p.exhale, .3) * (1 - at(p.exhale ? cue(p.exhale) + 4 : null, 2)); const ba = bub.geometry.attributes.position.array, bc = bub.geometry.attributes.color.array, te = p.exhale ? t - cue(p.exhale) : -1;
-    for (let i = 0; i < NB; i++) { const [a, b2, c, o] = bb[i]; const k = Math.max(0, te - o * .8); ba.set([xw + L * .33 + a * 3 + k * a * 2, yw + 2.2 + k * (2.4 + o * 3), b2 * 3 + k * c * 2], i * 3); const v = te > o * .8 && te < 6 ? bv * (1 - k / 7) : 0; bc[i * 3] = bc[i * 3 + 1] = bc[i * 3 + 2] = v; }
+    // last breath: a loose column of bubbles from the blowholes, rising and spreading
+    const te = p.exhale ? t - cue(p.exhale) : -1, ba = bub.geometry.attributes.position.array, bc = bub.geometry.attributes.color.array;
+    for (let i = 0; i < NB; i++) { const [a, b2, c, o] = bb[i]; const k = Math.max(0, te - o * 1.6), r = (.8 + k * 1.6) * (.3 + Math.abs(a));
+      ba.set([xw + L * .33 + a * r + Math.sin(k * 2 + i) * .2, yw + 2 + k * (2.2 + o * 2.5) + b2 * .6, c * r * 1.4], i * 3);
+      const v = te > o * 1.6 && te < 8 ? .45 * (1 - k / 6.5) : 0; bc[i * 3] = bc[i * 3 + 1] = bc[i * 3 + 2] = Math.max(0, v); }
     bub.geometry.attributes.position.needsUpdate = true; bub.geometry.attributes.color.needsUpdate = true;
-    const light = 1 - sink * .75 - deep * .2; dome.material.uniforms.k.value = Math.max(.08, light); hemi.intensity = .65 * Math.max(.12, light); sun.intensity = 1.9 * Math.max(.05, light);
-    S.fog.color.copy(FOG).lerp(DEEP, sink * .8 + deep * .2); S.fog.density = .012 + sink * .01;
-    shafts.update(t, Math.max(0, 1 - sink * 1.2)); surf.update(t, Math.max(0, 1 - sink));
-    const ba2 = bio.geometry.attributes.color.array, bpos = bio.geometry.attributes.position.array; for (let i = 0; i < glowN; i++) { const [x, y, z, o] = bp[i]; bpos.set([xw + x, y + Math.sin(t * .7 + o * 9) * .5, z], i * 3); const v = deep * (.4 + .6 * Math.max(0, Math.sin(t * 1.3 + o * 20))); ba2[i * 3] = v * .4; ba2[i * 3 + 1] = v; ba2[i * 3 + 2] = v; }
+    // camera height: stays near the swimming depth, then follows at half speed
+    const camY = 13 + at(p.court, 2) * 6 * (1 - at(p.courtOff, 2)) - .55 * fall(f - .8);
+    const depthK = Math.min(1, (13 - camY) / 45), light = 1 - depthK * .85 - deep * .06; dome.material.uniforms.k.value = Math.max(.08, light);
+    const lit = Math.max(.1, 1 - Math.min(1, fall(f) / 70) * .8); hemi.intensity = .65 * lit; sun.intensity = 1.9 * lit;
+    S.fog.color.copy(FOG).lerp(DEEP, Math.min(1, depthK * 1.2)); S.fog.density = .012 + Math.min(1, fall(f) / 90) * .01;
+    shafts.update(t, Math.max(0, 1 - depthK * 1.4)); surf.update(t, Math.max(0, 1 - depthK * .9));
+    // gas from the carcass: each bubble leaves the body where it was and rises, so a trail stretches up behind the fall
+    const ga = gas.geometry.attributes.position.array, gc = gas.geometry.attributes.color.array, P = 5;
+    for (let i = 0; i < NG; i++) { const [a, o, c, w] = gb[i]; const loc = f - .6 - o * P; let v = 0, x = 0, y = -999, z = 0;
+      if (loc > 0) { const tr = f - (loc % P), age = f - tr; x = X(tr) + a * 7 + Math.sin(age * 1.5 + i) * .4; y = 6 - fall(tr) + 1.8 + age * (2.2 + w * 1.6); z = c * 3; v = sink * (1 - age / P) * .85; }
+      ga.set([x, y, z], i * 3); gc[i * 3] = gc[i * 3 + 1] = gc[i * 3 + 2] = v; }
+    gas.geometry.attributes.position.needsUpdate = true; gas.geometry.attributes.color.needsUpdate = true;
+    const ba2 = bio.geometry.attributes.color.array, bpos = bio.geometry.attributes.position.array; for (let i = 0; i < glowN; i++) { const [x, y, z, o] = bp[i]; bpos.set([xw + x, yw + y + 30 + Math.sin(t * .7 + o * 9) * .5, z], i * 3); const v = deep * (.4 + .6 * Math.max(0, Math.sin(t * 1.3 + o * 20))); ba2[i * 3] = v * .4; ba2[i * 3 + 1] = v; ba2[i * 3 + 2] = v; }
     bio.geometry.attributes.position.needsUpdate = true; bio.geometry.attributes.color.needsUpdate = true;
-    // camera: alongside, slow orbit; follows the body down when it sinks
-    const ca = -.25 + u * .02, cd = 46 - 6 * at(p.court, 2) * (1 - at(p.courtOff, 2)) + sink * 4;
-    cam.position.set(xw + Math.sin(ca) * cd, yw + 7 + at(p.court, 2) * 6 * (1 - at(p.courtOff, 2)) + sink * 6, Math.cos(ca) * cd);
-    cam.lookAt(xw + 1.5, yw - sink * 4, 0);
+    // camera: alongside, slow orbit; in the fall it stops orbiting, backs off a little and tilts down after the body
+    const ca = -.25 + Math.min(u, ts - ctx.t0 + 2) * .02, cd = 46 - 6 * at(p.court, 2) * (1 - at(p.courtOff, 2)) + sink * 4;
+    const xc = X(Math.min(f, 1));
+    cam.position.set(xc + Math.sin(ca) * cd, camY, Math.cos(ca) * cd);
+    const ty = yw + Math.min(12, .4 * (camY - yw)) * sink;   // the body sinks toward the lower part of the frame
+    cam.lookAt(xc + 1.5 * (1 - sink), ty, 0);
     snow.update(t, [cam.position.x, cam.position.y - 10, 0]);
   } };
 };
