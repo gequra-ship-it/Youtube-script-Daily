@@ -63,18 +63,36 @@ The old SVG look (`tools/art_spec.md`, `tools/build3.py`) stays for re-renders o
 | `dataglobe` | glowing point sphere (stage) | `satellites`, `river:[on,off]`, `desync`, `grid`, `bend`, `stretch`, `crush`, `slow:[from,to]` (all cues), `bg`, `orbit`, `dist`, `side` |
 | `blackhole` | black hole, four looks | `look`: `lensed` / `ring` (real EHT images, M87*, Sgr A*) / `whirlpool` (swallowing, spin) / `icon` (far, small); `approach` (+ in, - out), `dist`, `tilt`, `spin` |
 | `ocean` | dark alien sea, black hole in the sky, wave wall | `look`, `wall`, `speed`, `start`, `bh`, `bhScale`, `rise` |
-| `clockfield` | many clocks ticking in step, camera pulls back | `n`, `pull` |
+| `clockfield` | real 3D clocks (polished case, dial, crystal, hands) ticking in step, camera pulls back | `n`, `pull` |
+| `whale` | realistic swimming great whale in the open ocean (stage) | cues `court`, `courtOff`, `calf`, `exhale`, `sink`, `deep`; `length` |
 | `watch` | metal wristwatch close-up | `gold`, `time:[h,m]` |
 | `river` | river of light across a dark plain | `color`, `speed` |
 | `cubefield` | cube field bent into a well, chrome ball | `bend`, `crush`, `slow` (cues), `nx`,`nz` — **heavy**: keep ≤ 20 s per video |
 | `void` | slow star field (behind data cards; also a calm pause) | `bg`, `tint` |
 All scenes take `side` (subject offset, + = right; the left third holds the text) and are framed for 1920x1080 and 1080x1920.
 
+## 3A. Realism of objects, animals and plants (user decision 2026-10-14: "the clock scene looks like a 2D image, not real —
+upgrade how objects, things, animals and plants are made")
+A thing must read as a solid, lit, physical object, never a flat icon or a coin-like disc.
+- **Form**: real proportions and thickness. Animals/plants/organs: `MIYA.kit.body()` — a body swept along a spine with width/height
+  profiles (flat belly, ridge), plus `kit.fin()` for fins, flippers, wings, leaves, petals. Man-made things: real parts with depth
+  (case + bezel + dial + crystal + hands for a clock; bevels everywhere, no zero-thickness planes for solid objects).
+- **Surface**: procedural textures from `kit.noise()` — colour variation (mottling, grain, rust, bark, scales), a normal map from a height
+  canvas (`kit.normalMap()`: pores, pleats, scratches, veins) and roughness that matches the material (wet skin clearcoat, polished metal
+  low roughness + `env()`, matte rock high roughness). UV canvases: set `flipY = false` when the canvas rows mean v.
+- **Life**: living things move by deforming (swim wave along the spine, breathing, swaying stems), and attached parts follow the body.
+  Machines move by their mechanism (hands tick, gears turn, pistons slide).
+- **Light and air**: a key light, a coloured rim light from behind, ambient/hemisphere for the environment; atmosphere with fog
+  (underwater blue `FogExp2`, haze, smoke), god rays `kit.shafts()`, particles `kit.snow()` (marine snow, dust, pollen) for depth and
+  scale; `kit.surfaceFromBelow()` for underwater shots. Dark, cinematic exposure — no flat full-bright lighting.
+- **Scale**: show size with a known reference drawn as a ghost outline (the whale scene's basketball court) or companions (a calf).
+- Reference scenes: `tools/cine/scenes/whale.js` (animal), `clockfield` in `basic.js` (objects).
+
 ## 4. Writing a new scene (when the library has nothing that shows the idea)
 Put it in `videos/<slug>/scenes/<name>.js` (one file may define several types). Template:
 ```js
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.mything = function (ctx, p) {
-  const { T, sm, rng, cue } = ctx;               // T = THREE (r169); ctx.W/H/VERT, ctx.t0/t1 (shot span), ctx.ACC (accent)
+  const { T, sm, rng, cue } = ctx, K = window.MIYA.kit;   // K = realism kit (section 3A)               // T = THREE (r169); ctx.W/H/VERT, ctx.t0/t1 (shot span), ctx.ACC (accent)
   const S = new T.Scene(); S.background = new T.Color('#02030a');
   ctx.stars(S, 2500, 300, { seed: 7 });           // helpers: points(n,{size,opacity,color}), glow(parent,color,scale,op), ctex(size,fn),
   const cam = new T.PerspectiveCamera(40, ctx.W / ctx.H, .1, 800); ctx.side(cam, .1);   //   env() (reflections), rng(seed), sm(a,b,x)
