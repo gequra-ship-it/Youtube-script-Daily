@@ -1,0 +1,16 @@
+{
+ "title": "Your body is a museum",
+ "accent": "#ffc070",
+ "chapters": [
+  {"id": "c1", "label": "Chapter 1", "title": "Your body is a museum", "mode": "stage", "from": "U001",
+   "badge_label": "First tried out",
+   "scene": {"type": "bodymuseum", "params": {"ribs": "U002:ribs", "spine": "U002:backbone", "lungs": "U002:lungs", "jaw": "U003:jaws", "open": "U003:open", "ocean": "U004:strange", "fish": "U004:animals", "side": 0.13}}}
+ ],
+ "beats": {
+  "U001": {"kw": "Heartbeat", "sub": "Hand on your chest. Feel your heartbeat.", "log": "Heart"},
+  "U002": {"kw": "Ribs, backbone", "sub": "Behind it: ribs, a backbone, a pair of lungs.", "log": "Ribs, backbone, lungs"},
+  "U003": {"kw": "Jaws", "sub": "Jaws that open every time you speak.", "log": "Jaws"},
+  "U004": {"kw": "Strange animals", "acc": true, "sub": "Hundreds of millions of years ago.", "log": "First tried by strange animals", "badge": "100s of millions of yrs ago"},
+  "U005": {"sub": "Long before the first dinosaur.", "log": "Long before the first dinosaur"}
+ }
+}

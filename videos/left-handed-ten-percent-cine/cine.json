@@ -1,0 +1,21 @@
+{
+ "title": "Why only one in ten is left-handed",
+ "accent": "#ffc65a",
+ "chapters": [
+  {"id": "c1", "label": "Chapter 1", "title": "Nine out of ten", "mode": "cuts", "from": "U001",
+   "badge_label": "Left-handed",
+   "shots": [
+    {"from": "U001", "type": "lhtrain", "params": {"side": 0.1}},
+    {"from": "U002", "type": "lhcrowd", "tr": "eye",
+     "params": {"side": 0.2, "right": "U002:nine out of every ten", "left": "U003:tenth person", "share": "U003:ten percent"}},
+    {"from": "U004", "type": "lhglobe", "tr": "zoom", "tro": [0.66, 0.45],
+     "params": {"side": 0.2, "turn": "U004:turn up", "every": "U004:every inhabited continent"}}
+   ]}
+ ],
+ "beats": {
+  "U001": {"sub": "A coffee shop, an office, a crowded train."},
+  "U002": {"kw": "9 in 10", "sub": "Most people favour the right hand."},
+  "U003": {"kw": "The tenth", "acc": true, "sub": "One person in ten is left-handed.", "badge": "about 10%"},
+  "U004": {"kw": "Every continent", "sub": "Found on every inhabited continent."}
+ }
+}

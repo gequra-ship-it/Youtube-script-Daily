@@ -1,0 +1,17 @@
+{
+ "title": "The cosmic prison",
+ "accent": "#ffc65a",
+ "chapters": [
+  {"id": "c1", "label": "Chapter 1", "title": "The endless frontier", "mode": "stage", "from": "U001",
+   "badge_label": "Looking toward",
+   "scene": {"type": "observatory", "params": {"glow": "U002:looked at the stars", "widen": "U003", "scope": "U004:telescopes",
+     "rocket": "U004:rockets", "follow": "U004:void", "edge": "U005:edge"}}}
+ ],
+ "beats": {
+  "U001": {"kw": "Night sky", "sub": "Look up, and wonder takes over.", "log": "Look up: infinite wonder", "badge": "The night sky"},
+  "U002": {"sub": "For thousands of years we watched the stars.", "log": "Thousands of years of stargazing", "badge": "The stars"},
+  "U003": {"sub": "Our destiny, we believed: explore every corner.", "log": "Destiny: explore every corner"},
+  "U004": {"kw": "Telescopes", "sub": "We built telescopes and launched rockets.", "log": "Telescopes, then rockets", "badge": "The void"},
+  "U005": {"kw": "The edge", "acc": true, "sub": "Dreaming of the ultimate edge of existence.", "log": "Dream: the ultimate edge", "badge": "The edge"}
+ }
+}

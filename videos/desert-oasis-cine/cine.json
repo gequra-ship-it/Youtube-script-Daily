@@ -1,0 +1,49 @@
+{
+ "title": "Water in the desert",
+ "chapters": [
+  {
+   "id": "c1",
+   "label": "Chapter 1",
+   "title": "An ocean of sand",
+   "mode": "stage",
+   "from": "U001",
+   "scene": {
+    "type": "dunesea",
+    "params": {
+     "sun": "U002:sun",
+     "shimmer": "U002:shimmers",
+     "empty": "U003:horizon",
+     "low": "U004",
+     "turn": "U005",
+     "reveal": "U006:pools"
+    }
+   }
+  }
+ ],
+ "beats": {
+  "U001": {
+   "kw": "Ocean of sand",
+   "sub": "Standing in the middle of an ocean of sand."
+  },
+  "U002": {
+   "sub": "The sun overhead. The ground shimmers with heat."
+  },
+  "U003": {
+   "sub": "An empty horizon. Rain may not fall for years."
+  },
+  "U004": {
+   "kw": "Impossible",
+   "sub": "Everything here says water is impossible."
+  },
+  "U005": {
+   "sub": "And yet, somewhere out in this emptiness..."
+  },
+  "U006": {
+   "kw": "Clear water",
+   "acc": true,
+   "sub": "Pools of clear water, ringed by green palm trees."
+  }
+ },
+ "accent": "#ffc65a",
+ "exposure": 0.72
+}
