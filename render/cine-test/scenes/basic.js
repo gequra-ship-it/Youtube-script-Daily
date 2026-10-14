@@ -45,12 +45,12 @@
   // clockfield — params: { n:380, side:.12, pull:1 }
   M.scenes.clockfield = function (ctx, p) {
     const { T } = ctx, S = new T.Scene(); S.environment = ctx.env(); S.background = new T.Color('#02030a'); ctx.stars(S, 3000, 400, { seed: 13 });
-    const N = p.n || 380, rr = ctx.rng(9), pos = []; for (let i = 0; i < N; i++) { const arm = i % 3, r = 6 + Math.pow(rr(), .7) * 120, a = arm * 2.094 + r * .035 + (rr() - .5) * .6; pos.push([r * Math.cos(a), (rr() - .5) * (6 + r * .08), r * Math.sin(a), rr() * 6.283]); }
-    const disc = new T.InstancedMesh(new T.CylinderGeometry(1, 1, .12, 48), new T.MeshStandardMaterial({ color: '#0d1430', roughness: .5, metalness: .4 }), N);
-    const rim = new T.InstancedMesh(new T.TorusGeometry(1, .09, 10, 48), new T.MeshStandardMaterial({ color: '#e2bf72', metalness: 1, roughness: .25, envMapIntensity: 1.3 }), N);
+    const N = p.n || 260, rr = ctx.rng(9), pos = []; for (let i = 0; i < N; i++) { const arm = i % 3, r = 6 + Math.pow(rr(), .7) * 120, a = arm * 2.094 + r * .035 + (rr() - .5) * .6; pos.push([r * Math.cos(a), (rr() - .5) * (6 + r * .08), r * Math.sin(a), rr() * 6.283]); }
+    const disc = new T.InstancedMesh(new T.CylinderGeometry(1, 1, .12, 28), new T.MeshStandardMaterial({ color: '#0d1430', roughness: .5, metalness: .4 }), N);
+    const rim = new T.InstancedMesh(new T.TorusGeometry(1, .09, 8, 32), new T.MeshStandardMaterial({ color: '#e2bf72', metalness: 1, roughness: .25, envMapIntensity: 1.3 }), N);
     const hand = new T.InstancedMesh(new T.BoxGeometry(.06, .8, .03), new T.MeshStandardMaterial({ color: '#fff1d0', emissive: '#ffc65a', emissiveIntensity: .8 }), N);
     S.add(disc, rim, hand); ctx.glow(S, '#ffd8a0', 70, .22); ctx.glow(S, '#fff2d8', 16, .6);
-    S.add(new T.AmbientLight('#2a3278', .5)); S.add(new T.PointLight('#ffd8a0', 3000, 0, 1.2));
+    S.add(new T.AmbientLight('#2a3278', .5)); const kl = new T.DirectionalLight('#ffd8a0', 2.2); kl.position.set(0, 40, 30); S.add(kl);
     const cam = new T.PerspectiveCamera(36, ctx.W / ctx.H, .1, 900); ctx.side(cam, p.side == null ? .12 : p.side);
     const M4 = new T.Matrix4(), Q = new T.Quaternion(), V = new T.Vector3(), S1 = new T.Vector3(1, 1, 1), E = new T.Euler(), off = new T.Vector3(); const dur = Math.max(1, ctx.t1 - ctx.t0);
     return { scene: S, camera: cam, draw(t, u) {

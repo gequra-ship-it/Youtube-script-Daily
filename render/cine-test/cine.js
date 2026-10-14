@@ -30,7 +30,11 @@ function env() { return _env || (_env = new T.PMREMGenerator(R).fromScene(new Ro
 function cue(name, fallback) { if (name == null) return fallback; if (typeof name === 'number') return name; const v = C.cues[name]; if (v == null) { if (fallback == null) console.warn('cue missing', name); return fallback == null ? 1e9 : fallback; } return v; }
 function unit(uid) { return C.units.find(u => u.uid === uid); }
 // put the subject left or right of centre without moving the camera (frac of width, + = subject to the right)
-function side(cam, frac) { if (VERT) { cam.clearViewOffset(); return; } cam.setViewOffset(W, H, -W * frac, 0, W, H); }
+function side(cam, frac) {
+  if (VERT) {   // Shorts: keep the landscape horizontal field of view, so the subject fits the narrow frame
+    if (!cam.userData.vfit) { cam.userData.vfit = 1; const h = 2 * Math.atan(Math.tan(cam.fov * Math.PI / 360) * 16 / 9 * .62); cam.fov = 2 * Math.atan(Math.tan(h / 2) * H / W) * 180 / Math.PI; cam.updateProjectionMatrix(); }
+    cam.clearViewOffset(); return; }
+  cam.setViewOffset(W, H, -W * frac, 0, W, H); }
 
 // scene files load BEFORE this file and register themselves: (window.MIYA = window.MIYA || {scenes: {}}).scenes.<type> = (ctx, params) => ...
 window.MIYA = window.MIYA || {};
@@ -39,13 +43,17 @@ MIYA.def = (type, factory) => { MIYA.scenes[type] = factory; };
 
 // ---------------- renderer + compositor ----------------
 let R = null;
-try { R = new T.WebGLRenderer({ canvas: document.getElementById('gl'), antialias: false, preserveDrawingBuffer: true }); }
+try { R = new T.WebGLRenderer({ canvas: document.getElementById('gl'), antialias: true, preserveDrawingBuffer: true }); }
 catch (e) { document.getElementById('err').style.display = 'block'; }
 const ctxBase = { T, W, H, VERT, ACC, sm, clamp, rng, ctex, dotTex, points, stars, glow, env, cue, unit, side, get R() { return R; }, pal: C.pal || {} };
 let RTa, RTb, quad, qcam, qmat;
 if (R) {
+  // outside transitions the shot renders straight to the canvas (renderer tone mapping); only transitions use the two render
+  // targets + composite shader (same ACES + sRGB maths). Measured on the render server 2026-10-14: always compositing through
+  // multisampled half-float targets made frames 3-4x slower.
   R.setPixelRatio(1); R.setSize(W, H, false); R.autoClear = true;
-  const mk = () => new T.WebGLRenderTarget(W, H, { type: T.HalfFloatType, samples: 4, colorSpace: T.LinearSRGBColorSpace });
+  R.toneMapping = T.ACESFilmicToneMapping; R.toneMappingExposure = C.exposure || 1.0; R.outputColorSpace = T.SRGBColorSpace;
+  const mk = () => new T.WebGLRenderTarget(W, H, { type: T.HalfFloatType, samples: 0, colorSpace: T.LinearSRGBColorSpace });
   RTa = mk(); RTb = mk();
   qcam = new T.OrthographicCamera(-1, 1, 1, -1, 0, 1);
   const tones = (C.tones || ['#1d2150', '#252a63', '#2e3476', '#373f89', '#40499b', '#4a54ad']).map(c => new T.Color(c));
@@ -106,8 +114,8 @@ function frame(t) {
   let tr = null;
   for (const k of [i, i + 1]) { const s = SHOTS[k]; if (!s || k === 0) continue; const d = s.trd != null ? s.trd : (TDUR[s.tr] || 0);
     if (d > 0 && t >= s.t0 - d / 2 && t < s.t0 + d / 2) tr = { a: k - 1, b: k, p: (t - (s.t0 - d / 2)) / d, kind: KIND[s.tr] || 0, o: s.tro || [.5, .5] }; }
-  if (tr) { renderShot(tr.a, t, RTa); renderShot(tr.b, t, RTb); qmat.uniforms.kind.value = tr.kind; qmat.uniforms.p.value = tr.p; qmat.uniforms.o.value.set(tr.o[0], 1 - tr.o[1]); }
-  else { renderShot(i, t, RTa); qmat.uniforms.kind.value = 0; }
+  if (!tr) { renderShot(i, t, null); return; }
+  renderShot(tr.a, t, RTa); renderShot(tr.b, t, RTb); qmat.uniforms.kind.value = tr.kind; qmat.uniforms.p.value = tr.p; qmat.uniforms.o.value.set(tr.o[0], 1 - tr.o[1]);
   qmat.uniforms.tA.value = RTa.texture; qmat.uniforms.tB.value = RTb.texture;
   R.setRenderTarget(null); R.render(quad, qcam);
 }

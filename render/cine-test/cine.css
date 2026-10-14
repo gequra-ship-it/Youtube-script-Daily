@@ -34,14 +34,14 @@ html,body{width:var(--w);height:var(--h);overflow:hidden;background:#000}
 .cap i{font-style:normal}
 /* data card (replaces the chalkboard, guideline 7) */
 .dc{position:absolute;left:50%;top:50%;width:1320px;transform:translate(-50%,-50%);z-index:10;opacity:0;color:#f3f1ec}
-.dc .dt{font-family:Lora;font-size:56px;text-align:left}
+.dc .dt{font-family:Lora;font-size:64px;text-align:left}
 .dc .ds{font-family:Lora;font-style:italic;font-size:26px;color:rgba(240,240,236,.7);margin-top:8px}
 .dc .rw{display:flex;align-items:center;border-top:1px solid rgba(230,236,255,.18);padding:22px 0;margin-top:0;opacity:.0}
 .dc .rw:first-of-type{margin-top:34px}
-.dc .rl{width:380px;font-family:Inter;font-weight:500;font-size:17px;letter-spacing:.18em;text-transform:uppercase;color:rgba(230,236,255,.6)}
-.dc .rv{flex:1;font-family:Inter;font-weight:200;font-size:72px;line-height:1}
+.dc .rl{width:330px;font-family:Inter;font-weight:500;font-size:17px;letter-spacing:.18em;text-transform:uppercase;color:rgba(230,236,255,.6)}
+.dc .rv{flex:1;font-family:Inter;font-weight:200;font-size:62px;line-height:1;white-space:nowrap}
 .dc .rv.y{color:var(--acc)}.dc .rv.c{color:#ff9a7a}
-.dc .rn{width:380px;text-align:right;font-family:Lora;font-style:italic;font-size:22px;color:rgba(240,240,236,.7)}
+.dc .rn{width:330px;text-align:right;font-family:Lora;font-style:italic;font-size:22px;color:rgba(240,240,236,.7)}
 .dc .dk{font-family:Lora;font-size:32px;margin-top:34px;opacity:0}
 .dc .dk em{color:var(--acc)}
 .dc .dsrc{font-family:Inter;font-weight:500;font-size:13px;letter-spacing:.12em;color:rgba(230,236,255,.4);margin-top:22px}
