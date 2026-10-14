@@ -97,6 +97,18 @@ A thing must read as a solid, lit, physical object, never a flat icon or a coin-
   scale; `kit.surfaceFromBelow()` for underwater shots. Dark, cinematic exposure — no flat full-bright lighting.
 - **Scale**: show size with a known reference drawn as a ghost outline (the whale scene's basketball court) or companions (a calf).
 - Reference scenes: `tools/cine/scenes/whale.js` (animal), `clockfield` in `basic.js` (objects).
+- **Look C for outdoor scenes** (user decision 2026-10-15, after comparing three looks on the frog pond: realistic surfaces read
+  as plastic/CG for things people know well; "outdoor scenes in look C, rebuilt scene by scene"). Keep real 3D form and motion,
+  but draw surfaces with light, not photo textures:
+  - subject (animal, statue, building, plant): dark solid body + warm fresnel outline (`MIYA.kit.lookC.rim()`), faint mesh lines and
+    a few hundred vertex points in the same warm colour (`kit.lookC.dress(mesh, {points, size, lines})`); things that glow by
+    themselves (eyes, insects, lamps, flames, the moon) keep their own light;
+  - surroundings: dark, cool outline (rim with a navy base and `#5f78ff`), fewer points; ground and terrain: `kit.lookC.contour()`
+    (glowing height lines + outline) and/or sparse points; water: dark mirror that reflects the outlines; sky: dark navy-violet or
+    night, stars allowed; daylight scenes become dusk/backlit so the outlines read;
+  - no photo-like skin/bark/sand textures as the main read; fog fades distance; one warm accent for the subject, cool for the world.
+  - Indoor scenes and abstract/space scenes keep the current light style (decision on indoor pending).
+  - Reference: `videos/epomis-frog-hunter-v2-cine/scenes/looks.js` (first test) and the kit helpers.
 - **One visual language** (user, 2026-10-14: "the clocks feel cut off from the other scenes"): realism serves the series look, not
   the other way round. Every scene sits in the same world as dataglobe/blackhole: dark navy-violet (space) or deep blue (sea)
   backgrounds, light carried by glowing edges, light points, halos and dust in the palette's warm accent, stars or particles for
