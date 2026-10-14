@@ -5,7 +5,7 @@ CHALK = {
          rows=[("GPS satellites", "45 microseconds", "per day, from gravity alone", 'y', "On Earth"),
                ("The ocean world", "3 hours", "on the surface", 'y', "three hours"),
                ("Meanwhile on Earth", "23 years", "about 1 hour : 67,000 hours", 'c', "astronomical value")],
-         concl=("Same physics, a trillion times stronger", "sixty-seven thousand"),
+         concl=("Same physics, over a trillion times stronger", "sixty-seven thousand"),
          src="Source: Ashby (2003), Living Reviews in Relativity · Thorne (2014), The Science of Interstellar"),
  16: dict(title="Spinning at the Brink", sub="What the black hole must be",
           rows=[("Mass", "100 million Suns", "so tides stay gentle", 'y', "Kip Thorne"),
