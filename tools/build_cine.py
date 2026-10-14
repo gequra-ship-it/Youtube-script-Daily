@@ -140,7 +140,13 @@ for f in ('cine.js', 'cine.css'): shutil.copy(f'{CINE_DIR}/{f}', OUT)
 shutil.copy(f'{ASSETS}/logo.png', OUT)
 shutil.copy(f'{CINE_DIR}/kit.js', OUT)
 os.makedirs(f'{OUT}/scenes', exist_ok=True)
-used = sorted({lib[s['type']] for ch in chapters for s in ch['shots']})
+used = {lib[s['type']] for ch in chapters for s in ch['shots']}
+for f in list(used):   # a scene file can build on other scene types: a line "// requires: pond, void" pulls their files in first
+    for m in re.findall(r'^//\s*requires:\s*(.+)$', open(f).read(), re.M):
+        for ty in [x.strip() for x in m.split(',') if x.strip()]:
+            if ty not in lib: raise SystemExit(f'{os.path.basename(f)} requires unknown scene type {ty}')
+            else: used.add(lib[ty])
+used = sorted(used)
 scene_tags = []
 for f in used:
     name = ('v_' if f.startswith(vdir()) else '') + os.path.basename(f); shutil.copy(f, f'{OUT}/scenes/{name}'); scene_tags.append(f'<script src="scenes/{name}"></script>')
