@@ -89,3 +89,21 @@
 | `videos/never-eat-human-meat-v4/NEXT.md`, `videos/stolen-time/STATUS.md` | 영상별 작업 메모. 아무 데서도 참조하지 않지만 그 영상의 진행 기록이라 남겼다 |
 | `docs/miyas-lab-guideline.md` | Claude 프로젝트 지식 파일의 사본. 레포에서 고치면 프로젝트 파일도 교체해야 한다 |
 | `tools/README.md`, `README.md` | 도구 사용법과 레포 소개. 역할이 다르다 |
+
+---
+
+## 2026-10-14 시네마틱 3D(cine) 도구 추가 (사용자 결정)
+
+| 추가 | 역할 |
+|---|---|
+| `tools/cine/cine.js`, `cine.css`, `assets/` | 실행 라이브러리: 장면 모듈 등록, WebGL 합성 단계(톤 매핑·전환 10종), HUD, 글자 층, 데이터 카드, 자막. Three.js r169(MIT), GSAP, Lora·Inter(OFL) |
+| `tools/cine/scenes/*.js` | 3D 장면 라이브러리 |
+| `tools/build_cine.py` | `videos/<slug>/cine.json` + build_data → `render/<slug>/index.html` |
+| `tools/build3.py` `CINE=1` | 그림 없이 음성·자막·효과음·음악과 build_data만 만드는 모드 |
+| `tools/cineshot.py` | 미리보기·프레임당 시간·구간 수 추정 |
+| `tools/cine_spec.md` | 3D 장면·cine.json 작성 명세(에이전트용) |
+| `.github/workflows/render-chunked.yml`, `tools/chunk_prep.py`, `render/.chunked` | 구간 동시 렌더 후 합치기 |
+| `render/proto-cine`, `render/proto-cine2`, `render/test-3d`, `render/cine-test` | 시험 렌더 원본(Drive `_ci-test/`) |
+
+예전 SVG 방식(`tools/art_spec.md`, `tools/build3.py` 기본 모드, `render.yml`, `render/.slug`)은 그대로 둔다(예전 영상 재렌더용).
+

@@ -52,3 +52,13 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 - 2026-10-13 from a motion-graphics reference: number badges count up from 0 (`labels_lib.count_span/count_js`, seek-safe `innerText` tween with a formatting modifier, years 1000-2100 skipped); focus spotlight `#sp<n>` dims the picture around the focus point while the camera pushes in (sidecar `"spot": false` turns it off); `ping`/`stamp` use a ring drawn by `miyaWrapCores`, `draw` uses stroke lengths measured there.
 - 2026-10-13: `caption_hl.py` — the spoken subtitle word turns yellow (#ffd54a); word times split the line's speaking window by word length. `motions.CHALK_FIT_JS` — chalkboard card values stay on one line and shrink to fit (they used to wrap and spill out of the 140 px card). `restyle_motion.py` now also applies chalk fit, badge count-up, focus spotlight and the subtitle highlight; run it on the original build output only.
 - 2026-10-13: the six picture specs were merged into `tools/art_spec.md` (sections 1-9 landscape, 10 Shorts, 11 cosmic, appendix A backdrop revision, appendix B retired v1 look). Record of repo changes: `docs/repo-changes.md`.
+
+## Cine look (new videos from 2026-10-14; guideline chapter 2A, spec `tools/cine_spec.md`)
+1. TTS and `audio_prep.py` as before, `SLUG=x PLAN=1 python3 tools/build3.py` for the unit split (plan.json).
+2. Write `videos/x/cine.json` (chapters: `stage` = one 3D scene for the chapter, `cuts` = shots; beats per unit). New scenes in `videos/x/scenes/*.js`.
+3. `SLUG=x CINE=1 python3 tools/build3.py` — narration/captions/SFX/BGM mix and build_data only (no SVG art).
+4. `SLUG=x python3 tools/build_cine.py` — writes `render/x/index.html` (runtime `tools/cine/cine.js` + `cine.css`, scene files, Three.js r169, fonts Lora/Inter OFL). Checks cues, gaps, scene types. `CINE_JSON=file` uses a test layout; `VERT=1` for Shorts.
+5. `python3 tools/cineshot.py render/x out 5 30 ...` (screenshots + seconds per frame, page errors) and `--estimate` (chunk count).
+6. Render: `render/.chunked` line `x <chunks>` → push → `.github/workflows/render-chunked.yml` (one job per chunk via `tools/chunk_prep.py`, concat without re-encoding, audio muxed once, Drive upload with the usual `.dest`/`.outname`/`deliver/`).
+- `tools/cine/scenes/`: dataglobe (stage), blackhole (lensed/ring/whirlpool/icon), ocean, clockfield, watch, river, cubefield (heavy), void.
+

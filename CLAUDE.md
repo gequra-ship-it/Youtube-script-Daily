@@ -4,7 +4,8 @@
 
 ## 먼저 읽을 파일
 - 지침서 원본: `docs/miyas-lab-guideline.md` (`render-pipeline` 브랜치가 원본). 이 파일과 지침서가 다르면 지침서가 우선이다.
-- 그림 명세: `tools/art_spec.md` (그림 에이전트에게 이 파일과 영상별 `videos/<slug>/art_brief.md`를 준다)
+- **새 영상(2026-10-14~): 시네마틱 3D 방식**, 명세 `tools/cine_spec.md` (지침서 2A장). 영상별 `videos/<slug>/cine.json`(장·샷·단위별 글자), 새 3D 장면은 `videos/<slug>/scenes/`
+- 예전 SVG 영상 재렌더용 그림 명세: `tools/art_spec.md` (+ 영상별 `videos/<slug>/art_brief.md`)
 - 도구 사용법: `tools/README.md`
 - 레포 구조 변경 기록: `docs/repo-changes.md`
 
@@ -19,7 +20,8 @@
 
 ## 렌더 주의 (되돌리기 어려움)
 - `render-pipeline`에 푸시할 때 `render/.slug`, `.github/workflows/render.yml`, `render/sample/**` 중 하나가 바뀌면 GitHub Actions 렌더가 바로 시작되고, 끝나면 Drive의 같은 이름 MP4를 덮어쓴다. 의도하지 않았다면 이 파일들을 건드리지 않는다.
-- 렌더 1회 시간 한도는 300분이고, 슬러그를 순서대로 렌더한다. 롱폼은 영상 길이의 약 3~4배가 걸린다(2026-10-13 실행: 약 20분 영상이 숏츠 2편 포함 약 62~90분). 여러 주제는 주제별로 커밋을 나눠 하나씩 푸시해 병렬로 돌린다(지침서 15-5).
+- 새 방식 렌더는 `render/.chunked`(`"<slug> <구간 수>"`)를 바꾸는 푸시로 `render-chunked.yml`이 구간별 동시 렌더 후 합쳐 Drive에 올린다(이것도 바로 시작되고 덮어쓴다). `render/.slug`는 예전 SVG 방식용.
+- 렌더 1회(작업 하나) 시간 한도는 300분이고, 슬러그를 순서대로 렌더한다. 롱폼은 영상 길이의 약 3~4배가 걸린다(2026-10-13 실행: 약 20분 영상이 숏츠 2편 포함 약 62~90분). 여러 주제는 주제별로 커밋을 나눠 하나씩 푸시해 병렬로 돌린다(지침서 15-5).
 - Drive 경로는 `render/<slug>/.dest`로 정한다. Drive 폴더는 `Video & Thumbnail/Space & Science/NN_<slug>/`, `Video & Thumbnail/Life & History/NN_<slug>/` 구조다(숏츠는 그 안의 `short/`). 폴더 이름이 바뀌면 `.dest`도 바꾼다. 안 그러면 덮어쓰지 않고 새 폴더가 생긴다.
 - 이미 만든 영상에 새 모션 규칙만 적용할 때는 `tools/restyle_motion.py`를 빌드 원본에만 쓴다(지침서 15-7).
 

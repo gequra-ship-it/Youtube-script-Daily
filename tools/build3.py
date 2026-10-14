@@ -4,6 +4,8 @@
 # env: PLAN=1   only write videos/<slug>/plan.json (unit split) and exit
 #      SEL="1,2" build a partial test;  VERT=1  vertical 1080x1920 (Shorts, no logo)
 #      FALLBACK=1  a unit without art3/<uid>.svg reuses the scene picture art/<id>.svg (tests only)
+#      CINE=1      cine look (2026-10-14): no SVG art; only narration/captions/SFX/BGM -> render/<slug>/mix.m4a + build_data.json,
+#                  then tools/build_cine.py writes the page from videos/<slug>/cine.json
 import os, re, sys, json, html, shutil, subprocess, math, random
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
@@ -188,11 +190,23 @@ for k, u in enumerate(units):
     if kw and rng.random() < .5: u['tr'] = kw[0]
     else: u['tr'] = rng.choices(pool, weights=[1 / (1 + TR_COUNT.get(x, 0)) ** 1.5 for x in pool])[0]
     last2.append(u['tr']); TR_COUNT[u['tr']] = TR_COUNT.get(u['tr'], 0) + 1
+CINE = os.environ.get('CINE') == '1'
+if CINE:   # transitions come from videos/<slug>/cine.json: a chapter's or shot's first unit carries its transition (for its sound)
+    _cine = json.load(open(os.environ.get('CINE_JSON') or f'{vdir()}/cine.json'))
+    _first = {}
+    for _ch in _cine['chapters']:
+        _shots = _ch.get('shots') or [dict(frm=_ch['from'], tr=_ch.get('tr', 'dip'))]
+        for _k, _s in enumerate(_shots):
+            _first[_s.get('frm', _s.get('from'))] = _s.get('tr', _ch.get('tr', 'dip')) if _k else _ch.get('tr', _s.get('tr', 'dip'))
+    for _k, u in enumerate(units):
+        u['tr'] = 'cut' if _k == 0 else ('dip' if u['kind'] == 'chalk' or (_k and units[_k - 1]['kind'] == 'chalk') else _first.get(u.get('uid'), 'none'))
+    CINE_BEATS = _cine.get('beats', {})
 TIN = {'hard': 0.0, 'zoom': 0.5, 'fade': 0.6, 'slide': 0.7, 'match': 0.9, 'wash': 0.0,
        'wipe': 0.8, 'iris': 0.9, 'eye': 0.8, 'blinds': 0.65, 'push': 0.7, 'whip': 0.45, 'tilt': 0.8}
 
 # ---------- sidecars / art ----------
 def side(u):
+    if CINE: return CINE_BEATS.get(u['uid'], {})
     f = f'{ART3}/{u["uid"]}.json'
     return json.load(open(f)) if os.path.exists(f) else {}
 
@@ -375,6 +389,7 @@ h.append(f'<div id="root" data-composition-id="main" data-start="0" data-duratio
 fallback_used = []; label_errors = []; label_items = {}
 for u in units:
     nn = u['n']
+    if CINE: continue
     if u['kind'] == 'chalk':
         h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{chalk_html(u["scene"])}</div></div>')
     else:
@@ -405,11 +420,13 @@ for k, c in enumerate(caps):
 cues = []   # dict(name, t, vol, pri)
 TRSND = {'zoom': ('swish', -0.85, 0.9), 'slide': ('swish', -0.6, 0.6), 'match': ('hush', -0.7, 0.8), 'wash': ('rustle', -0.5, 0.7),
          'wipe': ('swish', -0.7, 0.6), 'iris': ('hush', -0.9, 0.7), 'eye': ('hush', -0.7, 0.6), 'blinds': ('rustle', -0.6, 0.6),
-         'push': ('swish', -0.6, 0.6), 'whip': ('swish', -0.4, 0.8), 'tilt': ('pop', -0.7, 0.6)}
+         'push': ('swish', -0.6, 0.6), 'whip': ('swish', -0.4, 0.8), 'tilt': ('pop', -0.7, 0.6),
+         'dip': ('hush', -0.5, 0.55), 'flash': ('hush', -0.4, 0.7), 'zoom': ('swish', -0.85, 0.9)}
 if getattr(CFG, 'STYLE', 'default') == 'cosmic':   # cosmic videos: no swish/hush (guideline 3-7)
     TRSND = {'zoom': ('warp', -0.45, 0.8), 'slide': ('warp', -0.35, 0.5), 'match': ('glimmer', -0.5, 0.7), 'wash': ('sparkle', -0.4, 0.6),
              'wipe': ('warp', -0.6, 0.5), 'iris': ('glimmer', -0.8, 0.6), 'eye': ('glimmer', -0.6, 0.6), 'blinds': ('sparkle', -0.5, 0.5),
-             'push': ('warp', -0.5, 0.5), 'whip': ('warp', -0.35, 0.7), 'tilt': ('pop', -0.7, 0.5)}
+             'push': ('warp', -0.5, 0.5), 'whip': ('warp', -0.35, 0.7), 'tilt': ('pop', -0.7, 0.5),
+             'dip': ('glimmer', -0.45, 0.55), 'flash': ('bloom', -0.35, 0.7), 'zoom': ('warp', -0.45, 0.8)}
 focus_cam = {}; label_t = []
 for u in units:
     nn = u['n']
@@ -506,6 +523,15 @@ else:
         if f != 'mix.m4a' and os.path.exists(f'{OUT}/{f}'): os.remove(f'{OUT}/{f}')
     h.append(f'<audio src="mix.m4a" data-start="0" data-duration="{TOTAL:.3f}" data-track-index="0" data-volume="1"></audio>')
     print('audio premix', len(audio), 'pieces -> mix.m4a, peak', round(20 * math.log10(max(peak, 1e-9)), 1), 'dBFS')
+if CINE:   # cine look: the page is written by tools/build_cine.py
+    for f in os.listdir(OUT):
+        if f.startswith('sfx_') or f in ('Fredoka-700.woff2', 'PatrickHand-400.woff2', 'grain.png', 'chalk.wav', 'index.html'): os.remove(f'{OUT}/{f}')
+    data = dict(slug=SLUG, total=TOTAL, lead=LEAD, gap=GAP, tail=TAIL, starts={str(k): v for k, v in starts.items()}, D={str(i): D[i - 1] for i in SEL},
+                cuts=[dict(id=u['uid'], scene=u['scene'], kind=u['kind'], t0=u['t0'], t1=u['t1'], tr=u['tr'], text=u['text']) for u in units],
+                caps=caps, sfx=cues, chalk=chalk_t, snap=snap_report, chalk_pop={str(k): v.get('pop') for k, v in CHALK.items() if 'pop' in v}, sel=SEL)
+    json.dump(data, open(B + ('/build_data.json' if len(SEL) == len(SCENES) else '/build_data_partial.json'), 'w'), ensure_ascii=False, indent=1)
+    print('CINE audio/timing done:', TOTAL, 's,', len(units), 'units,', len(caps), 'caps,', len(cues), 'sfx cues')
+    sys.exit(0)
 
 # ---------- timeline ----------
 import motions  # centre-object motions (guideline 4-1)
