@@ -63,7 +63,7 @@ The old SVG look (`tools/art_spec.md`, `tools/build3.py`) stays for re-renders o
 | `dataglobe` | glowing point sphere (stage) | `satellites`, `river:[on,off]`, `desync`, `grid`, `bend`, `stretch`, `crush`, `slow:[from,to]` (all cues), `bg`, `orbit`, `dist`, `side` |
 | `blackhole` | black hole, four looks | `look`: `lensed` / `ring` (real EHT images, M87*, Sgr A*) / `whirlpool` (swallowing, spin) / `icon` (far, small); `approach` (+ in, - out), `dist`, `tilt`, `spin` |
 | `ocean` | dark alien sea, black hole in the sky, wave wall | `look`, `wall`, `speed`, `start`, `bh`, `bhScale`, `rise` |
-| `clockfield` | real 3D clocks (polished case, dial, crystal, hands) ticking in step, camera pulls back | `n`, `pull` |
+| `clockfield` | a spiral of solid 3D clocks in navy-violet space (smoked body, glowing gold rim, light-point marks, glowing hands, halos, gold dust river); rims pulse together each second; camera pulls back from one clock | `n`, `pull`, `bg` |
 | `whale` | realistic swimming great whale in the open ocean (stage) | cues `court`, `courtOff`, `calf`, `exhale`, `sink`, `deep`; `length` |
 | `watch` | metal wristwatch close-up | `gold`, `time:[h,m]` |
 | `river` | river of light across a dark plain | `color`, `speed` |
@@ -74,9 +74,20 @@ All scenes take `side` (subject offset, + = right; the left third holds the text
 ## 3A. Realism of objects, animals and plants (user decision 2026-10-14: "the clock scene looks like a 2D image, not real —
 upgrade how objects, things, animals and plants are made")
 A thing must read as a solid, lit, physical object, never a flat icon or a coin-like disc.
-- **Form**: real proportions and thickness. Animals/plants/organs: `MIYA.kit.body()` — a body swept along a spine with width/height
-  profiles (flat belly, ridge), plus `kit.fin()` for fins, flippers, wings, leaves, petals. Man-made things: real parts with depth
-  (case + bezel + dial + crystal + hands for a clock; bevels everywhere, no zero-thickness planes for solid objects).
+- **Form**: real proportions and thickness. Man-made things: real parts with depth (case + bezel + dial + crystal + hands for a
+  clock; bevels everywhere, no zero-thickness planes for solid objects) — separate parts are right for machines.
+- **Depth that survives a turn** (user, 2026-10-14: "once things rotate, flat ones give themselves away"): anything that turns or is
+  seen at an angle must show thickness and structure from the side — e.g. a clock: deep case with rounded sides and a domed back
+  (`LatheGeometry`), raised bezel, recessed dial, domed crystal, raised markers, crown and bow. A disc or a card is never enough.
+- **Living things are ONE mesh** (user rule 2026-10-14, after the whale's fluke came off the body): never a body plus separately
+  positioned fin/tail/limb objects. `MIYA.kit.body()` sweeps the body along a spine; tail fins and flukes come from its width/height
+  profiles plus a sweep in `deform()`, small ridges (dorsal fin) from a local bump in `deform()`, and flat parts that are not tubes
+  (flippers, leaves, petals: `kit.fin()`) go in `extra` — placed in body space, merged into the same mesh and moved by the same
+  deform, so nothing can come apart. Only eyes/teeth may be small separate objects. Reference: `scenes/whale.js`.
+- **Joints** (an arm bending, a leg walking, a neck turning, a wing beating): one mesh with a skeleton — `THREE.SkinnedMesh` +
+  `THREE.Skeleton`; every vertex carries `skinIndex`/`skinWeight` for 1-2 nearby bones (blend weights across the joint so the skin
+  bends smoothly, no seam). In `draw(t)` set each bone's rotation from `t` only (seek-safe), e.g. elbow = `sm(cue(c), cue(c)+1, t) * 1.9`.
+  Keep bones few (a human arm: shoulder, elbow, wrist). People only as silhouettes from behind (rule 2 below).
 - **Surface**: procedural textures from `kit.noise()` — colour variation (mottling, grain, rust, bark, scales), a normal map from a height
   canvas (`kit.normalMap()`: pores, pleats, scratches, veins) and roughness that matches the material (wet skin clearcoat, polished metal
   low roughness + `env()`, matte rock high roughness). UV canvases: set `flipY = false` when the canvas rows mean v.
@@ -87,6 +98,10 @@ A thing must read as a solid, lit, physical object, never a flat icon or a coin-
   scale; `kit.surfaceFromBelow()` for underwater shots. Dark, cinematic exposure — no flat full-bright lighting.
 - **Scale**: show size with a known reference drawn as a ghost outline (the whale scene's basketball court) or companions (a calf).
 - Reference scenes: `tools/cine/scenes/whale.js` (animal), `clockfield` in `basic.js` (objects).
+- **One visual language** (user, 2026-10-14: "the clocks feel cut off from the other scenes"): realism serves the series look, not
+  the other way round. Every scene sits in the same world as dataglobe/blackhole: dark navy-violet (space) or deep blue (sea)
+  backgrounds, light carried by glowing edges, light points, halos and dust in the palette's warm accent, stars or particles for
+  depth. A realistic object in a space scene gets an emissive rim/marks and a halo, never a flat brown or grey prop under plain lights.
 
 ## 4. Writing a new scene (when the library has nothing that shows the idea)
 Put it in `videos/<slug>/scenes/<name>.js` (one file may define several types). Template:
