@@ -15,6 +15,11 @@ ONE NEW PICTURE per narration unit (a sentence or clause, 2-7 s on screen). Your
 previous/next text, palette `pal`) are in `videos/<slug>/plan.json`. The picture must show THAT unit's idea, with a different
 composition from the neighbouring units, not a copy of the scene picture. Story first: show the narration's idea clearly, a metaphor
 object is welcome, a busy crowd is not.
+- **Objects change with the text (user decision 2026-10-14).** Only characters stay fixed (people, astronauts, named craft: colours,
+  clothes and build from the character sheet). Every other object (planets, black holes, clocks, devices, symbols) takes the shape and
+  view that shows what THIS unit says: spinning → a view where the spin shows; swallowing → matter spiralling in; a real photo or
+  observation → that look; size or distance → a view that shows scale. Do not draw one fixed look for an object across the whole
+  video. The video's `art_brief.md` lists the allowed looks for its main objects and when to use each.
 
 ## 2. Files
 - `videos/<slug>/art3/<uid>.svg` and `videos/<slug>/art3/<uid>.json` (sidecar, section 8). Paths are relative to the repo root.
@@ -182,6 +187,22 @@ flares); per-scene `PAL` may mix up to 3. Look = surfaces and light, keeping the
    tail), `pulse` (short round beat: signal), `warp` (0.3 s sharp brush: change of place), `glimmer` (tiny glints), plus `tick`, `click`,
    `pop`, `drip`, `pencil`, `page`, `woodblock`, `stone`, `step`, `cloth`. Not `riser`/`sweep` (removed: they sounded like waves), and
    not `hush`, `breath`, `wind`, `rain`, `swish`. 35-45 % of units, never the same name in two consecutive units.
+10. Black holes — four looks, chosen by what the unit says (user decision 2026-10-14; one fixed look read like Saturn at small size).
+   Never a thin flat ring around a black disc on its own. Every look has a pure black shadow disc and a thin bright photon ring on its edge.
+   - **Lensed disk** (default, side view): a THICK glowing accretion disk (layered strokes, hottest/brightest on the side turning toward
+     us) crossing in front of the shadow, and the far side of the disk bent up over the top of the shadow (and thinly under the bottom) as
+     a crescent that touches the shadow and merges into the disk at both ends, never a loop floating apart. Use for orbits, planets
+     beside the hole, ISCO, horizons, scale, tides.
+   - **Face-on ring** (like the 2019 M87* / 2022 Sagittarius A* images): a thick soft ring of light around the shadow, brighter on one side
+     (Doppler beaming), soft halo, no disk ellipse. Use when the text talks about the real images, the Event Horizon Telescope, the
+     shadow, or a real named hole (M87*, Sagittarius A*, TON 618).
+   - **Whirlpool** (face-on swirl): gas arms spiralling into the shadow, from coral/gold at the outside to white-hot at the edge. Use when
+     the text says swallowing, feeding, falling in, spinning, frame-dragging, stirring. Not too often: it can read as a spiral galaxy.
+   - **Simple dark disc + thin ring** (the old look): only small and far away (a black hole in the distance, under 120 px), as an icon in
+     a diagram, or when a quiet calm hole is meant ("stopped feeding").
+   Vary the look between neighbouring units that both show a black hole unless the transition is `match` (then keep the previous look).
+   Reference drawings (960x540, deepfield colours): `tools/ref/blackhole-lensed-disk.svg`, `blackhole-face-on-ring.svg`,
+   `blackhole-whirlpool.svg`. Copy the idea, not the file: scale to the unit, add the scene's own backdrop and motion groups.
 
 ## Appendix A — revising the backdrop of existing pictures
 Task used on 2026-10-10 to remove the repeated rings/rays from already drawn pictures. Do not redraw people/objects. Per unit:
