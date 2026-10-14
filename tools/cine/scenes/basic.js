@@ -42,26 +42,38 @@
     } };
   };
 
-  // clockfield — params: { n:380, side:.12, pull:1 }
+  // clockfield — params: { n:140, side:.12, pull:1 }   (upgraded 2026-10-14: real 3D clocks — thick polished case, printed dial,
+  // domed crystal with reflections, raised hands — instead of flat discs; depth from fog and a warm key light)
   M.scenes.clockfield = function (ctx, p) {
-    const { T } = ctx, S = new T.Scene(); S.environment = ctx.env(); S.background = new T.Color('#02030a'); ctx.stars(S, 3000, 400, { seed: 13 });
-    const N = p.n || 380, rr = ctx.rng(9), pos = []; for (let i = 0; i < N; i++) { const arm = i % 3, r = 6 + Math.pow(rr(), .7) * 120, a = arm * 2.094 + r * .035 + (rr() - .5) * .6; pos.push([r * Math.cos(a), (rr() - .5) * (6 + r * .08), r * Math.sin(a), rr() * 6.283]); }
-    const disc = new T.InstancedMesh(new T.CylinderGeometry(1, 1, .12, 48), new T.MeshStandardMaterial({ color: '#0d1430', roughness: .5, metalness: .4 }), N);
-    const rim = new T.InstancedMesh(new T.TorusGeometry(1, .09, 10, 48), new T.MeshStandardMaterial({ color: '#e2bf72', metalness: 1, roughness: .25, envMapIntensity: 1.3 }), N);
-    const hand = new T.InstancedMesh(new T.BoxGeometry(.06, .8, .03), new T.MeshStandardMaterial({ color: '#fff1d0', emissive: '#ffc65a', emissiveIntensity: .8 }), N);
-    S.add(disc, rim, hand); ctx.glow(S, '#ffd8a0', 70, .22); ctx.glow(S, '#fff2d8', 16, .6);
-    S.add(new T.AmbientLight('#2a3278', .5)); S.add(new T.PointLight('#ffd8a0', 3000, 0, 1.2));
+    const { T } = ctx, K = M.kit, S = new T.Scene(), E = ctx.env(); S.environment = E; S.background = new T.Color('#02030a'); S.fog = new T.FogExp2('#05060f', .0065); ctx.stars(S, 3000, 400, { seed: 13 });
+    const N = p.n || 140, rr = ctx.rng(9), pos = []; for (let i = 0; i < N; i++) { const arm = i % 3, r = 5 + Math.pow(rr(), .7) * 110, a = arm * 2.094 + r * .035 + (rr() - .5) * .6; pos.push([r * Math.cos(a), (rr() - .5) * (6 + r * .08), r * Math.sin(a), rr() * 6.283, .8 + rr() * .5]); }
+    // dial texture: radial grain, minute ticks, hour bars (no numerals)
+    const dc = document.createElement('canvas'); dc.width = dc.height = 512; const g = dc.getContext('2d'); const gr = g.createRadialGradient(256, 230, 20, 256, 256, 256); gr.addColorStop(0, '#2a2f3d'); gr.addColorStop(1, '#0c0f18'); g.fillStyle = gr; g.fillRect(0, 0, 512, 512);
+    g.globalAlpha = .18; g.drawImage(K.noise(512, { seed: 3, octaves: 3, sx: 8, sy: .3 }), 0, 0); g.globalAlpha = 1; g.translate(256, 256);
+    for (let k = 0; k < 60; k++) { g.save(); g.rotate(k / 60 * 6.283); g.fillStyle = k % 5 ? '#c9c2ae' : '#e8c27a'; if (k % 5) g.fillRect(-1.5, -238, 3, 16); else g.fillRect(-5, -240, 10, 40); g.restore(); }
+    const dial = new T.MeshStandardMaterial({ map: K.tex(dc, true), roughness: .6, metalness: .2, side: T.DoubleSide });
+    const gold = new T.MeshStandardMaterial({ color: '#d8b06a', metalness: 1, roughness: .18, envMap: E, envMapIntensity: 1.4 });
+    const caseG = new T.TorusGeometry(1, .16, 20, 64), dialG = new T.CircleGeometry(.96, 48), domeG = new T.SphereGeometry(1, 40, 16, 0, Math.PI * 2, 0, .42);
+    domeG.scale(1.02, 1.02, .35);
+    const glass = new T.MeshStandardMaterial({ color: '#ffffff', metalness: 0, roughness: .03, transparent: true, opacity: .16, envMap: E, envMapIntensity: 2.4, depthWrite: false });
+    const handG = new T.BoxGeometry(.05, .72, .03); handG.translate(0, .3, 0); const handM = new T.MeshStandardMaterial({ color: '#f6e8c8', metalness: .8, roughness: .25, emissive: '#5a3c10', emissiveIntensity: .4 });
+    const minG = new T.BoxGeometry(.08, .52, .03); minG.translate(0, .22, 0);
+    const caseI = new T.InstancedMesh(caseG, gold, N), dialI = new T.InstancedMesh(dialG, dial, N), domeI = new T.InstancedMesh(domeG, glass, N), secI = new T.InstancedMesh(handG, handM, N), minI = new T.InstancedMesh(minG, gold, N);
+    S.add(caseI, dialI, minI, secI, domeI); ctx.glow(S, '#ffd8a0', 70, .18); ctx.glow(S, '#fff2d8', 14, .5);
+    S.add(new T.AmbientLight('#2a3278', .35)); const kl = new T.DirectionalLight('#ffe0b0', 2.4); kl.position.set(20, 40, 30); S.add(kl); const bl = new T.DirectionalLight('#7f9cff', 1.0); bl.position.set(-30, -10, -20); S.add(bl);
     const cam = new T.PerspectiveCamera(36, ctx.W / ctx.H, .1, 900); ctx.side(cam, p.side == null ? .12 : p.side);
-    const M4 = new T.Matrix4(), Q = new T.Quaternion(), V = new T.Vector3(), S1 = new T.Vector3(1, 1, 1), E = new T.Euler(), off = new T.Vector3(); const dur = Math.max(1, ctx.t1 - ctx.t0);
+    const M4 = new T.Matrix4(), Q = new T.Quaternion(), Qh = new T.Quaternion(), V = new T.Vector3(), Sc = new T.Vector3(), E1 = new T.Euler(), Z = new T.Vector3(0, 0, 1), off = new T.Vector3(); const dur = Math.max(1, ctx.t1 - ctx.t0);
+    // static parts once (they do not move)
+    for (let i = 0; i < N; i++) { const [x, y, z, o, s] = pos[i]; E1.set(.25 * Math.sin(o), o, 0); Q.setFromEuler(E1); V.set(x, y, z); Sc.set(s, s, s);
+      M4.compose(V, Q, Sc); caseI.setMatrixAt(i, M4); domeI.setMatrixAt(i, M4); off.set(0, 0, -.02 * s).applyQuaternion(Q); M4.compose(V.clone().add(off), Q, Sc); dialI.setMatrixAt(i, M4); }
     return { scene: S, camera: cam, draw(t, u) {
-      const tick = Math.floor(t) * 6.283 / 60;
-      for (let i = 0; i < N; i++) { const [x, y, z, o] = pos[i]; V.set(x, y, z);
-        E.set(Math.PI / 2 + .3 * Math.sin(o), o, 0); Q.setFromEuler(E); M4.compose(V, Q, S1); disc.setMatrixAt(i, M4);
-        E.set(.3 * Math.sin(o), o, 0); Q.setFromEuler(E); M4.compose(V, Q, S1); rim.setMatrixAt(i, M4);
-        E.set(.3 * Math.sin(o), o, -tick); Q.setFromEuler(E); off.set(0, .38, .1).applyQuaternion(Q); V.set(x + off.x, y + off.y, z + off.z); M4.compose(V, Q, S1); hand.setMatrixAt(i, M4); }
-      disc.instanceMatrix.needsUpdate = rim.instanceMatrix.needsUpdate = hand.instanceMatrix.needsUpdate = true;
-      const k = ctx.sm(0, dur, u) * (p.pull == null ? 1 : p.pull), d = 6 + k * 170;
-      cam.position.set(pos[0][0] + Math.sin(.6 + u * .05) * d, pos[0][1] + 2 + k * 70, pos[0][2] + Math.cos(.6 + u * .05) * d); cam.lookAt(pos[0][0] * (1 - k), 0, pos[0][2] * (1 - k));
+      const tick = Math.floor(t) * 6.283 / 60, mn = (t / 60) * 6.283 / 60 + 1.2;
+      for (let i = 0; i < N; i++) { const [x, y, z, o, s] = pos[i]; E1.set(.25 * Math.sin(o), o, 0); Q.setFromEuler(E1); Sc.set(s, s, s);
+        off.set(0, 0, .05 * s).applyQuaternion(Q); V.set(x + off.x, y + off.y, z + off.z); Qh.setFromAxisAngle(Z, -tick); M4.compose(V, Q.clone().multiply(Qh), Sc); secI.setMatrixAt(i, M4);
+        off.set(0, 0, .035 * s).applyQuaternion(Q); V.set(x + off.x, y + off.y, z + off.z); Qh.setFromAxisAngle(Z, -mn); M4.compose(V, Q.clone().multiply(Qh), Sc); minI.setMatrixAt(i, M4); }
+      secI.instanceMatrix.needsUpdate = minI.instanceMatrix.needsUpdate = true;
+      const k = ctx.sm(0, dur, u) * (p.pull == null ? 1 : p.pull), d = 5 + k * 160;
+      cam.position.set(pos[0][0] + Math.sin(.6 + u * .05) * d, pos[0][1] + 1.5 + k * 64, pos[0][2] + Math.cos(.6 + u * .05) * d); cam.lookAt(pos[0][0] * (1 - k), 0, pos[0][2] * (1 - k));
     } };
   };
 

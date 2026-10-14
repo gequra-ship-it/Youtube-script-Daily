@@ -138,6 +138,7 @@ os.makedirs(OUT, exist_ok=True)
 for f in glob.glob(CINE_DIR + '/assets/*'): shutil.copy(f, OUT)
 for f in ('cine.js', 'cine.css'): shutil.copy(f'{CINE_DIR}/{f}', OUT)
 shutil.copy(f'{ASSETS}/logo.png', OUT)
+shutil.copy(f'{CINE_DIR}/kit.js', OUT)
 os.makedirs(f'{OUT}/scenes', exist_ok=True)
 used = sorted({lib[s['type']] for ch in chapters for s in ch['shots']})
 scene_tags = []
@@ -147,7 +148,7 @@ cfg = dict(w=W, h=H, total=round(TOTAL, 3), lead=D.get('lead', 0), title=CJ.get(
            exposure=CJ.get('exposure', 1.0), tones=tones, chapters=chapters, units=units, caps=caps, cues=cues, datacards=datacards)
 assert os.path.exists(f'{OUT}/mix.m4a'), 'render/<slug>/mix.m4a missing: run SLUG=x CINE=1 python3 tools/build3.py first'
 html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width={W}, height={H}">
-<link rel="stylesheet" href="cine.css"><script src="gsap.min.js"></script><script src="three.js"></script><script src="room-env.js"></script>
+<link rel="stylesheet" href="cine.css"><script src="gsap.min.js"></script><script src="three.js"></script><script src="room-env.js"></script><script src="kit.js"></script>
 {''.join(scene_tags)}
 </head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="{TOTAL:.3f}" data-width="{W}" data-height="{H}">
