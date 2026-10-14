@@ -160,22 +160,37 @@ for u in units:
     assert u['t1'] - u['t0'] > 1.5, ('unit too short', u)
 
 # ---------- transitions (no same type twice in a row; hard around chalk; match only inside a scene) ----------
+TR_WORDS = [   # a word in the unit text picks a transition that shows the same idea (70 % of the time, if allowed here)
+    ('push', r'\b(fall\w*|fell|drop\w*|sink\w*|sank|plung\w*|descend\w*|rising|climb\w*|ascend\w*)\b'),
+    ('whip', r'\b(speed\w*|race\w*|racing|rush\w*|sudden\w*|instant\w*|flash\w*)\b'),
+    ('dots', r'\b(data|signal\w*|message\w*|particle\w*|atom\w*|pixel\w*|cell|cells|grain\w*|dust)\b'),
+    ('tilt', r'(\bimagine\b|\bwhat if\b|\bsurpris\w*|\btwist\w*)'),
+    ('eye',  r'\b(open\w*|wake|woke|awake\w*|realis\w*|realiz\w*|discover\w*|reveal\w*)\b'),
+]
 rng = random.Random(20261009)
-last2 = []
+last2 = []; TR_COUNT = {}
 for k, u in enumerate(units):
     if k == 0:
         u['tr'] = 'hard'; continue
     p = units[k - 1]
     if u['kind'] == 'chalk' or p['kind'] == 'chalk':
         u['tr'] = 'hard'; last2 = []; continue
-    pool = ['zoom', 'fade', 'slide', 'match', 'wash']
+    # 13 types (8 added 2026-10-14, user decision): not every cut grows out of the centre object any more
+    pool = ['zoom', 'fade', 'slide', 'match', 'wash', 'wipe', 'iris', 'eye', 'push', 'whip', 'tilt', 'dots']
     if u['scene'] != p['scene']:
-        pool.remove('match'); pool += ['zoom', 'wash']           # scene change: favour zoom / wash
+        pool.remove('match'); pool += ['zoom', 'wash', 'blinds', 'blinds', 'eye']   # scene change: favour the big covering cuts
     pool = [x for x in pool if x not in last2[-1:]]
     if len(last2) >= 2:
         pool = [x for x in pool if x not in last2[-2:]] or pool
-    u['tr'] = rng.choice(pool); last2.append(u['tr'])
-TIN = {'hard': 0.0, 'zoom': 0.5, 'fade': 0.6, 'slide': 0.7, 'match': 0.9, 'wash': 0.0}
+    # balance: a type already used a lot is picked less (so 13 types spread out); a matching word wins half the time
+    # unless that type is already above its fair share
+    fair = (sum(TR_COUNT.values()) + 1) / 12
+    kw = [t for t, rx in TR_WORDS if t in pool and TR_COUNT.get(t, 0) <= fair * 1.3 and re.search(rx, u['text'], re.I)]
+    if kw and rng.random() < .5: u['tr'] = kw[0]
+    else: u['tr'] = rng.choices(pool, weights=[1 / (1 + TR_COUNT.get(x, 0)) ** 1.5 for x in pool])[0]
+    last2.append(u['tr']); TR_COUNT[u['tr']] = TR_COUNT.get(u['tr'], 0) + 1
+TIN = {'hard': 0.0, 'zoom': 0.5, 'fade': 0.6, 'slide': 0.7, 'match': 0.9, 'wash': 0.0,
+       'wipe': 0.8, 'iris': 0.9, 'eye': 0.8, 'blinds': 0.65, 'push': 0.7, 'whip': 0.45, 'dots': 0.6, 'tilt': 0.8}
 
 # ---------- sidecars / art ----------
 def side(u):
@@ -312,7 +327,10 @@ h.append('''@font-face{font-family:Fredoka;src:url(Fredoka-700.woff2) format("wo
 .w{position:absolute;left:0;top:0;width:%dpx;height:%dpx}
 .w svg{position:absolute;left:0;top:0;width:%dpx;height:%dpx}
 #wash{position:absolute;left:0;top:0;width:%dpx;height:%dpx;opacity:0;z-index:1000;pointer-events:none}
-''' % ((W, H) * 6))
+#tredge,#trdots{position:absolute;left:0;top:0;width:%dpx;height:%dpx;z-index:999;pointer-events:none;display:none}
+.trb{position:absolute;top:0;height:%dpx;z-index:999;transform:scaleY(0);transform-origin:top;pointer-events:none}
+.trs{position:absolute;left:0;height:6px;border-radius:3px;background:#fff;z-index:999;opacity:0;pointer-events:none}
+''' % ((W, H) * 7 + (H,)))
 h.append(capcss); h.append(labels_lib.CSS)
 h.append('''#logo{position:absolute;left:1799px;top:40px;width:81px;height:81px;z-index:1003}
 #grain{position:absolute;left:0;top:0;width:@Wpx;height:@Hpx;z-index:1001;opacity:.35;pointer-events:none;object-fit:cover}
@@ -359,14 +377,24 @@ for u in units:
         h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p)}{spot}{lin}</div>{lout}</div>')
 if label_errors: raise SystemExit('on-screen text (labels) problems, fix the sidecars:\n  ' + '\n  '.join(label_errors))
 h.append('<div id="wash"></div><img id="grain" src="grain.png">' + ('' if VERT else '<img id="logo" src="logo.png">'))
+# shared overlays for the 2026-10-14 transitions (cuts never overlap: units are at least 1.5 s apart)
+h.append(f'<svg id="tredge" viewBox="0 0 {W} {H}"><line id="treline" x1="0" y1="0" x2="0" y2="0" stroke="#ffd54a" stroke-width="10" stroke-linecap="round"/></svg>')
+NB = 6; h.append(''.join(f'<div class="trb" id="trb{i}" style="left:{i * W // NB}px;width:{W // NB + 2}px"></div>' for i in range(NB)))
+h.append(''.join(f'<div class="trs" id="trs{i}" style="top:{int(H * (.1 + .09 * i))}px;width:{int(W * (.26 + ((i * 37) % 36) / 100))}px"></div>' for i in range(9)))
+DC = 120; DGX, DGY = W // DC + 1, H // DC + 1
+h.append(f'<svg id="trdots" viewBox="0 0 {W} {H}">' + ''.join(f'<circle class="trd" cx="{DC // 2 + x * DC}" cy="{y * DC}" r="0"/>' for y in range(DGY + 1) for x in range(DGX)) + '</svg>')
 for k, c in enumerate(caps):
     h.append(f'<div class="cap" id="c{k}"><span>{caption_hl.words_html(k, c["text"])}</span></div>')   # one <i> per word for the highlight
 
 # ---------- sound cues ----------
 cues = []   # dict(name, t, vol, pri)
-TRSND = {'zoom': ('swish', -0.85, 0.9), 'slide': ('swish', -0.6, 0.6), 'match': ('hush', -0.7, 0.8), 'wash': ('rustle', -0.5, 0.7)}
+TRSND = {'zoom': ('swish', -0.85, 0.9), 'slide': ('swish', -0.6, 0.6), 'match': ('hush', -0.7, 0.8), 'wash': ('rustle', -0.5, 0.7),
+         'wipe': ('swish', -0.7, 0.6), 'iris': ('hush', -0.9, 0.7), 'eye': ('hush', -0.7, 0.6), 'blinds': ('rustle', -0.6, 0.6),
+         'push': ('swish', -0.6, 0.6), 'whip': ('swish', -0.4, 0.8), 'dots': ('pop', -0.5, 0.5), 'tilt': ('pop', -0.7, 0.6)}
 if getattr(CFG, 'STYLE', 'default') == 'cosmic':   # cosmic videos: no swish/hush (guideline 3-7)
-    TRSND = {'zoom': ('warp', -0.45, 0.8), 'slide': ('warp', -0.35, 0.5), 'match': ('glimmer', -0.5, 0.7), 'wash': ('sparkle', -0.4, 0.6)}
+    TRSND = {'zoom': ('warp', -0.45, 0.8), 'slide': ('warp', -0.35, 0.5), 'match': ('glimmer', -0.5, 0.7), 'wash': ('sparkle', -0.4, 0.6),
+             'wipe': ('warp', -0.6, 0.5), 'iris': ('glimmer', -0.8, 0.6), 'eye': ('glimmer', -0.6, 0.6), 'blinds': ('sparkle', -0.5, 0.5),
+             'push': ('warp', -0.5, 0.5), 'whip': ('warp', -0.35, 0.7), 'dots': ('sparkle', -0.5, 0.5), 'tilt': ('pop', -0.7, 0.5)}
 focus_cam = {}; label_t = []
 for u in units:
     nn = u['n']
@@ -510,12 +538,57 @@ for k, u in enumerate(units):
         js.append(f'tl.set("#wash",{{background:"{washc(u).get(bg, washc(u)["paper"])}"}},{t0 - .5:.3f});')
         js.append(f'tl.fromTo("#wash",{{opacity:0}},{{opacity:1,duration:.45,ease:"power1.in",immediateRender:false}},{t0 - .45:.3f});')
         js.append(f'tl.to("#wash",{{opacity:0,duration:.45,ease:"power1.out"}},{t0:.3f});')
+    elif tr == 'wipe':   # diagonal wipe led by a thin light edge; direction alternates
+        m = nn % 2
+        a0, a1 = ('polygon(0px 0px,0px 0px,0px 0px)', f'polygon(0px 0px,{W * 2.6:.0f}px 0px,0px {W * 2.6:.0f}px)') if not m else \
+                 (f'polygon({W}px 0px,{W}px 0px,{W}px 0px)', f'polygon({W}px 0px,{W - W * 2.6:.0f}px 0px,{W}px {W * 2.6:.0f}px)')
+        e0 = (0, 0, 0, 0) if not m else (W, 0, W, 0); e1 = (W * 2.6, 0, 0, W * 2.6) if not m else (W - W * 2.6, 0, W, W * 2.6)
+        js.append(f'tl.fromTo("{T}",{{clipPath:"{a0}"}},{{clipPath:"{a1}",duration:.8,ease:"power2.inOut",immediateRender:false}},{v0:.3f});')
+        js.append(f'tl.set("{T}",{{clipPath:"none"}},{v0 + .81:.3f});')
+        js.append(f'tl.set("#tredge",{{display:"block"}},{v0:.3f});tl.set("#tredge",{{display:"none"}},{v0 + .8:.3f});')
+        js.append(f'tl.fromTo("#treline",{{attr:{{x1:{e0[0]},y1:{e0[1]},x2:{e0[2]},y2:{e0[3]}}}}},{{attr:{{x1:{e1[0]:.0f},y1:{e1[1]},x2:{e1[2]},y2:{e1[3]:.0f}}},duration:.8,ease:"power2.inOut",immediateRender:false}},{v0:.3f});')
+    elif tr == 'iris':   # circle opens from a subject at the side (sidecar "iris" [x,y], else an off-centre focus, else left/right)
+        sc_ = side(u); ip = sc_.get('iris') or (sc_['focus'][:2] if sc_.get('focus') and abs(sc_['focus'][0] - CX) > W * .13 else None) \
+              or ((W * .22, H * .52) if nn % 2 else (W * .78, H * .52))
+        ix, iy = float(ip[0]), float(ip[1]); R = int(((max(ix, W - ix)) ** 2 + (max(iy, H - iy)) ** 2) ** .5) + 20
+        js.append(f'tl.fromTo("{T}",{{clipPath:"circle(0px at {ix:.0f}px {iy:.0f}px)"}},{{clipPath:"circle({R}px at {ix:.0f}px {iy:.0f}px)",duration:.9,ease:"power2.in",immediateRender:false}},{v0:.3f});')
+        js.append(f'tl.set("{T}",{{clipPath:"none"}},{v0 + .91:.3f});')
+    elif tr == 'eye':    # opens from a horizontal line like an eye
+        js.append(f'tl.fromTo("{T}",{{clipPath:"inset(50% 0% 50% 0%)"}},{{clipPath:"inset(0% 0% 0% 0%)",duration:.8,ease:"power3.inOut",immediateRender:false}},{v0:.3f});')
+        js.append(f'tl.set("{T}",{{clipPath:"none"}},{v0 + .81:.3f});')
+    elif tr == 'blinds': # palette-coloured bars drop over the old picture, then lift off the new one
+        th = SCENES[u['scene'] - 1][3]; acc = list(palettes.PALETTES[palettes.for_theme(CFG, th)]['accents'])
+        js.append(f'tl.set("{T}",{{opacity:0}},{v0:.3f});tl.set("{T}",{{opacity:1}},{v0 + .62:.3f});')
+        for i in range(NB):
+            js.append(f'tl.set("#trb{i}",{{background:"{acc[i % len(acc)]}",transformOrigin:"50% 0%"}},{v0:.3f});')
+            js.append(f'tl.fromTo("#trb{i}",{{scaleY:0}},{{scaleY:1,duration:.34,ease:"power2.in",immediateRender:false}},{v0 + i * .05:.3f});')
+            js.append(f'tl.set("#trb{i}",{{transformOrigin:"50% 100%"}},{v0 + .64:.3f});')
+            js.append(f'tl.to("#trb{i}",{{scaleY:0,duration:.34,ease:"power2.out"}},{v0 + .65 + i * .05:.3f});')
+    elif tr == 'push':   # vertical push: the old picture leaves upwards (see exit), the new one comes up from below
+        js.append(f'tl.fromTo("{T}",{{y:{H}}},{{y:0,duration:.7,ease:"power3.inOut",immediateRender:false}},{v0:.3f});')
+    elif tr == 'whip':   # very fast sideways pass with speed streaks
+        js.append(f'tl.fromTo("{T}",{{x:{W}}},{{x:0,duration:.45,ease:"expo.out",immediateRender:false}},{v0:.3f});')
+        for i in range(9):
+            js.append(f'tl.fromTo("#trs{i}",{{x:{W + 80},opacity:.85}},{{x:{-int(W * .75)},opacity:0,duration:.45,ease:"power1.out",immediateRender:false}},{v0 + i * .015:.3f});')
+    elif tr == 'dots':   # a dot grid grows over the old picture and shrinks off the new one
+        bg = BGMODE.get(SCENES[u['scene'] - 1][3], 'paper'); dcol = washc(u).get(bg, washc(u)['paper'])
+        js.append(f'tl.set("#trdots",{{display:"block"}},{v0:.3f});tl.set("#trdots",{{display:"none"}},{v0 + 1.25:.3f});tl.set(".trd",{{attr:{{fill:"{dcol}"}}}},{v0:.3f});')
+        js.append(f'tl.set("{T}",{{opacity:0}},{v0:.3f});tl.set("{T}",{{opacity:1}},{v0 + .6:.3f});')
+        js.append(f'tl.fromTo(".trd",{{attr:{{r:0}}}},{{attr:{{r:{int(DC * .8)}}},duration:.42,ease:"power2.in",stagger:{{each:.003,from:"start",grid:[{DGY + 1},{DGX}]}},immediateRender:false}},{v0:.3f});')
+        js.append(f'tl.to(".trd",{{attr:{{r:0}},duration:.42,ease:"power2.out",stagger:{{each:.003,from:"end",grid:[{DGY + 1},{DGX}]}}}},{v0 + .6:.3f});')
+    elif tr == 'tilt':   # the new picture tips in like a card
+        js.append(f'tl.fromTo("{T}",{{rotation:-8,scale:1.25,opacity:0,transformOrigin:"50% 120%"}},{{rotation:0,scale:1,opacity:1,duration:.8,ease:"back.out(1.4)",immediateRender:false}},{v0:.3f});')
+        js.append(f'tl.set("{T}",{{transformOrigin:"{ORG}"}},{v0 + .81:.3f});')
     # --- exit (depends on how the NEXT unit comes in) ---
     if nxt and nxt['kind'] != 'chalk':
         if nxt['tr'] == 'zoom':
             st = max(t1 - 1.1, t0 + 1.4); js.append(f'tl.to("{T}",{{scale:2.6,duration:{t1 - st:.3f},ease:"power2.in"}},{st:.3f});')
         elif nxt['tr'] == 'slide':
             st = max(t1 - .7, t0 + .8); js.append(f'tl.to("{T}",{{x:{-int(W * .18)},duration:{t1 - st:.3f},ease:"power2.in"}},{st:.3f});')
+        elif nxt['tr'] == 'push':
+            st = t1 - .7; js.append(f'tl.to("{T}",{{y:{-H},duration:.7,ease:"power3.inOut"}},{st:.3f});')
+        elif nxt['tr'] == 'whip':
+            st = t1 - .45; js.append(f'tl.to("{T}",{{x:{-W},duration:.45,ease:"expo.out"}},{st:.3f});')
     # --- focus camera (only when the picture has a focus target) ---
     if nn in focus_cam:
         a, (fx, fy, s) = focus_cam[nn]

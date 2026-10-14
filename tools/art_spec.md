@@ -109,9 +109,13 @@ of the pictures. `draw` traces the object's stroked outlines, so give such an ob
  "focus_word": "exact words from the unit text" or null,
  "sfx": [ {"name": "<library name>", "word": "<exact words from the unit text>", "vol": 0.5-0.8} ],
  "labels": [ ... ],
- "spot": true
+ "spot": true,
+ "iris": [x, y]
 }
 ```
+- `iris` (optional, 2026-10-14): when the subject of the picture stands at the side (a person, a craft at about x 400 or x 1500),
+  give its centre. If the build picks the `iris` transition for this unit, the picture opens as a growing circle from that point.
+  Without it the build uses an off-centre `focus` point, else the left or right third.
 - `focus`: only if the text names a specific thing to look at closely. x,y = its centre, scale 1.5-2.2 (the camera pushes in there and
   holds; the rest of the picture dims, guideline 4-1 — set `"spot": false` to keep it bright). About 40-50 % of units get a focus.
   `focus_word` occurs verbatim in the unit text (the camera starts shortly before it is spoken). The focused thing needs enough detail
