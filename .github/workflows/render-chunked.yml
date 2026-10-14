@@ -1,0 +1,121 @@
+name: render-chunked
+
+# Parallel render (2026-10-14): each line of render/.chunked is "<slug> <chunks>".
+# The video is split into <chunks> time ranges, rendered at the same time (one job each, 300 min limit per job),
+# joined without re-encoding, then the full audio (the <audio> src of index.html) is muxed once and uploaded to Drive.
+# Push to render-pipeline changing render/.chunked (or this file) starts it. Manual: Actions > render-chunked > Run workflow.
+on:
+  workflow_dispatch:
+    inputs:
+      spec:
+        description: '"<slug> <chunks>", several separated by commas'
+        required: true
+  push:
+    branches: [render-pipeline]
+    paths: ["render/.chunked", ".github/workflows/render-chunked.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      chunks: ${{ steps.p.outputs.chunks }}
+      slugs: ${{ steps.p.outputs.slugs }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: render/.chunked, sparse-checkout-cone-mode: false }
+      - id: p
+        run: |
+          if [ -n "${{ github.event.inputs.spec }}" ]; then echo "${{ github.event.inputs.spec }}" | tr ',' '\n' > spec.txt; else cp render/.chunked spec.txt; fi
+          python3 - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json
+          rows = [l.split() for l in open('spec.txt') if l.strip() and not l.startswith('#')]
+          ch = [dict(slug=s, n=int(n), i=i) for s, n in rows for i in range(int(n))]
+          print('chunks=' + json.dumps(ch)); print('slugs=' + json.dumps([dict(slug=s, n=int(n)) for s, n in rows]))
+          EOF
+          cat "$GITHUB_OUTPUT"
+
+  chunk:
+    needs: plan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.chunks) }}
+    name: render ${{ matrix.slug }} ${{ matrix.i }}/${{ matrix.n }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - name: Install FFmpeg
+        run: sudo apt-get update -y && sudo apt-get install -y ffmpeg
+      - name: Find Chrome
+        run: |
+          CHROME=$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)
+          test -n "$CHROME"; echo "HYPERFRAMES_BROWSER_PATH=$CHROME" >> "$GITHUB_ENV"
+          for i in 1 2 3; do timeout 120 "$CHROME" --version && break; sleep 5; done
+          timeout 120 "$CHROME" --headless=new --no-sandbox --disable-gpu --dump-dom about:blank > /dev/null 2>&1 || true
+      - name: Render chunk
+        run: |
+          python3 tools/chunk_prep.py "${{ matrix.slug }}" "${{ matrix.n }}" "${{ matrix.i }}"
+          D="render/${{ matrix.slug }}__c${{ matrix.i }}"; cd "$D"; start=$(date +%s)
+          for try in 1 2 3; do
+            npx --yes hyperframes@0.8.141 render 2>&1 | tee render$try.log
+            ls renders/*.mp4 >/dev/null 2>&1 && break
+            echo "no mp4 after try $try"; sleep 10
+          done
+          f=$(ls renders/*.mp4 | head -1); cp "$f" "$GITHUB_WORKSPACE/chunk.mp4"
+          { cat chunk.json; echo; echo "render_seconds=$(( $(date +%s) - start ))"
+            ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=codec_name,width,height,r_frame_rate,nb_read_frames -of compact "$f"; } | tee "$GITHUB_WORKSPACE/chunk.txt"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chunk-${{ matrix.slug }}-${{ matrix.i }}
+          path: |
+            chunk.mp4
+            chunk.txt
+          retention-days: 2
+
+  merge:
+    needs: [plan, chunk]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.slugs) }}
+    env:
+      RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+      ROOT_ID: 1lBexNbmVvKNahw56d-s2rUVR5Qp76V3i
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install FFmpeg and rclone
+        run: sudo apt-get update -y && sudo apt-get install -y ffmpeg rclone
+      - uses: actions/download-artifact@v4
+        with: { pattern: "chunk-${{ matrix.slug }}-*", path: chunks }
+      - name: Join, add audio, report
+        run: |
+          SLUG="${{ matrix.slug }}"; N="${{ matrix.n }}"; : > list.txt; : > report.txt
+          for i in $(seq 0 $((N-1))); do d="chunks/chunk-$SLUG-$i"; test -f "$d/chunk.mp4" || { echo "missing chunk $i" | tee -a report.txt; exit 1; }
+            echo "file '$PWD/$d/chunk.mp4'" >> list.txt; echo "--- chunk $i" >> report.txt; cat "$d/chunk.txt" >> report.txt; done
+          ffmpeg -nostdin -y -f concat -safe 0 -i list.txt -map 0:v -c copy -an video.mp4
+          AUD=$(grep -o '<audio[^>]*src="[^"]*"' "render/$SLUG/index.html" | head -1 | sed -E 's/.*src="([^"]*)".*/\1/')
+          if [ -n "$AUD" ]; then ffmpeg -nostdin -y -i video.mp4 -i "render/$SLUG/$AUD" -map 0:v -map 1:a -c copy -shortest "$SLUG.mp4"; else mv video.mp4 "$SLUG.mp4"; fi
+          { echo "=== joined $SLUG $(date -u +%FT%TZ) chunks=$N"
+            ffprobe -v error -count_frames -show_entries stream=codec_name,width,height,r_frame_rate,nb_read_frames,duration -of compact "$SLUG.mp4"
+            ffmpeg -nostats -i "$SLUG.mp4" -af ebur128=peak=true -f null - 2>&1 | grep -E "I:|LRA:|Peak:" | tail -3; ls -la "$SLUG.mp4"; } >> report.txt
+          cat report.txt; cp report.txt "${SLUG}_render_report.txt"
+      - name: Upload to Drive
+        if: ${{ env.RCLONE_CONF != '' }}
+        run: |
+          SLUG="${{ matrix.slug }}"; mkdir -p ~/.config/rclone; printf '%s' "$RCLONE_CONF" > ~/.config/rclone/rclone.conf
+          DEST_DIR="$SLUG"; case "$SLUG" in *-short|*-short[0-9]) DEST_DIR="$(echo "$SLUG" | sed -E 's/-short[0-9]?$//')/short";; esac
+          [ -f "render/$SLUG/.dest" ] && DEST_DIR=$(cat "render/$SLUG/.dest")
+          OUTNAME="$SLUG"; [ -f "render/$SLUG/.outname" ] && OUTNAME=$(cat "render/$SLUG/.outname")
+          rclone copyto "$SLUG.mp4" "gdrive:${DEST_DIR}/${OUTNAME}.mp4" --drive-root-folder-id "$ROOT_ID" --drive-chunk-size 64M
+          rclone copyto "${SLUG}_render_report.txt" "gdrive:${DEST_DIR}/${OUTNAME}_render_report.txt" --drive-root-folder-id "$ROOT_ID"
+          if [ -d "render/$SLUG/deliver" ] && [ ! -f "render/$SLUG/.skip_deliver" ]; then rclone copy "render/$SLUG/deliver" "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID"; fi
+          rclone lsl "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID"
