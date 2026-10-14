@@ -4,6 +4,34 @@
 
 ---
 
+## 2026-10-14 전면 정리: 시네마틱 3D(cine) 방식만 남김 (사용자 결정)
+
+사용자: "오늘 2A 방식으로 앞으로 갈 거야. 그전에 있던 것들 중 필요 없거나 합칠 수 있는 거 다 합치거나 지워서 깔끔하게". 선택: 예전 렌더 원본 삭제, 예전 SVG 도구 전부 삭제, 예전 대본은 대본만 남김, 지침서는 2A 중심으로 재작성. 정리 직전 상태는 커밋 `ff7818b`(main) / `605672c`(render-pipeline)에 있다.
+
+**`render/` (커밋 `6954f29`)**
+- 지움: 예전 SVG 영상 11편·숏츠 22편의 렌더 원본(약 550MB, MP4는 Drive에 있음), 시험 렌더 `proto-cine`, `proto-cine2`, `test-3d`, `sample`, `carnian-rain-thumb3`, 렌더 목록 `render/.slug`.
+- 남김: `cine-test`, `whale-fall-cine`, `.chunked`, 이후 새 방식 샘플(`*-cine`).
+
+**`videos/` (커밋 `6954f29`)**
+- 영상마다 `script.py`·`config.py`·`plan.json`(+ `cine.json`, `scenes/`)만 남기고 `art3/`(SVG 그림), `art_brief.md`, `thumb/`, `tts/`, `NEXT.md`를 지움(나중에 새 방식으로 다시 만들 때 대본만 쓰면 된다).
+- 옛 판 통째로 삭제: `never-eat-human-meat`, `-v2`, `-v3`, `never-eat-human-meat-short`, `epomis-frog-hunter`(각각 v4, v2로 대체됨).
+- `videos/playlist-space` → `videos/_playlists/space`(재생목록 표지 한 곳으로).
+
+**워크플로**
+- `.github/workflows/render.yml`(예전 SVG 렌더) 삭제. `render/.slug`·`render/sample` 삭제와 같은 커밋이라 렌더가 시작되지 않았다(실행 목록으로 확인). 렌더는 `render-chunked.yml`만 쓴다.
+
+**`tools/`**
+- 새로 만듦: `build_audio.py` — 예전 `build3.py`의 음성·단위·자막·효과음·음악 부분만 옮긴 것(`CINE=1` 경로). 같은 입력으로 `build3.py CINE=1`과 `build_data.json`이 항목별로 같고 믹스 음량이 같음을 whale-fall-cine, stolen-time(장 1~2), 데이터 카드 시험으로 확인했다.
+- 지움: `build3.py`, `build.py`, `art_spec.md`, `labels_lib.py`, `labelshot.py`, `svgshot.py`, `motions.py`, `pivots.py`, `mvcheck.py`, `restyle_motion.py`, `ref/`(블랙홀 SVG 참고 그림), `assets/`의 `PatrickHand-400.woff2`·`grain.png`·`whoosh.wav`·`amb_src.m4a`·`gsap.min.js`(3D는 `tools/cine/assets/`의 것을 씀). 남긴 `assets/`: `logo.png`, `Fredoka-700.woff2`(썸네일 문구).
+- 고침: `build_cine.py`·`cine_spec.md`·`README.md`의 명령을 `build_audio.py`로, `gen_text.py`의 문구(그림 → 단위, 칠판 → 데이터 카드).
+
+**문서**
+- `docs/miyas-lab-guideline.md` 전면 재작성(약 156KB → 약 36KB): SVG 화풍·모션·전환·칠판·HTML 애니메틱·렌더 장을 지우고 3D 규칙을 3장으로, 데이터 카드 6장, 렌더 12장. 공통 규칙(언어, 오디오, 대본, 사실 확인, 텍스트 파일, 제목·설명, 저장 위치, 숏츠)은 내용을 유지해 합쳤다. 개정 이력은 요약으로 줄였다(자세한 옛 이력은 깃 기록).
+- `CLAUDE.md`, `docs/project-instructions.md`, `tools/README.md`를 새 구조로 고침. `render-pipeline` 최상위의 한 줄짜리 `README.md`("# Auto Youtobe") 삭제.
+- `main.py`·`main_owl.py`(매일 대본 생성) 프롬프트의 "문단 하나 = 7초 안 문장 하나"(예전 그림 컷 기준)를 실제 영상 대본 구조("문단 하나 = 장면 하나, 약 60~110단어")로 바꾸고 "그림 영상"을 "3D 영상"으로 고침.
+
+---
+
 ## 2026-10-14 옛 시험 렌더 폴더 5개 삭제 (사용자 결정)
 
 - 지운 폴더(`render/` 아래, 합계 약 86MB): `never-eat-human-meat`, `never-eat-human-meat-v2`, `never-eat-human-meat-v3`, `never-eat-human-meat-short`, `epomis-frog-hunter`. 모두 새 방식으로 다시 만든 영상(`never-eat-human-meat-v4`와 숏츠, `epomis-frog-hunter-v2`와 숏츠)으로 대체된 시험 렌더이고, Drive에 대응하는 폴더가 없다.

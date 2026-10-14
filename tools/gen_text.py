@@ -11,19 +11,21 @@ words=sum(len(s[4].split()) for s in SCENES)
 L=[]
 L+= [ CFG.TITLE,
  "Miya's Lab · 내레이션 대본",
- f"영상 길이 {ts(d['total'])} (장면 간격 {d['gap']}초, 앞 여백 {d['lead']}초, 끝 여백 {d.get('tail',2.5)}초), 단어 수 {words}, 장면 {len(SCENES)}개, 그림 {len(d['cuts'])}장. 길이는 Kokoro 음성(am_michael)의 실제 길이 기준.",
+ f"영상 길이 {ts(d['total'])} (장면 간격 {d['gap']}초, 앞 여백 {d['lead']}초, 끝 여백 {d.get('tail',2.5)}초), 단어 수 {words}, 장면 {len(SCENES)}개, 단위 {len(d['cuts'])}개. 길이는 Kokoro 음성(am_michael)의 실제 길이 기준.",
  "TTS: 영어, 남성 1인(Kokoro am_michael), 정규화 -16.8 LUFS. 원문 대비 바뀐 점: 사실 확인으로 수치·표현을 수정하고 단정 표현에 단서를 붙임(채팅의 확인 표 참고).",
  "", "===== 1부: TTS 입력용 전문 (장면당 한 문단) =====",""]
 for s in SCENES: L+= [s[4],""]
 L+= ["===== 2부: 장면별 대본 =====",""]
 cuts=d['cuts']
 for s in SCENES:
-    i=int(s[0][1:]); st=d['starts'][str(i)]; dd=d['D'][str(i)]
+    i=int(s[0][1:])
+    if str(i) not in d['starts']: continue   # partial build
+    st=d['starts'][str(i)]; dd=d['D'][str(i)]
     cs=[c for c in cuts if c['scene']==i]
-    kind='칠판' if s[2]=='chalk' else '일러스트'
+    kind='데이터 카드' if (s[2]=='chalk' or i in CFG.CHALK) else '3D'
     L.append(f"[{s[0]}] {ts(st)}–{ts(st+dd)} ({dd:.1f}s) {kind} · {s[1]}")
     L.append(s[4])
-    L.append("그림(의미 단위): "+", ".join(f"{c['id']} {ts(c['t0'])}–{ts(c['t1'])} [{c['tr']}]" for c in cs))
+    L.append("의미 단위: "+", ".join(f"{c['id']} {ts(c['t0'])}–{ts(c['t1'])} [{c['tr']}]" for c in cs))
     sfx=[f"{x['name']} @{ts(x['t'])}" for x in d.get('sfx',[]) if x['unit'] in {c['id'] for c in cs}]
     if i in CFG.CHALK: sfx.append("분필 @"+", ".join(ts(t) for t in d['chalk_pop'][str(i)]))
     if not sfx: sfx.append("없음")
@@ -43,14 +45,14 @@ if not CFG.CHAPTERS:   # Shorts: title + description + hashtags only (no chapter
 ch=CFG.CHAPTERS
 lines=[]
 prev=None
-for k,(i,t) in enumerate(ch):
+for k,(i,t) in enumerate([c for c in ch if str(c[0]) in d['starts'] or c[0]==ch[0][0]]):
     st=0.0 if k==0 else d['starts'][str(i)]
     if prev is not None: assert st-prev>=10
     prev=st; m=int(st//60); s=int(st%60); lines.append(f"{m:02d}:{s:02d} {t}")
 import datetime
 src = ("SOURCES\n" + "\n".join("- " + x for x in CFG.SOURCES) + "\n\n") if CFG.SOURCES else ""
 M = (f"슬러그 {slug}, 작성일 {datetime.date.today().isoformat()}. 챕터 시각은 렌더 구성표(내레이션을 배치한 시각)에서 가져온 값이며, 렌더된 MP4 프레임으로 다시 재지는 않았음.\n"
-     f"제목 길이 {len(CFG.TITLE)}자(70자 이하). 설명의 ABOUT 문구는 17장의 제안 문구이며 사용자 확인 전.\n\n"
+     f"제목 길이 {len(CFG.TITLE)}자(70자 이하). 설명의 ABOUT 문구는 지침서 14장의 제안 문구이며 사용자 확인 전.\n\n"
      "=== TITLE ===\n" + CFG.TITLE + "\n\n=== DESCRIPTION ===\n" + "\n\n".join(CFG.DESC) + "\n\nCHAPTERS\n" + "\n".join(lines) + "\n\n" + src +
      "ABOUT MIYA'S LAB\nMiya's Lab turns big questions into calm, illustrated explainers. New videos keep coming, so subscribe if you want the next one.\n\n" + CFG.HASHTAGS + "\n")
 assert len(CFG.TITLE) <= 70
