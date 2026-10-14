@@ -22,7 +22,7 @@ Steps (run from the repo root):
    - `render/<slug>/.dest` (one line) overrides the Drive folder (e.g. `x/short`) when the slug name does not follow `<long>-short`.
    - A slug folder containing an empty file `.deliver_only` skips the render and only uploads `deliver/` (use to re-upload thumbnails/text).
 
-Check: with the saved TTS wavs, steps 2-3 reproduce `render/never-eat-human-meat/index.html` byte for byte.
+Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/never-eat-human-meat/index.html` byte for byte (that render folder was deleted 2026-10-14; it is in git history).
 
 ## 2026-10-10 additions
 - `sfx_lib.py` v2: 25 quiet unpitched sounds x 3 variants (peak -24 dBFS). Old name `shimmer` is an alias of `hush`. Sidecar `sfx.name` list is in `art_spec.md` section 8.
