@@ -5,12 +5,17 @@
 
 ## 단계 (끝난 것은 [x])
 - [x] 대본 사실 확인 → `script.py`, `config.py` (본편), `videos/stolen-time-short1/`, `-short2/` 의 script·config
-- [x] `art_brief.md` (등장인물 시트), 에이전트 프롬프트 `/home/claude/work/art_prompt_st.txt` (작업 공간이 새로 시작되면 `videos/cosmic-prison` 쪽 프롬프트 형식을 따라 다시 만든다: SLUGX/RANGE/SCRATCH/CANVAS/PREVIEWENV 자리표시자)
-- [ ] TTS: `/home/claude/work/tts_st.sh` 실행 중 → `/home/claude/work/<slug>/tts/p##.wav`. 로그 `/home/claude/work/tts_st.log` 에 `DONE` 이면 끝. 작업 공간이 사라졌으면 Kokoro venv부터 다시(`tools/README.md` 1단계)
-- [ ] `SLUG=x python3 tools/audio_prep.py` (세 슬러그), `PLAN=1 tools/build3.py` (숏츠는 `VERT=1`)
-- [ ] 그림: 숏츠 2개 에이전트, 본편은 plan.json 단위를 장면 경계로 12~19개씩 묶어 에이전트 1개씩 (동시 20개 한도). 사이드카에 `labels`, sfx 는 우주 모드 이름만
-- [ ] 빌드 `tools/build3.py` (세 슬러그), 누락 uid·sfx 연속 중복 검사, `gen_text.py`, 썸네일 2장 (`thumb/A.html`, `B.html`, `tools/thumb_shot.py`)
-- [ ] `render/.slug` 에 세 슬러그를 적고 푸시 → Actions 렌더 → Drive 확인 → 사용자 보고 (사실 확인 표 포함)
+- [x] `art_brief.md` (등장인물 시트)
+- [x] TTS(Kokoro am_michael), `audio_prep.py`, `PLAN=1 build3.py` (본편 357단위 약 28분, 숏츠1 14단위, 숏츠2 11단위)
+- [x] 그림: 본편 357장(에이전트 21개, 2026-10-14), 숏츠1 14장, 숏츠2 11장(기존 그림, 라벨 3개 위치만 안전 영역 안으로 이동)
+- [x] 빌드 `build3.py` 세 슬러그(대체 그림 0, 모션 19종, 연속 중복 0), `gen_text.py`, 썸네일 A·B (`render/stolen-time/deliver/`)
+- [x] `.dest`: 본편 `Space & Science/02_stolen-time`, 숏츠 `Space & Science/02_stolen-time/short`
+- [ ] `render/.slug` 푸시(2026-10-14) → Actions 렌더 → Drive 확인 → 사용자 보고
+
+## 남은 그림 메모 (막지 않음)
+- 블랙홀(검은 원 + 기울어진 원반)이 작게 보면 고리 있는 행성처럼 보인다(여러 그룹 공통, art_brief 모양대로 둠).
+- U246·U044는 모션 그룹이 11~15개(사람 여러 명), U142는 3개.
+- 숫자 없는 num 배지(U139, U159, U195 등)는 카운트업 없이 글자만 나온다(빌드 화면에서 확인).
 
 ## 사용 한도 메모
 2026-10-12 저녁: 주간 한도 96% 상태에서 Fable로 시작. 끊기면 목요일 08:00 KST 초기화 이후에 이 파일부터 읽고 이어서 한다.
