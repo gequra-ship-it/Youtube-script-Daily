@@ -1,0 +1,105 @@
+// whale — a realistic swimming great whale in the open ocean (stage), built with MIYA.kit (2026-10-14, whale-fall test).
+// Body swept along a spine with blue-whale proportions, mottled skin + throat pleats (procedural colour/normal maps), wet clearcoat,
+// flukes/pectorals/dorsal fin that follow the swimming wave, god rays, marine snow, the surface seen from below.
+// params (cues): { court: cue (a ghost basketball court appears under the body for scale, ~28 m vs a 30 m whale), courtOff: cue,
+//   calf: cue (a calf swims in beside it), exhale: cue (last breath: a bubble cloud from the blowholes), sink: cue (the body stops,
+//   rolls and sinks, the light fades), deep: cue (darkness, a few bioluminescent specks below), side:.12, length:30 }
+(window.MIYA = window.MIYA || { scenes: {} }).scenes.whale = function (ctx, p) {
+  const { T, sm, cue } = ctx, K = window.MIYA.kit, L = p.length || 30;
+  const S = new T.Scene(); const FOG = new T.Color('#06324d'), DEEP = new T.Color('#00060c');
+  S.fog = new T.FogExp2(FOG.clone(), .012);
+  // sky dome: bright from above, dark below
+  const dome = new T.Mesh(new T.SphereGeometry(500, 32, 16), new T.ShaderMaterial({ side: T.BackSide, depthWrite: false, fog: false, uniforms: { k: { value: 1 } },
+    vertexShader: 'varying vec3 vP; void main(){ vP=normalize(position); gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }',
+    fragmentShader: 'uniform float k; varying vec3 vP; void main(){ float y=vP.y; vec3 top=vec3(.10,.42,.62), mid=vec3(.02,.17,.29), bot=vec3(.0,.02,.04); vec3 c = y>0. ? mix(mid,top,pow(y,.7)) : mix(mid,bot,pow(-y,.6)); gl_FragColor=vec4(c*k,1.); }' }));
+  S.add(dome);
+  const hemi = new T.HemisphereLight('#7cc4f0', '#000a14', .65); S.add(hemi);
+  const sun = new T.DirectionalLight('#d8f0ff', 1.9); sun.position.set(-6, 70, 12); S.add(sun);
+  const rim = new T.DirectionalLight('#7cc8ff', 1.6); rim.position.set(25, 18, -45); S.add(rim);
+  S.environment = ctx.env();
+  // ---------- skin textures (u = along the body tail->head, v = around: .25 top, .75 belly) ----------
+  const W2 = 2048, H2 = 512, base = document.createElement('canvas'); base.width = W2; base.height = H2; const g = base.getContext('2d');
+  const grd = g.createLinearGradient(0, 0, 0, H2); [[0, '#3f566e'], [.12, '#2e4258'], [.25, '#1b2838'], [.4, '#2f455c'], [.55, '#4f677f'], [.75, '#6c8296'], [.92, '#4f677f'], [1, '#3f566e']].forEach(([o, c]) => grd.addColorStop(o, c));
+  g.fillStyle = grd; g.fillRect(0, 0, W2, H2);
+  const mott = K.noise(512, { seed: 21, octaves: 5, sx: 3, sy: 1 }); g.globalAlpha = .35; g.globalCompositeOperation = 'overlay'; g.drawImage(mott, 0, 0, W2, H2);
+  g.globalCompositeOperation = 'source-over'; g.globalAlpha = 1; const r1 = K.rng(4);
+  for (let i = 0; i < 2600; i++) { const x = r1() * W2, y = r1() * H2 * .9; g.fillStyle = `rgba(${r1() < .6 ? '150,175,200' : '15,25,40'},${.10 + r1() * .16})`; g.beginPath(); g.ellipse(x, y, 3 + r1() * 12, 2 + r1() * 6, 0, 0, 6.283); g.fill(); }
+  // throat pleats on the lower front (s .66-.97, v .58-.92) and the mouth line
+  g.strokeStyle = 'rgba(30,40,55,.55)'; g.lineWidth = 3; for (let k = 0; k < 34; k++) { const y = H2 * (.58 + k * .01); g.beginPath(); g.moveTo(W2 * .66, y); g.bezierCurveTo(W2 * .8, y + 4, W2 * .9, y - 2, W2 * .97, y); g.stroke(); }
+  g.strokeStyle = 'rgba(15,20,30,.85)'; g.lineWidth = 6; [H2 * .5, H2 * 1.0 - 2].forEach(() => {}); g.beginPath(); g.moveTo(W2 * .8, H2 * .045); g.quadraticCurveTo(W2 * .9, H2 * .07, W2 * .995, H2 * .02); g.stroke();
+  g.beginPath(); g.moveTo(W2 * .8, H2 * .955); g.quadraticCurveTo(W2 * .9, H2 * .93, W2 * .995, H2 * .98); g.stroke();
+  const hc = document.createElement('canvas'); hc.width = 1024; hc.height = 256; const hg = hc.getContext('2d'); hg.drawImage(K.noise(256, { seed: 7, octaves: 4, sx: 4, sy: 1 }), 0, 0, 1024, 256);
+  hg.strokeStyle = 'rgba(0,0,0,.6)'; hg.lineWidth = 2; for (let k = 0; k < 34; k++) { const y = 256 * (.58 + k * .01); hg.beginPath(); hg.moveTo(1024 * .66, y); hg.lineTo(1024 * .97, y); hg.stroke(); }
+  const skinMap = K.tex(base, true), skinN = K.normalMap(hc, 3); skinMap.flipY = skinN.flipY = false;   // canvas row = v (top .25, belly .75)
+  const skin = new T.MeshPhysicalMaterial({ map: skinMap, normalMap: skinN, normalScale: new T.Vector2(.6, .6), roughness: .5, metalness: 0, clearcoat: .5, clearcoatRoughness: .3, envMapIntensity: .3 });
+  const fins = new T.MeshPhysicalMaterial({ color: '#2c3d50', roughness: .45, clearcoat: .4, clearcoatRoughness: .35, envMapIntensity: .5 });
+  // ---------- body ----------
+  const prof = (s) => Math.pow(Math.sin(Math.PI * Math.min(.9995, Math.pow(s, 1.35))), .8);
+  function makeWhale(scale) {
+    const grp = new T.Group();
+    const b = K.body({ length: L, seg: 140, ring: 56, belly: .22, ridge: .08,
+      width: s => (.1 + 2.25 * prof(s)) * (.45 + .55 * sm(.03, .3, s)) * (s > .86 ? .92 + .2 * sm(.86, .97, s) * (1 - sm(.97, 1, s)) : 1),
+      height: s => (.1 + 1.95 * prof(s)) * (s > .85 ? .82 : 1) });
+    const mesh = new T.Mesh(b.geo, skin); grp.add(mesh);
+    const fl = new T.Mesh(K.fin([[0, 0], [1.2, .9], [3.6, 1.9], [4.1, 1.6], [2.4, .4], [1.0, -.15], [2.4, -.75], [4.1, -1.65], [3.6, -1.95], [1.2, -.95]].map(([x, y]) => [-x, y]), .35), fins);
+    fl.rotation.x = Math.PI / 2; grp.add(fl);
+    const pecG = K.fin([[0, 0], [.6, .35], [2.2, .38], [4.2, .12], [4.6, -.05], [2.4, -.32], [.6, -.35]].map(([x, y]) => [-x, y]), .16); pecG.translate(-2.3, 0, 0);   // root at the origin, tip pointing back
+    const pecL = new T.Mesh(pecG, fins), pecR = new T.Mesh(pecG, fins); grp.add(pecL, pecR);
+    const dor = new T.Mesh(K.fin([[0, 0], [.9, .1], [1.4, .7], [1.6, .75], [1.3, .2], [1.8, 0]], .12), fins); grp.add(dor);
+    const eye = new T.Mesh(new T.SphereGeometry(.13, 16, 12), new T.MeshStandardMaterial({ color: '#05070a', roughness: .2 })); grp.add(eye); const eye2 = eye.clone(); grp.add(eye2);
+    grp.scale.setScalar(scale);
+    // swimming wave: vertical, growing toward the tail; returns tail offset/slope for the flukes
+    const wave = (s, t, A) => A * Math.pow(1 - s, 2.2) * Math.sin(t * 1.25 - (1 - s) * 5.5);
+    return { grp, update(t, A) {
+      b.deform((s) => [0, wave(s, t, A), 0]);
+      const y0 = wave(0, t, A), y1 = wave(.03, t, A), sl = Math.atan2(y1 - y0, L * .03);
+      fl.position.set(-L / 2 - 1.6, y0, 0); fl.rotation.set(Math.PI / 2, -sl * 1.6, 0);
+      const ys = wave(.68, t, A); const hp = .1 + 1.95 * prof(.68), wp = (.1 + 2.25 * prof(.68));
+      pecL.position.set(L * .18, ys - hp * .55, wp * .82); pecL.rotation.set(.35, .3, .55); pecR.position.set(L * .18, ys - hp * .55, -wp * .82); pecR.rotation.set(-.35, -.3, .55);
+      const yd = wave(.27, t, A); dor.position.set(L * (.27 - .5), yd + (.1 + 1.95 * prof(.27)) * 1.0, 0); dor.rotation.set(0, 0, 0);
+      const ye = wave(.88, t, A); const we = (.1 + 2.25 * prof(.88)) * 1.0; eye.position.set(L * .38, ye - .25, we * .97); eye2.position.set(L * .38, ye - .25, -we * .97);
+    } };
+  }
+  const W = makeWhale(1); S.add(W.grp);
+  const calf = makeWhale(.36); S.add(calf.grp); calf.grp.visible = false;
+  // ghost basketball court (28 x 15 m) for scale
+  const cp = [], rect = (x0, z0, x1, z1) => cp.push(x0, 0, z0, x1, 0, z0, x1, 0, z0, x1, 0, z1, x1, 0, z1, x0, 0, z1, x0, 0, z1, x0, 0, z0);
+  rect(-14, -7.5, 14, 7.5); cp.push(0, 0, -7.5, 0, 0, 7.5); for (let k = 0; k < 48; k++) { const a = k / 48 * 6.283, b2 = (k + 1) / 48 * 6.283; cp.push(1.8 * Math.cos(a), 0, 1.8 * Math.sin(a), 1.8 * Math.cos(b2), 0, 1.8 * Math.sin(b2)); }
+  [-1, 1].forEach(sd => { for (let k = 0; k < 24; k++) { const a = -Math.PI / 2 + k / 24 * Math.PI, b2 = -Math.PI / 2 + (k + 1) / 24 * Math.PI; cp.push(sd * (14 - 6.75 * Math.cos(a)), 0, 6.75 * Math.sin(a), sd * (14 - 6.75 * Math.cos(b2)), 0, 6.75 * Math.sin(b2)); } });
+  const cg = new T.BufferGeometry(); cg.setAttribute('position', new T.BufferAttribute(new Float32Array(cp), 3));
+  const court = new T.LineSegments(cg, new T.LineBasicMaterial({ color: ctx.ACC, transparent: true, opacity: 0, fog: false })); S.add(court);
+  // bubbles (last breath)
+  const NB = 700, bub = ctx.points(NB, { size: .55, opacity: .9, color: '#e6f6ff' }); S.add(bub); const br = K.rng(31), bb = []; for (let i = 0; i < NB; i++) bb.push([br() - .5, br() - .5, br() - .5, br()]);
+  // light and particles
+  const shafts = K.shafts(S, { n: 11, top: 70, height: 150, spread: 160, depth: 100, opacity: .1, color: '#a8dcff' });
+  const snow = K.snow(S, { n: 3500, box: [120, 70, 70], size: .22, opacity: .5, fall: .35 });
+  const surf = K.surfaceFromBelow(S, { y: 62, opacity: .35 });
+  const glowN = 160, bio = ctx.points(glowN, { size: .6, color: '#5ff0ff' }); S.add(bio); const bo = K.rng(77), bp = []; for (let i = 0; i < glowN; i++) bp.push([(bo() - .5) * 90, -40 - bo() * 30, (bo() - .5) * 60, bo()]);
+  const cam = new T.PerspectiveCamera(36, ctx.W / ctx.H, .1, 1200); ctx.side(cam, p.side == null ? .12 : p.side);
+  const at = (c, d) => c == null ? 0 : sm(cue(c), cue(c) + d, ctx.t);
+  return { scene: S, camera: cam, draw(t, u) {
+    ctx.t = t;
+    const sink = at(p.sink, 6), deep = at(p.deep, 5), stop = at(p.exhale, 4);
+    const A = 1.25 * (1 - stop * .9);
+    // travel: swims forward, slows after the last breath; sinking moves it down and tips it
+    const xw = u * 1.6 - sink * 4, yw = 6 - sink * 30 - deep * 12;
+    W.grp.position.set(xw, yw, 0); W.grp.rotation.set(sink * .5, 0, -sink * .28 + .04 * Math.sin(u * .4));
+    W.update(t, A);
+    const cv = at(p.calf, 4) * (1 - sink); calf.grp.visible = cv > .01;
+    if (calf.grp.visible) { calf.grp.position.set(xw - 4 + (1 - cv) * -30, yw - 5.5 + Math.sin(u * .5) * .4, 6.5); calf.update(t + .9, 1.1); }
+    court.material.opacity = .7 * at(p.court, 1.2) * (1 - at(p.courtOff, 1)); court.position.set(xw, yw - 4.2, 0);
+    const bv = at(p.exhale, .3) * (1 - at(p.exhale ? cue(p.exhale) + 4 : null, 2)); const ba = bub.geometry.attributes.position.array, bc = bub.geometry.attributes.color.array, te = p.exhale ? t - cue(p.exhale) : -1;
+    for (let i = 0; i < NB; i++) { const [a, b2, c, o] = bb[i]; const k = Math.max(0, te - o * .8); ba.set([xw + L * .33 + a * 3 + k * a * 2, yw + 2.2 + k * (2.4 + o * 3), b2 * 3 + k * c * 2], i * 3); const v = te > o * .8 && te < 6 ? bv * (1 - k / 7) : 0; bc[i * 3] = bc[i * 3 + 1] = bc[i * 3 + 2] = v; }
+    bub.geometry.attributes.position.needsUpdate = true; bub.geometry.attributes.color.needsUpdate = true;
+    const light = 1 - sink * .75 - deep * .2; dome.material.uniforms.k.value = Math.max(.08, light); hemi.intensity = .65 * Math.max(.12, light); sun.intensity = 1.9 * Math.max(.05, light);
+    S.fog.color.copy(FOG).lerp(DEEP, sink * .8 + deep * .2); S.fog.density = .012 + sink * .01;
+    shafts.update(t, Math.max(0, 1 - sink * 1.2)); surf.update(t, Math.max(0, 1 - sink));
+    const ba2 = bio.geometry.attributes.color.array, bpos = bio.geometry.attributes.position.array; for (let i = 0; i < glowN; i++) { const [x, y, z, o] = bp[i]; bpos.set([xw + x, y + Math.sin(t * .7 + o * 9) * .5, z], i * 3); const v = deep * (.4 + .6 * Math.max(0, Math.sin(t * 1.3 + o * 20))); ba2[i * 3] = v * .4; ba2[i * 3 + 1] = v; ba2[i * 3 + 2] = v; }
+    bio.geometry.attributes.position.needsUpdate = true; bio.geometry.attributes.color.needsUpdate = true;
+    // camera: alongside, slow orbit; follows the body down when it sinks
+    const ca = -.25 + u * .02, cd = 46 - 6 * at(p.court, 2) * (1 - at(p.courtOff, 2)) + sink * 4;
+    cam.position.set(xw + Math.sin(ca) * cd, yw + 7 + at(p.court, 2) * 6 * (1 - at(p.courtOff, 2)) + sink * 6, Math.cos(ca) * cd);
+    cam.lookAt(xw + 1.5, yw - sink * 4, 0);
+    snow.update(t, [cam.position.x, cam.position.y - 10, 0]);
+  } };
+};
