@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-10-14 옛 시험 렌더 폴더 5개 삭제 (사용자 결정)
+
+- 지운 폴더(`render/` 아래, 합계 약 86MB): `never-eat-human-meat`, `never-eat-human-meat-v2`, `never-eat-human-meat-v3`, `never-eat-human-meat-short`, `epomis-frog-hunter`. 모두 새 방식으로 다시 만든 영상(`never-eat-human-meat-v4`와 숏츠, `epomis-frog-hunter-v2`와 숏츠)으로 대체된 시험 렌더이고, Drive에 대응하는 폴더가 없다.
+- `videos/<슬러그>/`(대본·그림·설정)는 그대로 둔다.
+- 내레이션 음성은 `render/<슬러그>/n##.m4a`에만 있고 `videos/`에는 없다. 그래서 지운 5개의 음성은 이 시점 이후 git 기록에서만 복구할 수 있다. 남긴 영상의 `render/` 폴더를 지우면 음성이 사라진다.
+- 렌더는 시작되지 않는다(`render/.slug`, `render.yml`, `render/sample/**` 변경 없음).
+
+---
+
 ## 2026-10-14 `CLAUDE.md`와 프로젝트 지침 문구 추가 (사용자 결정)
 
 사용자 판단: 프로젝트 채팅도 깃 커넥터로 레포를 보고 렌더를 돌리므로, 프로젝트에 지침서 전문을 넣을 필요가 없다 → 지침서는 레포 한 곳(`render-pipeline`의 `docs/miyas-lab-guideline.md`)에서만 관리한다.
