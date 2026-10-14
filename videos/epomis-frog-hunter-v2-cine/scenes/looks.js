@@ -13,6 +13,7 @@
   function apply(ctx, S, look) {
     const T = ctx.T, list = [];
     S.traverse(o => { if ((o.isMesh || o.isInstancedMesh) && !o.isPoints) list.push(o); });
+    if (look === 'wire') S.traverse(o => { if (o.isSprite && o.material) o.material.opacity *= .25; });
     S.fog = new T.FogExp2(look === 'wire' ? '#010208' : '#03040c', look === 'wire' ? .02 : .03);
     list.forEach(o => {
       const m = Array.isArray(o.material) ? o.material[0] : o.material;
@@ -26,13 +27,17 @@
         if (m.emissiveMap || (m.emissive && m.emissive.getHex() && m.emissiveIntensity > .5)) return;   // eyes / glowing insect stay
         o.material = rimMat(T, warm ? '#040306' : '#010207', warm ? '#ffbf66' : '#6f84ff', warm ? 2.6 : .8, warm ? 60 : 40);
       } else {
-        const nv = o.geometry.attributes.position.count, dens = Math.min(1, 1500 / nv);   // dense meshes get fainter lines
-        o.material = new T.MeshBasicMaterial({ color: warm ? '#ffc870' : '#5d78ff', wireframe: true, transparent: true, opacity: (warm ? .3 : (o.isInstancedMesh ? .05 : .1)) * Math.max(.1, Math.sqrt(dens)), blending: T.AdditiveBlending, depthWrite: false, fog: true });
-        if (!o.isInstancedMesh) {   // points on every n-th vertex, sharing the live position attribute (follows the deform)
-          const step = Math.max(1, Math.round(nv / (warm ? 2500 : 1200))), ix = []; for (let i = 0; i < nv; i += step) ix.push(i);
+        if (m.emissiveMap || (m.emissive && m.emissive.getHex() && m.emissiveIntensity > .5)) return;   // eyes / glowing insect stay
+        // C: dark solid body with a thin outline (fresnel rim) + faint wireframe + sparse vertex points, all following the deform
+        const nv = o.geometry.attributes.position.count;
+        o.material = rimMat(T, warm ? '#030205' : '#010206', warm ? '#ffc460' : '#5f78ff', warm ? 3.0 : .9, warm ? 60 : 36);
+        if (!o.isInstancedMesh) {
+          const wm = new T.MeshBasicMaterial({ color: warm ? '#ffb85a' : '#4d66e0', wireframe: true, transparent: true, opacity: warm ? .03 : .025, blending: T.AdditiveBlending, depthWrite: false, fog: true });
+          const w = new T.Mesh(o.geometry, wm); w.frustumCulled = false; w.renderOrder = 2; o.add(w);
+          const step = Math.max(1, Math.round(nv / (warm ? 700 : 220))), ix = []; for (let i = 0; i < nv; i += step) ix.push(i);
           const pg = new T.BufferGeometry(); pg.setAttribute('position', o.geometry.attributes.position); pg.setIndex(ix);
-          const pts = new T.Points(pg, new T.PointsMaterial({ color: warm ? '#ffd890' : '#9fb4ff', size: warm ? .028 : .05, transparent: true, opacity: warm ? .8 : .3, blending: T.AdditiveBlending, depthWrite: false }));
-          pts.frustumCulled = false; o.add(pts);
+          const pts = new T.Points(pg, new T.PointsMaterial({ color: warm ? '#ffe3a8' : '#8fa6ff', size: warm ? .022 : .04, transparent: true, opacity: warm ? .85 : .25, blending: T.AdditiveBlending, depthWrite: false }));
+          pts.frustumCulled = false; pts.renderOrder = 3; o.add(pts);
         }
       }
     });
