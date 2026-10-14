@@ -163,7 +163,6 @@ for u in units:
 TR_WORDS = [   # a word in the unit text picks a transition that shows the same idea (70 % of the time, if allowed here)
     ('push', r'\b(fall\w*|fell|drop\w*|sink\w*|sank|plung\w*|descend\w*|rising|climb\w*|ascend\w*)\b'),
     ('whip', r'\b(speed\w*|race\w*|racing|rush\w*|sudden\w*|instant\w*|flash\w*)\b'),
-    ('dots', r'\b(data|signal\w*|message\w*|particle\w*|atom\w*|pixel\w*|cell|cells|grain\w*|dust)\b'),
     ('tilt', r'(\bimagine\b|\bwhat if\b|\bsurpris\w*|\btwist\w*)'),
     ('eye',  r'\b(open\w*|wake|woke|awake\w*|realis\w*|realiz\w*|discover\w*|reveal\w*)\b'),
 ]
@@ -175,8 +174,8 @@ for k, u in enumerate(units):
     p = units[k - 1]
     if u['kind'] == 'chalk' or p['kind'] == 'chalk':
         u['tr'] = 'hard'; last2 = []; continue
-    # 13 types (8 added 2026-10-14, user decision): not every cut grows out of the centre object any more
-    pool = ['zoom', 'fade', 'slide', 'match', 'wash', 'wipe', 'iris', 'eye', 'push', 'whip', 'tilt', 'dots']
+    # 12 types (7 added 2026-10-14, user decision; the mosaic 'dots' was tried and dropped the same day): not every cut grows out of the centre object any more
+    pool = ['zoom', 'fade', 'slide', 'match', 'wash', 'wipe', 'iris', 'eye', 'push', 'whip', 'tilt']
     if u['scene'] != p['scene']:
         pool.remove('match'); pool += ['zoom', 'wash', 'blinds', 'blinds', 'eye']   # scene change: favour the big covering cuts
     pool = [x for x in pool if x not in last2[-1:]]
@@ -184,13 +183,13 @@ for k, u in enumerate(units):
         pool = [x for x in pool if x not in last2[-2:]] or pool
     # balance: a type already used a lot is picked less (so 13 types spread out); a matching word wins half the time
     # unless that type is already above its fair share
-    fair = (sum(TR_COUNT.values()) + 1) / 12
+    fair = (sum(TR_COUNT.values()) + 1) / 11
     kw = [t for t, rx in TR_WORDS if t in pool and TR_COUNT.get(t, 0) <= fair * 1.3 and re.search(rx, u['text'], re.I)]
     if kw and rng.random() < .5: u['tr'] = kw[0]
     else: u['tr'] = rng.choices(pool, weights=[1 / (1 + TR_COUNT.get(x, 0)) ** 1.5 for x in pool])[0]
     last2.append(u['tr']); TR_COUNT[u['tr']] = TR_COUNT.get(u['tr'], 0) + 1
 TIN = {'hard': 0.0, 'zoom': 0.5, 'fade': 0.6, 'slide': 0.7, 'match': 0.9, 'wash': 0.0,
-       'wipe': 0.8, 'iris': 0.9, 'eye': 0.8, 'blinds': 0.65, 'push': 0.7, 'whip': 0.45, 'dots': 0.6, 'tilt': 0.8}
+       'wipe': 0.8, 'iris': 0.9, 'eye': 0.8, 'blinds': 0.65, 'push': 0.7, 'whip': 0.45, 'tilt': 0.8}
 
 # ---------- sidecars / art ----------
 def side(u):
@@ -313,6 +312,24 @@ WASHC = {'paper': '#ece4d1', 'night': '#14122b', 'dusk': '#5a4562'}      # old d
 def washc(u):
     th = SCENES[u['scene'] - 1][3]; w = palettes.PALETTES[palettes.for_theme(CFG, th)]['wash']
     return dict(zip(('paper', 'night', 'dusk'), w))
+import colorsys
+def _hex(c): c = c.lstrip('#'); return [int(c[i:i + 2], 16) / 255 for i in (0, 2, 4)]
+def scene_tones(u, n):
+    """n muted tones of ONE colour family from the scene's own palette (user decision 2026-10-14: blinds must not
+    bring in contrasting colours). Base = the scene background colour for its mode; partner = the palette accent closest in hue;
+    tones step between them, then saturation is cut by a third."""
+    th = SCENES[u['scene'] - 1][3]; P = palettes.PALETTES[palettes.for_theme(CFG, th)]; bg = BGMODE.get(th, 'paper')
+    base = {'night': P['night'][1], 'dusk': P['dusk'][1], 'paper': P['paper'][0]}.get(bg, P['paper'][0])
+    hb = colorsys.rgb_to_hls(*_hex(base))[0]
+    acc = min(P['accents'], key=lambda c: min(abs(colorsys.rgb_to_hls(*_hex(c))[0] - hb), 1 - abs(colorsys.rgb_to_hls(*_hex(c))[0] - hb)))
+    a, b = _hex(base), _hex(acc); out = []
+    lo, hi = (.15, .5) if bg != 'paper' else (.12, .38)
+    for i in range(n):
+        t = lo + (hi - lo) * i / max(n - 1, 1)
+        r, g, bl = [a[j] + (b[j] - a[j]) * t for j in range(3)]
+        H_, L_, S_ = colorsys.rgb_to_hls(r, g, bl); r, g, bl = colorsys.hls_to_rgb(H_, L_, S_ * .66)
+        out.append('#%02x%02x%02x' % tuple(int(round(v * 255)) for v in (r, g, bl)))
+    return out
 h = ['<!doctype html><html lang="en"><head><meta charset="UTF-8">', f'<meta name="viewport" content="width={W}, height={H}">']
 h.append('<script src="gsap.min.js"></script><style>')
 capcss = (".cap{position:absolute;left:0;width:%dpx;bottom:%dpx;display:flex;justify-content:center;opacity:0;z-index:1002}"
@@ -327,7 +344,7 @@ h.append('''@font-face{font-family:Fredoka;src:url(Fredoka-700.woff2) format("wo
 .w{position:absolute;left:0;top:0;width:%dpx;height:%dpx}
 .w svg{position:absolute;left:0;top:0;width:%dpx;height:%dpx}
 #wash{position:absolute;left:0;top:0;width:%dpx;height:%dpx;opacity:0;z-index:1000;pointer-events:none}
-#tredge,#trdots{position:absolute;left:0;top:0;width:%dpx;height:%dpx;z-index:999;pointer-events:none;display:none}
+#tredge{position:absolute;left:0;top:0;width:%dpx;height:%dpx;z-index:999;pointer-events:none;display:none}
 .trb{position:absolute;top:0;height:%dpx;z-index:999;transform:scaleY(0);transform-origin:top;pointer-events:none}
 .trs{position:absolute;left:0;height:6px;border-radius:3px;background:#fff;z-index:999;opacity:0;pointer-events:none}
 ''' % ((W, H) * 7 + (H,)))
@@ -381,8 +398,6 @@ h.append('<div id="wash"></div><img id="grain" src="grain.png">' + ('' if VERT e
 h.append(f'<svg id="tredge" viewBox="0 0 {W} {H}"><line id="treline" x1="0" y1="0" x2="0" y2="0" stroke="#ffd54a" stroke-width="10" stroke-linecap="round"/></svg>')
 NB = 6; h.append(''.join(f'<div class="trb" id="trb{i}" style="left:{i * W // NB}px;width:{W // NB + 2}px"></div>' for i in range(NB)))
 h.append(''.join(f'<div class="trs" id="trs{i}" style="top:{int(H * (.1 + .09 * i))}px;width:{int(W * (.26 + ((i * 37) % 36) / 100))}px"></div>' for i in range(9)))
-DC = 120; DGX, DGY = W // DC + 1, H // DC + 1
-h.append(f'<svg id="trdots" viewBox="0 0 {W} {H}">' + ''.join(f'<circle class="trd" cx="{DC // 2 + x * DC}" cy="{y * DC}" r="0"/>' for y in range(DGY + 1) for x in range(DGX)) + '</svg>')
 for k, c in enumerate(caps):
     h.append(f'<div class="cap" id="c{k}"><span>{caption_hl.words_html(k, c["text"])}</span></div>')   # one <i> per word for the highlight
 
@@ -390,11 +405,11 @@ for k, c in enumerate(caps):
 cues = []   # dict(name, t, vol, pri)
 TRSND = {'zoom': ('swish', -0.85, 0.9), 'slide': ('swish', -0.6, 0.6), 'match': ('hush', -0.7, 0.8), 'wash': ('rustle', -0.5, 0.7),
          'wipe': ('swish', -0.7, 0.6), 'iris': ('hush', -0.9, 0.7), 'eye': ('hush', -0.7, 0.6), 'blinds': ('rustle', -0.6, 0.6),
-         'push': ('swish', -0.6, 0.6), 'whip': ('swish', -0.4, 0.8), 'dots': ('pop', -0.5, 0.5), 'tilt': ('pop', -0.7, 0.6)}
+         'push': ('swish', -0.6, 0.6), 'whip': ('swish', -0.4, 0.8), 'tilt': ('pop', -0.7, 0.6)}
 if getattr(CFG, 'STYLE', 'default') == 'cosmic':   # cosmic videos: no swish/hush (guideline 3-7)
     TRSND = {'zoom': ('warp', -0.45, 0.8), 'slide': ('warp', -0.35, 0.5), 'match': ('glimmer', -0.5, 0.7), 'wash': ('sparkle', -0.4, 0.6),
              'wipe': ('warp', -0.6, 0.5), 'iris': ('glimmer', -0.8, 0.6), 'eye': ('glimmer', -0.6, 0.6), 'blinds': ('sparkle', -0.5, 0.5),
-             'push': ('warp', -0.5, 0.5), 'whip': ('warp', -0.35, 0.7), 'dots': ('sparkle', -0.5, 0.5), 'tilt': ('pop', -0.7, 0.5)}
+             'push': ('warp', -0.5, 0.5), 'whip': ('warp', -0.35, 0.7), 'tilt': ('pop', -0.7, 0.5)}
 focus_cam = {}; label_t = []
 for u in units:
     nn = u['n']
@@ -556,11 +571,11 @@ for k, u in enumerate(units):
     elif tr == 'eye':    # opens from a horizontal line like an eye
         js.append(f'tl.fromTo("{T}",{{clipPath:"inset(50% 0% 50% 0%)"}},{{clipPath:"inset(0% 0% 0% 0%)",duration:.8,ease:"power3.inOut",immediateRender:false}},{v0:.3f});')
         js.append(f'tl.set("{T}",{{clipPath:"none"}},{v0 + .81:.3f});')
-    elif tr == 'blinds': # palette-coloured bars drop over the old picture, then lift off the new one
-        th = SCENES[u['scene'] - 1][3]; acc = list(palettes.PALETTES[palettes.for_theme(CFG, th)]['accents'])
+    elif tr == 'blinds': # bars in muted tones of the scene's own colour family drop over the old picture, then lift off the new one
+        acc = scene_tones(u, NB)
         js.append(f'tl.set("{T}",{{opacity:0}},{v0:.3f});tl.set("{T}",{{opacity:1}},{v0 + .62:.3f});')
         for i in range(NB):
-            js.append(f'tl.set("#trb{i}",{{background:"{acc[i % len(acc)]}",transformOrigin:"50% 0%"}},{v0:.3f});')
+            js.append(f'tl.set("#trb{i}",{{background:"{acc[i]}",transformOrigin:"50% 0%"}},{v0:.3f});')
             js.append(f'tl.fromTo("#trb{i}",{{scaleY:0}},{{scaleY:1,duration:.34,ease:"power2.in",immediateRender:false}},{v0 + i * .05:.3f});')
             js.append(f'tl.set("#trb{i}",{{transformOrigin:"50% 100%"}},{v0 + .64:.3f});')
             js.append(f'tl.to("#trb{i}",{{scaleY:0,duration:.34,ease:"power2.out"}},{v0 + .65 + i * .05:.3f});')
@@ -570,12 +585,6 @@ for k, u in enumerate(units):
         js.append(f'tl.fromTo("{T}",{{x:{W}}},{{x:0,duration:.45,ease:"expo.out",immediateRender:false}},{v0:.3f});')
         for i in range(9):
             js.append(f'tl.fromTo("#trs{i}",{{x:{W + 80},opacity:.85}},{{x:{-int(W * .75)},opacity:0,duration:.45,ease:"power1.out",immediateRender:false}},{v0 + i * .015:.3f});')
-    elif tr == 'dots':   # a dot grid grows over the old picture and shrinks off the new one
-        bg = BGMODE.get(SCENES[u['scene'] - 1][3], 'paper'); dcol = washc(u).get(bg, washc(u)['paper'])
-        js.append(f'tl.set("#trdots",{{display:"block"}},{v0:.3f});tl.set("#trdots",{{display:"none"}},{v0 + 1.25:.3f});tl.set(".trd",{{attr:{{fill:"{dcol}"}}}},{v0:.3f});')
-        js.append(f'tl.set("{T}",{{opacity:0}},{v0:.3f});tl.set("{T}",{{opacity:1}},{v0 + .6:.3f});')
-        js.append(f'tl.fromTo(".trd",{{attr:{{r:0}}}},{{attr:{{r:{int(DC * .8)}}},duration:.42,ease:"power2.in",stagger:{{each:.003,from:"start",grid:[{DGY + 1},{DGX}]}},immediateRender:false}},{v0:.3f});')
-        js.append(f'tl.to(".trd",{{attr:{{r:0}},duration:.42,ease:"power2.out",stagger:{{each:.003,from:"end",grid:[{DGY + 1},{DGX}]}}}},{v0 + .6:.3f});')
     elif tr == 'tilt':   # the new picture tips in like a card
         js.append(f'tl.fromTo("{T}",{{rotation:-8,scale:1.25,opacity:0,transformOrigin:"50% 120%"}},{{rotation:0,scale:1,opacity:1,duration:.8,ease:"back.out(1.4)",immediateRender:false}},{v0:.3f});')
         js.append(f'tl.set("{T}",{{transformOrigin:"{ORG}"}},{v0 + .81:.3f});')
