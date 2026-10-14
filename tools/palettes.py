@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Topic palettes for Miya's Lab pictures (2026-10-10, user: "colours were only purple or orange; match the script").
 # Each palette gives the three background modes (paper / night / dusk), line colours, a wash colour for transitions and 4 accents.
-# A video picks palettes in its config.py:  PAL_DEFAULT = 'sunset'      # legacy videos without PAL_DEFAULT keep the old look; NEW videos must set PAL_DEFAULT (build3 PLAN=1 warns);  PAL = {'<art_theme>': '<palette name>', ...}
+# A video picks palettes in its config.py:  PAL_DEFAULT = 'sunset'      # legacy videos without PAL_DEFAULT keep the old look; NEW videos must set PAL_DEFAULT (build_audio PLAN=1 warns);  PAL = {'<art_theme>': '<palette name>', ...}
 # Rule: choose the palette from what the script is ABOUT (place, material, mood), not from taste. Violet/magenta and orange are
 # only allowed when the subject itself is violet/orange (sunset, fire, desert, space nebula). Max 3 palettes per video.
 PALETTES = {
@@ -63,7 +63,7 @@ PALETTES = {
                     dusk=('#f3c290', '#d68673', '#7c4577', '#1b1830'), wash=('#ece4d1', '#14122b', '#5a4562'),
                     accents=('#6b4bd6', '#d64b9a', '#f2c14e', '#d9694a')),
 }
-DEFAULT = 'sunset'      # legacy videos without PAL_DEFAULT keep the old look; NEW videos must set PAL_DEFAULT (build3 PLAN=1 warns)
+DEFAULT = 'sunset'      # legacy videos without PAL_DEFAULT keep the old look; NEW videos must set PAL_DEFAULT (build_audio PLAN=1 warns)
 
 def get(name):
     p = PALETTES[name]; return dict(name=name, **p)

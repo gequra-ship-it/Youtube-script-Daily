@@ -1,4 +1,4 @@
-// blackhole — four looks (guideline art_spec 11-10, 2026-10-14): 'lensed' (default: thick glowing disk + far side bent over the
+// blackhole — four looks (guideline 3-5, 2026-10-14): 'lensed' (default: thick glowing disk + far side bent over the
 // shadow), 'ring' (face-on ring like the 2019 M87* / 2022 Sgr A* images, brighter on one side), 'whirlpool' (gas spiralling in),
 // 'icon' (small dark disc + thin ring, far away). Also exported as MIYA.lib.blackhole(ctx, look) for other scenes (ocean).
 // params: { look:'lensed', side:.1, dist:30, approach:1 (camera push-in over the shot), tilt:.10, spin:.35, bg:'#02030a', stars:2500 }

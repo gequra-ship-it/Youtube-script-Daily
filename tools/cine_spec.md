@@ -1,9 +1,8 @@
 # Miya's Lab — cine spec (3D look, read fully)
 
-The cine look (user decision 2026-10-14) replaced the hand-drawn SVG pictures for new videos: dark, realistic 3D scenes (Three.js)
+The cine look (user decision 2026-10-14) is how every Miya's Lab video is made: dark, realistic 3D scenes (Three.js)
 under a calm HUD, after the user's reference video 1 (motion, transitions, HUD, the 2:11-2:40 "one 3D stage, information changes")
-and reference video 2 (realistic 3D: metal, light, glowing particles). Guideline: `docs/miyas-lab-guideline.md` chapter 3 and 4.
-The old SVG look (`tools/art_spec.md`, `tools/build3.py`) stays for re-renders of older videos.
+and reference video 2 (realistic 3D: metal, light, glowing particles). Guideline: `docs/miyas-lab-guideline.md` chapter 3 (rules), 6 (data cards), 10 (work order).
 
 ## 1. What a video is made of
 - **Units** (`plan.json`, one per narration clause, same split as before) give the timing. Nothing is drawn per unit any more unless
@@ -14,7 +13,7 @@ The old SVG look (`tools/art_spec.md`, `tools/build3.py`) stays for re-renders o
     Use it where one object carries the idea (a black hole, a planet, a field of clocks, spacetime). This is the reference 2:11-2:40.
   - `cuts` — a sequence of **shots**; each shot is one 3D scene over one or more units (aim 6-15 s per shot, never per clause),
     joined by transitions. Use it for a story moving through places or examples.
-  - Mix both through a video by content. Chalkboard scenes (config `CHALK`) become **data cards** automatically.
+  - Mix both through a video by content. Data-card scenes (config `CHALK`, guideline chapter 6) become **data cards** automatically.
 - **Beats** (`cine.json` `beats`, per unit id): the text and plot values for that unit.
 
 ## 2. cine.json (exact keys)
@@ -35,7 +34,7 @@ The old SVG look (`tools/art_spec.md`, `tools/build3.py`) stays for re-renders o
              "U006": {"kw": "Wrong", "acc": true},
              "U016": {"card": "On Earth, more than *twenty-three years* have vanished."} } }
 ```
-- `to` is optional (a chapter runs until the next chapter or chalkboard). Every unit must belong to a chapter (the build checks gaps).
+- `to` is optional (a chapter runs until the next chapter or data card). Every unit must belong to a chapter (the build checks gaps).
 - **Cues** — any string param of the form `"U007"` (start of that unit) or `"U009:standstill"` / `"U008:bent stretched"` (the moment
   that word or phrase is spoken inside that unit) is turned into a time. Scenes use cues to start their changes exactly on the words.
 - Transitions: `cut`, `dip` (to black, the default between chapters), `xfade`, `flash` (light burn), `wipe` (diagonal with a light
@@ -132,7 +131,7 @@ Hard rules
 
 ## 5. Check before handing in
 ```
-SLUG=x CINE=1 python3 tools/build3.py                 # audio + timing (no SVG art)    (Shorts: VERT=1)
+SLUG=x python3 tools/build_audio.py                    # audio + timing    (Shorts: VERT=1)
 SLUG=x python3 tools/build_cine.py                    # page; prints warnings/errors (missing cues, gaps, unknown scene types)
 python3 tools/cineshot.py render/x /tmp/x_prev 5 30 61.2 ...   # look at every new shot at its start, middle and a cue moment
 python3 tools/cineshot.py render/x --estimate          # render cost -> chunk count for render/.chunked
