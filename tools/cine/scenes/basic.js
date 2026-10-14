@@ -42,38 +42,81 @@
     } };
   };
 
-  // clockfield — params: { n:140, side:.12, pull:1 }   (upgraded 2026-10-14: real 3D clocks — thick polished case, printed dial,
-  // domed crystal with reflections, raised hands — instead of flat discs; depth from fog and a warm key light)
+  // clockfield — params: { n:140, side:.12, pull:1, bg:['#020309','#140f2e'] }
+  // (2026-10-14, after "the clocks feel cut off from the other scenes": same light language as dataglobe / blackhole — solid 3D
+  // clocks with a dark smoked body, a glowing gold rim, light-point hour marks and glowing hands, a soft halo each, set in a
+  // spiral of clocks with a gold dust river along the arms, navy-violet space and stars. All rims pulse together on every second;
+  // the camera starts at one clock and pulls back to show the whole spiral.)
   M.scenes.clockfield = function (ctx, p) {
-    const { T } = ctx, K = M.kit, S = new T.Scene(), E = ctx.env(); S.environment = E; S.background = new T.Color('#02030a'); S.fog = new T.FogExp2('#05060f', .0065); ctx.stars(S, 3000, 400, { seed: 13 });
-    const N = p.n || 140, rr = ctx.rng(9), pos = []; for (let i = 0; i < N; i++) { const arm = i % 3, r = 5 + Math.pow(rr(), .7) * 110, a = arm * 2.094 + r * .035 + (rr() - .5) * .6; pos.push([r * Math.cos(a), (rr() - .5) * (6 + r * .08), r * Math.sin(a), rr() * 6.283, .8 + rr() * .5]); }
-    // dial texture: radial grain, minute ticks, hour bars (no numerals)
-    const dc = document.createElement('canvas'); dc.width = dc.height = 512; const g = dc.getContext('2d'); const gr = g.createRadialGradient(256, 230, 20, 256, 256, 256); gr.addColorStop(0, '#2a2f3d'); gr.addColorStop(1, '#0c0f18'); g.fillStyle = gr; g.fillRect(0, 0, 512, 512);
-    g.globalAlpha = .18; g.drawImage(K.noise(512, { seed: 3, octaves: 3, sx: 8, sy: .3 }), 0, 0); g.globalAlpha = 1; g.translate(256, 256);
-    for (let k = 0; k < 60; k++) { g.save(); g.rotate(k / 60 * 6.283); g.fillStyle = k % 5 ? '#c9c2ae' : '#e8c27a'; if (k % 5) g.fillRect(-1.5, -238, 3, 16); else g.fillRect(-5, -240, 10, 40); g.restore(); }
-    const dial = new T.MeshStandardMaterial({ map: K.tex(dc, true), roughness: .6, metalness: .2, side: T.DoubleSide });
-    const gold = new T.MeshStandardMaterial({ color: '#d8b06a', metalness: 1, roughness: .18, envMap: E, envMapIntensity: 1.4 });
-    const caseG = new T.TorusGeometry(1, .16, 20, 64), dialG = new T.CircleGeometry(.96, 48), domeG = new T.SphereGeometry(1, 40, 16, 0, Math.PI * 2, 0, .42);
-    domeG.scale(1.02, 1.02, .35);
-    const glass = new T.MeshStandardMaterial({ color: '#ffffff', metalness: 0, roughness: .03, transparent: true, opacity: .16, envMap: E, envMapIntensity: 2.4, depthWrite: false });
-    const handG = new T.BoxGeometry(.05, .72, .03); handG.translate(0, .3, 0); const handM = new T.MeshStandardMaterial({ color: '#f6e8c8', metalness: .8, roughness: .25, emissive: '#5a3c10', emissiveIntensity: .4 });
-    const minG = new T.BoxGeometry(.08, .52, .03); minG.translate(0, .22, 0);
-    const caseI = new T.InstancedMesh(caseG, gold, N), dialI = new T.InstancedMesh(dialG, dial, N), domeI = new T.InstancedMesh(domeG, glass, N), secI = new T.InstancedMesh(handG, handM, N), minI = new T.InstancedMesh(minG, gold, N);
-    S.add(caseI, dialI, minI, secI, domeI); ctx.glow(S, '#ffd8a0', 70, .18); ctx.glow(S, '#fff2d8', 14, .5);
-    S.add(new T.AmbientLight('#2a3278', .35)); const kl = new T.DirectionalLight('#ffe0b0', 2.4); kl.position.set(20, 40, 30); S.add(kl); const bl = new T.DirectionalLight('#7f9cff', 1.0); bl.position.set(-30, -10, -20); S.add(bl);
-    const cam = new T.PerspectiveCamera(36, ctx.W / ctx.H, .1, 900); ctx.side(cam, p.side == null ? .12 : p.side);
-    const M4 = new T.Matrix4(), Q = new T.Quaternion(), Qh = new T.Quaternion(), V = new T.Vector3(), Sc = new T.Vector3(), E1 = new T.Euler(), Z = new T.Vector3(0, 0, 1), off = new T.Vector3(); const dur = Math.max(1, ctx.t1 - ctx.t0);
-    // static parts once (they do not move)
-    for (let i = 0; i < N; i++) { const [x, y, z, o, s] = pos[i]; E1.set(.25 * Math.sin(o), o, 0); Q.setFromEuler(E1); V.set(x, y, z); Sc.set(s, s, s);
-      M4.compose(V, Q, Sc); caseI.setMatrixAt(i, M4); domeI.setMatrixAt(i, M4); off.set(0, 0, -.02 * s).applyQuaternion(Q); M4.compose(V.clone().add(off), Q, Sc); dialI.setMatrixAt(i, M4); }
+    const { T, points, stars, glow } = ctx, S = new T.Scene(), E = ctx.env();
+    const bg = (p.bg || ['#020309', '#140f2e']).map(c => new T.Color(c)); S.background = bg[0].clone(); S.fog = new T.FogExp2('#06061a', .0042);
+    stars(S, 2600, 420, { size: .5, seed: 13 });
+    const neb = [['#3a2c8a', 260, .16, [-40, -20, -120]], ['#1d2f7a', 320, .14, [90, 10, -60]], ['#6a3a7a', 180, .08, [10, 30, 60]]];
+    neb.forEach(([c, sc, op, ps]) => glow(S, c, sc, op).position.set(ps[0], ps[1], ps[2]));
+    const N = p.n || 140, rr = ctx.rng(9), pos = [];
+    pos.push([0, 0, 0, .3, 1.1]);   // the hero clock the camera starts on
+    for (let i = 1; i < N; i++) { const arm = i % 3, r = 6 + Math.pow(rr(), .7) * 110, a = arm * 2.094 + r * .035 + (rr() - .5) * .5; pos.push([r * Math.cos(a), (rr() - .5) * (4 + r * .07), r * Math.sin(a), rr() * 6.283, .8 + rr() * .5]); }
+    const GOLD = new T.Color('#ffc978'), WARM = new T.Color('#fff1d6');
+    // parts (unit clock, face along +z, all baked in clock space so one matrix places every part). A real volume, so it still
+    // reads as an object when it turns edge-on: deep case with rounded sides and a domed back (lathe), raised bezel, dial recessed
+    // inside it, domed crystal, raised hour markers, hands at two heights, crown and bow on top.
+    const prof = [[0, -.36], [.5, -.36], [.8, -.32], [.96, -.22], [1.05, -.08], [1.075, .05], [1.06, .15], [1.0, .215], [.95, .2], [.925, .12], [.92, .06]].map(([r, h]) => new T.Vector2(r, h));
+    const bodyG = new T.LatheGeometry(prof, 72); bodyG.rotateX(Math.PI / 2);
+    const body = new T.MeshStandardMaterial({ color: '#1a1d38', emissive: '#080a22', metalness: 1, roughness: .26, envMap: E, envMapIntensity: .9, side: T.DoubleSide });
+    const goldM = new T.MeshStandardMaterial({ color: '#c99a52', metalness: 1, roughness: .22, envMap: E, envMapIntensity: 1.1, emissive: '#3a2408' });
+    const crownG = new T.CylinderGeometry(.1, .1, .2, 20); crownG.translate(0, 1.16, 0); const bowG = new T.TorusGeometry(.2, .04, 10, 40); bowG.translate(0, 1.44, 0);
+    const rimG = new T.TorusGeometry(.985, .03, 12, 96); rimG.translate(0, 0, .215); const rimM = new T.MeshBasicMaterial({ color: GOLD.clone().multiplyScalar(1.25), transparent: true, blending: T.AdditiveBlending, depthWrite: false });
+    const rim2G = new T.TorusGeometry(.91, .01, 8, 96); rim2G.translate(0, 0, .065); const rim2M = new T.MeshBasicMaterial({ color: GOLD.clone().multiplyScalar(1.3), transparent: true, opacity: .6, blending: T.AdditiveBlending, depthWrite: false });
+    const secG = new T.BoxGeometry(.022, .8, .012); secG.translate(0, .3, .125); const minG = new T.BoxGeometry(.06, .6, .02); minG.translate(0, .25, .1);
+    const handM = new T.MeshBasicMaterial({ color: WARM.clone().multiplyScalar(1.8), transparent: true, blending: T.AdditiveBlending, depthWrite: false });
+    const markG = new T.BoxGeometry(.05, .16, .04); const markM = new T.MeshStandardMaterial({ color: '#e8c27a', emissive: '#a8742a', emissiveIntensity: 1.2, metalness: .8, roughness: .3 });
+    const domeG = new T.SphereGeometry(1, 40, 10, 0, Math.PI * 2, 0, .42); domeG.rotateX(Math.PI / 2); domeG.translate(0, 0, -Math.cos(.42)); domeG.scale(.93 / Math.sin(.42), .93 / Math.sin(.42), .12 / (1 - Math.cos(.42))); domeG.translate(0, 0, .2);
+    const glass = new T.MeshStandardMaterial({ color: '#dfe6ff', metalness: 0, roughness: .04, transparent: true, opacity: .12, envMap: E, envMapIntensity: 2.2, depthWrite: false });
+    const bodyI = new T.InstancedMesh(bodyG, body, N), crownI = new T.InstancedMesh(crownG, goldM, N), bowI = new T.InstancedMesh(bowG, goldM, N), rimI = new T.InstancedMesh(rimG, rimM, N), rim2I = new T.InstancedMesh(rim2G, rim2M, N),
+      secI = new T.InstancedMesh(secG, handM, N), minI = new T.InstancedMesh(minG, handM, N), markI = new T.InstancedMesh(markG, markM, N * 12), domeI = new T.InstancedMesh(domeG, glass, N);
+    // face: dark glass lit from inside (navy centre, violet-blue toward the rim), recessed inside the bezel
+    const faceT = ctx.ctex(256, (g, z) => { const r = g.createRadialGradient(z / 2, z / 2, 0, z / 2, z / 2, z / 2); r.addColorStop(0, '#080a1e'); r.addColorStop(.75, '#151a46'); r.addColorStop(.97, '#3a3f8a'); r.addColorStop(1, '#000'); g.fillStyle = r; g.fillRect(0, 0, z, z); });
+    const faceG = new T.CircleGeometry(.925, 64); faceG.translate(0, 0, .061); const faceI = new T.InstancedMesh(faceG, new T.MeshBasicMaterial({ map: faceT }), N);
+    S.add(bodyI, crownI, bowI, faceI, markI, rimI, rim2I, minI, secI, domeI);
+    // hour marks and minute dots as light points (static), halos (one soft sprite-point per clock)
+    const MK = 72, mk = points(N * MK, { size: .13, color: '#ffe2b0' }), hal = points(N, { size: 11, opacity: .3, color: '#ffbf70' });
+    const ma = mk.geometry.attributes.position.array, mc = mk.geometry.attributes.color.array, ha = hal.geometry.attributes.position.array; S.add(mk, hal);
+    const M4 = new T.Matrix4(), Q = new T.Quaternion(), Qh = new T.Quaternion(), V = new T.Vector3(), Sc = new T.Vector3(), E1 = new T.Euler(), Z = new T.Vector3(0, 0, 1), off = new T.Vector3(), pv = new T.Vector3();
+    // faces turn (loosely) toward the camera's path above the spiral, so the glowing faces are seen, not the backs
+    const ob = new T.Object3D(), QS = pos.map(([x, y, z, o], i) => { ob.position.set(x, y, z); ob.lookAt(Math.sin(.5) * 40 + Math.sin(o * 3) * 25, 45 + Math.cos(o * 2) * 20, Math.cos(.5) * 40 + Math.cos(o * 5) * 25); return ob.quaternion.clone(); });
+    const Mm = new T.Matrix4();
+    // each clock rocks slowly about its own axis (the turn shows the depth of the case); the hero clock turns a little more
+    const AX = pos.map(([, , , o]) => new T.Vector3(Math.sin(o * 7), Math.cos(o * 3), .3 * Math.sin(o * 11)).normalize()), Qw = new T.Quaternion(), Mk = MARKS();
+    function MARKS() { const a = []; for (let h = 0; h < 12; h++) { const r = h / 12 * 6.283; a.push(new T.Matrix4().makeRotationZ(-r).setPosition(Math.sin(r) * .76, Math.cos(r) * .76, .08)); } return a; }
+    function place(t) { for (let i = 0; i < N; i++) { const [x, y, z, o, s] = pos[i]; Qw.setFromAxisAngle(AX[i], (i ? .35 : .5) * Math.sin(t * .25 + o * 4)); const Qi = QS[i].clone().multiply(Qw); QW[i] = Qi;
+      V.set(x, y, z); Sc.set(s, s, s); M4.compose(V, Qi, Sc); [bodyI, crownI, bowI, faceI, rimI, rim2I, domeI].forEach(m => m.setMatrixAt(i, M4));
+      for (let h = 0; h < 12; h++) markI.setMatrixAt(i * 12 + h, Mm.multiplyMatrices(M4, Mk[h]));
+      for (let k = 0; k < MK; k++) { const hr = k < 12, a = (hr ? k / 12 : (k - 12) / 60) * 6.283, r = hr ? .86 : .87; pv.set(Math.sin(a) * r * s, Math.cos(a) * r * s, .07 * s).applyQuaternion(Qi).add(V);
+        ma.set([pv.x, pv.y, pv.z], (i * MK + k) * 3); const c = hr ? 1.6 : .7; mc.set([c, c, c], (i * MK + k) * 3); }
+      ha.set([x, y, z], i * 3); }
+      [bodyI, crownI, bowI, faceI, rimI, rim2I, domeI, markI].forEach(m => m.instanceMatrix.needsUpdate = true); mk.geometry.attributes.position.needsUpdate = true; }
+    const QW = [];
+    for (let i = 0; i < N; i++) { const [x, y, z] = pos[i];
+      ha.set([x, y, z], i * 3); }
+    mk.geometry.attributes.position.needsUpdate = true;
+    // gold dust river along the spiral arms
+    const ND = 9000, dr = ctx.rng(17), dust = points(ND, { size: .22, opacity: .7, color: '#ffd79a' }), da = dust.geometry.attributes.position.array, dd = []; S.add(dust);
+    for (let i = 0; i < ND; i++) dd.push([i % 3, 4 + Math.pow(dr(), .8) * 125, (dr() - .5) * .9, (dr() - .5) * 4, dr()]);
+    const core = glow(S, '#ffd8a0', 60, .12), heroGlow = glow(S, '#fff0d0', 5, .35);
+    S.add(new T.AmbientLight('#2a2a70', .5)); const kl = new T.DirectionalLight('#ffd9a8', 1.2); kl.position.set(20, 40, 30); S.add(kl); const bl = new T.DirectionalLight('#6f7cff', 1.4); bl.position.set(-30, -10, -20); S.add(bl);
+    const cam = new T.PerspectiveCamera(36, ctx.W / ctx.H, .1, 900); ctx.side(cam, p.side == null ? .12 : p.side); const dur = Math.max(1, ctx.t1 - ctx.t0);
     return { scene: S, camera: cam, draw(t, u) {
-      const tick = Math.floor(t) * 6.283 / 60, mn = (t / 60) * 6.283 / 60 + 1.2;
-      for (let i = 0; i < N; i++) { const [x, y, z, o, s] = pos[i]; E1.set(.25 * Math.sin(o), o, 0); Q.setFromEuler(E1); Sc.set(s, s, s);
-        off.set(0, 0, .05 * s).applyQuaternion(Q); V.set(x + off.x, y + off.y, z + off.z); Qh.setFromAxisAngle(Z, -tick); M4.compose(V, Q.clone().multiply(Qh), Sc); secI.setMatrixAt(i, M4);
-        off.set(0, 0, .035 * s).applyQuaternion(Q); V.set(x + off.x, y + off.y, z + off.z); Qh.setFromAxisAngle(Z, -mn); M4.compose(V, Q.clone().multiply(Qh), Sc); minI.setMatrixAt(i, M4); }
+      place(t); const tick = Math.floor(t) * 6.283 / 60, mn = (t / 60) * 6.283 / 60 + 1.2, beat = Math.exp(-(t % 1) * 5);
+      for (let i = 0; i < N; i++) { const [x, y, z, , s] = pos[i]; Sc.set(s, s, s);
+        V.set(x, y, z); Qh.setFromAxisAngle(Z, -tick); M4.compose(V, QW[i].clone().multiply(Qh), Sc); secI.setMatrixAt(i, M4);
+        Qh.setFromAxisAngle(Z, -mn); M4.compose(V, QW[i].clone().multiply(Qh), Sc); minI.setMatrixAt(i, M4); }
       secI.instanceMatrix.needsUpdate = minI.instanceMatrix.needsUpdate = true;
-      const k = ctx.sm(0, dur, u) * (p.pull == null ? 1 : p.pull), d = 5 + k * 160;
-      cam.position.set(pos[0][0] + Math.sin(.6 + u * .05) * d, pos[0][1] + 1.5 + k * 64, pos[0][2] + Math.cos(.6 + u * .05) * d); cam.lookAt(pos[0][0] * (1 - k), 0, pos[0][2] * (1 - k));
+      rimM.opacity = .55 + .45 * beat; hal.material.opacity = .14 + .16 * beat; heroGlow.material.opacity = .2 + .25 * beat;
+      for (let i = 0; i < ND; i++) { const [arm, r, h, w, o] = dd[i]; const a = arm * 2.094 + r * .035 + w * .03 - t * .02 * (60 / (r + 20)); da.set([r * Math.cos(a) + w * Math.sin(a), h * (2 + r * .05) + Math.sin(t * .5 + o * 9) * .3, r * Math.sin(a) - w * Math.cos(a)], i * 3); }
+      dust.geometry.attributes.position.needsUpdate = true;
+      const k = ctx.sm(0, dur, u) * (p.pull == null ? 1 : p.pull), d = 4.2 + k * 165, ca = .5 + u * .05;
+      cam.position.set(Math.sin(ca) * d, 1.2 + k * 70, Math.cos(ca) * d); cam.lookAt(0, 0, 0);
+      S.background.copy(bg[0]).lerp(bg[1], .5 + .5 * k);
     } };
   };
 

@@ -31,15 +31,21 @@
       im.data[i] = (-dx / l * .5 + .5) * 255; im.data[i + 1] = (dy / l * .5 + .5) * 255; im.data[i + 2] = (1 / l * .5 + .5) * 255; im.data[i + 3] = 255; }
     g.putImageData(im, 0, 0); return tex(o, false);
   }
-  // body: spine along +x from tail (s=0, x=-L/2) to head (s=1, x=+L/2)
+  // body: spine along +x from tail (s=0, x=-L/2) to head (s=1, x=+L/2). ONE mesh for the whole animal (user rule 2026-10-14):
+  //   flukes/tail fins come from the width/height profiles plus a sweep in deform(); small fins/flippers that are not tubes can be
+  //   passed as `extra` geometries (already placed in body space) — they are merged into the same mesh and take the same deform at
+  //   their s, so nothing can come apart. u(s) maps s to the texture u (default s). Limbs with joints: see cine_spec 3A (skinning).
   function body(o) {
-    const L = o.length || 10, N = o.seg || 120, Mr = o.ring || 48, wf = o.width, hf = o.height, belly = o.belly == null ? .25 : o.belly, ridge = o.ridge || 0;
-    const pos = new Float32Array((N + 1) * Mr * 3), uv = new Float32Array((N + 1) * Mr * 2), S = new Float32Array((N + 1) * Mr), TH = new Float32Array((N + 1) * Mr), idx = [];
+    const L = o.length || 10, N = o.seg || 120, Mr = o.ring || 48, wf = o.width, hf = o.height, belly = o.belly == null ? .25 : o.belly, ridge = o.ridge || 0, uf = o.u || (s => s);
+    const ex = (o.extra || []).map(g => g.index ? g.toNonIndexed() : g), nE = ex.reduce((a, g) => a + g.attributes.position.count, 0), nB = (N + 1) * Mr, nV = nB + nE;
+    const pos = new Float32Array(nV * 3), uv = new Float32Array(nV * 2), S = new Float32Array(nV), TH = new Float32Array(nV), idx = [];
     for (let i = 0; i <= N; i++) { const s = i / N, x = (s - .5) * L, w = wf(s), hh = hf(s);
       for (let j = 0; j < Mr; j++) { const th = j / Mr * Math.PI * 2, c = Math.cos(th), sn = Math.sin(th);
         let y = sn * hh; if (sn < 0) y *= 1 - belly; y += ridge * Math.max(0, sn) ** 8 * hh;
-        const k = i * Mr + j; pos.set([x, y, c * w], k * 3); uv.set([s, j / Mr], k * 2); S[k] = s; TH[k] = th; } }
+        const k = i * Mr + j; pos.set([x, y, c * w], k * 3); uv.set([uf(s), j / Mr], k * 2); S[k] = s; TH[k] = th; } }
     for (let i = 0; i < N; i++) for (let j = 0; j < Mr; j++) { const a = i * Mr + j, b = i * Mr + (j + 1) % Mr, c = (i + 1) * Mr + j, d = (i + 1) * Mr + (j + 1) % Mr; idx.push(a, c, b, b, c, d); }
+    let k = nB; ex.forEach(g => { const pa = g.attributes.position.array, v = g.userData.v == null ? .75 : g.userData.v;
+      for (let q = 0; q < pa.length / 3; q++, k++) { const x = pa[q * 3], s = x / L + .5; pos.set([x, pa[q * 3 + 1], pa[q * 3 + 2]], k * 3); uv.set([uf(Math.min(1, Math.max(0, s))), v], k * 2); S[k] = s; TH[k] = -1; idx.push(k); } });
     const g = new T.BufferGeometry(); g.setAttribute('position', new T.BufferAttribute(pos, 3)); g.setAttribute('uv', new T.BufferAttribute(uv, 2)); g.setIndex(idx); g.computeVertexNormals();
     const base = pos.slice();
     return { geo: g, S, TH, base, deform(fn) { const p = g.attributes.position.array; for (let k = 0; k < S.length; k++) { const d = fn(S[k], TH[k], base, k); p[k * 3] = base[k * 3] + d[0]; p[k * 3 + 1] = base[k * 3 + 1] + d[1]; p[k * 3 + 2] = base[k * 3 + 2] + d[2]; }

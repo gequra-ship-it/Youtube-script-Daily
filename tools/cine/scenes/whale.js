@@ -32,33 +32,38 @@
   hg.strokeStyle = 'rgba(0,0,0,.6)'; hg.lineWidth = 2; for (let k = 0; k < 34; k++) { const y = 256 * (.58 + k * .01); hg.beginPath(); hg.moveTo(1024 * .66, y); hg.lineTo(1024 * .97, y); hg.stroke(); }
   const skinMap = K.tex(base, true), skinN = K.normalMap(hc, 3); skinMap.flipY = skinN.flipY = false;   // canvas row = v (top .25, belly .75)
   const skin = new T.MeshPhysicalMaterial({ map: skinMap, normalMap: skinN, normalScale: new T.Vector2(.6, .6), roughness: .5, metalness: 0, clearcoat: .5, clearcoatRoughness: .3, envMapIntensity: .3 });
-  const fins = new T.MeshPhysicalMaterial({ color: '#2c3d50', roughness: .45, clearcoat: .4, clearcoatRoughness: .35, envMapIntensity: .5 });
   // ---------- body ----------
   const prof = (s) => Math.pow(Math.sin(Math.PI * Math.min(.9995, Math.pow(s, 1.35))), .8);
+  // ONE mesh (user rule 2026-10-14): body + flukes + dorsal fin + flippers. Body space runs FL longer at the tail for the flukes;
+  // sb = position along the old body (0 tail stock end, 1 snout), negative inside the flukes.
+  const FL = 4.4, LB = L + FL, SB = s => (s * LB - FL) / L, ROOT = .015, SP = 3.4, SW = 2.1;
+  const oldW = sb => (.16 + 2.25 * prof(sb)) * (.55 + .45 * sm(.03, .3, sb)) * (sb > .86 ? .92 + .2 * sm(.86, .97, sb) * (1 - sm(.97, 1, sb)) : 1);
+  const oldH = sb => (.3 + 1.85 * prof(sb)) * (sb > .85 ? .82 : 1);
+  const Q = sb => Math.min(1, Math.max(0, (ROOT - sb) / (ROOT + FL / L)));   // 0 at the fluke root, 1 at the trailing end
+  const W0 = oldW(ROOT), H0 = oldH(ROOT);
+  const flW = q => q < .7 ? W0 + (SP - W0) * Math.pow(Math.sin(Math.PI / 2 * q / .7), .9) : SP * (1 - .97 * Math.pow((q - .7) / .3, 1.5));
+  const flH = q => H0 + (.15 - H0) * sm(0, .45, q);
+  const dorsal = sb => sb > .262 && sb < .292 ? (.292 - sb) / .03 : sb > .248 && sb <= .262 ? (sb - .248) / .014 : 0;
   function makeWhale(scale) {
     const grp = new T.Group();
-    const b = K.body({ length: L, seg: 140, ring: 56, belly: .22, ridge: .08,
-      width: s => (.16 + 2.25 * prof(s)) * (.55 + .45 * sm(.03, .3, s)) * (s > .86 ? .92 + .2 * sm(.86, .97, s) * (1 - sm(.97, 1, s)) : 1),
-      height: s => (.3 + 1.85 * prof(s)) * (s > .85 ? .82 : 1) });   // a thick tail stock (laterally flattened) carries the flukes
-    const mesh = new T.Mesh(b.geo, skin); grp.add(mesh);
-    const fl = new T.Mesh(K.fin([[0, 0], [1.2, .9], [3.6, 1.9], [4.1, 1.6], [2.4, .4], [1.0, -.15], [2.4, -.75], [4.1, -1.65], [3.6, -1.95], [1.2, -.95]].map(([x, y]) => [-x, y]), .35), fins);
-    fl.geometry.translate(-2.05, 0, 0);   // pivot at the root (the fin was centred), so it hinges on the tail stock
-    fl.rotation.x = Math.PI / 2; grp.add(fl);
-    const pecG = K.fin([[0, 0], [.6, .35], [2.2, .38], [4.2, .12], [4.6, -.05], [2.4, -.32], [.6, -.35]].map(([x, y]) => [-x, y]), .16); pecG.translate(-2.3, 0, 0);   // root at the origin, tip pointing back
-    const pecL = new T.Mesh(pecG, fins), pecR = new T.Mesh(pecG, fins); grp.add(pecL, pecR);
-    const dor = new T.Mesh(K.fin([[0, 0], [.9, .1], [1.4, .7], [1.6, .75], [1.3, .2], [1.8, 0]], .12), fins); grp.add(dor);
+    // flippers: placed in body space (x shifted by FL/2), merged into the same mesh
+    const pecG = K.fin([[0, 0], [.6, .35], [2.2, .38], [4.2, .12], [4.6, -.05], [2.4, -.32], [.6, -.35]].map(([x, y]) => [-x, y]), .16); pecG.translate(-2.1, 0, 0);
+    const hp = oldH(.68), wp = oldW(.68), Mx = new T.Matrix4();
+    const pecs = [1, -1].map(sd => { const g2 = pecG.clone(); Mx.compose(new T.Vector3(L * .18 + FL / 2, -hp * .5, sd * wp * .78), new T.Quaternion().setFromEuler(new T.Euler(sd * .35, sd * .3, .55)), new T.Vector3(1, 1, 1)); g2.applyMatrix4(Mx); g2.userData.v = .8; return g2; });
+    const b = K.body({ length: LB, seg: 220, ring: 56, belly: .22, ridge: .08, extra: pecs, u: s => Math.min(1, Math.max(0, SB(s))),
+      width: s => { const sb = SB(s); return sb >= ROOT ? oldW(sb) : flW(Q(sb)); },
+      height: s => { const sb = SB(s); return sb >= ROOT ? oldH(sb) : flH(Q(sb)); } });
+    const mesh = new T.Mesh(b.geo, skin); mesh.position.x = -FL / 2; grp.add(mesh);
     const eye = new T.Mesh(new T.SphereGeometry(.13, 16, 12), new T.MeshStandardMaterial({ color: '#05070a', roughness: .2 })); grp.add(eye); const eye2 = eye.clone(); grp.add(eye2);
     grp.scale.setScalar(scale);
-    // swimming wave: vertical, growing toward the tail; returns tail offset/slope for the flukes
-    const wave = (s, t, A) => A * Math.pow(1 - s, 2.2) * Math.sin(t * 1.25 - (1 - s) * 5.5);
+    // swimming wave: vertical, growing toward the tail (the flukes take it too, so they pitch with the stroke)
+    const wave = (sb, t, A) => A * Math.pow(1 - Math.max(sb, -.16), 2.2) * Math.sin(t * 1.25 - (1 - sb) * 5.5);
     return { grp, update(t, A) {
-      b.deform((s) => [0, wave(s, t, A), 0]);
-      const y0 = wave(0, t, A), y1 = wave(.03, t, A), sl = Math.atan2(y1 - y0, L * .03);
-      fl.position.set(-L / 2 + .7, y0, 0); fl.rotation.set(Math.PI / 2, -sl * 1.6, 0);
-      const ys = wave(.68, t, A); const hp = .1 + 1.95 * prof(.68), wp = (.1 + 2.25 * prof(.68));
-      pecL.position.set(L * .18, ys - hp * .55, wp * .82); pecL.rotation.set(.35, .3, .55); pecR.position.set(L * .18, ys - hp * .55, -wp * .82); pecR.rotation.set(-.35, -.3, .55);
-      const yd = wave(.27, t, A); dor.position.set(L * (.27 - .5), yd + (.1 + 1.95 * prof(.27)) * 1.0, 0); dor.rotation.set(0, 0, 0);
-      const ye = wave(.88, t, A); const we = (.1 + 2.25 * prof(.88)) * 1.0; eye.position.set(L * .38, ye - .25, we * .97); eye2.position.set(L * .38, ye - .25, -we * .97);
+      b.deform((s, th, base, k) => { const sb = SB(s); let dx = 0, dy = wave(sb, t, A);
+        if (th >= 0) { const q = Q(sb); if (q > 0) dx = -SW * Math.pow(Math.abs(base[k * 3 + 2]) / SP, 1.6) * sm(0, .25, q);   // swept-back flukes
+          const d = dorsal(sb); if (d) dy += .75 * d * Math.pow(Math.max(0, Math.sin(th)), 14); }
+        return [dx, dy, 0]; });
+      const ye = wave(.88, t, A), we = oldW(.88); eye.position.set(L * .38, ye - .25, we * .97); eye2.position.set(L * .38, ye - .25, -we * .97);
     } };
   }
   const W = makeWhale(1); S.add(W.grp); W.grp.rotation.order = 'ZYX';   // pitch (z) in world space after the roll (x)
