@@ -7,6 +7,7 @@
 // plane) distorted by ripples; seen from below it shows the Snell window. Reeds, cattails and grass sway in the vertex shader.
 // params:
 //   mode: 'night' | 'day'
+//   night look (2026-10-15): backlit by the moon, weak front fill, moonlit rim on the frog, low mist over the water.
 //   night cues: insect (a firefly drifts in), moves (it darts in front of the frog), tongue (the strike), reveal (camera pulls back
 //               over the pond)
 //   day cues:   flies (dragonflies drift through the reeds), still (the ripples die away), wide (camera rises for the calm wide view),
@@ -24,8 +25,8 @@
   const col = h => new T.Color(h);
 
   // ---------------- palette / atmosphere ----------------
-  const PAL = NIGHT ? { fog: '#0a0e26', fogD: .03, skyTop: '#050820', skyMid: '#141a4a', skyHor: '#363a78', deep: '#01020a', hemiS: '#6878e0', hemiG: '#141020', hemiI: 2.0,
-      key: '#b4c4ff', keyI: 2.3, sunDir: [-.36, .17, -1], env: .05 }
+  const PAL = NIGHT ? { fog: '#0a0e26', fogD: .03, skyTop: '#050820', skyMid: '#141a4a', skyHor: '#363a78', deep: '#01020a', hemiS: '#6878e0', hemiG: '#141020', hemiI: .75,
+      key: '#b4c4ff', keyI: 3.6, sunDir: [-.36, .17, -1], env: .05 }
     : { fog: '#56646c', fogD: .02, skyTop: '#1e4a70', skyMid: '#5f8098', skyHor: '#f2b46a', deep: '#06160f', hemiS: '#b8d4ec', hemiG: '#3a3218', hemiI: .8,
       key: '#ffd49a', keyI: 2.6, keyDir: [-.55, .6, .6], sunDir: [-.3, .1, -1], env: .28 };
   const FOGC = col(PAL.fog), UWC = col('#062420');
@@ -34,7 +35,7 @@
   const hemi = new T.HemisphereLight(PAL.hemiS, PAL.hemiG, PAL.hemiI); S.add(hemi);
   const key = new T.DirectionalLight(PAL.key, PAL.keyI); key.position.set(...(PAL.keyDir || PAL.sunDir)).normalize().multiplyScalar(50); S.add(key);
   if (!NIGHT) { const rim = new T.DirectionalLight('#ffb060', 2.4); rim.position.copy(SUN).multiplyScalar(50); S.add(rim); }
-  const fill = new T.DirectionalLight(NIGHT ? '#8a7cff' : '#8fb4ff', NIGHT ? 1.6 : .45); fill.position.set(10, 12, 30); S.add(fill);
+  const fill = new T.DirectionalLight(NIGHT ? '#8a7cff' : '#8fb4ff', NIGHT ? .3 : .45);   // night: weak front fill, the frog reads as a backlit silhouette fill.position.set(10, 12, 30); S.add(fill);
   const ENV = ctx.env();   // image light only on small glossy parts (eyes, dragonflies): IBL on large areas is slow in software GL
   // sky dome (moon or low sun glow toward SUN)
   const dome = new T.Mesh(new T.SphereGeometry(600, 48, 24), new T.ShaderMaterial({ side: T.BackSide, depthWrite: false, fog: false,
@@ -173,6 +174,9 @@
     return { g, nb: g0.nv, base: g0.pos, baseN: g0.N };
   }
   const skinM = new T.MeshStandardMaterial({ vertexColors: true, roughness: .38, metalness: 0 });
+  const rimDir = { value: new T.Vector3() };   // moon direction in view space, set each frame: the rim lights only the edges that face the moon
+  if (NIGHT) skinM.onBeforeCompile = sh => { sh.uniforms.rimDir = rimDir; sh.fragmentShader = 'uniform vec3 rimDir;\n' + sh.fragmentShader.replace('#include <emissivemap_fragment>',
+    '#include <emissivemap_fragment>\n float fr = pow(1.0 - clamp(abs(dot(normal, normalize(vViewPosition))), 0.0, 1.0), 2.5); totalEmissiveRadiance += vec3(.5, .58, .9) * fr * smoothstep(.0, .6, dot(normal, rimDir)) * .6;'); };
   const F0 = buildFrog(.0088, true), frogMesh = new T.Mesh(F0.g, skinM); frogMesh.frustumCulled = false;
   const frog = new T.Group(); frog.add(frogMesh); S.add(frog);
   // eyes: glossy spheres with a gold iris and a horizontal pupil (the only separate parts)
@@ -312,6 +316,11 @@
     water.visible = false; const old = R.getRenderTarget(); R.setRenderTarget(rt); R.clear(); R.render(S, mcam); R.setRenderTarget(old); water.visible = true; waterM.uniforms.tR.value = rt.texture;
   }
 
+  // ---------------- night mist: thin drifting sheets just above the water ----------------
+  const mists = [];
+  if (NIGHT) for (let i = 0; i < 5; i++) { const nz = K.noise(256, { seed: 40 + i, octaves: 4, sx: 3, sy: 3 }), mt = K.tex(nz, true, [2, 2]);
+    const m = new T.Mesh(new T.PlaneGeometry(36, 30), new T.MeshBasicMaterial({ map: mt, color: '#7d8fd0', transparent: true, opacity: .1 - i * .012, blending: T.AdditiveBlending, depthWrite: false, fog: false }));
+    m.rotation.x = -Math.PI / 2; m.position.set(-4, .06 + i * .07, -8); m.renderOrder = 2; S.add(m); mists.push(m); }
   // ---------------- night life: fireflies and the prey ----------------
   const NF = NIGHT ? 220 : 0, ff = NIGHT ? ctx.points(NF, { size: .11, color: '#f0f080' }) : null, ffd = [];
   if (NIGHT) { const rf = K.rng(91); for (let i = 0; i < NF; i++) { const near = i < 40; ffd.push([near ? -4 + rf() * 7 : -18 + rf() * 28, near ? .3 + rf() * 1.6 : .3 + rf() * 4, near ? -3.5 + rf() * 2.8 : -12 + rf() * 10, rf() * 6.28, .5 + rf() * .8, rf()]); } S.add(ff); }
@@ -324,7 +333,7 @@
     const pm = new T.Mesh(pb.geo, new T.MeshStandardMaterial({ map: pt, emissiveMap: pt, emissive: new T.Color('#ffffff'), emissiveIntensity: .6, roughness: .5 }));
     const grp = new T.Group(); grp.add(pm); grp.scale.setScalar(.75); S.add(grp);
     const gl1 = ctx.glow(grp, '#e8ff80', 1.2, .5), gl2 = ctx.glow(grp, '#fff4b0', .35, .9); gl1.position.x = gl2.position.x = -.09;
-    const pl = new T.PointLight('#f0e070', 0, 4, 1.5); grp.add(pl); pl.position.x = -.1;
+    const pl = new T.PointLight('#f0e070', 0, 3, 1.5); grp.add(pl); pl.position.x = -.1;
     prey = { grp, pb, gl1, gl2, pl }; }
 
   // ---------------- day life: dragonflies ----------------
@@ -382,7 +391,9 @@
   const tmpV = new T.Vector3(), tip = new T.Vector3();
   return { scene: S, camera: cam, draw(t, u) {
     uT.value = t; waterM.uniforms.uT.value = t;
+    mists.forEach((m, i) => { m.material.map.offset.set(t * .006 * (i + 1), t * .004 * (2 - i * .3)); });
     const c = camPath(t); cam.position.set(c[0], c[1], c[2]); cam.lookAt(c[3], c[4], c[5]); cam.updateMatrixWorld();
+    rimDir.value.copy(key.position).normalize().transformDirection(cam.matrixWorldInverse);
     const under = cam.position.y < 0;
     // atmosphere above / below the surface
     if (under) { S.fog.color.copy(UWC); S.fog.density = .2; hemi.intensity = .25; key.intensity = PAL.keyI * .25; }
@@ -408,7 +419,7 @@
       const pw = frog.localToWorld(tip.clone()); prey.grp.position.copy(pw);
       const gone = caught && ext < .25; prey.grp.visible = !gone && t > cI - .5;
       const fl = (.55 + .45 * Math.pow(Math.max(0, Math.sin(t * 2.6)), 3)) * sm(cI - .5, cI + 1, t);
-      prey.gl1.material.opacity = .45 * fl; prey.gl2.material.opacity = .9 * fl; prey.pl.intensity = gone ? 0 : 3.5 * fl; prey.grp.lookAt(frog.localToWorld(new T.Vector3(.4, .45, 0))); prey.grp.rotateY(-Math.PI / 2);
+      prey.gl1.material.opacity = .45 * fl; prey.gl2.material.opacity = .9 * fl; prey.pl.intensity = gone ? 0 : 7 * fl; prey.grp.lookAt(frog.localToWorld(new T.Vector3(.4, .45, 0))); prey.grp.rotateY(-Math.PI / 2);
       prey.pb.deform((s, th, base, kk) => { if (th >= 0) return [0, 0, 0]; const z = base[kk * 3 + 2], a = .7 * Math.sin(t * 60) * (caught ? 0 : 1); return [0, Math.abs(z) * Math.sin(a), Math.sign(z) * Math.abs(z) * (Math.cos(a) - 1)]; });
       // eyes pull in as it swallows
       const sw = sm(cT + .6, cT + .9, t) * (1 - sm(cT + 1.6, cT + 2.2, t)); eyes.forEach(e => { e.position.y = .535 - .028 * sw; });

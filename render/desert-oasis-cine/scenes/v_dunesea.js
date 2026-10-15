@@ -3,7 +3,8 @@
 // smaller dunes, broad swells), wind ripples + grain as a tiled normal map, warm glowing haze that hides the distance, the sun
 // low ahead (contre-jour: lit crests, dark slip faces), sand blowing off the surface, heat shimmer and a mirage band on the horizon
 // (post pass: the scene is rendered into a target and shown through a distortion shader).
-// The camera glides over the dunes, looks up at the sun, pans over the empty horizon, drops low over a crest, climbs a big dune and
+// Look rules (2026-10-15): the camera keeps the sun side in frame (backlit crests), thicker glowing haze, the oasis seen from
+// low over the crest (palms against the haze and the water). The camera glides over the dunes, looks up at the sun, pans over the empty horizon, drops low over a crest, climbs a big dune and
 // at the reveal crests it: below lies a basin with a clear pool (planar reflection pass: palms and sky in the water, ripples,
 // shallow edges showing the sand bottom) ringed by date palms and grass. Each palm is ONE mesh (curved trunk with leaf-scar rings +
 // crown of arching pinnate fronds + hanging dry fronds) swaying by a vertex deform whose weight grows from 0 at the root.
@@ -68,7 +69,7 @@
   const ripN = K.normalMap(rcv, 2.2); ripN.repeat.set((X1 - X0) / 22, (Z1 - Z0) / 22);
   const grain = K.tex(K.noise(256, { seed: 15, octaves: 6 }), true); grain.repeat.set((X1 - X0) / 9, (Z1 - Z0) / 9);
   const sandM = new T.MeshStandardMaterial({ vertexColors: true, map: grain, normalMap: ripN, normalScale: new T.Vector2(.55, .55), roughness: .92, metalness: 0 });
-  const hazeK = { value: .0026 };
+  const hazeK = { value: .0032 };
   function hazeFog(m) { m.onBeforeCompile = sh => { sh.uniforms.hazeK = hazeK;
     sh.vertexShader = 'varying vec3 vWP;\n' + sh.vertexShader.replace('#include <worldpos_vertex>', '#include <worldpos_vertex>\n vWP = (modelMatrix * vec4(transformed, 1.0)).xyz;');
     sh.fragmentShader = 'varying vec3 vWP; uniform float hazeK;\n' + SUNDEF + HAZE + sh.fragmentShader.replace('#include <fog_fragment>', `{ vec3 dv=vWP-cameraPosition; float dd=length(dv); float ff=1.-exp(-dd*dd*hazeK*hazeK); vec3 hc=haze(normalize(vec3(dv.x,max(dv.y*.3,0.),dv.z))); gl_FragColor.rgb=mix(gl_FragColor.rgb,hc,ff); }`).replace('#include <map_fragment>', '#include <map_fragment>\n diffuseColor.rgb *= 1.0;'); }; m.needsUpdate = true; return m; }
@@ -80,7 +81,7 @@
   const sun = new T.DirectionalLight('#ffc890', 3.2); sun.position.copy(SUN).multiplyScalar(400); S.add(sun, sun.target);
   sun.castShadow = true; sun.shadow.mapSize.set(1024, 1024); const sc = sun.shadow.camera; sc.left = -260; sc.right = 260; sc.top = 260; sc.bottom = -260; sc.near = 10; sc.far = 1200; sun.shadow.bias = -.0006; sun.shadow.normalBias = .6;
   R.shadowMap.enabled = true; R.shadowMap.type = T.PCFShadowMap;
-  const hemi = new T.HemisphereLight('#7088b0', '#8a5028', 1.1); S.add(hemi);
+  const hemi = new T.HemisphereLight('#7088b0', '#8a5028', 1.45); S.add(hemi);   // strong sand bounce: shaded slip faces stay warm, not muddy
   // ---------- oasis: water (planar reflection) ----------
   const rtRef = new T.WebGLRenderTarget(ctx.W >> 2, ctx.H >> 2, { type: T.HalfFloatType, colorSpace: T.LinearSRGBColorSpace });
   const wU = { tRef: { value: rtRef.texture }, res: { value: new T.Vector2(ctx.W, ctx.H) }, time: { value: 0 }, hazeK };
@@ -202,12 +203,12 @@
     // --- camera ---
     const pp = path(t), pa = path(t + 1.2), heading = Math.atan2(pa[1] - pp[1], pa[0] - pp[0]);
     const gH = ground(t), low = sm(cLow - .5, cLow + 1.5, t) * (1 - sm(cTurn - .5, cTurn + 2, t));
-    const clr = 16 - low * 9 - sm(cTurn, cRev - 1.5, t) * 13 + sm(cRev - .3, cRev + 2.5, t) * 15;
+    const clr = 16 - low * 9 - sm(cTurn, cRev - 1.5, t) * 13 + sm(cRev - .3, cRev + 2.5, t) * 6;
     const camY = gH + clr; cam.position.set(pp[0], camY, pp[1]);
     // yaw: ahead; look right toward the sun at "sun", sweep the horizon at "empty", back ahead; at the reveal turn right/down to the oasis
-    const yawSweep = sm(cEmpty, cEmpty + 2.6, t) * .55 - sm(cEmpty + 2.2, cLow, t) * 1.1 + sm(cLow - .5, cLow + 2, t) * .55;
+    const yawSweep = sm(cEmpty, cEmpty + 2.6, t) * .38 - sm(cEmpty + 2.2, cLow, t) * .62 + sm(cLow - .5, cLow + 2, t) * .24;   // the pan stays on the sun side (2026-10-15: backlit crests, no muddy slip faces filling the frame)
     let yaw = heading + .08 * sm(cSun - .5, cSun + 1.5, t) * (1 - sm(cEmpty, cEmpty + 1.5, t)) + yawSweep;
-    let pitch = -.1 + .3 * sm(cSun - .3, cSun + 1.6, t) * (1 - sm(cShim - .2, cShim + 1.2, t)) + .04 * low + .02 * sm(cTurn, cTurn + 2, t);
+    let pitch = -.1 + .3 * sm(cSun - .3, cSun + 1.6, t) * (1 - sm(cShim - .2, cShim + 1.2, t)) + .08 * low + .04 * sm(cEmpty, cEmpty + 2, t) * (1 - sm(cTurn, cTurn + 2, t)) + .02 * sm(cTurn, cTurn + 2, t);
     // reveal: look at the oasis
     const rv = sm(cRev - .6, cRev + 2.2, t), oy = Math.atan2(OZ - pp[1], OX - pp[0]) - .18, od = Math.hypot(OX - pp[0], OZ - pp[1]), op = Math.atan2(WL + 3 - camY, od);
     let dy = oy - yaw; dy = Math.atan2(Math.sin(dy), Math.cos(dy)); yaw += dy * rv; pitch += (op - pitch) * rv;
