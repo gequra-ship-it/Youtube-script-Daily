@@ -47,8 +47,6 @@ try { R = new T.WebGLRenderer({ canvas: document.getElementById('gl'), antialias
 catch (e) { document.getElementById('err').style.display = 'block'; }
 const ctxBase = { T, W, H, VERT, ACC, sm, clamp, rng, ctex, dotTex, points, stars, glow, env, cue, unit, side, get R() { return R; }, pal: C.pal || {} };
 let RTa, RTb, quad, qcam, qmat;
-const POST = C.post ? Object.assign({}, C.post === true ? {} : C.post) : null;   // off until a video's cine.json sets "post": true or {...} (2026-10-15 trial)
-let FX = null;
 if (R) {
   // outside transitions the shot renders straight to the canvas (renderer tone mapping); only transitions use the two render
   // targets + composite shader (same ACES + sRGB maths). Measured on the render server 2026-10-14: always compositing through
@@ -93,60 +91,6 @@ if (R) {
         gl_FragColor = vec4(srgb(aces(c)), 1.); }`,
     depthTest: false, depthWrite: false });
   quad = new T.Mesh(new T.PlaneGeometry(2, 2), qmat); quad.frustumCulled = false;
-  if (POST) FX = makeFinish();
-}
-// ---------------- finishing pass (2026-10-15) ----------------
-// The frame is drawn to the canvas exactly as before (scenes are tuned for that), then copied into a texture and finished:
-// depth of field (sharp -> a quarter-size blurred copy, by distance from the focus; depth from a quarter-size depth-only pass of
-// the opaque meshes), bloom (bright parts of the blurred copy), grade (saturation, contrast, lift/gain) and film grain.
-// cine.json "post": true or {dof, bloom, thr, sat, con, lift, gain, grain}; per shot "post": {...}; a scene may set o.focus
-// (distance or function of t); otherwise the focus is the nearer fifth of 25 depth samples (background excluded) over the middle of the frame.
-function makeFinish() {
-  const w4 = W >> 2, h4 = H >> 2, V = 'varying vec2 vUv; void main(){ vUv=uv; gl_Position=vec4(position.xy,0.,1.); }';
-  const disp = new T.FramebufferTexture(W, H); disp.minFilter = disp.magFilter = T.LinearFilter;
-  const rt = () => new T.WebGLRenderTarget(w4, h4, { depthBuffer: false }); const qA = rt(), qB = rt();
-  const dRT = new T.WebGLRenderTarget(w4, h4); dRT.depthTexture = new T.DepthTexture(w4, h4); dRT.depthTexture.type = T.UnsignedIntType;
-  const fRT = new T.WebGLRenderTarget(5, 5, { type: T.FloatType, depthBuffer: false }), fbuf = new Float32Array(100);
-  const M = (u, f) => new T.ShaderMaterial({ uniforms: u, vertexShader: V, fragmentShader: f, depthTest: false, depthWrite: false });
-  const down = M({ t: { value: disp }, px: { value: new T.Vector2(1 / W, 1 / H) } },
-    'uniform sampler2D t; uniform vec2 px; varying vec2 vUv; void main(){ vec3 c=vec3(0.); for(int i=-1;i<=2;i++) for(int j=-1;j<=2;j++) c+=texture2D(t,vUv+vec2(float(i)-.5,float(j)-.5)*px).rgb; gl_FragColor=vec4(c/16.,1.); }');
-  const blur = M({ t: { value: null }, d: { value: new T.Vector2() } },
-    'uniform sampler2D t; uniform vec2 d; varying vec2 vUv; void main(){ vec3 c=texture2D(t,vUv).rgb*.2270; c+=(texture2D(t,vUv+d*1.385).rgb+texture2D(t,vUv-d*1.385).rgb)*.3162; c+=(texture2D(t,vUv+d*3.231).rgb+texture2D(t,vUv-d*3.231).rgb)*.0703; gl_FragColor=vec4(c,1.); }');
-  const focusM = M({ tD: { value: dRT.depthTexture }, near: { value: .1 }, far: { value: 100 } },
-    '#include <packing>\nuniform sampler2D tD; uniform float near, far; varying vec2 vUv; void main(){ vec2 u=.5+(vUv-.5)*.6; float z=texture2D(tD,u).x; gl_FragColor=vec4(z>=1.?far:-perspectiveDepthToViewZ(z,near,far),0.,0.,1.); }');
-  const fin = M({ tS: { value: disp }, tQ: { value: qA.texture }, tD: { value: dRT.depthTexture }, near: { value: .1 }, far: { value: 100 }, focus: { value: 5 }, dof: { value: 0 },
-      bloom: { value: .3 }, thr: { value: .72 }, sat: { value: 1 }, con: { value: 1 }, lift: { value: new T.Vector3() }, gain: { value: new T.Vector3(1, 1, 1) }, grain: { value: .03 }, tm: { value: 0 } },
-    `#include <packing>
-    uniform sampler2D tS, tQ, tD; uniform float near, far, focus, dof, bloom, thr, sat, con, grain, tm; uniform vec3 lift, gain; varying vec2 vUv;
-    void main(){ vec3 c = texture2D(tS, vUv).rgb, q = texture2D(tQ, vUv).rgb;
-      if (dof > 0.) { float z = texture2D(tD, vUv).x, dist = z >= 1. ? far : -perspectiveDepthToViewZ(z, near, far);
-        float coc = smoothstep(.12, 1., clamp(abs(dist - focus) / max(focus * .8, .001), 0., 1.)) * dof; c = mix(c, q, coc); }
-      vec3 b = max(q - thr, 0.) / (1. - thr); c = 1. - (1. - c) * (1. - b * b * bloom);                    // bloom, screen-blended (display space)
-      float l = dot(c, vec3(.2126, .7152, .0722)); c = mix(vec3(l), c, sat); c = (c - .5) * con + .5;
-      c = clamp(c * gain + lift * (1. - c), 0., 1.);
-      float n = fract(sin(dot(floor(vUv * vec2(${W}., ${H}.)) + tm * vec2(17.13, 31.71), vec2(12.9898, 78.233))) * 43758.5453);
-      gl_FragColor = vec4(c + (n - .5) * grain, 1.); }`);
-  const pq = new T.Mesh(new T.PlaneGeometry(2, 2), down); pq.frustumCulled = false;
-  const pass = (m, target) => { pq.material = m; R.setRenderTarget(target); R.render(pq, qcam); };
-  const hideMat = new T.MeshBasicMaterial({ colorWrite: false });
-  return function finish(o, sp, t) {   // o: the shot object when one shot fills the frame (depth of field), null in transitions
-    R.setRenderTarget(null); R.copyFramebufferToTexture(disp, new T.Vector2(0, 0));
-    pass(down, qA); blur.uniforms.t.value = qA.texture; blur.uniforms.d.value.set(1 / w4, 0); pass(blur, qB);
-    blur.uniforms.t.value = qB.texture; blur.uniforms.d.value.set(0, 1 / h4); pass(blur, qA);
-    const u = fin.uniforms, cam = o && o.camera, dof = cam && cam.isPerspectiveCamera ? (sp.dof == null ? .55 : sp.dof) : 0;
-    u.dof.value = dof;
-    if (dof > 0) {
-      const hid = []; o.scene.traverse(x => { if (x.visible && (x.isPoints || x.isSprite || x.isLine || (x.isMesh && (x.material.transparent || x.material.depthWrite === false)))) { x.visible = false; hid.push(x); } });
-      const bg = o.scene.background, ov = o.scene.overrideMaterial; o.scene.background = null; o.scene.overrideMaterial = hideMat;
-      R.setRenderTarget(dRT); R.clear(); R.render(o.scene, cam); o.scene.overrideMaterial = ov; o.scene.background = bg; hid.forEach(x => { x.visible = true; });
-      u.near.value = cam.near; u.far.value = cam.far;
-      let f = o.focus != null ? (typeof o.focus === 'function' ? o.focus(t) : o.focus) : null;
-      if (f == null) { focusM.uniforms.near.value = cam.near; focusM.uniforms.far.value = cam.far; pass(focusM, fRT); R.readRenderTargetPixels(fRT, 0, 0, 5, 5, fbuf);   // 5x5 samples over the middle 60%: focus on the nearer fifth of what is not empty background
-        const v = Array.from({ length: 25 }, (_, k) => fbuf[k * 4]).filter(d => d < cam.far * .95).sort((a, b) => a - b); f = v.length ? v[Math.floor(v.length * .2)] : cam.far * .5; }
-      u.focus.value = Math.min(f, cam.far * .5); }
-    u.bloom.value = sp.bloom == null ? .25 : sp.bloom; u.thr.value = sp.thr == null ? .8 : sp.thr; u.sat.value = sp.sat == null ? 1 : sp.sat; u.con.value = sp.con == null ? 1.04 : sp.con;
-    u.lift.value.set(...(sp.lift || [0, 0, 0])); u.gain.value.set(...(sp.gain || [1, 1, 1])); u.grain.value = sp.grain == null ? .03 : sp.grain; u.tm.value = Math.floor(t * 30) % 977;
-    pass(fin, null); };
 }
 const KIND = { cut: 0, none: 0, dip: 1, xfade: 2, flash: 3, wipe: 4, iris: 5, eye: 6, push: 7, whip: 8, zoom: 9, blinds: 10 };
 const TDUR = { cut: 0, none: 0, dip: .9, xfade: .8, flash: .7, wipe: .8, iris: .9, eye: .8, push: .7, whip: .45, zoom: .9, blinds: 1.1 };
@@ -170,11 +114,10 @@ function frame(t) {
   let tr = null;
   for (const k of [i, i + 1]) { const s = SHOTS[k]; if (!s || k === 0) continue; const d = s.trd != null ? s.trd : (TDUR[s.tr] || 0);
     if (d > 0 && t >= s.t0 - d / 2 && t < s.t0 + d / 2) tr = { a: k - 1, b: k, p: (t - (s.t0 - d / 2)) / d, kind: KIND[s.tr] || 0, o: s.tro || [.5, .5] }; }
-  if (!tr) { renderShot(i, t, null); if (FX) FX(shotObj(i), Object.assign({}, POST, SHOTS[i].post || {}), t); return; }
+  if (!tr) { renderShot(i, t, null); return; }
   renderShot(tr.a, t, RTa); renderShot(tr.b, t, RTb); qmat.uniforms.kind.value = tr.kind; qmat.uniforms.p.value = tr.p; qmat.uniforms.o.value.set(tr.o[0], 1 - tr.o[1]);
   qmat.uniforms.tA.value = RTa.texture; qmat.uniforms.tB.value = RTb.texture;
   R.setRenderTarget(null); R.render(quad, qcam);
-  if (FX) FX(null, Object.assign({}, POST, SHOTS[tr.b].post || {}), t);
 }
 
 // ---------------- DOM ----------------
