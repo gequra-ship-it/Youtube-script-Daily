@@ -114,6 +114,11 @@ A thing must read as a solid, lit, physical object, never a flat icon or a coin-
   noise in height maps, max anisotropy on tiled textures, MSAA (`samples: 4`) on any target the main pass renders into, shadow
   cameras that follow the view kept small and snapped to whole shadow texels in the light camera's own axes, screen distortion as
   broad slow waves. Check with consecutive frames 1/30 s apart (`cineshot.py render/x out 9.5 9.5333 9.5667`).
+- **Grass is soft, never spiky** (user 2026-10-15: "the grass is too spiky; when it comes to the front, use fur so it looks natural
+  and lush"): no hard blade geometry for grass. Near grass = `K.grass` tufts (crossed cards with hundreds of fine strands), very
+  near short lawn = `K.grass` lawn (shell fur), far grass = one soft `K.grass` band; distant silhouettes (tree lines) get rounded
+  tops, not sawtooth. Long-leaved plants (reeds, cattails) get rounded leaf tips and soft tufts at their base. Call
+  `grass.update(t, camera)` every frame. Cost is overdraw: density x card area at grazing views (see the kit header).
 - **One visual language** (user, 2026-10-14: "the clocks feel cut off from the other scenes"): realism serves the series look, not
   the other way round. Every scene sits in the same world as dataglobe/blackhole: dark navy-violet (space) or deep blue (sea)
   backgrounds, light carried by glowing edges, light points, halos and dust in the palette's warm accent, stars or particles for
