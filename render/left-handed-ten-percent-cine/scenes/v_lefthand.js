@@ -329,7 +329,7 @@
       const top = sit ? pick(q, ['jacket', 'hoodie', 'jacket', 'parka']) : pick(q, ['coat', 'coat', 'jacket', 'jacket', 'hoodie', 'parka', 'coat']);
       const hair = pick(q, ['short', 'short', 'short', 'long', 'bun', 'pony', 'cap', 'beanie', 'long', 'short']);
       const hood = top === 'hoodie' || top === 'parka', skirt = !sit && top === 'jacket' && (hair === 'long' || hair === 'bun' || hair === 'pony') && q() < .6;
-      const bag = sit || q() > .35 ? null : hood ? 'sling' : pick(q, ['pack', 'pack', 'sling']);
+      const bag = null;   // no backpacks/slings (user 2026-10-15: "something strange on their backs")
       const hem = top === 'coat' ? .5 + q() * .12 : top === 'parka' ? (sit ? .8 : .68 + q() * .06) : top === 'jacket' ? .8 + q() * .04 : .82;
       const bulk = top === 'parka' ? 1.12 : top === 'coat' ? 1.03 + q() * .05 : .96 + q() * .08;
       return { seed: i * 7 + 3, top, hair, hood, skirt, skirtHem: .5 + q() * .1, bag, hem, bulk, sit, collar: !hood, glove: q() < .15,
