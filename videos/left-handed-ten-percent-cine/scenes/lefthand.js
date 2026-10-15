@@ -317,8 +317,6 @@
     // passengers
     // rim from the warm light ahead (ceiling strips + the lit door at the far end): world direction forward and up
     const lit = rimLight(T), LW = new T.Vector3(0, .55, -1).normalize();
-    // fabric normal map (soft knit/twill irregularity, tileable: integer noise frequencies), faded with distance in the shader
-    const clothN = K.normalMap(K.noise(256, { seed: 17, octaves: 3, sx: 2, sy: 3 }), 1.4); clothN.anisotropy = ctx.R.capabilities.getMaxAnisotropy();
     const r = rng(41), pick = (q, a) => a[(q() * a.length) | 0];
     const TOPS = ['#2b2c30', '#232a3a', '#5e4b38', '#3a3d31', '#43272b', '#47484d', '#18181b', '#6e604d', '#22302a', '#34303a', '#2e3644'];
     const HOOD = ['#3d3f45', '#1d2230', '#4a3d36', '#2c3a33', '#55545a'];
@@ -342,7 +340,11 @@
       [-.45, -6.1, .1, 1.04, 'rail'], [.35, -7.4, 0, .96, 'phone'], [-.1, -8.6, .05, 1.0, 'rail'], [.45, -9.8, 0, 1.03, 'rail'], [-.35, -11.0, 0, .98, 'rail'],
       [.15, -12.4, 0, 1.0, 'phone'], [-.3, -13.7, 0, 1.02, 'rail'], [.4, -14.8, 0, .97, 'rail'],
       [-1.12, -2.4, Math.PI / 2, .98, 'sit'], [1.12, -4.6, -Math.PI / 2, 1.0, 'sit'], [-1.12, -7.9, Math.PI / 2, 1.02, 'sit'], [1.12, -10.4, -Math.PI / 2, .96, 'sit'], [-1.12, -12.8, Math.PI / 2, 1.0, 'sit']];
-    const ppl = PEOPLE.map(([x, z, ry, sc, kind], i) => { const of = outfit(i, kind === 'sit'), mat = personMat(T, '#ffffff', '#ffb878', .85, null, lit, clothN);
+    // look of the never-eat-human-meat people (user 2026-10-15): one matte slate-navy material for everyone (no per-garment colours,
+    // no fabric texture), the clothes only as silhouette, a warm rim on the light-facing edges, a soft cool fill from the camera side
+    const pplM = personMat(T, '#3c4058', '#ffc98a', 1.1, .75, lit); pplM.vertexColors = false;
+    const pplFill = new T.DirectionalLight('#b4bed2', .45); pplFill.position.set(1.5, 3, 9); S.add(pplFill);
+    const ppl = PEOPLE.map(([x, z, ry, sc, kind], i) => { const of = outfit(i, kind === 'sit'), mat = pplM;
       const pr = person(T, mat, dressedGeo(T, of)); pr.root.position.set(x, 0, z); pr.root.rotation.y = ry; pr.root.scale.set(sc * (.95 + r() * .1), sc, sc); S.add(pr.root);
       // natural idle: weight on one leg (hip tilt + relaxed knee), head down/turned, one shoulder higher, own sway amplitude/phase
       const q = rng(7 + Math.floor((Math.sin(i * 47.91 + 1.3) * .5 + .5) * 2e9)); q(); const side = q() < .5 ? 1 : -1;

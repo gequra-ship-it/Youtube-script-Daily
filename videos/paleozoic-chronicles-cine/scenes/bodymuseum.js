@@ -153,7 +153,7 @@
     m.onBeforeCompile = sh => { Object.assign(sh.uniforms, LU, RIM);
       sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nuniform float br;').replace('#include <begin_vertex>', '#include <begin_vertex>\n{ float k=br*.07; transformed.x*=1.+k; transformed.z*=1.+k*.7; transformed.y+= -br*.22*smoothstep(.5,-2.4,position.y); }');
       sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float op; uniform vec3 rimL;').replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
-        { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.); totalEmissiveRadiance += vec3(.55,.75,1.)*fr*.9*(.3+.7*${RIMW}); }`).replace('#include <opacity_fragment>', '#include <opacity_fragment>\ndiffuseColor.a *= op; { float fr=pow(1.-abs(dot(normal,normalize(vViewPosition))),2.); diffuseColor.a = op*(.28+.6*fr); }'); };
+        { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.); totalEmissiveRadiance += vec3(.55,.75,1.)*fr*.9*(.3+.7*${RIMW}); }`).replace('#include <opaque_fragment>', '{ float fr=pow(1.-abs(dot(normal,normalize(vViewPosition))),2.); diffuseColor.a = op*(.28+.6*fr); }\n#include <opaque_fragment>'); };   // r169 chunk name (was opacity_fragment, which does not exist: the fade and edge alpha never ran)
     return m; };
   const lungs = [1, -1].map(sd => { const m = new T.Mesh(lungGeo(sd), lungMat()); m.position.set(sd * 1.75, .2, -.6); m.renderOrder = 2; S.add(m); return m; });
   // ---------- head: a calm frosted-glass bust (no face features) seen from the side; inside it the jaw bones, softly lit ----------
