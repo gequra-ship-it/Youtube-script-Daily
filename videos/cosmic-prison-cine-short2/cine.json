@@ -1,0 +1,229 @@
+{
+ "title": "The cosmic prison",
+ "accent": "#ffc65a",
+ "chapters": [
+  {
+   "id": "c1",
+   "label": "Miya's Lab",
+   "title": "No shortcut past light",
+   "mode": "cuts",
+   "from": "U001",
+   "tr": "cut",
+   "shots": [
+    {
+     "from": "U001",
+     "type": "wormhole",
+     "params": {
+      "open": "U001"
+     }
+    },
+    {
+     "from": "U004",
+     "type": "lightspeed",
+     "params": {
+      "limit": "U006:speed limit",
+      "push": "U008:speeds up",
+      "infinite": "U010:infinity"
+     },
+     "tr": "whip"
+    },
+    {
+     "from": "U011",
+     "type": "wormhole",
+     "params": {
+      "open": "U011",
+      "enter": "U013:tunnel"
+     },
+     "tr": "iris",
+     "tro": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "from": "U017",
+     "type": "wormhole",
+     "params": {
+      "open": "U011",
+      "enter": "U011",
+      "collapse": "U019:destroy"
+     },
+     "tr": "xfade"
+    },
+    {
+     "from": "U022",
+     "type": "warp",
+     "params": {
+      "warp": "U024:contracting"
+     },
+     "tr": "dip"
+    },
+    {
+     "from": "U028",
+     "type": "warp",
+     "params": {
+      "warp": "U022",
+      "energy": "U028:Jupiter"
+     },
+     "tr": "xfade"
+    },
+    {
+     "from": "U031",
+     "type": "warp",
+     "params": {
+      "warp": "U022",
+      "snowplow": "U032:sweep up",
+      "blast": "U034:blasting"
+     },
+     "tr": "xfade"
+    },
+    {
+     "from": "U035",
+     "type": "warp",
+     "params": {
+      "warp": "U022",
+      "trapped": "U035"
+     },
+     "tr": "dip"
+    }
+   ]
+  }
+ ],
+ "beats": {
+  "U001": {
+   "sub": "Nothing beats light. Could we cheat?",
+   "kw": "Cheat?"
+  },
+  "U002": {
+   "sub": "Two shortcuts: wormholes and warp drives.",
+   "kw": "Shortcuts"
+  },
+  "U003": {
+   "sub": "Both hit walls that may never break."
+  },
+  "U004": {
+   "sub": "First, the rule they dodge.",
+   "kw": "The rule"
+  },
+  "U005": {
+   "sub": "About 186,000 miles per second.",
+   "kw": "186,000 mi/s"
+  },
+  "U006": {
+   "sub": "The speed limit of cause and effect."
+  },
+  "U007": {
+   "sub": "Nothing with mass can reach it."
+  },
+  "U008": {
+   "sub": "Speed up toward light..."
+  },
+  "U009": {
+   "sub": "...each bit of speed costs more energy.",
+   "kw": "More energy"
+  },
+  "U010": {
+   "sub": "The total climbs toward infinity.",
+   "kw": "Infinity",
+   "acc": true
+  },
+  "U011": {
+   "sub": "So what about wormholes?",
+   "kw": "Wormholes"
+  },
+  "U012": {
+   "sub": "Einstein-Rosen bridges, in theory."
+  },
+  "U013": {
+   "sub": "A tunnel through the fabric of the universe."
+  },
+  "U014": {
+   "sub": "To hold one open..."
+  },
+  "U015": {
+   "sub": "...exotic matter with negative energy.",
+   "kw": "Negative energy"
+  },
+  "U016": {
+   "sub": "It may not exist at all."
+  },
+  "U017": {
+   "sub": "Then quantum physics may interfere.",
+   "kw": "Quantum"
+  },
+  "U018": {
+   "sub": "Hawking: fluctuations could build up..."
+  },
+  "U019": {
+   "sub": "...and destroy the tunnel before use.",
+   "kw": "Destroyed",
+   "acc": true
+  },
+  "U020": {
+   "sub": "The chronology protection conjecture."
+  },
+  "U021": {
+   "sub": "No one knows for sure yet."
+  },
+  "U022": {
+   "sub": "Then there is the warp drive.",
+   "kw": "Warp drive"
+  },
+  "U023": {
+   "sub": "Miguel Alcubierre, 1994.",
+   "kw": "1994"
+  },
+  "U024": {
+   "sub": "Contract space ahead..."
+  },
+  "U025": {
+   "sub": "...expand it behind."
+  },
+  "U026": {
+   "sub": "Inside the bubble, the ship is at rest."
+  },
+  "U027": {
+   "sub": "It never breaks the local limit."
+  },
+  "U028": {
+   "sub": "The catch: at least Jupiter's mass-energy...",
+   "kw": "Jupiter"
+  },
+  "U029": {
+   "sub": "...and negative. Later designs need less..."
+  },
+  "U030": {
+   "sub": "...but nobody can make negative energy."
+  },
+  "U031": {
+   "sub": "Worse: a 2012 study found...",
+   "kw": "2012 study"
+  },
+  "U032": {
+   "sub": "...the bubble sweeps up particles.",
+   "kw": "Snowplow"
+  },
+  "U033": {
+   "sub": "When the ship stops, energy bursts out..."
+  },
+  "U034": {
+   "sub": "...blasting the destination.",
+   "kw": "Blast",
+   "acc": true
+  },
+  "U035": {
+   "sub": "Every escape route hits the same wall.",
+   "kw": "Same wall"
+  },
+  "U036": {
+   "sub": "Nature is not built for interstellar nomads."
+  },
+  "U037": {
+   "sub": "Why we are trapped in our neighborhood..."
+  },
+  "U038": {
+   "sub": "...the full story is on Miya's Lab.",
+   "kw": "Miya's Lab"
+  }
+ }
+}

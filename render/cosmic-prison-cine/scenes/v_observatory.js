@@ -4,7 +4,12 @@
 // opens fully; on "rockets" a rocket lifts off from the far plain on a glowing exhaust trail; the camera then tilts up after it into
 // the void, and on "edge" pushes in toward the deep starfield (faint galaxies appear). Written for cosmic-prison-cine (2026-10-14).
 // params (cues): { glow (slit light + starlight stream), widen (camera rises, wider sky), scope (dome turns, shutter opens),
-//   rocket (lift-off), follow (camera tilts up after the rocket), edge (push into the deep field), side:.12 }
+//   rocket (lift-off), follow (camera tilts up after the rocket), edge (push into the deep field), side:.12,
+//   close (optional, added 2026-10-15 for S47 "before dark energy closes the shutters": the shutter slides back down, a second
+//          leaf stowed on the back comes over the top, the slit seals, the inner light and the starlight stream fade),
+//   night (optional, added 2026-10-15 for the ending S53-S54: the camera slowly rises from the hill into the full star field,
+//          faint galaxies show in the deep sky) }
+// Without close/night the scene is unchanged (the second leaf is only built when close is given).
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.observatory = function (ctx, p) {
   const { T, sm, rng, cue, points, glow } = ctx, K = window.MIYA.kit, E = ctx.env();
   const S = new T.Scene(); S.background = new T.Color('#0f1128');
@@ -146,6 +151,13 @@
   const SHUT = new T.Group(); DOME.add(SHUT); SHUT.add(new T.Mesh(shG, metal));
   [B0 + .06, -B0 - .06].forEach(b => { const pts = []; for (let j = 0; j <= 20; j++) { const g = j / 20 * SHD; pts.push(v3((DR + .1) * Math.sin(b), (DR + .1) * Math.cos(b) * Math.sin(g), (DR + .1) * Math.cos(b) * Math.cos(g))); }
     SHUT.add(new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(pts), 20, .05, 6, false), ribM)); });
+  // second shutter leaf (only built for "close"): stowed over the back of the dome, slides over the top to seal the slit
+  const LEAF = p.close != null ? new T.Group() : null, LFD = .78;
+  if (LEAF) { DOME.add(LEAF); const lg = shG.clone(), lp = lg.attributes.position, sk = LFD / SHD, Rl = 1.03;
+    for (let i = 0; i < lp.count; i++) { const x = lp.getX(i), y = lp.getY(i), z = lp.getZ(i), g = Math.atan2(y, z) * sk, rr = Math.hypot(y, z) * Rl;
+      lp.setXYZ(i, x * Rl, rr * Math.sin(g), rr * Math.cos(g)); } lg.computeVertexNormals(); LEAF.add(new T.Mesh(lg, metal));
+    [B0 + .06, -B0 - .06].forEach(b => { const pts = []; for (let j = 0; j <= 12; j++) { const g = j / 12 * LFD; pts.push(v3((DR + .1) * Rl * Math.sin(b), (DR + .1) * Rl * Math.cos(b) * Math.sin(g), (DR + .1) * Rl * Math.cos(b) * Math.cos(g))); }
+      LEAF.add(new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(pts), 12, .05, 6, false), ribM)); }); }
   // telescope: pier, fork, open tube with wall thickness, dew cap, glowing aperture ring
   const TEL = new T.Group(); DOME.add(TEL); TEL.position.set(0, -.2, 0);
   addM(new T.CylinderGeometry(.35, .5, 1.2, 24), concrete, TEL).position.y = -.75;
@@ -209,32 +221,36 @@
   return { scene: S, camera: cam, draw(t, u) {
     ctx.t = t;
     const g1 = at(p.glow, 2.5), wd = at(p.widen, 4), sc1 = at(p.scope, 2.2), fo = at(p.follow, 3.2), ed = at(p.edge, 3.5);
-    const intro = sm(0, 6.5, u);
-    cp.set(8.5 - u * .1 - 2 * wd, 1.0 + .8 * intro + 2.2 * wd + .1 * Math.sin(u * .3), 25 - u * .2 + 5 * wd);
+    const intro = sm(0, 6.5, u), cl = at(p.close, 6), nt = at(p.night, 16);
+    // long shots with the new cues: the slow dolly eases out instead of running into the dome (old cues: unchanged)
+    const ue = (p.close != null || p.night != null) ? 30 * (1 - Math.exp(-u / 30)) : u;
+    cp.set(8.5 - ue * .1 - 2 * wd, 1.0 + .8 * intro + 2.2 * wd + .1 * Math.sin(u * .3), 25 - ue * .2 + 5 * wd);
+    if (nt > 0) { cp.y += 16 * nt; cp.z += 8 * nt; cp.x -= 3 * nt; }
     cam.position.copy(cp);
     // dome: slit first faces left-back, on "telescopes" it turns toward the camera side; shutter opens fully
     DOME.rotation.y = PSC + 1.75 - 1.6 * sc1 + .04 * Math.sin(u * .2);
     SHUT.rotation.x = -(0.55 + .45 * g1 + (GM - 1.0) * sc1);
-    const el = .7 + .2 * g1 - .15 * sc1; TUBE.quaternion.setFromUnitVectors(v3(0, 1, 0), v3(0, Math.sin(el), Math.cos(el)));
-    const lit = .25 + .75 * g1; innerM.emissiveIntensity = .035 * lit; inGlow.material.opacity = .3 * lit + .15 * sc1; edgeM.opacity = .25 + .55 * lit;
+    if (LEAF) { const c1 = sm(0, .7, cl), c2 = sm(.3, 1, cl); SHUT.rotation.x *= 1 - c1; LEAF.rotation.x = -(2.36 - (2.36 - (SHD - .04)) * c2); }
+    const el = .7 + .2 * g1 - .15 * sc1 + (cl > 0 ? (1.45 - (.7 + .2 * g1 - .15 * sc1)) * cl : 0); TUBE.quaternion.setFromUnitVectors(v3(0, 1, 0), v3(0, Math.sin(el), Math.cos(el)));
+    const lit = (.25 + .75 * g1) * (1 - .85 * cl); innerM.emissiveIntensity = .035 * lit; inGlow.material.opacity = .3 * lit + .15 * sc1; edgeM.opacity = .25 + .55 * lit;
     mirror.material.color.setRGB(1 * lit + .2, .89 * lit + .15, .69 * lit + .1);
     rimGlow.material.opacity = .45 + .25 * g1;
     // starlight stream: points flow from the sky down into the slit and the telescope mouth
-    const dir = v3(0, Math.sin(el), Math.cos(el)), mouth = dir.clone().multiplyScalar(2.6).add(v3(0, .35, 0)), sk = .9 * g1 + .4 * sc1;
+    const dir = v3(0, Math.sin(el), Math.cos(el)), mouth = dir.clone().multiplyScalar(2.6).add(v3(0, .35, 0)), sk = (.9 * g1 + .4 * sc1) * (1 - cl);
     for (let i = 0; i < NS; i++) { const [o, a, b, w] = slB[i], f = (o + t * .22 * (1 + w)) % 1, d = (1 - f) * 34; const spread = .2 + (1 - f) * 2.6;
       slA[i * 3] = mouth.x + dir.x * d + a * spread; slA[i * 3 + 1] = mouth.y + dir.y * d + b * spread * .4; slA[i * 3 + 2] = mouth.z + dir.z * d + b * spread;
       const v = sk * Math.sin(Math.PI * f) * (.4 + .6 * w); slC[i * 3] = v; slC[i * 3 + 1] = v * .92; slC[i * 3 + 2] = v * .75; }
     sl.geometry.attributes.position.needsUpdate = true; sl.geometry.attributes.color.needsUpdate = true;
     // stars twinkle
     starSets.forEach(({ P, c, base, n }) => { for (let i = 0; i < n; i++) { const k = i * 4, tw = .82 + .18 * Math.sin(t * (1.3 + (base[k + 3] % 1) * 2) + base[k + 3] * 7); c[i * 3] = base[k] * tw; c[i * 3 + 1] = base[k + 1] * tw; c[i * 3 + 2] = base[k + 2] * tw; } P.geometry.attributes.color.needsUpdate = true; });
-    gal.forEach(([sp, o]) => sp.material.opacity = ed * (.25 + .35 * o));
-    skyK.setScalar(1 + .25 * ed);
+    gal.forEach(([sp, o]) => sp.material.opacity = Math.max(ed, .8 * nt) * (.25 + .35 * o));
+    skyK.setScalar(1 + .25 * Math.max(ed, .6 * nt));
     // meteor (one, early)
     const mt = (t - 4.6) / .8; met.visible = mt > 0 && mt < 1;
     if (met.visible) { const a = v3(-380, 820, -1000), b = v3(-640, 620, -980), m = a.clone().lerp(b, mt); met.position.copy(m); met.scale.set(160 * Math.min(1, mt * 3), 6, 1); met.lookAt(0, 0, 0); met.rotateZ(Math.atan2(b.y - a.y, b.x - a.x) + Math.PI); met.material.opacity = Math.sin(Math.PI * mt) * .9; }
     // rocket
     const tau = t - tR, on = true;
-    ROCK.visible = on; tr.visible = smk.visible = tau > -1.2;
+    ROCK.visible = on && !((p.night != null || p.close != null) && p.rocket == null); tr.visible = smk.visible = tau > -1.2;
     if (on) { const ign = sm(-1.2, 0, tau), q = path(tau), q2 = path(tau + .05); ROCK.position.copy(q);
       const dv = q2.clone().sub(q); if (dv.lengthSq() > 1e-6) ROCK.quaternion.setFromUnitVectors(v3(0, 1, 0), dv.normalize()); else ROCK.quaternion.identity();
       const fk = .85 + .15 * Math.sin(t * 37) * Math.sin(t * 23);
@@ -267,8 +283,11 @@
       const yp = q => { const d = q.clone().sub(cp).normalize(); return [Math.atan2(d.x, -d.z), Math.asin(d.y)]; };
       const [y0, p0] = yp(tgt), [y1, p1] = yp(lk), yw = y0 + (y1 - y0) * fo * (.35 + .65 * ed), pt = p0 + (p1 - p0) * fo;
       ft.copy(cp).add(v3(Math.sin(yw) * Math.cos(pt), Math.sin(pt), -Math.cos(yw) * Math.cos(pt)).multiplyScalar(100)); }
+    if (nt > 0) { const d0 = ft.clone().sub(cp).normalize(), d1 = A0.clone().add(v3(.3, .3, 0)).normalize(); ft.copy(cp).addScaledVector(d0.lerp(d1, sm(.1, 1, nt)).normalize(), 100); }
     cam.lookAt(ft);
-    cam.fov = 42 - 4 * wd + 4 * fo - 10 * ed; cam.updateProjectionMatrix();
+    cam.fov = 42 - 4 * wd + 4 * fo - 10 * ed + 10 * nt;
+    if (ctx.VERT) { const h = 2 * Math.atan(Math.tan(cam.fov * Math.PI / 360) * 16 / 9 * .62); cam.fov = 2 * Math.atan(Math.tan(h / 2) * ctx.H / ctx.W) * 180 / Math.PI; }   // Shorts: same vertical fit as ctx.side()
+    cam.updateProjectionMatrix();
     dust.update(t, [cp.x - 10, cp.y + 4, cp.z - 20]);
   } };
 };

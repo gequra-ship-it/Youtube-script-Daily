@@ -1,0 +1,234 @@
+{
+ "title": "The cosmic prison",
+ "accent": "#ffc65a",
+ "chapters": [
+  {
+   "id": "c1",
+   "label": "Miya's Lab",
+   "title": "Out of reach forever",
+   "mode": "cuts",
+   "from": "U001",
+   "tr": "cut",
+   "shots": [
+    {
+     "from": "U001",
+     "type": "horizon",
+     "params": {
+      "shell": "U001",
+      "lost": "U001"
+     }
+    },
+    {
+     "from": "U004",
+     "type": "lightspeed",
+     "params": {
+      "limit": "U006:speed limit"
+     },
+     "tr": "whip"
+    },
+    {
+     "from": "U009",
+     "type": "expanse",
+     "params": {
+      "stretch": "U011:stretching",
+      "law": "U014:proportional"
+     },
+     "tr": "dip"
+    },
+    {
+     "from": "U016",
+     "type": "expanse",
+     "params": {
+      "stretch": "U009",
+      "law": "U009",
+      "fast": "U017:faster than light"
+     },
+     "tr": "xfade"
+    },
+    {
+     "from": "U021",
+     "type": "expanse",
+     "params": {
+      "stretch": "U009",
+      "law": "U009",
+      "fast": "U016",
+      "treadmill": "U021"
+     },
+     "tr": "push"
+    },
+    {
+     "from": "U027",
+     "type": "horizon",
+     "params": {
+      "shell": "U027:16 billion",
+      "cross": "U029:cut off"
+     },
+     "tr": "zoom",
+     "tro": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "from": "U031",
+     "type": "horizon",
+     "params": {
+      "shell": "U027",
+      "cross": "U029",
+      "seen": "U031",
+      "lost": "U033:94 percent"
+     },
+     "tr": "xfade"
+    },
+    {
+     "from": "U035",
+     "type": "horizon",
+     "params": {
+      "shell": "U027",
+      "cross": "U029",
+      "seen": "U031",
+      "lost": "U033",
+      "edge": "U035"
+     },
+     "tr": "dip"
+    }
+   ]
+  }
+ ],
+ "beats": {
+  "U001": {
+   "sub": "Most galaxies you can see are out of reach.",
+   "kw": "Out of reach"
+  },
+  "U002": {
+   "sub": "Forever. Even at light speed.",
+   "kw": "Forever",
+   "acc": true
+  },
+  "U003": {
+   "sub": "One of physics' strangest facts."
+  },
+  "U004": {
+   "sub": "Start with the speed limit.",
+   "kw": "Speed limit"
+  },
+  "U005": {
+   "sub": "About 186,000 miles per second.",
+   "kw": "186,000 mi/s"
+  },
+  "U006": {
+   "sub": "Einstein: the limit of cause and effect."
+  },
+  "U007": {
+   "sub": "Nothing with mass can reach it."
+  },
+  "U008": {
+   "sub": "But that is not what seals us in."
+  },
+  "U009": {
+   "sub": "What seals us in: expanding space.",
+   "kw": "Expansion",
+   "acc": true
+  },
+  "U010": {
+   "sub": "Galaxies are not flying like bullets."
+  },
+  "U011": {
+   "sub": "Space itself stretches between them.",
+   "kw": "Space stretches"
+  },
+  "U012": {
+   "sub": "Between you and a galaxy..."
+  },
+  "U013": {
+   "sub": "...new space keeps appearing."
+  },
+  "U014": {
+   "sub": "Hubble's Law: speed grows with distance.",
+   "kw": "Hubble's Law"
+  },
+  "U015": {
+   "sub": "Twice as far, twice as fast.",
+   "kw": "2× far, 2× fast"
+  },
+  "U016": {
+   "sub": "About 14 billion light-years out...",
+   "kw": "14 billion ly"
+  },
+  "U017": {
+   "sub": "...space grows faster than light.",
+   "kw": "Beats light",
+   "acc": true
+  },
+  "U018": {
+   "sub": "Does that break Einstein's rule? No.",
+   "kw": "No"
+  },
+  "U019": {
+   "sub": "Nothing moves through space faster than light."
+  },
+  "U020": {
+   "sub": "But space itself can stretch faster."
+  },
+  "U021": {
+   "sub": "A treadmill. Your top speed: 10 mph.",
+   "kw": "Treadmill"
+  },
+  "U022": {
+   "sub": "The belt runs back at 20...",
+   "kw": "20 mph"
+  },
+  "U023": {
+   "sub": "...then 50, then 100.",
+   "kw": "100 mph"
+  },
+  "U024": {
+   "sub": "You are dragged backward."
+  },
+  "U025": {
+   "sub": "For light chasing the farthest galaxies..."
+  },
+  "U026": {
+   "sub": "...the treadmill is faster than light."
+  },
+  "U027": {
+   "sub": "Point of no return: about 16 billion ly.",
+   "kw": "16 billion ly"
+  },
+  "U028": {
+   "sub": "The cosmic event horizon.",
+   "kw": "Event horizon",
+   "acc": true
+  },
+  "U029": {
+   "sub": "Beyond it: cut off for good."
+  },
+  "U030": {
+   "sub": "Light sent there would never arrive.",
+   "kw": "Never arrives"
+  },
+  "U031": {
+   "sub": "The part that hurts. By one estimate..."
+  },
+  "U032": {
+   "sub": "...even a light-speed ship today..."
+  },
+  "U033": {
+   "sub": "...could never reach about 94% of galaxies.",
+   "kw": "94%",
+   "acc": true
+  },
+  "U034": {
+   "sub": "We can look. We can never touch.",
+   "kw": "Never touch"
+  },
+  "U035": {
+   "sub": "Where is the real edge of the universe?",
+   "kw": "The edge?"
+  },
+  "U036": {
+   "sub": "The full story is on Miya's Lab.",
+   "kw": "Miya's Lab"
+  }
+ }
+}

@@ -1,0 +1,202 @@
+{
+ "title": "The cosmic prison",
+ "accent": "#ffc65a",
+ "chapters": [
+  {
+   "id": "c1",
+   "label": "Miya's Lab",
+   "title": "The coming empty sky",
+   "mode": "cuts",
+   "from": "U001",
+   "tr": "cut",
+   "shots": [
+    {
+     "from": "U001",
+     "type": "localgroup",
+     "params": {
+      "merged": true,
+      "alone": "U001",
+      "erase": "U001"
+     }
+    },
+    {
+     "from": "U005",
+     "type": "localgroup",
+     "params": {},
+     "tr": "dip"
+    },
+    {
+     "from": "U009",
+     "type": "localgroup",
+     "params": {
+      "approach": "U009:heading toward",
+      "merge": "U011:merger"
+     },
+     "tr": "xfade"
+    },
+    {
+     "from": "U015",
+     "type": "horizon",
+     "params": {
+      "shell": "U015",
+      "cross": "U016:expanding",
+      "vanish": "U018:carried past"
+     },
+     "tr": "dip"
+    },
+    {
+     "from": "U020",
+     "type": "localgroup",
+     "params": {
+      "approach": "U009",
+      "merge": "U011",
+      "alone": "U020",
+      "erase": "U021:no sign"
+     },
+     "tr": "eye"
+    },
+    {
+     "from": "U026",
+     "type": "observatory",
+     "params": {
+      "glow": "U026",
+      "scope": "U027:conscious minds"
+     },
+     "tr": "dip"
+    },
+    {
+     "from": "U030",
+     "type": "observatory",
+     "params": {
+      "glow": "U026",
+      "scope": "U026",
+      "close": "U031:almost empty"
+     },
+     "tr": "xfade"
+    }
+   ]
+  }
+ ],
+ "beats": {
+  "U001": {
+   "sub": "A giant telescope, and nothing to see.",
+   "kw": "Nothing"
+  },
+  "U002": {
+   "sub": "No galaxies. No trace of the Big Bang."
+  },
+  "U003": {
+   "sub": "One lonely galaxy in darkness.",
+   "kw": "Alone",
+   "acc": true
+  },
+  "U004": {
+   "sub": "What far-future astronomers will see."
+  },
+  "U005": {
+   "sub": "Our neighborhood: the Local Group.",
+   "kw": "Local Group"
+  },
+  "U006": {
+   "sub": "More than 80 known galaxies.",
+   "kw": "80+ galaxies"
+  },
+  "U007": {
+   "sub": "Andromeda, the Milky Way, Triangulum."
+  },
+  "U008": {
+   "sub": "Gravity holds it against dark energy."
+  },
+  "U009": {
+   "sub": "Andromeda: about 250,000 mph toward us.",
+   "kw": "250,000 mph"
+  },
+  "U010": {
+   "sub": "A collision predicted in 4.5 billion years..."
+  },
+  "U011": {
+   "sub": "...then a merger: Milkdromeda.",
+   "kw": "Milkdromeda"
+  },
+  "U012": {
+   "sub": "A 2025 study: less certain..."
+  },
+  "U013": {
+   "sub": "...about a coin flip in 10 billion years.",
+   "kw": "Coin flip"
+  },
+  "U014": {
+   "sub": "Either way, the group ends up together."
+  },
+  "U015": {
+   "sub": "Everything outside: a different fate.",
+   "kw": "Outside"
+  },
+  "U016": {
+   "sub": "Dark energy pushes distant galaxies away."
+  },
+  "U017": {
+   "sub": "In over a trillion years...",
+   "kw": "1 trillion yrs"
+  },
+  "U018": {
+   "sub": "...all of them pass the horizon."
+  },
+  "U019": {
+   "sub": "Their light becomes undetectable.",
+   "kw": "Undetectable",
+   "acc": true
+  },
+  "U020": {
+   "sub": "Krauss and Scherrer imagined that era.",
+   "kw": "Krauss, Scherrer"
+  },
+  "U021": {
+   "sub": "No galaxies racing away."
+  },
+  "U022": {
+   "sub": "The Big Bang's afterglow..."
+  },
+  "U023": {
+   "sub": "...stretched beyond detection."
+  },
+  "U024": {
+   "sub": "They might think the universe is static.",
+   "kw": "Static?"
+  },
+  "U025": {
+   "sub": "The true history erased.",
+   "kw": "Erased",
+   "acc": true
+  },
+  "U026": {
+   "sub": "So we are lucky. A narrow window...",
+   "kw": "Lucky"
+  },
+  "U027": {
+   "sub": "...old enough for planets and minds..."
+  },
+  "U028": {
+   "sub": "...young enough to still see galaxies..."
+  },
+  "U029": {
+   "sub": "...and the cosmic microwave background."
+  },
+  "U030": {
+   "sub": "100 billion years later...",
+   "kw": "100 billion yrs"
+  },
+  "U031": {
+   "sub": "...an almost empty sky. But we live now.",
+   "kw": "Now",
+   "acc": true
+  },
+  "U032": {
+   "sub": "Witnesses of a disappearing masterpiece."
+  },
+  "U033": {
+   "sub": "The full story is on Miya's Lab.",
+   "kw": "Miya's Lab"
+  }
+ }
+}

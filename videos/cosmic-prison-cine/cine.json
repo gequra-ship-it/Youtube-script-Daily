@@ -2,16 +2,1894 @@
  "title": "The cosmic prison",
  "accent": "#ffc65a",
  "chapters": [
-  {"id": "c1", "label": "Chapter 1", "title": "The endless frontier", "mode": "stage", "from": "U001",
-   "badge_label": "Looking toward",
-   "scene": {"type": "observatory", "params": {"glow": "U002:looked at the stars", "widen": "U003", "scope": "U004:telescopes",
-     "rocket": "U004:rockets", "follow": "U004:void", "edge": "U005:edge"}}}
+  {
+   "id": "c1",
+   "label": "Chapter 1",
+   "title": "The endless frontier",
+   "mode": "stage",
+   "from": "U001",
+   "tr": "cut",
+   "scene": {
+    "type": "observatory",
+    "params": {
+     "glow": "U002:infinite wonder",
+     "widen": "U003",
+     "scope": "U005:telescopes",
+     "rocket": "U005:rockets",
+     "follow": "U005:void",
+     "edge": "U006:edge"
+    }
+   },
+   "badge_label": "Looking toward"
+  },
+  {
+   "id": "c2",
+   "label": "Chapter 2",
+   "title": "Voyager 1",
+   "mode": "stage",
+   "from": "U010",
+   "tr": "dip",
+   "scene": {
+    "type": "voyager",
+    "params": {
+     "far": "U015:front porch",
+     "proxima": "U018:73,000 years",
+     "galaxy": "U025:100,000 light-years"
+    }
+   },
+   "badge_label": "Distance"
+  },
+  {
+   "id": "c3",
+   "label": "Chapter 3",
+   "title": "The speed limit",
+   "mode": "stage",
+   "from": "U028",
+   "tr": "dip",
+   "scene": {
+    "type": "lightspeed",
+    "params": {
+     "limit": "U032:speed limit",
+     "push": "U036:accelerates",
+     "infinite": "U038:infinity"
+    }
+   },
+   "badge_label": "Speed",
+   "plot": {
+    "label": "Energy needed",
+    "min": 0,
+    "max": 1
+   }
+  },
+  {
+   "id": "c4",
+   "label": "Chapter 4",
+   "title": "The scale of the cosmos",
+   "mode": "stage",
+   "from": "U044",
+   "tr": "dip",
+   "scene": {
+    "type": "cosmicweb",
+    "params": {
+     "zoom": "U046:scale"
+    }
+   },
+   "badge_label": "Scale"
+  },
+  {
+   "id": "c4b",
+   "label": "Chapter 4",
+   "title": "The scale of the cosmos",
+   "mode": "stage",
+   "from": "U048",
+   "tr": "xfade",
+   "scene": {
+    "type": "cosmicweb",
+    "params": {
+     "speck": "U048:zoom out"
+    }
+   },
+   "badge_label": "Scale"
+  },
+  {
+   "id": "c5",
+   "label": "Chapter 5",
+   "title": "Hubble's discovery",
+   "mode": "stage",
+   "from": "U050",
+   "tr": "dip",
+   "scene": {
+    "type": "expanse",
+    "params": {
+     "static": "U050",
+     "redshift": "U060:red end",
+     "stretch": "U069:stretching"
+    }
+   },
+   "badge_label": "The universe"
+  },
+  {
+   "id": "c6",
+   "label": "Chapter 6",
+   "title": "Hubble's law",
+   "mode": "stage",
+   "from": "U073",
+   "tr": "xfade",
+   "scene": {
+    "type": "expanse",
+    "params": {
+     "static": "U050",
+     "redshift": "U060:red end",
+     "stretch": "U069:stretching",
+     "law": "U074:proportional"
+    }
+   },
+   "badge_label": "Recession"
+  },
+  {
+   "id": "c6b",
+   "label": "Chapter 6",
+   "title": "Hubble's law",
+   "mode": "stage",
+   "from": "U076",
+   "tr": "xfade",
+   "scene": {
+    "type": "expanse",
+    "params": {
+     "static": "U050",
+     "redshift": "U060:red end",
+     "stretch": "U069:stretching",
+     "law": "U074:proportional"
+    }
+   },
+   "badge_label": "Recession"
+  },
+  {
+   "id": "c7",
+   "label": "Chapter 7",
+   "title": "Faster than light",
+   "mode": "stage",
+   "from": "U077",
+   "tr": "dip",
+   "scene": {
+    "type": "expanse",
+    "params": {
+     "static": "U050",
+     "redshift": "U060:red end",
+     "stretch": "U069:stretching",
+     "law": "U074:proportional",
+     "fast": "U078:exceeds",
+     "treadmill": "U089:treadmill"
+    }
+   },
+   "badge_label": "Recession"
+  },
+  {
+   "id": "c8",
+   "label": "Chapter 8",
+   "title": "The cosmic event horizon",
+   "mode": "stage",
+   "from": "U096",
+   "tr": "dip",
+   "scene": {
+    "type": "horizon",
+    "params": {
+     "shell": "U100:16 billion",
+     "cross": "U102:cut off"
+    }
+   },
+   "badge_label": "Horizon"
+  },
+  {
+   "id": "c9",
+   "label": "Chapter 9",
+   "title": "Dark energy",
+   "mode": "cuts",
+   "from": "U105",
+   "tr": "dip",
+   "shots": [
+    {
+     "from": "U105",
+     "type": "supernova",
+     "params": {
+      "flare": "U110:supernovae",
+      "dim": "U112:accelerating",
+      "dark": "U115:dark energy"
+     }
+    },
+    {
+     "from": "U121",
+     "type": "horizon",
+     "params": {
+      "shell": "U100:16 billion",
+      "cross": "U102:cut off",
+      "vanish": "U121:slipping"
+     },
+     "tr": "zoom",
+     "tro": [
+      0.6,
+      0.5
+     ]
+    }
+   ],
+   "badge_label": "Expansion"
+  },
+  {
+   "id": "c10",
+   "label": "Chapter 10",
+   "title": "The observable universe",
+   "mode": "stage",
+   "from": "U128",
+   "tr": "dip",
+   "scene": {
+    "type": "horizon",
+    "params": {
+     "shell": "U100:16 billion",
+     "cross": "U102:cut off",
+     "vanish": "U121:slipping",
+     "seen": "U131:We can see light",
+     "lost": "U135:94 percent"
+    }
+   },
+   "badge_label": "Reachable"
+  },
+  {
+   "id": "c11",
+   "label": "Chapter 11",
+   "title": "Our Local Group",
+   "mode": "cuts",
+   "from": "U143",
+   "tr": "dip",
+   "shots": [
+    {
+     "from": "U143",
+     "type": "localgroup",
+     "params": {
+      "approach": "U149:heading toward",
+      "merge": "U152:merger"
+     }
+    },
+    {
+     "from": "U157",
+     "type": "horizon",
+     "params": {
+      "shell": "U100:16 billion",
+      "cross": "U102:cut off",
+      "vanish": "U121:slipping",
+      "seen": "U131:We can see light",
+      "lost": "U135:94 percent",
+      "edge": "U160:closing in"
+     },
+     "tr": "eye"
+    }
+   ],
+   "badge_label": "Galaxies"
+  },
+  {
+   "id": "c12",
+   "label": "Chapter 12",
+   "title": "The long freeze",
+   "mode": "stage",
+   "from": "U164",
+   "tr": "dip",
+   "scene": {
+    "type": "localgroup",
+    "params": {
+     "approach": "U149:heading toward",
+     "merge": "U152:merger",
+     "alone": "U166:carried past",
+     "erase": "U172:no sign"
+    }
+   },
+   "badge_label": "The sky"
+  },
+  {
+   "id": "c13",
+   "label": "Chapter 13",
+   "title": "Wormholes and warp drives",
+   "mode": "cuts",
+   "from": "U177",
+   "tr": "dip",
+   "shots": [
+    {
+     "from": "U177",
+     "type": "wormhole",
+     "params": {
+      "open": "U177:wormholes",
+      "enter": "U179:shortcut",
+      "collapse": "U186:destroy"
+     }
+    },
+    {
+     "from": "U190",
+     "type": "warp",
+     "params": {
+      "warp": "U191:contracting",
+      "energy": "U196:Jupiter",
+      "snowplow": "U200:snowplow",
+      "blast": "U201:blasting",
+      "trapped": "U207"
+     },
+     "tr": "whip"
+    }
+   ],
+   "badge_label": "Loophole"
+  },
+  {
+   "id": "c14",
+   "label": "Chapter 14",
+   "title": "Where is the edge?",
+   "mode": "cuts",
+   "from": "U209",
+   "tr": "dip",
+   "shots": [
+    {
+     "from": "U209",
+     "type": "cosmicweb",
+     "params": {
+      "zoom": "U213"
+     }
+    },
+    {
+     "from": "U217",
+     "type": "curvature",
+     "params": {
+      "balloon": "U217:beach ball",
+      "flat": "U223:flat",
+      "phantom": "U231:phantom edge"
+     },
+     "tr": "iris",
+     "tro": [
+      0.62,
+      0.5
+     ]
+    }
+   ],
+   "badge_label": "Geometry"
+  },
+  {
+   "id": "c15",
+   "label": "Chapter 15",
+   "title": "The Boötes Void",
+   "mode": "stage",
+   "from": "U234",
+   "tr": "dip",
+   "scene": {
+    "type": "cosmicweb",
+    "params": {
+     "look": "void",
+     "shore": "U242:shoreline"
+    }
+   },
+   "badge_label": "Galaxies inside"
+  },
+  {
+   "id": "c16",
+   "label": "Chapter 16",
+   "title": "Entropy and the far future",
+   "mode": "stage",
+   "from": "U247",
+   "tr": "dip",
+   "scene": {
+    "type": "farfuture",
+    "params": {
+     "entropy": "U251:gas",
+     "dim": "U256:burn out",
+     "decay": "U264:decay",
+     "evaporate": "U268:Hawking radiation",
+     "freeze": "U272:heat death"
+    }
+   },
+   "badge_label": "Era",
+   "plot": {
+    "label": "Usable energy",
+    "min": 0,
+    "max": 1
+   }
+  },
+  {
+   "id": "c17",
+   "label": "Chapter 17",
+   "title": "The golden window",
+   "mode": "cuts",
+   "from": "U281",
+   "tr": "dip",
+   "shots": [
+    {
+     "from": "U281",
+     "type": "earth",
+     "params": {
+      "grain": "U283:grain of sand"
+     }
+    },
+    {
+     "from": "U289",
+     "type": "observatory",
+     "params": {
+      "glow": "U289",
+      "scope": "U291:golden age",
+      "close": "U300:closes the shutters"
+     },
+     "tr": "eye"
+    },
+    {
+     "from": "U309",
+     "type": "earth",
+     "params": {
+      "oasis": "U313:local realm"
+     },
+     "tr": "push"
+    }
+   ],
+   "badge_label": "Our era"
+  },
+  {
+   "id": "c18",
+   "label": "Chapter 18",
+   "title": "The cosmos within",
+   "mode": "cuts",
+   "from": "U321",
+   "tr": "dip",
+   "shots": [
+    {
+     "from": "U321",
+     "type": "earth",
+     "params": {
+      "mind": "U323:pale blue dot"
+     }
+    },
+    {
+     "from": "U328",
+     "type": "stardust",
+     "params": {
+      "forge": "U328",
+      "flow": "U329:forged",
+      "within": "U331:from within"
+     },
+     "tr": "zoom",
+     "tro": [
+      0.62,
+      0.45
+     ]
+    },
+    {
+     "from": "U334",
+     "type": "observatory",
+     "params": {
+      "glow": "U334",
+      "widen": "U334",
+      "night": "U340"
+     },
+     "tr": "dip"
+    }
+   ],
+   "badge_label": "Stardust"
+  }
  ],
  "beats": {
-  "U001": {"kw": "Night sky", "sub": "Look up, and wonder takes over.", "log": "Look up: infinite wonder", "badge": "The night sky"},
-  "U002": {"sub": "For thousands of years we watched the stars.", "log": "Thousands of years of stargazing", "badge": "The stars"},
-  "U003": {"sub": "Our destiny, we believed: explore every corner.", "log": "Destiny: explore every corner"},
-  "U004": {"kw": "Telescopes", "sub": "We built telescopes and launched rockets.", "log": "Telescopes, then rockets", "badge": "The void"},
-  "U005": {"kw": "The edge", "acc": true, "sub": "Dreaming of the ultimate edge of existence.", "log": "Dream: the ultimate edge", "badge": "The edge"}
+  "U001": {
+   "kw": "Night sky",
+   "sub": "Look up at the night sky.",
+   "log": "Look up: infinite wonder",
+   "badge": "The night sky"
+  },
+  "U002": {
+   "sub": "Wonder takes over."
+  },
+  "U003": {
+   "sub": "For thousands of years we watched the stars.",
+   "log": "Millennia of stargazing",
+   "badge": "The stars"
+  },
+  "U004": {
+   "sub": "Our destiny, we believed: explore every corner."
+  },
+  "U005": {
+   "kw": "Telescopes",
+   "sub": "We built telescopes and launched rockets.",
+   "log": "Telescopes, then rockets",
+   "badge": "The void"
+  },
+  "U006": {
+   "kw": "The edge",
+   "sub": "Dreaming of the ultimate edge of existence.",
+   "log": "Dream: the ultimate edge",
+   "badge": "The edge"
+  },
+  "U007": {
+   "kw": "But",
+   "acc": true,
+   "sub": "Astrophysics found a truth that shatters it."
+  },
+  "U008": {
+   "kw": "A barrier",
+   "sub": "An invisible wall in the laws of reality.",
+   "log": "A cosmic barrier"
+  },
+  "U009": {
+   "sub": "We will never escape our cosmic backyard.",
+   "log": "We never escape"
+  },
+  "U010": {
+   "sub": "To understand our imprisonment..."
+  },
+  "U011": {
+   "sub": "...look at our greatest act of exploration."
+  },
+  "U012": {
+   "kw": "Voyager 1",
+   "sub": "Voyager 1, launched in 1977.",
+   "log": "Voyager 1, launched 1977",
+   "badge": "Launched 1977"
+  },
+  "U013": {
+   "kw": "38,000 mph",
+   "sub": "Over 38,000 mph for nearly half a century.",
+   "log": "38,000 mph, ~50 years"
+  },
+  "U014": {
+   "sub": "Farther than anything humans ever built.",
+   "log": "Farthest human-made object"
+  },
+  "U015": {
+   "kw": "Front porch",
+   "acc": true,
+   "sub": "Cosmically, it barely left the front porch."
+  },
+  "U016": {
+   "sub": "Still inside the Sun's outer gravitational grip.",
+   "log": "Still in the Sun's grip",
+   "badge": "Sun's grip"
+  },
+  "U017": {
+   "sub": "Wandering an endless desert of nothing."
+  },
+  "U018": {
+   "kw": "73,000 years",
+   "sub": "Over 73,000 years at its current speed...",
+   "log": "To Proxima: 73,000+ years",
+   "badge": "73,000 years"
+  },
+  "U019": {
+   "kw": "Proxima",
+   "sub": "...to reach Proxima Centauri, our nearest star."
+  },
+  "U020": {
+   "sub": "Think about that timeframe."
+  },
+  "U021": {
+   "sub": "Empires rose and fell..."
+  },
+  "U022": {
+   "sub": "...in a small fraction of that time.",
+   "log": "Empires rise and fall faster"
+  },
+  "U023": {
+   "sub": "Proxima is merely our next-door neighbor."
+  },
+  "U024": {
+   "kw": "4.2 light-years",
+   "sub": "About 4.2 light-years away.",
+   "log": "Proxima: 4.2 light-years",
+   "badge": "4.2 ly"
+  },
+  "U025": {
+   "kw": "100,000 ly",
+   "sub": "In a galaxy over 100,000 light-years across.",
+   "log": "Galaxy: 100,000+ ly",
+   "badge": "100,000 ly"
+  },
+  "U026": {
+   "sub": "Longer than all of recorded history..."
+  },
+  "U027": {
+   "kw": "The edge?",
+   "acc": true,
+   "sub": "How could we ever reach the edge?"
+  },
+  "U028": {
+   "sub": "Maybe our engines are just too primitive.",
+   "plot": 0.05
+  },
+  "U029": {
+   "kw": "Light speed?",
+   "sub": "Future engines might approach light speed.",
+   "plot": 0.1
+  },
+  "U030": {
+   "sub": "But physics has a first brutal law.",
+   "plot": 0.12
+  },
+  "U031": {
+   "kw": "Einstein",
+   "sub": "Einstein: light speed is not just a speed.",
+   "log": "Einstein's law",
+   "plot": 0.15
+  },
+  "U032": {
+   "kw": "Speed limit",
+   "acc": true,
+   "sub": "It is the speed limit of cause and effect.",
+   "log": "The cosmic speed limit",
+   "badge": "Limit",
+   "plot": 0.18
+  },
+  "U033": {
+   "kw": "186,000 mi/s",
+   "sub": "About 186,000 miles per second.",
+   "log": "Light: 186,000 mi/s",
+   "badge": "186,000 mi/s",
+   "plot": 0.2
+  },
+  "U034": {
+   "sub": "Nothing carries information faster.",
+   "plot": 0.22
+  },
+  "U035": {
+   "sub": "Nothing with mass can reach it.",
+   "log": "Mass can never reach it",
+   "plot": 0.25
+  },
+  "U036": {
+   "kw": "Faster",
+   "sub": "Push a mass closer to light speed...",
+   "plot": 0.35
+  },
+  "U037": {
+   "kw": "More energy",
+   "sub": "Each bit of speed costs more energy.",
+   "log": "Each step costs more",
+   "plot": 0.5
+  },
+  "U038": {
+   "kw": "Infinity",
+   "sub": "The total climbs toward infinity.",
+   "log": "Energy climbs to infinity",
+   "badge": "Toward infinity",
+   "plot": 0.75
+  },
+  "U039": {
+   "sub": "Light speed itself: infinite energy.",
+   "plot": 0.88
+  },
+  "U040": {
+   "sub": "Not enough in all the stars and galaxies...",
+   "plot": 0.92
+  },
+  "U041": {
+   "sub": "...and black holes combined...",
+   "plot": 0.95
+  },
+  "U042": {
+   "kw": "Door shut",
+   "acc": true,
+   "sub": "...to push one ship to light speed.",
+   "plot": 0.98
+  },
+  "U043": {
+   "sub": "Locked behind the bars of sub-light speed.",
+   "log": "Locked below light speed",
+   "badge": "Sub-light",
+   "plot": 1
+  },
+  "U044": {
+   "sub": "Even if we could bend reality..."
+  },
+  "U045": {
+   "kw": "99.9%",
+   "sub": "...and travel at 99.9% of light speed...",
+   "log": "Even at 99.9% of c",
+   "badge": "99.9% of c"
+  },
+  "U046": {
+   "kw": "Scale",
+   "acc": true,
+   "sub": "...the scale of the cosmos mocks us."
+  },
+  "U048": {
+   "kw": "Zoom out",
+   "sub": "Zoom out to this level..."
+  },
+  "U049": {
+   "kw": "A speck",
+   "sub": "We are a speck of dust in an ocean of silence.",
+   "log": "Less than a speck of dust",
+   "badge": "A speck"
+  },
+  "U050": {
+   "sub": "We took comfort in one idea..."
+  },
+  "U051": {
+   "kw": "Static",
+   "sub": "The universe, at least, was static.",
+   "log": "Comfort: a static universe",
+   "badge": "Static"
+  },
+  "U052": {
+   "sub": "In a still universe, with infinite time..."
+  },
+  "U053": {
+   "sub": "...you could cross any distance.",
+   "log": "Any distance, given time"
+  },
+  "U054": {
+   "kw": "1929",
+   "sub": "That picture began to fall apart in 1929."
+  },
+  "U055": {
+   "kw": "Edwin Hubble",
+   "sub": "Thanks to astronomer Edwin Hubble.",
+   "log": "1929: Edwin Hubble"
+  },
+  "U056": {
+   "kw": "100-inch",
+   "sub": "The 100-inch Hooker telescope, Mount Wilson.",
+   "log": "100-inch Hooker telescope"
+  },
+  "U057": {
+   "sub": "A pattern that shook science."
+  },
+  "U058": {
+   "kw": "Expanding",
+   "acc": true,
+   "sub": "The universe is expanding.",
+   "log": "It is expanding",
+   "badge": "Expanding"
+  },
+  "U059": {
+   "sub": "Hubble studied light from distant galaxies."
+  },
+  "U060": {
+   "kw": "Redshift",
+   "sub": "Their light was shifted toward red.",
+   "log": "Galaxy light shifted red",
+   "badge": "Redshift"
+  },
+  "U061": {
+   "sub": "At first it looked like the Doppler effect..."
+  },
+  "U062": {
+   "kw": "Doppler?",
+   "sub": "...like a siren racing away."
+  },
+  "U063": {
+   "kw": "Farther, faster",
+   "sub": "Farther galaxies seemed faster.",
+   "log": "Farther = faster"
+  },
+  "U064": {
+   "sub": "Not random drifting through space."
+  },
+  "U065": {
+   "sub": "Galaxies receding from each other everywhere...",
+   "log": "Everything recedes"
+  },
+  "U066": {
+   "kw": "Balloon",
+   "sub": "...like dots on an inflating balloon."
+  },
+  "U067": {
+   "kw": "Intuition fails",
+   "sub": "Here intuition fails."
+  },
+  "U068": {
+   "sub": "Galaxies are not flying like bullets."
+  },
+  "U069": {
+   "kw": "Space stretches",
+   "acc": true,
+   "sub": "Space itself is stretching between them.",
+   "log": "Space itself stretches",
+   "badge": "Stretching"
+  },
+  "U070": {
+   "kw": "Fabric",
+   "sub": "Space is not a stage, but a living fabric."
+  },
+  "U071": {
+   "sub": "New cubic light-years keep appearing...",
+   "log": "New space keeps appearing"
+  },
+  "U072": {
+   "sub": "...pushing everything apart, every moment."
+  },
+  "U073": {
+   "kw": "Hubble's Law",
+   "sub": "This is Hubble's Law.",
+   "log": "Hubble's Law",
+   "badge": "Hubble's Law"
+  },
+  "U074": {
+   "kw": "Proportional",
+   "sub": "Recession speed is proportional to distance.",
+   "log": "Speed proportional to distance"
+  },
+  "U076": {
+   "kw": "Farther, faster",
+   "sub": "The farther you look, the faster the gap grows.",
+   "log": "Farther = faster",
+   "badge": "Faster"
+  },
+  "U077": {
+   "kw": "Connect the dots",
+   "sub": "Connect the dots."
+  },
+  "U078": {
+   "kw": "Beats light",
+   "acc": true,
+   "sub": "At some point recession beats light speed.",
+   "log": "Recession passes light speed"
+  },
+  "U079": {
+   "kw": "14 billion ly",
+   "sub": "About 14 billion light-years from Earth...",
+   "log": "At ~14 billion ly",
+   "badge": "14 billion ly"
+  },
+  "U080": {
+   "sub": "...the space between us and those regions..."
+  },
+  "U081": {
+   "sub": "...grows faster than 186,000 miles per second."
+  },
+  "U082": {
+   "sub": "Space carries them away faster than light.",
+   "log": "Carried off faster than light"
+  },
+  "U083": {
+   "kw": "Broken?",
+   "sub": "Does this break Einstein's rule?"
+  },
+  "U084": {
+   "kw": "No",
+   "sub": "The answer is no."
+  },
+  "U085": {
+   "sub": "Nothing moves through space faster than light...",
+   "log": "Through space: never faster"
+  },
+  "U086": {
+   "kw": "Space itself",
+   "acc": true,
+   "sub": "...but space itself can stretch faster."
+  },
+  "U087": {
+   "sub": "The most distant galaxies we see..."
+  },
+  "U088": {
+   "kw": "Several × c",
+   "sub": "...recede at several times light speed today.",
+   "log": "Several times light speed",
+   "badge": "Several × c"
+  },
+  "U089": {
+   "kw": "Treadmill",
+   "sub": "Imagine a treadmill. Your top speed: 10 mph.",
+   "log": "The cosmic treadmill",
+   "badge": "10 mph"
+  },
+  "U090": {
+   "kw": "20 mph",
+   "sub": "The belt moves backward at 20 mph...",
+   "badge": "20 mph"
+  },
+  "U091": {
+   "kw": "100 mph",
+   "sub": "...then 50, then 100.",
+   "badge": "100 mph"
+  },
+  "U092": {
+   "sub": "No matter how hard you run..."
+  },
+  "U093": {
+   "sub": "...you are dragged back into the dark.",
+   "log": "Dragged backward"
+  },
+  "U094": {
+   "sub": "For light chasing the farthest galaxies..."
+  },
+  "U095": {
+   "kw": "Outrun",
+   "acc": true,
+   "sub": "...the treadmill outruns its top speed."
+  },
+  "U096": {
+   "sub": "Strangely, light from just beyond that line..."
+  },
+  "U097": {
+   "kw": "14 billion ly",
+   "sub": "...the 14-billion-light-year line, can still arrive.",
+   "badge": "14 billion ly"
+  },
+  "U098": {
+   "sub": "Because the line slowly moves outward.",
+   "log": "The line moves outward"
+  },
+  "U099": {
+   "sub": "The true point of no return lies farther."
+  },
+  "U100": {
+   "kw": "16 billion ly",
+   "acc": true,
+   "sub": "About 16 billion ly: the Cosmic Event Horizon.",
+   "log": "Event horizon: ~16 billion ly",
+   "badge": "16 billion ly"
+  },
+  "U101": {
+   "kw": "Cause & effect",
+   "sub": "Like a black hole's: a boundary of cause and effect."
+  },
+  "U102": {
+   "kw": "Cut off",
+   "sub": "Beyond it, galaxies are cut off for good.",
+   "log": "Beyond: cut off for good"
+  },
+  "U103": {
+   "sub": "Even light fired toward them now..."
+  },
+  "U104": {
+   "kw": "Never arrives",
+   "sub": "...would travel forever and never arrive.",
+   "log": "Light never arrives"
+  },
+  "U105": {
+   "sub": "If this seems grim, prepare yourself."
+  },
+  "U106": {
+   "kw": "1998",
+   "sub": "In 1998, a stranger truth emerged.",
+   "badge": "1998"
+  },
+  "U107": {
+   "sub": "Scientists believed gravity..."
+  },
+  "U108": {
+   "kw": "A brake?",
+   "sub": "...was braking the expansion.",
+   "log": "Expected: gravity brakes"
+  },
+  "U109": {
+   "sub": "Some thought it might stop, or collapse."
+  },
+  "U110": {
+   "kw": "Supernovae",
+   "sub": "Two teams measured Type Ia supernovae...",
+   "log": "Two teams, Type Ia supernovae"
+  },
+  "U111": {
+   "sub": "...and found the exact opposite."
+  },
+  "U112": {
+   "kw": "Accelerating",
+   "acc": true,
+   "sub": "The expansion is accelerating.",
+   "log": "Expansion is accelerating",
+   "badge": "Accelerating"
+  },
+  "U113": {
+   "sub": "Something invisible and mysterious..."
+  },
+  "U114": {
+   "sub": "...pushes the cosmos apart ever faster."
+  },
+  "U115": {
+   "kw": "Dark energy",
+   "sub": "Scientists named it dark energy.",
+   "log": "Named: dark energy",
+   "badge": "Dark energy"
+  },
+  "U116": {
+   "sub": "In the simplest model, it does not thin out."
+  },
+  "U117": {
+   "sub": "Its density stays the same...",
+   "log": "Constant density"
+  },
+  "U118": {
+   "sub": "...so more space means more dark energy."
+  },
+  "U119": {
+   "kw": "68%",
+   "sub": "Roughly 68% of the universe's energy.",
+   "log": "68% of all energy",
+   "badge": "68%"
+  },
+  "U120": {
+   "sub": "It is winning the tug-of-war with gravity."
+  },
+  "U121": {
+   "kw": "Slipping away",
+   "sub": "Galaxies keep slipping past the horizon.",
+   "log": "Galaxies slip past the horizon"
+  },
+  "U122": {
+   "sub": "Right now, as you listen."
+  },
+  "U123": {
+   "kw": "20,000 / s",
+   "acc": true,
+   "sub": "About 20,000 stars a second become unreachable.",
+   "log": "~20,000 stars every second",
+   "badge": "20,000 per second"
+  },
+  "U124": {
+   "sub": "They are not dying or exploding."
+  },
+  "U125": {
+   "sub": "They are carried off faster than we could follow..."
+  },
+  "U126": {
+   "sub": "...cut off from our corner forever."
+  },
+  "U128": {
+   "kw": "Anywhere?",
+   "sub": "Many believe we could travel anywhere..."
+  },
+  "U129": {
+   "sub": "...inside the observable universe, near light speed."
+  },
+  "U130": {
+   "kw": "Misunderstanding",
+   "sub": "A tragic misunderstanding."
+  },
+  "U131": {
+   "kw": "See",
+   "sub": "We see light from billions of years ago...",
+   "log": "We can see them..."
+  },
+  "U132": {
+   "kw": "Never visit",
+   "sub": "...but we can never visit most of them.",
+   "log": "...but never visit"
+  },
+  "U133": {
+   "sub": "That light is a ghost from the past."
+  },
+  "U134": {
+   "sub": "By one estimate, a light-speed ship today..."
+  },
+  "U135": {
+   "kw": "94%",
+   "acc": true,
+   "sub": "...could never reach about 94% of galaxies.",
+   "log": "~94% out of reach",
+   "badge": "94% lost"
+  },
+  "U136": {
+   "sub": "They already slipped past the horizon."
+  },
+  "U137": {
+   "sub": "Let that sink in."
+  },
+  "U138": {
+   "sub": "Even surviving a billion years..."
+  },
+  "U139": {
+   "kw": "Off-limits",
+   "sub": "...nearly the entire universe is off-limits.",
+   "log": "Nearly all off-limits"
+  },
+  "U140": {
+   "sub": "A gallery of unreachable destinations."
+  },
+  "U141": {
+   "kw": "Never touch",
+   "sub": "We can look, but never touch.",
+   "log": "Look, never touch"
+  },
+  "U142": {
+   "sub": "Sealed off by the laws of spacetime."
+  },
+  "U143": {
+   "kw": "What is left?",
+   "sub": "So what is left for us?"
+  },
+  "U144": {
+   "kw": "Local Group",
+   "sub": "Our bound neighborhood: the Local Group.",
+   "log": "Reachable: the Local Group",
+   "badge": "Local Group"
+  },
+  "U145": {
+   "kw": "80+ galaxies",
+   "sub": "More than 80 known galaxies.",
+   "log": "80+ known galaxies",
+   "badge": "80+"
+  },
+  "U146": {
+   "kw": "Andromeda",
+   "sub": "Dominated by Andromeda and the Milky Way..."
+  },
+  "U147": {
+   "sub": "...plus Triangulum and dozens of dwarfs.",
+   "log": "Andromeda, Milky Way, Triangulum"
+  },
+  "U148": {
+   "sub": "Gravity holds it together against dark energy.",
+   "log": "Gravity beats dark energy here"
+  },
+  "U149": {
+   "kw": "Approaching",
+   "sub": "Andromeda is heading toward us..."
+  },
+  "U150": {
+   "kw": "250,000 mph",
+   "sub": "...at about 250,000 miles per hour.",
+   "log": "Andromeda: 250,000 mph",
+   "badge": "250,000 mph"
+  },
+  "U151": {
+   "kw": "4.5 billion yrs",
+   "sub": "A collision long predicted in 4.5 billion years..."
+  },
+  "U152": {
+   "kw": "Milkdromeda",
+   "sub": "...then a merger: Milkdromeda.",
+   "log": "Merger: Milkdromeda"
+  },
+  "U153": {
+   "kw": "2025 study",
+   "sub": "A 2025 study: the odds are less certain..."
+  },
+  "U154": {
+   "kw": "Coin flip",
+   "sub": "...about a coin flip within 10 billion years.",
+   "log": "2025: ~50/50 in 10 billion yrs",
+   "badge": "Coin flip"
+  },
+  "U155": {
+   "sub": "Either way, the Local Group ends up together..."
+  },
+  "U156": {
+   "kw": "Home",
+   "acc": true,
+   "sub": "...our permanent, reachable home."
+  },
+  "U157": {
+   "kw": "The edge",
+   "sub": "What does the edge truly mean?"
+  },
+  "U158": {
+   "sub": "Not a brick wall in space..."
+  },
+  "U159": {
+   "sub": "...where you could touch the void."
+  },
+  "U160": {
+   "kw": "Closing in",
+   "acc": true,
+   "sub": "A horizon of cause and effect, closing in.",
+   "log": "The edge: a horizon closing in"
+  },
+  "U161": {
+   "sub": "Everything outside will be swept beyond it..."
+  },
+  "U162": {
+   "sub": "...by the unrelenting expansion of space."
+  },
+  "U163": {
+   "kw": "Growing distance",
+   "sub": "An edge made of ever-growing distance."
+  },
+  "U164": {
+   "kw": "1 trillion yrs",
+   "sub": "The far future: over a trillion years.",
+   "log": "Over a trillion years ahead",
+   "badge": "1 trillion+ yrs"
+  },
+  "U165": {
+   "sub": "As dark energy keeps working..."
+  },
+  "U166": {
+   "kw": "Past the horizon",
+   "sub": "...every outside galaxy passes the horizon.",
+   "log": "All outside galaxies gone"
+  },
+  "U167": {
+   "sub": "Their light stretched beyond detection."
+  },
+  "U168": {
+   "kw": "Dark",
+   "acc": true,
+   "sub": "Milkdromeda's sky turns terrifyingly dark.",
+   "log": "A dark sky",
+   "badge": "Dark"
+  },
+  "U169": {
+   "sub": "Telescopes in that era..."
+  },
+  "U170": {
+   "sub": "...see nothing beyond their home galaxy."
+  },
+  "U171": {
+   "kw": "Krauss, Scherrer",
+   "sub": "Krauss and Scherrer imagined those astronomers.",
+   "log": "Krauss & Scherrer"
+  },
+  "U172": {
+   "sub": "No sign of galaxies racing away."
+  },
+  "U173": {
+   "kw": "Afterglow",
+   "sub": "The cosmic microwave background, the Big Bang's glow..."
+  },
+  "U174": {
+   "sub": "...stretched beyond detection.",
+   "log": "Big Bang's glow undetectable"
+  },
+  "U175": {
+   "kw": "Static?",
+   "sub": "They might think the universe is static."
+  },
+  "U176": {
+   "kw": "Erased",
+   "acc": true,
+   "sub": "The true history erased.",
+   "log": "History erased",
+   "badge": "Erased"
+  },
+  "U177": {
+   "kw": "Wormholes",
+   "sub": "What about wormholes, Einstein-Rosen bridges?",
+   "badge": "Wormhole"
+  },
+  "U178": {
+   "sub": "In theory, links between distant regions."
+  },
+  "U179": {
+   "kw": "Shortcut?",
+   "sub": "Could a traveler take such a shortcut?"
+  },
+  "U180": {
+   "sub": "The physics presents enormous barriers."
+  },
+  "U181": {
+   "sub": "To hold one open..."
+  },
+  "U182": {
+   "kw": "Negative energy",
+   "sub": "...you need exotic matter with negative energy.",
+   "badge": "Exotic matter"
+  },
+  "U183": {
+   "sub": "Nobody knows how to make it. It may not exist."
+  },
+  "U184": {
+   "kw": "Quantum",
+   "sub": "Even then, quantum physics may interfere."
+  },
+  "U185": {
+   "sub": "Hawking: quantum fluctuations could build up..."
+  },
+  "U186": {
+   "kw": "Destroyed",
+   "sub": "...and destroy the tunnel before use."
+  },
+  "U187": {
+   "kw": "Chronology",
+   "sub": "The chronology protection conjecture.",
+   "badge": "Hawking"
+  },
+  "U188": {
+   "sub": "No one knows for sure: no quantum gravity theory."
+  },
+  "U189": {
+   "sub": "Nature guards its speed limit fiercely."
+  },
+  "U190": {
+   "kw": "Warp drive",
+   "sub": "Warp drives? Alcubierre, 1994.",
+   "badge": "Alcubierre 1994"
+  },
+  "U191": {
+   "kw": "Warp bubble",
+   "sub": "Contract space ahead, expand it behind."
+  },
+  "U192": {
+   "sub": "Inside the bubble, the ship is at rest."
+  },
+  "U193": {
+   "sub": "The perfect escape hatch?"
+  },
+  "U194": {
+   "sub": "Just as daunting as the wormhole."
+  },
+  "U195": {
+   "sub": "Early calculations said a warp bubble needs..."
+  },
+  "U196": {
+   "kw": "Jupiter",
+   "sub": "...at least Jupiter's mass-energy, negative.",
+   "badge": "Jupiter's mass-energy"
+  },
+  "U197": {
+   "sub": "Later designs lowered that number..."
+  },
+  "U198": {
+   "sub": "...but nobody can make negative energy."
+  },
+  "U199": {
+   "kw": "2012 study",
+   "sub": "A 2012 study: the bubble sweeps up particles...",
+   "badge": "2012 study"
+  },
+  "U200": {
+   "kw": "Snowplow",
+   "sub": "...like a cosmic snowplow."
+  },
+  "U201": {
+   "kw": "Blast",
+   "acc": true,
+   "sub": "When it stops, the energy blasts the destination."
+  },
+  "U202": {
+   "sub": "Every escape route toward the edge..."
+  },
+  "U203": {
+   "kw": "A stone wall",
+   "sub": "...hits a wall of physical impossibility."
+  },
+  "U204": {
+   "sub": "Infinite energy of relativity..."
+  },
+  "U205": {
+   "sub": "...accelerating expansion..."
+  },
+  "U206": {
+   "sub": "...fatal shortcuts: one voice."
+  },
+  "U207": {
+   "sub": "Nature is not designed for interstellar nomads."
+  },
+  "U208": {
+   "kw": "Trapped",
+   "acc": true,
+   "sub": "We are trapped in our local cosmic cell."
+  },
+  "U209": {
+   "sub": "Push the question further."
+  },
+  "U210": {
+   "kw": "Teleport",
+   "sub": "Teleport to the edge of the observable universe?"
+  },
+  "U211": {
+   "sub": "What would you see? A wall of darkness?"
+  },
+  "U212": {
+   "sub": "A boundary where space ends?"
+  },
+  "U213": {
+   "sub": "Cosmology's answer bends the mind."
+  },
+  "U214": {
+   "kw": "46 billion ly",
+   "sub": "Teleported 46 billion light-years away...",
+   "badge": "46 billion ly"
+  },
+  "U215": {
+   "kw": "Your own bubble",
+   "sub": "...you'd be at the center of your own bubble."
+  },
+  "U216": {
+   "sub": "Space would continue in every direction."
+  },
+  "U217": {
+   "kw": "Beach ball",
+   "sub": "Think of an ant on a beach ball.",
+   "badge": "Curved?"
+  },
+  "U218": {
+   "sub": "It walks forever and never meets an edge."
+  },
+  "U219": {
+   "kw": "No boundary",
+   "sub": "Finite, yet with no boundary."
+  },
+  "U220": {
+   "sub": "Our universe might be curved like that."
+  },
+  "U221": {
+   "sub": "Travel straight for an unimaginable distance..."
+  },
+  "U222": {
+   "kw": "Back to start",
+   "sub": "...and you'd return to where you started."
+  },
+  "U223": {
+   "kw": "Flat",
+   "sub": "Planck shows the universe is remarkably flat.",
+   "badge": "Flat"
+  },
+  "U224": {
+   "sub": "If space is flat, with no unusual shape..."
+  },
+  "U225": {
+   "kw": "Forever",
+   "sub": "...the simplest conclusion: it goes on forever."
+  },
+  "U226": {
+   "sub": "Infinite volume, endless galaxies."
+  },
+  "U227": {
+   "kw": "No edge",
+   "acc": true,
+   "sub": "Then a physical edge does not even exist."
+  },
+  "U228": {
+   "sub": "The irony: if infinite, no edge to reach."
+  },
+  "U229": {
+   "sub": "Even if there were an edge..."
+  },
+  "U230": {
+   "sub": "...expansion means we could never catch it."
+  },
+  "U231": {
+   "kw": "Phantom edge",
+   "acc": true,
+   "sub": "A phantom edge, retreating faster than light."
+  },
+  "U232": {
+   "sub": "Every step forward is dwarfed..."
+  },
+  "U233": {
+   "sub": "...by new space opening ahead."
+  },
+  "U234": {
+   "sub": "Look at the vast voids that exist today."
+  },
+  "U235": {
+   "kw": "Boötes Void",
+   "sub": "The Boötes Void: 250-330 million ly across.",
+   "log": "Boötes Void: 250-330 million ly"
+  },
+  "U236": {
+   "kw": "60 galaxies",
+   "sub": "Only about 60 known galaxies inside.",
+   "log": "Only ~60 galaxies",
+   "badge": "~60"
+  },
+  "U237": {
+   "sub": "A desert of emptiness. Greg Aldering noted..."
+  },
+  "U238": {
+   "sub": "...if the Milky Way sat at its center..."
+  },
+  "U239": {
+   "kw": "1960s",
+   "sub": "...we'd not have known of other galaxies until the 1960s.",
+   "log": "Unknown galaxies until the 1960s"
+  },
+  "U240": {
+   "sub": "As dark energy keeps working..."
+  },
+  "U241": {
+   "kw": "Emptier",
+   "acc": true,
+   "sub": "...our sky will be emptier than any void today."
+  },
+  "U242": {
+   "kw": "Shoreline",
+   "sub": "Picture a cosmic shoreline.",
+   "log": "A cosmic shoreline"
+  },
+  "U243": {
+   "sub": "Islands drifting over the horizon. The tide rises."
+  },
+  "U244": {
+   "sub": "Washing away the bridges of light."
+  },
+  "U245": {
+   "sub": "The shore recedes, cutting off our island..."
+  },
+  "U246": {
+   "sub": "...and no technology can stop it.",
+   "log": "No technology can stop it"
+  },
+  "U247": {
+   "sub": "Even without expansion...",
+   "badge": "Stelliferous",
+   "plot": 1
+  },
+  "U248": {
+   "kw": "Entropy",
+   "sub": "...a second executioner: entropy.",
+   "log": "Second executioner: entropy",
+   "plot": 1
+  },
+  "U249": {
+   "sub": "The second law of thermodynamics:",
+   "plot": 0.97
+  },
+  "U250": {
+   "sub": "usable energy keeps running down. Stars age.",
+   "log": "Usable energy runs down",
+   "plot": 0.95
+  },
+  "U251": {
+   "sub": "Star-forming gas will run out...",
+   "plot": 0.9
+  },
+  "U252": {
+   "kw": "100 trillion yrs",
+   "sub": "...star formation ends in ~100 trillion years.",
+   "log": "Star birth ends: ~100 trillion yrs",
+   "plot": 0.85
+  },
+  "U253": {
+   "sub": "Crossing the cosmos takes immense energy...",
+   "plot": 0.82
+  },
+  "U254": {
+   "sub": "...and the clock is always ticking.",
+   "plot": 0.8
+  },
+  "U255": {
+   "sub": "In the deep future, long before any arrival...",
+   "plot": 0.75
+  },
+  "U256": {
+   "kw": "Burn out",
+   "sub": "...starlight ends. Suns burn out.",
+   "plot": 0.65
+  },
+  "U257": {
+   "kw": "Red dwarfs",
+   "sub": "Red dwarfs fade over trillions of years.",
+   "log": "Red dwarfs fade",
+   "plot": 0.55
+  },
+  "U258": {
+   "kw": "Degenerate Era",
+   "acc": true,
+   "sub": "Then the Degenerate Era.",
+   "log": "The Degenerate Era",
+   "badge": "Degenerate",
+   "plot": 0.45
+  },
+  "U259": {
+   "sub": "White dwarfs, neutron stars, black holes.",
+   "plot": 0.42
+  },
+  "U260": {
+   "sub": "Travel becomes a voyage...",
+   "plot": 0.4
+  },
+  "U261": {
+   "sub": "...through a graveyard in total darkness.",
+   "plot": 0.38
+  },
+  "U262": {
+   "kw": "10^40 years",
+   "sub": "After 10^40 years, even protons...",
+   "plot": 0.3
+  },
+  "U263": {
+   "sub": "...the building blocks of nuclei...",
+   "plot": 0.28
+  },
+  "U264": {
+   "kw": "Decay?",
+   "sub": "...may decay, if protons decay at all.",
+   "log": "Protons may decay",
+   "plot": 0.25
+  },
+  "U265": {
+   "sub": "Never observed. If so, solid matter ends.",
+   "plot": 0.22
+  },
+  "U266": {
+   "sub": "Ships, planets, bones and steel dissolve.",
+   "plot": 0.2
+  },
+  "U267": {
+   "kw": "Black holes",
+   "sub": "Only black holes remain. They too are doomed.",
+   "badge": "Black Hole Era",
+   "plot": 0.17
+  },
+  "U268": {
+   "sub": "The slow leak of Hawking radiation...",
+   "plot": 0.14
+  },
+  "U269": {
+   "kw": "10^100 years",
+   "sub": "...over something like 10^100 years...",
+   "plot": 0.1
+  },
+  "U270": {
+   "sub": "...evaporates even the largest black holes.",
+   "log": "Black holes evaporate",
+   "plot": 0.06
+  },
+  "U271": {
+   "sub": "Leaving almost nothing.",
+   "plot": 0.04
+  },
+  "U272": {
+   "kw": "Heat death",
+   "acc": true,
+   "sub": "The final state: the heat death...",
+   "log": "Heat death / Big Freeze",
+   "badge": "Heat death",
+   "plot": 0.02
+  },
+  "U273": {
+   "sub": "...the Big Freeze, one leading scenario.",
+   "plot": 0.02
+  },
+  "U274": {
+   "sub": "A thin, even soup...",
+   "plot": 0.01
+  },
+  "U275": {
+   "sub": "...of very low-energy particles.",
+   "plot": 0.01
+  },
+  "U276": {
+   "kw": "Near zero",
+   "sub": "A tiny fraction above absolute zero.",
+   "plot": 0
+  },
+  "U277": {
+   "sub": "Time loses meaning: nothing changes...",
+   "plot": 0
+  },
+  "U278": {
+   "sub": "...nothing moves, no work can be done.",
+   "plot": 0
+  },
+  "U279": {
+   "sub": "Not a violent crash...",
+   "plot": 0
+  },
+  "U280": {
+   "kw": "Silence",
+   "sub": "...but a silent whisper, forever.",
+   "plot": 0
+  },
+  "U281": {
+   "sub": "Together these truths deliver a shock."
+  },
+  "U282": {
+   "sub": "We are not masters of an infinite playground."
+  },
+  "U283": {
+   "kw": "Prisoners",
+   "sub": "We are prisoners of physics on a grain of sand...",
+   "badge": "A grain of sand"
+  },
+  "U284": {
+   "sub": "...in one isolated island of galaxies."
+  },
+  "U285": {
+   "sub": "The universe does not care about our dreams..."
+  },
+  "U286": {
+   "sub": "...or what lies beyond the veil."
+  },
+  "U287": {
+   "sub": "Its laws pull reality apart..."
+  },
+  "U288": {
+   "sub": "...faster than light can bridge."
+  },
+  "U289": {
+   "sub": "Yet, paradoxically..."
+  },
+  "U290": {
+   "kw": "A privilege",
+   "acc": true,
+   "sub": "...this reveals a privilege of our era."
+  },
+  "U291": {
+   "kw": "Golden age",
+   "sub": "We live in a golden age of cosmology.",
+   "badge": "Golden age"
+  },
+  "U292": {
+   "kw": "A window",
+   "sub": "A narrow window: old enough for elements..."
+  },
+  "U293": {
+   "sub": "...planets and minds, young enough to see galaxies..."
+  },
+  "U294": {
+   "sub": "...and the cosmic microwave background."
+  },
+  "U295": {
+   "kw": "100 billion yrs",
+   "sub": "Had we appeared 100 billion years later..."
+  },
+  "U296": {
+   "sub": "...the sky would be almost empty of galaxies."
+  },
+  "U297": {
+   "sub": "Scientists might never have known..."
+  },
+  "U298": {
+   "sub": "...about expansion or the Big Bang."
+  },
+  "U299": {
+   "kw": "Now",
+   "acc": true,
+   "sub": "Trapped in lonely darkness. But we live now."
+  },
+  "U300": {
+   "kw": "The shutters",
+   "sub": "We look through the window before it closes."
+  },
+  "U301": {
+   "sub": "Witnesses of a disappearing masterpiece."
+  },
+  "U302": {
+   "kw": "Responsibility",
+   "sub": "A great responsibility for human minds."
+  },
+  "U303": {
+   "sub": "Rare observers who can record..."
+  },
+  "U304": {
+   "sub": "...reality's true architecture before it fades."
+  },
+  "U305": {
+   "sub": "Every galaxy mapped, every spectrum measured..."
+  },
+  "U306": {
+   "kw": "Defiance",
+   "sub": "...is defiance against cosmic forgetting."
+  },
+  "U307": {
+   "sub": "We write down the story of expansion..."
+  },
+  "U308": {
+   "sub": "...that future civilizations may never see."
+  },
+  "U309": {
+   "kw": "Make peace",
+   "sub": "We can never reach the edge. We make peace.",
+   "badge": "Our home"
+  },
+  "U310": {
+   "sub": "Not a place for flags and footprints."
+  },
+  "U311": {
+   "sub": "A horizon enforced by light and dark energy."
+  },
+  "U312": {
+   "kw": "Elevates",
+   "sub": "Accepting it elevates the human spirit."
+  },
+  "U313": {
+   "sub": "Our local realm..."
+  },
+  "U314": {
+   "kw": "Precious",
+   "acc": true,
+   "sub": "...hundreds of billions of suns, precious."
+  },
+  "U315": {
+   "kw": "Billions of suns",
+   "sub": "Hundreds of billions of star systems..."
+  },
+  "U316": {
+   "sub": "...planets, moons, hidden oceans, unknown worlds."
+  },
+  "U317": {
+   "sub": "Even without leaving our cell..."
+  },
+  "U318": {
+   "kw": "Generations",
+   "sub": "...room to explore for millions of generations."
+  },
+  "U319": {
+   "sub": "Purpose, beauty and discovery need no edge."
+  },
+  "U320": {
+   "kw": "Vast garden",
+   "sub": "Our garden is vast beyond imagination."
+  },
+  "U321": {
+   "kw": "The real mystery",
+   "sub": "The real mystery is not the locked regions.",
+   "badge": "A pale blue dot"
+  },
+  "U322": {
+   "sub": "It is that we, fragile stardust..."
+  },
+  "U323": {
+   "kw": "Pale blue dot",
+   "sub": "...on a pale blue dot..."
+  },
+  "U324": {
+   "sub": "...can look out into the void..."
+  },
+  "U325": {
+   "kw": "Understand",
+   "acc": true,
+   "sub": "...and understand the laws that bind us."
+  },
+  "U326": {
+   "sub": "Through mathematics, physics and reason..."
+  },
+  "U327": {
+   "sub": "...the universe can contemplate its bounds."
+  },
+  "U328": {
+   "kw": "Stardust",
+   "sub": "Calcium in your bones, iron in your blood...",
+   "badge": "Stardust"
+  },
+  "U329": {
+   "kw": "Forged in stars",
+   "sub": "...oxygen: forged in long-dead stars."
+  },
+  "U330": {
+   "sub": "You are not separate from the cosmos."
+  },
+  "U331": {
+   "kw": "From within",
+   "acc": true,
+   "sub": "You are the cosmos experiencing itself."
+  },
+  "U332": {
+   "sub": "The universe waking up to see itself..."
+  },
+  "U333": {
+   "sub": "...and the prison walls lose their sting."
+  },
+  "U334": {
+   "kw": "A clear night",
+   "sub": "Next clear night, gaze up into the silence...",
+   "badge": "Keep looking up"
+  },
+  "U335": {
+   "sub": "...with humility and awe."
+  },
+  "U336": {
+   "sub": "Do not mourn the unreachable edge."
+  },
+  "U337": {
+   "sub": "Marvel instead, in this brief..."
+  },
+  "U338": {
+   "kw": "We are here",
+   "sub": "...precious second, we are here..."
+  },
+  "U339": {
+   "sub": "...alive, seeing a vanishing world's light."
+  },
+  "U340": {
+   "sub": "The edge remains an untouchable phantom..."
+  },
+  "U341": {
+   "sub": "...sealed behind expanding space."
+  },
+  "U342": {
+   "sub": "The frontier was never how far we fly..."
+  },
+  "U343": {
+   "kw": "True frontier",
+   "acc": true,
+   "sub": "...but our thirst to understand."
+  },
+  "U344": {
+   "sub": "If this sparked your curiosity..."
+  },
+  "U345": {
+   "kw": "Miya's Lab",
+   "sub": "...subscribing keeps one more window open."
+  },
+  "U346": {
+   "sub": "Look up with curiosity and courage..."
+  },
+  "U347": {
+   "sub": "...our journey has only just begun."
+  },
+  "U348": {
+   "kw": "Keep looking up",
+   "sub": "Thank you for watching. Keep looking up."
+  }
  }
 }

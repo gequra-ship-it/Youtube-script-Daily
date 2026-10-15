@@ -54,5 +54,3 @@ PAL = dict(cosmicweb='nebula', speck='nebula', darkenergy='nebula', vanishing='n
            window='nebula', privilege='nebula', mystery='nebula', home='nebula',
            voyager='solar', energy='solar', supernova='solar', snowplow='solar', entropy='solar', dimstars='solar', within='solar')
 
-# cine sample: no chalkboards
-CHALK = {}

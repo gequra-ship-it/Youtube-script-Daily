@@ -118,8 +118,3 @@ SCENES = [
  ('S54','The Journey Continues','ill','ending',
   "The edge of the universe will forever remain an untouchable phantom, sealed behind the barrier of expanding space. But the true frontier was never about how far we could fly into the void. The true frontier is our unquenchable thirst to understand the reality we live in. If this journey sparked your curiosity, subscribing to Miya's Lab keeps one more window to the stars open. As long as we look up with curiosity and courage, our journey across the cosmos has only just begun. Thank you for watching, and keep looking up."),
 ]
-
-
-# cine sample (2026-10-14): the opening ~20 s only
-SCENES = [('S01', 'The Endless Frontier', 'ill', 'nightsky',
-  'Look up at the night sky, and you are immediately consumed by an overwhelming sense of infinite wonder. For thousands of years, humanity looked at the stars and believed that our destiny was to explore every single corner of this vast expanse. We built telescopes, launched rockets into the void, and dreamed of venturing toward the ultimate edge of existence.')]
