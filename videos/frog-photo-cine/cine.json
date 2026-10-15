@@ -1,0 +1,168 @@
+{
+ "title": "The frog's dinner",
+ "accent": "#ffc65a",
+ "chapters": [
+  {
+   "id": "c1",
+   "label": "Chapter 1",
+   "title": "The universal law of nature",
+   "mode": "cuts",
+   "from": "U001",
+   "shots": [
+    {
+     "from": "U001",
+     "type": "photo",
+     "params": {
+      "img": "p121",
+      "D": 0.5,
+      "move": [
+       [
+        0.06,
+        0,
+        0.25
+       ],
+       [
+        -0.06,
+        0.02,
+        0.05
+       ]
+      ],
+      "grade": "night",
+      "gk": 0.25,
+      "fx": "fireflies"
+     }
+    },
+    {
+     "from": "U002",
+     "type": "photo",
+     "tr": "xfade",
+     "params": {
+      "img": "p137",
+      "D": 0.45,
+      "move": [
+       [
+        -0.05,
+        0.01,
+        0.25
+       ],
+       [
+        0.04,
+        0,
+        0.05
+       ]
+      ],
+      "grade": "night",
+      "gk": 0.6,
+      "fx": "fireflies"
+     }
+    },
+    {
+     "from": "U003",
+     "type": "pond",
+     "tr": "wipe",
+     "params": {
+      "mode": "night",
+      "real": true,
+      "plate": "lakeside_night_bg",
+      "insect": "U002",
+      "moves": "U003:moves",
+      "tongue": "U003:tongue",
+      "reveal": "U004",
+      "side": 0.08,
+      "cam": [
+       [
+        0,
+        [
+         1.0,
+         0.66,
+         3.05,
+         -0.5,
+         0.46,
+         0
+        ]
+       ],
+       [
+        1.0,
+        [
+         0.95,
+         0.65,
+         3.0,
+         -0.5,
+         0.46,
+         0
+        ]
+       ],
+       [
+        2.7,
+        [
+         0.9,
+         0.64,
+         2.95,
+         -0.55,
+         0.46,
+         0
+        ]
+       ],
+       [
+        5.8,
+        [
+         1.4,
+         0.85,
+         4.2,
+         -0.6,
+         0.5,
+         -0.1
+        ]
+       ]
+      ]
+     }
+    },
+    {
+     "from": "U004",
+     "type": "photo",
+     "tr": "xfade",
+     "params": {
+      "img": "p84",
+      "D": 0.35,
+      "move": [
+       [
+        0,
+        -0.02,
+        0
+       ],
+       [
+        0,
+        0.04,
+        0.3
+       ]
+      ],
+      "grade": "night",
+      "gk": 0.5,
+      "fx": "fireflies"
+     }
+    }
+   ]
+  }
+ ],
+ "beats": {
+  "U001": {
+   "kw": "Warm night",
+   "sub": "Frogs sit at the edge of the water, waiting.",
+   "log": "A pond on a warm night"
+  },
+  "U002": {
+   "sub": "For a frog, the rules of dinner are simple."
+  },
+  "U003": {
+   "kw": "Tongue",
+   "acc": true,
+   "sub": "Something small moves, and the insect is gone.",
+   "log": "Small + moving = dinner"
+  },
+  "U004": {
+   "kw": "Millions",
+   "sub": "Frogs have hunted this way for millions of years.",
+   "log": "Insects paid the price"
+  }
+ }
+}

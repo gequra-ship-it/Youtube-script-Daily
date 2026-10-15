@@ -1,0 +1,156 @@
+{
+ "title": "Space photo test",
+ "accent": "#ffc65a",
+ "chapters": [
+  {
+   "id": "c1",
+   "label": "Chapter 1",
+   "title": "The endless frontier",
+   "mode": "cuts",
+   "from": "U001",
+   "badge_label": "Looking toward",
+   "shots": [
+    {
+     "from": "U001",
+     "type": "photo",
+     "params": {
+      "img": "s123",
+      "D": 0.35,
+      "move": [
+       [
+        0,
+        -0.03,
+        0.25
+       ],
+       [
+        0,
+        0.02,
+        0
+       ]
+      ],
+      "grade": "space",
+      "gk": 0.4,
+      "fx": "stars"
+     }
+    },
+    {
+     "from": "U002",
+     "type": "photo",
+     "tr": "xfade",
+     "params": {
+      "img": "s158",
+      "D": 0.45,
+      "move": [
+       [
+        0.05,
+        0,
+        0.2
+       ],
+       [
+        -0.04,
+        0.02,
+        0
+       ]
+      ],
+      "grade": "night",
+      "gk": 0.25
+     }
+    },
+    {
+     "from": "U003",
+     "type": "photo",
+     "tr": "zoom",
+     "params": {
+      "img": "s223",
+      "D": 0,
+      "move": [
+       [
+        0,
+        0,
+        0.3
+       ],
+       [
+        0,
+        0,
+        -0.6
+       ]
+      ],
+      "grade": "space",
+      "gk": 0.3
+     },
+     "tro": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "from": "U004",
+     "type": "photo",
+     "tr": "wipe",
+     "params": {
+      "img": "s194",
+      "D": 0.4,
+      "move": [
+       [
+        -0.04,
+        0,
+        0.2
+       ],
+       [
+        0.03,
+        0.01,
+        0.05
+       ]
+      ],
+      "grade": "night",
+      "gk": 0.75,
+      "seq": [
+       {
+        "at": "U004:rockets",
+        "img": "s197",
+        "D": 0.3,
+        "move": [
+         [
+          0,
+          -0.04,
+          0.15
+         ],
+         [
+          0,
+          0.04,
+          -0.05
+         ]
+        ],
+        "grade": "space",
+        "gk": 0.3
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "beats": {
+  "U001": {
+   "kw": "Night sky",
+   "sub": "Look up, and wonder takes over.",
+   "log": "Look up: infinite wonder",
+   "badge": "The night sky"
+  },
+  "U002": {
+   "sub": "For thousands of years we watched the stars.",
+   "log": "Thousands of years of stargazing",
+   "badge": "The stars"
+  },
+  "U003": {
+   "sub": "Our destiny, we believed: explore every corner.",
+   "log": "Destiny: explore every corner"
+  },
+  "U004": {
+   "kw": "Telescopes",
+   "sub": "We built telescopes and launched rockets.",
+   "log": "Telescopes, then rockets",
+   "badge": "The void"
+  }
+ }
+}

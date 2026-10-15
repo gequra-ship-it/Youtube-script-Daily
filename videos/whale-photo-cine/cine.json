@@ -1,0 +1,163 @@
+{
+ "title": "Whale photo test",
+ "accent": "#7fd4ff",
+ "chapters": [
+  {
+   "id": "c1",
+   "label": "Chapter 1",
+   "title": "The gentle giants of our planet",
+   "mode": "cuts",
+   "from": "U001",
+   "badge_label": "Blue whale",
+   "shots": [
+    {
+     "from": "U001",
+     "type": "photo",
+     "params": {
+      "img": "w0",
+      "D": 0.35,
+      "move": [
+       [
+        0.04,
+        0,
+        0.2
+       ],
+       [
+        -0.04,
+        0.01,
+        0
+       ]
+      ],
+      "grade": "none"
+     }
+    },
+    {
+     "from": "U002",
+     "type": "photo",
+     "tr": "xfade",
+     "params": {
+      "img": "w44",
+      "D": 0.3,
+      "move": [
+       [
+        0,
+        0.03,
+        0.25
+       ],
+       [
+        0,
+        -0.02,
+        0.02
+       ]
+      ],
+      "grade": "deep",
+      "gk": 0.25
+     }
+    },
+    {
+     "from": "U003",
+     "type": "photo",
+     "tr": "wipe",
+     "params": {
+      "img": "w39",
+      "D": 0.5,
+      "move": [
+       [
+        -0.05,
+        0,
+        0.2
+       ],
+       [
+        0.05,
+        0.02,
+        0
+       ]
+      ],
+      "grade": "deep",
+      "gk": 0.08,
+      "fx": "snow"
+     }
+    },
+    {
+     "from": "U004",
+     "type": "photo",
+     "tr": "xfade",
+     "params": {
+      "img": "w41",
+      "D": 0.5,
+      "move": [
+       [
+        0.04,
+        -0.02,
+        0.22
+       ],
+       [
+        -0.03,
+        0.02,
+        0.02
+       ]
+      ],
+      "grade": "deep",
+      "gk": 0.08,
+      "fx": "snow"
+     }
+    },
+    {
+     "from": "U005",
+     "type": "photo",
+     "tr": "iris",
+     "params": {
+      "img": "w50",
+      "D": 0.35,
+      "move": [
+       [
+        0,
+        0,
+        0.25
+       ],
+       [
+        0.05,
+        0,
+        0
+       ]
+      ],
+      "grade": "none"
+     },
+     "tro": [
+      0.55,
+      0.55
+     ]
+    }
+   ]
+  }
+ ],
+ "beats": {
+  "U001": {
+   "kw": "Largest",
+   "sub": "The largest animal known to have ever lived.",
+   "log": "Blue whale",
+   "badge": "Largest ever"
+  },
+  "U002": {
+   "kw": "200 tonnes",
+   "sub": "Longer than a basketball court.",
+   "log": "Longer than a basketball court",
+   "badge": "~200 tonnes"
+  },
+  "U003": {
+   "kw": "Decades",
+   "sub": "Crossing entire oceans.",
+   "log": "Decades crossing oceans"
+  },
+  "U004": {
+   "sub": "Feeding, singing, raising their young.",
+   "log": "Feeding, singing, raising young"
+  },
+  "U005": {
+   "kw": "200+ years",
+   "sub": "Some bowhead whales may live two centuries.",
+   "log": "Bowheads: two centuries?",
+   "badge": "Bowhead: 200+ years"
+  }
+ }
+}

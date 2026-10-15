@@ -12,10 +12,16 @@
 //   day cues:   flies (dragonflies drift through the reeds), still (the ripples die away), wide (camera rises for the calm wide view),
 //               sink (camera sinks below the surface: dark water, light shafts, tadpoles)
 //   side: .12 (subject offset to the right; the left third holds the HUD text)
+// models: frog_sit, lakeside_night, rock_moss_set_01
+// look B (2026-10-15, night only): params real:true uses the real frog and rock models lit by an HDRI (hdri: name, default
+//   lakeside_night); plate:'<name>' shows that HDRI photo (videos/<slug>/plates/<name>.jpg, inlined by build_cine) as the backdrop
+//   instead of the code-built pond, with shadows on a shadow-only ground. cam: [[cue or seconds from shot start, [x,y,z, tx,ty,tz]], ...]
+//   replaces the camera path (for a short cut of its own).
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.pond = function (ctx, p) {
   const { T, sm, cue } = ctx, K = window.MIYA.kit, NIGHT = p.mode !== 'day', R = ctx.R;
   const at = (c, d, t) => c == null ? 0 : sm(cue(c), cue(c) + d, t);
   const S = new T.Scene();
+  const REAL = p.real === true && !!(window.MIYA.models || {}).frog_sit;   // real models (frog_sit, rock_moss_set_01) + HDRI light
   const hash = (i, j, k) => { const s = Math.sin(i * 127.1 + j * 311.7 + k * 74.7) * 43758.5453; return s - Math.floor(s); };
   const n3 = (x, y, z) => { const i = Math.floor(x), j = Math.floor(y), k = Math.floor(z), fx = x - i, fy = y - j, fz = z - k, ux = fx * fx * (3 - 2 * fx), uy = fy * fy * (3 - 2 * fy), uz = fz * fz * (3 - 2 * fz);
     const L = (a, b, t) => a + (b - a) * t;
@@ -184,17 +190,38 @@
   const eyeM = new T.MeshStandardMaterial({ envMap: ENV, map: eyeT, emissiveMap: eyeT, emissive: new T.Color(NIGHT ? '#ffb040' : '#000000'), emissiveIntensity: NIGHT ? .35 : 0, roughness: .08, envMapIntensity: NIGHT ? .5 : .8 });
   function makeEyes(parent) { const es = [1, -1].map(sd => { const e = new T.Mesh(new T.SphereGeometry(.058, 32, 24), eyeM); const dir = new T.Vector3(.45, .35, sd * .82).normalize(); e.quaternion.setFromUnitVectors(new T.Vector3(0, 0, 1), dir); e.position.set(.385, .535, sd * .122); parent.add(e); return e; }); return es; }
   const eyes = makeEyes(frog);
+  // real frog model (tools/model_prep.py): the code body is hidden but its tongue (same geometry) stays; jaw = vertex rotation
+  const HD = REAL ? K.hdri(p.hdri || 'lakeside_night', R) : null, RS = .9, RJ = [];
+  const MH = new T.Vector2(.317, .433), mouthL = x => .433 + (x - .317) * .244;   // hinge and mouth line in frog space (measured on the model)
+  function realFrog(main) { const m = K.model('frog_sit'), g = new T.Group(); m.scene.rotation.y = Math.PI / 2; m.scene.scale.setScalar(RS); m.scene.position.set(.1, .343 * RS, 0); g.add(m.scene); g.updateMatrixWorld(true);
+    m.meshes.forEach(x => { x.material = x.material.clone(); x.material.envMap = HD.env; x.material.envMapIntensity = NIGHT ? .25 : .7; x.material.color.setScalar(NIGHT ? .55 : 1); x.material.metalness = 0;
+      if (!main) return; x.geometry = x.geometry.clone(); const Mx = x.matrixWorld.clone(), Mi = Mx.clone().invert(), P = x.geometry.attributes.position, N = x.geometry.attributes.normal, v = new T.Vector3(), idx = [];
+      for (let i = 0; i < P.count; i++) { v.fromBufferAttribute(P, i).applyMatrix4(Mx); const w = sm(MH.x - .02, MH.x + .05, v.x) * sm(mouthL(v.x) + .004, mouthL(v.x) - .01, v.y) * sm(MH.y - .2, MH.y - .12, v.y);
+        if (w > 0) idx.push([i, w, v.x, v.y, v.z, N.getX(i), N.getY(i), N.getZ(i)]); }
+      RJ.push({ x, P, N, Mx, Mi, idx }); });
+    return g; }
+  let rockB = null;
+  if (REAL) { const nb = F0.g.index.count - TN * TM * 6; F0.g.addGroup(0, nb, 0); F0.g.addGroup(nb, TN * TM * 6, 1); frogMesh.material = [new T.MeshBasicMaterial({ visible: false }), skinM];
+    eyes.forEach(e => e.visible = false); frog.add(realFrog(true));
+    // the stone: a real scanned rock (Poly Haven rock_moss_set_01, piece 05) in place of the displaced sphere
+    const rs = K.model('rock_moss_set_01'), rk = rs.meshes.find(m => /rock05/.test(m.name)); rk.parent.remove(rk); rk.position.set(0, 0, 0); rk.rotation.set(0, Math.PI / 2, 0); rk.scale.set(.8, 1.15, .75);
+    rk.material = rk.material.clone(); rk.material.color.setRGB(...(NIGHT ? [.2, .21, .24] : [.6, .58, .55])); rk.material.roughness = .55; rk.material.envMap = HD.env; rk.material.envMapIntensity = NIGHT ? .3 : .8;
+    const rg = new T.Group(); rg.add(rk); rg.updateMatrixWorld(true); const bb = new T.Box3().setFromObject(rk), bc = bb.getCenter(new T.Vector3());
+    rg.position.set(.05 - bc.x, ROCKTOP + .03 - bb.max.y, -.15 - bc.z); if (NIGHT && p.plate) { rk.scale.y *= 1.35; rg.position.y -= .12; } S.add(rg); rock.visible = false; rockB = rg; }
+  function realJaw(a) { const v = new T.Vector3(), ca = Math.cos(-a), sa = Math.sin(-a);
+    for (const r of RJ) { for (const [i, w, x, y, z] of r.idx) { const c = Math.cos(-a * w), s2 = Math.sin(-a * w), dx = x - MH.x, dy = y - MH.y; v.set(MH.x + dx * c - dy * s2, MH.y + dx * s2 + dy * c, z).applyMatrix4(r.Mi); r.P.setXYZ(i, v.x, v.y, v.z); }
+      r.P.needsUpdate = true; } }
   frog.position.set(0, ROCKTOP, 0);
   const FWD = NIGHT ? [-.88, .47] : [-.8, .6]; frog.rotation.y = Math.atan2(-FWD[1], FWD[0]);
   // distant companions on the shore: a lower-resolution copy of the same mesh
   const F1 = NIGHT ? buildFrog(.016, false) : null, mates = [];
-  if (NIGHT) [[-2.6, -2.1, .8, 2.0], [2.7, -2.5, .8, -2.4]].forEach(([x, z, s, ry]) => { const g = new T.Group(); g.add(new T.Mesh(F1.g, skinM)); makeEyes(g); g.position.set(x, Math.max(.03, ground(x, z)) + .01, z); g.scale.setScalar(s); g.rotation.y = ry; S.add(g); mates.push(g); });
+  if (NIGHT) [[-2.6, -2.1, .8, 2.0], [2.7, -2.5, .8, -2.4]].forEach(([x, z, s, ry]) => { const g = new T.Group(); if (REAL) g.add(realFrog(false)); else { g.add(new T.Mesh(F1.g, skinM)); makeEyes(g); } g.position.set(x, Math.max(.03, ground(x, z)) + .01, z); g.scale.setScalar(s); g.rotation.y = ry; S.add(g); mates.push(g); });
   // deformation lists: jaw (below the mouth line, in front of the hinge) and throat (breathing)
-  const HX = .27, HY = .4, jaw = [], fp = F0.g.attributes.position.array, fn = F0.g.attributes.normal.array;
+  const HX = REAL ? .317 : .27, HY = REAL ? .433 : .4, jaw = [], fp = F0.g.attributes.position.array, fn = F0.g.attributes.normal.array;
   for (let q = 0; q < F0.nb; q++) { const x = F0.base[q * 3], y = F0.base[q * 3 + 1], z = F0.base[q * 3 + 2];
     const wj = sm(mouthY(x) + .006, mouthY(x) - .006, y) * sm(.24, .34, x) * sm(.22, .3, y), wt = sm(.16, .26, x) * (1 - sm(.4, .5, x)) * sm(.34, .26, y) * sm(.16, .24, y) * sm(.2, .05, Math.abs(z)) * sm(0, -.5, F0.baseN[q * 3 + 1]);
     if (wj > 0 || wt > 0) jaw.push([q, wj, wt]); }
-  const TA = new T.Vector3(.585, .392, 0);   // tongue root, front of the lower jaw (frog space)
+  const TA = REAL ? new T.Vector3(.5, .47, 0) : new T.Vector3(.585, .392, 0);   // tongue root, front of the lower jaw (frog space)
   function frogPose(t, jawA, tongue) {   // tongue: null or {e (0..1 extension), tip: Vector3 in frog space}
     const br = .008 * Math.max(0, Math.sin(t * 6.2)) * (1 - jawA * 3);
     for (const [q, wj, wt] of jaw) { let x = F0.base[q * 3], y = F0.base[q * 3 + 1], z = F0.base[q * 3 + 2], nx = F0.baseN[q * 3], ny = F0.baseN[q * 3 + 1];
@@ -213,6 +240,7 @@
           fp[k * 3] = P.x + (S2.x * cx + N2.x * cy) * r; fp[k * 3 + 1] = P.y + (S2.y * cx + N2.y * cy) * r * .7; fp[k * 3 + 2] = P.z + (S2.z * cx + N2.z * cy) * r;
           const nn = s > .98 ? Tg : null; fn[k * 3] = nn ? nn.x : S2.x * cx + N2.x * cy; fn[k * 3 + 1] = nn ? nn.y : S2.y * cx + N2.y * cy; fn[k * 3 + 2] = nn ? nn.z : S2.z * cx + N2.z * cy; } } }
     F0.g.attributes.position.needsUpdate = true; F0.g.attributes.normal.needsUpdate = true;
+    if (REAL) realJaw(jawA * 1.6);
     return A;
   }
 
@@ -364,6 +392,22 @@
     specks = K.snow(S, { n: 1800, box: [10, 4, 10], size: .03, opacity: .5, fall: .02, color: '#d8f0c0' });
   }
 
+  // ---------------- B: photo plate (the HDRI photo is the background AND the light), real models in front ----------------
+  const plateImg = p.plate ? document.getElementById('ph_' + p.plate) : null, PB = REAL && NIGHT && !!plateImg;   // look B: the HDRI photo is the backdrop
+  let bgT = null;
+  if (PB) {
+    const keep = new Set([frog, prey && prey.grp, ff, rockB].filter(Boolean));
+    S.children.forEach(o => { if (!keep.has(o)) o.visible = false; });
+    bgT = new T.Texture(plateImg); bgT.mapping = T.EquirectangularReflectionMapping; bgT.colorSpace = T.SRGBColorSpace; bgT.needsUpdate = !!plateImg.complete;
+    const ROT = p.plateRot == null ? 1.43 : p.plateRot;
+    S.backgroundRotation.set(0, ROT, 0); S.environmentRotation.set(0, ROT, 0); S.backgroundIntensity = .3;
+    S.environment = HD.env; S.environmentIntensity = .4;
+    const wM = new T.ShadowMaterial({ opacity: .22, color: '#000000' }), wB = new T.Mesh(new T.PlaneGeometry(400, 400), wM); wB.rotation.x = -Math.PI / 2; wB.position.y = -.02; wB.receiveShadow = true; S.add(wB);
+    const kl = new T.DirectionalLight('#ffd2a0', 1.6); kl.position.set(-6, 2.2, -7); kl.castShadow = true; kl.shadow.mapSize.set(1024, 1024); const sc2 = kl.shadow.camera; sc2.left = sc2.bottom = -1.6; sc2.right = sc2.top = 1.6; sc2.near = .5; sc2.far = 20; kl.shadow.bias = -.0005; kl.shadow.normalBias = .02; S.add(kl);
+    const fl2 = new T.DirectionalLight('#9fb4ff', .35); fl2.position.set(5, 3, 6); S.add(fl2);
+    if (R) { R.shadowMap.enabled = true; R.shadowMap.type = T.PCFSoftShadowMap; }
+    frog.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } }); rockB.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.material.color.setRGB(.42, .42, .44); o.material.envMap = null; } }); frog.traverse(o => { if (o.isMesh && o.material.envMap) { o.material.envMap = null; o.material.color.setScalar(.8); } });
+  }
   // ---------------- camera ----------------
   const cam = new T.PerspectiveCamera(NIGHT ? 36 : 38, ctx.W / ctx.H, .03, 1500); ctx.side(cam, p.side == null ? .12 : p.side); cam.layers.enable(1);
   function path(keys) { return t => { const n = keys.length; if (t <= keys[0][0]) return keys[0][1]; if (t >= keys[n - 1][0]) return keys[n - 1][1];
@@ -379,6 +423,7 @@
     camPath = path([[T0, [4.6, .75, 4.4, .6, .55, -.6]], [cF, [1.9, .7, 4.2, -.3, .55, -.3]], [cS, [.9, .6, 3.4, -.5, .48, -.1]], [cW, [.8, .62, 3.3, -.55, .5, 0]],
       [cK, [1.3, 1.1, 5.0, -.8, .45, -.4]], [cK + 1.1, [.9, .1, 4.4, -.9, -.15, .4]], [cK + 2.2, [.6, -1.1, 4.3, -1.0, -.6, 1.6]], [T1, [.3, -1.3, 3.8, -1.4, -.35, 1.5]]]); }
 
+  if (p.cam) camPath = path(p.cam.map(([k, v]) => [typeof k === 'number' ? T0 + k : cue(k), v]));   // camera keys for a shot of its own
   const tmpV = new T.Vector3(), tip = new T.Vector3();
   return { scene: S, camera: cam, draw(t, u) {
     uT.value = t; waterM.uniforms.uT.value = t;
@@ -387,7 +432,7 @@
     // atmosphere above / below the surface
     if (under) { S.fog.color.copy(UWC); S.fog.density = .2; hemi.intensity = .25; key.intensity = PAL.keyI * .25; }
     else { S.fog.color.copy(FOGC); S.fog.density = PAL.fogD; hemi.intensity = PAL.hemiI; key.intensity = PAL.keyI; }
-    dome.visible = !under; S.background = under ? UWC : null;
+    dome.visible = !under && !PB; S.background = PB ? bgT : (under ? UWC : null); if (PB) { S.fog.density = .0; if (!bgT.userData.ok && plateImg.complete) { bgT.needsUpdate = true; bgT.userData.ok = 1; } }
     // water: gentle wind ripples; the day water goes still on the cue
     const still = NIGHT ? 0 : at(p.still, 2.5, t); waterM.uniforms.uAmp.value = NIGHT ? .9 : 1.0 - .93 * still;
     const RS = NIGHT ? [[-1.3, 1.2, 3.1, 0], [-3, -.4, 4.3, 1.2], [.9, .6, 3.7, 2.1], [-6, 1, 5.2, .4], [-2.2, 2.6, 4.7, 3.3]] : [[-1.4, 1.0, 3.4, 0], [-3.2, -.2, 4.1, 1.5], [1.2, .8, 3.9, 2.7]];
@@ -431,6 +476,6 @@
       if (shafts) { shafts.update(t, under ? 1 : 0); shafts.group.visible = under; specks.update(t, [cam.position.x, -1.5, cam.position.z]); specks.points.visible = under; }
     }
     // planar reflection (only when the camera is above the water)
-    if (!under) mirror(cam);
+    if (!under && !PB) mirror(cam);
   } };
 };

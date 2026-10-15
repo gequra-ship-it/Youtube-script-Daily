@@ -4,7 +4,7 @@
 #   render/<slug>/mix.m4a              the mixed narration + music + SFX (same command)
 # usage: SLUG=x [VERT=1] [SEL=1,2] [CINE_JSON=f] python3 tools/build_cine.py [out dir]   (SEL = the same selection as the CINE build)
 # Chalkboard scenes become data cards over a slow star field. Shorts: VERT=1 (1080x1920).
-import os, re, sys, json, glob, shutil, colorsys
+import os, base64, re, sys, json, glob, shutil, colorsys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 import caption_hl, palettes
@@ -155,6 +155,18 @@ for f in used:
             if not src: raise SystemExit(f'{os.path.basename(f)} uses model {nm}: no videos/{SLUG}/models/{nm}.js or tools/cine/models/{nm}.js (make it with tools/model_prep.py)')
             os.makedirs(f'{OUT}/models', exist_ok=True); shutil.copy(src, f'{OUT}/models/{nm}.js')
             if f'<script src="models/{nm}.js"></script>' not in model_tags: model_tags.append(f'<script src="models/{nm}.js"></script>')
+photo_tags = []   # photos for "photo" shots (params img) and HDRI backdrops (params plate): inlined, so they never load cross-origin
+for ch in chapters:
+    for s in ch['shots']:
+        pr = s.get('params') or {}
+        for key, nm in [('img', pr.get('img')), ('plate', pr.get('plate'))] + [('img', q.get('img')) for q in pr.get('seq') or []]:
+            if not nm or f'id="ph_{nm}"' in ''.join(photo_tags): continue
+            base = f'{vdir()}/plates/photo/{nm}' if key == 'img' else f'{vdir()}/plates/{nm}'
+            if not os.path.exists(base + '.jpg'): raise SystemExit(f'{key} {nm}: {base}.jpg missing')
+            photo_tags.append(f'<img id="ph_{nm}" alt="" style="display:none" src="data:image/jpeg;base64,{base64.b64encode(open(base + ".jpg", "rb").read()).decode()}">')
+            if key == 'img':
+                if not os.path.exists(base + '_depth.png'): raise SystemExit(f'img {nm}: {base}_depth.png missing (python3 tools/depth_prep.py {base}.jpg)')
+                photo_tags.append(f'<img id="dp_{nm}" alt="" style="display:none" src="data:image/png;base64,{base64.b64encode(open(base + "_depth.png", "rb").read()).decode()}">')
 scene_tags = []
 for f in used:
     name = ('v_' if f.startswith(vdir()) else '') + os.path.basename(f); shutil.copy(f, f'{OUT}/scenes/{name}'); scene_tags.append(f'<script src="scenes/{name}"></script>')
@@ -164,7 +176,7 @@ assert os.path.exists(f'{OUT}/mix.m4a'), 'render/<slug>/mix.m4a missing: run SLU
 html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width={W}, height={H}">
 <link rel="stylesheet" href="cine.css"><script src="gsap.min.js"></script><script src="three.js"></script><script src="room-env.js"></script><script src="gltf-loader.js"></script><script src="kit.js"></script>
 {''.join(model_tags)}{''.join(scene_tags)}
-</head><body>
+</head><body>{''.join(photo_tags)}
 <div id="root" data-composition-id="main" data-start="0" data-duration="{TOTAL:.3f}" data-width="{W}" data-height="{H}">
 <canvas id="gl" width="{W}" height="{H}"></canvas><div id="vig"></div><div id="dim"></div>
 <div class="hud" id="hudL"></div><div class="hud" id="hudR">Your clock<b id="clk">00:00:00.000</b></div>
