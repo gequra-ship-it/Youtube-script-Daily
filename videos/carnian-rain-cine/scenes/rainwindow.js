@@ -40,7 +40,8 @@
   const oHemi = new T.HemisphereLight('#7088a8', '#0a0a10', .2); O.add(oHemi);
   const oSun = new T.DirectionalLight('#aab8cc', .3); oSun.position.set(10, 30, -20); O.add(oSun);
   // ground: wet street + lawns, a row of houses, lamps along the street, hills behind
-  const gTexC = K.noise(256, { seed: 4, octaves: 5 }), gNorm = K.normalMap(gTexC, 2); gNorm.repeat.set(20, 20);
+  const ANI = R ? R.capabilities.getMaxAnisotropy() : 4;   // stable in motion: max anisotropy on tiled maps
+  const gTexC = K.noise(256, { seed: 4, octaves: 5 }), gNorm = K.normalMap(gTexC, 2); gNorm.repeat.set(20, 20); gNorm.anisotropy = ANI;
   const ground = new T.Mesh(new T.PlaneGeometry(600, 400), new T.MeshStandardMaterial({ color: '#141a1c', roughness: .35, metalness: .1, normalMap: gNorm, normalScale: new T.Vector2(.3, .3) }));
   ground.rotation.x = -Math.PI / 2; ground.position.set(0, -3.5, -200); O.add(ground);
   const road = new T.Mesh(new T.PlaneGeometry(400, 9), new T.MeshStandardMaterial({ color: '#07090c', roughness: .08, metalness: .3 })); road.rotation.x = -Math.PI / 2; road.position.set(0, -3.45, -22); O.add(road);
@@ -85,12 +86,12 @@
   const rainM = new T.LineBasicMaterial({ color: '#9fb4d0', transparent: true, opacity: .35, blending: T.AdditiveBlending, depthWrite: false, fog: false });
   O.add(new T.LineSegments(rainG, rainM));
 
-  const rtOut = new T.WebGLRenderTarget(ctx.W >> 1, ctx.H >> 1, { type: T.HalfFloatType, generateMipmaps: true, minFilter: T.LinearMipmapLinearFilter, magFilter: T.LinearFilter, colorSpace: T.LinearSRGBColorSpace });
+  const rtOut = new T.WebGLRenderTarget(ctx.W >> 1, ctx.H >> 1, { type: T.HalfFloatType, samples: 4, generateMipmaps: true, minFilter: T.LinearMipmapLinearFilter, magFilter: T.LinearFilter, colorSpace: T.LinearSRGBColorSpace });
 
   // ---------- room ----------
   const S = new T.Scene(); S.background = new T.Color('#020306');
   const OW = 1.9, OH = 2.0, OY = 1.95;           // window opening (width, height, centre height), glass at z = 0
-  const plC = K.noise(256, { seed: 8, octaves: 6 }), plN = K.normalMap(plC, 1.2); plN.repeat.set(3, 3);
+  const plC = K.noise(256, { seed: 8, octaves: 6 }), plN = K.normalMap(plC, 1.2); plN.repeat.set(3, 3); plN.anisotropy = ANI;
   const wallM2 = new T.MeshStandardMaterial({ color: '#4a4440', roughness: .92, normalMap: plN, normalScale: new T.Vector2(.25, .25) });
   const wsh = new T.Shape(); wsh.moveTo(-6, -.5); wsh.lineTo(6, -.5); wsh.lineTo(6, 3.6); wsh.lineTo(-6, 3.6); wsh.lineTo(-6, -.5);
   const hole = new T.Path(); hole.moveTo(-OW / 2, OY - OH / 2); hole.lineTo(-OW / 2, OY + OH / 2); hole.lineTo(OW / 2, OY + OH / 2); hole.lineTo(OW / 2, OY - OH / 2); hole.lineTo(-OW / 2, OY - OH / 2); wsh.holes.push(hole);

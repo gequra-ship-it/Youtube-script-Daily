@@ -10,8 +10,8 @@
 //   into the ancient sea), fish (fish arrive), side:.13 }
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.bodymuseum = function (ctx, p) {
   const { T, sm, cue } = ctx, K = window.MIYA.kit;
-  const S = new T.Scene(); const BG0 = new T.Color('#03040c'), BG1 = new T.Color('#021a28'); S.background = BG0.clone();
-  S.fog = new T.FogExp2(BG0.clone(), .004);
+  const S = new T.Scene(); const BG0 = new T.Color('#05061a'), BG1 = new T.Color('#021a28'); S.background = BG0.clone();
+  S.fog = new T.FogExp2(BG0.clone(), .03);   // depth haze in the anatomy stage (far ribs and spine sink into navy)
   const at = (c, d) => c == null ? 0 : sm(cue(c), cue(c) + d, ctx.t);
   S.environment = ctx.env();
   // ---------- helpers ----------
@@ -32,13 +32,19 @@
     list.forEach(g => { P.set(g.attributes.position.array, o * 3); N.set(g.attributes.normal.array, o * 3); U.set(g.attributes.uv.array, o * 2); const ix = g.index.array; for (let i = 0; i < ix.length; i++) I[oi + i] = ix[i] + o; o += g.attributes.position.count; oi += ix.length; });
     const g = new T.BufferGeometry(); g.setAttribute('position', new T.BufferAttribute(P, 3)); g.setAttribute('normal', new T.BufferAttribute(N, 3)); g.setAttribute('uv', new T.BufferAttribute(U, 2)); g.setIndex(new T.BufferAttribute(I, 1)); return g; }
   const ACC = new T.Color(ctx.ACC);
+  // stable in motion (cine_spec 3A): max anisotropy, fine normal detail fades with distance; rim only on edges facing the back light
+  const ANI = ctx.R ? ctx.R.capabilities.getMaxAnisotropy() : 8, aniso = (...ts) => ts.forEach(x => { x.anisotropy = ANI; });
+  const RIM = { rimL: { value: new T.Vector3(0, .5, -1) } };   // direction toward the back light, in view space (set in draw)
+  const fadeN = (sh, n0, n1) => { sh.fragmentShader = sh.fragmentShader.replace('#include <normal_fragment_maps>',
+    T.ShaderChunk.normal_fragment_maps.replace('mapN.xy *= normalScale;', `mapN.xy *= normalScale * (1. - smoothstep(${n0.toFixed(1)}, ${n1.toFixed(1)}, length(vViewPosition)));`)); };
+  const RIMW = 'smoothstep(-.05,.6,dot(normal,rimL))';   // weight: only the side of the silhouette that faces the light
   // ---------- the heart: ONE mesh ----------
   const HW = 1024, HH = 512, hc = document.createElement('canvas'); hc.width = HW; hc.height = HH; const g = hc.getContext('2d');
   const ec = document.createElement('canvas'); ec.width = HW; ec.height = HH; const eg = ec.getContext('2d'); eg.fillStyle = '#000'; eg.fillRect(0, 0, HW, HH);
   const bc = document.createElement('canvas'); bc.width = HW; bc.height = HH; const bgx = bc.getContext('2d');
   { const gr = g.createLinearGradient(0, 0, 0, HH); gr.addColorStop(0, '#5c1016'); gr.addColorStop(.5, '#6e141b'); gr.addColorStop(1, '#4c0b12'); g.fillStyle = gr; g.fillRect(0, 0, HW, HH);
-    g.globalCompositeOperation = 'multiply'; g.globalAlpha = .5; g.drawImage(K.noise(512, { seed: 3, octaves: 5, sx: 2 }), 0, 0, HW, HH); g.globalCompositeOperation = 'source-over'; g.globalAlpha = 1;
-    bgx.fillStyle = '#808080'; bgx.fillRect(0, 0, HW, HH); bgx.globalAlpha = .4; bgx.drawImage(K.noise(512, { seed: 5, octaves: 5 }), 0, 0, HW, HH); bgx.globalAlpha = 1;
+    g.globalCompositeOperation = 'multiply'; g.globalAlpha = .5; g.drawImage(K.noise(512, { seed: 3, octaves: 3, sx: 2 }), 0, 0, HW, HH); g.globalCompositeOperation = 'source-over'; g.globalAlpha = 1;
+    bgx.fillStyle = '#808080'; bgx.fillRect(0, 0, HW, HH); bgx.globalAlpha = .4; bgx.drawImage(K.noise(512, { seed: 5, octaves: 3 }), 0, 0, HW, HH); bgx.globalAlpha = 1;
     const r = K.rng(12);
     for (let i = 0; i < 2600; i++) { const x = r() * HW, y = r() * HH, l = 20 + r() * 50; g.strokeStyle = `rgba(${r() < .5 ? '140,40,45' : '40,5,10'},.12)`; g.lineWidth = 1 + r(); g.beginPath(); g.moveTo(x, y); g.lineTo(x + l * .7, y + l * .5); g.stroke();
       bgx.strokeStyle = `rgba(${r() < .5 ? '255,255,255' : '0,0,0'},.15)`; bgx.lineWidth = 1.5; bgx.beginPath(); bgx.moveTo(x, y); bgx.lineTo(x + l * .7, y + l * .5); bgx.stroke(); }   // muscle fibres
@@ -79,31 +85,31 @@
     return merge(parts); })();
   const HU = { beat: { value: 0 }, atr: { value: 0 }, emk: { value: 1 }, rimK: { value: .35 } };
   const heartMat = new T.MeshPhysicalMaterial({ map: hMap, normalMap: hN, normalScale: new T.Vector2(.7, .7), roughness: .38, metalness: 0, clearcoat: .6, clearcoatRoughness: .3, emissive: '#ff7a3a', emissiveMap: hEm, emissiveIntensity: 1, envMapIntensity: .5, side: T.DoubleSide });
-  heartMat.onBeforeCompile = sh => { Object.assign(sh.uniforms, HU);
+  heartMat.onBeforeCompile = sh => { Object.assign(sh.uniforms, HU, RIM); fadeN(sh, 12, 45);
     sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nuniform float beat, atr;').replace('#include <begin_vertex>', `#include <begin_vertex>
       { float ven = smoothstep(.75,-.2,position.y)*(1.-smoothstep(1.4,2.,position.y)); float at2 = smoothstep(.2,.9,position.y)*(1.-smoothstep(1.3,1.9,position.y));
         float k = .085*beat*ven + .05*atr*at2; transformed.xz *= 1.-k; transformed.y += .09*beat*ven*(.4-position.y)*.5; transformed.xz *= 1. + .02*beat*smoothstep(1.6,2.4,position.y); }`);
-    sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float emk, rimK;').replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
-      totalEmissiveRadiance *= emk; { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.5); totalEmissiveRadiance += vec3(1.,.32,.16)*fr*rimK; }`); };
+    sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float emk, rimK; uniform vec3 rimL;').replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
+      totalEmissiveRadiance *= emk; { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.5); totalEmissiveRadiance += vec3(1.,.32,.16)*fr*rimK*(.25+.75*${RIMW}); }`); };
   const heart = new T.Mesh(heartG, heartMat); const HG = new T.Group(); HG.add(heart); HG.position.set(.35, .1, .5); HG.rotation.set(-.25, .2, .4); HG.scale.setScalar(1.1); S.add(HG);
   const hGlow = ctx.glow(S, '#ff5a32', 9, .35); hGlow.position.copy(HG.position); const hGlow2 = ctx.glow(S, '#ffb070', 3.5, .3); hGlow2.position.copy(HG.position);
   const hLight = new T.PointLight('#ff7448', 30, 16, 1.6); hLight.position.copy(HG.position).add(new T.Vector3(0, 0, .4)); S.add(hLight);
   // ---------- bones (reveal by a glowing scan line; warm rim) ----------
-  const boneN = K.normalMap(K.noise(256, { seed: 44, octaves: 6 }), 2.5); boneN.repeat.set(3, 3);
-  const boneC = document.createElement('canvas'); boneC.width = boneC.height = 256; { const bg2 = boneC.getContext('2d'); bg2.fillStyle = '#d9ccb0'; bg2.fillRect(0, 0, 256, 256); bg2.globalCompositeOperation = 'multiply'; bg2.globalAlpha = .45; bg2.drawImage(K.noise(256, { seed: 46, octaves: 5 }), 0, 0); }
-  const boneT = K.tex(boneC, true, [2, 2]);
-  function boneMat(o) { const U = { rev: { value: -99 }, revC: { value: ACC.clone() }, rimK: { value: .55 }, rimC: { value: new T.Color('#ffb070') } };
+  const boneN = K.normalMap(K.noise(512, { seed: 44, octaves: 3 }), 2.5); boneN.repeat.set(3, 3);
+  const boneC = document.createElement('canvas'); boneC.width = boneC.height = 256; { const bg2 = boneC.getContext('2d'); bg2.fillStyle = '#d9ccb0'; bg2.fillRect(0, 0, 256, 256); bg2.globalCompositeOperation = 'multiply'; bg2.globalAlpha = .45; bg2.drawImage(K.noise(256, { seed: 46, octaves: 2 }), 0, 0); }
+  const boneT = K.tex(boneC, true, [2, 2]); aniso(boneN, boneT);
+  function boneMat(o) { const U = { rev: { value: -99 }, revC: { value: ACC.clone() }, rimK: { value: .8 }, rimC: { value: new T.Color('#ffc080') } };
     const m = new T.MeshStandardMaterial(Object.assign({ map: boneT, normalMap: boneN, normalScale: new T.Vector2(.6, .6), roughness: .55, metalness: 0, envMapIntensity: .35, color: '#e8dcc4' }, o || {}));
-    m.onBeforeCompile = sh => { Object.assign(sh.uniforms, U);
+    m.onBeforeCompile = sh => { Object.assign(sh.uniforms, U, RIM); fadeN(sh, 5, 22);
       sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vWP;').replace('#include <project_vertex>', `#include <project_vertex>
         { vec4 wp = vec4(transformed,1.);
         #ifdef USE_INSTANCING
           wp = instanceMatrix*wp;
         #endif
         vWP = (modelMatrix*wp).xyz; }`);
-      sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nvarying vec3 vWP; uniform float rev, rimK; uniform vec3 revC, rimC;').replace('#include <clipping_planes_fragment>', '#include <clipping_planes_fragment>\nif(vWP.y>rev) discard;')
+      sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nvarying vec3 vWP; uniform float rev, rimK; uniform vec3 revC, rimC, rimL;').replace('#include <clipping_planes_fragment>', '#include <clipping_planes_fragment>\nif(vWP.y>rev) discard;')
         .replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
-          { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.2); totalEmissiveRadiance += rimC*fr*rimK + revC*exp(-pow((rev-vWP.y)/.14,2.))*2.5; }`); };
+          { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.2); totalEmissiveRadiance += rimC*fr*rimK*${RIMW} + revC*exp(-pow((rev-vWP.y)/.14,2.))*2.5; }`); };
     m.userData.U = U; return m; }
   const ribMat = boneMat(), spineMat = boneMat(), jawMat = boneMat(), toothMat = boneMat({ color: '#f4efe2', roughness: .3, normalScale: new T.Vector2(.15, .15) });
   // spine: S-curved column, vertebrae instanced along it (body + arch + spinous + transverse processes)
@@ -143,10 +149,10 @@
       P.setXYZ(i, x * 1.25, y * 2.7, z * 1.6); }
     g2.computeVertexNormals(); return g2; }
   const lungMat = () => { const m = new T.MeshStandardMaterial({ color: '#d98a86', roughness: .55, metalness: 0, transparent: true, opacity: .5, depthWrite: false, emissive: '#ffb08a', emissiveMap: lungEm, emissiveIntensity: .5, envMapIntensity: .4 });
-    m.onBeforeCompile = sh => { Object.assign(sh.uniforms, LU);
+    m.onBeforeCompile = sh => { Object.assign(sh.uniforms, LU, RIM);
       sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nuniform float br;').replace('#include <begin_vertex>', '#include <begin_vertex>\n{ float k=br*.07; transformed.x*=1.+k; transformed.z*=1.+k*.7; transformed.y+= -br*.22*smoothstep(.5,-2.4,position.y); }');
-      sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float op;').replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
-        { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.); totalEmissiveRadiance += vec3(.55,.75,1.)*fr*.9; }`).replace('#include <opacity_fragment>', '#include <opacity_fragment>\ndiffuseColor.a *= op; { float fr=pow(1.-abs(dot(normal,normalize(vViewPosition))),2.); diffuseColor.a = op*(.28+.6*fr); }'); };
+      sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float op; uniform vec3 rimL;').replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
+        { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.); totalEmissiveRadiance += vec3(.55,.75,1.)*fr*.9*(.3+.7*${RIMW}); }`).replace('#include <opacity_fragment>', '#include <opacity_fragment>\ndiffuseColor.a *= op; { float fr=pow(1.-abs(dot(normal,normalize(vViewPosition))),2.); diffuseColor.a = op*(.28+.6*fr); }'); };
     return m; };
   const lungs = [1, -1].map(sd => { const m = new T.Mesh(lungGeo(sd), lungMat()); m.position.set(sd * 1.75, .2, -.6); m.renderOrder = 2; S.add(m); return m; });
   // ---------- skull: x-ray ghost cranium + solid upper jaw and a hinged lower jaw ----------
@@ -159,10 +165,10 @@
       if (d.y < -.5 && d.z < .3) y = -.5 * 1.55 + (y + .5 * 1.55) * .4;   // flat skull base
       P.setXYZ(i, x, y + .6, z - .3); }
     g2.computeVertexNormals(); return g2; })();
-  const GU = { col: { value: new T.Color('#ffd9a8') }, op: { value: 0 } };
+  const GU = { col: { value: new T.Color('#ffd9a8') }, op: { value: 0 }, rimL: RIM.rimL };
   const cran = new T.Mesh(cranG, new T.ShaderMaterial({ uniforms: GU, transparent: true, depthWrite: false, blending: T.AdditiveBlending, side: T.DoubleSide,
     vertexShader: 'varying vec3 vN; varying vec3 vV; void main(){ vec4 mv=modelViewMatrix*vec4(position,1.); vN=normalize(normalMatrix*normal); vV=-mv.xyz; gl_Position=projectionMatrix*mv; }',
-    fragmentShader: 'uniform vec3 col; uniform float op; varying vec3 vN; varying vec3 vV; void main(){ float f=pow(1.-abs(dot(normalize(vN),normalize(vV))),2.4); gl_FragColor=vec4(col*(f*.45+.015)*op,1.); }' }));
+    fragmentShader: 'uniform vec3 col, rimL; uniform float op; varying vec3 vN; varying vec3 vV; void main(){ vec3 n=normalize(vN); float f=pow(1.-abs(dot(n,normalize(vV))),2.4), w=.35+.65*smoothstep(-.3,.6,dot(n,rimL)); gl_FragColor=vec4(col*(f*.45*w+.015)*op,1.); }' }));
   SK.add(cran);
   // dental arch: x in [-1,1] -> parabola
   const arch = (x, zf, k) => [x, 0, zf - k * x * x];
@@ -189,7 +195,7 @@
   // ---------- ancient ocean ----------
   const shafts = K.shafts(S, { n: 10, top: 60, height: 140, spread: 120, depth: 60, opacity: .1, color: '#7cc6ff' }); shafts.group.position.set(0, 0, 30);
   const snow = K.snow(S, { n: 3500, box: [80, 50, 60], size: .14, opacity: .5, fall: .3, color: '#bfe2ff' });
-  const dust = K.snow(S, { n: 900, box: [20, 20, 14], size: .05, opacity: .45, fall: .04, color: '#ffcf9a', seed: 9 });
+  const dust = K.snow(S, { n: 1400, box: [24, 22, 18], size: .09, opacity: .7, fall: .04, color: '#ffcf9a', seed: 9 });
   // early armoured fish: broad head shield, tapering body, vertical tail fin (ONE mesh each)
   const fC = document.createElement('canvas'); fC.width = 512; fC.height = 256; { const fg = fC.getContext('2d'), gr = fg.createLinearGradient(0, 0, 0, 256);
     [[0, '#3e3a30'], [.18, '#1c1d1b'], [.3, '#1a1b1a'], [.5, '#4a463a'], [.68, '#857e68'], [.75, '#9a927a'], [.82, '#857e68'], [1, '#3e3a30']].forEach(([o, c]) => gr.addColorStop(o, c)); fg.fillStyle = gr; fg.fillRect(0, 0, 512, 256);
@@ -197,9 +203,10 @@
     fg.strokeStyle = 'rgba(200,190,160,.35)'; fg.lineWidth = 2; const r = K.rng(8); for (let k = 0; k < 40; k++) { const x = 512 * (.68 + r() * .3), y = r() * 256; fg.strokeRect(x, y, 10 + r() * 22, 8 + r() * 18); }
     for (let x = 30; x < 350; x += 9) { fg.strokeStyle = 'rgba(0,0,0,.25)'; fg.lineWidth = 1.5; fg.beginPath(); fg.moveTo(x, 0); fg.lineTo(x + 6, 256); fg.stroke(); } }
   const fMap = K.tex(fC, true); fMap.flipY = false;
-  const fishMat = new T.MeshStandardMaterial({ map: fMap, color: '#ffffff', roughness: .45, metalness: .1, normalMap: K.normalMap(K.noise(256, { seed: 71, octaves: 5, sx: 4 }), 4), normalScale: new T.Vector2(.8, .8), envMapIntensity: .6 });
-  fishMat.onBeforeCompile = sh => { sh.fragmentShader = sh.fragmentShader.replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
-    { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.5); totalEmissiveRadiance += vec3(.35,.7,1.)*fr*.55; }`); };
+  const fishMat = new T.MeshStandardMaterial({ map: fMap, color: '#ffffff', roughness: .45, metalness: .1, normalMap: K.normalMap(K.noise(512, { seed: 71, octaves: 3, sx: 2 }), 4), normalScale: new T.Vector2(.8, .8), envMapIntensity: .6 });
+  fishMat.onBeforeCompile = sh => { Object.assign(sh.uniforms, RIM); fadeN(sh, 16, 55);
+    sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform vec3 rimL;').replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
+    { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.5); totalEmissiveRadiance += vec3(.45,.75,1.)*fr*.7*${RIMW}; }`); };
   function makeFish(type) { const L = type ? 4.2 : 3.2;
     const KW = type ? [[0, .02], [.06, .03], [.25, .12], [.5, .3], [.7, .42], [.86, .44], [.96, .3], [1, .04]] : [[0, .015], [.08, .04], [.3, .15], [.55, .3], [.7, .55], [.85, .6], [.95, .48], [1, .05]];
     const KH = type ? [[0, .5], [.05, .45], [.11, .09], [.3, .2], [.55, .36], [.75, .38], [.92, .28], [1, .05]] : [[0, .42], [.045, .38], [.1, .08], [.3, .15], [.55, .22], [.75, .26], [.9, .2], [1, .04]];
@@ -211,9 +218,13 @@
     return { grp, update(t, ph) { b.deform((s, th, base, k) => [0, type && s < .1 && base[k * 3 + 1] > 0 ? .1 * (1 - s / .1) : 0, .32 * Math.pow(1 - Math.min(1, s), 2.2) * Math.sin(t * 3.2 + ph - s * 6.5)]); } }; }
   const FISH = [[0, 0, 2.0, 7.5, 16, 1, -1], [1, 1.1, .2, -1, 14, 1, 1.0], [0, 2.3, 4.0, 11, 24, .85, -1.1], [0, .5, 6.0, 1, 30, .8, 1.0], [1, 3.4, 1.4, 14, 34, 1, -1.2]].map(([ty, ph, y, x0, z, sc, v]) => { const f = makeFish(ty); f.grp.scale.setScalar(sc); S.add(f.grp); f.grp.visible = false; return { f, ph, y, x0, z, v }; });
   // ---------- light ----------
-  const hemi = new T.HemisphereLight('#6a78c8', '#05030a', .35); S.add(hemi);
-  const rim = new T.DirectionalLight('#8fb4ff', 1.4); rim.position.set(-8, 12, -14); S.add(rim);
-  const key = new T.DirectionalLight('#ffd6b0', .5); key.position.set(10, 6, 14); S.add(key);
+  // cool neutral fill (form and colour stay readable), a warm back light from upper left (its halo stays in frame), a soft side key
+  const hemi = new T.HemisphereLight('#8a98b8', '#0a0a14', .4); S.add(hemi);
+  const rim = new T.DirectionalLight('#ffd2a0', 2.2); rim.position.set(-9, 11, -12); S.add(rim);
+  const rim2 = new T.DirectionalLight('#9fc0ff', .8); rim2.position.set(10, 4, -12); S.add(rim2);
+  const key = new T.DirectionalLight('#dfe6f2', .35); key.position.set(14, 5, 6); S.add(key);
+  const backG = ctx.glow(S, '#ffc890', 24, .2), backG2 = ctx.glow(S, '#ff9a5a', 9, .14); backG.renderOrder = backG2.renderOrder = -1;
+  const RD = new T.Vector3(-9, 11, -12).normalize(), OD = new T.Vector3(0, 1, -.35).normalize(), LW = new T.Vector3(), HO = new T.Vector3(-7, 3.2, -10);
   const top = new T.DirectionalLight('#9fd8ff', 0); top.position.set(0, 50, 20); S.add(top);
   const cam = new T.PerspectiveCamera(35, ctx.W / ctx.H, .1, 900); ctx.side(cam, p.side == null ? .13 : p.side);
   const tgt = new T.Vector3();
@@ -246,10 +257,15 @@
     MJ.rotation.x = jo;
     // ocean
     S.background.copy(BG0).lerp(BG1, oc); S.fog.color.copy(BG0).lerp(BG1, oc); S.fog.density = .004 + .028 * oc;
-    shafts.update(t, oc); top.intensity = 1.2 * oc; hemi.intensity = .35 + .25 * oc; hemi.color.set('#6a78c8').lerp(new T.Color('#3a8ac8'), oc);
-    snow.points.material.opacity = .5 * oc; snow.points.visible = oc > .01; dust.points.material.opacity = .4 * (1 - oc);
+    S.fog.density = .03 * (1 - oc) + (.004 + .028 * oc) * oc;
+    shafts.update(t, oc); top.intensity = 1.2 * oc; hemi.intensity = .4 + .2 * oc; hemi.color.set('#8a98b8').lerp(new T.Color('#3a8ac8'), oc);
+    rim.intensity = 2.2 * (1 - .6 * oc); rim2.intensity = .8 * (1 - oc); backG.material.opacity = .2 * (1 - oc); backG2.material.opacity = .14 * (1 - oc);
+    snow.points.material.opacity = .5 * oc; snow.points.visible = oc > .01; dust.points.material.opacity = .65 * (1 - oc);
     // camera: close on the heart -> wider for ribs/spine/lungs -> up to the jaws -> far back into the ancient sea
-    camAt(t, cam.position, tgt); cam.lookAt(tgt);
+    camAt(t, cam.position, tgt); cam.lookAt(tgt); cam.updateMatrixWorld();
+    // the back light's halo sits behind the subject toward the light (upper left), so the light side stays in frame
+    backG.position.copy(tgt).add(HO); backG2.position.copy(tgt).addScaledVector(HO, .8);
+    LW.copy(RD).lerp(OD, oc).normalize(); RIM.rimL.value.copy(LW).transformDirection(cam.matrixWorldInverse);
     snow.update(t, [cam.position.x, cam.position.y, cam.position.z - 20]); dust.update(t, [0, 2, 0]);
     // fish glide across in front of the far camera
     FISH.forEach(({ f, ph: fp, y, x0, z, v }) => { f.grp.visible = fishK > .01; if (!f.grp.visible) return; const tt = t - (p.fish ? cue(p.fish) : 0);

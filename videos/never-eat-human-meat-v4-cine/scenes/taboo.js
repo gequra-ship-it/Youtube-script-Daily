@@ -20,6 +20,17 @@
         (self ? '\n#ifdef USE_COLOR\n totalEmissiveRadiance += vColor.rgb * ' + self.toFixed(3) + ';\n#endif' : '')); };
     mat.customProgramCacheKey = () => 'rim' + (self || 0); return mat;
   }
+  // people only: a rim on the edges that FACE the light (fresnel weighted by the direction to a point light in view space, spec 3A
+  // "backlit but readable"), not an all-round outline. `lp` = { value: view-space light position }, updated every frame.
+  function rimToward(T, mat, col, k, lp) {
+    mat.onBeforeCompile = sh => { sh.uniforms.rimC = { value: new T.Color(col) }; sh.uniforms.rimK = { value: k }; sh.uniforms.rimL = lp; mat.userData.sh = sh;
+      sh.fragmentShader = 'uniform vec3 rimC; uniform float rimK; uniform vec3 rimL;\n' + sh.fragmentShader.replace('#include <emissivemap_fragment>',
+        '#include <emissivemap_fragment>\n vec3 rLv = normalize(rimL + vViewPosition);\n' +
+        ' float fr = pow(1.0 - abs(dot(normalize(normal), normalize(vViewPosition))), 2.6);\n' +
+        ' vec2 rN = normal.xy / max(1e-4, length(normal.xy)), rS = rLv.xy / max(1e-4, length(rLv.xy));\n' +
+        ' float rw = smoothstep(-.25, .75, dot(rN, rS)) * (.35 + .65 * smoothstep(-.4, .5, dot(normal, rLv)));\n totalEmissiveRadiance += rimC * fr * rw * rimK;'); };
+    mat.customProgramCacheKey = () => 'rimToward'; return mat;
+  }
   function merge(T, list) {   // [geometry, matrix] -> one non-indexed geometry (position + normal)
     let n = 0; const gs = list.map(([g, m]) => { const q = (g.index ? g.toNonIndexed() : g.clone()); q.applyMatrix4(m); n += q.attributes.position.count; return q; });
     const pos = new Float32Array(n * 3), nor = new Float32Array(n * 3); let o = 0;
@@ -58,8 +69,8 @@
     const GOLD = new T.Color(ctx.ACC), VIO = new T.Color('#8a6cff'), MAG = new T.Color('#d64b9a');
     // ground: dark plain with a soft warm pool of light at the centre
     const gT = ctx.ctex(512, (g, s) => { g.fillStyle = '#000'; g.fillRect(0, 0, s, s); const r = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2); r.addColorStop(0, 'rgba(255,200,120,.55)'); r.addColorStop(.12, 'rgba(200,120,140,.22)'); r.addColorStop(.4, 'rgba(90,70,170,.08)'); r.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = r; g.fillRect(0, 0, s, s); });
-    const nz = K.noise(256, { seed: 4, octaves: 5 });
-    const ground = new T.Mesh(new T.CircleGeometry(120, 96).rotateX(-Math.PI / 2), new T.MeshLambertMaterial({ color: '#16132e', map: K.tex(nz, true, [30, 30]) })); S.add(ground);
+    const nz = K.noise(256, { seed: 4, octaves: 5 }), gTile = K.tex(nz, true, [30, 30]); gTile.anisotropy = ctx.R.capabilities.getMaxAnisotropy();
+    const ground = new T.Mesh(new T.CircleGeometry(120, 96).rotateX(-Math.PI / 2), new T.MeshLambertMaterial({ color: '#16132e', map: gTile })); S.add(ground);
     const pool = new T.Mesh(new T.PlaneGeometry(70, 70).rotateX(-Math.PI / 2), new T.MeshBasicMaterial({ map: gT, transparent: true, blending: T.AdditiveBlending, depthWrite: false })); pool.position.y = .02; S.add(pool);
     // ---- the balance (machine: separate solid parts are right) ----
     const BAL = new T.Group(); S.add(BAL);
@@ -90,7 +101,8 @@
     [0, Math.PI / 2].forEach(r => { const m = new T.Mesh(new T.PlaneGeometry(3.2, 14), colM); m.position.y = 9.4; m.rotation.y = r; BAL.add(m); });
     // ---- the ring of people ----
     const R = rng(23), NF = 30, RAD = 9.5, variants = [{ sh: 1.05 }, { sh: .92, hip: 1.1, hair: 1 }, { sh: 1, coat: 1 }, { sh: .95, hair: 1, coat: 1 }, { sh: 1.12 }].map(o => figureGeo(T, o));
-    const skin = rimify(T, new T.MeshStandardMaterial({ color: '#141226', roughness: .75, metalness: .05 }), '#ffc98a', .55);
+    const rimLP = { value: new T.Vector3() }, BALW = new T.Vector3(0, 2.5, 0);   // the balance's light, in world space
+    const skin = rimToward(T, new T.MeshStandardMaterial({ color: '#424760', roughness: .75, metalness: .05 }), '#ffc98a', .9, rimLP);
     const figs = [], FEET = [], footG = new T.PlaneGeometry(1.6, 1.6).rotateX(-Math.PI / 2);
     for (let i = 0; i < NF; i++) { const a = i / NF * 6.283 + (R() - .5) * .08, r = RAD + (R() - .5) * 1.2, v = (R() * variants.length) | 0, sc = (.93 + R() * .14) * (R() < .12 ? .72 : 1);
       const m = new T.Mesh(variants[v], skin); m.position.set(Math.sin(a) * r, 0, Math.cos(a) * r); m.scale.setScalar(sc); m.lookAt(0, 0, 0); m.rotateY(Math.PI);   // face the centre (-z forward)
@@ -106,7 +118,8 @@
     const ring = new T.Mesh(new T.TorusGeometry(5.2, .025, 8, 240).rotateX(Math.PI / 2), ringM); S.add(ring);
     const ringPts = points(600, { size: .09, color: '#ffe0a8' }); { const a = ringPts.geometry.attributes.position.array, r2 = rng(5); for (let i = 0; i < 600; i++) { const q = r2() * 6.283, rr = 5.2 + (r2() - .5) * .2; a.set([Math.sin(q) * rr, .05 + r2() * .1, Math.cos(q) * rr], i * 3); } } ringPts.material.opacity = 0; S.add(ringPts);
     const dust = K.snow(S, { n: 1500, box: [40, 12, 40], size: .07, opacity: .5, color: '#ffd9a0', fall: -.08, seed: 12 });
-    S.add(new T.HemisphereLight('#3c3480', '#07061a', .55));
+    S.add(new T.HemisphereLight('#6c7896', '#0a0a1c', 2.0));   // cool neutral fill (not violet): backs stay readable
+    const fillL = new T.DirectionalLight('#b4bed2', 1.3); fillL.position.set(8, 7, 22); S.add(fillL);   // soft cool fill from the camera side
     const back = new T.DirectionalLight('#9a86ff', .5); back.position.set(-10, 8, -20); S.add(back);
     const cam = new T.PerspectiveCamera(36, ctx.W / ctx.H, .1, 600); ctx.side(cam, p.side == null ? .12 : p.side);
     const dur = Math.max(1, ctx.t1 - ctx.t0), cR = p.ring != null ? cue(p.ring) : ctx.t0 + 1;
@@ -126,6 +139,7 @@
       dust.update(t, [0, 3, 0]);
       const k = sm(0, dur, u), ca = .18 - .1 * k;
       cam.position.set(Math.sin(ca) * (22 - 5 * k), 2.4 + .4 * k, Math.cos(ca) * (22 - 5 * k)); cam.lookAt(0, 1.7 - .2 * k, 0);
+      cam.updateMatrixWorld(); rimLP.value.copy(BALW).applyMatrix4(cam.matrixWorldInverse);
     } };
   };
 
@@ -182,7 +196,7 @@
     const ph = glow(PRO, '#a77cff', 16, .18), ph2 = glow(PRO, '#ffcf8a', 7, .12);
     // ---------- lab: reflective floor with tile seams, projector ring, far vertical light panels ----------
     const tile = ctx.ctex(512, (g, s) => { g.fillStyle = '#0d0c1e'; g.fillRect(0, 0, s, s); g.strokeStyle = 'rgba(140,130,255,.22)'; g.lineWidth = 2; for (let k = 0; k <= 4; k++) { g.beginPath(); g.moveTo(k * s / 4, 0); g.lineTo(k * s / 4, s); g.stroke(); g.beginPath(); g.moveTo(0, k * s / 4); g.lineTo(s, k * s / 4); g.stroke(); } });
-    tile.wrapS = tile.wrapT = T.RepeatWrapping; tile.repeat.set(84, 84);
+    tile.wrapS = tile.wrapT = T.RepeatWrapping; tile.repeat.set(84, 84); tile.anisotropy = ctx.R.capabilities.getMaxAnisotropy();
     const floor = new T.Mesh(new T.PlaneGeometry(500, 500).rotateX(-Math.PI / 2), new T.MeshStandardMaterial({ map: tile, roughness: .85, metalness: .1 })); S.add(floor);
     const ped = [[0, 0], [1.9, 0], [1.9, .18], [1.7, .26], [1.3, .3], [0, .3]].map(([r, h]) => new T.Vector2(r, h));
     S.add(new T.Mesh(new T.LatheGeometry(ped, 64), new T.MeshStandardMaterial({ color: '#232040', metalness: .9, roughness: .3, envMap: E, envMapIntensity: .5 })));

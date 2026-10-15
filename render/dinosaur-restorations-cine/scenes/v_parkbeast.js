@@ -13,6 +13,10 @@
   if (R) { R.shadowMap.enabled = true; R.shadowMap.type = T.PCFShadowMap; R.localClippingEnabled = true; }
   const CLIP = [new T.Plane(new T.Vector3(0, -1, 0), 0.0)];   // mirrored copies keep only what lies under the water plane
   const SUN = new T.Vector3(-.70, .085, -.71).normalize();
+  // stable in motion: tiled textures get max anisotropy; fine normal detail fades with view distance (no shimmer in far pixels)
+  const ANI = R ? R.capabilities.getMaxAnisotropy() : 4, aniso = (...ts) => ts.forEach(x => { x.anisotropy = ANI; x.needsUpdate = true; });
+  const NFADE = (n, f, lo) => T.ShaderChunk.normal_fragment_maps.replace('mapN.xy *= normalScale;', `mapN.xy *= normalScale * mix(1., ${lo.toFixed(2)}, smoothstep(${n.toFixed(1)}, ${f.toFixed(1)}, length(vViewPosition)));`);
+  const fadeN = (m, n, f, lo, key) => { m.onBeforeCompile = sh => { sh.fragmentShader = sh.fragmentShader.replace('#include <normal_fragment_maps>', NFADE(n, f, lo)); }; m.customProgramCacheKey = () => key; return m; };
   // ---------- deterministic 3D value noise ----------
   const hsh = (x, y, z) => { const h = Math.sin(x * 127.1 + y * 311.7 + z * 74.7) * 43758.5453; return h - Math.floor(h); };
   function vn(x, y, z) { const xi = Math.floor(x), yi = Math.floor(y), zi = Math.floor(z), fx = x - xi, fy = y - yi, fz = z - zi;
@@ -103,10 +107,10 @@
   // streak texture: vertical drips (sampled stretched on the side projections)
   const stC = document.createElement('canvas'); stC.width = 512; stC.height = 256; const sg = stC.getContext('2d'); sg.fillStyle = '#808080'; sg.fillRect(0, 0, 512, 256);
   for (let i = 0; i < 260; i++) { const x = r1() * 512, w = 1 + r1() * 7, l = 30 + r1() * 220, y = r1() * 256, gr = sg.createLinearGradient(0, y, 0, y + l); const d = r1() < .7; gr.addColorStop(0, d ? 'rgba(20,18,14,.5)' : 'rgba(230,225,210,.3)'); gr.addColorStop(1, 'rgba(128,128,128,0)'); sg.fillStyle = gr; sg.fillRect(x, y, w, l); }
-  const tS = K.tex(stC, false); const tM = K.tex(K.noise(256, { seed: 77, octaves: 5 }), false);
+  const tS = K.tex(stC, false); const tM = K.tex(K.noise(256, { seed: 77, octaves: 5 }), false); aniso(tC, tH, tN, tS, tM);
   const U = { tN: { value: tN }, tC: { value: tC }, tH: { value: tH }, tS: { value: tS }, tM: { value: tM }, rimK: { value: .35 }, sunV: { value: new T.Vector3() }, rimC: { value: new T.Color('#ffb36a') }, wet: { value: 0 } };
-  function concrete(clip) {
-    const m = new T.MeshStandardMaterial({ color: '#ffffff', roughness: .92, metalness: 0, envMapIntensity: .55 });
+  function concrete(clip, noRim) {   // noRim: the plinth (its flat top seen at a grazing angle must not glow)
+    const m = new T.MeshStandardMaterial({ color: '#ffffff', roughness: .92, metalness: 0, envMapIntensity: .55 }); if (noRim) m.defines = { NO_RIM: '' };
     if (clip) m.clippingPlanes = CLIP;
     m.onBeforeCompile = sh => { Object.assign(sh.uniforms, U);
       sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vOP; varying vec3 vON; varying vec3 vN0; varying vec3 vN1; varying vec3 vN2;').replace('#include <begin_vertex>', '#include <begin_vertex>\nvOP=position; vON=normal; vN0=normalMatrix[0]; vN1=normalMatrix[1]; vN2=normalMatrix[2];');
@@ -128,12 +132,17 @@
         .replace('#include <roughnessmap_fragment>', 'float roughnessFactor = roughness;')
         .replace('#include <normal_fragment_maps>', `{ vec3 N0=normalize(vON), Bw=tw(); vec2 ux=vOP.zy*.42, uy=vOP.xz*.42, uz=vOP.xy*.42;
       vec3 tx=texture2D(tN,ux).xyz*2.-1., ty=texture2D(tN,uy).xyz*2.-1., tz=texture2D(tN,uz).xyz*2.-1.;
+      float nf=mix(1.,.3,smoothstep(9.,34.,length(vViewPosition))); tx.xy*=nf; ty.xy*=nf; tz.xy*=nf;
       tx=vec3(tx.xy+N0.zy,abs(tx.z)*N0.x); ty=vec3(ty.xy+N0.xz,abs(ty.z)*N0.y); tz=vec3(tz.xy+N0.xy,abs(tz.z)*N0.z);
       vec3 wn=normalize(tx.zyx*Bw.x+ty.xzy*Bw.y+tz.xyz*Bw.z); normal=normalize(mat3(vN0,vN1,vN2)*wn); }`)
         .replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
-          { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),3.); totalEmissiveRadiance+=rimC*fr*rimK*(.25+.75*max(0.,dot(normal,sunV))); }`);
+          #ifndef NO_RIM
+          { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),3.5);
+            float side=smoothstep(-.15,.85,dot(normalize(normal.xy+1e-4),normalize(sunV.xy+1e-4)));   // only the edges on the sun's side of the silhouette
+            totalEmissiveRadiance+=rimC*fr*rimK*1.5*side*(.35+.65*smoothstep(-.2,.6,-sunV.z)); }
+          #endif`);
     };
-    m.customProgramCacheKey = () => 'parkbeast-concrete' + (clip ? '-c' : '');
+    m.customProgramCacheKey = () => 'parkbeast-concrete' + (clip ? '-c' : '') + (noRim ? '-n' : '');
     return m;
   }
   const statue = new T.Mesh(SG, concrete(false)); statue.castShadow = statue.receiveShadow = true;
@@ -142,8 +151,8 @@
   const grassC = document.createElement('canvas'); grassC.width = grassC.height = 512; const gg = grassC.getContext('2d'); gg.fillStyle = '#26301a'; gg.fillRect(0, 0, 512, 512);
   gg.globalCompositeOperation = 'multiply'; gg.drawImage(K.noise(512, { seed: 41, octaves: 6 }), 0, 0); gg.globalCompositeOperation = 'source-over';
   const r2 = K.rng(9); for (let i = 0; i < 14000; i++) { const x = r2() * 512, y = r2() * 512, l = 2 + r2() * 6; gg.strokeStyle = `rgba(${60 + r2() * 50 | 0},${70 + r2() * 50 | 0},${30 + r2() * 20 | 0},${.25 + r2() * .35})`; gg.lineWidth = .8; gg.beginPath(); gg.moveTo(x, y); gg.lineTo(x + (r2() - .5) * 2, y - l); gg.stroke(); }
-  const grassT = K.tex(grassC, true, [10, 10]), grassN = K.normalMap(K.noise(256, { seed: 43, octaves: 5 }), 4); grassN.repeat.set(10, 10);
-  const grassMat = clip => { const m = new T.MeshLambertMaterial({ map: grassT, normalMap: grassN, normalScale: new T.Vector2(.9, .9), color: '#c8c0a8' }); if (clip) m.clippingPlanes = CLIP; return m; };
+  const grassT = K.tex(grassC, true, [10, 10]), grassN = K.normalMap(K.noise(256, { seed: 43, octaves: 5 }), 4); grassN.repeat.set(10, 10); aniso(grassT, grassN);
+  const grassMat = clip => { const m = fadeN(new T.MeshLambertMaterial({ map: grassT, normalMap: grassN, normalScale: new T.Vector2(.9, .9), color: '#c8c0a8' }), 6, 30, .15, 'pb-grass' + (clip ? '-c' : '')); if (clip) m.clippingPlanes = CLIP; return m; };
   const islR = a => 9.2 + 1.6 * (vn(Math.cos(a) * 1.4 + 3, Math.sin(a) * 1.4, 1.7) - .5) * 2;
   function islandGeo() { const NR = 44, NA = 128, pos = [], uv = [], idx = [];
     for (let i = 0; i <= NR; i++) for (let j = 0; j < NA; j++) { const a = j / NA * 6.283, q = i / NR, r = q * islR(a) * 1.18, x = Math.cos(a) * r, z = Math.sin(a) * r, e = r / islR(a);
@@ -154,8 +163,8 @@
   // a low rough stone plinth the statue stands on (raised slab with broken edges)
   const plG = new T.CylinderGeometry(1, 1.06, 1, 40, 4); plG.translate(0, .5, 0); { const P = plG.attributes.position; for (let i = 0; i < P.count; i++) { const x = P.getX(i), y = P.getY(i), z = P.getZ(i), n = fbm(x * 1.5 + 9, y * 1.5, z * 1.5); const s = 1 + (n - .5) * .45; P.setXYZ(i, x * s, y + (y > .9 ? (n - .5) * .12 : 0), z * s); } plG.scale(5.4, .34, 3.0); plG.computeVertexNormals(); }
   const rockC = document.createElement('canvas'); rockC.width = rockC.height = 256; const rg = rockC.getContext('2d'); rg.fillStyle = '#5b574f'; rg.fillRect(0, 0, 256, 256); rg.globalCompositeOperation = 'multiply'; rg.drawImage(K.noise(256, { seed: 61, octaves: 6 }), 0, 0); rg.globalCompositeOperation = 'source-over';
-  const rockT = K.tex(rockC, true, [3, 1]), rockN = K.normalMap(K.noise(256, { seed: 63, octaves: 6 }), 5); rockN.repeat.set(3, 1);
-  const rockMat = clip => { const m = new T.MeshStandardMaterial({ map: rockT, normalMap: rockN, roughness: .95, color: '#b8b2a6', envMapIntensity: .4 }); if (clip) m.clippingPlanes = CLIP; return m; };
+  const rockT = K.tex(rockC, true, [3, 1]), rockN = K.normalMap(K.noise(256, { seed: 63, octaves: 6 }), 5); rockN.repeat.set(3, 1); aniso(rockT, rockN);
+  const rockMat = clip => { const m = fadeN(new T.MeshStandardMaterial({ map: rockT, normalMap: rockN, roughness: .95, color: '#b8b2a6', envMapIntensity: .4 }), 8, 30, .3, 'pb-rock' + (clip ? '-c' : '')); if (clip) m.clippingPlanes = CLIP; return m; };
   // boulders around the plinth
   const bG = new T.IcosahedronGeometry(1, 3); { const P = bG.attributes.position; for (let i = 0; i < P.count; i++) { const x = P.getX(i), y = P.getY(i), z = P.getZ(i), s = .75 + .5 * fbm(x * 1.3 + 2, y * 1.3, z * 1.3); P.setXYZ(i, x * s, y * s * .7, z * s); } bG.computeVertexNormals(); }
   const rb = K.rng(17), BOUL = []; for (let i = 0; i < 9; i++) { const a = rb() * 6.283, r = 4.6 + rb() * 3.2; BOUL.push([Math.cos(a) * r * 1.15, .2, Math.sin(a) * r * .9, .25 + rb() * .45, rb() * 6]); }
@@ -169,9 +178,10 @@
   // trees: lumpy canopy blobs (displaced icosahedra) on tapered trunks; island trees + a ring along the far shore
   const blobG = new T.PlaneGeometry(1, 1);
   const leafC = document.createElement('canvas'); leafC.width = leafC.height = 256; const lg = leafC.getContext('2d'); const r3 = K.rng(29);
-  for (let i = 0; i < 420; i++) { const a = r3() * 6.283, rr = Math.pow(r3(), .6) * 112, x = 128 + Math.cos(a) * rr, y = 128 + Math.sin(a) * rr * .9, sz = 4 + r3() * 7; lg.fillStyle = `rgb(${30 + r3() * 45 | 0},${42 + r3() * 50 | 0},${16 + r3() * 18 | 0})`; lg.beginPath(); lg.ellipse(x, y, sz, sz * .45, r3() * 6.283, 0, 6.283); lg.fill(); }
+  for (let i = 0; i < 190; i++) { const a = r3() * 6.283, rr = Math.pow(r3(), .7) * 100, x = 128 + Math.cos(a) * rr, y = 128 + Math.sin(a) * rr * .9, sz = 9 + r3() * 12;   // broad leaf clumps (small single leaves crawl in motion)
+    lg.fillStyle = `rgb(${30 + r3() * 45 | 0},${42 + r3() * 50 | 0},${16 + r3() * 18 | 0})`; lg.beginPath(); lg.ellipse(x, y, sz, sz * .45, r3() * 6.283, 0, 6.283); lg.fill(); }
   const leafT = K.tex(leafC, true); leafT.wrapS = leafT.wrapT = T.ClampToEdgeWrapping;
-  const leafMat = clip => { const m = new T.MeshLambertMaterial({ map: leafT, alphaTest: .5, side: T.DoubleSide, color: '#a0aa8c', emissive: '#06080a' }); if (clip) m.clippingPlanes = CLIP; return m; };
+  const leafMat = clip => { const m = new T.MeshLambertMaterial({ map: leafT, alphaTest: .5, alphaToCoverage: true, side: T.DoubleSide, color: '#a0aa8c', emissive: '#06080a' }); if (clip) m.clippingPlanes = CLIP; return m; };
   const reedMat = clip => { const m = new T.MeshLambertMaterial({ color: '#4a5232' }); if (clip) m.clippingPlanes = CLIP; return m; };
   const barkMat = clip => { const m = new T.MeshLambertMaterial({ color: '#2a221b' }); if (clip) m.clippingPlanes = CLIP; return m; };
   const trunkG = sweepY(8, 10, s => [Math.sin(s * 2.3) * .15, s, 0, .3 - s * .17, .3 - s * .17], true);
@@ -181,7 +191,7 @@
   function addWorld(par, clip) {
     const st = clip ? new T.Mesh(SG, concrete(true)) : statue; st.rotation.y = ROT; st.position.y = .87; par.add(st);
     const isl = new T.Mesh(IG, grassMat(clip)); isl.receiveShadow = !clip; par.add(isl);
-    const pl = new T.Mesh(plG, concrete(clip)); pl.rotation.y = ROT; pl.position.y = .52; pl.castShadow = pl.receiveShadow = !clip; par.add(pl);
+    const pl = new T.Mesh(plG, concrete(clip, true)); pl.rotation.y = ROT; pl.position.y = .52; pl.castShadow = pl.receiveShadow = !clip; par.add(pl);
     const bm = new T.InstancedMesh(bG, rockMat(clip), BOUL.length), M4 = new T.Matrix4(), Q = new T.Quaternion(), E = new T.Euler();
     BOUL.forEach(([x, y, z, s, o], i) => { M4.compose(new T.Vector3(x, y, z), Q.setFromEuler(E.set(o, o * 2, 0)), new T.Vector3(s, s, s)); bm.setMatrixAt(i, M4); }); bm.receiveShadow = !clip; par.add(bm);
     par.add(new T.Mesh(SHG, grassMat(clip)));
@@ -196,14 +206,14 @@
   }
   const world = new T.Group(); S.add(world); addWorld(world, false); addWorld(mirror, true);
   // ---------- the lake: dark translucent surface over the mirrored world, rippling highlights ----------
-  const ripN = K.normalMap(K.noise(512, { seed: 91, octaves: 5, sx: 1, sy: 3 }), 3); ripN.repeat.set(26, 26);
-  const water = new T.Mesh(new T.PlaneGeometry(600, 600), new T.MeshStandardMaterial({ color: '#04060b', roughness: .09, metalness: 0, normalMap: ripN, normalScale: new T.Vector2(.25, .25), transparent: true, opacity: .52, envMapIntensity: 1.2, depthWrite: true }));
+  const ripN = K.normalMap(K.noise(512, { seed: 91, octaves: 5, sx: 1, sy: 3 }), 3); ripN.repeat.set(26, 26); aniso(ripN);
+  const water = new T.Mesh(new T.PlaneGeometry(600, 600), fadeN(new T.MeshStandardMaterial({ color: '#04060b', roughness: .09, metalness: 0, normalMap: ripN, normalScale: new T.Vector2(.25, .25), transparent: true, opacity: .52, envMapIntensity: 1.2, depthWrite: true }), 10, 70, .18, 'pb-water'));
   water.rotation.x = -Math.PI / 2; water.receiveShadow = false; S.add(water);
   // ---------- light ----------
-  const hemi = new T.HemisphereLight('#6a6c96', '#1a140e', .8); S.add(hemi);
+  const hemi = new T.HemisphereLight('#7a8598', '#2a2116', .85); S.add(hemi);
   const sun = new T.DirectionalLight('#ffad66', 3.2); sun.position.copy(SUN).multiplyScalar(60); sun.castShadow = true; S.add(sun); S.add(sun.target);
   sun.shadow.mapSize.set(1024, 1024); const sc2 = sun.shadow.camera; sc2.left = -15; sc2.right = 15; sc2.top = 10; sc2.bottom = -6; sc2.near = 20; sc2.far = 110; sun.shadow.bias = -.0015; sun.shadow.normalBias = .09;
-  const fill = new T.DirectionalLight('#8f9ee0', .9); fill.position.set(26, 18, 34); S.add(fill);
+  const fill = new T.DirectionalLight("#a4b2c6", 1.5); fill.position.set(26, 18, 34); S.add(fill);
   const lamp = new T.PointLight('#ffc98a', 0, 30, 1.5); lamp.position.set(10, 6, 9); S.add(lamp);   // a warm park lamp off-frame, fades up a little
   // ---------- mist, motes, a few early stars ----------
   const mT = K.tex(K.noise(256, { seed: 5, octaves: 4 }), true); const mists = [];
@@ -238,10 +248,10 @@
     // camera: slow orbit from a 3/4 front view across the water; closes in on the head at "horn", rises, then pulls back for the ghost
     const a = .5 + u * .021, d = 26 - 7 * sm(0, 7, u) - 4 * hornK + 2 * yrs + 3.5 * wr, hgt = 3.1 + .9 * sm(0, 12, u) + 1.4 * wr;
     const tx = 1.0 + 2.2 * hornK - 1.0 * wr, ty = 2.6 + .4 * hornK + .3 * wr;
-    cam.position.set(Math.sin(a) * d + tx * .4, hgt, Math.cos(a) * d); cam.lookAt(tx, ty, 0);
+    cam.position.set(Math.sin(a) * d + tx * .4, hgt, Math.cos(a) * d); cam.lookAt(tx, ty, 0); cam.updateMatrixWorld();
     // light: dusk sinks a little; golden at "years"; cools on "wrong"
     const warm = 1 - .65 * wr; sun.intensity = (3.2 + .6 * yrs) * warm; sun.color.copy(SUNC).lerp(GOLD, yrs * .4);
-    hemi.intensity = .8 + .1 * wr; hemi.color.set('#6a6c96').lerp(COOL, wr * .4);
+    hemi.intensity = .85 + .1 * wr; hemi.color.set('#7a8598').lerp(COOL, wr * .4);
     lamp.intensity = 55 * sm(ctx.t0 + 2, ctx.t0 + 9, t) * (1 - .6 * wr);
     U.rimK.value = (.35 + .25 * hornK) * warm + .12 * wr; U.rimC.value.copy(SUNC).lerp(COOL, wr * .6);
     U.sunV.value.copy(SUN).transformDirection(cam.matrixWorldInverse);

@@ -79,14 +79,15 @@
     const dp = (x + 147) ** 2 + (z + 275) ** 2; h += 32 * Math.exp(-dp / 6000); return h; };
   const tg = new T.PlaneGeometry(1800, 1800, 200, 200); tg.rotateX(-Math.PI / 2);
   { const P = tg.attributes.position; for (let i = 0; i < P.count; i++) P.setY(i, H(P.getX(i), P.getZ(i))); tg.computeVertexNormals(); }
-  const grnd = K.noise(256, { seed: 3, octaves: 5 }), grT = K.tex(grnd, true, [90, 90]);
+  const grnd = K.noise(256, { seed: 3, octaves: 3 }), grT = K.tex(grnd, true, [90, 90]);   // no per-pixel octaves (stable in motion, 3A)
+  
   const terrain = new T.Mesh(tg, new T.MeshLambertMaterial({ color: '#232540', map: grT }));
   S.add(terrain);
 
   // ---------------- observatory ----------------
   const OB = new T.Group(); S.add(OB);
-  const concrete = new T.MeshStandardMaterial({ side: T.DoubleSide, color: '#c3c8da', roughness: .8, metalness: 0, map: (() => { const c = document.createElement('canvas'); c.width = c.height = 256; const g = c.getContext('2d'); g.fillStyle = '#d8dbe4'; g.fillRect(0, 0, 256, 256); g.globalAlpha = .22; g.drawImage(K.noise(256, { seed: 8, octaves: 5 }), 0, 0); g.globalAlpha = 1;
-    g.fillStyle = 'rgba(60,64,80,.55)'; [64, 128, 192].forEach(y => g.fillRect(0, y, 256, 2)); for (let x = 0; x < 256; x += 64) g.fillRect(x, 0, 2, 256); g.fillStyle = 'rgba(30,30,40,.25)'; g.fillRect(0, 240, 256, 16); return K.tex(c, true, [8, 1]); })() });
+  const concrete = new T.MeshStandardMaterial({ side: T.DoubleSide, color: '#c3c8da', roughness: .8, metalness: 0, map: (() => { const c = document.createElement('canvas'); c.width = c.height = 256; const g = c.getContext('2d'); g.fillStyle = '#d8dbe4'; g.fillRect(0, 0, 256, 256); g.globalAlpha = .22; g.drawImage(K.noise(256, { seed: 8, octaves: 3 }), 0, 0); g.globalAlpha = 1;
+    g.fillStyle = 'rgba(60,64,80,.55)'; [64, 128, 192].forEach(y => g.fillRect(0, y, 256, 2)); for (let x = 0; x < 256; x += 64) g.fillRect(x, 0, 2, 256); g.fillStyle = 'rgba(30,30,40,.25)'; g.fillRect(0, 240, 256, 16); const ct = K.tex(c, true, [8, 1]); return ct; })() });
   const metal = new T.MeshStandardMaterial({ color: '#d4d8e4', metalness: .15, roughness: .38, side: T.DoubleSide });
   const darkIn = new T.MeshStandardMaterial({ color: '#2a2433', roughness: .8, metalness: .2, side: T.DoubleSide });
   const WARM = new T.Color('#ffc27a'), ACC = new T.Color(ctx.ACC);

@@ -68,15 +68,24 @@
     g.setAttribute('color', new T.Float32BufferAttribute(CO, 3)); g.setIndex(IDX); g.computeVertexNormals(); g.computeBoundingSphere();
     _geo = g; return g;
   }
-  // material with a fresnel rim (silhouette edge light); rim colour/strength and emissive are changed per frame
-  function personMat(T, color, rim, k, rough) {
+  // material with a DIRECTIONAL fresnel rim: only the edges that face the light behind the figure catch it (fresnel weighted by
+  // the light direction in view space, spec 3A "backlit but readable"; never an all-round outline). `lit` is a shared uniform
+  // object { L: view-space direction (P = 0) or view-space light position (P = 1) } that the scene updates every frame.
+  function rimLight(T) { return { L: { value: new T.Vector3(0, .5, -.85) }, P: { value: 0 } }; }
+  function personMat(T, color, rim, k, rough, lit) {
     const m = new T.MeshStandardMaterial({ color, roughness: rough == null ? .74 : rough, metalness: 0, vertexColors: true });
-    m.userData.rimC = { value: new T.Color(rim) }; m.userData.rimK = { value: k };
-    m.onBeforeCompile = sh => { sh.uniforms.rimC = m.userData.rimC; sh.uniforms.rimK = m.userData.rimK;
-      sh.fragmentShader = 'uniform vec3 rimC; uniform float rimK;\n' + sh.fragmentShader.replace('#include <emissivemap_fragment>',
-        '#include <emissivemap_fragment>\n float fr = pow(1.0 - clamp(abs(dot(normal, normalize(vViewPosition))), 0.0, 1.0), 2.6); totalEmissiveRadiance += rimC * fr * rimK;'); };
+    m.userData.rimC = { value: new T.Color(rim) }; m.userData.rimK = { value: k }; lit = lit || rimLight(T);
+    m.onBeforeCompile = sh => { sh.uniforms.rimC = m.userData.rimC; sh.uniforms.rimK = m.userData.rimK; sh.uniforms.rimL = lit.L; sh.uniforms.rimP = lit.P;
+      sh.fragmentShader = 'uniform vec3 rimC; uniform float rimK; uniform vec3 rimL; uniform float rimP;\n' + sh.fragmentShader.replace('#include <emissivemap_fragment>',
+        '#include <emissivemap_fragment>\n vec3 rLv = normalize(rimP > .5 ? rimL + vViewPosition : rimL);\n' +
+        ' float fr = pow(1.0 - clamp(abs(dot(normal, normalize(vViewPosition))), 0.0, 1.0), 2.6);\n' +
+        ' vec2 rN = normal.xy / max(1e-4, length(normal.xy)), rS = rLv.xy / max(1e-4, length(rLv.xy));\n' +
+        ' float rw = smoothstep(-.25, .75, dot(rN, rS)) * (.35 + .65 * smoothstep(-.4, .5, dot(normal, rLv)));\n totalEmissiveRadiance += rimC * fr * rw * rimK;'); };
+    m.customProgramCacheKey = () => 'lhrimdir';
     return m;
   }
+  // world light (direction when P = 0, position when P = 1) -> view space, after the camera has moved
+  function aimRim(lit, cam, w) { cam.updateMatrixWorld(); if (lit.P.value > .5) lit.L.value.copy(w).applyMatrix4(cam.matrixWorldInverse); else lit.L.value.copy(w).transformDirection(cam.matrixWorldInverse); }
   // one person: { root (Object3D to place), mesh, bones, pose(o) }
   function person(T, mats) {
     const g = personGeo(T), bones = BPOS.map(() => new T.Bone());
@@ -95,7 +104,7 @@
     }
     return { root, mesh, bones, pose };
   }
-  M.lhPerson = { person, personMat, personGeo, WRR, WRL, CHEST, HEAD };
+  M.lhPerson = { person, personMat, personGeo, rimLight, aimRim, WRR, WRL, CHEST, HEAD };
 
   // navy-violet sky dome with a soft glow band
   function dome(T, top, mid, bot) {
@@ -111,7 +120,7 @@
     S.background = new T.Color('#05050e'); S.fog = new T.FogExp2('#0b0a18', .07);
     const HW = 1.42, Z0 = 4, Z1 = -20, LEN = Z0 - Z1, ZC = (Z0 + Z1) / 2;
     // floor: speckled rubber
-    const fl = K.noise(256, { seed: 3, octaves: 5, sx: 6, sy: 6 }), flT = K.tex(fl, true, [3, 22]);
+    const fl = K.noise(256, { seed: 3, octaves: 5, sx: 6, sy: 6 }), flT = K.tex(fl, true, [3, 22]); flT.anisotropy = ctx.R.capabilities.getMaxAnisotropy();
     const floor = new T.Mesh(new T.PlaneGeometry(HW * 2, LEN), new T.MeshStandardMaterial({ color: '#2b2a34', map: flT, roughness: .55, metalness: .1, envMap: E, envMapIntensity: .25 }));
     floor.rotation.x = -Math.PI / 2; floor.position.z = ZC; S.add(floor);
     const wallM = new T.MeshLambertMaterial({ color: '#3a3b48' });   // matte (Lambert: half the cost of PBR here)
@@ -152,7 +161,7 @@
     const stripM = new T.MeshBasicMaterial({ color: new T.Color('#ffd49a').multiplyScalar(.5) });
     [-1, 1].forEach(sd => { const s = new T.Mesh(new T.BoxGeometry(.07, .02, LEN), stripM); s.position.set(sd * .5, 2.44, ZC); S.add(s);
       const hs = new T.Mesh(new T.BoxGeometry(.2, .05, LEN), new T.MeshStandardMaterial({ color: '#1c1a22', metalness: .5, roughness: .55 })); hs.position.set(sd * .5, 2.47, ZC); S.add(hs); });
-    S.add(new T.HemisphereLight('#5a4a6a', '#08070c', .35));
+    S.add(new T.HemisphereLight('#66708a', '#0a0a10', .5));   // cool neutral fill (not violet): backs stay readable
     [0, -6, -12].forEach((z, i) => { const L = new T.PointLight('#ffc98a', 7, 10, 1.5); L.position.set(0, 2.25, z); S.add(L); });
     const winL = new T.DirectionalLight('#7f8cff', .35); winL.position.set(4, 1.5, -2); S.add(winL);
     // far end: connecting door with warm light beyond
@@ -162,8 +171,10 @@
     // dust in the light
     const dust = K.snow(S, { n: 900, box: [2.6, 2.2, 16], size: .02, opacity: .5, color: '#ffe0b8', fall: .03, center: [0, 1.2, -6] });
     // passengers
-    const r = rng(41), CLO = ['#2a2d3a', '#33292a', '#1f2a2c', '#3b3540', '#262630', '#3d3230'].map(c => personMat(T, c, '#ffb878', .35));
-    const HAIR = ['#141110', '#211812', '#0d0d10'].map(c => personMat(T, c, '#ffc58a', .45, .6));
+    // rim from the warm light ahead (ceiling strips + the lit door at the far end): world direction forward and up
+    const lit = rimLight(T), LW = new T.Vector3(0, .55, -1).normalize();
+    const r = rng(41), CLO = ['#2a2d3a', '#33292a', '#1f2a2c', '#3b3540', '#262630', '#3d3230'].map(c => personMat(T, c, '#ffb878', .6, null, lit));
+    const HAIR = ['#141110', '#211812', '#0d0d10'].map(c => personMat(T, c, '#ffc58a', .7, .6, lit));
     const PEOPLE = [
       // x, z, rotY, scale, kind  (rail: right hand on the rail, railL: left hand, phone, pole, sit)
       [.3, -.4, .05, 1.02, 'rail'], [-.35, -1.6, -.1, .97, 'phone'], [.45, -2.9, .1, 1.05, 'rail'], [-.15, -3.9, 0, .94, 'railL'], [.2, -5.3, -.05, 1.0, 'rail'],
@@ -190,6 +201,7 @@
       dust.update(t, [0, 1.2, -6]);
       const cz = 3.3 - u * .32;
       cam.position.set(.12 + rock * .4, 1.52 + bump, cz); cam.lookAt(.05 + rock * .2, 1.38, cz - 12); cam.rotation.z += rock * .12;
+      aimRim(lit, cam, LW);
     } };
   };
 
@@ -201,7 +213,7 @@
     // floor: dark polished stone with faint tiles
     const ft = ctx.ctex(512, (g, z) => { g.fillStyle = '#0c0d1c'; g.fillRect(0, 0, z, z); g.drawImage(K.noise(256, { seed: 8, octaves: 4 }), 0, 0, z, z); g.fillStyle = 'rgba(8,9,22,.82)'; g.fillRect(0, 0, z, z);
       g.strokeStyle = 'rgba(150,160,255,.10)'; g.lineWidth = 2; g.strokeRect(1, 1, z - 2, z - 2); });
-    ft.wrapS = ft.wrapT = T.RepeatWrapping; ft.repeat.set(60, 60);
+    ft.wrapS = ft.wrapT = T.RepeatWrapping; ft.repeat.set(60, 60); ft.anisotropy = ctx.R.capabilities.getMaxAnisotropy();
     // unlit floor (lighting baked into vertex colours: a cool sheen toward the backlit horizon, darker at the camera) — a lit
     // full-screen floor cost more than all 100 people in the software renderer
     const fg = new T.PlaneGeometry(130, 130, 64, 64); fg.rotateX(-Math.PI / 2); const fcol = [], fp = fg.attributes.position;
@@ -209,17 +221,20 @@
       const k = .22 + .9 * Math.exp(-d * d / 160) + .2 * Math.exp(-(x * x + (z + 5.5) ** 2) / 60); fcol.push(.7 * k, .75 * k, 1.2 * k); }
     fg.setAttribute('color', new T.Float32BufferAttribute(fcol, 3));
     const floor = new T.Mesh(fg, new T.MeshBasicMaterial({ map: ft, vertexColors: true })); floor.position.z = -10; S.add(floor);
-    S.add(new T.HemisphereLight('#4a4c9a', '#05050c', .55));
+    S.add(new T.HemisphereLight('#6c7896', '#0a0a12', 3.0));   // cool neutral fill (not violet)
     const back = new T.DirectionalLight('#9aa8ff', 1.25); back.position.set(-3, 9, -22); S.add(back);
-    const fill = new T.DirectionalLight('#ffd2a0', .22); fill.position.set(6, 5, 14); S.add(fill);
+    // cool neutral fill from the camera side: form stays readable
+    const fill = new T.DirectionalLight('#b4bed2', 1.4); fill.position.set(6, 5, 14); S.add(fill);
     const horizon = ctx.glow(S, '#5a4fc0', 60, .22); horizon.position.set(4, 2, -55);
     const horizon2 = ctx.glow(S, '#2a3a9a', 120, .25); horizon2.position.set(-20, -4, -70);
     ctx.stars(S, 1200, 300, { size: .8, seed: 19, opacity: .5 });
     // 10 rows x 10; one left-hander per row
-    const r = rng(77), NR = 10, NC = 10, DX = 1.05, DZ = 1.3, cols = ['#2c3044', '#353046', '#273444', '#3a3644', '#2f2f3a', '#342c34'];
-    const coolM = cols.map(c => personMat(T, c, '#7fa6ff', .55));
-    const hairM = personMat(T, '#121218', '#8fb0ff', .6, .6);
-    const leftM = personMat(T, '#3a3442', '#7fa6ff', .55), leftHair = personMat(T, '#16131a', '#8fb0ff', .6, .6);
+    const r = rng(77), NR = 10, NC = 10, DX = 1.05, DZ = 1.3, cols = ['#4c5368', '#555068', '#475668', '#5a5668', '#50505c', '#574d56'];   // mid-dark cloth so the cool fill shows form
+    // rims only on the edges facing the backlight over the horizon (direction of `back`)
+    const lit = rimLight(T), LW = back.position.clone().normalize();
+    const coolM = cols.map(c => personMat(T, c, '#7fa6ff', .55, null, lit));
+    const hairM = personMat(T, '#121218', '#8fb0ff', .6, .6, lit);
+    const leftM = personMat(T, '#3a3442', '#7fa6ff', .55, null, lit), leftHair = personMat(T, '#16131a', '#8fb0ff', .6, .6, lit);
     const LEFTCOL = []; for (let k = 0; k < NR; k++) LEFTCOL.push(1 + ((r() * 8) | 0));
     const crowd = [];
     for (let row = 0; row < NR; row++) for (let c = 0; c < NC; c++) {
@@ -260,9 +275,9 @@
         if (pools[i]) pools[i].material.opacity = lift * (.5 + .25 * share); });
       hp.geometry.attributes.position.needsUpdate = hp.geometry.attributes.color.needsUpdate = hg.geometry.attributes.position.needsUpdate = hg.geometry.attributes.color.needsUpdate = true;
       // materials: cool rim grows with the raised right hands, then dims; the left-handers take the warm accent
-      coolM.forEach(m => { m.userData.rimK.value = .55 + .5 * rightOn - .45 * share; });
-      hairM.userData.rimK.value = .6 + .4 * rightOn - .4 * share;
-      leftM.userData.rimC.value.copy(new T.Color('#7fa6ff')).lerp(ACC, lift); leftM.userData.rimK.value = .55 + lift * (1.8 + .8 * share);
+      coolM.forEach(m => { m.userData.rimK.value = .95 + .6 * rightOn - .55 * share; });
+      hairM.userData.rimK.value = 1 + .5 * rightOn - .5 * share;
+      leftM.userData.rimC.value.copy(new T.Color('#7fa6ff')).lerp(ACC, lift); leftM.userData.rimK.value = .95 + lift * (1.8 + .8 * share);
       leftM.emissive.copy(ACC).multiplyScalar(lift * (.22 + .12 * share));
       leftHair.userData.rimC.value.copy(new T.Color('#8fb0ff')).lerp(ACC, lift); leftHair.userData.rimK.value = .6 + lift * 1.8;
       halos.forEach((h, k) => { h.material.opacity = lift * (.28 + .14 * share) * (.9 + .1 * Math.sin(t * 2 + k)); });
@@ -272,7 +287,8 @@
       dust.update(t, [0, 3, -6]);
       // camera: behind and above the crowd, slow drift; leans in a little toward the field when the left-handers appear
       const k = sm(0, dur, u), ca = .2 - .1 * k, cd = 15.5 - 1.5 * k - 1.0 * lift, ch = 5.4 + .6 * k;
-      cam.position.set(Math.sin(ca) * cd, ch, -5.8 + Math.cos(ca) * cd); cam.lookAt(0, .7, -5.6);
+      cam.position.set(Math.sin(ca) * cd, ch, -5.8 + Math.cos(ca) * cd); cam.lookAt(0, 1.1, -5.6);
+      aimRim(lit, cam, LW);
     } };
   };
 
