@@ -4,6 +4,17 @@
 
 ---
 
+## 2026-10-15 실제 3D 모델·실사 사진 시험 도구 삭제 (사용자 결정)
+
+실제 3D 모델(Sketchfab·Poly Haven, Blender 변환), HDRI 조명, 실사 사진 + 깊이 시차(무료 사진·Gemini) 방식을 시험했으나 사용자가
+"이질감이 든다", "별로다"로 판단해 코드로 만드는 3D(C안)로 돌아갔다. 시험에 쓴 것을 모두 지웠다(깃 기록 커밋 `48f15d3`에 남아 있음).
+- 도구: `tools/model_prep.py`, `tools/hdri_prep.py`, `tools/gen_image.py`, `tools/depth_prep.py`, `tools/cine/scenes/photo.js`,
+  `tools/cine/assets/gltf-loader.js`, `tools/cine/models/`, `kit.model()`·`kit.hdri()`, build_cine의 `// models:`·사진 넣기
+- 워크플로: `fetch-model.yml`, `gen-image.yml`, `fetch-files.yml`
+- 시험 폴더: `videos/_photo_cands`, `videos/epomis-frog-hunter-v2-cine/plates`, `videos/{frog,whale,cosmic}-photo-cine`, 같은 이름의 `render/`
+- 연못 장면(`pond.js` 두 사본)의 실제 모델·HDRI 옵션 되돌림
+- 저장소 비밀값 `SKETCHFAB_TOKEN`은 GitHub 설정에 남아 있다(쓰지 않음, 지우려면 Settings > Secrets).
+
 ## 2026-10-14 전면 정리: 시네마틱 3D(cine) 방식만 남김 (사용자 결정)
 
 사용자: "오늘 2A 방식으로 앞으로 갈 거야. 그전에 있던 것들 중 필요 없거나 합칠 수 있는 거 다 합치거나 지워서 깔끔하게". 선택: 예전 렌더 원본 삭제, 예전 SVG 도구 전부 삭제, 예전 대본은 대본만 남김, 지침서는 2A 중심으로 재작성. 정리 직전 상태는 커밋 `ff7818b`(main) / `605672c`(render-pipeline)에 있다.
