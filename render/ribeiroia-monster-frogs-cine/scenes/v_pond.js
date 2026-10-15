@@ -7,7 +7,7 @@
 // plane) distorted by ripples; seen from below it shows the Snell window. Reeds, cattails and grass sway in the vertex shader.
 // params:
 //   mode: 'night' | 'day'
-//   night look (2026-10-15): backlit by the moon, weak front fill, moonlit rim on the frog, low mist over the water.
+//   night look (2026-10-15): backlit by the moon, a cool fill that keeps the frog readable, moonlit rim, low mist over the water.
 //   night cues: insect (a firefly drifts in), moves (it darts in front of the frog), tongue (the strike), reveal (camera pulls back
 //               over the pond)
 //   day cues:   flies (dragonflies drift through the reeds), still (the ripples die away), wide (camera rises for the calm wide view),
@@ -25,8 +25,8 @@
   const col = h => new T.Color(h);
 
   // ---------------- palette / atmosphere ----------------
-  const PAL = NIGHT ? { fog: '#0a0e26', fogD: .03, skyTop: '#050820', skyMid: '#141a4a', skyHor: '#363a78', deep: '#01020a', hemiS: '#6878e0', hemiG: '#141020', hemiI: .75,
-      key: '#b4c4ff', keyI: 3.6, sunDir: [-.36, .17, -1], env: .05 }
+  const PAL = NIGHT ? { fog: '#0a0e26', fogD: .03, skyTop: '#050820', skyMid: '#141a4a', skyHor: '#363a78', deep: '#01020a', hemiS: '#6878e0', hemiG: '#141020', hemiI: 1.5,
+      key: '#b4c4ff', keyI: 3.2, sunDir: [-.36, .17, -1], env: .05 }
     : { fog: '#56646c', fogD: .02, skyTop: '#1e4a70', skyMid: '#5f8098', skyHor: '#f2b46a', deep: '#06160f', hemiS: '#b8d4ec', hemiG: '#3a3218', hemiI: .8,
       key: '#ffd49a', keyI: 2.6, keyDir: [-.55, .6, .6], sunDir: [-.3, .1, -1], env: .28 };
   const FOGC = col(PAL.fog), UWC = col('#062420');
@@ -35,7 +35,8 @@
   const hemi = new T.HemisphereLight(PAL.hemiS, PAL.hemiG, PAL.hemiI); S.add(hemi);
   const key = new T.DirectionalLight(PAL.key, PAL.keyI); key.position.set(...(PAL.keyDir || PAL.sunDir)).normalize().multiplyScalar(50); S.add(key);
   if (!NIGHT) { const rim = new T.DirectionalLight('#ffb060', 2.4); rim.position.copy(SUN).multiplyScalar(50); S.add(rim); }
-  const fill = new T.DirectionalLight(NIGHT ? '#8a7cff' : '#8fb4ff', NIGHT ? .3 : .45);   // night: weak front fill, the frog reads as a backlit silhouette fill.position.set(10, 12, 30); S.add(fill);
+  // night fill: cool moonlight (not purple), weaker than the backlight so the frog keeps a lit edge
+  const fill = new T.DirectionalLight(NIGHT ? '#9aaad6' : '#8fb4ff', NIGHT ? 1.1 : .45); fill.position.set(10, 12, 30); S.add(fill);
   const ENV = ctx.env();   // image light only on small glossy parts (eyes, dragonflies): IBL on large areas is slow in software GL
   // sky dome (moon or low sun glow toward SUN)
   const dome = new T.Mesh(new T.SphereGeometry(600, 48, 24), new T.ShaderMaterial({ side: T.BackSide, depthWrite: false, fog: false,

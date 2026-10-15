@@ -76,14 +76,17 @@
   // grain map is a mid-grey noise: lift it so it modulates instead of darkening
   sandM.onBeforeCompile = null; hazeFog(sandM); const _obc = sandM.onBeforeCompile;
   sandM.onBeforeCompile = sh => { _obc(sh); sh.fragmentShader = sh.fragmentShader.replace('diffuseColor.rgb *= 1.0;', 'diffuseColor.rgb = diffuseColor.rgb / max(texture2D(map, vMapUv).rgb, vec3(.001)) * (.82 + .36 * texture2D(map, vMapUv).r);'); };
+  { const _o2 = sandM.onBeforeCompile;   // ripples fade with distance: far ripples are finer than a pixel and turned into crawling moire bands in motion (2026-10-15)
+    sandM.onBeforeCompile = sh => { _o2(sh); sh.fragmentShader = sh.fragmentShader.replace('#include <normal_fragment_maps>', T.ShaderChunk.normal_fragment_maps.replace('mapN.xy *= normalScale;', 'mapN.xy *= normalScale * (1. - .9 * smoothstep(14., 60., length(vViewPosition)));')); }; }
+  ripN.anisotropy = grain.anisotropy = R ? R.capabilities.getMaxAnisotropy() : 4;
   const terrain = new T.Mesh(tg, sandM); terrain.receiveShadow = true; terrain.castShadow = true; S.add(terrain);
   // ---------- light ----------
   const sun = new T.DirectionalLight('#ffc890', 3.2); sun.position.copy(SUN).multiplyScalar(400); S.add(sun, sun.target);
-  sun.castShadow = true; sun.shadow.mapSize.set(1024, 1024); const sc = sun.shadow.camera; sc.left = -260; sc.right = 260; sc.top = 260; sc.bottom = -260; sc.near = 10; sc.far = 1200; sun.shadow.bias = -.0006; sun.shadow.normalBias = .6;
-  R.shadowMap.enabled = true; R.shadowMap.type = T.PCFShadowMap;
+  sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); const sc = sun.shadow.camera; sc.left = -150; sc.right = 150; sc.top = 150; sc.bottom = -150; sc.near = 10; sc.far = 1200; sun.shadow.bias = -.0006; sun.shadow.normalBias = .6;
+  R.shadowMap.enabled = true; R.shadowMap.type = T.PCFSoftShadowMap;
   const hemi = new T.HemisphereLight('#7088b0', '#8a5028', 1.45); S.add(hemi);   // strong sand bounce: shaded slip faces stay warm, not muddy
   // ---------- oasis: water (planar reflection) ----------
-  const rtRef = new T.WebGLRenderTarget(ctx.W >> 2, ctx.H >> 2, { type: T.HalfFloatType, colorSpace: T.LinearSRGBColorSpace });
+  const rtRef = new T.WebGLRenderTarget(ctx.W >> 1, ctx.H >> 1, { type: T.HalfFloatType, colorSpace: T.LinearSRGBColorSpace });
   const wU = { tRef: { value: rtRef.texture }, res: { value: new T.Vector2(ctx.W, ctx.H) }, time: { value: 0 }, hazeK };
   const water = new T.Mesh(new T.CircleGeometry(48, 96), new T.ShaderMaterial({ uniforms: wU, transparent: true, depthWrite: false,
     vertexShader: 'varying vec3 vWP; void main(){ vec4 w=modelMatrix*vec4(position,1.); vWP=w.xyz; gl_Position=projectionMatrix*viewMatrix*w; }',
@@ -93,7 +96,7 @@
         vec3 v=normalize(cameraPosition-vWP); float fr=.04+.96*pow(1.-max(v.y,0.),5.);
         vec2 uv=gl_FragCoord.xy/res; uv.y=1.-uv.y; uv+=n*.006;
         vec3 refl=min(texture2D(tRef,uv).rgb,vec3(.75));
-        vec3 N=normalize(vec3(-n.x*.08,1.,-n.y*.08)); float sp=pow(max(dot(reflect(-v,N),SUNDIR),0.),900.)*2.;
+        vec3 N=normalize(vec3(-n.x*.08,1.,-n.y*.08)); float sp=pow(max(dot(reflect(-v,N),SUNDIR),0.),220.)*.7;
         vec3 body=vec3(.03,.21,.19);
         vec3 c=mix(body,refl*vec3(.55,.8,.8),clamp(.12+fr*.45,0.,1.))+vec3(1.,.8,.55)*sp;
         float a=clamp(.42+fr*.4,0.,1.);
@@ -179,14 +182,14 @@
   // the terrain under the camera, smoothed along the path (soft maximum of samples ahead and behind) so the glide never jerks
   function ground(t) { let acc = 0; for (let k = -5; k <= 4; k++) { const q = path(t + k * .3), h = H(q[0], q[1]); acc += Math.exp(h * .35) * Math.exp(-k * k / 30); } return Math.log(acc / 5.2) / .35; }
   const quad = new T.Scene(), qcam = new T.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-  const rtS = new T.WebGLRenderTarget(ctx.W, ctx.H, { type: T.HalfFloatType, samples: 0, colorSpace: T.LinearSRGBColorSpace });
+  const rtS = new T.WebGLRenderTarget(ctx.W, ctx.H, { type: T.HalfFloatType, samples: 4, colorSpace: T.LinearSRGBColorSpace });
   const qU = { tS: { value: rtS.texture }, time: { value: 0 }, hy: { value: .5 }, amt: { value: 0 }, asp: { value: ctx.W / ctx.H } };
   const qm = new T.Mesh(new T.PlaneGeometry(2, 2), new T.ShaderMaterial({ uniforms: qU, depthTest: false, depthWrite: false,
     vertexShader: 'varying vec2 vUv; void main(){ vUv=uv; gl_Position=vec4(position.xy,0.,1.); }',
     fragmentShader: `uniform sampler2D tS; uniform float time,hy,amt,asp; varying vec2 vUv;
       void main(){ vec2 uv=vUv; float band=exp(-pow((uv.y-hy)/.05,2.)), below=smoothstep(hy+.01,hy-.3,uv.y)*.45;
         float a=amt*(band+below);
-        vec2 o=vec2(sin(uv.y*520.+time*11.+sin(uv.x*36.+time*2.3)*2.4)+.6*sin(uv.y*210.-time*7.+uv.x*14.), .5*sin(uv.x*120.+time*6.+uv.y*260.))*a*.0016;
+        vec2 o=vec2(sin(uv.y*90.+time*2.2+sin(uv.x*9.+time*.7)*1.6)+.5*sin(uv.y*41.-time*1.6+uv.x*5.), .4*sin(uv.x*30.+time*1.4+uv.y*60.))*a*.0022;
         vec3 c=texture2D(tS,uv+o).rgb;
         float mb=smoothstep(hy-.03,hy-.008,uv.y)*(1.-smoothstep(hy-.004,hy+.001,uv.y));
         vec3 m=texture2D(tS,vec2(uv.x,2.*hy-uv.y+.006)+o*2.5).rgb; c=mix(c,m*vec3(.95,.97,1.05),mb*.6*amt);
@@ -203,7 +206,7 @@
     // --- camera ---
     const pp = path(t), pa = path(t + 1.2), heading = Math.atan2(pa[1] - pp[1], pa[0] - pp[0]);
     const gH = ground(t), low = sm(cLow - .5, cLow + 1.5, t) * (1 - sm(cTurn - .5, cTurn + 2, t));
-    const clr = 16 - low * 9 - sm(cTurn, cRev - 1.5, t) * 13 + sm(cRev - .3, cRev + 2.5, t) * 6;
+    const clr = 16 - low * 9 - sm(cTurn, cRev - 1.5, t) * 13 + sm(cRev - .3, cRev + 2.5, t) * 10;
     const camY = gH + clr; cam.position.set(pp[0], camY, pp[1]);
     // yaw: ahead; look right toward the sun at "sun", sweep the horizon at "empty", back ahead; at the reveal turn right/down to the oasis
     const yawSweep = sm(cEmpty, cEmpty + 2.6, t) * .38 - sm(cEmpty + 2.2, cLow, t) * .62 + sm(cLow - .5, cLow + 2, t) * .24;   // the pan stays on the sun side (2026-10-15: backlit crests, no muddy slip faces filling the frame)
@@ -215,7 +218,11 @@
     V2.set(pp[0] + Math.cos(yaw) * Math.cos(pitch) * 100, camY + Math.sin(pitch) * 100, pp[1] + Math.sin(yaw) * Math.cos(pitch) * 100);
     cam.up.set(Math.sin(t * .3) * .008, 1, 0); cam.lookAt(V2);
     // --- light follows the camera for the shadow map ---
-    sun.target.position.set(pp[0] + Math.cos(yaw) * 180, 0, pp[1] + Math.sin(yaw) * 180); sun.position.copy(sun.target.position).addScaledVector(SUN, 500);
+    // snapped to whole shadow texels in light space (2026-10-15: a sliding shadow camera made the palm shadows crawl)
+    sun.target.position.set(pp[0] + Math.cos(yaw) * 110, 0, pp[1] + Math.sin(yaw) * 110);
+    { const tx = 300 / 2048, lx = V3.set(0, 1, 0).cross(SUN).normalize(), ly = new T.Vector3().crossVectors(SUN, lx).normalize(), q = sun.target.position;
+      const a = Math.round(q.dot(lx) / tx) * tx - q.dot(lx), b = Math.round(q.dot(ly) / tx) * tx - q.dot(ly); q.addScaledVector(lx, a).addScaledVector(ly, b); }
+    sun.position.copy(sun.target.position).addScaledVector(SUN, 500);
     // --- sand grains: skim downwind (+x) close to the surface around the camera ---
     const sa = sand.geometry.attributes.position.array, sc2 = sand.geometry.attributes.color.array, BX = 160, BZ = 120;
     for (let i = 0; i < NP; i++) { const [a, b, c, d] = sbuf[i]; const ph = t * (.5 + d * .4) + a * 7, cyc = Math.floor(ph), f = ph - cyc;
@@ -232,6 +239,6 @@
     // --- main pass into the target, then shimmer ---
     sky.position.copy(cam.position); R.setRenderTarget(rtS); R.render(S, cam); R.setRenderTarget(null);
     V3.set(cam.position.x + Math.cos(yaw) * 3000, cam.position.y, cam.position.z + Math.sin(yaw) * 3000).project(cam); qU.hy.value = V3.y * .5 + .5;
-    qU.time.value = t; qU.amt.value = .35 + .65 * sm(cShim - .5, cShim + 1.5, t) - .45 * rv;
+    qU.time.value = t; qU.amt.value = Math.max(0, sm(cShim - .5, cShim + 2, t) - .6 * rv);
   } };
 };
