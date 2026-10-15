@@ -163,17 +163,17 @@
     const Ht = 8 + pr() * 7, m = new T.Mesh(palmGeo(100 + i, Ht, .05 + pr() * .1, th + (pr() - .5) * .6), plantM); m.position.set(x, H(x, z) - .2, z); m.castShadow = true; S.add(m); palms.push(m); palmPos.push([x, z]); }
   for (let i = 0; i < 9; i++) { const th = pr() * 6.283, rr = Rp(th) + 6 + pr() * 18, x = OX + Math.cos(th) * rr, z = OZ + Math.sin(th) * rr;   // young palms
     const m = new T.Mesh(palmGeo(300 + i, 1.2 + pr() * 1.5, .02, th), plantM); m.position.set(x, H(x, z) - .1, z); m.scale.setScalar(.8); S.add(m); oasis.push(m); }
-  // grass tufts: one mesh per tuft (blades from a common base), instanced
-  const tuft = (() => { const G = new Geo(), q = ctx.rng(8); for (let b = 0; b < 14; b++) { const a = q() * 6.283, l = .6 + q() * .7, lean = .3 + q() * .5, w = .05, base = G.p.length / 3;
-      for (let k = 0; k < 5; k++) { const s = k / 4, x = Math.cos(a) * lean * l * s * s, z = Math.sin(a) * lean * l * s * s, y = l * s, ww = w * (1 - s);
-        G.add(x - Math.sin(a) * ww, y, z + Math.cos(a) * ww, .3, .5, 0, s * .6, a); G.add(x + Math.sin(a) * ww, y, z - Math.cos(a) * ww, .32, .5, 0, s * .6, a); }
-      for (let k = 0; k < 4; k++) { const a0 = base + k * 2; G.i.push(a0, a0 + 2, a0 + 1, a0 + 1, a0 + 2, a0 + 3); } } return G.build(); })();
-  const grassM = new T.MeshStandardMaterial({ color: '#8a9a3c', emissive: '#1c2408', roughness: .8, side: T.DoubleSide }); grassM.onBeforeCompile = plantM.onBeforeCompile;
-  [plantM, grassM].forEach(m => { const a = m.onBeforeCompile; hazeFog(m); const b = m.onBeforeCompile; m.onBeforeCompile = sh => { a(sh); b(sh); }; });
-  const NG = 260, gim = new T.InstancedMesh(tuft, grassM, NG), M4 = new T.Matrix4(), Q = new T.Quaternion(), V = new T.Vector3(), Sc = new T.Vector3();
-  for (let i = 0; i < NG; i++) { const th = pr() * 6.283, rr = Rp(th) + .5 + Math.pow(pr(), 2) * 12, x = OX + Math.cos(th) * rr, z = OZ + Math.sin(th) * rr, s = .7 + pr() * 1.1;
-    V.set(x, H(x, z) - .05, z); Q.setFromAxisAngle(new T.Vector3(0, 1, 0), pr() * 6.28); Sc.set(s, s, s); M4.compose(V, Q, Sc); gim.setMatrixAt(i, M4); }
-  S.add(gim); oasis.push(gim);
+  [plantM].forEach(m => { const a = m.onBeforeCompile; hazeFog(m); const b = m.onBeforeCompile; m.onBeforeCompile = sh => { a(sh); b(sh); }; });
+  // grass: soft strand tufts ringing the water (kit grass; never hard spiky blades, user 2026-10-15), denser at the waterline,
+  // with the same glowing haze as everything else
+  const oGrass = K.grass(S, { seed: 17, n: 950, area: [OX - 48, OZ - 48, OX + 48, OZ + 48], ground: H, size: [1.15, .85], cards: 3, splay: .5, base: .45, receiveShadow: false, sun: SUN.toArray(), wind: .08, thin: [400, 500, 1],
+    mask: (x, z) => { const d = Math.hypot(x - OX, z - OZ) - Rp(Math.atan2(z - OZ, x - OX)); return d < .2 ? 0 : Math.exp(-Math.max(0, d - .8) / 2.2); },
+    scale: (x, z) => .7 + .7 * fbm(x * .15, z * .15, 2), trans: '#ffc070', transK: 1.4, tint: '#ffffff', dryTint: '#f0d898', dryFrac: .12, color: '#d8ecb0',
+    strands: { n: 600, width: 3.6, hMin: .45, spread: 1.15, root: '#4a5418', tip: '#b8cc5c', dry: '#d8c070', dryFrac: .15 },
+    band: { path: Array.from({ length: 240 }, (_, i) => { const th = i / 240 * 6.283, r = Rp(th) + 1.1; return [OX + Math.cos(th) * r, OZ + Math.sin(th) * r]; }), closed: true, height: 1.1, rows: 2, rowGap: 1.3, tile: 2.4,
+      strands: { root: '#4a5418', tip: '#b8cc5c', dry: '#d8c070', dryFrac: .15 } } });
+  oGrass.group.traverse(o => { if (o.material) { const m = o.material, a = m.onBeforeCompile; hazeFog(m); const b = m.onBeforeCompile; m.onBeforeCompile = sh => { a(sh); b(sh); }; } });
+  oasis.push(oGrass.group);
   // ---------- blowing sand: grains skimming the surface downwind, + a thin veil off the crests ----------
   const NP = 3000, sand = ctx.points(NP, { size: .16, opacity: .55, color: '#ffd9a8' }), sbuf = []; const r7 = ctx.rng(31); S.add(sand); sand.frustumCulled = false;
   for (let i = 0; i < NP; i++) sbuf.push([r7(), r7(), r7(), r7()]);
@@ -239,6 +239,7 @@
       camR.projectionMatrix.copy(cam.projectionMatrix); camR.projectionMatrixInverse.copy(cam.projectionMatrixInverse);
       sky.position.copy(camR.position); R.clippingPlanes = [clip]; const sh = R.shadowMap.autoUpdate; R.setRenderTarget(rtRef); R.render(S, camR); R.clippingPlanes = []; }
     water.visible = showW;
+    if (showW) { cam.updateMatrixWorld(); oGrass.update(t, cam); }
     // --- main pass into the target, then shimmer ---
     sky.position.copy(cam.position); R.setRenderTarget(rtS); R.render(S, cam); R.setRenderTarget(null);
     V3.set(cam.position.x + Math.cos(yaw) * 3000, cam.position.y, cam.position.z + Math.sin(yaw) * 3000).project(cam); qU.hy.value = V3.y * .5 + .5;

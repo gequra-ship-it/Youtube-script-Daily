@@ -2,8 +2,8 @@
 // A realistic human heart (ONE mesh: deformed sphere + great vessels merged, beating "lub-dub" by vertex deform, glowing coronary
 // vessels, warm light that lights the bones around it); ribs and backbone (solid bones with depth: flat ribs swept along curves,
 // instanced vertebrae with body, arch and processes) revealed by a glowing scan line; two lungs (ONE mesh each, translucent, breathing
-// by deform); above them a skull seen as an x-ray ghost with solid upper and lower jaws (the mandible is a separate bone on a hinge,
-// it opens and closes as if speaking). At "strange" the camera pulls far back into a dark ancient ocean (fog, god rays, marine snow)
+// by deform); above them a calm frosted-glass head (no face features) seen from the side, with the jaw bones softly lit inside
+// (the mandible is a separate bone on a hinge, it opens and closes as if speaking; the glass chin follows a little). At "strange" the camera pulls far back into a dark ancient ocean (fog, god rays, marine snow)
 // where early armoured fish (ONE mesh each, kit.body + fins merged, swimming by deform) glide past; the heart's glow stays as a
 // distant light.
 // params (cues): { ribs, spine, lungs, jaw (skull + jaws appear, camera tilts up), open (jaw opens and "speaks"), ocean (pull back
@@ -111,7 +111,8 @@
         .replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
           { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.2); totalEmissiveRadiance += rimC*fr*rimK*${RIMW} + revC*exp(-pow((rev-vWP.y)/.14,2.))*2.5; }`); };
     m.userData.U = U; return m; }
-  const ribMat = boneMat(), spineMat = boneMat(), jawMat = boneMat(), toothMat = boneMat({ color: '#f4efe2', roughness: .3, normalScale: new T.Vector2(.15, .15) });
+  const ribMat = boneMat(), spineMat = boneMat(), jawMat = boneMat({ color: '#bfb39b', normalScale: new T.Vector2(.25, .25), roughness: .7 }), toothMat = boneMat({ color: '#8f877a', roughness: .5, normalScale: new T.Vector2(.15, .15) });
+  toothMat.userData.U.rimK.value = .25;   // small teeth stay in shadow
   // spine: S-curved column, vertebrae instanced along it (body + arch + spinous + transverse processes)
   const spineCv = new T.CatmullRomCurve3(V3([[0, -5.2, -2.0], [0, -2.6, -2.35], [0, 0, -2.55], [0, 2.6, -2.45], [0, 4.6, -2.0], [0, 6.2, -1.7]]));
   const vertG = (() => { const lp = [[0, -.22], [.34, -.22], [.4, -.18], [.36, 0], [.4, .18], [.34, .22], [0, .22]].map(([r, y]) => new T.Vector2(r, y));
@@ -155,43 +156,54 @@
         { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.); totalEmissiveRadiance += vec3(.55,.75,1.)*fr*.9*(.3+.7*${RIMW}); }`).replace('#include <opacity_fragment>', '#include <opacity_fragment>\ndiffuseColor.a *= op; { float fr=pow(1.-abs(dot(normal,normalize(vViewPosition))),2.); diffuseColor.a = op*(.28+.6*fr); }'); };
     return m; };
   const lungs = [1, -1].map(sd => { const m = new T.Mesh(lungGeo(sd), lungMat()); m.position.set(sd * 1.75, .2, -.6); m.renderOrder = 2; S.add(m); return m; });
-  // ---------- skull: x-ray ghost cranium + solid upper jaw and a hinged lower jaw ----------
-  const SK = new T.Group(); SK.position.set(0, 7.9, -.6); S.add(SK);
-  const cranG = (() => { const g2 = new T.SphereGeometry(1, 96, 72), P = g2.attributes.position; const so = [new T.Vector3(.42, .02, .9).normalize(), new T.Vector3(-.42, .02, .9).normalize()], nose = new T.Vector3(0, -.32, 1).normalize(), d = new T.Vector3();
-    for (let i = 0; i < P.count; i++) { d.set(P.getX(i), P.getY(i), P.getZ(i)); let r = 1;
-      so.forEach(s => { r -= .28 * Math.exp(-Math.pow(d.angleTo(s) / .22, 2)); }); r -= .2 * Math.exp(-Math.pow(d.angleTo(nose) / .14, 2));
-      const face = sm(.2, .9, d.z) * sm(.3, -.6, d.y);   // face drops forward-down
-      let x = d.x * r * 1.45, y = d.y * r * 1.55, z = d.z * r * 1.85; y -= face * .55; z += face * .2; x *= 1 - face * .25;
-      if (d.y < -.5 && d.z < .3) y = -.5 * 1.55 + (y + .5 * 1.55) * .4;   // flat skull base
-      P.setXYZ(i, x, y + .6, z - .3); }
-    g2.computeVertexNormals(); return g2; })();
-  const GU = { col: { value: new T.Color('#ffd9a8') }, op: { value: 0 }, rimL: RIM.rimL };
-  const cran = new T.Mesh(cranG, new T.ShaderMaterial({ uniforms: GU, transparent: true, depthWrite: false, blending: T.AdditiveBlending, side: T.DoubleSide,
-    vertexShader: 'varying vec3 vN; varying vec3 vV; void main(){ vec4 mv=modelViewMatrix*vec4(position,1.); vN=normalize(normalMatrix*normal); vV=-mv.xyz; gl_Position=projectionMatrix*mv; }',
-    fragmentShader: 'uniform vec3 col, rimL; uniform float op; varying vec3 vN; varying vec3 vV; void main(){ vec3 n=normalize(vN); float f=pow(1.-abs(dot(n,normalize(vV))),2.4), w=.35+.65*smoothstep(-.3,.6,dot(n,rimL)); gl_FragColor=vec4(col*(f*.45*w+.015)*op,1.); }' }));
-  SK.add(cran);
-  // dental arch: x in [-1,1] -> parabola
-  const arch = (x, zf, k) => [x, 0, zf - k * x * x];
-  function teeth(y, zf, k, up) { const out = []; const tp = [[0, 0], [.11, 0], [.12, .12], [.1, .26], [.06, .34], [0, .36]].map(([r, h]) => new T.Vector2(r, h));
-    for (let i = 0; i < 16; i++) { const u = (i + .5) / 16 * 2 - 1, x = u * .98, [, , z] = arch(x, zf, k), mol = Math.abs(u) > .45, can = Math.abs(Math.abs(u) - .36) < .07;
-      const tg = new T.LatheGeometry(tp, 10); tg.scale(mol ? 1.35 : can ? .85 : .75, can ? 1.2 : mol ? .8 : 1, mol ? 1.2 : .55); if (!up) tg.rotateX(Math.PI);
-      const a = Math.atan2(2 * k * x, 1); tg.rotateY(a); tg.translate(x, y, z); out.push(tg); } return out; }
-  // upper jaw (maxilla) + upper teeth
-  const maxG = merge([sweep(new T.CatmullRomCurve3(V3([[-1.05, 0, .32], [-.75, 0, 1.0], [0, -.02, 1.55], [.75, 0, 1.0], [1.05, 0, .32]])), 50, 14, s => [.3, .22]), ...teeth(-.25, 1.5, 1.15, false)]);
-  maxG.translate(0, -.5, 0); const maxi = new T.Mesh(maxG, jawMat); SK.add(maxi);
-  // cheekbones: arches from the upper jaw back to the ear, and the eye-socket rims as solid bone
-  const zyg = merge([1, -1].flatMap(sd => [sweep(new T.CatmullRomCurve3(V3([[sd * .75, -.35, 1.05], [sd * 1.15, -.05, .85], [sd * 1.38, .05, .3], [sd * 1.3, .0, -.3]])), 30, 10, s => [.13, .07]),
-    sweep(new T.CatmullRomCurve3(V3([0, 1, 2, 3, 4, 5, 6, 7].map(k => { const a = k / 8 * 6.283; return [sd * (.6 + .3 * Math.cos(a)), .55 + .26 * Math.sin(a) + (Math.sin(a) > 0 ? .05 : 0), 1.38 - .12 * Math.cos(a) * sd * sd]; })), true), 48, 10, s => [.05, .035])]));
-  SK.add(new T.Mesh(zyg, jawMat));
-  // lower jaw: U-shaped body with chin, two rami up to the condyles (hinge), lower teeth; pivot at the condyles
-  const PIV = new T.Vector3(0, -.35, -.33);
-  const manG = (() => { const bodyCv = new T.CatmullRomCurve3(V3([[-1.1, -.15, .2], [-.85, -.2, .9], [0, -.25, 1.5], [.85, -.2, .9], [1.1, -.15, .2]]));
-    const body = sweep(bodyCv, 60, 14, s => { const c = Math.exp(-Math.pow((s - .5) / .12, 2)); return [.34 + .1 * c, .14 + .06 * c]; });
-    const rami = [1, -1].map(sd => sweep(new T.CatmullRomCurve3(V3([[sd * 1.08, -.2, .3], [sd * 1.18, .2, .05], [sd * 1.22, .62, -.3]])), 20, 12, s => [.24 - .08 * s, .1]));
-    const cond = [1, -1].map(sd => { const c = new T.SphereGeometry(.16, 14, 10); c.scale(1.3, .8, .9); c.translate(sd * 1.23, .7, -.33); return c; });
-    const g2 = merge([body, ...rami, ...cond, ...teeth(.0, 1.42, 1.1, true)]); g2.translate(0, -1.05, 0); g2.translate(-PIV.x, -PIV.y, -PIV.z); return g2; })();
-  const mand = new T.Mesh(manG, jawMat); const MJ = new T.Group(); MJ.position.copy(PIV); MJ.add(mand); SK.add(MJ);
-  // neck: the spine continues up to the skull (already part of the column)
+  // ---------- head: a calm frosted-glass bust (no face features) seen from the side; inside it the jaw bones, softly lit ----------
+  // local frame: face toward +z, condyle hinge at PIV; the group turns so the camera sees the head in profile / slight 3/4 rear
+  const PIV = new T.Vector3(0, -.38, -.15), HR = -1.0, SK = new T.Group(); SK.rotation.y = HR;
+  SK.position.set(0, 7.9, -1.7).sub(new T.Vector3(0, 0, -.75).applyAxisAngle(new T.Vector3(0, 1, 0), HR)); S.add(SK);   // glass neck sits on the spine top
+  const headG = (() => { const g2 = new T.SphereGeometry(1, 96, 72), P = g2.attributes.position, jw = new Float32Array(P.count), d = new T.Vector3();
+    for (let i = 0; i < P.count; i++) { d.set(P.getX(i), P.getY(i), P.getZ(i)).normalize();
+      const f = sm(-.2, .7, d.z) * sm(.3, -.6, d.y);   // lower front: the face plane drops forward-down to a smooth chin
+      let x = d.x * 1.5 * (1 - .3 * f), y = d.y * 1.65 + .55 - 1.15 * f, z = d.z * 1.95 - .35 + .4 * f;
+      const n = sm(-.55, -.85, d.y), hl = Math.max(1e-4, Math.hypot(d.x, d.z));   // bottom: blends into a neck column
+      const ny = -1.3 - Math.max(0, -d.y - .55) / .45 * 2.8, nx = d.x / hl * .85, nz = -.75 + d.z / hl * .8;
+      x += (nx - x) * n; y += (ny - y) * n; z += (nz - z) * n;
+      jw[i] = f * (1 - n) * sm(-.6, -1.1, y);   // the chin follows the jaw a little
+      P.setXYZ(i, x, y, z); }
+    g2.setAttribute('jw', new T.BufferAttribute(jw, 1)); g2.computeVertexNormals(); return g2; })();
+  const GU = { op: { value: 0 }, jo: { value: 0 }, piv: { value: PIV.clone() } };
+  const glassMat = new T.MeshStandardMaterial({ color: '#9fb0c6', roughness: .22, metalness: 0, transparent: true, depthWrite: false, envMapIntensity: .7 });
+  glassMat.onBeforeCompile = sh => { Object.assign(sh.uniforms, GU, RIM);
+    sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nattribute float jw; uniform float jo; uniform vec3 piv; varying float vY;')
+      .replace('#include <beginnormal_vertex>', '#include <beginnormal_vertex>\nfloat ja = jo*jw*.8, jc = cos(ja), js = sin(ja); mat3 JR = mat3(1.,0.,0., 0.,jc,js, 0.,-js,jc); objectNormal = JR*objectNormal;')
+      .replace('#include <begin_vertex>', '#include <begin_vertex>\nvY = position.y; transformed = piv + JR*(transformed - piv);');
+    sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float op; uniform vec3 rimL; varying float vY;')
+      .replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
+        { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.6); totalEmissiveRadiance += vec3(1.,.8,.58)*fr*.55*${RIMW} + vec3(.45,.6,.85)*fr*.08; }`)
+      .replace('#include <opaque_fragment>', '{ float fr=pow(1.-abs(dot(normal,normalize(vViewPosition))),2.2); diffuseColor.a = op*(.04+.4*fr)*smoothstep(-3.6,-2.,vY); }\n#include <opaque_fragment>'); };
+  const glass = new T.Mesh(headG, glassMat); glass.renderOrder = 3; SK.add(glass);
+  // jaw bones (anatomical side profile): each half of the mandible is an extruded outline — body, angle, ramus, coronoid, condyle
+  const halfJaw = (() => { const sh = new T.Shape(); sh.moveTo(.05, .08);
+    sh.splineThru([[-.1, .0], [-.07, -.14], [-.02, -.45], [.04, -.74], [.1, -.85], [.22, -.92], [.5, -.95], [.9, -1.0], [1.3, -1.06], [1.6, -1.08], [1.77, -.98], [1.79, -.78], [1.7, -.62],
+      [1.2, -.57], [.82, -.55], [.62, -.42], [.56, -.18], [.55, .0], [.47, -.04], [.32, -.17], [.16, -.1], [.08, -.02], [.05, .08]].map(([u, v]) => new T.Vector2(u, v)));
+    const g2 = new T.ExtrudeGeometry(sh, { depth: .04, bevelEnabled: true, bevelThickness: .03, bevelSize: .03, bevelSegments: 4, curveSegments: 60 }); g2.translate(0, 0, -.02);
+    { const P = g2.attributes.position; for (let i = 0; i < P.count; i++) { const u = P.getX(i), v = P.getY(i);   // the body thickens toward its lower border, the ramus stays a thin plate
+        P.setZ(i, P.getZ(i) * (1 + 1.6 * sm(-.5, -1.0, v) * sm(.2, .8, u)) + .06 * sm(-.4, -.95, v) * sm(.2, .8, u)); } g2.computeVertexNormals(); }
+    g2.rotateY(-Math.PI / 2); return g2; })();
+  const AL = .58, side2 = (sd, u, v) => [sd * (1.0 - u * Math.sin(AL)), v, u * Math.cos(AL)];   // a point on half-jaw sd (u forward, v up; hinge at 0)
+  const manParts = [1, -1].map(sd => { const g2 = halfJaw.clone(); g2.rotateY(-sd * AL); g2.translate(sd * 1.0, 0, 0); return g2; });
+  const toothG = (r, h, up) => { const tg = new T.LatheGeometry([[0, 0], [r, 0], [r * 1.05, h * .45], [r * .8, h * .85], [0, h]].map(([a, b]) => new T.Vector2(a, b)), 8); if (!up) tg.rotateX(Math.PI); return tg; };
+  function toothRow(v, up) { const out = []; [1, -1].forEach(sd => { for (let k = 0; k < 7; k++) { const u = .86 + k * .135, mol = k < 3, q = side2(sd, u, v);
+      const tg = toothG(mol ? .065 : .045, mol ? .075 : .1, up); tg.scale(1, 1, mol ? 1.2 : .7); tg.rotateY(-sd * AL); tg.translate(q[0], q[1], q[2]); out.push(tg); } });
+    [-.05, .05].forEach(x => { const tg = toothG(.035, .09, up); tg.scale(1, 1, .6); tg.translate(x, v, 1.47); out.push(tg); }); return merge(out); }
+  const mand = new T.Mesh(merge(manParts), jawMat); const MJ = new T.Group(); MJ.position.copy(PIV); MJ.add(mand); SK.add(MJ);
+  MJ.add(new T.Mesh(toothRow(-.57, true), toothMat));
+  // upper jaw: a slim alveolar arch with small teeth
+  const up0 = (sd, u, v) => { const q = side2(sd, u, v); return [q[0], q[1] + PIV.y, q[2] + PIV.z]; };
+  const maxG = sweep(new T.CatmullRomCurve3(V3([up0(1, .7, -.32), up0(1, 1.3, -.34), [0, PIV.y - .35, PIV.z + 1.52], up0(-1, 1.3, -.34), up0(-1, .7, -.32)])), 60, 12, s => [.12, .065]); maxG.translate(0, .06, 0);
+  SK.add(new T.Mesh(maxG, jawMat));
+  const upT = new T.Mesh(toothRow(-.39, false), toothMat); upT.position.copy(PIV); SK.add(upT);
+  // a soft warm light inside the head so the jaw reads without hard edges
+  const jLight = new T.PointLight('#ffc89a', 0, 4.5, 1.8); jLight.position.set(.2, -.2, .6); SK.add(jLight);
   // ---------- ancient ocean ----------
   const shafts = K.shafts(S, { n: 10, top: 60, height: 140, spread: 120, depth: 60, opacity: .1, color: '#7cc6ff' }); shafts.group.position.set(0, 0, 30);
   const snow = K.snow(S, { n: 3500, box: [80, 50, 60], size: .14, opacity: .5, fall: .3, color: '#bfe2ff' });
@@ -253,8 +265,8 @@
     GU.op.value = at(p.jaw, 1.5) * (1 - oc);
     // the jaw "speaks": opens on "open", then a few short syllables
     const jc = p.open ? cue(p.open) : 1e9, jt = t - jc; let jo = 0;
-    if (jt > -.3) { jo = .42 * sm(-.3, .25, jt) * (1 - sm(.6, 1.0, jt)) + (jt > .9 && jt < 3.6 ? .2 * Math.pow(Math.max(0, Math.sin((jt - .9) * Math.PI * 2.6)), 1.4) * (1 - sm(3.0, 3.6, jt)) : 0); }
-    MJ.rotation.x = jo;
+    if (jt > -.3) { jo = .3 * sm(-.3, .25, jt) * (1 - sm(.6, 1.0, jt)) + (jt > .9 && jt < 3.6 ? .14 * Math.pow(Math.max(0, Math.sin((jt - .9) * Math.PI * 2.6)), 1.4) * (1 - sm(3.0, 3.6, jt)) : 0); }
+    MJ.rotation.x = jo; GU.jo.value = jo; jLight.intensity = 6 * GU.op.value;
     // ocean
     S.background.copy(BG0).lerp(BG1, oc); S.fog.color.copy(BG0).lerp(BG1, oc); S.fog.density = .004 + .028 * oc;
     S.fog.density = .03 * (1 - oc) + (.004 + .028 * oc) * oc;

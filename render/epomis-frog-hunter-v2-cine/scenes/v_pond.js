@@ -234,7 +234,7 @@
         vec4 mvPosition = viewMatrix * wp; gl_Position = projectionMatrix * mvPosition;`); };
     m.customProgramCacheKey = () => 'sway' + !!abs; return m; }
   // leaf blade with a folded (V) cross-section so it has structure from every side
-  function bladeGeo(len, wid, bend, seg) { const g = new T.BufferGeometry(), P = [], I = []; for (let i = 0; i <= seg; i++) { const s = i / seg, w = wid * (1 - Math.pow(s, 1.6)) + .002, y = s * len, x = bend * s * s * len, f = w * .35;
+  function bladeGeo(len, wid, bend, seg) { const g = new T.BufferGeometry(), P = [], I = []; for (let i = 0; i <= seg; i++) { const s = i / seg, w = wid * Math.sqrt(Math.max(0, 1 - Math.pow(s, 3))) + .002, y = s * len, x = bend * s * s * len, f = w * .35;
       P.push(x - w, y, -f * .2, x, y, f, x + w, y, -f * .2); }
     for (let i = 0; i < seg; i++) { const a = i * 3; I.push(a, a + 3, a + 1, a + 1, a + 3, a + 4, a + 1, a + 4, a + 2, a + 2, a + 4, a + 5); }
     g.setAttribute('position', new T.Float32BufferAttribute(P, 3)); g.setIndex(I); g.computeVertexNormals(); return g; }
@@ -243,9 +243,9 @@
   const inFrame = (x, z) => z > -1 && z < 3.5 && x > -2.4 && x < 1.6;   // keep the frog's surroundings clear
   for (let i = 0; i < 300; i++) { const cl = r2(); let x, z, hs = 1;
     if (cl < .45) { x = -1.5 + r2() * 12; z = -1.3 - Math.pow(r2(), .8) * 5; } else if (cl < .65) { x = 2.5 + r2() * 8; z = -1 + r2() * 1.6; }
-    else { x = -30 + r2() * 28; z = shoreZ(x) - .2 - r2() * 3; hs = .75; }
+    else continue;   // far bank: the soft grass band below instead of single blades
     if (inFrame(x, z)) continue; reedPts.push([x, z, (1.8 + r2() * 3.4) * hs]); }
-  const leafG = bladeGeo(1, .045, .25, 10), NL = reedPts.length * 4, leafI = new T.InstancedMesh(leafG, swayMat(new T.MeshLambertMaterial({ color: NIGHT ? '#1c2c22' : '#3a5626', side: T.DoubleSide }), .006, .9), NL);
+  const leafG = bladeGeo(1, .045, .42, 10), NL = reedPts.length * 4, leafI = new T.InstancedMesh(leafG, swayMat(new T.MeshLambertMaterial({ color: NIGHT ? '#1c2c22' : '#3a5626', side: T.DoubleSide }), .006, .9), NL);
   const stemG = new T.CylinderGeometry(.018, .028, 1, 6, 6); stemG.translate(0, .5, 0); const NSt = Math.floor(reedPts.length * .45);
   const stemI = new T.InstancedMesh(stemG, swayMat(new T.MeshLambertMaterial({ color: NIGHT ? '#22301e' : '#5a6a32' }), .006, .9, true), NSt);
   const headG = new T.CapsuleGeometry(.07, .5, 4, 10); const headI = new T.InstancedMesh(headG, swayMat(new T.MeshLambertMaterial({ color: NIGHT ? '#2a1a12' : '#5a3a1e' }), .006, .9, true), NSt);
@@ -254,11 +254,19 @@
       if (n < NSt) { const L = hgt * 1.1 + (gy < 0 ? -gy : 0); Q4.identity(); V4.set(x, gy, z); S4.set(1, L, 1); M4.compose(V4, Q4, S4); stemI.setMatrixAt(n, M4); V4.set(x, gy + L - .2, z); S4.set(1, 1, 1); M4.compose(V4, Q4, S4); headI.setMatrixAt(n, M4); } });
     leafI.count = li; }
   S.add(leafI, stemI, headI);
-  // grass on the bank and a few foreground tufts
-  const grassG = bladeGeo(1, .012, .35, 5), NGr = 1400, grassI = new T.InstancedMesh(grassG, swayMat(new T.MeshLambertMaterial({ color: NIGHT ? '#1a2a1c' : '#5a7a30', side: T.DoubleSide }), .05, 1.6), NGr);
-  { let gi = 0; for (let i = 0; i < NGr * 3 && gi < NGr; i++) { const x = -14 + r2() * 22, z = -6 + r2() * 9, y = ground(x, z); if (y < .02 || (x > -1.2 && x < 1.3 && z > -.9)) continue;
-      E4.set((r2() - .5) * .5, r2() * 6.28, (r2() - .5) * .5); Q4.setFromEuler(E4); V4.set(x, y - .02, z); const L = .25 + r2() * .55; S4.set(1, L, 1); M4.compose(V4, Q4, S4); grassI.setMatrixAt(gi++, M4); } grassI.count = gi; }
-  S.add(grassI); grassI.layers.set(1);
+  // grass on the bank, at the reed bases and along the far bank: soft strand tufts / a soft band (kit grass; never hard spiky
+  // blades, user 2026-10-15). Layer 1 = not drawn in the reflection pass (like the ground).
+  const gSun = SUN.toArray(), gNight = { root: '#060a08', tip: '#24382a', dry: '#3a4030', dryFrac: .15 }, gDay = { root: '#1a2410', tip: '#7a9440', dry: '#b0a060', dryFrac: .18 };
+  const bankG = K.grass(S, { seed: 23, n: 360, area: [-14, -6, 8, 3], ground, size: [.6, .42], sun: gSun, wind: .1, thin: [9, 26, .35],
+    mask: (x, z) => ground(x, z) < .03 || (x > -1.3 && x < 1.4 && z > -1) ? 0 : 1, scale: (x, z) => .75 + .6 * fbm(x * .5, 3, z * .5),
+    trans: NIGHT ? '#8090c8' : '#ffc070', transK: NIGHT ? .4 : 1, tint: NIGHT ? '#c8d0d0' : '#e8ecd8', dryFrac: .1, strands: Object.assign({ n: 560, width: 3.2, hMin: .4, spread: 1.1 }, NIGHT ? gNight : gDay) });
+  const reedBaseG = K.grass(S, { seed: 29, n: Math.min(220, reedPts.length), area: [-2, -6.5, 11, .8], ground: (x, z) => Math.max(ground(x, z), -.08), size: [.9, .8], sun: gSun, wind: .12, thin: [12, 30, .4],
+    mask: (x, z) => inFrame(x, z) ? 0 : reedPts.some(q => Math.abs(q[0] - x) < 1 && Math.abs(q[1] - z) < 1) ? 1 : .05,
+    trans: NIGHT ? '#8090c8' : '#ffc070', transK: NIGHT ? .4 : 1, tint: NIGHT ? '#c0c8c8' : '#e0e6d0', strands: Object.assign({ n: 480, width: 3.4, hMin: .45, spread: 1.05 }, NIGHT ? gNight : gDay) });
+  const farPath = []; for (let x = -34; x <= -1.5; x += .5) farPath.push([x, shoreZ(x) - 1.2 - .6 * Math.sin(x * .7)]);
+  const farG = K.grass(S, { seed: 37, ground: x => .05, sun: gSun, trans: NIGHT ? '#7080c0' : '#ffb870', transK: NIGHT ? .6 : 2, color: NIGHT ? '#9aa4a8' : '#e0e2cc',
+    band: { path: farPath, height: 1.5, rows: 2, rowGap: 1.4, tile: 2.6, strands: NIGHT ? gNight : { root: '#141c0c', tip: '#90a058', dry: '#c0b070', dryFrac: .3 } } });
+  const grassSets = [bankG, reedBaseG, farG]; grassSets.forEach(g => g.group.traverse(o => o.layers.set(1)));
   // lily pads: real thickness, notch, slightly cupped
   const padG = new T.CylinderGeometry(1, 1, .025, 40, 1, false, .25, 6.03); { const P = padG.attributes.position; for (let i = 0; i < P.count; i++) { const x = P.getX(i), z = P.getZ(i), r = Math.hypot(x, z); P.setY(i, P.getY(i) + r * r * .04); } padG.computeVertexNormals(); }
   const padT = ctx.ctex(256, (g, z) => { g.fillStyle = NIGHT ? '#0e1c12' : '#3e6a2a'; g.fillRect(0, 0, z, z); g.strokeStyle = 'rgba(0,0,0,.35)'; g.lineWidth = 2; for (let k = 0; k < 18; k++) { const a = k / 18 * 6.283; g.beginPath(); g.moveTo(z / 2, z / 2); g.lineTo(z / 2 + Math.cos(a) * z / 2, z / 2 + Math.sin(a) * z / 2); g.stroke(); } });
@@ -267,7 +275,8 @@
   S.add(padI); padI.layers.set(1);
   // far shore: one dark tree-line silhouette strip (cheap: a single unlit band with a ragged top)
   { const NTS = 720, P = [], I = [], rt2 = K.rng(71); for (let i = 0; i <= NTS; i++) { const a = Math.PI * (.05 + 1.05 * i / NTS), r = 95, x = -Math.cos(a) * r - 5, z = -Math.sin(a) * r * .9 - 4;
-      const hh = 3 + 3 * fbm(i * .05, 1, 0) + 3 * Math.pow(Math.abs(Math.sin(i * .9 + rt2() * 2)), 3) + 1.5 * rt2(); P.push(x, -2, z, x, hh, z); if (i < NTS) { const b = i * 2; I.push(b, b + 2, b + 1, b + 1, b + 2, b + 3); } }
+      // soft rounded crowns (a sawtooth top read as spiky grass)
+      const hh = 3 + 3 * fbm(i * .05, 1, 0) + 2.2 * n3(i * .1, 5, 0) + .9 * n3(i * .3, 9, 0); P.push(x, -2, z, x, hh, z); if (i < NTS) { const b = i * 2; I.push(b, b + 2, b + 1, b + 1, b + 2, b + 3); } }
     const tg = new T.BufferGeometry(); tg.setAttribute('position', new T.Float32BufferAttribute(P, 3)); tg.setIndex(I);
     var trees = new T.Mesh(tg, new T.MeshBasicMaterial({ color: NIGHT ? '#04060e' : '#1a2418', side: T.DoubleSide })), blobs = trees; S.add(trees); }
 
@@ -393,7 +402,7 @@
   return { scene: S, camera: cam, draw(t, u) {
     uT.value = t; waterM.uniforms.uT.value = t;
     mists.forEach((m, i) => { m.material.map.offset.set(t * .006 * (i + 1), t * .004 * (2 - i * .3)); });
-    const c = camPath(t); cam.position.set(c[0], c[1], c[2]); cam.lookAt(c[3], c[4], c[5]); cam.updateMatrixWorld();
+    const c = camPath(t); cam.position.set(c[0], c[1], c[2]); cam.lookAt(c[3], c[4], c[5]); cam.updateMatrixWorld(); grassSets.forEach(g => g.update(t, cam));
     rimDir.value.copy(key.position).normalize().transformDirection(cam.matrixWorldInverse);
     const under = cam.position.y < 0;
     // atmosphere above / below the surface

@@ -56,37 +56,58 @@
     list.forEach(g => { P.set(g.attributes.position.array, o * 3); N.set(g.attributes.normal.array, o * 3); U.set(g.attributes.uv.array, o * 2); const ix = g.index.array; for (let i = 0; i < ix.length; i++) I[oi + i] = ix[i] + o; o += g.attributes.position.count; oi += ix.length; });
     const g = new T.BufferGeometry(); g.setAttribute('position', new T.BufferAttribute(P, 3)); g.setAttribute('normal', new T.BufferAttribute(N, 3)); g.setAttribute('uv', new T.BufferAttribute(U, 2)); g.setIndex(new T.BufferAttribute(I, 1)); return g; }
   // ---------- the statue: ONE mesh ----------
-  const LB = 10, BY = 2.72;   // body length (tail tip -> snout), height of the body axis above the plinth
-  // s, half-width, half-height, axis y offset, axis z offset (tail curls to one side and drops to the ground)
-  const KB = [[0, .05, .05, -2.05, 1.35], [.08, .2, .22, -1.95, 1.2], [.17, .4, .43, -1.6, .8], [.27, .74, .78, -.95, .3], [.37, 1.16, 1.18, -.32, .06],
-    [.47, 1.48, 1.46, -.02, 0], [.58, 1.56, 1.62, .14, 0], [.66, 1.45, 1.6, .2, 0], [.74, 1.08, 1.14, .12, 0], [.8, .76, .82, .02, 0],
-    [.85, .7, .78, -.04, 0], [.91, .6, .64, -.14, 0], [.96, .42, .44, -.24, 0], [.985, .26, .3, -.28, 0], [1, .06, .12, -.3, 0]];
-  const bw = curve(KB, 1), bh = curve(KB, 2), by = curve(KB, 3), bz = curve(KB, 4);
+  // 1850s-style restoration in the spirit of the Crystal Palace Park Iguanodon (1854), not a replica: a heavy quadruped with a
+  // round barrel ribcage (slight sag between shoulders and hips, low row of scutes along the spine), a neck visibly narrower than
+  // the chest, a long low lizard head (flat-topped skull tapering to the snout, closed mouth line running back under the eye and
+  // turning down at the corner, eye in a raised bony socket under a heavy brow, small horn on top near the snout tip), heavy pillar
+  // legs and a thick tapering tail lying and curling on the plinth. The spine is a 3D curve; each cross-section is built in a
+  // frame that keeps "up" vertical; the head takes more of s so its features get enough rings.
+  // s, x, y, z (axis, metres above the plinth top, x toward the snout), half-width, half-height
+  const KB = [[0, -3.25, .13, 2.05, .1, .09], [.07, -4.3, .19, 1.62, .22, .18], [.13, -4.78, .31, .85, .34, .3], [.19, -4.35, .58, .18, .48, .45],
+    [.245, -3.55, 1.3, .03, .68, .7], [.3, -2.75, 2.2, 0, .96, 1.02],
+    [.37, -1.6, 3.05, 0, 1.3, 1.38], [.44, -.45, 2.86, 0, 1.45, 1.4], [.51, .65, 2.78, 0, 1.5, 1.42], [.58, 1.6, 2.72, 0, 1.38, 1.4], [.64, 2.35, 2.6, 0, 1.0, 1.06],
+    [.69, 2.95, 2.4, 0, .64, .7], [.74, 3.5, 2.18, 0, .5, .5], [.78, 3.95, 2.07, 0, .55, .6],
+    [.82, 4.35, 2.12, 0, .62, .62], [.87, 4.85, 1.98, 0, .53, .53], [.92, 5.35, 1.88, 0, .42, .42], [.965, 5.8, 1.8, 0, .31, .32], [.99, 6.05, 1.76, 0, .2, .22],
+    [.997, 6.12, 1.75, 0, .12, .13], [1, 6.15, 1.745, 0, 0, 0]];
+  const cx = curve(KB, 1), cy = curve(KB, 2), cz = curve(KB, 3), bw = curve(KB, 4), bh = curve(KB, 5);
+  const frame = s => { const e = .002, a = new T.Vector3(cx(s - e), cy(s - e), cz(s - e)), b = new T.Vector3(cx(s + e), cy(s + e), cz(s + e)), tg = b.sub(a).normalize();
+    const up = new T.Vector3(0, 1, 0).addScaledVector(tg, -tg.y).normalize(); return { c: new T.Vector3(cx(s), cy(s), cz(s)), up, sd: new T.Vector3().crossVectors(tg, up) }; };
+  const G2 = (a, b) => Math.exp(-a * a - b * b);
+  // cross-section offset (outward, metres) for the sculpted features: mouth groove, eye sockets, brows, nostrils, spine scutes, folds
+  function relief(s, th) {
+    const c = Math.cos(th), sn = Math.sin(th), side = Math.abs(c); let d = 0;
+    const m0 = -.1 - .16 * (1 - sm(.815, .87, s));
+    d -= .085 * Math.exp(-Math.pow((sn - m0) / .055, 2)) * sm(.808, .826, s) * (1 - sm(.993, 1, s)) * sm(.5, .8, side);
+    const ds = (s - .838) / .011, dv = (sn - .4) / .12, r = Math.hypot(ds, dv);
+    d += (.05 * Math.exp(-r * r / 2.6) + .06 * Math.exp(-Math.pow((r - 1.05) / .35, 2)) - .045 * Math.exp(-Math.pow((r - .62) / .17, 2)) + .045 * Math.exp(-r * r / .16)) * sm(.35, .6, side);
+    d += (.09 * G2((s - .834) / .02, (sn - .66) / .11) + .04 * G2((s - .815) / .03, (sn - .74) / .12)) * sm(.2, .5, side);
+    d += .035 * G2((s - .985) / .009, (sn - .45) / .16) * sm(.3, .6, side);
+    const a = .07 * sm(.2, .32, s) * (1 - sm(.7, .8, s)), ph = cx(s) / .42;
+    d += a * (Math.pow(Math.max(0, Math.sin(ph * 6.2832)), 3) * .8 + .25) * Math.exp(-Math.pow((th - Math.PI / 2) / .11, 2));
+    d -= .025 * Math.exp(-Math.pow((s - .64) / .018, 2)) * sm(.6, -.2, sn) + .03 * Math.exp(-Math.pow((s - .375) / .01, 2)) * (sn < .2 ? 1 : .2);
+    return d;
+  }
   function statueGeo() {
-    const b = K.body({ length: LB, seg: 220, ring: 72, belly: .28, ridge: .07, width: s => bw(s) * (1 + .025 * Math.sin(s * 260) * sm(.74, .78, s) * (1 - sm(.84, .87, s))), height: bh });
-    b.deform((s, th, base, k) => { const sn = Math.sin(th), g = Math.exp(-Math.pow((sn + .22) / .07, 2)) * sm(.875, .9, s) * (1 - sm(.99, 1, s));   // mouth groove
-      const fold = .035 * Math.exp(-Math.pow((s - .47) / .012, 2)) * (sn < .3 ? 1 : .3);   // skin fold behind the shoulder... and the hip
-      const fold2 = .03 * Math.exp(-Math.pow((s - .7) / .01, 2));
-      const sh = -(g * .09 + fold + fold2);
-      return [0, by(s) + base[k * 3 + 1] * sh, bz(s) + base[k * 3 + 2] * sh]; });
+    const b = K.body({ length: 10, seg: 300, ring: 80, belly: 0, ridge: 0, width: bw, height: bh });
+    const FR = []; for (let i = 0; i <= 900; i++) FR.push(frame(i / 900));
+    b.deform((s, th, base, k) => { const sc = Math.min(1, Math.max(0, s)), w = bw(sc), h = bh(sc), c = Math.cos(th), sn = Math.sin(th), hk = sm(.77, .83, sc);
+      const pu = 1 - .42 * hk, q = 1 - .18 * hk;
+      let yl = sn >= 0 ? h * Math.pow(sn, pu) : h * sn * (1 - .07 * (1 - hk)), zl = w * Math.sign(c) * Math.pow(Math.abs(c), q);
+      const d = relief(sc, th); yl += sn * d; zl += c * d;
+      const f = FR[Math.round(sc * 900)];
+      return [f.c.x + f.up.x * yl + f.sd.x * zl - base[k * 3], f.c.y + f.up.y * yl + f.sd.y * zl - base[k * 3 + 1], f.c.z + f.up.z * yl + f.sd.z * zl - base[k * 3 + 2]]; });
     const parts = [b.geo];
-    const X = s => (s - .5) * LB;
-    // legs: thick pillars, slightly splayed, elbows out like a lizard; rings in horizontal planes from the plinth up into the body
-    const RK = [[0, .46], [.05, .54], [.11, .5], [.2, .37], [.32, .35], [.5, .41], [.68, .5], [.86, .62], [1, .6]], rr = curve(RK, 1);
-    [[.7, 1, .95, 1.32, .12], [.7, -1, .95, 1.32, .12], [.42, 1, 1.0, 1.38, -.05], [.42, -1, 1.0, 1.38, -.05]].forEach(([s0, sd, zt, zf, fx], li) => {
-      const x0 = X(s0), top = by(s0) - .15, rear = li >= 2, sc = rear ? 1.12 : 1;
-      parts.push(sweepY(40, 40, s => { const y = -BY + s * (top + BY), q = Math.pow(1 - s, 1.4), knee = Math.sin(Math.PI * s) * .1;
-        const r = rr(s) * sc; return [x0 + fx * q + (s < .12 ? .12 * (1 - s / .12) : 0), y, sd * (zt + (zf - zt) * q + knee), r * (s < .12 ? 1.18 : 1), r]; }));
-      // toes: three blunt claws at the front of each foot
-      for (let k = -1; k <= 1; k++) { const tg = new T.SphereGeometry(.14 * sc, 14, 10); tg.scale(1.6, .75, 1); tg.translate(x0 + fx + .5 * sc + (k === 0 ? .08 : 0), -BY + .1, sd * zf + k * .24 * sc); parts.push(tg); }
+    // legs: heavy straight pillars (no waist), a little flare at the foot, leaning in so the top stays inside the body; rings in horizontal planes
+    const RK = [[0, .6], [.05, .62], [.12, .53], [.3, .49], [.5, .51], [.7, .56], [.88, .6], [1, .56]], rr = curve(RK, 1);
+    [[.58, 1, 1.0], [.58, -1, 1.0], [.375, 1, 1.0], [.375, -1, 1.0]].forEach(([s0, sd, zf], li) => {
+      const x0 = cx(s0), top = cy(s0) - .1, rear = li >= 2, sc = rear ? 1.1 : 1;
+      parts.push(sweepY(36, 40, s => { const r = rr(s) * sc; return [x0 + (rear ? -.06 : .08) * s, -.14 + s * (top + .14), sd * (zf - .38 * s * s), r * (1 + .1 * (1 - sm(0, .14, s))), r]; }, true));
+      for (let k = -1; k <= 1; k++) { const tg = new T.SphereGeometry(.15 * sc, 14, 10); tg.scale(1.5, .72, 1.05); tg.translate(x0 + .5 * sc + (k === 0 ? .06 : 0) - .04 * Math.abs(k), .09, sd * zf + k * .26 * sc); parts.push(tg); }
     });
-    // horn on the nose (lathe), leaning forward
-    const hs = .955, hp = [[0, -.12], [.15, -.05], [.15, .06], [.12, .2], [.085, .32], [.045, .43], [.012, .5], [0, .51]].map(([r, h]) => new T.Vector2(r, h));
-    const horn = new T.LatheGeometry(hp, 32); horn.scale(1.55, 1.7, 1.55); horn.rotateZ(-.5); horn.translate(X(hs), by(hs) + bh(hs) * .82, 0); parts.push(horn);
-    // eye bulges with a brow ridge
-    [1, -1].forEach(sd => { const s = .9, e = new T.SphereGeometry(.085, 16, 12); e.translate(X(s), by(s) + bh(s) * .42, sd * bw(s) * .86); parts.push(e);
-      const br = new T.SphereGeometry(.12, 16, 10); br.scale(1.6, .45, .9); br.translate(X(s) - .03, by(s) + bh(s) * .62, sd * bw(s) * .78); parts.push(br); });
-    const g = merge(parts); g.translate(0, BY, 0); return g;
+    // small horn on top of the snout near the tip (lathe), leaning forward
+    const hs = .955, hp = [[0, -.12], [.16, -.05], [.16, .06], [.13, .2], [.09, .32], [.05, .42], [.015, .5], [0, .51]].map(([r, h]) => new T.Vector2(r, h));
+    const horn = new T.LatheGeometry(hp, 28); horn.scale(.72, .6, .66); horn.rotateZ(-.45); horn.translate(cx(hs), cy(hs) + bh(hs) * .93, 0); parts.push(horn);
+    return merge(parts);
   }
   const SG = statueGeo();
   // ---------- concrete: triplanar colour / streaks / moss / bump, rim glow ----------
@@ -148,16 +169,17 @@
   const statue = new T.Mesh(SG, concrete(false)); statue.castShadow = statue.receiveShadow = true;
   const ROT = -.12; statue.rotation.y = ROT;
   // ---------- island, plinth rocks, shore, reeds, trees ----------
-  const grassC = document.createElement('canvas'); grassC.width = grassC.height = 512; const gg = grassC.getContext('2d'); gg.fillStyle = '#26301a'; gg.fillRect(0, 0, 512, 512);
-  gg.globalCompositeOperation = 'multiply'; gg.drawImage(K.noise(512, { seed: 41, octaves: 6 }), 0, 0); gg.globalCompositeOperation = 'source-over';
-  const r2 = K.rng(9); for (let i = 0; i < 14000; i++) { const x = r2() * 512, y = r2() * 512, l = 2 + r2() * 6; gg.strokeStyle = `rgba(${60 + r2() * 50 | 0},${70 + r2() * 50 | 0},${30 + r2() * 20 | 0},${.25 + r2() * .35})`; gg.lineWidth = .8; gg.beginPath(); gg.moveTo(x, y); gg.lineTo(x + (r2() - .5) * 2, y - l); gg.stroke(); }
+  const grassC = document.createElement('canvas'); grassC.width = grassC.height = 512; const gg = grassC.getContext('2d'); gg.fillStyle = '#4a5a28'; gg.fillRect(0, 0, 512, 512);
+  gg.globalCompositeOperation = 'multiply'; gg.globalAlpha = .6; gg.drawImage(K.noise(512, { seed: 41, octaves: 6 }), 0, 0); gg.globalAlpha = 1; gg.globalCompositeOperation = 'source-over';
+  const r2 = K.rng(9); for (let i = 0; i < 9000; i++) { const x = r2() * 512, y = r2() * 512, l = 8 + r2() * 16, b = (r2() - .5) * l * .8;   // soft curved blades lying in all directions (no spikes)
+    gg.strokeStyle = `rgba(${45 + r2() * 55 | 0},${58 + r2() * 55 | 0},${24 + r2() * 22 | 0},${.18 + r2() * .3})`; gg.lineWidth = 1.2 + r2(); gg.lineCap = 'round'; gg.beginPath(); gg.moveTo(x, y); gg.quadraticCurveTo(x + b * .3, y - l * .6, x + b, y - l); gg.stroke(); }
   const grassT = K.tex(grassC, true, [10, 10]), grassN = K.normalMap(K.noise(256, { seed: 43, octaves: 5 }), 4); grassN.repeat.set(10, 10); aniso(grassT, grassN);
-  const grassMat = clip => { const m = fadeN(new T.MeshLambertMaterial({ map: grassT, normalMap: grassN, normalScale: new T.Vector2(.9, .9), color: '#c8c0a8' }), 6, 30, .15, 'pb-grass' + (clip ? '-c' : '')); if (clip) m.clippingPlanes = CLIP; return m; };
+  const grassMat = clip => { const m = fadeN(new T.MeshLambertMaterial({ map: grassT, normalMap: grassN, normalScale: new T.Vector2(.9, .9), color: '#dcd8bc' }), 6, 30, .15, 'pb-grass' + (clip ? '-c' : '')); if (clip) m.clippingPlanes = CLIP; return m; };
   const islR = a => 9.2 + 1.6 * (vn(Math.cos(a) * 1.4 + 3, Math.sin(a) * 1.4, 1.7) - .5) * 2;
-  function islandGeo() { const NR = 44, NA = 128, pos = [], uv = [], idx = [];
-    for (let i = 0; i <= NR; i++) for (let j = 0; j < NA; j++) { const a = j / NA * 6.283, q = i / NR, r = q * islR(a) * 1.18, x = Math.cos(a) * r, z = Math.sin(a) * r, e = r / islR(a);
+  function islandGeo() { const NR = 44, NA = 128, eMax = 1.18, pos = [], uv = [], idx = [];
+    for (let i = 0; i <= NR; i++) for (let j = 0; j < NA; j++) { const a = j / NA * 6.283, q = i / NR, r = q * islR(a) * eMax, x = Math.cos(a) * r, z = Math.sin(a) * r, e = r / islR(a);
       let y = .62 * (1 - sm(.55, 1.05, e)) + .12 * (fbm(x * .35, 0, z * .35) - .5) * 2 * sm(.15, .5, e) - .5 * sm(.95, 1.18, e) - .05; pos.push(x, y, z); uv.push(x * .08, z * .08); }
-    for (let i = 0; i < NR; i++) for (let j = 0; j < NA; j++) { const a = i * NA + j, b = i * NA + (j + 1) % NA, c = (i + 1) * NA + j, d = (i + 1) * NA + (j + 1) % NA; idx.push(a, c, b, b, c, d); }
+    for (let i = 0; i < NR; i++) for (let j = 0; j < NA; j++) { const a = i * NA + j, b = i * NA + (j + 1) % NA, c = (i + 1) * NA + j, d = (i + 1) * NA + (j + 1) % NA; idx.push(a, b, c, b, d, c); }
     const g = new T.BufferGeometry(); g.setAttribute('position', new T.Float32BufferAttribute(pos, 3)); g.setAttribute('uv', new T.Float32BufferAttribute(uv, 2)); g.setIndex(idx); g.computeVertexNormals(); return g; }
   const IG = islandGeo();
   // a low rough stone plinth the statue stands on (raised slab with broken edges)
@@ -166,13 +188,13 @@
   const rockT = K.tex(rockC, true, [3, 1]), rockN = K.normalMap(K.noise(256, { seed: 63, octaves: 6 }), 5); rockN.repeat.set(3, 1); aniso(rockT, rockN);
   const rockMat = clip => { const m = fadeN(new T.MeshStandardMaterial({ map: rockT, normalMap: rockN, roughness: .95, color: '#b8b2a6', envMapIntensity: .4 }), 8, 30, .3, 'pb-rock' + (clip ? '-c' : '')); if (clip) m.clippingPlanes = CLIP; return m; };
   // boulders around the plinth
-  const bG = new T.IcosahedronGeometry(1, 3); { const P = bG.attributes.position; for (let i = 0; i < P.count; i++) { const x = P.getX(i), y = P.getY(i), z = P.getZ(i), s = .75 + .5 * fbm(x * 1.3 + 2, y * 1.3, z * 1.3); P.setXYZ(i, x * s, y * s * .7, z * s); } bG.computeVertexNormals(); }
-  const rb = K.rng(17), BOUL = []; for (let i = 0; i < 9; i++) { const a = rb() * 6.283, r = 4.6 + rb() * 3.2; BOUL.push([Math.cos(a) * r * 1.15, .2, Math.sin(a) * r * .9, .25 + rb() * .45, rb() * 6]); }
+  const bG = new T.IcosahedronGeometry(1, 3); { const P = bG.attributes.position; for (let i = 0; i < P.count; i++) { const x = P.getX(i), y = P.getY(i), z = P.getZ(i), s = .75 + .5 * fbm(x * 1.3 + 2, y * 1.3, z * 1.3); P.setXYZ(i, x * s, y * s * .85, z * s); } bG.computeVertexNormals(); }
+  const rb = K.rng(17), BOUL = []; for (let i = 0; i < 9; i++) { const a = rb() * 6.283, r = 4.6 + rb() * 3.2; BOUL.push([Math.cos(a) * r * 1.15, .42, Math.sin(a) * r * .9, .32 + rb() * .4, rb() * 6]); }
   // shore bank ring around the lake
   function shoreGeo() { const NR = 30, NA = 160, pos = [], uv = [], idx = [];
     for (let i = 0; i <= NR; i++) for (let j = 0; j < NA; j++) { const a = j / NA * 6.283, r = 36 + Math.pow(i / NR, 1.6) * 170 + 6 * (vn(Math.cos(a) * 2 + 7, Math.sin(a) * 2, 3) - .5) * 2, x = Math.cos(a) * r, z = Math.sin(a) * r;
       const y = -.4 + 1.2 * sm(0, .12, i / NR) + 2.5 * sm(.2, 1, i / NR) * fbm(x * .03, 1, z * .03); pos.push(x, y, z); uv.push(x * .05, z * .05); }
-    for (let i = 0; i < NR; i++) for (let j = 0; j < NA; j++) { const a = i * NA + j, b = i * NA + (j + 1) % NA, c = (i + 1) * NA + j, d = (i + 1) * NA + (j + 1) % NA; idx.push(a, c, b, b, c, d); }
+    for (let i = 0; i < NR; i++) for (let j = 0; j < NA; j++) { const a = i * NA + j, b = i * NA + (j + 1) % NA, c = (i + 1) * NA + j, d = (i + 1) * NA + (j + 1) % NA; idx.push(a, b, c, b, d, c); }
     const g = new T.BufferGeometry(); g.setAttribute('position', new T.Float32BufferAttribute(pos, 3)); g.setAttribute('uv', new T.Float32BufferAttribute(uv, 2)); g.setIndex(idx); g.computeVertexNormals(); return g; }
   const SHG = shoreGeo();
   // trees: lumpy canopy blobs (displaced icosahedra) on tapered trunks; island trees + a ring along the far shore
@@ -182,7 +204,6 @@
     lg.fillStyle = `rgb(${30 + r3() * 45 | 0},${42 + r3() * 50 | 0},${16 + r3() * 18 | 0})`; lg.beginPath(); lg.ellipse(x, y, sz, sz * .45, r3() * 6.283, 0, 6.283); lg.fill(); }
   const leafT = K.tex(leafC, true); leafT.wrapS = leafT.wrapT = T.ClampToEdgeWrapping;
   const leafMat = clip => { const m = new T.MeshLambertMaterial({ map: leafT, alphaTest: .5, alphaToCoverage: true, side: T.DoubleSide, color: '#a0aa8c', emissive: '#06080a' }); if (clip) m.clippingPlanes = CLIP; return m; };
-  const reedMat = clip => { const m = new T.MeshLambertMaterial({ color: '#4a5232' }); if (clip) m.clippingPlanes = CLIP; return m; };
   const barkMat = clip => { const m = new T.MeshLambertMaterial({ color: '#2a221b' }); if (clip) m.clippingPlanes = CLIP; return m; };
   const trunkG = sweepY(8, 10, s => [Math.sin(s * 2.3) * .15, s, 0, .3 - s * .17, .3 - s * .17], true);
   const rt = K.rng(51), TREES = [];
@@ -199,12 +220,33 @@
     TR.forEach(([x, y, z, s], i) => { const h = 4.2 * s; M4.compose(new T.Vector3(x, y, z), Q.identity(), new T.Vector3(s * 1.1, h, s * 1.1)); tr.setMatrixAt(i, M4); const rq = K.rng(100 + i);
       for (let b = 0; b < NBL; b++) { const u1 = rq() * 2 - 1, a = rq() * 6.283, q = Math.sqrt(1 - u1 * u1), rr2 = Math.pow(rq(), .4), sc = (1.8 + rq() * 1.3) * s; M4.compose(new T.Vector3(x + Math.cos(a) * q * rr2 * 2.3 * s, y + h * .78 + 2.4 * s + u1 * rr2 * 2.6 * s, z + Math.sin(a) * q * rr2 * 2.3 * s), Q.setFromEuler(E.set(rq() * 6.28, rq() * 6.28, rq() * 6.28)), new T.Vector3(sc, sc, sc)); bl.setMatrixAt(k++, M4); } });
      par.add(bl, tr);
-    // reeds along the island's waterline
-    const NRd = 520, reedG = new T.ConeGeometry(.025, 1, 4, 1); reedG.translate(0, .5, 0); const rd = new T.InstancedMesh(reedG, reedMat(clip), NRd), rr3 = K.rng(71);
-    for (let i = 0; i < NRd; i++) { const a = rr3() * 6.283, r = islR(a) * (1.0 + (rr3() - .5) * .14), hh = .5 + rr3() * 1.0; M4.compose(new T.Vector3(Math.cos(a) * r, -.1, Math.sin(a) * r), Q.setFromEuler(E.set((rr3() - .5) * .4, 0, (rr3() - .5) * .4)), new T.Vector3(1, hh, 1)); rd.setMatrixAt(i, M4); }
-    if (!clip) par.add(rd);
   }
   const world = new T.Group(); S.add(world); addWorld(world, false); addWorld(mirror, true);
+  // ---------- soft grass (user 2026-10-15: "the grass is too spiky" -> kit.grass: lush strand tufts, a soft band on the far shore) ----------
+  // ground heights matching islandGeo / shoreGeo, the plinth footprint (rotated ellipse) to keep clear
+  const islE = (x, z) => Math.hypot(x, z) / islR(Math.atan2(z, x));
+  const islY = (x, z) => { const e = islE(x, z); return .62 * (1 - sm(.55, 1.05, e)) + .12 * (fbm(x * .35, 0, z * .35) - .5) * 2 * sm(.15, .5, e) - .5 * sm(.95, 1.18, e) - .05; };
+  const plQ = (x, z) => { const lx = x * Math.cos(ROT) - z * Math.sin(ROT), lz = x * Math.sin(ROT) + z * Math.cos(ROT); return Math.hypot(lx / 5.4, lz / 3.0); };
+  const gSun = SUN.toArray();
+  // the camera always looks from the +x/+z side (orbit a = .5 .. .95): grass on the far side sits behind the plinth and statue or
+  // is tiny, so it is planted thinner there (software GL pays for every tuft fragment, hidden or not)
+  const nearSide = (x, z) => .35 + .65 * sm(-6, 2, x * .66 + z * .75);
+  const lawn = K.grass(S, { parent: world, seed: 101, n: 330, area: [-11, -11, 11, 11], ground: islY, size: [.95, .4], sun: gSun, wind: .1, thin: [11, 27, .3],
+    mask: (x, z) => { const e = islE(x, z), q = plQ(x, z); return sm(.95, .88, e) * sm(1.12, 1.24, q) * nearSide(x, z) * (.62 + .38 * Math.max(sm(1.7, 1.3, q), sm(.6, .85, e))); },
+    scale: (x, z) => { const e = islE(x, z), q = plQ(x, z); return (.8 + .55 * fbm(x * .4, 5, z * .4)) * (1 + .7 * sm(1.6, 1.2, q) + .5 * sm(.7, .9, e)); },
+    tint: '#d8dcc8', dryTint: '#e0c890', dryFrac: .12, transK: .5, base: .3, splay: .12,
+    strands: { n: 620, width: 3.4, hMin: .4, spread: 1.15, root: '#141b0b', tip: '#8e9a55', dry: '#b9a460', dryFrac: .15 } });
+  // waterline: taller soft clumps instead of reeds (fine strands, soft tips, warm dry tips that light up against the sun)
+  const shoreG = K.grass(S, { parent: world, seed: 131, n: 170, area: [-12.5, -12.5, 12.5, 12.5], ground: (x, z) => Math.max(islY(x, z), -.1), size: [.85, .82], sun: gSun, wind: .13, thin: [12, 28, .35],
+    mask: (x, z) => { const e = islE(x, z); return Math.exp(-Math.pow((e - .955) / .035, 2)) * nearSide(x, z); }, receiveShadow: false,
+    scale: (x, z) => .7 + .7 * fbm(x * .5, 9, z * .5), tint: '#d0d0b8', dryTint: '#e8cc8c', dryFrac: .3, transK: .6, base: .3, splay: .3,
+    strands: { n: 420, width: 3.2, hMin: .45, root: '#121809', tip: '#a39a5a', dry: '#c8ad68', dryFrac: .3, spread: 1.1 } });
+  // far shore: a low soft line of grass along the bank (one band, no single blades at that distance)
+  const shoreY = (x, z) => { const r = Math.hypot(x, z), a = Math.atan2(z, x), q = Math.pow(Math.max(0, (r - 36 - 6 * (vn(Math.cos(a) * 2 + 7, Math.sin(a) * 2, 3) - .5) * 2) / 170), 1 / 1.6);
+    return -.4 + 1.2 * sm(0, .12, q) + 2.5 * sm(.2, 1, q) * fbm(x * .03, 1, z * .03); };
+  const bandPath = []; for (let i = 0; i < 260; i++) { const a = i / 260 * 6.283, r = 40.5 + 6 * (vn(Math.cos(a) * 2 + 7, Math.sin(a) * 2, 3) - .5) * 2; bandPath.push([Math.cos(a) * r, Math.sin(a) * r]); }
+  const band = K.grass(S, { parent: world, seed: 151, ground: shoreY, sun: gSun, transK: 2.6, trans: '#ffb878', color: '#e0e0cc',
+    band: { path: bandPath, closed: true, height: 1.9, rows: 2, rowGap: 1.6, tile: 3.2, strands: { root: '#141a0c', tip: '#a8a870', dry: '#c8b07a', dryFrac: .3 } } });
   // ---------- the lake: dark translucent surface over the mirrored world, rippling highlights ----------
   const ripN = K.normalMap(K.noise(512, { seed: 91, octaves: 5, sx: 1, sy: 3 }), 3); ripN.repeat.set(26, 26); aniso(ripN);
   const water = new T.Mesh(new T.PlaneGeometry(600, 600), fadeN(new T.MeshStandardMaterial({ color: '#04060b', roughness: .09, metalness: 0, normalMap: ripN, normalScale: new T.Vector2(.25, .25), transparent: true, opacity: .52, envMapIntensity: 1.2, depthWrite: true }), 10, 70, .18, 'pb-water'));
@@ -247,7 +289,7 @@
     const hornK = at(p.horn, 3.5) * (1 - at(p.years, 3)), yrs = at(p.years, 3), wr = at(p.wrong, 2.5);
     // camera: slow orbit from a 3/4 front view across the water; closes in on the head at "horn", rises, then pulls back for the ghost
     const a = .5 + u * .021, d = 26 - 7 * sm(0, 7, u) - 4 * hornK + 2 * yrs + 3.5 * wr, hgt = 3.1 + .9 * sm(0, 12, u) + 1.4 * wr;
-    const tx = 1.0 + 2.2 * hornK - 1.0 * wr, ty = 2.6 + .4 * hornK + .3 * wr;
+    const tx = 1.0 + 3.4 * hornK - 1.0 * wr, ty = 2.6 + .2 * hornK + .3 * wr;
     cam.position.set(Math.sin(a) * d + tx * .4, hgt, Math.cos(a) * d); cam.lookAt(tx, ty, 0); cam.updateMatrixWorld();
     // light: dusk sinks a little; golden at "years"; cools on "wrong"
     const warm = 1 - .65 * wr; sun.intensity = (3.2 + .6 * yrs) * warm; sun.color.copy(SUNC).lerp(GOLD, yrs * .4);
@@ -261,6 +303,7 @@
     ripN.offset.set(t * .004, t * .011);
     mists.forEach((m, i) => { m.material.map.offset.set(t * .006 * (i + 1) + m.userData.o, t * .002 + m.userData.o); m.material.opacity = m.userData.op * (.8 + .2 * Math.sin(t * .3 + i)); });
     motes.update(t, [0, 4, 0]);
+    lawn.update(t, cam); shoreG.update(t, cam); band.update(t, cam);
     // ghost sweeps in tail -> head, then holds, breathing faintly
     GU.op.value = .85 * wr * (.85 + .15 * Math.sin(t * 2.2)); GU.rev.value = -7 + 15 * at(p.wrong, 3.2);
     const pc = gpts.geometry.attributes.color.array; for (let i = 0; i < NGp; i++) { const v = wr * (gpx[i] < GU.rev.value ? 1 : 0) * (.3 + .7 * Math.max(0, Math.sin(t * 2.5 + i * 1.7))); pc[i * 3] = pc[i * 3 + 1] = pc[i * 3 + 2] = v; }
