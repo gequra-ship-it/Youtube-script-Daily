@@ -87,54 +87,6 @@
     m.rotation.x = Math.PI / 2; m.position.y = o.y || 60; scene.add(m);
     return { mesh: m, update(t, fade) { t1.offset.set(t * .006, t * .004); m.material.opacity = (o.opacity || .5) * (fade == null ? 1 : fade); } };
   }
-
-  // model(name): a model prepared by tools/model_prep.py (MIYA.models[name], loaded by a "// models: name" line in the scene file)
-  // -> { scene: Object3D (a fresh copy each call), clips: [AnimationClip], meshes: [Mesh] }. Everything is built synchronously
-  // (geometry from typed arrays, textures as DataTexture), so frames stay seek-safe in chunked renders.
-  const _mcache = {};
-  function decode(o) { const bin = atob(o.d), u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
-    const C = { f32: Float32Array, u16: Uint16Array, u32: Uint32Array, u8: Uint8Array, i16: Int16Array, i8: Int8Array }[o.t]; return new C(u.buffer); }
-  function model(name) {
-    const D = (M.models || {})[name]; if (!D) throw new Error('model ' + name + ' not loaded (add "// models: ' + name + '" to the scene file)');
-    let c = _mcache[name];
-    if (!c) {
-      const texs = D.texs.map(t => { const bin = atob(t.rgba), u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
-        const x = new T.DataTexture(u, t.w, t.h, T.RGBAFormat); x.colorSpace = t.srgb ? T.SRGBColorSpace : T.NoColorSpace; x.wrapS = t.wrapS; x.wrapT = t.wrapT;
-        x.flipY = false; x.generateMipmaps = true; x.minFilter = T.LinearMipmapLinearFilter; x.magFilter = T.LinearFilter; x.anisotropy = 4; x.needsUpdate = true; return x; });
-      const mats = D.mats.map(m => { const o = new T.MeshStandardMaterial({ name: m.name, color: m.color, roughness: m.roughness, metalness: m.metalness, emissive: m.emissive,
-        transparent: !!m.transparent, opacity: m.opacity == null ? 1 : m.opacity, alphaTest: m.alphaTest || 0, side: m.side || T.FrontSide, vertexColors: !!m.vertexColors });
-        ['map', 'normalMap', 'roughnessMap', 'metalnessMap', 'aoMap', 'emissiveMap', 'alphaMap'].forEach(k => { if (m[k] != null) o[k] = texs[m[k]]; }); return o; });
-      const geoms = D.geoms.map(g => { const G = new T.BufferGeometry();
-        for (const k in g.at) { const A = g.at[k]; G.setAttribute(k, new T.BufferAttribute(decode(A), A.n, !!A.norm)); }
-        if (g.ix) G.setIndex(new T.BufferAttribute(decode(g.ix), 1)); (g.groups || []).forEach(gr => G.addGroup(gr.start, gr.count, gr.materialIndex));
-        if (!G.attributes.normal) G.computeVertexNormals(); G.computeBoundingSphere(); return G; });
-      const nodes = D.nodes.map(n => { let o;
-        const mm = n.m == null ? null : Array.isArray(n.m) ? n.m.map(i => mats[i]) : mats[n.m];
-        if (n.type === 'skinned') o = new T.SkinnedMesh(geoms[n.g], mm); else if (n.type === 'mesh') o = new T.Mesh(geoms[n.g], mm); else if (n.type === 'bone') o = new T.Bone(); else o = new T.Object3D();
-        o.name = n.name; o.position.fromArray(n.p); o.quaternion.fromArray(n.q); o.scale.fromArray(n.s); return o; });
-      D.nodes.forEach((n, i) => { if (n.parent >= 0) nodes[n.parent].add(nodes[i]); });
-      D.nodes.forEach((n, i) => { if (n.type === 'skinned') { const inv = decode({ t: 'f32', d: n.inv }), bones = n.bones.map(b => nodes[b]);
-        const invs = bones.map((_, k) => new T.Matrix4().fromArray(inv, k * 16)); nodes[i].bind(new T.Skeleton(bones, invs), new T.Matrix4().fromArray(n.bindMatrix)); } });
-      c = _mcache[name] = { root: nodes[0], clips: D.anims.map(a => T.AnimationClip.parse(a)) };
-    }
-    const scene = T.SkeletonUtils ? T.SkeletonUtils.clone(c.root) : c.root.clone(true), meshes = [];
-    scene.traverse(o => { if (o.isMesh) { meshes.push(o); o.frustumCulled = false; } });
-    return { scene, clips: c.clips, meshes };
-  }
-  // hdri(name, renderer): a photographed environment prepared by tools/hdri_prep.py (MIYA.hdris[name], "// models: name" line)
-  // -> { env: prefiltered texture for scene.environment (image-based light + reflections), bg: equirect texture for scene.background }
-  const _hcache = {};
-  function hdri(name, renderer) {
-    if (_hcache[name]) return _hcache[name];
-    const D = (M.hdris || {})[name]; if (!D) throw new Error('hdri ' + name + ' not loaded (add "// models: ' + name + '" to the scene file)');
-    const bin = atob(D.rgbe), n = D.w * D.h, f = new Float32Array(n * 4);
-    for (let i = 0; i < n; i++) { const e = bin.charCodeAt(i * 4 + 3), s = e ? Math.pow(2, e - 136) : 0;
-      f[i * 4] = bin.charCodeAt(i * 4) * s; f[i * 4 + 1] = bin.charCodeAt(i * 4 + 1) * s; f[i * 4 + 2] = bin.charCodeAt(i * 4 + 2) * s; f[i * 4 + 3] = 1; }
-    const bg = new T.DataTexture(f, D.w, D.h, T.RGBAFormat, T.FloatType); bg.mapping = T.EquirectangularReflectionMapping; bg.colorSpace = T.LinearSRGBColorSpace;
-    bg.flipY = true; bg.magFilter = bg.minFilter = T.LinearFilter; bg.needsUpdate = true;
-    const pm = new T.PMREMGenerator(renderer), env = pm.fromEquirectangular(bg).texture; pm.dispose();
-    return (_hcache[name] = { env, bg });
-  }
-  M.kit = { rng, noise, tex, normalMap, body, fin, shafts, snow, surfaceFromBelow, model, hdri };
+  M.kit = { rng, noise, tex, normalMap, body, fin, shafts, snow, surfaceFromBelow };
 
 })();
