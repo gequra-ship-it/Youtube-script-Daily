@@ -10,12 +10,17 @@ on:
       spec:
         description: '"<slug> <chunks>", several separated by commas'
         required: true
+      reuse_run:
+        description: 'optional: id of an earlier run whose chunk artifacts to merge again (skips rendering)'
+        required: false
+        default: ''
   push:
     branches: [render-pipeline]
     paths: ["render/.chunked", ".github/workflows/render-chunked.yml"]
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   plan:
@@ -39,6 +44,7 @@ jobs:
 
   chunk:
     needs: plan
+    if: ${{ github.event.inputs.reuse_run == '' || github.event.inputs.reuse_run == null }}
     runs-on: ubuntu-24.04
     timeout-minutes: 300
     strategy:
@@ -82,7 +88,7 @@ jobs:
     needs: [plan, chunk]
     if: ${{ !cancelled() }}
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 180
     strategy:
       fail-fast: false
       matrix:
@@ -95,7 +101,11 @@ jobs:
       - name: Install FFmpeg and rclone
         run: sudo apt-get update -y && sudo apt-get install -y ffmpeg rclone
       - uses: actions/download-artifact@v4
-        with: { pattern: "chunk-${{ matrix.slug }}-*", path: chunks }
+        with:
+          pattern: "chunk-${{ matrix.slug }}-*"
+          path: chunks
+          run-id: ${{ github.event.inputs.reuse_run || github.run_id }}
+          github-token: ${{ github.token }}
       - name: Join, add audio, report
         run: |
           SLUG="${{ matrix.slug }}"; N="${{ matrix.n }}"; : > list.txt; : > report.txt
@@ -105,8 +115,8 @@ jobs:
           AUD=$(grep -o '<audio[^>]*src="[^"]*"' "render/$SLUG/index.html" | head -1 | sed -E 's/.*src="([^"]*)".*/\1/')
           if [ -n "$AUD" ]; then ffmpeg -nostdin -y -i video.mp4 -i "render/$SLUG/$AUD" -map 0:v -map 1:a -c copy -shortest "$SLUG.mp4"; else mv video.mp4 "$SLUG.mp4"; fi
           { echo "=== joined $SLUG $(date -u +%FT%TZ) chunks=$N"
-            ffprobe -v error -count_frames -show_entries stream=codec_name,width,height,r_frame_rate,nb_read_frames,duration -of compact "$SLUG.mp4"
-            ffmpeg -nostats -i "$SLUG.mp4" -af ebur128=peak=true -f null - 2>&1 | grep -E "I:|LRA:|Peak:" | tail -3; ls -la "$SLUG.mp4"; } >> report.txt
+            ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,nb_frames,duration -of compact "$SLUG.mp4"
+            ffmpeg -nostats -i "$SLUG.mp4" -vn -af ebur128=peak=true -f null - 2>&1 | grep -E "I:|LRA:|Peak:" | tail -3; ls -la "$SLUG.mp4"; } >> report.txt
           cat report.txt; cp report.txt "${SLUG}_render_report.txt"
       - name: Upload to Drive
         if: ${{ env.RCLONE_CONF != '' }}
