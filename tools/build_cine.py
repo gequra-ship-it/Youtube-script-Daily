@@ -112,6 +112,53 @@ for c in cuts:
 for k in beats:
     if k not in byid and not SEL: warns.append(f'beat for unknown unit {k}')
 
+# ---------- camera director (2026-10-16): hard-cut camera segments inside every shot ----------
+# A shot is cut into segments of 3.5-7.5 s at unit starts (units with a keyword / accent / card / badge / log are preferred boundaries).
+# Every segment gets one purposeful move (push in, pull back, orbit, truck), landing on the spoken keyword of its unit. cine.js applies it
+# on top of the scene camera (see camMove in cine.js). Shot params "cam": false switches it off, a number scales it (default 1).
+SEG_MIN, SEG_MAX = 3.5, 7.5
+MOVES = [  # (dolly0, dolly1, orbit0, orbit1, truck0, truck1, lift0, lift1)   dolly > 0 = closer
+    (0, .16, 0, 0, 0, 0, 0, 0),        # push in
+    (.12, -.02, 0, 0, 0, 0, 0, 0),     # pull back
+    (.04, .06, -7, 7, 0, 0, 0, 0),     # orbit left to right
+    (.04, .06, 7, -7, 0, 0, 0, 0),     # orbit right to left
+    (0, .08, 0, 0, -.06, .06, 0, 0),   # truck left to right
+    (0, .08, 0, 0, .06, -.06, 0, 0),   # truck right to left
+    (.02, .12, -3, 3, 0, 0, .01, -.03),# push in with a slight descent
+]
+def strong(u): return any(k in u for k in ('kw', 'acc', 'card', 'badge', 'log', 'plot'))
+n_seg = 0
+for ch in chapters:
+    if ch['mode'] == 'card': continue
+    for sh in ch['shots']:
+        prm = sh['params'] if isinstance(sh['params'], dict) else {}
+        if prm.get('cam') is False: continue
+        us = [u for u in units if u['t0'] >= sh['t0'] - .05 and u['t1'] <= sh['t1'] + .05]
+        starts = [sh['t0']]; last = sh['t0']
+        for k, u in enumerate(us):
+            if u['t0'] <= last + .05: continue
+            span = u['t0'] - last
+            if span >= SEG_MAX or (span >= SEG_MIN and strong(u)) or (span >= SEG_MIN + 1.5):
+                starts.append(u['t0']); last = u['t0']
+        # a tail shorter than SEG_MIN merges into the previous segment; a segment longer than SEG_MAX is split evenly
+        edges = starts + [sh['t1']]
+        if len(edges) > 2 and edges[-1] - edges[-2] < SEG_MIN: del edges[-2]
+        fin = [edges[0]]
+        for a, b in zip(edges, edges[1:]):
+            n = max(1, round((b - a) / 6.0)) if b - a > SEG_MAX else 1
+            fin += [round(a + (b - a) * q / n, 3) for q in range(1, n + 1)]
+        segs = []
+        for k, (a, b) in enumerate(zip(fin, fin[1:])):
+            m = MOVES[(n_seg + k) % len(MOVES)] if k else MOVES[n_seg % len(MOVES)]
+            u = next((x for x in us if a - .05 <= x['t0'] < b and strong(x)), None) or next((x for x in us if a - .05 <= x['t0'] < b), None)
+            land = cue_time(f'{u["uid"]}:{u["kw"].split()[0]}') if u and u.get('kw') else None
+            land = land if land and a + .4 < land < b else (u['t0'] + 1.6 if u and a + .4 < u['t0'] + 1.6 < b else b)
+            segs.append(dict(t0=round(a, 3), t1=round(b, 3), land=round(land, 3), **{k2 + e: v for k2, vv in zip(('dolly', 'orbit', 'truck', 'lift'), (m[0:2], m[2:4], m[4:6], m[6:8])) for e, v in zip(('0', '1'), vv)}))
+        n_seg += len(segs)
+        if segs: sh['cams'] = segs
+        if isinstance(prm.get('cam'), (int, float)) and prm['cam'] is not True: sh['camAmp'] = prm['cam']
+print(f'camera director: {n_seg} segments')
+
 # ---------- scene types available ----------
 lib = {}
 for f in sorted(glob.glob(CINE_DIR + '/scenes/*.js')) + sorted(glob.glob(vdir() + '/scenes/*.js')):
