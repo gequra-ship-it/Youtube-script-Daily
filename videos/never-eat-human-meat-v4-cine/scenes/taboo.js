@@ -4,9 +4,6 @@
 //    dark plain around a solid balance of light (lathe pillar, extruded beam, hanging pans with glowing rims). On "every society"
 //    small lights wake at the figures' feet one by one round the ring; on "one rule" spokes of light run from every figure to the
 //    balance; on "moral line" the beam settles level and a ring of light rises on the ground between the people and the balance.
-//    LOOK C (cine_spec 3A, 2026-10-15): figures are dark faceless bodies with a cool outline and a few points; the balance is a dark
-//    solid with a warm outline, faint mesh lines and points; the plain is dark ground with faint height contours and sparse points;
-//    feet lights, spokes, the ring of light, the light column and the pan glows keep their own light.
 //    params (cues): { ring, rule, line, side:.12 }
 //  proteinlab — a folded protein (one continuous swept chain: round loops, wide helix ribbons, sheet strands with arrowheads; glossy
 //    with glowing edges) floating over a projector ring in a dark lab; on "biology" a DNA double helix of light builds itself from
@@ -61,30 +58,19 @@
     const GOLD = new T.Color(ctx.ACC), VIO = new T.Color('#8a6cff'), MAG = new T.Color('#d64b9a');
     // ground: dark plain with a soft warm pool of light at the centre
     const gT = ctx.ctex(512, (g, s) => { g.fillStyle = '#000'; g.fillRect(0, 0, s, s); const r = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2); r.addColorStop(0, 'rgba(255,200,120,.55)'); r.addColorStop(.12, 'rgba(200,120,140,.22)'); r.addColorStop(.4, 'rgba(90,70,170,.08)'); r.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = r; g.fillRect(0, 0, s, s); });
-    const LC = K.lookC, rgn = rng(31);
-    // plain: flat inside the ring (kept just under a contour level), gentle swells further out so the height lines read
-    const vh = (x, z) => { const q = (a, b) => Math.sin(a * .21 + 1.3) * Math.cos(b * .17 - .4) + .5 * Math.sin(a * .09 - b * .13 + 2.1) + .25 * Math.sin(a * .41 + b * .37); return q(x, z); };
-    const gG = new T.PlaneGeometry(240, 240, 220, 220).rotateX(-Math.PI / 2); { const P = gG.attributes.position; for (let i = 0; i < P.count; i++) { const x = P.getX(i), z = P.getZ(i), r = Math.hypot(x, z);
-      P.setY(i, -.04 + sm(25, 50, r) * (1.4 + 1.1 * vh(x, z)) + sm(4, 12, r) * .05 * vh(x * 2, z * 2)); } gG.computeVertexNormals(); }
-    const gM = LC.contour({ base: '#05041a', line: '#6c6cff', rim: '#0a0a34', spacing: .16, width: .05, far: 70, k: .5 });
-    gM.fragmentShader = gM.fragmentShader.replace('float a=clamp', 'l*=(1.-smoothstep(.15,.5,fw))*smoothstep(8.,20.,vD); float a=clamp');
-    const ground = new T.Mesh(gG, gM); S.add(ground);
-    { const n = 1600, a = new Float32Array(n * 3); for (let i = 0; i < n; i++) { const q = rgn() * 6.283, r = 2 + Math.pow(rgn(), .7) * 45, x = Math.sin(q) * r, z = Math.cos(q) * r;
-        a.set([x, -.04 + sm(25, 50, r) * (1.4 + 1.1 * vh(x, z)) + sm(4, 12, r) * .05 * vh(x * 2, z * 2) + .03, z], i * 3); }
-      const g = new T.BufferGeometry(); g.setAttribute('position', new T.BufferAttribute(a, 3));
-      S.add(new T.Points(g, new T.PointsMaterial({ color: '#8f9cff', size: .05, transparent: true, opacity: .45, blending: T.AdditiveBlending, depthWrite: false }))); }
-    const pool = new T.Mesh(new T.PlaneGeometry(70, 70).rotateX(-Math.PI / 2), new T.MeshBasicMaterial({ map: gT, transparent: true, opacity: .55, blending: T.AdditiveBlending, depthWrite: false })); pool.position.y = .02; S.add(pool);
+    const nz = K.noise(256, { seed: 4, octaves: 5 });
+    const ground = new T.Mesh(new T.CircleGeometry(120, 96).rotateX(-Math.PI / 2), new T.MeshLambertMaterial({ color: '#16132e', map: K.tex(nz, true, [30, 30]) })); S.add(ground);
+    const pool = new T.Mesh(new T.PlaneGeometry(70, 70).rotateX(-Math.PI / 2), new T.MeshBasicMaterial({ map: gT, transparent: true, blending: T.AdditiveBlending, depthWrite: false })); pool.position.y = .02; S.add(pool);
     // ---- the balance (machine: separate solid parts are right) ----
     const BAL = new T.Group(); S.add(BAL);
-    const brass = LC.rim({ base: '#060309', rim: '#ffc460', k: 2.8, far: 60, pow: 3.5 }), dark = LC.rim({ base: '#050308', rim: '#ffc460', k: 3.2, far: 60, pow: 3.5 });
-    const dressB = (m, n, ln) => LC.dress(m, { points: n, size: .035, lines: ln == null ? .05 : ln, color: '#ffb85a', pointColor: '#ffe3a8', opacity: .85 });
+    const brass = new T.MeshStandardMaterial({ color: '#b08a4a', metalness: 1, roughness: .28, envMap: E, envMapIntensity: .6, emissive: '#2a1806' });
+    const dark = new T.MeshStandardMaterial({ color: '#2a2440', metalness: .8, roughness: .35, envMap: E, envMapIntensity: .5 });
     const pil = [[0, 0], [.75, 0], [.75, .12], [.6, .16], [.55, .3], [.36, .34], [.2, .45], [.14, .6], [.12, 2.2], [.16, 2.28], [.16, 2.36], [.1, 2.42], [0, 2.44]].map(([r, h]) => new T.Vector2(r, h));
-    const pilD = []; pil.forEach((v, i) => { if (i) { const a = pil[i - 1], n = Math.max(1, Math.round((v.y - a.y) / .15)); for (let k = 1; k < n; k++) pilD.push(a.clone().lerp(v, k / n)); } pilD.push(v); });
-    const pilM = new T.Mesh(new T.LatheGeometry(pilD, 48), dark); BAL.add(pilM); dressB(pilM, 220, .04);
+    BAL.add(new T.Mesh(new T.LatheGeometry(pil, 48), dark));
     const BEAM = new T.Group(); BEAM.position.y = 2.42; BAL.add(BEAM);
     const bs = new T.Shape(); bs.moveTo(-1.7, -.03); bs.lineTo(-.15, -.07); bs.quadraticCurveTo(0, -.16, .15, -.07); bs.lineTo(1.7, -.03); bs.lineTo(1.7, .03); bs.lineTo(.15, .07); bs.quadraticCurveTo(0, .14, -.15, .07); bs.lineTo(-1.7, .03); bs.closePath();
     const beamG = new T.ExtrudeGeometry(bs, { depth: .08, bevelEnabled: true, bevelThickness: .02, bevelSize: .02, bevelSegments: 2, curveSegments: 12 }); beamG.translate(0, 0, -.04);
-    const beamM = new T.Mesh(beamG, brass); BEAM.add(beamM); dressB(beamM, 90, .06);
+    BEAM.add(new T.Mesh(beamG, brass));
     BEAM.add(new T.Mesh(new T.SphereGeometry(.09, 20, 14), brass));
     const lineM = new T.MeshBasicMaterial({ color: GOLD.clone().multiplyScalar(1.6), transparent: true, opacity: .7, blending: T.AdditiveBlending, depthWrite: false });
     const bl = new T.Mesh(new T.BoxGeometry(3.4, .012, .012), lineM); bl.position.z = .065; BEAM.add(bl);
@@ -93,7 +79,7 @@
       for (let k = 0; k < 3; k++) { const a = k / 3 * 6.283; const top = new T.Vector3(0, 0, 0), bot = new T.Vector3(Math.cos(a) * .42, -1.0, Math.sin(a) * .42); const d = bot.clone().sub(top);
         const c = new T.Mesh(new T.CylinderGeometry(.008, .008, d.length(), 6), lineM); c.position.copy(top.clone().add(bot).multiplyScalar(.5)); c.quaternion.setFromUnitVectors(new T.Vector3(0, 1, 0), d.normalize()); P2.add(c); }
       const pp = [[0, -1.12], [.25, -1.11], [.42, -1.04], [.5, -.98], [.48, -.97], [.4, -1.02], [.24, -1.08], [0, -1.09]].map(([r, h]) => new T.Vector2(r, h));
-      const panM = new T.Mesh(new T.LatheGeometry(pp, 40), brass); P2.add(panM); dressB(panM, 60, .06);
+      P2.add(new T.Mesh(new T.LatheGeometry(pp, 40), brass));
       const rim = new T.Mesh(new T.TorusGeometry(.5, .012, 8, 64).rotateX(Math.PI / 2).translate(0, -.98, 0), lineM); P2.add(rim);
       const gl = glow(P2, '#ffd08a', 1.6, .25); gl.position.y = -.98; return { g, P2, gl }; });
     const top = glow(BAL, '#ffe2b0', 3.5, .35); top.position.y = 2.5; const halo = glow(BAL, '#d6a0ff', 16, .12); halo.position.y = 2.0;
@@ -104,11 +90,11 @@
     [0, Math.PI / 2].forEach(r => { const m = new T.Mesh(new T.PlaneGeometry(3.2, 14), colM); m.position.y = 9.4; m.rotation.y = r; BAL.add(m); });
     // ---- the ring of people ----
     const R = rng(23), NF = 30, RAD = 9.5, variants = [{ sh: 1.05 }, { sh: .92, hip: 1.1, hair: 1 }, { sh: 1, coat: 1 }, { sh: .95, hair: 1, coat: 1 }, { sh: 1.12 }].map(o => figureGeo(T, o));
-    const skin = LC.rim({ base: '#04030e', rim: '#7d8cff', k: 2.0, far: 45, pow: 3.2 });
+    const skin = rimify(T, new T.MeshStandardMaterial({ color: '#141226', roughness: .75, metalness: .05 }), '#ffc98a', .55);
     const figs = [], FEET = [], footG = new T.PlaneGeometry(1.6, 1.6).rotateX(-Math.PI / 2);
     for (let i = 0; i < NF; i++) { const a = i / NF * 6.283 + (R() - .5) * .08, r = RAD + (R() - .5) * 1.2, v = (R() * variants.length) | 0, sc = (.93 + R() * .14) * (R() < .12 ? .72 : 1);
       const m = new T.Mesh(variants[v], skin); m.position.set(Math.sin(a) * r, 0, Math.cos(a) * r); m.scale.setScalar(sc); m.lookAt(0, 0, 0); m.rotateY(Math.PI);   // face the centre (-z forward)
-      m.rotation.order = 'YXZ'; S.add(m); LC.dress(m, { points: 45, size: .03, lines: false, pointColor: '#b8c4ff', opacity: .55 }); figs.push([m, a, R() * 6.283, m.rotation.y]);
+      m.rotation.order = 'YXZ'; S.add(m); figs.push([m, a, R() * 6.283, m.rotation.y]);
       const f = new T.Mesh(footG, new T.MeshBasicMaterial({ map: ctx.dotTex(), color: '#ffcf8a', transparent: true, opacity: 0, blending: T.AdditiveBlending, depthWrite: false })); f.position.set(Math.sin(a) * r, .04, Math.cos(a) * r); S.add(f); FEET.push([f, a]); }
     figs.forEach(([m]) => { m.rotation.x = 0; });
     // spokes of light on the ground from each figure to the balance

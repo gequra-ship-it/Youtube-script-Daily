@@ -5,10 +5,6 @@
 // breathes by deforming that mesh, and the tongue is a tube of extra vertices in the same geometry, stretched out to the insect
 // and back. Only the eyes are separate small spheres. Water: planar reflection (half-resolution mirror pass with an oblique near
 // plane) distorted by ripples; seen from below it shows the Snell window. Reeds, cattails and grass sway in the vertex shader.
-// Look C (2026-10-15, cine_spec 3A): surfaces are drawn with light. The frog (and tadpoles, dragonflies) are dark bodies with a
-// warm fresnel outline, faint mesh lines and a few hundred vertex points (kit.lookC); rock, reeds, pads and the far shore are dark
-// with a cool outline; the bank is contour lines + sparse points; the water is a dark mirror of all those lines; the sky is a
-// navy-violet night ('night') or a backlit dusk with a low sun behind the reeds ('day'). Eyes, fireflies and the moon glow.
 // params:
 //   mode: 'night' | 'day'
 //   night cues: insect (a firefly drifts in), moves (it darts in front of the frog), tongue (the strike), reveal (camera pulls back
@@ -28,16 +24,11 @@
   const col = h => new T.Color(h);
 
   // ---------------- palette / atmosphere ----------------
-  const PAL = NIGHT ? { fog: '#03040f', fogD: .02, skyTop: '#020312', skyMid: '#080a26', skyHor: '#161a48', deep: '#010208', wfog: '#0a0c2a', hemiS: '#6878e0', hemiG: '#141020', hemiI: 2.0,
+  const PAL = NIGHT ? { fog: '#0a0e26', fogD: .03, skyTop: '#050820', skyMid: '#141a4a', skyHor: '#363a78', deep: '#01020a', hemiS: '#6878e0', hemiG: '#141020', hemiI: 2.0,
       key: '#b4c4ff', keyI: 2.3, sunDir: [-.36, .17, -1], env: .05 }
-    : { fog: '#05040f', fogD: .02, skyTop: '#03031a', skyMid: '#0e0c30', skyHor: '#24163a', deep: '#010208', wfog: '#120c26', hemiS: '#8a80d0', hemiG: '#1a1020', hemiI: .8,
-      key: '#ffd49a', keyI: 2.6, keyDir: [-.55, .6, .6], sunDir: [-.3, .035, -1], env: .28 };
-  const FOGC = col(PAL.fog), UWC = col('#010612');
-  // look C materials: every rim material is listed so draw() can shorten the fade distance under water
-  const rimMats = [], WARM = '#ffc460', COOL = '#5f78ff';
-  const rimM = o => { const m = K.lookC.rim(o); m.userData.far = m.uniforms.far.value; rimMats.push(m); return m; };
-  const toLayer = (o, l) => o.traverse(c => c.layers.set(l));
-  const dressPts = [], dressC = (m, o) => { const d = K.lookC.dress(m, o); if (d.points) dressPts.push(d.points); return d; };   // points are left out of the low-res mirror pass (they turn into blocks)
+    : { fog: '#56646c', fogD: .02, skyTop: '#1e4a70', skyMid: '#5f8098', skyHor: '#f2b46a', deep: '#06160f', hemiS: '#b8d4ec', hemiG: '#3a3218', hemiI: .8,
+      key: '#ffd49a', keyI: 2.6, keyDir: [-.55, .6, .6], sunDir: [-.3, .1, -1], env: .28 };
+  const FOGC = col(PAL.fog), UWC = col('#062420');
   S.fog = new T.FogExp2(FOGC.clone(), PAL.fogD);
   const SUN = new T.Vector3(...PAL.sunDir).normalize();
   const hemi = new T.HemisphereLight(PAL.hemiS, PAL.hemiG, PAL.hemiI); S.add(hemi);
@@ -47,30 +38,28 @@
   const ENV = ctx.env();   // image light only on small glossy parts (eyes, dragonflies): IBL on large areas is slow in software GL
   // sky dome (moon or low sun glow toward SUN)
   const dome = new T.Mesh(new T.SphereGeometry(600, 48, 24), new T.ShaderMaterial({ side: T.BackSide, depthWrite: false, fog: false,
-    uniforms: { top: { value: col(PAL.skyTop) }, mid: { value: col(PAL.skyMid) }, hor: { value: col(PAL.skyHor) }, sun: { value: SUN }, glow: { value: col(NIGHT ? '#3a3c8a' : '#e8805a') }, gk: { value: NIGHT ? .45 : .7 } },
+    uniforms: { top: { value: col(PAL.skyTop) }, mid: { value: col(PAL.skyMid) }, hor: { value: col(PAL.skyHor) }, sun: { value: SUN }, glow: { value: col(NIGHT ? '#4a4c9a' : '#ffb860') }, gk: { value: NIGHT ? .5 : 1.3 } },
     vertexShader: 'varying vec3 vP; void main(){ vP=normalize(position); vec4 p=projectionMatrix*modelViewMatrix*vec4(position,1.); gl_Position=p.xyww; }',
     fragmentShader: `uniform vec3 top,mid,hor,sun,glow; uniform float gk; varying vec3 vP;
       void main(){ float y=vP.y; vec3 c = y>0.? mix(hor,mid,smoothstep(0.,.12,y)) : hor; c = mix(c, top, smoothstep(.1,.7,y));
-        float g=max(dot(vP,sun),0.); c += glow*gk*(pow(g,6.)*.35*(1.-smoothstep(-.05,.45,y))+pow(g,40.)*.6);
+        float g=max(dot(vP,sun),0.); c += glow*gk*(pow(g,6.)*.35+pow(g,40.)*.6);
         gl_FragColor=vec4(c,1.);
         #include <tonemapping_fragment>
         #include <colorspace_fragment>
       }` }));
   dome.renderOrder = 10; dome.frustumCulled = false; S.add(dome);
-  { // stars (upper sky only; fewer and higher at dusk)
-    const NS = NIGHT ? 2600 : 900, st = ctx.points(NS, { size: 1.3, opacity: NIGHT ? .85 : .6, color: '#d6dcff', atten: false }), sa = st.geometry.attributes.position.array, sc = st.geometry.attributes.color.array, r0 = K.rng(12);
-    for (let i = 0; i < NS; i++) { const u = (NIGHT ? .03 : .2) + Math.pow(r0(), 1.3) * (NIGHT ? .97 : .8), th = r0() * 6.283, q = Math.sqrt(1 - u * u); sa.set([q * Math.cos(th) * 500, u * 500, q * Math.sin(th) * 500], i * 3); const b = .25 + Math.pow(r0(), 4) * 1.2; sc.set([b, b, b * 1.05], i * 3); }
-    st.material.fog = false; S.add(st); }
   if (NIGHT) {
-    // the moon with a halo
+    // stars (upper sky only) and the moon with a halo
+    const NS = 2600, st = ctx.points(NS, { size: 1.3, opacity: .85, color: '#d6dcff', atten: false }), sa = st.geometry.attributes.position.array, sc = st.geometry.attributes.color.array, r0 = K.rng(12);
+    for (let i = 0; i < NS; i++) { const u = .03 + Math.pow(r0(), 1.3) * .97, th = r0() * 6.283, q = Math.sqrt(1 - u * u); sa.set([q * Math.cos(th) * 500, u * 500, q * Math.sin(th) * 500], i * 3); const b = .25 + Math.pow(r0(), 4) * 1.2; sc.set([b, b, b * 1.05], i * 3); }
+    st.material.fog = false; S.add(st);
     const mt = ctx.ctex(512, (g, z) => { g.fillStyle = '#fff6e0'; g.fillRect(0, 0, z, z); const nz = K.noise(256, { seed: 33, octaves: 5, sx: 2, sy: 2 }); g.globalAlpha = .45; g.globalCompositeOperation = 'multiply'; g.drawImage(nz, 0, 0, z, z); g.globalAlpha = 1;
       const rr = K.rng(8); g.fillStyle = 'rgba(120,115,130,.35)'; for (let i = 0; i < 9; i++) { g.beginPath(); g.ellipse(rr() * z, z * .3 + rr() * z * .4, 20 + rr() * 70, 15 + rr() * 40, rr() * 3, 0, 6.283); g.fill(); } });
     const moon = new T.Mesh(new T.SphereGeometry(9, 48, 32), new T.MeshBasicMaterial({ map: mt, color: new T.Color(2.2, 2.15, 2.0), fog: false }));
     moon.position.copy(SUN).multiplyScalar(420); moon.lookAt(0, 0, 0); S.add(moon);
-    const h1 = ctx.glow(S, '#8f9cff', 90, .2), h2 = ctx.glow(S, '#fff0d0', 48, .5); h1.position.copy(moon.position); h2.position.copy(moon.position);
+    const h1 = ctx.glow(S, '#9fb0ff', 150, .32), h2 = ctx.glow(S, '#fff0d0', 48, .5); h1.position.copy(moon.position); h2.position.copy(moon.position);
   } else {
-    // low sun just above the far tree line: the backlight that makes the outlines read
-    const sunG = ctx.glow(S, '#f07a50', 60, .26), sunC = ctx.glow(S, '#ffe0b0', 16, .85); sunG.position.copy(SUN).multiplyScalar(420); sunC.position.copy(sunG.position);
+    const sunG = ctx.glow(S, '#ffd9a0', 120, .55), sunC = ctx.glow(S, '#fff4e0', 26, .95); sunG.position.copy(SUN).multiplyScalar(420); sunC.position.copy(sunG.position);
   }
 
   // ---------------- terrain: bank behind and right of the frog, pond bottom under the water ----------------
@@ -82,10 +71,8 @@
     for (let i = 0; i < P.count; i++) { const x = P.getX(i), z = P.getZ(i), y = ground(x, z); P.setY(i, y); const n = fbm(x * 1.3, 2, z * 1.3);
       c.copy(wet).lerp(mud, sm(-.05, .12, y)).lerp(grass, sm(.15, .45, y) * (.6 + .4 * n)).lerp(moss, sm(.55, .8, n) * sm(.1, .3, y) * .6); if (y < -.05) c.multiplyScalar(.6); C.set([c.r, c.g, c.b], i * 3); }
     gG.setAttribute('color', new T.BufferAttribute(C, 3)); gG.computeVertexNormals(); }
-  // look C: contour lines every 8 cm of height + an outline, and sparse cool points on the vertices
-  const groundM = K.lookC.contour({ base: '#020310', line: '#3c50c0', spacing: .08, width: .05, far: 26, k: .7 }); groundM.userData.far = 26; rimMats.push(groundM);
-  const gMesh = new T.Mesh(gG, groundM); S.add(gMesh);
-  dressC(gMesh, { lines: false, points: 1400, size: .03, pointColor: '#6f86ff', opacity: .35 }); toLayer(gMesh, 1);   // layer 1 = not drawn in the reflection pass
+  const groundM = new T.MeshLambertMaterial({ vertexColors: true });
+  const gMesh = new T.Mesh(gG, groundM); S.add(gMesh); gMesh.layers.set(1);   // layer 1 = not drawn in the reflection pass
 
   // the stone the frog sits on: displaced sphere, wet dark rock with moss on top
   const rockG = new T.SphereGeometry(1, 96, 64); { const P = rockG.attributes.position, C = new Float32Array(P.count * 3), c = new T.Color(), r1 = col(NIGHT ? '#2c2c36' : '#3a3630'), r2 = col('#141418'), mo = col(NIGHT ? '#20321e' : '#4a5a26');
@@ -93,8 +80,7 @@
       v.multiplyScalar(d); v.y = v.y > .55 ? .55 + (v.y - .55) * .3 : v.y; P.setXYZ(i, v.x * 1.25, v.y * (v.y < 0 ? .95 : .5), v.z * 1.0);
       const n = fbm(v.x * 3, v.y * 3, v.z * 3); c.copy(r2).lerp(r1, n).lerp(mo, sm(.25, .5, v.y) * sm(.45, .65, n)); C.set([c.r, c.g, c.b], i * 3); }
     rockG.setAttribute('color', new T.BufferAttribute(C, 3)); rockG.computeVertexNormals(); }
-  const rock = new T.Mesh(rockG, rimM({ base: '#02030c', rim: COOL, k: .65, far: 30, pow: 5 })); rock.position.set(.05, -.05, -.15); S.add(rock);
-  dressC(rock, { lines: .018, color: '#4d66e0', points: 260, size: .022, pointColor: '#8fa6ff', opacity: .4 });
+  const rock = new T.Mesh(rockG, new T.MeshLambertMaterial({ vertexColors: true })); rock.position.set(.05, -.05, -.15); S.add(rock);
   const ROCKTOP = .22;
 
   // ---------------- frog: ONE mesh ----------------
@@ -186,10 +172,8 @@
     const g = new T.BufferGeometry(); g.setAttribute('position', new T.BufferAttribute(pos, 3)); g.setAttribute('normal', new T.BufferAttribute(nor, 3)); g.setAttribute('color', new T.BufferAttribute(cl, 3)); g.setIndex(ix);
     return { g, nb: g0.nv, base: g0.pos, baseN: g0.N };
   }
-  // look C: dark body, warm outline, faint mesh lines and ~700 points that follow the jaw / throat / tongue deform
-  const skinM = rimM({ base: '#030205', rim: WARM, k: 3.0, far: 60 });
+  const skinM = new T.MeshStandardMaterial({ vertexColors: true, roughness: .38, metalness: 0 });
   const F0 = buildFrog(.0088, true), frogMesh = new T.Mesh(F0.g, skinM); frogMesh.frustumCulled = false;
-  dressC(frogMesh, { lines: .03, color: '#ffb85a', points: 700, size: .022, pointColor: '#ffe3a8', opacity: .85 });
   const frog = new T.Group(); frog.add(frogMesh); S.add(frog);
   // eyes: glossy spheres with a gold iris and a horizontal pupil (the only separate parts)
   const eyeT = ctx.ctex(512, (g, z) => { g.fillStyle = '#0a0806'; g.fillRect(0, 0, z, z); const cx = z * .25, cy = z * .5, r = z * .15;
@@ -197,14 +181,14 @@
     g.save(); g.translate(cx, cy); g.scale(1, 2); g.beginPath(); g.arc(0, 0, r, 0, 6.283); g.fill(); g.restore();
     const rr = K.rng(3); g.strokeStyle = 'rgba(60,30,8,.55)'; g.lineWidth = 1.5; for (let i = 0; i < 90; i++) { const a = rr() * 6.283, r1 = r * (.3 + rr() * .3); g.beginPath(); g.moveTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1 * 2); g.lineTo(cx + Math.cos(a) * r * .95, cy + Math.sin(a) * r * 1.9); g.stroke(); }
     g.fillStyle = '#020101'; g.save(); g.translate(cx, cy); g.scale(1, 2); g.beginPath(); g.ellipse(0, 0, r * .55, r * .22, 0, 0, 6.283); g.fill(); g.restore(); });
-  const eyeM = new T.MeshStandardMaterial({ envMap: ENV, map: eyeT, emissiveMap: eyeT, emissive: new T.Color('#ffb040'), emissiveIntensity: .45, roughness: .08, envMapIntensity: .5 });   // eyes keep their own light
+  const eyeM = new T.MeshStandardMaterial({ envMap: ENV, map: eyeT, emissiveMap: eyeT, emissive: new T.Color(NIGHT ? '#ffb040' : '#000000'), emissiveIntensity: NIGHT ? .35 : 0, roughness: .08, envMapIntensity: NIGHT ? .5 : .8 });
   function makeEyes(parent) { const es = [1, -1].map(sd => { const e = new T.Mesh(new T.SphereGeometry(.058, 32, 24), eyeM); const dir = new T.Vector3(.45, .35, sd * .82).normalize(); e.quaternion.setFromUnitVectors(new T.Vector3(0, 0, 1), dir); e.position.set(.385, .535, sd * .122); parent.add(e); return e; }); return es; }
   const eyes = makeEyes(frog);
   frog.position.set(0, ROCKTOP, 0);
   const FWD = NIGHT ? [-.88, .47] : [-.8, .6]; frog.rotation.y = Math.atan2(-FWD[1], FWD[0]);
   // distant companions on the shore: a lower-resolution copy of the same mesh
-  const F1 = NIGHT ? buildFrog(.016, false) : null, mates = [], mateM = rimM({ base: '#030205', rim: WARM, k: 1.2, far: 40 });
-  if (NIGHT) [[-2.6, -2.1, .8, 2.0], [2.7, -2.5, .8, -2.4]].forEach(([x, z, s, ry]) => { const g = new T.Group(); const mm = new T.Mesh(F1.g, mateM); dressC(mm, { lines: false, points: 110, size: .03, pointColor: '#ffe3a8', opacity: .4 }); g.add(mm); makeEyes(g); g.position.set(x, Math.max(.03, ground(x, z)) + .01, z); g.scale.setScalar(s); g.rotation.y = ry; S.add(g); mates.push(g); });
+  const F1 = NIGHT ? buildFrog(.016, false) : null, mates = [];
+  if (NIGHT) [[-2.6, -2.1, .8, 2.0], [2.7, -2.5, .8, -2.4]].forEach(([x, z, s, ry]) => { const g = new T.Group(); g.add(new T.Mesh(F1.g, skinM)); makeEyes(g); g.position.set(x, Math.max(.03, ground(x, z)) + .01, z); g.scale.setScalar(s); g.rotation.y = ry; S.add(g); mates.push(g); });
   // deformation lists: jaw (below the mouth line, in front of the hinge) and throat (breathing)
   const HX = .27, HY = .4, jaw = [], fp = F0.g.attributes.position.array, fn = F0.g.attributes.normal.array;
   for (let q = 0; q < F0.nb; q++) { const x = F0.base[q * 3], y = F0.base[q * 3 + 1], z = F0.base[q * 3 + 2];
@@ -234,21 +218,16 @@
 
   // ---------------- swaying plants (instanced; sway in the vertex shader from the world height above the water) ----------------
   const uT = { value: 0 }, sways = [];
-  // look C sway material: dark blade + cool fresnel outline, brighter toward the tips (light caught from behind), faded by distance
-  function swayMat(o, amp, freq, abs) {
-    const m = new T.ShaderMaterial({ side: T.DoubleSide, uniforms: { uT, uA: { value: amp }, uF: { value: freq }, base: { value: col(o.base || '#01020a') }, rim: { value: col(o.rim || COOL) }, k: { value: o.k || 1 }, far: { value: o.far || 30 }, tipK: { value: o.tip || .25 } },
-      vertexShader: `uniform float uT, uA, uF; varying vec3 vN; varying vec3 vV; varying float vD; varying float vH;
-        void main(){ vec4 wp = modelMatrix * instanceMatrix * vec4(position, 1.0);
-          vec3 ip = (modelMatrix * instanceMatrix[3]).xyz;
-          float hh = max(wp.y - ${abs ? '0.0' : 'max(ip.y, 0.0)'}, 0.0);
-          float sw = sin(uT * uF + ip.x * .37 + ip.z * .23) + .45 * sin(uT * uF * 2.17 + ip.x * 1.3 - ip.z * .7);
-          wp.x += sw * hh * hh * uA; wp.z += .4 * cos(uT * uF * .8 + ip.z * .5) * hh * hh * uA;
-          vec4 mv = viewMatrix * wp; vN = normalize(mat3(viewMatrix) * mat3(modelMatrix) * mat3(instanceMatrix) * normal); vV = normalize(-mv.xyz); vD = length(mv.xyz); vH = position.y;
-          gl_Position = projectionMatrix * mv; }`,
-      fragmentShader: `uniform vec3 base; uniform vec3 rim; uniform float k; uniform float far; uniform float tipK; varying vec3 vN; varying vec3 vV; varying float vD; varying float vH;
-        void main(){ float f = pow(1. - abs(dot(normalize(vN), normalize(vV))), 3.); float a = clamp(1. - vD / far, 0., 1.);
-          gl_FragColor = vec4(base + rim * (f * k + tipK * smoothstep(.55, 1., vH)) * a, 1.); }` });
-    m.userData.far = o.far || 30; rimMats.push(m); return m; }
+  function swayMat(m, amp, freq, abs) {
+    m.onBeforeCompile = sh => { sh.uniforms.uT = uT; sh.uniforms.uA = { value: amp }; sh.uniforms.uF = { value: freq };
+      sh.vertexShader = 'uniform float uT, uA, uF;\n' + sh.vertexShader.replace('#include <project_vertex>', `
+        vec4 wp = modelMatrix * instanceMatrix * vec4(transformed, 1.0);
+        vec3 ip = (modelMatrix * instanceMatrix[3]).xyz;
+        float hh = max(wp.y - ${abs ? '0.0' : 'max(ip.y, 0.0)'}, 0.0);
+        float sw = sin(uT * uF + ip.x * .37 + ip.z * .23) + .45 * sin(uT * uF * 2.17 + ip.x * 1.3 - ip.z * .7);
+        wp.x += sw * hh * hh * uA; wp.z += .4 * cos(uT * uF * .8 + ip.z * .5) * hh * hh * uA;
+        vec4 mvPosition = viewMatrix * wp; gl_Position = projectionMatrix * mvPosition;`); };
+    m.customProgramCacheKey = () => 'sway' + !!abs; return m; }
   // leaf blade with a folded (V) cross-section so it has structure from every side
   function bladeGeo(len, wid, bend, seg) { const g = new T.BufferGeometry(), P = [], I = []; for (let i = 0; i <= seg; i++) { const s = i / seg, w = wid * (1 - Math.pow(s, 1.6)) + .002, y = s * len, x = bend * s * s * len, f = w * .35;
       P.push(x - w, y, -f * .2, x, y, f, x + w, y, -f * .2); }
@@ -261,49 +240,39 @@
     if (cl < .45) { x = -1.5 + r2() * 12; z = -1.3 - Math.pow(r2(), .8) * 5; } else if (cl < .65) { x = 2.5 + r2() * 8; z = -1 + r2() * 1.6; }
     else { x = -30 + r2() * 28; z = shoreZ(x) - .2 - r2() * 3; hs = .75; }
     if (inFrame(x, z)) continue; reedPts.push([x, z, (1.8 + r2() * 3.4) * hs]); }
-  const leafG = bladeGeo(1, .045, .25, 10), NL = reedPts.length * 4, leafI = new T.InstancedMesh(leafG, swayMat({ base: '#01020a', rim: COOL, k: .9, far: 34, tip: .22 }, .006, .9), NL);
+  const leafG = bladeGeo(1, .045, .25, 10), NL = reedPts.length * 4, leafI = new T.InstancedMesh(leafG, swayMat(new T.MeshLambertMaterial({ color: NIGHT ? '#1c2c22' : '#3a5626', side: T.DoubleSide }), .006, .9), NL);
   const stemG = new T.CylinderGeometry(.018, .028, 1, 6, 6); stemG.translate(0, .5, 0); const NSt = Math.floor(reedPts.length * .45);
-  const stemI = new T.InstancedMesh(stemG, swayMat({ base: '#01020a', rim: COOL, k: .8, far: 34, tip: 0 }, .006, .9, true), NSt);
-  const headG = new T.CapsuleGeometry(.07, .5, 4, 10); const headI = new T.InstancedMesh(headG, swayMat({ base: '#020208', rim: '#8a8cff', k: 1.3, far: 34, tip: 0 }, .006, .9, true), NSt);
+  const stemI = new T.InstancedMesh(stemG, swayMat(new T.MeshLambertMaterial({ color: NIGHT ? '#22301e' : '#5a6a32' }), .006, .9, true), NSt);
+  const headG = new T.CapsuleGeometry(.07, .5, 4, 10); const headI = new T.InstancedMesh(headG, swayMat(new T.MeshLambertMaterial({ color: NIGHT ? '#2a1a12' : '#5a3a1e' }), .006, .9, true), NSt);
   { let li = 0; reedPts.forEach(([x, z, hgt], n) => { const gy = ground(x, z) - .1;
       for (let k = 0; k < 4; k++) { const L = hgt * (.55 + r2() * .55) + (gy < 0 ? -gy : 0); E4.set((r2() - .5) * .25, r2() * 6.28, (r2() - .5) * .3); Q4.setFromEuler(E4); V4.set(x + (r2() - .5) * .3, gy, z + (r2() - .5) * .3); S4.set(1 + r2(), L, 1 + r2()); M4.compose(V4, Q4, S4); leafI.setMatrixAt(li++, M4); }
       if (n < NSt) { const L = hgt * 1.1 + (gy < 0 ? -gy : 0); Q4.identity(); V4.set(x, gy, z); S4.set(1, L, 1); M4.compose(V4, Q4, S4); stemI.setMatrixAt(n, M4); V4.set(x, gy + L - .2, z); S4.set(1, 1, 1); M4.compose(V4, Q4, S4); headI.setMatrixAt(n, M4); } });
     leafI.count = li; }
   S.add(leafI, stemI, headI);
   // grass on the bank and a few foreground tufts
-  const grassG = bladeGeo(1, .012, .35, 5), NGr = 1400, grassI = new T.InstancedMesh(grassG, swayMat({ base: '#01020a', rim: COOL, k: .7, far: 14, tip: .35 }, .05, 1.6), NGr);
+  const grassG = bladeGeo(1, .012, .35, 5), NGr = 1400, grassI = new T.InstancedMesh(grassG, swayMat(new T.MeshLambertMaterial({ color: NIGHT ? '#1a2a1c' : '#5a7a30', side: T.DoubleSide }), .05, 1.6), NGr);
   { let gi = 0; for (let i = 0; i < NGr * 3 && gi < NGr; i++) { const x = -14 + r2() * 22, z = -6 + r2() * 9, y = ground(x, z); if (y < .02 || (x > -1.2 && x < 1.3 && z > -.9)) continue;
       E4.set((r2() - .5) * .5, r2() * 6.28, (r2() - .5) * .5); Q4.setFromEuler(E4); V4.set(x, y - .02, z); const L = .25 + r2() * .55; S4.set(1, L, 1); M4.compose(V4, Q4, S4); grassI.setMatrixAt(gi++, M4); } grassI.count = gi; }
   S.add(grassI); grassI.layers.set(1);
   // lily pads: real thickness, notch, slightly cupped
   const padG = new T.CylinderGeometry(1, 1, .025, 40, 1, false, .25, 6.03); { const P = padG.attributes.position; for (let i = 0; i < P.count; i++) { const x = P.getX(i), z = P.getZ(i), r = Math.hypot(x, z); P.setY(i, P.getY(i) + r * r * .04); } padG.computeVertexNormals(); }
-  // look C pads: dark discs drawn by a cool rim line and faint radial veins (from the pad's own local coordinates)
-  const padM = new T.ShaderMaterial({ uniforms: { far: { value: 30 } },
-    vertexShader: 'varying vec3 vL; varying float vD; void main(){ vL = position; vec4 mv = viewMatrix * modelMatrix * instanceMatrix * vec4(position, 1.); vD = length(mv.xyz); gl_Position = projectionMatrix * mv; }',
-    fragmentShader: `uniform float far; varying vec3 vL; varying float vD; void main(){ float r = length(vL.xz), a = atan(vL.z, vL.x); float fw = fwidth(r);
-      float edge = smoothstep(.9 - fw * 1.5, .97, r); float q = abs(fract(a * 18. / 6.2832) - .5) * 2.; float vein = smoothstep(.86 - fwidth(q), 1., q) * smoothstep(.15, .5, r) * (1. - edge);
-      float A = clamp(1. - vD / far, 0., 1.); gl_FragColor = vec4(vec3(.004, .006, .02) + vec3(.37, .47, 1.) * (edge * .5 + vein * .1) * A, 1.); }` });
-  padM.userData.far = 30; rimMats.push(padM);
-  const padI = new T.InstancedMesh(padG, padM, 9);
+  const padT = ctx.ctex(256, (g, z) => { g.fillStyle = NIGHT ? '#0e1c12' : '#3e6a2a'; g.fillRect(0, 0, z, z); g.strokeStyle = 'rgba(0,0,0,.35)'; g.lineWidth = 2; for (let k = 0; k < 18; k++) { const a = k / 18 * 6.283; g.beginPath(); g.moveTo(z / 2, z / 2); g.lineTo(z / 2 + Math.cos(a) * z / 2, z / 2 + Math.sin(a) * z / 2); g.stroke(); } });
+  const padI = new T.InstancedMesh(padG, new T.MeshLambertMaterial({ map: padT }), 9);
   { const rp = K.rng(44); for (let i = 0; i < 9; i++) { let x = -9 + rp() * 6.5, z = -1.2 + rp() * 4, s = .3 + rp() * .35; if (i === 0) { x = -2.6; z = -2.1; s = .62; } Q4.setFromEuler(E4.set(0, rp() * 6.28, 0)); V4.set(x, .012, z); S4.set(s, 1, s); M4.compose(V4, Q4, S4); padI.setMatrixAt(i, M4); } }
   S.add(padI); padI.layers.set(1);
   // far shore: one dark tree-line silhouette strip (cheap: a single unlit band with a ragged top)
   { const NTS = 720, P = [], I = [], rt2 = K.rng(71); for (let i = 0; i <= NTS; i++) { const a = Math.PI * (.05 + 1.05 * i / NTS), r = 95, x = -Math.cos(a) * r - 5, z = -Math.sin(a) * r * .9 - 4;
       const hh = 3 + 3 * fbm(i * .05, 1, 0) + 3 * Math.pow(Math.abs(Math.sin(i * .9 + rt2() * 2)), 3) + 1.5 * rt2(); P.push(x, -2, z, x, hh, z); if (i < NTS) { const b = i * 2; I.push(b, b + 2, b + 1, b + 1, b + 2, b + 3); } }
     const tg = new T.BufferGeometry(); tg.setAttribute('position', new T.Float32BufferAttribute(P, 3)); tg.setIndex(I);
-    var trees = new T.Mesh(tg, new T.MeshBasicMaterial({ color: NIGHT ? '#020310' : '#04030f', side: T.DoubleSide, fog: false })), blobs = trees; S.add(trees);
-    // look C: the ragged top of the tree line drawn as a faint cool line (lit from behind at dusk)
-    const TP = []; for (let i = 0; i <= NTS; i++) TP.push(P[i * 6 + 3], P[i * 6 + 4], P[i * 6 + 5]);
-    const tl = new T.Line(new T.BufferGeometry().setAttribute('position', new T.Float32BufferAttribute(TP, 3)), new T.LineBasicMaterial({ color: NIGHT ? '#4a5ad0' : '#c08aa0', transparent: true, opacity: NIGHT ? .35 : .5, blending: T.AdditiveBlending, depthWrite: false, fog: false }));
-    S.add(tl); }
+    var trees = new T.Mesh(tg, new T.MeshBasicMaterial({ color: NIGHT ? '#04060e' : '#1a2418', side: T.DoubleSide })), blobs = trees; S.add(trees); }
 
   // ---------------- water ----------------
   const RW = Math.round(ctx.W / 3), RH = Math.round(ctx.H / 3), rt = new T.WebGLRenderTarget(RW, RH, { colorSpace: T.SRGBColorSpace }); rt.isXRRenderTarget = true;   // same tone-mapped program variants as the screen pass (one compile per material); holds display values
   const mcam = new T.PerspectiveCamera(), texM = new T.Matrix4();
   const rings = []; for (let i = 0; i < 4; i++) rings.push(new T.Vector4(0, 0, -99, 0));
   const waterM = new T.ShaderMaterial({ side: T.DoubleSide, fog: true, lights: false, toneMapped: false,
-    uniforms: T.UniformsUtils.merge([T.UniformsLib.fog, { tR: { value: null }, mR: { value: new T.Matrix4() }, uT: { value: 0 }, uAmp: { value: 1 }, deep: { value: col(PAL.deep) }, fogD: { value: col(PAL.wfog) },
-      win: { value: col(NIGHT ? '#3a4cb0' : '#5f78ff') }, uw: { value: col('#010410') }, rings: { value: rings } }]),
+    uniforms: T.UniformsUtils.merge([T.UniformsLib.fog, { tR: { value: null }, mR: { value: new T.Matrix4() }, uT: { value: 0 }, uAmp: { value: 1 }, deep: { value: col(PAL.deep) }, fogD: { value: col(PAL.fog) },
+      win: { value: col(NIGHT ? '#4a5aa0' : '#b8d8b0') }, uw: { value: col('#03140f') }, rings: { value: rings } }]),
     vertexShader: `varying vec3 vW;
       #include <fog_pars_vertex>
       void main(){ vec4 w = modelMatrix*vec4(position,1.); vW=w.xyz; vec4 mvPosition = viewMatrix*w; gl_Position=projectionMatrix*mvPosition;
@@ -323,14 +292,10 @@
       void main(){ vec2 g=wave(vW.xz); vec3 N=normalize(vec3(-g.x,1.,-g.y)); vec3 V=normalize(cameraPosition-vW); vec3 c;
         if(gl_FrontFacing){ vec4 pc=mR*vec4(vW.x,0.,vW.z,1.); pc.xy += N.xz*.5*pc.w*.25; vec3 rf=texture2DProj(tR,pc).rgb;
           float f=.02+.98*pow(1.-max(dot(N,V),0.),5.); c=mix(sqrt(deep), rf, clamp(f*1.05+.08,0.,1.)); }
-        else { // from below (look C): dark surface, the Snell window as a faint disc of light crossed by thin wavering light lines
-          vec3 d=-V; float k=smoothstep(.42,.62,d.y), ed=smoothstep(.36,.44,d.y)*(1.-smoothstep(.44,.56,d.y));
-          float r1=sin(vW.x*5.+g.x*260.+uT*1.2+sin(vW.z*2.3+uT*.7)*1.6), r2=sin(vW.z*4.4-g.y*260.+uT*.9+sin(vW.x*1.9-uT*.5)*1.6);
-          float ln=(1.-smoothstep(0.,.07+fwidth(r1),abs(r1)))+(1.-smoothstep(0.,.07+fwidth(r2),abs(r2)));
-          c=sqrt(uw + win*(ln*(.007+.08*k) + k*.012 + ed*.008)); }
+        else { vec3 d=-V; float k=smoothstep(.42,.62,d.y); float rip=.5+.5*sin(vW.x*9.+g.x*300.+uT*1.5)*sin(vW.z*8.-g.y*300.+uT*1.1); c=sqrt(mix(uw, win*(.7+.6*rip), k)); }
         #ifdef USE_FOG
           float fogF = 1.0 - exp( - fogDensity * fogDensity * vFogDepth * vFogDepth );
-          c = mix(c, gl_FrontFacing ? sqrt(fogD) : sqrt(uw), fogF);
+          c = mix(c, gl_FrontFacing ? sqrt(fogD) : pow(fogColor, vec3(1./2.2)) * .8, fogF);
         #endif
         gl_FragColor=vec4(c,1.);   // display space: the reflection target already holds tone-mapped sRGB
       }` });
@@ -344,7 +309,7 @@
     const pl = new T.Plane(new T.Vector3(0, 1, 0), 0); pl.applyMatrix4(mcam.matrixWorldInverse); const cp = new T.Vector4(pl.normal.x, pl.normal.y, pl.normal.z, pl.constant), pm = mcam.projectionMatrix, q = new T.Vector4();
     q.x = (Math.sign(cp.x) + pm.elements[8]) / pm.elements[0]; q.y = (Math.sign(cp.y) + pm.elements[9]) / pm.elements[5]; q.z = -1; q.w = (1 + pm.elements[10]) / pm.elements[14];
     cp.multiplyScalar(2 / cp.dot(q)); pm.elements[2] = cp.x; pm.elements[6] = cp.y; pm.elements[10] = cp.z + 1 - .003; pm.elements[14] = cp.w; mcam.projectionMatrixInverse.copy(pm).invert();
-    water.visible = false; dressPts.forEach(q => q.visible = false); const old = R.getRenderTarget(); R.setRenderTarget(rt); R.clear(); R.render(S, mcam); R.setRenderTarget(old); water.visible = true; dressPts.forEach(q => q.visible = true); waterM.uniforms.tR.value = rt.texture;
+    water.visible = false; const old = R.getRenderTarget(); R.setRenderTarget(rt); R.clear(); R.render(S, mcam); R.setRenderTarget(old); water.visible = true; waterM.uniforms.tR.value = rt.texture;
   }
 
   // ---------------- night life: fireflies and the prey ----------------
@@ -365,19 +330,17 @@
   // ---------------- day life: dragonflies ----------------
   const flies = [];
   if (!NIGHT) {
-    var flyBodyM = rimM({ base: '#030205', rim: WARM, k: 2.4, far: 30, pow: 3 });
-    var flyWingM = new T.ShaderMaterial({ side: T.DoubleSide, transparent: true, depthWrite: false, blending: T.AdditiveBlending, uniforms: { c: { value: col('#ffd9a0') } },
-      vertexShader: 'varying vec3 vN; varying vec3 vV; void main(){ vec4 mv = modelViewMatrix * vec4(position, 1.); vN = normalize(normalMatrix * normal); vV = normalize(-mv.xyz); gl_Position = projectionMatrix * mv; }',
-      fragmentShader: 'uniform vec3 c; varying vec3 vN; varying vec3 vV; void main(){ float f = 1. - abs(dot(normalize(vN), normalize(vV))); gl_FragColor = vec4(c * (.03 + .35 * pow(f, 4.)), 1.); }' });
+    const bodyT = ctx.ctex(256, (g, z) => { const gr = g.createLinearGradient(0, 0, z, 0); gr.addColorStop(0, '#0a2a5a'); gr.addColorStop(.7, '#1e6ac0'); gr.addColorStop(.72, '#2a6a3a'); gr.addColorStop(.9, '#3a8a40'); gr.addColorStop(.93, '#1a3a8a'); gr.addColorStop(1, '#1a3a8a'); g.fillStyle = gr; g.fillRect(0, 0, z, z);
+      g.fillStyle = 'rgba(5,10,20,.8)'; for (let k = 0; k < 9; k++) g.fillRect(k / 9 * .7 * z, 0, 3, z); });
     for (let f = 0; f < 3; f++) {
       const wing = (x0, L, W, sd) => { const w = K.fin([[0, 0], [L * .15, W * .5], [L * .6, W * .55], [L * .95, W * .35], [L, 0], [L * .7, -W * .25], [L * .2, -W * .3]], .006); w.rotateX(Math.PI / 2); w.rotateY(-sd * Math.PI / 2); w.translate(x0, .03, sd * (L / 2 + .02)); w.userData.v = .5; return w; };
       const ws = [wing(.22, .4, .09, 1), wing(.22, .4, .09, -1), wing(.13, .38, .1, 1), wing(.13, .38, .1, -1)];
       const prof = s => s > .92 ? .055 * Math.sin(Math.PI * Math.min(1, (s - .92) / .08 * .5 + .5)) + .01 : s > .76 ? .04 : .013 + .005 * Math.sin(s * 40);
       const db = K.body({ length: .9, seg: 70, ring: 10, belly: .05, extra: ws, width: s => prof(s), height: s => prof(s) * (s > .92 ? .8 : 1) });
       const nbI = 70 * 10 * 6; db.geo.addGroup(0, nbI, 0); db.geo.addGroup(nbI, db.geo.index.count - nbI, 1);
-      // look C: dark body with a warm outline, wings as faint additive membranes with a brighter edge (fresnel)
-      const dm = new T.Mesh(db.geo, [flyBodyM, flyWingM]); dm.frustumCulled = false;
-      dressC(dm, { lines: .05, color: '#ffb85a', points: 140, size: .012, pointColor: '#ffe3a8', opacity: .8 }); const grp = new T.Group(); grp.add(dm); S.add(grp); flies.push({ grp, db, ph: f * 2.1 });
+      const dm = new T.Mesh(db.geo, [new T.MeshStandardMaterial({ envMap: ENV, map: bodyT, metalness: .6, roughness: .28, envMapIntensity: 1 }),
+        new T.MeshStandardMaterial({ envMap: ENV, color: '#e8f0ff', transparent: true, opacity: .25, roughness: .1, metalness: .3, side: T.DoubleSide, depthWrite: false, envMapIntensity: 1.5 })]);
+      dm.frustumCulled = false; const grp = new T.Group(); grp.add(dm); S.add(grp); flies.push({ grp, db, ph: f * 2.1 });
     }
   }
 
@@ -385,19 +348,20 @@
   const tads = [];
   let shafts = null, specks = null;
   if (!NIGHT) {
-    // look C tadpoles: dark bodies with a warm outline, faint mesh lines and points that follow the swim wave
-    const tadM = rimM({ base: '#030205', rim: WARM, k: 2.8, far: 14, pow: 4 }), tadEyeM = rimM({ base: '#050302', rim: '#ffe0a0', k: 2, far: 14, pow: 2 });
+    const tt = ctx.ctex(256, (g, z) => { const gr = g.createLinearGradient(0, 0, z, 0); gr.addColorStop(0, '#3a3a22'); gr.addColorStop(.55, '#4a4428'); gr.addColorStop(.62, '#2a2414'); gr.addColorStop(1, '#2e2a18'); g.fillStyle = gr; g.fillRect(0, 0, z, z);
+      const rr = K.rng(5); for (let i = 0; i < 260; i++) { g.fillStyle = `rgba(${rr() < .5 ? '200,170,90' : '10,8,4'},${.3 + rr() * .4})`; g.beginPath(); g.arc(rr() * z, rr() * z, 1 + rr() * 2.5, 0, 6.283); g.fill(); } });
+    tt.flipY = false;
     [[1, 0], [.8, 1], [.65, 2]].forEach(([sc, n]) => {
       const legs = n === 0 ? [1, -1].map(sd => { const l = K.fin([[0, 0], [.08, .02], [.16, -.01], [.2, .03], [.22, -.02], [.15, -.03], [.06, -.025]], .018); l.rotateX(Math.PI / 2); l.rotateY(sd * .9); l.translate(-.08, -.07, sd * .12); l.userData.v = .7; return l; }) : [];
       const env = s => Math.pow(Math.sin(Math.PI * Math.min(1, Math.max(0, (s - .56) / .44))), .6);   // ovoid head-body
       const tH = s => (.012 + .12 * Math.pow(Math.min(1, s / .6), .8)) * (1 - sm(.6, .8, s)), tW = s => .006 + .03 * Math.min(1, s / .6);   // tail muscle + fin, tapering to a point
       const tb = K.body({ length: 1.1, seg: 90, ring: 24, belly: .25, extra: legs, width: s => Math.max(tW(s), .17 * env(s)), height: s => Math.max(tH(s), .02 + .13 * env(s)) });
-      const tm = new T.Mesh(tb.geo, tadM); tm.frustumCulled = false; dressC(tm, { lines: .035, color: '#ffb85a', points: 320, size: .014, pointColor: '#ffe3a8', opacity: .8 });
+      const tm = new T.Mesh(tb.geo, new T.MeshStandardMaterial({ map: tt, roughness: .35, envMapIntensity: .5 }));
       const grp = new T.Group(); grp.add(tm); grp.scale.setScalar(sc);
-      [1, -1].forEach(sd => { const e = new T.Mesh(new T.SphereGeometry(.035, 16, 12), tadEyeM); e.position.set(.4, .07, sd * .125); grp.add(e); });
+      [1, -1].forEach(sd => { const e = new T.Mesh(new T.SphereGeometry(.035, 16, 12), new T.MeshStandardMaterial({ envMap: ENV, color: '#050403', roughness: .05, envMapIntensity: 1 })); e.position.set(.4, .07, sd * .125); grp.add(e); });
       S.add(grp); tads.push({ grp, tb, n }); });
-    shafts = K.shafts(S, { n: 16, top: 0, height: 6, width: .22, spread: 12, depth: 10, opacity: .4, color: '#8fa6ff', seed: 4 });   // thin lines of light from the surface shafts.group.position.set(-1, 0, 1);
-    specks = K.snow(S, { n: 1000, box: [10, 4, 10], size: .025, opacity: .4, fall: .02, color: '#9fb4ff' });
+    shafts = K.shafts(S, { n: 12, top: 0, height: 7, width: .7, spread: 14, depth: 12, opacity: .32, color: '#c8f0b0', seed: 4 }); shafts.group.position.set(-1, 0, 1);
+    specks = K.snow(S, { n: 1800, box: [10, 4, 10], size: .03, opacity: .5, fall: .02, color: '#d8f0c0' });
   }
 
   // ---------------- camera ----------------
@@ -424,8 +388,6 @@
     if (under) { S.fog.color.copy(UWC); S.fog.density = .2; hemi.intensity = .25; key.intensity = PAL.keyI * .25; }
     else { S.fog.color.copy(FOGC); S.fog.density = PAL.fogD; hemi.intensity = PAL.hemiI; key.intensity = PAL.keyI; }
     dome.visible = !under; S.background = under ? UWC : null;
-    groundM.uniforms.rim.value.set(under ? '#141a3c' : COOL);   // the pond bottom seen at grazing angles: keep the murk dark
-    for (const m of rimMats) m.uniforms.far.value = under ? Math.min(m.userData.far, 10) : m.userData.far;   // murky water: lines fade sooner
     // water: gentle wind ripples; the day water goes still on the cue
     const still = NIGHT ? 0 : at(p.still, 2.5, t); waterM.uniforms.uAmp.value = NIGHT ? .9 : 1.0 - .93 * still;
     const RS = NIGHT ? [[-1.3, 1.2, 3.1, 0], [-3, -.4, 4.3, 1.2], [.9, .6, 3.7, 2.1], [-6, 1, 5.2, .4], [-2.2, 2.6, 4.7, 3.3]] : [[-1.4, 1.0, 3.4, 0], [-3.2, -.2, 4.1, 1.5], [1.2, .8, 3.9, 2.7]];

@@ -3,17 +3,10 @@
 // a sliding shutter and a telescope inside. Starlight streams down into the slit. On "telescopes" the dome turns and the shutter
 // opens fully; on "rockets" a rocket lifts off from the far plain on a glowing exhaust trail; the camera then tilts up after it into
 // the void, and on "edge" pushes in toward the deep starfield (faint galaxies appear). Written for cosmic-prison-cine (2026-10-14).
-// LOOK C (cine_spec 3A, 2026-10-15): drum, dome, shutter, telescope and rocket are dark solids with a warm fresnel outline, faint
-// mesh lines and sparse warm points; hill, plain and mountain ridges are dark ground with glowing height contours and a cool outline;
-// the Milky Way, stars, path lights, slit light, rocket flame, exhaust and smoke keep their own light.
 // params (cues): { glow (slit light + starlight stream), widen (camera rises, wider sky), scope (dome turns, shutter opens),
 //   rocket (lift-off), follow (camera tilts up after the rocket), edge (push into the deep field), side:.12 }
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.observatory = function (ctx, p) {
-  const { T, sm, rng, cue, points, glow } = ctx, K = window.MIYA.kit, E = ctx.env(), LC = K.lookC;
-  const WARMC = '#ffc460', COOLC = '#5f78ff';
-  const rimW = (k, pw, far) => LC.rim({ base: '#050308', rim: WARMC, k: k == null ? 2.6 : k, far: far || 160, pow: pw || 5, side: T.DoubleSide });
-  const rimCool = (k) => LC.rim({ base: '#02030c', rim: COOLC, k: k == null ? 1 : k, far: 120, pow: 4 });
-  const dressW = (m, n, lines, size) => LC.dress(m, { points: n, size: size || .05, lines: lines == null ? .035 : lines, color: '#ffb85a', pointColor: '#ffe3a8', opacity: .8 });
+  const { T, sm, rng, cue, points, glow } = ctx, K = window.MIYA.kit, E = ctx.env();
   const S = new T.Scene(); S.background = new T.Color('#0f1128');
   const FOGC = new T.Color('#0d0d26'); S.fog = new T.FogExp2(FOGC, .0019);
   const at = (c, d) => c == null ? 0 : sm(cue(c), cue(c) + (d || 1.2), ctx.t);
@@ -86,27 +79,27 @@
     const dp = (x + 147) ** 2 + (z + 275) ** 2; h += 32 * Math.exp(-dp / 6000); return h; };
   const tg = new T.PlaneGeometry(1800, 1800, 200, 200); tg.rotateX(-Math.PI / 2);
   { const P = tg.attributes.position; for (let i = 0; i < P.count; i++) P.setY(i, H(P.getX(i), P.getZ(i))); tg.computeVertexNormals(); }
-    const terM = LC.contour({ base: '#03040d', line: '#5a6ee6', rim: COOLC, spacing: 1.6, width: .05, far: 1100, k: .55 });
-  // contour lines fade out where they get denser than a pixel (far slopes), so the distant ridges read by their cool outline
-  terM.fragmentShader = terM.fragmentShader.replace('float a=clamp', 'l*=1.-smoothstep(.12,.45,fw); float a=clamp').replace('rim*f*.6', 'rim*f*1.1*smoothstep(120.,420.,vD)');   // cool outline only on the far ridges
-  const terrain = new T.Mesh(tg, terM);
+  const grnd = K.noise(256, { seed: 3, octaves: 5 }), grT = K.tex(grnd, true, [90, 90]);
+  const terrain = new T.Mesh(tg, new T.MeshLambertMaterial({ color: '#232540', map: grT }));
   S.add(terrain);
 
   // ---------------- observatory ----------------
   const OB = new T.Group(); S.add(OB);
-  const concrete = rimW(2.2, 4), metal = rimW(2.8, 5);
-  const darkIn = new T.MeshBasicMaterial({ color: '#07050a', side: T.DoubleSide });
+  const concrete = new T.MeshStandardMaterial({ side: T.DoubleSide, color: '#c3c8da', roughness: .8, metalness: 0, map: (() => { const c = document.createElement('canvas'); c.width = c.height = 256; const g = c.getContext('2d'); g.fillStyle = '#d8dbe4'; g.fillRect(0, 0, 256, 256); g.globalAlpha = .22; g.drawImage(K.noise(256, { seed: 8, octaves: 5 }), 0, 0); g.globalAlpha = 1;
+    g.fillStyle = 'rgba(60,64,80,.55)'; [64, 128, 192].forEach(y => g.fillRect(0, y, 256, 2)); for (let x = 0; x < 256; x += 64) g.fillRect(x, 0, 2, 256); g.fillStyle = 'rgba(30,30,40,.25)'; g.fillRect(0, 240, 256, 16); return K.tex(c, true, [8, 1]); })() });
+  const metal = new T.MeshStandardMaterial({ color: '#d4d8e4', metalness: .15, roughness: .38, side: T.DoubleSide });
+  const darkIn = new T.MeshStandardMaterial({ color: '#2a2433', roughness: .8, metalness: .2, side: T.DoubleSide });
   const WARM = new T.Color('#ffc27a'), ACC = new T.Color(ctx.ACC);
   const addM = (g, m, par) => { const o = new T.Mesh(g, m); (par || OB).add(o); return o; };
   // plinth + drum (real wall thickness via lathe: outer wall, top lip, inner wall)
-  addM(new T.CylinderGeometry(5.0, 5.3, .6, 72, 3), rimCool(1.1)).position.y = .3;
-  const drumP = [[3.82, .6], [4.0, .6], [4.02, .75], ...[1, 2, 3, 4, 5, 6, 7].map(k => [4.02, .75 + k * 3.15 / 8]), [4.02, 3.9], [4.12, 4.0], [4.12, 4.18], [3.82, 4.18]].map(([r, h]) => new T.Vector2(r, h));
-  dressW(addM(new T.LatheGeometry(drumP, 96), concrete), 260, .03);
+  addM(new T.CylinderGeometry(5.0, 5.3, .6, 72), concrete).position.y = .3;
+  const drumP = [[3.82, .6], [4.0, .6], [4.02, .75], [4.02, 3.9], [4.12, 4.0], [4.12, 4.18], [3.82, 4.18]].map(([r, h]) => new T.Vector2(r, h));
+  addM(new T.LatheGeometry(drumP, 96), concrete);
   addM(new T.CircleGeometry(3.83, 48).rotateX(-Math.PI / 2).translate(0, 3.6, 0), darkIn);   // observing floor
   // door (front, recessed frame + panel with a warm light seam) and a lit window strip
   const DOOR = new T.Group(); OB.add(DOOR);
   addM(new T.BoxGeometry(1.7, 2.6, .35), concrete, DOOR).position.set(0, 1.9, 0);
-  addM(new T.BoxGeometry(1.25, 2.25, .1), rimW(1.2, 3), DOOR).position.set(0, 1.78, .2);
+  addM(new T.BoxGeometry(1.25, 2.25, .1), new T.MeshStandardMaterial({ color: '#3a3f55', metalness: .6, roughness: .45, roughness: .45 }), DOOR).position.set(0, 1.78, .2);
   const seamM = new T.MeshBasicMaterial({ color: WARM.clone().multiplyScalar(1.6) });
   addM(new T.BoxGeometry(1.3, .04, .04), seamM, DOOR).position.set(0, .66, .24);
   addM(new T.BoxGeometry(.04, 2.2, .04), seamM, DOOR).position.set(.06, 1.78, .26);
@@ -129,11 +122,11 @@
   const DOME = new T.Group(); DOME.position.y = 4.18; OB.add(DOME);
   const PI2 = Math.PI / 2;
   const DP = [[B0, PI2, 0, Math.PI, 30, 72], [-PI2, -B0, 0, Math.PI, 30, 72], [-B0, B0, GM, Math.PI, 6, 30]];
-  const shell = new T.Mesh(domeGeo(DP, 1), metal); DOME.add(shell); dressW(shell, 420, .035);
-  const innerM = new T.MeshStandardMaterial({ color: '#08060c', roughness: .9, metalness: 0, side: T.DoubleSide, emissive: '#ff9a4a', emissiveIntensity: 0 });
+  DOME.add(new T.Mesh(domeGeo(DP, 1), metal));
+  const innerM = new T.MeshStandardMaterial({ color: '#1e1b2a', roughness: .7, metalness: .3, side: T.DoubleSide, emissive: '#ff9a4a', emissiveIntensity: 0 });
   DOME.add(new T.Mesh(domeGeo(DP, 2), innerM));
   // ribs (meridian seams) on the outer shell and a base ring
-  const ribM = rimW(1.6, 2.5);
+  const ribM = new T.MeshStandardMaterial({ color: '#e2e6f0', metalness: .3, roughness: .3 });
   for (let k = 1; k < 12; k++) { const b = -PI2 + k / 12 * Math.PI; if (Math.abs(b) < B0 + .05) continue;
     const pts = []; for (let j = 0; j <= 40; j++) { const g = j / 40 * Math.PI; pts.push(v3((DR + .02) * Math.sin(b), (DR + .02) * Math.cos(b) * Math.sin(g), (DR + .02) * Math.cos(b) * Math.cos(g))); }
     DOME.add(new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(pts), 40, .045, 6, false), ribM)); }
@@ -155,17 +148,17 @@
   // telescope: pier, fork, open tube with wall thickness, dew cap, glowing aperture ring
   const TEL = new T.Group(); DOME.add(TEL); TEL.position.set(0, -.2, 0);
   addM(new T.CylinderGeometry(.35, .5, 1.2, 24), concrete, TEL).position.y = -.75;
-  const fork = rimW(2.0, 3, 2500);
+  const fork = new T.MeshStandardMaterial({ color: '#2b2f45', metalness: .7, roughness: .35, envMap: E, envMapIntensity: .4 });
   [-.62, .62].forEach(x => addM(new T.BoxGeometry(.14, 1.1, .35), fork, TEL).position.set(x, .25, 0));
   const TUBE = new T.Group(); TUBE.position.y = .55; TEL.add(TUBE);
   const tubeP = [[.38, -1.4], [.48, -1.4], [.5, -1.2], [.5, 1.6], [.56, 1.62], [.56, 2.2], [.5, 2.2], [.5, 1.7], [.44, 1.6], [.44, -1.3], [.38, -1.3]].map(([r, h]) => new T.Vector2(r, h));
-  dressW(addM(new T.LatheGeometry(tubeP, 48), rimW(2.6, 3.5), TUBE), 120, .05);
+  addM(new T.LatheGeometry(tubeP, 48), new T.MeshStandardMaterial({ color: '#e6e8f0', metalness: .4, roughness: .3, envMap: E, envMapIntensity: .5, side: T.DoubleSide }), TUBE);
   addM(new T.TorusGeometry(.53, .03, 8, 64).rotateX(PI2).translate(0, 2.2, 0), new T.MeshBasicMaterial({ color: ACC.clone().multiplyScalar(1.5), transparent: true, blending: T.AdditiveBlending, depthWrite: false }), TUBE);
   const mirror = addM(new T.CircleGeometry(.43, 40).rotateX(-PI2).translate(0, -1.2, 0), new T.MeshBasicMaterial({ color: '#ffe3b0' }), TUBE);
   
   const inGlow = glow(DOME, '#ffbb70', 9, 0); inGlow.position.set(0, 1.6, 1.4);
   // path lights down the slope toward the camera
-  const postM = rimCool(1.2);
+  const postM = new T.MeshStandardMaterial({ color: '#2a2d40', roughness: .6, metalness: .4 });
   for (let k = 0; k < 4; k++) { const z = 6.5 + k * 3.2, x = 2.2 + k * 1.1 + Math.sin(k) * .4, y = H(x, z);
     addM(new T.CylinderGeometry(.04, .05, .55, 8), postM).position.set(x, y + .27, z);
     const s = glow(OB, '#ffc98a', .9, .45); s.position.set(x, y + .58, z); const s2 = glow(OB, '#ff9a50', .3, .9); s2.position.set(x, y + .58, z); }
@@ -177,12 +170,13 @@
   // ---------------- rocket ----------------
   const ROCK = new T.Group(); S.add(ROCK);
   const rp = [[0, 0], [.95, 0], [1.05, .3], [1.05, 13], [1.0, 13.3], [1.0, 17], [.95, 17.6], [.8, 19.5], [.5, 21], [.15, 22], [0, 22.2]].map(([r, h]) => new T.Vector2(r, h));
-  const hull = rimW(3.2, 3.5, 2500), rpD = []; rp.forEach((v, i) => { if (i) { const a = rp[i - 1], n = Math.max(1, Math.round((v.y - a.y) / 1.2)); for (let k = 1; k < n; k++) rpD.push(a.clone().lerp(v, k / n)); } rpD.push(v); });
-  const hullM = new T.Mesh(new T.LatheGeometry(rpD, 40), hull); ROCK.add(hullM); dressW(hullM, 260, .06, .12);
+  const hullT = ctx.ctex(256, (g, s) => { g.fillStyle = '#e8eaf0'; g.fillRect(0, 0, s, s); g.fillStyle = '#1c1f2c'; [[.14, .03], [.56, .02], [.74, .015]].forEach(([y, h]) => g.fillRect(0, s * (1 - y - h), s, s * h)); g.fillStyle = 'rgba(40,44,60,.25)'; for (let i = 0; i < 8; i++) g.fillRect(i / 8 * s, 0, 1.5, s); });
+  const hull = new T.MeshStandardMaterial({ fog: false, map: hullT, metalness: .35, roughness: .4, envMap: E, envMapIntensity: .5 });
+  ROCK.add(new T.Mesh(new T.LatheGeometry(rp, 40), hull));
   const finG = K.fin([[0, 0], [2.0, 0], [2.6, -.6], [2.4, -1.4], [0, -.2]], .22);
-  for (let k = 0; k < 4; k++) { const f = new T.Mesh(finG, rimW(2.4, 3, 2500)); const a = k / 4 * 6.283 + .4;
+  for (let k = 0; k < 4; k++) { const f = new T.Mesh(finG, new T.MeshStandardMaterial({ fog: false, color: '#2a2e40', metalness: .6, roughness: .4, envMap: E, envMapIntensity: .4 })); const a = k / 4 * 6.283 + .4;
     f.position.set(Math.cos(a) * 1.7, 2.0, Math.sin(a) * 1.7); f.rotation.set(0, -a, PI2); ROCK.add(f); }
-  addM(new T.CylinderGeometry(.55, .85, 1.1, 24, 1, true), rimW(2.0, 3, 2500), ROCK).position.y = -.5;
+  addM(new T.CylinderGeometry(.55, .85, 1.1, 24, 1, true), new T.MeshStandardMaterial({ color: '#3a3a48', metalness: .9, roughness: .3, side: T.DoubleSide }), ROCK).position.y = -.5;
   // flame: two nested additive cones + glows; a light that washes the smoke and ground
   const flameT = ctx.ctex(128, (g, s) => { const gr = g.createLinearGradient(0, 0, 0, s); gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(.15, 'rgba(255,224,160,1)'); gr.addColorStop(.5, 'rgba(255,150,60,.55)'); gr.addColorStop(1, 'rgba(255,90,40,0)'); g.fillStyle = gr; g.fillRect(0, 0, s, s); });
   const flM = o => new T.MeshBasicMaterial({ map: flameT, transparent: true, opacity: o, blending: T.AdditiveBlending, depthWrite: false, side: T.DoubleSide, fog: false });
@@ -221,7 +215,7 @@
     DOME.rotation.y = PSC + 1.75 - 1.6 * sc1 + .04 * Math.sin(u * .2);
     SHUT.rotation.x = -(0.55 + .45 * g1 + (GM - 1.0) * sc1);
     const el = .7 + .2 * g1 - .15 * sc1; TUBE.quaternion.setFromUnitVectors(v3(0, 1, 0), v3(0, Math.sin(el), Math.cos(el)));
-    const lit = .25 + .75 * g1; innerM.emissiveIntensity = .035 * lit; inGlow.material.opacity = .16 * lit + .08 * sc1; edgeM.opacity = .25 + .55 * lit;
+    const lit = .25 + .75 * g1; innerM.emissiveIntensity = .035 * lit; inGlow.material.opacity = .3 * lit + .15 * sc1; edgeM.opacity = .25 + .55 * lit;
     mirror.material.color.setRGB(1 * lit + .2, .89 * lit + .15, .69 * lit + .1);
     rimGlow.material.opacity = .45 + .25 * g1;
     // starlight stream: points flow from the sky down into the slit and the telescope mouth

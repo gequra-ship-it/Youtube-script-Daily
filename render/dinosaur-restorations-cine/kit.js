@@ -88,32 +88,4 @@
     return { mesh: m, update(t, fade) { t1.offset.set(t * .006, t * .004); m.material.opacity = (o.opacity || .5) * (fade == null ? 1 : fade); } };
   }
   M.kit = { rng, noise, tex, normalMap, body, fin, shafts, snow, surfaceFromBelow };
-  // ---------- look C (user decision 2026-10-15: outdoor scenes): dark solid forms, a fresnel outline, faint mesh lines, sparse
-  // vertex points, contour lines on terrain. All share the live geometry, so CPU deforms (kit.body) are followed.
-  //  rim(o)      material: dark base + outline; o = {base, rim, k, far, pow}; has dummy color/emissive so scene code may still set them
-  //  dress(mesh, o)   adds wireframe + points children to a (non-instanced) mesh; o = {color, lines, points (count), size, opacity}
-  //  contour(o)  terrain material: dark ground + glowing height lines every o.spacing (world y) + outline; o = {base, line, spacing, width, far}
-  const C = {};
-  const RIM_VS = 'varying vec3 vN; varying vec3 vV; varying float vD; varying vec3 vW; void main(){ vec4 p=vec4(position,1.); vec3 n=normal;\n#ifdef USE_INSTANCING\n p=instanceMatrix*p; n=mat3(instanceMatrix)*n;\n#endif\n vec4 w=modelMatrix*p; vW=w.xyz; vec4 mv=viewMatrix*w; vN=normalize(normalMatrix*n); vV=normalize(-mv.xyz); vD=length(mv.xyz); gl_Position=projectionMatrix*mv; }';
-  C.rim = function (o) { o = o || {};
-    return Object.assign(new T.ShaderMaterial({ side: o.side || T.FrontSide, uniforms: { base: { value: new T.Color(o.base || '#030206') }, rim: { value: new T.Color(o.rim || '#ffc460') }, k: { value: o.k == null ? 2.6 : o.k }, far: { value: o.far || 80 }, pw: { value: o.pow || 6 } },
-      vertexShader: RIM_VS,
-      fragmentShader: 'uniform vec3 base; uniform vec3 rim; uniform float k; uniform float far; uniform float pw; varying vec3 vN; varying vec3 vV; varying float vD; void main(){ float f=pow(1.-abs(dot(normalize(vN),normalize(vV))),pw); float a=clamp(1.-vD/far,0.,1.); gl_FragColor=vec4(base+rim*f*k*a,1.); }' }),
-      { color: new T.Color(), emissive: new T.Color(), emissiveIntensity: 1 });
-  };
-  C.dress = function (mesh, o) { o = o || {}; const g = mesh.geometry, nv = g.attributes.position.count, col = o.color || '#ffc460', out = {};
-    if (o.lines !== false) { out.lines = new T.Mesh(g, new T.MeshBasicMaterial({ color: col, wireframe: true, transparent: true, opacity: o.lines == null ? .03 : o.lines, blending: T.AdditiveBlending, depthWrite: false })); out.lines.frustumCulled = false; mesh.add(out.lines); }
-    const n = o.points == null ? 600 : o.points;
-    if (n > 0) { const step = Math.max(1, Math.round(nv / n)), ix = []; for (let i = 0; i < nv; i += step) ix.push(i);
-      const pg = new T.BufferGeometry(); pg.setAttribute('position', g.attributes.position); pg.setIndex(ix);
-      out.points = new T.Points(pg, new T.PointsMaterial({ color: o.pointColor || '#ffe3a8', size: o.size || .03, transparent: true, opacity: o.opacity == null ? .85 : o.opacity, blending: T.AdditiveBlending, depthWrite: false }));
-      out.points.frustumCulled = false; mesh.add(out.points); }
-    return out;
-  };
-  C.contour = function (o) { o = o || {};
-    return new T.ShaderMaterial({ uniforms: { base: { value: new T.Color(o.base || '#04050e') }, line: { value: new T.Color(o.line || '#c08a48') }, rim: { value: new T.Color(o.rim || '#5f78ff') }, sp: { value: o.spacing || 1 }, wd: { value: o.width || .06 }, far: { value: o.far || 150 }, k: { value: o.k == null ? 1 : o.k } },
-      vertexShader: RIM_VS,
-      fragmentShader: 'uniform vec3 base; uniform vec3 line; uniform vec3 rim; uniform float sp; uniform float wd; uniform float far; uniform float k; varying vec3 vN; varying vec3 vV; varying float vD; varying vec3 vW; void main(){ float h=vW.y/sp; float fw=fwidth(h); float l=clamp(1.-abs(fract(h+.5)-.5)/(wd+fw),0.,1.); float a=clamp(1.-vD/far,0.,1.); float f=pow(1.-abs(dot(normalize(vN),normalize(vV))),6.); gl_FragColor=vec4(base+(line*l*k+rim*f*.6)*a,1.); }'});
-  };
-  M.kit.lookC = C;
 })();

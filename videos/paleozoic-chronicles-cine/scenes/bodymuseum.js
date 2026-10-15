@@ -10,7 +10,7 @@
 //   into the ancient sea), fish (fish arrive), side:.13 }
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.bodymuseum = function (ctx, p) {
   const { T, sm, cue } = ctx, K = window.MIYA.kit;
-  const S = new T.Scene(); const BG0 = new T.Color('#03040c'), BG1 = new T.Color('#020716'); S.background = BG0.clone();   // BG1: ancient ocean, look C deep navy (cine_spec 3A)
+  const S = new T.Scene(); const BG0 = new T.Color('#03040c'), BG1 = new T.Color('#021a28'); S.background = BG0.clone();
   S.fog = new T.FogExp2(BG0.clone(), .004);
   const at = (c, d) => c == null ? 0 : sm(cue(c), cue(c) + d, ctx.t);
   S.environment = ctx.env();
@@ -187,30 +187,27 @@
   const mand = new T.Mesh(manG, jawMat); const MJ = new T.Group(); MJ.position.copy(PIV); MJ.add(mand); SK.add(MJ);
   // neck: the spine continues up to the skull (already part of the column)
   // ---------- ancient ocean ----------
-  // look C (2026-10-15): the sea is dark; light from the surface comes as a few thin cool lines, marine snow as sparse cool points,
-  // the sea floor as glowing contour lines; the fish are dark bodies drawn by a warm outline, faint mesh lines and vertex points
-  const shafts = K.shafts(S, { n: 14, top: 60, height: 140, width: 1.1, spread: 120, depth: 60, opacity: .12, color: '#7f96ff' }); shafts.group.position.set(0, 0, 30);
-  const snow = K.snow(S, { n: 2200, box: [80, 50, 60], size: .12, opacity: .4, fall: .3, color: '#9fb4ff' });
-  const floorG = new T.PlaneGeometry(260, 200, 160, 120); floorG.rotateX(-Math.PI / 2);
-  { const P = floorG.attributes.position, fn = K.rng(5), A = []; for (let i = 0; i < 6; i++) A.push([fn() * 6.28, .02 + fn() * .05, fn() * 6.28, fn() * 6.28]);
-    for (let i = 0; i < P.count; i++) { const x = P.getX(i), z = P.getZ(i); let y = 0; A.forEach(([a, k, b, c]) => { y += Math.sin((x * Math.cos(a) + z * Math.sin(a)) * k + b) * (1.2 / (k * 30)) + .4 * Math.sin(x * k * 2.3 + c) * Math.cos(z * k * 1.7); }); P.setY(i, y); }
-    floorG.computeVertexNormals(); }
-  const floorM = K.lookC.contour({ line: '#3c50c0', spacing: .55, width: .05, far: 140, k: 0 }); floorM.uniforms.base.value.setRGB(.008, .027, .086);   // base = the sea colour as displayed, so the floor has no dark silhouette
-  const floor = new T.Mesh(floorG, floorM); floor.position.set(0, -11, 10); floor.visible = false; S.add(floor);
-  const floorPts = K.lookC.dress(floor, { lines: false, points: 2500, size: .09, pointColor: '#6f86ff', opacity: 0 }).points;
+  const shafts = K.shafts(S, { n: 10, top: 60, height: 140, spread: 120, depth: 60, opacity: .1, color: '#7cc6ff' }); shafts.group.position.set(0, 0, 30);
+  const snow = K.snow(S, { n: 3500, box: [80, 50, 60], size: .14, opacity: .5, fall: .3, color: '#bfe2ff' });
   const dust = K.snow(S, { n: 900, box: [20, 20, 14], size: .05, opacity: .45, fall: .04, color: '#ffcf9a', seed: 9 });
   // early armoured fish: broad head shield, tapering body, vertical tail fin (ONE mesh each)
-  const fishMat = K.lookC.rim({ base: '#030205', rim: '#ffc460', k: 2.8, far: 70, pow: 4 });
+  const fC = document.createElement('canvas'); fC.width = 512; fC.height = 256; { const fg = fC.getContext('2d'), gr = fg.createLinearGradient(0, 0, 0, 256);
+    [[0, '#3e3a30'], [.18, '#1c1d1b'], [.3, '#1a1b1a'], [.5, '#4a463a'], [.68, '#857e68'], [.75, '#9a927a'], [.82, '#857e68'], [1, '#3e3a30']].forEach(([o, c]) => gr.addColorStop(o, c)); fg.fillStyle = gr; fg.fillRect(0, 0, 512, 256);
+    fg.globalCompositeOperation = 'overlay'; fg.globalAlpha = .5; fg.drawImage(K.noise(256, { seed: 73, octaves: 5, sx: 3 }), 0, 0, 512, 256); fg.globalCompositeOperation = 'source-over'; fg.globalAlpha = 1;
+    fg.strokeStyle = 'rgba(200,190,160,.35)'; fg.lineWidth = 2; const r = K.rng(8); for (let k = 0; k < 40; k++) { const x = 512 * (.68 + r() * .3), y = r() * 256; fg.strokeRect(x, y, 10 + r() * 22, 8 + r() * 18); }
+    for (let x = 30; x < 350; x += 9) { fg.strokeStyle = 'rgba(0,0,0,.25)'; fg.lineWidth = 1.5; fg.beginPath(); fg.moveTo(x, 0); fg.lineTo(x + 6, 256); fg.stroke(); } }
+  const fMap = K.tex(fC, true); fMap.flipY = false;
+  const fishMat = new T.MeshStandardMaterial({ map: fMap, color: '#ffffff', roughness: .45, metalness: .1, normalMap: K.normalMap(K.noise(256, { seed: 71, octaves: 5, sx: 4 }), 4), normalScale: new T.Vector2(.8, .8), envMapIntensity: .6 });
+  fishMat.onBeforeCompile = sh => { sh.fragmentShader = sh.fragmentShader.replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
+    { float fr=pow(1.-max(dot(normal,normalize(vViewPosition)),0.),2.5); totalEmissiveRadiance += vec3(.35,.7,1.)*fr*.55; }`); };
   function makeFish(type) { const L = type ? 4.2 : 3.2;
     const KW = type ? [[0, .02], [.06, .03], [.25, .12], [.5, .3], [.7, .42], [.86, .44], [.96, .3], [1, .04]] : [[0, .015], [.08, .04], [.3, .15], [.55, .3], [.7, .55], [.85, .6], [.95, .48], [1, .05]];
     const KH = type ? [[0, .5], [.05, .45], [.11, .09], [.3, .2], [.55, .36], [.75, .38], [.92, .28], [1, .05]] : [[0, .42], [.045, .38], [.1, .08], [.3, .15], [.55, .22], [.75, .26], [.9, .2], [1, .04]];
     const wF = curve(KW, 1), hF = curve(KH, 1), extra = [];
     if (type) [1, -1].forEach(sd => { const f = K.fin([[0, 0], [.5, .12], [1.1, .05], [1.0, -.1], [.3, -.12]], .05); f.rotateX(Math.PI / 2); f.rotateY(sd * .5); f.rotateZ(-.25); f.translate(L * .2, -.15, sd * .45); f.userData.v = .8; extra.push(f); });
     const b = K.body({ length: L, seg: 90, ring: 28, belly: .35, ridge: type ? .25 : .05, width: wF, height: hF, extra });
-    const m = new T.Mesh(b.geo, fishMat); m.frustumCulled = false; const grp = new T.Group(); grp.add(m);
-    const dp = K.lookC.dress(m, { lines: .035, color: '#ffb85a', points: type ? 420 : 320, size: .06, pointColor: '#ffe3a8', opacity: .85 }).points;
-    { const nv = b.geo.attributes.position.count, r = K.rng(type ? 31 : 17), ix = []; for (let i = 0; i < (type ? 420 : 320); i++) ix.push(Math.floor(r() * nv)); dp.geometry.setIndex(ix); }   // scattered, not in ring-aligned rows
-    const eye = new T.Mesh(new T.SphereGeometry(.06, 10, 8), new T.MeshBasicMaterial({ color: '#ffe8b8' })); [1, -1].forEach(sd => { const e = eye.clone(); e.position.set(L * .44, .1, sd * wF(.94) * .8); grp.add(e); });
+    const m = new T.Mesh(b.geo, fishMat); const grp = new T.Group(); grp.add(m);
+    const eye = new T.Mesh(new T.SphereGeometry(.05, 10, 8), new T.MeshBasicMaterial({ color: '#cfe8ff' })); [1, -1].forEach(sd => { const e = eye.clone(); e.position.set(L * .44, .1, sd * wF(.94) * .8); grp.add(e); });
     return { grp, update(t, ph) { b.deform((s, th, base, k) => [0, type && s < .1 && base[k * 3 + 1] > 0 ? .1 * (1 - s / .1) : 0, .32 * Math.pow(1 - Math.min(1, s), 2.2) * Math.sin(t * 3.2 + ph - s * 6.5)]); } }; }
   const FISH = [[0, 0, 2.0, 7.5, 16, 1, -1], [1, 1.1, .2, -1, 14, 1, 1.0], [0, 2.3, 4.0, 11, 24, .85, -1.1], [0, .5, 6.0, 1, 30, .8, 1.0], [1, 3.4, 1.4, 14, 34, 1, -1.2]].map(([ty, ph, y, x0, z, sc, v]) => { const f = makeFish(ty); f.grp.scale.setScalar(sc); S.add(f.grp); f.grp.visible = false; return { f, ph, y, x0, z, v }; });
   // ---------- light ----------
@@ -250,13 +247,12 @@
     // ocean
     S.background.copy(BG0).lerp(BG1, oc); S.fog.color.copy(BG0).lerp(BG1, oc); S.fog.density = .004 + .028 * oc;
     shafts.update(t, oc); top.intensity = 1.2 * oc; hemi.intensity = .35 + .25 * oc; hemi.color.set('#6a78c8').lerp(new T.Color('#3a8ac8'), oc);
-    snow.points.material.opacity = .4 * oc; snow.points.visible = oc > .01;
-    floor.visible = oc > .01; floorM.uniforms.k.value = .75 * oc * oc; floorM.uniforms.rim.value.set('#5f78ff').multiplyScalar(oc * oc); floorPts.material.opacity = .35 * oc * oc; dust.points.material.opacity = .4 * (1 - oc);
+    snow.points.material.opacity = .5 * oc; snow.points.visible = oc > .01; dust.points.material.opacity = .4 * (1 - oc);
     // camera: close on the heart -> wider for ribs/spine/lungs -> up to the jaws -> far back into the ancient sea
     camAt(t, cam.position, tgt); cam.lookAt(tgt);
     snow.update(t, [cam.position.x, cam.position.y, cam.position.z - 20]); dust.update(t, [0, 2, 0]);
     // fish glide across in front of the far camera
     FISH.forEach(({ f, ph: fp, y, x0, z, v }) => { f.grp.visible = fishK > .01; if (!f.grp.visible) return; const tt = t - (p.fish ? cue(p.fish) : 0);
-      f.grp.position.copy(FP).addScaledVector(FF, z).addScaledVector(FR, x0 + v * .8 * tt).addScaledVector(FU, y + .4 * Math.sin(tt * .6 + fp)); f.grp.rotation.y = FY + (v > 0 ? 0 : Math.PI); f.grp.rotation.z = .05 * Math.sin(tt * .5 + fp); f.update(t, fp); if (f.grp.position.distanceTo(cam.position) < 9) f.grp.visible = false; });   // the camera is still pulling back through the shoal: no fish across the lens
+      f.grp.position.copy(FP).addScaledVector(FF, z).addScaledVector(FR, x0 + v * .8 * tt).addScaledVector(FU, y + .4 * Math.sin(tt * .6 + fp)); f.grp.rotation.y = FY + (v > 0 ? 0 : Math.PI); f.grp.rotation.z = .05 * Math.sin(tt * .5 + fp); f.update(t, fp); });
   } };
 };
