@@ -1,0 +1,58 @@
+name: fetch-model
+
+# Download a 3D model and turn it into a page-ready model file (tools/model_prep.py), then commit it to tools/cine/models.
+# Sources: Sketchfab (needs the repository secret SKETCHFAB_TOKEN: sketchfab.com/settings/password -> API Token) or any
+# direct URL to a .glb/.gltf/.zip (Poly Haven, Smithsonian 3D, ...). Run from Actions > fetch-model > Run workflow.
+# Committing a model does not change render/.chunked, so no render starts.
+on:
+  workflow_dispatch:
+    inputs:
+      sketchfab_uid: { description: 'Sketchfab model uid (or leave empty and give url)', required: false, default: '' }
+      url: { description: 'direct download URL (.glb/.gltf/.zip), used when no uid', required: false, default: '' }
+      name: { description: 'model name (file name, e.g. pond_frog)', required: true }
+      faces: { description: 'max faces after decimation', required: false, default: '80000' }
+      tex: { description: 'max texture size (px)', required: false, default: '1024' }
+      credit: { description: 'source, author, licence (written next to the model)', required: true }
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: render-pipeline }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.13' }
+      - name: Install Blender (bpy) and Playwright
+        run: |
+          python -m venv bvenv && bvenv/bin/pip install -q bpy==5.2.2
+          pip install -q playwright && python -m playwright install --with-deps chromium
+      - name: Download
+        env:
+          SKETCHFAB_TOKEN: ${{ secrets.SKETCHFAB_TOKEN }}
+          UID_IN: ${{ github.event.inputs.sketchfab_uid }}
+          URL_IN: ${{ github.event.inputs.url }}
+        run: |
+          mkdir -p dl && cd dl
+          if [ -n "$UID_IN" ]; then
+            test -n "$SKETCHFAB_TOKEN" || { echo "repository secret SKETCHFAB_TOKEN is missing"; exit 1; }
+            U=$(curl -sf -H "Authorization: Token $SKETCHFAB_TOKEN" "https://api.sketchfab.com/v3/models/$UID_IN/download" | python -c "import json,sys;d=json.load(sys.stdin);print((d.get('glb') or d.get('gltf'))['url'])")
+            curl -sfL -o model.bin "$U"
+          else
+            curl -sfL -o model.bin "$URL_IN"
+          fi
+          if file model.bin | grep -qi zip; then unzip -q model.bin -d m; else mkdir -p m && cp model.bin m/model.glb; fi
+          F=$(find m -iname '*.glb' -o -iname '*.gltf' | head -1); test -n "$F"; echo "MODEL=$PWD/$F" >> "$GITHUB_ENV"; ls -la m | head
+      - name: Prepare
+        env:
+          BLENDER_PY: ${{ github.workspace }}/bvenv/bin/python
+        run: |
+          CH=$(python -c "from playwright.sync_api import sync_playwright as s; p=s().start(); print(p.chromium.executable_path); p.stop()")
+          HYPERFRAMES_BROWSER_PATH=$CH python tools/model_prep.py "$MODEL" "${{ github.event.inputs.name }}" --faces "${{ github.event.inputs.faces }}" --tex "${{ github.event.inputs.tex }}" --credit "${{ github.event.inputs.credit }}"
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tools/cine/models && git commit -m "model: ${{ github.event.inputs.name }} (${{ github.event.inputs.credit }})" && git push origin HEAD:render-pipeline

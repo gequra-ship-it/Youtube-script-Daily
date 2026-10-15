@@ -147,6 +147,14 @@ for f in list(used):   # a scene file can build on other scene types: a line "//
             if ty not in lib: raise SystemExit(f'{os.path.basename(f)} requires unknown scene type {ty}')
             else: used.add(lib[ty])
 used = sorted(used)
+model_tags = []   # "// models: frog, fern_02" in a scene file -> copy <name>.js from videos/<slug>/models or tools/cine/models
+for f in used:
+    for m in re.findall(r'^//\s*models:\s*(.+)$', open(f).read(), re.M):
+        for nm in [x.strip() for x in m.split(',') if x.strip()]:
+            src = next((p for p in (f'{vdir()}/models/{nm}.js', f'{CINE_DIR}/models/{nm}.js') if os.path.exists(p)), None)
+            if not src: raise SystemExit(f'{os.path.basename(f)} uses model {nm}: no videos/{SLUG}/models/{nm}.js or tools/cine/models/{nm}.js (make it with tools/model_prep.py)')
+            os.makedirs(f'{OUT}/models', exist_ok=True); shutil.copy(src, f'{OUT}/models/{nm}.js')
+            if f'<script src="models/{nm}.js"></script>' not in model_tags: model_tags.append(f'<script src="models/{nm}.js"></script>')
 scene_tags = []
 for f in used:
     name = ('v_' if f.startswith(vdir()) else '') + os.path.basename(f); shutil.copy(f, f'{OUT}/scenes/{name}'); scene_tags.append(f'<script src="scenes/{name}"></script>')
@@ -154,8 +162,8 @@ cfg = dict(w=W, h=H, total=round(TOTAL, 3), lead=D.get('lead', 0), title=CJ.get(
            exposure=CJ.get('exposure', 1.0), tones=tones, chapters=chapters, units=units, caps=caps, cues=cues, datacards=datacards)
 assert os.path.exists(f'{OUT}/mix.m4a'), 'render/<slug>/mix.m4a missing: run SLUG=x python3 tools/build_audio.py first'
 html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width={W}, height={H}">
-<link rel="stylesheet" href="cine.css"><script src="gsap.min.js"></script><script src="three.js"></script><script src="room-env.js"></script><script src="kit.js"></script>
-{''.join(scene_tags)}
+<link rel="stylesheet" href="cine.css"><script src="gsap.min.js"></script><script src="three.js"></script><script src="room-env.js"></script><script src="gltf-loader.js"></script><script src="kit.js"></script>
+{''.join(model_tags)}{''.join(scene_tags)}
 </head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="{TOTAL:.3f}" data-width="{W}" data-height="{H}">
 <canvas id="gl" width="{W}" height="{H}"></canvas><div id="vig"></div><div id="dim"></div>
