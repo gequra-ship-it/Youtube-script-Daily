@@ -11,6 +11,9 @@ and reference video 2 (realistic 3D: metal, light, glowing particles). Guideline
   - `stage` — ONE 3D scene stays for the whole chapter and changes with the narration (rotation, light, deformation, particles,
     camera). Per unit only the text layers change: rolling keyword, subtitle, log line, plot value, badge. No cuts inside.
     Use it where one object carries the idea (a black hole, a planet, a field of clocks, spacetime). This is the reference 2:11-2:40.
+  - **Camera director (2026-10-16, automatic):** every shot is cut into 3.5-7.5 s segments, each with one purposeful move (push in, pull back,
+    orbit, truck) applied on top of the scene camera by `camMove` in cine.js, landing on the unit keyword. Hard cut between segments. Scenes need
+    no changes, but must keep calling `camera.lookAt` each frame. Per shot: `params.cam = false` turns it off, a number scales it.
   - `cuts` — a sequence of **shots**; each shot is one 3D scene over one or more units (aim 6-15 s per shot, never per clause),
     joined by transitions. Use it for a story moving through places or examples.
   - Mix both through a video by content. Data-card scenes (config `CHALK`, guideline chapter 6) become **data cards** automatically.

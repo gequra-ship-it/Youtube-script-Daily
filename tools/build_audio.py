@@ -17,7 +17,7 @@ B = wdir() + '/build'
 VERT = os.environ.get('VERT') == '1'
 OUT = sys.argv[1] if len(sys.argv) > 1 else f'{REPO}/render/{SLUG}'
 SEL = [int(x) for x in os.environ.get('SEL', '').split(',') if x] or list(range(1, len(SCENES) + 1))
-LEAD, GAP, TAIL = (0.3, 0.5, 1.2) if VERT else (1.0, 0.8, 2.5)
+LEAD, GAP, TAIL = (0.3, 0.3, 1.2) if VERT else (1.0, 0.4, 2.5)   # 2026-10-16: GAP 0.8->0.4 (shorts 0.5->0.3), pace
 MAXU = 6.2            # max seconds of narration per unit
 D = json.load(open(B + '/timing_base.json'))['D']
 CHALK = getattr(CFG, 'CHALK', {})
