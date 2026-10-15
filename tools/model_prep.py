@@ -1,6 +1,6 @@
 # Miya's Lab model prep (2026-10-15): a downloaded 3D model (glTF/GLB/FBX/OBJ, e.g. CC0 from Poly Haven, Smithsonian 3D,
 # Sketchfab) -> a page-ready model file that tools/cine scenes load synchronously with MIYA.kit.model(name).
-#   python3 tools/model_prep.py <model file> <name> [--faces 80000] [--tex 512] [--out tools/cine/models]
+#   python3 tools/model_prep.py <model file> <name> [--faces 80000] [--tex 512] [--out tools/cine/models] [--keep a,b] [--separate]
 # 1) Blender (python module bpy; BLENDER_PY=<python with bpy>, default: the venv in $MIYA_WORK/bvenv) imports the model,
 #    decimates every mesh so the total stays under --faces, scales textures down to --tex px, exports one GLB.
 # 2) Headless Chromium loads the GLB with three.js GLTFLoader and writes <out>/<name>.js: geometry as base64 typed arrays,
@@ -16,6 +16,7 @@ ap.add_argument('src'); ap.add_argument('name')
 ap.add_argument('--faces', type=int, default=80000); ap.add_argument('--tex', type=int, default=512)
 ap.add_argument('--out', default=f'{REPO}/tools/cine/models'); ap.add_argument('--credit', required=True, help='source URL, author, licence')
 ap.add_argument('--keep', default='', help='comma list of mesh name parts to keep (others are dropped), e.g. a set of rocks')
+ap.add_argument('--separate', action='store_true', help='keep the pieces as separate meshes (a set of rocks you place one by one)')
 a = ap.parse_args()
 os.makedirs(a.out, exist_ok=True)
 BPY = os.environ.get('BLENDER_PY') or f'{WORK}/bvenv/bin/python'
@@ -23,7 +24,7 @@ tmp = tempfile.mkdtemp(); glb = f'{tmp}/{a.name}.glb'
 
 blender = r'''
 import bpy, sys, os, math
-src, out, faces, tex, keep = sys.argv[-5], sys.argv[-4], int(sys.argv[-3]), int(sys.argv[-2]), sys.argv[-1]
+src, out, faces, tex, keep, sep = sys.argv[-6], sys.argv[-5], int(sys.argv[-4]), int(sys.argv[-3]), sys.argv[-2], sys.argv[-1] == '1'
 bpy.ops.wm.read_factory_settings(use_empty=True)
 ext = os.path.splitext(src)[1].lower()
 if ext in ('.gltf', '.glb'): bpy.ops.import_scene.gltf(filepath=src)
@@ -36,7 +37,16 @@ if keep:
     for o in list(bpy.data.objects):
         if o.type == 'MESH' and not any(k in o.name for k in ks): bpy.data.objects.remove(o, do_unlink=True)
 meshes = [o for o in bpy.data.objects if o.type == 'MESH']
-tot = sum(len(o.data.polygons) for o in meshes)
+# a static model split into pieces (Sketchfab exports often are): join the pieces and weld their shared borders first, or
+# decimating each piece on its own opens cracks between them
+if len(meshes) > 1 and not sep and not any(o.find_armature() or o.data.shape_keys for o in meshes):
+    bpy.ops.object.select_all(action='DESELECT')
+    for o in meshes: o.select_set(True)
+    bpy.context.view_layer.objects.active = meshes[0]; bpy.ops.object.join()
+    o = bpy.context.view_layer.objects.active; d = max(o.dimensions) or 1
+    bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT'); bpy.ops.mesh.remove_doubles(threshold=d * 1e-5); bpy.ops.object.mode_set(mode='OBJECT')
+    meshes = [o]; print('faces joined into one mesh')
+tot =sum(len(o.data.polygons) for o in meshes)
 print('faces before', tot)
 if tot > faces:
     r = faces / tot
@@ -51,7 +61,7 @@ print('faces after', sum(len(o.data.polygons) for o in bpy.data.objects if o.typ
 bpy.ops.export_scene.gltf(filepath=out, export_format='GLB', export_apply=True, export_animations=True, export_image_format='JPEG')
 '''
 bs = f'{tmp}/b.py'; open(bs, 'w').write(blender)
-r = subprocess.run([BPY, bs, '--', os.path.abspath(a.src), glb, str(a.faces), str(a.tex), a.keep], capture_output=True, text=True)
+r = subprocess.run([BPY, bs, '--', os.path.abspath(a.src), glb, str(a.faces), str(a.tex), a.keep, '1' if a.separate else '0'], capture_output=True, text=True)
 print('\n'.join(l for l in r.stdout.splitlines() if l.startswith('faces')))
 if not os.path.exists(glb): raise SystemExit('blender failed:\n' + r.stdout[-2000:] + r.stderr[-2000:])
 
