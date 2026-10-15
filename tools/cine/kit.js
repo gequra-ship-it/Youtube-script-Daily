@@ -88,4 +88,5 @@
     return { mesh: m, update(t, fade) { t1.offset.set(t * .006, t * .004); m.material.opacity = (o.opacity || .5) * (fade == null ? 1 : fade); } };
   }
   M.kit = { rng, noise, tex, normalMap, body, fin, shafts, snow, surfaceFromBelow };
+
 })();

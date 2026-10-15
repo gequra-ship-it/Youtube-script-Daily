@@ -97,6 +97,9 @@ A thing must read as a solid, lit, physical object, never a flat icon or a coin-
   scale; `kit.surfaceFromBelow()` for underwater shots. Dark, cinematic exposure — no flat full-bright lighting.
 - **Scale**: show size with a known reference drawn as a ghost outline (the whale scene's basketball court) or companions (a calf).
 - Reference scenes: `tools/cine/scenes/whale.js` (animal), `clockfield` in `basic.js` (objects).
+- **Surfaces stay realistic** (user decision 2026-10-15): a "look C" (dark bodies + glowing outline + mesh lines + points) was
+  tried on all outdoor samples and rejected ("the earlier images were better"). Keep realistic materials, light and atmosphere;
+  fix awkward spots by better form, lighting and framing, not by switching to an outline/point style.
 - **One visual language** (user, 2026-10-14: "the clocks feel cut off from the other scenes"): realism serves the series look, not
   the other way round. Every scene sits in the same world as dataglobe/blackhole: dark navy-violet (space) or deep blue (sea)
   backgrounds, light carried by glowing edges, light points, halos and dust in the palette's warm accent, stars or particles for
