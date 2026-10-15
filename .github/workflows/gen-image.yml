@@ -1,0 +1,35 @@
+name: gen-image
+
+# Photoreal stills with the Gemini API (tools/gen_image.py) for photo-based 2.5D scenes, committed to render-pipeline.
+# Uses the repository secret GEMINI_API_KEY. Committing images does not change render/.chunked, so no render starts.
+on:
+  workflow_dispatch:
+    inputs:
+      out: { description: 'output folder in the repo (e.g. videos/<slug>/plates)', required: true }
+      jobs: { description: 'JSON list [{"name","prompt","aspect"}]', required: true }
+      model: { description: 'model id (empty = try the image models the key can use)', required: false, default: '' }
+
+permissions:
+  contents: write
+
+jobs:
+  gen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: render-pipeline }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.13' }
+      - run: pip install -q google-genai
+      - name: Generate
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          JOBS: ${{ github.event.inputs.jobs }}
+        run: |
+          printf '%s' "$JOBS" > /tmp/jobs.json
+          python tools/gen_image.py "${{ github.event.inputs.out }}" /tmp/jobs.json --model "${{ github.event.inputs.model }}"
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "${{ github.event.inputs.out }}" && git commit -m "images: ${{ github.event.inputs.out }} (Gemini)" && git push origin HEAD:render-pipeline
