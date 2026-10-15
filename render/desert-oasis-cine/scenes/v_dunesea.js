@@ -63,12 +63,15 @@
   tg.setAttribute('color', new T.BufferAttribute(tc, 3)); tg.computeVertexNormals();
   // ripples + grain: height canvas -> normal map; colour grain
   const RC = 512, rcv = document.createElement('canvas'); rcv.width = rcv.height = RC; const rg = rcv.getContext('2d'), rim = rg.createImageData(RC, RC), nz = K.noise(RC, { seed: 3, octaves: 4 }).getContext('2d').getImageData(0, 0, RC, RC).data, gr = ctx.rng(9);
-  for (let y = 0; y < RC; y++) for (let x = 0; x < RC; x++) { const i = (y * RC + x) * 4, wv = nz[i] / 255; const ph = (x + 30 * Math.sin(y / RC * 6.283 * 2) + 26 * wv) / RC * 18, f = ph - Math.floor(ph);
-    const v = (f < .7 ? f / .7 : 1 - (f - .7) / .3) * .75 + gr() * .25; const q = v * 255 | 0; rim.data[i] = rim.data[i + 1] = rim.data[i + 2] = q; rim.data[i + 3] = 255; }
+  // smooth wind ripples (2026-10-15, "make the ripples softer"): rounded asymmetric profile (gentle windward rise, softer lee
+  // side), gently wandering crest lines, no per-pixel noise (that read as grit and sparkled in motion)
+  for (let y = 0; y < RC; y++) for (let x = 0; x < RC; x++) { const i = (y * RC + x) * 4, wv = nz[i] / 255; const ph = (x + 22 * Math.sin(y / RC * 6.283 * 2) + 9 * Math.sin(y / RC * 6.283 * 5 + 1.3) + 18 * wv) / RC * 14, f = ph - Math.floor(ph);
+    const r = f < .62 ? f / .62 : 1 - (f - .62) / .38, v = r * r * (3 - 2 * r) * .9 + wv * .1; const q = v * 255 | 0; rim.data[i] = rim.data[i + 1] = rim.data[i + 2] = q; rim.data[i + 3] = 255; }
   rg.putImageData(rim, 0, 0);
-  const ripN = K.normalMap(rcv, 2.2); ripN.repeat.set((X1 - X0) / 22, (Z1 - Z0) / 22);
+  rg.filter = 'blur(1.2px)'; rg.drawImage(rcv, 0, 0); rg.filter = 'none';
+  const ripN = K.normalMap(rcv, 1.5); ripN.repeat.set((X1 - X0) / 22, (Z1 - Z0) / 22);
   const grain = K.tex(K.noise(256, { seed: 15, octaves: 6 }), true); grain.repeat.set((X1 - X0) / 9, (Z1 - Z0) / 9);
-  const sandM = new T.MeshStandardMaterial({ vertexColors: true, map: grain, normalMap: ripN, normalScale: new T.Vector2(.55, .55), roughness: .92, metalness: 0 });
+  const sandM = new T.MeshStandardMaterial({ vertexColors: true, map: grain, normalMap: ripN, normalScale: new T.Vector2(.42, .42), roughness: .92, metalness: 0 });
   const hazeK = { value: .0032 };
   function hazeFog(m) { m.onBeforeCompile = sh => { sh.uniforms.hazeK = hazeK;
     sh.vertexShader = 'varying vec3 vWP;\n' + sh.vertexShader.replace('#include <worldpos_vertex>', '#include <worldpos_vertex>\n vWP = (modelMatrix * vec4(transformed, 1.0)).xyz;');

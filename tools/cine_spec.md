@@ -100,6 +100,20 @@ A thing must read as a solid, lit, physical object, never a flat icon or a coin-
 - **Surfaces stay realistic** (user decision 2026-10-15): a "look C" (dark bodies + glowing outline + mesh lines + points) was
   tried on all outdoor samples and rejected ("the earlier images were better"). Keep realistic materials, light and atmosphere;
   fix awkward spots by better form, lighting and framing, not by switching to an outline/point style.
+- **Light and air** (user approved 2026-10-15 after the frog-pond and desert samples): every scene uses at least two of: fog/depth
+  haze, backlight or a rim from behind, floating particles. Keep the key light source (sun, moon) on the frame side so bright sky
+  and lit edges show; never let a shaded face fill the frame. Day scenes: low sun from behind plus haze. Bright ground (sand, snow)
+  needs bounce light in the shadows (hemisphere ground colour), or the shade turns muddy.
+- **Familiar subjects (frog, people, animals): backlit but readable.** No flat front light. Shape comes from a rim on the edges that
+  face the light behind (a fresnel term weighted by the light direction in view space, not an all-round outline, which reads as
+  look C) and from nearby practical lights (firefly, lamp). Keep a cool neutral fill so form and colour stay visible: a purple fill
+  looked like plastic, no fill left only a black silhouette ("too dark").
+- **Stable in motion** (desert sample: "frames stutter, crackle, the shadows wobble"): fade fine surface patterns (sand ripples,
+  scales, grain) with distance (scale `mapN.xy` by a smoothstep of `length(vViewPosition)`; patch `#include <normal_fragment_maps>`
+  with `THREE.ShaderChunk.normal_fragment_maps`, because includes are not expanded yet in `onBeforeCompile`), no per-pixel random
+  noise in height maps, max anisotropy on tiled textures, MSAA (`samples: 4`) on any target the main pass renders into, shadow
+  cameras that follow the view kept small and snapped to whole shadow texels in the light camera's own axes, screen distortion as
+  broad slow waves. Check with consecutive frames 1/30 s apart (`cineshot.py render/x out 9.5 9.5333 9.5667`).
 - **One visual language** (user, 2026-10-14: "the clocks feel cut off from the other scenes"): realism serves the series look, not
   the other way round. Every scene sits in the same world as dataglobe/blackhole: dark navy-violet (space) or deep blue (sea)
   backgrounds, light carried by glowing edges, light points, halos and dust in the palette's warm accent, stars or particles for
