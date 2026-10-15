@@ -121,6 +121,20 @@
     scene.traverse(o => { if (o.isMesh) { meshes.push(o); o.frustumCulled = false; } });
     return { scene, clips: c.clips, meshes };
   }
-  M.kit = { rng, noise, tex, normalMap, body, fin, shafts, snow, surfaceFromBelow, model };
+  // hdri(name, renderer): a photographed environment prepared by tools/hdri_prep.py (MIYA.hdris[name], "// models: name" line)
+  // -> { env: prefiltered texture for scene.environment (image-based light + reflections), bg: equirect texture for scene.background }
+  const _hcache = {};
+  function hdri(name, renderer) {
+    if (_hcache[name]) return _hcache[name];
+    const D = (M.hdris || {})[name]; if (!D) throw new Error('hdri ' + name + ' not loaded (add "// models: ' + name + '" to the scene file)');
+    const bin = atob(D.rgbe), n = D.w * D.h, f = new Float32Array(n * 4);
+    for (let i = 0; i < n; i++) { const e = bin.charCodeAt(i * 4 + 3), s = e ? Math.pow(2, e - 136) : 0;
+      f[i * 4] = bin.charCodeAt(i * 4) * s; f[i * 4 + 1] = bin.charCodeAt(i * 4 + 1) * s; f[i * 4 + 2] = bin.charCodeAt(i * 4 + 2) * s; f[i * 4 + 3] = 1; }
+    const bg = new T.DataTexture(f, D.w, D.h, T.RGBAFormat, T.FloatType); bg.mapping = T.EquirectangularReflectionMapping; bg.colorSpace = T.LinearSRGBColorSpace;
+    bg.flipY = true; bg.magFilter = bg.minFilter = T.LinearFilter; bg.needsUpdate = true;
+    const pm = new T.PMREMGenerator(renderer), env = pm.fromEquirectangular(bg).texture; pm.dispose();
+    return (_hcache[name] = { env, bg });
+  }
+  M.kit = { rng, noise, tex, normalMap, body, fin, shafts, snow, surfaceFromBelow, model, hdri };
 
 })();
