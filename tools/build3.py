@@ -21,6 +21,10 @@ OUT = sys.argv[1] if len(sys.argv) > 1 else f'{REPO}/render/{SLUG}'
 SEL = [int(x) for x in os.environ.get('SEL', '').split(',') if x] or list(range(1, len(SCENES) + 1))
 LEAD, GAP, TAIL = (0.3, 0.5, 1.2) if VERT else (1.0, 0.8, 2.5)
 MAXU = 6.2            # target max seconds per unit (narration part); +gap keeps every unit <= 7 s
+# 2026-10-16 (learned in the cine experiment, guideline 20-2): the first minutes must change picture more often.
+# config HOOK = dict(until=300, maxu=4.5): scenes that START before `until` seconds split at maxu instead of MAXU (more pictures).
+# Shorts: HOOK = dict(until=999, maxu=4.8). Old videos without HOOK keep their unit split (plan.json / art3 stay valid).
+HOOK = getattr(CFG, 'HOOK', None)
 timing = json.load(open(B + '/timing_base.json')); D = timing['D']
 BGMODE = getattr(CFG, 'BG', {})
 ART3 = f'{vdir()}/art3'
@@ -39,6 +43,8 @@ starts = {}; t = LEAD
 for i in SEL:
     starts[i] = t; t += D[i - 1] + GAP
 TOTAL = round(starts[SEL[-1]] + D[SEL[-1] - 1] + TAIL, 3)
+def MX(i):   # max narration seconds per unit for scene i (HOOK pacing)
+    return HOOK['maxu'] if HOOK and starts.get(i, 1e9) < HOOK.get('until', 300) else MAXU
 
 
 # ---------- sentence timing model (narration time of every character) ----------
@@ -89,7 +95,7 @@ def tchar(i, idx):
 # ---------- unit split: sentence/clause atoms merged to <= MAXU seconds ----------
 def split_atom(i, c0, c1):
     text = SCENES[i - 1][4]
-    if tchar(i, c1) - tchar(i, c0) <= MAXU:
+    if tchar(i, c1) - tchar(i, c0) <= MX(i):
         return [(c0, c1)]
     seg = text[c0:c1]
     pts = [c0 + m.end() for m in re.finditer(r'[,;:](?=\s)|\s—\s', seg) if 0 < m.end() < len(seg) - 6]
@@ -108,21 +114,21 @@ def units_of(i):
     atoms = [(a + (len(text[a:]) - len(text[a:].lstrip())), b) for a, b in atoms]
     us = []; cur = [atoms[0][0], atoms[0][1]]
     for (a, b) in atoms[1:]:
-        if tchar(i, b) - tchar(i, cur[0]) <= MAXU:
+        if tchar(i, b) - tchar(i, cur[0]) <= MX(i):
             cur[1] = b
         else:
             us.append(tuple(cur)); cur = [a, b]
     us.append(tuple(cur))
     if len(us) > 1 and tchar(i, us[-1][1]) - tchar(i, us[-1][0]) < 2.0:
-        # first try to move trailing atoms of the previous unit into the short last unit (keeps both <= MAXU)
+        # first try to move trailing atoms of the previous unit into the short last unit (keeps both <= MX(i))
         span = lambda a, b: tchar(i, b) - tchar(i, a)
         inner = [a for (a, b) in atoms if us[-2][0] < a < us[-2][1]]
         fixed = False
         for cut in reversed(inner):
-            if span(cut, us[-1][1]) > MAXU: break
+            if span(cut, us[-1][1]) > MX(i): break
             if span(cut, us[-1][1]) >= 2.0 and span(us[-2][0], cut) >= 2.0:
                 us = us[:-2] + [(us[-2][0], cut), (cut, us[-1][1])]; fixed = True; break
-        if not fixed and span(us[-2][0], us[-1][1]) <= MAXU + 0.8:
+        if not fixed and span(us[-2][0], us[-1][1]) <= MX(i) + 0.8:
             us = us[:-2] + [(us[-2][0], us[-1][1])]
     # a very short unit (< 1.6 s of narration, e.g. "Start with the hunter.") is merged into its neighbour
     k = 0
@@ -384,8 +390,17 @@ h.append('''#logo{position:absolute;left:1799px;top:40px;width:81px;height:81px;
 .chalks{position:absolute;left:70px;top:1032px;display:flex;gap:18px}.chalks i{display:block;width:56px;height:14px;border-radius:5px}
 .erasers{position:absolute;left:1722px;top:1022px;display:flex;gap:14px}.erasers b{display:block;width:70px;height:26px;border-radius:4px;background:#5b4a38;border-bottom:8px solid #c9b79a}
 '''.replace('@W', str(W)).replace('@H', str(H)))
+h.append('.spd{position:absolute;left:0;top:0;width:%dpx;height:%dpx;pointer-events:none;overflow:hidden;opacity:0}.spd i{position:absolute;left:0;top:0;width:0;height:0}.spd b{position:absolute;left:0;top:-2px;width:210px;height:4px;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.85));transform-origin:0 50%%;opacity:0}' % (W, H))
 h.append('</style></head><body>')
 h.append(f'<div id="root" data-composition-id="main" data-start="0" data-duration="{TOTAL}" data-width="{W}" data-height="{H}">')
+# speed streaks (2026-10-16, learned in the cine experiment; guideline 20-3). Cosmic videos get them on speed words; any video can force
+# them with sidecar "speed": true (or turn them off with false).
+SPEED_RE = re.compile(r"\b(speed\w*|fast\w*|accelerat\w*|racing|races?|rush\w*|launch\w*|rocket\w*|warp\w*|hurtl\w*|flying|flee\w*|fled|reced\w*|expand\w*|explod\w*|burst\w*|blast\w*|stream\w*|zoom\w*)\b", re.I)
+NSPD = 30
+def is_speed(u, sc0):
+    if 'speed' in sc0: return bool(sc0['speed'])
+    return getattr(CFG, 'STYLE', 'default') == 'cosmic' and bool(SPEED_RE.search(u['text']))
+DRIFT = getattr(CFG, 'DRIFT', True)   # slow continuous camera move on every picture without a focus target (guideline 20-1)
 fallback_used = []; label_errors = []; label_items = {}
 for u in units:
     nn = u['n']
@@ -406,7 +421,12 @@ for u in units:
             fx, fy, fs = float(fz[0]), float(fz[1]), max(float(fz[2]), 1.0)
             spot = (f'<div class="spot" id="sp{nn}" style="position:absolute;left:0;top:0;width:{W}px;height:{H}px;pointer-events:none;opacity:0;'
                     f'background:radial-gradient(circle at {fx:.0f}px {fy:.0f}px,rgba(0,0,0,0) {.30 * W / fs:.0f}px,rgba(0,0,0,.5) {.62 * W / fs:.0f}px)"></div>')
-        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p)}{spot}{lin}</div>{lout}</div>')
+        spd = ''
+        if is_speed(u, sc0):   # speed streaks (guideline 20-3): radial lines that accelerate out of frame and keep respawning
+            ox, oy = (float(fz[0]), float(fz[1])) if fz else (CX, CY)
+            spd = (f'<div class="spd" id="spd{nn}"><div style="position:absolute;left:{ox:.0f}px;top:{oy:.0f}px">'
+                   + ''.join(f'<i style="transform:rotate({(k * 137.508) % 360:.1f}deg)"><b></b></i>' for k in range(NSPD)) + '</div></div>')
+        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p)}{spot}{lin}</div>{spd}{lout}</div>')
 if label_errors: raise SystemExit('on-screen text (labels) problems, fix the sidecars:\n  ' + '\n  '.join(label_errors))
 h.append('<div id="wash"></div><img id="grain" src="grain.png">' + ('' if VERT else '<img id="logo" src="logo.png">'))
 # shared overlays for the 2026-10-14 transitions (cuts never overlap: units are at least 1.5 s apart)
@@ -630,6 +650,17 @@ for k, u in enumerate(units):
         cxm = min(max(fx, W / 2 / s), W - W / 2 / s); cym = min(max(fy, H / 2 / s), H - H / 2 / s)
         js.append(f'tl.to("{Wq}",{{scale:{s},x:{W / 2 - cxm * s:.1f},y:{H / 2 - cym * s:.1f},duration:1.4,ease:"power2.inOut"}},{a:.3f});')
         js.append(f'if(document.getElementById("sp{nn}"))tl.fromTo("#sp{nn}",{{opacity:0}},{{opacity:1,duration:1.4,ease:"power2.inOut",immediateRender:false}},{a:.3f});')
+    elif DRIFT and u['kind'] != 'chalk':   # --- drift camera: one smooth eased move per picture (push / pan / pull), never a jump ---
+        mv = k % 4; d = t1 - v0; s0, s1 = (1.0, 1.06) if mv != 3 else (1.06, 1.0)
+        dx = {0: 0, 1: -W * .025, 2: W * .025, 3: 0}[mv]
+        js.append(f'tl.fromTo("{Wq}",{{scale:{s0},x:0,y:0,transformOrigin:"{ORG}"}},{{scale:{s1},x:{dx:.1f},y:0,duration:{d:.3f},ease:"sine.inOut",immediateRender:false}},{v0:.3f});')
+    if u['kind'] != 'chalk' and is_speed(u, side(u)):   # --- speed streaks: each line accelerates outward (power3.in) and respawns ---
+        R = (W * W + H * H) ** .5; d = t1 - v0
+        js.append(f'tl.fromTo("#spd{nn}",{{opacity:0}},{{opacity:1,duration:.5,immediateRender:false}},{v0:.3f});')
+        for q in range(NSPD):
+            per = 0.9 + 0.5 * ((q * 7) % 5) / 4; off = (q * 0.61803) % 1 * per
+            rep = max(0, int(math.ceil((d - off) / per)) - 1)
+            js.append(f'tl.fromTo("#spd{nn} i:nth-child({q + 1}) b",{{x:{R * .04:.0f},scaleX:.15,opacity:0}},{{x:{R * .62:.0f},scaleX:1.6,opacity:.9,duration:{per:.2f},ease:"power3.in",repeat:{rep},immediateRender:false}},{v0 + off:.3f});')
     # --- motion groups (finite, seek-safe) ---
     p, fb = art_path(u); svg = load_svg(nn, p); cnt = {}
     sp = t1 - v0 + 0.2
