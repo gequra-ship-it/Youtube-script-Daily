@@ -32,7 +32,7 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 ## 2026-10-10 (epomis-frog-hunter-v2)
 - Kokoro speed re-measured at ~163 words/min (not 126): plan ~3,100 words for a ~20 min video. Always check `audio_prep.py`'s total.
 - `build3.py`: very short units (<1.6 s) merge into a neighbour; a short last unit re-splits with the previous one. A partial `SEL=` build now takes picture uids from `plan.json` (before, numbering restarted at 1 and pictures were mismatched).
-- `build3.py` transitions (2026-10-14): 12 types — zoom, fade, slide, match, wash, plus wipe (diagonal with a light edge), iris (circle from a side subject; sidecar `iris`), eye (opens from a horizontal line), blinds (bars in muted tones of the scene colour family), push (vertical), whip (fast pass with speed streaks), tilt (card tips in). `TR_WORDS` picks one from words in the unit text (50 %, unless that type is over its share); other picks are weighted against types already used a lot; never the same type twice in a row; hard cuts around chalkboards.
+- `build3.py` transitions (2026-10-14): 11 types (blinds removed 2026-10-16, user decision) — zoom, fade, slide, match, wash, plus wipe (diagonal with a light edge), iris (circle from a side subject; sidecar `iris`), eye (opens from a horizontal line), push (vertical), whip (fast pass with speed streaks), tilt (card tips in). `TR_WORDS` picks one from words in the unit text (50 %, unless that type is over its share); other picks are weighted against types already used a lot; never the same type twice in a row; hard cuts around chalkboards.
 - Picture agents: write a per-video `videos/<slug>/art_brief.md` (character sheet, own scratch folder per agent) and give it to every agent.
 - Workflow: Chrome warm-up, one render retry, continue with the next slug on failure.
 - Guideline copy: `docs/miyas-lab-guideline.md`.
@@ -57,7 +57,7 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 3D 도구와 명세는 `cine-test/`로 옮겼다(`cine-test/README.md`). `chunk_prep.py`(구간 나누기)는 SVG 병렬 렌더에도 쓰므로 여기에 남아 있다.
 
 ## 2026-10-16 추가 (지침서 20장)
-- `build3.py`: `config.py`의 `HOOK = dict(until=300, maxu=4.5)`(초반 단위를 더 잘게, 숏츠는 `until=999, maxu=4.8`), `DRIFT = False`(드리프트 카메라 끄기). 우주 모드는 속도 단어가 있는 단위에 속도선(사이드카 `"speed": true/false`).
+- `build3.py`: `config.py`의 `HOOK = dict(until=300, maxu=4.5)`(초반 단위를 더 잘게, 숏츠는 `until=999, maxu=6.0, slow=8.5`; 설명·숫자 장면은 자동으로 느리게, `SLOW`/`NOT_SLOW`로 조정), `tools/remap_art.py`(다시 나눈 뒤 예전 그림 연결), `DRIFT = False`(드리프트 카메라 끄기). 우주 모드는 속도 단어가 있는 단위에 속도선(사이드카 `"speed": true/false`).
 - `motion_check.py render/<slug> [--step 6]`: 화면이 거의 안 움직이는 구간을 찾는다(SVG·3D 페이지 모두).
 - `art3` 관절: `mv-joint-<이름>`(관절 하나, `data-pivot`·`data-amp`·`data-per`·`data-phase`), `mv-chain-<이름>-1,-2…`(겹쳐 넣은 마디 사슬, 끝으로 갈수록 크게·늦게). `tools/art_spec.md` 7절.
 - 병렬 렌더: `chunk_plan.py render/<slug>`로 구간 수 → `render/.chunked`에 `"<slug> <n>"` → `render-chunked.yml`(+`chunk_prep.py`). 지침서 20-7.

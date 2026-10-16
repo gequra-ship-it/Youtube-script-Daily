@@ -23,7 +23,7 @@ LEAD, GAP, TAIL = (0.3, 0.5, 1.2) if VERT else (1.0, 0.8, 2.5)
 MAXU = 6.2            # target max seconds per unit (narration part); +gap keeps every unit <= 7 s
 # 2026-10-16 (learned in the cine experiment, guideline 20-2): the first minutes must change picture more often.
 # config HOOK = dict(until=300, maxu=4.5): scenes that START before `until` seconds split at maxu instead of MAXU (more pictures).
-# Shorts: HOOK = dict(until=999, maxu=4.8). Old videos without HOOK keep their unit split (plan.json / art3 stay valid).
+# Shorts: HOOK = dict(until=999, maxu=6.0, slow=8.5) (was 4.8 until the 2026-10-16 user feedback). Old videos without HOOK keep their unit split (plan.json / art3 stay valid).
 HOOK = getattr(CFG, 'HOOK', None)
 timing = json.load(open(B + '/timing_base.json')); D = timing['D']
 BGMODE = getattr(CFG, 'BG', {})
@@ -43,7 +43,21 @@ starts = {}; t = LEAD
 for i in SEL:
     starts[i] = t; t += D[i - 1] + GAP
 TOTAL = round(starts[SEL[-1]] + D[SEL[-1] - 1] + TAIL, 3)
+# 2026-10-16 user decision (after watching the Shorts): cuts were all too fast. Explanations, numbers/graphs and key
+# moments stay on one picture longer; energy comes from motion inside the picture, not only from cuts (guideline 20-2).
+# Slow scenes: config SLOW = [scene numbers] plus, automatically, scenes with 2+ numbers or an explanation cue.
+# They split at SLOWU seconds (config HOOK['slow'], default 8.5) and get the calm transitions (fade/match/eye/iris/slide).
+SLOWU = (HOOK or {}).get('slow', 8.5)
+SLOW_RE = re.compile(r"\b(because|which means|that means|in other words|the reason|imagine|think of|picture this|for example|compared|times (?:more|less|faster|bigger|smaller)|percent|equation|formula)\b", re.I)
+def is_slow_scene(i):
+    if i in set(getattr(CFG, 'SLOW', [])): return True
+    if i in set(getattr(CFG, 'NOT_SLOW', [])): return False
+    if SCENES[i - 1][2] == 'chalk': return False
+    t = SCENES[i - 1][4]
+    return len(re.findall(r'\d[\d,.]*', t)) >= 2 or bool(SLOW_RE.search(t))
+SLOW_SC = {i for i in SEL if is_slow_scene(i)}
 def MX(i):   # max narration seconds per unit for scene i (HOOK pacing)
+    if i in SLOW_SC: return max(SLOWU, MAXU)
     return HOOK['maxu'] if HOOK and starts.get(i, 1e9) < HOOK.get('until', 300) else MAXU
 
 
@@ -185,7 +199,10 @@ for k, u in enumerate(units):
     # 12 types (7 added 2026-10-14, user decision; the mosaic 'dots' was tried and dropped the same day): not every cut grows out of the centre object any more
     pool = ['zoom', 'fade', 'slide', 'match', 'wash', 'wipe', 'iris', 'eye', 'push', 'whip', 'tilt']
     if u['scene'] != p['scene']:
-        pool.remove('match'); pool += ['zoom', 'wash', 'blinds', 'blinds', 'eye']   # scene change: favour the big covering cuts
+        pool.remove('match'); pool += ['zoom', 'wash', 'eye']   # scene change: favour the big covering cuts
+    # 'blinds' (colour bars dropping down) removed for all videos, user decision 2026-10-16
+    if u['scene'] in SLOW_SC:   # slow scene: calm transitions only
+        pool = [x for x in pool if x in ('fade', 'match', 'eye', 'iris', 'slide', 'zoom')] or ['fade']
     pool = [x for x in pool if x not in last2[-1:]]
     if len(last2) >= 2:
         pool = [x for x in pool if x not in last2[-2:]] or pool
@@ -401,7 +418,7 @@ def is_speed(u, sc0):
     if 'speed' in sc0: return bool(sc0['speed'])
     return getattr(CFG, 'STYLE', 'default') == 'cosmic' and bool(SPEED_RE.search(u['text']))
 DRIFT = getattr(CFG, 'DRIFT', True)   # slow continuous camera move on every picture without a focus target (guideline 20-1)
-fallback_used = []; label_errors = []; label_items = {}
+fallback_used = []; label_errors = []; label_items = {}; BADGES = []
 for u in units:
     nn = u['n']
     if CINE: continue
@@ -426,8 +443,10 @@ for u in units:
             ox, oy = (float(fz[0]), float(fz[1])) if fz else (CX, CY)
             spd = (f'<div class="spd" id="spd{nn}"><div style="position:absolute;left:{ox:.0f}px;top:{oy:.0f}px">'
                    + ''.join(f'<i style="transform:rotate({(k * 137.508) % 360:.1f}deg)"><b></b></i>' for k in range(NSPD)) + '</div></div>')
-        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p)}{spot}{lin}</div>{spd}{lout}</div>')
+        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p)}{spot}{lin}</div>{spd}</div>')
+        BADGES.append(lout)   # number badges live on their own layer so they do not vanish with the cut (user 2026-10-16)
 if label_errors: raise SystemExit('on-screen text (labels) problems, fix the sidecars:\n  ' + '\n  '.join(label_errors))
+h.append('<div id="badges" style="position:absolute;left:0;top:0;width:0;height:0;z-index:998">' + ''.join(BADGES) + '</div>')
 h.append('<div id="wash"></div><img id="grain" src="grain.png">' + ('' if VERT else '<img id="logo" src="logo.png">'))
 # shared overlays for the 2026-10-14 transitions (cuts never overlap: units are at least 1.5 s apart)
 h.append(f'<svg id="tredge" viewBox="0 0 {W} {H}"><line id="treline" x1="0" y1="0" x2="0" y2="0" stroke="#ffd54a" stroke-width="10" stroke-linecap="round"/></svg>')
@@ -721,9 +740,16 @@ if CORE_USED:
     if len(cc) < min(10, len(CORE_USED)): print('WARNING: fewer than 10 centre-motion types used (guideline 4-1)')
     if rep_pairs: print('WARNING: the same centre motion appears in consecutive pictures')
     if max(cc.values()) > .2 * len(CORE_USED) + 1: print('WARNING: one centre motion is over 20% of the pictures')
+UEND = {u['n']: u['t1'] for u in units}; USC = {u['n']: u['scene'] for u in units}
+SCEND = {i: (starts[SEL[SEL.index(i) + 1]] if i != SEL[-1] else TOTAL) for i in SEL}
+NUMT = sorted(tt for (_n, ty, _l, _g, tt) in label_t if ty == 'num')
 for (nn, ty, lid, gid, tt) in label_t:          # on-screen text pops in when its words are spoken (guideline 3-6)
     if ty == 'num':
+        # stays at least 4.5 s and 2.5 s past its own picture, but leaves before the next badge and at the end of its scene
+        nb = next((x for x in NUMT if x > tt + 0.01), 1e9)
+        te = min(max(UEND[nn] + 2.5, tt + 4.5), nb - 0.25, SCEND[USC[nn]] - 0.1, TOTAL)
         js.append(f'tl.fromTo("#{lid}",{{opacity:0,x:-30}},{{opacity:1,x:0,duration:.3,ease:"power2.out",immediateRender:false}},{tt:.3f});')
+        js.append(f'tl.to("#{lid}",{{opacity:0,x:-20,duration:.35,ease:"power1.in"}},{max(te - .35, tt + .4):.3f});')
         js.append(labels_lib.count_js(lid, tt))      # the number counts up from 0 as the badge comes in (guideline 3-6)
         continue
     js.append(f'tl.fromTo("#{lid}s",{{opacity:0,scale:.6}},{{opacity:1,scale:1,duration:.25,ease:"back.out(2)",immediateRender:false}},{tt:.3f});')
@@ -746,5 +772,5 @@ data = dict(slug=SLUG, total=TOTAL, lead=LEAD, gap=GAP, tail=TAIL, starts={str(k
 json.dump(data, open(B + ('/build_data.json' if len(SEL) == len(SCENES) else '/build_data_partial.json'), 'w'), ensure_ascii=False, indent=1)
 dd = [u['t1'] - u['t0'] for u in units]
 from collections import Counter
-print('labels', len(label_t), 'total', TOTAL, 'units', len(units), 'avg', round(sum(dd) / len(dd), 2), 'max', round(max(dd), 2), 'caps', len(caps), 'sfx cues', len(cues), 'fallback art', len(fallback_used))
+print('slow scenes', sorted(SLOW_SC), '|', 'labels', len(label_t), 'total', TOTAL, 'units', len(units), 'avg', round(sum(dd) / len(dd), 2), 'max', round(max(dd), 2), 'caps', len(caps), 'sfx cues', len(cues), 'fallback art', len(fallback_used))
 print('transitions', dict(Counter(u['tr'] for u in units)), 'focus cams', len(focus_cam))
