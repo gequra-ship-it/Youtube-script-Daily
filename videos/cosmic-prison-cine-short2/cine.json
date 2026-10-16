@@ -12,79 +12,173 @@
    "shots": [
     {
      "from": "U001",
-     "type": "wormhole",
+     "type": "warp",
      "params": {
-      "open": "U001"
+      "warp": "U001:light,",
+      "escape": "U001:could"
      }
     },
     {
-     "from": "U004",
-     "type": "lightspeed",
+     "from": "U002",
+     "type": "wormhole",
      "params": {
-      "limit": "U006:speed limit",
-      "push": "U008:speeds up",
-      "infinite": "U010:infinity"
+      "open": "U002:Science"
      },
      "tr": "whip"
     },
     {
+     "from": "U003",
+     "type": "observatory",
+     "params": {
+      "glow": "U003",
+      "rocket": "U003:Physicists",
+      "follow": "U003:taken",
+      "wall": "U003:walls",
+      "cage": "U004:rule"
+     },
+     "tr": "push"
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "label": "Miya's Lab",
+   "title": "The speed limit",
+   "mode": "cuts",
+   "from": "U005",
+   "tr": "dip",
+   "shots": [
+    {
+     "from": "U005",
+     "type": "lightspeed",
+     "params": {
+      "limit": "U005:Light",
+      "exit": "U012"
+     }
+    },
+    {
+     "from": "U007",
+     "type": "void",
+     "params": {},
+     "tr": "xfade"
+    },
+    {
+     "from": "U008",
+     "type": "lightspeed",
+     "params": {
+      "limit": "U005:Light",
+      "push": "U008:speeds",
+      "infinite": "U010:infinity",
+      "exit": "U012"
+     },
+     "tr": "whip"
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "label": "Miya's Lab",
+   "title": "Wormholes",
+   "mode": "cuts",
+   "from": "U011",
+   "tr": "blinds",
+   "shots": [
+    {
      "from": "U011",
      "type": "wormhole",
      "params": {
-      "open": "U011",
       "enter": "U013:tunnel"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "label": "Miya's Lab",
+   "title": "The quantum hurdle",
+   "mode": "cuts",
+   "from": "U017",
+   "tr": "dip",
+   "shots": [
+    {
+     "from": "U017",
+     "type": "wormhole",
+     "params": {
+      "collapse": "U018:build"
+     }
+    },
+    {
+     "from": "U021",
+     "type": "observatory",
+     "params": {
+      "glow": "U021",
+      "widen": "U021",
+      "night": "U021"
+     },
+     "tr": "xfade"
+    }
+   ]
+  },
+  {
+   "id": "c5",
+   "label": "Miya's Lab",
+   "title": "The warp drive",
+   "mode": "cuts",
+   "from": "U022",
+   "tr": "dip",
+   "shots": [
+    {
+     "from": "U022",
+     "type": "warp",
+     "params": {
+      "warp": "U022:warp",
+      "escape": false
+     }
+    },
+    {
+     "from": "U026",
+     "type": "lightspeed",
+     "params": {
+      "limit": "U026:ship",
+      "exit": "U030"
+     },
+     "tr": "whip"
+    },
+    {
+     "from": "U028",
+     "type": "warp",
+     "params": {
+      "energy": "U028:mass-energy",
+      "warp": "U022:warp",
+      "escape": false
      },
      "tr": "iris",
      "tro": [
       0.5,
       0.45
      ]
-    },
-    {
-     "from": "U017",
-     "type": "wormhole",
-     "params": {
-      "open": "U011",
-      "enter": "U011",
-      "collapse": "U019:destroy"
-     },
-     "tr": "xfade"
-    },
-    {
-     "from": "U022",
-     "type": "warp",
-     "params": {
-      "warp": "U024:contracting"
-     },
-     "tr": "dip"
-    },
-    {
-     "from": "U028",
-     "type": "warp",
-     "params": {
-      "warp": "U022",
-      "energy": "U028:Jupiter"
-     },
-     "tr": "xfade"
-    },
+    }
+   ]
+  },
+  {
+   "id": "c6",
+   "label": "Miya's Lab",
+   "title": "The cosmic snowplow",
+   "mode": "cuts",
+   "from": "U031",
+   "tr": "blinds",
+   "shots": [
     {
      "from": "U031",
      "type": "warp",
      "params": {
-      "warp": "U022",
-      "snowplow": "U032:sweep up",
-      "blast": "U034:blasting"
-     },
-     "tr": "xfade"
-    },
-    {
-     "from": "U035",
-     "type": "warp",
-     "params": {
-      "warp": "U022",
-      "trapped": "U035"
-     },
-     "tr": "dip"
+      "snowplow": "U032:sweep",
+      "blast": "U033:blasting",
+      "wall": "U035:wall",
+      "trapped": "U037:trapped",
+      "warp": "U022:warp",
+      "escape": false
+     }
     }
    ]
   }
@@ -113,7 +207,8 @@
    "sub": "The speed limit of cause and effect."
   },
   "U007": {
-   "sub": "Nothing with mass can reach it."
+   "sub": "Nothing with mass can reach it.",
+   "card": "Nothing with mass can ever *exceed* it, or even reach it."
   },
   "U008": {
    "sub": "Speed up toward light..."
@@ -132,7 +227,8 @@
    "kw": "Wormholes"
   },
   "U012": {
-   "sub": "Einstein-Rosen bridges, in theory."
+   "sub": "Einstein-Rosen bridges, in theory.",
+   "kw": "Einstein-Rosen"
   },
   "U013": {
    "sub": "A tunnel through the fabric of the universe."
@@ -142,7 +238,8 @@
   },
   "U015": {
    "sub": "...exotic matter with negative energy.",
-   "kw": "Negative energy"
+   "kw": "Negative energy",
+   "card": "To hold it open: *exotic matter* with negative energy."
   },
   "U016": {
    "sub": "It may not exist at all."
@@ -163,7 +260,8 @@
    "sub": "The chronology protection conjecture."
   },
   "U021": {
-   "sub": "No one knows for sure yet."
+   "sub": "No one knows for sure yet.",
+   "kw": "No one knows"
   },
   "U022": {
    "sub": "Then there is the warp drive.",
@@ -180,7 +278,8 @@
    "sub": "...expand it behind."
   },
   "U026": {
-   "sub": "Inside the bubble, the ship is at rest."
+   "sub": "Inside the bubble, the ship is at rest.",
+   "kw": "At rest"
   },
   "U027": {
    "sub": "It never breaks the local limit."
@@ -193,7 +292,8 @@
    "sub": "...and negative. Later designs need less..."
   },
   "U030": {
-   "sub": "...but nobody can make negative energy."
+   "sub": "...but nobody can make negative energy.",
+   "kw": "Negative energy"
   },
   "U031": {
    "sub": "Worse: a 2012 study found...",
@@ -219,7 +319,8 @@
    "sub": "Nature is not built for interstellar nomads."
   },
   "U037": {
-   "sub": "Why we are trapped in our neighborhood..."
+   "sub": "Why we are trapped in our neighborhood...",
+   "kw": "Trapped"
   },
   "U038": {
    "sub": "...the full story is on Miya's Lab.",

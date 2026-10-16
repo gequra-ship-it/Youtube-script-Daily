@@ -9,6 +9,10 @@
 //   push     — the engine flares harder and harder; stars ahead crowd and blue-shift slightly (aberration), the track streams faster,
 //              an energy glow swells around the ship toward white, but the wall stays exactly as far ahead
 //   infinite — glow saturates near white, the plume is at its longest, the ship strains (slow, small tremor), still behind
+//   exit     — (default: 3.5 s before the shot ends) BOOST: the engine flares white, the plume doubles, an anamorphic flare and a glow
+//              burst; the track beads and dust smear into long light streaks; the ship accelerates away from the camera, shrinks
+//              and vanishes into the ring / light wall ahead (soft flash there) just before the transition
+// speed cues: dust and track beads are drawn as motion streaks whose length follows the flow speed (cruise < push < infinite < boost)
 //   side (.1)
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.lightspeed = function (ctx, p) {
   const { T, sm, rng, cue, dotTex } = ctx, K = window.MIYA.kit, E = ctx.env();
@@ -16,7 +20,32 @@
   const v3 = (x, y, z) => new T.Vector3(x, y, z);
   const vf = f => { if (!ctx.VERT) return f; const h = 2 * Math.atan(Math.tan(f * Math.PI / 360) * 16 / 9 * .62); return 2 * Math.atan(Math.tan(h / 2) * ctx.H / ctx.W) * 180 / Math.PI; };
   const ACC = new T.Color(ctx.ACC);
-  const tL = cue(p.limit, ctx.t0 + 2), tP = cue(p.push, 1e9), tI = cue(p.infinite, 1e9);
+  const tL = cue(p.limit, ctx.t0 + 2), tP = cue(p.push, 1e9), tI = cue(p.infinite, 1e9), tX = cue(p.exit, ctx.t1 - 3.5);
+  // ---------------- motion streaks (2026-10-16 speed pass): n camera-facing quads, billboarded in the vertex shader so the camera
+  // director's later move keeps them facing the lens; a head bright, tail fading; width never below minPx pixels (thinner streaks dim
+  // instead, so far ones never shimmer); fades out close to the camera. set(i, head, tail, width, rgb) each frame from t only.
+  function streaks(par, n, o) { o = o || {}; const g = new T.BufferGeometry(), H = new Float32Array(n * 12), Tl = new Float32Array(n * 12), C = new Float32Array(n * 12), Wd = new Float32Array(n * 4), cr = new Float32Array(n * 8), ix = [];
+    for (let i = 0; i < n; i++) { cr.set([0, 0, 0, 1, 1, 0, 1, 1], i * 8); const b = i * 4; ix.push(b, b + 2, b + 1, b + 1, b + 2, b + 3); }
+    const ad = (a, k) => { const q = new T.BufferAttribute(a, k); q.setUsage(T.DynamicDrawUsage); g.setAttribute(['aH', 'aT', 'aC', 'aW'][[H, Tl, C, Wd].indexOf(a)], q); };
+    ad(H, 3); ad(Tl, 3); ad(C, 3); ad(Wd, 1); g.setAttribute('corner', new T.BufferAttribute(cr, 2)); g.setAttribute('position', new T.BufferAttribute(new Float32Array(n * 12), 3)); g.setIndex(ix);
+    const m = new T.ShaderMaterial({ uniforms: { uH: { value: ctx.H }, uMin: { value: o.minPx || 1.6 }, uNear: { value: new T.Vector2(...(o.near || [.5, 4])) } }, transparent: true, depthWrite: false, depthTest: o.depthTest !== false, blending: T.AdditiveBlending, side: T.DoubleSide,
+      vertexShader: `attribute vec3 aH, aT, aC; attribute float aW; attribute vec2 corner; uniform float uH, uMin; uniform vec2 uNear; varying vec2 vUv; varying vec3 vC; varying float vCap;
+        void main(){ vec3 wH = (modelMatrix * vec4(aH, 1.)).xyz, wT = (modelMatrix * vec4(aT, 1.)).xyz, d = wH - wT; float L = length(d); vec3 dir = L > 1e-5 ? d / L : vec3(1., 0., 0.);
+          vec3 P0 = mix(wT, wH, corner.x), V = cameraPosition - P0; float dc = max(length(V), 1e-4);
+          float w = max(aW, dc * 2. / (projectionMatrix[1][1] * uH) * uMin); vec3 sd = cross(dir, V); float sl = length(sd); sd = sl > 1e-6 ? sd / sl : vec3(0., 1., 0.);
+          vec3 P = P0 + sd * (corner.y - .5) * w + dir * (corner.x - .5) * w;
+          vUv = corner; vCap = clamp(w / (L + w), .02, 1.); vC = aC * (aW / w) * smoothstep(uNear.x, uNear.y, dc);
+          gl_Position = projectionMatrix * viewMatrix * vec4(P, 1.); }`,
+      fragmentShader: `varying vec2 vUv; varying vec3 vC; varying float vCap;
+        void main(){ float x = vUv.x, y = abs(vUv.y * 2. - 1.); float a = pow(x, 1.6) * smoothstep(1., 1. - vCap, x) * pow(max(0., 1. - y * y), 2.);
+          gl_FragColor = vec4(vC * a, 1.);
+          #include <tonemapping_fragment>
+          #include <colorspace_fragment>
+        }` });
+    const M = new T.Mesh(g, m); M.frustumCulled = false; M.renderOrder = o.order || 0; par.add(M);
+    return { mesh: M, set(i, hx, hy, hz, tx, ty, tz, w, r, gg, b) { for (let k = 0; k < 4; k++) { const j = (i * 4 + k) * 3; H[j] = hx; H[j + 1] = hy; H[j + 2] = hz; Tl[j] = tx; Tl[j + 1] = ty; Tl[j + 2] = tz; C[j] = r; C[j + 1] = gg; C[j + 2] = b; Wd[i * 4 + k] = w; } },
+      hide(i) { for (let k = 0; k < 4; k++) { const j = (i * 4 + k) * 3; C[j] = C[j + 1] = C[j + 2] = 0; } },
+      commit() { ['aH', 'aT', 'aC', 'aW'].forEach(k => g.attributes[k].needsUpdate = true); } }; }
   // integral of smoothstep ramp from a over d seconds, evaluated at t (seek-safe distance travelled)
   const ism = (a, d, t) => { const x = (t - a) / d; if (x <= 0) return 0; if (x >= 1) return d * (x - .5); return d * (x * x * x - x * x * x * x / 2); };
 
@@ -126,8 +155,11 @@
   // ---------------- dust streaming back (seek-safe), lights ----------------
   const ND = 900, dg = new T.BufferGeometry(), da = new Float32Array(ND * 3), dB = [];
   dg.setAttribute('position', new T.BufferAttribute(da, 3)); { const r = rng(11); for (let i = 0; i < ND; i++) dB.push([r() * 160, (r() - .5) * 40, (r() - .5) * 60]); }
-  const dust = new T.Points(dg, new T.PointsMaterial({ size: .16, map: dotTex(), color: '#ffdcae', transparent: true, opacity: .55, blending: T.AdditiveBlending, depthWrite: false }));
-  dust.frustumCulled = false; S.add(dust);
+  const dust = streaks(S, ND, { minPx: 1.4, near: [3, 12] }), bstr = streaks(TRACK, NB, { minPx: 2 });
+  // boost: white-blue flare at the nozzle, a horizontal anamorphic streak, a gold flash where the ship meets the light wall
+  const bF1 = ctx.glow(HULL, new T.Color(2.2, 2.4, 3), 8, 0), bF2 = ctx.glow(HULL, '#7f9cff', 30, 0), bAna = ctx.glow(HULL, '#bcd0ff', 1, 0);
+  bF1.position.x = bF2.position.x = bAna.position.x = -12.2;
+  const wFl = ctx.glow(S, new T.Color(2.4, 2.1, 1.6), 30, 0), wFl2 = ctx.glow(S, '#ffc65a', 90, 0); wFl.position.set(WX - 1, 0, 0); wFl2.position.set(WX, 0, 0);
   const key = new T.DirectionalLight('#ffe2b8', 2.2); key.position.set(60, 18, -10); S.add(key);
   const fill = new T.DirectionalLight('#9aa6c4', .55); fill.position.set(-20, 10, 30); S.add(fill);
   S.add(new T.HemisphereLight('#39407a', '#07070f', .5));
@@ -140,12 +172,20 @@
     const beta = .25 + .3 * ePush + .1 * eInf;                       // aberration strength (symbolic, subtle)
     starU.uB.value = beta; sky.material.uniforms.uB.value = beta;
     // track flow: distance travelled = integral of the visual speed (seek-safe)
-    const dist = 14 * (t - ctx.t0) + 22 * ism(tP, 16, t) + 10 * ism(tI, 6, t);
+    // exit / boost: b = burn (rises over .45 s), X = the ship's run ahead (accelerating), kv = ship still visible (shrinks into the ring)
+    const xb = t - tX, b = sm(0, .45, xb), sx = Math.max(0, (xb - .35) / 2.65), X = 100 * Math.pow(sx, 2.5), kv = 1 - sm(55, 95, X);
+    const vel = 14 + 22 * sm(tP, tP + 16, t) + 10 * sm(tI, tI + 6, t) + 70 * sm(tX + .2, tX + 2.4, t);
+    const dist = 14 * (t - ctx.t0) + 22 * ism(tP, 16, t) + 10 * ism(tI, 6, t) + 70 * ism(tX + .2, 2.2, t);
+    // streak length = distance flowed in the last ~0.1 s (beads) / 0.06 s (dust): grows with speed, always longer than the bead gap at speed
+    const bL = Math.min(40, vel * (.06 + .05 * b)), dL = Math.min(14, vel * 1.15 * (.05 + .03 * b)), sb = sm(16, 60, vel);
     for (let i = 0; i < NB; i++) { const x = WX - (((i * BSP + dist) % (NB * BSP)) + NB * BSP) % (NB * BSP); ba.set([x, 0, 0], i * 3);
-      const v = (.55 + .25 * ePush) * sm(WX, WX - 30, x) * sm(-500, -380, x); bc.set([v, v * .8, v * .5], i * 3); }
-    bg.attributes.position.needsUpdate = true; bg.attributes.color.needsUpdate = true;
-    for (let i = 0; i < ND; i++) { const [x0, y, z] = dB[i], x = 60 - (((x0 + dist * 1.15) % 160) + 160) % 160; da.set([x, y, z], i * 3); }
-    dg.attributes.position.needsUpdate = true;
+      const v = (.55 + .25 * ePush) * sm(WX, WX - 30, x) * sm(-500, -380, x); bc.set([v * (1 - .5 * sb), v * .8 * (1 - .5 * sb), v * .5 * (1 - .5 * sb)], i * 3);
+      const sv = v * (.35 + .5 * sm(14, 40, vel) + .6 * b); bstr.set(i, x, 0, 0, Math.min(WX, x + bL), 0, 0, .22, sv, sv * .82, sv * .55); }
+    bg.attributes.position.needsUpdate = true; bg.attributes.color.needsUpdate = true; bstr.commit();
+    const dv = .8 * (.55 + .75 * sm(14, 50, vel));
+    for (let i = 0; i < ND; i++) { const [x0, y, z] = dB[i], x = 60 - (((x0 + dist * 1.15) % 160) + 160) % 160, f = dv * sm(60, 48, x) * sm(-100, -88, x);
+      dust.set(i, x, y, z, x + dL, y, z, .1, f, f * .86, f * .68); }
+    dust.commit();
     // pulses (same speed relative to the ship, always)
     const lw = sm(tL + .8, tL + 3, t);
     pulses.forEach((P, k) => { const n = Math.floor((t - tL) / PER) - k; const tp = tL + n * PER; const x = -280 + CREL * (t - tp);
@@ -155,22 +195,31 @@
     wallM.opacity = (.24 + .06 * Math.sin(t * .5) + .14 * hit) * lw; wallM2.opacity = (.07 + .05 * eInf) * lw; wallRingM.opacity = (.12 + .15 * hit) * lw;
     trM1.opacity = .45 + .25 * lw + .15 * ePush;
     // ship: straining tremor only on "infinite" (slow, small); engine plume and the energy bubble follow power
-    const tr = .05 * eInf; HULL.position.set(0, tr * Math.sin(t * 3.7) * Math.sin(t * 1.3), tr * Math.sin(t * 2.9 + 1));
+    SHIP.position.x = X; HULL.scale.setScalar(Math.max(.001, kv)); engL.position.x = X - 14;
+    const tr = .05 * eInf * (1 - b); HULL.position.set(0, tr * Math.sin(t * 3.7) * Math.sin(t * 1.3), tr * Math.sin(t * 2.9 + 1));
     HULL.rotation.x = .02 * Math.sin(u * .4);
     const fl = 1 + .04 * Math.sin(t * 13) * Math.sin(t * 7.7);
-    pl1.scale.set((3 + 9 * e) * fl, 1, 1); pl2.scale.set((5 + 15 * e) * fl, 1 + .2 * e, 1 + .2 * e);
-    pl1.material.opacity = .3 + .25 * e; pl2.material.opacity = .1 + .12 * e;
-    engG1.scale.setScalar(3.5 + 5 * e); engG1.material.opacity = .5 + .3 * e; engG2.scale.setScalar(10 + 16 * e); engG2.material.opacity = .14 + .12 * e;
-    engL.intensity = 12 + 90 * e; throatM.color.setRGB(1.2 + 1.6 * e, 1.5 + 1.4 * e, 2.2 + 1 * e);
+    pl1.scale.set((3 + 9 * e) * fl * (1 + 1.1 * b), 1 + .1 * b, 1 + .1 * b); pl2.scale.set((5 + 15 * e) * fl * (1 + 1.5 * b), 1 + .2 * e + .2 * b, 1 + .2 * e + .2 * b);
+    pl1.material.opacity = .3 + .25 * e + .15 * b; pl2.material.opacity = .1 + .12 * e + .05 * b;
+    engG1.scale.setScalar(3.5 + 5 * e + 1.5 * b); engG1.material.opacity = .5 + .3 * e; engG2.scale.setScalar(10 + 16 * e + 6 * b); engG2.material.opacity = .14 + .12 * e + .04 * b;
+    engL.intensity = 12 + 90 * e + 160 * b; throatM.color.setRGB(1.2 + 1.6 * e + 2 * b, 1.5 + 1.4 * e + 2 * b, 2.2 + 1 * e + 1.5 * b);
+    const bfl = b * (1 + .05 * Math.sin(t * 17) * Math.sin(t * 9.3));
+    bF1.material.opacity = .4 * bfl; bF1.scale.setScalar(4 + 2.5 * b); bF2.material.opacity = .12 * bfl; bF2.scale.setScalar(18 + 10 * b);
+    bAna.material.opacity = .4 * bfl; bAna.scale.set(70 * b + 1, 1.2, 1);
+    // flash where the ship meets the light wall: rises ~.2 s, fades over ~1.2 s
+    const xe = Math.pow(.62, .4) * 2.65 + .35, wf = sm(55, 70, X) * Math.exp(-Math.max(0, xb - xe) * .9);
+    wFl.material.opacity = .4 * wf; wFl.scale.setScalar(14 + 22 * wf); wFl2.material.opacity = .14 * wf;
     radM.emissiveIntensity = .35 * e;
     const bw = .55 * ePush + .45 * eInf; bub1.material.opacity = .1 * bw; bub1.scale.setScalar(20 + 10 * bw);
     bub2.material.opacity = .14 * bw * bw; bub2.scale.setScalar(12 + 8 * bw); bub2.material.color.setRGB(.75 + .25 * bw, .82 + .18 * bw, 1);
-    bow.material.opacity = .3 * bw; bow.scale.setScalar(3 + 4 * bw);
+    bub1.material.opacity *= kv; bub2.material.opacity *= kv;
+    bow.material.opacity = .3 * bw * kv; bow.scale.setScalar(3 + 4 * bw);
     // camera: behind and to the side, the track converging on the wall ahead; drifts in slowly, lowers a little under power
     const k = sm(0, 25, u);
     cam.position.set(-41 + 3 * k - 2 * e, 9.5 - 1.5 * k - 1 * e, 21.5 - 1.5 * k);
-    cam.lookAt(5 + 2 * e, -1.5, 0);
-    cam.fov = vf(34 + 3 * e); cam.updateProjectionMatrix(); cam.updateMatrixWorld();
+    // exit: the look-at point glides forward after the ship (continuous), the lens widens a touch with the boost
+    cam.lookAt(5 + 2 * e + 16 * sm(tX + .3, tX + 3.2, t), -1.5 + .8 * sm(tX + .3, tX + 3.2, t), 0);
+    cam.fov = vf(34 + 3 * e + 3 * b); cam.updateProjectionMatrix(); cam.updateMatrixWorld();
     RIMU.value.set(1, .25, 0).normalize().transformDirection(cam.matrixWorldInverse);
   } };
 };
