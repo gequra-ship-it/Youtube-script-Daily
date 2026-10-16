@@ -148,7 +148,7 @@ def create_ai_studio_script(youtube_title, transcript_text, part_num, total_part
 """
 
     prompt = f"""
-너는 'Miya's Lab' 채널의 영어 내레이션 작가야. 글로벌 시청자에게 우주·과학 지식을 몰입감 있게 전달하는 롱폼 영상의 **영어 내레이션 대본**을 쓴다. 이 대본은 그대로 TTS 음성과 시네마틱 3D 영상으로 만들어질 예정이야.
+너는 'Miya's Lab' 채널의 영어 내레이션 작가야. 글로벌 시청자에게 우주·과학 지식을 몰입감 있게 전달하는 롱폼 영상의 **영어 내레이션 대본**을 쓴다. 이 대본은 그대로 TTS 음성과 모션그래픽(SVG 일러스트) 영상으로 만들어질 예정이야.
 
 {source_material}
 
@@ -233,6 +233,56 @@ def create_ai_studio_script(youtube_title, transcript_text, part_num, total_part
                     
     return None
 
+def create_korean_summary(script_text, label=""):
+    """영어 대본을 전부 번역하지 않고, 읽기용 한국어 요약본만 만든다 (2026-10-16 사용자 요청: 대본이 영어라 이해가 어려움)."""
+    print(f"🇰🇷 한국어 요약본 생성 중...{label}", flush=True)
+    if not GEMINI_API_KEY:
+        return None
+    prompt = f"""
+아래는 'Miya's Lab' 채널의 영어 영상 대본이야. **전체를 번역하지 말고**, 한국어 사용자가 내용을 빠르게 파악할 수 있는 **한국어 요약본**만 써줘.
+
+[규칙]
+- 대본에 있는 내용만 요약해. 대본에 없는 사실·숫자·해석을 더하지 마.
+- 숫자·연도·고유명사는 대본 그대로 옮기고, 필요하면 영어 원어를 괄호로 붙여.
+- 요약본만 출력하고 인사말이나 설명은 붙이지 마.
+
+[출력 양식]
+■ 영상 제목: <영어 제목> (<한국어 번역>)
+■ 한 줄 요약: <한 문장>
+■ 전체 흐름 (대본 순서대로 8~15줄):
+- <장면/단락 흐름 한 줄씩>
+■ 핵심 사실·숫자 (5~10개):
+- <사실 한 줄씩>
+■ 숏츠 3편:
+- 숏츠 1: <영어 제목> (<한국어 번역>) — <2~3문장 요약>
+- 숏츠 2: <영어 제목> (<한국어 번역>) — <2~3문장 요약>
+- 숏츠 3: <영어 제목> (<한국어 번역>) — <2~3문장 요약>
+(대본에 숏츠가 없으면 이 항목은 "없음")
+
+[영어 대본]
+{script_text}
+"""
+    for attempt in range(3):
+        manager = multiprocessing.Manager()
+        return_dict = manager.dict()
+        p = multiprocessing.Process(target=fetch_gemini_response, args=(GEMINI_API_KEY, prompt, return_dict))
+        p.start()
+        p.join(180)
+        if p.is_alive():
+            p.terminate()
+            p.join()
+            print(f"❌ 요약 생성 무응답 (시도 {attempt+1}/3)", flush=True)
+        elif return_dict.get('status') == 'SUCCESS':
+            print("✅ 한국어 요약본 생성 성공!", flush=True)
+            return return_dict.get('text')
+        else:
+            print(f"❌ 요약 생성 에러 (시도 {attempt+1}/3): {return_dict.get('text')}", flush=True)
+        if attempt < 2:
+            time.sleep(20)
+    print("⚠ 한국어 요약본 생성 실패 (대본 파일은 요약 없이 저장합니다).", flush=True)
+    return None
+
+
 if __name__ == "__main__":
     print("🚀 리뷰엉이 채널 전용 클라우드 대본 공장 가동!", flush=True)
     if not os.path.exists(SAVE_DIR):
@@ -254,12 +304,15 @@ if __name__ == "__main__":
             script_text = create_ai_studio_script(title, chunk_text, part_num, total_parts)
             
             if script_text:
+                summary = create_korean_summary(script_text, f" (Part {part_num}/{total_parts})")
                 current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
                 filename = f"script_{current_time}_Part{part_num}.txt"
                 text_file_path = os.path.join(SAVE_DIR, filename)
                 
                 with open(text_file_path, "w", encoding="utf-8") as f:
                     f.write(f"레퍼런스 주제: {title} (총 {total_parts}부작 중 {part_num}부)\n\n")
+                    if summary:
+                        f.write("=== 한국어 요약 (전체 번역이 아닌 요약본) ===\n" + summary.strip() + "\n\n")
                     f.write(script_text)
                     
                 print(f"🎉 Part {part_num} 작업 성공! 파일 저장 완료: {text_file_path}", flush=True)
