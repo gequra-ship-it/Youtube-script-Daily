@@ -81,7 +81,7 @@ def fetch_caption_segments(video_id):
             print(f"⚠️ 자막 목록 조회 실패 ({type(e).__name__}).", flush=True)
             return None, None
     except Exception as e:
-        print(f"⚠️ 자막 목록 조회 실패 ({type(e).__name__}: {str(e).splitlines()[0] if str(e) else ''}).", flush=True)
+        print(f"⚠️ 자막 목록 조회 실패 ({type(e).__name__}: {(str(e).strip().splitlines() or [''])[0][:150]}).", flush=True)
         return None, None
 
     transcripts = list(tl)
