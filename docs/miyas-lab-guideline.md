@@ -52,6 +52,7 @@
 - 2026-10-16: **SVG 모션그래픽으로 복귀(사용자 결정)**: "이전 화풍으로 돌아가자 … 이전 모션 그래픽으로 돌리자. 지금까지 얻은 모션 움직임·카메라 무빙·이펙트, 초반 5분, 숏츠 3개 2분 이상은 잘 섞어보자." 10-14에 지운 SVG 도구·그림·렌더 원본을 새 커밋으로 모두 복원(예전 영상도 고칠 수 있게). cine 3D 지침은 `docs/miyas-lab-guideline-cine.md`로 보관. 얻은 것을 20장에 정리하고 코드화: `build3.py`의 드리프트 카메라(20-1), 초반 밀도 `HOOK`(20-2), 속도선(20-3), `tools/motion_check.py`(20-4).
 - 2026-10-16: **팔레트는 뼈대(3-5, 사용자 결정)**: "팔레트는 그냥 뼈대이고 마음껏 대본이나 상황에 따라 바꿔도 됨" → 한 영상 최대 3개 제한과 '`pal` 색만' 규칙을 없앰. 장면·단위마다 대본에 맞게 바꾸고 색을 더해도 됨.
 - 2026-10-16: **관절 모션·병렬 렌더·3D 정리(사용자 결정)**: "생물 관절 단위로 움직이는 것도 넣고 … 렌더 병렬 방식도 넣어야 해 … 시네마틱에서 쓰던 md나 코드들은 씨네마 테스트 폴더에" → 20-6(관절 `mv-joint`·`mv-chain`), 20-7(SVG 병렬 렌더, `tools/chunk_plan.py`), 3D 문서·코드를 `cine-test/`로 옮김.
+- 2026-10-16: **Drive 구조 변경(18장, 사용자 결정)**: "기존 영상들은 old 폴더에 영상별로, 시네마는 시네마 폴더에, 앞으로는 우주와 과학·라이프와 생물학 두 개로 나눠 영상별 번호" → `old/`, `cinema/`, `Space & Science/`, `Life & Biology/`. 렌더 원본 `.dest` 전부 새 경로로.
 
 ---
 
@@ -956,7 +957,13 @@ Miya's Lab turns big questions into calm, illustrated explainers. ...
 
 ## 18. 저장 위치 (Google Drive, 영상별 폴더)
 
-- **위치**: Google Drive `유튜브 자동화 / Video & Thumbnail /` 아래. **주제별 폴더(2026-10-13 이후 `render/<슬러그>/.dest` 기준)**: 우주·과학 영상은 `Space & Science/NN_<슬러그>/`, 생명·역사 영상은 `Life & History/NN_<슬러그>/`(NN은 제작 순서 두 자리 번호, 예: `Space & Science/01_cosmic-prison`). 숏츠는 그 안의 `short/`. 새 영상은 `.dest`에 이 형식을 적는다(15-5). 폴더 이름이 바뀌면 `.dest`도 바꾼다. 안 그러면 덮어쓰지 않고 새 폴더가 생긴다. 아래 `<slug>/`는 그 영상 폴더 안의 구성이다. **2026-10-14 Drive를 직접 확인한 구조**: `Video & Thumbnail/` 바로 아래에는 `Space & Science`와 `Life & History` 두 폴더뿐이다. `Space & Science`에 `01_cosmic-prison`, `Life & History`에 `01_never-eat-human-meat`, `02_epomis-frog-hunter`, `03_whale-fall`, `04_carnian-rain`, `05_ribeiroia-monster-frogs`, `06_paleozoic-chronicles`, `07_left-handed-ten-percent`, `08_desert-oasis`, `09_dinosaur-restorations`가 있다(Drive 커넥터로 폴더 목록 조회). 예전 `.dest`가 주제 폴더 없이 `02_epomis-frog-hunter` 형태로 적힌 영상 4개(`epomis-frog-hunter-v2`와 숏츠 2편, `never-eat-human-meat-v4`와 숏츠 2편, `carnian-rain-thumb3`)는 다시 렌더하거나 올리면 `Video & Thumbnail/` 바로 아래에 새 폴더가 생길 상태였고, 2026-10-14에 `Life & History/NN_…`으로 고쳤다. 고친 `.dest`로 실제 업로드가 되는지는 렌더를 돌려 보지 않아 확인하지 못했다. 옛 시험 렌더 폴더 5개(`never-eat-human-meat`, `-v2`, `-v3`, `-short`, `epomis-frog-hunter`)는 2026-10-14에 `render/`에서 지웠다(Drive에도 대응 폴더 없음).
+- **위치 (2026-10-16 사용자 결정으로 바꿈)**: Google Drive `유튜브 자동화 / Video & Thumbnail /` 아래 네 폴더.
+  - `Space & Science/NN_<슬러그>/` — 우주·과학 영상(앞으로 만드는 것). NN은 이 폴더 안의 제작 순서 두 자리 번호(01부터). 숏츠는 그 안의 `short/`.
+  - `Life & Biology/NN_<슬러그>/` — 생명·생물학 영상(앞으로 만드는 것). 번호는 이 폴더 안에서 따로 01부터. 숏츠는 `short/`.
+  - `old/<영상>/` — 2026-10-16 이전에 만든 SVG 영상 보관(never-eat-human-meat, epomis-frog-hunter, whale-fall, carnian-rain, ribeiroia-monster-frogs, paleozoic-chronicles, left-handed-ten-percent, desert-oasis, dinosaur-restorations, stolen-time, cosmic-prison의 10-13판). 번호 없음.
+  - `cinema/<영상>/` — 3D(cine) 실험 결과 보관(`cosmic-prison-cine`와 그 숏츠, `_ci-test/`의 20초 샘플들).
+  - 새 영상은 `render/<슬러그>/.dest`에 `Space & Science/NN_<슬러그>` 또는 `Life & Biology/NN_<슬러그>`를 적는다(숏츠는 `/short`). 예전 영상을 다시 렌더하면 `.dest`가 `old/<영상>`이라 보관본을 덮어쓴다. 고친 예전 영상을 새 작업으로 올릴 때는 해당 주제 폴더의 다음 번호로 `.dest`를 바꾼다. 폴더 이름이 바뀌면 `.dest`도 바꾼다(안 그러면 새 폴더가 생긴다).
+  - 2026-10-16 Drive 커넥터로 옮긴 것: `Life & History`의 9편과 `Space & Science/02_stolen-time`을 `old/`로(번호 뗀 이름), `Space & Science/01_cosmic-prison`의 3D 파일 18개를 `cinema/cosmic-prison-cine/`(+`short/`)로, 남은 10-13판 SVG 파일을 `old/cosmic-prison/`으로, `_ci-test`를 `cinema/_ci-test`로. `Life & History`는 `Life & Biology`로 이름을 바꿔 비움. `Space & Science/01_cosmic-prison`은 SVG로 다시 만드는 cosmic-prison이 렌더될 때 새로 생긴다.
 - **영상마다 폴더 하나**를 만든다. 폴더 이름은 영상 슬러그(영어 소문자, 하이픈. 예: `never-eat-humans`). 여러 영상의 파일이 섞이지 않도록 **루트에 파일을 직접 두지 않는다.**
 - **폴더 안 파일** (모든 파일 이름이 같은 슬러그로 시작):
   ```
