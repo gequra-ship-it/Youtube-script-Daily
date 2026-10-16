@@ -271,7 +271,17 @@
   const PAD = v3(-147, 0, -275); PAD.y = H(PAD.x, PAD.z); ROCK.scale.setScalar(1.15);
   const padG = glow(S, '#ffb060', 60, 0); padG.position.copy(PAD).add(v3(0, 4, 0));
   const tR = p.rocket != null ? cue(p.rocket) : 1e9;
-  const path = tau => { tau = Math.max(0, tau); const y = 3.2 * tau * tau + 1.2 * tau * tau * tau; return v3(PAD.x - y * .06, PAD.y + 3 + y, PAD.z - 1.1 * y * y / (y + 160)); };   // smooth pitch-over (was min(1, y/160): a kink in the trail, 2026-10-16)
+  // (2026-10-16 third pass) the opening shot (rocket given, not close / night) gets the hook staging; cues default from the old ones
+  const INTRO = p.rocket != null && p.close == null && p.night == null;
+  const tTr = INTRO ? (p.trails != null ? cue(p.trails) : (p.widen != null ? cue(p.widen) : ctx.t0 + 7.9)) : 1e9, tLn = INTRO ? (p.lines != null ? cue(p.lines) : tTr + 1.6) : 1e9;
+  const tBm = INTRO ? (p.beam != null ? cue(p.beam) : tR - 5.3) : 1e9, tFb = INTRO ? (p.fireball != null ? cue(p.fireball) : ctx.t0 + 3.6) : 1e9;
+  const tWl = INTRO && (p.wall != null || p.edge != null) ? (p.wall != null ? cue(p.wall) : cue(p.edge) + 7.95) : 1e9, tCg = tWl < 1e8 ? (p.cage != null ? cue(p.cage) : tWl + 6) : 1e9;
+  // the rocket meets the wall: from 1 s before the touch it decelerates smoothly (C1) and creeps to a stop, pressing on the barrier
+  const yP0 = tau => 3.2 * tau * tau + 1.2 * tau * tau * tau, tauD = tWl < 1e8 ? tWl - 1 - tR : 1e9, KW = .55, yDd = yP0(Math.min(tauD, 1e3)), vDd = 6.4 * tauD + 3.6 * tauD * tauD;
+  const yP = tau => tau <= tauD ? yP0(tau) : yDd + vDd * KW * (1 - Math.exp(-(tau - tauD) / KW));
+  const pathY = y => v3(PAD.x - y * .06, PAD.y + 3 + y, PAD.z - 1.1 * y * y / (y + 160));
+  const path0 = tau => pathY(yP0(Math.max(0, tau)));
+  const path = tau => pathY(yP(Math.max(0, tau)));   // smooth pitch-over (was min(1, y/160): a kink in the trail, 2026-10-16)
   // exhaust trail (particles left along the path; each drifts and fades with age) and the smoke cloud at the pad
   // (2026-10-16) the trail particles carry their own world size (they swell with age) with a pixel floor / ceiling, so particles near
   // the camera no longer balloon into a white band; emission times are half even in time, half even along the path (no gaps late on)
@@ -354,7 +364,10 @@
     const ue = (p.close != null || p.night != null) ? 30 * (1 - Math.exp(-uu / 30)) : uu;
     oCp.set(8.5 - ue * .1 - 2 * wd, 1.0 + .8 * intro + 2.2 * wd + .1 * Math.sin(uu * .3), 25 - ue * .2 + 5 * wd);
     if (nt > 0) { oCp.y += 16 * nt; oCp.z += 8 * nt; oCp.x -= 3 * nt; }
-    oTg.set(-.5 + 1.5 * wd, 4.4 + 16 * (1 - intro) + 1.5 * wd, 0); oFt.copy(oTg);
+    // INTRO: open on the dome, tilt up into the Milky Way ("look up"), hold on the sky (fireball, star trails, constellations), tilt back
+    // down onto the dome as the telescope beam comes on
+    const lift = INTRO ? 17 * sm(.15, 3.2, uu) * (1 - sm(tBm - 1.9 - ctx.t0, tBm + .6 - ctx.t0, uu)) : 16 * (1 - intro);
+    oTg.set(-.5 + 1.5 * wd, 4.4 + lift + 1.5 * wd, 0); oFt.copy(oTg);
     const D = oTg.distanceTo(oCp);
     if (tau > 0 && fo > 0) { const rq = path(tau + .3), dq = rq.distanceTo(oCp);
       const lk = rq.clone().add(v3(0, dq * .08 * (1 - ed), 0)).lerp(oCp.clone().addScaledVector(A0.clone().add(v3(.05, .16, 0)).normalize(), dq), .55 * ed);
@@ -365,6 +378,127 @@
     return { wd, fo, ed, nt, D };
   }
   const basis = (c, f) => { const fw = f.clone().sub(c).normalize(), rt = new T.Vector3().crossVectors(fw, Y1).normalize(); return [fw, rt, new T.Vector3().crossVectors(rt, fw)]; };
+  // ---------------- third staging pass (2026-10-16), opening shot only (INTRO) ----------------
+  // fireball: a bright green-white bolide with fragments and a glowing train, pinned to the sky seen at its mid time
+  // star trails: arcs around a celestial pole placed in the sky view, growing like a time-lapse stack (each arc ends at its star)
+  // constellations: Little Dipper (Polaris at the pole), Big Dipper, Cassiopeia; lines draw themselves star to star
+  // beam: a soft volumetric light beam out of the telescope that sweeps the sky as the dome turns ("explore every corner")
+  // barrier: a vast geodesic hexagon lattice (sphere around us) that flashes into view where the rocket touches it, a ripple racing
+  //   across the sky; on "cage" the whole lattice shows, shimmering, and the view widens
+  let FX = null;
+  if (INTRO) {
+    const RS = 1380, tanV = Math.tan(21 * Math.PI / 180), tanH = tanV * ctx.W / ctx.H;
+    const skyDir = (tt, x, y) => { camAt(tt, mcp, mft, mtg); const [fw, rt, uv] = basis(mcp, mft), sx = (x - .5) * 2 - 2 * (p.side == null ? .12 : p.side) * (ctx.VERT ? 0 : 1);
+      return fw.clone().addScaledVector(rt, sx * tanH).addScaledVector(uv, (.5 - y) * 2 * tanV).normalize(); };
+    // pole + local basis on the sky
+    const PL = skyDir(tTr + 2.5, .68, .27); camAt(tTr + 2.5, mcp, mft, mtg); const [, rt0, uv0] = basis(mcp, mft);
+    const pr = rt0.clone().addScaledVector(PL, -rt0.dot(PL)).normalize(), pu = new T.Vector3().crossVectors(pr, PL).normalize().multiplyScalar(-1);
+    if (pu.dot(uv0) < 0) pu.negate();
+    const dOf = (x, y) => PL.clone().addScaledVector(pr, Math.tan(x * Math.PI / 180)).addScaledVector(pu, Math.tan(y * Math.PI / 180)).normalize();
+    const CON = [
+      { s: .75, o: [0, 0], st: [[0, 0], [-3.5, 2], [-5.5, 4.5], [-6.5, 8], [-11, 9.5], [-12, 12.5], [-8, 11]], ln: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 3]], t: 0 },
+      { s: .75, o: [-5, -13], st: [[0, 0], [-1, -5.5], [-8, -6.5], [-8.5, -1.5], [-15, -.5], [-20.5, -1.5], [-27, -5]], ln: [[0, 1], [1, 2], [2, 3], [3, 0], [3, 4], [4, 5], [5, 6]], t: 1.0 },
+      { s: .6, o: [6, 2], st: [[0, 0], [5, -4], [9, -1], [14, -4], [18, 1]], ln: [[0, 1], [1, 2], [2, 3], [3, 4]], t: 2.0 }];
+    const cStars = [], cLines = [];
+    CON.forEach(c => { const base = cStars.length; c.st.forEach(([x, y], k) => cStars.push({ d: dOf(c.o[0] + x * c.s, c.o[1] + y * c.s), b: k === 0 && c.t === 0 ? 1.5 : 1, t: tLn + c.t + .25 * k }));
+      c.ln.forEach(([a, b], k) => cLines.push({ a: base + a, b: base + b, t0: tLn + c.t + .22 * k })); });
+    cStars.forEach(cs => { const l = cLines.filter(q => q.a === cStars.indexOf(cs) || q.b === cStars.indexOf(cs)); cs.t = l.length ? Math.min(...l.map(q => q.t0)) - .1 : cs.t; });
+    const cSpr = cStars.map(cs => { const g = glow(S, '#fff4e0', 1, 0); g.position.copy(cs.d).multiplyScalar(RS); g.renderOrder = -1; return g; });
+    const cL = streaks(S, cLines.length, { minPx: 1.3, near: [0, 1], order: -1 });
+    // star-trail arcs (bright classes + a third of the faint field + the constellation stars)
+    const tl = []; starSets.forEach(({ P, base, n }, si) => { const a = P.geometry.attributes.position.array; for (let i = 0; i < n; i++) { if (si < 2) continue; const k = i * 4; tl.push([a[i * 3] / SR, a[i * 3 + 1] / SR, a[i * 3 + 2] / SR, base[k], base[k + 1], base[k + 2]]); } });
+    cStars.forEach(cs => tl.push([cs.d.x, cs.d.y, cs.d.z, 1.3, 1.25, 1.15]));
+    const NSG = 28, tg = new T.BufferGeometry(), tpA = new Float32Array(tl.length * NSG * 6), tsA = new Float32Array(tl.length * NSG * 2), tcA = new Float32Array(tl.length * NSG * 6);
+    tl.forEach((q, i) => { for (let j = 0; j < NSG; j++) for (let e = 0; e < 2; e++) { const v = (i * NSG + j) * 2 + e; tpA.set([q[0], q[1], q[2]], v * 3); tsA[v] = (j + e) / NSG; tcA.set([q[3], q[4], q[5]], v * 3); } });
+    tg.setAttribute('position', new T.BufferAttribute(tpA, 3)); tg.setAttribute('aS', new T.BufferAttribute(tsA, 1)); tg.setAttribute('aC', new T.BufferAttribute(tcA, 3));
+    const trU = { uP: { value: PL }, uA: { value: 0 }, uOp: { value: 0 } };
+    const trl = new T.LineSegments(tg, new T.ShaderMaterial({ uniforms: trU, transparent: true, depthWrite: false, blending: T.AdditiveBlending,
+      vertexShader: `attribute float aS; attribute vec3 aC; uniform vec3 uP; uniform float uA, uOp; varying vec3 vC;
+        void main(){ vec3 d = normalize(position); float a = aS * uA, c = cos(a), s = sin(a); vec3 r = d * c + cross(uP, d) * s + uP * dot(uP, d) * (1. - c);
+          vC = aC * uOp * (1.05 - .35 * aS); gl_Position = projectionMatrix * viewMatrix * vec4(r * ${RS}., 1.); }`,
+      fragmentShader: `varying vec3 vC; void main(){ gl_FragColor = vec4(vC, 1.);
+        #include <tonemapping_fragment>
+        #include <colorspace_fragment>
+      }` }));
+    trl.frustumCulled = false; trl.renderOrder = -1; S.add(trl);
+    // fireball path on the sky
+    const fA = skyDir(tFb + .6, .82, .14).multiplyScalar(RM), fB = skyDir(tFb + .6, .4, .5).multiplyScalar(RM), fbS = streaks(S, 8, { minPx: 1.8, near: [50, 120], order: -1 });
+    const fbG = glow(S, '#e8fff0', 1, 0); fbG.renderOrder = -1; const fragD = []; { const r = rng(97); for (let k = 0; k < 6; k++) fragD.push([r() - .5, r() - .5, .55 + .4 * r()]); }
+    // beam out of the telescope (TUBE local +y), soft across its width, fading along its length, drifting motes
+    const BL = 700, bmU = { uOp: { value: 0 }, uT: { value: 0 } };
+    const beam = new T.Mesh(new T.CylinderGeometry(60, .45, BL, 40, 1, true).translate(0, 2.2 + BL / 2, 0), new T.ShaderMaterial({ uniforms: bmU, transparent: true, depthWrite: false, blending: T.AdditiveBlending, side: T.DoubleSide,
+      vertexShader: `varying float vH; varying vec3 vN, vV; void main(){ vH = (position.y - 2.2) / ${BL}.; vec4 mv = modelViewMatrix * vec4(position, 1.); vN = normalize(normalMatrix * normal); vV = normalize(-mv.xyz); gl_Position = projectionMatrix * mv; }`,
+      fragmentShader: `uniform float uOp, uT; varying float vH; varying vec3 vN, vV;
+        void main(){ float f = pow(abs(dot(normalize(vN), normalize(vV))), 2.2), h = clamp(vH, 0., 1.);
+          float m = .78 + .22 * sin(h * 90. - uT * 2.3) * sin(h * 37. + uT * 1.1);
+          vec3 c = mix(vec3(1., .86, .62), vec3(.62, .74, 1.), smoothstep(0., .5, h)) * f * pow(1. - h, 1.7) * smoothstep(0., .004, h) * m * uOp * .3;
+          gl_FragColor = vec4(c, 1.);
+          #include <tonemapping_fragment>
+          #include <colorspace_fragment>
+        }` }));
+    beam.renderOrder = 3; TUBE.add(beam); const bmF = glow(TUBE, '#fff0d6', 4, 0); bmF.position.y = 2.4; bmF.renderOrder = 4;
+    // barrier
+    let bar = null, barU = null, CW = null, flW = null;
+    if (tWl < 1e8) { const tw = tWl - tR, ax = path0(tauD + .05).sub(path0(tauD)).normalize(); CW = path(tw).addScaledVector(ax, 22.2 * 1.15); const RB = CW.length();
+      const g = new T.IcosahedronGeometry(RB, 15), np = g.attributes.position.count, pa = g.attributes.position.array, B = new Float32Array(np * 3), C0 = new Float32Array(np * 3), C1 = new Float32Array(np * 3), C2 = new Float32Array(np * 3);
+      for (let f = 0; f < np / 3; f++) for (let k = 0; k < 3; k++) { const v = f * 3 + k; B[v * 3 + k] = 1; for (let q = 0; q < 3; q++) { C0[v * 3 + q] = pa[f * 9 + q]; C1[v * 3 + q] = pa[f * 9 + 3 + q]; C2[v * 3 + q] = pa[f * 9 + 6 + q]; } }
+      g.setAttribute('aB', new T.BufferAttribute(B, 3)); g.setAttribute('aP0', new T.BufferAttribute(C0, 3)); g.setAttribute('aP1', new T.BufferAttribute(C1, 3)); g.setAttribute('aP2', new T.BufferAttribute(C2, 3));
+      barU = { uC: { value: CW.clone().normalize() }, uK: { value: new T.Color(ctx.ACC) }, uT: { value: -9 }, uCage: { value: 0 }, uTime: { value: 0 } };
+      bar = new T.Mesh(g, new T.ShaderMaterial({ uniforms: barU, transparent: true, depthWrite: false, blending: T.AdditiveBlending, side: T.DoubleSide,
+        vertexShader: `attribute vec3 aB, aP0, aP1, aP2; varying vec3 vB, vD, vQ0, vQ1, vQ2;
+          void main(){ vB = aB; vD = normalize(position); vQ0 = normalize(aP0); vQ1 = normalize(aP1); vQ2 = normalize(aP2); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
+        fragmentShader: `uniform vec3 uC, uK; uniform float uT, uCage, uTime; varying vec3 vB, vD, vQ0, vQ1, vQ2;
+          float hh(vec3 p){ return fract(sin(dot(p, vec3(12.9898, 78.233, 37.719))) * 43758.5453); }
+          void main(){ vec3 b = vB; float m1 = max(b.x, max(b.y, b.z)), m3 = min(b.x, min(b.y, b.z)), m2 = b.x + b.y + b.z - m1 - m3, e = m1 - m2, fw = max(fwidth(e), 1e-5);
+            float line = 1. - smoothstep(fw * .5, fw * 2., e);
+            vec3 cc = b.x >= m1 ? vQ0 : (b.y >= m1 ? vQ1 : vQ2); float cr = hh(floor(cc * 300.));
+            float ang = acos(clamp(dot(normalize(vD), uC), -1., 1.)), fr = uT * .42;
+            float ring = uT > 0. ? exp(-pow((ang - fr) / .07, 2.)) * exp(-uT * .16) : 0.;
+            float lit = uT > 0. ? step(ang, fr) * exp(-(fr - ang) * 4.5) * (.35 + .65 * cr) * exp(-uT * .15) : 0.;
+            float rr = mod(max(uT, 0.), 1.9), ring2 = uT > 1.9 ? exp(-pow((ang - rr * .5) / .05, 2.)) * .4 * exp(-rr * .9) : 0.;
+            float pre = smoothstep(-1.1, 0., uT) * (1. - smoothstep(0., .8, uT)) * exp(-ang / .05);
+            float hot = uT > 0. ? exp(-ang / .045) * (.35 + .65 * exp(-uT * .7)) : 0.;
+            float cage = uCage * (.42 + .25 * sin(uTime * 1.2 + cr * 6.283 + ang * 3.)) + .012 * smoothstep(1.5, 4., uT);
+            float rise = smoothstep(0., .22, uT); ring *= rise; lit *= rise; hot *= rise;
+            float I = line * (ring * 1.5 + lit * .5 + ring2 + pre * 1.4 + hot * 1.6 + cage) + (1. - line) * (ring * .1 + hot * .25 + uCage * .03) * (.4 + .6 * cr);
+            vec3 col = mix(vec3(.4, .62, 1.), uK, clamp(hot * 1.2 + pre, 0., 1.));
+            gl_FragColor = vec4(col * I, 1.);
+            #include <tonemapping_fragment>
+            #include <colorspace_fragment>
+          }` }));
+      bar.frustumCulled = false; bar.renderOrder = -1; S.add(bar);
+      flW = glow(S, '#fff3dc', 1, 0); flW.position.copy(CW); flW.renderOrder = 3; }
+    const vA = new T.Vector3(), vB = new T.Vector3();
+    FX = { draw(t) {
+      // star trails
+      const tx = Math.min(1, Math.max(0, (t - tTr) / 5.5)), trO = sm(tTr, tTr + 1, t) * (1 - sm(tBm - 1.6, tBm + .6, t));
+      trl.visible = trO > 0; trU.uA.value = .42 * tx * tx * tx * (tx * (tx * 6 - 15) + 10) + .03 * sm(tTr, tTr + .5, t); trU.uOp.value = 1.0 * trO;
+      // constellations
+      const lnO = 1 - sm(tBm - 1.6, tBm + .6, t);
+      cStars.forEach((cs, k) => { const a = sm(cs.t, cs.t + .3, t) * lnO; cSpr[k].visible = a > 0; cSpr[k].scale.setScalar(RS * 2 * tanV / ctx.H * (9 + 6 * cs.b) * (1 + .08 * Math.sin(t * 2.3 + k))); cSpr[k].material.opacity = .85 * a; });
+      cLines.forEach((q, k) => { const g = sm(q.t0, q.t0 + .35, t), a = g * lnO; if (a <= 0) { cL.hide(k); return; }
+        vA.copy(cStars[q.a].d).multiplyScalar(RS); vB.copy(cStars[q.b].d).multiplyScalar(RS); const hd = vA.clone().lerp(vB, g);
+        cL.set(k, hd.x, hd.y, hd.z, vA.x, vA.y, vA.z, RS * 2 * tanV / ctx.H * 2.4, 1.0 * a, .82 * a, .5 * a); });
+      cL.commit();
+      // fireball: 1.15 s across, accelerating slightly; flare near the end; fragments; the train lingers ~2.5 s
+      const fs = (t - tFb) / 1.15, live = fs > 0 && fs < 1, fe = Math.min(1, Math.max(0, fs)), hp = fe * (.8 + .2 * fe);
+      const hd = fA.clone().lerp(fB, hp), dir = fB.clone().sub(fA).normalize(), L = fA.distanceTo(fB);
+      const bri = live ? sm(0, .12, fs) * (.6 + .4 * fs + 1.4 * sm(.66, .78, fs) * (1 - sm(.8, 1, fs))) * (1 - sm(.9, 1, fs)) : 0;
+      if (bri > 0) fbS.set(0, hd.x, hd.y, hd.z, hd.x - dir.x * L * .2, hd.y - dir.y * L * .2, hd.z - dir.z * L * .2, RM * .003, 1.5 * bri, 1.9 * bri, 1.4 * bri); else fbS.hide(0);
+      const trn = fs > 0 ? sm(0, .15, fs) * (1 - sm(1, 3.2, fs)) * .22 : 0;
+      if (trn > 0) { const tp = fA.clone().lerp(fB, Math.max(.05, hp * .15)); fbS.set(1, hd.x, hd.y, hd.z, tp.x, tp.y, tp.z, RM * .006, .35 * trn, .9 * trn, .6 * trn); } else fbS.hide(1);
+      for (let k = 0; k < 6; k++) { const fq = (fs - .8) / .5, f = fragD[k]; if (fq <= 0 || fq >= 1) { fbS.hide(2 + k); continue; }
+        const pp = fA.clone().lerp(fB, .8 * (.8 + .16)).addScaledVector(dir, L * .25 * fq * f[2]).add(vA.set(f[0], f[1], 0).multiplyScalar(L * .05 * fq)), b2 = (1 - fq) * .9;
+        fbS.set(2 + k, pp.x, pp.y, pp.z, pp.x - dir.x * L * .03, pp.y - dir.y * L * .03, pp.z - dir.z * L * .03, RM * .001, 1.4 * b2, 1.1 * b2, .6 * b2); }
+      fbS.commit(); fbG.visible = bri > 0; if (bri > 0) { fbG.position.copy(hd); fbG.scale.setScalar(RM * 2 * tanV / ctx.H * (60 + 110 * bri)); fbG.material.opacity = .6 * Math.min(1, bri); }
+      // beam (comes on at "beam", gone before the launch)
+      const bo = sm(tBm, tBm + .5, t) * (1 - sm(tR - 2.6, tR - 1.6, t)); beam.visible = bo > 0; bmU.uOp.value = bo; bmU.uT.value = t;
+      const bf = sm(tBm - .15, tBm + .1, t) * (1 - sm(tBm + .1, tBm + 1.4, t)); bmF.visible = bf > 0; bmF.material.opacity = .8 * bf; bmF.scale.setScalar(4 + 10 * bf);
+      // barrier
+      if (bar) { const ut = t - tWl; barU.uT.value = ut; barU.uCage.value = sm(tCg, tCg + 2.6, t); barU.uTime.value = t; bar.visible = ut > -1.2;
+        const fl = sm(-.1, .1, ut) * (1 - sm(.1, 1.8, ut)); flW.visible = fl > 0; flW.material.opacity = .9 * fl; flW.scale.setScalar(CW.length() * (.05 + .1 * sm(-.1, 1, ut))); }
+    } };
+  }
   return { scene: S, camera: cam, draw(t, u) {
     ctx.t = t;
     const { wd, fo, ed, nt, D } = camAt(t, cp, ft, tgt), tau = t - tR;
@@ -375,10 +509,11 @@
       ft.addScaledVector(rt, a * (Math.sin(t * 19.1) * .6 + Math.sin(t * 12.7 + 1.3) * .4)).addScaledVector(uv, a * (Math.sin(t * 16.3 + .7) * .6 + Math.sin(t * 9.9 + 2.1) * .4)); }
     cam.position.copy(cp);
     // dome: slit first faces left-back, on "telescopes" it turns toward the camera side; shutter opens fully
-    DOME.rotation.y = PSC + 1.75 - 1.6 * sc1 + .04 * Math.sin(u * .2);
-    SHUT.rotation.x = -(0.55 + .45 * g1 + (GM - 1.0) * sc1);
+    const bmK = INTRO ? Math.min(1, Math.max(0, (t - tBm) / Math.max(1, (p.scope != null ? cue(p.scope) : tBm + 4) + 2.2 - tBm))) : 0, swp = Math.pow(Math.sin(Math.PI * bmK), 2), bmO = INTRO ? sm(tBm - .3, tBm + .5, t) : 0;
+    DOME.rotation.y = PSC + 1.75 - 1.6 * sc1 + .04 * Math.sin(u * .2) - .8 * swp;
+    SHUT.rotation.x = -(0.55 + .45 * g1 + (GM - 1.0) * (sc1 + .6 * bmO * (1 - sc1)));
     if (LEAF) { const c1 = sm(0, .7, cl), c2 = sm(.3, 1, cl); SHUT.rotation.x *= 1 - c1; LEAF.rotation.x = -(2.36 - (2.36 - (SHD - .04)) * c2); }
-    const el = .7 + .2 * g1 - .15 * sc1 + (cl > 0 ? (1.45 - (.7 + .2 * g1 - .15 * sc1)) * cl : 0); TUBE.quaternion.setFromUnitVectors(v3(0, 1, 0), v3(0, Math.sin(el), Math.cos(el)));
+    const el = .7 + .2 * g1 - .15 * sc1 + (cl > 0 ? (1.45 - (.7 + .2 * g1 - .15 * sc1)) * cl : 0) + .3 * swp; TUBE.quaternion.setFromUnitVectors(v3(0, 1, 0), v3(0, Math.sin(el), Math.cos(el)));
     const lit = (.25 + .75 * g1) * (1 - .85 * cl); innerM.emissiveIntensity = .035 * lit; inGlow.material.opacity = .3 * lit + .15 * sc1; edgeM.opacity = .25 + .55 * lit;
     mirror.material.color.setRGB(1 * lit + .2, .89 * lit + .15, .69 * lit + .1);
     rimGlow.material.opacity = .45 + .25 * g1;
@@ -396,7 +531,7 @@
     gal.forEach(([sp, o, st]) => { const e = st < 0 ? ed : .8 * sm(st * .85, st * .85 + .15, edL); sp.material.opacity = Math.max(e, .8 * nt) * (.25 + .35 * o); });
     skyK.setScalar(1 + .25 * Math.max(ed, .6 * nt) + .1 * edL); agU.uT.value = t;
     // meteor (one, early)
-    const mt = (t - 4.6) / .8; met.visible = mt > 0 && mt < 1;
+    const mt = (t - 4.6) / .8; met.visible = !INTRO && mt > 0 && mt < 1;
     if (met.visible) { const a = v3(-380, 820, -1000), b = v3(-640, 620, -980), m = a.clone().lerp(b, mt); met.position.copy(m); met.scale.set(160 * Math.min(1, mt * 3), 6, 1); met.lookAt(0, 0, 0); met.rotateZ(Math.atan2(b.y - a.y, b.x - a.x) + Math.PI); met.material.opacity = Math.sin(Math.PI * mt) * .9; }
     // slow meteors (2 slots on fixed periods, ~80% of slots fire), pinned to the sky seen at their mid time, in the right part of the frame
     const th = .38, asp = ctx.W / ctx.H;
@@ -420,7 +555,7 @@
     const flash = sm(-.25, .05, tau) * (1 - sm(.05, 1.9, tau)), rs = sm(-.05, .25, tau) * (1 - sm(.4, 2.8, tau));
     flash1.material.opacity = .7 * flash; flashA.material.opacity = .35 * flash; flashA.scale.set(260 + 160 * sm(-.25, 1.5, tau), 5, 1); flash1.visible = flashA.visible = flash > 0;
     shRing.visible = rs > 0; ringM.opacity = .5 * rs; { const rr = 10 + 200 * (1 - Math.exp(-Math.max(0, tau) / 1.1)); shRing.scale.set(rr, 1, rr); }
-    if (ROCK.visible) { const ign = sm(-1.2, 0, tau), q = path(tau), q2 = path(tau + .05); ROCK.position.copy(q);
+    if (ROCK.visible) { const ign = sm(-1.2, 0, tau), q = path(tau), tq = Math.min(tau, tauD), q2 = q.clone().add(path0(tq + .05).sub(path0(tq))); ROCK.position.copy(q);
       const dv = q2.clone().sub(q); if (dv.lengthSq() > 1e-6) ROCK.quaternion.setFromUnitVectors(v3(0, 1, 0), dv.normalize()); else ROCK.quaternion.identity();
       const ax = v3(0, 1, 0).applyQuaternion(ROCK.quaternion), noz = q.clone().addScaledVector(ax, -1.5);
       const fk = .85 + .15 * Math.sin(t * 37) * Math.sin(t * 23);
@@ -466,11 +601,12 @@
     cam.lookAt(ft);
     // fov: on "edge" the push keeps creeping in slowly to the end of the shot (the deep field opens up)
     const edZ = p.edge != null ? sm(tE + 3, ctx.t1 + 4, t) : 0;
-    cam.fov = 42 - 4 * wd + 4 * fo - 10 * ed + 10 * nt - 5 * edZ;
+    cam.fov = 42 - 4 * wd + 4 * fo - 10 * ed + 10 * nt - 5 * edZ + 13 * (tCg < 1e8 ? sm(tCg - .4, tCg + 3.2, t) : 0);
     if (ctx.VERT) { const h = 2 * Math.atan(Math.tan(cam.fov * Math.PI / 360) * 16 / 9 * .62); cam.fov = 2 * Math.atan(Math.tan(h / 2) * ctx.H / ctx.W) * 180 / Math.PI; }   // Shorts: same vertical fit as ctx.side()
     cam.updateProjectionMatrix(); cam.updateMatrixWorld();
     const scl = ctx.H / (2 * Math.tan(cam.fov * Math.PI / 360)); trU.uScale.value = smU.uScale.value = scl;
     dust.update(t, [cp.x - 10, cp.y + 4, cp.z - 20]);
+    if (FX) FX.draw(t);
     // bokeh motes near the lens: world-fixed in a box that follows the view, slow drift, kept off the title block and caption band
     { const fw = ft.clone().sub(cp).normalize(), cx = cp.x + fw.x * 6, cy = cp.y + fw.y * 6, cz = cp.z + fw.z * 6, wr = (v, sz) => ((v % sz) + sz * 1.5) % sz - sz / 2, kb = CALM ? .16 : .08;
       for (let i = 0; i < NBK; i++) { const b = bkB[i];

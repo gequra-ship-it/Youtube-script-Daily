@@ -20,6 +20,15 @@
 // sheet under it is pulled up into a straining peak (glowing warm); on release it snaps back, a ripple wave runs out across the sheet
 // and a soft flash rises (0.2 s) and fades (~1.5 s); the planet and its well fall away below and behind (accelerating, slingshot),
 // lensed by the forming bubble, and are gone ~7 s after the release, long before `energy` / `snowplow`.
+// aftermath pass (2026-10-16), all after `blast` and only when the shot runs long enough after it: the camera swings round to look
+// past the drifting, slowly tumbling ship (engines dim) at a destination planet ahead; the blast's radiation front (a forward shell)
+// sweeps over it: its facing side flares, a flash rises and fades, its atmosphere is torn off downstream. Then a looming barrier,
+// the 'stone wall' (a vast slate surface with faint cells), fades in beyond it while the camera pushes slowly toward it; each
+// escape route is a bolt of light fired from the ship that strikes the wall and spreads a ripple ring; on `voice` the whole wall
+// pulses once; on `trapped` it fades and the existing wide view takes over.
+//   wall      the first bolt hits the wall (default blast + 10.6 s; the wall needs it >= 3 s before the shot end)
+//   hits      list of cues for further bolts (default: three spread between `wall` and `trapped` / shot end)
+//   voice     the whole wall pulses (default trapped - 0.5 s)
 //   escape    the release moment (default: the warp cue + 1.2 s); escape: false turns the gravity well off. Needs `warp`.
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.warp = function (ctx, p) {
   const { T, sm, rng, cue, points, glow } = ctx, Rr = ctx.R, K = window.MIYA.kit, E = ctx.env();
@@ -77,7 +86,7 @@
   const RB = 9, FWD = v3(1, 0, 0);
   const U = { tO: { value: cube.texture }, uC: { value: v3(0, 0, 0) }, uCam: { value: v3(0, 0, 0) }, uR: { value: RB }, uW: { value: 1 }, uRim: { value: 1 },
     uPInv: { value: new T.Matrix4() }, uCW: { value: new T.Matrix4() }, uF: { value: FWD.clone() }, uB2: { value: 60 }, uB2a: { value: 0 },
-    uPC: { value: v3(0, -1e4, 0) }, uPR: { value: 1 }, uPA: { value: 0 }, uPT: { value: 0 }, uPM: { value: null }, uSun: { value: v3(-.62, .5, -.6).normalize() } };
+    uPC: { value: v3(0, -1e4, 0) }, uPR: { value: 1 }, uWA: { value: 0 }, uWT: { value: 0 }, uWX: { value: 1e4 }, uWC: { value: v3(0, 0, 0) }, uWH: { value: [0, 1, 2, 3, 4, 5].map(() => new T.Vector4(0, 0, -1e4, 0)) }, uWP: { value: v3(0, -1e4, 0) }, uPA: { value: 0 }, uPT: { value: 0 }, uPM: { value: null }, uSun: { value: v3(-.62, .5, -.6).normalize() } };
   // well planet albedo (equirect, baked once): ocean, land, cloud
   U.uPM.value = (() => { const PW = 512, PH = 256, c = document.createElement('canvas'); c.width = PW; c.height = PH; const g = c.getContext('2d'), im = g.createImageData(PW, PH), D = im.data;
     const mx = (a, b, k) => a.map((v, i) => v + (b[i] - v) * k);
@@ -88,8 +97,16 @@
         for (let j = 0; j < 3; j++) D[k + j] = Math.min(255, Math.pow(a[j], 1 / 2.2) * 255); D[k + 3] = 255; } }
     g.putImageData(im, 0, 0); const t = new T.CanvasTexture(c); t.colorSpace = T.SRGBColorSpace; t.wrapS = T.RepeatWrapping; return t; })();
   const lensP = { uniforms: U, depthWrite: false, depthTest: false,
-    vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0., 1.); }',
-    fragmentShader: `uniform samplerCube tO; uniform sampler2D uPM; uniform vec3 uC, uCam, uF, uPC, uSun; uniform float uR, uW, uRim, uB2, uB2a, uPR, uPA, uPT; uniform mat4 uPInv, uCW; varying vec2 vUv;
+    vertexShader: `uniform mat4 uPInv, uCW; uniform vec3 uCam, uWC, uWP; uniform float uWA, uWT, uWX; uniform vec4 uWH[6]; varying vec2 vUv, vWr;
+      void ring(vec2 p, vec2 c, float r, float amp, float k, float w, inout float h, inout vec2 g){ vec2 q = p - c; float d = max(length(q), 1e-3), x = d - r, en = exp(-x * x / (w * w));
+        float s = sin(x * k), co = cos(x * k); h += amp * s * en; g += amp * en * (k * co - 2. * x / (w * w) * s) * q / d; }
+      void main(){ vUv = uv; gl_Position = vec4(position.xy, 0., 1.); vWr = vec2(0.);
+        if (uWA > 0.) { vec4 pv = uPInv * vec4(uv * 2. - 1., 1., 1.); pv /= pv.w; vec3 d = normalize((uCW * vec4(pv.xyz, 0.)).xyz);
+          if (d.x > 1e-4) { vec3 P = uCam + d * ((uWX - uCam.x) / d.x); vec2 p = vec2(P.z - uWC.z, P.y - uWC.y); float h = 0.; vec2 g = vec2(0.);
+            for (int k = 0; k < 6; k++) { vec4 q = uWH[k]; float a = uWT - q.z; if (a > 0. && a < 13. && q.w > 0.) ring(p, q.xy, a * 34., q.w * exp(-a * .45) * smoothstep(0., .4, a), .35, 14., h, g); }
+            float pa = uWT - uWP.x; if (pa > 0. && pa < 10. && uWP.z > 0.) ring(p, vec2(0.), pa * 70., 1.4 * exp(-pa * .5) * smoothstep(0., .5, pa), .2, 30., h, g);
+            vWr = vec2(h, dot(g, vec2(-.6, .8))); } } }`,
+    fragmentShader: `uniform samplerCube tO; uniform sampler2D uPM; uniform float uWA, uWT, uWX; uniform vec3 uWC, uWP; uniform vec4 uWH[6]; uniform vec3 uC, uCam, uF, uPC, uSun; uniform float uR, uW, uRim, uB2, uB2a, uPR, uPA, uPT; uniform mat4 uPInv, uCW; varying vec2 vUv;
       // the gravity-well planet (ray from ro along rd, over background bg): ocean + land + cloud, lit from behind (crescent), blue air limb
       vec3 planet(vec3 ro, vec3 rd, vec3 bg){
         #ifndef PLANET
@@ -108,11 +125,24 @@
         return col;
         #endif
       }
+      // the stone wall: plane x = uWX; ripples come per vertex (grid lens quad), the hex blocks per pixel
+      varying vec2 vWr;
+      // returns colour + coverage; where the wall is fully opaque the sky lookups are skipped (they cost the most here)
+      vec4 wall(vec3 ro, vec3 rd){
+        if (uWA <= 0. || rd.x <= 1e-4) return vec4(0.); float tt = (uWX - ro.x) / rd.x; if (tt <= 0.) return vec4(0.);
+        vec3 P = ro + rd * tt; vec2 p = vec2(P.z - uWC.z, P.y - uWC.y); float fall = smoothstep(460., 230., length(p * vec2(.75, 1.))); if (fall <= 0.) return vec4(0.);
+        float h = vWr.x, sh = vWr.y;
+        // basalt-like hex blocks (cheap arithmetic; a texture lookup here cost ~0.4 s/frame on the software renderer)
+        vec2 hp = p / 22., hs2 = vec2(1., 1.7320508), ha = mod(hp, hs2) - hs2 * .5, hb = mod(hp - hs2 * .5, hs2) - hs2 * .5, gv = dot(ha, ha) < dot(hb, hb) ? ha : hb;
+        float hd = max(dot(abs(gv), vec2(.5, .8660254)), abs(gv.x)), lines = smoothstep(.43, .5, hd), grain = .55 + .45 * fract(sin(dot(hp - gv, vec2(12.9898, 78.233))) * 43758.5453);
+        vec3 col = vec3(.035, .034, .048) * grain + vec3(.1, .09, .13) * lines * .35 + vec3(.55, .6, 1.) * max(0., sh) * 2.6 + vec3(1., .8, .55) * abs(h) * .08 + vec3(.5, .55, .9) * lines * abs(h) * .25;
+        return vec4(col, uWA * fall); }
       void main(){
         vec4 pv = uPInv * vec4(vUv * 2. - 1., 1., 1.); pv /= pv.w;
         vec3 d = normalize((uCW * vec4(pv.xyz, 0.)).xyz), oc = uC - uCam;
         float tca = dot(oc, d), b2 = dot(oc, oc) - tca * tca, R2 = uR * uR;
-        vec3 col = planet(uCam, d, textureCube(tO, d).rgb);
+        vec4 wv = wall(uCam, d); vec3 col = wv.rgb;
+        if (wv.a < .999) { col = planet(uCam, d, textureCube(tO, d).rgb);
         if (tca > 0. && b2 < R2 && uW > 0.) {
           float th = sqrt(R2 - b2); vec3 P = uCam + d * (tca - th), n = (P - uC) / uR;
           float z = dot(n, uF), edge = sqrt(b2) / uR, fall = 1. - smoothstep(.75, 1., edge);
@@ -126,6 +156,7 @@
           // bubble wall: faint fresnel rim
           col += uRim * uW * (pow(edge, 16.) * .07 + exp(-pow((edge - 1.) / .012, 2.)) * .22) * vec3(.75, .82, 1.);
         }
+        col = mix(col, wv.rgb, wv.a); }
         // dark boundary sphere ("our local cosmic cell") in the trapped view: faint gold limb
         float B = uB2; if (uB2a > 0. && tca > 0.) { float bb = sqrt(max(0., dot(oc, oc) - tca * tca)) / B;
           if (bb < 1.) col = col * mix(1., .22, uB2a) + uB2a * pow(bb, 40.) * .12 * vec3(1., .8, .5);
@@ -136,7 +167,7 @@
       }` };
   // two builds of the lens: with the gravity-well planet (only while it is visible) and without it (cheaper)
   const lensM0 = new T.ShaderMaterial(lensP), lensM1 = new T.ShaderMaterial(Object.assign({ defines: { PLANET: 1 } }, lensP));
-  const lens = new T.Mesh(new T.PlaneGeometry(2, 2), lensM0);
+  const lens = new T.Mesh(new T.PlaneGeometry(2, 2, 96, 54), lensM0);
   lens.frustumCulled = false; lens.renderOrder = -10; S.add(lens);
   // the lens follows the camera actually rendered (after the camera director's move), so sky, planet and meshes line up
   lens.onBeforeRender = (r, sc, c) => { c.updateMatrixWorld(); U.uCam.value.setFromMatrixPosition(c.matrixWorld); U.uPInv.value.copy(c.projectionMatrixInverse); U.uCW.value.copy(c.matrixWorld); };
@@ -260,6 +291,47 @@
         }` });
     grid = new T.LineSegments(g, gm); grid.frustumCulled = false; grid.renderOrder = -5; S.add(grid); }
   const escG = glow(S, '#fff0d6', 46, 0), escG2 = glow(S, '#ffc65a', 10, 0);
+  // ---------------- aftermath (2026-10-16): destination planet, radiation front, stone wall + escape bolts ----------------
+  const tW0 = p.wall != null ? cue(p.wall) : (cB == null ? 1e9 : cB + 10.6), tEnd = cT != null && cT < ctx.t1 ? cT : ctx.t1;
+  const AF = cB != null && cB + 7 < ctx.t1, WL = AF && tW0 + 3 < ctx.t1;
+  const tHits = WL ? [tW0].concat(p.hits != null ? [].concat(p.hits).map(c => cue(c)) : [0, 1, 2].map(k => tW0 + (tEnd - 1.5 - tW0) * (k + 1) / 3.4)) : [];
+  const tVo = p.voice != null ? cue(p.voice) : tEnd - .5;
+  const PP = v3(78, 7, -30), PRD = 8, XW = 165, WCn = v3(XW, 0, -20);
+  const dstT = ctx.ctex(256, (g, sz) => { const im = g.createImageData(sz, sz); for (let y = 0; y < sz; y++) for (let x = 0; x < sz; x++) { const ph = x / sz * 6.2832, n = fbm(Math.cos(ph) * 2 + 4, y / sz * 5, Math.sin(ph) * 2, 4), k = (y * sz + x) * 4, sea = n < .5;
+      const c = sea ? [30, 52, 92] : [120 + 90 * (n - .5), 96 + 60 * (n - .5), 70]; for (let j = 0; j < 3; j++) im.data[k + j] = c[j] * (.8 + .4 * n); im.data[k + 3] = 255; } g.putImageData(im, 0, 0); });
+  const dstM = new T.MeshStandardMaterial({ map: dstT, roughness: .85, metalness: 0, emissive: '#ff9a50', emissiveIntensity: 0 });
+  const DST = new T.Mesh(new T.SphereGeometry(PRD, 64, 32), dstM); DST.position.copy(PP); DST.visible = false; S.add(DST);
+  const hotM = new T.ShaderMaterial({ uniforms: { uI: { value: 0 }, uD: { value: v3(-1, 0, 0) } }, transparent: true, depthWrite: false, blending: T.AdditiveBlending,
+    vertexShader: 'varying vec3 vN, vV; void main(){ vN = normalize(mat3(modelMatrix) * normal); vec4 w = modelMatrix * vec4(position, 1.); vV = normalize(cameraPosition - w.xyz); gl_Position = projectionMatrix * viewMatrix * w; }',
+    fragmentShader: `uniform float uI; uniform vec3 uD; varying vec3 vN, vV;
+      void main(){ float f = max(0., dot(normalize(vN), uD)), rim = pow(1. - abs(dot(normalize(vN), normalize(vV))), 2.);
+        gl_FragColor = vec4(vec3(1., .62, .3) * uI * (pow(f, 1.5) * .9 + rim * .5 * (.3 + f)), 1.);
+        #include <tonemapping_fragment>
+        #include <colorspace_fragment>
+      }` });
+  const HOT = new T.Mesh(new T.SphereGeometry(PRD * 1.06, 48, 24), hotM); HOT.position.copy(PP); HOT.visible = false; S.add(HOT);
+  const dstG = glow(S, '#ffe0b0', 34, 0); dstG.position.copy(PP); dstG.visible = false;
+  const NA = 1400, atm = points(NA, { size: .45, opacity: 1, color: '#ffd8a8' }), aA = atm.geometry.attributes.position.array, aC = atm.geometry.attributes.color.array, aB = [];
+  { const r = rng(123); for (let i = 0; i < NA; i++) { let x, y, z; do { x = r() * 2 - 1; y = r() * 2 - 1; z = r() * 2 - 1; } while (x * x + y * y + z * z > 1 || x > .1); const l = Math.hypot(x, y, z) || 1; aB.push([x / l, y / l, z / l, .5 + r(), r() * .6, r()]); } }
+  atm.frustumCulled = false; atm.visible = false; S.add(atm);
+  // radiation front: forward half-shell growing from the bubble's nose
+  const frM = new T.ShaderMaterial({ uniforms: { uO: { value: 0 } }, transparent: true, depthWrite: false, blending: T.AdditiveBlending, side: T.DoubleSide,
+    vertexShader: 'varying vec3 vN, vV, vL; void main(){ vL = normal; vN = normalize(mat3(modelMatrix) * normal); vec4 w = modelMatrix * vec4(position, 1.); vV = normalize(cameraPosition - w.xyz); gl_Position = projectionMatrix * viewMatrix * w; }',
+    fragmentShader: `uniform float uO; varying vec3 vN, vV, vL;
+      void main(){ float rim = pow(1. - abs(dot(normalize(vN), normalize(vV))), 3.), fw = smoothstep(.15, .75, vL.x);
+        gl_FragColor = vec4(vec3(1., .78, .5) * uO * fw * (rim * .9 + .05), 1.);
+        #include <tonemapping_fragment>
+        #include <colorspace_fragment>
+      }` });
+  const FRONT = new T.Mesh(new T.SphereGeometry(1, 64, 32), frM); FRONT.position.set(RB, 0, 0); FRONT.visible = false; S.add(FRONT);
+  // the stone wall: a vast plane facing the ship, cells + grain, ripple rings from the bolt impacts, one global pulse
+  const NHT = 6, hitV = U.uWH.value;
+  // the wall is drawn inside the full-screen lens pass (ray-plane hit at x = XW), so it adds no extra full-screen layer
+  U.uWX.value = XW; U.uWC.value.copy(WCn);
+  const bolts = streaks(S, NHT, { minPx: 2.4, near: [4, 12] }); bolts.mesh.visible = false;
+  const hitG = []; for (let k = 0; k < NHT; k++) { const g = glow(S, '#dfe6ff', 30, 0); g.visible = false; hitG.push(g); }
+  const hitP = tHits.map((_, k) => { const a = k * 2.4 + .7, r = k ? 45 + 25 * (k % 2) : 0; return [Math.cos(a) * r, Math.sin(a) * r * .8 + (k ? 0 : 6)]; });
+  const camA = v3(0, 0, 0), camB = v3(0, 0, 0), tgA = v3(0, 0, 0), tgB = v3(0, 0, 0), tq = v3(0, 0, 0);
   const cam = new T.PerspectiveCamera(38, ctx.W / ctx.H, .1, 4000); ctx.side(cam, p.side == null ? .12 : p.side);
   const VF = ctx.VERT ? 1.2 : 1, tgt = v3(0, 0, 0);
   return { scene: S, camera: cam, draw(t, u) {
@@ -268,8 +340,11 @@
     const tr = at(p.trapped, 6), tc = cT == null ? 1e9 : cT;
     U.uW.value = w; U.uRim.value = 1; eqM.opacity = .1 * w; ringGlowM.opacity = .25 + .55 * w;
     goldM.emissiveIntensity = .2 + .5 * w;
-    glows.forEach((g, i) => g.material.opacity = (.35 + .4 * w0) * (i === 2 ? 1 : .8));
+    glows.forEach((g, i) => g.material.opacity = (.35 + .4 * w0) * (i === 2 ? 1 : .8) * (cB == null || !(cB + 7 < ctx.t1) ? 1 : 1 - .75 * sm(cB + .5, cB + 3, t) * (1 - .3 * Math.max(0, Math.sin((t - cB) * 2.1 + i)))));
     SHIP.position.set(0, Math.sin(u * .4) * .12, 0); SHIP.rotation.set(Math.sin(u * .3) * .02, 0, Math.sin(u * .23) * .015);
+    // aftermath: the stopped ship drifts helpless, slowly tumbling (pure function of the time since the blast)
+    const ab = AF ? Math.max(0, t - cB - .6) : 0, drift = AF ? sm(cB + .3, cB + 4, t) : 0;
+    if (AF) { SHIP.rotation.x += drift * (.045 * ab + .05 * Math.sin(ab * .35)); SHIP.rotation.z += drift * (-.012 * ab + .04 * Math.sin(ab * .27)); SHIP.position.y -= drift * .06 * ab; }
     // gravity escape: climb (the well drops away under the ship), strain peak, release ripple, slingshot fall, flash
     const gA = GW ? 1 - sm(tR + 3, tR + 7, t) : 0;
     if (GW) { const climb = sm(tC0, tR + .4, t), rel = sm(tR, tR + .35, t), tau = t - tR;
@@ -340,10 +415,39 @@
     coneM.uniforms.opacity.value = .9 * fl; cone.scale.set(.6 + .6 * sm(0, 1.5, bt), 1, 1); blastG.material.opacity = .4 * fl; blastG2.material.opacity = .18 * fl;
     // trapped: wide calm view, dark boundary sphere, the ship a tiny light
     U.uB2a.value = tr; U.uB2.value = 70; shipG.material.opacity = .8 * tr;
+    // aftermath: radiation front, destination planet hit, stone wall, bolts
+    const tHit = AF ? cB + 4.8 : 1e9, hz = t - tHit;
+    { const fo = AF ? sm(-.1, .3, bt) * (1 - sm(5.4, 8, bt)) : 0; FRONT.visible = fo > 0; if (fo > 0) { FRONT.scale.setScalar(4 + 12.6 * Math.max(0, bt) + 1.2 * bt * bt * .1); frM.uniforms.uO.value = .55 * fo; } }
+    const dv = AF ? sm(cB + .8, cB + 3.2, t) * (1 - tr) : 0; DST.visible = HOT.visible = dv > 0; DST.rotation.y = t * .03;
+    if (dv > 0) { const hi = hz > 0 ? sm(0, .3, hz) * (.12 + .88 * Math.exp(-hz / 2)) : 0; hotM.uniforms.uI.value = .75 * hi * dv; dstM.emissiveIntensity = .22 * hi; dstM.opacity = 1;
+      DST.scale.setScalar(dv); HOT.scale.setScalar(dv); const fl2 = hz > 0 ? sm(0, .2, hz) * Math.exp(-Math.max(0, hz - .2) / 1.2) : 0; dstG.visible = fl2 > 0; dstG.material.opacity = .5 * fl2; dstG.scale.setScalar(26 + 20 * sm(0, 1.5, hz)); }
+    else dstG.visible = false;
+    atm.visible = dv > 0 && hz > 0;
+    if (atm.visible) { for (let i = 0; i < NA; i++) { const b = aB[i], tl = Math.max(0, hz - b[4]), d = tl * (5 + 9 * b[3]) * (1 - .25 * Math.min(1, tl / 8)), sp = 1 + tl * .12;
+        aA[i * 3] = PP.x + b[0] * PRD * 1.04 * sp + d; aA[i * 3 + 1] = PP.y + b[1] * PRD * 1.04 * sp + d * .08 * (b[5] - .5); aA[i * 3 + 2] = PP.z + b[2] * PRD * 1.04 * sp + d * .1 * (b[5] - .5);
+        const v = dv * sm(0, .3, tl) * Math.exp(-tl / (3 + 3 * b[5])) * (.6 + .6 * b[3]); aC[i * 3] = v; aC[i * 3 + 1] = v * .7; aC[i * 3 + 2] = v * .45; }
+      atm.geometry.attributes.position.needsUpdate = true; atm.geometry.attributes.color.needsUpdate = true; }
+    const wa = WL ? sm(tW0 - 3.5, tW0 - .6, t) * (1 - tr) : 0; U.uWA.value = wa; U.uWT.value = t;
+    bolts.mesh.visible = false;
+    for (let k = 0; k < NHT; k++) { const th = tHits[k], hg = hitG[k];
+      if (!WL || th == null) { hitV[k].set(0, 0, -1e4, 0); hg.visible = false; bolts.hide(k); continue; }
+      const [py, pz] = hitP[k]; hitV[k].set(-pz, py, th, k ? .8 : 1.1);
+      const tb = t - (th - 1.1), sx = 4, ex = XW - .5; if (tb > 0 && tb < 1.1 + .4 && wa > 0) { bolts.mesh.visible = true;
+        const hpos = Math.min(1, Math.pow(tb / 1.1, 1.6)), tpos = Math.max(0, Math.pow(Math.max(0, tb - .25) / 1.1, 1.6)), hx = sx + (ex - sx) * hpos, tx = sx + (ex - sx) * Math.min(1, tpos), k2 = sm(0, .15, tb) * (1 - sm(1.1, 1.5, tb)) * 1.6;
+        const Y = q => q * py, Z = q => WCn.z * q + q * (-pz);
+        bolts.set(k, hx, Y(hpos), Z(hpos), tx, Y(Math.min(1, tpos)), Z(Math.min(1, tpos)), .5, .85 * k2, .9 * k2, 1.2 * k2); } else bolts.hide(k);
+      const ha = t - th, hf = ha > 0 ? sm(0, .15, ha) * Math.exp(-Math.max(0, ha - .15) / 1.1) : 0; hg.visible = hf > 0 && wa > 0; hg.material.opacity = .55 * hf * wa; hg.position.set(XW - 1, py, WCn.z - pz); hg.scale.setScalar(26 + 30 * sm(0, 1.2, ha)); }
+    bolts.commit(); U.uWP.value.set(tVo, 0, WL ? 1 : 0);
     // camera: three-quarter view from the front side; a slow drift; pulls back for the blast cone; far back on `trapped`
     const jv = sm(0, 2, e) * (1 - sm(6, 9, e)), d0 = 36 * VF * (1 + .4 * jv) + 10 * sm(0, 1.5, bt) * (1 - tr), D = d0 * (1 + 7.5 * tr), az = .62 + u * .004 - .25 * tr, el = .22 + .12 * tr;
     cam.position.set(Math.sin(az) * Math.cos(el) * D, Math.sin(el) * D, Math.cos(az) * Math.cos(el) * D);
-    tgt.set(2 + 3 * sm(0, 1.5, bt) * (1 - tr), 0, 0); cam.lookAt(tgt); cam.updateMatrixWorld(); cam.updateProjectionMatrix();
+    tgt.set(2 + 3 * sm(0, 1.5, bt) * (1 - tr), 0, 0);
+    // aftermath camera: swing round behind the ship to look at the planet and the wall, then push slowly toward the wall
+    if (AF) { const kb = sm(cB + 1.2, cB + 5.5, t) * (1 - tr), tau = Math.max(0, t - cB - 1.2), pw = WL ? IS(tW0 - 3, tW0 + 4, t) : 0;
+      if (kb > 0) { camB.set(-38 * VF + .3 * tau + 1.1 * pw, 9 + .05 * tau, 34 * VF - .2 * tau - .25 * pw); tgB.set((ctx.VERT ? 20 : 36) + .5 * tau + 1.2 * pw, 0, -10);
+        camA.copy(cam.position); tgA.copy(tgt); const kk = kb * kb * (3 - 2 * kb);
+        const dl = (camA.length() * (1 - kk) + camB.length() * kk) * (1 + .22 * Math.sin(Math.PI * kk)); cam.position.lerpVectors(camA, camB, kk).setLength(dl); tgt.lerpVectors(tgA, tgB, kk); } }
+    cam.lookAt(tgt); cam.updateMatrixWorld(); cam.updateProjectionMatrix();
     U.uCam.value.copy(cam.position); U.uPInv.value.copy(cam.projectionMatrixInverse); U.uCW.value.copy(cam.matrixWorld);
   } };
 };

@@ -93,7 +93,8 @@ if (R) {
   quad = new T.Mesh(new T.PlaneGeometry(2, 2), qmat); quad.frustumCulled = false;
 }
 const KIND = { cut: 0, none: 0, dip: 1, xfade: 2, flash: 3, wipe: 4, iris: 5, eye: 6, push: 7, whip: 8, zoom: 9, blinds: 10 };
-const TDUR = { cut: 0, none: 0, dip: .9, xfade: .8, flash: .7, wipe: .8, iris: .9, eye: .8, push: .7, whip: .45, zoom: .9, blinds: 1.1 };
+// transition lengths in seconds (2026-10-16: about a third shorter than before - dip .9, xfade .8, flash .7, wipe .8, iris .9, eye .8, push .7, zoom .9, blinds 1.1)
+const TDUR = { cut: 0, none: 0, dip: .6, xfade: .5, flash: .5, wipe: .55, iris: .6, eye: .55, push: .5, whip: .4, zoom: .65, blinds: .75 };
 
 // ---------------- shots ----------------
 const SHOTS = []; C.chapters.forEach(ch => ch.shots.forEach(s => SHOTS.push(Object.assign({ ch }, s))));
@@ -106,7 +107,36 @@ function shotObj(i) {
   const ctx = Object.assign({}, ctxBase, { t0: s.t0, t1: s.t1, shot: s, chapter: s.ch });
   const o = f(ctx, s.params || {}); inst.set(i, o); return o;
 }
-function renderShot(i, t, rt) { const o = shotObj(i); o.draw(t, t - SHOTS[i].t0); R.setRenderTarget(rt); R.render(o.scene, o.camera); }
+// ---------------- camera director (2026-10-16) ----------------
+// A shot may carry s.cams = [{t0, t1, land, dolly0, dolly1, orbit0, orbit1, truck0, truck1, lift0, lift1}] (written by build_cine.py).
+// Each segment adds one move on the same scene (joined smoothly, see camMove): after the scene has drawn and aimed its camera (scenes call
+// camera.lookAt every frame; the target is recorded here), the camera is dollied toward / orbited around / slid past that target,
+// as a pure function of t, then restored after the render so the scene's own camera state never accumulates (seek-safe).
+// dolly = fraction of the camera-target distance moved closer (+) or back (-), orbit = degrees about the up axis, truck / lift =
+// fractions of the distance sideways / up. The move eases in, reaches 85% at `land` (the spoken word it is meant for) and creeps on to the end.
+const _lookAt = T.Object3D.prototype.lookAt;
+T.Object3D.prototype.lookAt = function (x, y, z) { if (this.isCamera) this.userData.lk = (x && x.isVector3) ? x.clone() : new T.Vector3(x, y, z); return _lookAt.call(this, x, y, z); };
+function camMove(s, cam, t) {
+  const segs = s.cams; if (!segs || !segs.length || !cam.userData.lk) return null;
+  const pos = cam.position, tgt = cam.userData.lk, D = pos.distanceTo(tgt); if (!(D > 1e-4)) return null;
+  const saved = { p: pos.clone(), q: cam.quaternion.clone() };
+  // 2026-10-16 (user: "camera moves jump, make them smooth"): no hard cut between segments any more. The segments' end values
+  // are keys of ONE continuous curve per parameter (first key = the first segment's start value), joined by a cubic Hermite
+  // spline with Catmull-Rom tangents (zero at the ends): the camera never jumps and its speed never changes abruptly.
+  const KT = [segs[0].t0].concat(segs.map(q => q.t1));
+  const key = k => [segs[0][k + '0']].concat(segs.map(q => q[k + '1']));
+  let j = 0; while (j < KT.length - 2 && t > KT[j + 1]) j++;
+  const ta = KT[j], tb = KT[j + 1], h = Math.max(.01, tb - ta), u = clamp((t - ta) / h, 0, 1);
+  const u2 = u * u, u3 = u2 * u, h00 = 2 * u3 - 3 * u2 + 1, h10 = u3 - 2 * u2 + u, h01 = -2 * u3 + 3 * u2, h11 = u3 - u2;
+  const L = k => { const V = key(k), tan = i => (i <= 0 || i >= V.length - 1) ? 0 : (V[i + 1] - V[i - 1]) / Math.max(.01, KT[i + 1] - KT[i - 1]);
+    return (h00 * V[j] + h10 * h * tan(j) + h01 * V[j + 1] + h11 * h * tan(j + 1)) * (s.camAmp == null ? 1 : s.camAmp); };
+  const fwd = tgt.clone().sub(pos).normalize(), up0 = cam.up.clone().normalize(), right = new T.Vector3().crossVectors(fwd, up0).normalize(), upv = new T.Vector3().crossVectors(right, fwd).normalize();
+  const off = pos.clone().sub(tgt).multiplyScalar(1 - L('dolly')).applyAxisAngle(up0, L('orbit') * Math.PI / 180);
+  const sh = right.multiplyScalar(D * L('truck')).addScaledVector(upv, D * L('lift'));
+  const nt = tgt.clone().add(sh); cam.position.copy(nt).add(off); _lookAt.call(cam, nt);
+  return saved;
+}
+function renderShot(i, t, rt) { const s = SHOTS[i], o = shotObj(i); o.draw(t, t - s.t0); const sv = camMove(s, o.camera, t); R.setRenderTarget(rt); R.render(o.scene, o.camera); if (sv) { o.camera.position.copy(sv.p); o.camera.quaternion.copy(sv.q); } }
 function frame(t) {
   if (!R) return;
   let i = 0; for (let k = 0; k < SHOTS.length; k++) if (t >= SHOTS[k].t0) i = k;
@@ -220,6 +250,7 @@ C.caps.forEach((c, k) => {
   tl.fromTo('#c' + k, { opacity: 0 }, { opacity: 1, duration: .2, immediateRender: false }, c.t0); tl.to('#c' + k, { opacity: 0, duration: .15 }, c.t1 - .15);
   c.wt.forEach((w, j) => { tl.set(`#c${k}w${j}`, { color: '#ffd58a' }, w); if (j + 1 < c.wt.length) tl.set(`#c${k}w${j}`, { color: 'rgba(255,255,255,.92)' }, c.wt[j + 1]); });
 });
+window.MIYA_DEBUG = { SHOTS, shotObj };   // used by tools/camprobe.py
 window.__timelines = window.__timelines || {}; window.__timelines.main = tl; tl.seek(0);
 window.MIYA_CINE_READY = true;
 })();

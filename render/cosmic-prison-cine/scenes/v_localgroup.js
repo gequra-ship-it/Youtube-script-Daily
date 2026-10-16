@@ -21,6 +21,14 @@
 // the outer galaxies accelerate away (radial redshifted streaks, growing with speed) and fade; on `erase` a faint mottled CMB
 // glow appears, stretches, reddens and fades to nothing (only when `erase` falls inside the shot). Near-field dust motes drift
 // in front of the galaxies for parallax (the `alone` pull-back flies through them).
+// fourth staging pass (2026-10-16), only when `alone` and `erase` both fall inside the shot (c12), new optional cues:
+//   dive   (default alone + 12.2 s, "telescope") the camera dives from the far pull-back into the merged galaxy's outer halo and
+//          drifts through it (halo stars slide past with parallax, slow orbit) - "nothing beyond their home galaxy"
+//   erase  now one by one: each remaining outer galaxy gives one last soft flicker (rise .2 s, fade 1.1 s) and goes dark, spread
+//          over ~8 s after `erase`
+//   cmb    (default erase + 3.3 s, "microwave") the CMB glow swells around the camera, its mottling stretches, reddens and fades
+//   out    (default erase + 9.1 s, "looking out at one lonely galaxy") the camera pulls back out of the halo: one galaxy in darkness
+//   last   (default erase + 19.4 s, "erased") the very last faint galaxy in view flickers once and is gone
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.localgroup = function (ctx, p) {
   const { T, sm, rng, cue, glow } = ctx;
   const S = new T.Scene(); S.background = new T.Color('#03040e');
@@ -96,7 +104,8 @@
         vec3 pp = mix(w.xyz, uCen + e, mm);
         vec4 mv = viewMatrix * vec4(pp, 1.); gl_Position = projectionMatrix * mv;
         float sz = aSize * uPx / max(1., -mv.z), ps = max(sz, 1.7);
-        gl_PointSize = ps; vA = uBr[g] * min(1., sz / ps) * .34 * (1. - .4 * mm);
+        vA = uBr[g] * min(1., sz / ps) * .34 * (1. - .4 * mm); if (ps > 7.) { vA *= 7. / ps; ps = 7.; }
+        gl_PointSize = ps;
         vCol = mix(aCol, vec3(1., .84, .66) * (.6 + .5 * h), mm * .65); }`,
     fragmentShader: `varying vec3 vCol; varying float vA;
       void main(){ vec2 q = gl_PointCoord * 2. - 1.; float d = dot(q, q); if (d > 1.) discard;
@@ -200,6 +209,11 @@
   { const r = rng(505); for (let i = 0; i < NMo; i++) { const z = r() * 2 - 1, th = r() * 6.283, q = Math.sqrt(1 - z * z), rr = i < 320 ? 110 + 300 * r() : 450 + 1300 * r(), b = .25 + .6 * Math.pow(r(), 2);
     MOB.push({ o: v3(q * Math.cos(th) * rr, z * rr * .6, q * Math.sin(th) * rr), ph: r() * 6.283 }); moC.set(r() < .5 ? [b * .8, b * .85, b] : [b, b * .9, b * .78], i * 3); } }
   moP.frustumCulled = false; moP.material.depthTest = false; moP.renderOrder = 2; MOT.add(moP);
+  // outer-halo specks of the merged galaxy (parallax while the camera drifts through the halo; LATE only)
+  const NHs = 1600, hsP = ctx.points(NHs, { size: 1.6, opacity: 0, atten: false }), hsA = hsP.geometry.attributes.position.array, hsC = hsP.geometry.attributes.color.array;
+  { const r = rng(507); for (let i = 0; i < NHs; i++) { const z = r() * 2 - 1, th = r() * 6.283, q = Math.sqrt(1 - z * z), rr = 45 + 190 * Math.pow(r(), 1.4), b = .35 + .65 * Math.pow(r(), 2);
+    hsA.set([q * Math.cos(th) * rr, z * rr * .7, q * Math.sin(th) * rr * .85], i * 3); hsC.set(r() < .7 ? [b, b * .86, b * .68] : [b * .8, b * .85, b], i * 3); } }
+  hsP.frustumCulled = false; hsP.material.depthTest = false; hsP.renderOrder = 3; hsP.visible = false; MOT.add(hsP);
   // extra outer galaxies placed in the usual view cone behind the group (so the recession reads on screen), set A/B like the rest
   const EXG = [], exD = v3(Math.sin(.2) * Math.cos(.38), Math.sin(.38), Math.cos(.2) * Math.cos(.38)), exU = v3(0, 1, 0).cross(exD).normalize(), exV = exD.clone().cross(exU);
   { const r = rng(506); for (let i = 0; i < 180; i++) { const keep = r() < .14, warm = r() < .55, dd = 1800 + 2600 * r(), lu = (r() * 2 - 1) * dd * .75, lv = (r() * 2 - 1) * dd * .45;
@@ -234,6 +248,9 @@
   const DA = cA < 1e8 && cM < 1e8 && cM > cA + 4 ? Math.min(16, cM - cA) : 10;
   const MG = p.merged != null && p.merged !== false && p.merged !== 0 ? 1 : 0;
   const cAl = p.alone != null ? cue(p.alone) : 1e9, cEr = p.erase != null ? cue(p.erase) : 1e9;
+  const LATE = cAl < 1e8 && cEr < 1e8 && cEr > ctx.t0 && cEr < ctx.t1;
+  const tDv = LATE ? cue(p.dive, cAl + 12.2) : 1e9, tCm = LATE ? cue(p.cmb, cEr + 3.3) : 1e9, tOut = LATE ? cue(p.out, cEr + 9.1) : 1e9, tLast = LATE ? cue(p.last, cEr + 19.4) : 1e9;
+  const bmp = (x, a, b) => x <= 0 ? 0 : x < a ? sm(0, a, x) : Math.exp(-(x - a) / b);
   const alAt = tt => cAl < 1e8 ? sm(cAl, cAl + 8, tt) : 0, erAt = tt => cEr < 1e8 ? sm(cEr, cEr + 6, tt) : 0;
   const aAt = tt => { let a = MG;
     if (cA < 1e8) { const pre = cA > ctx.t0 + 1 ? .07 * sm(ctx.t0, cA, tt) : .07; a = Math.max(a, pre + (1 - pre) * accel((tt - cA) / DA)); }
@@ -244,6 +261,23 @@
     const pMW = bc.clone().addScaledVector(rel, -mB / (mA + mB)), pM31 = bc.clone().addScaledVector(rel, mA / (mA + mB));
     const pM33 = M330.clone().add(drift).lerp(pM31.clone().add(v3(70, -30, -60)), a * .5);
     return { a, bc, rel, rel2, P: [pMW, pM31, pM33] }; };
+  // camera distance / azimuth / elevation as a pure function of time (LATE: dive into the halo, drift, pull back out)
+  const camAt = (tt, uu) => { const a = aAt(tt), m = Math.max(MG, cM < 1e8 ? sm(cM, cM + 6, tt) : 0), al = alAt(tt), er = erAt(tt);
+    const D0 = (360 - 50 * sm(.3, 1, a) - 20 * m) * VF;
+    let D = D0 * (1 + 3.6 * al + .6 * er), az = -.05 + uu * .006 + .25 * a, el = .38 + .1 * al;
+    if (LATE) { const Df = D0 * (1 + 3.6 * al), dv = sm(tDv, tDv + 6, tt), ow = sm(tOut, tOut + 5.5, tt), Din = 200 * VF * (1 - .22 * sm(tDv + 6, tOut, tt)), Do = D0 * 4.2 * (1 + .05 * sm(tOut + 5.5, ctx.t1, tt));
+      D = Math.exp(Math.log(Df) + (Math.log(Din) - Math.log(Df)) * dv + (Math.log(Do) - Math.log(Din)) * ow);
+      az += .55 * sm(tDv, tOut + 3, tt) - .2 * ow; el += -.14 * dv * (1 - ow); }
+    return { D, az, el }; };
+  // LATE: the last galaxy to go dark ("erased"): the kept outer galaxy most directly behind the group at that moment
+  let LAST = -1;
+  if (LATE) { const c = camAt(tLast, tLast - ctx.t0), dv = v3(Math.sin(c.az) * Math.cos(c.el), Math.sin(c.el), Math.cos(c.az) * Math.cos(c.el)); let best = -2;
+    EXG.forEach((b, i) => { if (!b.keep) return; const dd = -b.off.clone().normalize().dot(dv); if (dd > best) { best = dd; LAST = i; } });
+    if (LAST >= 0) { const rt = v3(0, 1, 0).cross(dv).normalize(), up = dv.clone().cross(rt), b = EXG[LAST];
+      b.off.copy(dv).multiplyScalar(-2600).addScaledVector(rt, 900).addScaledVector(up, 520); b.sp.scale.multiplyScalar(2.8); b.base = Math.max(b.base, .8); } }
+  const tkOf = (b, i) => i === LAST ? tLast - .2 : cEr + .3 + b.ph * 8;
+  // one last soft flicker, then dark (rise .2 s, fade 1.2 s); full brightness before its moment
+  const flick = (tt, tk) => tt < tk ? 1 : (1 + 1.4 * bmp(tt - tk, .2, .45)) * (1 - sm(tk + .2, tk + 1.4, tt));
   const SPR = []; S.traverse(o => { if (o.isSprite) SPR.push(o); });
   const hd = v3(0, 0, 0), tl = v3(0, 0, 0), nA = v3(0, 0, 0), AX = v3(.18, 1, .1).normalize();
   return { scene: S, camera: cam, draw(t, u) {
@@ -301,8 +335,10 @@
     moP.geometry.attributes.position.needsUpdate = true; moP.material.opacity = .4 * (1 - .5 * er);
     // background: set A races away (accelerating, redshifted, fading) on `alone`, set B on `erase`
     const al1 = alAt(t - .5), er1 = erAt(t - .5), al2 = alAt(t - 1), er2 = erAt(t - 1);
-    bgList.forEach((b, i) => { const lp = b.keep ? clamp01((er - b.ph * .4) / .6) : clamp01((al - b.ph * .6) / .4), lp1 = b.keep ? clamp01((er1 - b.ph * .4) / .6) : clamp01((al1 - b.ph * .6) / .4);
-      const f = b.keep ? (1 - sm(0, 1, lp)) * (1 - .45 * al) : 1 - sm(0, 1, lp), K2 = b.keep ? .6 : 1.1 + .6 * b.ph, rec = 1 + K2 * EX(lp), rec1 = 1 + K2 * EX(lp1);
+    bgList.forEach((b, i) => { let lp = b.keep ? clamp01((er - b.ph * .4) / .6) : clamp01((al - b.ph * .6) / .4), lp1 = b.keep ? clamp01((er1 - b.ph * .4) / .6) : clamp01((al1 - b.ph * .6) / .4);
+      let f = b.keep ? (1 - sm(0, 1, lp)) * (1 - .45 * al) : 1 - sm(0, 1, lp);
+      if (LATE && b.keep) { const tk = cEr + .3 + b.ph * 8; lp = clamp01((t - tk) / 2.5); lp1 = clamp01((t - .5 - tk) / 2.5); f = flick(t, tk) * (1 - .45 * al); }
+      K2 = b.keep ? .6 : 1.1 + .6 * b.ph, rec = 1 + K2 * EX(lp), rec1 = 1 + K2 * EX(lp1);
       b.sp.material.opacity = b.base * f; b.sp.position.copy(b.d).multiplyScalar(b.dist * rec);
       if (!b.keep && al > 0) b.sp.material.color.setRGB(1, b.warm ? .85 - .3 * al : .8 - .25 * al, b.warm ? .7 - .4 * al : 1 - .55 * al);
       const L = b.dist * (rec - rec1), v = b.base * f * sm(20, 160, L) * .9;
@@ -311,8 +347,10 @@
       bStr.set(i, hd.x, hd.y, hd.z, tl.x, tl.y, tl.z, 2.2 * b.dist / 3200, v, .5 * v, .38 * v); });
     bStr.commit();
     const exOn = cAl < 1e8 || cEr < 1e8 ? .8 : 0;
-    EXG.forEach((b, i) => { const lp = b.keep ? clamp01((er - b.ph * .4) / .6) : clamp01((al - b.ph * .5) / .5), lp1 = b.keep ? clamp01((er2 - b.ph * .4) / .6) : clamp01((al2 - b.ph * .5) / .5);
-      const f = b.keep ? (1 - sm(.5, 1, lp)) * (1 - .3 * al) : 1 - sm(.55, 1, lp), rec = 1 + b.K2 * EX(lp), rec1 = 1 + b.K2 * EX(lp1), rd = sm(0, .7, lp);
+    EXG.forEach((b, i) => { let lp = b.keep ? clamp01((er - b.ph * .4) / .6) : clamp01((al - b.ph * .5) / .5), lp1 = b.keep ? clamp01((er2 - b.ph * .4) / .6) : clamp01((al2 - b.ph * .5) / .5);
+      let f = b.keep ? (1 - sm(.5, 1, lp)) * (1 - .3 * al) : 1 - sm(.55, 1, lp);
+      if (LATE && b.keep) { const tk = tkOf(b, i); lp = clamp01((t - tk) / 2.5); lp1 = clamp01((t - 1 - tk) / 2.5); f = flick(t, tk) * (1 - .3 * al) * (i === LAST ? 1.6 : 1); }
+      const rec = 1 + b.K2 * EX(lp), rec1 = 1 + b.K2 * EX(lp1), rd = sm(0, .7, lp);
       hd.copy(cen).addScaledVector(b.off, rec); tl.copy(cen).addScaledVector(b.off, rec1);
       b.sp.position.copy(hd); b.sp.material.opacity = b.base * f * exOn; b.sp.material.color.setRGB(1, (b.warm ? .85 : .82) - .4 * rd, (b.warm ? .7 : 1) - .5 * rd);
       const L = hd.distanceTo(tl), v = b.base * f * exOn * sm(10, 90, L) * 1.5;
@@ -320,12 +358,14 @@
     eStr.commit();
     fpA.material.opacity = .55 * (1 - al); fpB.material.opacity = .45 * (1 - .5 * al) * (1 - er);
     // CMB afterglow (only when `erase` happens inside this shot)
-    const cv = cEr < 1e8 && cEr > ctx.t0 + 3 ? sm(cEr, cEr + 2.5, t) * (1 - sm(cEr + 4.5, cEr + 13, t)) : 0, cx = cEr < 1e8 ? sm(cEr, cEr + 13, t) : 0;
-    cmb.visible = cv > 0; cmb.position.copy(cen); cmb.scale.setScalar(9000); cmb.rotation.set(.3, t * .004, 0);
+    let cv = cEr < 1e8 && cEr > ctx.t0 + 3 ? sm(cEr, cEr + 2.5, t) * (1 - sm(cEr + 4.5, cEr + 13, t)) : 0, cx = cEr < 1e8 ? sm(cEr, cEr + 13, t) : 0;
+    if (LATE) { cv = sm(tCm - .8, tCm + 1.2, t) * (1 - sm(tCm + 2.8, tCm + 6.5, t)) * 2.6; cx = sm(tCm - .5, tCm + 6, t); }
+    cmb.visible = cv > 0; cmb.position.copy(cen); cmb.scale.setScalar(9000); cmb.rotation.set(.3, t * .004 + (LATE ? .25 * cx : 0), 0);
     cmbT.repeat.set(2 - .9 * cx, 1 - .45 * cx); cmb.material.opacity = .06 * cv; cmb.material.color.setRGB(1, .6 - .35 * cx, .38 - .3 * cx);
     // camera: slow orbit around the barycentre; closer during the merge; far pull-back on `alone`
-    const D = (360 - 50 * sm(.3, 1, a) - 20 * m) * VF * (1 + 3.6 * al + .6 * er), az = -.05 + u * .006 + .25 * a, el = .38 + .1 * al;
+    const ca = camAt(t, u), D = ca.D, az = ca.az, el = ca.el;
     tgt.copy(cen);
+    hsP.visible = LATE && t > tDv - 2 && t < tOut + 7; if (hsP.visible) hsP.material.opacity = .55 * sm(tDv - 1, tDv + 3, t) * (1 - sm(tOut + 1, tOut + 6, t));
     cp.set(Math.sin(az) * Math.cos(el), Math.sin(el), Math.cos(az) * Math.cos(el)).multiplyScalar(D).add(tgt);
     cam.position.copy(cp); cam.lookAt(tgt); cam.updateMatrixWorld();
     U.uPx.value = ctx.H / (2 * Math.tan(cam.fov * Math.PI / 360));

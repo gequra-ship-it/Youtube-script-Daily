@@ -1,202 +1,467 @@
 {
- "title": "The cosmic prison",
+ "title": "The Pale Blue Dot",
  "accent": "#ffc65a",
  "chapters": [
   {
    "id": "c1",
    "label": "Miya's Lab",
-   "title": "The coming empty sky",
+   "title": "The photo",
    "mode": "cuts",
    "from": "U001",
    "tr": "cut",
    "shots": [
     {
      "from": "U001",
-     "type": "localgroup",
+     "type": "pbdot",
      "params": {
-      "merged": true,
-      "alone": "U001",
-      "erase": "U001"
+      "d0": 70,
+      "d1": 30,
+      "ping": "U001:speck",
+      "orbit": 8
      }
     },
     {
-     "from": "U005",
-     "type": "localgroup",
-     "params": {},
-     "tr": "dip"
+     "from": "U002",
+     "type": "pbdot",
+     "params": {
+      "d0": 6,
+      "d1": 2.7,
+      "life": "U002:Every king",
+      "lifeDur": 3.0,
+      "pixel": "U003:smaller",
+      "orbit": 10
+     },
+     "tr": "zoom",
+     "tro": [
+      0.5,
+      0.43
+     ]
     },
     {
-     "from": "U009",
-     "type": "localgroup",
+     "from": "U004",
+     "type": "pbdot",
      "params": {
-      "approach": "U009:heading toward",
-      "merge": "U011:merger"
+      "view": "beam",
+      "bd0": 9,
+      "bd1": 26,
+      "ping": "U004:Pale",
+      "orbit": 16
+     },
+     "tr": "wipe"
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "label": "Miya's Lab",
+   "title": "Voyager 1",
+   "mode": "cuts",
+   "from": "U005",
+   "tr": "whip",
+   "shots": [
+    {
+     "from": "U005",
+     "type": "voyager",
+     "params": {
+      "flyin": "U005:launched",
+      "launch": "U005:Voyager",
+      "jupiter": "U006:Jupiter",
+      "saturn": "U006:Saturn",
+      "far": "U007:edge",
+      "jlead": 3,
+      "slead": 2.5,
+      "jdt": 1.8,
+      "sdt": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "label": "Miya's Lab",
+   "title": "One last look",
+   "mode": "cuts",
+   "from": "U009",
+   "tr": "dip",
+   "shots": [
+    {
+     "from": "U009",
+     "type": "pbprobe",
+     "params": {
+      "view": "hero"
+     }
+    },
+    {
+     "from": "U010",
+     "type": "pbprobe",
+     "params": {
+      "view": "turn",
+      "turn": "U011:turn"
      },
      "tr": "xfade"
     },
     {
-     "from": "U015",
-     "type": "horizon",
+     "from": "U012",
+     "type": "pbprobe",
      "params": {
-      "shell": "U015",
-      "cross": "U016:expanding",
-      "vanish": "U018:carried past"
+      "view": "glare",
+      "glare": "U012:close"
      },
-     "tr": "dip"
+     "tr": "flash"
+    },
+    {
+     "from": "U013",
+     "type": "pbearth",
+     "params": {
+      "view": "pulse",
+      "pulse": "U013:sent"
+     },
+     "tr": "push"
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "label": "Miya's Lab",
+   "title": "The family portrait",
+   "mode": "cuts",
+   "from": "U014",
+   "tr": "blinds",
+   "shots": [
+    {
+     "from": "U014",
+     "type": "pbportrait",
+     "params": {
+      "dive": "U015:portrait",
+      "cam": false
+     }
+    },
+    {
+     "from": "U016",
+     "type": "pbdot",
+     "params": {
+      "d0": 34,
+      "d1": 9,
+      "ping": "U016:Earth",
+      "orbit": 6
+     },
+     "tr": "zoom",
+     "tro": [
+      0.5,
+      0.43
+     ]
+    },
+    {
+     "from": "U017",
+     "type": "pbdot",
+     "params": {
+      "d0": 4.2,
+      "d1": 2.5,
+      "pixel": "U017:Just",
+      "ping": "U017:pale",
+      "orbit": 8
+     },
+     "tr": "iris",
+     "tro": [
+      0.5,
+      0.43
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c5",
+   "label": "Miya's Lab",
+   "title": "Lights out",
+   "mode": "cuts",
+   "from": "U018",
+   "tr": "dip",
+   "shots": [
+    {
+     "from": "U018",
+     "type": "pbprobe",
+     "params": {
+      "view": "off",
+      "off": "U018:switched"
+     }
+    },
+    {
+     "from": "U019",
+     "type": "pbprobe",
+     "params": {
+      "view": "away"
+     },
+     "tr": "xfade"
     },
     {
      "from": "U020",
-     "type": "localgroup",
+     "type": "pbprobe",
      "params": {
-      "approach": "U009",
-      "merge": "U011",
-      "alone": "U020",
-      "erase": "U021:no sign"
+      "view": "data"
      },
-     "tr": "eye"
+     "tr": "wipe"
     },
     {
-     "from": "U026",
-     "type": "observatory",
+     "from": "U021",
+     "type": "pbsystem",
+     "params": {},
+     "tr": "push"
+    }
+   ]
+  },
+  {
+   "id": "c6",
+   "label": "Miya's Lab",
+   "title": "Home",
+   "mode": "cuts",
+   "from": "U022",
+   "tr": "dip",
+   "shots": [
+    {
+     "from": "U022",
+     "type": "pbdot",
      "params": {
-      "glow": "U026",
-      "scope": "U027:conscious minds"
-     },
-     "tr": "dip"
+      "d0": 50,
+      "d1": 30,
+      "ping": "U022:Pale",
+      "orbit": -12
+     }
     },
     {
-     "from": "U030",
-     "type": "observatory",
+     "from": "U023",
+     "type": "earth",
      "params": {
-      "glow": "U026",
-      "scope": "U026",
-      "close": "U031:almost empty"
+      "mind": "U022:Sagan"
+     },
+     "tr": "zoom",
+     "tro": [
+      0.5,
+      0.43
+     ]
+    },
+    {
+     "from": "U025",
+     "type": "pbdot",
+     "params": {
+      "view": "beam",
+      "pull": "U025:lived",
+      "orbit": 14
      },
      "tr": "xfade"
+    }
+   ]
+  },
+  {
+   "id": "c7",
+   "label": "Miya's Lab",
+   "title": "One light-day",
+   "mode": "cuts",
+   "from": "U026",
+   "tr": "blinds",
+   "shots": [
+    {
+     "from": "U026",
+     "type": "pbprobe",
+     "params": {
+      "view": "deep"
+     }
+    },
+    {
+     "from": "U027",
+     "type": "pbprobe",
+     "params": {
+      "view": "shell",
+      "reach": "U028:light-day"
+     },
+     "tr": "whip"
+    },
+    {
+     "from": "U029",
+     "type": "pbearth",
+     "params": {
+      "view": "clock",
+      "day": "U029:radio",
+      "pulse": "U029:radio"
+     },
+     "tr": "flash"
+    }
+   ]
+  },
+  {
+   "id": "c8",
+   "label": "Miya's Lab",
+   "title": "Take care",
+   "mode": "cuts",
+   "from": "U030",
+   "tr": "dip",
+   "shots": [
+    {
+     "from": "U030",
+     "type": "pbearth",
+     "params": {
+      "view": "home"
+     }
+    },
+    {
+     "from": "U031",
+     "type": "pbearth",
+     "params": {
+      "view": "fragile",
+      "pull": "U031:small"
+     },
+     "tr": "xfade"
+    },
+    {
+     "from": "U032",
+     "type": "pbdot",
+     "params": {
+      "d0": 5,
+      "d1": 46,
+      "ping": "U032:closely",
+      "dim": "U033:Miya's",
+      "orbit": 10
+     },
+     "tr": "eye",
+     "tro": [
+      0.5,
+      0.43
+     ]
     }
    ]
   }
  ],
  "beats": {
   "U001": {
-   "sub": "A giant telescope, and nothing to see.",
-   "kw": "Nothing"
+   "kw": "Tiny speck",
+   "sub": "Every human who ever lived is in this point of light."
   },
   "U002": {
-   "sub": "No galaxies. No trace of the Big Bang."
+   "kw": "Every king",
+   "sub": "Every war, every love story."
   },
   "U003": {
-   "sub": "One lonely galaxy in darkness.",
-   "kw": "Alone",
-   "acc": true
+   "kw": "One pixel",
+   "sub": "All on a point smaller than a single pixel."
   },
   "U004": {
-   "sub": "What far-future astronomers will see."
+   "kw": "Pale Blue Dot",
+   "acc": true,
+   "sub": "Maybe the most humbling photograph ever taken."
   },
   "U005": {
-   "sub": "Our neighborhood: the Local Group.",
-   "kw": "Local Group"
+   "kw": "1977",
+   "sub": "NASA launches Voyager 1."
   },
   "U006": {
-   "sub": "More than 80 known galaxies.",
-   "kw": "80+ galaxies"
+   "kw": "Jupiter, Saturn",
+   "sub": "Past Jupiter in 1979, past Saturn in 1980."
   },
   "U007": {
-   "sub": "Andromeda, the Milky Way, Triangulum."
+   "sub": "Out toward the edge of the solar system."
   },
   "U008": {
-   "sub": "Gravity holds it against dark energy."
+   "kw": "38,000 mph",
+   "sub": "About 38,000 miles per hour."
   },
   "U009": {
-   "sub": "Andromeda: about 250,000 mph toward us.",
-   "kw": "250,000 mph"
+   "kw": "Carl Sagan",
+   "sub": "On the Voyager imaging team, he had an idea."
   },
   "U010": {
-   "sub": "A collision predicted in 4.5 billion years..."
+   "sub": "Before the probe left for good..."
   },
   "U011": {
-   "sub": "...then a merger: Milkdromeda.",
-   "kw": "Milkdromeda"
+   "kw": "Look back",
+   "acc": true,
+   "sub": "Turn the camera around for one last look at home."
   },
   "U012": {
-   "sub": "A 2025 study: less certain..."
+   "kw": "Risky",
+   "sub": "The camera would point close to the Sun."
   },
   "U013": {
-   "sub": "...about a coin flip in 10 billion years.",
-   "kw": "Coin flip"
+   "kw": "Feb 14, 1990",
+   "sub": "The team sent the command."
   },
   "U014": {
-   "sub": "Either way, the group ends up together."
+   "kw": "60 frames",
+   "sub": "Taken from 3.7 billion miles away."
   },
   "U015": {
-   "sub": "Everything outside: a different fate.",
-   "kw": "Outside"
+   "sub": "A family portrait of the solar system."
   },
   "U016": {
-   "sub": "Dark energy pushes distant galaxies away."
+   "kw": "Earth",
+   "sub": "Caught inside a ray of scattered sunlight."
   },
   "U017": {
-   "sub": "In over a trillion years...",
-   "kw": "1 trillion yrs"
+   "kw": "0.12 pixel",
+   "acc": true,
+   "sub": "A pale blue dot."
   },
   "U018": {
-   "sub": "...all of them pass the horizon."
+   "kw": "Cameras off",
+   "sub": "Thirty-four minutes later, switched off forever."
   },
   "U019": {
-   "sub": "Their light becomes undetectable.",
-   "kw": "Undetectable",
-   "acc": true
+   "sub": "Power saved for the long journey. The last pictures."
   },
   "U020": {
-   "sub": "Krauss and Scherrer imagined that era.",
-   "kw": "Krauss, Scherrer"
+   "kw": "So faint",
+   "sub": "The signal was faint, and very far away."
   },
   "U021": {
-   "sub": "No galaxies racing away."
+   "kw": "May 1990",
+   "sub": "Only then had all the image data reached Earth."
   },
   "U022": {
-   "sub": "The Big Bang's afterglow..."
+   "kw": "1994",
+   "sub": "Sagan's book took its name: Pale Blue Dot."
   },
   "U023": {
-   "sub": "...stretched beyond detection."
+   "kw": "That is us",
+   "acc": true,
+   "sub": "Look again at that dot. That is home."
   },
   "U024": {
-   "sub": "They might think the universe is static.",
-   "kw": "Static?"
+   "sub": "Everyone we love, everyone we have ever heard of."
   },
   "U025": {
-   "sub": "The true history erased.",
-   "kw": "Erased",
-   "acc": true
+   "kw": "Mote of dust",
+   "sub": "Suspended in a sunbeam."
   },
   "U026": {
-   "sub": "So we are lucky. A narrow window...",
-   "kw": "Lucky"
+   "kw": "Interstellar",
+   "sub": "Voyager 1 is still out there."
   },
   "U027": {
-   "sub": "...old enough for planets and minds..."
+   "kw": "Nov 18, 2026",
+   "sub": "The first human-made object to get this far."
   },
   "U028": {
-   "sub": "...young enough to still see galaxies..."
+   "kw": "One light-day",
+   "acc": true,
+   "sub": "One light-day from Earth."
   },
   "U029": {
-   "sub": "...and the cosmic microwave background."
+   "kw": "A full day",
+   "sub": "A radio message from us takes a full day to arrive."
   },
   "U030": {
-   "sub": "100 billion years later...",
-   "kw": "100 billion yrs"
+   "kw": "No borders",
+   "sub": "No borders and no nations, seen from out there."
   },
   "U031": {
-   "sub": "...an almost empty sky. But we live now.",
-   "kw": "Now",
-   "acc": true
+   "kw": "Fragile",
+   "sub": "The only home we have ever known."
   },
   "U032": {
-   "sub": "Witnesses of a disappearing masterpiece."
+   "kw": "Take care",
+   "acc": true,
+   "sub": "Look at it closely, and take care of it."
   },
   "U033": {
-   "sub": "The full story is on Miya's Lab.",
-   "kw": "Miya's Lab"
+   "sub": "The full story of our cosmic prison: Miya's Lab."
   }
  }
 }

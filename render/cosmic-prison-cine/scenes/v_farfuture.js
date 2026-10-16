@@ -24,6 +24,13 @@
 //   - black holes evaporate smallest first, the largest last, each ending in a Hawking flash (rise ~.2 s, fade ~1.2 s), a shock
 //     ring and a spray of photons; all done before `freeze`
 //   - near-field motes drift in front of the field for depth
+// late-eras pass (2026-10-16): the camera now travels — it glides forward THROUGH the graveyard of remnants (`voyage`, default
+// decay - 14 s), swings over to the black holes before `evaporate`, closes in on the last (largest) one, whose end is a big final
+// flash with a wide shock ring and a soft wash; on the heat death it pulls slowly back as space expands. Proton-decay sparkles
+// (recycling pinpoints that blink on remnants, each reborn at a new hashed remnant while dark) run from `decay` into the black-hole
+// era; after `freeze` the last photons stream outward with the expansion and are stretched into ever longer, redder streaks
+// (recycling, fading near the end but never frozen); the clock dissolves: its ticks and trail scatter outward and fade.
+//   voyage    start of the glide through the remnants (default decay - 14 s)
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.farfuture = function (ctx, p) {
   const { T, sm, rng, cue, points, glow, ctex } = ctx, K = window.MIYA.kit;
   const S = new T.Scene(); const BG0 = new T.Color('#070820'), BG1 = new T.Color('#03040e'), BG2 = new T.Color('#010107'); S.background = BG0.clone();
@@ -155,7 +162,24 @@
   const ERA = [t0, cDi, cDe, cEv, cFr], beads = ERA.map((c, k) => { const a = (110 - k * 10) * Math.PI / 180, b = glow(DG, '#ffc65a', 1.4, 0), pl = glow(DG, '#ffd9a0', 4, 0); b.position.set((RD + 2.6) * Math.cos(a), (RD + 2.6) * Math.sin(a), 0); pl.position.copy(b.position); return { c, b, pl }; });
   const tq = v3(0, 0, 0), tq2 = v3(0, 0, 0);
   const SPR = []; S.traverse(o => { if (o.isSprite) SPR.push(o); });
+  // ---------------- late-eras pass (2026-10-16) ----------------
+  const tVy = p.voyage != null ? cue(p.voyage) : cDe - 14, LATE = cDe < 1e8;
+  // proton-decay sparkles on remnants
+  const NK = 420, spk = points(NK, { size: 1.7 }), skA = spk.geometry.attributes.position.array, skC = spk.geometry.attributes.color.array, skB = [];
+  { const r = rng(111); for (let i = 0; i < NK; i++) skB.push({ f: r(), rt: .3 + .35 * r(), w: r() }); }
+  spk.frustumCulled = false; spk.visible = false; S.add(spk);
+  const hs = (a, b, c) => { let h = (a * 374761393 + b * 668265263 + c * 1274126177) | 0; h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h ^ (h >>> 16)) >>> 0) / 4294967296; };
+  // last photons, stretched red by the expansion (Hubble flow about SC: position scales with 1 + G s)
+  const NL = 320, lph = streaks(S, NL, { minPx: 1.3, near: [4, 12] }), lB = [];
+  { const r = rng(121); for (let i = 0; i < NL; i++) { const u2 = r() * 2 - 1, th = r() * 6.283, q = Math.sqrt(1 - u2 * u2), rr = 6 + 40 * Math.pow(r(), .7); lB.push({ d: [q * Math.cos(th) * rr, u2 * rr * .6, q * Math.sin(th) * rr], f: r(), rt: .035 + .03 * r(), br: .5 + .6 * r() }); } }
+  lph.mesh.visible = false;
+  // the last black hole's final flash: wide wash + second shock ring
+  const lastI = bhs.map((b, i) => i).sort((a, b) => bhs[b].te - bhs[a].te)[0], lastB = bhs[lastI];
+  const wash = glow(S, '#dfe8ff', 160, 0), lastRing = new T.Sprite(new T.SpriteMaterial({ map: ringT, color: '#ffe2c0', transparent: true, opacity: 0, blending: T.AdditiveBlending, depthWrite: false })); S.add(lastRing);
+  const tkB = Float32Array.from(tkA), tkR = Array.from({ length: 72 }, (_, i) => [hs(i, 1, 2) - .5, hs(i, 3, 4) - .5, hs(i, 5, 6) - .5]);
+  const cP = v3(0, 0, 0), cTg = v3(0, 0, 0), qA = v3(0, 0, 0), qB = v3(0, 0, 0), lastP = v3(0, 0, 0);
   const cam = new T.PerspectiveCamera(40, ctx.W / ctx.H, .1, 2000); ctx.side(cam, p.side == null ? .12 : p.side);
+  SPR.push(wash, lastRing);
   return { scene: S, camera: cam, draw(t, u) {
     ctx.t = t;
     const en = sm(cEn, cEn + 10, t), di = sm(cDi, cDi + 12, t), de = sm(cDe, cDe + 10, t), fr = sm(cFr, cFr + 8, t), ev = sm(cEv, cEv + 4, t);
@@ -163,7 +187,17 @@
     S.background.copy(BG0).lerp(BG1, dark).lerp(BG2, fr);
     // camera: a slow drift through the region, pulling back a little as the eras pass
     cam.position.set(4 * Math.sin(u * .012) - 2, 2 + 1.5 * Math.sin(u * .009), 62 + u * .04 + 6 * de);
-    cam.lookAt(2, 0, -12);
+    cTg.set(2, 0, -12);
+    // late eras: a chain of smooth moves (each blend stays at 1 once reached, so the path is continuous)
+    if (LATE) { const SWn = swAt(t);
+      const kV = sm(tVy, tVy + 10, t), kB = cEv < 1e8 ? sm(cEv - 8, cEv - 1, t) : 0, kL = cEv < 1e8 ? sm(lastB.te - 4, lastB.te + 2, t) : 0, kF = cFr < 1e8 ? sm(cFr + 1, cFr + 30, t) : 0;
+      const vy = Math.max(0, t - tVy);
+      qA.set(-1 + 5 * Math.sin(vy * .11), 3 + 1.2 * Math.sin(vy * .07), 30 - .35 * vy); qB.set(4 + 2 * Math.sin(vy * .09), 1, -40 - .2 * vy);
+      cam.position.lerp(qA, kV); cTg.lerp(qB, kV);
+      qA.set(16 + 1.5 * Math.sin(t * .05), 5, 26); qB.set(7, 1, -14); cam.position.lerp(qA, kB); cTg.lerp(qB, kB);
+      rot(lastB.q, lastB.om * SWn, lastP); qA.set(lastP.x + 8, lastP.y + 1, lastP.z + 26 + .15 * Math.max(0, t - lastB.te)); cam.position.lerp(qA, kL); cTg.lerp(lastP, kL);
+      const fz = Math.max(0, t - cFr); qA.set(-6 + 3 * Math.sin(fz * .04), 4 + .03 * fz, 70 + 1.3 * fz); qB.set(3, 0, -14); cam.position.lerp(qA, kF); cTg.lerp(qB, kF); }
+    cam.lookAt(cTg);
     far.material.opacity = .5 * (1 - .55 * di) * (1 - .8 * de) * (1 - .9 * fr);
     core.material.opacity = .16 * (1 - .6 * di) * (1 - de); core2.material.opacity = .1 * (1 - en) * (1 - de); band.material.opacity = .12 * (1 - .5 * di) * (1 - .9 * de);
     // accelerating swirl of the whole field (phase per object = om * SW)
@@ -251,6 +285,26 @@
       hand.set(0, hx * .82, hy * .82, .01, 0, 0, .01, .1, .3 * dv, .25 * dv, .16 * dv); hand.commit();
       beads.forEach(o => { const lit = o.c < 1e8 ? sm(o.c, o.c + .4, t) : 0; o.b.material.opacity = (.18 + .7 * lit) * dv;
         o.pl.material.opacity = o.c < 1e8 ? .45 * sm(o.c, o.c + .3, t) * Math.exp(-Math.max(0, t - o.c - .3) / 1.5) * dv : 0; });
+    }
+    // late-eras FX: proton-decay sparkles, last BH final flash, red-stretched last photons, clock dissolving
+    if (LATE) {
+      const ke = sm(cDe - .5, cDe + 2, t) * (1 - sm(cEv + 6, cEv + 14, t)); spk.visible = ke > 0;
+      if (ke > 0) { for (let i = 0; i < NK; i++) { const b = skB[i], x = t * b.rt + b.f, n = Math.floor(x), s = x - n, src = suB[Math.floor(hs(i, n, 1) * NSu)];
+          rot(src.q, src.om * SW, tq); skA[i * 3] = tq.x + (hs(i, n, 2) - .5) * 2; skA[i * 3 + 1] = tq.y + (hs(i, n, 3) - .5) * 2; skA[i * 3 + 2] = tq.z + (hs(i, n, 4) - .5) * 2;
+          const v = ke * sm(0, .1, s) * Math.exp(-s * 5) * (.7 + .9 * b.w) * 2.2; skC[i * 3] = v * .75; skC[i * 3 + 1] = v * .85; skC[i * 3 + 2] = v; }
+        spk.geometry.attributes.position.needsUpdate = true; spk.geometry.attributes.color.needsUpdate = true; }
+      const tl = lastB.te + lastB.ed, la = t - tl, lf = la > -.3 ? sm(-.3, 0, la) * Math.exp(-Math.max(0, la) / 1.6) : 0;
+      wash.material.opacity = .1 * lf; wash.position.copy(bhFx[lastI].f.position); wash.scale.setScalar(120 + 80 * sm(0, 2, la));
+      const xr = Math.min(1, Math.max(0, la / 5)); lastRing.position.copy(wash.position); lastRing.material.opacity = la > 0 && xr < 1 ? .45 * sm(0, .25, la) * Math.pow(1 - xr, 1.3) : 0; lastRing.scale.setScalar(2 + 70 * (1 - Math.pow(1 - xr, 2)));
+      if (la > -.3) { const f2 = bhFx[lastI].f; f2.material.opacity = Math.max(f2.material.opacity, .95 * lf); f2.scale.setScalar(3 + 17 * lf); }
+      const le = cFr < 1e8 ? sm(cFr - 1, cFr + 4, t) * (1 - .55 * sm(t1 - 10, t1 - 1, t)) : 0; lph.mesh.visible = le > 0;
+      if (le > 0) { for (let i = 0; i < NL; i++) { const b = lB[i], s2 = ((t * b.rt + b.f) % 1 + 1) % 1, ds = .03 + .16 * s2, k = le * b.br * sm(0, .1, s2) * sm(1, .7, s2) * .45;
+          const g1 = 1 + 2.2 * s2, g0 = 1 + 2.2 * Math.max(0, s2 - ds), rr = 1 - .75 * s2, gg = .85 - .7 * s2, bb = .6 - .55 * s2;
+          lph.set(i, SC.x + b.d[0] * g1, b.d[1] * g1, SC.z + b.d[2] * g1, SC.x + b.d[0] * g0, b.d[1] * g0, SC.z + b.d[2] * g0, .14, k * rr, k * Math.max(.05, gg) * rr, k * Math.max(.02, bb) * rr); }
+        lph.commit(); }
+      const dz = cFr < 1e8 ? sm(cFr + 8, cFr + 22, t) : 0;
+      if (dz > 0) { for (let i = 0; i < 72; i++) { const r3 = tkR[i], sc = 1 + .5 * dz; tkA[i * 3] = tkB[i * 3] * sc + r3[0] * 18 * dz; tkA[i * 3 + 1] = tkB[i * 3 + 1] * sc + r3[1] * 18 * dz; tkA[i * 3 + 2] = r3[2] * 18 * dz; }
+        tk.geometry.attributes.position.needsUpdate = true; for (let j = 0; j < NTR; j++) { trA[j * 3] *= 1 + .6 * dz; trA[j * 3 + 1] *= 1 + .6 * dz; trA[j * 3 + 2] = (hs(j, 7, 8) - .5) * 14 * dz; } tr.geometry.attributes.position.needsUpdate = true; }
     }
     // skip invisible sprites (software rendering pays for every quad, even at opacity 0)
     SPR.forEach(o => { o.visible = o.material.opacity > .002; });

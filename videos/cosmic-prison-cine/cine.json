@@ -17,7 +17,11 @@
      "scope": "U005:telescopes",
      "rocket": "U005:rockets",
      "follow": "U005:void",
-     "edge": "U006:edge"
+     "edge": "U006:edge",
+     "trails": "U003",
+     "beam": "U004:explore",
+     "wall": "U008:barrier",
+     "cage": "U009:escape"
     }
    },
    "badge_label": "Looking toward"
@@ -34,7 +38,15 @@
     "params": {
      "far": "U015:front porch",
      "proxima": "U018:73,000 years",
-     "galaxy": "U025:100,000 light-years"
+     "galaxy": "U025:100,000 light-years",
+     "launch": "U012:Voyager",
+     "flyin": "U011:achievement",
+     "jupiter": "U013:vacuum",
+     "saturn": "U014:farther",
+     "oort": "U016:outer",
+     "lapse": "U020",
+     "zoom": "U023",
+     "edge": "U027"
     }
    },
    "badge_label": "Distance"
@@ -71,7 +83,10 @@
    "scene": {
     "type": "cosmicweb",
     "params": {
-     "zoom": "U046:scale"
+     "zoom": "U046:scale",
+     "ship": "U044",
+     "warp": "U045:travel",
+     "bend": "U044:bend"
     }
    },
    "badge_label": "Scale"
@@ -103,7 +118,25 @@
     "params": {
      "static": "U050",
      "redshift": "U060:red end",
-     "stretch": "U069:stretching"
+     "stretch": "U069:stretching",
+     "freeze": "U050",
+     "travel": "U052:infinite",
+     "shatter": "U054:fall",
+     "scope": "U055",
+     "shook": "U057:shook",
+     "burst": "U058:expanding",
+     "spectrum": "U059",
+     "shift": "U060:shifted",
+     "ribOff": "U059",
+     "siren": "U061",
+     "farther": "U063:farther",
+     "everywhere": "U065:everywhere",
+     "balloon": "U066",
+     "horror": "U067",
+     "bullets": "U068",
+     "fabric": "U069",
+     "living": "U070",
+     "cubes": "U071"
     }
    },
    "badge_label": "The universe"
@@ -175,7 +208,10 @@
     "type": "horizon",
     "params": {
      "shell": "U100:16 billion",
-     "cross": "U102:cut off"
+     "cross": "U102:cut off",
+     "view": "ray",
+     "hubble": "U097",
+     "beam": "U103:fired"
     }
    },
    "badge_label": "Horizon"
@@ -203,7 +239,9 @@
      "params": {
       "shell": "U100:16 billion",
       "cross": "U102:cut off",
-      "vanish": "U121:slipping"
+      "vanish": "U121:slipping",
+      "view": "slip",
+      "beam": "U125"
      },
      "tr": "zoom",
      "tro": [
@@ -228,7 +266,10 @@
      "cross": "U102:cut off",
      "vanish": "U121:slipping",
      "seen": "U131:We can see light",
-     "lost": "U135:94 percent"
+     "lost": "U135:94 percent",
+     "view": "reach",
+     "ship": "U134:launched",
+     "gallery": "U141:look"
     }
    },
    "badge_label": "Reachable"
@@ -258,7 +299,10 @@
       "vanish": "U121:slipping",
       "seen": "U131:We can see light",
       "lost": "U135:94 percent",
-      "edge": "U160:closing in"
+      "edge": "U160:closing in",
+      "view": "orbit",
+      "wall": "U158:wall",
+      "swept": "U161:swept"
      },
      "tr": "eye"
     }
@@ -278,7 +322,11 @@
      "approach": "U149:heading toward",
      "merge": "U152:merger",
      "alone": "U166:carried past",
-     "erase": "U172:no sign"
+     "erase": "U172:no sign",
+     "dive": "U169:telescope",
+     "cmb": "U173:microwave",
+     "out": "U174:Looking",
+     "last": "U176:erased"
     }
    },
    "badge_label": "The sky"
@@ -297,7 +345,9 @@
      "params": {
       "open": "U177:wormholes",
       "enter": "U179:shortcut",
-      "collapse": "U186:destroy"
+      "collapse": "U186:destroy",
+      "ghost": "U188:quantum",
+      "implode": "U189:fiercely"
      }
     },
     {
@@ -308,7 +358,14 @@
       "energy": "U196:Jupiter",
       "snowplow": "U200:snowplow",
       "blast": "U201:blasting",
-      "trapped": "U207"
+      "trapped": "U207",
+      "wall": "U203:wall",
+      "hits": [
+       "U204:relativity",
+       "U205:expansion",
+       "U206:shortcuts"
+      ],
+      "voice": "U206:voice"
      },
      "tr": "whip"
     }
@@ -358,7 +415,16 @@
     "type": "cosmicweb",
     "params": {
      "look": "void",
-     "shore": "U242:shoreline"
+     "shore": "U242:shoreline",
+     "dive": "U235:such",
+     "scale": "U235:250",
+     "count": "U236:contains",
+     "home": "U238:Milky Way",
+     "dim": "U239:known",
+     "sixties": "U239:1960s",
+     "empty": "U240:energy",
+     "recede": "U243:islands",
+     "bridges": "U244:washing"
     }
    },
    "badge_label": "Galaxies inside"

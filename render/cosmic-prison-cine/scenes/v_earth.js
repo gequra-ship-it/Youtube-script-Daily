@@ -20,6 +20,13 @@
 // with a comet head (from cue + 5.5 s), each planet glints on "planets, moons" (cue + 12.4 s), and a brightening wave runs
 // through the neighbouring stars on "vast beyond imagination" (cue + 31 s); mind = pings from the dot on the cue, then on arrival
 // at the night side (cue + 9..13 s) the city lights and aurora brighten and the sunrise flare blooms at the limb.
+// Third pass (2026-10-16). oasis: from cue + 8.5 s the camera dives into the Solar System on a smooth spline (Hermite, zero speed at
+// both ends, so it joins the rise exactly): it sweeps past a banded Jupiter with four moons ("planets, alien moons"), past Saturn and
+// its rings ("uncharted worlds"), then climbs back to the high view; the climb out to the neighbouring stars now starts at cue + 23 s
+// (was cue + 15 s). The flyby planets are true-size relative to Earth (Jupiter 11, Saturn 9.4 Earth radii) at the symbolic orbit
+// radii. mind: while far out, the camera pushes in slowly on the pale blue dot (still a dot), which sits inside soft coloured sunbeam
+// bands like the Voyager 1 image (scattered sunlight; they fade as the camera starts its return); small glints of life sparkle on the
+// dot (cue - 4.2 s, - 2.4 s, + 1 s and + 3 s), and the sky turns slowly.
 // Without a cue: a slow drift close to Earth (half lit, city lights on the night half, the Moon to the right).
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.earth = function (ctx, p) {
   const { T, sm, rng, cue, glow, ctex } = ctx, M = window.MIYA, K = M.kit;
@@ -258,8 +265,51 @@
   // sonar ping rings around the pale blue dot, comet heads that draw the orbit lines on
   const pings = [0, 1].map(() => scrSpr(ringT, '#9cc4ff'));
   const heads = PL.map(() => { const m = new T.Sprite(new T.SpriteMaterial({ map: starT, color: '#fff0d0', transparent: true, opacity: 0, blending: T.AdditiveBlending, depthWrite: false, sizeAttenuation: false })); m.scale.set(.03, .03, 1); S.add(m); return m; });
+  // mind: Voyager-style sunbeam bands (scattered sunlight in the optics) and life glints on the dot
+  const bandSprT = ctex(128, (g, sz) => { const im = g.createImageData(sz, sz); for (let y = 0; y < sz; y++) for (let x = 0; x < sz; x++) { const u2 = (x + .5) / sz * 2 - 1, v2 = (y + .5) / sz * 2 - 1, a = Math.exp(-u2 * u2 * 5) * Math.min(1, (1 - Math.abs(v2)) * 3), k = (y * sz + x) * 4;
+    im.data[k] = im.data[k + 1] = im.data[k + 2] = 255; im.data[k + 3] = a * 255; } g.putImageData(im, 0, 0); });
+  // world-space sprites at the dot (screen-space ones would be left behind by the camera director's dolly)
+  const wSpr = (map, col) => { const m = new T.Sprite(new T.SpriteMaterial({ map, color: col, transparent: true, opacity: 0, blending: T.AdditiveBlending, depthWrite: false, depthTest: false })); m.renderOrder = 21; m.visible = false; S.add(m); return m; };
+  const BANDS = cM == null ? [] : [[-.62, .22, '#ff9a6a', .5], [-.3, .12, '#ffd28a', .7], [0, .3, '#ffc890', 1], [.2, .09, '#9cc4ff', .6], [.48, .2, '#c8a0ff', .45], [.8, .14, '#ffb27a', .35]].map(([o, w, c, a]) => [wSpr(bandSprT, c), o, w, a]);
+  const glT = ctex(128, (g, sz) => { g.translate(sz / 2, sz / 2); for (let k = 0; k < 4; k++) { g.rotate(Math.PI / 2); const gr = g.createLinearGradient(0, 0, sz / 2, 0); gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.beginPath(); g.moveTo(0, -2.5); g.lineTo(sz / 2, 0); g.lineTo(0, 2.5); g.fill(); }
+    const r = g.createRadialGradient(0, 0, 0, 0, 0, sz / 5); r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(-sz / 2, -sz / 2, sz, sz); });
+  const glint = cM == null ? null : wSpr(glT, '#d8ecff'), GLT = cM == null ? [] : [cM - 4.2, cM - 2.4, cM + 1, cM + 3];
   const env = (a, rise, fall) => a <= 0 ? 0 : sm(0, rise, a) * Math.exp(-Math.max(0, a - rise) / fall);
   const nbT = nb.map(([sp]) => sp.position.distanceTo(SUN));
+
+  // ---------------- oasis flyby planets (true size vs Earth, lit from the Sun by a tiny shader) ----------------
+  const pPos = (i, t, o) => { const [r, , , a0] = PL[i], w = 1 / Math.pow(r / 400, 1.5), a = a0 + t * .004 * w; return o.copy(SUN).addScaledVector(OX, Math.cos(a) * r).addScaledVector(OY, Math.sin(a) * r); };
+  const FLY = [];
+  if (cO != null) {
+    const bandT = (cols, seed) => ctex(256, (g, sz) => { const im = g.createImageData(sz, sz), hx = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16)), rr = rng(seed), ph = cols.map(() => rr() * 6.28);
+      for (let y = 0; y < sz; y++) for (let x = 0; x < sz; x++) { const v = y / sz, wob = .012 * Math.sin(x / sz * 6.283 * 3 + v * 40) + .006 * Math.sin(x / sz * 6.283 * 7 + v * 90 + ph[0]), f = (v + wob) * cols.length * 2.6, k0 = ((Math.floor(f) % cols.length) + cols.length) % cols.length, k1 = (k0 + 1) % cols.length, fr = sm(.25, .75, f - Math.floor(f));
+        const a = hx(cols[k0]), b = hx(cols[k1]), k = (y * sz + x) * 4; for (let j = 0; j < 3; j++) im.data[k + j] = a[j] + (b[j] - a[j]) * fr; im.data[k + 3] = 255; }
+      g.putImageData(im, 0, 0); if (seed === 1) { g.fillStyle = 'rgba(180,90,60,.75)'; g.beginPath(); g.ellipse(170, 158, 18, 9, 0, 0, 6.283); g.fill(); } });
+    const litM = (map, col) => new T.ShaderMaterial({ uniforms: { map: { value: map }, uCol: { value: new T.Color(col || '#ffffff') }, sunPos: { value: SUN } },
+      vertexShader: 'varying vec3 vN, vP; varying vec2 vUv; void main(){ vUv = uv; vN = normalize(mat3(modelMatrix) * normal); vec4 w = modelMatrix * vec4(position, 1.); vP = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }',
+      fragmentShader: `uniform sampler2D map; uniform vec3 uCol, sunPos; varying vec3 vN, vP; varying vec2 vUv;
+        void main(){ vec3 N = normalize(vN), L = normalize(sunPos - vP); float l = max(0., dot(N, L)); vec3 c = pow(texture2D(map, vUv).rgb, vec3(2.2)) * uCol;
+          gl_FragColor = vec4(c * (l * 1.5 + .015) + c * pow(1. - abs(dot(N, normalize(cameraPosition - vP))), 3.) * .15 * l, 1.);
+          #include <tonemapping_fragment>
+          #include <colorspace_fragment>
+        }` });
+    const jup = new T.Mesh(new T.SphereGeometry(11, 64, 32), litM(bandT(['#e8d8bc', '#d2b48e', '#efe2c8', '#c09670', '#e6d4b4', '#b48a66', '#ece0c6', '#d8bf9a'], 1))); jup.rotation.z = .05; S.add(jup);
+    const sat = new T.Mesh(new T.SphereGeometry(9.4, 64, 32), litM(bandT(['#efe0bd', '#d9c296', '#f2e6c8', '#cdb386', '#e8d6ae'], 2))); S.add(sat);
+    const ringT = ctex(256, (g, sz) => { for (let x = 0; x < sz; x++) { const v = x / sz, a = (v < .08 ? 0 : v < .42 ? .55 + .25 * Math.sin(v * 90) : v < .5 ? .08 : v < .9 ? .8 + .15 * Math.sin(v * 140) : v < .94 ? .1 : .45) * (v > .98 ? 0 : 1);
+      g.fillStyle = `rgba(${230 - 40 * v | 0},${210 - 50 * v | 0},${170 - 40 * v | 0},${a})`; g.fillRect(x, 0, 1, sz); } });
+    const rG = new T.RingGeometry(12.5, 22, 128, 1); { const pa = rG.attributes.position, uv = rG.attributes.uv; for (let k = 0; k < pa.count; k++) { const r = Math.hypot(pa.getX(k), pa.getY(k)); uv.setXY(k, (r - 12.5) / 9.5, .5); } }
+    const ring = new T.Mesh(rG, new T.ShaderMaterial({ uniforms: { map: { value: ringT }, sunPos: { value: SUN } }, transparent: true, depthWrite: false, side: T.DoubleSide,
+      vertexShader: 'varying vec2 vUv; varying vec3 vP; void main(){ vUv = uv; vec4 w = modelMatrix * vec4(position, 1.); vP = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }',
+      fragmentShader: `uniform sampler2D map; varying vec2 vUv; varying vec3 vP;
+        void main(){ vec4 c = texture2D(map, vUv); gl_FragColor = vec4(pow(c.rgb, vec3(2.2)) * .9, c.a);
+          #include <tonemapping_fragment>
+          #include <colorspace_fragment>
+        }` }));
+    sat.add(ring); ring.rotation.x = -Math.PI / 2 + .45; ring.rotation.y = .2;
+    const mt = ctex(64, (g, sz) => { g.fillStyle = '#bdb6aa'; g.fillRect(0, 0, sz, sz); const r = rng(5); for (let k = 0; k < 40; k++) { g.fillStyle = `rgba(${90 + r() * 120 | 0},${80 + r() * 90 | 0},${70 + r() * 60 | 0},.5)`; g.beginPath(); g.arc(r() * sz, r() * sz, 2 + r() * 6, 0, 6.283); g.fill(); } });
+    const moons = [[18, .32, '#e8dcc0', 0], [24, .28, '#f2f0ea', 1.7], [32, .45, '#c8c0b0', 3.4], [44, .42, '#8a8070', 4.8]].map(([d, rad, col, ph]) => { const m = new T.Mesh(new T.SphereGeometry(rad * 1.6, 24, 12), litM(mt, col)); S.add(m); return { m, d, ph }; });
+    FLY.push({ jup, sat, moons }); }
+  const PJ = new T.Vector3(), PS = new T.Vector3(), qq = new T.Vector3();
 
   // ---------------- camera story ----------------
   const cam = new T.PerspectiveCamera(35, ctx.W / ctx.H, .05, 1e5); ctx.side(cam, p.side == null ? .12 : p.side);
@@ -282,21 +332,45 @@
       const lnd = Math.log(d0) + (Math.log(GRAIN.d) - Math.log(d0)) * g;
       dir.copy(CLOSE.dir).lerp(GRAIN.dir, sm(.15, .9, g)).normalize(); tgt.copy(CLOSE.tgt).lerp(GRAIN.tgt, sm(Math.log(3e3), Math.log(GRAIN.d), lnd)); d = Math.exp(lnd); }
     else if (cO != null) {   // oasis: rise over the Solar System, then out among the neighbouring stars
-      const o1 = ease(Math.min(1, Math.max(0, (t - cO) / 14))), o2 = ease(Math.min(1, Math.max(0, (t - cO - 15) / 20)));
+      const o1 = ease(Math.min(1, Math.max(0, (t - cO) / 14))), o2 = ease(Math.min(1, Math.max(0, (t - cO - 23) / 13.4)));
       const c0 = { dir: CLOSE.dir, d: CLOSE.d + .01 * Math.max(0, Math.min(t, cO) - ctx.t0), tgt: CLOSE.tgt };
       if (o2 <= 0) { const lnd = Math.log(c0.d) + (Math.log(OAS1.d) - Math.log(c0.d)) * o1; mix(c0, OAS1, sm(0, .8, o1), sm(Math.log(20), Math.log(OAS1.d), lnd)); d = Math.exp(lnd); }
       else d = mix(OAS1, OAS2, o2);
       dir.applyAxisAngle(NORB, .01 * Math.max(0, t - cO)); }
     else if (cM != null) {   // mind: from the pale blue dot back to the night side
-      const m = ease(Math.min(1, Math.max(0, (t - cM) / 13)));
+      const m = sm(cM, cM + 12.5, t);
       const f0 = { dir: FAR.dir, d: FAR.d * (1 - .002 * Math.min(u, 60)), tgt: FAR.tgt };
-      d = mix(f0, NIGHT, m); d *= 1 - .02 * sm(0, 20, t - cM - 13); }
+      d = mix(f0, NIGHT, m); d *= 1 - .02 * sm(0, 20, t - cM - 13);
+      // slow push in on the dot while far out, and a slow turn (both hand over to the return move)
+      const pu = sm(ctx.t0, cM + 1, t) * (1 - m); d *= 1 - .3 * pu; dir.applyAxisAngle(UP, .22 * pu).normalize(); }
     else { d = mix(CLOSE, CLOSE, 0); d += .01 * u; dir.applyAxisAngle(UP, -.002 * u); }
     return d; };
+  // oasis flyby: Hermite spline with non-uniform knots (zero velocity at both ends, so it joins the story exactly)
+  const FK = cO == null ? null : [cO + 8.5, cO + 11.8, cO + 14.6, cO + 16.8, cO + 19.6, cO + 23];
+  const KP = [0, 1, 2, 3, 4, 5].map(() => new T.Vector3()), KT = [0, 1, 2, 3, 4, 5].map(() => new T.Vector3()), hv = new T.Vector3(), hw = new T.Vector3();
+  const herm = (P, Kt, t, o) => { let j = 0; while (j < Kt.length - 2 && t > Kt[j + 1]) j++; const ta = Kt[j], tb = Kt[j + 1], h = tb - ta, x = Math.min(1, Math.max(0, (t - ta) / h));
+    const tan = (i, v) => { if (i <= 0 || i >= P.length - 1) return v.set(0, 0, 0); const sp = Math.min(P[i + 1].distanceTo(P[i]) / (Kt[i + 1] - Kt[i]), P[i].distanceTo(P[i - 1]) / (Kt[i] - Kt[i - 1])); v.copy(P[i + 1]).sub(P[i - 1]); const l = v.length(); return l > 1e-6 ? v.multiplyScalar(sp / l) : v.set(0, 0, 0); };
+    const x2 = x * x, x3 = x2 * x; tan(j, hv); tan(j + 1, hw);
+    return o.copy(P[j]).multiplyScalar(2 * x3 - 3 * x2 + 1).addScaledVector(hv, h * (x3 - 2 * x2 + x)).addScaledVector(P[j + 1], -2 * x3 + 3 * x2).addScaledVector(hw, h * (x3 - x2)); };
+  const camAt = (t, u) => { const dd = story(t, u); if (FK && t > FK[0] && t < FK[5]) {
+      story(FK[0], FK[0] - ctx.t0); KP[0].copy(tgt).addScaledVector(dir, d0s(FK[0])); KT[0].copy(tgt);
+      story(FK[5], FK[5] - ctx.t0); KP[5].copy(tgt).addScaledVector(dir, d0s(FK[5])); KT[5].copy(tgt);
+      pPos(4, t, PJ); pPos(5, t, PS);
+      // swing past Jupiter (sunlit side, sliding along its orbit), dash to Saturn, swing past it, climb out
+      const rj = qq.copy(PJ).sub(SUN).normalize(), tj = hv.crossVectors(NORB, rj).normalize();
+      KP[1].copy(PJ).addScaledVector(rj, -115).addScaledVector(tj, -85).addScaledVector(NORB, 30); KP[2].copy(PJ).addScaledVector(rj, -85).addScaledVector(tj, 90).addScaledVector(NORB, 12); KT[1].copy(PJ); KT[2].copy(PJ);
+      const rs = qq.copy(PS).sub(SUN).normalize(), ts = hv.crossVectors(NORB, rs).normalize();
+      KP[3].copy(PS).addScaledVector(rs, -110).addScaledVector(ts, -80).addScaledVector(NORB, 40); KP[4].copy(PS).addScaledVector(rs, -85).addScaledVector(ts, 75).addScaledVector(NORB, 22); KT[3].copy(PS); KT[4].copy(PS);
+      herm(KP, FK, t, cp); herm(KT, FK, t, tgt);
+      // during the dash the look turns from Jupiter to Saturn ahead (a target spline alone would look sideways)
+      if (t > FK[2] && t < FK[3]) { const w = sm(FK[2], FK[2] + .6 * (FK[3] - FK[2]), t), la = hv.copy(PJ).sub(cp), lb = hw.copy(PS).sub(cp), wL = sm(FK[2], FK[3], t), L = Math.exp(Math.log(la.length()) * (1 - wL) + Math.log(lb.length()) * wL);
+        la.normalize().lerp(lb.normalize(), w).normalize(); tgt.copy(cp).addScaledVector(la, L); } dir.copy(cp).sub(tgt); const L = dir.length(); dir.multiplyScalar(1 / L); return L; }
+    return dd; };
+  const d0s = tt => story(tt, tt - ctx.t0);
   const scr = new T.Vector3(), tA = new T.Vector3(), tB = new T.Vector3();
   return { scene: S, camera: cam, draw(t, u) {
     ctx.t = t;
-    const lnPrev = Math.log(story(t - .05, u - .05)), d = story(t, u), lnV = (Math.log(d) - lnPrev) / .05;
+    const lnPrev = Math.log(camAt(t - .05, u - .05)), d = camAt(t, u), lnV = (Math.log(d) - lnPrev) / .05;
     cp.copy(tgt).addScaledVector(dir, d); cam.position.copy(cp);
     cam.up.copy(UP); cam.lookAt(tgt);
     const de = cp.length();   // distance to Earth
@@ -336,7 +410,7 @@
     // near-field motes: camera space, depth in units of the near plane; s = fract(F + phase) with F following log-distance
     // (pull-back -> they recede into the frame, approach -> they rush toward the camera); streak length = distance in .2 s
     NEAR.position.copy(cp); NEAR.quaternion.copy(cam.quaternion); NEAR.scale.setScalar(cam.near * 2);
-    const F = .3 * Math.log(d) + .004 * t, vS = .3 * lnV + .004, sp = Math.min(1, Math.abs(lnV) / .9), tH = Math.tan(FOV0 * Math.PI / 360), asp = ctx.W / ctx.H;
+    const dsh = FK ? sm(FK[2], FK[3], t) : 0, dshV = FK ? 6 * (sm(FK[2], FK[3], t + .05) - dsh) / .05 : 0, F = .3 * Math.log(d) + .004 * t - 6 * dsh, vS = .3 * lnV + .004 - dshV, sp = Math.min(1, Math.max(Math.abs(lnV) / .9, dshV / 3)), tH = Math.tan(FOV0 * Math.PI / 360), asp = ctx.W / ctx.H;
     for (let i = 0; i < NMT; i++) { const b = mB[i], s0 = F * b[3] + b[2], s = s0 - Math.floor(s0), z = 2.5 + 40 * s, ds = Math.max(-.35, Math.min(.35, vS * b[3] * .2)), z2 = 2.5 + 40 * Math.max(0, Math.min(1, s - ds));
       const x = b[0] + .15 * Math.sin(t * .2 * b[4] + b[5]), y = b[1] + .15 * Math.cos(t * .17 * b[4] + b[5]), sx = x / z / (tH * asp);
       const v = Math.sin(Math.PI * s) * (.1 + .32 * sp) * b[4] * (sx < -.25 ? .3 : 1) * (Math.abs(sx) > 1.1 || Math.abs(y / z / tH) > 1.1 ? 0 : 1);
@@ -349,6 +423,16 @@
     const fG = clear * (.55 + .7 * (cM != null ? env(t - (cM + 11.5), .6, 3) + .4 * arrive : 0) + .3 * sw);
     GH.forEach(([g, k, sz]) => { const nx = scr.x * (1 - 2 * k), ny = scr.y * (1 - 2 * k); g.visible = fG > .01; if (!g.visible) return;
       g.position.set(nx, ny, .5).unproject(cam); g.scale.set(sz, sz, 1); g.material.opacity = fG * .16 * (nx < -.3 ? .3 : 1); });
+    // oasis flyby planets: Jupiter (+ four moons) and Saturn at their orbit positions
+    if (FLY.length) { const F0 = FLY[0], vis = de > 300; F0.jup.visible = F0.sat.visible = vis; pPos(4, t, F0.jup.position); pPos(5, t, F0.sat.position); F0.jup.rotation.y = t * .05; F0.sat.rotation.y = t * .04;
+      F0.moons.forEach((m, i) => { const a = m.ph + t * (.25 / (1 + i)); m.m.visible = vis; m.m.position.copy(F0.jup.position).addScaledVector(OX, Math.cos(a) * m.d).addScaledVector(OY, Math.sin(a) * m.d).addScaledVector(NORB, Math.sin(a) * m.d * .03); }); }
+    // mind: sunbeam bands through the dot, life glints on it
+    if (BANDS.length) { const fb = sm(ctx.t0, ctx.t0 + 3, t) * (1 - sm(cM + .5, cM + 5, t)) * dotOp, an = .24 + .03 * Math.sin(t * .05);
+      const hW = de * Math.tan(FOV0 * Math.PI / 360), rgt = tA.setFromMatrixColumn(cam.matrixWorld, 0), upv = tB.setFromMatrixColumn(cam.matrixWorld, 1);
+      BANDS.forEach(([g, o, w, a], i) => { g.visible = fb > .005; if (!g.visible) return; const oo = (o + .015 * Math.sin(t * .11 + i * 1.7)) * hW;
+        g.position.copy(EG.position).addScaledVector(rgt, Math.cos(an) * oo).addScaledVector(upv, -Math.sin(an) * oo); g.material.rotation = an; g.scale.set(w * hW, 7 * hW, 1); g.material.opacity = fb * a * .13 * (.85 + .15 * Math.sin(t * .3 + i)); });
+      const ge = GLT.reduce((m, tg) => Math.max(m, env(t - tg, .25, 1.3)), 0); glint.visible = ge > .005 && dotOp > .01;
+      if (glint.visible) { glint.position.copy(EG.position); glint.material.rotation = .3 + t * .05; glint.scale.setScalar((.06 + .1 * ge) * hW); glint.material.opacity = .9 * ge * dotOp; } }
     ana.visible = fG > .01; if (ana.visible) { ana.position.set(scr.x, scr.y, .5).unproject(cam); ana.scale.set(.38, .007, 1); ana.material.opacity = fG * .3; }
   } };
 };
