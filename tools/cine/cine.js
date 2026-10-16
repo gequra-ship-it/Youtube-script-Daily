@@ -49,11 +49,14 @@ const ctxBase = { T, W, H, VERT, ACC, sm, clamp, rng, ctex, dotTex, points, star
 let RTa, RTb, quad, qcam, qmat;
 if (R) {
   // outside transitions the shot renders straight to the canvas (renderer tone mapping); only transitions use the two render
-  // targets + composite shader (same ACES + sRGB maths). Measured on the render server 2026-10-14: always compositing through
+  // targets + composite shader (blended in display space). Measured on the render server 2026-10-14: always compositing through
   // multisampled half-float targets made frames 3-4x slower.
   R.setPixelRatio(1); R.setSize(W, H, false); R.autoClear = true;
   R.toneMapping = T.ACESFilmicToneMapping; R.toneMappingExposure = C.exposure || 1.0; R.outputColorSpace = T.SRGBColorSpace;
-  const mk = () => new T.WebGLRenderTarget(W, H, { type: T.HalfFloatType, samples: 0, colorSpace: T.LinearSRGBColorSpace });
+  // 2026-10-16: the targets get the SAME per-material tone mapping + sRGB output as the canvas (three.js only applies them to the
+  // screen or an XR target, so the targets are flagged as one). Before, the composite re-applied ACES to everything, which darkened
+  // toneMapped:false / custom-shader scenes (cosmicGal points etc.) to about half during a transition, then popped to full.
+  const mk = () => { const r = new T.WebGLRenderTarget(W, H, { type: T.HalfFloatType, samples: 0, colorSpace: T.SRGBColorSpace }); r.isXRRenderTarget = true; return r; };
   RTa = mk(); RTb = mk();
   qcam = new T.OrthographicCamera(-1, 1, 1, -1, 0, 1);
   const tones = (C.tones || ['#1d2150', '#252a63', '#2e3476', '#373f89', '#40499b', '#4a54ad']).map(c => new T.Color(c));
@@ -88,7 +91,7 @@ if (R) {
           if(p<.5){ float q=clamp(p*2.7-dl,0.,1.); cov=(1.-u.y)<q; } else { float q=clamp((p-.5)*2.7-dl,0.,1.); cov=u.y>q; }
           if(cov){ gl_FragColor=vec4(srgb(tones[int(bar)]),1.); return; } c = p<.5 ? A(u) : B(u); }
         else { c=B(u); }
-        gl_FragColor = vec4(srgb(aces(c)), 1.); }`,
+        gl_FragColor = vec4(clamp(c, 0., 1.), 1.); }`,
     depthTest: false, depthWrite: false });
   quad = new T.Mesh(new T.PlaneGeometry(2, 2), qmat); quad.frustumCulled = false;
 }
