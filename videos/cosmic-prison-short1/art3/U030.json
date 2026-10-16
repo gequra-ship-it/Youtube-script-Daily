@@ -1,17 +1,30 @@
 {
- "centre": "a beam of light heading up toward a band of distant galaxies",
- "focus": [
-  540,
-  470,
-  1.5
- ],
- "focus_word": "most distant galaxies",
+ "centre": "our reachable gold bubble inside the large coral disc of the observable universe",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "sparkle",
-   "word": "beam of light",
+   "word": "94 percent",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "94 PERCENT",
+   "word": "94"
+  },
+  {
+   "type": "name",
+   "text": "observable universe",
+   "x": 540,
+   "y": 1370,
+   "to": [
+    740,
+    1220
+   ],
+   "word": "observable universe"
+  }
+ ]
 }

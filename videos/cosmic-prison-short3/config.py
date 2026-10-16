@@ -11,4 +11,4 @@ STYLE = 'cosmic'
 PAL_DEFAULT = 'deepfield'
 PAL = dict(hook='deepfield', voyager='deepfield', idea='deepfield', portrait='deepfield', lightsout='deepfield', home='deepfield', today='deepfield', outro='deepfield')
 
-HOOK = dict(until=999, maxu=4.8)   # guideline 20-2: Shorts change picture every ~4-6 s
+HOOK = dict(until=999, maxu=6.0, slow=8.5)   # guideline 20-2 (2026-10-16 user: cuts were too fast; explanations/numbers slower, energy from motion)

@@ -1,12 +1,30 @@
 {
- "centre": "an inverted, dark blue-rimmed Jupiter: negative energy",
+ "centre": "a waiting world struck on its upper side by rolling blast fronts",
  "focus": [
   540,
-  820,
-  1.5
+  860,
+  1.6
  ],
- "focus_word": "negative energy",
- "sfx": [],
- "labels": [],
- "speed": false
+ "focus_word": "destination",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "blasting",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "destination",
+   "x": 330,
+   "y": 1080,
+   "to": [
+    470,
+    960
+   ],
+   "word": "destination"
+  }
+ ],
+ "speed": true
 }

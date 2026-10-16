@@ -1,17 +1,29 @@
 {
- "centre": "a glass orb holding a curved grid of space with galaxies in it",
+ "centre": "a bright light packet racing up from a star",
  "focus": [
   540,
   860,
-  1.7
+  1.6
  ],
- "focus_word": "strangest facts",
+ "focus_word": "miles per second",
  "sfx": [
   {
-   "name": "bloom",
-   "word": "strangest",
+   "name": "sparkle",
+   "word": "Light travels",
    "vol": 0.55
+  },
+  {
+   "name": "pencil",
+   "word": "Einstein",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "186,000 MILES PER SECOND",
+   "word": "186,000"
+  }
+ ],
+ "speed": true
 }

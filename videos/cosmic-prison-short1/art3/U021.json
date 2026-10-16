@@ -1,14 +1,24 @@
 {
- "centre": "a light packet in a grid whose cells grow ever larger toward the top",
- "focus": null,
- "focus_word": null,
+ "centre": "the big rear roller of the treadmill turning backward",
+ "focus": [
+  440,
+  800,
+  1.5
+ ],
+ "focus_word": "belt",
  "sfx": [
   {
    "name": "warp",
-   "word": "faster than light",
+   "word": "then 100",
    "vol": 0.55
   }
  ],
- "labels": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "BELT: 20 MPH",
+   "word": "20"
+  }
+ ],
  "speed": true
 }

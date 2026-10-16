@@ -1,27 +1,20 @@
 {
- "centre": "Jupiter, banded, turning",
- "focus": [
-  540,
-  860,
-  1.5
- ],
- "focus_word": "Jupiter",
- "sfx": [],
- "labels": [
+ "centre": "Voyager 1 facing us, dish forward",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "name",
-   "text": "Jupiter",
-   "x": 330,
-   "y": 1080,
-   "to": [
-    420,
-    990
-   ],
-   "word": "Jupiter"
+   "name": "warp",
+   "word": "miles per hour",
+   "vol": 0.55
   }
  ],
- "iris": [
-  830,
-  450
- ]
+ "labels": [
+  {
+   "type": "num",
+   "text": "~38,000 MPH",
+   "word": "38,000"
+  }
+ ],
+ "speed": true
 }
