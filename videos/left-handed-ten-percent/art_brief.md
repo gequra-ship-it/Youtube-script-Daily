@@ -1,0 +1,31 @@
+# left-handed-ten-percent — art brief (shared by all picture agents)
+
+Read fully: `tools/art_spec.md` (section 5 backdrop rules: the backdrop variety rules apply to NEW pictures too: no concentric rings, no radiating lines/rays/sunbursts; every picture gets a backdrop that fits its own text; neighbouring units must not share a backdrop kind; at most 2 of every 12 units share a kind). Vertical Shorts agents also follow section 10 of `tools/art_spec.md`.
+
+Paths in those specs that mention `/home/claude/ht/videos/never-eat-human-meat-v3/` mean, for this video:
+- plan: `/home/claude/youtube-script-daily/videos/<SLUG>/plan.json` (use the entries for YOUR uids; `bg`, `pal`, `text`, `prev`, `nxt`, `transition_in`, `dur`)
+- output: `/home/claude/youtube-script-daily/videos/<SLUG>/art3/<uid>.svg` and `<uid>.json`
+- preview tool: `python3 /home/claude/youtube-script-daily/tools/svgshot.py <preview dir> f1.svg ...` (vertical: `SHOT_W=1080 SHOT_H=1920`)
+- `<SLUG>` is given in your task (long video `left-handed-ten-percent`, Shorts `left-handed-ten-percent-short1` / `-short2`).
+Write ONLY your own uids. Do not edit any other repo file. **Scratch work (generator scripts, previews) goes ONLY in your own folder** `/tmp/claude-0/-home-claude-youtube-script-daily/53bea993-48d4-5496-836b-a9dbb74ebe3e/scratchpad/<first uid>_<last uid>/` (Shorts agents: prefix the folder with the slug) — other agents work in parallel; never write to a shared scratch file name.
+
+## Topic
+Why only about 10% of people are left-handed: a modern crowd and right-handed objects (scissors, notebooks, mice); Ice Age hand stencils in caves of France and Spain; scratch marks on 430,000-year-old teeth (Sima de los Huesos, Spain) and Neanderthal arm bones; words sinister/dexter/gauche/droit (shown as symbols only, NO letters); Last Judgment paintings (saved at the right, damned at the left — calm symbolic figures, no torment); early 20th-century classrooms forcing right-hand writing; genetics (parents, identical twins, UK Biobank genomes, microtubules inside cells, heart left / liver right); fetuses in the womb (arm movement, thumb sucking), the fetal spinal cord; brain hemispheres, crossed wiring, language areas, corpus callosum; gestures and the origin of language; chimpanzees (leaf sponge, termite fishing), cats, Australian parrots (sulphur-crested cockatoo holding food in its left foot), kangaroos; cooperation around a campfire, a mathematical balance model; the fighting hypothesis (two ancient warriors, symbolic, no wounds), traditional societies; southpaw boxing, fencing, tennis; Leonardo da Vinci's notebooks with mirror writing (pages with wavy scribble lines, no letters, no portrait); the right-brain myth; a frightening newspaper headline (blank lines only); workshop machines; presidents and debate podiums; hormones in the womb; birth; a world map; a handedness scale; symmetry breaking; left-handed tools today; a calm ending.
+
+## Character / object sheet (keep identical across all agents)
+- **Left-hander (recurring "Lefty")**: adult, short dark curly hair, warm brown skin, mustard-yellow sweater, dark trousers; whenever writing or acting, uses the LEFT hand (screen-left/right must be anatomically correct: the character's own left hand).
+- **Right-handed people**: varied generic people, muted clothing; use their right hand.
+- **Hands**: simple elegant hands with 4 fingers + thumb, correct left/right anatomy (thumb position!). For a LEFT hand with fingers up: seen from the palm side the thumb is on the viewer's left; seen from the back (e.g. a stencil pressed on a wall) the thumb is on the viewer's right.
+- **Children / classroom**: wooden desks, slate or paper, inkwell; a teacher seen from behind or without detailed face; NO violence shown (a ruler on the desk, a sleeve loosely tied to a chair, never hitting).
+- **Ancient people**: Ice Age people in fur clothing, calm and dignified; early Neanderthal relatives with stone tools; no blood.
+- **Brain**: side or top view, two hemispheres in two related palette tints, a band of fibres between them for the corpus callosum; language areas as soft glowing patches on the left hemisphere.
+- **Real people** (Leonardo da Vinci, Einstein, Rafael Nadal, presidents Ford/Bush/Clinton/Obama, Perot, Kerry, McCain, researchers): NEVER a face or portrait or recognisable likeness. Use objects: notebook pages, a racket, podiums, microphones, a pen on a desk, silhouettes from behind.
+- **Animals**: chimpanzee (dignified, dark fur), domestic cat, white sulphur-crested cockatoo with yellow crest, red kangaroo; natural colours tinted to harmonise with `pal`.
+
+## Notes
+- Colours: every plan.json unit has `pal` (`lab` default; `history` for prehistory, language, religion, schools, warriors and Leonardo; `body` for twins, womb, spine, hormones and birth). Use ONLY `pal` colours for backgrounds, lines, glows and `pal.accents` for main subjects.
+- No text inside pictures (no letters, numbers, labels, no newspaper words — blank lines only).
+- `focus` on 40-50 % of units; sfx on 35-45 % using ONLY the 25 library names in art_spec.md section 8 (unpitched; never the same name in two consecutive units). Good fits: pencil, page, rustle, cloth, step, stone, woodblock, click, tick, breath, thud, wind, crackle.
+- **On-screen text**: also write `"labels"` in each sidecar following the "On-screen text — sidecar labels" part of section 8 of `tools/art_spec.md` (names that are visible AND said in the unit text, a `num` badge when the unit says a number, a short `say` bubble on about 1 unit in 8 — never for a real person). Then run `python3 /home/claude/youtube-script-daily/tools/labelshot.py <SLUG> <your scratch>/lab <uids...>`; fix every reported problem and look at every `<uid>_lab.png`.
+- Motion groups: people `mv-breathe-<name>`, heads `mv-nod-<name>`, arms `mv-arm-<name>`, hands `mv-hand-<name>`, animals breathe/nod, flames `mv-flame-<name>`, cells/particles `mv-cells-<name>`, glowing centre `mv-glint-core`. Ids unique inside each file.
+- Final answer: one line per uid: `uid | centre | backdrop kind | focus_word or - | sfx or - | labels count`, plus problems left.

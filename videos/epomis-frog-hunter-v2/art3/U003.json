@@ -1,0 +1,28 @@
+{
+ "centre": "glowing spot where the insect was (dashed moth outline)",
+ "focus": [
+  760,
+  610,
+  1.6
+ ],
+ "focus_word": "tongue",
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "gone",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Gotcha!",
+   "x": 640,
+   "y": 540,
+   "to": [
+    600,
+    725
+   ]
+  }
+ ]
+}

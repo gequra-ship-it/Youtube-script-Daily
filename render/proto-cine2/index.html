@@ -1,0 +1,196 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=1920, height=1080">
+<script src="gsap.min.js"></script><script src="three.js"></script><script src="room-env.js"></script>
+<style>
+@font-face{font-family:Lora;src:url(lora-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal}
+@font-face{font-family:Lora;src:url(lora-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic}
+@font-face{font-family:Inter;src:url(inter-latin-200-normal.woff2) format("woff2");font-weight:200}
+@font-face{font-family:Inter;src:url(inter-latin-500-normal.woff2) format("woff2");font-weight:500}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:1920px;height:1080px;overflow:hidden;background:#000}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:#000}
+#gl{position:absolute;left:0;top:0;width:1920px;height:1080px}
+#vig{position:absolute;inset:0;z-index:5;background:radial-gradient(ellipse at 60% 50%,rgba(0,0,0,0) 45%,rgba(0,0,0,.6) 100%)}
+#fade{position:absolute;inset:0;background:#000;z-index:6;opacity:1}
+.hud{position:absolute;z-index:8;font-family:Inter;font-weight:500;letter-spacing:.32em;font-size:13px;color:rgba(230,236,255,.55);text-transform:uppercase}
+#hudL{left:110px;top:52px}#hudL em{font-style:normal;color:#ffc65a}
+#hudR{right:170px;top:46px;text-align:right}
+#hudR b{display:block;font-family:Inter;font-weight:200;letter-spacing:.04em;font-size:30px;color:rgba(240,244,255,.9);margin-top:6px;text-transform:none}
+.kw{position:absolute;left:104px;top:236px;z-index:8;font-family:Inter;font-weight:200;font-size:150px;line-height:1;color:#f4f2ee;letter-spacing:-.01em;opacity:0;white-space:nowrap}
+.kw.acc{color:#ffc65a}
+.sb{position:absolute;left:112px;top:410px;width:620px;z-index:8;font-family:Lora;font-size:34px;line-height:1.25;color:rgba(244,242,238,.88);opacity:0}
+.li{position:absolute;right:120px;width:360px;text-align:right;z-index:8;font-family:Inter;font-weight:500;font-size:16px;letter-spacing:.02em;color:#e9ecf6;opacity:0;top:700px}
+#plot{position:absolute;left:104px;top:600px;z-index:8}
+#plotlab{position:absolute;left:110px;top:582px;z-index:8;font-family:Inter;font-weight:500;font-size:12px;letter-spacing:.3em;color:rgba(230,236,255,.45);text-transform:uppercase}
+#badge{position:absolute;right:120px;top:770px;text-align:right;z-index:8;font-family:Inter;font-weight:500;font-size:12px;letter-spacing:.3em;color:rgba(230,236,255,.45);text-transform:uppercase}
+.bv{position:absolute;right:120px;top:792px;text-align:right;z-index:8;font-family:Inter;font-weight:200;font-size:40px;color:#ffc65a;opacity:0;white-space:nowrap}
+#bar{position:absolute;left:110px;right:110px;top:1022px;height:1px;background:rgba(230,236,255,.18);z-index:8}
+#bar s{position:absolute;left:0;top:0;height:1px;background:rgba(255,198,90,.75);width:0}
+#dot{position:absolute;top:-4px;width:9px;height:9px;margin-left:-4px;border-radius:50%;background:#ffe2a8;box-shadow:0 0 10px 3px rgba(255,198,90,.7);left:0}
+.cap{position:absolute;left:0;width:1920px;top:944px;text-align:center;font-family:Lora;font-size:36px;color:rgba(255,255,255,.92);z-index:9;opacity:0;text-shadow:0 0 12px rgba(0,0,0,.95),0 2px 24px rgba(0,0,0,.85)}
+#logo{position:absolute;left:1799px;top:40px;width:81px;height:81px;z-index:10;opacity:.9}
+#err{position:absolute;left:80px;top:80px;z-index:20;font:700 64px Inter;color:#ff5a5a;display:none}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="46.54" data-width="1920" data-height="1080">
+<canvas id="gl" width="1920" height="1080"></canvas>
+<div id="vig"></div><div id="fade"></div>
+<div class="hud" id="hudL"><em>Chapter 1</em> &nbsp;·&nbsp; The physics of stolen time</div>
+<div class="hud" id="hudR">Your clock<b id="clk">00:00:00.000</b></div>
+<div id="plotlab">The pace of time</div>
+<svg id="plot" width="640" height="190" viewBox="0 0 640 190"><path id="pax" d="M0 170 H640" stroke="rgba(230,236,255,.2)" stroke-width="1" fill="none"/>
+ <g id="ptk"></g><path id="pc" d="" stroke="rgba(255,236,200,.85)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+ <circle id="ph" r="5" fill="#fff4dc"/><circle id="phg" r="16" fill="rgba(255,198,90,.25)"/></svg>
+<div id="badge">Clock rate</div>
+<div id="bar"><s id="prog"></s><div id="dot"></div></div>
+<img id="logo" src="logo.png"><div id="err">WEBGL UNAVAILABLE</div>
+<audio src="mix.m4a" data-start="0" data-duration="46.54" data-track-index="0" data-volume="1"></audio>
+</div>
+<script>
+// Miya's Lab prototype v2 (2026-10-14): one persistent 3D stage per chapter (no cut on every sentence); per sentence only the
+// keyword rolls, the subtitle swaps, a log accumulates, a plot draws on and a badge changes — after the user's reference (2:11-2:40).
+// Everything is a pure function of the timeline time, so parallel chunk rendering gives identical frames.
+const T=THREE,W=1920,H=1080,TOTAL=46.54,CH2=37.12;
+const U=[ // start, keyword, subtitle, log line, badge
+ [0.0,'Now','Look down at your wristwatch.','Your watch: one tick per second','Same everywhere?'],
+ [6.18,'1 second','Each passing second ticks…','Every second, the same?',null],
+ [9.9,'Everywhere','…at one pace across the universe?','Across the entire universe?',null],
+ [13.55,'Rigid','What we are taught from childhood.','Taught: time is rigid',null],
+ [17.32,'Universal','A river flowing toward tomorrow.','Taught: one universal river',null],
+ [20.94,'Wrong','Modern physics proves it.','Modern physics: wrong','?'],
+ [24.75,'Not fixed','In the violent depths of the cosmos.','Time is not fixed','Varies'],
+ [29.96,'Elastic','Bent. Stretched. Crushed.','Time can bend and stretch',null],
+ [33.99,'Standstill','Almost brought to a stop.','Time can almost stop','Almost zero'],
+ [37.12,'Ocean world','Descending onto an alien sea.','An alien ocean world',null],
+ [41.39,'Skyscraper-high','Tidal waves sweep a shallow sea.','Skyscraper-high tidal waves',null]];
+const CAPS=[[1.0,2.81,'Look down at your wristwatch,'],[2.81,4.68,'or glance at the glowing clock'],[4.68,6.18,'on your phone right now.'],
+ [6.18,8.49,'You instinctively assume that each'],[8.49,10.66,'passing second ticks at the same'],[10.66,13.55,'relentless pace across the entire universe.'],
+ [13.55,16.04,'We are taught from childhood that'],[16.04,17.28,'time is a rigid,'],[17.28,19.69,'universal river flowing steadily'],[19.69,20.94,'toward tomorrow.'],
+ [20.94,22.94,'But modern physics proves this'],[22.94,24.75,'comforting intuition wrong.'],
+ [24.75,27.08,'Out in the violent depths of the'],[27.08,29.96,'cosmos, time is not a fixed measurement.'],[29.96,32.1,'It is an elastic fabric that can'],
+ [32.1,33.99,'be bent, stretched, crushed,'],[33.99,36.57,'and almost brought to a standstill.'],[37.12,39.37,'Imagine descending onto an alien'],
+ [39.37,41.35,'ocean world, where colossal,'],[41.35,43.68,'skyscraper-high tidal waves sweep'],[43.68,46.54,'endlessly across a shallow planetary sea.']];
+const root=document.getElementById('root'),add=(cls,id,txt)=>{const d=document.createElement('div');d.className=cls;d.id=id;d.textContent=txt;root.appendChild(d);return d};
+U.forEach((u,i)=>{const k=add('kw','k'+i,u[1]);if(u[1]=='Wrong')k.classList.add('acc');add('sb','s'+i,u[2]);add('li','l'+i,u[3]);});
+const BADGES=U.map((u,i)=>[i,u[4]]).filter(x=>x[1]);BADGES.forEach(([i,b])=>add('bv','b'+i,b));
+CAPS.forEach((c,i)=>add('cap','c'+i,c[2]));
+let seed=1;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647},srnd=s=>{seed=s};
+const sm=(a,b,x)=>{x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)};
+// pace of time (1 = normal) for the plot and the 3D stage
+const pace=t=>t<24.75?1:1-.35*sm(24.75,29.96,t)-.45*sm(29.96,33.99,t)-.17*sm(33.99,36.6,t);
+// plot path (chapter 1 only): x = time, y = pace
+const PW=640,PH=170,px=t=>t/CH2*PW,py=v=>PH-12-v*120;let pd='';for(let k=0;k<=200;k++){const t=k/200*CH2;pd+=(k?'L':'M')+px(t).toFixed(1)+' '+py(pace(t)).toFixed(1)}
+const pc=document.getElementById('pc');pc.setAttribute('d',pd);const PL=pc.getTotalLength();pc.style.strokeDasharray=PL;
+const ptk=document.getElementById('ptk');U.slice(0,9).forEach(u=>{const l=document.createElementNS('http://www.w3.org/2000/svg','line');l.setAttribute('x1',px(u[0]));l.setAttribute('x2',px(u[0]));l.setAttribute('y1',166);l.setAttribute('y2',174);l.setAttribute('stroke','rgba(230,236,255,.35)');ptk.appendChild(l)});
+
+let R=null;try{R=new T.WebGLRenderer({canvas:document.getElementById('gl'),antialias:true,preserveDrawingBuffer:true})}catch(e){document.getElementById('err').style.display='block'}
+let draw=()=>{};
+if(R){
+R.setPixelRatio(1);R.setSize(W,H,false);R.toneMapping=T.ACESFilmicToneMapping;R.outputColorSpace=T.SRGBColorSpace;
+const ctex=(sz,fn)=>{const c=document.createElement('canvas');c.width=c.height=sz;fn(c.getContext('2d'),sz);const t=new T.CanvasTexture(c);t.colorSpace=T.SRGBColorSpace;return t};
+const dotTex=ctex(64,(g,s)=>{const r=g.createRadialGradient(s/2,s/2,0,s/2,s/2,s/2);r.addColorStop(0,'rgba(255,255,255,1)');r.addColorStop(.3,'rgba(255,255,255,.6)');r.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=r;g.fillRect(0,0,s,s)});
+const pts=(n,size,op,col)=>{const g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(new Float32Array(n*3),3));g.setAttribute('color',new T.BufferAttribute(new Float32Array(n*3).fill(1),3));
+  const m=new T.Points(g,new T.PointsMaterial({size,map:dotTex,vertexColors:true,transparent:true,opacity:op,blending:T.AdditiveBlending,depthWrite:false,sizeAttenuation:true,color:col||'#ffffff'}));return m};
+// ================= stage 1: the sphere of time =================
+const S1=new T.Scene();const BG1a=new T.Color('#020309'),BG1b=new T.Color('#140f2e');S1.background=BG1a.clone();
+const G=new T.Group();S1.add(G);const RAD=6;
+// lat-long dotted globe
+const glob=[];for(let m=0;m<28;m++)for(let k=0;k<110;k++){const a=m/28*6.283,b=k/110*Math.PI;glob.push([Math.sin(b)*Math.cos(a),Math.cos(b),Math.sin(b)*Math.sin(a)])}
+for(let p=1;p<12;p++){const b=p/12*Math.PI;for(let k=0;k<160;k++){const a=k/160*6.283;glob.push([Math.sin(b)*Math.cos(a),Math.cos(b),Math.sin(b)*Math.sin(a)])}}
+const gp=pts(glob.length,.13,.8,'#c3ccff');glob.forEach((v,i)=>gp.geometry.attributes.position.array.set([v[0]*RAD,v[1]*RAD,v[2]*RAD],i*3));G.add(gp);
+// bright nodes on the globe, each a "clock" that flashes on every second
+srnd(3);const NN=240,node=[];for(let i=0;i<NN;i++){const u=rnd()*2-1,a=rnd()*6.283,q=Math.sqrt(1-u*u);node.push([q*Math.cos(a)*RAD*1.01,u*RAD*1.01,q*Math.sin(a)*RAD*1.01,rnd()])}
+const np=pts(NN,.75,1);node.forEach((v,i)=>np.geometry.attributes.position.array.set(v.slice(0,3),i*3));G.add(np);
+// arcs between nodes (thin lines on the globe surface)
+const arcPos=[];srnd(8);for(let i=0;i<70;i++){const a=node[(rnd()*NN)|0],b=node[(rnd()*NN)|0];const va=new T.Vector3(...a.slice(0,3)),vb=new T.Vector3(...b.slice(0,3));if(va.distanceTo(vb)>7)continue;
+  for(let s=0;s<24;s++){const p1=va.clone().lerp(vb,s/24).setLength(RAD*1.02),p2=va.clone().lerp(vb,(s+1)/24).setLength(RAD*1.02);arcPos.push(p1.x,p1.y,p1.z,p2.x,p2.y,p2.z)}}
+const ag=new T.BufferGeometry();ag.setAttribute('position',new T.BufferAttribute(new Float32Array(arcPos),3));const arcs=new T.LineSegments(ag,new T.LineBasicMaterial({color:'#b8c4ff',transparent:true,opacity:.6,blending:T.AdditiveBlending}));G.add(arcs);
+const core=new T.Sprite(new T.SpriteMaterial({map:dotTex,color:'#8f9cff',transparent:true,opacity:.35,blending:T.AdditiveBlending,depthWrite:false}));core.scale.set(22,22,1);G.add(core);
+// far clocks: a shell of points across "the universe", flashing in step
+srnd(11);const NF=420,far=[];for(let i=0;i<NF;i++){const u=rnd()*2-1,a=rnd()*6.283,q=Math.sqrt(1-u*u),r=13+rnd()*30;far.push([q*Math.cos(a)*r,u*r*.6,q*Math.sin(a)*r,rnd()])}
+const fp=pts(NF,.55,1);far.forEach((v,i)=>fp.geometry.attributes.position.array.set(v.slice(0,3),i*3));S1.add(fp);
+// the river: a band of particles flowing around the globe
+srnd(17);const NRv=7000,riv=[];for(let i=0;i<NRv;i++)riv.push([rnd()*6.283,9+rnd()*2.6+(rnd()-.5)*.6,(rnd()-.5)*.9,rnd()]);
+const rp=pts(NRv,.12,.9,'#ffd79a');S1.add(rp);
+// background stars
+srnd(5);const sp=pts(2600,.5,.75,'#cfd8ff');for(let i=0;i<2600;i++){const u=rnd()*2-1,a=rnd()*6.283,q=Math.sqrt(1-u*u);sp.geometry.attributes.position.array.set([q*Math.cos(a)*220,u*220,q*Math.sin(a)*220],i*3)}S1.add(sp);
+// spacetime grid (lines) that appears and warps under the globe
+const GN=56,GS=1.6,gv=[];for(let i=0;i<GN;i++)for(let k=0;k<GN;k++)gv.push([(i-GN/2+.5)*GS,(k-GN/2+.5)*GS]);
+const gi=[];for(let i=0;i<GN;i++)for(let k=0;k<GN;k++){const n=i*GN+k;if(k<GN-1)gi.push(n,n+1);if(i<GN-1)gi.push(n,n+GN)}
+const gg=new T.BufferGeometry();gg.setAttribute('position',new T.BufferAttribute(new Float32Array(GN*GN*3),3));gg.setIndex(gi);
+const grid=new T.LineSegments(gg,new T.LineBasicMaterial({color:'#6f8cff',transparent:true,opacity:0,blending:T.AdditiveBlending,depthWrite:false}));S1.add(grid);
+const cam1=new T.PerspectiveCamera(38,W/H,.1,800);cam1.setViewOffset(W,H,-W*.08,0,W,H);
+const C0=new T.Color('#9fb2ff'),CG=new T.Color('#ffe2a8'),Ctmp=new T.Color();
+function draw1(t){
+  const P=pace(t);const fade=sm(36.4,37.1,t);
+  // the globe's own clock runs at the local pace: its rotation and flashes slow down with time itself
+  const loc=t<24.75?t:24.75+ (t-24.75)*(.55+.45*P);   // integrated pace (approximate, monotonic)
+  G.rotation.y=loc*.18;G.rotation.x=.25;
+  const dip=sm(29.96,33.2,t)*4.2+sm(32.6,34.2,t)*2.2;G.position.y=-dip;
+  const st=sm(32.1,33.0,t)*(1-sm(33.0,34.0,t)*.6), cr=sm(33.0,34.0,t);G.scale.set(1+st*.45,1-cr*.35,1+st*.2);
+  // node flashes: every whole local second; after "wrong" the far clocks fall out of step
+  const na=np.geometry.attributes.color.array;for(let i=0;i<NN;i++){const ph=loc+(t>23.5?node[i][3]*sm(23.5,25,t):0);const f=Math.exp(-((ph%1+1)%1)*5);Ctmp.copy(C0).lerp(CG,f);const k=.35+.65*f;na[i*3]=Ctmp.r*k;na[i*3+1]=Ctmp.g*k;na[i*3+2]=Ctmp.b*k}
+  np.geometry.attributes.color.needsUpdate=true;
+  const fa=fp.geometry.attributes.color.array,vis=sm(6.2,9.5,t)*(1-sm(34,36.5,t)*.7);for(let i=0;i<NF;i++){const ph=t*(t>23.5?1+(far[i][3]-.5)*.9*sm(23.5,26,t):1)+(t>23.5?far[i][3]*sm(23.5,26,t)*3:0);const f=Math.exp(-((ph%1+1)%1)*4);const k=vis*(.15+.85*f);fa[i*3]=k;fa[i*3+1]=k*.92;fa[i*3+2]=k*.78}
+  fp.geometry.attributes.color.needsUpdate=true;
+  // river band flows during "rigid, universal river", then breaks up
+  const rv=sm(13.7,16,t)*(1-sm(21,24.5,t));const ra=rp.geometry.attributes.position.array,rc=rp.geometry.attributes.color.array;
+  for(let i=0;i<NRv;i++){const [a0,r,h,o]=riv[i];const a=a0+t*.55*(t>21?1-sm(21,24.5,t)*.8:1);const tilt=.42;const x=Math.cos(a)*r,z=Math.sin(a)*r;ra[i*3]=x;ra[i*3+1]=h+z*Math.sin(tilt)-dip;ra[i*3+2]=z*Math.cos(tilt);
+    const k=rv*(.4+.6*((o+t*.3)%1));rc[i*3]=k;rc[i*3+1]=k;rc[i*3+2]=k}
+  rp.geometry.attributes.position.needsUpdate=true;rp.geometry.attributes.color.needsUpdate=true;
+  // spacetime grid: appears with "not fixed", then the well deepens (bent, stretched, crushed)
+  grid.material.opacity=.28*sm(25,27.5,t);const ga=gg.attributes.position.array,depth=1+dip*1.9;
+  for(let n=0;n<GN*GN;n++){const [x,z]=gv[n];const r2=(x/(1+st*.6))**2+z*z;ga[n*3]=x;ga[n*3+1]=-8.5-depth/(1+r2/30)*2.2;ga[n*3+2]=z}
+  gg.attributes.position.needsUpdate=true;
+  core.material.opacity=.45+.3*sm(30,34,t)+.15*sm(3,20,t);
+  S1.background.copy(BG1a).lerp(BG1b,sm(3,30,t)*.9);
+  const ca=.5+t*.045,cd=31-t*.15;cam1.position.set(Math.sin(ca)*cd,6+3*sm(24.75,30,t),Math.cos(ca)*cd);cam1.lookAt(0,-dip*.6-1.5*sm(24.75,30,t),0);
+  R.render(S1,cam1)}
+// ================= stage 2: alien ocean world =================
+const F=new T.Scene();F.background=new T.Color('#010208');F.fog=new T.Fog('#030612',60,260);
+srnd(9);const fs=pts(3500,1.2,.75,'#cfd8ff');for(let i=0;i<3500;i++){const u=rnd(),a=rnd()*6.283,q=Math.sqrt(1-u*u);fs.geometry.attributes.position.array.set([q*Math.cos(a)*480,u*480,q*Math.sin(a)*480],i*3)}fs.material.fog=false;F.add(fs);
+const oG=new T.PlaneGeometry(420,420,220,220);oG.rotateX(-Math.PI/2);const oP=oG.attributes.position;const ox=new Float32Array(oP.count),oz=new Float32Array(oP.count);for(let i=0;i<oP.count;i++){ox[i]=oP.getX(i);oz[i]=oP.getZ(i)}
+F.add(new T.Mesh(oG,new T.MeshStandardMaterial({color:'#0a2630',roughness:.28,metalness:.2})));
+const diskTex=sd=>ctex(1024,(g,s)=>{const r0=s/2;srnd(sd);const grd=g.createRadialGradient(r0,r0,r0*.3,r0,r0,r0);grd.addColorStop(0,'rgba(255,246,220,0)');grd.addColorStop(.02,'rgba(255,246,220,1)');grd.addColorStop(.18,'rgba(255,198,90,.95)');grd.addColorStop(.5,'rgba(255,122,90,.55)');grd.addColorStop(1,'rgba(255,122,90,0)');
+  g.fillStyle=grd;g.beginPath();g.arc(r0,r0,r0,0,6.283);g.arc(r0,r0,r0*.3,0,6.283,true);g.fill();g.globalCompositeOperation='lighter';
+  for(let i=0;i<420;i++){const r=r0*(.32+.66*Math.pow(rnd(),1.3)),a=rnd()*6.283,L=.3+rnd()*1.2;g.strokeStyle=`rgba(255,${200+rnd()*55|0},${150+rnd()*90|0},${.05+rnd()*.12})`;g.lineWidth=1+rnd()*3;g.beginPath();g.arc(r0,r0,r,a,a+L);g.stroke()}});
+const BH=new T.Group();F.add(BH);BH.add(new T.Mesh(new T.SphereGeometry(3,64,48),new T.MeshBasicMaterial({color:'#000',fog:false})));
+const disk=new T.Mesh(new T.RingGeometry(3.4,13,256,1),new T.MeshBasicMaterial({map:diskTex(7),transparent:true,blending:T.AdditiveBlending,depthWrite:false,side:T.DoubleSide,fog:false}));BH.add(disk);
+const lens=new T.Mesh(new T.RingGeometry(3.25,6.2,256,1),new T.MeshBasicMaterial({map:diskTex(11),transparent:true,opacity:.9,blending:T.AdditiveBlending,depthWrite:false,fog:false}));BH.add(lens);
+const bg=new T.Sprite(new T.SpriteMaterial({map:dotTex,color:'#ffb070',transparent:true,opacity:.4,blending:T.AdditiveBlending,depthWrite:false,fog:false}));bg.scale.set(40,40,1);BH.add(bg);
+BH.position.set(-30,62,-230);BH.scale.setScalar(4.2);
+F.add(new T.AmbientLight('#123040',.5));const kF=new T.DirectionalLight('#ffd0a0',1.1);kF.position.set(-30,62,-230);F.add(kF);
+const cam2=new T.PerspectiveCamera(46,W/H,.1,1200);cam2.setViewOffset(W,H,-W*.1,0,W,H);
+function draw2(t){const u=t-CH2;const zc=-120+u*11;
+  for(let i=0;i<oP.count;i++){const x=ox[i],z=oz[i],dz=z-zc;const wall=34*Math.exp(-dz*dz/(dz<0?260:1400))*(.9+.1*Math.sin(x*.05));oP.setY(i,wall+.6*Math.sin(x*.18+u*1.6)*Math.cos(z*.15-u*1.1)+.35*Math.sin(x*.41-z*.33+u*2.3))}
+  oP.needsUpdate=true;oG.computeVertexNormals();BH.position.y=48+u*1.6;
+  cam2.position.set(0,4.5+.4*Math.sin(u*.9),40-u*1.2);cam2.lookAt(-6,14+u*.3,-150);BH.lookAt(cam2.position);disk.rotation.set(-1.45,0,u*.3);lens.rotation.set(0,0,-u*.2);
+  R.render(F,cam2)}
+draw=t=>{if(t<CH2)draw1(t);else draw2(t)};
+}
+// ================= timeline =================
+const clk=document.getElementById('clk'),prog=document.getElementById('prog'),dot=document.getElementById('dot'),ph=document.getElementById('ph'),phg=document.getElementById('phg');
+let cur=-1;const drv={t(v){if(v===undefined)return cur;cur=v;draw(v);
+  const s=Math.max(0,v-1.0);clk.textContent=new Date(s*1000).toISOString().substr(11,12);
+  prog.style.width=(v/TOTAL*100)+'%';dot.style.left=(v/TOTAL*100)+'%';
+  const q=Math.min(1,v/CH2);pc.style.strokeDashoffset=PL*(1-q);const p=pc.getPointAtLength(PL*q);ph.setAttribute('cx',p.x);ph.setAttribute('cy',p.y);phg.setAttribute('cx',p.x);phg.setAttribute('cy',p.y);}};
+const tl=gsap.timeline({paused:true});
+tl.fromTo(drv,{t:0},{t:TOTAL,duration:TOTAL,ease:'none',immediateRender:true},0);
+tl.fromTo('#fade',{opacity:1},{opacity:0,duration:1.6,ease:'power1.out',immediateRender:false},0.05);
+// chapter change: the only real cut — quick dip to black, plot/badge leave, chapter label changes
+tl.to('#fade',{opacity:1,duration:.5,ease:'power1.in'},CH2-.5);tl.to('#fade',{opacity:0,duration:.8,ease:'power1.out'},CH2+.05);
+tl.to('#plot,#plotlab,#badge',{opacity:0,duration:.5},CH2-.6);
+tl.set('#hudL',{innerHTML:'<em>Chapter 2</em> &nbsp;·&nbsp; An alien ocean world'},CH2);
+tl.to('#fade',{opacity:1,duration:1.0,ease:'power1.in'},TOTAL-1.0);
+// keyword roll + subtitle swap (blur out upward, blur in from below)
+U.forEach((u,i)=>{const a=Math.max(.3,u[0]+.15),b=i+1<U.length?U[i+1][0]:TOTAL-.6;
+  tl.fromTo('#k'+i,{opacity:0,y:46,filter:'blur(10px)'},{opacity:1,y:0,filter:'blur(0px)',duration:.6,ease:'power3.out',immediateRender:false},a);
+  tl.to('#k'+i,{opacity:0,y:-46,filter:'blur(10px)',duration:.4,ease:'power2.in'},b-.15);
+  tl.fromTo('#s'+i,{opacity:0,filter:'blur(6px)'},{opacity:1,filter:'blur(0px)',duration:.7,ease:'power2.out',immediateRender:false},a+.25);
+  tl.to('#s'+i,{opacity:0,duration:.3},b-.2);
+  // log: new line enters at the bottom, earlier lines move up and dim (log resets at the chapter change)
+  const ch=u[0]<CH2?0:1;tl.fromTo('#l'+i,{opacity:0,top:720},{opacity:1,top:700,duration:.5,ease:'power2.out',immediateRender:false},a+.5);
+  U.forEach((w,j)=>{if(j>i&&(w[0]<CH2?0:1)==ch){const d=j-i;tl.to('#l'+i,{top:700-d*34,opacity:Math.max(.12,1-d*.2),duration:.45,ease:'power2.out'},Math.max(.3,w[0]+.15)+.5)}});
+  if(ch==0)tl.to('#l'+i,{opacity:0,duration:.4},CH2-.6);});
+BADGES.forEach(([i,b],n)=>{const a=Math.max(.3,U[i][0]+.4),nx=BADGES[n+1],e=nx?Math.max(.3,U[nx[0]][0]+.4):CH2-.6;
+  tl.fromTo('#b'+i,{opacity:0,y:18},{opacity:1,y:0,duration:.5,ease:'power2.out',immediateRender:false},a);tl.to('#b'+i,{opacity:0,y:-18,duration:.3},e-.1)});
+CAPS.forEach((c,i)=>{tl.fromTo('#c'+i,{opacity:0},{opacity:1,duration:.25,immediateRender:false},c[0]);tl.to('#c'+i,{opacity:0,duration:.2},c[1]-.18)});
+window.__timelines=window.__timelines||{};window.__timelines["main"]=tl;tl.seek(0);
+</script></body></html>

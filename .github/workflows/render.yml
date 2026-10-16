@@ -1,0 +1,106 @@
+name: render-video
+
+# 수동 실행: Actions 탭 > render-video > Run workflow > slug 입력 (render/<slug>/ 폴더를 렌더)
+# 테스트: render-pipeline 브랜치에 push하면 render/sample을 렌더(Drive 업로드는 비밀값이 있을 때만)
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "영상 슬러그 (render/<slug>/ 폴더 이름, 예: never-eat-humans)"
+        required: true
+        default: "sample"
+  push:
+    branches: [render-pipeline]
+    paths: ["render/sample/**", "render/.slug", ".github/workflows/render.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    env:
+      RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pick slugs
+        run: |
+          # render/.slug may hold several slugs (one per line, e.g. "x" and "x-short"); a dispatch input may use commas
+          if [ -n "${{ github.event.inputs.slug }}" ]; then L=$(echo "${{ github.event.inputs.slug }}" | tr ',' '\n')
+          elif [ -f render/.slug ]; then L=$(cat render/.slug)
+          else L=sample; fi
+          echo "$L" | tr -d '\r' | sed 's/[[:space:]]//g' | grep -v '^$' > "$RUNNER_TEMP/slugs.txt"
+          cat "$RUNNER_TEMP/slugs.txt"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install FFmpeg and rclone
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y ffmpeg rclone
+          ffmpeg -version | head -1
+          rclone version | head -1
+      - name: Find Chrome
+        run: |
+          CHROME=$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)
+          echo "chrome=$CHROME"
+          test -n "$CHROME"
+          echo "HYPERFRAMES_BROWSER_PATH=$CHROME" >> "$GITHUB_ENV"
+          # warm up: the first Chrome start on a fresh runner can be slow and made hyperframes' own version check time out (run #13)
+          for i in 1 2 3; do timeout 120 "$CHROME" --version && break; sleep 5; done
+          timeout 120 "$CHROME" --headless=new --no-sandbox --disable-gpu --dump-dom about:blank > /dev/null 2>&1 || true
+      - name: Render and deliver every slug
+        env:
+          # Drive 폴더 "유튜브 자동화 / Video & Thumbnail" 의 ID. rclone은 이 폴더 안으로만 접근한다.
+          ROOT_ID: 1lBexNbmVvKNahw56d-s2rUVR5Qp76V3i
+        run: |
+          FAILED=""
+          if [ -n "$RCLONE_CONF" ]; then mkdir -p ~/.config/rclone; printf '%s' "$RCLONE_CONF" > ~/.config/rclone/rclone.conf; fi
+          while read -r SLUG <&3; do
+            echo "=== $SLUG ==="
+            DEST_DIR="$SLUG"
+            case "$SLUG" in sample) DEST_DIR="_ci-test";; *-short|*-short[0-9]) DEST_DIR="$(echo "$SLUG" | sed -E 's/-short[0-9]?$//')/short";; esac
+            if [ -f "render/$SLUG/.dest" ]; then DEST_DIR=$(cat "render/$SLUG/.dest"); fi
+            # .outname: base name of the MP4/report in Drive (to replace a file the user renamed); .skip_deliver: do not re-upload deliver/
+            OUTNAME="$SLUG"; if [ -f "render/$SLUG/.outname" ]; then OUTNAME=$(cat "render/$SLUG/.outname"); fi
+            if [ ! -f "render/$SLUG/.deliver_only" ]; then
+              ( cd "render/$SLUG"
+                start=$(date +%s)
+                for try in 1 2 3; do
+                  npx --yes hyperframes@0.8.141 render 2>&1 | tee render$try.log
+                  ls renders/*.mp4 >/dev/null 2>&1 && break
+                  echo "no mp4 after try $try, retrying"; "$HYPERFRAMES_BROWSER_PATH" --version || true
+                  # keep the end of each failed try's log so it reaches Drive (server logs cannot be read from the chat)
+                  { echo "=== try $try $(date -u +%FT%TZ)"; free -m; df -h . | tail -1; tail -60 render$try.log; } >> "$GITHUB_WORKSPACE/${SLUG}_render_error.txt"
+                  sleep 10
+                done
+                echo "render seconds: $(( $(date +%s) - start ))"
+                ls -la renders
+                f=$(ls renders/*.mp4 2>/dev/null | head -1)
+                [ -n "$f" ] || exit 1
+                ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,duration -of compact "$f"
+                cp "$f" "$GITHUB_WORKSPACE/${SLUG}.mp4"
+                { echo "render report ${SLUG} $(date -u +%FT%TZ) render_seconds=$(( $(date +%s) - start ))"
+                  ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,duration -of compact "$f"
+                  ffmpeg -nostats -i "$f" -af ebur128=peak=true -f null - 2>&1 | grep -E "I:|LRA:|Peak:" | tail -3
+                  ls -la "$f"; } > "$GITHUB_WORKSPACE/${SLUG}_render_report.txt" ) || { echo "RENDER FAILED: $SLUG"; FAILED="$FAILED $SLUG"; }
+            fi
+            if [ -n "$RCLONE_CONF" ]; then
+              [ -f "${SLUG}.mp4" ] && rclone copyto "${SLUG}.mp4" "gdrive:${DEST_DIR}/${OUTNAME}.mp4" --drive-root-folder-id "$ROOT_ID" --drive-chunk-size 64M --progress
+              [ -f "${SLUG}_render_error.txt" ] && rclone copyto "${SLUG}_render_error.txt" "gdrive:${DEST_DIR}/${OUTNAME}_render_error.txt" --drive-root-folder-id "$ROOT_ID"
+              [ -f "${SLUG}_render_report.txt" ] && rclone copyto "${SLUG}_render_report.txt" "gdrive:${DEST_DIR}/${OUTNAME}_render_report.txt" --drive-root-folder-id "$ROOT_ID"
+              # 썸네일·대본·제목/설명 파일(render/<slug>/deliver/)도 같은 Drive 폴더로 올린다
+              if [ -d "render/${SLUG}/deliver" ] && [ ! -f "render/${SLUG}/.skip_deliver" ]; then rclone copy "render/${SLUG}/deliver" "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID" --progress; fi
+              rclone lsl "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID"
+            fi
+            rm -f "${SLUG}.mp4" "${SLUG}_render_error.txt"
+          done 3< "$RUNNER_TEMP/slugs.txt"
+          if [ -n "$FAILED" ]; then echo "failed slugs:$FAILED"; exit 1; fi
+      - name: Keep MP4 as run artifact (small tests only)
+        if: ${{ false }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: sample-mp4
+          path: sample.mp4
+          retention-days: 3
