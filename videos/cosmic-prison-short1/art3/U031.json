@@ -1,17 +1,30 @@
 {
- "centre": "a bright spiral galaxy just beyond a reaching hand",
+ "centre": "a light packet running up a treadmill belt made of the grid of space",
  "focus": [
-  590,
-  940,
-  1.5
+  540,
+  860,
+  1.6
  ],
- "focus_word": "never touch them",
+ "focus_word": "top speed",
  "sfx": [
   {
-   "name": "click",
-   "word": "photograph",
+   "name": "starfall",
+   "word": "cosmic treadmill",
    "vol": 0.55
   }
  ],
- "speed": false
+ "labels": [
+  {
+   "type": "name",
+   "text": "cosmic treadmill",
+   "x": 700,
+   "y": 1120,
+   "to": [
+    835,
+    1050
+   ],
+   "word": "cosmic treadmill"
+  }
+ ],
+ "speed": true
 }

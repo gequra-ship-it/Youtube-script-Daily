@@ -1,29 +1,23 @@
 {
- "centre": "a tiny cold blue speck of negative energy between two huge metal plates",
+ "centre": "the craft floating at rest inside the calm interior of a large warp bubble",
  "focus": [
   540,
   860,
-  2.0
+  1.6
  ],
- "focus_word": "negative energy",
- "sfx": [
-  {
-   "name": "glimmer",
-   "word": "useful amounts",
-   "vol": 0.6
-  }
- ],
+ "focus_word": "the ship itself is at rest",
+ "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "negative energy",
-   "x": 540,
-   "y": 990,
+   "type": "say",
+   "text": "Smooth ride.",
+   "x": 730,
+   "y": 740,
    "to": [
-    540,
-    880
+    590,
+    800
    ],
-   "word": "negative energy"
+   "word": "at rest"
   }
  ],
  "speed": false

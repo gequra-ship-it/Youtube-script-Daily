@@ -11,4 +11,4 @@ STYLE = 'cosmic'
 PAL_DEFAULT = 'deepfield'
 PAL = dict(wormhole='nebula', quantum='nebula', energy='solar', snowplow='solar')   # wormholes/quantum = nebula, energy/blast = solar
 
-HOOK = dict(until=999, maxu=6.0, slow=8.5)   # guideline 20-2 (2026-10-16 user: cuts were too fast; explanations/numbers slower, energy from motion)
+HOOK = dict(until=999, maxu=4.8)   # guideline 20-2: Shorts change picture every ~4-6 s

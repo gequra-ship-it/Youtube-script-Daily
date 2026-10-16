@@ -1,17 +1,24 @@
 {
- "centre": "a magnifying lens over a crowded field of galaxies",
+ "centre": "a treadmill roller turning while the runner is dragged backward",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pencil",
-   "word": "estimate",
-   "vol": 0.5
-  },
-  {
-   "name": "bloom",
-   "word": "launched",
+   "name": "step",
+   "word": "run",
    "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Can't keep up!",
+   "x": 820,
+   "y": 420,
+   "to": [
+    690,
+    470
+   ]
   }
  ]
 }

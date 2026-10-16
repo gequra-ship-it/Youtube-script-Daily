@@ -1,16 +1,29 @@
 {
- "centre": "the Sun arcing over a small world",
- "focus": null,
- "focus_word": null,
+ "centre": "Earth as a pale dot inside the brightest streak",
+ "focus": [
+  540,
+  860,
+  1.9
+ ],
+ "focus_word": "Earth",
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "mote of dust",
-   "vol": 0.5
+   "name": "sparkle",
+   "word": "was Earth",
+   "vol": 0.55
   }
  ],
- "iris": [
-  560,
-  1130
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 730,
+   "y": 700,
+   "to": [
+    560,
+    845
+   ],
+   "word": "Earth"
+  }
  ]
 }

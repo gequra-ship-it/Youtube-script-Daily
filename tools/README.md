@@ -57,7 +57,7 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 3D 도구와 명세는 `cine-test/`로 옮겼다(`cine-test/README.md`). `chunk_prep.py`(구간 나누기)는 SVG 병렬 렌더에도 쓰므로 여기에 남아 있다.
 
 ## 2026-10-16 추가 (지침서 20장)
-- `build3.py`: `config.py`의 `HOOK = dict(until=300, maxu=4.5)`(초반 단위를 더 잘게, 숏츠는 `until=999, maxu=6.0, slow=8.5`; 설명·숫자 장면은 자동으로 느리게, `SLOW`/`NOT_SLOW`로 조정), `tools/remap_art.py`(다시 나눈 뒤 예전 그림 연결), `DRIFT = False`(드리프트 카메라 끄기). 우주 모드는 속도 단어가 있는 단위에 속도선(사이드카 `"speed": true/false`).
+- `build3.py`: `config.py`의 `HOOK = dict(until=300, maxu=4.5)`(숏츠 `until=999, maxu=4.8`; 컷 시점을 옮겨 그림마다 최소 3.5초 `minu`, 느린 문단 4.5초 `minu_slow`, 그림은 버리지 않음; 설명·숫자 장면은 자동으로 느리게, `SLOW`/`NOT_SLOW`로 조정), `tools/remap_art.py`(다시 나눈 뒤 예전 그림 연결), `DRIFT = False`(드리프트 카메라 끄기). 우주 모드는 속도 단어가 있는 단위에 속도선(사이드카 `"speed": true/false`).
 - `motion_check.py render/<slug> [--step 6]`: 화면이 거의 안 움직이는 구간을 찾는다(SVG·3D 페이지 모두).
 - `art3` 관절: `mv-joint-<이름>`(관절 하나, `data-pivot`·`data-amp`·`data-per`·`data-phase`), `mv-chain-<이름>-1,-2…`(겹쳐 넣은 마디 사슬, 끝으로 갈수록 크게·늦게). `tools/art_spec.md` 7절.
 - 병렬 렌더: `chunk_plan.py render/<slug>`로 구간 수 → `render/.chunked`에 `"<slug> <n>"` → `render-chunked.yml`(+`chunk_prep.py`). 지침서 20-7.

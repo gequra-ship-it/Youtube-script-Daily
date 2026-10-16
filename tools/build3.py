@@ -23,7 +23,7 @@ LEAD, GAP, TAIL = (0.3, 0.5, 1.2) if VERT else (1.0, 0.8, 2.5)
 MAXU = 6.2            # target max seconds per unit (narration part); +gap keeps every unit <= 7 s
 # 2026-10-16 (learned in the cine experiment, guideline 20-2): the first minutes must change picture more often.
 # config HOOK = dict(until=300, maxu=4.5): scenes that START before `until` seconds split at maxu instead of MAXU (more pictures).
-# Shorts: HOOK = dict(until=999, maxu=6.0, slow=8.5) (was 4.8 until the 2026-10-16 user feedback). Old videos without HOOK keep their unit split (plan.json / art3 stay valid).
+# Shorts: HOOK = dict(until=999, maxu=4.8). Extra keys (2026-10-16): minu (min on-screen s, default 3.5), minu_slow (4.5), slow (fewer pictures in slow scenes; changes uids).
 HOOK = getattr(CFG, 'HOOK', None)
 timing = json.load(open(B + '/timing_base.json')); D = timing['D']
 BGMODE = getattr(CFG, 'BG', {})
@@ -57,7 +57,7 @@ def is_slow_scene(i):
     return len(re.findall(r'\d[\d,.]*', t)) >= 2 or bool(SLOW_RE.search(t))
 SLOW_SC = {i for i in SEL if is_slow_scene(i)}
 def MX(i):   # max narration seconds per unit for scene i (HOOK pacing)
-    if i in SLOW_SC: return max(SLOWU, MAXU)
+    if i in SLOW_SC and 'slow' in (HOOK or {}): return max(SLOWU, MAXU)   # only when the config asks for fewer, longer pictures
     return HOOK['maxu'] if HOOK and starts.get(i, 1e9) < HOOK.get('until', 300) else MAXU
 
 
@@ -145,6 +145,7 @@ def units_of(i):
         if not fixed and span(us[-2][0], us[-1][1]) <= MX(i) + 0.8:
             us = us[:-2] + [(us[-2][0], us[-1][1])]
     # a very short unit (< 1.6 s of narration, e.g. "Start with the hunter.") is merged into its neighbour
+    # (the 2026-10-16 minimum on-screen time is applied later by moving cut times, see MINU, so no drawn picture is lost)
     k = 0
     while len(us) > 1 and k < len(us):
         a, b = us[k]
@@ -178,6 +179,26 @@ if os.environ.get('SEL') and os.environ.get('PLAN') != '1' and os.path.exists(_p
     for u in units:
         if u['kind'] == 'ill':
             u['uid'] = _map.get((u['scene'], u['text']), u['uid'])
+# ---------- minimum on-screen time (2026-10-16 user: "cuts after only 2-3 s feel too fast", and "use every picture
+# we drew"): cut times inside a scene move so every picture stays >= MINU s (slow scenes >= MINU_SLOW), keeping each
+# cut as close as possible to its word. No picture is dropped; if a scene is too short for all of its pictures at the
+# minimum, they share the scene time evenly. config HOOK['minu'] (default 3.5 when HOOK is set), HOOK['minu_slow'] (4.5).
+MINU = (HOOK or {}).get('minu', 3.5 if HOOK else 0); MINU_SLOW = (HOOK or {}).get('minu_slow', MINU + 1.0 if MINU else 0)
+retimed = 0
+if MINU:
+    for i in SEL:
+        us_ = [u for u in units if u['scene'] == i and u['kind'] == 'ill']
+        if len(us_) < 2: continue
+        m = MINU_SLOW if i in SLOW_SC else MINU
+        b = [us_[0]['t0']] + [u['t0'] for u in us_[1:]] + [us_[-1]['t1']]
+        nseg = len(us_); m = min(m, (b[-1] - b[0]) / nseg)
+        for k in range(1, nseg):                     # forward: each piece at least m
+            b[k] = max(b[k], b[k - 1] + m)
+        for k in range(nseg - 1, 0, -1):             # backward: leave room for the pieces after it
+            b[k] = min(b[k], b[k + 1] - m)
+        for k, u in enumerate(us_):
+            if abs(u['t0'] - b[k]) > 1e-6 and k: retimed += 1
+            u['t0'], u['t1'] = (u['t0'] if k == 0 else b[k]), (u['t1'] if k == nseg - 1 else b[k + 1])
 for u in units:
     assert u['t1'] - u['t0'] > 1.5, ('unit too short', u)
 
@@ -772,5 +793,5 @@ data = dict(slug=SLUG, total=TOTAL, lead=LEAD, gap=GAP, tail=TAIL, starts={str(k
 json.dump(data, open(B + ('/build_data.json' if len(SEL) == len(SCENES) else '/build_data_partial.json'), 'w'), ensure_ascii=False, indent=1)
 dd = [u['t1'] - u['t0'] for u in units]
 from collections import Counter
-print('slow scenes', sorted(SLOW_SC), '|', 'labels', len(label_t), 'total', TOTAL, 'units', len(units), 'avg', round(sum(dd) / len(dd), 2), 'max', round(max(dd), 2), 'caps', len(caps), 'sfx cues', len(cues), 'fallback art', len(fallback_used))
+print('slow scenes', sorted(SLOW_SC), '| cuts moved for min time', retimed, f'(min {MINU}/{MINU_SLOW} s) |', 'labels', len(label_t), 'total', TOTAL, 'units', len(units), 'avg', round(sum(dd) / len(dd), 2), 'max', round(max(dd), 2), 'caps', len(caps), 'sfx cues', len(cues), 'fallback art', len(fallback_used))
 print('transitions', dict(Counter(u['tr'] for u in units)), 'focus cams', len(focus_cam))

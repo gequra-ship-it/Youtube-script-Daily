@@ -1,12 +1,28 @@
 {
- "centre": "a treadmill roller turning while the runner is dragged backward",
- "focus": null,
- "focus_word": null,
+ "centre": "the round light-speed sign again, unbroken",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "No",
  "sfx": [
   {
-   "name": "step",
-   "word": "run",
+   "name": "click",
+   "word": "No",
    "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Still holds!",
+   "x": 780,
+   "y": 1030,
+   "to": [
+    620,
+    930
+   ]
   }
  ]
 }

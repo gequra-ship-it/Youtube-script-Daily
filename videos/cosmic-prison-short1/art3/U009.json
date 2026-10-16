@@ -1,13 +1,28 @@
 {
- "centre": "a spiral galaxy streaking like a bullet",
- "focus": null,
- "focus_word": null,
+ "centre": "a heavy rocky sphere straining up toward a wall of light",
+ "focus": [
+  540,
+  700,
+  1.5
+ ],
+ "focus_word": "mass",
  "sfx": [
   {
-   "name": "warp",
-   "word": "bullets",
+   "name": "stone",
+   "word": "mass",
    "vol": 0.55
   }
  ],
- "speed": true
+ "labels": [
+  {
+   "type": "say",
+   "text": "Almost...",
+   "x": 790,
+   "y": 720,
+   "to": [
+    630,
+    800
+   ]
+  }
+ ]
 }

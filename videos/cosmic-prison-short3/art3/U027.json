@@ -1,12 +1,30 @@
 {
- "centre": "the pale blue dot framed in a round window",
+ "centre": "the dot on the cover of a book",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "bloom",
-   "word": "Miya's Lab",
-   "vol": 0.5
+   "name": "page",
+   "word": "his 1994 book",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "1994",
+   "word": "1994"
+  },
+  {
+   "type": "name",
+   "text": "Pale Blue Dot",
+   "x": 540,
+   "y": 1330,
+   "to": [
+    540,
+    1200
+   ],
+   "word": "Pale Blue Dot"
   }
  ]
 }

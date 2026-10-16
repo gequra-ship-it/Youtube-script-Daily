@@ -1,23 +1,20 @@
 {
- "centre": "the craft floating at rest inside the calm interior of a large warp bubble",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "the ship itself is at rest",
- "labels": [
+ "centre": "the craft inside a tall soap-film warp bubble",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "say",
-   "text": "Smooth ride.",
-   "x": 730,
-   "y": 740,
-   "to": [
-    590,
-    800
-   ],
-   "word": "at rest"
+   "name": "warp",
+   "word": "warp drive",
+   "vol": 0.6
   }
  ],
- "speed": false
+ "labels": [
+  {
+   "type": "num",
+   "text": "1994",
+   "word": "1994"
+  }
+ ],
+ "speed": true
 }
