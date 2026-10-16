@@ -64,30 +64,75 @@ def get_unprocessed_top_video():
             print(f"❌ 유튜브 검색 중 에러 발생: {e}", flush=True)
         return None, None
 
-def get_video_transcript(video_id):
-    print("📜 원본 유튜브 영상 자막 추출 시도 중...", flush=True)
+CAPTION_LANGS = ['ko', 'en', 'ja']
+TRANSCRIPT_SOURCE = None  # "captions" | "auto" | None(제목)
+
+def fetch_caption_segments(video_id):
+    """자막 → 유튜브 자동 생성 자막 → None(제목) 순으로 찾는다. (segments, source) 반환.
+    segments는 {'text', 'start', 'duration'} dict 리스트."""
     try:
-        transcript_list = YouTubeTranscriptApi.get_transcript(video_id, languages=['ko', 'en', 'ja'])
-        
-        chunks = []
-        current_chunk = []
-        chunk_limit = 1200 
-        
-        for t in transcript_list:
-            if t['start'] >= chunk_limit:
-                chunks.append(" ".join(current_chunk))
-                current_chunk = []
-                chunk_limit += 1200
-            current_chunk.append(t['text'])
-            
-        if current_chunk:
-            chunks.append(" ".join(current_chunk))
-            
-        print(f"✅ 원본 자막 추출 성공! (20분 단위로 총 {len(chunks)}개의 파트로 나눔)", flush=True)
-        return chunks
+        ytt = YouTubeTranscriptApi()
+        tl = ytt.list(video_id)
+    except AttributeError:
+        # youtube-transcript-api 1.0 이전 버전: 정적 get_transcript만 있음 (수동/자동 구분 불가)
+        try:
+            return YouTubeTranscriptApi.get_transcript(video_id, languages=CAPTION_LANGS), "captions"
+        except Exception as e:
+            print(f"⚠️ 자막 목록 조회 실패 ({type(e).__name__}).", flush=True)
+            return None, None
     except Exception as e:
-        print("⚠️ 자막 추출 실패 (자막이 없는 영상입니다).", flush=True)
+        print(f"⚠️ 자막 목록 조회 실패 ({type(e).__name__}: {str(e).splitlines()[0] if str(e) else ''}).", flush=True)
+        return None, None
+
+    transcripts = list(tl)
+    steps = [
+        ("captions", "업로더 자막", lambda: tl.find_manually_created_transcript(CAPTION_LANGS),
+         [t for t in transcripts if not t.is_generated]),
+        ("auto", "유튜브 자동 생성 자막", lambda: tl.find_generated_transcript(CAPTION_LANGS),
+         [t for t in transcripts if t.is_generated]),
+    ]
+    for source, label, find_preferred, others in steps:
+        candidates = []
+        try:
+            candidates.append(find_preferred())
+        except Exception:
+            pass
+        candidates += [t for t in others if t not in candidates]  # ko/en/ja가 없으면 다른 언어라도 사용
+        for t in candidates:
+            try:
+                segments = t.fetch().to_raw_data()
+            except Exception as e:
+                print(f"⚠️ {label}({t.language_code}) 내려받기 실패 ({type(e).__name__}).", flush=True)
+                continue
+            if segments:
+                print(f"✅ {label} 사용 (언어: {t.language_code}, {len(segments)}줄)", flush=True)
+                return segments, source
+        print(f"ℹ️ {label} 없음.", flush=True)
+    return None, None
+
+def get_video_transcript(video_id):
+    global TRANSCRIPT_SOURCE
+    print("📜 원본 유튜브 영상 자막 추출 시도 중... (순서: 자막 → 자동 생성 자막 → 제목)", flush=True)
+    segments, TRANSCRIPT_SOURCE = fetch_caption_segments(video_id)
+    if not segments:
+        print("⚠️ 자막·자동 생성 자막 모두 없음. 제목만으로 대본을 창작합니다.", flush=True)
         return None
+    chunks = []
+    current_chunk = []
+    chunk_limit = 1200
+
+    for t in segments:
+        if t['start'] >= chunk_limit:
+            chunks.append(" ".join(current_chunk))
+            current_chunk = []
+            chunk_limit += 1200
+        current_chunk.append(t['text'])
+
+    if current_chunk:
+        chunks.append(" ".join(current_chunk))
+
+    print(f"✅ 원본 자막 추출 성공! (20분 단위로 총 {len(chunks)}개의 파트로 나눔)", flush=True)
+    return chunks
 
 def fetch_gemini_response(api_key, prompt, return_dict):
     try:
@@ -135,6 +180,9 @@ def create_ai_studio_script(youtube_title, transcript_text, part_num, total_part
     else:
         connection_instruction = "이 대본은 단일 영상으로 끝나는 대본이야. 기승전결이 완벽하게 마무리되도록 해줘."
 
+    if transcript_text and TRANSCRIPT_SOURCE == "auto":
+        transcript_text = ("(아래는 유튜브 자동 생성 자막이라 음성 인식 오류·문장부호 누락이 있을 수 있음. 문맥상 명백한 오인식은 바로잡고, "
+                           "확실하지 않은 고유명사·숫자는 쓰지 말 것.)\n" + transcript_text)
     if transcript_text:
         source_material = f"""
 [원본 영상 제목]: "{youtube_title}" (전체 시리즈 중 Part {part_num}/{total_parts})
