@@ -13,6 +13,10 @@
 //   shore   — cue (S40, look 'void'): the camera turns and drifts toward the bright wall of galaxies at the void's edge
 //   recede  — cue (S40 "the shoreline is receding"): the far galaxies drift outward and go dark one by one
 //   side (.12)
+// 2026-10-16 staging pass (no new params): before the zoom the camera slowly orbits the home galaxy; on the pull-back the real web
+//   galaxies that pass the camera are drawn as motion streaks (screen length capped, kept off the title block), a fly-through; speck:
+//   a warm glint marks home with one slow ring, dust specks drift close to the lens; void: lone galaxies turn slowly; shore: the
+//   camera glides along the wall and edges toward it, and a slow wave of light runs along the shoreline (then softer every 16 s).
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.cosmicweb = function (ctx, p) {
   const { T, sm, rng, cue, dotTex } = ctx;
   const S = new T.Scene(); S.background = new T.Color('#02030a');
@@ -21,6 +25,30 @@
   const at = (c, d) => c == null ? 0 : sm(cue(c), cue(c) + (d || 1.2), ctx.t);
   const LOOK = p.look === 'void' ? 'void' : 'web';
 
+  // motion streaks (copied from lightspeed.js, 2026-10-16 speed pass): camera-facing quads billboarded in the vertex shader, bright
+  // head, fading tail, width never below minPx pixels (thinner ones dim instead). set(i, head, tail, width, rgb) each frame from t only.
+  function streaks(par, n, o) { o = o || {}; const g = new T.BufferGeometry(), H = new Float32Array(n * 12), Tl = new Float32Array(n * 12), C = new Float32Array(n * 12), Wd = new Float32Array(n * 4), cr = new Float32Array(n * 8), ix = [];
+    for (let i = 0; i < n; i++) { cr.set([0, 0, 0, 1, 1, 0, 1, 1], i * 8); const b = i * 4; ix.push(b, b + 2, b + 1, b + 1, b + 2, b + 3); }
+    const ad = (a, k) => { const q = new T.BufferAttribute(a, k); q.setUsage(T.DynamicDrawUsage); g.setAttribute(['aH', 'aT', 'aC', 'aW'][[H, Tl, C, Wd].indexOf(a)], q); };
+    ad(H, 3); ad(Tl, 3); ad(C, 3); ad(Wd, 1); g.setAttribute('corner', new T.BufferAttribute(cr, 2)); g.setAttribute('position', new T.BufferAttribute(new Float32Array(n * 12), 3)); g.setIndex(ix);
+    const m = new T.ShaderMaterial({ uniforms: { uH: { value: ctx.H }, uMin: { value: o.minPx || 1.6 }, uNear: { value: new T.Vector2(...(o.near || [.5, 4])) } }, transparent: true, depthWrite: false, depthTest: o.depthTest !== false, blending: T.AdditiveBlending, side: T.DoubleSide,
+      vertexShader: `attribute vec3 aH, aT, aC; attribute float aW; attribute vec2 corner; uniform float uH, uMin; uniform vec2 uNear; varying vec2 vUv; varying vec3 vC; varying float vCap;
+        void main(){ vec3 wH = (modelMatrix * vec4(aH, 1.)).xyz, wT = (modelMatrix * vec4(aT, 1.)).xyz, d = wH - wT; float L = length(d); vec3 dir = L > 1e-5 ? d / L : vec3(1., 0., 0.);
+          vec3 P0 = mix(wT, wH, corner.x), V = cameraPosition - P0; float dc = max(length(V), 1e-4);
+          float w = max(aW, dc * 2. / (projectionMatrix[1][1] * uH) * uMin); vec3 sd = cross(dir, V); float sl = length(sd); sd = sl > 1e-6 ? sd / sl : vec3(0., 1., 0.);
+          vec3 P = P0 + sd * (corner.y - .5) * w + dir * (corner.x - .5) * w;
+          vUv = corner; vCap = clamp(w / (L + w), .02, 1.); vC = aC * (aW / w) * smoothstep(uNear.x, uNear.y, dc);
+          gl_Position = projectionMatrix * viewMatrix * vec4(P, 1.); }`,
+      fragmentShader: `varying vec2 vUv; varying vec3 vC; varying float vCap;
+        void main(){ float x = vUv.x, y = abs(vUv.y * 2. - 1.); float a = pow(x, 1.6) * smoothstep(1., 1. - vCap, x) * pow(max(0., 1. - y * y), 2.);
+          gl_FragColor = vec4(vC * a, 1.);
+          #include <tonemapping_fragment>
+          #include <colorspace_fragment>
+        }` });
+    const M = new T.Mesh(g, m); M.frustumCulled = false; M.renderOrder = o.order || 0; par.add(M);
+    return { mesh: M, set(i, hx, hy, hz, tx, ty, tz, w, r, gg, b) { for (let k = 0; k < 4; k++) { const j = (i * 4 + k) * 3; H[j] = hx; H[j + 1] = hy; H[j + 2] = hz; Tl[j] = tx; Tl[j + 1] = ty; Tl[j + 2] = tz; C[j] = r; C[j + 1] = gg; C[j + 2] = b; Wd[i * 4 + k] = w; } },
+      hide(i) { for (let k = 0; k < 4; k++) { const j = (i * 4 + k) * 3; C[j] = C[j + 1] = C[j + 2] = 0; } },
+      commit() { ['aH', 'aT', 'aC', 'aW'].forEach(k => g.attributes[k].needsUpdate = true); } }; }
   // ---------------- sky ----------------
   const skyU = { uK: { value: 1 } };
   const sky = new T.Mesh(new T.SphereGeometry(1, 40, 20), new T.ShaderMaterial({ uniforms: skyU, side: T.BackSide, depthWrite: false, depthTest: false,
@@ -35,9 +63,10 @@
 
   // ---------------- soft point material (min pixel size with energy kept, near fade, recede) ----------------
   const shared = { uScale: { value: 1000 }, uRec: { value: 0 }, uVC: { value: new T.Vector3() }, uRV: { value: 60 } };
-  function ptsMat(op, minPx, maxPx, near) { return new T.ShaderMaterial({ transparent: true, depthWrite: false, blending: T.AdditiveBlending,
-    uniforms: { uScale: shared.uScale, uRec: shared.uRec, uVC: shared.uVC, uRV: shared.uRV, uOp: { value: op }, uMin: { value: minPx }, uMax: { value: maxPx }, uNear: { value: near || 0 } },
-    vertexShader: `attribute vec3 color; attribute float size; attribute float rnd; uniform float uScale, uMin, uMax, uOp, uRec, uNear, uRV; uniform vec3 uVC;
+  const swU = { uSwD: { value: new T.Vector3(1, 0, 0) }, uSwP: { value: 0 }, uSwA: { value: 0 } };   // shoreline light sweep (2026-10-16)
+  function ptsMat(op, minPx, maxPx, near, sweep) { return new T.ShaderMaterial({ transparent: true, depthWrite: false, blending: T.AdditiveBlending,
+    uniforms: { uScale: shared.uScale, uRec: shared.uRec, uVC: shared.uVC, uRV: shared.uRV, uSwD: swU.uSwD, uSwP: swU.uSwP, uSwA: swU.uSwA, uSw: { value: sweep ? 1 : 0 }, uOp: { value: op }, uMin: { value: minPx }, uMax: { value: maxPx }, uNear: { value: near || 0 } },
+    vertexShader: `attribute vec3 color; attribute float size; attribute float rnd; uniform float uScale, uMin, uMax, uOp, uRec, uNear, uRV, uSwP, uSwA, uSw; uniform vec3 uVC, uSwD;
       varying vec3 vC; varying float vA;
       void main(){ vec3 p = position; float far = 0.;
         if (uRec > 0.) { vec3 o = p - uVC; far = smoothstep(uRV * .92, uRV * 1.3, length(o)); p = uVC + o * (1. + .35 * uRec * far); }
@@ -45,6 +74,7 @@
         if (ps < uMin) { a *= ps * ps / (uMin * uMin); ps = uMin; }
         if (ps > uMax) { a *= uMax / ps; ps = uMax; }
         if (uNear > 0.) a *= smoothstep(uNear * .4, uNear, z);
+        if (uSw > 0.) a *= 1. + uSwA * exp(-pow((dot(p - uVC, uSwD) - uSwP) / 9., 2.));
         a *= 1. - far * smoothstep(rnd - .12, rnd, uRec * 1.12);
         vC = color; vA = a; gl_PointSize = ps; gl_Position = projectionMatrix * mv; }`,
     fragmentShader: `varying vec3 vC; varying float vA; void main(){ vec2 q = gl_PointCoord - .5; float r2 = dot(q, q) * 4.; float a = exp(-r2 * 3.2) * (1. - smoothstep(.7, 1., r2));
@@ -109,7 +139,7 @@
   const lone = [], RL = rng(23);
   for (let i = 0; i < 60; i++) { let o; do { o = v3(RL() * 2 - 1, RL() * 2 - 1, RL() * 2 - 1); } while (o.length() > 1 || o.length() < .05); const ol = o.length(); o.normalize(); o.multiplyScalar(ol * .85 * (rayR(o) - 4)).add(VC);
     lone.push(o); const c = RL() < .6 ? GOLD : WHT; gal.push(o.x, o.y, o.z, c[0] * 1.4, c[1] * 1.4, c[2] * 1.4, .5, 2); }
-  const galL = layer(gal, ptsMat(1, 1.7, 5, 0)), shoreL = layer(shoreG, ptsMat(1, 1.7, 4.5, 0)), gloL = layer(glo, ptsMat(.5, 2, 26, 30)), cluL = layer(clu, ptsMat(.6, 2, 22, 30));
+  const galL = layer(gal, ptsMat(1, 1.7, 5, 0)), shoreL = layer(shoreG, ptsMat(1, 1.7, 4.5, 0, true)), gloL = layer(glo, ptsMat(.5, 2, 26, 30)), cluL = layer(clu, ptsMat(.6, 2, 22, 30));
   // lonely galaxies seen up close inside the void: small oval sprites with a spiral smudge
   const lgT = ctx.ctex(128, (g, s) => { g.translate(s / 2, s / 2); const r = g.createRadialGradient(0, 0, 0, 0, 0, s / 2); r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(.12, 'rgba(255,240,220,.7)'); r.addColorStop(.5, 'rgba(200,190,255,.12)'); r.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = r; g.fillRect(-s / 2, -s / 2, s, s);
     g.strokeStyle = 'rgba(255,235,210,.22)'; g.lineWidth = 5; for (let a = 0; a < 2; a++) { g.beginPath(); for (let k = 0; k < 40; k++) { const th = k / 40 * 4 + a * Math.PI, rr = 6 + k * 1.15; k ? g.lineTo(Math.cos(th) * rr, Math.sin(th) * rr) : g.moveTo(Math.cos(th) * rr, Math.sin(th) * rr); } g.stroke(); } });
@@ -143,13 +173,16 @@
   const D0 = HN.clone().multiplyScalar(.62).add(v3(.55, .1, .55)).normalize();
   const WC = HOME.clone().negate(), zoomC = p.zoom != null ? p.zoom : (LOOK === 'web' && p.speck == null ? ctx.t0 + .3 : null);
   const LD0 = v3(.6, .15, -.8).normalize();
-  return { scene: S, camera: cam, draw(t, u) {
-    ctx.t = t;
-    const wZ = zoomC == null ? 1 : sm(cue(zoomC), cue(zoomC) + 8, t), wS = at(p.speck, 6.5), wSh = at(p.shore, 8), wR = p.recede == null ? 0 : sm(cue(p.recede), cue(p.recede) + 26, t);
+  const atT = (c, d, tt) => c == null ? 0 : sm(cue(c), cue(c) + (d || 1.2), tt);
+  const TG = new T.Vector3().crossVectors(SH, v3(1, 0, 0)).normalize(), tSh = p.shore != null ? cue(p.shore) : 1e9, tSp = p.speck != null ? cue(p.speck) : 1e9;
+  // camera state as a pure function of time (also sampled at build time to find the galaxies the zoom flies past)
+  function camState(t) { const u = t - ctx.t0;
+    const wZ = zoomC == null ? 1 : sm(cue(zoomC), cue(zoomC) + 8, t), wS = atT(p.speck, 6.5, t), wSh = atT(p.shore, 8, t);
     let st;
     if (LOOK === 'web') {
       const ang = u * .012, webDir = v3(Math.cos(.9 + ang), .42, Math.sin(.9 + ang)).normalize();
-      st = { t: v3(0, 0, 0), dir: D0, d: .85, fov: 40 };
+      // (2026-10-16) before the pull-back the camera slowly orbits the home galaxy (same tilt to its disc), never a frozen frame
+      st = { t: v3(0, 0, 0), dir: D0.clone().applyAxisAngle(HN, u * .008), d: .85, fov: 40 };
       st = blend(st, { t: WC, dir: webDir, d: 650 - 40 * sm(cue(zoomC || 0) + 10, cue(zoomC || 0) + 60, t), fov: 42 }, wZ);
       st = blend(st, { t: WC.clone().multiplyScalar(.6), dir: webDir, d: 5200, fov: 38 }, wS);
     } else {
@@ -157,24 +190,80 @@
       const drift = sm(0, 40, u), yaw = u * .01, ld = LD0.clone().applyAxisAngle(v3(0, 1, 0), yaw);
       const pos = VC.clone().addScaledVector(LD0, -RVm * .3 * (1 - drift)).add(v3(0, 3 * Math.sin(u * .05), 0));
       st = { t: pos.clone().addScaledVector(ld, 40), dir: ld.clone().negate(), d: 40, fov: 46 };
-      // shoreline: from inside the void near its rim, look along the wall (tangent), tilted a little toward it
-      const TG = new T.Vector3().crossVectors(SH, v3(1, 0, 0)).normalize(), sd = TG.clone().multiplyScalar(Math.cos(.42)).addScaledVector(SH, Math.sin(.42)).normalize();
-      const sp = VC.clone().addScaledVector(SH, RSH * .4).addScaledVector(TG, -RSH * .25 + 8 * sm(cue(p.shore || 0), cue(p.shore || 0) + 40, t));
+      // shoreline: from inside the void near its rim, look along the wall (tangent), tilted a little toward it; (2026-10-16) the
+      // camera now glides along the wall faster and edges toward it, so the near wall galaxies slide past with parallax
+      const sd = TG.clone().multiplyScalar(Math.cos(.42)).addScaledVector(SH, Math.sin(.42)).normalize(), gl = sm(tSh, tSh + 40, t);
+      const sp = VC.clone().addScaledVector(SH, RSH * .4 + 7 * sm(tSh + 2, tSh + 30, t)).addScaledVector(TG, -RSH * .25 + 22 * gl);
       st = blend(st, { t: sp.clone().addScaledVector(sd, 40), dir: sd.clone().negate(), d: 40, fov: 50 }, wSh);
     }
+    st.wZ = wZ; st.wS = wS; st.wSh = wSh; return st; }
+  const camPos = t => { const s = camState(t); return s.t.clone().addScaledVector(s.dir, s.d); };
+
+  // ---------------- fly-through streaks (2026-10-16): the real web galaxies that pass close to the camera on the pull-back are
+  // also drawn as motion streaks (tail = where the galaxy appeared a moment ago), so the zoom reads as a flight through the filaments
+  const STK = []; let NST = 0, fly = null;
+  if (LOOK === 'web' && zoomC != null) { const z0 = cue(zoomC), z1 = Math.min(ctx.t1 + .5, z0 + 14), NSP = 140, cps = [], cds = [];
+    for (let k = 0; k <= NSP; k++) { const s = camState(z0 + (z1 - z0) * k / NSP); cps.push(s.t.clone().addScaledVector(s.dir, s.d)); cds.push(s.d); }
+    const cand = [];
+    for (let i = 0; i < gal.length; i += 8) { const x = gal[i], y = gal[i + 1], z = gal[i + 2]; let best = 1e9;
+      for (let k = 0; k <= NSP; k++) { if (cds[k] < 2) continue; const c = cps[k], dd = Math.sqrt((x - c.x) ** 2 + (y - c.y) ** 2 + (z - c.z) ** 2) / cds[k]; if (dd < best) best = dd; }
+      if (best < .35) cand.push([best, i]); }
+    cand.sort((a, b) => a[0] - b[0]); cand.slice(0, 1800).forEach(([, i]) => STK.push(i)); NST = STK.length;
+    if (NST) fly = streaks(S, NST, { minPx: 1.6, near: [.4, 2] }); }
+
+  // ---------------- speck payoff: our home marked by a soft warm glint and one slow ring as the web shrinks to a speck; dust
+  // specks of the same apparent size drift past close to the lens ("a speck of dust")
+  const ringT = ctx.ctex(256, (g, s) => { const gr = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2); gr.addColorStop(0, 'rgba(255,255,255,0)'); gr.addColorStop(.78, 'rgba(255,255,255,0)'); gr.addColorStop(.9, 'rgba(255,255,255,.85)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, s, s); });
+  const glint = ctx.glow(S, ctx.ACC, 1, 0), spRing = new T.Sprite(new T.SpriteMaterial({ map: ringT, color: ctx.ACC, transparent: true, opacity: 0, blending: T.AdditiveBlending, depthWrite: false, depthTest: false })); S.add(spRing);
+  glint.material.depthTest = false; glint.renderOrder = spRing.renderOrder = 5;
+  const NMO = 60, mo = ctx.points(NMO, { size: 1, opacity: 1, color: '#ffffff' }), moA = mo.geometry.attributes.position.array, moC = mo.geometry.attributes.color.array, moB = [];
+  { const r = rng(91); for (let i = 0; i < NMO; i++) moB.push([r() * 2 - .7, r() * 2 - 1, .02 + r() * .05, r(), r() * 6.283]); } mo.frustumCulled = false; mo.renderOrder = 6; S.add(mo);
+  const loneR = loneS.map(s => s.material.rotation), vt = new T.Vector3(), vt2 = new T.Vector3();
+  return { scene: S, camera: cam, draw(t, u) {
+    ctx.t = t;
+    const st = camState(t), wZ = st.wZ, wS = st.wS, wSh = st.wSh, wR = p.recede == null ? 0 : sm(cue(p.recede), cue(p.recede) + 26, t);
     cam.position.copy(st.t).addScaledVector(st.dir, st.d); cam.lookAt(st.t);
-    cam.near = Math.max(.002, st.d * .002); cam.far = Math.max(1000, st.d * 6 + 900); cam.fov = vf(st.fov); cam.updateProjectionMatrix();
+    cam.near = Math.max(.002, st.d * .002); cam.far = Math.max(1000, st.d * 6 + 900); cam.fov = vf(st.fov); cam.updateProjectionMatrix(); cam.updateMatrixWorld();
+    const pxW = 2 * Math.tan(cam.fov * Math.PI / 360) / ctx.H;
     shared.uScale.value = ctx.H / (2 * Math.tan(cam.fov * Math.PI / 360)); shared.uRec.value = wR;
     // layer visibility by scale: home galaxy close up, the web once we are out past the Local Group, glow layers dim for the speck
     const ld = Math.log(st.d), webV = LOOK === 'void' ? 1 : sm(Math.log(2.5), Math.log(30), ld);
     galL.material.uniforms.uOp.value = webV * (1 - .7 * wSh); galL.visible = webV > .001;
     shoreL.material.uniforms.uOp.value = webV * (1 + .5 * wSh); shoreL.visible = webV > .001;
-    gloL.material.uniforms.uOp.value = .5 * webV * (1 - .7 * wS); cluL.material.uniforms.uOp.value = .6 * webV * (1 - .5 * wS);
+    gloL.material.uniforms.uOp.value = .5 * webV * (1 - .7 * wS) * (1 + .6 * wSh); cluL.material.uniforms.uOp.value = .6 * webV * (1 - .5 * wS);
     gloL.visible = cluL.visible = webV > .001;
     const homeV = LOOK === 'void' ? 0 : 1 - sm(Math.log(8), Math.log(60), ld);
     homeL.material.uniforms.uOp.value = homeV; homeGL.material.uniforms.uOp.value = .4 * homeV; homeL.visible = homeGL.visible = homeV > .001;
     homeCore.material.opacity = .5 * homeV * (1 - sm(Math.log(1), Math.log(6), ld)); andCore.material.opacity = .35 * homeV * (1 - sm(Math.log(3), Math.log(12), ld));
     skyU.uK.value = 1 - .8 * wS;
-    loneS.forEach((s, i) => { const d = s.position.distanceTo(cam.position); s.material.opacity = (LOOK === 'void' ? .85 : .5) * sm(140, 45, d) * sm(1.2, 4, d); });
+    loneS.forEach((s, i) => { const d = s.position.distanceTo(cam.position); s.material.opacity = (LOOK === 'void' ? .85 : .5) * sm(140, 45, d) * sm(1.2, 4, d); s.material.rotation = loneR[i] + t * (i % 2 ? .012 : -.009); });
+    // fly-through streaks: tail = where the galaxy was seen .18 s ago; drawn only when the motion on screen is long enough to read
+    if (fly) { const v = cam.position.clone().sub(camPos(t - .18)), on = webV * (LOOK === 'web' ? 1 - wS : 0);
+      fly.mesh.visible = on > .002 && v.length() > 1e-4;
+      if (fly.mesh.visible) { for (let j = 0; j < NST; j++) { const i = STK[j]; vt.set(gal[i], gal[i + 1], gal[i + 2]); const dc = vt.distanceTo(cam.position);
+          const lp = v.length() / Math.max(1e-6, dc * pxW), cl = Math.min(1, 150 / Math.max(lp, 1e-6));   // screen length capped near 150 px
+          let k = on * sm(4, 22, lp) * Math.min(1, 40 / (lp * cl) + .3) * .55;
+          if (k > .003) { vt2.copy(vt).project(cam); k *= sm(-.62, -.12, vt2.x) * sm(-.9, -.6, vt2.y); }
+          vt2.copy(vt).addScaledVector(v, cl);
+          if (k < .003) { fly.hide(j); continue; }
+          fly.set(j, vt.x, vt.y, vt.z, vt2.x, vt2.y, vt2.z, Math.min(.5, 2.6 * dc * pxW), gal[i + 3] * k, gal[i + 4] * k, gal[i + 5] * k); }
+        fly.commit(); } }
+    // speck: the glint fades up (rise .6 s) once the web is small, breathes gently; one ring opens slowly around it
+    { const g0 = tSp + 4.6, gv = LOOK === 'web' ? sm(g0, g0 + .6, t) : 0, rr = (t - g0 - .3) / 3.2, dh = cam.position.length();
+      glint.visible = gv > 0; glint.position.set(0, 0, 0); glint.scale.setScalar(dh * pxW * 22 * (1 + .12 * Math.sin(t * 1.6))); glint.material.opacity = .75 * gv * (.85 + .15 * Math.sin(t * 1.6));
+      spRing.visible = gv > 0 && rr > 0 && rr < 1; if (spRing.visible) { spRing.position.set(0, 0, 0); spRing.scale.setScalar(dh * pxW * (30 + 260 * Math.sqrt(rr))); spRing.material.opacity = .3 * sm(0, .08, rr) * (1 - sm(.3, 1, rr)); }
+      const mv = LOOK === 'web' ? sm(tSp + 2.5, tSp + 6, t) : sm(ctx.t0 + 1, ctx.t0 + 5, t) * .6;
+      mo.visible = mv > 0;
+      if (mo.visible) { const fw = st.dir.clone().negate(), rt = new T.Vector3().crossVectors(fw, v3(0, 1, 0)).normalize(), up = new T.Vector3().crossVectors(rt, fw), zf = Math.max(cam.near * 3, st.d * .02);
+        const th = Math.tan(cam.fov * Math.PI / 360), asp = ctx.W / ctx.H;
+        for (let i = 0; i < NMO; i++) { const b = moB[i], z = zf * (1 + 2.5 * b[3]), xx = ((b[0] + t * .006 * (.5 + b[3]) + 1) % 2) - 1, yy = b[1] + .04 * Math.sin(t * .2 + b[4]);
+          vt.copy(cam.position).addScaledVector(fw, z).addScaledVector(rt, xx * th * asp * z).addScaledVector(up, yy * th * z);
+          moA[i * 3] = vt.x; moA[i * 3 + 1] = vt.y; moA[i * 3 + 2] = vt.z;
+          const sx = .62 + xx * .5, al = mv * sm(.3, .45, sx) * sm(-1, -.7, yy) * (1 - sm(.85, 1, Math.abs(xx))) * (.4 + .6 * b[2] / .07) * .7;
+          moC[i * 3] = al; moC[i * 3 + 1] = al * .9; moC[i * 3 + 2] = al * .78; }
+        mo.material.size = zf * th * 2 / ctx.H * 5 * 1.6; mo.geometry.attributes.position.needsUpdate = true; mo.geometry.attributes.color.needsUpdate = true; } }
+    // shoreline: once the camera has turned, a slow wave of light runs along the wall ("the tide"), then a softer one every 16 s
+    if (LOOK === 'void' && p.shore != null) { const ts = t - tSh - 4, n = Math.floor(ts / 16), f = ts / 16 - n;
+      swU.uSwD.value.copy(TG); swU.uSwP.value = -RSH * 1.1 + RSH * 2.4 * f; swU.uSwA.value = ts > 0 ? (n === 0 ? 2.2 : 1.1) * Math.sin(Math.PI * f) * wSh : 0; }
   } };
 };

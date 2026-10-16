@@ -15,6 +15,12 @@
 // speed pass (2026-10-16): when `warp` engages, hyperspace star streaks rush past around the bubble: an endless recycling stream whose
 // speed (and streak length) climbs in two stages over ~18 s, so the jump past light speed is felt; they thin out while the snowplow
 // glows, decelerate to dots and fade on `blast`, and are gone in the `trapped` wide view.
+// gravity escape (2026-10-16): before `warp` the ship hangs low in a planet's gravity well: a spacetime grid sheet with a deep dent
+// where a rim-lit ocean planet rests, the sheet rising behind the ship. From ~1.8 s before the cue the ship climbs (nose up) and the
+// sheet under it is pulled up into a straining peak (glowing warm); on release it snaps back, a ripple wave runs out across the sheet
+// and a soft flash rises (0.2 s) and fades (~1.5 s); the planet and its well fall away below and behind (accelerating, slingshot),
+// lensed by the forming bubble, and are gone ~7 s after the release, long before `energy` / `snowplow`.
+//   escape    the release moment (default: the warp cue + 1.2 s); escape: false turns the gravity well off. Needs `warp`.
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.warp = function (ctx, p) {
   const { T, sm, rng, cue, points, glow } = ctx, Rr = ctx.R, K = window.MIYA.kit, E = ctx.env();
   const v3 = (x, y, z) => new T.Vector3(x, y, z);
@@ -70,23 +76,51 @@
   const S = new T.Scene(); S.background = new T.Color('#02030a');
   const RB = 9, FWD = v3(1, 0, 0);
   const U = { tO: { value: cube.texture }, uC: { value: v3(0, 0, 0) }, uCam: { value: v3(0, 0, 0) }, uR: { value: RB }, uW: { value: 1 }, uRim: { value: 1 },
-    uPInv: { value: new T.Matrix4() }, uCW: { value: new T.Matrix4() }, uF: { value: FWD.clone() }, uB2: { value: 60 }, uB2a: { value: 0 } };
-  const lens = new T.Mesh(new T.PlaneGeometry(2, 2), new T.ShaderMaterial({ uniforms: U, depthWrite: false, depthTest: false,
+    uPInv: { value: new T.Matrix4() }, uCW: { value: new T.Matrix4() }, uF: { value: FWD.clone() }, uB2: { value: 60 }, uB2a: { value: 0 },
+    uPC: { value: v3(0, -1e4, 0) }, uPR: { value: 1 }, uPA: { value: 0 }, uPT: { value: 0 }, uPM: { value: null }, uSun: { value: v3(-.62, .5, -.6).normalize() } };
+  // well planet albedo (equirect, baked once): ocean, land, cloud
+  U.uPM.value = (() => { const PW = 512, PH = 256, c = document.createElement('canvas'); c.width = PW; c.height = PH; const g = c.getContext('2d'), im = g.createImageData(PW, PH), D = im.data;
+    const mx = (a, b, k) => a.map((v, i) => v + (b[i] - v) * k);
+    for (let y = 0; y < PH; y++) { const la = ((y + .5) / PH - .5) * Math.PI, cy = Math.sin(la), cr = Math.cos(la);
+      for (let x = 0; x < PW; x++) { const lo = ((x + .5) / PW - .5) * 6.2832, qx = Math.cos(lo) * cr, qz = Math.sin(lo) * cr, k = ((PH - 1 - y) * PW + x) * 4;
+        const ld = fbm(qx * 3.1 + 5, cy * 3.1, qz * 3.1, 3), cl = fbm(qx * 5.2, cy * 5.2 + 3, qz * 5.2, 4);
+        let a = mx([.025, .07, .16], [.16, .15, .1], sm(.5, .56, ld)); a = mx(a, [.6, .65, .72], sm(.5, .74, cl) * .8);
+        for (let j = 0; j < 3; j++) D[k + j] = Math.min(255, Math.pow(a[j], 1 / 2.2) * 255); D[k + 3] = 255; } }
+    g.putImageData(im, 0, 0); const t = new T.CanvasTexture(c); t.colorSpace = T.SRGBColorSpace; t.wrapS = T.RepeatWrapping; return t; })();
+  const lensP = { uniforms: U, depthWrite: false, depthTest: false,
     vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0., 1.); }',
-    fragmentShader: `uniform samplerCube tO; uniform vec3 uC, uCam, uF; uniform float uR, uW, uRim, uB2, uB2a; uniform mat4 uPInv, uCW; varying vec2 vUv;
+    fragmentShader: `uniform samplerCube tO; uniform sampler2D uPM; uniform vec3 uC, uCam, uF, uPC, uSun; uniform float uR, uW, uRim, uB2, uB2a, uPR, uPA, uPT; uniform mat4 uPInv, uCW; varying vec2 vUv;
+      // the gravity-well planet (ray from ro along rd, over background bg): ocean + land + cloud, lit from behind (crescent), blue air limb
+      vec3 planet(vec3 ro, vec3 rd, vec3 bg){
+        #ifndef PLANET
+        return bg;
+        #else
+        if (uPA <= 0.) return bg;
+        vec3 oc = uPC - ro; float tc = dot(oc, rd); if (tc <= 0.) return bg;
+        float b2 = dot(oc, oc) - tc * tc, R2 = uPR * uPR; if (b2 > R2 * 1.45) return bg; float bb = sqrt(max(b2, 0.)) / uPR; vec3 col = bg;
+        if (b2 < R2) { vec3 n = normalize(ro + rd * (tc - sqrt(R2 - b2)) - uPC), q = vec3(n.x * cos(uPT) - n.z * sin(uPT), n.y, n.x * sin(uPT) + n.z * cos(uPT));
+          vec3 alb = texture2D(uPM, vec2(atan(q.z, q.x) * .1591549 + .5, asin(clamp(q.y, -1., 1.)) * .3183099 + .5)).rgb;
+          float l = dot(n, uSun), fr = pow(1. - max(0., dot(n, -rd)), 2.5);
+          vec3 pc = alb * (max(0., l) * 1.5 + .025) + fr * vec3(.25, .45, 1.) * (.06 + .75 * smoothstep(-.25, .6, l));
+          col = mix(bg, pc, uPA); }
+        vec3 nd = normalize(ro + rd * tc - uPC);
+        col += uPA * exp(-abs(bb - 1.) * (bb > 1. ? 22. : 60.)) * vec3(.35, .55, 1.) * (.04 + .5 * smoothstep(-.3, .7, dot(nd, uSun)));
+        return col;
+        #endif
+      }
       void main(){
         vec4 pv = uPInv * vec4(vUv * 2. - 1., 1., 1.); pv /= pv.w;
         vec3 d = normalize((uCW * vec4(pv.xyz, 0.)).xyz), oc = uC - uCam;
         float tca = dot(oc, d), b2 = dot(oc, oc) - tca * tca, R2 = uR * uR;
-        vec3 col = textureCube(tO, d).rgb;
+        vec3 col = planet(uCam, d, textureCube(tO, d).rgb);
         if (tca > 0. && b2 < R2 && uW > 0.) {
           float th = sqrt(R2 - b2); vec3 P = uCam + d * (tca - th), n = (P - uC) / uR;
           float z = dot(n, uF), edge = sqrt(b2) / uR, fall = 1. - smoothstep(.75, 1., edge);
           // f(z) = z + s z^2: compressed ahead (stars bunch), expanded behind (stars stretch)
           float s = 1.3 * uW * fall;
           vec3 dd = normalize(d + uF * s * .55 * z * abs(z) + uF * s * .25 * z);
-          if (z < 0.) { vec3 acc = vec3(0.); for (int j = 0; j < 7; j++) acc += textureCube(tO, normalize(dd + uF * (float(j) / 6. - .5) * .16 * (-z) * s)).rgb; col = acc / 7. * 1.6; }
-          else col = textureCube(tO, dd).rgb * (1. + .8 * z * s);
+          if (z < 0.) { vec3 acc = vec3(0.); for (int j = 0; j < 7; j++) acc += textureCube(tO, normalize(dd + uF * (float(j) / 6. - .5) * .16 * (-z) * s)).rgb; col = planet(uCam, d, acc / 7. * 1.6); }
+          else col = planet(uCam, d, textureCube(tO, dd).rgb * (1. + .8 * z * s));
           // Doppler-like tint: blue ahead, red behind
           col *= mix(vec3(1.), z > 0. ? vec3(.8, .95, 1.35) : vec3(1.3, .85, .7), abs(z) * s);
           // bubble wall: faint fresnel rim
@@ -99,8 +133,13 @@
         gl_FragColor = vec4(col, 1.);
         #include <tonemapping_fragment>
         #include <colorspace_fragment>
-      }` }));
+      }` };
+  // two builds of the lens: with the gravity-well planet (only while it is visible) and without it (cheaper)
+  const lensM0 = new T.ShaderMaterial(lensP), lensM1 = new T.ShaderMaterial(Object.assign({ defines: { PLANET: 1 } }, lensP));
+  const lens = new T.Mesh(new T.PlaneGeometry(2, 2), lensM0);
   lens.frustumCulled = false; lens.renderOrder = -10; S.add(lens);
+  // the lens follows the camera actually rendered (after the camera director's move), so sky, planet and meshes line up
+  lens.onBeforeRender = (r, sc, c) => { c.updateMatrixWorld(); U.uCam.value.setFromMatrixPosition(c.matrixWorld); U.uPInv.value.copy(c.projectionMatrixInverse); U.uCW.value.copy(c.matrixWorld); };
 
   // ---------------- the ship ----------------
   const SHIP = new T.Group(); S.add(SHIP);
@@ -198,6 +237,29 @@
   const Vh = t => cW == null ? (HA + HB) * (1 - sm(cB0 - .25, cB0 + .6, t)) : Math.max(0, HA * sm(cW, cW + 4, t) + HB * sm(cW + 3, cW + 18, t) - (HA + HB) * sm(cB0 - .25, cB0 + .6, t));
   const Dd = t => V0 * t + (V - V0) * (cW == null ? t : IS(cW, cW + 3, t)) - (cB == null ? 0 : (V) * IS(cB - .25, cB + .35, t));
 
+  // ---------------- gravity escape: spacetime grid sheet (line segments, height a pure function of t) + well planet (in the lens) ----
+  // sheet height around the well centre (local r): Y0 - A a / sqrt(r^2 + a^2); a straining peak under the ship before the release,
+  // a ripple ring from the ship's point after it. Lines hidden behind the planet are discarded in the shader (ray-sphere test).
+  const GW = p.escape !== false && p.escape !== 0 && cW != null, tR = GW ? (p.escape != null && p.escape !== true ? cue(p.escape) : cW + 1.2) : 1e9, tC0 = tR - 3;
+  const WC = v3(-15, ctx.VERT ? -14 : -3, -26.4), GF = ctx.VERT ? 40 : 50, Y0 = 10, WA = 25.5, Wa = 16, PR = 6.5, GL = 62, GS = 4, GN = Math.round(2 * GL / GS) + 1, GD = 1.5, GM = Math.round(2 * GL / GD) + 1;
+  const wh = r => Y0 - WA * Wa / Math.sqrt(r * r + Wa * Wa);
+  const SL = v3(0, 0, 0).sub(WC), PL = v3(0, wh(0) + PR - 1.5, 0);
+  let grid = null, gPos, gCol, gXZ;
+  if (GW) { const nv = GN * GM * 2, ix = []; gPos = new Float32Array(nv * 3); gCol = new Float32Array(nv * 3); gXZ = new Float32Array(nv * 2); let k = 0;
+    for (let dir = 0; dir < 2; dir++) for (let i = 0; i < GN; i++) { const a = -GL + i * GS;
+      for (let j = 0; j < GM; j++) { const b = -GL + j * GD; gXZ[k * 2] = dir ? b : a; gXZ[k * 2 + 1] = dir ? a : b; if (j && a * a + b * b <= GL * GL && a * a + (b - GD) * (b - GD) <= GL * GL) ix.push(k - 1, k); k++; } }
+    const g = new T.BufferGeometry(); g.setAttribute('position', new T.BufferAttribute(gPos, 3).setUsage(T.DynamicDrawUsage)); g.setAttribute('color', new T.BufferAttribute(gCol, 3).setUsage(T.DynamicDrawUsage)); g.setIndex(ix);
+    const gm = new T.ShaderMaterial({ uniforms: { uPC: U.uPC, uPR: U.uPR }, transparent: true, depthWrite: false, blending: T.AdditiveBlending,
+      vertexShader: 'attribute vec3 color; varying vec3 vC, vW; void main(){ vC = color; vW = (modelMatrix * vec4(position, 1.)).xyz; gl_Position = projectionMatrix * viewMatrix * vec4(vW, 1.); }',
+      fragmentShader: `uniform vec3 uPC; uniform float uPR; varying vec3 vC, vW;
+        void main(){ vec3 rd = vW - cameraPosition; float L = length(rd); rd /= L; vec3 oc = uPC - cameraPosition; float tc = dot(oc, rd), b2 = dot(oc, oc) - tc * tc;
+          if (b2 < uPR * uPR && tc - sqrt(uPR * uPR - b2) < L - .3) discard;
+          gl_FragColor = vec4(vC * smoothstep(6., 22., L) * smoothstep(92., 66., L), 1.);
+          #include <tonemapping_fragment>
+          #include <colorspace_fragment>
+        }` });
+    grid = new T.LineSegments(g, gm); grid.frustumCulled = false; grid.renderOrder = -5; S.add(grid); }
+  const escG = glow(S, '#fff0d6', 46, 0), escG2 = glow(S, '#ffc65a', 10, 0);
   const cam = new T.PerspectiveCamera(38, ctx.W / ctx.H, .1, 4000); ctx.side(cam, p.side == null ? .12 : p.side);
   const VF = ctx.VERT ? 1.2 : 1, tgt = v3(0, 0, 0);
   return { scene: S, camera: cam, draw(t, u) {
@@ -208,6 +270,27 @@
     goldM.emissiveIntensity = .2 + .5 * w;
     glows.forEach((g, i) => g.material.opacity = (.35 + .4 * w0) * (i === 2 ? 1 : .8));
     SHIP.position.set(0, Math.sin(u * .4) * .12, 0); SHIP.rotation.set(Math.sin(u * .3) * .02, 0, Math.sin(u * .23) * .015);
+    // gravity escape: climb (the well drops away under the ship), strain peak, release ripple, slingshot fall, flash
+    const gA = GW ? 1 - sm(tR + 3, tR + 7, t) : 0;
+    if (GW) { const climb = sm(tC0, tR + .4, t), rel = sm(tR, tR + .35, t), tau = t - tR;
+      SHIP.rotation.z += .09 * sm(tC0, tR, t) * (1 - sm(tR, tR + 2.5, t)); glows.forEach(g => g.material.opacity += .35 * climb * (1 - rel));
+      const ox = -36 * IS(tR, tR + 3.5, t), oy = -7 * climb - 55 * IS(tR, tR + 3.5, t), oz = -10 * IS(tR, tR + 3.5, t);
+      const cx = WC.x + ox, cy = WC.y + oy, cz = WC.z + oz;
+      U.uPC.value.set(cx + PL.x, cy + PL.y, cz + PL.z); U.uPR.value = PR; U.uPA.value = gA; lens.material = gA > 0 ? lensM1 : lensM0; U.uPT.value = t * .02 + .03 * IS(tR, tR + 3, t);
+      if (grid) { grid.visible = gA > 0;
+        if (gA > 0) { const sx = SL.x - ox, sz = SL.z - oz, sy = SL.y - oy, rsh = Math.hypot(sx, sz), hs0 = wh(rsh), st = Math.max(0, sy - 4.2 - hs0) * Math.min(1, climb * 2) * (1 - rel),
+            sg2 = Math.pow(5.5 - 2 * climb * (1 - rel), 2), front = 24 * Math.max(0, tau), ramp = tau > 0 ? sm(0, .25, tau) * Math.exp(-tau / 2.4) : 0;
+          for (let k = 0, n = gXZ.length / 2; k < n; k++) { const x = gXZ[k * 2], z = gXZ[k * 2 + 1], r = Math.sqrt(x * x + z * z); if (r > GL + 1) continue;
+            const dx = x - sx, dz = z - sz, q2 = dx * dx + dz * dz, pk = st > 0 && q2 < 9 * sg2 ? st * Math.exp(-q2 / sg2) : 0, ex = x - SL.x, ez = z - SL.z, dq = Math.sqrt(ex * ex + ez * ez) - front;
+            const rip = ramp > 0 && dq * dq < 400 ? ramp * 1.6 * Math.sin(dq * .55) * Math.exp(-dq * dq / 60) : 0, br = .15 * Math.sin(r * .35 - t * 1.4) * Math.exp(-r / 30);
+            const gy = cy + wh(r) + pk + rip + br; gPos[k * 3] = cx + x; gPos[k * 3 + 1] = gy; gPos[k * 3 + 2] = cz + z;
+            const fo = Math.exp(-Math.pow(r / GF, 2)) * gA * (1 - sm(WC.y + 2 + oy, WC.y + 7 + oy, gy - pk)), hot = Math.min(1, pk / 6) + Math.min(1, Math.abs(rip) * .8), v = .16 * fo * (1 + 3.2 * hot);
+            gCol[k * 3] = v * (.55 + .6 * hot); gCol[k * 3 + 1] = v * (.62 + .25 * hot); gCol[k * 3 + 2] = v * (1.1 - .55 * hot); }
+          grid.geometry.attributes.position.needsUpdate = true; grid.geometry.attributes.color.needsUpdate = true; } }
+      const fl = tau > 0 ? sm(0, .2, tau) * Math.exp(-Math.max(0, tau - .2) / 1.1) : 0;
+      escG.material.opacity = .4 * fl; escG.position.set(1, -1, 0); escG.scale.setScalar(17 + 6 * sm(0, 1.5, tau)); escG2.material.opacity = .5 * fl + .1 * climb * (1 - rel); escG2.position.set(-3.4, 0, 0);
+      escG.visible = fl > 0; escG2.visible = escG2.material.opacity > 0;
+    } else { U.uPA.value = 0; lens.material = lensM0; escG.visible = escG2.visible = false; if (grid) grid.visible = false; }
     // energy: Jupiter fades in (2 s), holds, then dissolves into a stream feeding the ring
     const e = cE == null ? -1e9 : t - cE, ein = sm(0, 2, e), edis = sm(4, 7, e);
     JUP.visible = ein > 0 && edis < 1; jupM.opacity = ein * (1 - edis); jupM.emissiveIntensity = 1.2 * edis; JUP.scale.setScalar(1 - .5 * edis); JUP.rotation.y = t * .03;

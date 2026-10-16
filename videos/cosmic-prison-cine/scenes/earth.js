@@ -12,6 +12,14 @@
 //   mind   S51 "a pale blue dot": the shot opens far out on the pale blue dot in the void and returns close to Earth's night side
 //          (city lights, the backlit atmosphere ring)
 //   side   subject offset (default .12)
+// Second staging pass (2026-10-16), all on the existing cues: clouds drift visibly, city lights shimmer, a three-layer aurora
+// (green curtains with a rose top) circles both poles on the night side, the atmosphere swells softly on each cue, near-field
+// motes drift in front of the camera and stretch into radial streaks whenever the camera rushes in or out (their speed follows
+// the camera's log-distance rate), a lens flare when the Sun clears the limb. Payoffs: grain = atmosphere swell at the cue, then
+// sonar pings around the pale blue dot once it is a dot; oasis = swell + the orbit lines draw themselves on one after another
+// with a comet head (from cue + 5.5 s), each planet glints on "planets, moons" (cue + 12.4 s), and a brightening wave runs
+// through the neighbouring stars on "vast beyond imagination" (cue + 31 s); mind = pings from the dot on the cue, then on arrival
+// at the night side (cue + 9..13 s) the city lights and aurora brighten and the sunrise flare blooms at the limb.
 // Without a cue: a slow drift close to Earth (half lit, city lights on the night half, the Moon to the right).
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.earth = function (ctx, p) {
   const { T, sm, rng, cue, glow, ctex } = ctx, M = window.MIYA, K = M.kit;
@@ -85,11 +93,11 @@
 
   const EG = new T.Group(); EG.rotation.z = .41; S.add(EG);   // axial tilt
   const sphere = new T.SphereGeometry(1, 160, 80);
-  const eU = { day: { value: TX.day }, night: { value: TX.night }, cloud: { value: TX.cloud }, ocean: { value: TX.ocean }, sunPos: { value: SUN }, cOff: { value: 0 }, city: { value: 1 } };
+  const eU = { day: { value: TX.day }, night: { value: TX.night }, cloud: { value: TX.cloud }, ocean: { value: TX.ocean }, sunPos: { value: SUN }, cOff: { value: 0 }, city: { value: 1 }, uT: { value: 0 } };
   const earthM = new T.ShaderMaterial({ uniforms: eU,
     vertexShader: `varying vec2 vUv; varying vec3 vN; varying vec3 vP;
       void main() { vUv = uv; vN = normalize(mat3(modelMatrix) * normal); vec4 w = modelMatrix * vec4(position, 1.); vP = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
-    fragmentShader: `uniform sampler2D day, night, cloud, ocean; uniform vec3 sunPos; uniform float cOff, city; varying vec2 vUv; varying vec3 vN; varying vec3 vP;
+    fragmentShader: `uniform sampler2D day, night, cloud, ocean; uniform vec3 sunPos; uniform float cOff, city, uT; varying vec2 vUv; varying vec3 vN; varying vec3 vP;
       void main() { vec3 N = normalize(vN), L = normalize(sunPos - vP), V = normalize(cameraPosition - vP); float nl = dot(N, L);
         vec3 d = texture2D(day, vUv).rgb; float cs = texture2D(cloud, vUv + vec2(cOff + .002, -.002)).r, oc = texture2D(ocean, vUv).r;
         float dif = smoothstep(-.03, .12, nl) * (.1 + .9 * max(nl, 0.));
@@ -97,7 +105,8 @@
         vec3 col = d * sunC * dif * 1.8 * (1. - .5 * cs);
         vec3 H = normalize(L + V); float nh = max(dot(N, H), 0.), gl = oc * (1. - cs) * smoothstep(0., .15, nl);
         col += sunC * gl * (pow(nh, 90.) * 2.2 + pow(nh, 12.) * .06);
-        float nf = smoothstep(.05, -.14, nl); col += texture2D(night, vUv).rgb * nf * (1. - .8 * cs) * 1.1 * city;
+        float nf = smoothstep(.05, -.14, nl); float shim = .75 + .5 * (texture2D(cloud, vUv * 7. + vec2(uT * .004, uT * .0025)).g - .55) / .45;
+        col += texture2D(night, vUv).rgb * nf * (1. - .8 * cs) * 1.1 * city * shim;
         float fr = pow(1. - max(dot(N, V), 0.), 2.6), sf = smoothstep(-.3, .5, nl);
         col += vec3(.25, .5, 1.) * fr * (sf * .9 + .02);
         col = mix(col, vec3(.2, .38, .8) * dif, .08 * sf);
@@ -121,19 +130,42 @@
         #include <colorspace_fragment>
       }` });
   const clouds = new T.Mesh(sphere, cloudM); clouds.scale.setScalar(1.008); EG.add(clouds);
-  const aU = { sunPos: { value: SUN } };
+  const aU = { sunPos: { value: SUN }, uB: { value: 1 } };
   const atmo = new T.Mesh(new T.SphereGeometry(1.1, 128, 64), new T.ShaderMaterial({ uniforms: aU, side: T.BackSide, transparent: true, depthWrite: false, blending: T.AdditiveBlending,
     vertexShader: `varying vec3 vN; varying vec3 vP; varying vec3 vNv;
       void main() { vN = normalize(mat3(modelMatrix) * normal); vNv = normalize(normalMatrix * normal); vec4 w = modelMatrix * vec4(position, 1.); vP = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
-    fragmentShader: `uniform vec3 sunPos; varying vec3 vN; varying vec3 vP; varying vec3 vNv;
+    fragmentShader: `uniform vec3 sunPos; uniform float uB; varying vec3 vN; varying vec3 vP; varying vec3 vNv;
       void main() { vec3 L = normalize(sunPos - vP), Vd = normalize(vP - cameraPosition); float k = clamp(-vNv.z / .42, 0., 1.);
         float a = pow(k, 3.2), sw = smoothstep(-.45, .6, dot(normalize(vN), L)), fwd = pow(max(dot(Vd, L), 0.), 5.);
-        vec3 col = vec3(.28, .55, 1.) * a * (sw * 1.1 + .04) + vec3(.75, .8, 1.) * a * fwd * 4.5;
+        vec3 col = (vec3(.28, .55, 1.) * a * (sw * 1.1 + .04) + vec3(.75, .8, 1.) * a * fwd * 4.5) * uB;
         gl_FragColor = vec4(col, 1.);
         #include <tonemapping_fragment>
         #include <colorspace_fragment>
       }` }));
   S.add(atmo);
+  // aurora: three additive shells inside the tilted group (curtains with rays; green low, rose high), night side only. Each shell
+  // is only the two polar bands (partial spheres), so it costs little fill; latitude comes from the object-space normal.
+  const auU = { sunPos: { value: SUN }, uT: { value: 0 }, uA: { value: 1 } }, auroras = [];
+  const auG = (() => { const a = new T.SphereGeometry(1, 128, 6, 0, 6.2832, .2, .48), b = new T.SphereGeometry(1, 128, 6, 0, 6.2832, Math.PI - .68, .48), n = a.attributes.position.count;
+    const g = new T.BufferGeometry(), P = new Float32Array((n + b.attributes.position.count) * 3), N = new Float32Array(P.length); P.set(a.attributes.position.array); P.set(b.attributes.position.array, n * 3); N.set(a.attributes.normal.array); N.set(b.attributes.normal.array, n * 3);
+    g.setAttribute('position', new T.BufferAttribute(P, 3)); g.setAttribute('normal', new T.BufferAttribute(N, 3)); g.setIndex([...a.index.array, ...Array.from(b.index.array, i => i + n)]); return g; })();
+  [[1.012, 0, .9], [1.022, .5, .55], [1.034, 1, .3]].forEach(([sc, ly, op]) => {
+    const m = new T.Mesh(auG, new T.ShaderMaterial({ uniforms: Object.assign({ uL: { value: ly }, uO: { value: op } }, auU), transparent: true, depthWrite: false, blending: T.AdditiveBlending,
+      vertexShader: `varying vec3 vO; varying vec3 vN; varying vec3 vP;
+        void main() { vO = normal; vN = normalize(mat3(modelMatrix) * normal); vec4 w = modelMatrix * vec4(position, 1.); vP = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
+      fragmentShader: `uniform vec3 sunPos; uniform float uT, uA, uL, uO; varying vec3 vO; varying vec3 vN; varying vec3 vP;
+        void main() { vec3 o = normalize(vO); float lat = asin(clamp(o.y, -1., 1.)), al = abs(lat), lon = atan(-o.z, o.x) + 3.14159265;
+          float wav = .035 * sin(lon * 5. + uT * .13 + sign(lat) * 1.7) + .02 * sin(lon * 11. - uT * .21);
+          float band = exp(-pow((al - 1.15 - .025 * uL - wav) / (.03 + .015 * uL), 2.));
+          float cur = (.7 + .3 * sin(lon * 40. + 3. * sin(lon * 7. + uT * .3) + uT * .6)) * (.8 + .2 * sin(lon * 97. - uT * .9)) * (lat < 0. ? .4 : 1.);
+          vec3 N = normalize(vN), L = normalize(sunPos - vP), V = normalize(cameraPosition - vP);
+          float night = smoothstep(.18, -.08, dot(N, L)), fr = pow(1. - abs(dot(N, V)), 1.5);
+          vec3 col = mix(vec3(.2, .9, .5), vec3(.85, .35, .7), uL) * band * cur * night * (.25 + 1.1 * fr) * uA * uO * .7;
+          gl_FragColor = vec4(col, 1.);
+          #include <tonemapping_fragment>
+          #include <colorspace_fragment>
+        }` }));
+    m.scale.setScalar(sc); EG.add(m); auroras.push(m); });
   // pale-blue-dot sprite (constant screen size) for when the globe gets smaller than a few pixels
   const dotM = new T.SpriteMaterial({ map: ctx.dotTex(), color: '#9cc4ff', transparent: true, opacity: 0, blending: T.AdditiveBlending, depthWrite: false, depthTest: false, sizeAttenuation: false });
   const dot = new T.Sprite(dotM); S.add(dot); const dot2 = new T.Sprite(dotM.clone()); dot2.material.color.set('#e8f2ff'); S.add(dot2);
@@ -191,6 +223,44 @@
   const SKY = new T.Group(); S.add(SKY); const sky = ctx.stars(SKY, 4500, 1000, { size: 1.15, opacity: .7, seed: 37 }); S.remove(sky); SKY.add(sky);
   [['#2a2470', -700, 250, -500, 1400], ['#1d2a66', 600, -100, -700, 1200], ['#3a2a6a', -200, 500, 700, 1000]].forEach(([c, x, y, z, s]) => { const g = glow(SKY, c, s, .18); g.position.set(x, y, z); });
 
+  // ---------------- near-field motes / streaks (camera space, scaled with the near plane so they always sit just in front) ----------------
+  function streaks(par, n, o) { o = o || {}; const g = new T.BufferGeometry(), H = new Float32Array(n * 12), Tl = new Float32Array(n * 12), C = new Float32Array(n * 12), Wd = new Float32Array(n * 4), cr = new Float32Array(n * 8), ix = [];
+    for (let i = 0; i < n; i++) { cr.set([0, 0, 0, 1, 1, 0, 1, 1], i * 8); const b = i * 4; ix.push(b, b + 2, b + 1, b + 1, b + 2, b + 3); }
+    const ad = (a, k) => { const q = new T.BufferAttribute(a, k); q.setUsage(T.DynamicDrawUsage); g.setAttribute(['aH', 'aT', 'aC', 'aW'][[H, Tl, C, Wd].indexOf(a)], q); };
+    ad(H, 3); ad(Tl, 3); ad(C, 3); ad(Wd, 1); g.setAttribute('corner', new T.BufferAttribute(cr, 2)); g.setAttribute('position', new T.BufferAttribute(new Float32Array(n * 12), 3)); g.setIndex(ix);
+    const m = new T.ShaderMaterial({ uniforms: { uH: { value: ctx.H }, uMin: { value: o.minPx || 1.6 }, uNear: { value: new T.Vector2(...(o.near || [.5, 4])) } }, transparent: true, depthWrite: false, depthTest: o.depthTest !== false, blending: T.AdditiveBlending, side: T.DoubleSide,
+      vertexShader: `attribute vec3 aH, aT, aC; attribute float aW; attribute vec2 corner; uniform float uH, uMin; uniform vec2 uNear; varying vec2 vUv; varying vec3 vC; varying float vCap;
+        void main(){ vec3 wH = (modelMatrix * vec4(aH, 1.)).xyz, wT = (modelMatrix * vec4(aT, 1.)).xyz, d = wH - wT; float L = length(d); vec3 dir = L > 1e-5 ? d / L : vec3(1., 0., 0.);
+          vec3 P0 = mix(wT, wH, corner.x), V = cameraPosition - P0; float dc = max(length(V), 1e-4);
+          float w = max(aW, dc * 2. / (projectionMatrix[1][1] * uH) * uMin); vec3 sd = cross(dir, V); float sl = length(sd); sd = sl > 1e-6 ? sd / sl : vec3(0., 1., 0.);
+          vec3 P = P0 + sd * (corner.y - .5) * w + dir * (corner.x - .5) * w;
+          vUv = corner; vCap = clamp(w / (L + w), .02, 1.); vC = aC * (aW / w) * smoothstep(uNear.x, uNear.y, dc);
+          gl_Position = projectionMatrix * viewMatrix * vec4(P, 1.); }`,
+      fragmentShader: `varying vec2 vUv; varying vec3 vC; varying float vCap;
+        void main(){ float x = vUv.x, y = abs(vUv.y * 2. - 1.); float a = pow(x, 1.6) * smoothstep(1., 1. - vCap, x) * pow(max(0., 1. - y * y), 2.);
+          gl_FragColor = vec4(vC * a, 1.);
+          #include <tonemapping_fragment>
+          #include <colorspace_fragment>
+        }` });
+    const M2 = new T.Mesh(g, m); M2.frustumCulled = false; M2.renderOrder = o.order || 0; par.add(M2);
+    return { mesh: M2, set(i, hx, hy, hz, tx, ty, tz, w, r, gg, b) { for (let k = 0; k < 4; k++) { const j = (i * 4 + k) * 3; H[j] = hx; H[j + 1] = hy; H[j + 2] = hz; Tl[j] = tx; Tl[j + 1] = ty; Tl[j + 2] = tz; C[j] = r; C[j + 1] = gg; C[j + 2] = b; Wd[i * 4 + k] = w; } },
+      hide(i) { for (let k = 0; k < 4; k++) { const j = (i * 4 + k) * 3; C[j] = C[j + 1] = C[j + 2] = 0; } },
+      commit() { ['aH', 'aT', 'aC', 'aW'].forEach(k => g.attributes[k].needsUpdate = true); } }; }
+  const NEAR = new T.Group(); S.add(NEAR);
+  const NMT = 240, motes = streaks(NEAR, NMT, { minPx: 1.4, near: [0, 1e-6], depthTest: false, order: 20 }), mB = [];
+  { const r = rng(61); for (let i = 0; i < NMT; i++) { const a = r() * 6.283, rr = 1.2 + 10 * Math.sqrt(r()); mB.push([Math.cos(a) * rr * 1.5, Math.sin(a) * rr, r(), .6 + .8 * r(), .5 + .5 * r(), r() * 6.283]); } }
+  // lens flare (screen-space ghosts along the line Sun -> centre, an anamorphic streak at the Sun)
+  const ringT = ctex(128, (g, s) => { const r = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2); r.addColorStop(0, 'rgba(255,255,255,0)'); r.addColorStop(.7, 'rgba(255,255,255,.08)');
+    r.addColorStop(.88, 'rgba(255,255,255,.9)'); r.addColorStop(.95, 'rgba(255,255,255,.2)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, s, s); });
+  const scrSpr = (map, col) => { const m = new T.Sprite(new T.SpriteMaterial({ map, color: col, transparent: true, opacity: 0, blending: T.AdditiveBlending, depthWrite: false, depthTest: false, sizeAttenuation: false })); m.renderOrder = 21; S.add(m); return m; };
+  const GH = [[.35, .05, '#ffd9a0', 0], [.62, .025, '#9cc4ff', 1], [1.05, .09, '#ffb27a', 1], [1.35, .035, '#c8a0ff', 0], [1.75, .14, '#8fd0ff', 1]].map(([k, sz, c, rg]) => [scrSpr(rg ? ringT : ctx.dotTex(), c), k, sz]);
+  const ana = scrSpr(ctx.dotTex(), '#ffe2c0');
+  // sonar ping rings around the pale blue dot, comet heads that draw the orbit lines on
+  const pings = [0, 1].map(() => scrSpr(ringT, '#9cc4ff'));
+  const heads = PL.map(() => { const m = new T.Sprite(new T.SpriteMaterial({ map: starT, color: '#fff0d0', transparent: true, opacity: 0, blending: T.AdditiveBlending, depthWrite: false, sizeAttenuation: false })); m.scale.set(.03, .03, 1); S.add(m); return m; });
+  const env = (a, rise, fall) => a <= 0 ? 0 : sm(0, rise, a) * Math.exp(-Math.max(0, a - rise) / fall);
+  const nbT = nb.map(([sp]) => sp.position.distanceTo(SUN));
+
   // ---------------- camera story ----------------
   const cam = new T.PerspectiveCamera(35, ctx.W / ctx.H, .05, 1e5); ctx.side(cam, p.side == null ? .12 : p.side);
   const FOV0 = cam.fov;
@@ -205,8 +275,8 @@
   const dir = new T.Vector3(), tgt = new T.Vector3(), cp = new T.Vector3(), tmp = new T.Vector3();
   const mix = (A, B, k, kt) => { dir.copy(A.dir).lerp(B.dir, k).normalize(); const ld = Math.log(A.d) + (Math.log(B.d) - Math.log(A.d)) * k; tgt.copy(A.tgt).lerp(B.tgt, kt == null ? k : kt); return Math.exp(ld); };
   const ease = x => x * x * x * (x * (x * 6 - 15) + 10);
-  return { scene: S, camera: cam, draw(t, u) {
-    ctx.t = t; let d;
+  // the camera story as a pure function of t: sets dir / tgt, returns the distance
+  const story = (t, u) => { let d;
     if (cG != null) {   // grain: close, then the long pull back
       const g = ease(Math.min(1, Math.max(0, (t - cG) / 16))), d0 = CLOSE.d + .012 * Math.max(0, Math.min(t, cG) - ctx.t0);
       const lnd = Math.log(d0) + (Math.log(GRAIN.d) - Math.log(d0)) * g;
@@ -222,25 +292,63 @@
       const f0 = { dir: FAR.dir, d: FAR.d * (1 - .002 * Math.min(u, 60)), tgt: FAR.tgt };
       d = mix(f0, NIGHT, m); d *= 1 - .02 * sm(0, 20, t - cM - 13); }
     else { d = mix(CLOSE, CLOSE, 0); d += .01 * u; dir.applyAxisAngle(UP, -.002 * u); }
+    return d; };
+  const scr = new T.Vector3(), tA = new T.Vector3(), tB = new T.Vector3();
+  return { scene: S, camera: cam, draw(t, u) {
+    ctx.t = t;
+    const lnPrev = Math.log(story(t - .05, u - .05)), d = story(t, u), lnV = (Math.log(d) - lnPrev) / .05;
     cp.copy(tgt).addScaledVector(dir, d); cam.position.copy(cp);
     cam.up.copy(UP); cam.lookAt(tgt);
     const de = cp.length();   // distance to Earth
     cam.near = Math.max(.02, Math.min(de - 1.2, de * .02) * .5); cam.far = Math.max(de * 8, 4e4) + 2 * de; cam.fov = FOV0; cam.updateProjectionMatrix();
     SKY.position.copy(cp); SKY.scale.setScalar(cam.far * .5 / 1000);   // always behind everything, inside the far plane
     // Earth turns; clouds drift a little faster
-    earth.rotation.y = t * .012; clouds.rotation.y = earth.rotation.y; const cOff = -t * .0006; eU.cOff.value = cOff; cU.cOff.value = cOff;
+    earth.rotation.y = t * .012; clouds.rotation.y = earth.rotation.y; const cOff = -t * .0018; eU.cOff.value = cOff; cU.cOff.value = cOff; eU.uT.value = t;
     // globe vs pale-blue-dot sprite
     const pxR = (1 / de) / Math.tan(FOV0 * Math.PI / 360) * ctx.H / 2;
     EG.visible = atmo.visible = pxR > .6; dot.material.opacity = (1 - sm(3, 14, pxR)) * .75; dot2.material.opacity = (1 - sm(3, 14, pxR)) * .9;
-    dot.scale.set(.016, .016, 1); dot2.scale.set(.004, .004, 1); eU.city.value = 1;
+    dot.scale.set(.016, .016, 1); dot2.scale.set(.004, .004, 1);
+    // payoff envelopes (flashes rise >= .4 s and fade over >= 2 s)
+    const cueT = cG != null ? cG : cO != null ? cO : cM, sw = cueT == null ? 0 : env(t - cueT, .45, 2.4);
+    const arrive = cM != null ? sm(cM + 9, cM + 13, t) : 0;
+    eU.city.value = 1 + .5 * arrive + .25 * sw; aU.uB.value = 1 + .45 * sw + .15 * arrive;
+    auU.uT.value = t; auU.uA.value = .85 + .5 * arrive + .3 * sw + .15 * Math.sin(t * .37);
+    // sonar pings around the pale blue dot: from the "mind" cue, or once the "grain" pull-back has made Earth a dot
+    const tP = cM != null ? cM : cG != null ? cG + 7.5 : null, dotOp = 1 - sm(3, 14, pxR);
+    pings.forEach((pg, i) => { if (tP == null || t < tP + i * 1.6) { pg.visible = false; return; } const a = ((t - tP - i * 1.6) % 3.6), q = a / 3.6;
+      pg.visible = dotOp > .01; pg.position.copy(EG.position); pg.scale.set(.02 + .11 * q, .02 + .11 * q, 1); pg.material.opacity = sm(0, .15, q) * (1 - q) * (1 - q) * .55 * dotOp; });
     moon.visible = de < 6000;
     // layers by distance
     const fOrb = (cM != null ? 0 : 1) * sm(60, 400, de) * (1 - sm(1.6e4, 6e4, de)), fNb = sm(2500, 14000, de) * (1 - sm(9e4, 2.4e5, de)), fGal = sm(2e4, 2.2e5, de);
-    orbits.forEach((o, i) => o.material.opacity = fOrb * (i === 2 ? .35 : .22));
-    planets.forEach(([sp, r, a0, w]) => { const a = a0 + t * .004 * w; sp.position.copy(SUN).addScaledVector(OX, Math.cos(a) * r).addScaledVector(OY, Math.sin(a) * r); sp.material.opacity = (cM != null ? 0 : 1) * sm(40, 300, de) * (1 - sm(3e4, 9e4, de)); });
+    // oasis: each orbit line draws itself on (from cue + 5.5 s, staggered), a comet head at the tip; other shots: drawn already
+    orbits.forEach((o, i) => { o.material.opacity = fOrb * (i === 2 ? .35 : .22); const hd = heads[i];
+      if (cO == null) { o.geometry.setDrawRange(0, Infinity); hd.visible = false; return; }
+      const a0 = cO + 5.5 + i * .45, k = sm(a0, a0 + 2.6, t), n = Math.max(0, Math.min(257, Math.floor(k * 256) + 1)); o.geometry.setDrawRange(0, k > 0 ? n : 0);
+      const ho = fOrb * (k > 0 && k < 1 ? 1 : 0) + fOrb * env(t - a0 - 2.6, .05, .8) * (k >= 1 ? 1 : 0); hd.visible = ho > .005;
+      if (hd.visible) { const pa = o.geometry.attributes.position, j = Math.min(256, n - 1); hd.position.set(pa.getX(j), pa.getY(j), pa.getZ(j)); hd.material.opacity = ho * .9; } });
+    planets.forEach(([sp, r, a0, w], i) => { const a = a0 + t * .004 * w; sp.position.copy(SUN).addScaledVector(OX, Math.cos(a) * r).addScaledVector(OY, Math.sin(a) * r);
+      const gl = cO != null ? env(t - (cO + 12.4 + i * .3), .25, 1.4) : 0; sp.scale.set(PL[i < 2 ? i : i + 1][2] * 1.7 * (1 + 1.6 * gl), PL[i < 2 ? i : i + 1][2] * 1.7 * (1 + 1.6 * gl), 1);
+      sp.material.opacity = Math.min(1, (cM != null ? 0 : 1) * sm(40, 300, de) * (1 - sm(3e4, 9e4, de)) * (1 + 1.2 * gl)); });
     const sunF = 1 - .7 * sm(3e4, 2e5, de); sun1.material.opacity = sunF; sun2.material.opacity = .5 * sunF; sun3.material.opacity = .12 * sunF * (1 - sm(5e3, 5e4, de)); sun4.material.opacity = .06 * (1 - sm(40, 400, de));
-    nb.forEach(([sp, o]) => sp.material.opacity = fNb * o);
+    nb.forEach(([sp, o], i) => { const wv = cO != null ? env(t - (cO + 31 + nbT[i] / 4e4), .4, 2) : 0; sp.material.opacity = Math.min(1, fNb * o * (.78 + .22 * Math.sin(t * (1.3 + (i % 7) * .23) + i)) * (1 + 1.5 * wv)); });
     nf.material.opacity = fNb * .9; galM.opacity = fGal * .9; gs.material.opacity = fGal * .7;
     sky.material.opacity = .7 * (1 - .75 * fGal);
+    // near-field motes: camera space, depth in units of the near plane; s = fract(F + phase) with F following log-distance
+    // (pull-back -> they recede into the frame, approach -> they rush toward the camera); streak length = distance in .2 s
+    NEAR.position.copy(cp); NEAR.quaternion.copy(cam.quaternion); NEAR.scale.setScalar(cam.near * 2);
+    const F = .3 * Math.log(d) + .004 * t, vS = .3 * lnV + .004, sp = Math.min(1, Math.abs(lnV) / .9), tH = Math.tan(FOV0 * Math.PI / 360), asp = ctx.W / ctx.H;
+    for (let i = 0; i < NMT; i++) { const b = mB[i], s0 = F * b[3] + b[2], s = s0 - Math.floor(s0), z = 2.5 + 40 * s, ds = Math.max(-.35, Math.min(.35, vS * b[3] * .2)), z2 = 2.5 + 40 * Math.max(0, Math.min(1, s - ds));
+      const x = b[0] + .15 * Math.sin(t * .2 * b[4] + b[5]), y = b[1] + .15 * Math.cos(t * .17 * b[4] + b[5]), sx = x / z / (tH * asp);
+      const v = Math.sin(Math.PI * s) * (.1 + .32 * sp) * b[4] * (sx < -.25 ? .3 : 1) * (Math.abs(sx) > 1.1 || Math.abs(y / z / tH) > 1.1 ? 0 : 1);
+      if (v <= .002) { motes.hide(i); continue; }
+      motes.set(i, x, y, -z, x, y, -z2, .008, .75 * v, .85 * v, v); }
+    motes.commit();
+    // lens flare when the Sun is on screen and clear of Earth's disc
+    scr.copy(SUN).project(cam); const sunDir = tA.copy(SUN).sub(cp).normalize(), ang = Math.acos(Math.max(-1, Math.min(1, sunDir.dot(tB.copy(cp).negate().normalize())))), ar = Math.asin(Math.min(1, 1.02 / de));
+    const onS = scr.z < 1 && Math.abs(scr.x) < 1.2 && Math.abs(scr.y) < 1.2 ? 1 : 0, clear = sm(ar * .99, ar * 1.06 + .002, ang) * onS * (1 - sm(3e4, 2e5, de));
+    const fG = clear * (.55 + .7 * (cM != null ? env(t - (cM + 11.5), .6, 3) + .4 * arrive : 0) + .3 * sw);
+    GH.forEach(([g, k, sz]) => { const nx = scr.x * (1 - 2 * k), ny = scr.y * (1 - 2 * k); g.visible = fG > .01; if (!g.visible) return;
+      g.position.set(nx, ny, .5).unproject(cam); g.scale.set(sz, sz, 1); g.material.opacity = fG * .16 * (nx < -.3 ? .3 : 1); });
+    ana.visible = fG > .01; if (ana.visible) { ana.position.set(scr.x, scr.y, .5).unproject(cam); ana.scale.set(.38, .007, 1); ana.material.opacity = fG * .3; }
   } };
 };
