@@ -1,22 +1,29 @@
 {
- "centre": "round porthole looking out at a glowing wormhole mouth",
+ "centre": "glowing ball of our Local Group of galaxies inside a closing horizon shell",
  "focus": [
+  960,
   500,
-  600,
-  1.6
+  1.7
  ],
- "focus_word": "traveler",
- "sfx": [],
+ "focus_word": "our group of galaxies",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "closing in",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "Shortcut?",
-   "x": 600,
-   "y": 380,
+   "type": "name",
+   "text": "Our group of galaxies",
+   "x": 960,
+   "y": 330,
    "to": [
-    500,
-    520
-   ]
+    960,
+    410
+   ],
+   "word": "our group of galaxies"
   }
  ]
 }

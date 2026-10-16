@@ -1,19 +1,29 @@
 {
- "centre": "a golden spiral galaxy, one of the few in the empty pocket",
- "focus": null,
- "focus_word": null,
+ "centre": "a giant striped beach ball with a tiny ant on top",
+ "focus": [
+  960,
+  400,
+  2.0
+ ],
+ "focus_word": "an ant",
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "60 known galaxies",
-   "vol": 0.55
+   "name": "step",
+   "word": "walking",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "~60 KNOWN GALAXIES",
-   "word": "60 known galaxies"
+   "type": "name",
+   "text": "Beach ball",
+   "x": 1230,
+   "y": 470,
+   "to": [
+    1080,
+    490
+   ],
+   "word": "beach ball"
   }
  ]
 }

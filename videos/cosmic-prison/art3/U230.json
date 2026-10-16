@@ -1,13 +1,22 @@
 {
- "centre": "a spiral galaxy on a grid whose cells widen to the right",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "warp",
-   "word": "accelerating expansion",
-   "vol": 0.5
-  }
+ "centre": "a bright round lantern held up toward the darkness",
+ "focus": [
+  1180,
+  480,
+  1.5
  ],
- "labels": []
+ "focus_word": "wall of darkness",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hmm?",
+   "x": 640,
+   "y": 380,
+   "to": [
+    752,
+    470
+   ]
+  }
+ ]
 }

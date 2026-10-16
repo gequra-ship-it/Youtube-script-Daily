@@ -1,17 +1,22 @@
 {
- "centre": "the same face-on spiral galaxy sitting on a stretching grid",
+ "centre": "round gate of golden light at the far edge of a starry plateau",
  "focus": [
-  1250,
+  960,
   520,
   1.6
  ],
- "focus_word": "stretching",
- "sfx": [
+ "focus_word": "reach the edge",
+ "sfx": [],
+ "labels": [
   {
-   "name": "warp",
-   "word": "stretching",
-   "vol": 0.55
+   "type": "say",
+   "text": "Almost there...",
+   "x": 500,
+   "y": 520,
+   "to": [
+    606,
+    618
+   ]
   }
- ],
- "labels": []
+ ]
 }

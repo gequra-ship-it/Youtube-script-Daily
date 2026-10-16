@@ -1,28 +1,23 @@
 {
- "centre": "a glowing porch lamp hanging from the roof",
+ "centre": "the large white dish antenna of Voyager 1",
  "focus": [
-  1280,
-  760,
-  1.8
+  960,
+  540,
+  1.5
  ],
- "focus_word": "front porch",
+ "focus_word": "small metal probe",
  "sfx": [
   {
-   "name": "step",
-   "word": "stepped off",
-   "vol": 0.55
+   "name": "warp",
+   "word": "hurtling",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "Only this far?",
-   "x": 1420,
-   "y": 650,
-   "to": [
-    1300,
-    740
-   ]
+   "type": "num",
+   "text": "LAUNCHED 1977",
+   "word": "1977"
   }
  ]
 }

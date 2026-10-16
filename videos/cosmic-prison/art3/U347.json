@@ -1,11 +1,36 @@
 {
- "centre": "a golden star rising over the horizon of a moon",
- "focus": [
-  1150,
-  640,
-  1.6
+ "centre": "glowing atom-star of the elements inside us",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "the iron in your blood",
+   "vol": 0.5
+  }
  ],
- "focus_word": "journey",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Calcium",
+   "x": 600,
+   "y": 260,
+   "to": [
+    400,
+    330
+   ],
+   "word": "calcium"
+  },
+  {
+   "type": "name",
+   "text": "Iron",
+   "x": 1480,
+   "y": 760,
+   "to": [
+    1480,
+    670
+   ],
+   "word": "iron"
+  }
+ ]
 }

@@ -1,11 +1,25 @@
 {
- "centre": "glowing sphere of knowledge with a missing puzzle piece",
- "focus": [
-  1270,
-  370,
-  1.7
+ "centre": "round dome window showing a dark sky with one dim galaxy",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "telescope",
+   "vol": 0.5
+  }
  ],
- "focus_word": "quantum gravity",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Telescope",
+   "x": 830,
+   "y": 800,
+   "to": [
+    760,
+    640
+   ],
+   "word": "telescope"
+  }
+ ]
 }

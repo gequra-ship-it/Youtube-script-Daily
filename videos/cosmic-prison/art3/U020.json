@@ -1,13 +1,28 @@
 {
- "centre": "glowing coral pocket-watch dial without numbers",
- "focus": null,
- "focus_word": null,
+ "centre": "a glowing porch lamp hanging from the roof",
+ "focus": [
+  1280,
+  760,
+  1.8
+ ],
+ "focus_word": "front porch",
  "sfx": [
   {
-   "name": "tick",
-   "word": "timeframe",
-   "vol": 0.6
+   "name": "step",
+   "word": "stepped off",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Only this far?",
+   "x": 1420,
+   "y": 650,
+   "to": [
+    1300,
+    740
+   ]
+  }
+ ]
 }

@@ -1,17 +1,23 @@
 {
- "centre": "a round temperature gauge with the needle at the cold end",
+ "centre": "a cold, dim red dwarf star",
  "focus": [
-  900,
-  530,
-  1.8
+  960,
+  500,
+  1.6
  ],
- "focus_word": "absolute zero",
- "sfx": [
+ "focus_word": "red dwarfs",
+ "sfx": [],
+ "labels": [
   {
-   "name": "click",
-   "word": "absolute zero",
-   "vol": 0.5
+   "type": "name",
+   "text": "Red dwarf",
+   "x": 1210,
+   "y": 380,
+   "to": [
+    1040,
+    450
+   ],
+   "word": "red dwarfs"
   }
- ],
- "labels": []
+ ]
 }

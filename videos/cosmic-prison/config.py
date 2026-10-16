@@ -53,3 +53,4 @@ PAL_DEFAULT = 'deepfield'
 PAL = dict(cosmicweb='nebula', speck='nebula', darkenergy='nebula', vanishing='nebula', localgroup='nebula', andromeda='nebula',
            window='nebula', privilege='nebula', mystery='nebula', home='nebula',
            voyager='solar', energy='solar', supernova='solar', snowplow='solar', entropy='solar', dimstars='solar', within='solar')
+HOOK = dict(until=300, maxu=4.5)   # 2026-10-16 guideline 20-2: denser first 5 minutes

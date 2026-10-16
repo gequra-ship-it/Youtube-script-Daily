@@ -1,18 +1,41 @@
 {
- "centre": "a large still gear in a silent engine room",
+ "centre": "the same white-blue white dwarf, between a neutron star and a black hole",
  "focus": null,
  "focus_word": null,
  "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Nothing to do...",
-   "x": 560,
-   "y": 370,
+   "type": "name",
+   "text": "White dwarfs",
+   "x": 960,
+   "y": 700,
    "to": [
-    500,
-    470
-   ]
+    960,
+    600
+   ],
+   "word": "white dwarfs"
+  },
+  {
+   "type": "name",
+   "text": "Neutron stars",
+   "x": 380,
+   "y": 760,
+   "to": [
+    380,
+    520
+   ],
+   "word": "neutron stars"
+  },
+  {
+   "type": "name",
+   "text": "Black holes",
+   "x": 1520,
+   "y": 760,
+   "to": [
+    1520,
+    590
+   ],
+   "word": "black holes"
   }
  ]
 }

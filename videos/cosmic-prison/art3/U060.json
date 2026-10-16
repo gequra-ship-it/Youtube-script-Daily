@@ -1,23 +1,28 @@
 {
- "centre": "round glass lens between two spectrum strips",
+ "centre": "a bright galaxy-cluster node where cosmic web filaments meet",
  "focus": [
-  1450,
-  760,
-  1.7
+  1380,
+  640,
+  2.0
  ],
- "focus_word": "red end",
- "sfx": [],
+ "focus_word": "our ambitions",
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "sheer scale of the cosmos",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Spectrum",
-   "x": 1300,
-   "y": 650,
+   "type": "say",
+   "text": "Still going...",
+   "x": 1520,
+   "y": 560,
    "to": [
-    1300,
-    718
-   ],
-   "word": "spectrum"
+    1392,
+    634
+   ]
   }
  ]
 }

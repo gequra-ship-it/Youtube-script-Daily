@@ -1,19 +1,18 @@
 {
- "centre": "a round dial of golden light, a star-clock ticking off seconds",
+ "centre": "a golden photon on an endlessly stretching ribbon of space",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "tick",
-   "word": "every second",
-   "vol": 0.5
-  }
- ],
+ "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "~20,000 STARS EVERY SECOND",
-   "word": "20,000"
+   "type": "say",
+   "text": "Are we there yet?",
+   "x": 1060,
+   "y": 300,
+   "to": [
+    1000,
+    420
+   ]
   }
  ]
 }

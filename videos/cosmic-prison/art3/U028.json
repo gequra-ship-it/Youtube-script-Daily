@@ -1,11 +1,29 @@
 {
- "centre": "rear view of a rocket nozzle glowing gold",
+ "centre": "the Sun, a glowing golden sphere",
  "focus": [
-  960,
-  500,
-  1.6
+  1480,
+  450,
+  1.8
  ],
- "focus_word": "propulsion technology",
- "sfx": [],
- "labels": []
+ "focus_word": "Proxima Centauri",
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "next-door neighbor",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Proxima Centauri",
+   "x": 1380,
+   "y": 335,
+   "to": [
+    1500,
+    425
+   ],
+   "word": "Proxima Centauri"
+  }
+ ]
 }

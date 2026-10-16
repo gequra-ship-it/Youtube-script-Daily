@@ -1,11 +1,40 @@
 {
- "centre": "golden merged elliptical galaxy alone while other galaxies drift off",
+ "centre": "face-on Triangulum spiral with a small bright core",
  "focus": [
   960,
   500,
   1.6
  ],
- "focus_word": "our own merged galaxy",
- "sfx": [],
- "labels": []
+ "focus_word": "Triangulum Galaxy",
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "dwarf galaxies",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Triangulum Galaxy",
+   "x": 960,
+   "y": 690,
+   "to": [
+    960,
+    620
+   ],
+   "word": "Triangulum Galaxy"
+  },
+  {
+   "type": "name",
+   "text": "dwarf galaxies",
+   "x": 1310,
+   "y": 410,
+   "to": [
+    1300,
+    340
+   ],
+   "word": "dwarf galaxies"
+  }
+ ]
 }

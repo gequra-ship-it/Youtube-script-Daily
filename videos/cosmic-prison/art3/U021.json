@@ -1,17 +1,29 @@
 {
- "centre": "large golden moon rising over ancient skyline",
+ "centre": "the Sun sitting in a deep gravity well",
  "focus": [
-  470,
-  660,
+  960,
+  520,
   1.6
  ],
- "focus_word": "colossal empires",
+ "focus_word": "our Sun",
  "sfx": [
   {
-   "name": "stone",
-   "word": "colossal empires",
-   "vol": 0.5
+   "name": "pulse",
+   "word": "gravitational grip",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sun",
+   "x": 1180,
+   "y": 340,
+   "to": [
+    1040,
+    430
+   ],
+   "word": "Sun"
+  }
+ ]
 }

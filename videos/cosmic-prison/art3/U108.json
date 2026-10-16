@@ -1,29 +1,28 @@
 {
- "centre": "a glowing golden brake disc with a caliper, over a flattening curve",
+ "centre": "round treadmill speed dial glowing gold",
  "focus": [
-  1000,
-  460,
-  1.7
+  960,
+  500,
+  1.6
  ],
- "focus_word": "brake",
- "sfx": [
-  {
-   "name": "woodblock",
-   "word": "brake",
-   "vol": 0.55
-  }
- ],
+ "focus_word": "top running speed",
+ "sfx": [],
  "labels": [
   {
+   "type": "num",
+   "text": "TOP SPEED: 10 MPH",
+   "word": "10 miles per hour"
+  },
+  {
    "type": "name",
-   "text": "Brake",
-   "x": 1190,
-   "y": 330,
+   "text": "Treadmill",
+   "x": 1220,
+   "y": 650,
    "to": [
-    1080,
-    400
+    1050,
+    712
    ],
-   "word": "brake"
+   "word": "treadmill"
   }
  ]
 }

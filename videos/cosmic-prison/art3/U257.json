@@ -1,23 +1,29 @@
 {
- "centre": "a cold, dim red dwarf star",
+ "centre": "the Milky Way, barred spiral with a golden core and bluish arms, alone in a vast emptiness",
  "focus": [
   960,
   500,
   1.6
  ],
- "focus_word": "red dwarfs",
- "sfx": [],
+ "focus_word": "Milky Way",
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "Milky Way",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Red dwarf",
-   "x": 1210,
+   "text": "Milky Way",
+   "x": 1290,
    "y": 380,
    "to": [
-    1040,
-    450
+    1080,
+    470
    ],
-   "word": "red dwarfs"
+   "word": "Milky Way"
   }
  ]
 }

@@ -1,13 +1,28 @@
 {
- "centre": "a newborn star glowing in the last knot of gas",
- "focus": null,
- "focus_word": null,
+ "centre": "a bright distant star beyond a path of stepping stones with growing gaps",
+ "focus": [
+  460,
+  600,
+  1.7
+ ],
+ "focus_word": "step",
  "sfx": [
   {
-   "name": "bloom",
-   "word": "form new stars",
-   "vol": 0.55
+   "name": "step",
+   "word": "Every step",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "So far away...",
+   "x": 560,
+   "y": 440,
+   "to": [
+    455,
+    515
+   ]
+  }
+ ]
 }

@@ -1,22 +1,29 @@
 {
- "centre": "close view of the warp bubble, ship resting inside",
+ "centre": "warm afterglow core in the middle of the mottled microwave-background map",
  "focus": [
   960,
   500,
-  1.6
+  1.5
  ],
- "focus_word": "the ship itself is at rest",
- "sfx": [],
+ "focus_word": "afterglow",
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "afterglow",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "All calm in here.",
-   "x": 1240,
-   "y": 330,
+   "type": "name",
+   "text": "Cosmic microwave background",
+   "x": 1250,
+   "y": 700,
    "to": [
-    1040,
-    470
-   ]
+    1150,
+    640
+   ],
+   "word": "cosmic microwave background"
   }
  ]
 }

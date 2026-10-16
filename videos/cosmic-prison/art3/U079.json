@@ -1,24 +1,24 @@
 {
- "centre": "Earth, small blue-and-white globe",
+ "centre": "round coral siren lamp on a van racing away",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "warp",
+   "word": "races away",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "~14 BILLION LIGHT-YEARS",
-   "word": "14 billion"
-  },
-  {
-   "type": "name",
-   "text": "Earth",
-   "x": 960,
-   "y": 330,
+   "type": "say",
+   "text": "Neee-owww...",
+   "x": 330,
+   "y": 420,
    "to": [
-    960,
-    398
-   ],
-   "word": "Earth"
+    362,
+    600
+   ]
   }
  ]
 }

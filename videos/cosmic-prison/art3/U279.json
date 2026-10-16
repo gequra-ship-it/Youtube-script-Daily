@@ -1,13 +1,18 @@
 {
- "centre": "a calm blue planet, with a crossed-out ghost impactor beside it",
+ "centre": "a round cockpit window onto dark space with one faint remnant",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "stone",
-   "word": "violent crash",
-   "vol": 0.5
+   "type": "say",
+   "text": "So dark out there...",
+   "x": 400,
+   "y": 400,
+   "to": [
+    585,
+    565
+   ]
   }
- ],
- "labels": []
+ ]
 }

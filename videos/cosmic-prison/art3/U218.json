@@ -1,18 +1,23 @@
 {
- "centre": "a bright sun rising over the curved top of a beach ball",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "warp bubble moving right, gathering particles on its front edge",
+ "focus": [
+  1070,
+  500,
+  1.8
+ ],
+ "focus_word": "sweep up particles",
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "particles",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "Still going!",
-   "x": 560,
-   "y": 520,
-   "to": [
-    668,
-    645
-   ]
+   "type": "num",
+   "text": "2012",
+   "word": "2012"
   }
  ]
 }

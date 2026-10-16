@@ -1,17 +1,19 @@
 {
- "centre": "a golden spiral galaxy seen through the open dome slit",
- "focus": [
-  1060,
-  540,
-  1.6
- ],
- "focus_word": "touch them",
- "sfx": [
+ "centre": "a round window showing a spiral galaxy, a faint one fading at its edge",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "click",
-   "word": "photograph",
-   "vol": 0.5
+   "type": "say",
+   "text": "Right now?",
+   "x": 640,
+   "y": 330,
+   "to": [
+    500,
+    470
+   ],
+   "word": "Right now"
   }
- ],
- "labels": []
+ ]
 }

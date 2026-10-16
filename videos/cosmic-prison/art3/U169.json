@@ -1,25 +1,28 @@
 {
- "centre": "round dome window showing a dark sky with one dim galaxy",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "click",
-   "word": "telescope",
-   "vol": 0.5
-  }
+ "centre": "bright core of Andromeda (same as U149)",
+ "focus": [
+  380,
+  560,
+  1.6
  ],
+ "focus_word": "Milky Way",
+ "sfx": [],
  "labels": [
   {
+   "type": "num",
+   "text": "250,000 MPH",
+   "word": "250,000 miles per hour"
+  },
+  {
    "type": "name",
-   "text": "Telescope",
-   "x": 830,
-   "y": 800,
+   "text": "Milky Way",
+   "x": 400,
+   "y": 730,
    "to": [
-    760,
+    390,
     640
    ],
-   "word": "telescope"
+   "word": "Milky Way"
   }
  ]
 }

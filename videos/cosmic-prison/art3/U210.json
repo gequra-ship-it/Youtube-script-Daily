@@ -1,25 +1,17 @@
 {
- "centre": "a glowing golden teleport portal",
- "focus": null,
- "focus_word": null,
+ "centre": "warp bubble with ship between squeezed and stretched space grid",
+ "focus": [
+  1250,
+  500,
+  1.6
+ ],
+ "focus_word": "contracting space",
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "teleport",
+   "name": "warp",
+   "word": "faster than light",
    "vol": 0.6
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Observable universe",
-   "x": 1460,
-   "y": 170,
-   "to": [
-    1500,
-    250
-   ],
-   "word": "observable universe"
-  }
- ]
+ "labels": []
 }

@@ -1,13 +1,28 @@
 {
- "centre": "a glowing golden clock dial without numerals (every moment)",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "tick",
-   "word": "every single moment",
-   "vol": 0.5
-  }
+ "centre": "white observatory dome on the mountain top, slit open with golden light",
+ "focus": [
+  960,
+  480,
+  1.6
  ],
- "labels": []
+ "focus_word": "Hooker telescope",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Mount Wilson",
+   "x": 1300,
+   "y": 600,
+   "to": [
+    1180,
+    650
+   ],
+   "word": "Mount Wilson"
+  },
+  {
+   "type": "num",
+   "text": "100-INCH TELESCOPE",
+   "word": "100-inch"
+  }
+ ]
 }

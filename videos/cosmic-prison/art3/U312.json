@@ -1,13 +1,30 @@
 {
- "centre": "bright golden star rising above the hill",
+ "centre": "a rim-lit rocky planet",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "bloom",
-   "word": "elevates",
-   "vol": 0.55
+   "type": "name",
+   "text": "Rocky planets",
+   "x": 1190,
+   "y": 650,
+   "to": [
+    1040,
+    570
+   ],
+   "word": "rocky planets"
+  },
+  {
+   "type": "name",
+   "text": "Distant galaxies",
+   "x": 1500,
+   "y": 200,
+   "to": [
+    1480,
+    330
+   ],
+   "word": "distant galaxies"
   }
- ],
- "labels": []
+ ]
 }

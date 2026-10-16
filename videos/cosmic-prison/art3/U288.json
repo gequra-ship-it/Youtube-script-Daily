@@ -1,29 +1,19 @@
 {
- "centre": "a bright photon of light racing along a beam that cannot bridge the gap",
- "focus": [
-  1250,
-  500,
-  1.6
- ],
- "focus_word": "faster than light",
+ "centre": "a glowing watch face with no numerals",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "warp",
-   "word": "faster than light",
-   "vol": 0.6
+   "name": "tick",
+   "word": "a hundred years",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Light",
-   "x": 1060,
-   "y": 380,
-   "to": [
-    1000,
-    470
-   ],
-   "word": "light"
+   "type": "num",
+   "text": "10^100 YEARS",
+   "word": "ten to the power of a hundred years"
   }
  ]
 }

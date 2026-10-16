@@ -1,18 +1,29 @@
 {
- "centre": "a round gold-framed galaxy hanging in a gallery of space",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "the Milky Way, a barred spiral with a golden core and bluish arms",
+ "focus": [
+  1360,
+  470,
+  1.6
+ ],
+ "focus_word": "slipping across",
+ "sfx": [
+  {
+   "name": "starfall",
+   "word": "slipping across",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "So far away...",
-   "x": 640,
-   "y": 520,
+   "type": "name",
+   "text": "Cosmic event horizon",
+   "x": 1170,
+   "y": 300,
    "to": [
-    470,
-    640
-   ]
+    1352,
+    322
+   ],
+   "word": "cosmic event horizon"
   }
  ]
 }

@@ -1,13 +1,34 @@
 {
- "centre": "clear glowing bubble of dark energy pushing two galaxies apart",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "bloom",
-   "word": "dark energy",
-   "vol": 0.55
-  }
+ "centre": "bright core of the huge tilted Andromeda spiral",
+ "focus": [
+  960,
+  480,
+  1.5
  ],
- "labels": []
+ "focus_word": "Andromeda Galaxy",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Andromeda Galaxy",
+   "x": 1180,
+   "y": 640,
+   "to": [
+    1080,
+    560
+   ],
+   "word": "Andromeda Galaxy"
+  },
+  {
+   "type": "name",
+   "text": "Milky Way",
+   "x": 450,
+   "y": 400,
+   "to": [
+    410,
+    520
+   ],
+   "word": "Milky Way"
+  }
+ ]
 }

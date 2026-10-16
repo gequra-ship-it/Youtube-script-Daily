@@ -1,29 +1,24 @@
 {
- "centre": "magnifying lens over a galaxy map, showing one galaxy enlarged",
- "focus": [
-  1460,
-  420,
-  1.8
- ],
- "focus_word": "spectrum",
+ "centre": "a warm light glowing behind a translucent veil of cosmic drapes",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "page",
-   "word": "map",
+   "name": "cloth",
+   "word": "beyond the veil",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Spectrum",
-   "x": 1460,
-   "y": 300,
+   "type": "say",
+   "text": "What's out there?",
+   "x": 640,
+   "y": 420,
    "to": [
-    1460,
-    368
-   ],
-   "word": "spectrum"
+    425,
+    600
+   ]
   }
  ]
 }

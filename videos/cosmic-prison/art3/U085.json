@@ -1,40 +1,26 @@
 {
- "centre": "bright light pulse leading a race lane",
- "focus": [
-  820,
-  500,
-  1.5
- ],
- "focus_word": "faster than light",
+ "centre": "golden balloon covered with painted galaxy dots",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "warp",
-   "word": "signal",
-   "vol": 0.55
+   "name": "pop",
+   "word": "dots painted",
+   "vol": 0.45
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Matter",
-   "x": 375,
+   "text": "Inflating balloon",
+   "x": 1380,
    "y": 330,
    "to": [
-    375,
-    460
+    1070,
+    430
    ],
-   "word": "matter"
-  },
-  {
-   "type": "name",
-   "text": "Signal",
-   "x": 640,
-   "y": 660,
-   "to": [
-    600,
-    520
-   ],
-   "word": "signal"
+   "word": "inflating balloon"
   }
- ]
+ ],
+ "speed": true
 }

@@ -1,18 +1,29 @@
 {
- "centre": "round teal star cluster glowing in the void",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "magnifying lens over a galaxy map, showing one galaxy enlarged",
+ "focus": [
+  1460,
+  420,
+  1.8
+ ],
+ "focus_word": "spectrum",
+ "sfx": [
+  {
+   "name": "page",
+   "word": "map",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "So much out there...",
-   "x": 330,
-   "y": 420,
+   "type": "name",
+   "text": "Spectrum",
+   "x": 1460,
+   "y": 300,
    "to": [
-    450,
-    540
-   ]
+    1460,
+    368
+   ],
+   "word": "spectrum"
   }
  ]
 }

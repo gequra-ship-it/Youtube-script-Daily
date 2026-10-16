@@ -1,18 +1,29 @@
 {
- "centre": "a golden galaxy island glowing just above the horizon of a dark ocean of space",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a round mottled map of the early universe's light",
+ "focus": [
+  430,
+  520,
+  1.8
+ ],
+ "focus_word": "Planck",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "measurements",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "So far away...",
-   "x": 640,
-   "y": 470,
+   "type": "name",
+   "text": "Planck",
+   "x": 560,
+   "y": 400,
    "to": [
     470,
-    590
-   ]
+    460
+   ],
+   "word": "Planck"
   }
  ]
 }

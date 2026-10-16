@@ -1,19 +1,29 @@
 {
- "centre": "a small blue planet with a dashed sailing route all the way around it",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "bright round splash of light where the avenue hits the stone",
+ "focus": [
+  1150,
+  470,
+  1.6
+ ],
+ "focus_word": "stone wall",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "stone wall",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Planet",
-   "x": 1300,
-   "y": 330,
+   "text": "Stone wall",
+   "x": 1330,
+   "y": 260,
    "to": [
-    1060,
-    430
+    1250,
+    340
    ],
-   "word": "planet"
+   "word": "stone wall"
   }
  ]
 }

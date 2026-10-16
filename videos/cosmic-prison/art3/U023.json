@@ -1,29 +1,34 @@
 {
- "centre": "the Sun, a glowing golden sphere",
+ "centre": "Voyager 1 dish antenna facing us, glowing feed",
  "focus": [
-  1480,
-  450,
-  1.8
+  960,
+  520,
+  1.6
  ],
- "focus_word": "Proxima Centauri",
+ "focus_word": "Voyager 1",
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "next-door neighbor",
-   "vol": 0.55
+   "name": "pulse",
+   "word": "Voyager 1",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Proxima Centauri",
-   "x": 1380,
-   "y": 335,
+   "text": "Voyager 1",
+   "x": 1330,
+   "y": 380,
    "to": [
-    1500,
-    425
+    1060,
+    450
    ],
-   "word": "Proxima Centauri"
+   "word": "Voyager 1"
+  },
+  {
+   "type": "num",
+   "text": "73,000+ YEARS",
+   "word": "73,000"
   }
  ]
 }

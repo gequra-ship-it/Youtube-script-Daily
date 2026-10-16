@@ -1,7 +1,18 @@
 {
- "centre": "glowing Local Group ball on a grid of space that stretches outward",
+ "centre": "glowing bubble holding a few tiny galaxies (the reachable part)",
  "focus": null,
  "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "What's left?",
+   "x": 470,
+   "y": 520,
+   "to": [
+    365,
+    640
+   ]
+  }
+ ]
 }
