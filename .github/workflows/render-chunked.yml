@@ -75,7 +75,10 @@ jobs:
           done
           f=$(ls renders/*.mp4 | head -1); cp "$f" "$GITHUB_WORKSPACE/chunk.mp4"
           { cat chunk.json; echo; echo "render_seconds=$(( $(date +%s) - start ))"
-            ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=codec_name,width,height,r_frame_rate,nb_read_frames -of compact "$f"; } | tee "$GITHUB_WORKSPACE/chunk.txt"
+            ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=codec_name,width,height,r_frame_rate,nb_read_frames -of compact "$f"
+            # repeated frames (a stalled capture shows as an exact repeat -> judder): frames kept by a strict mpdecimate vs all frames
+            kept=$(ffmpeg -nostdin -i "$f" -vf "scale=320:-2,mpdecimate=hi=200:lo=100:frac=0.1,showinfo" -f null - 2>&1 | grep -c "pts_time:")
+            echo "repeat_check kept=$kept"; } | tee "$GITHUB_WORKSPACE/chunk.txt"
       - uses: actions/upload-artifact@v4
         with:
           name: chunk-${{ matrix.slug }}-${{ matrix.i }}
