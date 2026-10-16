@@ -1,18 +1,14 @@
 {
- "centre": "glass globe holding the single galaxy, golden glow",
+ "centre": "a growing chain of energy orbs pushing the craft",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "say",
-   "text": "Never changes...",
-   "x": 230,
-   "y": 850,
-   "to": [
-    265,
-    1050
-   ]
+   "name": "pop",
+   "word": "more energy",
+   "vol": 0.6
   }
- ]
+ ],
+ "labels": [],
+ "speed": true
 }

@@ -664,6 +664,13 @@ for k, u in enumerate(units):
     # --- motion groups (finite, seek-safe) ---
     p, fb = art_path(u); svg = load_svg(nn, p); cnt = {}
     sp = t1 - v0 + 0.2
+    JT = {}; JDEP = {}   # joint / chain groups in document order (outer first): their data-pivot / data-amp / data-per / data-phase
+    for mt in re.finditer(r'<g\b[^>]*>', svg):
+        cm = re.search(r'class="[^"]*\bmv (mv-(?:chain|joint)-[A-Za-z0-9-]+)', mt.group(0))
+        if cm:
+            at = dict(re.findall(r'(data-[a-z]+)="([^"]*)"', mt.group(0)))
+            base = re.sub(r'-\d+$', '', cm.group(1)); at['_dep'] = JDEP.get(base, 0); JDEP[base] = at['_dep'] + 1   # depth = order of the link in its chain (outer first)
+            JT.setdefault(cm.group(1), []).append(at)
     for nm in re.findall(r'class="[^"]*\bmv (mv-[A-Za-z0-9-]+)', svg):
         kind, per = MV.get(nm[3:], MV.get(nm[3:].split('-')[0], ('pulse', .5))); kk = cnt.get(nm, 0); cnt[nm] = kk + 1
         if re.match(r'mv-glint-s\d', nm): kind, per = 'twinkle', {'1': 1.6, '2': 2.1, '3': 2.7}.get(nm[10:11], 2.0)   # cosmic star tiers (3-7)
@@ -671,6 +678,17 @@ for k, u in enumerate(units):
         if nm == 'mv-glint-core' or nm.startswith('mv-core-'):    # the round centre object: one of 13 motions, never the same twice in a row
             ct = nm[8:].split('-')[0] if nm.startswith('mv-core-') else motions.legacy_core_type(len(CORE_USED))
             js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]')); CORE_USED.append(ct)
+            continue
+        if nm.startswith('mv-chain-') or nm.startswith('mv-joint-'):   # creature joints (guideline 20-6): hinge rotation about data-pivot
+            at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]; chain = nm.startswith('mv-chain-')
+            pv = at.get('data-pivot', '').replace(',', ' ').split()
+            org = f'svgOrigin:"{pv[0]} {pv[1]}"' if len(pv) == 2 else 'transformOrigin:"0% 50%"'
+            dep = at.get('_dep', kk) if chain else 0
+            amp = float(at.get('data-amp', 7 if chain else 12)) * (1 + 0.35 * dep)   # the tip of a chain bends more
+            pj = float(at.get('data-per', 1.5 if chain else 1.1))
+            lag = float(at.get('data-phase', 0.55 * dep)) * pj / math.pi             # each link lags its parent -> travelling wave
+            st = max(0.0, v0 - lag); rj = int(math.ceil((t1 + 0.2 - st) / pj)) - 1
+            js.append(f'tl.fromTo({g},{{rotation:{-amp:.2f},{org}}},{{rotation:{amp:.2f},duration:{pj:.3f},ease:"sine.inOut",yoyo:true,repeat:{rj},immediateRender:false}},{st:.3f});')
             continue
         per = per * (1 + 0.13 * (kk % 3)); rep = int(math.ceil(sp / per)) - 1
         ease = f'ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false'

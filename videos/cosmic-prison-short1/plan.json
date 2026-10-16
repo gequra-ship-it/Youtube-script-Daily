@@ -2,7 +2,7 @@
  {
   "uid": "U001",
   "scene": 1,
-  "title": "Out of Reach",
+  "title": "Hook",
   "art_theme": "hook",
   "bg": "night",
   "pal": {
@@ -26,16 +26,16 @@
     "#ff7a5a"
    ]
   },
-  "text": "Most of the galaxies you can see through a telescope are already out of reach. Not for a while.",
-  "dur": 6.4,
+  "text": "Most of the galaxies you can see through a telescope are already out of reach.",
+  "dur": 4.96,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "Forever. Even a ship moving at the speed of light could never get there."
+  "nxt": "Not for now. Forever."
  },
  {
   "uid": "U002",
   "scene": 1,
-  "title": "Out of Reach",
+  "title": "Hook",
   "art_theme": "hook",
   "bg": "night",
   "pal": {
@@ -59,17 +59,17 @@
     "#ff7a5a"
    ]
   },
-  "text": "Forever. Even a ship moving at the speed of light could never get there.",
-  "dur": 4.81,
-  "transition_in": "fade",
-  "prev": "Most of the galaxies you can see through a telescope are already out of reach. Not for a while.",
-  "nxt": ""
+  "text": "Not for now. Forever.",
+  "dur": 2.19,
+  "transition_in": "eye",
+  "prev": "Most of the galaxies you can see through a telescope are already out of reach.",
+  "nxt": "Even a ship traveling at the speed of light could never get there."
  },
  {
   "uid": "U003",
-  "scene": 2,
-  "title": "Stretching Space",
-  "art_theme": "stretch",
+  "scene": 1,
+  "title": "Hook",
+  "art_theme": "hook",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -92,17 +92,17 @@
     "#ff7a5a"
    ]
   },
-  "text": "The universe is expanding. Space itself stretches, and the farther away a galaxy is,",
-  "dur": 5.69,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "the faster it is carried away from us."
+  "text": "Even a ship traveling at the speed of light could never get there.",
+  "dur": 3.64,
+  "transition_in": "whip",
+  "prev": "Not for now. Forever.",
+  "nxt": "And the reason is one of the strangest facts in all of physics."
  },
  {
   "uid": "U004",
-  "scene": 2,
-  "title": "Stretching Space",
-  "art_theme": "stretch",
+  "scene": 1,
+  "title": "Hook",
+  "art_theme": "hook",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -125,17 +125,17 @@
     "#ff7a5a"
    ]
   },
-  "text": "the faster it is carried away from us.",
-  "dur": 3.08,
-  "transition_in": "slide",
-  "prev": "The universe is expanding. Space itself stretches, and the farther away a galaxy is,",
+  "text": "And the reason is one of the strangest facts in all of physics.",
+  "dur": 4.5,
+  "transition_in": "fade",
+  "prev": "Even a ship traveling at the speed of light could never get there.",
   "nxt": ""
  },
  {
   "uid": "U005",
-  "scene": 3,
-  "title": "Faster Than Light",
-  "art_theme": "faster",
+  "scene": 2,
+  "title": "Limit",
+  "art_theme": "limit",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -158,17 +158,17 @@
     "#ff7a5a"
    ]
   },
-  "text": "About 14 billion light-years out, that speed passes the speed of light.",
-  "dur": 4.96,
-  "transition_in": "wash",
+  "text": "Start with the speed limit.",
+  "dur": 1.66,
+  "transition_in": "zoom",
   "prev": "",
-  "nxt": "Einstein's limit is not broken, because nothing moves through space that fast."
+  "nxt": "Light travels at about 186,000 miles per second,"
  },
  {
   "uid": "U006",
-  "scene": 3,
-  "title": "Faster Than Light",
-  "art_theme": "faster",
+  "scene": 2,
+  "title": "Limit",
+  "art_theme": "limit",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -191,17 +191,17 @@
     "#ff7a5a"
    ]
   },
-  "text": "Einstein's limit is not broken, because nothing moves through space that fast.",
-  "dur": 5.52,
-  "transition_in": "zoom",
-  "prev": "About 14 billion light-years out, that speed passes the speed of light.",
-  "nxt": "Space itself is growing."
+  "text": "Light travels at about 186,000 miles per second,",
+  "dur": 3.84,
+  "transition_in": "eye",
+  "prev": "Start with the speed limit.",
+  "nxt": "and according to Einstein,"
  },
  {
   "uid": "U007",
-  "scene": 3,
-  "title": "Faster Than Light",
-  "art_theme": "faster",
+  "scene": 2,
+  "title": "Limit",
+  "art_theme": "limit",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -224,17 +224,17 @@
     "#ff7a5a"
    ]
   },
-  "text": "Space itself is growing.",
-  "dur": 2.59,
-  "transition_in": "fade",
-  "prev": "Einstein's limit is not broken, because nothing moves through space that fast.",
-  "nxt": ""
+  "text": "and according to Einstein,",
+  "dur": 2.11,
+  "transition_in": "wipe",
+  "prev": "Light travels at about 186,000 miles per second,",
+  "nxt": "it is the universal speed limit of cause and effect."
  },
  {
   "uid": "U008",
-  "scene": 4,
-  "title": "Point of No Return",
-  "art_theme": "horizon",
+  "scene": 2,
+  "title": "Limit",
+  "art_theme": "limit",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -257,17 +257,17 @@
     "#ff7a5a"
    ]
   },
-  "text": "At roughly 16 billion light-years lies the cosmic event horizon.",
-  "dur": 5.1,
-  "transition_in": "wash",
-  "prev": "",
-  "nxt": "A beam of light sent past it today would never arrive."
+  "text": "it is the universal speed limit of cause and effect.",
+  "dur": 4.07,
+  "transition_in": "whip",
+  "prev": "and according to Einstein,",
+  "nxt": "Nothing with mass can ever exceed it, or even reach it."
  },
  {
   "uid": "U009",
-  "scene": 4,
-  "title": "Point of No Return",
-  "art_theme": "horizon",
+  "scene": 2,
+  "title": "Limit",
+  "art_theme": "limit",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -290,82 +290,1072 @@
     "#ff7a5a"
    ]
   },
-  "text": "A beam of light sent past it today would never arrive.",
-  "dur": 4.26,
-  "transition_in": "match",
-  "prev": "At roughly 16 billion light-years lies the cosmic event horizon.",
-  "nxt": ""
+  "text": "Nothing with mass can ever exceed it, or even reach it.",
+  "dur": 3.93,
+  "transition_in": "push",
+  "prev": "it is the universal speed limit of cause and effect.",
+  "nxt": "That alone makes the universe enormous for us."
  },
  {
   "uid": "U010",
-  "scene": 5,
-  "title": "Slipping Away",
-  "art_theme": "slipping",
+  "scene": 2,
+  "title": "Limit",
+  "art_theme": "limit",
   "bg": "night",
   "pal": {
-   "palette": "nebula",
-   "paper_base": "#e4e2ec",
-   "paper_ink": "#17142e",
-   "night_top": "#050314",
-   "night_bottom": "#160a33",
-   "night_line": "#ffd0f0",
-   "night_glow": "#ff5fc8",
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
    "dusk_stops": [
-    "#ffd2b8",
-    "#c0509a",
-    "#2a1b6e"
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
    ],
-   "dusk_ink": "#17142e",
+   "dusk_ink": "#12182c",
    "accents": [
-    "#ff5fc8",
-    "#36d6d0",
-    "#8a6bff",
-    "#ffd27a"
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
    ]
   },
-  "text": "By one estimate, about 94 percent of the galaxies in the observable universe are already beyond it,",
-  "dur": 7.35,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "and about 20,000 stars slip across every second."
+  "text": "That alone makes the universe enormous for us.",
+  "dur": 3.26,
+  "transition_in": "slide",
+  "prev": "Nothing with mass can ever exceed it, or even reach it.",
+  "nxt": "But it is not what seals us in."
  },
  {
   "uid": "U011",
-  "scene": 5,
-  "title": "Slipping Away",
-  "art_theme": "slipping",
+  "scene": 2,
+  "title": "Limit",
+  "art_theme": "limit",
   "bg": "night",
   "pal": {
-   "palette": "nebula",
-   "paper_base": "#e4e2ec",
-   "paper_ink": "#17142e",
-   "night_top": "#050314",
-   "night_bottom": "#160a33",
-   "night_line": "#ffd0f0",
-   "night_glow": "#ff5fc8",
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
    "dusk_stops": [
-    "#ffd2b8",
-    "#c0509a",
-    "#2a1b6e"
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
    ],
-   "dusk_ink": "#17142e",
+   "dusk_ink": "#12182c",
    "accents": [
-    "#ff5fc8",
-    "#36d6d0",
-    "#8a6bff",
-    "#ffd27a"
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
    ]
   },
-  "text": "and about 20,000 stars slip across every second.",
-  "dur": 4.03,
-  "transition_in": "fade",
-  "prev": "By one estimate, about 94 percent of the galaxies in the observable universe are already beyond it,",
+  "text": "But it is not what seals us in.",
+  "dur": 2.62,
+  "transition_in": "wash",
+  "prev": "That alone makes the universe enormous for us.",
   "nxt": ""
  },
  {
   "uid": "U012",
+  "scene": 3,
+  "title": "Stretch",
+  "art_theme": "stretch",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "What seals us in is the expansion of space.",
+  "dur": 2.8,
+  "transition_in": "blinds",
+  "prev": "",
+  "nxt": "Galaxies are not really flying through space like bullets."
+ },
+ {
+  "uid": "U013",
+  "scene": 3,
+  "title": "Stretch",
+  "art_theme": "stretch",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Galaxies are not really flying through space like bullets.",
+  "dur": 3.79,
+  "transition_in": "whip",
+  "prev": "What seals us in is the expansion of space.",
+  "nxt": "Instead, the fabric of space itself is stretching between them."
+ },
+ {
+  "uid": "U014",
+  "scene": 3,
+  "title": "Stretch",
+  "art_theme": "stretch",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Instead, the fabric of space itself is stretching between them.",
+  "dur": 4.19,
+  "transition_in": "match",
+  "prev": "Galaxies are not really flying through space like bullets.",
+  "nxt": "Between you and a distant galaxy,"
+ },
+ {
+  "uid": "U015",
+  "scene": 3,
+  "title": "Stretch",
+  "art_theme": "stretch",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Between you and a distant galaxy,",
+  "dur": 2.42,
+  "transition_in": "wipe",
+  "prev": "Instead, the fabric of space itself is stretching between them.",
+  "nxt": "new cubic light-years of empty space keep appearing,"
+ },
+ {
+  "uid": "U016",
+  "scene": 3,
+  "title": "Stretch",
+  "art_theme": "stretch",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "new cubic light-years of empty space keep appearing,",
+  "dur": 3.77,
+  "transition_in": "tilt",
+  "prev": "Between you and a distant galaxy,",
+  "nxt": "every single moment. And Hubble's Law tells us that the speed at which"
+ },
+ {
+  "uid": "U017",
+  "scene": 3,
+  "title": "Stretch",
+  "art_theme": "stretch",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "every single moment. And Hubble's Law tells us that the speed at which",
+  "dur": 4.5,
+  "transition_in": "iris",
+  "prev": "new cubic light-years of empty space keep appearing,",
+  "nxt": "a galaxy recedes is proportional to its distance."
+ },
+ {
+  "uid": "U018",
+  "scene": 3,
+  "title": "Stretch",
+  "art_theme": "stretch",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "a galaxy recedes is proportional to its distance.",
+  "dur": 3.02,
+  "transition_in": "slide",
+  "prev": "every single moment. And Hubble's Law tells us that the speed at which",
+  "nxt": "Twice as far away, twice as fast."
+ },
+ {
+  "uid": "U019",
+  "scene": 3,
+  "title": "Stretch",
+  "art_theme": "stretch",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Twice as far away, twice as fast.",
+  "dur": 3.32,
+  "transition_in": "whip",
+  "prev": "a galaxy recedes is proportional to its distance.",
+  "nxt": ""
+ },
+ {
+  "uid": "U020",
+  "scene": 4,
+  "title": "Faster",
+  "art_theme": "faster",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Now connect the dots. At a distance of about 14 billion light-years from Earth,",
+  "dur": 5.21,
+  "transition_in": "blinds",
+  "prev": "",
+  "nxt": "the space between us and those regions is growing faster than light."
+ },
+ {
+  "uid": "U021",
+  "scene": 4,
+  "title": "Faster",
+  "art_theme": "faster",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "the space between us and those regions is growing faster than light.",
+  "dur": 4.26,
+  "transition_in": "zoom",
+  "prev": "Now connect the dots. At a distance of about 14 billion light-years from Earth,",
+  "nxt": "Does that break Einstein's rule? No."
+ },
+ {
+  "uid": "U022",
+  "scene": 4,
+  "title": "Faster",
+  "art_theme": "faster",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Does that break Einstein's rule? No.",
+  "dur": 3.16,
+  "transition_in": "iris",
+  "prev": "the space between us and those regions is growing faster than light.",
+  "nxt": "Relativity says nothing can move through space faster than light."
+ },
+ {
+  "uid": "U023",
+  "scene": 4,
+  "title": "Faster",
+  "art_theme": "faster",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Relativity says nothing can move through space faster than light.",
+  "dur": 4.03,
+  "transition_in": "wash",
+  "prev": "Does that break Einstein's rule? No.",
+  "nxt": "It says nothing about how fast space itself can stretch."
+ },
+ {
+  "uid": "U024",
+  "scene": 4,
+  "title": "Faster",
+  "art_theme": "faster",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "It says nothing about how fast space itself can stretch.",
+  "dur": 4.19,
+  "transition_in": "match",
+  "prev": "Relativity says nothing can move through space faster than light.",
+  "nxt": ""
+ },
+ {
+  "uid": "U025",
+  "scene": 5,
+  "title": "Treadmill",
+  "art_theme": "treadmill",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Imagine running on a giant treadmill.",
+  "dur": 2.32,
+  "transition_in": "tilt",
+  "prev": "",
+  "nxt": "Your top speed is 10 miles per hour,"
+ },
+ {
+  "uid": "U026",
+  "scene": 5,
+  "title": "Treadmill",
+  "art_theme": "treadmill",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Your top speed is 10 miles per hour,",
+  "dur": 2.88,
+  "transition_in": "wipe",
+  "prev": "Imagine running on a giant treadmill.",
+  "nxt": "but the belt beneath you moves backward at 20,"
+ },
+ {
+  "uid": "U027",
+  "scene": 5,
+  "title": "Treadmill",
+  "art_theme": "treadmill",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "but the belt beneath you moves backward at 20,",
+  "dur": 3.65,
+  "transition_in": "fade",
+  "prev": "Your top speed is 10 miles per hour,",
+  "nxt": "then 50, then 100 miles per hour."
+ },
+ {
+  "uid": "U028",
+  "scene": 5,
+  "title": "Treadmill",
+  "art_theme": "treadmill",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "then 50, then 100 miles per hour.",
+  "dur": 2.57,
+  "transition_in": "push",
+  "prev": "but the belt beneath you moves backward at 20,",
+  "nxt": "No matter how hard you run, you are dragged backward."
+ },
+ {
+  "uid": "U029",
+  "scene": 5,
+  "title": "Treadmill",
+  "art_theme": "treadmill",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "No matter how hard you run, you are dragged backward.",
+  "dur": 3.91,
+  "transition_in": "match",
+  "prev": "then 50, then 100 miles per hour.",
+  "nxt": "For a beam of light trying to reach the most distant galaxies,"
+ },
+ {
+  "uid": "U030",
+  "scene": 5,
+  "title": "Treadmill",
+  "art_theme": "treadmill",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "For a beam of light trying to reach the most distant galaxies,",
+  "dur": 3.94,
+  "transition_in": "wipe",
+  "prev": "No matter how hard you run, you are dragged backward.",
+  "nxt": "the cosmic treadmill moves faster than its top speed."
+ },
+ {
+  "uid": "U031",
+  "scene": 5,
+  "title": "Treadmill",
+  "art_theme": "treadmill",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "the cosmic treadmill moves faster than its top speed.",
+  "dur": 3.81,
+  "transition_in": "wash",
+  "prev": "For a beam of light trying to reach the most distant galaxies,",
+  "nxt": ""
+ },
+ {
+  "uid": "U032",
   "scene": 6,
-  "title": "Full Story",
+  "title": "Horizon",
+  "art_theme": "horizon",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "The true point of no return lies",
+  "dur": 2.46,
+  "transition_in": "slide",
+  "prev": "",
+  "nxt": "at roughly 16 billion light-years."
+ },
+ {
+  "uid": "U033",
+  "scene": 6,
+  "title": "Horizon",
+  "art_theme": "horizon",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "at roughly 16 billion light-years.",
+  "dur": 2.53,
+  "transition_in": "iris",
+  "prev": "The true point of no return lies",
+  "nxt": "It is called the cosmic event horizon."
+ },
+ {
+  "uid": "U034",
+  "scene": 6,
+  "title": "Horizon",
+  "art_theme": "horizon",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "It is called the cosmic event horizon.",
+  "dur": 2.91,
+  "transition_in": "zoom",
+  "prev": "at roughly 16 billion light-years.",
+  "nxt": "Any galaxy beyond it is cut off from us for good."
+ },
+ {
+  "uid": "U035",
+  "scene": 6,
+  "title": "Horizon",
+  "art_theme": "horizon",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Any galaxy beyond it is cut off from us for good.",
+  "dur": 3.52,
+  "transition_in": "slide",
+  "prev": "It is called the cosmic event horizon.",
+  "nxt": "A beam of light fired toward those regions"
+ },
+ {
+  "uid": "U036",
+  "scene": 6,
+  "title": "Horizon",
+  "art_theme": "horizon",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "A beam of light fired toward those regions",
+  "dur": 2.89,
+  "transition_in": "iris",
+  "prev": "Any galaxy beyond it is cut off from us for good.",
+  "nxt": "right now would travel forever and never arrive."
+ },
+ {
+  "uid": "U037",
+  "scene": 6,
+  "title": "Horizon",
+  "art_theme": "horizon",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "right now would travel forever and never arrive.",
+  "dur": 3.72,
+  "transition_in": "eye",
+  "prev": "A beam of light fired toward those regions",
+  "nxt": ""
+ },
+ {
+  "uid": "U038",
+  "scene": 7,
+  "title": "Lost",
+  "art_theme": "lost",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "And here is the part that hurts. By one widely cited estimate,",
+  "dur": 4.19,
+  "transition_in": "wipe",
+  "prev": "",
+  "nxt": "even a ship launched at the speed of light today could never"
+ },
+ {
+  "uid": "U039",
+  "scene": 7,
+  "title": "Lost",
+  "art_theme": "lost",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "even a ship launched at the speed of light today could never",
+  "dur": 4.17,
+  "transition_in": "match",
+  "prev": "And here is the part that hurts. By one widely cited estimate,",
+  "nxt": "reach about 94 percent of the galaxies in the observable universe."
+ },
+ {
+  "uid": "U040",
+  "scene": 7,
+  "title": "Lost",
+  "art_theme": "lost",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "reach about 94 percent of the galaxies in the observable universe.",
+  "dur": 4.51,
+  "transition_in": "zoom",
+  "prev": "even a ship launched at the speed of light today could never",
+  "nxt": "We can look at them. We can photograph them and study their past. But we can never touch them."
+ },
+ {
+  "uid": "U041",
+  "scene": 7,
+  "title": "Lost",
+  "art_theme": "lost",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "We can look at them. We can photograph them and study their past. But we can never touch them.",
+  "dur": 6.34,
+  "transition_in": "whip",
+  "prev": "reach about 94 percent of the galaxies in the observable universe.",
+  "nxt": ""
+ },
+ {
+  "uid": "U042",
+  "scene": 8,
+  "title": "Outro",
   "art_theme": "outro",
   "bg": "night",
   "pal": {
@@ -389,10 +1379,43 @@
     "#ff7a5a"
    ]
   },
-  "text": "So why can we never reach the edge of the universe? The full story is on Miya's Lab.",
-  "dur": 6.75,
+  "text": "So where is the real edge of the universe, and why are we trapped inside it?",
+  "dur": 4.69,
   "transition_in": "slide",
   "prev": "",
+  "nxt": "The full story is on Miya's Lab."
+ },
+ {
+  "uid": "U043",
+  "scene": 8,
+  "title": "Outro",
+  "art_theme": "outro",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "The full story is on Miya's Lab.",
+  "dur": 3.78,
+  "transition_in": "wash",
+  "prev": "So where is the real edge of the universe, and why are we trapped inside it?",
   "nxt": ""
  }
 ]

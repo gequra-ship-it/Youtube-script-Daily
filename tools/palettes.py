@@ -3,7 +3,8 @@
 # Each palette gives the three background modes (paper / night / dusk), line colours, a wash colour for transitions and 4 accents.
 # A video picks palettes in its config.py:  PAL_DEFAULT = 'sunset'      # legacy videos without PAL_DEFAULT keep the old look; NEW videos must set PAL_DEFAULT (build_audio PLAN=1 warns);  PAL = {'<art_theme>': '<palette name>', ...}
 # Rule: choose the palette from what the script is ABOUT (place, material, mood), not from taste. Violet/magenta and orange are
-# only allowed when the subject itself is violet/orange (sunset, fire, desert, space nebula). Max 3 palettes per video.
+# only allowed when the subject itself is violet/orange (sunset, fire, desert, space nebula).
+# 2026-10-16 (user): a palette is only a skeleton - change palettes per scene/unit and adjust colours freely to fit the script (no limit).
 PALETTES = {
     'ocean':   dict(mood='sea, deep sea, rivers, water life',
                     paper=('#dfe6e6', '#1a2b3a'), night=('#04101f', '#0b2236', '#7fd6e0', '#5fe0d0'),

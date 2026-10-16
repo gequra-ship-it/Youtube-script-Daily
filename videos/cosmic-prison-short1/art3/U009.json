@@ -1,11 +1,28 @@
 {
- "centre": "our home galaxy (match with previous)",
+ "centre": "a heavy rocky sphere straining up toward a wall of light",
  "focus": [
-  748,
-  560,
-  1.7
+  540,
+  700,
+  1.5
  ],
- "focus_word": "beam of light",
- "sfx": [],
- "labels": []
+ "focus_word": "mass",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "mass",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Almost...",
+   "x": 790,
+   "y": 720,
+   "to": [
+    630,
+    800
+   ]
+  }
+ ]
 }

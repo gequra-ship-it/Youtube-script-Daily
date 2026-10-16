@@ -1,7 +1,25 @@
 {
- "centre": "glowing telescope lens catching faint starlight",
+ "centre": "a bright photon racing up a beam of light",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "glimmer",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Shortcut?",
+   "x": 380,
+   "y": 1320,
+   "to": [
+    280,
+    1190
+   ],
+   "word": "cheat"
+  }
+ ],
+ "speed": false
 }

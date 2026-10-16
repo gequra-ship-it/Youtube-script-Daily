@@ -1,23 +1,27 @@
 {
- "centre": "telescope eyepiece view with a distant spiral galaxy inside",
- "focus": null,
- "focus_word": null,
+ "centre": "telescope eyepiece view showing one bright spiral galaxy",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "galaxies",
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "galaxies",
+   "name": "glimmer",
+   "word": "telescope",
    "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "telescope",
-   "x": 250,
-   "y": 1050,
+   "text": "Telescope",
+   "x": 330,
+   "y": 1000,
    "to": [
-    330,
-    1150
+    300,
+    1130
    ],
    "word": "telescope"
   }

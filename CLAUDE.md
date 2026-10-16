@@ -4,8 +4,8 @@
 
 ## 먼저 읽을 파일
 - 지침서 원본: `docs/miyas-lab-guideline.md` (`render-pipeline` 브랜치가 원본). 이 파일과 지침서가 다르면 지침서가 우선이다.
-- **영상은 SVG 모션그래픽 방식으로 만든다(2026-10-16 사용자 결정으로 복귀).** 그림 명세: `tools/art_spec.md` (+ 영상별 `videos/<slug>/art_brief.md`). 3D 실험에서 얻은 카메라·속도감·초반 밀도·숏츠 규칙은 지침서 20장(코드: `tools/build3.py`의 `DRIFT`·`HOOK`·속도선, `tools/motion_check.py`)
-- 시네마틱 3D(cine)는 보관: `docs/miyas-lab-guideline-cine.md`, `tools/cine_spec.md`, `tools/cine/`, `tools/build_cine.py`. 사용자가 3D를 요청할 때만 쓴다
+- **영상은 SVG 모션그래픽 방식으로 만든다(2026-10-16 사용자 결정으로 복귀).** 그림 명세: `tools/art_spec.md` (+ 영상별 `videos/<slug>/art_brief.md`). 3D 실험에서 얻은 카메라·속도감·초반 밀도·숏츠·관절 모션·병렬 렌더 규칙은 지침서 20장(코드: `tools/build3.py`의 `DRIFT`·`HOOK`·속도선·`mv-joint`/`mv-chain`, `tools/motion_check.py`, `tools/chunk_plan.py`)
+- 시네마틱 3D(cine)의 문서·코드는 `cine-test/`에 보관(`cine-test/README.md`). 사용자가 3D를 요청할 때만 쓴다
 - 도구 사용법: `tools/README.md`
 - 레포 구조 변경 기록: `docs/repo-changes.md`
 
@@ -20,7 +20,7 @@
 
 ## 렌더 주의 (되돌리기 어려움)
 - `render-pipeline`에 푸시할 때 `render/.slug`, `.github/workflows/render.yml`, `render/sample/**` 중 하나가 바뀌면 GitHub Actions 렌더가 바로 시작되고, 끝나면 Drive의 같은 이름 MP4를 덮어쓴다. 의도하지 않았다면 이 파일들을 건드리지 않는다.
-- SVG 영상 렌더는 `render/.slug`(한 줄에 슬러그 하나, 본편과 숏츠를 같이 적을 수 있음)를 바꾸는 푸시로 `render.yml`이 돈다. 3D(cine) 렌더는 `render/.chunked`(`"<slug> <구간 수>"`)로 `render-chunked.yml`이 구간별 동시 렌더한다. 둘 다 바로 시작되고 덮어쓴다. 렌더 없이 워크플로 파일만 바꿀 때는 `.slug`를 없는 슬러그(예: `none`)로 두어 실행이 아무것도 올리지 않고 끝나게 한다.
+- 렌더는 `render/.chunked`(`"<slug> <구간 수>"`, 구간 수는 `python3 tools/chunk_plan.py render/<slug>`)를 바꾸는 푸시로 `render-chunked.yml`이 구간별 동시 렌더 후 합쳐 올린다(SVG·3D 모두, 지침서 20-7). 예전 한 작업 방식 `render.yml`은 `render/.slug`(한 줄에 슬러그 하나)로 돈다. 둘 다 바로 시작되고 덮어쓴다. 렌더 없이 워크플로 파일만 바꿀 때는 `.slug`를 없는 슬러그(예: `none`)로 두어 실행이 아무것도 올리지 않고 끝나게 한다.
 - 렌더 1회(작업 하나) 시간 한도는 300분이고, 슬러그를 순서대로 렌더한다. 롱폼은 영상 길이의 약 3~4배가 걸린다(2026-10-13 실행: 약 20분 영상이 숏츠 2편 포함 약 62~90분). 숏츠는 영상마다 3편(각 2:00~2:55, 지침서 19장)이라 롱폼과 숏츠를 다른 커밋으로 나눠 푸시하면 시간 한도에 여유가 생긴다. 여러 주제는 주제별로 커밋을 나눠 하나씩 푸시해 병렬로 돌린다(지침서 15-5).
 - Drive 경로는 `render/<slug>/.dest`로 정한다. Drive 폴더는 `Video & Thumbnail/Space & Science/NN_<slug>/`, `Video & Thumbnail/Life & History/NN_<slug>/` 구조다(숏츠는 그 안의 `short/`). 폴더 이름이 바뀌면 `.dest`도 바꾼다. 안 그러면 덮어쓰지 않고 새 폴더가 생긴다.
 - 이미 만든 영상에 새 모션 규칙만 적용할 때는 `tools/restyle_motion.py`를 빌드 원본에만 쓴다(지침서 15-7).
