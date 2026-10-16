@@ -9,6 +9,10 @@
 //           toward a galaxy beyond it and never arrives (it slows and stalls just inside the shell)
 //   cross   galaxies start drifting outward; the ones past the shell redden and fade (a faint red flare as each one crosses)
 //   vanish  S21 the drift speeds up: more and more galaxies slip across
+//           speed pass 2026-10-16: besides the drifting field, an endless stream of ~380 galaxies is born near us and carried out
+//           through the shell (r = r_in * e^(lambda s), s = fract(F(t) * rate_k + phase_k)); slow after cross, accelerating for
+//           ~23 s after vanish (with motion streaks that lengthen with speed), then calming down again (from vanish + 23 s) so the
+//           later seen / lost / edge shots read clearly. Same cues -> same state in every instance (seek-safe).
 //   seen    S23 camera pulls back; the faint outer sphere (observable universe) appears; galaxies between the two spheres turn dim
 //           violet (seen but unreachable), nothing shows beyond the outer sphere
 //   lost    S24 every galaxy outside the reachable shell dims to grey violet; only the few inside stay gold (and brighten)
@@ -44,7 +48,7 @@
   shell.renderOrder = 2; outer.renderOrder = 1; S.add(shell, outer); outer.scale.setScalar(RO);
 
   // galaxies: index 0 = the Milky Way; the rest spread to r ~ 62, a little denser toward us
-  const N = 1000, GF = M.cosmicGal(ctx, N), R1 = rng(41), dir = [], r0 = [], base = [], szs = [];
+  const N = 1000, NQ = 380, GN = N + NQ, GF = M.cosmicGal(ctx, GN), R1 = rng(41), dir = [], r0 = [], base = [], szs = [];
   for (let i = 0; i < N; i++) {
     const u = R1() * 2 - 1, a = R1() * 6.283, q = Math.sqrt(1 - u * u);
     dir.push([q * Math.cos(a), u * .8, q * Math.sin(a)]);
@@ -53,8 +57,18 @@
     const col = kind === 1 ? [1, .8, .55] : cu < .7 ? [1, .84, .58] : cu < .9 ? [.86, .78, 1] : [.92, .9, 1];
     base.push([col[0] * br, col[1] * br, col[2] * br]); }
   GF.shape(0, 1.5, .5, .45, 0, 1.6); S.add(GF.mesh);
-  for (let i = 0; i < N * 2; i++) szs.push(0);
-  const Qa = GF.mesh.geometry.attributes.iPar; for (let i = 0; i < N * 2; i++) szs[i] = Qa.array[i * 4];
+  // the stream (instances N..GN-1)
+  const R4 = rng(47), QD = [];
+  for (let k = 0; k < NQ; k++) { const u = R4() * 2 - 1, a = R4() * 6.283, q = Math.sqrt(1 - u * u);
+    const kind = GF.random(N + k, R4, .7, 1.5), cu = R4(), br = .5 + .55 * R4();
+    const col = kind === 1 ? [1, .8, .55] : cu < .7 ? [1, .84, .58] : cu < .9 ? [.86, .78, 1] : [.92, .9, 1];
+    const rin = 2.6 + 2.4 * R4();
+    QD.push([q * Math.cos(a), u * .8, q * Math.sin(a), rin, .8 + .4 * R4(), R4(), col[0] * br, col[1] * br, col[2] * br, Math.log(42 / rin)]); }
+  const SK = M.cosmicStreaks(ctx, NQ); S.add(SK.mesh);
+  const rateF = x => .03 * sm(cCr, cCr + 5, x) + (x > cVa ? .02 * (Math.exp(Math.min(x - cVa, 23) / 8) - 1) * (1 - sm(cVa + 23, cVa + 38, x)) : 0);
+  const Fof = t => M.integ(rateF, cCr, t, .1), fr = x => x - Math.floor(x);
+  for (let i = 0; i < GN * 2; i++) szs.push(0);
+  const Qa = GF.mesh.geometry.attributes.iPar; for (let i = 0; i < GN * 2; i++) szs[i] = Qa.array[i * 4];
   const us1 = glow(S, '#ffcf8a', 4, .4), us2 = glow(S, '#fff3da', 1.1, .9), us3 = glow(S, '#ffb860', 12, .08);
 
   // the beam we fire (S18): a photon that slows and stalls just inside the horizon
@@ -78,7 +92,7 @@
     shell.scale.setScalar(R); shell.material.uniforms.uOp.value = sh * (1 + .5 * ed); shell.material.uniforms.uT.value = t;
     outer.material.uniforms.uOp.value = se * (1 - ed) * .5; outer.material.uniforms.uT.value = t;
     const gk = Math.pow(D / 66, .55), Q = Qa.array;
-    for (let i = 0; i < N; i++) { Q[i * 4] = szs[i] * gk; Q[(N + i) * 4] = szs[N + i] * gk; } Qa.needsUpdate = true;
+    for (let i = 0; i < GN * 2; i++) Q[i * 4] = szs[i] * gk; Qa.needsUpdate = true;
     // lost colour / brightness by stage: red (just crossed) -> violet (seen, unreachable) -> grey violet (lost) -> dimmer (edge)
     const lc = [0, 1, 2].map(k => (RED[k] * (1 - se) + VIO[k] * se) * (1 - lo) + GRV[k] * lo);
     const lb = (.3 * (1 - se) + .4 * se) * (1 - lo) + .3 * lo - .08 * ed;
@@ -87,11 +101,25 @@
       const x = d[0] * r, y = d[1] * r, z = d[2] * r;
       const L = sm(R * .98, R * 1.2, r) * Math.max(cr, se, lo, ed);
       const fl = cr * Math.exp(-Math.pow((r / R - 1.05) / .04, 2)) * (1 - lo);
-      const hide = 1 - sm(RO * .96, RO * 1.04, r) * se;
+      const hide = (1 - sm(RO * .96, RO * 1.04, r) * se) * sm(14, 30, Math.hypot(x - cam.position.x, y - cam.position.y, z - cam.position.z));
       const gold = 1 + .25 * lo;
       const k0 = (1 - L) * gold, k1 = L * lb;
       GF.set(i, x, y, z, (b[0] * k0 + lc[0] * k1 + fl * .9) * hide, (b[1] * k0 + lc[1] * k1 + fl * .25) * hide, (b[2] * k0 + lc[2] * k1 + fl * .2) * hide, 1 + fl * 2); }
-    GF.flush();
+    // stream: same colouring by stage; the crossing flare widens with speed (each one lasts >= ~0.3 s, no sparkle)
+    const calm = 1 - .45 * sm(cVa + 23, cVa + 40, t), Tb = .35, Ft = Fof(t), Fb = Fof(t - Tb), rt0 = rateF(t), act = Math.max(cr, se, lo, ed);
+    for (let k = 0; k < NQ; k++) { const d = QD[k], j = N + k, b = [d[6], d[7], d[8]];
+      const LAM = d[9], s = fr(Ft * d[4] + d[5]), st = Math.max(0, s - (Ft - Fb) * d[4]), r = d[3] * Math.exp(LAM * s), rq = d[3] * Math.exp(LAM * st);
+      const cp = cam.position, dc = Math.hypot(d[0] * r - cp.x, d[1] * r - cp.y, d[2] * r - cp.z);
+      const vis = sm(0, .1, s) * (1 - sm(.8, 1, s)) * sm(14, 30, dc) * calm, v = LAM * r * rt0 * d[4];
+      const L = sm(R * .98, R * 1.2, r) * act, wr = Math.max(.04, v * .3 / R);
+      const fl = cr * Math.exp(-Math.pow((r / R - 1.05) / wr, 2)) * (1 - lo) * .04 / wr, hide = (1 - sm(RO * .96, RO * 1.04, r) * se) * vis;
+      const k0 = (1 - L) * (1 + .25 * lo), k1 = L * lb;
+      const cR = (b[0] * k0 + lc[0] * k1 + fl * .9) * hide, cG = (b[1] * k0 + lc[1] * k1 + fl * .25) * hide, cB = (b[2] * k0 + lc[2] * k1 + fl * .2) * hide;
+      GF.set(j, d[0] * r, d[1] * r, d[2] * r, cR, cG, cB, 1 + fl * 2);
+      const sk = .4 * sm(.6, 3, v);
+      if (sk < .002 || hide < .002) { SK.hide(k); continue; }
+      SK.set(k, d[0] * r, d[1] * r, d[2] * r, d[0] * rq, d[1] * rq, d[2] * rq, cR * sk, cG * sk, cB * sk, 2.6, .35 * sk * hide, .28 * sk * hide, .6 * sk * hide); }
+    GF.flush(); SK.flush();
     const uk = Math.pow(D / 66, .7); us1.scale.setScalar(4 * uk); us2.scale.setScalar(1.1 * uk); us3.scale.setScalar(12 * uk);
     // beam: fired 2.5 s after the shell appears; r -> R asymptotically, never crossing
     const tb = t - (p.shell == null ? 1e9 : cSh + 2.5), bv = tb > 0 ? sm(0, 1, tb) * (1 - sm(22, 28, tb)) : 0;

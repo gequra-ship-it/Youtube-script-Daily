@@ -8,7 +8,10 @@
 //   flare  the supernova flares
 //   dim    S19 a second flare at the same spot is fainter than expected: a pale ghost ring shows the size/brightness it "should"
 //          have had, and the galaxy slips a little farther away (it is farther than a slowing universe would allow)
-//   dark   S20 a faint violet dark-energy haze fills the space between the galaxies and pushes everything apart, ever faster
+//   dark   S20 a faint violet dark-energy haze fills the space between the galaxies and pushes everything apart, ever faster;
+//          from here an endless stream (speed pass 2026-10-16): galaxies and star points appear near the main galaxy and are carried
+//          outward ever faster (r = r_in * e^(lambda s), s = fract(F(t) * rate_k + phase_k), F accelerating without end), leave
+//          the frame and respawn near the centre; motion streaks (the path of the last ~0.3-0.5 s) lengthen with the speed
 //   side   subject offset (default .12)
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.supernova = function (ctx, p) {
   const { T, sm, rng, cue, points, glow, ctex } = ctx, M = window.MIYA, K = M.kit;
@@ -70,7 +73,7 @@
   const lc = (tau, pk) => tau <= 0 ? 0 : pk * sm(0, 1.6, tau) * (tau < 1.6 ? 1 : .85 * Math.exp(-(tau - 1.6) / 5.5) + .15 * Math.exp(-(tau - 1.6) / 30));
 
   // ---------------- background galaxies + dark-energy haze ----------------
-  const NG = 150, GF = M.cosmicGal(ctx, NG), R1 = rng(81), gpos = [], gcol = [];
+  const NG = 150, NQ = 230, NST = 520, GF = M.cosmicGal(ctx, NG + NQ), R1 = rng(81), gpos = [], gcol = [];
   for (let i = 0; i < NG; i++) { let x, y, z; do { x = (R1() - .45) * 260; y = (R1() - .5) * 130; z = -30 - R1() * 380; } while (Math.abs(x) < 26 && Math.abs(y) < 16 && z > -90);
     gpos.push([x, y, z]); const kind = GF.random(i, R1, 1.6, 4.2), cu = R1(), br = .9 + .9 * R1(); const c = kind === 1 ? [1, .8, .55] : cu < .55 ? [1, .85, .62] : [.8, .75, 1]; gcol.push([c[0] * br, c[1] * br, c[2] * br]); }
   S.add(GF.mesh);
@@ -82,6 +85,21 @@
   const ND = 900, dust = points(ND, { size: .22, opacity: .8 }), dA = dust.geometry.attributes.position.array, dC = dust.geometry.attributes.color.array, d0 = [];
   { const r = rng(95); for (let i = 0; i < ND; i++) { d0.push([(r() - .45) * 120, (r() - .5) * 60, 25 - r() * 160]); const v = .08 + .14 * r(); dC.set(r() < .5 ? [v, v * .8, v * .55] : [v * .65, v * .6, v], i * 3); } }
   S.add(dust);
+
+  // ---------------- dark-energy stream (speed pass 2026-10-16) ----------------
+  // particles 0..NQ-1 = galaxies (instances NG.. of GF), NQ..NQ+NST-1 = star points; streaks: [bg galaxies | stream | stars]
+  const R3 = rng(87), QD = [], LAM = Math.log(170 / 7);
+  for (let k = 0; k < NQ + NST; k++) { const gal = k < NQ, a = R3() * 6.283, zc = gal ? -.45 + .75 * R3() : -.6 + R3();
+    const rin = gal ? 5 + 5 * R3() : 2.5 + 5.5 * R3(), rk = .75 + .5 * R3(), fk = R3(), cu = R3(), br = gal ? .8 + .8 * R3() : .5 + .7 * R3();
+    let col = cu < .5 ? [1, .85, .62] : cu < .85 ? [.8, .75, 1] : [.92, .92, 1];
+    if (gal) { const kind = GF.random(NG + k, R3, 1.3, 3.6); if (kind === 1) col = [1, .8, .55]; }
+    QD.push([Math.cos(a), Math.sin(a) * .62, zc, rin, rk, fk, col[0] * br, col[1] * br, col[2] * br]); }
+  const SK = M.cosmicStreaks(ctx, NG + NQ + NST); S.add(SK.mesh);
+  const rateF = x => { const tau = x - cDk; return tau <= 0 ? 0 : sm(0, 4, tau) * (.04 + .018 * (Math.exp(Math.min(tau, 40) / 8) - 1)); };
+  const Fof = t => M.integ(rateF, cDk, t, .1);
+  const eOf = t => { const q = sm(cDk, cDk + 30, t); return .6 * q * q + .04 * sm(cDk, cDk + 5, t); };
+  const bgPos = (q, e) => [q[0] * (1 + e), q[1] * (1 + e), q[2] - 60 * e + (q[2] + 40) * e * .5];
+  const fr = x => x - Math.floor(x);
 
   const cam = new T.PerspectiveCamera(38, ctx.W / ctx.H, .1, 3000); ctx.side(cam, p.side == null ? .12 : p.side);
   return { scene: S, camera: cam, draw(t, u) {
@@ -99,9 +117,25 @@
     snSpk.scale.setScalar(7.5 * sq); snSpk.material.opacity = .3 * L;
     ghost.scale.setScalar(6.6); ghost.material.opacity = dm * (1 - .7 * dk) * (.38 + .08 * Math.sin(t * 1.1));
     // background galaxies pushed apart (away from the main galaxy, ever faster)
-    for (let i = 0; i < NG; i++) { const q = gpos[i], c = gcol[i], x = q[0] * (1 + e), y = q[1] * (1 + e), z = q[2] - 60 * e + (q[2] + 40) * e * .5;
-      const f = Math.exp(-Math.max(0, -z - 150) / 500); GF.set(i, x, y, z, c[0] * f, c[1] * f, c[2] * f, 1); }
-    GF.flush();
+    const Tb = .32 + .2 * sm(cDk, cDk + 20, t), eb = eOf(t - Tb);
+    for (let i = 0; i < NG; i++) { const q = gpos[i], c = gcol[i], [x, y, z] = bgPos(q, e);
+      const f = Math.exp(-Math.max(0, -z - 150) / 500); GF.set(i, x, y, z, c[0] * f, c[1] * f, c[2] * f, 1);
+      if (dk <= 0) { SK.hide(i); continue; }
+      const [bx, by, bz] = bgPos(q, eb), sk = .3 * f * dk; SK.set(i, x, y, z, bx, by, bz, c[0] * sk, c[1] * sk, c[2] * sk, 3); }
+    // the stream: galaxies and star points carried out from the main galaxy, ever faster, recycled
+    const Ft = Fof(t), Fb = Fof(t - Tb), C0 = TILT.position, cp = cam.position;
+    for (let k = 0; k < NQ + NST; k++) { const d = QD[k], gal = k < NQ, j = NG + k;
+      if (dk <= 0) { if (gal) GF.set(j, 0, 0, 0, 0, 0, 0, 0); SK.hide(j); continue; }
+      const s = fr(Ft * d[4] + d[5]), st = Math.max(0, s - (Ft - Fb) * d[4]);
+      const r = d[3] * Math.exp(LAM * s), rt = d[3] * Math.exp(LAM * st);
+      const x = C0.x + d[0] * r, y = C0.y + d[1] * r, z = C0.z + d[2] * r;
+      const dc = Math.hypot(x - cp.x, y - cp.y, z - cp.z), vis = dk * sm(0, .1, s) * (1 - sm(.82, 1, s)) * sm(8, 22, dc) * (1 - .45 * sm(-12, -40, x - C0.x));
+      const tx = C0.x + d[0] * rt, ty = C0.y + d[1] * rt, tz = C0.z + d[2] * rt;
+      // (dimmer toward the left: the HUD text sits there)
+      if (gal) { GF.set(j, x, y, z, d[6] * vis, d[7] * vis, d[8] * vis, 1); const sk = .32 * vis;
+        SK.set(j, x, y, z, tx, ty, tz, d[6] * sk, d[7] * sk, d[8] * sk, 3.2, .55 * sk, .5 * sk, .95 * sk); }
+      else { const sk = .7 * vis; SK.set(j, x, y, z, tx, ty, tz, d[6] * sk, d[7] * sk, d[8] * sk, 2.3, .5 * sk, .45 * sk, .9 * sk); } }
+    GF.flush(); SK.flush();
     haze.forEach(([m, x, y, z, rs, ok]) => { m.position.set(x * (1 + e), y * (1 + e), z - 30 * e); m.material.rotation = rs * t + x; m.material.opacity = .2 * dk * ok * (.85 + .15 * Math.sin(t * .2 + x)); });
     for (let i = 0; i < ND; i++) { const q = d0[i]; dA[i * 3] = q[0] * (1 + e); dA[i * 3 + 1] = q[1] * (1 + e); dA[i * 3 + 2] = q[2] - 20 * e; }
     dust.geometry.attributes.position.needsUpdate = true;

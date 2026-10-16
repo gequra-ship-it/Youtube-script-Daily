@@ -12,8 +12,12 @@
 //   law       S12-S14 motion trails behind every galaxy, length proportional to its distance from us (Hubble's law)
 //   fast      S15-S16 a red "light speed" ring appears on the grid (the Hubble distance); beyond it galaxies glow red and the part of
 //             each trail longer than the light-speed length turns red
+//             speed pass 2026-10-16: from here an endless stream of ~240 extra galaxies is born near us and carried out across the
+//             grid ever faster (r = r_in * e^(lambda s), s = fract(F(t) * rate_k + phase_k); speed grows with distance, so they crawl
+//             inside the ring and race beyond it, where they and their motion streaks turn red); they leave the view and respawn
 //   treadmill S17 one photon (bright point + short tail) runs toward us from just beyond the ring; the grid stretches under it so it
 //             barely advances, then it is dragged back; the camera moves in on it
+//             (the stream keeps going but slows and dims a little, so the photon stays the thing to watch)
 //   side      subject offset (default .12)
 // Also defines MIYA.cosmicGal(ctx, n) — an instanced galaxy field (one draw call, pixel-size clamp against shimmer) shared by
 // horizon.js and supernova.js (they pull this file in with "// requires: expanse").
@@ -99,6 +103,48 @@
   };
   // integral of smoothstep(a, b, x) dx from -inf to x (for expansion rates that switch on smoothly; closed form keeps it seek-safe)
   M.ismooth = (a, b, x) => { if (x <= a) return 0; if (x >= b) return (b - a) / 2 + (x - b); const q = (x - a) / (b - a); return (b - a) * (q * q * q - q * q * q * q / 2); };
+  // integral of rate(x) dx from a to t (trapezoid on a fixed grid anchored at a, so it is a pure, continuous function of t:
+  // seek-safe progress F(t) for recycled streams whose speed changes in any smooth way)
+  M.integ = (f, a, t, h) => { if (!(t > a)) return 0; h = h || .1; const n = Math.floor((t - a) / h); let s = 0, y0 = f(a);
+    for (let k = 1; k <= n; k++) { const y1 = f(a + k * h); s += (y0 + y1) * .5 * h; y0 = y1; }
+    const x = a + n * h, d = t - x; return d > 0 ? s + (y0 + f(t)) * .5 * d : s; };
+
+  // ---------------- motion streaks (speed pass 2026-10-16) ----------------
+  // One instanced draw: each streak is a screen-space ribbon from a head point to a tail point (world coordinates), constant width
+  // in pixels, a soft round cap at the head, fading toward the tail; colour blends head -> tail (additive light). Built in the vertex
+  // shader from the real render camera, so the camera director's moves after draw() keep the streaks aligned.
+  // api: set(i, hx, hy, hz, tx, ty, tz, r, g, b, px, r2, g2, b2) ; hide(i) ; flush()   (r..b linear light; px = full width in pixels)
+  M.cosmicStreaks = function (ctx, n) {
+    const T = ctx.T, g = new T.InstancedBufferGeometry();
+    g.setAttribute('position', new T.Float32BufferAttribute([0, -1, 0, 0, 1, 0, 1, -1, 0, 1, 1, 0], 3)); g.setIndex([0, 2, 1, 1, 2, 3]);
+    const H = new Float32Array(n * 3), Tl = new Float32Array(n * 3), C = new Float32Array(n * 4), C2 = new Float32Array(n * 3);
+    const at = (a, k) => { const b = new T.InstancedBufferAttribute(a, k); b.setUsage(T.DynamicDrawUsage); return b; };
+    const aH = at(H, 3), aT = at(Tl, 3), aC = at(C, 4), aC2 = at(C2, 3);
+    g.setAttribute('iH', aH); g.setAttribute('iT', aT); g.setAttribute('iC', aC); g.setAttribute('iC2', aC2); g.instanceCount = n;
+    const mat = new T.ShaderMaterial({ uniforms: { uRes: { value: new T.Vector2(ctx.W, ctx.H) } },
+      vertexShader: `attribute vec3 iH, iT, iC2; attribute vec4 iC; uniform vec2 uRes; varying vec3 vC; varying float vAl, vLen, vHw, vAc;
+        void main(){ vec4 ch = projectionMatrix * modelViewMatrix * vec4(iH, 1.), ct = projectionMatrix * modelViewMatrix * vec4(iT, 1.);
+          vAl = 0.; vLen = 0.; vHw = 1.; vAc = 0.; vC = vec3(0.);
+          if (ch.w < .05 || ct.w < .05 || dot(iC.rgb, vec3(1.)) < 1e-5) { gl_Position = vec4(2., 2., 2., 1.); return; }
+          vec2 hr = uRes * .5, sh = ch.xy / ch.w * hr, st = ct.xy / ct.w * hr, d = st - sh; float len = length(d);
+          vec2 dn = len > .01 ? d / len : vec2(1., 0.), nr = vec2(-dn.y, dn.x); float hw = max(.6, iC.w * .5), s = position.x;
+          vec4 c = mix(ch, ct, s); vec2 off = nr * position.y * hw - dn * hw * (1. - s);
+          c.xy += off / hr * c.w; gl_Position = c;
+          vAl = s * (len + hw); vLen = len; vHw = hw; vAc = position.y; vC = mix(iC.rgb, iC2, s); }`,
+      fragmentShader: `varying vec3 vC; varying float vAl, vLen, vHw, vAc;
+        void main(){ float cap = smoothstep(0., vHw * 1.6, vAl), tail = pow(clamp(1. - (vAl - vHw) / max(vLen, 1.), 0., 1.), 1.4);
+          float I = cap * tail * exp(-vAc * vAc * 2.6);
+          gl_FragColor = vec4(vC * I, 1.);
+          #include <tonemapping_fragment>
+          #include <colorspace_fragment>
+        }`, transparent: true, depthWrite: false, blending: T.AdditiveBlending });
+    const mesh = new T.Mesh(g, mat); mesh.frustumCulled = false;
+    return { mesh, n,
+      set(i, hx, hy, hz, tx, ty, tz, r, gg, b, px, r2, g2, b2) { const j = i * 3; H[j] = hx; H[j + 1] = hy; H[j + 2] = hz; Tl[j] = tx; Tl[j + 1] = ty; Tl[j + 2] = tz;
+        C[i * 4] = r; C[i * 4 + 1] = gg; C[i * 4 + 2] = b; C[i * 4 + 3] = px; C2[j] = r2 == null ? r : r2; C2[j + 1] = g2 == null ? gg : g2; C2[j + 2] = b2 == null ? b : b2; },
+      hide(i) { C[i * 4] = C[i * 4 + 1] = C[i * 4 + 2] = 0; },
+      flush() { aH.needsUpdate = aT.needsUpdate = aC.needsUpdate = aC2.needsUpdate = true; } };
+  };
 
   // ---------------- the scene ----------------
   M.scenes.expanse = function (ctx, p) {
@@ -139,7 +185,7 @@
 
     // camera basis at build (az0) to place the special galaxies on the screen side
     const az0 = .45, Rv = new T.Vector3(Math.cos(az0), 0, -Math.sin(az0)), Fv = new T.Vector3(-Math.sin(az0), 0, -Math.cos(az0));
-    const N = 1000, GF = M.cosmicGal(ctx, N + 1), R1 = rng(23), chi = [], base = [];
+    const N = 1000, NQ = 240, GF = M.cosmicGal(ctx, N + 1 + NQ), R1 = rng(23), chi = [], base = [];
     const SRC = [[10, 2], [4, 17], [20, 30]];   // three ribbon sources: (right, forward) in camera basis
     for (let i = 0; i < N; i++) { let x, z;
       if (i < 3) { x = Rv.x * SRC[i][0] + Fv.x * SRC[i][1]; z = Rv.z * SRC[i][0] + Fv.z * SRC[i][1]; }
@@ -149,6 +195,14 @@
       const cu = R1(), br = .45 + .6 * R1(), col = kind === 1 ? [1, .8, .55] : cu < .5 ? [1, .86, .64] : cu < .82 ? [.8, .74, 1] : [.86, .9, 1];
       chi.push([x, y, z]); base.push([col[0] * br, col[1] * br, col[2] * br]); }
     GF.shape(N, 2.3, .6, .42, 0, 1.4); S.add(GF.mesh);   // the Milky Way at the centre
+    // the speed stream (instances N+1..N+NQ) and its streaks
+    const R5 = rng(59), QD = [];
+    for (let k = 0; k < NQ; k++) { const a = R5() * 6.283, y = .6 + 4.2 * Math.pow(R5(), 1.5), rin = 6 + 4 * R5();
+      const kind = GF.random(N + 1 + k, R5, .9, 2.4), cu = R5(), br = .45 + .6 * R5(), col = kind === 1 ? [1, .8, .55] : cu < .5 ? [1, .86, .64] : cu < .82 ? [.8, .74, 1] : [.86, .9, 1];
+      QD.push([Math.cos(a), y, Math.sin(a), rin, .8 + .4 * R5(), R5(), col[0] * br, col[1] * br, col[2] * br, Math.log(160 / rin)]); }
+    const SK = M.cosmicStreaks(ctx, NQ); S.add(SK.mesh);
+    const rateF = x => sm(cF, cF + 4, x) * (.03 + .012 * (Math.exp(Math.min(x - cF, cM - cF, 45) / 14) - 1)) * (1 - .45 * sm(cM, cM + 6, x));
+    const Fof = t => M.integ(rateF, cF, t, .1), fr = x => x - Math.floor(x);
     const us1 = glow(S, '#ffcf8a', 5.5, .32), us2 = glow(S, '#fff0d0', 1.3, .85); us1.position.set(0, 1.3, 0); us2.position.set(0, 1.3, 0);
 
     // dust carried with the expansion
@@ -229,7 +283,22 @@
         trP.set([x + w.x * hw, y + w.y * hw, z + w.z * hw, x - w.x * hw, y - w.y * hw, z - w.z * hw, tx + w.x * tw, y + w.y * tw, tz + w.z * tw, tx - w.x * tw, y - w.y * tw, tz - w.z * tw], o);
         const I0 = Math.min(1, f * 1.3) * .34;
         trA.set([0, 1, L, I0, 0, -1, L, I0, L, 1, L, I0, L, -1, L, I0], oa); }
-      GF.set(N, 0, 1.3, 0, 1.15, .92, .62, 1.4); GF.flush();
+      GF.set(N, 0, 1.3, 0, 1.15, .92, .62, 1.4);
+      // speed stream: crawls inside the light-speed ring, races (red, streaked) beyond it, recycled near us
+      const Tb = .4, Ft = Fof(t), Fb = Fof(t - Tb), rt0 = rateF(t), cp = cam.position;
+      for (let k = 0; k < NQ; k++) { const d = QD[k], j = N + 1 + k, LAM = d[9];
+        if (fs <= 0) { GF.set(j, 0, 0, 0, 0, 0, 0, 0); SK.hide(k); continue; }
+        const s = fr(Ft * d[4] + d[5]), st = Math.max(0, s - (Ft - Fb) * d[4]), r = d[3] * Math.exp(LAM * s), rq = d[3] * Math.exp(LAM * st);
+        const x = d[0] * r, z = d[2] * r, y = d[1], dc = Math.hypot(x - cp.x, y - cp.y, z - cp.z);
+        const f = fs * sm(0, .08, s) * (1 - sm(.85, 1, s)) * Math.exp(-Math.max(0, dc - D * 1.1) / (D * 1.3)) * sm(3, 9, dc) * (1 - .45 * tm);
+        const red = sm(RH * .96, RH * 1.12, r), redT = sm(RH * .96, RH * 1.12, rq), fr2 = f * (1 + .25 * red);
+        const cr = (d[6] * (1 - red) + red) * fr2, cg = (d[7] * (1 - red) + red * .3) * fr2, cb = (d[8] * (1 - red) + red * .2) * fr2;
+        GF.set(j, x, y, z, cr, cg, cb, 1);
+        const sk = .55 * f * sm(2, 10, LAM * r * rt0 * d[4]) * (.45 + .55 * red);
+        if (sk < .002) { SK.hide(k); continue; }
+        SK.set(k, x, y, z, d[0] * rq, y, d[2] * rq, sk, sk * (.78 - .52 * red), sk * (.42 - .28 * red), 2.6,
+          sk * .7, sk * .7 * (.78 - .52 * redT), sk * .7 * (.42 - .28 * redT)); }
+      GF.flush(); SK.flush();
       trG.attributes.position.needsUpdate = true; trG.attributes.aT.needsUpdate = true;
       for (let i = 0; i < ND; i++) { const c = dChi[i]; dA[i * 3] = c[0] * A; dA[i * 3 + 1] = c[1]; dA[i * 3 + 2] = c[2] * A; }
       dust.geometry.attributes.position.needsUpdate = true;

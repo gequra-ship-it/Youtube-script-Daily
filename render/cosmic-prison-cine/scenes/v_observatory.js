@@ -282,8 +282,8 @@
       const lk = rq.clone().add(v3(0, dq * .08 * (1 - ed), 0)).lerp(cp.clone().addScaledVector(A0.clone().add(v3(.05, .16, 0)).normalize(), dq), .55 * ed);
       const yp = q => { const d = q.clone().sub(cp).normalize(); return [Math.atan2(d.x, -d.z), Math.asin(d.y)]; };
       const [y0, p0] = yp(tgt), [y1, p1] = yp(lk), yw = y0 + (y1 - y0) * fo * (.35 + .65 * ed), pt = p0 + (p1 - p0) * fo;
-      ft.copy(cp).add(v3(Math.sin(yw) * Math.cos(pt), Math.sin(pt), -Math.cos(yw) * Math.cos(pt)).multiplyScalar(100)); }
-    if (nt > 0) { const d0 = ft.clone().sub(cp).normalize(), d1 = A0.clone().add(v3(.3, .3, 0)).normalize(); ft.copy(cp).addScaledVector(d0.lerp(d1, sm(.1, 1, nt)).normalize(), 100); }
+      ft.copy(cp).add(v3(Math.sin(yw) * Math.cos(pt), Math.sin(pt), -Math.cos(yw) * Math.cos(pt)).multiplyScalar(tgt.distanceTo(cp))); }   // same distance as the plain target: the camera director pivots on the look-at point, a sudden 25 -> 100 jump made the camera jump (2026-10-16)
+    if (nt > 0) { const d0 = ft.clone().sub(cp).normalize(), d1 = A0.clone().add(v3(.3, .3, 0)).normalize(); ft.copy(cp).addScaledVector(d0.lerp(d1, sm(.1, 1, nt)).normalize(), tgt.distanceTo(cp)); }
     cam.lookAt(ft);
     cam.fov = 42 - 4 * wd + 4 * fo - 10 * ed + 10 * nt;
     if (ctx.VERT) { const h = 2 * Math.atan(Math.tan(cam.fov * Math.PI / 360) * 16 / 9 * .62); cam.fov = 2 * Math.atan(Math.tan(h / 2) * ctx.H / ctx.W) * 180 / Math.PI; }   // Shorts: same vertical fit as ctx.side()

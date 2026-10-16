@@ -12,12 +12,40 @@
 //             fades over ~2 s, no strobe)
 //   trapped   S34: calm wide view: the camera pulls far back; the ship is a tiny light inside a dark sphere boundary
 //   side      subject offset (default .12)
+// speed pass (2026-10-16): when `warp` engages, hyperspace star streaks rush past around the bubble: an endless recycling stream whose
+// speed (and streak length) climbs in two stages over ~18 s, so the jump past light speed is felt; they thin out while the snowplow
+// glows, decelerate to dots and fade on `blast`, and are gone in the `trapped` wide view.
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.warp = function (ctx, p) {
   const { T, sm, rng, cue, points, glow } = ctx, Rr = ctx.R, K = window.MIYA.kit, E = ctx.env();
   const v3 = (x, y, z) => new T.Vector3(x, y, z);
   const cu = c => c == null ? null : cue(c);
   const at = (c, d) => c == null ? 0 : sm(cue(c), cue(c) + (d || 1.2), ctx.t);
 
+  // ---------------- motion streaks (2026-10-16 speed pass): n camera-facing quads, billboarded in the vertex shader so the camera
+  // director's later move keeps them facing the lens; a head bright, tail fading; width never below minPx pixels (thinner streaks dim
+  // instead, so far ones never shimmer); fades out close to the camera. set(i, head, tail, width, rgb) each frame from t only.
+  function streaks(par, n, o) { o = o || {}; const g = new T.BufferGeometry(), H = new Float32Array(n * 12), Tl = new Float32Array(n * 12), C = new Float32Array(n * 12), Wd = new Float32Array(n * 4), cr = new Float32Array(n * 8), ix = [];
+    for (let i = 0; i < n; i++) { cr.set([0, 0, 0, 1, 1, 0, 1, 1], i * 8); const b = i * 4; ix.push(b, b + 2, b + 1, b + 1, b + 2, b + 3); }
+    const ad = (a, k) => { const q = new T.BufferAttribute(a, k); q.setUsage(T.DynamicDrawUsage); g.setAttribute(['aH', 'aT', 'aC', 'aW'][[H, Tl, C, Wd].indexOf(a)], q); };
+    ad(H, 3); ad(Tl, 3); ad(C, 3); ad(Wd, 1); g.setAttribute('corner', new T.BufferAttribute(cr, 2)); g.setAttribute('position', new T.BufferAttribute(new Float32Array(n * 12), 3)); g.setIndex(ix);
+    const m = new T.ShaderMaterial({ uniforms: { uH: { value: ctx.H }, uMin: { value: o.minPx || 1.6 }, uNear: { value: new T.Vector2(...(o.near || [.5, 4])) } }, transparent: true, depthWrite: false, depthTest: o.depthTest !== false, blending: T.AdditiveBlending, side: T.DoubleSide,
+      vertexShader: `attribute vec3 aH, aT, aC; attribute float aW; attribute vec2 corner; uniform float uH, uMin; uniform vec2 uNear; varying vec2 vUv; varying vec3 vC; varying float vCap;
+        void main(){ vec3 wH = (modelMatrix * vec4(aH, 1.)).xyz, wT = (modelMatrix * vec4(aT, 1.)).xyz, d = wH - wT; float L = length(d); vec3 dir = L > 1e-5 ? d / L : vec3(1., 0., 0.);
+          vec3 P0 = mix(wT, wH, corner.x), V = cameraPosition - P0; float dc = max(length(V), 1e-4);
+          float w = max(aW, dc * 2. / (projectionMatrix[1][1] * uH) * uMin); vec3 sd = cross(dir, V); float sl = length(sd); sd = sl > 1e-6 ? sd / sl : vec3(0., 1., 0.);
+          vec3 P = P0 + sd * (corner.y - .5) * w + dir * (corner.x - .5) * w;
+          vUv = corner; vCap = clamp(w / (L + w), .02, 1.); vC = aC * (aW / w) * smoothstep(uNear.x, uNear.y, dc);
+          gl_Position = projectionMatrix * viewMatrix * vec4(P, 1.); }`,
+      fragmentShader: `varying vec2 vUv; varying vec3 vC; varying float vCap;
+        void main(){ float x = vUv.x, y = abs(vUv.y * 2. - 1.); float a = pow(x, 1.6) * smoothstep(1., 1. - vCap, x) * pow(max(0., 1. - y * y), 2.);
+          gl_FragColor = vec4(vC * a, 1.);
+          #include <tonemapping_fragment>
+          #include <colorspace_fragment>
+        }` });
+    const M = new T.Mesh(g, m); M.frustumCulled = false; M.renderOrder = o.order || 0; par.add(M);
+    return { mesh: M, set(i, hx, hy, hz, tx, ty, tz, w, r, gg, b) { for (let k = 0; k < 4; k++) { const j = (i * 4 + k) * 3; H[j] = hx; H[j + 1] = hy; H[j + 2] = hz; Tl[j] = tx; Tl[j + 1] = ty; Tl[j + 2] = tz; C[j] = r; C[j + 1] = gg; C[j + 2] = b; Wd[i * 4 + k] = w; } },
+      hide(i) { for (let k = 0; k < 4; k++) { const j = (i * 4 + k) * 3; C[j] = C[j + 1] = C[j + 2] = 0; } },
+      commit() { ['aH', 'aT', 'aC', 'aW'].forEach(k => g.attributes[k].needsUpdate = true); } }; }
   // ---------------- baked sky (cube map): faint violet nebula + stars ----------------
   const hsh = (x, y, z) => { let h = (x * 374761393 + y * 668265263 + z * 1274126177) | 0; h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h ^ (h >>> 16)) >>> 0) / 4294967296; };
   function vn(x, y, z) { const xi = Math.floor(x), yi = Math.floor(y), zi = Math.floor(z), xf = x - xi, yf = y - yi, zf = z - zi;
@@ -157,10 +185,17 @@
   const blastG = glow(S, '#fff1d8', 30, 0), blastG2 = glow(S, '#ffc65a', 90, 0); blastG.position.set(RB + 7, 0, 0); blastG2.position.set(RB + 16, 0, 0);
   const shipG = glow(SHIP, '#ffd9a0', 10, 0);   // the ship as a tiny light in the trapped view
 
+  // hyperspace streaks: particle k sits on a cylinder (radius rho, angle a) and recycles along x: s = fract(Fh(t) / LX + f_k)
+  const NH = 700, hyp = streaks(S, NH, { minPx: 1.5, near: [8, 24] }), hB = [], HX1 = 260, LX = 430;
+  { const r = rng(77); for (let i = 0; i < NH; i++) { const rho = 11 + 64 * Math.pow(r(), 1.35), a = r() * 6.283, tp = r(), br = .45 + .75 * Math.pow(r(), 1.5);
+    const col = tp < .7 ? [.72, .84, 1] : tp < .9 ? [.72, .6, 1] : [1, .8, .5]; hB.push({ y: Math.cos(a) * rho, z: Math.sin(a) * rho, f: r(), c: col.map(x => x * br) }); } }
   // speed profile: D(t) = integral of v (analytic), seek-safe
   const IS = (a, b, t) => t <= a ? 0 : t >= b ? (b - a) * .5 + (t - b) : (b - a) * (Math.pow((t - a) / (b - a), 3) - Math.pow((t - a) / (b - a), 4) / 2);
   const cW = cu(p.warp), cS = cu(p.snowplow), cB = cu(p.blast), cE = cu(p.energy), cT = cu(p.trapped);
   const V0 = 2.5, V = 34;
+  const HA = 110, HB = 210, cB0 = cB == null ? 1e9 : cB;
+  const Fh = t => cW == null ? (HA + HB) * t : HA * IS(cW, cW + 4, t) + HB * IS(cW + 3, cW + 18, t) - (HA + HB) * IS(cB0 - .25, cB0 + .6, t);
+  const Vh = t => cW == null ? (HA + HB) * (1 - sm(cB0 - .25, cB0 + .6, t)) : Math.max(0, HA * sm(cW, cW + 4, t) + HB * sm(cW + 3, cW + 18, t) - (HA + HB) * sm(cB0 - .25, cB0 + .6, t));
   const Dd = t => V0 * t + (V - V0) * (cW == null ? t : IS(cW, cW + 3, t)) - (cB == null ? 0 : (V) * IS(cB - .25, cB + .35, t));
 
   const cam = new T.PerspectiveCamera(38, ctx.W / ctx.H, .1, 4000); ctx.side(cam, p.side == null ? .12 : p.side);
@@ -209,6 +244,11 @@
       dA[i * 3] = x; dA[i * 3 + 1] = y; dA[i * 3 + 2] = z; const fT = 1 - tr * .9; dC[i * 3] = r * fT; dC[i * 3 + 1] = g * fT; dC[i * 3 + 2] = bl * fT; }
     du.geometry.attributes.position.needsUpdate = true; du.geometry.attributes.color.needsUpdate = true;
     pile.geometry.attributes.position.needsUpdate = true; pile.geometry.attributes.color.needsUpdate = true;
+    // hyperspace streaks: envelope rises with the bubble, thins while the snowplow glows, fades after the stop and in the trapped view
+    { const env = (cW == null ? 1 : sm(cW + .2, cW + 1.8, t)) * (1 - .45 * heat) * (1 - stop * sm(cB0, cB0 + 1.2, t)) * (1 - tr), vh = Vh(t), F = Fh(t) / LX, hl = Math.min(34, vh * .09), gain = env * (.55 + .45 * sm(0, 200, vh));
+      for (let i = 0; i < NH; i++) { const h = hB[i]; if (gain <= 0) { hyp.hide(i); continue; } const ss = ((F + h.f) % 1 + 1) % 1, x = HX1 - ss * LX, k = gain * sm(0, .12, ss) * sm(1, .8, ss);
+        hyp.set(i, x, h.y, h.z, x + hl, h.y, h.z, .12, h.c[0] * k, h.c[1] * k, h.c[2] * k); }
+      hyp.commit(); hyp.mesh.visible = gain > 0; }
     const capOn = heat * (bt > 0 ? Math.exp(-bt * 2) : 1) * (1 - tr);
     capG.material.opacity = .55 * capOn; capG.material.color.setRGB(1, .6 + .35 * heat, .35 + .6 * heat * heat); capG.scale.setScalar(8 + 10 * heat);
     du.material.size = .28 * (1 + 2.5 * tr);

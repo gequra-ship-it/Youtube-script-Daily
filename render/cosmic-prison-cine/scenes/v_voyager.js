@@ -10,6 +10,10 @@
 //   galaxy   — pull far back until a Milky Way disc fills the frame; the whole path vanishes inside one gold point
 // params (cues, all optional): { launch (a short sun glint across the dish), far, proxima, galaxy, side: .14 }
 // Defaults: without cues the probe stays in its slow close-up orbit (a complete shot on its own).
+// speed pass (2026-10-16): during the `far` pull-back, dust/star streaks spread log-evenly along the way (8 to 2500 units out, so
+// the stream looks the same at every scale) rush in from the frame edges and shrink toward the probe; each streak is the motion of
+// its point relative to the camera over the last 0.07 s (longer when the camera moves faster), eased in and out with the move.
+// In the close-up a sparse layer of soft motes drifts slowly across the view (near parallax for depth).
 (window.MIYA = window.MIYA || { scenes: {} }).scenes.voyager = function (ctx, p) {
   const { T, sm, rng, cue, dotTex } = ctx, K = window.MIYA.kit, E = ctx.env();
   const S = new T.Scene(); S.background = new T.Color('#02030a');
@@ -17,6 +21,31 @@
   const v3 = (x, y, z) => new T.Vector3(x, y, z);
   const vf = f => { if (!ctx.VERT) return f; const h = 2 * Math.atan(Math.tan(f * Math.PI / 360) * 16 / 9 * .62); return 2 * Math.atan(Math.tan(h / 2) * ctx.H / ctx.W) * 180 / Math.PI; };
 
+  // ---------------- motion streaks (2026-10-16 speed pass): n camera-facing quads, billboarded in the vertex shader so the camera
+  // director's later move keeps them facing the lens; a head bright, tail fading; width never below minPx pixels (thinner streaks dim
+  // instead, so far ones never shimmer); fades out close to the camera. set(i, head, tail, width, rgb) each frame from t only.
+  function streaks(par, n, o) { o = o || {}; const g = new T.BufferGeometry(), H = new Float32Array(n * 12), Tl = new Float32Array(n * 12), C = new Float32Array(n * 12), Wd = new Float32Array(n * 4), cr = new Float32Array(n * 8), ix = [];
+    for (let i = 0; i < n; i++) { cr.set([0, 0, 0, 1, 1, 0, 1, 1], i * 8); const b = i * 4; ix.push(b, b + 2, b + 1, b + 1, b + 2, b + 3); }
+    const ad = (a, k) => { const q = new T.BufferAttribute(a, k); q.setUsage(T.DynamicDrawUsage); g.setAttribute(['aH', 'aT', 'aC', 'aW'][[H, Tl, C, Wd].indexOf(a)], q); };
+    ad(H, 3); ad(Tl, 3); ad(C, 3); ad(Wd, 1); g.setAttribute('corner', new T.BufferAttribute(cr, 2)); g.setAttribute('position', new T.BufferAttribute(new Float32Array(n * 12), 3)); g.setIndex(ix);
+    const m = new T.ShaderMaterial({ uniforms: { uH: { value: ctx.H }, uMin: { value: o.minPx || 1.6 }, uNear: { value: new T.Vector2(...(o.near || [.5, 4])) } }, transparent: true, depthWrite: false, depthTest: o.depthTest !== false, blending: T.AdditiveBlending, side: T.DoubleSide,
+      vertexShader: `attribute vec3 aH, aT, aC; attribute float aW; attribute vec2 corner; uniform float uH, uMin; uniform vec2 uNear; varying vec2 vUv; varying vec3 vC; varying float vCap;
+        void main(){ vec3 wH = (modelMatrix * vec4(aH, 1.)).xyz, wT = (modelMatrix * vec4(aT, 1.)).xyz, d = wH - wT; float L = length(d); vec3 dir = L > 1e-5 ? d / L : vec3(1., 0., 0.);
+          vec3 P0 = mix(wT, wH, corner.x), V = cameraPosition - P0; float dc = max(length(V), 1e-4);
+          float w = max(aW, dc * 2. / (projectionMatrix[1][1] * uH) * uMin); vec3 sd = cross(dir, V); float sl = length(sd); sd = sl > 1e-6 ? sd / sl : vec3(0., 1., 0.);
+          vec3 P = P0 + sd * (corner.y - .5) * w + dir * (corner.x - .5) * w;
+          vUv = corner; vCap = clamp(w / (L + w), .02, 1.); vC = aC * (aW / w) * smoothstep(uNear.x, uNear.y, dc);
+          gl_Position = projectionMatrix * viewMatrix * vec4(P, 1.); }`,
+      fragmentShader: `varying vec2 vUv; varying vec3 vC; varying float vCap;
+        void main(){ float x = vUv.x, y = abs(vUv.y * 2. - 1.); float a = pow(x, 1.6) * smoothstep(1., 1. - vCap, x) * pow(max(0., 1. - y * y), 2.);
+          gl_FragColor = vec4(vC * a, 1.);
+          #include <tonemapping_fragment>
+          #include <colorspace_fragment>
+        }` });
+    const M = new T.Mesh(g, m); M.frustumCulled = false; M.renderOrder = o.order || 0; par.add(M);
+    return { mesh: M, set(i, hx, hy, hz, tx, ty, tz, w, r, gg, b) { for (let k = 0; k < 4; k++) { const j = (i * 4 + k) * 3; H[j] = hx; H[j + 1] = hy; H[j + 2] = hz; Tl[j] = tx; Tl[j + 1] = ty; Tl[j + 2] = tz; C[j] = r; C[j + 1] = gg; C[j + 2] = b; Wd[i * 4 + k] = w; } },
+      hide(i) { for (let k = 0; k < 4; k++) { const j = (i * 4 + k) * 3; C[j] = C[j + 1] = C[j + 2] = 0; } },
+      commit() { ['aH', 'aT', 'aC', 'aW'].forEach(k => g.attributes[k].needsUpdate = true); } }; }
   // ---------------- frame of reference: camera start, sun direction, Proxima direction, galaxy plane ----------------
   const C0 = v3(6.4, -1.6, 8.6), V = C0.clone().negate().normalize();           // V: initial view direction (toward the probe)
   const RT = new T.Vector3().crossVectors(V, v3(0, 1, 0)).normalize(), UP = new T.Vector3().crossVectors(RT, V).normalize();
@@ -168,6 +197,15 @@
   const galCore = sprite(new T.Color('#ffcf8a'), 0); galCore.position.copy(GC);
 
   // ---------------- dust, lights ----------------
+  // pull-back streaks (log-spaced along the far direction) and close-up drifting motes
+  const FDIR = V.clone().multiplyScalar(.4).addScaledVector(SD, .6).normalize().negate();
+  const NPB = 520, pbs = streaks(S, NPB, { minPx: 1.4, near: [0, 1e-4] }), pbB = [];
+  { const r = rng(17), a1 = new T.Vector3().crossVectors(FDIR, UP).normalize(), a2 = new T.Vector3().crossVectors(FDIR, a1).normalize();
+    for (let i = 0; i < NPB; i++) { const rr = Math.exp(Math.log(8) + (Math.log(2500) - Math.log(8)) * r()), f = .2 + 1.2 * Math.pow(r(), .8), a = r() * 6.283, tp = r(), br = .5 + .7 * r();
+      const P = FDIR.clone().multiplyScalar(rr).addScaledVector(a1, Math.cos(a) * f * rr).addScaledVector(a2, Math.sin(a) * f * rr);
+      pbB.push({ P, r: rr, c: (tp < .6 ? [1, .88, .7] : tp < .85 ? [.78, .84, 1] : [.8, .68, 1]).map(x => x * br) }); } }
+  const NMO = 160, motes = streaks(S, NMO, { minPx: 1.6, near: [1.5, 5] }), moB = [], MBX = [34, 20, 34];
+  { const r = rng(23); for (let i = 0; i < NMO; i++) moB.push([r() * MBX[0], r() * MBX[1], r() * MBX[2], .6 + .8 * r(), r()]); }
   const dust = K.snow(S, { n: 700, box: [40, 26, 40], size: .07, opacity: .45, color: '#ffdcae', fall: .02, seed: 9 });
   const sunL = new T.DirectionalLight('#fff0d8', 3.2); sunL.position.copy(SD).multiplyScalar(50); S.add(sunL);
   const fillL = new T.DirectionalLight('#9aa6c0', .8); S.add(fillL);
@@ -182,6 +220,14 @@
     return { t: a.t.clone().lerp(b.t, k), dir: a.dir.clone().lerp(b.dir, w).normalize(), d, fov: a.fov + (b.fov - a.fov) * w }; }
   const MID = PD.clone().multiplyScalar(GAP * .4), NV = V.clone().negate().addScaledVector(PD, V.dot(PD)).normalize().addScaledVector(PD, -.3).normalize();
   const GDIR = NG.clone().multiplyScalar(Math.cos(.95)).addScaledVector(GA, Math.sin(.95)).normalize();
+  const atT = (c, d, tt) => c == null ? 0 : sm(cue(c), cue(c) + d, tt);
+  function camPos(tt, out) { const uu = tt - ctx.t0, oa = .22 * Math.sin(uu * .045) - .12 + uu * .006, ob = .06 * Math.sin(uu * .06);
+    const cd = V.clone().negate().applyAxisAngle(UP, oa).applyAxisAngle(RT, ob).normalize();
+    let q = { t: UP.clone().multiplyScalar(-.7), dir: cd, d: 15 - 1.2 * sm(0, 30, uu), fov: 40 };
+    q = blend(q, { t: v3(0, 0, 0), dir: FDIR.clone(), d: 1500, fov: 38 }, atT(p.far, 6.5, tt));
+    q = blend(q, { t: MID, dir: NV, d: 66000, fov: 38 }, atT(p.proxima, 6.5, tt));
+    return out.copy(q.t).addScaledVector(q.dir, q.d); }
+  const cA = v3(0, 0, 0), cB = v3(0, 0, 0), dv = v3(0, 0, 0);
   return { scene: S, camera: cam, draw(t, u) {
     ctx.t = t;
     const wF = at(p.far, 6.5), wP = at(p.proxima, 6.5), wG = at(p.galaxy, 9), gl = p.launch == null ? 0 : Math.max(0, Math.sin(Math.PI * Math.min(1, Math.max(0, (t - cue(p.launch)) / 1.6))));
@@ -226,5 +272,21 @@
     galCore.material.opacity = .5 * gv; galCore.scale.setScalar(RG * .55);
     stars.forEach(s => s.material.opacity = 1 - .85 * gv); skyU.uK.value = 1 - gv;
     if (dust.points.visible) dust.update(t, [0, 0, 0]);
+    // pull-back streaks: only while the `far` move runs (eased), each point fades in once the camera has passed it and out as it
+    // shrinks toward the vanishing point; tail = where the point was relative to the camera 0.07 s ago
+    const pe = p.far == null ? 0 : sm(0, .12, wF) * (1 - sm(.8, 1, wF)) * (1 - wP);
+    pbs.mesh.visible = pe > 0;
+    if (pe > 0) { camPos(t, cA); camPos(t - .07, cB); dv.copy(cA).sub(cB);
+      for (let i = 0; i < NPB; i++) { const b = pbB[i], dc = b.P.distanceTo(cA), q = dc / b.r, k = pe * sm(.25, .7, q) * sm(7, 2.5, q);
+        if (k <= 0) { pbs.hide(i); continue; } const dl = Math.min(1, dc * .6 / Math.max(1e-6, dv.length()));
+        pbs.set(i, b.P.x, b.P.y, b.P.z, b.P.x + dv.x * dl, b.P.y + dv.y * dl, b.P.z + dv.z * dl, b.r * .004, b.c[0] * k, b.c[1] * k, b.c[2] * k); }
+      pbs.commit(); }
+    // close-up motes: slow drift through a box around the probe, faded at the box faces so wrapping never pops
+    const me = 1 - sm(.02, .25, wF); motes.mesh.visible = me > 0 && D < 60;
+    if (motes.mesh.visible) { for (let i = 0; i < NMO; i++) { const m = moB[i], c = [0, 0, 0];
+        for (let j = 0; j < 3; j++) { const vj = [.32, .05, -.14][j] * m[3], x = (((m[j] + vj * t) % MBX[j]) + MBX[j]) % MBX[j]; c[j] = x - MBX[j] / 2; m[5 + j] = sm(0, 3, x) * sm(MBX[j], MBX[j] - 3, x); }
+        const k = me * .5 * m[3] * m[5] * m[6] * m[7] * (.7 + .3 * Math.sin(t * .5 + m[4] * 9));
+        motes.set(i, c[0], c[1], c[2], c[0] - .25 * m[3], c[1] - .04, c[2] + .1, .05, k, k * .88, k * .7); }
+      motes.commit(); }
   } };
 };
