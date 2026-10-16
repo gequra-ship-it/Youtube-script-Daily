@@ -5,10 +5,10 @@
 #   videos/<slug>/plan.json                       (PLAN=1: the unit split only, then exit)
 #   render/<slug>/mix.m4a                          narration + SFX + chalk + music, one pre-mixed file
 #   <work>/build/build_data.json                   unit/caption/cue times for tools/build_cine.py (build_data_partial.json with SEL)
-# usage: SLUG=x [PLAN=1] [SEL=1,2] [VERT=1] [NOBGM=1] [BGM_BELOW=13] python3 tools/build_audio.py [OUTDIR]
+# usage: SLUG=x [PLAN=1] [SEL=1,2] [VERT=1] [NOBGM=1] [BGM_BELOW=13] python3 cine-test/tools/build_audio.py [OUTDIR]
 #        transitions (for their sounds) come from videos/<slug>/cine.json (CINE_JSON=<file> for a test layout)
 import os, re, sys, json, subprocess, math, wave
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'tools'))   # shared tools (paths, palettes, sfx...)
 from paths import *
 import numpy as np
 SCENES = load_scenes()

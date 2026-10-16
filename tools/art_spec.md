@@ -36,7 +36,7 @@ object is welcome, a busy crowd is not.
   - "paper": base `pal.paper_base`, thin lines `pal.paper_ink`
   - "night": vertical wash `pal.night_top` -> `pal.night_bottom`, lines `pal.night_line`, glow `pal.night_glow`
   - "dusk": gradient `pal.dusk_stops[0]` -> [1] -> [2], lines `pal.dusk_ink`
-- **Colours come ONLY from `pal`** (the palette chosen for the script topic, `tools/palettes.py`): backgrounds, lines and glows from
+- **Colours start from `pal`** (the palette chosen for the script topic, `tools/palettes.py`; 2026-10-16 user: the palette is only a skeleton — change or add colours freely when the script or the situation calls for it): backgrounds, lines and glows from
   `pal`, main subjects from `pal.accents` (4 colours). Natural colours of things (skin, animal bodies, plants, water) follow the art brief,
   tinted to harmonise with `pal`. Do NOT fall back to purple/magenta/orange unless `pal.palette` is "sunset" or the thing itself has that
   colour (the old purple/peach defaults made every video look the same, user complaint 2026-10-10).
@@ -70,8 +70,9 @@ marks...). Abstract ideas may get a symbolic backdrop (sand drift, stacked layer
   centre object and people stay the most contrasted things; the bottom 200 px stays calm (captions).
 
 ## 6. Composition and framing
-- The camera is STATIC unless the sidecar names a focus: the picture must read well as a still, and the things the text mentions
-  must be easy to see.
+- Every picture gets a slow drift camera (push 1->1.06x, pan, or pull, one eased move over the unit; guideline 20-1) unless the sidecar
+  names a focus (then the camera pushes into the focus instead). Draw so the picture still reads with ~6% zoom and a 2.5% sideways pan;
+  keep important content ~60 px inside the safe area. The picture must read well as a still, and the things the text mentions must be easy to see.
 - Consecutive units change viewpoint/subject (wide scene -> close object -> symbol/diagram -> person): new shots, same world.
 - Keep the bottom 200 px free of important content (captions), the top-right 160x160 corner empty (logo), important content inside
   x 120..1800, y 80..880. `transition_in` "slide": keep important content away from the far left/right 150 px.
@@ -94,6 +95,17 @@ the bottom 200 px or the top-right corner; every visible person gets `mv-breathe
 | `mv-smoke` `mv-steam` `mv-stink` `mv-cells` `mv-rain` `mv-key` | drift up |
 | `mv-bell` `mv-knot` | swing |
 | `mv-antenna` | sway |
+
+**Creature joints (2026-10-16, guideline 20-6 — learned from the 3D skinning work).** Bodies bend at joints, never as one stiff piece:
+- `mv-joint-<name>` = one hinge (jaw, leg, wing, flipper, scan platform, pointing hand). Attributes on the group: `data-pivot="x y"` (the
+  hinge point in the picture's own coordinates), optional `data-amp` (degrees, default 12), `data-per` (half-cycle seconds, default 1.1),
+  `data-phase` (radians, to put two limbs out of step).
+- `mv-chain-<name>-1`, `-2`, `-3` ... = a chain of links NESTED inside each other (link 2 inside link 1, link 3 inside link 2), each with its
+  own `data-pivot` at the joint where it meets its parent (tail, fluke, fin, tentacle, snake, neck, antenna, seaweed). Each link rotates
+  about its own pivot; the parent's rotation carries the children, the amplitude grows towards the tip (x1.35 per link) and each link lags
+  its parent (0.55 rad), so the whole chain bends in a travelling wave like a skinned body. Default link amp 7 deg, half-cycle 1.5 s.
+- Draw each link so its shapes overlap the parent by a few px at the joint (no gap opens when it bends); no transform attribute on the
+  link groups (wrap in an outer group if needed); pivots are in the same coordinates as the drawing.
 
 **Centre object `mv-core-<type>` (always).** Pick the type by what the object is (table in guideline 4-1 and `tools/motions.py`):
 spin, sway, orbit, glide, heartbeat, flicker, swell, tremble, approach, reveal, squeeze, wobble, roll, pop, ping, stamp, flip, draw, drop.

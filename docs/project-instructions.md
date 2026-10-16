@@ -8,7 +8,7 @@
 **작업 전에 반드시 읽을 것 (GitHub 커넥터로 읽는다)**
 - 레포: `gequra-ship-it/Youtube-script-Daily`, 브랜치 `render-pipeline`
 - 지침서 원본: `docs/miyas-lab-guideline.md` — 대본을 받거나 영상 작업을 시작하기 전에 끝까지 읽고 따른다. 이 프로젝트 지침과 다르면 지침서가 우선이다.
-- 그림 명세(SVG, 기본): `tools/art_spec.md` / 3D 실험에서 얻은 규칙: 지침서 20장 / 3D 보관본: `docs/miyas-lab-guideline-cine.md`, `tools/cine_spec.md` / 도구 사용법: `tools/README.md` / 레포 안내: `CLAUDE.md` / 레포 구조 변경 기록: `docs/repo-changes.md`
+- 그림 명세(SVG, 기본): `tools/art_spec.md` / 3D 실험에서 얻은 규칙: 지침서 20장 / 3D 보관: `cine-test/` / 도구 사용법: `tools/README.md` / 레포 안내: `CLAUDE.md` / 레포 구조 변경 기록: `docs/repo-changes.md`
 - 지침서를 다 읽지 못했으면(파일이 잘리거나 커넥터 오류) 그 사실을 먼저 알리고 추측으로 진행하지 않는다.
 
 **항상 지킬 것**

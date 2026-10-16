@@ -1,11 +1,11 @@
 # Miya's Lab cine page builder (2026-10-14). Writes render/<slug>/index.html for the cine look from
-#   videos/<slug>/cine.json            chapters (stage / cuts), shots (scene type + params), beats per unit (tools/cine_spec.md)
-#   <work>/build/build_data.json       unit and caption times, chalk pop times (from: SLUG=x python3 tools/build_audio.py)
+#   videos/<slug>/cine.json            chapters (stage / cuts), shots (scene type + params), beats per unit (cine-test/tools/cine_spec.md)
+#   <work>/build/build_data.json       unit and caption times, chalk pop times (from: SLUG=x python3 cine-test/tools/build_audio.py)
 #   render/<slug>/mix.m4a              the mixed narration + music + SFX (same command)
-# usage: SLUG=x [VERT=1] [SEL=1,2] [CINE_JSON=f] python3 tools/build_cine.py [out dir]   (SEL = the same selection as the CINE build)
+# usage: SLUG=x [VERT=1] [SEL=1,2] [CINE_JSON=f] python3 cine-test/tools/build_cine.py [out dir]   (SEL = the same selection as the CINE build)
 # Chalkboard scenes become data cards over a slow star field. Shorts: VERT=1 (1080x1920).
 import os, re, sys, json, glob, shutil, colorsys
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'tools'))   # shared tools (paths, palettes, sfx...)
 from paths import *
 import caption_hl, palettes
 
@@ -15,7 +15,7 @@ SEL = [int(x) for x in os.environ.get('SEL', '').split(',') if x]
 B = wdir() + '/build'; OUT = sys.argv[1] if len(sys.argv) > 1 else f'{REPO}/render/{SLUG}'
 D = json.load(open(B + ('/build_data_partial.json' if SEL else '/build_data.json')))
 CJ = json.load(open(os.environ.get('CINE_JSON') or vdir() + '/cine.json'))   # CINE_JSON=<file>: a test layout
-CINE_DIR = REPO + '/tools/cine'
+CINE_DIR = REPO + '/cine-test/tools/cine'
 errors, warns = [], []
 
 cuts = D['cuts']; byid = {c['id']: c for c in cuts}; order = [c['id'] for c in cuts]
@@ -165,7 +165,7 @@ for f in sorted(glob.glob(CINE_DIR + '/scenes/*.js')) + sorted(glob.glob(vdir() 
     for m in re.finditer(r'scenes\.([A-Za-z_][\w]*)\s*=', open(f).read()): lib[m.group(1)] = f
 for ch in chapters:
     for s in ch['shots']:
-        if s['type'] not in lib: errors.append(f'scene type "{s["type"]}" not found (tools/cine/scenes or videos/{SLUG}/scenes)')
+        if s['type'] not in lib: errors.append(f'scene type "{s["type"]}" not found (cine-test/tools/cine/scenes or cine-test/videos/{SLUG}/scenes)')
 
 # ---------- palette tones for the tone-bar transition ----------
 pal = palettes.PALETTES[palettes.for_theme(CFG, SCENES[0][3])]
@@ -199,7 +199,7 @@ for f in used:
     name = ('v_' if f.startswith(vdir()) else '') + os.path.basename(f); shutil.copy(f, f'{OUT}/scenes/{name}'); scene_tags.append(f'<script src="scenes/{name}"></script>')
 cfg = dict(w=W, h=H, total=round(TOTAL, 3), lead=D.get('lead', 0), title=CJ.get('title', CFG.TITLE), accent=CJ.get('accent', pal['accents'][0] if pal['accents'][0].lower() != '#6b4bd6' else '#ffc65a'),
            exposure=CJ.get('exposure', 1.0), tones=tones, chapters=chapters, units=units, caps=caps, cues=cues, datacards=datacards)
-assert os.path.exists(f'{OUT}/mix.m4a'), 'render/<slug>/mix.m4a missing: run SLUG=x python3 tools/build_audio.py first'
+assert os.path.exists(f'{OUT}/mix.m4a'), 'render/<slug>/mix.m4a missing: run SLUG=x python3 cine-test/tools/build_audio.py first'
 html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width={W}, height={H}">
 <link rel="stylesheet" href="cine.css"><script src="gsap.min.js"></script><script src="three.js"></script><script src="room-env.js"></script><script src="kit.js"></script>
 {''.join(scene_tags)}

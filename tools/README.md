@@ -53,17 +53,12 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 - 2026-10-13: `caption_hl.py` — the spoken subtitle word turns yellow (#ffd54a); word times split the line's speaking window by word length. `motions.CHALK_FIT_JS` — chalkboard card values stay on one line and shrink to fit (they used to wrap and spill out of the 140 px card). `restyle_motion.py` now also applies chalk fit, badge count-up, focus spotlight and the subtitle highlight; run it on the original build output only.
 - 2026-10-13: the six picture specs were merged into `tools/art_spec.md` (sections 1-9 landscape, 10 Shorts, 11 cosmic, appendix A backdrop revision, appendix B retired v1 look). Record of repo changes: `docs/repo-changes.md`.
 
-## Cine look (new videos from 2026-10-14; guideline chapter 2A, spec `tools/cine_spec.md`)
-1. TTS and `audio_prep.py` as before, `SLUG=x PLAN=1 python3 tools/build3.py` for the unit split (plan.json).
-2. Write `videos/x/cine.json` (chapters: `stage` = one 3D scene for the chapter, `cuts` = shots; beats per unit). New scenes in `videos/x/scenes/*.js`.
-3. `SLUG=x CINE=1 python3 tools/build3.py` — narration/captions/SFX/BGM mix and build_data only (no SVG art).
-4. `SLUG=x python3 tools/build_cine.py` — writes `render/x/index.html` (runtime `tools/cine/cine.js` + `cine.css`, scene files, Three.js r169, fonts Lora/Inter OFL). Checks cues, gaps, scene types. `CINE_JSON=file` uses a test layout; `VERT=1` for Shorts.
-5. `python3 tools/cineshot.py render/x out 5 30 ...` (screenshots + seconds per frame, page errors) and `--estimate` (chunk count).
-6. Render: `render/.chunked` line `x <chunks>` → push → `.github/workflows/render-chunked.yml` (one job per chunk via `tools/chunk_prep.py`, concat without re-encoding, audio muxed once, Drive upload with the usual `.dest`/`.outname`/`deliver/`).
-- `tools/cine/scenes/`: dataglobe (stage), blackhole (lensed/ring/whirlpool/icon), ocean, clockfield, watch, river, cubefield (heavy), void.
-
+## 3D (cine) — 보관
+3D 도구와 명세는 `cine-test/`로 옮겼다(`cine-test/README.md`). `chunk_prep.py`(구간 나누기)는 SVG 병렬 렌더에도 쓰므로 여기에 남아 있다.
 
 ## 2026-10-16 추가 (지침서 20장)
 - `build3.py`: `config.py`의 `HOOK = dict(until=300, maxu=4.5)`(초반 단위를 더 잘게, 숏츠는 `until=999, maxu=4.8`), `DRIFT = False`(드리프트 카메라 끄기). 우주 모드는 속도 단어가 있는 단위에 속도선(사이드카 `"speed": true/false`).
 - `motion_check.py render/<slug> [--step 6]`: 화면이 거의 안 움직이는 구간을 찾는다(SVG·3D 페이지 모두).
-- 음성·시간: `audio_prep.py`(음성 길이), `build_audio.py`(3D용 단위·소리), 3D 도구 `build_cine.py`·`cine/`·`cineshot.py`·`chunk_prep.py`는 보관(지침서 2A, `docs/miyas-lab-guideline-cine.md`).
+- `art3` 관절: `mv-joint-<이름>`(관절 하나, `data-pivot`·`data-amp`·`data-per`·`data-phase`), `mv-chain-<이름>-1,-2…`(겹쳐 넣은 마디 사슬, 끝으로 갈수록 크게·늦게). `tools/art_spec.md` 7절.
+- 병렬 렌더: `chunk_plan.py render/<slug>`로 구간 수 → `render/.chunked`에 `"<slug> <n>"` → `render-chunked.yml`(+`chunk_prep.py`). 지침서 20-7.
+- 3D(cine) 도구는 `cine-test/`에 보관(`build_cine.py`, `build_audio.py`, `cineshot.py`, `cine/`).

@@ -153,3 +153,11 @@
 - 지침서: SVG판(`f34d457^`)을 기본으로 되살리고 숏츠 3편 규칙(19장)과 3D 실험에서 얻은 규칙(20장)을 넣음. 3D 지침은 `docs/miyas-lab-guideline-cine.md`로 이름을 바꿔 보관.
 - 새 코드: `build3.py`의 `HOOK`·드리프트 카메라·속도선, `tools/motion_check.py`.
 - 남긴 것: `tools/cine/`, `build_cine.py`, `build_audio.py`, `cineshot.py`, `chunk_prep.py`, `render-chunked.yml`, `videos/*-cine`, `render/cosmic-prison-cine*`(3D 보관).
+
+## 2026-10-16 3D 문서·코드를 `cine-test/`로 정리 (사용자 결정)
+- 옮김: `tools/cine/` → `cine-test/tools/cine/`, `tools/build_cine.py`·`build_audio.py`·`cineshot.py`·`camprobe.py`·`cine_spec.md` → `cine-test/tools/`,
+  `docs/miyas-lab-guideline-cine.md` → `cine-test/docs/`, `videos/*-cine*` → `cine-test/videos/`. 설명은 `cine-test/README.md`.
+- 경로 수정: `build_cine.py`·`build_audio.py`가 공용 `tools/`를 불러오게, `build_cine.py`의 실행 라이브러리 경로, `tools/paths.py`의 `vdir()`가
+  `cine-test/videos/<slug>`도 찾게, `motion_check.py`가 3D 페이지에 `cine-test/tools/cineshot.py`를 쓰게. 확인: 3D 숏츠 3편 빌드와 미리보기, SVG 부분 빌드 정상.
+- 그대로 둔 것: `render/*-cine*`(렌더 원본, 워크플로가 `render/`를 봄), `render-chunked.yml`과 `tools/chunk_prep.py`(SVG 병렬 렌더에 사용).
+- 새로 만듦: `tools/chunk_plan.py`(SVG 구간 수), `build3.py`의 관절 모션(`mv-joint`, `mv-chain`).
