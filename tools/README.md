@@ -1,45 +1,69 @@
-# Miya's Lab pipeline tools (cine look)
+# Miya's Lab pipeline tools
 
-Script (English narration) -> Kokoro narration -> units, captions, SFX, music -> 3D page (Three.js) -> GitHub Actions chunked render -> Google Drive.
-Rules: `docs/miyas-lab-guideline.md`. Scene spec for agents: `tools/cine_spec.md`.
-All paths come from `tools/paths.py`. Set `SLUG=<video-slug>` and `MIYA_WORK=<scratch dir>` (default `/tmp/miya-work`). Run from the repo root.
+Script (English narration) -> narration wavs -> render folder -> GitHub Actions render -> Google Drive.
+All paths come from `tools/paths.py`. Set `SLUG=<video-slug>` (and optionally `MIYA_WORK=<scratch dir>`, default `/tmp/miya-work`).
 
-## Per video: `videos/<slug>/`
-- `script.py` — `SCENES = [(id, chapter title, "ill", theme, narration paragraph), ...]` (one paragraph = one scene)
-- `config.py` — `PAL_DEFAULT` (palette, `palettes.py`), optional `STYLE = 'cosmic'`, `CHALK` (data cards, guideline chapter 6), `TITLE`, `DESC`, `CHAPTERS`, `SOURCES`, `HASHTAGS`
-- `cine.json` — chapters (`stage` / `cuts`), scene params with word cues, beats per unit (`cine_spec.md` section 2)
-- `scenes/*.js` — new 3D scenes for this video (library: `tools/cine/scenes/`)
-- Example: `videos/whale-fall-cine/` (one stage chapter with the `whale` scene), `videos/stolen-time/cine.json` (stage + cuts)
+Per video you need `videos/<slug>/`:
+- `script.py` — `SCENES = [(id, chapter title, "ill"|"chalk", art id, narration), ...]`
+- `art/<art id>.svg` — one 1920x1080 SVG per scene (spec: `tools/art_spec.md`; movable parts as `id="mv-name"` groups)
+- `config.py` — `CHALK`, `WHOOSH`, `TITLE`, `DESC`, `CHAPTERS`, `SOURCES`, `HASHTAGS` (see the existing one)
+- `thumb/A.html`, `thumb/B.html`, `thumb/common.css`, `thumb/Fredoka-700.woff2` — two original thumbnails
 
-## Steps
-1. `SLUG=x HYPERFRAMES_PYTHON=<venv python> bash tools/tts.sh` — Kokoro `am_michael`, one wav per scene in `<work>/x/tts/`.
-   Venv: `python3 -m venv <dir> && <dir>/bin/pip install kokoro-onnx soundfile`.
-2. `SLUG=x python3 tools/audio_prep.py` — stereo 48 kHz, loudnorm −16.8 LUFS, per-scene clips, scene lengths.
-3. `SLUG=x PLAN=1 python3 tools/build_audio.py` — unit split -> `videos/x/plan.json` (uid, text, duration).
-4. Write `videos/x/cine.json` (+ `videos/x/scenes/*.js`).
-5. `SLUG=x python3 tools/build_audio.py` — captions, SFX cues (from the transitions in cine.json, chalk taps for data cards), music, one pre-mixed `render/x/mix.m4a`, `<work>/x/build/build_data.json`. `SEL=1,2` partial, `VERT=1` Shorts, `NOBGM=1`, `BGM_BELOW=13`.
-6. `SLUG=x python3 tools/build_cine.py` — writes `render/x/` (index.html with `window.CINE`, `cine.js`, `cine.css`, `kit.js`, scene files, Three.js r169, GSAP, fonts Lora/Inter (OFL), logo). Checks cues, gaps, unknown scene types. `CINE_JSON=<file>` for a test layout, `SEL=` with a partial build_data, `VERT=1`.
-7. `python3 tools/cineshot.py render/x <outdir> 5 30 61.2 ...` — screenshots, seconds per frame, page errors. `python3 tools/cineshot.py render/x --estimate` — chunk count.
-8. `SLUG=x python3 tools/gen_text.py` — `<slug>_script.txt` and `<slug>_metadata.txt` into `render/x/deliver/`. Thumbnails: `videos/x/thumb/A.html`, `B.html` -> `SLUG=x python3 tools/thumb_shot.py` -> `render/x/deliver/`.
-9. `render/x/.dest` (Drive folder), then a line `x <chunks>` in `render/.chunked`, push to `render-pipeline` -> `.github/workflows/render-chunked.yml`: one job per chunk (`tools/chunk_prep.py` makes a chunk page that seeks the main timeline from its start, audio removed), concat without re-encoding, `mix.m4a` muxed once, report, Drive upload (`.dest`, `.outname`, `deliver/`, `.skip_deliver`).
+Steps (run from the repo root):
+1. `SLUG=x HYPERFRAMES_PYTHON=<venv python> tools/tts.sh` — Kokoro am_michael, one wav per scene.
+   The venv held `kokoro-onnx 0.6.1, soundfile, onnxruntime, phonemizer, espeakng-loader, numpy`.
+   Setting it up from scratch was not re-tested.
+2. `SLUG=x python3 tools/audio_prep.py` — stereo, loudnorm -16.8 LUFS, per-scene clips, timing.
+3. (new look, current) `SLUG=x PLAN=1 python3 tools/build3.py` -> plan.json; draw `art3/<uid>.svg+json` per unit (tools/art_spec.md, incl. the on-screen text `labels` checked/previewed with `python3 tools/labelshot.py <slug> <dir> <uid...>`; the spec says: NO rings/radiating lines — every picture needs a scene-specific backdrop, see tools/art_spec.md section 5, appendix A is the brief for revising existing pictures; at most 2 of 12 units may share a backdrop kind); `SLUG=x python3 tools/build3.py` (`VERT=1` for Shorts). Old flow: `SLUG=x python3 tools/build.py` — writes `render/x/` (index.html, audio as m4a, assets). `SEL=1,2,16` builds a partial test.
+4. `SLUG=x python3 tools/thumb_shot.py` — thumbnails into `render/x/deliver/`.
+5. `SLUG=x python3 tools/gen_text.py` — script txt and metadata txt into `render/x/deliver/`.
+6. Shorts: same steps with slug `x-short` (`VERT=1` for build3; no thumbnails; `gen_text.py` writes title/description/hashtags because `CHAPTERS=[]`). Shorts art is vertical (`art_spec.md` section 10).
+7. (The workflow reads slugs through fd 3 because npx/ffmpeg inside the loop otherwise swallow the remaining slug lines — this made the first run skip the long video.) Write both slugs to `render/.slug`, one per line (`x` then `x-short`), commit, push to `render-pipeline`. The workflow renders each slug in turn and uploads to Drive: long -> `x/`, Shorts -> `x/short/`.
+   - `render/<slug>/.dest` (one line) overrides the Drive folder (e.g. `x/short`) when the slug name does not follow `<long>-short`.
+   - A slug folder containing an empty file `.deliver_only` skips the render and only uploads `deliver/` (use to re-upload thumbnails/text).
 
-## Files
-| file | what |
-|---|---|
-| `tts.sh`, `audio_prep.py` | narration |
-| `build_audio.py` | units, captions, SFX, music, mix, build_data |
-| `sfx_lib.py`, `bgm_lib.py` | synthesised SFX (25 + 6 cosmic, 3 variants each, peak −24 dBFS) and music (ducked 13 dB under the narration) |
-| `caption_hl.py` | word times for the spoken-word highlight |
-| `palettes.py` | topic palettes (blinds transition tones) |
-| `build_cine.py` | the 3D page |
-| `cine/cine.js`, `cine/cine.css` | runtime: renderer, compositor + transitions, HUD/text layers, data cards, captions |
-| `cine/kit.js` | realism kit: noise, normal maps, `body()` one-mesh organisms (+ `extra` merged parts), `fin()`, god rays, marine snow, water surface from below |
-| `cine/scenes/` | library: dataglobe, blackhole (4 looks), ocean, clockfield, whale, watch, river, cubefield (heavy), void |
-| `cine/assets/` | three.js r169 (classic-script wrap), room-env.js, gsap, fonts + licences |
-| `cineshot.py` | screenshots / cost estimate |
-| `chunk_prep.py` | chunk pages for the parallel render |
-| `gen_text.py`, `thumb_shot.py` | script/metadata text, thumbnail capture |
-| `assets/` | `logo.png`, `Fredoka-700.woff2` (thumbnail text) |
-| `paths.py` | shared paths and loaders |
+Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/never-eat-human-meat/index.html` byte for byte (that render folder was deleted 2026-10-14; it is in git history).
 
-The retired SVG pipeline (build3.py/build.py, art_spec.md, label/motion tools, render.yml) is in git history (commit `ff7818b`).
+## 2026-10-10 additions
+- `sfx_lib.py` v2: 25 quiet unpitched sounds x 3 variants (peak -24 dBFS). Old name `shimmer` is an alias of `hush`. Sidecar `sfx.name` list is in `art_spec.md` section 8.
+- `bgm_lib.py`: synthesised background music (own composition, no samples/vocals), highpass 250 Hz, ducked under the real narration (`n##.wav`), 13 dB below narration RMS (`BGM_BELOW`). `build3.py` writes `bgm.m4a` and adds it as audio track 20. `NOBGM=1` disables it.
+- Two Shorts per video: slugs `<slug>-short1`, `<slug>-short2` (also `-short`); the workflow uploads them to `<slug>/short/`. Put all three slugs in `render/.slug`.
+
+## 2026-10-10 (epomis-frog-hunter-v2)
+- Kokoro speed re-measured at ~163 words/min (not 126): plan ~3,100 words for a ~20 min video. Always check `audio_prep.py`'s total.
+- `build3.py`: very short units (<1.6 s) merge into a neighbour; a short last unit re-splits with the previous one. A partial `SEL=` build now takes picture uids from `plan.json` (before, numbering restarted at 1 and pictures were mismatched).
+- `build3.py` transitions (2026-10-14): 12 types — zoom, fade, slide, match, wash, plus wipe (diagonal with a light edge), iris (circle from a side subject; sidecar `iris`), eye (opens from a horizontal line), blinds (bars in muted tones of the scene colour family), push (vertical), whip (fast pass with speed streaks), tilt (card tips in). `TR_WORDS` picks one from words in the unit text (50 %, unless that type is over its share); other picks are weighted against types already used a lot; never the same type twice in a row; hard cuts around chalkboards.
+- Picture agents: write a per-video `videos/<slug>/art_brief.md` (character sheet, own scratch folder per agent) and give it to every agent.
+- Workflow: Chrome warm-up, one render retry, continue with the next slug on failure.
+- Guideline copy: `docs/miyas-lab-guideline.md`.
+
+## Palettes (2026-10-10)
+- `palettes.py`: 10 topic palettes (ocean, forest, desert, ice, lab, history, space, storm, body, sunset). New video: set `PAL_DEFAULT` and optionally `PAL = {art_theme: palette}` in `config.py`, chosen from what the script is about (max 3 palettes per video). `build3.py PLAN=1` writes the chosen colours into every plan.json unit (`pal`) and the transition wash uses the scene's palette. Without `PAL_DEFAULT` the old purple/peach look (palette `sunset`) is used and PLAN=1 prints a warning.
+- Picture agents must use only `pal` colours (see art_spec.md section 3). Existing videos (`epomis-frog-hunter-v2`, `never-eat-human-meat-v4`) were drawn with the old colours and are NOT changed.
+
+## 우주 모드 (2026-10-12)
+- `config.py`: `STYLE = 'cosmic'`, `PAL_DEFAULT = 'nebula'|'aurora'|'deepfield'|'solar'`. 그림 명세는 `art_spec.md` 11절.
+- 효과음 6종 추가(`sfx_lib.COSMIC`, riser·sweep는 파도 소리 같다는 지적으로 삭제), 배경음악은 `STYLE='cosmic'`이면 `bgm_lib.synth_cosmic`(코드 변경 12초, 3중 디튠 패드, 느린 고음 아르페지오, 지연 에코, 저역통과 6.5kHz).
+- 확인: 합성과 주파수 분석만(150Hz 미만 에너지 비율 0.001 안팎). 실제 렌더·소리 판단은 안 함.
+
+## Centre-object motions (2026-10-13)
+- `motions.py`: 19 motion types for the round centre object (`mv-core-<type>`: spin, sway, orbit, glide, heartbeat, flicker, swell, tremble, approach, reveal, squeeze, wobble, roll, and from a motion-graphics reference: pop, ping, stamp, flip, draw, drop). The old `mv-glint-core` is auto-assigned a type by rotation (neighbouring pictures never match). `build3.py` prints the types used and warns if fewer than 10 are used, the same type repeats in a row, or one type is over 20%. Light groups (`glint`, `lamp`, `lantern`, `beacon`) now pulse in place instead of stretching vertically. Tested in headless Chromium only (seek-safe, per-type change); not yet seen in a rendered MP4.
+- `restyle_motion.py`: re-styles the centre motion of an already built `render/<slug>/index.html` in place (no TTS, no pictures needed): `python3 tools/restyle_motion.py render/<slug> ...`. Idempotent. Tested on `whale-fall-short1` only (page loads, 13 centre motions replaced, pictures unchanged before the motion starts).
+- 2026-10-13 from a motion-graphics reference: number badges count up from 0 (`labels_lib.count_span/count_js`, seek-safe `innerText` tween with a formatting modifier, years 1000-2100 skipped); focus spotlight `#sp<n>` dims the picture around the focus point while the camera pushes in (sidecar `"spot": false` turns it off); `ping`/`stamp` use a ring drawn by `miyaWrapCores`, `draw` uses stroke lengths measured there.
+- 2026-10-13: `caption_hl.py` — the spoken subtitle word turns yellow (#ffd54a); word times split the line's speaking window by word length. `motions.CHALK_FIT_JS` — chalkboard card values stay on one line and shrink to fit (they used to wrap and spill out of the 140 px card). `restyle_motion.py` now also applies chalk fit, badge count-up, focus spotlight and the subtitle highlight; run it on the original build output only.
+- 2026-10-13: the six picture specs were merged into `tools/art_spec.md` (sections 1-9 landscape, 10 Shorts, 11 cosmic, appendix A backdrop revision, appendix B retired v1 look). Record of repo changes: `docs/repo-changes.md`.
+
+## Cine look (new videos from 2026-10-14; guideline chapter 2A, spec `tools/cine_spec.md`)
+1. TTS and `audio_prep.py` as before, `SLUG=x PLAN=1 python3 tools/build3.py` for the unit split (plan.json).
+2. Write `videos/x/cine.json` (chapters: `stage` = one 3D scene for the chapter, `cuts` = shots; beats per unit). New scenes in `videos/x/scenes/*.js`.
+3. `SLUG=x CINE=1 python3 tools/build3.py` — narration/captions/SFX/BGM mix and build_data only (no SVG art).
+4. `SLUG=x python3 tools/build_cine.py` — writes `render/x/index.html` (runtime `tools/cine/cine.js` + `cine.css`, scene files, Three.js r169, fonts Lora/Inter OFL). Checks cues, gaps, scene types. `CINE_JSON=file` uses a test layout; `VERT=1` for Shorts.
+5. `python3 tools/cineshot.py render/x out 5 30 ...` (screenshots + seconds per frame, page errors) and `--estimate` (chunk count).
+6. Render: `render/.chunked` line `x <chunks>` → push → `.github/workflows/render-chunked.yml` (one job per chunk via `tools/chunk_prep.py`, concat without re-encoding, audio muxed once, Drive upload with the usual `.dest`/`.outname`/`deliver/`).
+- `tools/cine/scenes/`: dataglobe (stage), blackhole (lensed/ring/whirlpool/icon), ocean, clockfield, watch, river, cubefield (heavy), void.
+
+
+## 2026-10-16 추가 (지침서 20장)
+- `build3.py`: `config.py`의 `HOOK = dict(until=300, maxu=4.5)`(초반 단위를 더 잘게, 숏츠는 `until=999, maxu=4.8`), `DRIFT = False`(드리프트 카메라 끄기). 우주 모드는 속도 단어가 있는 단위에 속도선(사이드카 `"speed": true/false`).
+- `motion_check.py render/<slug> [--step 6]`: 화면이 거의 안 움직이는 구간을 찾는다(SVG·3D 페이지 모두).
+- 음성·시간: `audio_prep.py`(음성 길이), `build_audio.py`(3D용 단위·소리), 3D 도구 `build_cine.py`·`cine/`·`cineshot.py`·`chunk_prep.py`는 보관(지침서 2A, `docs/miyas-lab-guideline-cine.md`).

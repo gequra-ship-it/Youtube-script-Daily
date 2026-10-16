@@ -146,3 +146,10 @@
 
 예전 SVG 방식(`tools/art_spec.md`, `tools/build3.py` 기본 모드, `render.yml`, `render/.slug`)은 그대로 둔다(예전 영상 재렌더용).
 
+
+## 2026-10-16 SVG 모션그래픽 방식 복원 (사용자 결정)
+- 사용자: "이전 화풍으로 돌아가자 커밋기록 돌려야해 … 예전 영상들도 수정 가능성이 있기 때문"에 전부 복원. 히스토리는 되감지 않고 새 커밋으로 되살림.
+- 되살린 것(`render-pipeline`): 10-14 정리 1(`6954f29`)·정리 2(`f34d457`)에서 지운 SVG 도구(`build3.py`, `motions.py`, `pivots.py`, `labels_lib.py`, `labelshot.py`, `svgshot.py`, `mvcheck.py`, `restyle_motion.py`, `build.py`, `art_spec.md`, `assets/`, `ref/`), 영상별 SVG 그림(`videos/*/art3` 등), 렌더 원본 `render/<slug>`, `render.yml`, 루트 `README.md`. `render/.slug`는 `none`.
+- 지침서: SVG판(`f34d457^`)을 기본으로 되살리고 숏츠 3편 규칙(19장)과 3D 실험에서 얻은 규칙(20장)을 넣음. 3D 지침은 `docs/miyas-lab-guideline-cine.md`로 이름을 바꿔 보관.
+- 새 코드: `build3.py`의 `HOOK`·드리프트 카메라·속도선, `tools/motion_check.py`.
+- 남긴 것: `tools/cine/`, `build_cine.py`, `build_audio.py`, `cineshot.py`, `chunk_prep.py`, `render-chunked.yml`, `videos/*-cine`, `render/cosmic-prison-cine*`(3D 보관).
