@@ -1,17 +1,22 @@
 {
- "centre": "round water-level gauge with its needle sunk low, on a well pipe",
+ "centre": "a round gush of fossil water rising from a deep well head",
  "focus": [
-  560,
-  665,
-  1.7
+  420,
+  590,
+  1.8
  ],
- "focus_word": "water levels",
- "sfx": [
+ "focus_word": "natural spring",
+ "labels": [
   {
-   "name": "drip",
-   "word": "dropped",
-   "vol": 0.5
+   "type": "name",
+   "text": "Fossil water",
+   "x": 600,
+   "y": 750,
+   "to": [
+    560,
+    860
+   ],
+   "word": "fossil water"
   }
- ],
- "labels": []
+ ]
 }

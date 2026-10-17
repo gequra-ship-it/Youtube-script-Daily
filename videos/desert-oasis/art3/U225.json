@@ -1,17 +1,29 @@
 {
- "centre": "small round pool with vapour rising",
+ "centre": "flattened clay disk squeezed thin, almost no pores left",
  "focus": [
-  1480,
-  500,
-  1.6
+  960,
+  510,
+  1.7
  ],
- "focus_word": "leaves",
+ "focus_word": "squeezed clay",
  "sfx": [
   {
-   "name": "hush",
-   "word": "evaporation",
-   "vol": 0.5
+   "name": "drip",
+   "word": "never store",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "No room...",
+   "x": 1300,
+   "y": 640,
+   "to": [
+    1172,
+    560
+   ],
+   "word": "never store"
+  }
+ ]
 }

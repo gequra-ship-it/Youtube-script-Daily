@@ -1,13 +1,29 @@
 {
- "centre": "a large glowing water drop with tiny salt crystals floating inside",
+ "centre": "large glowing gold coin above a pile of coins between two cities",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "drip",
-   "word": "natural water",
-   "vol": 0.6
+   "type": "name",
+   "text": "Samarkand",
+   "x": 420,
+   "y": 200,
+   "to": [
+    380,
+    300
+   ],
+   "word": "Samarkand"
+  },
+  {
+   "type": "name",
+   "text": "Palmyra",
+   "x": 1560,
+   "y": 300,
+   "to": [
+    1610,
+    450
+   ],
+   "word": "Palmyra"
   }
- ],
- "labels": []
+ ]
 }

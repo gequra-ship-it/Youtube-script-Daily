@@ -1,11 +1,25 @@
 {
- "centre": "low sun over the desert (same as previous)",
- "focus": [
-  380,
-  1240,
-  1.6
+ "centre": "round glowing pool of water at the bottom of a well shaft",
+ "focus": null,
+ "focus_word": "water table",
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "water table",
+   "vol": 0.5
+  }
  ],
- "focus_word": "groves",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Water table",
+   "x": 540,
+   "y": 470,
+   "to": [
+    540,
+    760
+   ],
+   "word": "water table"
+  }
+ ]
 }

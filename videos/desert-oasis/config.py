@@ -50,3 +50,5 @@ PAL_DEFAULT = 'desert'
 PAL = dict(underground='ocean', sponge='ocean', layers='ocean', artesian='ocean', fossilwater='ocean', watertable='ocean',
            gravel='ocean', tunnel='ocean', subsidence='ocean', pools='ocean', fog='ocean', greensahara='forest',
            )
+
+HOOK = dict(until=300, maxu=5.5)   # guideline 20-2 (2026-10-17 remake): denser first 5 minutes; minimum on-screen time 3.5 s (minu) applied by build3

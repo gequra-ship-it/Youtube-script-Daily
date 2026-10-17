@@ -1,18 +1,29 @@
 {
- "centre": "round brass bowl of clear water on a stone shelf",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "round spring pool with a stone rim, shaded by a date palm",
+ "focus": [
+  560,
+  360,
+  1.6
+ ],
+ "focus_word": "Date palms",
+ "sfx": [
+  {
+   "name": "flutter",
+   "word": "Birds",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "Hmm?",
-   "x": 720,
-   "y": 420,
+   "type": "name",
+   "text": "Date palm",
+   "x": 330,
+   "y": 210,
    "to": [
-    640,
-    520
-   ]
+    520,
+    300
+   ],
+   "word": "Date palms"
   }
  ]
 }

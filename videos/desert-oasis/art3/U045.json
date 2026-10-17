@@ -1,25 +1,23 @@
 {
- "centre": "glowing water bubble trapped in the sandstone layer of a rock block",
- "focus": null,
- "focus_word": null,
+ "centre": "hourglass in a round medallion set in layers of rock",
+ "focus": [
+  1500,
+  360,
+  1.7
+ ],
+ "focus_word": "comes back to the surface",
  "sfx": [
   {
-   "name": "click",
-   "word": "trapped",
-   "vol": 0.5
+   "name": "sand",
+   "word": "thousands of years",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Water-bearing layer",
-   "x": 1560,
-   "y": 640,
-   "to": [
-    1400,
-    470
-   ],
-   "word": "water-bearing layer"
+   "type": "num",
+   "text": "THOUSANDS OF YEARS",
+   "word": "thousands of years"
   }
  ]
 }

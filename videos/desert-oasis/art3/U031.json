@@ -1,29 +1,40 @@
 {
- "centre": "a single sand grain surrounded by pore space",
- "focus": [
-  960,
-  500,
-  1.9
- ],
- "focus_word": "tiny spaces",
- "sfx": [
-  {
-   "name": "sand",
-   "word": "grains",
-   "vol": 0.55
-  }
- ],
+ "centre": "hand lens showing sand grains",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
    "text": "Sandstone",
-   "x": 1290,
-   "y": 330,
+   "x": 370,
+   "y": 410,
    "to": [
-    1060,
-    470
+    370,
+    500
    ],
    "word": "sandstone"
+  },
+  {
+   "type": "name",
+   "text": "Limestone",
+   "x": 660,
+   "y": 760,
+   "to": [
+    650,
+    630
+   ],
+   "word": "limestone"
+  },
+  {
+   "type": "name",
+   "text": "Shale",
+   "x": 1570,
+   "y": 470,
+   "to": [
+    1570,
+    560
+   ],
+   "word": "shale"
   }
  ]
 }

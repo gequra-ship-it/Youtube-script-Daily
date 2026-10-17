@@ -1,24 +1,29 @@
 {
- "centre": "calm oasis pool reflecting the low dusk sun",
- "focus": null,
- "focus_word": null,
+ "centre": "bright water drop between rainy mountains and a green Sahara",
+ "focus": [
+  1450,
+  580,
+  1.6
+ ],
+ "focus_word": "green Sahara",
  "sfx": [
   {
-   "name": "breath",
-   "word": "which oasis",
-   "vol": 0.45
+   "name": "rain",
+   "word": "rain that fell",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "Which one?",
-   "x": 1140,
-   "y": 700,
+   "type": "name",
+   "text": "Sahara",
+   "x": 1260,
+   "y": 380,
    "to": [
-    1362,
-    600
-   ]
+    1300,
+    640
+   ],
+   "word": "Sahara"
   }
  ]
 }

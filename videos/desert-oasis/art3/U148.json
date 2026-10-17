@@ -1,7 +1,25 @@
 {
- "centre": "glowing round brass lantern hanging over a market table",
+ "centre": "round open cistern fed by a surface canal, water drying away",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "sun and wind",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Canal",
+   "x": 520,
+   "y": 540,
+   "to": [
+    520,
+    432
+   ],
+   "word": "canal"
+  }
+ ]
 }

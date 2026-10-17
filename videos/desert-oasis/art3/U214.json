@@ -1,17 +1,22 @@
 {
- "centre": "round porthole into the ground showing flattened clay plates",
+ "centre": "layered stromatolite dome glowing at the top",
  "focus": [
   960,
-  400,
-  1.6
+  520,
+  1.7
  ],
- "focus_word": "slowly sinks",
- "sfx": [
+ "focus_word": "layered mats",
+ "labels": [
   {
-   "name": "stone",
-   "word": "sinks",
-   "vol": 0.55
+   "type": "name",
+   "text": "Stromatolites",
+   "x": 1250,
+   "y": 360,
+   "to": [
+    1080,
+    430
+   ],
+   "word": "stromatolites"
   }
- ],
- "labels": []
+ ]
 }

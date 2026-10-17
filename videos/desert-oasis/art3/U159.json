@@ -1,7 +1,29 @@
 {
- "centre": "round woven basket full of sand carried by a villager",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "round stone well of a caravanserai full of water",
+ "focus": [
+  305,
+  660,
+  1.7
+ ],
+ "focus_word": "silk",
+ "sfx": [
+  {
+   "name": "step",
+   "word": "Caravans",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Silk",
+   "x": 300,
+   "y": 560,
+   "to": [
+    300,
+    645
+   ],
+   "word": "silk"
+  }
+ ]
 }

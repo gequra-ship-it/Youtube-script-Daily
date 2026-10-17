@@ -1,23 +1,25 @@
 {
- "centre": "dish of fine clay made from crushed rock",
- "focus": [
-  540,
-  860,
-  1.6
+ "centre": "bright bead of water rising inside the crack",
+ "focus": null,
+ "focus_word": "a fault",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "breaks through",
+   "vol": 0.6
+  }
  ],
- "focus_word": "clay-rich material",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Clay",
-   "x": 760,
-   "y": 1010,
+   "text": "Fault",
+   "x": 540,
+   "y": 470,
    "to": [
-    620,
-    920
+    540,
+    760
    ],
-   "word": "clay-rich"
+   "word": "fault"
   }
  ]
 }

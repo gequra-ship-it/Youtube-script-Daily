@@ -1,17 +1,25 @@
 {
- "centre": "large green oasis dot on the map (same size as previous pool)",
- "focus": [
-  780,
-  420,
-  1.8
- ],
- "focus_word": "green dots",
+ "centre": "glowing spring pool in a night desert basin (same as previous)",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "page",
-   "word": "on the map",
+   "name": "wind",
+   "word": "Chihuahuan Desert",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Chihuahuan Desert",
+   "x": 1340,
+   "y": 690,
+   "to": [
+    1300,
+    740
+   ],
+   "word": "Chihuahuan Desert"
+  }
+ ]
 }

@@ -1,11 +1,29 @@
 {
- "centre": "big water drop falling from the gutter downspout",
+ "centre": "glowing round end of a large desalination tank",
  "focus": [
-  1520,
-  620,
+  1480,
+  760,
   1.6
  ],
- "focus_word": "pipes",
- "sfx": [],
- "labels": []
+ "focus_word": "seawater",
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "remove salt",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Seawater",
+   "x": 1640,
+   "y": 690,
+   "to": [
+    1620,
+    760
+   ],
+   "word": "seawater"
+  }
+ ]
 }

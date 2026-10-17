@@ -27,7 +27,7 @@
    ]
   },
   "text": "Imagine standing in the middle of an ocean of sand.",
-  "dur": 4.16,
+  "dur": 3.69,
   "transition_in": "hard",
   "prev": "",
   "nxt": "The sun is overhead, the ground shimmers with heat,"
@@ -60,10 +60,10 @@
    ]
   },
   "text": "The sun is overhead, the ground shimmers with heat,",
-  "dur": 3.45,
-  "transition_in": "fade",
+  "dur": 3.69,
+  "transition_in": "iris",
   "prev": "Imagine standing in the middle of an ocean of sand.",
-  "nxt": "and the horizon is empty in every direction. Rain may not fall here for years."
+  "nxt": "and the horizon is empty in every direction."
  },
  {
   "uid": "U003",
@@ -92,11 +92,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "and the horizon is empty in every direction. Rain may not fall here for years.",
-  "dur": 5.58,
-  "transition_in": "wash",
+  "text": "and the horizon is empty in every direction.",
+  "dur": 3.69,
+  "transition_in": "match",
   "prev": "The sun is overhead, the ground shimmers with heat,",
-  "nxt": "Everything about this place says that water is impossible."
+  "nxt": "Rain may not fall here for years."
  },
  {
   "uid": "U004",
@@ -125,11 +125,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "Everything about this place says that water is impossible.",
-  "dur": 3.61,
-  "transition_in": "zoom",
-  "prev": "and the horizon is empty in every direction. Rain may not fall here for years.",
-  "nxt": "And yet, somewhere out in this emptiness,"
+  "text": "Rain may not fall here for years.",
+  "dur": 3.69,
+  "transition_in": "eye",
+  "prev": "and the horizon is empty in every direction.",
+  "nxt": "Everything about this place says that water is impossible."
  },
  {
   "uid": "U005",
@@ -158,11 +158,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "And yet, somewhere out in this emptiness,",
-  "dur": 2.93,
-  "transition_in": "slide",
-  "prev": "Everything about this place says that water is impossible.",
-  "nxt": "there are pools of clear water ringed by green palm trees. How can that be?"
+  "text": "Everything about this place says that water is impossible.",
+  "dur": 3.69,
+  "transition_in": "zoom",
+  "prev": "Rain may not fall here for years.",
+  "nxt": "And yet, somewhere out in this emptiness,"
  },
  {
   "uid": "U006",
@@ -191,18 +191,18 @@
     "#5f7a6a"
    ]
   },
-  "text": "there are pools of clear water ringed by green palm trees. How can that be?",
-  "dur": 6.13,
+  "text": "And yet, somewhere out in this emptiness,",
+  "dur": 3.69,
   "transition_in": "fade",
-  "prev": "And yet, somewhere out in this emptiness,",
-  "nxt": ""
+  "prev": "Everything about this place says that water is impossible.",
+  "nxt": "there are pools of clear water ringed by green palm trees. How can that be?"
  },
  {
   "uid": "U007",
-  "scene": 2,
-  "title": "Mirage or Real?",
-  "art_theme": "mirage",
-  "bg": "paper",
+  "scene": 1,
+  "title": "An Ocean of Sand",
+  "art_theme": "dunes",
+  "bg": "dusk",
   "pal": {
    "palette": "desert",
    "paper_base": "#ebe0c8",
@@ -224,11 +224,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "For desert travelers, a glimpse of green on the horizon could be a cruel trick.",
-  "dur": 4.86,
-  "transition_in": "wash",
-  "prev": "",
-  "nxt": "A mirage happens when light bends as it passes through layers of hot air near the ground,"
+  "text": "there are pools of clear water ringed by green palm trees. How can that be?",
+  "dur": 3.69,
+  "transition_in": "iris",
+  "prev": "And yet, somewhere out in this emptiness,",
+  "nxt": ""
  },
  {
   "uid": "U008",
@@ -257,11 +257,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "A mirage happens when light bends as it passes through layers of hot air near the ground,",
-  "dur": 5.71,
-  "transition_in": "match",
-  "prev": "For desert travelers, a glimpse of green on the horizon could be a cruel trick.",
-  "nxt": "so the sky itself seems to shimmer like a lake. But sometimes the water is real."
+  "text": "For desert travelers, a glimpse of green on the horizon could be a cruel trick.",
+  "dur": 4.86,
+  "transition_in": "push",
+  "prev": "",
+  "nxt": "A mirage happens when light bends as it passes"
  },
  {
   "uid": "U009",
@@ -290,11 +290,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "so the sky itself seems to shimmer like a lake. But sometimes the water is real.",
-  "dur": 5.45,
-  "transition_in": "slide",
-  "prev": "A mirage happens when light bends as it passes through layers of hot air near the ground,",
-  "nxt": "It rises out of the dry ground, day after day, year after year."
+  "text": "A mirage happens when light bends as it passes",
+  "dur": 3.5,
+  "transition_in": "whip",
+  "prev": "For desert travelers, a glimpse of green on the horizon could be a cruel trick.",
+  "nxt": "through layers of hot air near the ground,"
  },
  {
   "uid": "U010",
@@ -323,11 +323,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "It rises out of the dry ground, day after day, year after year.",
-  "dur": 4.56,
-  "transition_in": "wash",
-  "prev": "so the sky itself seems to shimmer like a lake. But sometimes the water is real.",
-  "nxt": "We call these places oases."
+  "text": "through layers of hot air near the ground,",
+  "dur": 3.5,
+  "transition_in": "eye",
+  "prev": "A mirage happens when light bends as it passes",
+  "nxt": "so the sky itself seems to shimmer like a lake. But sometimes the water is real."
  },
  {
   "uid": "U011",
@@ -356,14 +356,80 @@
     "#5f7a6a"
    ]
   },
+  "text": "so the sky itself seems to shimmer like a lake. But sometimes the water is real.",
+  "dur": 4.16,
+  "transition_in": "slide",
+  "prev": "through layers of hot air near the ground,",
+  "nxt": "It rises out of the dry ground, day after day, year after year."
+ },
+ {
+  "uid": "U012",
+  "scene": 2,
+  "title": "Mirage or Real?",
+  "art_theme": "mirage",
+  "bg": "paper",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "It rises out of the dry ground, day after day, year after year.",
+  "dur": 4.1,
+  "transition_in": "wipe",
+  "prev": "so the sky itself seems to shimmer like a lake. But sometimes the water is real.",
+  "nxt": "We call these places oases."
+ },
+ {
+  "uid": "U013",
+  "scene": 2,
+  "title": "Mirage or Real?",
+  "art_theme": "mirage",
+  "bg": "paper",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
   "text": "We call these places oases.",
-  "dur": 3.04,
-  "transition_in": "fade",
+  "dur": 3.5,
+  "transition_in": "whip",
   "prev": "It rises out of the dry ground, day after day, year after year.",
   "nxt": ""
  },
  {
-  "uid": "U012",
+  "uid": "U014",
   "scene": 3,
   "title": "An Island of Life",
   "art_theme": "island",
@@ -391,12 +457,12 @@
   },
   "text": "An oasis is an island of plants and water in a sea of dry land.",
   "dur": 4.6,
-  "transition_in": "zoom",
+  "transition_in": "wash",
   "prev": "",
   "nxt": "Birds, insects and mammals gather here. Date palms shade the springs,"
  },
  {
-  "uid": "U013",
+  "uid": "U015",
   "scene": 3,
   "title": "An Island of Life",
   "art_theme": "island",
@@ -429,72 +495,6 @@
   "nxt": "and people have farmed around some oases for thousands of years."
  },
  {
-  "uid": "U014",
-  "scene": 3,
-  "title": "An Island of Life",
-  "art_theme": "island",
-  "bg": "dusk",
-  "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
-   "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
-   ],
-   "dusk_ink": "#3a2a1a",
-   "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
-   ]
-  },
-  "text": "and people have farmed around some oases for thousands of years.",
-  "dur": 4.25,
-  "transition_in": "match",
-  "prev": "Birds, insects and mammals gather here. Date palms shade the springs,",
-  "nxt": "But this raises a simple question."
- },
- {
-  "uid": "U015",
-  "scene": 3,
-  "title": "An Island of Life",
-  "art_theme": "island",
-  "bg": "dusk",
-  "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
-   "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
-   ],
-   "dusk_ink": "#3a2a1a",
-   "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
-   ]
-  },
-  "text": "But this raises a simple question.",
-  "dur": 2.41,
-  "transition_in": "wash",
-  "prev": "and people have farmed around some oases for thousands of years.",
-  "nxt": "If it almost never rains in the desert, where does all this water come from?"
- },
- {
   "uid": "U016",
   "scene": 3,
   "title": "An Island of Life",
@@ -521,11 +521,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "If it almost never rains in the desert, where does all this water come from?",
-  "dur": 4.79,
-  "transition_in": "slide",
-  "prev": "But this raises a simple question.",
-  "nxt": "Let's follow it, step by step."
+  "text": "and people have farmed around some oases for thousands of years.",
+  "dur": 4.13,
+  "transition_in": "wipe",
+  "prev": "Birds, insects and mammals gather here. Date palms shade the springs,",
+  "nxt": "But this raises a simple question."
  },
  {
   "uid": "U017",
@@ -554,18 +554,18 @@
     "#5f7a6a"
    ]
   },
-  "text": "Let's follow it, step by step.",
-  "dur": 3.19,
-  "transition_in": "fade",
-  "prev": "If it almost never rains in the desert, where does all this water come from?",
-  "nxt": ""
+  "text": "But this raises a simple question.",
+  "dur": 3.5,
+  "transition_in": "tilt",
+  "prev": "and people have farmed around some oases for thousands of years.",
+  "nxt": "If it almost never rains in the desert, where does all this water come from?"
  },
  {
   "uid": "U018",
-  "scene": 4,
-  "title": "Why Deserts Are Dry",
-  "art_theme": "globe",
-  "bg": "night",
+  "scene": 3,
+  "title": "An Island of Life",
+  "art_theme": "island",
+  "bg": "dusk",
   "pal": {
    "palette": "desert",
    "paper_base": "#ebe0c8",
@@ -587,18 +587,18 @@
     "#5f7a6a"
    ]
   },
-  "text": "First, why are deserts so dry?",
-  "dur": 2.1,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "Many of the world's great deserts, including the Sahara and the Arabian Desert,"
+  "text": "If it almost never rains in the desert, where does all this water come from?",
+  "dur": 3.5,
+  "transition_in": "wash",
+  "prev": "But this raises a simple question.",
+  "nxt": "Let's follow it, step by step."
  },
  {
   "uid": "U019",
-  "scene": 4,
-  "title": "Why Deserts Are Dry",
-  "art_theme": "globe",
-  "bg": "night",
+  "scene": 3,
+  "title": "An Island of Life",
+  "art_theme": "island",
+  "bg": "dusk",
   "pal": {
    "palette": "desert",
    "paper_base": "#ebe0c8",
@@ -620,11 +620,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "Many of the world's great deserts, including the Sahara and the Arabian Desert,",
-  "dur": 4.85,
+  "text": "Let's follow it, step by step.",
+  "dur": 3.5,
   "transition_in": "match",
-  "prev": "First, why are deserts so dry?",
-  "nxt": "sit near thirty degrees north or south of the equator."
+  "prev": "If it almost never rains in the desert, where does all this water come from?",
+  "nxt": ""
  },
  {
   "uid": "U020",
@@ -653,11 +653,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "sit near thirty degrees north or south of the equator.",
-  "dur": 3.28,
-  "transition_in": "slide",
-  "prev": "Many of the world's great deserts, including the Sahara and the Arabian Desert,",
-  "nxt": "There, air that rose over the tropics sinks back toward the ground."
+  "text": "First, why are deserts so dry?",
+  "dur": 3.5,
+  "transition_in": "zoom",
+  "prev": "",
+  "nxt": "Many of the world's great deserts, including the Sahara and the Arabian Desert,"
  },
  {
   "uid": "U021",
@@ -686,11 +686,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "There, air that rose over the tropics sinks back toward the ground.",
-  "dur": 4.14,
-  "transition_in": "wash",
-  "prev": "sit near thirty degrees north or south of the equator.",
-  "nxt": "Sinking air warms and dries out, so clouds struggle to form."
+  "text": "Many of the world's great deserts, including the Sahara and the Arabian Desert,",
+  "dur": 3.5,
+  "transition_in": "tilt",
+  "prev": "First, why are deserts so dry?",
+  "nxt": "sit near thirty degrees north or south of the equator."
  },
  {
   "uid": "U022",
@@ -719,11 +719,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "Sinking air warms and dries out, so clouds struggle to form.",
-  "dur": 4.55,
+  "text": "sit near thirty degrees north or south of the equator.",
+  "dur": 3.5,
   "transition_in": "fade",
-  "prev": "There, air that rose over the tropics sinks back toward the ground.",
-  "nxt": "Rain can fail for years, the ground can bake far hotter than the air above it,"
+  "prev": "Many of the world's great deserts, including the Sahara and the Arabian Desert,",
+  "nxt": "There, air that rose over the tropics sinks back toward the ground."
  },
  {
   "uid": "U023",
@@ -752,11 +752,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "Rain can fail for years, the ground can bake far hotter than the air above it,",
-  "dur": 5.09,
-  "transition_in": "slide",
-  "prev": "Sinking air warms and dries out, so clouds struggle to form.",
-  "nxt": "and any water left on the surface quickly evaporates."
+  "text": "There, air that rose over the tropics sinks back toward the ground.",
+  "dur": 3.87,
+  "transition_in": "wash",
+  "prev": "sit near thirty degrees north or south of the equator.",
+  "nxt": "Sinking air warms and dries out, so clouds struggle to form."
  },
  {
   "uid": "U024",
@@ -785,77 +785,77 @@
     "#5f7a6a"
    ]
   },
-  "text": "and any water left on the surface quickly evaporates.",
-  "dur": 4.22,
-  "transition_in": "match",
-  "prev": "Rain can fail for years, the ground can bake far hotter than the air above it,",
-  "nxt": ""
+  "text": "Sinking air warms and dries out, so clouds struggle to form.",
+  "dur": 4.55,
+  "transition_in": "push",
+  "prev": "There, air that rose over the tropics sinks back toward the ground.",
+  "nxt": "Rain can fail for years, the ground can bake far hotter than the air above it,"
  },
  {
   "uid": "U025",
-  "scene": 5,
-  "title": "The Answer Is Underground",
-  "art_theme": "underground",
-  "bg": "paper",
+  "scene": 4,
+  "title": "Why Deserts Are Dry",
+  "art_theme": "globe",
+  "bg": "night",
   "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
    "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
    ],
-   "dusk_ink": "#1a2b3a",
+   "dusk_ink": "#3a2a1a",
    "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
    ]
   },
-  "text": "If the sky is dry, the answer is not in the sky.",
-  "dur": 3.22,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "The secret of most oases is underground. A desert is not just a pile of sand."
+  "text": "Rain can fail for years, the ground can bake far hotter than the air above it,",
+  "dur": 5.09,
+  "transition_in": "fade",
+  "prev": "Sinking air warms and dries out, so clouds struggle to form.",
+  "nxt": "and any water left on the surface quickly evaporates."
  },
  {
   "uid": "U026",
-  "scene": 5,
-  "title": "The Answer Is Underground",
-  "art_theme": "underground",
-  "bg": "paper",
+  "scene": 4,
+  "title": "Why Deserts Are Dry",
+  "art_theme": "globe",
+  "bg": "night",
   "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
    "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
    ],
-   "dusk_ink": "#1a2b3a",
+   "dusk_ink": "#3a2a1a",
    "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
    ]
   },
-  "text": "The secret of most oases is underground. A desert is not just a pile of sand.",
-  "dur": 6.14,
-  "transition_in": "wash",
-  "prev": "If the sky is dry, the answer is not in the sky.",
-  "nxt": "Beneath the dunes lie layers of rock laid down over millions of years:"
+  "text": "and any water left on the surface quickly evaporates.",
+  "dur": 4.22,
+  "transition_in": "wipe",
+  "prev": "Rain can fail for years, the ground can bake far hotter than the air above it,",
+  "nxt": ""
  },
  {
   "uid": "U027",
@@ -884,11 +884,11 @@
     "#d9694a"
    ]
   },
-  "text": "Beneath the dunes lie layers of rock laid down over millions of years:",
-  "dur": 5.35,
-  "transition_in": "slide",
-  "prev": "The secret of most oases is underground. A desert is not just a pile of sand.",
-  "nxt": "sandstone, limestone, clay and shale."
+  "text": "If the sky is dry, the answer is not in the sky.",
+  "dur": 3.5,
+  "transition_in": "iris",
+  "prev": "",
+  "nxt": "The secret of most oases is underground."
  },
  {
   "uid": "U028",
@@ -917,11 +917,11 @@
     "#d9694a"
    ]
   },
-  "text": "sandstone, limestone, clay and shale.",
-  "dur": 2.79,
-  "transition_in": "fade",
-  "prev": "Beneath the dunes lie layers of rock laid down over millions of years:",
-  "nxt": "Some of those layers can hold enormous amounts of water,"
+  "text": "The secret of most oases is underground.",
+  "dur": 3.5,
+  "transition_in": "push",
+  "prev": "If the sky is dry, the answer is not in the sky.",
+  "nxt": "A desert is not just a pile of sand."
  },
  {
   "uid": "U029",
@@ -950,11 +950,11 @@
     "#d9694a"
    ]
   },
-  "text": "Some of those layers can hold enormous amounts of water,",
-  "dur": 3.71,
-  "transition_in": "zoom",
-  "prev": "sandstone, limestone, clay and shale.",
-  "nxt": "and move it slowly over great distances."
+  "text": "A desert is not just a pile of sand.",
+  "dur": 3.5,
+  "transition_in": "match",
+  "prev": "The secret of most oases is underground.",
+  "nxt": "Beneath the dunes lie layers of rock laid down over millions of years:"
  },
  {
   "uid": "U030",
@@ -983,17 +983,17 @@
     "#d9694a"
    ]
   },
-  "text": "and move it slowly over great distances.",
-  "dur": 3.4,
-  "transition_in": "match",
-  "prev": "Some of those layers can hold enormous amounts of water,",
-  "nxt": ""
+  "text": "Beneath the dunes lie layers of rock laid down over millions of years:",
+  "dur": 3.61,
+  "transition_in": "iris",
+  "prev": "A desert is not just a pile of sand.",
+  "nxt": "sandstone, limestone, clay and shale."
  },
  {
   "uid": "U031",
-  "scene": 6,
-  "title": "Stone Sponges",
-  "art_theme": "sponge",
+  "scene": 5,
+  "title": "The Answer Is Underground",
+  "art_theme": "underground",
   "bg": "paper",
   "pal": {
    "palette": "ocean",
@@ -1016,17 +1016,17 @@
     "#d9694a"
    ]
   },
-  "text": "Rocks like sandstone are full of tiny spaces between their grains,",
-  "dur": 4.53,
+  "text": "sandstone, limestone, clay and shale.",
+  "dur": 3.5,
   "transition_in": "wash",
-  "prev": "",
-  "nxt": "and limestone is often cracked and hollowed out."
+  "prev": "Beneath the dunes lie layers of rock laid down over millions of years:",
+  "nxt": "Some of those layers can hold enormous amounts of water,"
  },
  {
   "uid": "U032",
-  "scene": 6,
-  "title": "Stone Sponges",
-  "art_theme": "sponge",
+  "scene": 5,
+  "title": "The Answer Is Underground",
+  "art_theme": "underground",
   "bg": "paper",
   "pal": {
    "palette": "ocean",
@@ -1049,17 +1049,17 @@
     "#d9694a"
    ]
   },
-  "text": "and limestone is often cracked and hollowed out.",
-  "dur": 3.24,
-  "transition_in": "zoom",
-  "prev": "Rocks like sandstone are full of tiny spaces between their grains,",
-  "nxt": "Water can soak into these spaces and slowly move through them."
+  "text": "Some of those layers can hold enormous amounts of water,",
+  "dur": 3.5,
+  "transition_in": "fade",
+  "prev": "sandstone, limestone, clay and shale.",
+  "nxt": "and move it slowly over great distances."
  },
  {
   "uid": "U033",
-  "scene": 6,
-  "title": "Stone Sponges",
-  "art_theme": "sponge",
+  "scene": 5,
+  "title": "The Answer Is Underground",
+  "art_theme": "underground",
   "bg": "paper",
   "pal": {
    "palette": "ocean",
@@ -1082,11 +1082,11 @@
     "#d9694a"
    ]
   },
-  "text": "Water can soak into these spaces and slowly move through them.",
-  "dur": 4.22,
-  "transition_in": "match",
-  "prev": "and limestone is often cracked and hollowed out.",
-  "nxt": "A layer of rock that holds and passes water like this is called an aquifer."
+  "text": "and move it slowly over great distances.",
+  "dur": 3.5,
+  "transition_in": "wipe",
+  "prev": "Some of those layers can hold enormous amounts of water,",
+  "nxt": ""
  },
  {
   "uid": "U034",
@@ -1115,11 +1115,11 @@
     "#d9694a"
    ]
   },
-  "text": "A layer of rock that holds and passes water like this is called an aquifer.",
-  "dur": 5.09,
-  "transition_in": "wash",
-  "prev": "Water can soak into these spaces and slowly move through them.",
-  "nxt": "Think of it as a sponge made of stone. Some aquifers are vast."
+  "text": "Rocks like sandstone are full of tiny spaces between their grains,",
+  "dur": 4.53,
+  "transition_in": "zoom",
+  "prev": "",
+  "nxt": "and limestone is often cracked and hollowed out."
  },
  {
   "uid": "U035",
@@ -1148,11 +1148,11 @@
     "#d9694a"
    ]
   },
-  "text": "Think of it as a sponge made of stone. Some aquifers are vast.",
-  "dur": 4.22,
-  "transition_in": "fade",
-  "prev": "A layer of rock that holds and passes water like this is called an aquifer.",
-  "nxt": "The Nubian Sandstone Aquifer System lies under parts of Egypt, Libya, Sudan and Chad."
+  "text": "and limestone is often cracked and hollowed out.",
+  "dur": 4.5,
+  "transition_in": "slide",
+  "prev": "Rocks like sandstone are full of tiny spaces between their grains,",
+  "nxt": "Water can soak into these spaces and slowly move through them."
  },
  {
   "uid": "U036",
@@ -1181,110 +1181,110 @@
     "#d9694a"
    ]
   },
-  "text": "The Nubian Sandstone Aquifer System lies under parts of Egypt, Libya, Sudan and Chad.",
-  "dur": 6.56,
-  "transition_in": "match",
-  "prev": "Think of it as a sponge made of stone. Some aquifers are vast.",
-  "nxt": ""
+  "text": "Water can soak into these spaces and slowly move through them.",
+  "dur": 4.5,
+  "transition_in": "iris",
+  "prev": "and limestone is often cracked and hollowed out.",
+  "nxt": "A layer of rock that holds and passes water like this is called an aquifer."
  },
  {
   "uid": "U037",
-  "scene": 7,
-  "title": "Rain Far Away",
-  "art_theme": "mountains",
-  "bg": "dusk",
+  "scene": 6,
+  "title": "Stone Sponges",
+  "art_theme": "sponge",
+  "bg": "paper",
   "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
    "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
    ],
-   "dusk_ink": "#3a2a1a",
+   "dusk_ink": "#1a2b3a",
    "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
    ]
   },
-  "text": "How does water get into an aquifer in the first place? Often, it starts far away.",
-  "dur": 5.36,
-  "transition_in": "wash",
-  "prev": "",
-  "nxt": "Rain and melting snow fall on mountains or higher ground at the edge of a desert."
+  "text": "A layer of rock that holds and passes water like this is called an aquifer.",
+  "dur": 4.5,
+  "transition_in": "match",
+  "prev": "Water can soak into these spaces and slowly move through them.",
+  "nxt": "Think of it as a sponge made of stone. Some aquifers are vast."
  },
  {
   "uid": "U038",
-  "scene": 7,
-  "title": "Rain Far Away",
-  "art_theme": "mountains",
-  "bg": "dusk",
+  "scene": 6,
+  "title": "Stone Sponges",
+  "art_theme": "sponge",
+  "bg": "paper",
   "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
    "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
    ],
-   "dusk_ink": "#3a2a1a",
+   "dusk_ink": "#1a2b3a",
    "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
    ]
   },
-  "text": "Rain and melting snow fall on mountains or higher ground at the edge of a desert.",
-  "dur": 5.0,
-  "transition_in": "slide",
-  "prev": "How does water get into an aquifer in the first place? Often, it starts far away.",
-  "nxt": "Some of that water seeps into cracks and into rock layers that come up to the surface there."
+  "text": "Think of it as a sponge made of stone. Some aquifers are vast.",
+  "dur": 4.5,
+  "transition_in": "fade",
+  "prev": "A layer of rock that holds and passes water like this is called an aquifer.",
+  "nxt": "The Nubian Sandstone Aquifer System lies under parts of Egypt, Libya, Sudan and Chad."
  },
  {
   "uid": "U039",
-  "scene": 7,
-  "title": "Rain Far Away",
-  "art_theme": "mountains",
-  "bg": "dusk",
+  "scene": 6,
+  "title": "Stone Sponges",
+  "art_theme": "sponge",
+  "bg": "paper",
   "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
    "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
    ],
-   "dusk_ink": "#3a2a1a",
+   "dusk_ink": "#1a2b3a",
    "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
    ]
   },
-  "text": "Some of that water seeps into cracks and into rock layers that come up to the surface there.",
-  "dur": 4.76,
-  "transition_in": "fade",
-  "prev": "Rain and melting snow fall on mountains or higher ground at the edge of a desert.",
-  "nxt": "Then gravity takes over, and the water begins a very slow journey underground,"
+  "text": "The Nubian Sandstone Aquifer System lies under parts of Egypt, Libya, Sudan and Chad.",
+  "dur": 5.33,
+  "transition_in": "eye",
+  "prev": "Think of it as a sponge made of stone. Some aquifers are vast.",
+  "nxt": ""
  },
  {
   "uid": "U040",
@@ -1313,11 +1313,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "Then gravity takes over, and the water begins a very slow journey underground,",
-  "dur": 5.22,
-  "transition_in": "match",
-  "prev": "Some of that water seeps into cracks and into rock layers that come up to the surface there.",
-  "nxt": "sometimes for hundreds of kilometers."
+  "text": "How does water get into an aquifer in the first place? Often, it starts far away.",
+  "dur": 5.36,
+  "transition_in": "iris",
+  "prev": "",
+  "nxt": "Rain and melting snow fall on mountains or higher ground at the edge of a desert."
  },
  {
   "uid": "U041",
@@ -1346,11 +1346,11 @@
     "#5f7a6a"
    ]
   },
-  "text": "sometimes for hundreds of kilometers.",
-  "dur": 2.45,
-  "transition_in": "slide",
-  "prev": "Then gravity takes over, and the water begins a very slow journey underground,",
-  "nxt": "Along the way, it can take thousands of years to reach the place where it finally comes back to the surface."
+  "text": "Rain and melting snow fall on mountains or higher ground at the edge of a desert.",
+  "dur": 5.0,
+  "transition_in": "push",
+  "prev": "How does water get into an aquifer in the first place? Often, it starts far away.",
+  "nxt": "Some of that water seeps into cracks and into rock layers that come up to the surface there."
  },
  {
   "uid": "U042",
@@ -1379,110 +1379,110 @@
     "#5f7a6a"
    ]
   },
-  "text": "Along the way, it can take thousands of years to reach the place where it finally comes back to the surface.",
-  "dur": 6.91,
-  "transition_in": "zoom",
-  "prev": "sometimes for hundreds of kilometers.",
-  "nxt": ""
+  "text": "Some of that water seeps into cracks and into rock layers that come up to the surface there.",
+  "dur": 4.76,
+  "transition_in": "whip",
+  "prev": "Rain and melting snow fall on mountains or higher ground at the edge of a desert.",
+  "nxt": "Then gravity takes over, and the water begins a very slow journey underground,"
  },
  {
   "uid": "U043",
-  "scene": 8,
-  "title": "Trapped Between Layers",
-  "art_theme": "layers",
-  "bg": "paper",
+  "scene": 7,
+  "title": "Rain Far Away",
+  "art_theme": "mountains",
+  "bg": "dusk",
   "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
    "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
    ],
-   "dusk_ink": "#1a2b3a",
+   "dusk_ink": "#3a2a1a",
    "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
    ]
   },
-  "text": "Not every rock lets water through. Clay and shale are so tight that water barely moves through them.",
-  "dur": 6.07,
-  "transition_in": "wash",
-  "prev": "",
-  "nxt": "Geologists call layers like these aquitards."
+  "text": "Then gravity takes over, and the water begins a very slow journey underground,",
+  "dur": 5.22,
+  "transition_in": "zoom",
+  "prev": "Some of that water seeps into cracks and into rock layers that come up to the surface there.",
+  "nxt": "sometimes for hundreds of kilometers. Along the way,"
  },
  {
   "uid": "U044",
-  "scene": 8,
-  "title": "Trapped Between Layers",
-  "art_theme": "layers",
-  "bg": "paper",
+  "scene": 7,
+  "title": "Rain Far Away",
+  "art_theme": "mountains",
+  "bg": "dusk",
   "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
    "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
    ],
-   "dusk_ink": "#1a2b3a",
+   "dusk_ink": "#3a2a1a",
    "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
    ]
   },
-  "text": "Geologists call layers like these aquitards.",
-  "dur": 3.33,
-  "transition_in": "slide",
-  "prev": "Not every rock lets water through. Clay and shale are so tight that water barely moves through them.",
-  "nxt": "When a water-bearing layer is sandwiched between two tight layers, the water is trapped."
+  "text": "sometimes for hundreds of kilometers. Along the way,",
+  "dur": 3.5,
+  "transition_in": "wipe",
+  "prev": "Then gravity takes over, and the water begins a very slow journey underground,",
+  "nxt": "it can take thousands of years to reach the place where it finally comes back to the surface."
  },
  {
   "uid": "U045",
-  "scene": 8,
-  "title": "Trapped Between Layers",
-  "art_theme": "layers",
-  "bg": "paper",
+  "scene": 7,
+  "title": "Rain Far Away",
+  "art_theme": "mountains",
+  "bg": "dusk",
   "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
    "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
    ],
-   "dusk_ink": "#1a2b3a",
+   "dusk_ink": "#3a2a1a",
    "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
    ]
   },
-  "text": "When a water-bearing layer is sandwiched between two tight layers, the water is trapped.",
-  "dur": 5.39,
-  "transition_in": "zoom",
-  "prev": "Geologists call layers like these aquitards.",
-  "nxt": "If the place where it entered is higher than the land further along, the trapped water is under pressure."
+  "text": "it can take thousands of years to reach the place where it finally comes back to the surface.",
+  "dur": 5.85,
+  "transition_in": "fade",
+  "prev": "sometimes for hundreds of kilometers. Along the way,",
+  "nxt": ""
  },
  {
   "uid": "U046",
@@ -1511,11 +1511,11 @@
     "#d9694a"
    ]
   },
-  "text": "If the place where it entered is higher than the land further along, the trapped water is under pressure.",
-  "dur": 6.14,
-  "transition_in": "wash",
-  "prev": "When a water-bearing layer is sandwiched between two tight layers, the water is trapped.",
-  "nxt": "This is called a confined, or artesian, aquifer."
+  "text": "Not every rock lets water through.",
+  "dur": 3.5,
+  "transition_in": "push",
+  "prev": "",
+  "nxt": "Clay and shale are so tight that water barely moves through them."
  },
  {
   "uid": "U047",
@@ -1544,18 +1544,18 @@
     "#d9694a"
    ]
   },
-  "text": "This is called a confined, or artesian, aquifer.",
-  "dur": 4.65,
-  "transition_in": "fade",
-  "prev": "If the place where it entered is higher than the land further along, the trapped water is under pressure.",
-  "nxt": ""
+  "text": "Clay and shale are so tight that water barely moves through them.",
+  "dur": 3.5,
+  "transition_in": "whip",
+  "prev": "Not every rock lets water through.",
+  "nxt": "Geologists call layers like these aquitards."
  },
  {
   "uid": "U048",
-  "scene": 9,
-  "title": "Pressure Finds a Way",
-  "art_theme": "artesian",
-  "bg": "night",
+  "scene": 8,
+  "title": "Trapped Between Layers",
+  "art_theme": "layers",
+  "bg": "paper",
   "pal": {
    "palette": "ocean",
    "paper_base": "#dfe6e6",
@@ -1577,18 +1577,18 @@
     "#d9694a"
    ]
   },
-  "text": "Think of a garden hose with one end held high.",
-  "dur": 3.03,
-  "transition_in": "slide",
-  "prev": "",
-  "nxt": "Water pushes down from above, and the lower end is under pressure."
+  "text": "Geologists call layers like these aquitards.",
+  "dur": 3.5,
+  "transition_in": "tilt",
+  "prev": "Clay and shale are so tight that water barely moves through them.",
+  "nxt": "When a water-bearing layer is sandwiched between two tight layers, the water is trapped."
  },
  {
   "uid": "U049",
-  "scene": 9,
-  "title": "Pressure Finds a Way",
-  "art_theme": "artesian",
-  "bg": "night",
+  "scene": 8,
+  "title": "Trapped Between Layers",
+  "art_theme": "layers",
+  "bg": "paper",
   "pal": {
    "palette": "ocean",
    "paper_base": "#dfe6e6",
@@ -1610,18 +1610,18 @@
     "#d9694a"
    ]
   },
-  "text": "Water pushes down from above, and the lower end is under pressure.",
-  "dur": 4.15,
-  "transition_in": "wash",
-  "prev": "Think of a garden hose with one end held high.",
-  "nxt": "In an artesian aquifer, the weight of the water upslope does the pushing."
+  "text": "When a water-bearing layer is sandwiched between two tight layers, the water is trapped.",
+  "dur": 4.3,
+  "transition_in": "eye",
+  "prev": "Geologists call layers like these aquitards.",
+  "nxt": "If the place where it entered is higher than the land further along,"
  },
  {
   "uid": "U050",
-  "scene": 9,
-  "title": "Pressure Finds a Way",
-  "art_theme": "artesian",
-  "bg": "night",
+  "scene": 8,
+  "title": "Trapped Between Layers",
+  "art_theme": "layers",
+  "bg": "paper",
   "pal": {
    "palette": "ocean",
    "paper_base": "#dfe6e6",
@@ -1643,18 +1643,18 @@
     "#d9694a"
    ]
   },
-  "text": "In an artesian aquifer, the weight of the water upslope does the pushing.",
-  "dur": 4.59,
-  "transition_in": "match",
-  "prev": "Water pushes down from above, and the lower end is under pressure.",
-  "nxt": "If a crack or a fault breaks through the rock above it,"
+  "text": "If the place where it entered is higher than the land further along,",
+  "dur": 3.79,
+  "transition_in": "zoom",
+  "prev": "When a water-bearing layer is sandwiched between two tight layers, the water is trapped.",
+  "nxt": "the trapped water is under pressure."
  },
  {
   "uid": "U051",
-  "scene": 9,
-  "title": "Pressure Finds a Way",
-  "art_theme": "artesian",
-  "bg": "night",
+  "scene": 8,
+  "title": "Trapped Between Layers",
+  "art_theme": "layers",
+  "bg": "paper",
   "pal": {
    "palette": "ocean",
    "paper_base": "#dfe6e6",
@@ -1676,18 +1676,18 @@
     "#d9694a"
    ]
   },
-  "text": "If a crack or a fault breaks through the rock above it,",
-  "dur": 3.72,
-  "transition_in": "slide",
-  "prev": "In an artesian aquifer, the weight of the water upslope does the pushing.",
-  "nxt": "water can rise to the surface on its own, with no pump at all."
+  "text": "the trapped water is under pressure.",
+  "dur": 3.5,
+  "transition_in": "wipe",
+  "prev": "If the place where it entered is higher than the land further along,",
+  "nxt": "This is called a confined, or artesian, aquifer."
  },
  {
   "uid": "U052",
-  "scene": 9,
-  "title": "Pressure Finds a Way",
-  "art_theme": "artesian",
-  "bg": "night",
+  "scene": 8,
+  "title": "Trapped Between Layers",
+  "art_theme": "layers",
+  "bg": "paper",
   "pal": {
    "palette": "ocean",
    "paper_base": "#dfe6e6",
@@ -1709,11 +1709,11 @@
     "#d9694a"
    ]
   },
-  "text": "water can rise to the surface on its own, with no pump at all.",
-  "dur": 4.12,
-  "transition_in": "fade",
-  "prev": "If a crack or a fault breaks through the rock above it,",
-  "nxt": "Many springs in desert oases are fed this way."
+  "text": "This is called a confined, or artesian, aquifer.",
+  "dur": 3.5,
+  "transition_in": "wash",
+  "prev": "the trapped water is under pressure.",
+  "nxt": ""
  },
  {
   "uid": "U053",
@@ -1742,176 +1742,176 @@
     "#d9694a"
    ]
   },
-  "text": "Many springs in desert oases are fed this way.",
-  "dur": 4.3,
-  "transition_in": "match",
-  "prev": "water can rise to the surface on its own, with no pump at all.",
-  "nxt": ""
+  "text": "Think of a garden hose with one end held high.",
+  "dur": 3.98,
+  "transition_in": "iris",
+  "prev": "",
+  "nxt": "Water pushes down from above, and the lower end is under pressure."
  },
  {
   "uid": "U054",
-  "scene": 10,
-  "title": "Siwa",
-  "art_theme": "siwa",
-  "bg": "dusk",
+  "scene": 9,
+  "title": "Pressure Finds a Way",
+  "art_theme": "artesian",
+  "bg": "night",
   "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
    "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
    ],
-   "dusk_ink": "#3a2a1a",
+   "dusk_ink": "#1a2b3a",
    "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
    ]
   },
-  "text": "One famous example is Siwa, in Egypt's Western Desert, near the Libyan border.",
-  "dur": 5.5,
-  "transition_in": "wash",
-  "prev": "",
-  "nxt": "Siwa lies in a depression below sea level,"
+  "text": "Water pushes down from above, and the lower end is under pressure.",
+  "dur": 3.98,
+  "transition_in": "slide",
+  "prev": "Think of a garden hose with one end held high.",
+  "nxt": "In an artesian aquifer, the weight of the water upslope does the pushing."
  },
  {
   "uid": "U055",
-  "scene": 10,
-  "title": "Siwa",
-  "art_theme": "siwa",
-  "bg": "dusk",
+  "scene": 9,
+  "title": "Pressure Finds a Way",
+  "art_theme": "artesian",
+  "bg": "night",
   "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
    "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
    ],
-   "dusk_ink": "#3a2a1a",
+   "dusk_ink": "#1a2b3a",
    "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
    ]
   },
-  "text": "Siwa lies in a depression below sea level,",
-  "dur": 2.89,
+  "text": "In an artesian aquifer, the weight of the water upslope does the pushing.",
+  "dur": 3.98,
   "transition_in": "fade",
-  "prev": "One famous example is Siwa, in Egypt's Western Desert, near the Libyan border.",
-  "nxt": "and by some counts it has more than a thousand springs."
+  "prev": "Water pushes down from above, and the lower end is under pressure.",
+  "nxt": "If a crack or a fault breaks through the rock above it,"
  },
  {
   "uid": "U056",
-  "scene": 10,
-  "title": "Siwa",
-  "art_theme": "siwa",
-  "bg": "dusk",
+  "scene": 9,
+  "title": "Pressure Finds a Way",
+  "art_theme": "artesian",
+  "bg": "night",
   "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
    "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
    ],
-   "dusk_ink": "#3a2a1a",
+   "dusk_ink": "#1a2b3a",
    "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
    ]
   },
-  "text": "and by some counts it has more than a thousand springs.",
-  "dur": 3.7,
-  "transition_in": "match",
-  "prev": "Siwa lies in a depression below sea level,",
-  "nxt": "Its water comes from the Nubian Sandstone Aquifer System."
+  "text": "If a crack or a fault breaks through the rock above it,",
+  "dur": 3.98,
+  "transition_in": "iris",
+  "prev": "In an artesian aquifer, the weight of the water upslope does the pushing.",
+  "nxt": "water can rise to the surface on its own, with no pump at all."
  },
  {
   "uid": "U057",
-  "scene": 10,
-  "title": "Siwa",
-  "art_theme": "siwa",
-  "bg": "dusk",
+  "scene": 9,
+  "title": "Pressure Finds a Way",
+  "art_theme": "artesian",
+  "bg": "night",
   "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
    "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
    ],
-   "dusk_ink": "#3a2a1a",
+   "dusk_ink": "#1a2b3a",
    "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
    ]
   },
-  "text": "Its water comes from the Nubian Sandstone Aquifer System.",
-  "dur": 3.68,
+  "text": "water can rise to the surface on its own, with no pump at all.",
+  "dur": 3.98,
   "transition_in": "zoom",
-  "prev": "and by some counts it has more than a thousand springs.",
-  "nxt": "Studies suggest the water feeding Siwa's springs has spent tens of thousands of years underground."
+  "prev": "If a crack or a fault breaks through the rock above it,",
+  "nxt": "Many springs in desert oases are fed this way."
  },
  {
   "uid": "U058",
-  "scene": 10,
-  "title": "Siwa",
-  "art_theme": "siwa",
-  "bg": "dusk",
+  "scene": 9,
+  "title": "Pressure Finds a Way",
+  "art_theme": "artesian",
+  "bg": "night",
   "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
    "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
    ],
-   "dusk_ink": "#3a2a1a",
+   "dusk_ink": "#1a2b3a",
    "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
    ]
   },
-  "text": "Studies suggest the water feeding Siwa's springs has spent tens of thousands of years underground.",
-  "dur": 5.83,
-  "transition_in": "slide",
-  "prev": "Its water comes from the Nubian Sandstone Aquifer System.",
-  "nxt": "Around it grow date palms and olive trees, and beside them lie salty lakes."
+  "text": "Many springs in desert oases are fed this way.",
+  "dur": 3.98,
+  "transition_in": "match",
+  "prev": "water can rise to the surface on its own, with no pump at all.",
+  "nxt": ""
  },
  {
   "uid": "U059",
@@ -1940,14 +1940,245 @@
     "#5f7a6a"
    ]
   },
-  "text": "Around it grow date palms and olive trees, and beside them lie salty lakes.",
-  "dur": 6.51,
+  "text": "One famous example is Siwa, in Egypt's Western Desert, near the Libyan border.",
+  "dur": 3.61,
   "transition_in": "fade",
-  "prev": "Studies suggest the water feeding Siwa's springs has spent tens of thousands of years underground.",
-  "nxt": ""
+  "prev": "",
+  "nxt": "Siwa lies in a depression below sea level,"
  },
  {
   "uid": "U060",
+  "scene": 10,
+  "title": "Siwa",
+  "art_theme": "siwa",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Siwa lies in a depression below sea level,",
+  "dur": 3.5,
+  "transition_in": "wipe",
+  "prev": "One famous example is Siwa, in Egypt's Western Desert, near the Libyan border.",
+  "nxt": "and by some counts it has more than a thousand springs."
+ },
+ {
+  "uid": "U061",
+  "scene": 10,
+  "title": "Siwa",
+  "art_theme": "siwa",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "and by some counts it has more than a thousand springs.",
+  "dur": 3.5,
+  "transition_in": "wash",
+  "prev": "Siwa lies in a depression below sea level,",
+  "nxt": "Its water comes from the Nubian Sandstone Aquifer System."
+ },
+ {
+  "uid": "U062",
+  "scene": 10,
+  "title": "Siwa",
+  "art_theme": "siwa",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Its water comes from the Nubian Sandstone Aquifer System.",
+  "dur": 3.5,
+  "transition_in": "whip",
+  "prev": "and by some counts it has more than a thousand springs.",
+  "nxt": "Studies suggest the water feeding Siwa's springs"
+ },
+ {
+  "uid": "U063",
+  "scene": 10,
+  "title": "Siwa",
+  "art_theme": "siwa",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Studies suggest the water feeding Siwa's springs",
+  "dur": 3.5,
+  "transition_in": "slide",
+  "prev": "Its water comes from the Nubian Sandstone Aquifer System.",
+  "nxt": "has spent tens of thousands of years underground."
+ },
+ {
+  "uid": "U064",
+  "scene": 10,
+  "title": "Siwa",
+  "art_theme": "siwa",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "has spent tens of thousands of years underground.",
+  "dur": 3.5,
+  "transition_in": "wash",
+  "prev": "Studies suggest the water feeding Siwa's springs",
+  "nxt": "Around it grow date palms and olive trees,"
+ },
+ {
+  "uid": "U065",
+  "scene": 10,
+  "title": "Siwa",
+  "art_theme": "siwa",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Around it grow date palms and olive trees,",
+  "dur": 3.5,
+  "transition_in": "tilt",
+  "prev": "has spent tens of thousands of years underground.",
+  "nxt": "and beside them lie salty lakes."
+ },
+ {
+  "uid": "U066",
+  "scene": 10,
+  "title": "Siwa",
+  "art_theme": "siwa",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "and beside them lie salty lakes.",
+  "dur": 3.5,
+  "transition_in": "eye",
+  "prev": "Around it grow date palms and olive trees,",
+  "nxt": ""
+ },
+ {
+  "uid": "U067",
   "scene": 11,
   "title": "When the Sahara Was Green",
   "art_theme": "greensahara",
@@ -1973,14 +2204,47 @@
     "#7a5233"
    ]
   },
-  "text": "But where did so much underground water come from, in a place this dry? Part of the answer lies in the past.",
-  "dur": 6.14,
-  "transition_in": "zoom",
+  "text": "But where did so much underground water come from, in a place this dry?",
+  "dur": 3.66,
+  "transition_in": "wash",
   "prev": "",
+  "nxt": "Part of the answer lies in the past."
+ },
+ {
+  "uid": "U068",
+  "scene": 11,
+  "title": "When the Sahara Was Green",
+  "art_theme": "greensahara",
+  "bg": "paper",
+  "pal": {
+   "palette": "forest",
+   "paper_base": "#e3e5d6",
+   "paper_ink": "#1d2b1c",
+   "night_top": "#07140e",
+   "night_bottom": "#122a1f",
+   "night_line": "#9fdca0",
+   "night_glow": "#d8e87a",
+   "dusk_stops": [
+    "#e9d9a0",
+    "#8fae6a",
+    "#3b6b4a"
+   ],
+   "dusk_ink": "#1d2b1c",
+   "accents": [
+    "#3f7d4e",
+    "#8fb86a",
+    "#c9a64a",
+    "#7a5233"
+   ]
+  },
+  "text": "Part of the answer lies in the past.",
+  "dur": 3.5,
+  "transition_in": "fade",
+  "prev": "But where did so much underground water come from, in a place this dry?",
   "nxt": "Roughly eleven thousand to six thousand years ago, the Sahara was not a desert."
  },
  {
-  "uid": "U061",
+  "uid": "U069",
   "scene": 11,
   "title": "When the Sahara Was Green",
   "art_theme": "greensahara",
@@ -2007,13 +2271,13 @@
    ]
   },
   "text": "Roughly eleven thousand to six thousand years ago, the Sahara was not a desert.",
-  "dur": 5.07,
-  "transition_in": "match",
-  "prev": "But where did so much underground water come from, in a place this dry? Part of the answer lies in the past.",
+  "dur": 4.06,
+  "transition_in": "slide",
+  "prev": "Part of the answer lies in the past.",
   "nxt": "It was a green savanna with lakes and rivers."
  },
  {
-  "uid": "U062",
+  "uid": "U070",
   "scene": 11,
   "title": "When the Sahara Was Green",
   "art_theme": "greensahara",
@@ -2040,13 +2304,13 @@
    ]
   },
   "text": "It was a green savanna with lakes and rivers.",
-  "dur": 3.05,
-  "transition_in": "wash",
+  "dur": 3.5,
+  "transition_in": "push",
   "prev": "Roughly eleven thousand to six thousand years ago, the Sahara was not a desert.",
   "nxt": "Rock art in the Sahara shows elephants, giraffes and hippos."
  },
  {
-  "uid": "U063",
+  "uid": "U071",
   "scene": 11,
   "title": "When the Sahara Was Green",
   "art_theme": "greensahara",
@@ -2073,13 +2337,13 @@
    ]
   },
   "text": "Rock art in the Sahara shows elephants, giraffes and hippos.",
-  "dur": 4.63,
-  "transition_in": "zoom",
+  "dur": 4.18,
+  "transition_in": "match",
   "prev": "It was a green savanna with lakes and rivers.",
   "nxt": "A stronger African monsoon reached far north, bringing regular summer rain."
  },
  {
-  "uid": "U064",
+  "uid": "U072",
   "scene": 11,
   "title": "When the Sahara Was Green",
   "art_theme": "greensahara",
@@ -2107,12 +2371,12 @@
   },
   "text": "A stronger African monsoon reached far north, bringing regular summer rain.",
   "dur": 6.2,
-  "transition_in": "slide",
+  "transition_in": "wipe",
   "prev": "Rock art in the Sahara shows elephants, giraffes and hippos.",
   "nxt": ""
  },
  {
-  "uid": "U065",
+  "uid": "U073",
   "scene": 12,
   "title": "Fossil Water",
   "art_theme": "fossilwater",
@@ -2139,13 +2403,13 @@
    ]
   },
   "text": "Earth's orbit slowly wobbles,",
-  "dur": 2.0,
-  "transition_in": "wash",
+  "dur": 3.5,
+  "transition_in": "zoom",
   "prev": "",
   "nxt": "and that wobble changes how much summer sunshine falls on North Africa."
  },
  {
-  "uid": "U066",
+  "uid": "U074",
   "scene": 12,
   "title": "Fossil Water",
   "art_theme": "fossilwater",
@@ -2172,13 +2436,13 @@
    ]
   },
   "text": "and that wobble changes how much summer sunshine falls on North Africa.",
-  "dur": 4.73,
-  "transition_in": "match",
+  "dur": 3.5,
+  "transition_in": "push",
   "prev": "Earth's orbit slowly wobbles,",
-  "nxt": "As the sunshine weakened, the monsoon retreated south, and the Sahara dried out."
+  "nxt": "As the sunshine weakened, the monsoon retreated south,"
  },
  {
-  "uid": "U067",
+  "uid": "U075",
   "scene": 12,
   "title": "Fossil Water",
   "art_theme": "fossilwater",
@@ -2204,14 +2468,47 @@
     "#d9694a"
    ]
   },
-  "text": "As the sunshine weakened, the monsoon retreated south, and the Sahara dried out.",
-  "dur": 5.6,
-  "transition_in": "slide",
+  "text": "As the sunshine weakened, the monsoon retreated south,",
+  "dur": 3.57,
+  "transition_in": "tilt",
   "prev": "and that wobble changes how much summer sunshine falls on North Africa.",
+  "nxt": "and the Sahara dried out."
+ },
+ {
+  "uid": "U076",
+  "scene": 12,
+  "title": "Fossil Water",
+  "art_theme": "fossilwater",
+  "bg": "night",
+  "pal": {
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
+   "dusk_stops": [
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
+   ],
+   "dusk_ink": "#1a2b3a",
+   "accents": [
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
+   ]
+  },
+  "text": "and the Sahara dried out.",
+  "dur": 3.5,
+  "transition_in": "match",
+  "prev": "As the sunshine weakened, the monsoon retreated south,",
   "nxt": "But water that had soaked into the ground during this and earlier wet periods stayed there."
  },
  {
-  "uid": "U068",
+  "uid": "U077",
   "scene": 12,
   "title": "Fossil Water",
   "art_theme": "fossilwater",
@@ -2238,13 +2535,13 @@
    ]
   },
   "text": "But water that had soaked into the ground during this and earlier wet periods stayed there.",
-  "dur": 5.13,
-  "transition_in": "wash",
-  "prev": "As the sunshine weakened, the monsoon retreated south, and the Sahara dried out.",
+  "dur": 3.5,
+  "transition_in": "slide",
+  "prev": "and the Sahara dried out.",
   "nxt": "Deep aquifers that receive almost no new rain today still hold it."
  },
  {
-  "uid": "U069",
+  "uid": "U078",
   "scene": 12,
   "title": "Fossil Water",
   "art_theme": "fossilwater",
@@ -2271,13 +2568,13 @@
    ]
   },
   "text": "Deep aquifers that receive almost no new rain today still hold it.",
-  "dur": 4.65,
-  "transition_in": "zoom",
+  "dur": 4.53,
+  "transition_in": "tilt",
   "prev": "But water that had soaked into the ground during this and earlier wet periods stayed there.",
   "nxt": "This ancient water is called fossil water."
  },
  {
-  "uid": "U070",
+  "uid": "U079",
   "scene": 12,
   "title": "Fossil Water",
   "art_theme": "fossilwater",
@@ -2305,12 +2602,12 @@
   },
   "text": "This ancient water is called fossil water.",
   "dur": 3.83,
-  "transition_in": "fade",
+  "transition_in": "match",
   "prev": "Deep aquifers that receive almost no new rain today still hold it.",
   "nxt": ""
  },
  {
-  "uid": "U072",
+  "uid": "U081",
   "scene": 14,
   "title": "Carved by Wind",
   "art_theme": "wind",
@@ -2343,7 +2640,7 @@
   "nxt": "In open desert, strong winds blow loose sand and dust away,"
  },
  {
-  "uid": "U073",
+  "uid": "U082",
   "scene": 14,
   "title": "Carved by Wind",
   "art_theme": "wind",
@@ -2371,12 +2668,12 @@
   },
   "text": "In open desert, strong winds blow loose sand and dust away,",
   "dur": 4.53,
-  "transition_in": "wash",
+  "transition_in": "eye",
   "prev": "Pressure is not the only way to make an oasis. Wind can do it too.",
   "nxt": "again and again, for thousands of years."
  },
  {
-  "uid": "U074",
+  "uid": "U083",
   "scene": 14,
   "title": "Carved by Wind",
   "art_theme": "wind",
@@ -2403,13 +2700,13 @@
    ]
   },
   "text": "again and again, for thousands of years.",
-  "dur": 3.02,
-  "transition_in": "slide",
+  "dur": 3.5,
+  "transition_in": "push",
   "prev": "In open desert, strong winds blow loose sand and dust away,",
   "nxt": "Where the rock is weak, especially where salt crystals break it apart,"
  },
  {
-  "uid": "U075",
+  "uid": "U084",
   "scene": 14,
   "title": "Carved by Wind",
   "art_theme": "wind",
@@ -2436,13 +2733,13 @@
    ]
   },
   "text": "Where the rock is weak, especially where salt crystals break it apart,",
-  "dur": 4.57,
-  "transition_in": "match",
+  "dur": 4.08,
+  "transition_in": "wipe",
   "prev": "again and again, for thousands of years.",
   "nxt": "the ground can be lowered bit by bit."
  },
  {
-  "uid": "U076",
+  "uid": "U085",
   "scene": 14,
   "title": "Carved by Wind",
   "art_theme": "wind",
@@ -2469,13 +2766,13 @@
    ]
   },
   "text": "the ground can be lowered bit by bit.",
-  "dur": 2.38,
-  "transition_in": "wash",
+  "dur": 3.5,
+  "transition_in": "iris",
   "prev": "Where the rock is weak, especially where salt crystals break it apart,",
   "nxt": "Geologists call this removal of loose material by wind deflation."
  },
  {
-  "uid": "U077",
+  "uid": "U086",
   "scene": 14,
   "title": "Carved by Wind",
   "art_theme": "wind",
@@ -2502,13 +2799,13 @@
    ]
   },
   "text": "Geologists call this removal of loose material by wind deflation.",
-  "dur": 5.67,
-  "transition_in": "slide",
+  "dur": 4.55,
+  "transition_in": "push",
   "prev": "the ground can be lowered bit by bit.",
   "nxt": ""
  },
  {
-  "uid": "U078",
+  "uid": "U087",
   "scene": 15,
   "title": "Down to the Water Table",
   "art_theme": "watertable",
@@ -2535,13 +2832,13 @@
    ]
   },
   "text": "Below every desert there is a level called the water table.",
-  "dur": 3.26,
+  "dur": 3.5,
   "transition_in": "fade",
   "prev": "",
   "nxt": "Beneath it, the spaces in the rock are full of water."
  },
  {
-  "uid": "U079",
+  "uid": "U088",
   "scene": 15,
   "title": "Down to the Water Table",
   "art_theme": "watertable",
@@ -2568,13 +2865,13 @@
    ]
   },
   "text": "Beneath it, the spaces in the rock are full of water.",
-  "dur": 3.57,
-  "transition_in": "zoom",
+  "dur": 3.5,
+  "transition_in": "whip",
   "prev": "Below every desert there is a level called the water table.",
   "nxt": "If wind lowers the ground far enough, the bottom of the hollow can reach that level."
  },
  {
-  "uid": "U080",
+  "uid": "U089",
   "scene": 15,
   "title": "Down to the Water Table",
   "art_theme": "watertable",
@@ -2601,13 +2898,13 @@
    ]
   },
   "text": "If wind lowers the ground far enough, the bottom of the hollow can reach that level.",
-  "dur": 5.1,
-  "transition_in": "match",
+  "dur": 4.92,
+  "transition_in": "iris",
   "prev": "Beneath it, the spaces in the rock are full of water.",
   "nxt": "Then water seeps out at the surface,"
  },
  {
-  "uid": "U081",
+  "uid": "U090",
   "scene": 15,
   "title": "Down to the Water Table",
   "art_theme": "watertable",
@@ -2634,13 +2931,13 @@
    ]
   },
   "text": "Then water seeps out at the surface,",
-  "dur": 2.83,
-  "transition_in": "wash",
+  "dur": 3.5,
+  "transition_in": "fade",
   "prev": "If wind lowers the ground far enough, the bottom of the hollow can reach that level.",
   "nxt": "and marshes, salt flats or small lakes appear. The wind has dug down to the water."
  },
  {
-  "uid": "U082",
+  "uid": "U091",
   "scene": 15,
   "title": "Down to the Water Table",
   "art_theme": "watertable",
@@ -2667,13 +2964,13 @@
    ]
   },
   "text": "and marshes, salt flats or small lakes appear. The wind has dug down to the water.",
-  "dur": 6.87,
-  "transition_in": "slide",
+  "dur": 6.2,
+  "transition_in": "whip",
   "prev": "Then water seeps out at the surface,",
   "nxt": ""
  },
  {
-  "uid": "U084",
+  "uid": "U093",
   "scene": 17,
   "title": "Faults as Highways",
   "art_theme": "fault",
@@ -2706,7 +3003,7 @@
   "nxt": "Along some faults, ground-up rock and clay form a barrier, like an underground dam."
  },
  {
-  "uid": "U085",
+  "uid": "U094",
   "scene": 17,
   "title": "Faults as Highways",
   "art_theme": "fault",
@@ -2734,12 +3031,12 @@
   },
   "text": "Along some faults, ground-up rock and clay form a barrier, like an underground dam.",
   "dur": 5.86,
-  "transition_in": "fade",
+  "transition_in": "match",
   "prev": "Faults can also create oases. A fault is a break in the Earth's crust where rock has moved.",
   "nxt": "Groundwater flowing toward the fault is blocked and pushed upward."
  },
  {
-  "uid": "U086",
+  "uid": "U095",
   "scene": 17,
   "title": "Faults as Highways",
   "art_theme": "fault",
@@ -2767,12 +3064,12 @@
   },
   "text": "Groundwater flowing toward the fault is blocked and pushed upward.",
   "dur": 4.03,
-  "transition_in": "match",
+  "transition_in": "iris",
   "prev": "Along some faults, ground-up rock and clay form a barrier, like an underground dam.",
   "nxt": "Where it reaches the surface, a line of springs can appear,"
  },
  {
-  "uid": "U087",
+  "uid": "U096",
   "scene": 17,
   "title": "Faults as Highways",
   "art_theme": "fault",
@@ -2800,12 +3097,12 @@
   },
   "text": "Where it reaches the surface, a line of springs can appear,",
   "dur": 4.07,
-  "transition_in": "wash",
+  "transition_in": "tilt",
   "prev": "Groundwater flowing toward the fault is blocked and pushed upward.",
   "nxt": "so oases sometimes sit in a neat row along the fault."
  },
  {
-  "uid": "U088",
+  "uid": "U097",
   "scene": 17,
   "title": "Faults as Highways",
   "art_theme": "fault",
@@ -2833,12 +3130,12 @@
   },
   "text": "so oases sometimes sit in a neat row along the fault.",
   "dur": 4.4,
-  "transition_in": "zoom",
+  "transition_in": "fade",
   "prev": "Where it reaches the surface, a line of springs can appear,",
   "nxt": ""
  },
  {
-  "uid": "U089",
+  "uid": "U098",
   "scene": 18,
   "title": "Palms on the San Andreas",
   "art_theme": "coachella",
@@ -2865,13 +3162,13 @@
    ]
   },
   "text": "You can see this in California's Coachella Valley.",
-  "dur": 3.14,
-  "transition_in": "fade",
+  "dur": 3.5,
+  "transition_in": "eye",
   "prev": "",
   "nxt": "There, desert fan palms, the only palm native to the western United States,"
  },
  {
-  "uid": "U090",
+  "uid": "U099",
   "scene": 18,
   "title": "Palms on the San Andreas",
   "art_theme": "coachella",
@@ -2898,13 +3195,13 @@
    ]
   },
   "text": "There, desert fan palms, the only palm native to the western United States,",
-  "dur": 5.54,
-  "transition_in": "match",
+  "dur": 5.17,
+  "transition_in": "tilt",
   "prev": "You can see this in California's Coachella Valley.",
   "nxt": "grow in groves right along the San Andreas Fault."
  },
  {
-  "uid": "U091",
+  "uid": "U100",
   "scene": 18,
   "title": "Palms on the San Andreas",
   "art_theme": "coachella",
@@ -2932,12 +3229,12 @@
   },
   "text": "grow in groves right along the San Andreas Fault.",
   "dur": 3.57,
-  "transition_in": "slide",
+  "transition_in": "wipe",
   "prev": "There, desert fan palms, the only palm native to the western United States,",
   "nxt": "Crushed rock in the fault zone blocks groundwater and brings it near the surface."
  },
  {
-  "uid": "U092",
+  "uid": "U101",
   "scene": 18,
   "title": "Palms on the San Andreas",
   "art_theme": "coachella",
@@ -2965,12 +3262,12 @@
   },
   "text": "Crushed rock in the fault zone blocks groundwater and brings it near the surface.",
   "dur": 5.08,
-  "transition_in": "wash",
+  "transition_in": "fade",
   "prev": "grow in groves right along the San Andreas Fault.",
   "nxt": "Thousand Palms Oasis is one of these groves."
  },
  {
-  "uid": "U093",
+  "uid": "U102",
   "scene": 18,
   "title": "Palms on the San Andreas",
   "art_theme": "coachella",
@@ -2998,12 +3295,12 @@
   },
   "text": "Thousand Palms Oasis is one of these groves.",
   "dur": 3.51,
-  "transition_in": "match",
+  "transition_in": "eye",
   "prev": "Crushed rock in the fault zone blocks groundwater and brings it near the surface.",
   "nxt": "One of the most famous earthquake faults on Earth is also what keeps these palms alive."
  },
  {
-  "uid": "U094",
+  "uid": "U103",
   "scene": 18,
   "title": "Palms on the San Andreas",
   "art_theme": "coachella",
@@ -3031,12 +3328,12 @@
   },
   "text": "One of the most famous earthquake faults on Earth is also what keeps these palms alive.",
   "dur": 6.17,
-  "transition_in": "zoom",
+  "transition_in": "iris",
   "prev": "Thousand Palms Oasis is one of these groves.",
   "nxt": ""
  },
  {
-  "uid": "U095",
+  "uid": "U104",
   "scene": 19,
   "title": "Flash Floods",
   "art_theme": "flashflood",
@@ -3064,12 +3361,12 @@
   },
   "text": "Even the driest deserts get rain now and then, often as short, violent storms.",
   "dur": 5.7,
-  "transition_in": "slide",
+  "transition_in": "wash",
   "prev": "",
   "nxt": "Hard, dry ground cannot soak it up fast enough,"
  },
  {
-  "uid": "U096",
+  "uid": "U105",
   "scene": 19,
   "title": "Flash Floods",
   "art_theme": "flashflood",
@@ -3096,13 +3393,13 @@
    ]
   },
   "text": "Hard, dry ground cannot soak it up fast enough,",
-  "dur": 3.37,
-  "transition_in": "match",
+  "dur": 3.5,
+  "transition_in": "fade",
   "prev": "Even the driest deserts get rain now and then, often as short, violent storms.",
   "nxt": "so the water rushes downhill as a flash flood."
  },
  {
-  "uid": "U097",
+  "uid": "U106",
   "scene": 19,
   "title": "Flash Floods",
   "art_theme": "flashflood",
@@ -3129,13 +3426,13 @@
    ]
   },
   "text": "so the water rushes downhill as a flash flood.",
-  "dur": 3.23,
-  "transition_in": "wash",
+  "dur": 3.5,
+  "transition_in": "slide",
   "prev": "Hard, dry ground cannot soak it up fast enough,",
   "nxt": "These floods pour into dry valleys called wadis. They can be deadly."
  },
  {
-  "uid": "U098",
+  "uid": "U107",
   "scene": 19,
   "title": "Flash Floods",
   "art_theme": "flashflood",
@@ -3162,13 +3459,13 @@
    ]
   },
   "text": "These floods pour into dry valleys called wadis. They can be deadly.",
-  "dur": 5.24,
-  "transition_in": "slide",
+  "dur": 4.85,
+  "transition_in": "eye",
   "prev": "so the water rushes downhill as a flash flood.",
   "nxt": "But they also feed the ground beneath the valley floor."
  },
  {
-  "uid": "U099",
+  "uid": "U108",
   "scene": 19,
   "title": "Flash Floods",
   "art_theme": "flashflood",
@@ -3201,7 +3498,7 @@
   "nxt": ""
  },
  {
-  "uid": "U100",
+  "uid": "U109",
   "scene": 20,
   "title": "Water Under the Gravel",
   "art_theme": "gravel",
@@ -3229,12 +3526,12 @@
   },
   "text": "As a flood races down a wadi, part of the water sinks into the sand and gravel of the valley floor.",
   "dur": 5.99,
-  "transition_in": "fade",
+  "transition_in": "slide",
   "prev": "",
   "nxt": "Long after the surface dries, water can remain below,"
  },
  {
-  "uid": "U101",
+  "uid": "U110",
   "scene": 20,
   "title": "Water Under the Gravel",
   "art_theme": "gravel",
@@ -3262,12 +3559,12 @@
   },
   "text": "Long after the surface dries, water can remain below,",
   "dur": 4.09,
-  "transition_in": "wash",
+  "transition_in": "wipe",
   "prev": "As a flood races down a wadi, part of the water sinks into the sand and gravel of the valley floor.",
   "nxt": "shaded from the sun, slowly moving downstream."
  },
  {
-  "uid": "U102",
+  "uid": "U111",
   "scene": 20,
   "title": "Water Under the Gravel",
   "art_theme": "gravel",
@@ -3294,13 +3591,13 @@
    ]
   },
   "text": "shaded from the sun, slowly moving downstream.",
-  "dur": 3.48,
+  "dur": 3.5,
   "transition_in": "zoom",
   "prev": "Long after the surface dries, water can remain below,",
   "nxt": "Where this hidden flow comes close to the surface,"
  },
  {
-  "uid": "U103",
+  "uid": "U112",
   "scene": 20,
   "title": "Water Under the Gravel",
   "art_theme": "gravel",
@@ -3327,13 +3624,13 @@
    ]
   },
   "text": "Where this hidden flow comes close to the surface,",
-  "dur": 3.4,
+  "dur": 3.5,
   "transition_in": "match",
   "prev": "shaded from the sun, slowly moving downstream.",
   "nxt": "wells can reach it, and palms and gardens can grow."
  },
  {
-  "uid": "U104",
+  "uid": "U113",
   "scene": 20,
   "title": "Water Under the Gravel",
   "art_theme": "gravel",
@@ -3360,13 +3657,13 @@
    ]
   },
   "text": "wells can reach it, and palms and gardens can grow.",
-  "dur": 3.4,
-  "transition_in": "slide",
+  "dur": 3.5,
+  "transition_in": "wipe",
   "prev": "Where this hidden flow comes close to the surface,",
   "nxt": "Many oases sit in wadis for exactly this reason."
  },
  {
-  "uid": "U105",
+  "uid": "U114",
   "scene": 20,
   "title": "Water Under the Gravel",
   "art_theme": "gravel",
@@ -3393,13 +3690,13 @@
    ]
   },
   "text": "Many oases sit in wadis for exactly this reason.",
-  "dur": 4.59,
-  "transition_in": "zoom",
+  "dur": 4.38,
+  "transition_in": "iris",
   "prev": "wells can reach it, and palms and gardens can grow.",
   "nxt": ""
  },
  {
-  "uid": "U106",
+  "uid": "U115",
   "scene": 21,
   "title": "The Nile, a Long Oasis",
   "art_theme": "nile",
@@ -3427,12 +3724,12 @@
   },
   "text": "Some deserts are crossed by rivers that start somewhere much wetter.",
   "dur": 4.69,
-  "transition_in": "wash",
+  "transition_in": "push",
   "prev": "",
   "nxt": "The Nile is the great example."
  },
  {
-  "uid": "U107",
+  "uid": "U116",
   "scene": 21,
   "title": "The Nile, a Long Oasis",
   "art_theme": "nile",
@@ -3459,13 +3756,13 @@
    ]
   },
   "text": "The Nile is the great example.",
-  "dur": 2.11,
-  "transition_in": "fade",
+  "dur": 3.5,
+  "transition_in": "wash",
   "prev": "Some deserts are crossed by rivers that start somewhere much wetter.",
   "nxt": "Most of the water that reaches Egypt comes from rain in the Ethiopian Highlands,"
  },
  {
-  "uid": "U108",
+  "uid": "U117",
   "scene": 21,
   "title": "The Nile, a Long Oasis",
   "art_theme": "nile",
@@ -3492,13 +3789,13 @@
    ]
   },
   "text": "Most of the water that reaches Egypt comes from rain in the Ethiopian Highlands,",
-  "dur": 5.55,
-  "transition_in": "zoom",
+  "dur": 4.16,
+  "transition_in": "tilt",
   "prev": "The Nile is the great example.",
   "nxt": "carried by the Blue Nile."
  },
  {
-  "uid": "U109",
+  "uid": "U118",
   "scene": 21,
   "title": "The Nile, a Long Oasis",
   "art_theme": "nile",
@@ -3525,13 +3822,13 @@
    ]
   },
   "text": "carried by the Blue Nile.",
-  "dur": 1.71,
-  "transition_in": "match",
+  "dur": 3.5,
+  "transition_in": "eye",
   "prev": "Most of the water that reaches Egypt comes from rain in the Ethiopian Highlands,",
   "nxt": "As the river runs north through the desert, it creates a narrow green strip of farmland."
  },
  {
-  "uid": "U110",
+  "uid": "U119",
   "scene": 21,
   "title": "The Nile, a Long Oasis",
   "art_theme": "nile",
@@ -3558,13 +3855,13 @@
    ]
   },
   "text": "As the river runs north through the desert, it creates a narrow green strip of farmland.",
-  "dur": 6.04,
+  "dur": 4.26,
   "transition_in": "wash",
   "prev": "carried by the Blue Nile.",
   "nxt": "In a way, the Nile valley is one very long oasis, watered by rain that fell far away."
  },
  {
-  "uid": "U111",
+  "uid": "U120",
   "scene": 21,
   "title": "The Nile, a Long Oasis",
   "art_theme": "nile",
@@ -3592,12 +3889,12 @@
   },
   "text": "In a way, the Nile valley is one very long oasis, watered by rain that fell far away.",
   "dur": 6.64,
-  "transition_in": "fade",
+  "transition_in": "zoom",
   "prev": "As the river runs north through the desert, it creates a narrow green strip of farmland.",
   "nxt": ""
  },
  {
-  "uid": "U112",
+  "uid": "U121",
   "scene": 22,
   "title": "How Life Arrives",
   "art_theme": "birds",
@@ -3625,12 +3922,12 @@
   },
   "text": "Once water appears, how do plants get there? Some seeds are carried by wind.",
   "dur": 5.22,
-  "transition_in": "slide",
+  "transition_in": "whip",
   "prev": "",
   "nxt": "Others arrive with animals, especially birds, which can spread seeds in their droppings."
  },
  {
-  "uid": "U113",
+  "uid": "U122",
   "scene": 22,
   "title": "How Life Arrives",
   "art_theme": "birds",
@@ -3658,12 +3955,12 @@
   },
   "text": "Others arrive with animals, especially birds, which can spread seeds in their droppings.",
   "dur": 5.57,
-  "transition_in": "zoom",
+  "transition_in": "tilt",
   "prev": "Once water appears, how do plants get there? Some seeds are carried by wind.",
   "nxt": "Birds crossing the desert are drawn to water and green plants,"
  },
  {
-  "uid": "U114",
+  "uid": "U123",
   "scene": 22,
   "title": "How Life Arrives",
   "art_theme": "birds",
@@ -3691,12 +3988,12 @@
   },
   "text": "Birds crossing the desert are drawn to water and green plants,",
   "dur": 4.28,
-  "transition_in": "match",
+  "transition_in": "push",
   "prev": "Others arrive with animals, especially birds, which can spread seeds in their droppings.",
   "nxt": "and they stop to drink and rest. Over time, a bare spring can become a green island."
  },
  {
-  "uid": "U115",
+  "uid": "U124",
   "scene": 22,
   "title": "How Life Arrives",
   "art_theme": "birds",
@@ -3724,12 +4021,12 @@
   },
   "text": "and they stop to drink and rest. Over time, a bare spring can become a green island.",
   "dur": 6.88,
-  "transition_in": "fade",
+  "transition_in": "wipe",
   "prev": "Birds crossing the desert are drawn to water and green plants,",
   "nxt": ""
  },
  {
-  "uid": "U116",
+  "uid": "U125",
   "scene": 23,
   "title": "The Date Palm",
   "art_theme": "datepalm",
@@ -3757,12 +4054,12 @@
   },
   "text": "The most important plant of many oases is the date palm, Phoenix dactylifera.",
   "dur": 5.27,
-  "transition_in": "slide",
+  "transition_in": "whip",
   "prev": "",
   "nxt": "It has a deep, spreading root system that can reach groundwater,"
  },
  {
-  "uid": "U117",
+  "uid": "U126",
   "scene": 23,
   "title": "The Date Palm",
   "art_theme": "datepalm",
@@ -3795,7 +4092,7 @@
   "nxt": "and it tolerates salty soil better than most crops."
  },
  {
-  "uid": "U118",
+  "uid": "U127",
   "scene": 23,
   "title": "The Date Palm",
   "art_theme": "datepalm",
@@ -3822,13 +4119,13 @@
    ]
   },
   "text": "and it tolerates salty soil better than most crops.",
-  "dur": 3.36,
-  "transition_in": "fade",
+  "dur": 3.5,
+  "transition_in": "eye",
   "prev": "It has a deep, spreading root system that can reach groundwater,",
   "nxt": "It also gives fruit that stores well, along with leaves and wood for building."
  },
  {
-  "uid": "U119",
+  "uid": "U128",
   "scene": 23,
   "title": "The Date Palm",
   "art_theme": "datepalm",
@@ -3855,13 +4152,13 @@
    ]
   },
   "text": "It also gives fruit that stores well, along with leaves and wood for building.",
-  "dur": 5.12,
-  "transition_in": "wash",
+  "dur": 4.98,
+  "transition_in": "fade",
   "prev": "and it tolerates salty soil better than most crops.",
   "nxt": "For thousands of years, date palms have been the backbone of oasis farming across North Africa and the Middle East."
  },
  {
-  "uid": "U120",
+  "uid": "U129",
   "scene": 23,
   "title": "The Date Palm",
   "art_theme": "datepalm",
@@ -3889,12 +4186,12 @@
   },
   "text": "For thousands of years, date palms have been the backbone of oasis farming across North Africa and the Middle East.",
   "dur": 7.78,
-  "transition_in": "match",
+  "transition_in": "wipe",
   "prev": "It also gives fruit that stores well, along with leaves and wood for building.",
   "nxt": ""
  },
  {
-  "uid": "U121",
+  "uid": "U130",
   "scene": 24,
   "title": "Three Layers of Shade",
   "art_theme": "tiers",
@@ -3921,13 +4218,13 @@
    ]
   },
   "text": "Date palms also change the climate beneath them.",
-  "dur": 2.76,
-  "transition_in": "fade",
+  "dur": 3.5,
+  "transition_in": "whip",
   "prev": "",
   "nxt": "Their crowns shade the ground, which keeps it cooler and slows evaporation."
  },
  {
-  "uid": "U122",
+  "uid": "U131",
   "scene": 24,
   "title": "Three Layers of Shade",
   "art_theme": "tiers",
@@ -3954,13 +4251,13 @@
    ]
   },
   "text": "Their crowns shade the ground, which keeps it cooler and slows evaporation.",
-  "dur": 4.58,
-  "transition_in": "slide",
+  "dur": 3.84,
+  "transition_in": "eye",
   "prev": "Date palms also change the climate beneath them.",
   "nxt": "Oasis farmers used this to grow food in layers. Tall palms stand on top."
  },
  {
-  "uid": "U123",
+  "uid": "U132",
   "scene": 24,
   "title": "Three Layers of Shade",
   "art_theme": "tiers",
@@ -3988,12 +4285,12 @@
   },
   "text": "Oasis farmers used this to grow food in layers. Tall palms stand on top.",
   "dur": 5.62,
-  "transition_in": "match",
+  "transition_in": "slide",
   "prev": "Their crowns shade the ground, which keeps it cooler and slows evaporation.",
   "nxt": "Beneath them grow fruit trees such as figs, pomegranates and citrus."
  },
  {
-  "uid": "U124",
+  "uid": "U133",
   "scene": 24,
   "title": "Three Layers of Shade",
   "art_theme": "tiers",
@@ -4021,12 +4318,12 @@
   },
   "text": "Beneath them grow fruit trees such as figs, pomegranates and citrus.",
   "dur": 4.77,
-  "transition_in": "wash",
+  "transition_in": "iris",
   "prev": "Oasis farmers used this to grow food in layers. Tall palms stand on top.",
   "nxt": "And on the ground grow vegetables, grains and fodder."
  },
  {
-  "uid": "U125",
+  "uid": "U134",
   "scene": 24,
   "title": "Three Layers of Shade",
   "art_theme": "tiers",
@@ -4054,12 +4351,12 @@
   },
   "text": "And on the ground grow vegetables, grains and fodder.",
   "dur": 3.67,
-  "transition_in": "zoom",
+  "transition_in": "wipe",
   "prev": "Beneath them grow fruit trees such as figs, pomegranates and citrus.",
   "nxt": "A single oasis garden can feed far more people this way."
  },
  {
-  "uid": "U126",
+  "uid": "U135",
   "scene": 24,
   "title": "Three Layers of Shade",
   "art_theme": "tiers",
@@ -4087,12 +4384,12 @@
   },
   "text": "A single oasis garden can feed far more people this way.",
   "dur": 4.75,
-  "transition_in": "fade",
+  "transition_in": "slide",
   "prev": "And on the ground grow vegetables, grains and fodder.",
   "nxt": ""
  },
  {
-  "uid": "U127",
+  "uid": "U136",
   "scene": 25,
   "title": "The Largest Oasis",
   "art_theme": "alahsa",
@@ -4120,12 +4417,12 @@
   },
   "text": "How big can an oasis get? In eastern Saudi Arabia,",
   "dur": 3.6,
-  "transition_in": "slide",
+  "transition_in": "wash",
   "prev": "",
   "nxt": "the Al-Ahsa Oasis holds about two and a half million date palms."
  },
  {
-  "uid": "U128",
+  "uid": "U137",
   "scene": 25,
   "title": "The Largest Oasis",
   "art_theme": "alahsa",
@@ -4153,12 +4450,12 @@
   },
   "text": "the Al-Ahsa Oasis holds about two and a half million date palms.",
   "dur": 4.68,
-  "transition_in": "wash",
+  "transition_in": "push",
   "prev": "How big can an oasis get? In eastern Saudi Arabia,",
   "nxt": "UNESCO, which listed it as a World Heritage Site in 2018,"
  },
  {
-  "uid": "U129",
+  "uid": "U138",
   "scene": 25,
   "title": "The Largest Oasis",
   "art_theme": "alahsa",
@@ -4191,7 +4488,7 @@
   "nxt": "describes it as the largest oasis in the world."
  },
  {
-  "uid": "U130",
+  "uid": "U139",
   "scene": 25,
   "title": "The Largest Oasis",
   "art_theme": "alahsa",
@@ -4219,12 +4516,12 @@
   },
   "text": "describes it as the largest oasis in the world.",
   "dur": 3.66,
-  "transition_in": "match",
+  "transition_in": "zoom",
   "prev": "UNESCO, which listed it as a World Heritage Site in 2018,",
   "nxt": "For centuries it was watered by natural springs and shallow wells, and its canals,"
  },
  {
-  "uid": "U131",
+  "uid": "U140",
   "scene": 25,
   "title": "The Largest Oasis",
   "art_theme": "alahsa",
@@ -4252,12 +4549,12 @@
   },
   "text": "For centuries it was watered by natural springs and shallow wells, and its canals,",
   "dur": 5.66,
-  "transition_in": "slide",
+  "transition_in": "match",
   "prev": "describes it as the largest oasis in the world.",
   "nxt": "gardens and old towns show how people organized life around that water."
  },
  {
-  "uid": "U132",
+  "uid": "U141",
   "scene": 25,
   "title": "The Largest Oasis",
   "art_theme": "alahsa",
@@ -4285,12 +4582,12 @@
   },
   "text": "gardens and old towns show how people organized life around that water.",
   "dur": 5.64,
-  "transition_in": "zoom",
+  "transition_in": "wipe",
   "prev": "For centuries it was watered by natural springs and shallow wells, and its canals,",
   "nxt": ""
  },
  {
-  "uid": "U133",
+  "uid": "U142",
   "scene": 26,
   "title": "The Qanat",
   "art_theme": "qanat",
@@ -4318,12 +4615,12 @@
   },
   "text": "People also learned to make oases themselves. In ancient Persia, engineers developed the qanat,",
   "dur": 6.03,
-  "transition_in": "wash",
+  "transition_in": "whip",
   "prev": "",
   "nxt": "and settlements depending on them existed by about three thousand years ago."
  },
  {
-  "uid": "U134",
+  "uid": "U143",
   "scene": 26,
   "title": "The Qanat",
   "art_theme": "qanat",
@@ -4351,12 +4648,12 @@
   },
   "text": "and settlements depending on them existed by about three thousand years ago.",
   "dur": 4.79,
-  "transition_in": "slide",
+  "transition_in": "iris",
   "prev": "People also learned to make oases themselves. In ancient Persia, engineers developed the qanat,",
   "nxt": "Builders dug a well at the foot of a hill to reach groundwater."
  },
  {
-  "uid": "U135",
+  "uid": "U144",
   "scene": 26,
   "title": "The Qanat",
   "art_theme": "qanat",
@@ -4384,12 +4681,12 @@
   },
   "text": "Builders dug a well at the foot of a hill to reach groundwater.",
   "dur": 4.0,
-  "transition_in": "match",
+  "transition_in": "wipe",
   "prev": "and settlements depending on them existed by about three thousand years ago.",
   "nxt": "Then they dug a tunnel with a gentle downhill slope from that well to the fields below,"
  },
  {
-  "uid": "U136",
+  "uid": "U145",
   "scene": 26,
   "title": "The Qanat",
   "art_theme": "qanat",
@@ -4417,12 +4714,12 @@
   },
   "text": "Then they dug a tunnel with a gentle downhill slope from that well to the fields below,",
   "dur": 5.54,
-  "transition_in": "wash",
+  "transition_in": "match",
   "prev": "Builders dug a well at the foot of a hill to reach groundwater.",
   "nxt": "using a line of vertical shafts for air and for hauling out soil. Gravity did the rest."
  },
  {
-  "uid": "U137",
+  "uid": "U146",
   "scene": 26,
   "title": "The Qanat",
   "art_theme": "qanat",
@@ -4450,12 +4747,12 @@
   },
   "text": "using a line of vertical shafts for air and for hauling out soil. Gravity did the rest.",
   "dur": 6.27,
-  "transition_in": "slide",
+  "transition_in": "tilt",
   "prev": "Then they dug a tunnel with a gentle downhill slope from that well to the fields below,",
   "nxt": ""
  },
  {
-  "uid": "U138",
+  "uid": "U147",
   "scene": 27,
   "title": "Why Underground?",
   "art_theme": "tunnel",
@@ -4483,12 +4780,12 @@
   },
   "text": "Why underground? Because in the desert, open water evaporates quickly.",
   "dur": 4.86,
-  "transition_in": "zoom",
+  "transition_in": "eye",
   "prev": "",
   "nxt": "A canal on the surface would lose much of its water to the sun and wind."
  },
  {
-  "uid": "U139",
+  "uid": "U148",
   "scene": 27,
   "title": "Why Underground?",
   "art_theme": "tunnel",
@@ -4516,12 +4813,12 @@
   },
   "text": "A canal on the surface would lose much of its water to the sun and wind.",
   "dur": 4.6,
-  "transition_in": "fade",
+  "transition_in": "match",
   "prev": "Why underground? Because in the desert, open water evaporates quickly.",
   "nxt": "In a tunnel, the water stays cool and much more of it arrives."
  },
  {
-  "uid": "U140",
+  "uid": "U149",
   "scene": 27,
   "title": "Why Underground?",
   "art_theme": "tunnel",
@@ -4548,13 +4845,13 @@
    ]
   },
   "text": "In a tunnel, the water stays cool and much more of it arrives.",
-  "dur": 4.29,
-  "transition_in": "wash",
+  "dur": 4.5,
+  "transition_in": "zoom",
   "prev": "A canal on the surface would lose much of its water to the sun and wind.",
   "nxt": "Qanats could carry water for many kilometers, and some are still in use today."
  },
  {
-  "uid": "U141",
+  "uid": "U150",
   "scene": 27,
   "title": "Why Underground?",
   "art_theme": "tunnel",
@@ -4581,13 +4878,13 @@
    ]
   },
   "text": "Qanats could carry water for many kilometers, and some are still in use today.",
-  "dur": 5.1,
-  "transition_in": "match",
+  "dur": 4.89,
+  "transition_in": "iris",
   "prev": "In a tunnel, the water stays cool and much more of it arrives.",
   "nxt": "Iran's qanats are listed as a UNESCO World Heritage Site."
  },
  {
-  "uid": "U142",
+  "uid": "U151",
   "scene": 27,
   "title": "Why Underground?",
   "art_theme": "tunnel",
@@ -4615,12 +4912,12 @@
   },
   "text": "Iran's qanats are listed as a UNESCO World Heritage Site.",
   "dur": 5.03,
-  "transition_in": "zoom",
+  "transition_in": "slide",
   "prev": "Qanats could carry water for many kilometers, and some are still in use today.",
   "nxt": ""
  },
  {
-  "uid": "U143",
+  "uid": "U152",
   "scene": 28,
   "title": "Foggara and Karez",
   "art_theme": "worldmap",
@@ -4648,12 +4945,12 @@
   },
   "text": "The idea spread widely. In the Sahara of Algeria, these tunnels are called foggaras.",
   "dur": 5.57,
-  "transition_in": "wash",
+  "transition_in": "push",
   "prev": "",
   "nxt": "In Oman and the United Arab Emirates, similar channels are called falaj."
  },
  {
-  "uid": "U144",
+  "uid": "U153",
   "scene": 28,
   "title": "Foggara and Karez",
   "art_theme": "worldmap",
@@ -4681,12 +4978,12 @@
   },
   "text": "In Oman and the United Arab Emirates, similar channels are called falaj.",
   "dur": 5.31,
-  "transition_in": "match",
+  "transition_in": "wash",
   "prev": "The idea spread widely. In the Sahara of Algeria, these tunnels are called foggaras.",
   "nxt": "In the Turpan Basin of western China, they are known as karez."
  },
  {
-  "uid": "U145",
+  "uid": "U154",
   "scene": 28,
   "title": "Foggara and Karez",
   "art_theme": "worldmap",
@@ -4714,12 +5011,12 @@
   },
   "text": "In the Turpan Basin of western China, they are known as karez.",
   "dur": 4.22,
-  "transition_in": "fade",
+  "transition_in": "slide",
   "prev": "In Oman and the United Arab Emirates, similar channels are called falaj.",
   "nxt": "And in Peru, the Nazca region has its own underground channels, called puquios."
  },
  {
-  "uid": "U146",
+  "uid": "U155",
   "scene": 28,
   "title": "Foggara and Karez",
   "art_theme": "worldmap",
@@ -4747,12 +5044,12 @@
   },
   "text": "And in Peru, the Nazca region has its own underground channels, called puquios.",
   "dur": 6.07,
-  "transition_in": "wash",
+  "transition_in": "zoom",
   "prev": "In the Turpan Basin of western China, they are known as karez.",
   "nxt": "Across very different cultures, people found the same solution to the same problem."
  },
  {
-  "uid": "U147",
+  "uid": "U156",
   "scene": 28,
   "title": "Foggara and Karez",
   "art_theme": "worldmap",
@@ -4780,12 +5077,12 @@
   },
   "text": "Across very different cultures, people found the same solution to the same problem.",
   "dur": 5.79,
-  "transition_in": "slide",
+  "transition_in": "tilt",
   "prev": "And in Peru, the Nazca region has its own underground channels, called puquios.",
   "nxt": ""
  },
  {
-  "uid": "U148",
+  "uid": "U157",
   "scene": 29,
   "title": "The Silk Road",
   "art_theme": "silkroad",
@@ -4812,13 +5109,13 @@
    ]
   },
   "text": "Oases also shaped trade.",
-  "dur": 1.68,
-  "transition_in": "zoom",
+  "dur": 3.5,
+  "transition_in": "wash",
   "prev": "",
   "nxt": "The Silk Road was not a single road but a network of routes linked by oasis towns."
  },
  {
-  "uid": "U149",
+  "uid": "U158",
   "scene": 29,
   "title": "The Silk Road",
   "art_theme": "silkroad",
@@ -4845,13 +5142,13 @@
    ]
   },
   "text": "The Silk Road was not a single road but a network of routes linked by oasis towns.",
-  "dur": 5.56,
-  "transition_in": "wash",
+  "dur": 3.74,
+  "transition_in": "push",
   "prev": "Oases also shaped trade.",
   "nxt": "Caravans carrying silk, spices and other goods moved from one water source to the next."
  },
  {
-  "uid": "U150",
+  "uid": "U159",
   "scene": 29,
   "title": "The Silk Road",
   "art_theme": "silkroad",
@@ -4879,12 +5176,12 @@
   },
   "text": "Caravans carrying silk, spices and other goods moved from one water source to the next.",
   "dur": 5.9,
-  "transition_in": "match",
+  "transition_in": "wipe",
   "prev": "The Silk Road was not a single road but a network of routes linked by oasis towns.",
   "nxt": "Cities such as Dunhuang in China,"
  },
  {
-  "uid": "U151",
+  "uid": "U160",
   "scene": 29,
   "title": "The Silk Road",
   "art_theme": "silkroad",
@@ -4911,13 +5208,13 @@
    ]
   },
   "text": "Cities such as Dunhuang in China,",
-  "dur": 2.3,
-  "transition_in": "slide",
+  "dur": 3.5,
+  "transition_in": "iris",
   "prev": "Caravans carrying silk, spices and other goods moved from one water source to the next.",
   "nxt": "Samarkand in Central Asia and Palmyra in Syria grew rich as stops along these routes."
  },
  {
-  "uid": "U152",
+  "uid": "U161",
   "scene": 29,
   "title": "The Silk Road",
   "art_theme": "silkroad",
@@ -4944,13 +5241,13 @@
    ]
   },
   "text": "Samarkand in Central Asia and Palmyra in Syria grew rich as stops along these routes.",
-  "dur": 5.75,
-  "transition_in": "fade",
+  "dur": 4.54,
+  "transition_in": "whip",
   "prev": "Cities such as Dunhuang in China,",
   "nxt": "Without their water, the long-distance trade of the ancient world would have looked very different."
  },
  {
-  "uid": "U153",
+  "uid": "U162",
   "scene": 29,
   "title": "The Silk Road",
   "art_theme": "silkroad",
@@ -4978,12 +5275,12 @@
   },
   "text": "Without their water, the long-distance trade of the ancient world would have looked very different.",
   "dur": 7.5,
-  "transition_in": "wash",
+  "transition_in": "push",
   "prev": "Samarkand in Central Asia and Palmyra in Syria grew rich as stops along these routes.",
   "nxt": ""
  },
  {
-  "uid": "U154",
+  "uid": "U163",
   "scene": 30,
   "title": "Moving Dunes",
   "art_theme": "barchan",
@@ -5011,12 +5308,12 @@
   },
   "text": "Life in an oasis is a constant struggle with the desert around it.",
   "dur": 3.73,
-  "transition_in": "zoom",
+  "transition_in": "slide",
   "prev": "",
   "nxt": "Crescent-shaped dunes called barchans can creep forward with the wind,"
  },
  {
-  "uid": "U155",
+  "uid": "U164",
   "scene": 30,
   "title": "Moving Dunes",
   "art_theme": "barchan",
@@ -5044,12 +5341,12 @@
   },
   "text": "Crescent-shaped dunes called barchans can creep forward with the wind,",
   "dur": 4.98,
-  "transition_in": "fade",
+  "transition_in": "tilt",
   "prev": "Life in an oasis is a constant struggle with the desert around it.",
   "nxt": "burying fields, houses and wells. For centuries,"
  },
  {
-  "uid": "U156",
+  "uid": "U165",
   "scene": 30,
   "title": "Moving Dunes",
   "art_theme": "barchan",
@@ -5076,13 +5373,13 @@
    ]
   },
   "text": "burying fields, houses and wells. For centuries,",
-  "dur": 3.3,
-  "transition_in": "wash",
+  "dur": 3.5,
+  "transition_in": "push",
   "prev": "Crescent-shaped dunes called barchans can creep forward with the wind,",
   "nxt": "oasis people have fought back with fences of"
  },
  {
-  "uid": "U157",
+  "uid": "U166",
   "scene": 30,
   "title": "Moving Dunes",
   "art_theme": "barchan",
@@ -5109,13 +5406,13 @@
    ]
   },
   "text": "oasis people have fought back with fences of",
-  "dur": 2.96,
-  "transition_in": "match",
+  "dur": 3.5,
+  "transition_in": "zoom",
   "prev": "burying fields, houses and wells. For centuries,",
   "nxt": "palm fronds and rows of plants that slow the sand."
  },
  {
-  "uid": "U158",
+  "uid": "U167",
   "scene": 30,
   "title": "Moving Dunes",
   "art_theme": "barchan",
@@ -5142,13 +5439,13 @@
    ]
   },
   "text": "palm fronds and rows of plants that slow the sand.",
-  "dur": 3.29,
-  "transition_in": "zoom",
+  "dur": 3.5,
+  "transition_in": "slide",
   "prev": "oasis people have fought back with fences of",
   "nxt": "Keeping an oasis alive takes work every single year."
  },
  {
-  "uid": "U159",
+  "uid": "U168",
   "scene": 30,
   "title": "Moving Dunes",
   "art_theme": "barchan",
@@ -5175,13 +5472,13 @@
    ]
   },
   "text": "Keeping an oasis alive takes work every single year.",
-  "dur": 3.84,
-  "transition_in": "slide",
+  "dur": 3.5,
+  "transition_in": "iris",
   "prev": "palm fronds and rows of plants that slow the sand.",
   "nxt": "When the work stops, sand can bury fields and choke wells surprisingly fast."
  },
  {
-  "uid": "U160",
+  "uid": "U169",
   "scene": 30,
   "title": "Moving Dunes",
   "art_theme": "barchan",
@@ -5208,13 +5505,13 @@
    ]
   },
   "text": "When the work stops, sand can bury fields and choke wells surprisingly fast.",
-  "dur": 6.28,
+  "dur": 5.67,
   "transition_in": "wash",
   "prev": "Keeping an oasis alive takes work every single year.",
   "nxt": ""
  },
  {
-  "uid": "U161",
+  "uid": "U170",
   "scene": 31,
   "title": "The Salt Problem",
   "art_theme": "salt",
@@ -5242,12 +5539,12 @@
   },
   "text": "There is a quieter danger, too. All natural water carries some dissolved salt.",
   "dur": 5.21,
-  "transition_in": "zoom",
+  "transition_in": "wipe",
   "prev": "",
   "nxt": "When irrigation water evaporates under the desert sun,"
  },
  {
-  "uid": "U162",
+  "uid": "U171",
   "scene": 31,
   "title": "The Salt Problem",
   "art_theme": "salt",
@@ -5275,12 +5572,12 @@
   },
   "text": "When irrigation water evaporates under the desert sun,",
   "dur": 3.51,
-  "transition_in": "match",
+  "transition_in": "iris",
   "prev": "There is a quieter danger, too. All natural water carries some dissolved salt.",
   "nxt": "the water leaves but the salt stays behind."
  },
  {
-  "uid": "U163",
+  "uid": "U172",
   "scene": 31,
   "title": "The Salt Problem",
   "art_theme": "salt",
@@ -5307,13 +5604,13 @@
    ]
   },
   "text": "the water leaves but the salt stays behind.",
-  "dur": 2.74,
+  "dur": 3.5,
   "transition_in": "fade",
   "prev": "When irrigation water evaporates under the desert sun,",
   "nxt": "Year after year, salt builds up in the soil until even hardy crops struggle."
  },
  {
-  "uid": "U164",
+  "uid": "U173",
   "scene": 31,
   "title": "The Salt Problem",
   "art_theme": "salt",
@@ -5340,13 +5637,13 @@
    ]
   },
   "text": "Year after year, salt builds up in the soil until even hardy crops struggle.",
-  "dur": 5.34,
-  "transition_in": "slide",
+  "dur": 4.58,
+  "transition_in": "eye",
   "prev": "the water leaves but the salt stays behind.",
   "nxt": "This is called salinization. That is why good drainage, to carry salty water away,"
  },
  {
-  "uid": "U165",
+  "uid": "U174",
   "scene": 31,
   "title": "The Salt Problem",
   "art_theme": "salt",
@@ -5374,12 +5671,12 @@
   },
   "text": "This is called salinization. That is why good drainage, to carry salty water away,",
   "dur": 5.95,
-  "transition_in": "match",
+  "transition_in": "slide",
   "prev": "Year after year, salt builds up in the soil until even hardy crops struggle.",
   "nxt": "matters as much in an oasis as bringing water in."
  },
  {
-  "uid": "U166",
+  "uid": "U175",
   "scene": 31,
   "title": "The Salt Problem",
   "art_theme": "salt",
@@ -5407,12 +5704,12 @@
   },
   "text": "matters as much in an oasis as bringing water in.",
   "dur": 4.1,
-  "transition_in": "fade",
+  "transition_in": "iris",
   "prev": "This is called salinization. That is why good drainage, to carry salty water away,",
   "nxt": ""
  },
  {
-  "uid": "U167",
+  "uid": "U176",
   "scene": 32,
   "title": "The Age of the Pump",
   "art_theme": "pump",
@@ -5445,7 +5742,7 @@
   "nxt": "Deep wells could now lift fossil water far faster than any natural spring."
  },
  {
-  "uid": "U168",
+  "uid": "U177",
   "scene": 32,
   "title": "The Age of the Pump",
   "art_theme": "pump",
@@ -5473,12 +5770,12 @@
   },
   "text": "Deep wells could now lift fossil water far faster than any natural spring.",
   "dur": 5.0,
-  "transition_in": "slide",
+  "transition_in": "whip",
   "prev": "In the twentieth century, powerful pumps changed everything.",
   "nxt": "In Saudi Arabia, from the 1980s,"
  },
  {
-  "uid": "U169",
+  "uid": "U178",
   "scene": 32,
   "title": "The Age of the Pump",
   "art_theme": "pump",
@@ -5505,13 +5802,13 @@
    ]
   },
   "text": "In Saudi Arabia, from the 1980s,",
-  "dur": 2.42,
-  "transition_in": "zoom",
+  "dur": 3.5,
+  "transition_in": "wipe",
   "prev": "Deep wells could now lift fossil water far faster than any natural spring.",
   "nxt": "center-pivot sprinklers turned patches of desert into green circles of wheat,"
  },
  {
-  "uid": "U170",
+  "uid": "U179",
   "scene": 32,
   "title": "The Age of the Pump",
   "art_theme": "pump",
@@ -5538,13 +5835,13 @@
    ]
   },
   "text": "center-pivot sprinklers turned patches of desert into green circles of wheat,",
-  "dur": 5.72,
-  "transition_in": "match",
+  "dur": 4.64,
+  "transition_in": "iris",
   "prev": "In Saudi Arabia, from the 1980s,",
   "nxt": "some about a kilometer across, watered by ancient groundwater."
  },
  {
-  "uid": "U171",
+  "uid": "U180",
   "scene": 32,
   "title": "The Age of the Pump",
   "art_theme": "pump",
@@ -5572,12 +5869,12 @@
   },
   "text": "some about a kilometer across, watered by ancient groundwater.",
   "dur": 4.55,
-  "transition_in": "fade",
+  "transition_in": "slide",
   "prev": "center-pivot sprinklers turned patches of desert into green circles of wheat,",
   "nxt": "Seen from space, the desert filled with green dots."
  },
  {
-  "uid": "U172",
+  "uid": "U181",
   "scene": 32,
   "title": "The Age of the Pump",
   "art_theme": "pump",
@@ -5605,12 +5902,12 @@
   },
   "text": "Seen from space, the desert filled with green dots.",
   "dur": 4.72,
-  "transition_in": "slide",
+  "transition_in": "tilt",
   "prev": "some about a kilometer across, watered by ancient groundwater.",
   "nxt": ""
  },
  {
-  "uid": "U173",
+  "uid": "U182",
   "scene": 33,
   "title": "Running Down the Account",
   "art_theme": "dryspring",
@@ -5638,12 +5935,12 @@
   },
   "text": "But fossil water is like money in a bank account that no longer receives deposits.",
   "dur": 5.37,
-  "transition_in": "wash",
+  "transition_in": "zoom",
   "prev": "",
   "nxt": "Every liter pumped from a non-renewable aquifer is"
  },
  {
-  "uid": "U174",
+  "uid": "U183",
   "scene": 33,
   "title": "Running Down the Account",
   "art_theme": "dryspring",
@@ -5670,13 +5967,13 @@
    ]
   },
   "text": "Every liter pumped from a non-renewable aquifer is",
-  "dur": 3.37,
-  "transition_in": "zoom",
+  "dur": 3.5,
+  "transition_in": "wipe",
   "prev": "But fossil water is like money in a bank account that no longer receives deposits.",
   "nxt": "a liter that will not come back in our lifetimes."
  },
  {
-  "uid": "U175",
+  "uid": "U184",
   "scene": 33,
   "title": "Running Down the Account",
   "art_theme": "dryspring",
@@ -5703,13 +6000,13 @@
    ]
   },
   "text": "a liter that will not come back in our lifetimes.",
-  "dur": 3.24,
-  "transition_in": "match",
+  "dur": 3.5,
+  "transition_in": "slide",
   "prev": "Every liter pumped from a non-renewable aquifer is",
   "nxt": "In parts of North Africa and the Arabian Peninsula,"
  },
  {
-  "uid": "U176",
+  "uid": "U185",
   "scene": 33,
   "title": "Running Down the Account",
   "art_theme": "dryspring",
@@ -5736,13 +6033,13 @@
    ]
   },
   "text": "In parts of North Africa and the Arabian Peninsula,",
-  "dur": 3.41,
-  "transition_in": "fade",
+  "dur": 3.5,
+  "transition_in": "push",
   "prev": "a liter that will not come back in our lifetimes.",
   "nxt": "water levels have dropped as pumping increased,"
  },
  {
-  "uid": "U177",
+  "uid": "U186",
   "scene": 33,
   "title": "Running Down the Account",
   "art_theme": "dryspring",
@@ -5769,13 +6066,13 @@
    ]
   },
   "text": "water levels have dropped as pumping increased,",
-  "dur": 3.15,
-  "transition_in": "zoom",
+  "dur": 3.5,
+  "transition_in": "match",
   "prev": "In parts of North Africa and the Arabian Peninsula,",
   "nxt": "and some traditional springs and qanats have weakened or dried up."
  },
  {
-  "uid": "U178",
+  "uid": "U187",
   "scene": 33,
   "title": "Running Down the Account",
   "art_theme": "dryspring",
@@ -5802,13 +6099,13 @@
    ]
   },
   "text": "and some traditional springs and qanats have weakened or dried up.",
-  "dur": 5.13,
-  "transition_in": "match",
+  "dur": 4.3,
+  "transition_in": "iris",
   "prev": "water levels have dropped as pumping increased,",
   "nxt": ""
  },
  {
-  "uid": "U180",
+  "uid": "U189",
   "scene": 35,
   "title": "Water From the Sea",
   "art_theme": "desal",
@@ -5835,13 +6132,13 @@
    ]
   },
   "text": "Some desert countries now turn to the sea.",
-  "dur": 2.62,
+  "dur": 3.5,
   "transition_in": "hard",
   "prev": "",
   "nxt": "In Saudi Arabia, the United Arab Emirates and elsewhere around the Gulf,"
  },
  {
-  "uid": "U181",
+  "uid": "U190",
   "scene": 35,
   "title": "Water From the Sea",
   "art_theme": "desal",
@@ -5868,13 +6165,13 @@
    ]
   },
   "text": "In Saudi Arabia, the United Arab Emirates and elsewhere around the Gulf,",
-  "dur": 5.04,
-  "transition_in": "match",
+  "dur": 4.16,
+  "transition_in": "wipe",
   "prev": "Some desert countries now turn to the sea.",
   "nxt": "large plants remove salt from seawater,"
  },
  {
-  "uid": "U182",
+  "uid": "U191",
   "scene": 35,
   "title": "Water From the Sea",
   "art_theme": "desal",
@@ -5901,13 +6198,13 @@
    ]
   },
   "text": "large plants remove salt from seawater,",
-  "dur": 2.76,
+  "dur": 3.5,
   "transition_in": "zoom",
   "prev": "In Saudi Arabia, the United Arab Emirates and elsewhere around the Gulf,",
   "nxt": "increasingly using a method called reverse osmosis,"
  },
  {
-  "uid": "U183",
+  "uid": "U192",
   "scene": 35,
   "title": "Water From the Sea",
   "art_theme": "desal",
@@ -5934,13 +6231,13 @@
    ]
   },
   "text": "increasingly using a method called reverse osmosis,",
-  "dur": 3.59,
-  "transition_in": "slide",
+  "dur": 3.5,
+  "transition_in": "whip",
   "prev": "large plants remove salt from seawater,",
   "nxt": "which pushes water through very fine membranes."
  },
  {
-  "uid": "U184",
+  "uid": "U193",
   "scene": 35,
   "title": "Water From the Sea",
   "art_theme": "desal",
@@ -5967,13 +6264,13 @@
    ]
   },
   "text": "which pushes water through very fine membranes.",
-  "dur": 3.25,
+  "dur": 3.5,
   "transition_in": "wash",
   "prev": "increasingly using a method called reverse osmosis,",
   "nxt": "Desalination takes a lot of energy, and it leaves behind very salty brine."
  },
  {
-  "uid": "U185",
+  "uid": "U194",
   "scene": 35,
   "title": "Water From the Sea",
   "art_theme": "desal",
@@ -6000,13 +6297,13 @@
    ]
   },
   "text": "Desalination takes a lot of energy, and it leaves behind very salty brine.",
-  "dur": 5.56,
-  "transition_in": "fade",
+  "dur": 4.67,
+  "transition_in": "match",
   "prev": "which pushes water through very fine membranes.",
   "nxt": "But for many coastal desert cities, it has become a main source of drinking water."
  },
  {
-  "uid": "U186",
+  "uid": "U195",
   "scene": 35,
   "title": "Water From the Sea",
   "art_theme": "desal",
@@ -6034,12 +6331,12 @@
   },
   "text": "But for many coastal desert cities, it has become a main source of drinking water.",
   "dur": 5.96,
-  "transition_in": "zoom",
+  "transition_in": "tilt",
   "prev": "Desalination takes a lot of energy, and it leaves behind very salty brine.",
   "nxt": ""
  },
  {
-  "uid": "U187",
+  "uid": "U196",
   "scene": 36,
   "title": "Catching Fog",
   "art_theme": "fog",
@@ -6067,12 +6364,12 @@
   },
   "text": "In Chile's Atacama Desert, one of the driest places on Earth, rain almost never falls.",
   "dur": 6.1,
-  "transition_in": "wash",
+  "transition_in": "slide",
   "prev": "",
   "nxt": "But along the coast, thick fog drifts in from the Pacific."
  },
  {
-  "uid": "U188",
+  "uid": "U197",
   "scene": 36,
   "title": "Catching Fog",
   "art_theme": "fog",
@@ -6100,12 +6397,12 @@
   },
   "text": "But along the coast, thick fog drifts in from the Pacific.",
   "dur": 3.83,
-  "transition_in": "match",
+  "transition_in": "push",
   "prev": "In Chile's Atacama Desert, one of the driest places on Earth, rain almost never falls.",
   "nxt": "Some communities hang large mesh nets on hillsides."
  },
  {
-  "uid": "U189",
+  "uid": "U198",
   "scene": 36,
   "title": "Catching Fog",
   "art_theme": "fog",
@@ -6133,12 +6430,12 @@
   },
   "text": "Some communities hang large mesh nets on hillsides.",
   "dur": 3.87,
-  "transition_in": "slide",
+  "transition_in": "fade",
   "prev": "But along the coast, thick fog drifts in from the Pacific.",
   "nxt": "Tiny fog droplets collect on the mesh,"
  },
  {
-  "uid": "U190",
+  "uid": "U199",
   "scene": 36,
   "title": "Catching Fog",
   "art_theme": "fog",
@@ -6165,13 +6462,13 @@
    ]
   },
   "text": "Tiny fog droplets collect on the mesh,",
-  "dur": 2.69,
-  "transition_in": "zoom",
+  "dur": 3.5,
+  "transition_in": "match",
   "prev": "Some communities hang large mesh nets on hillsides.",
   "nxt": "merge into drops, and trickle into gutters and pipes."
  },
  {
-  "uid": "U191",
+  "uid": "U200",
   "scene": 36,
   "title": "Catching Fog",
   "art_theme": "fog",
@@ -6198,13 +6495,13 @@
    ]
   },
   "text": "merge into drops, and trickle into gutters and pipes.",
-  "dur": 3.66,
-  "transition_in": "wash",
+  "dur": 3.5,
+  "transition_in": "push",
   "prev": "Tiny fog droplets collect on the mesh,",
   "nxt": "It is a small source of water, but it comes straight out of the air."
  },
  {
-  "uid": "U192",
+  "uid": "U201",
   "scene": 36,
   "title": "Catching Fog",
   "art_theme": "fog",
@@ -6231,13 +6528,13 @@
    ]
   },
   "text": "It is a small source of water, but it comes straight out of the air.",
-  "dur": 4.59,
-  "transition_in": "fade",
+  "dur": 3.94,
+  "transition_in": "tilt",
   "prev": "merge into drops, and trickle into gutters and pipes.",
   "nxt": ""
  },
  {
-  "uid": "U193",
+  "uid": "U202",
   "scene": 37,
   "title": "Greening Small Patches",
   "art_theme": "swales",
@@ -6264,13 +6561,13 @@
    ]
   },
   "text": "Other projects work with the land itself.",
-  "dur": 2.48,
-  "transition_in": "zoom",
+  "dur": 3.5,
+  "transition_in": "eye",
   "prev": "",
   "nxt": "Farmers and designers dig shallow ditches along the contour of a slope,"
  },
  {
-  "uid": "U194",
+  "uid": "U203",
   "scene": 37,
   "title": "Greening Small Patches",
   "art_theme": "swales",
@@ -6297,13 +6594,13 @@
    ]
   },
   "text": "Farmers and designers dig shallow ditches along the contour of a slope,",
-  "dur": 4.76,
+  "dur": 3.74,
   "transition_in": "wash",
   "prev": "Other projects work with the land itself.",
   "nxt": "called swales, to catch the rare rain before it runs off."
  },
  {
-  "uid": "U195",
+  "uid": "U204",
   "scene": 37,
   "title": "Greening Small Patches",
   "art_theme": "swales",
@@ -6331,12 +6628,12 @@
   },
   "text": "called swales, to catch the rare rain before it runs off.",
   "dur": 3.77,
-  "transition_in": "slide",
+  "transition_in": "iris",
   "prev": "Farmers and designers dig shallow ditches along the contour of a slope,",
   "nxt": "They cover the soil with mulch to keep it cool and moist, and plant hardy trees."
  },
  {
-  "uid": "U196",
+  "uid": "U205",
   "scene": 37,
   "title": "Greening Small Patches",
   "art_theme": "swales",
@@ -6364,12 +6661,12 @@
   },
   "text": "They cover the soil with mulch to keep it cool and moist, and plant hardy trees.",
   "dur": 5.53,
-  "transition_in": "match",
+  "transition_in": "fade",
   "prev": "called swales, to catch the rare rain before it runs off.",
   "nxt": "In places like Jordan, small demonstration sites have shown that patches of dry land can be made greener this way,"
  },
  {
-  "uid": "U197",
+  "uid": "U206",
   "scene": 37,
   "title": "Greening Small Patches",
   "art_theme": "swales",
@@ -6396,13 +6693,13 @@
    ]
   },
   "text": "In places like Jordan, small demonstration sites have shown that patches of dry land can be made greener this way,",
-  "dur": 7.39,
-  "transition_in": "fade",
+  "dur": 6.62,
+  "transition_in": "tilt",
   "prev": "They cover the soil with mulch to keep it cool and moist, and plant hardy trees.",
   "nxt": "though it takes years of care."
  },
  {
-  "uid": "U198",
+  "uid": "U207",
   "scene": 37,
   "title": "Greening Small Patches",
   "art_theme": "swales",
@@ -6429,13 +6726,13 @@
    ]
   },
   "text": "though it takes years of care.",
-  "dur": 2.73,
-  "transition_in": "slide",
+  "dur": 3.5,
+  "transition_in": "zoom",
   "prev": "In places like Jordan, small demonstration sites have shown that patches of dry land can be made greener this way,",
   "nxt": ""
  },
  {
-  "uid": "U199",
+  "uid": "U208",
   "scene": 38,
   "title": "Islands of Evolution",
   "art_theme": "pools",
@@ -6462,13 +6759,13 @@
    ]
   },
   "text": "Oases are also laboratories of evolution.",
-  "dur": 2.78,
-  "transition_in": "zoom",
+  "dur": 3.5,
+  "transition_in": "push",
   "prev": "",
   "nxt": "Just as remote islands produce species found nowhere else, so do isolated springs."
  },
  {
-  "uid": "U200",
+  "uid": "U209",
   "scene": 38,
   "title": "Islands of Evolution",
   "art_theme": "pools",
@@ -6495,13 +6792,13 @@
    ]
   },
   "text": "Just as remote islands produce species found nowhere else, so do isolated springs.",
-  "dur": 5.95,
-  "transition_in": "wash",
+  "dur": 5.23,
+  "transition_in": "tilt",
   "prev": "Oases are also laboratories of evolution.",
   "nxt": "In Mexico's Chihuahuan Desert,"
  },
  {
-  "uid": "U201",
+  "uid": "U210",
   "scene": 38,
   "title": "Islands of Evolution",
   "art_theme": "pools",
@@ -6528,13 +6825,13 @@
    ]
   },
   "text": "In Mexico's Chihuahuan Desert,",
-  "dur": 2.11,
-  "transition_in": "match",
+  "dur": 3.5,
+  "transition_in": "slide",
   "prev": "Just as remote islands produce species found nowhere else, so do isolated springs.",
   "nxt": "the Cuatro Ciénegas basin holds hundreds of spring-fed pools."
  },
  {
-  "uid": "U202",
+  "uid": "U211",
   "scene": 38,
   "title": "Islands of Evolution",
   "art_theme": "pools",
@@ -6561,13 +6858,13 @@
    ]
   },
   "text": "the Cuatro Ciénegas basin holds hundreds of spring-fed pools.",
-  "dur": 4.15,
-  "transition_in": "zoom",
+  "dur": 3.5,
+  "transition_in": "wipe",
   "prev": "In Mexico's Chihuahuan Desert,",
   "nxt": "More than one hundred fifty species of plants and animals there are found nowhere else,"
  },
  {
-  "uid": "U203",
+  "uid": "U212",
   "scene": 38,
   "title": "Islands of Evolution",
   "art_theme": "pools",
@@ -6594,13 +6891,13 @@
    ]
   },
   "text": "More than one hundred fifty species of plants and animals there are found nowhere else,",
-  "dur": 5.22,
-  "transition_in": "wash",
+  "dur": 4.48,
+  "transition_in": "tilt",
   "prev": "the Cuatro Ciénegas basin holds hundreds of spring-fed pools.",
   "nxt": "including fish, snails and the only box turtle that lives in water."
  },
  {
-  "uid": "U204",
+  "uid": "U213",
   "scene": 38,
   "title": "Islands of Evolution",
   "art_theme": "pools",
@@ -6633,7 +6930,7 @@
   "nxt": "Some pools even contain stromatolites, layered mats built by microbes."
  },
  {
-  "uid": "U205",
+  "uid": "U214",
   "scene": 38,
   "title": "Islands of Evolution",
   "art_theme": "pools",
@@ -6661,12 +6958,12 @@
   },
   "text": "Some pools even contain stromatolites, layered mats built by microbes.",
   "dur": 6.18,
-  "transition_in": "zoom",
+  "transition_in": "push",
   "prev": "including fish, snails and the only box turtle that lives in water.",
   "nxt": ""
  },
  {
-  "uid": "U206",
+  "uid": "U215",
   "scene": 39,
   "title": "A Stop for Wildlife",
   "art_theme": "wildlife",
@@ -6694,12 +6991,12 @@
   },
   "text": "For wildlife, an oasis can mean the difference between life and death.",
   "dur": 4.48,
-  "transition_in": "slide",
+  "transition_in": "zoom",
   "prev": "",
   "nxt": "Gazelles, foxes and many other animals depend on scattered sources of water in the desert."
  },
  {
-  "uid": "U207",
+  "uid": "U216",
   "scene": 39,
   "title": "A Stop for Wildlife",
   "art_theme": "wildlife",
@@ -6732,7 +7029,7 @@
   "nxt": "Huge numbers of migrating birds cross the Sahara twice a year,"
  },
  {
-  "uid": "U208",
+  "uid": "U217",
   "scene": 39,
   "title": "A Stop for Wildlife",
   "art_theme": "wildlife",
@@ -6760,12 +7057,12 @@
   },
   "text": "Huge numbers of migrating birds cross the Sahara twice a year,",
   "dur": 4.61,
-  "transition_in": "fade",
+  "transition_in": "tilt",
   "prev": "Gazelles, foxes and many other animals depend on scattered sources of water in the desert.",
   "nxt": "and oases offer them food, shade and water along the way."
  },
  {
-  "uid": "U209",
+  "uid": "U218",
   "scene": 39,
   "title": "A Stop for Wildlife",
   "art_theme": "wildlife",
@@ -6793,12 +7090,12 @@
   },
   "text": "and oases offer them food, shade and water along the way.",
   "dur": 4.17,
-  "transition_in": "wash",
+  "transition_in": "slide",
   "prev": "Huge numbers of migrating birds cross the Sahara twice a year,",
   "nxt": "Lose those green dots on the map, and the journey becomes far harder."
  },
  {
-  "uid": "U210",
+  "uid": "U219",
   "scene": 39,
   "title": "A Stop for Wildlife",
   "art_theme": "wildlife",
@@ -6826,12 +7123,12 @@
   },
   "text": "Lose those green dots on the map, and the journey becomes far harder.",
   "dur": 5.57,
-  "transition_in": "match",
+  "transition_in": "whip",
   "prev": "and oases offer them food, shade and water along the way.",
   "nxt": ""
  },
  {
-  "uid": "U212",
+  "uid": "U221",
   "scene": 41,
   "title": "When the Ground Sinks",
   "art_theme": "subsidence",
@@ -6858,13 +7155,13 @@
    ]
   },
   "text": "Pumping too much water has another cost.",
-  "dur": 2.65,
+  "dur": 3.5,
   "transition_in": "hard",
   "prev": "",
   "nxt": "In some aquifers, especially those with layers of clay, the water helps hold the ground up."
  },
  {
-  "uid": "U213",
+  "uid": "U222",
   "scene": 41,
   "title": "When the Ground Sinks",
   "art_theme": "subsidence",
@@ -6891,13 +7188,13 @@
    ]
   },
   "text": "In some aquifers, especially those with layers of clay, the water helps hold the ground up.",
-  "dur": 5.94,
-  "transition_in": "wash",
+  "dur": 5.09,
+  "transition_in": "wipe",
   "prev": "Pumping too much water has another cost.",
   "nxt": "When it is pumped out, those layers can compact, and the land surface slowly sinks."
  },
  {
-  "uid": "U214",
+  "uid": "U223",
   "scene": 41,
   "title": "When the Ground Sinks",
   "art_theme": "subsidence",
@@ -6925,12 +7222,12 @@
   },
   "text": "When it is pumped out, those layers can compact, and the land surface slowly sinks.",
   "dur": 5.43,
-  "transition_in": "slide",
+  "transition_in": "push",
   "prev": "In some aquifers, especially those with layers of clay, the water helps hold the ground up.",
   "nxt": "This is called land subsidence. Part of that compaction is permanent: even if water returns,"
  },
  {
-  "uid": "U215",
+  "uid": "U224",
   "scene": 41,
   "title": "When the Ground Sinks",
   "art_theme": "subsidence",
@@ -6958,12 +7255,12 @@
   },
   "text": "This is called land subsidence. Part of that compaction is permanent: even if water returns,",
   "dur": 6.04,
-  "transition_in": "fade",
+  "transition_in": "whip",
   "prev": "When it is pumped out, those layers can compact, and the land surface slowly sinks.",
   "nxt": "the squeezed clay may never store as much again."
  },
  {
-  "uid": "U216",
+  "uid": "U225",
   "scene": 41,
   "title": "When the Ground Sinks",
   "art_theme": "subsidence",
@@ -6991,12 +7288,12 @@
   },
   "text": "the squeezed clay may never store as much again.",
   "dur": 3.93,
-  "transition_in": "zoom",
+  "transition_in": "slide",
   "prev": "This is called land subsidence. Part of that compaction is permanent: even if water returns,",
   "nxt": ""
  },
  {
-  "uid": "U217",
+  "uid": "U226",
   "scene": 42,
   "title": "Sharing Every Drop",
   "art_theme": "sharing",
@@ -7024,12 +7321,12 @@
   },
   "text": "Traditional oasis communities understood scarcity well.",
   "dur": 3.56,
-  "transition_in": "slide",
+  "transition_in": "eye",
   "prev": "",
   "nxt": "Water was usually shared by strict rules, often by time."
  },
  {
-  "uid": "U218",
+  "uid": "U227",
   "scene": 42,
   "title": "Sharing Every Drop",
   "art_theme": "sharing",
@@ -7057,12 +7354,12 @@
   },
   "text": "Water was usually shared by strict rules, often by time.",
   "dur": 4.27,
-  "transition_in": "wash",
+  "transition_in": "iris",
   "prev": "Traditional oasis communities understood scarcity well.",
   "nxt": "In some North African oases, each family's share was measured by simple water clocks."
  },
  {
-  "uid": "U219",
+  "uid": "U228",
   "scene": 42,
   "title": "Sharing Every Drop",
   "art_theme": "sharing",
@@ -7090,12 +7387,12 @@
   },
   "text": "In some North African oases, each family's share was measured by simple water clocks.",
   "dur": 6.16,
-  "transition_in": "fade",
+  "transition_in": "whip",
   "prev": "Water was usually shared by strict rules, often by time.",
   "nxt": "In thirteenth-century Tozeur, in what is now Tunisia,"
  },
  {
-  "uid": "U220",
+  "uid": "U229",
   "scene": 42,
   "title": "Sharing Every Drop",
   "art_theme": "sharing",
@@ -7123,12 +7420,12 @@
   },
   "text": "In thirteenth-century Tozeur, in what is now Tunisia,",
   "dur": 3.71,
-  "transition_in": "zoom",
+  "transition_in": "wipe",
   "prev": "In some North African oases, each family's share was measured by simple water clocks.",
   "nxt": "the scholar Ibn Chabbat is credited with writing"
  },
  {
-  "uid": "U221",
+  "uid": "U230",
   "scene": 42,
   "title": "Sharing Every Drop",
   "art_theme": "sharing",
@@ -7155,13 +7452,13 @@
    ]
   },
   "text": "the scholar Ibn Chabbat is credited with writing",
-  "dur": 3.37,
-  "transition_in": "wash",
+  "dur": 3.5,
+  "transition_in": "iris",
   "prev": "In thirteenth-century Tozeur, in what is now Tunisia,",
   "nxt": "detailed rules for sharing the oasis water."
  },
  {
-  "uid": "U222",
+  "uid": "U231",
   "scene": 42,
   "title": "Sharing Every Drop",
   "art_theme": "sharing",
@@ -7188,13 +7485,13 @@
    ]
   },
   "text": "detailed rules for sharing the oasis water.",
-  "dur": 2.96,
-  "transition_in": "match",
+  "dur": 3.5,
+  "transition_in": "wash",
   "prev": "the scholar Ibn Chabbat is credited with writing",
   "nxt": "In the desert, fairness was a matter of survival."
  },
  {
-  "uid": "U223",
+  "uid": "U232",
   "scene": 42,
   "title": "Sharing Every Drop",
   "art_theme": "sharing",
@@ -7221,13 +7518,13 @@
    ]
   },
   "text": "In the desert, fairness was a matter of survival.",
-  "dur": 4.36,
-  "transition_in": "slide",
+  "dur": 3.69,
+  "transition_in": "whip",
   "prev": "detailed rules for sharing the oasis water.",
   "nxt": ""
  },
  {
-  "uid": "U224",
+  "uid": "U233",
   "scene": 43,
   "title": "A Warming World",
   "art_theme": "climate",
@@ -7254,13 +7551,13 @@
    ]
   },
   "text": "Today, oases face new pressure.",
-  "dur": 2.46,
+  "dur": 4.15,
   "transition_in": "zoom",
   "prev": "",
   "nxt": "Hotter summers mean more evaporation from pools, soils and leaves."
  },
  {
-  "uid": "U225",
+  "uid": "U234",
   "scene": 43,
   "title": "A Warming World",
   "art_theme": "climate",
@@ -7287,13 +7584,13 @@
    ]
   },
   "text": "Hotter summers mean more evaporation from pools, soils and leaves.",
-  "dur": 4.87,
-  "transition_in": "wash",
+  "dur": 4.15,
+  "transition_in": "eye",
   "prev": "Today, oases face new pressure.",
   "nxt": "Growing towns and farms pump more groundwater."
  },
  {
-  "uid": "U226",
+  "uid": "U235",
   "scene": 43,
   "title": "A Warming World",
   "art_theme": "climate",
@@ -7320,13 +7617,13 @@
    ]
   },
   "text": "Growing towns and farms pump more groundwater.",
-  "dur": 3.28,
-  "transition_in": "slide",
+  "dur": 4.15,
+  "transition_in": "match",
   "prev": "Hotter summers mean more evaporation from pools, soils and leaves.",
   "nxt": "In some regions, the surrounding land is becoming drier and more degraded."
  },
  {
-  "uid": "U227",
+  "uid": "U236",
   "scene": 43,
   "title": "A Warming World",
   "art_theme": "climate",
@@ -7353,13 +7650,13 @@
    ]
   },
   "text": "In some regions, the surrounding land is becoming drier and more degraded.",
-  "dur": 4.97,
-  "transition_in": "fade",
+  "dur": 4.15,
+  "transition_in": "iris",
   "prev": "Growing towns and farms pump more groundwater.",
   "nxt": "Scientists watch oases closely, because they show early how fragile life"
  },
  {
-  "uid": "U228",
+  "uid": "U237",
   "scene": 43,
   "title": "A Warming World",
   "art_theme": "climate",
@@ -7386,13 +7683,13 @@
    ]
   },
   "text": "Scientists watch oases closely, because they show early how fragile life",
-  "dur": 5.36,
-  "transition_in": "match",
+  "dur": 4.15,
+  "transition_in": "zoom",
   "prev": "In some regions, the surrounding land is becoming drier and more degraded.",
   "nxt": "in dry places can be when water runs short."
  },
  {
-  "uid": "U229",
+  "uid": "U238",
   "scene": 43,
   "title": "A Warming World",
   "art_theme": "climate",
@@ -7419,13 +7716,13 @@
    ]
   },
   "text": "in dry places can be when water runs short.",
-  "dur": 3.96,
-  "transition_in": "zoom",
+  "dur": 4.15,
+  "transition_in": "slide",
   "prev": "Scientists watch oases closely, because they show early how fragile life",
   "nxt": ""
  },
  {
-  "uid": "U230",
+  "uid": "U239",
   "scene": 44,
   "title": "Not One Accident",
   "art_theme": "summary",
@@ -7453,12 +7750,12 @@
   },
   "text": "So how is an oasis made? Not by a single lucky accident.",
   "dur": 4.16,
-  "transition_in": "fade",
+  "transition_in": "eye",
   "prev": "",
   "nxt": "It can be rain that fell on distant mountains, or in a green Sahara thousands of years ago."
  },
  {
-  "uid": "U231",
+  "uid": "U240",
   "scene": 44,
   "title": "Not One Accident",
   "art_theme": "summary",
@@ -7486,12 +7783,12 @@
   },
   "text": "It can be rain that fell on distant mountains, or in a green Sahara thousands of years ago.",
   "dur": 5.59,
-  "transition_in": "slide",
+  "transition_in": "wash",
   "prev": "So how is an oasis made? Not by a single lucky accident.",
   "nxt": "It can be stored in sandstone and held under pressure by clay."
  },
  {
-  "uid": "U232",
+  "uid": "U241",
   "scene": 44,
   "title": "Not One Accident",
   "art_theme": "summary",
@@ -7519,12 +7816,12 @@
   },
   "text": "It can be stored in sandstone and held under pressure by clay.",
   "dur": 4.01,
-  "transition_in": "zoom",
+  "transition_in": "tilt",
   "prev": "It can be rain that fell on distant mountains, or in a green Sahara thousands of years ago.",
   "nxt": "It can rise through a fault, appear where wind has dug down to the water table,"
  },
  {
-  "uid": "U233",
+  "uid": "U242",
   "scene": 44,
   "title": "Not One Accident",
   "art_theme": "summary",
@@ -7552,12 +7849,12 @@
   },
   "text": "It can rise through a fault, appear where wind has dug down to the water table,",
   "dur": 5.39,
-  "transition_in": "fade",
+  "transition_in": "iris",
   "prev": "It can be stored in sandstone and held under pressure by clay.",
   "nxt": "or hide under the gravel of a wadi."
  },
  {
-  "uid": "U234",
+  "uid": "U243",
   "scene": 44,
   "title": "Not One Accident",
   "art_theme": "summary",
@@ -7584,13 +7881,13 @@
    ]
   },
   "text": "or hide under the gravel of a wadi.",
-  "dur": 2.36,
-  "transition_in": "slide",
+  "dur": 3.5,
+  "transition_in": "fade",
   "prev": "It can rise through a fault, appear where wind has dug down to the water table,",
   "nxt": "Many slow processes, working together, bring water to the surface."
  },
  {
-  "uid": "U235",
+  "uid": "U244",
   "scene": 44,
   "title": "Not One Accident",
   "art_theme": "summary",
@@ -7617,13 +7914,13 @@
    ]
   },
   "text": "Many slow processes, working together, bring water to the surface.",
-  "dur": 5.52,
-  "transition_in": "zoom",
+  "dur": 4.38,
+  "transition_in": "match",
   "prev": "or hide under the gravel of a wadi.",
   "nxt": ""
  },
  {
-  "uid": "U236",
+  "uid": "U245",
   "scene": 45,
   "title": "The Next Time",
   "art_theme": "ending",
@@ -7651,12 +7948,12 @@
   },
   "text": "The next time you see a picture of palm trees around a blue pool in the desert,",
   "dur": 4.68,
-  "transition_in": "wash",
+  "transition_in": "eye",
   "prev": "",
   "nxt": "remember what lies beneath it. Water that may have traveled for centuries underground."
  },
  {
-  "uid": "U237",
+  "uid": "U246",
   "scene": 45,
   "title": "The Next Time",
   "art_theme": "ending",
@@ -7684,12 +7981,12 @@
   },
   "text": "remember what lies beneath it. Water that may have traveled for centuries underground.",
   "dur": 5.11,
-  "transition_in": "match",
+  "transition_in": "zoom",
   "prev": "The next time you see a picture of palm trees around a blue pool in the desert,",
   "nxt": "Water that may have fallen as rain in a very different climate. If you enjoyed this journey,"
  },
  {
-  "uid": "U238",
+  "uid": "U247",
   "scene": 45,
   "title": "The Next Time",
   "art_theme": "ending",
@@ -7717,12 +8014,12 @@
   },
   "text": "Water that may have fallen as rain in a very different climate. If you enjoyed this journey,",
   "dur": 5.66,
-  "transition_in": "slide",
+  "transition_in": "push",
   "prev": "remember what lies beneath it. Water that may have traveled for centuries underground.",
   "nxt": "subscribing to Miya's Lab helps us bring you the next hidden story of our planet."
  },
  {
-  "uid": "U239",
+  "uid": "U248",
   "scene": 45,
   "title": "The Next Time",
   "art_theme": "ending",
@@ -7750,12 +8047,12 @@
   },
   "text": "subscribing to Miya's Lab helps us bring you the next hidden story of our planet.",
   "dur": 5.19,
-  "transition_in": "zoom",
+  "transition_in": "iris",
   "prev": "Water that may have fallen as rain in a very different climate. If you enjoyed this journey,",
   "nxt": "And tell us in the comments: which oasis would you most like to visit?"
  },
  {
-  "uid": "U240",
+  "uid": "U249",
   "scene": 45,
   "title": "The Next Time",
   "art_theme": "ending",
@@ -7783,7 +8080,7 @@
   },
   "text": "And tell us in the comments: which oasis would you most like to visit?",
   "dur": 6.77,
-  "transition_in": "fade",
+  "transition_in": "match",
   "prev": "subscribing to Miya's Lab helps us bring you the next hidden story of our planet.",
   "nxt": ""
  }

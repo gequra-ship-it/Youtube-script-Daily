@@ -1,23 +1,29 @@
 {
- "centre": "glowing round window into the water-filled aquifer layer",
+ "centre": "a single sand grain surrounded by pore space",
  "focus": [
   960,
-  520,
-  1.6
+  500,
+  1.9
  ],
- "focus_word": "aquifer",
- "sfx": [],
+ "focus_word": "tiny spaces",
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "grains",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Aquifer",
-   "x": 1240,
-   "y": 520,
+   "text": "Sandstone",
+   "x": 1290,
+   "y": 330,
    "to": [
-    1062,
-    520
+    1060,
+    470
    ],
-   "word": "aquifer"
+   "word": "sandstone"
   }
  ]
 }

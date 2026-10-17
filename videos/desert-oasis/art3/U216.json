@@ -1,29 +1,36 @@
 {
- "centre": "flattened clay disk squeezed thin, almost no pores left",
- "focus": [
-  960,
-  510,
-  1.7
- ],
- "focus_word": "squeezed clay",
+ "centre": "round oasis pool (same as previous)",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "drip",
-   "word": "never store",
-   "vol": 0.55
+   "name": "step",
+   "word": "Gazelles",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "No room...",
-   "x": 1300,
-   "y": 640,
+   "type": "name",
+   "text": "Gazelles",
+   "x": 520,
+   "y": 440,
    "to": [
-    1172,
-    560
+    720,
+    540
    ],
-   "word": "never store"
+   "word": "Gazelles"
+  },
+  {
+   "type": "name",
+   "text": "Foxes",
+   "x": 1420,
+   "y": 470,
+   "to": [
+    1225,
+    590
+   ],
+   "word": "foxes"
   }
  ]
 }

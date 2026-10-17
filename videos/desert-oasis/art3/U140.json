@@ -1,23 +1,36 @@
 {
- "centre": "round stone tunnel mouth with cool water glowing inside",
- "focus": [
-  960,
-  520,
-  1.6
+ "centre": "round stone-rimmed spring pool bubbling, feeding canals",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "natural springs",
+   "vol": 0.5
+  }
  ],
- "focus_word": "tunnel",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Tunnel",
-   "x": 1240,
-   "y": 400,
+   "text": "Spring",
+   "x": 1180,
+   "y": 360,
    "to": [
-    1072,
-    460
+    1050,
+    440
    ],
-   "word": "tunnel"
+   "word": "springs"
+  },
+  {
+   "type": "name",
+   "text": "Canals",
+   "x": 1560,
+   "y": 760,
+   "to": [
+    1500,
+    672
+   ],
+   "word": "canals"
   }
  ]
 }

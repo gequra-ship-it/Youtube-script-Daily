@@ -1,41 +1,40 @@
 {
- "centre": "low sun over a salty lake",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "glowing oasis marker for Siwa on a desert map",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "Siwa",
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "Western Desert",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Date palms",
-   "x": 560,
-   "y": 250,
+   "text": "Siwa",
+   "x": 960,
+   "y": 360,
    "to": [
-    430,
-    300
+    960,
+    405
    ],
-   "word": "date palms"
+   "word": "Siwa"
   },
   {
    "type": "name",
-   "text": "Olive trees",
-   "x": 1560,
-   "y": 340,
+   "text": "Libyan border",
+   "x": 600,
+   "y": 470,
    "to": [
-    1570,
-    440
+    760,
+    470
    ],
-   "word": "olive trees"
-  },
-  {
-   "type": "name",
-   "text": "Salty lakes",
-   "x": 1240,
-   "y": 800,
-   "to": [
-    1150,
-    700
-   ],
-   "word": "salty lakes"
+   "word": "Libyan border"
   }
  ]
 }

@@ -1,24 +1,25 @@
 {
- "centre": "low glowing desert sun at dusk",
+ "centre": "round monsoon rain cloud",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "Wind can do it too",
+   "name": "rain",
+   "word": "summer rain",
    "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "Windy today!",
-   "x": 1500,
-   "y": 380,
+   "type": "name",
+   "text": "Monsoon",
+   "x": 1290,
+   "y": 330,
    "to": [
-    1318,
-    540
-   ]
+    1070,
+    440
+   ],
+   "word": "monsoon"
   }
  ]
 }

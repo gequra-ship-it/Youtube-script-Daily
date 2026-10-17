@@ -1,40 +1,16 @@
 {
- "centre": "glowing oasis marker for Siwa on a desert map",
+ "centre": "pressure gauge on the pipe, needle high",
  "focus": [
   960,
-  500,
+  520,
   1.6
  ],
- "focus_word": "Siwa",
+ "focus_word": "under pressure",
  "sfx": [
   {
-   "name": "wind",
-   "word": "Western Desert",
-   "vol": 0.5
-  }
- ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Siwa",
-   "x": 960,
-   "y": 360,
-   "to": [
-    960,
-    405
-   ],
-   "word": "Siwa"
-  },
-  {
-   "type": "name",
-   "text": "Libyan border",
-   "x": 600,
-   "y": 470,
-   "to": [
-    760,
-    470
-   ],
-   "word": "Libyan border"
+   "name": "drip",
+   "word": "pushes down",
+   "vol": 0.55
   }
  ]
 }

@@ -2,9 +2,9 @@
  {
   "uid": "U001",
   "scene": 1,
-  "title": "Palms on a Fault",
+  "title": "Hook",
   "art_theme": "hook",
-  "bg": "dusk",
+  "bg": "night",
   "pal": {
    "palette": "desert",
    "paper_base": "#ebe0c8",
@@ -26,18 +26,18 @@
     "#5f7a6a"
    ]
   },
-  "text": "In California's desert,",
-  "dur": 2.06,
+  "text": "Can the wind dig a hole deep enough to find water? In parts of the desert, it did.",
+  "dur": 6.02,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "a line of palm trees grows right on top of the San Andreas Fault. That is not a coincidence."
+  "nxt": "And that is only one of the ways water finds its way up through dry ground."
  },
  {
   "uid": "U002",
   "scene": 1,
-  "title": "Palms on a Fault",
+  "title": "Hook",
   "art_theme": "hook",
-  "bg": "dusk",
+  "bg": "night",
   "pal": {
    "palette": "desert",
    "paper_base": "#ebe0c8",
@@ -59,18 +59,480 @@
     "#5f7a6a"
    ]
   },
-  "text": "a line of palm trees grows right on top of the San Andreas Fault. That is not a coincidence.",
-  "dur": 7.21,
-  "transition_in": "fade",
-  "prev": "In California's desert,",
+  "text": "And that is only one of the ways water finds its way up through dry ground.",
+  "dur": 5.36,
+  "transition_in": "eye",
+  "prev": "Can the wind dig a hole deep enough to find water? In parts of the desert, it did.",
   "nxt": ""
  },
  {
   "uid": "U003",
   "scene": 2,
-  "title": "A Broken Crust",
-  "art_theme": "fault",
+  "title": "Pressure",
+  "art_theme": "pressure",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "One way is pressure. In an artesian aquifer, the weight of the water upslope does the pushing.",
+  "dur": 6.0,
+  "transition_in": "tilt",
+  "prev": "",
+  "nxt": "If a crack or a fault breaks through the rock above it,"
+ },
+ {
+  "uid": "U004",
+  "scene": 2,
+  "title": "Pressure",
+  "art_theme": "pressure",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "If a crack or a fault breaks through the rock above it,",
+  "dur": 3.75,
+  "transition_in": "push",
+  "prev": "One way is pressure. In an artesian aquifer, the weight of the water upslope does the pushing.",
+  "nxt": "water can rise to the surface on its own, with no pump at all."
+ },
+ {
+  "uid": "U005",
+  "scene": 2,
+  "title": "Pressure",
+  "art_theme": "pressure",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "water can rise to the surface on its own, with no pump at all.",
+  "dur": 4.65,
+  "transition_in": "fade",
+  "prev": "If a crack or a fault breaks through the rock above it,",
+  "nxt": ""
+ },
+ {
+  "uid": "U006",
+  "scene": 3,
+  "title": "Carved by Wind",
+  "art_theme": "wind",
   "bg": "paper",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Wind can do it too. In open desert, strong winds blow loose sand and dust away for thousands of years.",
+  "dur": 7.56,
+  "transition_in": "zoom",
+  "prev": "",
+  "nxt": "Where the rock is weak, especially where salt crystals break it apart,"
+ },
+ {
+  "uid": "U007",
+  "scene": 3,
+  "title": "Carved by Wind",
+  "art_theme": "wind",
+  "bg": "paper",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Where the rock is weak, especially where salt crystals break it apart,",
+  "dur": 3.89,
+  "transition_in": "iris",
+  "prev": "Wind can do it too. In open desert, strong winds blow loose sand and dust away for thousands of years.",
+  "nxt": "the ground is lowered bit by bit."
+ },
+ {
+  "uid": "U008",
+  "scene": 3,
+  "title": "Carved by Wind",
+  "art_theme": "wind",
+  "bg": "paper",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "the ground is lowered bit by bit.",
+  "dur": 3.5,
+  "transition_in": "wipe",
+  "prev": "Where the rock is weak, especially where salt crystals break it apart,",
+  "nxt": ""
+ },
+ {
+  "uid": "U009",
+  "scene": 4,
+  "title": "The Water Table",
+  "art_theme": "table",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Below every desert there is a level called the water table. If wind lowers the ground far enough,",
+  "dur": 5.94,
+  "transition_in": "wash",
+  "prev": "",
+  "nxt": "the bottom of the hollow reaches that level, and water seeps out."
+ },
+ {
+  "uid": "U010",
+  "scene": 4,
+  "title": "The Water Table",
+  "art_theme": "table",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "the bottom of the hollow reaches that level, and water seeps out.",
+  "dur": 4.01,
+  "transition_in": "whip",
+  "prev": "Below every desert there is a level called the water table. If wind lowers the ground far enough,",
+  "nxt": "The wind has dug down to the water."
+ },
+ {
+  "uid": "U011",
+  "scene": 4,
+  "title": "The Water Table",
+  "art_theme": "table",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "The wind has dug down to the water.",
+  "dur": 3.5,
+  "transition_in": "slide",
+  "prev": "the bottom of the hollow reaches that level, and water seeps out.",
+  "nxt": ""
+ },
+ {
+  "uid": "U012",
+  "scene": 5,
+  "title": "Qattara",
+  "art_theme": "qattara",
+  "bg": "paper",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "The most dramatic example is the Qattara Depression in northwestern Egypt.",
+  "dur": 4.77,
+  "transition_in": "eye",
+  "prev": "",
+  "nxt": "Its lowest point is about one hundred thirty-three meters below sea level."
+ },
+ {
+  "uid": "U013",
+  "scene": 5,
+  "title": "Qattara",
+  "art_theme": "qattara",
+  "bg": "paper",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Its lowest point is about one hundred thirty-three meters below sea level.",
+  "dur": 4.55,
+  "transition_in": "iris",
+  "prev": "The most dramatic example is the Qattara Depression in northwestern Egypt.",
+  "nxt": "Scientists think wind, together with salt weathering, removed the rock that once filled it."
+ },
+ {
+  "uid": "U014",
+  "scene": 5,
+  "title": "Qattara",
+  "art_theme": "qattara",
+  "bg": "paper",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Scientists think wind, together with salt weathering, removed the rock that once filled it.",
+  "dur": 5.93,
+  "transition_in": "push",
+  "prev": "Its lowest point is about one hundred thirty-three meters below sea level.",
+  "nxt": "Its floor is salt marsh and salt flat."
+ },
+ {
+  "uid": "U015",
+  "scene": 5,
+  "title": "Qattara",
+  "art_theme": "qattara",
+  "bg": "paper",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Its floor is salt marsh and salt flat.",
+  "dur": 3.59,
+  "transition_in": "slide",
+  "prev": "Scientists think wind, together with salt weathering, removed the rock that once filled it.",
+  "nxt": ""
+ },
+ {
+  "uid": "U016",
+  "scene": 6,
+  "title": "Faults",
+  "art_theme": "fault",
+  "bg": "night",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Faults can create oases too.",
+  "dur": 3.5,
+  "transition_in": "wipe",
+  "prev": "",
+  "nxt": "A fault is a break in the Earth's crust where rock has moved."
+ },
+ {
+  "uid": "U017",
+  "scene": 6,
+  "title": "Faults",
+  "art_theme": "fault",
+  "bg": "night",
   "pal": {
    "palette": "desert",
    "paper_base": "#ebe0c8",
@@ -93,280 +555,16 @@
    ]
   },
   "text": "A fault is a break in the Earth's crust where rock has moved.",
-  "dur": 3.43,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "Along it, rock is crushed into fine, clay-rich material."
+  "dur": 3.5,
+  "transition_in": "tilt",
+  "prev": "Faults can create oases too.",
+  "nxt": "Along some faults, ground-up rock and clay form a barrier,"
  },
  {
-  "uid": "U004",
-  "scene": 2,
-  "title": "A Broken Crust",
-  "art_theme": "fault",
-  "bg": "paper",
-  "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
-   "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
-   ],
-   "dusk_ink": "#3a2a1a",
-   "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
-   ]
-  },
-  "text": "Along it, rock is crushed into fine, clay-rich material.",
-  "dur": 4.84,
-  "transition_in": "slide",
-  "prev": "A fault is a break in the Earth's crust where rock has moved.",
-  "nxt": ""
- },
- {
-  "uid": "U005",
-  "scene": 3,
-  "title": "Underground Dam",
-  "art_theme": "dam",
-  "bg": "night",
-  "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
-   "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
-   ],
-   "dusk_ink": "#1a2b3a",
-   "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
-   ]
-  },
-  "text": "That crushed rock blocks groundwater like an underground dam.",
-  "dur": 4.12,
-  "transition_in": "wash",
-  "prev": "",
-  "nxt": "Water flowing toward the fault is pushed up toward the surface."
- },
- {
-  "uid": "U006",
-  "scene": 3,
-  "title": "Underground Dam",
-  "art_theme": "dam",
-  "bg": "night",
-  "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
-   "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
-   ],
-   "dusk_ink": "#1a2b3a",
-   "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
-   ]
-  },
-  "text": "Water flowing toward the fault is pushed up toward the surface.",
-  "dur": 4.21,
-  "transition_in": "zoom",
-  "prev": "That crushed rock blocks groundwater like an underground dam.",
-  "nxt": ""
- },
- {
-  "uid": "U007",
-  "scene": 4,
-  "title": "Desert Fan Palms",
-  "art_theme": "palms",
-  "bg": "dusk",
-  "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
-   "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
-   ],
-   "dusk_ink": "#3a2a1a",
-   "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
-   ]
-  },
-  "text": "Where it comes out, desert fan palms grow,",
-  "dur": 3.18,
-  "transition_in": "fade",
-  "prev": "",
-  "nxt": "the only palm native to the western United States."
- },
- {
-  "uid": "U008",
-  "scene": 4,
-  "title": "Desert Fan Palms",
-  "art_theme": "palms",
-  "bg": "dusk",
-  "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
-   "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
-   ],
-   "dusk_ink": "#3a2a1a",
-   "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
-   ]
-  },
-  "text": "the only palm native to the western United States.",
-  "dur": 3.69,
-  "transition_in": "wash",
-  "prev": "Where it comes out, desert fan palms grow,",
-  "nxt": "They need water all year, so their groves trace exactly where it reaches the surface."
- },
- {
-  "uid": "U009",
-  "scene": 4,
-  "title": "Desert Fan Palms",
-  "art_theme": "palms",
-  "bg": "dusk",
-  "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
-   "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
-   ],
-   "dusk_ink": "#3a2a1a",
-   "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
-   ]
-  },
-  "text": "They need water all year, so their groves trace exactly where it reaches the surface.",
-  "dur": 6.24,
-  "transition_in": "match",
-  "prev": "the only palm native to the western United States.",
-  "nxt": ""
- },
- {
-  "uid": "U010",
-  "scene": 5,
-  "title": "Thousand Palms",
-  "art_theme": "oasis",
-  "bg": "paper",
-  "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
-   "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
-   ],
-   "dusk_ink": "#3a2a1a",
-   "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
-   ]
-  },
-  "text": "Thousand Palms Oasis in the Coachella Valley is one of these groves.",
-  "dur": 4.88,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "One of the most famous earthquake faults on Earth also keeps these palms alive."
- },
- {
-  "uid": "U011",
-  "scene": 5,
-  "title": "Thousand Palms",
-  "art_theme": "oasis",
-  "bg": "paper",
-  "pal": {
-   "palette": "desert",
-   "paper_base": "#ebe0c8",
-   "paper_ink": "#3a2a1a",
-   "night_top": "#14100f",
-   "night_bottom": "#2a1c18",
-   "night_line": "#f0c070",
-   "night_glow": "#ffd98a",
-   "dusk_stops": [
-    "#f6d9a0",
-    "#d9935a",
-    "#8a4a3a"
-   ],
-   "dusk_ink": "#3a2a1a",
-   "accents": [
-    "#c9833a",
-    "#a9532f",
-    "#e8c27a",
-    "#5f7a6a"
-   ]
-  },
-  "text": "One of the most famous earthquake faults on Earth also keeps these palms alive.",
-  "dur": 6.03,
-  "transition_in": "fade",
-  "prev": "Thousand Palms Oasis in the Coachella Valley is one of these groves.",
-  "nxt": ""
- },
- {
-  "uid": "U012",
+  "uid": "U018",
   "scene": 6,
-  "title": "Full Story",
-  "art_theme": "outro",
+  "title": "Faults",
+  "art_theme": "fault",
   "bg": "night",
   "pal": {
    "palette": "desert",
@@ -389,10 +587,505 @@
     "#5f7a6a"
    ]
   },
-  "text": "Faults are just one way oases are made. The full story is on Miya's Lab.",
-  "dur": 6.45,
+  "text": "Along some faults, ground-up rock and clay form a barrier,",
+  "dur": 3.57,
+  "transition_in": "match",
+  "prev": "A fault is a break in the Earth's crust where rock has moved.",
+  "nxt": "like an underground dam."
+ },
+ {
+  "uid": "U019",
+  "scene": 6,
+  "title": "Faults",
+  "art_theme": "fault",
+  "bg": "night",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "like an underground dam.",
+  "dur": 3.5,
+  "transition_in": "wash",
+  "prev": "Along some faults, ground-up rock and clay form a barrier,",
+  "nxt": "Groundwater is blocked and pushed upward, and a line of springs can appear."
+ },
+ {
+  "uid": "U020",
+  "scene": 6,
+  "title": "Faults",
+  "art_theme": "fault",
+  "bg": "night",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Groundwater is blocked and pushed upward, and a line of springs can appear.",
+  "dur": 3.5,
+  "transition_in": "whip",
+  "prev": "like an underground dam.",
+  "nxt": ""
+ },
+ {
+  "uid": "U021",
+  "scene": 7,
+  "title": "Palms on the Fault",
+  "art_theme": "palms",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "You can see this in California's Coachella Valley.",
+  "dur": 3.5,
+  "transition_in": "zoom",
+  "prev": "",
+  "nxt": "Desert fan palms, the only palm native to the western United States,"
+ },
+ {
+  "uid": "U022",
+  "scene": 7,
+  "title": "Palms on the Fault",
+  "art_theme": "palms",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Desert fan palms, the only palm native to the western United States,",
+  "dur": 5.03,
+  "transition_in": "fade",
+  "prev": "You can see this in California's Coachella Valley.",
+  "nxt": "grow in groves right along the San Andreas Fault."
+ },
+ {
+  "uid": "U023",
+  "scene": 7,
+  "title": "Palms on the Fault",
+  "art_theme": "palms",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "grow in groves right along the San Andreas Fault.",
+  "dur": 3.72,
+  "transition_in": "iris",
+  "prev": "Desert fan palms, the only palm native to the western United States,",
+  "nxt": "Crushed rock in the fault zone brings groundwater near the surface."
+ },
+ {
+  "uid": "U024",
+  "scene": 7,
+  "title": "Palms on the Fault",
+  "art_theme": "palms",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Crushed rock in the fault zone brings groundwater near the surface.",
+  "dur": 4.54,
+  "transition_in": "wash",
+  "prev": "grow in groves right along the San Andreas Fault.",
+  "nxt": "A famous earthquake fault keeps these palms alive."
+ },
+ {
+  "uid": "U025",
+  "scene": 7,
+  "title": "Palms on the Fault",
+  "art_theme": "palms",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "A famous earthquake fault keeps these palms alive.",
+  "dur": 4.06,
+  "transition_in": "match",
+  "prev": "Crushed rock in the fault zone brings groundwater near the surface.",
+  "nxt": ""
+ },
+ {
+  "uid": "U026",
+  "scene": 8,
+  "title": "Flash Floods",
+  "art_theme": "flood",
+  "bg": "night",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Even the driest deserts get short, violent storms.",
+  "dur": 3.64,
   "transition_in": "slide",
   "prev": "",
+  "nxt": "Hard ground cannot soak up the rain,"
+ },
+ {
+  "uid": "U027",
+  "scene": 8,
+  "title": "Flash Floods",
+  "art_theme": "flood",
+  "bg": "night",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Hard ground cannot soak up the rain,",
+  "dur": 3.5,
+  "transition_in": "eye",
+  "prev": "Even the driest deserts get short, violent storms.",
+  "nxt": "so it rushes down dry valleys called wadis as flash floods."
+ },
+ {
+  "uid": "U028",
+  "scene": 8,
+  "title": "Flash Floods",
+  "art_theme": "flood",
+  "bg": "night",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "so it rushes down dry valleys called wadis as flash floods.",
+  "dur": 3.5,
+  "transition_in": "whip",
+  "prev": "Hard ground cannot soak up the rain,",
+  "nxt": "But part of the water sinks into the sand and gravel of the valley floor."
+ },
+ {
+  "uid": "U029",
+  "scene": 8,
+  "title": "Flash Floods",
+  "art_theme": "flood",
+  "bg": "night",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "But part of the water sinks into the sand and gravel of the valley floor.",
+  "dur": 3.7,
+  "transition_in": "match",
+  "prev": "so it rushes down dry valleys called wadis as flash floods.",
+  "nxt": "Long after the surface dries, water can remain below."
+ },
+ {
+  "uid": "U030",
+  "scene": 8,
+  "title": "Flash Floods",
+  "art_theme": "flood",
+  "bg": "night",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Long after the surface dries, water can remain below.",
+  "dur": 4.21,
+  "transition_in": "wipe",
+  "prev": "But part of the water sinks into the sand and gravel of the valley floor.",
+  "nxt": "Where it comes close to the surface, wells can reach it, and palms and gardens can grow."
+ },
+ {
+  "uid": "U031",
+  "scene": 8,
+  "title": "Flash Floods",
+  "art_theme": "flood",
+  "bg": "night",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Where it comes close to the surface, wells can reach it, and palms and gardens can grow.",
+  "dur": 6.21,
+  "transition_in": "slide",
+  "prev": "Long after the surface dries, water can remain below.",
+  "nxt": ""
+ },
+ {
+  "uid": "U032",
+  "scene": 9,
+  "title": "Hidden Water",
+  "art_theme": "outro",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "Wind, faults and floods: three different ways to bring hidden water up.",
+  "dur": 4.76,
+  "transition_in": "fade",
+  "prev": "",
+  "nxt": "The full story of how oases are made is on Miya's Lab."
+ },
+ {
+  "uid": "U033",
+  "scene": 9,
+  "title": "Hidden Water",
+  "art_theme": "outro",
+  "bg": "dusk",
+  "pal": {
+   "palette": "desert",
+   "paper_base": "#ebe0c8",
+   "paper_ink": "#3a2a1a",
+   "night_top": "#14100f",
+   "night_bottom": "#2a1c18",
+   "night_line": "#f0c070",
+   "night_glow": "#ffd98a",
+   "dusk_stops": [
+    "#f6d9a0",
+    "#d9935a",
+    "#8a4a3a"
+   ],
+   "dusk_ink": "#3a2a1a",
+   "accents": [
+    "#c9833a",
+    "#a9532f",
+    "#e8c27a",
+    "#5f7a6a"
+   ]
+  },
+  "text": "The full story of how oases are made is on Miya's Lab.",
+  "dur": 5.5,
+  "transition_in": "wipe",
+  "prev": "Wind, faults and floods: three different ways to bring hidden water up.",
   "nxt": ""
  }
 ]

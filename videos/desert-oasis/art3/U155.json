@@ -1,25 +1,40 @@
 {
- "centre": "rounded windward back of a crescent barchan dune",
- "focus": null,
- "focus_word": null,
+ "centre": "puquio stone funnel with a spiral ramp down to water, seen from above",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "puquios",
  "sfx": [
   {
-   "name": "wind",
-   "word": "with the wind",
+   "name": "drip",
+   "word": "underground channels",
    "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Barchans",
-   "x": 1000,
-   "y": 210,
+   "text": "Puquios",
+   "x": 1200,
+   "y": 360,
    "to": [
-    1060,
-    360
+    1068,
+    440
    ],
-   "word": "barchans"
+   "word": "puquios"
+  },
+  {
+   "type": "name",
+   "text": "Peru",
+   "x": 760,
+   "y": 350,
+   "to": [
+    700,
+    290
+   ],
+   "word": "Peru"
   }
  ]
 }

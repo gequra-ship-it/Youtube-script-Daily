@@ -1,24 +1,25 @@
 {
- "centre": "dome of spring water welling up from the pool",
+ "centre": "spring water welling up as a round dome from an artesian aquifer",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
    "name": "bubble",
-   "word": "rise to the surface",
+   "word": "artesian",
    "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "Not needed?",
-   "x": 1340,
-   "y": 330,
+   "type": "name",
+   "text": "Aquifer",
+   "x": 1480,
+   "y": 742,
    "to": [
-    1390,
-    520
-   ]
+    1360,
+    800
+   ],
+   "word": "aquifer"
   }
  ]
 }

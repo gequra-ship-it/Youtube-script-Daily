@@ -1,19 +1,29 @@
 {
- "centre": "round glowing spring pool in the middle of the palm grove",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "glowing round pocket of water trapped on the fault plane",
+ "focus": [
+  975,
+  560,
+  1.6
+ ],
+ "focus_word": "a break in the Earth's crust",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "rock has moved",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Thousand Palms Oasis",
-   "x": 960,
-   "y": 190,
+   "text": "Fault",
+   "x": 1180,
+   "y": 320,
    "to": [
-    700,
-    300
+    933,
+    386
    ],
-   "word": "Thousand Palms Oasis"
+   "word": "A fault"
   }
  ]
 }

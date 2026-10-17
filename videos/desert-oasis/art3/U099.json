@@ -1,17 +1,22 @@
 {
- "centre": "glowing pocket of water caught between gravel under the valley floor",
+ "centre": "low glowing sun between two desert fan palms",
  "focus": [
-  960,
-  500,
-  1.7
+  600,
+  360,
+  1.6
  ],
- "focus_word": "beneath the valley floor",
- "sfx": [
+ "focus_word": "desert fan palms",
+ "labels": [
   {
-   "name": "drip",
-   "word": "feed the ground",
-   "vol": 0.55
+   "type": "name",
+   "text": "Desert fan palm",
+   "x": 330,
+   "y": 520,
+   "to": [
+    540,
+    460
+   ],
+   "word": "desert fan palms"
   }
- ],
- "labels": []
+ ]
 }

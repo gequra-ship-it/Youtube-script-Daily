@@ -1,13 +1,25 @@
 {
- "centre": "woven basket of freshly dug earth",
+ "centre": "glowing sphere of very salty brine with salt crystals inside",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
    "name": "sand",
-   "word": "dig shallow ditches",
-   "vol": 0.55
+   "word": "very salty brine",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Brine",
+   "x": 1640,
+   "y": 760,
+   "to": [
+    1560,
+    850
+   ],
+   "word": "brine"
+  }
+ ]
 }

@@ -1,11 +1,29 @@
 {
- "centre": "large round glowing spring pool at the foot of the fault scarp",
+ "centre": "round glowing pool of water at the bottom of a well shaft",
  "focus": [
-  1000,
-  540,
+  960,
+  480,
   1.5
  ],
- "focus_word": "a line of springs",
- "sfx": [],
- "labels": []
+ "focus_word": "water table",
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "water table",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Water table",
+   "x": 1460,
+   "y": 440,
+   "to": [
+    1460,
+    500
+   ],
+   "word": "water table"
+  }
+ ]
 }

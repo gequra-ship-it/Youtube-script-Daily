@@ -1,30 +1,40 @@
 {
- "centre": "large glowing gold coin above a pile of coins between two cities",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "round stone-rimmed foggara shaft seen from above, water glinting inside",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "foggaras",
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "Sahara of Algeria",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Samarkand",
-   "x": 420,
-   "y": 200,
+   "text": "Foggaras",
+   "x": 1200,
+   "y": 360,
    "to": [
-    380,
-    300
+    1060,
+    440
    ],
-   "word": "Samarkand"
+   "word": "foggaras"
   },
   {
    "type": "name",
-   "text": "Palmyra",
-   "x": 1560,
-   "y": 300,
+   "text": "Sahara",
+   "x": 740,
+   "y": 350,
    "to": [
-    1610,
-    450
+    700,
+    300
    ],
-   "word": "Palmyra"
+   "word": "Sahara"
   }
  ]
 }
