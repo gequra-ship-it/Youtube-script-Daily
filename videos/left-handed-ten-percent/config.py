@@ -46,3 +46,5 @@ BG = dict(crowd='dusk', tools='paper', stencil='night', teeth='paper', neanderth
 PAL_DEFAULT = 'lab'
 PAL = dict(stencil='history', teeth='history', neanderthal='history', latin='history', medieval='history', classroom='history',
            campfire='history', duel='history', davinci='history', twins='body', womb='body', spine='body', hormone='body', birth='body')
+
+HOOK = dict(until=300, maxu=5.5)   # guideline 20-2 (2026-10-17 remake): denser first 5 minutes; minimum on-screen time 3.5 s (minu) applied by build3

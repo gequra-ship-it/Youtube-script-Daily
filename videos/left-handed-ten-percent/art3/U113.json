@@ -1,13 +1,25 @@
 {
- "centre": "round glowing globe desk lamp in an archive room",
+ "centre": "setting sun between two gesturing ancestors",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "page",
-   "word": "Some studies",
-   "vol": 0.6
+   "name": "cloth",
+   "word": "gestures",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Over there!",
+   "x": 470,
+   "y": 300,
+   "to": [
+    640,
+    470
+   ],
+   "word": "gestures"
+  }
+ ]
 }

@@ -1,19 +1,25 @@
 {
- "centre": "round glowing window in the central university building",
+ "centre": "round ultrasound screen showing a tiny fetus in the scan cone",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "click",
+   "word": "ultrasound",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Ruhr University Bochum",
-   "x": 1340,
-   "y": 230,
+   "text": "Belfast",
+   "x": 410,
+   "y": 600,
    "to": [
-    1300,
-    350
+    420,
+    380
    ],
-   "word": "Ruhr University Bochum"
+   "word": "Belfast"
   }
  ]
 }

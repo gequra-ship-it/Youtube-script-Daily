@@ -20,7 +20,7 @@ def shot(pg, svg, js=''):
 def read(p): return re.sub(r'<\?xml[^>]*\?>', '', open(p, encoding='utf-8').read()).strip()
 svg = read(new); res = {}
 with sync_playwright() as p:
-    b = p.chromium.launch(args=['--disable-gpu']); pg = b.new_page(viewport={'width': 1920, 'height': 1080}); pg.set_default_timeout(90000)
+    b = p.chromium.launch(executable_path=os.environ.get('HYPERFRAMES_BROWSER_PATH', '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'), args=['--disable-gpu']); pg = b.new_page(viewport={'width': 1920, 'height': 1080}); pg.set_default_timeout(90000)
     st = shot(pg, svg); Image.fromarray(st.astype('uint8')).save(f'{out}/{name}_static.png')
     if orig:
         o = shot(pg, read(orig)); d = int((np.abs(st - o).sum(2) > 0).sum()); res['static_diff_pixels_vs_original'] = d

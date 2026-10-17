@@ -1,7 +1,29 @@
 {
- "centre": "large glowing amber gear driving smaller gears",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "round classroom wall clock",
+ "focus": [
+  530,
+  700,
+  1.6
+ ],
+ "focus_word": "right hand",
+ "sfx": [
+  {
+   "name": "cloth",
+   "word": "pushed",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Right hand",
+   "x": 300,
+   "y": 600,
+   "to": [
+    512,
+    704
+   ],
+   "word": "right hand"
+  }
+ ]
 }

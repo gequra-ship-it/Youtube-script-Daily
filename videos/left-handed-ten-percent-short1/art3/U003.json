@@ -1,23 +1,32 @@
 {
- "centre": "desk globe on a stand",
+ "centre": "a glowing lantern held up in Lefty's left hand",
  "focus": [
-  540,
+  520,
   860,
-  1.6
+  1.5
  ],
- "focus_word": "traditional societies",
+ "focus_word": "disappear",
  "sfx": [
   {
-   "name": "page",
-   "word": "compared",
-   "vol": 0.55
+   "name": "wind",
+   "word": "disappear",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "2005",
-   "word": "2005"
+   "type": "say",
+   "text": "Still here!",
+   "x": 300,
+   "y": 520,
+   "to": [
+    380,
+    640
+   ]
   }
+ ],
+ "iris": [
+  380,
+  1050
  ]
 }

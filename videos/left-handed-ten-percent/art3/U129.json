@@ -1,30 +1,29 @@
 {
- "centre": "a round gauge whose needle leans hard to the right",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "round water-filled tree hollow in a bark trunk",
+ "focus": [
+  860,
+  480,
+  1.7
+ ],
+ "focus_word": "soaking up water",
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "soaking up water",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Primates",
-   "x": 640,
+   "text": "Leaves",
+   "x": 700,
    "y": 300,
    "to": [
-    530,
-    430
+    840,
+    475
    ],
-   "word": "primates"
-  },
-  {
-   "type": "name",
-   "text": "Humans",
-   "x": 1690,
-   "y": 470,
-   "to": [
-    1555,
-    490
-   ],
-   "word": "humans"
+   "word": "leaves"
   }
  ]
 }

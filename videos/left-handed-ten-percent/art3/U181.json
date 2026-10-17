@@ -1,19 +1,29 @@
 {
- "centre": "round newsroom wall clock",
- "focus": null,
- "focus_word": null,
+ "centre": "round hand mirror with a gold rim on an open notebook",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "mirror writing",
  "sfx": [
   {
-   "name": "woodblock",
-   "word": "scarier claims",
-   "vol": 0.55
+   "name": "page",
+   "word": "notebooks",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "1991",
-   "word": "1991"
+   "type": "name",
+   "text": "Notebooks",
+   "x": 720,
+   "y": 330,
+   "to": [
+    800,
+    400
+   ],
+   "word": "notebooks"
   }
  ]
 }

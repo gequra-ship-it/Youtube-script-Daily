@@ -1,18 +1,16 @@
 {
- "centre": "round model globe split into teal left and amber right halves",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "centre": "magnifying lens over a DNA helix with a few glowing regions",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "genetic regions",
+ "sfx": [
   {
-   "type": "say",
-   "text": "Hmm...",
-   "x": 740,
-   "y": 380,
-   "to": [
-    680,
-    545
-   ]
+   "name": "pop",
+   "word": "genetic regions",
+   "vol": 0.55
   }
  ]
 }

@@ -1,25 +1,36 @@
 {
- "centre": "round framed brain illustration on the study wall",
+ "centre": "round scan lens over a chest showing heart left and liver right",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "page",
-   "word": "assumed",
-   "vol": 0.55
+   "name": "breath",
+   "word": "heart",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Brain",
-   "x": 1180,
-   "y": 330,
+   "text": "heart",
+   "x": 640,
+   "y": 420,
    "to": [
-    1040,
-    450
+    905,
+    470
    ],
-   "word": "brain"
+   "word": "heart"
+  },
+  {
+   "type": "name",
+   "text": "liver",
+   "x": 1290,
+   "y": 640,
+   "to": [
+    1035,
+    535
+   ],
+   "word": "liver"
   }
  ]
 }

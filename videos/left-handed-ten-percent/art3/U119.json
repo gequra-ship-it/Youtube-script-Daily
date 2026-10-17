@@ -1,24 +1,29 @@
 {
- "centre": "round bright gap of sky in a tangled jungle canopy",
- "focus": null,
- "focus_word": null,
+ "centre": "brain seen from above, glowing language area on the left hemisphere",
+ "focus": [
+  892,
+  515,
+  1.7
+ ],
+ "focus_word": "language",
  "sfx": [
   {
-   "name": "wind",
-   "word": "In the wild",
+   "name": "pop",
+   "word": "language",
    "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "Hmm?",
-   "x": 680,
+   "type": "name",
+   "text": "Left hemisphere",
+   "x": 700,
    "y": 330,
    "to": [
-    530,
-    440
-   ]
+    860,
+    470
+   ],
+   "word": "left hemisphere"
   }
  ]
 }

@@ -1,24 +1,27 @@
 {
- "centre": "round glow of the hearth fire in a bone hut",
- "focus": null,
- "focus_word": null,
+ "centre": "round stone with four hand stencils in quarters, three left and one right",
+ "focus": [
+  1510,
+  470,
+  1.6
+ ],
+ "focus_word": "left hands",
  "sfx": [
   {
-   "name": "crackle",
-   "word": "busy one",
-   "vol": 0.5
+   "name": "stone",
+   "word": "three quarters",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "Almost there...",
-   "x": 470,
-   "y": 300,
-   "to": [
-    600,
-    460
-   ]
+   "type": "num",
+   "text": "3 QUARTERS LEFT HANDS",
+   "word": "three quarters"
   }
+ ],
+ "iris": [
+  470,
+  560
  ]
 }

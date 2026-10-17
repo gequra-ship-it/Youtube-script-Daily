@@ -1,23 +1,40 @@
 {
- "centre": "golden pivot hub of a level balance scale",
+ "centre": "a round flat stone holding shared stone tools",
  "focus": [
-  1460,
-  610,
-  1.7
+  960,
+  500,
+  1.6
  ],
- "focus_word": "steady minority",
- "sfx": [],
+ "focus_word": "tools",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "tools",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Left-handers",
-   "x": 1460,
-   "y": 760,
+   "text": "Tools",
+   "x": 1140,
+   "y": 380,
    "to": [
-    1460,
-    660
+    1010,
+    470
    ],
-   "word": "left-handers"
+   "word": "tools"
+  },
+  {
+   "type": "name",
+   "text": "Weapons",
+   "x": 530,
+   "y": 360,
+   "to": [
+    395,
+    495
+   ],
+   "word": "weapons"
   }
  ]
 }

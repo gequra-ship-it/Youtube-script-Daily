@@ -1,28 +1,17 @@
 {
- "centre": "round bronze shield held by a defender",
+ "centre": "a crackling campfire at the centre of the camp",
  "focus": [
-  660,
-  720,
-  1.5
+  540,
+  1080,
+  1.6
  ],
- "focus_word": "unfamiliar angles",
+ "focus_word": "shared tools",
  "sfx": [
   {
-   "name": "woodblock",
-   "word": "blows",
-   "vol": 0.6
+   "name": "crackle",
+   "word": "close-knit groups",
+   "vol": 0.55
   }
  ],
- "labels": [
-  {
-   "type": "say",
-   "text": "Huh? Wrong side!",
-   "x": 420,
-   "y": 440,
-   "to": [
-    470,
-    690
-   ]
-  }
- ]
+ "labels": []
 }

@@ -1,19 +1,25 @@
 {
- "centre": "low glowing sun over an empty running track",
+ "centre": "round amber scoring lamp on the fencing hall wall",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "click",
+   "word": "In fencing",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "Just running!",
-   "x": 1450,
-   "y": 330,
+   "type": "name",
+   "text": "Fencing",
+   "x": 960,
+   "y": 720,
    "to": [
-    1331,
-    565
+    960,
+    800
    ],
-   "word": "no special advantage"
+   "word": "fencing"
   }
  ]
 }

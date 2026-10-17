@@ -1,23 +1,47 @@
 {
- "centre": "oval sepia photo of a figure from behind writing on a blackboard",
- "focus": [
-  1000,
-  450,
-  1.8
+ "centre": "glowing baseball with red stitches on a pegboard",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "woodblock",
+   "word": "cricket",
+   "vol": 0.6
+  }
  ],
- "focus_word": "right hand",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Photos",
-   "x": 1180,
-   "y": 380,
+   "text": "Table tennis",
+   "x": 300,
+   "y": 830,
    "to": [
-    1080,
-    420
+    500,
+    700
    ],
-   "word": "Photos"
+   "word": "table tennis"
+  },
+  {
+   "type": "name",
+   "text": "Cricket",
+   "x": 1640,
+   "y": 420,
+   "to": [
+    1500,
+    470
+   ],
+   "word": "cricket"
+  },
+  {
+   "type": "name",
+   "text": "Baseball",
+   "x": 1260,
+   "y": 830,
+   "to": [
+    1240,
+    735
+   ],
+   "word": "baseball"
   }
  ]
 }

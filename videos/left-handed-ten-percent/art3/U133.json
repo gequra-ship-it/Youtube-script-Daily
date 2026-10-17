@@ -1,24 +1,29 @@
 {
- "centre": "a round knapped stone tool on a riverbank boulder",
+ "centre": "a round red ball of yarn between two cats",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "cloth",
-   "word": "movements",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
-   "type": "say",
-   "text": "Like this?",
-   "x": 1520,
-   "y": 420,
+   "type": "name",
+   "text": "Male",
+   "x": 520,
+   "y": 330,
    "to": [
-    1335,
-    560
-   ]
+    640,
+    640
+   ],
+   "word": "males"
+  },
+  {
+   "type": "name",
+   "text": "Female",
+   "x": 1410,
+   "y": 330,
+   "to": [
+    1290,
+    640
+   ],
+   "word": "females"
   }
  ]
 }
