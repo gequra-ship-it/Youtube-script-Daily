@@ -77,6 +77,38 @@ marks...). Abstract ideas may get a symbolic backdrop (sand drift, stacked layer
 - Keep the bottom 200 px free of important content (captions), the top-right 160x160 corner empty (logo), important content inside
   x 120..1800, y 80..880. `transition_in` "slide": keep important content away from the far left/right 150 px.
 
+## 6A. Hands (2026-10-17 user feedback: thumbs bent at grotesque angles and far too long) — MANDATORY
+Draw every visible hand (any hand larger than about 25 px) with `tools/hands.py`, never with free-hand paths:
+```python
+import sys; sys.path.insert(0, '/home/user/rp/tools'); from hands import hand
+svg += hand(x, y, angle, size, side='L'|'R', view='palm'|'back', pose='open'|'flat'|'wave'|'point'|'fist'|'hold', skin=..., line=...)
+```
+(x, y) is the wrist centre, `angle` the direction the fingers point (0 = up, clockwise), `size` the palm length in px. The module
+gets the anatomy right: middle finger about as long as the palm, the thumb starting low on the side of the palm, leaning out
+22-40 degrees, short (tip about level with the index knuckle), never hooked, never bent backwards, never longer than the index
+finger; thumb side follows left/right and palm/back. `body.arm()` draws the hand for you (inside the forearm link) so it moves with the arm. Hand-stencil silhouettes (cave art) use the same shape (draw `hand(...)` in the stencil colour, or use it
+as a mask). Gloves and mittens may be drawn freely. If a pose you need is missing, rotate/scale a module pose; do not invent a thumb.
+Check every hand at 100 % zoom in the preview before you finish.
+
+## 6B. People: proportions and arms (2026-10-17 user feedback: "elbows bend strangely and the arms are far too long — grotesque") — MANDATORY
+Measure every person in HEAD HEIGHTS (H = chin to top of head) and draw every arm with `tools/body.py`:
+```python
+import sys; sys.path.insert(0, '/home/user/rp/tools'); from body import arm, shoulders, P
+(ls, rs) = shoulders(body_centre_x, top_of_head_y, H, kind='adult')      # shoulder JOINTS of a figure facing the viewer
+svg += arm(*ls, H, upper=-6, bend=8, bend_dir=1, name='lefty-r', side='R', view='palm', pose='flat', sleeve=..., skin=..., line=...)
+```
+- Proportions (`P` in body.py): adult 7.5 H tall, shoulders 2 H wide, upper arm 1.35 H, forearm 1.1 H, palm 0.42 H; child 5.5 H, toddler 4.5 H.
+  Hanging arm: elbow at the waist, wrist at the crotch, fingertips at mid-thigh — never at the knee. Upper arm is longer than the forearm.
+  Hips at mid-height (adult 3.75 H from the top of the head); knee halfway between hip and ankle; legs about half the height.
+- Elbows only FOLD (bend 0-140 degrees, one fold direction per arm), never bend backwards, never a second kink; the elbow is a smooth round joint.
+- Shoulder joints sit inside the top corners of the torso (not at the neck, not outside the body). A figure facing the viewer has its
+  RIGHT arm on the viewer's LEFT. Seen from behind, it is the other way round.
+- Animation: `arm()` returns `mv-limb-<name>-1/-2` groups. build3 moves limbs gently and in step (upper arm 2.5 deg, forearm 2 deg, 2.4 s).
+  Do NOT animate human arms with `mv-chain` (that is for tails, tentacles, seaweed: its tip whips in a travelling wave). Legs of standing
+  people do not move; walking uses `mv-walk`. A hand that holds or presses something keeps the arm still (`amp=(0, 0)` or a smaller swing).
+- Before finishing, draw the head-height guide lines next to each figure in a preview (`python3 tools/body.py /tmp/b.svg` shows the
+  reference sheet) and check the proportions above at 100 %.
+
 ## 7. Motion groups
 Wrap moving parts as `<g id="mv-<type>-<unique>">...</g>`; each must still look right when static, each id unique. If a figure group
 has a transform attribute, wrap it in an outer group first. 1-4 groups per picture (cosmic: 4-8), spread left/centre/right, none over
