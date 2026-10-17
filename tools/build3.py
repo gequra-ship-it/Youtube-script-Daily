@@ -24,7 +24,11 @@ MAXU = 6.2            # target max seconds per unit (narration part); +gap keeps
 # 2026-10-16 (learned in the cine experiment, guideline 20-2): the first minutes must change picture more often.
 # config HOOK = dict(until=300, maxu=4.5): scenes that START before `until` seconds split at maxu instead of MAXU (more pictures).
 # Shorts: HOOK = dict(until=999, maxu=4.8). Extra keys (2026-10-16): minu (min on-screen s, default 3.5), minu_slow (4.5), slow (fewer pictures in slow scenes; changes uids).
-HOOK = getattr(CFG, 'HOOK', None)
+# 2026-10-17 defaults (guideline 20-2/21, used for left-handed-ten-percent and desert-oasis remakes): a config WITHOUT HOOK gets
+# long = dict(until=300, maxu=5.5), Shorts (VERT) = dict(until=999, maxu=6.0, slow=7.5); min on-screen 3.5 s (slow scenes 4.5 s).
+# `HOOK = None` in config.py turns pacing off (old unit split, needed only to rebuild an old plan.json unchanged).
+HOOK_DEFAULT = dict(until=999, maxu=6.0, slow=7.5) if VERT else dict(until=300, maxu=5.5)
+HOOK = getattr(CFG, 'HOOK', HOOK_DEFAULT)
 timing = json.load(open(B + '/timing_base.json')); D = timing['D']
 BGMODE = getattr(CFG, 'BG', {})
 ART3 = f'{vdir()}/art3'

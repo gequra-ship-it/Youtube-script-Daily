@@ -37,3 +37,5 @@
 - Units with people, animals or other creatures, or a complex composition -> Opus agent (`model: "opus"`); simple units (charts, objects, landscapes, icons) -> Sonnet agent (`model: "sonnet"`). Split each video's units into these two groups before launching agents.
 - Before changing a style or rule across many pictures, make 2-4 test pictures and get the owner's OK first.
 - Agents check with one before/after contact sheet per batch and report in at most 8 lines.
+- Reporting (user decision 2026-10-17): do not report each finished step; report briefly only when the final render is on Drive. When changing pictures or video, show only a few sample images first.
+- Remakes of existing videos reuse pictures: `tools/remake.py`, agent brief `tools/briefs/remake_art.md`, guideline section 21.
