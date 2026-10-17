@@ -706,7 +706,7 @@ for k, u in enumerate(units):
     sp = t1 - v0 + 0.2
     JT = {}; JDEP = {}   # joint / chain groups in document order (outer first): their data-pivot / data-amp / data-per / data-phase
     for mt in re.finditer(r'<g\b[^>]*>', svg):
-        cm = re.search(r'class="[^"]*\bmv (mv-(?:chain|joint)-[A-Za-z0-9-]+)', mt.group(0))
+        cm = re.search(r'class="[^"]*\bmv (mv-(?:chain|joint|limb)-[A-Za-z0-9-]+)', mt.group(0))
         if cm:
             at = dict(re.findall(r'(data-[a-z]+)="([^"]*)"', mt.group(0)))
             base = re.sub(r'-\d+$', '', cm.group(1)); at['_dep'] = JDEP.get(base, 0); JDEP[base] = at['_dep'] + 1   # depth = order of the link in its chain (outer first)
@@ -718,6 +718,16 @@ for k, u in enumerate(units):
         if nm == 'mv-glint-core' or nm.startswith('mv-core-'):    # the round centre object: one of 13 motions, never the same twice in a row
             ct = nm[8:].split('-')[0] if nm.startswith('mv-core-') else motions.legacy_core_type(len(CORE_USED))
             js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]')); CORE_USED.append(ct)
+            continue
+        if nm.startswith('mv-limb-'):   # human arm/leg links from tools/body.py (2026-10-17): small, IN STEP, no growth toward the tip
+            at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
+            pv = at.get('data-pivot', '').replace(',', ' ').split()
+            org = f'svgOrigin:"{pv[0]} {pv[1]}"' if len(pv) == 2 else 'transformOrigin:"50% 0%"'
+            dep = at.get('_dep', 0)
+            amp = min(float(at.get('data-amp', 2.5 if dep == 0 else 2.0)), 6.0)
+            pj = float(at.get('data-per', 2.4)); lag = float(at.get('data-phase', 0.12 * dep)) * pj / math.pi
+            st = max(0.0, v0 - lag); rj = int(math.ceil((t1 + 0.2 - st) / pj)) - 1
+            js.append(f'tl.fromTo({g},{{rotation:{-amp:.2f},{org}}},{{rotation:{amp:.2f},duration:{pj:.3f},ease:"sine.inOut",yoyo:true,repeat:{rj},immediateRender:false}},{st:.3f});')
             continue
         if nm.startswith('mv-chain-') or nm.startswith('mv-joint-'):   # creature joints (guideline 20-6): hinge rotation about data-pivot
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]; chain = nm.startswith('mv-chain-')
