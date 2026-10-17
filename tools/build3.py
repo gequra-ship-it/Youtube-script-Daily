@@ -85,29 +85,58 @@ def pauses(i):
     return [((a + b) / 2, b - a) for a, b in zip(s, e) if a > 0.2 and b < d - 0.2]
 
 
-model = {}; snap_report = {}
-for i in SEL:
-    text = SCENES[i - 1][4]; ss = sentences(text); d = D[i - 1]
-    ch = [len(x) + 1 for x in ss]; tot = sum(ch); prop = [0.0]; c = 0
-    for x in ch[:-1]:
-        c += x; prop.append(d * c / tot)
-    prop.append(d); k = len(ss) - 1; ps = pauses(i)
-    cand = sorted(sorted(ps, key=lambda p: -p[1])[:k]) if k > 0 else []
-    ok = len(cand) == k and all(abs(cand[j][0] - prop[j + 1]) <= 1.2 for j in range(k)) and all(cand[j][0] < cand[j + 1][0] for j in range(k - 1))
-    bounds = ([0.0] + [p[0] for p in cand] + [d]) if ok else prop
-    snap_report[i] = 'snap' if ok else 'prop'
-    model[i] = [(ss[k], bounds[k], bounds[k + 1]) for k in range(len(ss))]
+# Word times come from tools/align.py (speech recognition on the real narration), never from a character-count estimate.
+WORDS = {}; _wj = f'{B}/words.json'
+if os.path.exists(_wj):
+    _wd = json.load(open(_wj))['scenes']
+    for i in SEL:
+        _e = _wd.get(f'{i:02d}')
+        if _e and len(_e['words']) == len(SCENES[i - 1][4].split()):
+            WORDS[i] = _e
+_bad = [(i, round(WORDS[i]['cov'], 2)) if i in WORDS else (i, 'no words') for i in SEL if i not in WORDS or WORDS[i]['cov'] < 0.9]
+if _bad and not os.environ.get('ALIGN_LOOSE'):
+    sys.exit(f'ALIGN: {len(_bad)} scene(s) without usable word times (run `SLUG={SLUG} python3 tools/align.py`): {_bad[:12]} '
+             '- scene text edited since alignment, or < 90 % of the words recognised in the narration')
+TOK = {i: [(m.start(), m.end()) for m in re.finditer(r'\S+', SCENES[i - 1][4])] for i in SEL}
 
 
 def tchar(i, idx):
-    """scene-relative narration time of character index idx"""
-    text = SCENES[i - 1][4]; pos = 0
-    for n, (s, a, b) in enumerate(model[i]):
-        j = text.find(s, pos)
-        if j <= idx < j + len(s) + 1 or n == len(model[i]) - 1:
-            return a + (b - a) * min(max((idx - j) / max(len(s), 1), 0), 1)
-        pos = j + len(s)
-    return D[i - 1]
+    """scene-relative narration time of character index idx (inside a word: interpolated within that word)"""
+    tk = TOK[i]; w = WORDS[i]['words'] if i in WORDS else None
+    if w is None:   # ALIGN_LOOSE only: old estimate, sentence-proportional
+        text = SCENES[i - 1][4]; pos = 0
+        for n, (s, a, b) in enumerate(model[i]):
+            j = text.find(s, pos)
+            if j <= idx < j + len(s) + 1 or n == len(model[i]) - 1:
+                return a + (b - a) * min(max((idx - j) / max(len(s), 1), 0), 1)
+            pos = j + len(s)
+        return D[i - 1]
+    prev = None
+    for k, (a, b) in enumerate(tk):
+        if idx <= b:
+            if idx >= a:
+                return w[k][0] + (w[k][1] - w[k][0]) * (idx - a) / max(b - a, 1)
+            e0 = w[k - 1][1] if k else 0.0                      # in the gap before word k
+            pe = tk[k - 1][1] if k else 0
+            return e0 + (w[k][0] - e0) * (idx - pe) / max(a - pe, 1)
+    return min(w[-1][1], D[i - 1])
+
+
+model = {}; snap_report = {}
+for i in SEL:
+    text = SCENES[i - 1][4]; ss = sentences(text); d = D[i - 1]
+    offs = []; pos = 0
+    for x in ss:
+        j = text.find(x, pos); offs.append(j); pos = j + len(x)
+    if i in WORDS:
+        bounds = [0.0] + [tchar(i, j) for j in offs[1:]] + [d]
+        snap_report[i] = 'words'
+    else:
+        ch = [len(x) + 1 for x in ss]; tot = sum(ch); prop = [0.0]; c = 0
+        for x in ch[:-1]:
+            c += x; prop.append(d * c / tot)
+        prop.append(d); bounds = prop; snap_report[i] = 'prop'
+    model[i] = [(ss[k], bounds[k], bounds[k + 1]) for k in range(len(ss))]
 
 
 # ---------- unit split: sentence/clause atoms merged to <= MAXU seconds ----------
@@ -161,6 +190,22 @@ def units_of(i):
     return us
 
 
+# Re-timing keeps the unit split of an existing plan.json (the pictures are drawn per unit uid); only the times change.
+# UNITS=new forces a fresh split (tools/remake.py does that; so does a video without a plan.json).
+_plan0 = f'{vdir()}/plan.json'
+FIXED = os.path.exists(_plan0) and os.environ.get('UNITS') != 'new' and not os.environ.get('SEL')
+
+
+def fixed_units(i):
+    text = SCENES[i - 1][4]; pj = [p['text'] for p in json.load(open(_plan0)) if p['scene'] == i]; pos = 0; st = []
+    for t in pj:
+        j = text.find(t, pos)
+        assert j >= 0, (f'scene {i}: unit text of plan.json not found in the scene text (script edited? run with UNITS=new)', t[:50])
+        st.append(j); pos = j + len(t)
+    st[0] = 0 if text[:st[0]].strip() == '' else st[0]
+    return [(st[k], st[k + 1] if k + 1 < len(st) else len(text)) for k in range(len(st))]
+
+
 units = []; n = 0
 for i in SEL:
     kind = SCENES[i - 1][2]; text = SCENES[i - 1][4]
@@ -170,7 +215,7 @@ for i in SEL:
         n += 1
         units.append(dict(n=n, uid=f'U{n:03d}', scene=i, kind='chalk', c0=0, c1=len(text), text=text, t0=0.0 if i == SEL[0] else starts[i], t1=s1_scene))
         continue
-    us = units_of(i)
+    us = units_of(i) if not FIXED else fixed_units(i)
     for k, (a, b) in enumerate(us):
         n += 1
         t0 = (0.0 if i == SEL[0] else starts[i]) if k == 0 else starts[i] + tchar(i, a)
@@ -313,11 +358,12 @@ def split_lines(sent):
 
 caps = []
 for i in SEL:
-    s0 = starts[i]; sc = []
+    s0 = starts[i]; sc = []; text = SCENES[i - 1][4]; pos = 0
     for (s, a, b) in model[i]:
-        ls = split_lines(s); ch = [len(x) + 1 for x in ls]; tot = sum(ch); c = 0
-        for k, ltxt in enumerate(ls):
-            sc.append([ltxt, s0 + a + (b - a) * c / tot, s0 + a + (b - a) * (c + ch[k]) / tot]); c += ch[k]
+        j = text.find(s, pos); pos = j + len(s); lp = 0
+        for ltxt in split_lines(s):
+            k = s.find(ltxt, lp); lp = k + len(ltxt)
+            sc.append([ltxt, s0 + tchar(i, j + k), s0 + tchar(i, j + k + len(ltxt))])
     for k, cp in enumerate(sc):
         end = sc[k + 1][1] if k + 1 < len(sc) else s0 + D[i - 1] + 0.25
         caps.append({'text': cp[0], 't0': cp[1], 't1': end, 'sp1': min(cp[2], end), 'scene': i})

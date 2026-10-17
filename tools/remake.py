@@ -14,7 +14,7 @@ if os.path.exists(prev) and os.environ.get('FRESH') != '1':   # a re-run must no
     print('keeping existing', prev)
 else:
     shutil.copy(f'{vdir()}/plan.json', prev)
-subprocess.run([sys.executable, f'{REPO}/tools/build3.py'], env=dict(env, PLAN='1'), check=True)
+subprocess.run([sys.executable, f'{REPO}/tools/build3.py'], env=dict(env, PLAN='1', UNITS='new'), check=True)
 subprocess.run([sys.executable, f'{REPO}/tools/remap_art.py', prev], env=env, check=True)
 r = f'{REPO}/render/{slug}'
 dest = open(f'{r}/.dest').read().strip() if os.path.exists(f'{r}/.dest') else '(none: default folder)'

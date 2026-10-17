@@ -14,6 +14,7 @@ Steps (run from the repo root):
    The venv held `kokoro-onnx 0.6.1, soundfile, onnxruntime, phonemizer, espeakng-loader, numpy`.
    Setting it up from scratch was not re-tested.
 2. `SLUG=x python3 tools/audio_prep.py` — stereo, loudnorm -16.8 LUFS, per-scene clips, timing.
+2b. `SLUG=x python3 tools/align.py` — word times of the narration (faster-whisper small.en, CPU, ~4 min per 45 paragraphs) into `build/words.json`; build3 uses them for captions, cuts, sfx. Required before build3 (it stops when a paragraph matches < 90 % of its words). Needs `pip install faster-whisper`.
 3. (new look, current) `SLUG=x PLAN=1 python3 tools/build3.py` -> plan.json; draw `art3/<uid>.svg+json` per unit (tools/art_spec.md, incl. the on-screen text `labels` checked/previewed with `python3 tools/labelshot.py <slug> <dir> <uid...>`; the spec says: NO rings/radiating lines — every picture needs a scene-specific backdrop, see tools/art_spec.md section 5, appendix A is the brief for revising existing pictures; at most 2 of 12 units may share a backdrop kind); `SLUG=x python3 tools/build3.py` (`VERT=1` for Shorts). Old flow: `SLUG=x python3 tools/build.py` — writes `render/x/` (index.html, audio as m4a, assets). `SEL=1,2,16` builds a partial test.
 4. `SLUG=x python3 tools/thumb_shot.py` — thumbnails into `render/x/deliver/`.
 5. `SLUG=x python3 tools/gen_text.py` — script txt and metadata txt into `render/x/deliver/`.
