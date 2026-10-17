@@ -78,7 +78,8 @@ marks...). Abstract ideas may get a symbolic backdrop (sand drift, stacked layer
   x 120..1800, y 80..880. `transition_in` "slide": keep important content away from the far left/right 150 px.
 
 ## 6A. Hands (2026-10-17 user feedback: thumbs bent at grotesque angles and far too long) — MANDATORY
-Draw every visible hand (any hand larger than about 25 px) with `tools/hands.py`, never with free-hand paths:
+When a hand needs fingers (see 6B: pointing, gripping a visible object, waving close-up, hand as the subject, stencils/icons), draw it with
+`tools/hands.py`, never with free-hand paths. Other hands stay simple and round (6B):
 ```python
 import sys; sys.path.insert(0, '/home/user/rp/tools'); from hands import hand
 svg += hand(x, y, angle, size, side='L'|'R', view='palm'|'back', pose='open'|'flat'|'wave'|'point'|'fist'|'hold', skin=..., line=...)
@@ -90,24 +91,20 @@ finger; thumb side follows left/right and palm/back. `body.arm()` draws the hand
 as a mask). Gloves and mittens may be drawn freely. If a pose you need is missing, rotate/scale a module pose; do not invent a thumb.
 Check every hand at 100 % zoom in the preview before you finish.
 
-## 6B. People: proportions and arms (2026-10-17 user feedback: "elbows bend strangely and the arms are far too long — grotesque") — MANDATORY
-Measure every person in HEAD HEIGHTS (H = chin to top of head) and draw every arm with `tools/body.py`:
-```python
-import sys; sys.path.insert(0, '/home/user/rp/tools'); from body import arm, shoulders, P
-(ls, rs) = shoulders(body_centre_x, top_of_head_y, H, kind='adult')      # shoulder JOINTS of a figure facing the viewer
-svg += arm(*ls, H, upper=-6, bend=8, bend_dir=1, name='lefty-r', side='R', view='palm', pose='flat', sleeve=..., skin=..., line=...)
-```
-- Proportions (`P` in body.py): adult 7.5 H tall, shoulders 2 H wide, upper arm 1.35 H, forearm 1.1 H, palm 0.42 H; child 5.5 H, toddler 4.5 H.
-  Hanging arm: elbow at the waist, wrist at the crotch, fingertips at mid-thigh — never at the knee. Upper arm is longer than the forearm.
-  Hips at mid-height (adult 3.75 H from the top of the head); knee halfway between hip and ankle; legs about half the height.
-- Elbows only FOLD (bend 0-140 degrees, one fold direction per arm), never bend backwards, never a second kink; the elbow is a smooth round joint.
-- Shoulder joints sit inside the top corners of the torso (not at the neck, not outside the body). A figure facing the viewer has its
-  RIGHT arm on the viewer's LEFT. Seen from behind, it is the other way round.
-- Animation: `arm()` returns `mv-limb-<name>-1/-2` groups. build3 moves limbs gently and in step (upper arm 2.5 deg, forearm 2 deg, 2.4 s).
-  Do NOT animate human arms with `mv-chain` (that is for tails, tentacles, seaweed: its tip whips in a travelling wave). Legs of standing
-  people do not move; walking uses `mv-walk`. A hand that holds or presses something keeps the arm still (`amp=(0, 0)` or a smaller swing).
-- Before finishing, draw the head-height guide lines next to each figure in a preview (`python3 tools/body.py /tmp/b.svg` shows the
-  reference sheet) and check the proportions above at 100 %.
+## 6B. People: proportions and arms — MANDATORY (user decisions 2026-10-17)
+History: free-hand arms were too long with odd elbows -> a realistic 7.5-head redraw with jointed arms looked "too detailed, strange";
+the user chose the cute style: "the earlier pictures were cleaner and the proportions cuter; use the elbow joint only when the elbow moves".
+- Proportions (head heights H, `P` in `tools/body.py`): **adult `kind='cute'` 5.5 H, child `'cute_child'` 4.5 H** (big head, short limbs).
+  Hanging arm ends with the fingertips at the top/middle of the thigh, never at the knee. Realistic kinds ('adult' 7.5 H) only if a
+  scene truly needs a realistic figure.
+- Draw every human arm with `body.arm(...)` (hand from hands.py included): ONE smooth tapered shape along a gentle curve, no visible elbow,
+  moving as one `mv-limb` link from the shoulder. `elbow_moves=True` (upper arm + forearm links) ONLY where the forearm really swings
+  (waving, hammering, writing strokes). Elbows fold 0-140 deg one way, never backwards. Holding/pressing arms: `amp=(0, 0)`.
+- Shoulder joints inside the torso corners (`shoulders()`); facing the viewer, the figure's right arm is on the viewer's left.
+- Hands: **round by default** (`fingers=False`: a simple round hand like the original pictures). Fingers (`fingers=True`, hands.py)
+  ONLY where the scene needs them: pointing, gripping a visible object, a waving close-up, a hand that is the subject of the sentence,
+  hand stencils/icons (user 2026-10-17).
+- Do not animate human arms with `mv-chain` (that is for tails/tentacles). `python3 tools/body.py /tmp/b.svg` shows the reference sheet.
 
 ## 7. Motion groups
 Wrap moving parts as `<g id="mv-<type>-<unique>">...</g>`; each must still look right when static, each id unique. If a figure group

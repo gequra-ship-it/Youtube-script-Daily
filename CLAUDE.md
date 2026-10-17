@@ -31,3 +31,9 @@
 - 확인하지 않은 것을 확인했다고 쓰지 않는다. 지침서의 "확인한 것 / 확인하지 못한 것" 구분을 유지한다.
 - 비밀값(`RCLONE_CONF`, API 키)은 읽거나 출력하지 않는다.
 - 지침서를 고치면 개정 이력에 날짜와 이유를 남긴다. 레포 구조를 바꾸면 `docs/repo-changes.md`에 남긴다.
+
+
+## Picture agents: model split and token budget (user decision 2026-10-17)
+- Units with people, animals or other creatures, or a complex composition -> Opus agent (`model: "opus"`); simple units (charts, objects, landscapes, icons) -> Sonnet agent (`model: "sonnet"`). Split each video's units into these two groups before launching agents.
+- Before changing a style or rule across many pictures, make 2-4 test pictures and get the owner's OK first.
+- Agents check with one before/after contact sheet per batch and report in at most 8 lines.
