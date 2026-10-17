@@ -1,18 +1,29 @@
 {
- "centre": "brass magnifying lens with one large fossil tooth",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "road stone with glossy fossil teeth embedded",
+ "focus": [
+  960,
+  500,
+  1.9
+ ],
+ "focus_word": "unusual fossil teeth",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "found",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "Me? But huge?",
-   "x": 470,
-   "y": 640,
+   "type": "name",
+   "text": "Fossil teeth",
+   "x": 1240,
+   "y": 380,
    "to": [
-    500,
-    728
-   ]
+    1000,
+    470
+   ],
+   "word": "fossil teeth"
   }
  ]
 }

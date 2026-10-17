@@ -1,8 +1,31 @@
 {
- "centre": "a glowing blue time portal at the end of a two-lane road",
+ "centre": "a bright gold clock for fast Earth time",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "one hour",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "~7.6 YEARS",
+   "word": "seven point six years"
+  },
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 1500,
+   "y": 640,
+   "to": [
+    1500,
+    550
+   ],
+   "word": "Earth"
+  }
+ ],
  "spot": true
 }

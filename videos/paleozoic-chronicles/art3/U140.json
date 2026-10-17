@@ -1,18 +1,22 @@
 {
- "centre": "head-on armored Dunkleosteus head with bony blade jaws",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "moonlit round window of the sea surface seen from below",
+ "focus": [
+  1280,
+  700,
+  1.6
+ ],
+ "focus_word": "Dunkleosteus",
  "labels": [
   {
-   "type": "say",
-   "text": "Uh-oh...",
-   "x": 330,
-   "y": 250,
+   "type": "name",
+   "text": "Dunkleosteus",
+   "x": 1300,
+   "y": 540,
    "to": [
-    450,
-    370
-   ]
+    1250,
+    680
+   ],
+   "word": "Dunkleosteus"
   }
  ]
 }

@@ -1,8 +1,30 @@
 {
- "centre": "calm dark black hole with a thin cool ring and no disk",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "black hole with a tilted glowing disk, matter falling in",
+ "focus": [
+  1220,
+  360,
+  1.6
+ ],
+ "focus_word": "shredded matter",
+ "sfx": [
+  {
+   "name": "starfall",
+   "word": "falling",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Horizon",
+   "x": 800,
+   "y": 330,
+   "to": [
+    920,
+    440
+   ],
+   "word": "horizon"
+  }
+ ],
  "spot": true
 }

@@ -2,7 +2,7 @@
  {
   "uid": "U001",
   "scene": 1,
-  "title": "Lost in a War",
+  "title": "Hook",
   "art_theme": "hook",
   "bg": "night",
   "pal": {
@@ -26,16 +26,16 @@
     "#5f6b4a"
    ]
   },
-  "text": "The original fossils of Spinosaurus no longer exist.",
-  "dur": 4.33,
+  "text": "What do you do when the only fossils of",
+  "dur": 3.5,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "They were destroyed in a bombing raid in 1944."
+  "nxt": "a giant predator are destroyed by bombs?"
  },
  {
   "uid": "U002",
   "scene": 1,
-  "title": "Lost in a War",
+  "title": "Hook",
   "art_theme": "hook",
   "bg": "night",
   "pal": {
@@ -59,18 +59,18 @@
     "#5f6b4a"
    ]
   },
-  "text": "They were destroyed in a bombing raid in 1944.",
-  "dur": 4.56,
-  "transition_in": "fade",
-  "prev": "The original fossils of Spinosaurus no longer exist.",
-  "nxt": ""
+  "text": "a giant predator are destroyed by bombs?",
+  "dur": 3.5,
+  "transition_in": "eye",
+  "prev": "What do you do when the only fossils of",
+  "nxt": "Spinosaurus was found in the Egyptian desert,"
  },
  {
   "uid": "U003",
-  "scene": 2,
-  "title": "Stromer's Giant",
-  "art_theme": "stromer",
-  "bg": "paper",
+  "scene": 1,
+  "title": "Hook",
+  "art_theme": "hook",
+  "bg": "night",
   "pal": {
    "palette": "history",
    "paper_base": "#e8dcc4",
@@ -92,18 +92,18 @@
     "#5f6b4a"
    ]
   },
-  "text": "In 1915, the German paleontologist Ernst Stromer described a huge predator from Egypt,",
-  "dur": 6.91,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "with spines on its back at least one point six five meters long."
+  "text": "Spinosaurus was found in the Egyptian desert,",
+  "dur": 3.5,
+  "transition_in": "push",
+  "prev": "a giant predator are destroyed by bombs?",
+  "nxt": "then lost in a German museum in 1944."
  },
  {
   "uid": "U004",
-  "scene": 2,
-  "title": "Stromer's Giant",
-  "art_theme": "stromer",
-  "bg": "paper",
+  "scene": 1,
+  "title": "Hook",
+  "art_theme": "hook",
+  "bg": "night",
   "pal": {
    "palette": "history",
    "paper_base": "#e8dcc4",
@@ -125,17 +125,17 @@
     "#5f6b4a"
    ]
   },
-  "text": "with spines on its back at least one point six five meters long.",
-  "dur": 5.58,
-  "transition_in": "slide",
-  "prev": "In 1915, the German paleontologist Ernst Stromer described a huge predator from Egypt,",
-  "nxt": ""
+  "text": "then lost in a German museum in 1944.",
+  "dur": 3.5,
+  "transition_in": "whip",
+  "prev": "Spinosaurus was found in the Egyptian desert,",
+  "nxt": "How do you draw an animal nobody can study anymore?"
  },
  {
   "uid": "U005",
-  "scene": 3,
-  "title": "The Bombing",
-  "art_theme": "bombing",
+  "scene": 1,
+  "title": "Hook",
+  "art_theme": "hook",
   "bg": "night",
   "pal": {
    "palette": "history",
@@ -158,18 +158,18 @@
     "#5f6b4a"
    ]
   },
-  "text": "The fossils were kept in a museum in Munich.",
-  "dur": 2.8,
-  "transition_in": "wash",
-  "prev": "",
-  "nxt": "They were never moved to safety, and on a night in April 1944,"
+  "text": "How do you draw an animal nobody can study anymore?",
+  "dur": 3.55,
+  "transition_in": "fade",
+  "prev": "then lost in a German museum in 1944.",
+  "nxt": ""
  },
  {
   "uid": "U006",
-  "scene": 3,
-  "title": "The Bombing",
-  "art_theme": "bombing",
-  "bg": "night",
+  "scene": 2,
+  "title": "Spinosaurus",
+  "art_theme": "s2",
+  "bg": "dusk",
   "pal": {
    "palette": "history",
    "paper_base": "#e8dcc4",
@@ -191,17 +191,314 @@
     "#5f6b4a"
    ]
   },
-  "text": "They were never moved to safety, and on a night in April 1944,",
-  "dur": 4.8,
+  "text": "No animal shows how pictures can change better than Spinosaurus.",
+  "dur": 4.73,
   "transition_in": "zoom",
-  "prev": "The fossils were kept in a museum in Munich.",
-  "nxt": "the museum was hit and the bones were lost."
+  "prev": "",
+  "nxt": "In 1912, fossils of a huge predator were found in the Egyptian desert,"
  },
  {
   "uid": "U007",
+  "scene": 2,
+  "title": "Spinosaurus",
+  "art_theme": "s2",
+  "bg": "dusk",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "In 1912, fossils of a huge predator were found in the Egyptian desert,",
+  "dur": 5.2,
+  "transition_in": "iris",
+  "prev": "No animal shows how pictures can change better than Spinosaurus.",
+  "nxt": "and the German paleontologist Ernst Stromer described them in 1915."
+ },
+ {
+  "uid": "U008",
+  "scene": 2,
+  "title": "Spinosaurus",
+  "art_theme": "s2",
+  "bg": "dusk",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "and the German paleontologist Ernst Stromer described them in 1915.",
+  "dur": 4.91,
+  "transition_in": "match",
+  "prev": "In 1912, fossils of a huge predator were found in the Egyptian desert,",
+  "nxt": "The animal had long jaws and spines on its back at least one point six five meters long,"
+ },
+ {
+  "uid": "U009",
+  "scene": 2,
+  "title": "Spinosaurus",
+  "art_theme": "s2",
+  "bg": "dusk",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "The animal had long jaws and spines on its back at least one point six five meters long,",
+  "dur": 5.23,
+  "transition_in": "slide",
+  "prev": "and the German paleontologist Ernst Stromer described them in 1915.",
+  "nxt": "which seemed to hold up a large sail."
+ },
+ {
+  "uid": "U010",
+  "scene": 2,
+  "title": "Spinosaurus",
+  "art_theme": "s2",
+  "bg": "dusk",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "which seemed to hold up a large sail.",
+  "dur": 4.5,
+  "transition_in": "eye",
+  "prev": "The animal had long jaws and spines on its back at least one point six five meters long,",
+  "nxt": ""
+ },
+ {
+  "uid": "U011",
   "scene": 3,
-  "title": "The Bombing",
-  "art_theme": "bombing",
+  "title": "Lost in the War",
+  "art_theme": "s3",
+  "bg": "paper",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "Stromer's fossils were kept in a museum in Munich. Stromer was a critic of the Nazi regime,",
+  "dur": 5.88,
+  "transition_in": "wash",
+  "prev": "",
+  "nxt": "and tension with the museum's Nazi director meant the fossils were not moved to safety."
+ },
+ {
+  "uid": "U012",
+  "scene": 3,
+  "title": "Lost in the War",
+  "art_theme": "s3",
+  "bg": "paper",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "and tension with the museum's Nazi director meant the fossils were not moved to safety.",
+  "dur": 5.84,
+  "transition_in": "wipe",
+  "prev": "Stromer's fossils were kept in a museum in Munich. Stromer was a critic of the Nazi regime,",
+  "nxt": "On the night of the twenty-fourth to the twenty-fifth of April, 1944,"
+ },
+ {
+  "uid": "U013",
+  "scene": 3,
+  "title": "Lost in the War",
+  "art_theme": "s3",
+  "bg": "paper",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "On the night of the twenty-fourth to the twenty-fifth of April, 1944,",
+  "dur": 5.23,
+  "transition_in": "whip",
+  "prev": "and tension with the museum's Nazi director meant the fossils were not moved to safety.",
+  "nxt": "Allied bombs hit the museum, and the Spinosaurus fossils were destroyed."
+ },
+ {
+  "uid": "U014",
+  "scene": 3,
+  "title": "Lost in the War",
+  "art_theme": "s3",
+  "bg": "paper",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "Allied bombs hit the museum, and the Spinosaurus fossils were destroyed.",
+  "dur": 5.38,
+  "transition_in": "tilt",
+  "prev": "On the night of the twenty-fourth to the twenty-fifth of April, 1944,",
+  "nxt": "Only Stromer's drawings and descriptions remained."
+ },
+ {
+  "uid": "U015",
+  "scene": 3,
+  "title": "Lost in the War",
+  "art_theme": "s3",
+  "bg": "paper",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "Only Stromer's drawings and descriptions remained.",
+  "dur": 3.91,
+  "transition_in": "slide",
+  "prev": "Allied bombs hit the museum, and the Spinosaurus fossils were destroyed.",
+  "nxt": ""
+ },
+ {
+  "uid": "U016",
+  "scene": 4,
+  "title": "A Ghost Made of Guesses",
+  "art_theme": "s4",
   "bg": "night",
   "pal": {
    "palette": "history",
@@ -224,208 +521,637 @@
     "#5f6b4a"
    ]
   },
-  "text": "the museum was hit and the bones were lost.",
-  "dur": 3.78,
-  "transition_in": "fade",
-  "prev": "They were never moved to safety, and on a night in April 1944,",
-  "nxt": ""
+  "text": "For decades, Spinosaurus was known mostly from those drawings and a few scraps.",
+  "dur": 5.17,
+  "transition_in": "wipe",
+  "prev": "",
+  "nxt": "Artists often gave it the body of a typical large two-legged predator,"
  },
  {
-  "uid": "U008",
+  "uid": "U017",
   "scene": 4,
-  "title": "A Movie Monster",
-  "art_theme": "monster",
-  "bg": "dusk",
+  "title": "A Ghost Made of Guesses",
+  "art_theme": "s4",
+  "bg": "night",
   "pal": {
-   "palette": "forest",
-   "paper_base": "#e3e5d6",
-   "paper_ink": "#1d2b1c",
-   "night_top": "#07140e",
-   "night_bottom": "#122a1f",
-   "night_line": "#9fdca0",
-   "night_glow": "#d8e87a",
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
    "dusk_stops": [
-    "#e9d9a0",
-    "#8fae6a",
-    "#3b6b4a"
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
    ],
-   "dusk_ink": "#1d2b1c",
+   "dusk_ink": "#2e2218",
    "accents": [
-    "#3f7d4e",
-    "#8fb86a",
+    "#8a5a34",
+    "#b5483b",
     "#c9a64a",
-    "#7a5233"
+    "#5f6b4a"
    ]
   },
-  "text": "For decades, artists drew it as a typical giant two-legged predator with a sail.",
-  "dur": 5.28,
+  "text": "Artists often gave it the body of a typical large two-legged predator,",
+  "dur": 5.12,
+  "transition_in": "tilt",
+  "prev": "For decades, Spinosaurus was known mostly from those drawings and a few scraps.",
+  "nxt": "added a sail on its back and a long, crocodile-like snout."
+ },
+ {
+  "uid": "U018",
+  "scene": 4,
+  "title": "A Ghost Made of Guesses",
+  "art_theme": "s4",
+  "bg": "night",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "added a sail on its back and a long, crocodile-like snout.",
+  "dur": 4.68,
   "transition_in": "wash",
-  "prev": "",
-  "nxt": "In Jurassic Park Three, it even beat a Tyrannosaurus."
- },
- {
-  "uid": "U009",
-  "scene": 4,
-  "title": "A Movie Monster",
-  "art_theme": "monster",
-  "bg": "dusk",
-  "pal": {
-   "palette": "forest",
-   "paper_base": "#e3e5d6",
-   "paper_ink": "#1d2b1c",
-   "night_top": "#07140e",
-   "night_bottom": "#122a1f",
-   "night_line": "#9fdca0",
-   "night_glow": "#d8e87a",
-   "dusk_stops": [
-    "#e9d9a0",
-    "#8fae6a",
-    "#3b6b4a"
-   ],
-   "dusk_ink": "#1d2b1c",
-   "accents": [
-    "#3f7d4e",
-    "#8fb86a",
-    "#c9a64a",
-    "#7a5233"
-   ]
-  },
-  "text": "In Jurassic Park Three, it even beat a Tyrannosaurus.",
-  "dur": 4.86,
-  "transition_in": "match",
-  "prev": "For decades, artists drew it as a typical giant two-legged predator with a sail.",
+  "prev": "Artists often gave it the body of a typical large two-legged predator,",
   "nxt": ""
  },
  {
-  "uid": "U010",
+  "uid": "U019",
   "scene": 5,
-  "title": "New Fossils",
-  "art_theme": "river",
-  "bg": "paper",
+  "title": "Short Legs",
+  "art_theme": "s5",
+  "bg": "dusk",
   "pal": {
-   "palette": "forest",
-   "paper_base": "#e3e5d6",
-   "paper_ink": "#1d2b1c",
-   "night_top": "#07140e",
-   "night_bottom": "#122a1f",
-   "night_line": "#9fdca0",
-   "night_glow": "#d8e87a",
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
    "dusk_stops": [
-    "#e9d9a0",
-    "#8fae6a",
-    "#3b6b4a"
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
    ],
-   "dusk_ink": "#1d2b1c",
+   "dusk_ink": "#2e2218",
    "accents": [
-    "#3f7d4e",
-    "#8fb86a",
+    "#8a5a34",
+    "#b5483b",
     "#c9a64a",
-    "#7a5233"
+    "#5f6b4a"
    ]
   },
-  "text": "Then new fossils from Morocco showed short hind legs and,",
-  "dur": 4.76,
+  "text": "Then new fossils from Morocco changed the picture. In 2014,",
+  "dur": 4.25,
+  "transition_in": "wipe",
+  "prev": "",
+  "nxt": "a team led by Nizar Ibrahim described a partial skeleton"
+ },
+ {
+  "uid": "U020",
+  "scene": 5,
+  "title": "Short Legs",
+  "art_theme": "s5",
+  "bg": "dusk",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "a team led by Nizar Ibrahim described a partial skeleton",
+  "dur": 4.06,
+  "transition_in": "push",
+  "prev": "Then new fossils from Morocco changed the picture. In 2014,",
+  "nxt": "with surprisingly short hind legs and dense bones."
+ },
+ {
+  "uid": "U021",
+  "scene": 5,
+  "title": "Short Legs",
+  "art_theme": "s5",
+  "bg": "dusk",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "with surprisingly short hind legs and dense bones.",
+  "dur": 3.56,
   "transition_in": "zoom",
-  "prev": "",
-  "nxt": "in 2020, a tall, paddle-like tail. Some scientists think it hunted in rivers."
+  "prev": "a team led by Nizar Ibrahim described a partial skeleton",
+  "nxt": "They proposed that Spinosaurus spent much of its life in rivers, catching fish."
  },
  {
-  "uid": "U011",
+  "uid": "U022",
   "scene": 5,
-  "title": "New Fossils",
-  "art_theme": "river",
-  "bg": "paper",
+  "title": "Short Legs",
+  "art_theme": "s5",
+  "bg": "dusk",
   "pal": {
-   "palette": "forest",
-   "paper_base": "#e3e5d6",
-   "paper_ink": "#1d2b1c",
-   "night_top": "#07140e",
-   "night_bottom": "#122a1f",
-   "night_line": "#9fdca0",
-   "night_glow": "#d8e87a",
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
    "dusk_stops": [
-    "#e9d9a0",
-    "#8fae6a",
-    "#3b6b4a"
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
    ],
-   "dusk_ink": "#1d2b1c",
+   "dusk_ink": "#2e2218",
    "accents": [
-    "#3f7d4e",
-    "#8fb86a",
+    "#8a5a34",
+    "#b5483b",
     "#c9a64a",
-    "#7a5233"
+    "#5f6b4a"
    ]
   },
-  "text": "in 2020, a tall, paddle-like tail. Some scientists think it hunted in rivers.",
-  "dur": 6.13,
-  "transition_in": "fade",
-  "prev": "Then new fossils from Morocco showed short hind legs and,",
+  "text": "They proposed that Spinosaurus spent much of its life in rivers, catching fish.",
+  "dur": 5.65,
+  "transition_in": "wipe",
+  "prev": "with surprisingly short hind legs and dense bones.",
+  "nxt": "Some other scientists disputed parts of this reconstruction,"
+ },
+ {
+  "uid": "U023",
+  "scene": 5,
+  "title": "Short Legs",
+  "art_theme": "s5",
+  "bg": "dusk",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "Some other scientists disputed parts of this reconstruction,",
+  "dur": 3.92,
+  "transition_in": "match",
+  "prev": "They proposed that Spinosaurus spent much of its life in rivers, catching fish.",
+  "nxt": "and the argument was only beginning."
+ },
+ {
+  "uid": "U024",
+  "scene": 5,
+  "title": "Short Legs",
+  "art_theme": "s5",
+  "bg": "dusk",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "and the argument was only beginning.",
+  "dur": 3.5,
+  "transition_in": "wash",
+  "prev": "Some other scientists disputed parts of this reconstruction,",
   "nxt": ""
  },
  {
-  "uid": "U012",
+  "uid": "U025",
   "scene": 6,
-  "title": "Full Story",
-  "art_theme": "outro",
-  "bg": "dusk",
+  "title": "A Tail Like a Paddle",
+  "art_theme": "s6",
+  "bg": "paper",
   "pal": {
-   "palette": "forest",
-   "paper_base": "#e3e5d6",
-   "paper_ink": "#1d2b1c",
-   "night_top": "#07140e",
-   "night_bottom": "#122a1f",
-   "night_line": "#9fdca0",
-   "night_glow": "#d8e87a",
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
    "dusk_stops": [
-    "#e9d9a0",
-    "#8fae6a",
-    "#3b6b4a"
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
    ],
-   "dusk_ink": "#1d2b1c",
+   "dusk_ink": "#2e2218",
    "accents": [
-    "#3f7d4e",
-    "#8fb86a",
+    "#8a5a34",
+    "#b5483b",
     "#c9a64a",
-    "#7a5233"
+    "#5f6b4a"
    ]
   },
-  "text": "Others disagree, and the debate goes on.",
-  "dur": 2.94,
-  "transition_in": "slide",
+  "text": "In 2020, the same team described its tail.",
+  "dur": 3.79,
+  "transition_in": "fade",
   "prev": "",
-  "nxt": "The full story of how dinosaurs keep being redrawn is on Miya's Lab."
+  "nxt": "It was tall and flat, with long spines forming something like a fin,"
  },
  {
-  "uid": "U013",
+  "uid": "U026",
   "scene": 6,
-  "title": "Full Story",
+  "title": "A Tail Like a Paddle",
+  "art_theme": "s6",
+  "bg": "paper",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "It was tall and flat, with long spines forming something like a fin,",
+  "dur": 5.05,
+  "transition_in": "iris",
+  "prev": "In 2020, the same team described its tail.",
+  "nxt": "a bit like the tail of a newt. They argued it could push the animal through water."
+ },
+ {
+  "uid": "U027",
+  "scene": 6,
+  "title": "A Tail Like a Paddle",
+  "art_theme": "s6",
+  "bg": "paper",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "a bit like the tail of a newt. They argued it could push the animal through water.",
+  "dur": 5.65,
+  "transition_in": "match",
+  "prev": "It was tall and flat, with long spines forming something like a fin,",
+  "nxt": ""
+ },
+ {
+  "uid": "U028",
+  "scene": 7,
+  "title": "Four Versions",
+  "art_theme": "s7",
+  "bg": "night",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "In just over a century, Spinosaurus has been redrawn again and again.",
+  "dur": 4.5,
+  "transition_in": "eye",
+  "prev": "",
+  "nxt": "In 1915, Stromer described a giant predator with a sail."
+ },
+ {
+  "uid": "U029",
+  "scene": 7,
+  "title": "Four Versions",
+  "art_theme": "s7",
+  "bg": "night",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "In 1915, Stromer described a giant predator with a sail.",
+  "dur": 4.92,
+  "transition_in": "fade",
+  "prev": "In just over a century, Spinosaurus has been redrawn again and again.",
+  "nxt": "In 1944, the original fossils were lost in the war."
+ },
+ {
+  "uid": "U030",
+  "scene": 7,
+  "title": "Four Versions",
+  "art_theme": "s7",
+  "bg": "night",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "In 1944, the original fossils were lost in the war.",
+  "dur": 4.6,
+  "transition_in": "match",
+  "prev": "In 1915, Stromer described a giant predator with a sail.",
+  "nxt": "In 2014, new fossils gave it short hind legs and a life in the water."
+ },
+ {
+  "uid": "U031",
+  "scene": 7,
+  "title": "Four Versions",
+  "art_theme": "s7",
+  "bg": "night",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "In 2014, new fossils gave it short hind legs and a life in the water.",
+  "dur": 6.1,
+  "transition_in": "slide",
+  "prev": "In 1944, the original fossils were lost in the war.",
+  "nxt": "And in 2020, a paddle-like tail made it look more like a swimmer than ever."
+ },
+ {
+  "uid": "U032",
+  "scene": 7,
+  "title": "Four Versions",
+  "art_theme": "s7",
+  "bg": "night",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "And in 2020, a paddle-like tail made it look more like a swimmer than ever.",
+  "dur": 6.02,
+  "transition_in": "zoom",
+  "prev": "In 2014, new fossils gave it short hind legs and a life in the water.",
+  "nxt": ""
+ },
+ {
+  "uid": "U033",
+  "scene": 8,
+  "title": "Watch the Full Story",
   "art_theme": "outro",
   "bg": "dusk",
   "pal": {
-   "palette": "forest",
-   "paper_base": "#e3e5d6",
-   "paper_ink": "#1d2b1c",
-   "night_top": "#07140e",
-   "night_bottom": "#122a1f",
-   "night_line": "#9fdca0",
-   "night_glow": "#d8e87a",
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
    "dusk_stops": [
-    "#e9d9a0",
-    "#8fae6a",
-    "#3b6b4a"
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
    ],
-   "dusk_ink": "#1d2b1c",
+   "dusk_ink": "#2e2218",
    "accents": [
-    "#3f7d4e",
-    "#8fb86a",
+    "#8a5a34",
+    "#b5483b",
     "#c9a64a",
-    "#7a5233"
+    "#5f6b4a"
    ]
   },
-  "text": "The full story of how dinosaurs keep being redrawn is on Miya's Lab.",
-  "dur": 6.11,
+  "text": "Scientists are still arguing about how Spinosaurus really lived,",
+  "dur": 4.53,
+  "transition_in": "eye",
+  "prev": "",
+  "nxt": "and that is exactly the point: the picture is still changing."
+ },
+ {
+  "uid": "U034",
+  "scene": 8,
+  "title": "Watch the Full Story",
+  "art_theme": "outro",
+  "bg": "dusk",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "and that is exactly the point: the picture is still changing.",
+  "dur": 4.24,
+  "transition_in": "fade",
+  "prev": "Scientists are still arguing about how Spinosaurus really lived,",
+  "nxt": "The full story is on Miya's Lab."
+ },
+ {
+  "uid": "U035",
+  "scene": 8,
+  "title": "Watch the Full Story",
+  "art_theme": "outro",
+  "bg": "dusk",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "The full story is on Miya's Lab.",
+  "dur": 3.5,
   "transition_in": "match",
-  "prev": "Others disagree, and the debate goes on.",
+  "prev": "and that is exactly the point: the picture is still changing.",
   "nxt": ""
  }
 ]

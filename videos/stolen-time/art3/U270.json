@@ -1,29 +1,12 @@
 {
- "centre": "round airlock hatch swung open with bright light inside",
+ "centre": "craft from behind with a bright blue engine glow",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "Airlock",
-   "x": 1300,
-   "y": 260,
-   "to": [
-    1060,
-    410
-   ],
-   "word": "airlock"
-  },
-  {
-   "type": "say",
-   "text": "Home at last!",
-   "x": 500,
-   "y": 300,
-   "to": [
-    520,
-    500
-   ]
+   "name": "warp",
+   "word": "speed of light",
+   "vol": 0.55
   }
  ],
  "spot": true

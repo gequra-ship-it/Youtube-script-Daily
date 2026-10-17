@@ -1,12 +1,26 @@
 {
- "centre": "small pale-blue ocean planet on its innermost safe orbit around a black hole at the left",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "spinning black hole with photon ring and tilted accretion disk, space grid twisted around it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "warp",
+   "word": "frame-dragging",
+   "vol": 0.6
+  }
  ],
- "focus_word": "planet",
- "sfx": [],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Frame-dragging",
+   "x": 1420,
+   "y": 230,
+   "to": [
+    1270,
+    330
+   ],
+   "word": "frame-dragging"
+  }
+ ],
  "spot": true
 }

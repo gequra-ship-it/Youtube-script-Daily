@@ -1,13 +1,29 @@
 {
- "centre": "dark seawater orb with a fading ghost fish",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "glowing round lava vent on a fissure across stepped lava plateaus",
+ "focus": [
+  1500,
+  690,
+  1.6
+ ],
+ "focus_word": "Siberian Traps",
+ "sfx": [
+  {
+   "name": "crackle",
+   "word": "volcanic eruptions",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "80%+ OF MARINE SPECIES",
-   "word": "80 percent"
+   "type": "name",
+   "text": "Siberian Traps",
+   "x": 1450,
+   "y": 820,
+   "to": [
+    1500,
+    700
+   ],
+   "word": "Siberian Traps"
   }
  ]
 }

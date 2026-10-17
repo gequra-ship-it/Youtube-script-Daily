@@ -1,8 +1,30 @@
 {
- "centre": "a flickering signal beacon standing in the shallow sea",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "a glowing rogue asteroid flying in",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "rogue asteroid",
+ "sfx": [
+  {
+   "name": "starfall",
+   "word": "rogue asteroid",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Rogue asteroid",
+   "x": 1130,
+   "y": 300,
+   "to": [
+    1010,
+    420
+   ],
+   "word": "rogue asteroid"
+  }
+ ],
  "spot": true
 }

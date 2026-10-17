@@ -1,17 +1,34 @@
 {
- "centre": "huge compound eye of Anomalocaris covered in tiny hexagonal lenses",
+ "centre": "round weighing dial of a balance, needle level",
  "focus": [
-  540,
-  860,
-  1.8
+  849,
+  986,
+  1.7
  ],
- "focus_word": "24,000 lenses",
- "sfx": [],
+ "focus_word": "great white shark",
+ "sfx": [
+  {
+   "name": "creak",
+   "word": "as heavy as",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "num",
-   "text": "24,000+ LENSES",
-   "word": "24,000 lenses"
+   "text": "SHARK 4+ M LONG",
+   "word": "four meters"
+  },
+  {
+   "type": "name",
+   "text": "Great white shark",
+   "x": 770,
+   "y": 894,
+   "to": [
+    849,
+    969
+   ],
+   "word": "great white shark"
   }
  ]
 }

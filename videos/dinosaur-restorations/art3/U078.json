@@ -1,24 +1,22 @@
 {
- "centre": "round puff of dust where the two animals clash",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "thud",
-   "word": "fighting",
-   "vol": 0.6
-  }
+ "centre": "magnifying lens over the head showing a tiny glowing brain",
+ "focus": [
+  960,
+  500,
+  2.0
  ],
+ "focus_word": "brain",
  "labels": [
   {
-   "type": "say",
-   "text": "Not today!",
-   "x": 1420,
-   "y": 250,
+   "type": "name",
+   "text": "Brain",
+   "x": 1100,
+   "y": 400,
    "to": [
-    1110,
-    450
-   ]
+    972,
+    496
+   ],
+   "word": "brain"
   }
  ]
 }

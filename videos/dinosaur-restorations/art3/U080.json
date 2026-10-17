@@ -1,13 +1,29 @@
 {
- "centre": "round wall clock glowing above the artist's desk",
- "focus": null,
- "focus_word": null,
+ "centre": "glowing orb at the hips (the supposed second nerve center)",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "second nerve center",
  "sfx": [
   {
-   "name": "tick",
-   "word": "time",
+   "name": "hush",
+   "word": "second nerve center",
    "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Second nerve center",
+   "x": 1380,
+   "y": 330,
+   "to": [
+    1040,
+    460
+   ],
+   "word": "second nerve center"
+  }
+ ]
 }

@@ -1,24 +1,29 @@
 {
- "centre": "pale moon above the estuary water line",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "glowing bubble holding a bitten breakfast biscuit",
+ "focus": [
+  560,
+  520,
+  1.8
+ ],
+ "focus_word": "jaws",
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "in the water",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "~2.5 M LONG",
-   "word": "two and a half meters"
-  },
-  {
    "type": "name",
-   "text": "Jaekelopterus",
-   "x": 1300,
-   "y": 600,
+   "text": "Jaws",
+   "x": 560,
+   "y": 330,
    "to": [
-    1150,
-    760
+    570,
+    560
    ],
-   "word": "Jaekelopterus"
+   "word": "jaws"
   }
  ]
 }

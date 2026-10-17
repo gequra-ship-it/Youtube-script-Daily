@@ -1,30 +1,25 @@
 {
- "centre": "the ocean world receiving the broadcast, a tiny lander on it",
+ "centre": "the mothership's round golden receiver dish",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "microwaves",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Mothership",
-   "x": 380,
-   "y": 380,
+   "text": "Microwaves",
+   "x": 420,
+   "y": 470,
    "to": [
-    450,
-    240
+    520,
+    370
    ],
-   "word": "mothership"
-  },
-  {
-   "type": "name",
-   "text": "Water world",
-   "x": 1340,
-   "y": 600,
-   "to": [
-    1060,
-    550
-   ],
-   "word": "water world"
+   "word": "microwaves"
   }
  ],
  "spot": true

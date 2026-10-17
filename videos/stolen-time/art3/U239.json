@@ -1,8 +1,30 @@
 {
- "centre": "a golden sphere held between drafting calipers",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "a black hole with a dim, gentle accretion disk",
+ "focus": [
+  960,
+  520,
+  1.6
+ ],
+ "focus_word": "dormant accretion disk",
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "gentle glow",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Accretion disk",
+   "x": 1200,
+   "y": 650,
+   "to": [
+    1110,
+    560
+   ],
+   "word": "accretion disk"
+  }
+ ],
  "spot": true
 }

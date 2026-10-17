@@ -1,13 +1,34 @@
 {
- "centre": "round artist's paint palette with guessed colour dabs, lamp-lit",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "round stone slab with a curled small fossil skeleton",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "Sinosauropteryx",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "found",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "num",
-   "text": "2010",
-   "word": "2010"
+   "text": "1996",
+   "word": "1996"
+  },
+  {
+   "type": "name",
+   "text": "Sinosauropteryx",
+   "x": 1260,
+   "y": 330,
+   "to": [
+    1040,
+    440
+   ],
+   "word": "Sinosauropteryx"
   }
  ]
 }

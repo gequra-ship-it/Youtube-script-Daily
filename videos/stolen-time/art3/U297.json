@@ -1,12 +1,26 @@
 {
- "centre": "calm blue Earth in a quiet corner of the galaxy",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "a spinning Kerr black hole seen from above, gas swirling around it, faint ergosphere shell",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "substantial water",
+   "vol": 0.55
+  }
  ],
- "focus_word": "low-gravity corner",
- "sfx": [],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Kerr black hole",
+   "x": 600,
+   "y": 760,
+   "to": [
+    860,
+    580
+   ],
+   "word": "Kerr black hole"
+  }
+ ],
  "spot": true
 }

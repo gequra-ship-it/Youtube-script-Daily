@@ -1,14 +1,30 @@
 {
- "centre": "open round hatch of the lander looking out on the shallow sea",
- "focus": null,
- "focus_word": null,
+ "centre": "ocean world cut open: thin sea over rocky bedrock, rocking",
+ "focus": [
+  1028,
+  532,
+  1.8
+ ],
+ "focus_word": "rocky bedrock",
  "sfx": [
   {
-   "name": "step",
-   "word": "standing",
+   "name": "stone",
+   "word": "rocky bedrock",
    "vol": 0.6
   }
  ],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Bedrock",
+   "x": 1330,
+   "y": 420,
+   "to": [
+    1040,
+    535
+   ],
+   "word": "bedrock"
+  }
+ ],
  "spot": true
 }

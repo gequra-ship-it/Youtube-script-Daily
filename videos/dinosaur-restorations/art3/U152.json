@@ -1,11 +1,36 @@
 {
- "centre": "round vertebra centrum with a tall spine rising from it",
- "focus": [
-  470,
-  570,
-  1.7
+ "centre": "round pinned vignette of a leaping dinosaur sketch",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "rustle",
+   "word": "He drew",
+   "vol": 0.55
+  }
  ],
- "focus_word": "long jaws",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Birds",
+   "x": 410,
+   "y": 620,
+   "to": [
+    410,
+    520
+   ],
+   "word": "birds"
+  },
+  {
+   "type": "name",
+   "text": "Mammals",
+   "x": 1510,
+   "y": 620,
+   "to": [
+    1510,
+    500
+   ],
+   "word": "mammals"
+  }
+ ]
 }

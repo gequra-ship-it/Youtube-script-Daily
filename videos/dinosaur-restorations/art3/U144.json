@@ -1,11 +1,30 @@
 {
- "centre": "round gilt frame with a fading old reptile painting",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "low setting sun over the Montana badlands",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "Montana",
+   "vol": 0.5
+  }
  ],
- "focus_word": "old image",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "1960S",
+   "word": "1960s"
+  },
+  {
+   "type": "name",
+   "text": "Montana",
+   "x": 1480,
+   "y": 470,
+   "to": [
+    1420,
+    600
+   ],
+   "word": "Montana"
+  }
+ ]
 }

@@ -1,29 +1,29 @@
 {
- "centre": "Earth, a pale blue dot, resting in a soft beam of light with its small moon",
+ "centre": "a gold wristwatch on a wrist resting on a wooden table",
  "focus": [
   960,
   500,
-  1.6
+  1.7
  ],
- "focus_word": "pale blue dot",
+ "focus_word": "local clock",
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "pale blue dot",
-   "vol": 0.55
+   "name": "tick",
+   "word": "ticking",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Pale blue dot",
-   "x": 1200,
-   "y": 640,
+   "type": "say",
+   "text": "Tick... tock...",
+   "x": 700,
+   "y": 300,
    "to": [
-    1030,
-    560
+    880,
+    420
    ],
-   "word": "pale blue dot"
+   "word": "ticking"
   }
  ],
  "spot": true

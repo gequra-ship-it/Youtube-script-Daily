@@ -1,24 +1,25 @@
 {
- "centre": "round moonlit rock pool",
+ "centre": "glowing miner's lantern hanging in the tunnel",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "rustle",
-   "word": "sprawled",
-   "vol": 0.5
+   "name": "creak",
+   "word": "coal mine",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "Hmm?",
-   "x": 870,
-   "y": 760,
+   "type": "name",
+   "text": "Bernissart",
+   "x": 1320,
+   "y": 260,
    "to": [
-    790,
-    700
-   ]
+    1320,
+    470
+   ],
+   "word": "Bernissart"
   }
  ]
 }

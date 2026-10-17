@@ -1,23 +1,17 @@
 {
- "centre": "glowing round chamber of burning coal in the seam",
+ "centre": "hanging round lantern over an open toolkit of bones",
  "focus": [
   540,
-  860,
-  1.7
+  1130,
+  1.6
  ],
- "focus_word": "buried coal",
- "sfx": [],
- "labels": [
+ "focus_word": "toolkit",
+ "sfx": [
   {
-   "type": "name",
-   "text": "Coal",
-   "x": 720,
-   "y": 960,
-   "to": [
-    700,
-    830
-   ],
-   "word": "coal"
+   "name": "click",
+   "word": "toolkit",
+   "vol": 0.5
   }
- ]
+ ],
+ "labels": []
 }

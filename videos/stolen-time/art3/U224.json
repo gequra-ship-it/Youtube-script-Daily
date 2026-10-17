@@ -1,23 +1,29 @@
 {
- "centre": "swirling molten metal core glowing gold",
+ "centre": "black hole with a blazing inner disk",
  "focus": [
-  960,
-  500,
+  1400,
+  470,
   1.6
  ],
- "focus_word": "liquid metal core",
- "sfx": [],
+ "focus_word": "X-rays",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "lethal torrents",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Liquid metal core",
-   "x": 1240,
-   "y": 300,
+   "text": "X-rays",
+   "x": 1420,
+   "y": 360,
    "to": [
-    1050,
-    420
+    1400,
+    450
    ],
-   "word": "liquid metal core"
+   "word": "X-rays"
   }
  ],
  "spot": true

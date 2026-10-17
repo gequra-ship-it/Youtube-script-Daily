@@ -1,18 +1,25 @@
 {
- "centre": "pale full moon above a night forest",
+ "centre": "low gold sun over a floodplain",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "step",
+   "word": "agile hunter",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "say",
-   "text": "Hmm?",
-   "x": 1460,
-   "y": 520,
+   "text": "Zzz...",
+   "x": 1300,
+   "y": 600,
    "to": [
-    1290,
-    668
-   ]
+    1335,
+    715
+   ],
+   "word": "sluggish lizard"
   }
  ]
 }

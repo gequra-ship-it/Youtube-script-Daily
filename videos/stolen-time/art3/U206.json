@@ -1,14 +1,30 @@
 {
- "centre": "the astronaut's wristwatch, local time ticking steadily",
- "focus": null,
- "focus_word": null,
+ "centre": "a supernova flaring inside a star cluster",
+ "focus": [
+  960,
+  480,
+  1.5
+ ],
+ "focus_word": "flare into brilliance",
  "sfx": [
   {
-   "name": "tick",
-   "word": "ticks",
-   "vol": 0.55
+   "name": "bloom",
+   "word": "flare",
+   "vol": 0.65
   }
  ],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Supernovae",
+   "x": 1240,
+   "y": 300,
+   "to": [
+    1050,
+    430
+   ],
+   "word": "Supernovae"
+  }
+ ],
  "spot": true
 }

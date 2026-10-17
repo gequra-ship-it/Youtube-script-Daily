@@ -1,25 +1,29 @@
 {
- "centre": "small pale-teal ocean world held in the black hole's grip",
+ "centre": "the Earth wrapped in a slightly stretched layer of ocean",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pulse",
-   "word": "monstrous grip",
-   "vol": 0.6
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Black hole",
-   "x": 330,
-   "y": 220,
+   "text": "Moon",
+   "x": 400,
+   "y": 370,
    "to": [
-    330,
-    330
+    400,
+    436
    ],
-   "word": "black hole"
+   "word": "Moon"
+  },
+  {
+   "type": "name",
+   "text": "Sun",
+   "x": 1540,
+   "y": 300,
+   "to": [
+    1590,
+    380
+   ],
+   "word": "Sun"
   }
  ],
  "spot": true

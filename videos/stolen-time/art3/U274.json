@@ -1,12 +1,26 @@
 {
- "centre": "bright round airlock window with a grey-haired figure inside",
- "focus": [
-  960,
-  480,
-  1.7
+ "centre": "glowing docking collar on the side of the mothership",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "docking",
+   "vol": 0.55
+  }
  ],
- "focus_word": "gray hair",
- "sfx": [],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Mothership",
+   "x": 1300,
+   "y": 330,
+   "to": [
+    1260,
+    436
+   ],
+   "word": "mothership"
+  }
+ ],
  "spot": true
 }

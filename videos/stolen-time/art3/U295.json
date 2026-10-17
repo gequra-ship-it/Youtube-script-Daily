@@ -1,18 +1,26 @@
 {
- "centre": "antique golden master clock face without numerals",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "what is time",
+ "centre": "a dashed pencil sketch of a planet, a theoretical blanet",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "time",
+   "name": "pencil",
+   "word": "theoretical",
    "vol": 0.55
   }
  ],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Blanet",
+   "x": 1230,
+   "y": 640,
+   "to": [
+    1050,
+    570
+   ],
+   "word": "blanet"
+  }
+ ],
  "spot": true
 }

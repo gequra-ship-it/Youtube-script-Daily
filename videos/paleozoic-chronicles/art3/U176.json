@@ -1,29 +1,34 @@
 {
- "centre": "glowing lump of coal set into rock layers",
+ "centre": "low pale sun behind the first forest",
  "focus": [
-  1480,
-  495,
-  1.7
+  560,
+  420,
+  1.5
  ],
- "focus_word": "coal deposits",
+ "focus_word": "Archaeopteris",
  "sfx": [
   {
-   "name": "stone",
-   "word": "coal deposits",
-   "vol": 0.6
+   "name": "wind",
+   "word": "thirty meters tall",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Coal deposits",
-   "x": 1480,
-   "y": 330,
+   "text": "Archaeopteris",
+   "x": 900,
+   "y": 300,
    "to": [
-    1480,
-    470
+    700,
+    330
    ],
-   "word": "coal deposits"
+   "word": "Archaeopteris"
+  },
+  {
+   "type": "num",
+   "text": "UP TO ~30 M TALL",
+   "word": "thirty meters"
   }
  ]
 }

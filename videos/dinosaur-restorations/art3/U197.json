@@ -1,34 +1,36 @@
 {
- "centre": "round stone slab with a curled small fossil skeleton",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "Sinosauropteryx",
+ "centre": "full moon over a night lake",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "found",
-   "vol": 0.6
+   "name": "breath",
+   "word": "bony monster",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "1996",
-   "word": "1996"
+   "type": "name",
+   "text": "Swan",
+   "x": 330,
+   "y": 430,
+   "to": [
+    420,
+    520
+   ],
+   "word": "swan"
   },
   {
    "type": "name",
-   "text": "Sinosauropteryx",
-   "x": 1260,
-   "y": 330,
+   "text": "Cat",
+   "x": 1540,
+   "y": 470,
    "to": [
-    1040,
-    440
+    1440,
+    600
    ],
-   "word": "Sinosauropteryx"
+   "word": "cat"
   }
  ]
 }

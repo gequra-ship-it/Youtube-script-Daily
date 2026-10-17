@@ -2,7 +2,7 @@
  {
   "uid": "U001",
   "scene": 1,
-  "title": "One Hour",
+  "title": "Hook",
   "art_theme": "hook",
   "bg": "night",
   "pal": {
@@ -26,16 +26,16 @@
     "#ff7a5a"
    ]
   },
-  "text": "Sit down for one hour on this planet, and about seven point six years pass on Earth.",
-  "dur": 5.98,
+  "text": "Your phone's map only works because Einstein was right.",
+  "dur": 4.13,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "Your kids learn to talk, start school, and grow up without you."
+  "nxt": "How can a clock in space tick faster than a clock on the ground,"
  },
  {
   "uid": "U002",
   "scene": 1,
-  "title": "One Hour",
+  "title": "Hook",
   "art_theme": "hook",
   "bg": "night",
   "pal": {
@@ -59,17 +59,17 @@
     "#ff7a5a"
    ]
   },
-  "text": "Your kids learn to talk, start school, and grow up without you.",
-  "dur": 4.57,
-  "transition_in": "fade",
-  "prev": "Sit down for one hour on this planet, and about seven point six years pass on Earth.",
-  "nxt": ""
+  "text": "How can a clock in space tick faster than a clock on the ground,",
+  "dur": 4.13,
+  "transition_in": "iris",
+  "prev": "Your phone's map only works because Einstein was right.",
+  "nxt": "and what would happen to your directions if engineers ignored it?"
  },
  {
   "uid": "U003",
-  "scene": 2,
-  "title": "No Way Back",
-  "art_theme": "noway",
+  "scene": 1,
+  "title": "Hook",
+  "art_theme": "hook",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -92,18 +92,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "Gravity near a supermassive black hole slows time, and it only works one way.",
-  "dur": 5.64,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "You can jump into the future, but you can never come back."
+  "text": "and what would happen to your directions if engineers ignored it?",
+  "dur": 4.13,
+  "transition_in": "match",
+  "prev": "How can a clock in space tick faster than a clock on the ground,",
+  "nxt": ""
  },
  {
   "uid": "U004",
   "scene": 2,
-  "title": "No Way Back",
-  "art_theme": "noway",
-  "bg": "night",
+  "title": "Newton's Clock",
+  "art_theme": "s2",
+  "bg": "dusk",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -125,84 +125,84 @@
     "#ff7a5a"
    ]
   },
-  "text": "You can jump into the future, but you can never come back.",
-  "dur": 3.95,
-  "transition_in": "slide",
-  "prev": "Gravity near a supermassive black hole slows time, and it only works one way.",
-  "nxt": ""
+  "text": "For hundreds of years, classical mechanics reigned over human scientific thought,",
+  "dur": 5.35,
+  "transition_in": "wash",
+  "prev": "",
+  "nxt": "thanks to Sir Isaac Newton."
  },
  {
   "uid": "U005",
-  "scene": 3,
-  "title": "The Message",
-  "art_theme": "message",
-  "bg": "night",
+  "scene": 2,
+  "title": "Newton's Clock",
+  "art_theme": "s2",
+  "bg": "dusk",
   "pal": {
-   "palette": "solar",
-   "paper_base": "#efe4d6",
-   "paper_ink": "#2a160e",
-   "night_top": "#0e0504",
-   "night_bottom": "#2a0e08",
-   "night_line": "#ffd9a8",
-   "night_glow": "#ff7a3a",
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
    "dusk_stops": [
-    "#fff0c8",
-    "#ff9a4a",
-    "#a8281c"
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
    ],
-   "dusk_ink": "#2a160e",
+   "dusk_ink": "#12182c",
    "accents": [
-    "#ff7a3a",
-    "#ffd27a",
-    "#fff4e0",
-    "#4a8cff"
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
    ]
   },
-  "text": "Even a radio message from the surface is stretched.",
-  "dur": 3.15,
-  "transition_in": "wash",
-  "prev": "",
-  "nxt": "A half-second hello takes many hours to reach the ship above."
+  "text": "thanks to Sir Isaac Newton.",
+  "dur": 3.5,
+  "transition_in": "fade",
+  "prev": "For hundreds of years, classical mechanics reigned over human scientific thought,",
+  "nxt": "Newton believed the universe ran on one absolute master clock,"
  },
  {
   "uid": "U006",
-  "scene": 3,
-  "title": "The Message",
-  "art_theme": "message",
-  "bg": "night",
+  "scene": 2,
+  "title": "Newton's Clock",
+  "art_theme": "s2",
+  "bg": "dusk",
   "pal": {
-   "palette": "solar",
-   "paper_base": "#efe4d6",
-   "paper_ink": "#2a160e",
-   "night_top": "#0e0504",
-   "night_bottom": "#2a0e08",
-   "night_line": "#ffd9a8",
-   "night_glow": "#ff7a3a",
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
    "dusk_stops": [
-    "#fff0c8",
-    "#ff9a4a",
-    "#a8281c"
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
    ],
-   "dusk_ink": "#2a160e",
+   "dusk_ink": "#12182c",
    "accents": [
-    "#ff7a3a",
-    "#ffd27a",
-    "#fff4e0",
-    "#4a8cff"
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
    ]
   },
-  "text": "A half-second hello takes many hours to reach the ship above.",
-  "dur": 4.88,
+  "text": "Newton believed the universe ran on one absolute master clock,",
+  "dur": 3.5,
   "transition_in": "zoom",
-  "prev": "Even a radio message from the surface is stretched.",
-  "nxt": ""
+  "prev": "thanks to Sir Isaac Newton.",
+  "nxt": "where a second in London was identical to a second on the distant surface of Mars."
  },
  {
   "uid": "U007",
-  "scene": 4,
-  "title": "The Caretaker",
-  "art_theme": "caretaker",
-  "bg": "night",
+  "scene": 2,
+  "title": "Newton's Clock",
+  "art_theme": "s2",
+  "bg": "dusk",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -224,18 +224,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "Meanwhile, the crewmate waiting in orbit watches your lander crawl like a fly trapped in amber,",
-  "dur": 6.1,
-  "transition_in": "fade",
-  "prev": "",
-  "nxt": "for more than eight thousand four hundred days."
+  "text": "where a second in London was identical to a second on the distant surface of Mars.",
+  "dur": 5.37,
+  "transition_in": "push",
+  "prev": "Newton believed the universe ran on one absolute master clock,",
+  "nxt": ""
  },
  {
   "uid": "U008",
-  "scene": 4,
-  "title": "The Caretaker",
-  "art_theme": "caretaker",
-  "bg": "night",
+  "scene": 3,
+  "title": "The Patent Clerk",
+  "art_theme": "s3",
+  "bg": "paper",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -257,18 +257,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "for more than eight thousand four hundred days.",
-  "dur": 3.49,
-  "transition_in": "wash",
-  "prev": "Meanwhile, the crewmate waiting in orbit watches your lander crawl like a fly trapped in amber,",
-  "nxt": ""
+  "text": "That tidy universe came crashing down in the early twentieth century,",
+  "dur": 5.04,
+  "transition_in": "eye",
+  "prev": "",
+  "nxt": "when an obscure patent clerk in Switzerland named"
  },
  {
   "uid": "U009",
-  "scene": 5,
-  "title": "The Airlock",
-  "art_theme": "airlock",
-  "bg": "night",
+  "scene": 3,
+  "title": "The Patent Clerk",
+  "art_theme": "s3",
+  "bg": "paper",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -290,18 +290,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "When you return after three hours,",
-  "dur": 2.26,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "the airlock opens on a face with gray hair and twenty-three years of loneliness."
+  "text": "when an obscure patent clerk in Switzerland named",
+  "dur": 3.6,
+  "transition_in": "whip",
+  "prev": "That tidy universe came crashing down in the early twentieth century,",
+  "nxt": "Albert Einstein looked deeper into the nature of light."
  },
  {
   "uid": "U010",
-  "scene": 5,
-  "title": "The Airlock",
-  "art_theme": "airlock",
-  "bg": "night",
+  "scene": 3,
+  "title": "The Patent Clerk",
+  "art_theme": "s3",
+  "bg": "paper",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -323,17 +323,149 @@
     "#ff7a5a"
    ]
   },
-  "text": "the airlock opens on a face with gray hair and twenty-three years of loneliness.",
-  "dur": 5.66,
-  "transition_in": "match",
-  "prev": "When you return after three hours,",
-  "nxt": ""
+  "text": "Albert Einstein looked deeper into the nature of light.",
+  "dur": 3.96,
+  "transition_in": "push",
+  "prev": "when an obscure patent clerk in Switzerland named",
+  "nxt": "He realized that the speed of light in a vacuum is an absolute cosmic speed limit,"
  },
  {
   "uid": "U011",
-  "scene": 6,
-  "title": "Full Story",
-  "art_theme": "outro",
+  "scene": 3,
+  "title": "The Patent Clerk",
+  "art_theme": "s3",
+  "bg": "paper",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "He realized that the speed of light in a vacuum is an absolute cosmic speed limit,",
+  "dur": 5.98,
+  "transition_in": "eye",
+  "prev": "Albert Einstein looked deeper into the nature of light.",
+  "nxt": "about 299,792 kilometers per second, and that it never changes."
+ },
+ {
+  "uid": "U012",
+  "scene": 3,
+  "title": "The Patent Clerk",
+  "art_theme": "s3",
+  "bg": "paper",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "about 299,792 kilometers per second, and that it never changes.",
+  "dur": 4.54,
+  "transition_in": "wash",
+  "prev": "He realized that the speed of light in a vacuum is an absolute cosmic speed limit,",
+  "nxt": "If the speed of light must be the same for everyone,"
+ },
+ {
+  "uid": "U013",
+  "scene": 3,
+  "title": "The Patent Clerk",
+  "art_theme": "s3",
+  "bg": "paper",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "If the speed of light must be the same for everyone,",
+  "dur": 3.83,
+  "transition_in": "whip",
+  "prev": "about 299,792 kilometers per second, and that it never changes.",
+  "nxt": "then distance and time themselves must bend to make it so."
+ },
+ {
+  "uid": "U014",
+  "scene": 3,
+  "title": "The Patent Clerk",
+  "art_theme": "s3",
+  "bg": "paper",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "then distance and time themselves must bend to make it so.",
+  "dur": 4.69,
+  "transition_in": "slide",
+  "prev": "If the speed of light must be the same for everyone,",
+  "nxt": ""
+ },
+ {
+  "uid": "U015",
+  "scene": 4,
+  "title": "Spacetime",
+  "art_theme": "s4",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -356,9 +488,702 @@
     "#ff7a5a"
    ]
   },
-  "text": "Physics does not need malice. It only needs mass. The full story is on Miya's Lab.",
-  "dur": 7.15,
+  "text": "Ten years later, in 1915,",
+  "dur": 3.44,
+  "transition_in": "wipe",
+  "prev": "",
+  "nxt": "Einstein took this further with his theory of general relativity."
+ },
+ {
+  "uid": "U016",
+  "scene": 4,
+  "title": "Spacetime",
+  "art_theme": "s4",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Einstein took this further with his theory of general relativity.",
+  "dur": 3.44,
+  "transition_in": "tilt",
+  "prev": "Ten years later, in 1915,",
+  "nxt": "Space and time are woven into a single,"
+ },
+ {
+  "uid": "U017",
+  "scene": 4,
+  "title": "Spacetime",
+  "art_theme": "s4",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Space and time are woven into a single,",
+  "dur": 3.44,
+  "transition_in": "match",
+  "prev": "Einstein took this further with his theory of general relativity.",
+  "nxt": "four-dimensional fabric known as spacetime."
+ },
+ {
+  "uid": "U018",
+  "scene": 4,
+  "title": "Spacetime",
+  "art_theme": "s4",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "four-dimensional fabric known as spacetime.",
+  "dur": 3.44,
+  "transition_in": "slide",
+  "prev": "Space and time are woven into a single,",
+  "nxt": "Instead, gravity is the geometric warping of this fabric,"
+ },
+ {
+  "uid": "U019",
+  "scene": 4,
+  "title": "Spacetime",
+  "art_theme": "s4",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Instead, gravity is the geometric warping of this fabric,",
+  "dur": 3.44,
+  "transition_in": "whip",
+  "prev": "four-dimensional fabric known as spacetime.",
+  "nxt": "caused by mass and energy."
+ },
+ {
+  "uid": "U020",
+  "scene": 4,
+  "title": "Spacetime",
+  "art_theme": "s4",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "caused by mass and energy.",
+  "dur": 3.44,
+  "transition_in": "tilt",
+  "prev": "Instead, gravity is the geometric warping of this fabric,",
+  "nxt": ""
+ },
+ {
+  "uid": "U021",
+  "scene": 5,
+  "title": "Gravitational Time Dilation",
+  "art_theme": "s5",
+  "bg": "dusk",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "This warping leads to gravitational time dilation.",
+  "dur": 3.5,
+  "transition_in": "zoom",
+  "prev": "",
+  "nxt": "When a massive object curves spacetime,"
+ },
+ {
+  "uid": "U022",
+  "scene": 5,
+  "title": "Gravitational Time Dilation",
+  "art_theme": "s5",
+  "bg": "dusk",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "When a massive object curves spacetime,",
+  "dur": 3.5,
+  "transition_in": "wipe",
+  "prev": "This warping leads to gravitational time dilation.",
+  "nxt": "it stretches not just the dimensions of space, but the rate at which time passes."
+ },
+ {
+  "uid": "U023",
+  "scene": 5,
+  "title": "Gravitational Time Dilation",
+  "art_theme": "s5",
+  "bg": "dusk",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "it stretches not just the dimensions of space, but the rate at which time passes.",
+  "dur": 4.78,
   "transition_in": "wash",
+  "prev": "When a massive object curves spacetime,",
+  "nxt": "Clocks sitting deeper within a gravitational well run"
+ },
+ {
+  "uid": "U024",
+  "scene": 5,
+  "title": "Gravitational Time Dilation",
+  "art_theme": "s5",
+  "bg": "dusk",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Clocks sitting deeper within a gravitational well run",
+  "dur": 3.55,
+  "transition_in": "match",
+  "prev": "it stretches not just the dimensions of space, but the rate at which time passes.",
+  "nxt": "measurably slower than clocks resting farther away, in weaker gravity."
+ },
+ {
+  "uid": "U025",
+  "scene": 5,
+  "title": "Gravitational Time Dilation",
+  "art_theme": "s5",
+  "bg": "dusk",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "measurably slower than clocks resting farther away, in weaker gravity.",
+  "dur": 5.1,
+  "transition_in": "fade",
+  "prev": "Clocks sitting deeper within a gravitational well run",
+  "nxt": ""
+ },
+ {
+  "uid": "U026",
+  "scene": 6,
+  "title": "The Proof in Your Pocket",
+  "art_theme": "s6",
+  "bg": "paper",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "You do not need to voyage to the edge of the galaxy to prove that this is real.",
+  "dur": 5.47,
+  "transition_in": "iris",
+  "prev": "",
+  "nxt": "The GPS satellites orbiting thousands of kilometers above our"
+ },
+ {
+  "uid": "U027",
+  "scene": 6,
+  "title": "The Proof in Your Pocket",
+  "art_theme": "s6",
+  "bg": "paper",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "The GPS satellites orbiting thousands of kilometers above our",
+  "dur": 4.5,
+  "transition_in": "zoom",
+  "prev": "You do not need to voyage to the edge of the galaxy to prove that this is real.",
+  "nxt": "planet sit in weaker gravity than your phone on the ground. Because they experience less spacetime curvature,"
+ },
+ {
+  "uid": "U028",
+  "scene": 6,
+  "title": "The Proof in Your Pocket",
+  "art_theme": "s6",
+  "bg": "paper",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "planet sit in weaker gravity than your phone on the ground. Because they experience less spacetime curvature,",
+  "dur": 5.7,
+  "transition_in": "match",
+  "prev": "The GPS satellites orbiting thousands of kilometers above our",
+  "nxt": "the atomic clocks aboard those satellites run about"
+ },
+ {
+  "uid": "U029",
+  "scene": 6,
+  "title": "The Proof in Your Pocket",
+  "art_theme": "s6",
+  "bg": "paper",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "the atomic clocks aboard those satellites run about",
+  "dur": 4.5,
+  "transition_in": "slide",
+  "prev": "planet sit in weaker gravity than your phone on the ground. Because they experience less spacetime curvature,",
+  "nxt": "forty-five microseconds faster every day from gravity alone."
+ },
+ {
+  "uid": "U030",
+  "scene": 6,
+  "title": "The Proof in Your Pocket",
+  "art_theme": "s6",
+  "bg": "paper",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "forty-five microseconds faster every day from gravity alone.",
+  "dur": 4.5,
+  "transition_in": "iris",
+  "prev": "the atomic clocks aboard those satellites run about",
+  "nxt": "If engineers did not correct for Einstein's equations,"
+ },
+ {
+  "uid": "U031",
+  "scene": 6,
+  "title": "The Proof in Your Pocket",
+  "art_theme": "s6",
+  "bg": "paper",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "If engineers did not correct for Einstein's equations,",
+  "dur": 4.5,
+  "transition_in": "fade",
+  "prev": "forty-five microseconds faster every day from gravity alone.",
+  "nxt": "satellite navigation would drift by kilometers every single day."
+ },
+ {
+  "uid": "U032",
+  "scene": 6,
+  "title": "The Proof in Your Pocket",
+  "art_theme": "s6",
+  "bg": "paper",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "satellite navigation would drift by kilometers every single day.",
+  "dur": 4.5,
+  "transition_in": "zoom",
+  "prev": "If engineers did not correct for Einstein's equations,",
+  "nxt": ""
+ },
+ {
+  "uid": "U033",
+  "scene": 7,
+  "title": "Microseconds to Decades",
+  "art_theme": "s7",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "On Earth, the difference in time flow is measured in millionths of a second,",
+  "dur": 4.99,
+  "transition_in": "eye",
+  "prev": "",
+  "nxt": "because our planet is a tiny cosmic pebble with modest gravity. Near a supermassive black hole,"
+ },
+ {
+  "uid": "U034",
+  "scene": 7,
+  "title": "Microseconds to Decades",
+  "art_theme": "s7",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "because our planet is a tiny cosmic pebble with modest gravity. Near a supermassive black hole,",
+  "dur": 6.58,
+  "transition_in": "fade",
+  "prev": "On Earth, the difference in time flow is measured in millionths of a second,",
+  "nxt": "time dilation scales up from imperceptible microseconds to entire human lifetimes."
+ },
+ {
+  "uid": "U035",
+  "scene": 7,
+  "title": "Microseconds to Decades",
+  "art_theme": "s7",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "time dilation scales up from imperceptible microseconds to entire human lifetimes.",
+  "dur": 6.9,
+  "transition_in": "slide",
+  "prev": "because our planet is a tiny cosmic pebble with modest gravity. Near a supermassive black hole,",
+  "nxt": ""
+ },
+ {
+  "uid": "U036",
+  "scene": 8,
+  "title": "Watch the Full Story",
+  "art_theme": "outro",
+  "bg": "dusk",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "To see how far this effect can go, watch the full video on Miya's Lab.",
+  "dur": 5.92,
+  "transition_in": "push",
   "prev": "",
   "nxt": ""
  }

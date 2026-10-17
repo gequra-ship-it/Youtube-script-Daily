@@ -1,19 +1,29 @@
 {
- "centre": "the round lit hub module of the long mothership",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "black hole event horizon with a small planet falling toward it",
+ "focus": [
+  930,
+  470,
+  1.6
+ ],
+ "focus_word": "event horizon",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "doomed",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Mothership",
-   "x": 1250,
-   "y": 340,
+   "text": "Event horizon",
+   "x": 1310,
+   "y": 330,
    "to": [
-    1180,
-    440
+    1060,
+    420
    ],
-   "word": "mothership"
+   "word": "event horizon"
   }
  ],
  "spot": true

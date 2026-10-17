@@ -1,11 +1,30 @@
 {
- "centre": "moonlit round inset showing a cynodont skull with specialised teeth and jaw muscle",
- "focus": [
-  990,
-  510,
-  2.0
+ "centre": "amber time-marker disc on a long timeline",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "40 million years",
+   "vol": 0.5
+  }
  ],
- "focus_word": "teeth specialized",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "40+ MILLION YEARS EARLIER",
+   "word": "40 million"
+  },
+  {
+   "type": "name",
+   "text": "Dinosaurs",
+   "x": 1600,
+   "y": 230,
+   "to": [
+    1490,
+    320
+   ],
+   "word": "dinosaurs"
+  }
+ ]
 }

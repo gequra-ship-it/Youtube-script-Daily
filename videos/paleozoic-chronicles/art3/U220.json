@@ -1,30 +1,36 @@
 {
- "centre": "glowing node of a family-line branch between cynodont and first mammal",
+ "centre": "glowing branching node of a family-tree sketch",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "closely related to you",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Cynodonts",
-   "x": 330,
-   "y": 420,
+   "text": "You",
+   "x": 1620,
+   "y": 220,
    "to": [
-    300,
-    520
+    1480,
+    200
    ],
-   "word": "cynodonts"
+   "word": "you"
   },
   {
    "type": "name",
-   "text": "First mammals",
-   "x": 1520,
-   "y": 580,
+   "text": "Dinosaur",
+   "x": 250,
+   "y": 410,
    "to": [
-    1530,
-    440
+    335,
+    295
    ],
-   "word": "first mammals"
+   "word": "dinosaur"
   }
  ]
 }

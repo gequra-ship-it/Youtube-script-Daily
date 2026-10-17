@@ -1,14 +1,30 @@
 {
- "centre": "glowing golden nebula orb with a swirl of light inside",
- "focus": null,
- "focus_word": null,
+ "centre": "a dark blue world with glowing drops of liquid iron raining on its night side",
+ "focus": [
+  1010,
+  560,
+  1.7
+ ],
+ "focus_word": "rains liquid iron",
  "sfx": [
   {
-   "name": "bloom",
-   "word": "revelation",
+   "name": "drip",
+   "word": "rains",
    "vol": 0.6
   }
  ],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Liquid iron",
+   "x": 1190,
+   "y": 680,
+   "to": [
+    1050,
+    590
+   ],
+   "word": "liquid iron"
+  }
+ ],
  "spot": true
 }

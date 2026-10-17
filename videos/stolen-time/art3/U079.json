@@ -1,12 +1,26 @@
 {
- "centre": "black hole boundary: dark disc ringed in gold, a tiny probe at its edge",
- "focus": [
-  1060,
-  430,
-  1.8
+ "centre": "supermassive black hole: dark disc with gold photon ring and tilted accretion disk",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "warp",
+   "word": "Enter",
+   "vol": 0.6
+  }
  ],
- "focus_word": "boundary",
- "sfx": [],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Supermassive black hole",
+   "x": 960,
+   "y": 230,
+   "to": [
+    960,
+    380
+   ],
+   "word": "supermassive black holes"
+  }
+ ],
  "spot": true
 }

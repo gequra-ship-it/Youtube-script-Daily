@@ -1,13 +1,29 @@
 {
- "centre": "the round crew screen showing a fast-forward sign",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a white-hot core speckled with X-ray glints",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "X-rays",
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "X-rays",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "TENS OF THOUSANDS FASTER",
-   "word": "tens of thousands"
+   "type": "name",
+   "text": "X-rays",
+   "x": 1280,
+   "y": 330,
+   "to": [
+    1190,
+    390
+   ],
+   "word": "X-rays"
   }
  ],
  "spot": true

@@ -1,22 +1,29 @@
 {
- "centre": "low sun over the sketched hills",
+ "centre": "glowing scan cross-section of a neck bone with air spaces",
  "focus": [
-  1680,
-  540,
+  960,
+  500,
   1.6
  ],
- "focus_word": "skulls changed shape",
- "sfx": [],
+ "focus_word": "air spaces",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "Scans",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "Still me!",
-   "x": 1500,
-   "y": 420,
+   "type": "name",
+   "text": "sauropods",
+   "x": 1260,
+   "y": 320,
    "to": [
-    1745,
-    598
-   ]
+    1490,
+    575
+   ],
+   "word": "sauropods"
   }
  ]
 }

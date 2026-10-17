@@ -1,23 +1,25 @@
 {
- "centre": "ocean world with two opposite tidal bulges pointing at the black hole",
- "focus": [
-  960,
-  500,
-  1.5
+ "centre": "small pale-teal ocean world held in the black hole's grip",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "monstrous grip",
+   "vol": 0.6
+  }
  ],
- "focus_word": "tidal bulges",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Tidal bulges",
-   "x": 960,
-   "y": 330,
+   "text": "Black hole",
+   "x": 330,
+   "y": 220,
    "to": [
-    1100,
-    470
+    330,
+    330
    ],
-   "word": "tidal bulges"
+   "word": "black hole"
   }
  ],
  "spot": true

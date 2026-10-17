@@ -1,18 +1,30 @@
 {
- "centre": "an ordinary wall clock with ticking hands, gold face, no numerals",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "ticking hands of an ordinary clock",
- "sfx": [
+ "centre": "spinning Kerr black hole wrapped in a pale ergosphere",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "tick",
-   "word": "ticking",
-   "vol": 0.6
+   "type": "name",
+   "text": "Ergosphere",
+   "x": 1420,
+   "y": 300,
+   "to": [
+    1100,
+    420
+   ],
+   "word": "ergosphere"
+  },
+  {
+   "type": "name",
+   "text": "Kerr black hole",
+   "x": 470,
+   "y": 760,
+   "to": [
+    900,
+    560
+   ],
+   "word": "Kerr black hole"
   }
  ],
- "labels": [],
  "spot": true
 }

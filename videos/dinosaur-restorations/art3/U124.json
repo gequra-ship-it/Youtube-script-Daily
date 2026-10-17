@@ -1,23 +1,29 @@
 {
- "centre": "round blob that was taken for the head of the old Hallucigenia",
+ "centre": "round fossil nodule holding a crushed, flattened body",
  "focus": [
-  1240,
-  560,
+  960,
+  500,
   1.7
  ],
- "focus_word": "seven pairs of stiff spines",
+ "focus_word": "crushed body fossil",
  "sfx": [
   {
-   "name": "step",
-   "word": "walking",
-   "vol": 0.55
+   "name": "stone",
+   "word": "crushed",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "7 PAIRS OF SPINES",
-   "word": "seven pairs"
+   "type": "name",
+   "text": "sea cucumber",
+   "x": 1340,
+   "y": 450,
+   "to": [
+    1350,
+    552
+   ],
+   "word": "sea cucumber"
   }
  ]
 }

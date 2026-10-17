@@ -1,23 +1,22 @@
 {
- "centre": "round specimen tray holding a Hallucigenia fossil",
+ "centre": "cutaway circle showing an intact animal inside mud layers",
  "focus": [
   960,
-  506,
-  1.9
+  500,
+  1.7
  ],
- "focus_word": "Hallucigenia",
- "sfx": [],
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "underwater mudflows",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Hallucigenia",
-   "x": 960,
-   "y": 330,
-   "to": [
-    960,
-    470
-   ],
-   "word": "Hallucigenia"
+   "type": "num",
+   "text": "508 MILLION YEARS AGO",
+   "word": "508 million"
   }
  ]
 }

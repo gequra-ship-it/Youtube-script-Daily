@@ -1,13 +1,29 @@
 {
- "centre": "glowing globe desk lamp in a night studio",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "big glowing air bubble in the river water",
+ "focus": [
+  420,
+  560,
+  1.7
+ ],
+ "focus_word": "newt",
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "through water",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "2012",
-   "word": "2012"
+   "type": "name",
+   "text": "Newt",
+   "x": 430,
+   "y": 420,
+   "to": [
+    470,
+    535
+   ],
+   "word": "newt"
   }
  ]
 }

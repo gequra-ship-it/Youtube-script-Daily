@@ -1,24 +1,29 @@
 {
- "centre": "pale full moon above a still night lake",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "large glowing round algal cell in a dimming water column",
+ "focus": [
+  1460,
+  380,
+  1.8
+ ],
+ "focus_word": "oxygen",
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "oxygen in the water",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "~70 CM WINGSPAN",
-   "word": "70 centimeters"
-  },
-  {
    "type": "name",
-   "text": "Hawk",
-   "x": 1450,
-   "y": 650,
+   "text": "Algae",
+   "x": 1150,
+   "y": 300,
    "to": [
-    1450,
-    540
+    1150,
+    200
    ],
-   "word": "hawk's"
+   "word": "Algae"
   }
  ]
 }

@@ -1,28 +1,40 @@
 {
- "centre": "magnifying lens showing four-part fossil spores",
+ "centre": "large rounded brachiopod shell on a soft glow",
  "focus": [
-  960,
-  500,
-  2.0
+  1470,
+  470,
+  1.7
  ],
- "focus_word": "spores",
- "sfx": [],
+ "focus_word": "lace-like bryozoans",
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "Sea lilies",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "~470 MILLION YEARS AGO",
-   "word": "470 million"
+   "type": "name",
+   "text": "Brachiopods",
+   "x": 960,
+   "y": 300,
+   "to": [
+    960,
+    375
+   ],
+   "word": "brachiopods"
   },
   {
    "type": "name",
-   "text": "Spores",
-   "x": 1200,
-   "y": 380,
+   "text": "Bryozoans",
+   "x": 1250,
+   "y": 240,
    "to": [
-    1050,
-    450
+    1380,
+    320
    ],
-   "word": "spores"
+   "word": "bryozoans"
   }
  ]
 }

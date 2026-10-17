@@ -1,12 +1,28 @@
 {
- "centre": "calm round water world floating above the vast curved horizon of a giant black hole",
+ "centre": "small stellar black hole with a tight bright disk, a planet close beside it",
  "focus": [
-  960,
+  1080,
   500,
-  1.6
+  1.5
  ],
- "focus_word": "remarkably gentle",
- "sfx": [],
- "labels": [],
+ "focus_word": "stellar black hole",
+ "labels": [
+  {
+   "type": "num",
+   "text": "10 SOLAR MASSES",
+   "word": "ten times"
+  },
+  {
+   "type": "name",
+   "text": "stellar black hole",
+   "x": 980,
+   "y": 330,
+   "to": [
+    960,
+    435
+   ],
+   "word": "stellar black hole"
+  }
+ ],
  "spot": true
 }

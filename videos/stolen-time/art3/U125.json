@@ -1,14 +1,23 @@
 {
- "centre": "the same lemon-shaped water world, cracked and tearing apart at both tips",
- "focus": null,
- "focus_word": null,
- "sfx": [
+ "centre": "the pale-blue water world with coral cracks, small shards breaking off",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "water world",
+ "labels": [
   {
-   "name": "stone",
-   "word": "tear",
-   "vol": 0.65
+   "type": "name",
+   "text": "Water world",
+   "x": 1250,
+   "y": 340,
+   "to": [
+    1050,
+    430
+   ],
+   "word": "water world"
   }
  ],
- "labels": [],
  "spot": true
 }

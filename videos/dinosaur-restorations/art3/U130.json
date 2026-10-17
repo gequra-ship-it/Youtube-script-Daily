@@ -1,23 +1,40 @@
 {
- "centre": "bright microscope view of the head end",
+ "centre": "round head seen from above, between the two eye stalks",
  "focus": [
-  1000,
+  720,
   500,
-  1.8
+  1.6
  ],
- "focus_word": "real head",
+ "focus_word": "grasping front limbs",
  "sfx": [
   {
-   "name": "click",
-   "word": "closer study",
+   "name": "flutter",
+   "word": "flaps",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "2015",
-   "word": "2015"
+   "type": "name",
+   "text": "flaps",
+   "x": 1170,
+   "y": 230,
+   "to": [
+    1200,
+    405
+   ],
+   "word": "flaps"
+  },
+  {
+   "type": "name",
+   "text": "front limbs",
+   "x": 560,
+   "y": 230,
+   "to": [
+    790,
+    418
+   ],
+   "word": "front limbs"
   }
  ]
 }

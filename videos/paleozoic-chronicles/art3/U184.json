@@ -1,16 +1,29 @@
 {
- "centre": "small glowing insect caught in a pool of light",
- "focus": [
-  700,
-  500,
-  1.7
- ],
- "focus_word": "strong jaws and spiny legs",
- "sfx": [
+ "centre": "round fossil-bearing stone nodule in a cliff with two dark shale bands",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "click",
-   "word": "catching",
-   "vol": 0.5
+   "type": "name",
+   "text": "Hangenberg",
+   "x": 400,
+   "y": 210,
+   "to": [
+    175,
+    290
+   ],
+   "word": "Hangenberg"
+  },
+  {
+   "type": "name",
+   "text": "Kellwasser",
+   "x": 400,
+   "y": 790,
+   "to": [
+    175,
+    690
+   ],
+   "word": "Kellwasser"
   }
  ]
 }

@@ -1,17 +1,25 @@
 {
- "centre": "round fossil slab with a dark smear at one end",
- "focus": [
-  900,
-  495,
-  2.0
- ],
- "focus_word": "blob",
+ "centre": "magnifying lens showing a tiny Hallucigenia",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "drip",
-   "word": "smear of fluid",
-   "vol": 0.5
+   "name": "bubble",
+   "word": "Hallucigenia",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hallucigenia",
+   "x": 1350,
+   "y": 300,
+   "to": [
+    1040,
+    470
+   ],
+   "word": "Hallucigenia"
+  }
+ ]
 }

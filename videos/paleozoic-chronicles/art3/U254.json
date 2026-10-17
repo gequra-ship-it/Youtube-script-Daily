@@ -1,24 +1,29 @@
 {
- "centre": "glowing heart light at the chest",
- "focus": null,
- "focus_word": null,
+ "centre": "low setting sun over a barren plain",
+ "focus": [
+  1440,
+  660,
+  1.8
+ ],
+ "focus_word": "Lystrosaurus",
  "sfx": [
   {
-   "name": "breath",
-   "word": "take a deep breath",
-   "vol": 0.55
+   "name": "wind",
+   "word": "So who survived?",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "Breathe in...",
-   "x": 690,
-   "y": 190,
+   "type": "name",
+   "text": "Lystrosaurus",
+   "x": 1440,
+   "y": 550,
    "to": [
-    880,
-    335
-   ]
+    1440,
+    610
+   ],
+   "word": "Lystrosaurus"
   }
  ]
 }

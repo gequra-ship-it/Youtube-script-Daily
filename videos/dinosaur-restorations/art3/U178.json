@@ -1,13 +1,29 @@
 {
- "centre": "round gilt-framed painting of a gaunt, shrink-wrapped dinosaur head",
- "focus": null,
- "focus_word": null,
+ "centre": "sun above a river where a Spinosaurus wades",
+ "focus": [
+  1010,
+  700,
+  1.7
+ ],
+ "focus_word": "catching fish",
  "sfx": [
   {
-   "name": "rustle",
-   "word": "shrink-wrapping",
-   "vol": 0.5
+   "name": "splash",
+   "word": "catching fish",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Spinosaurus",
+   "x": 560,
+   "y": 430,
+   "to": [
+    575,
+    580
+   ],
+   "word": "Spinosaurus"
+  }
+ ]
 }

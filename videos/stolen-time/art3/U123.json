@@ -1,18 +1,30 @@
 {
- "centre": "the water world with a strong gold pull arrow on its near side and a faint one on its far side",
+ "centre": "the same ocean planet, now orbiting just outside the huge dark edge of the event horizon",
  "focus": [
-  800,
-  500,
+  700,
+  480,
   1.7
  ],
- "focus_word": "near side",
+ "focus_word": "event horizon",
  "sfx": [
   {
-   "name": "pulse",
-   "word": "pull",
+   "name": "starfall",
+   "word": "plunging",
    "vol": 0.55
   }
  ],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Event horizon",
+   "x": 420,
+   "y": 330,
+   "to": [
+    690,
+    330
+   ],
+   "word": "event horizon"
+  }
+ ],
  "spot": true
 }

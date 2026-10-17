@@ -1,24 +1,29 @@
 {
- "centre": "a glossy sphere of sea water",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "the massive black hole with a gold photon ring",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "crushing mass",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "crushing",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "HUNDREDS OF METERS",
-   "word": "hundreds of meters"
-  },
-  {
    "type": "name",
-   "text": "Earth",
-   "x": 1530,
-   "y": 420,
+   "text": "Black hole",
+   "x": 1200,
+   "y": 300,
    "to": [
-    1530,
-    362
+    1040,
+    420
    ],
-   "word": "Earth"
+   "word": "black hole"
   }
  ],
  "spot": true

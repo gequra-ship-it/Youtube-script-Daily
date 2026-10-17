@@ -1,16 +1,20 @@
 # -*- coding: utf-8 -*-
-# Shorts 1 (vertical, ~1 min): Opabinia and the strange Cambrian animals. Facts from the fact-checked long script.
+# Shorts 1 (vertical, 2:00-2:55, guideline 19): facts only from the fact-checked long script (videos/paleozoic-chronicles).
 SCENES = [
- ("S01","The Laugh","ill","hook",
-  "When this animal was first presented at a scientific meeting, the audience laughed. Meet Opabinia, one of the strangest animals ever found."),
- ("S02","Where It Lived","ill","burgess",
-  "It lived about 508 million years ago, in a sea that is now part of the Canadian Rockies, preserved in rock called the Burgess Shale."),
- ("S03","Five Eyes","ill","eyes",
-  "It was only a few centimeters long, and it had five eyes on stalks, where most animals have just two."),
- ("S04","The Nozzle","ill","nozzle",
-  "Instead of jaws, it had a long, flexible nozzle in front of its head, ending in a spiny claw. Scientists think it grabbed food with that claw and passed it back to its mouth."),
- ("S05","Strange Neighbors","ill","neighbors",
-  "Its neighbors were just as strange. Hallucigenia was first drawn upside down. And Anomalocaris had more than 24,000 lenses in a single eye."),
- ("S06","Full Story","ill","outro",
-  "This was the Cambrian Explosion, when most major animal groups first appeared. The full story of the Paleozoic is on Miya's Lab."),
+ ('S01', 'Hook', 'ill', 'hook',
+  "How big was the monster of the Devonian seas? For decades, popular books said Dunkleosteus reached nine meters. A 2023 study says the largest were only about three and a half. Why did the legend grow so large, and what else did we get wrong about Paleozoic giants?"),
+ ('S02', 'The Armored Fish', 'ill', 's2',
+  "Dunkleosteus was a placoderm, one of the armored fish, with a heavily armored head. It had no true teeth. Instead, its jaws carried sharp bony plates that sharpened against each other as they worked."),
+ ('S03', 'Smaller Than the Legend', 'ill', 's3',
+  "A 2023 study reexamined its skull and body proportions. It concluded that the largest Dunkleosteus were only about three and a half meters long, shorter and stockier than once believed, but still about as heavy as a great white shark more than four meters long. The real animal was smaller than the legend, but no less dangerous."),
+ ('S04', 'The First Big Hunter', 'ill', 's4',
+  "Now go back to the Cambrian. Anomalocaris, whose name means unusual shrimp, was one of the first large predators. Older books said it reached a meter long. Newer studies suggest the largest were closer to forty centimeters, still a giant in a world where most animals were a few centimeters long."),
+ ('S05', 'A Gentle Mouth?', 'ill', 's5',
+  "But here is a twist. Its round mouth was small, and the plates around it show very little wear. Many researchers now think Anomalocaris could not crack hard shells, and instead hunted soft-bodied prey, perhaps sucking it in. The picture of a monster crunching through armored animals may be more legend than fact."),
+ ('S06', 'Giant Shells', 'ill', 's6',
+  "The Ordovician seas had giants too. The largest animals were nautiloids, relatives of today's squid and nautilus. Cameroceras, with a long, straight, cone-shaped shell, is often said to have reached nine meters, but that number rests on a doubtful old report. Well-supported specimens point to shells of around two meters."),
+ ('S07', 'Giants Measured Again', 'ill', 's7',
+  "Put them side by side. Anomalocaris was once said to reach a meter, but the best estimate is now under forty centimeters. Cameroceras was said to reach nine meters, but well-supported shells suggest about two. And Dunkleosteus, once nine meters, is now estimated at about three and a half. Bigger stories travel faster than careful measurements."),
+ ('S08', 'Watch the Full Story', 'ill', 'outro',
+  "The giants of the Paleozoic were real, just not always as large as the legends. The full journey, from the Cambrian Explosion to the Great Dying, is on Miya's Lab."),
 ]

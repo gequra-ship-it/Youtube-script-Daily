@@ -1,19 +1,29 @@
 {
- "centre": "pale-blue ocean world with cloud bands",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "face-on swirling golden accretion disk around a dark hole",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "accretion disks",
+ "sfx": [
+  {
+   "name": "bloom",
+   "word": "superheated gas",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Ocean world",
-   "x": 1300,
-   "y": 320,
+   "text": "Accretion disk",
+   "x": 1270,
+   "y": 300,
    "to": [
-    1050,
-    420
+    1070,
+    430
    ],
-   "word": "ocean world"
+   "word": "accretion disks"
   }
  ],
  "spot": true

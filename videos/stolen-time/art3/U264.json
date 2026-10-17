@@ -1,14 +1,30 @@
 {
- "centre": "bright star rising in the saddle of a colossal mountain",
- "focus": null,
- "focus_word": null,
+ "centre": "a pale future Earth glowing with city lights above a future skyline",
+ "focus": [
+  440,
+  700,
+  1.6
+ ],
+ "focus_word": "ghost",
  "sfx": [
   {
-   "name": "stone",
-   "word": "colossal mountain",
-   "vol": 0.6
+   "name": "glimmer",
+   "word": "future",
+   "vol": 0.5
   }
  ],
- "labels": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Anyone here?",
+   "x": 620,
+   "y": 560,
+   "to": [
+    470,
+    660
+   ],
+   "word": "wandering"
+  }
+ ],
  "spot": true
 }

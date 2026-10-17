@@ -1,23 +1,16 @@
 {
- "centre": "glowing round food morsel gripped by the spiny claw at the tip of Opabinia's nozzle",
+ "centre": "trilobite rolled into a tight ball",
  "focus": [
-  930,
-  505,
-  1.9
+  960,
+  500,
+  1.7
  ],
- "focus_word": "ending in a spiny claw",
- "sfx": [],
- "labels": [
+ "focus_word": "tight ball",
+ "sfx": [
   {
-   "type": "name",
-   "text": "Nozzle",
-   "x": 760,
-   "y": 650,
-   "to": [
-    760,
-    560
-   ],
-   "word": "nozzle"
+   "name": "click",
+   "word": "roll into a tight ball",
+   "vol": 0.55
   }
  ]
 }
