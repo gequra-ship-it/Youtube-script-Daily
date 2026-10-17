@@ -14,5 +14,5 @@ Shorts' art3 copies (vertical 1080x1920). Keep copies in your scratch folder bef
 - Draw new only when no picture fits the unit text.
 Sidecar json: keep valid; labels/focus/sfx words must be in THAT unit's text (drop the others).
 Checks: XML valid; tools/mvcheck.py (it only sees the top 1080 px of a vertical frame); tools/labelshot.py if labels moved; ONE build
-(`SLUG=<slug> [VERT=1] python3 tools/build3.py <scratch>/b`, fallback art must be 0); ONE contact sheet you look at.
+(`SLUG=<slug> [VERT=1] python3 tools/build3.py <scratch>/b`, fallback art must be 0); ONE contact sheet you look at. Delete your build dir afterwards (disk allowance is small).
 Report: counts reused / adapted / new, sheet path, known flaws.

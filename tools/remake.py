@@ -10,7 +10,10 @@ from paths import *
 slug = os.environ['SLUG']; env = dict(os.environ)
 os.makedirs(wdir(), exist_ok=True)
 prev = f'{wdir()}/plan_prev.json'
-shutil.copy(f'{vdir()}/plan.json', prev)
+if os.path.exists(prev) and os.environ.get('FRESH') != '1':   # a re-run must not overwrite the pre-remake plan (FRESH=1 to start over)
+    print('keeping existing', prev)
+else:
+    shutil.copy(f'{vdir()}/plan.json', prev)
 subprocess.run([sys.executable, f'{REPO}/tools/build3.py'], env=dict(env, PLAN='1'), check=True)
 subprocess.run([sys.executable, f'{REPO}/tools/remap_art.py', prev], env=env, check=True)
 r = f'{REPO}/render/{slug}'
