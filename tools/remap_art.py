@@ -65,3 +65,11 @@ for u in new:
     json.dump(sd, open(f'{A}/{u["uid"]}.json', 'w'), ensure_ascii=False, indent=1)
     report.append(f'{u["uid"]} <- {base}' + (f' (+{len(ov) - 1} merged)' if len(ov) > 1 else ''))
 print('\n'.join(report)); print(f'{len(new)} units (was {len(old)}); previous art kept in {P}')
+# units that got the same picture as the unit before them: give each a VARIANT (re-crop + one element from its own text)
+seen = {}; dups = []
+for line in report:
+    if ' <- ' not in line: continue
+    u, b = line.split(' <- ')[0], line.split(' <- ')[1].split()[0]
+    if b in seen: dups.append(f'{u} (same picture as {seen[b]})')
+    else: seen[b] = u
+print(f'NEEDS VARIANT {len(dups)}: ' + ', '.join(dups) if dups else 'NEEDS VARIANT 0')
