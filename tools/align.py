@@ -48,8 +48,9 @@ def match(tokens, rec):
             continue
         prev_end = rec[j1 - 1][2] if j1 > 0 else 0.0
         next_start = rec[j2][1] if j2 < len(rec) else (rec[-1][2] if rec else prev_end + 0.3 * (i2 - i1))
-        if j2 > j1:                       # recognised words that did not match (spoken digits ...)
+        if j2 > j1:                       # recognised words that did not match (spoken digits, name spellings ...)
             t0, t1 = rec[j1][1], rec[j2 - 1][2]
+            eq += min(i2 - i1, 2 * (j2 - j1))   # heard something there: counts as covered, a skipped passage does not
         else:
             t0, t1 = prev_end, next_start
         for k, t in enumerate(spread(tokens[i1:i2], t0, t1)):
