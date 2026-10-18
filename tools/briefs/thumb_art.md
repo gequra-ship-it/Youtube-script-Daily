@@ -15,3 +15,6 @@ Previous attempts were quick flat shapes: tiny subject, no light, no detail. Do 
 
 ## Check and report
 Render with `cd /home/user/rp && MIYA_WORK=/home/user/miya-work SLUG=<slug> python3 tools/thumb_shot.py` (writes `render/<slug>/deliver/<slug>_thumbnail_{A,B,C}.png`, must be <= 2 MB each). Look at ONE contact sheet of the three (and a 320px-wide version of each once) before reporting: text readable, no text over the focal object, bottom-right corner empty. No git. Report in at most 6 lines: the three texts, which is homage (of what) / intuitive, known weaknesses.
+
+## Homages already used (do not reuse in another video)
+Jaws (poster), Jurassic Park (car mirror), Lawrence of Arabia, The Lion King (opening), Rocky (steps), E.T. (moon), The Creation of Adam (painting), The Truman Show, Interstellar. Pick other famous films/images; prefer one that truly matches the topic.

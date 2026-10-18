@@ -161,3 +161,5 @@
   `cine-test/videos/<slug>`도 찾게, `motion_check.py`가 3D 페이지에 `cine-test/tools/cineshot.py`를 쓰게. 확인: 3D 숏츠 3편 빌드와 미리보기, SVG 부분 빌드 정상.
 - 그대로 둔 것: `render/*-cine*`(렌더 원본, 워크플로가 `render/`를 봄), `render-chunked.yml`과 `tools/chunk_prep.py`(SVG 병렬 렌더에 사용).
 - 새로 만듦: `tools/chunk_plan.py`(SVG 구간 수), `build3.py`의 관절 모션(`mv-joint`, `mv-chain`).
+
+- 2026-10-18: 썸네일 도구·문서 최신화: `tools/thumb_lib.py`(페이지·SVG 도우미), `tools/briefs/thumb_art.md`(Opus 에이전트 지시문), `tools/thumb_shot.py`가 A~F를 캡처, 지침서 16-2 정리·16-6 재정정·16-7 제작 기록. `main`에도 같은 사본을 반영했다.
