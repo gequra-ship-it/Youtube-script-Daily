@@ -162,4 +162,4 @@
 - 그대로 둔 것: `render/*-cine*`(렌더 원본, 워크플로가 `render/`를 봄), `render-chunked.yml`과 `tools/chunk_prep.py`(SVG 병렬 렌더에 사용).
 - 새로 만듦: `tools/chunk_plan.py`(SVG 구간 수), `build3.py`의 관절 모션(`mv-joint`, `mv-chain`).
 
-- 2026-10-18: `main_이과형.py`(@이과형 채널 대본)와 워크플로 `schedule_igwahyung.yml`(매일 한국 시간 09:00 = UTC 00:00) 추가. 올라와 있던 `main_이과형.py`는 프롬프트 5번 항목 중간에서 잘려 있어(문법 오류) `main.py`의 나머지 부분으로 이어 붙였고, 저장 폴더는 `scripts_igwahyung/`로 분리했다.
+- 2026-10-18: 썸네일 도구·문서 최신화: `tools/thumb_lib.py`(페이지·SVG 도우미), `tools/briefs/thumb_art.md`(Opus 에이전트 지시문), `tools/thumb_shot.py`가 A~F를 캡처, 지침서 16-2 정리·16-6 재정정·16-7 제작 기록. `main`에도 같은 사본을 반영했다.
