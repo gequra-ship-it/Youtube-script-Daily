@@ -161,3 +161,5 @@
   `cine-test/videos/<slug>`도 찾게, `motion_check.py`가 3D 페이지에 `cine-test/tools/cineshot.py`를 쓰게. 확인: 3D 숏츠 3편 빌드와 미리보기, SVG 부분 빌드 정상.
 - 그대로 둔 것: `render/*-cine*`(렌더 원본, 워크플로가 `render/`를 봄), `render-chunked.yml`과 `tools/chunk_prep.py`(SVG 병렬 렌더에 사용).
 - 새로 만듦: `tools/chunk_plan.py`(SVG 구간 수), `build3.py`의 관절 모션(`mv-joint`, `mv-chain`).
+
+- 2026-10-18: `main_이과형.py`(@이과형 채널 대본)와 워크플로 `schedule_igwahyung.yml`(매일 한국 시간 09:00 = UTC 00:00) 추가. 올라와 있던 `main_이과형.py`는 프롬프트 5번 항목 중간에서 잘려 있어(문법 오류) `main.py`의 나머지 부분으로 이어 붙였고, 저장 폴더는 `scripts_igwahyung/`로 분리했다.

@@ -1,0 +1,41 @@
+name: Daily Auto Script (Igwahyung)
+
+on:
+  schedule:
+     # 한국 시간 아침 9시에 실행 (UTC 00:00)
+     - cron: '0 0 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 가져오기
+        uses: actions/checkout@v3
+
+      - name: 파이썬 설치
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 필요 라이브러리 설치
+        run: |
+          pip install google-genai google-api-python-client youtube-transcript-api
+
+      - name: 🧹 유령 공백(NBSP) 자동 청소기 가동
+        run: python -c "text = open('main_이과형.py', encoding='utf-8').read().replace('\xa0', ' '); open('main_이과형.py', 'w', encoding='utf-8').write(text)"
+
+      - name: 🚀 이과형 대본 공장 가동! (main_이과형.py 실행)
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python main_이과형.py
+
+      - name: 완성된 대본 깃허브에 자동 저장(업로드)
+        run: |
+          git config --global user.email "bot@github.com"
+          git config --global user.name "Auto Bot"
+          git add scripts_igwahyung/
+          git commit -m "🧪 이과형 롱폼 대본 도착" || exit 0
+          git push
