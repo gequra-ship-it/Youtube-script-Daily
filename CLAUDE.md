@@ -3,7 +3,7 @@
 영어 지식 유튜브 채널 Miya's Lab의 대본 생성·영상 제작·렌더 레포다. **영상 작업(대본 → 음성 → 그림 → 렌더 → Drive)을 하기 전에 지침서를 끝까지 읽고 따른다.**
 
 ## 먼저 읽을 파일
-- 지침서 원본: `docs/miyas-lab-guideline.md` (`render-pipeline` 브랜치가 원본). 이 파일과 지침서가 다르면 지침서가 우선이다.
+- 지침서 원본: `docs/miyas-lab-guideline.md` (`render-pipeline` 브랜치가 원본, 현재 규칙만 담은 약 74KB). 이 파일과 지침서가 다르면 지침서가 우선이다. 옛 기록·전체 사본은 `docs/archive/`(평소 읽지 않는다).
 - **영상은 SVG 모션그래픽 방식으로 만든다(2026-10-16 사용자 결정으로 복귀).** 그림 명세: `tools/art_spec.md` (+ 영상별 `videos/<slug>/art_brief.md`). 3D 실험에서 얻은 카메라·속도감·초반 밀도·숏츠·관절 모션·병렬 렌더 규칙은 지침서 20장(코드: `tools/build3.py`의 `DRIFT`·`HOOK`·속도선·`mv-joint`/`mv-chain`, `tools/motion_check.py`, `tools/chunk_plan.py`)
 - 시네마틱 3D(cine)의 문서·코드는 `cine-test/`에 보관(`cine-test/README.md`). 사용자가 3D를 요청할 때만 쓴다
 - 도구 사용법: `tools/README.md`
