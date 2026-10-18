@@ -1,4 +1,4 @@
-# usage: SLUG=<slug> python3 tools/thumb_shot.py   -> render/<slug>/deliver/<slug>_thumbnail_A.png / _B.png / _C.png (3 since 2026-10-16)
+# usage: SLUG=<slug> python3 tools/thumb_shot.py   -> render/<slug>/deliver/<slug>_thumbnail_A..F.png (A-C since 2026-10-16; D-F only if thumb/D.html.. exist)
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
@@ -9,7 +9,7 @@ with sync_playwright() as p:
     b = p.chromium.launch(executable_path=CHROME)
     pg = b.new_page(viewport={'width': 1920, 'height': 1080}); errs = []
     pg.on('pageerror', lambda e: errs.append(str(e)))
-    for n in [x for x in ['A', 'B', 'C'] if os.path.exists(f'{vdir()}/thumb/{x}.html')]:
+    for n in [x for x in ['A', 'B', 'C', 'D', 'E', 'F'] if os.path.exists(f'{vdir()}/thumb/{x}.html')]:
         pg.goto(f'file://{vdir()}/thumb/{n}.html'); pg.wait_for_timeout(500)
         ok = pg.evaluate("document.fonts.check('700 100px Fredoka')")
         f = f'{out}/{SLUG}_thumbnail_{n}.png'; pg.screenshot(path=f)
