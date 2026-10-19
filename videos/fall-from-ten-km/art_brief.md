@@ -1,0 +1,30 @@
+# fall-from-ten-km — art brief (shared by all picture agents)
+
+Read fully: `tools/art_spec.md` (section 5 backdrop rules: every picture gets a backdrop that fits its own text, no concentric rings or radiating-line/ray/sunburst backdrops, neighbouring units never share a backdrop kind, at most 2 of every 12 units share a kind; vertical Shorts also follow section 10; people follow 6A/6B with `tools/body.py` and `tools/hands.py`).
+
+Paths: repo root is `/home/user/youtube-script-daily` (the specs say `/home/claude/ht/...` or `/home/user/rp/...`: use the repo root instead).
+- plan: `videos/<SLUG>/plan.json` (use the entries for YOUR uids: `bg`, `pal`, `text`, `prev`, `nxt`, `transition_in`, `dur`)
+- output: `videos/<SLUG>/art3/<uid>.svg` and `<uid>.json`
+- preview: `python3 tools/svgshot.py <preview dir> f1.svg ...` (vertical Shorts: `SHOT_W=1080 SHOT_H=1920`)
+- SLUG is given in your task: long `fall-from-ten-km`, Shorts `fall-from-ten-km-short1/2/3`.
+Write ONLY your own uids. Scratch work (generator scripts, previews) goes ONLY in your own folder given in your task. No git. Delete big preview dirs when done.
+
+## Topic
+Surviving a fall from an airliner at ten kilometers, as physics: a window seat and seatbelt click, patchwork fields and rivers seen from cruising height, the cabin floor vanishing; thin air (oxygen molecules sparse, a lung, a blood-oxygen gauge shown as a plain bar, no numbers), a stopwatch-like dial for about thirty seconds; fainting; minus-fifty-degree cold (frost, ice crystals, wind-streaks past a falling person, a polar-looking sky); gravity arrow vs drag arrow balancing; terminal velocity (a falling figure with two arrow lengths, thin air up high vs thicker air lower); a skydiver changing shape; waking up in the thicker air at three to four kilometers; curled ball vs spread-eagle (belly-to-earth, arms and legs wide, back slightly arched); a flat spin vs stable fall; stopping distance (a short vs a long arrow, a ruler-like strip, a brake-distance diagram); water impact (calm lake seen from above and the splash as a stiff wall, drawn as a diagram, no gore); a dense forest canopy (twigs, thick branches in stages); deep powder snow on a steep slope; aircraft wreckage in a snowy wood (seat rows, a food-service cart, a tail section) and a rainforest with a row of three seats spinning down like a helicopter rotor; impact-time diagrams (short vs long pulse); relaxed vs rigid joints (a bending vs snapping stick as an analogy); feet-first landing with slightly bent knees, a parachute-landing-fall roll in a field; a clock/pop-song/elevator comparison for about two and a half minutes; an airliner wing in clouds, oxygen masks dropping in a cabin, a contrail seen at dusk by a person on a pavement.
+
+## Character / object sheet (keep identical across all agents)
+- **Passenger / faller (recurring)**: adult with short dark hair, simple dot eyes, light-blue shirt, dark trousers, white sneakers, calm and dignified; cute proportions via `tools/body.py`; ids `mv-breathe-passenger`, `mv-nod-passenger`, `mv-arm-passenger`. When falling: belly-down spread-eagle pose, drawn as a clear silhouette.
+- **Airliner**: white twin-jet airliner, plain teal belly stripe, no livery, no letters, no logos.
+- **Skydiver (generic)**: red jumpsuit, helmet, goggles, no face detail.
+- **Real people (Vesna Vulovic, Juliane Koepcke)**: NEVER a face or portrait. Show wreckage, a seat row, a tail section, trees, snow, a rainforest canopy, hands, or a distant small silhouette from behind. No gore, no bodies: injuries are never drawn.
+- **Wreckage**: broken aluminium fuselage panels, a row of three airline seats, a food-service cart, scattered with snow or leaves; no text, no airline marks.
+- **Cross-sections / diagrams**: same soft sketch look as the pictures; arrows are plain shapes, never letters or numbers.
+- No film references. No text, letters, numbers or equations inside the SVG (on-screen text comes from `labels`).
+
+## Notes
+- **Backgrounds**: follow each plan unit's `bg` (`paper`, `night`, `dusk`) and `pal`; palettes are a skeleton: change or add colours when the content needs it (high thin air = deep blue and gold, cold = pale icy tints, forest = greens, wreckage = grey and warm brown). Every picture needs its own scene-specific backdrop (a cabin, a sky layer, a canopy from above, a snowy slope, a lake, a rainforest, a field, a pavement at dusk...).
+- Be truthful and calm: this is physics. Show falls as diagrams and silhouettes, not violence. Hypotheses (relaxed muscles, spinning seats adding drag) are drawn as ideas/diagrams, not as proven facts.
+- `focus` on 40-50 % of units; sfx on 35-45 % using ONLY the 25 library names in `tools/art_spec.md` section 8 (unpitched; never the same name in two consecutive units). Good fits: wind, cloth, rustle, breath, tick, click, creak, pop, stone, thud, page, pencil, drip, splash, flutter, step.
+- **On-screen text**: write `"labels"` in each sidecar following art_spec section 8 ("On-screen text"): names that are visible AND said in the unit text (e.g. Terminal velocity, Spread-eagle, Time of useful consciousness, Vesna Vulovic, Juliane Koepcke), a `num` badge when the unit says a number or year (e.g. "ten thousand meters" -> `10,000 m`, "nineteen seventy-two" -> `1972`), a short `say` bubble on about 1 unit in 8 (only from the generic passenger; never a real person; no facts). Then run `python3 tools/labelshot.py <SLUG> <your scratch>/lab <uids...>`; fix every reported problem and look at every `<uid>_lab.png`.
+- Motion groups (3-6 per picture; see art_spec section 7): people `mv-breathe-/mv-nod-/mv-arm-<name>`, hands `mv-hand-<name>`, falling streaks/snow/leaves `mv-cells-<name>`, cloth and flags `mv-lean-<name>`, glowing centre `mv-core-<type>` (or `mv-glint-core`), spinning seat rows `mv-core-spin`. Ids unique inside each file.
+- Final answer: one line per uid: `uid | centre | backdrop kind | focus_word or - | sfx or - | labels count`, plus problems left (8 lines max if more than 8 uids: summarise).
