@@ -69,16 +69,20 @@ def crown(x, y, r, pal, lx=.3, ly=-.45, sw=3):
 
 
 # ======================= A: ABOUT 2.5 MIN OF FALLING  (homage: Vertigo, the spiral poster with a falling figure) =======================
-CX, CY, SY = 1330, 700, .86
-d = rad('bgA', CX, CY, 1300, [(0, '#3a0a12', 1), (.18, '#7a1820', 1), (.5, '#c2381f', 1), (1, '#f07a2a', 1)])
-d += rad('bandA', CX, CY, 1250, [(0, '#5a3a5a', 1), (.12, '#b07a8a', 1), (.35, '#f2b48a', 1), (.7, '#ffe2c0', 1), (1, '#fff4e4', 1)])
-d += rad('sunA', 1760, 60, 900, [(0, '#fffbe8', .95), (.25, '#ffe8b0', .55), (1, '#ffd890', 0)])
-d += rad('holeA', CX, CY, 120, [(0, '#bfe8a0', 1), (.5, '#6aa070', 1), (1, '#2a3a40', 1)])
-d += rad('glA', 1220, 400, 330, [(0, '#fff3d6', .65), (.5, '#ffd9a0', .25), (1, '#ffd9a0', 0)])
-d += rad('vigA', 960, 540, 1150, [(.55, '#000000', 0), (1, '#1a0408', .55)])
-d += '<filter id="cl" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="46" xChannelSelector="R" yChannelSelector="G"/></filter>'
-d += '<filter id="bA"><feGaussianBlur stdDeviation="1.2"/></filter><filter id="bA2"><feGaussianBlur stdDeviation="14"/></filter>'
+# v2 (2026-10-19, owner: "background disappointing"): a deep vortex of sunset-lit cumulus towers with a detailed landscape far below
+random.seed(21)
+CX, CY, SY = 1420, 730, .86
 K = .115
+RG = 300   # radius of the visible ground disk at the bottom of the tunnel
+
+
+def hx(c):
+    return tuple(int(c[i:i + 2], 16) for i in (1, 3, 5))
+
+
+def mix(c1, c2, t):
+    t = max(0, min(1, t)); a, b_ = hx(c1), hx(c2)
+    return '#%02x%02x%02x' % tuple(round(a[i] + (b_[i] - a[i]) * t) for i in range(3))
 
 
 def sp(th, ph, f=1.0):
@@ -86,62 +90,197 @@ def sp(th, ph, f=1.0):
     return CX + r * math.cos(th + ph), CY + r * math.sin(th + ph) * SY, r
 
 
-def band(ph, frac, th0=0, th1=31, step=.07):
+def band(ph, frac, th0=0, th1=35, step=.06):
     out_ = [sp(th0 + i * step, ph) for i in range(int((th1 - th0) / step) + 1)]
     f = math.exp(-math.pi * K * frac)
     in_ = [sp(th0 + i * step, ph, f) for i in range(int((th1 - th0) / step) + 1)][::-1]
     return 'M' + ' L'.join(f'{x:.1f} {y:.1f}' for x, y, _ in out_ + in_) + 'Z'
 
 
+d = rad('bgA', CX, CY, 1500, [(0, '#c9d6ee', 1), (.2, '#7e86c0', 1), (.42, '#4a2f78', 1), (.75, '#2a1446', 1), (1, '#16091f', 1)])
+d += rad('hazeA', 0, 0, RG, [(0, '#fff4d8', .0), (.55, '#dfe8f4', .15), (.85, '#c4d2ec', .6), (1, '#b4c4e6', .95)])
+d += rad('sunA', 1800, -20, 850, [(0, '#fffbe8', .95), (.16, '#ffe6a6', .6), (.45, '#ffb070', .14), (1, '#ff9060', 0)])
+d += rad('glA', 1150, 330, 330, [(0, '#fff3d6', .55), (.5, '#ffd9a0', .2), (1, '#ffd9a0', 0)])
+d += rad('vigA', 960, 540, 1150, [(.6, '#000000', 0), (1, '#0e0418', .6)])
+d += rad('txtA', 200, 120, 700, [(0, '#12061e', .55), (1, '#12061e', 0)])
+d += f'<clipPath id="gclip"><circle cx="0" cy="0" r="{RG}"/></clipPath>'
+d += '<filter id="bA"><feGaussianBlur stdDeviation="1.4"/></filter><filter id="bA2"><feGaussianBlur stdDeviation="16"/></filter>'
+d += '<filter id="bA3"><feGaussianBlur stdDeviation="5"/></filter><filter id="bA4"><feGaussianBlur stdDeviation="28"/></filter>'
+
 b = '<rect width="1920" height="1080" fill="url(#bgA)"/>'
-# hole: the ground far below
-b += f'<ellipse cx="{CX}" cy="{CY}" rx="120" ry="{120 * SY:.0f}" fill="url(#holeA)"/>'
-b += f'<g opacity=".7">' + ''.join(f'<rect x="{CX + random.randint(-70, 50)}" y="{CY + random.randint(-55, 40)}" width="{random.randint(10, 26)}" height="{random.randint(8, 18)}" fill="{random.choice(["#8ab060", "#c9b46a", "#5f8a50"])}" transform="rotate(20 {CX} {CY})"/>' for _ in range(26)) + '</g>'
-b += f'<path d="M{CX - 90} {CY + 30} C{CX - 40} {CY + 10} {CX - 10} {CY + 40} {CX + 30} {CY + 5} S{CX + 70} {CY - 30} {CX + 95} {CY - 20}" stroke="#d8f0ff" stroke-width="4" fill="none" opacity=".8"/>'
-# spiral cloud bands (two arms), shaded puffs, highlight band
+# ---------- the ground, 10 km below: patchwork fields, forests, a river with sun glints, a lake, a small town ----------
+gr = '<circle r="%d" fill="#7f9c4c"/>' % RG
+FP = ['#8fae4c', '#a9b956', '#c9b25a', '#7a9a42', '#d8c27a', '#6d8a3e', '#b39a52', '#94b860', '#c4a96a', '#5f8a44']
+rot = math.radians(24)
+for i in range(-9, 10):
+    for j in range(-9, 10):
+        w_, h_ = random.uniform(34, 62), random.uniform(28, 52)
+        u, v = i * 52 + random.uniform(-6, 6), j * 44 + random.uniform(-6, 6)
+        pts = [(u, v), (u + w_, v + random.uniform(-4, 4)), (u + w_ + random.uniform(-5, 5), v + h_), (u + random.uniform(-4, 4), v + h_)]
+        pts = [(x * math.cos(rot) - y * math.sin(rot), x * math.sin(rot) + y * math.cos(rot)) for x, y in pts]
+        if min(math.hypot(x, y) for x, y in pts) > RG + 10:
+            continue
+        gr += '<path d="M' + ' L'.join(f'{x:.0f} {y:.0f}' for x, y in pts) + f'Z" fill="{random.choice(FP)}" stroke="#4d6a2c" stroke-width="2"/>'
+        if random.random() < .3:   # plough furrows
+            x0, y0 = pts[0]; x1, y1 = pts[1]
+            gr += f'<path d="M{x0:.0f} {y0:.0f} L{x1:.0f} {y1:.0f}" stroke="#e6d6a0" stroke-width="1.5" opacity=".45" transform="translate({math.sin(rot) * -8:.0f} {math.cos(rot) * 8:.0f})"/>'
+# forests
+for fx, fy, n in ((-170, -120, 70), (150, 140, 60), (-60, 210, 40), (200, -170, 45), (-250, 90, 35)):
+    for _ in range(n):
+        x, y, r_ = fx + random.gauss(0, 42), fy + random.gauss(0, 30), random.uniform(7, 13)
+        gr += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{r_:.0f}" fill="{random.choice(["#2f5a2a", "#3a6a30", "#24502a"])}"/>'
+    for _ in range(n // 2):
+        x, y = fx + random.gauss(0, 40), fy + random.gauss(0, 28)
+        gr += f'<circle cx="{x + 2:.0f}" cy="{y - 2:.0f}" r="4" fill="#6f9a48" opacity=".8"/>'
+# lake
+gr += '<path d="M60 -240 C130 -270 210 -230 200 -170 C190 -120 110 -130 80 -160 C40 -190 10 -220 60 -240Z" fill="#2f6a94" stroke="#2c4a2a" stroke-width="5"/>'
+gr += '<path d="M90 -230 C140 -245 180 -220 175 -195" stroke="#fff6d8" stroke-width="5" fill="none" opacity=".8" stroke-linecap="round"/>'
+# river (meandering, glinting in the low sun)
+RV = 'M-340 40 C-260 0 -220 90 -150 60 S-60 -40 0 10 S80 120 150 70 S240 -60 340 -20'
+gr += f'<path d="{RV}" stroke="#3d5a34" stroke-width="26" fill="none"/><path d="{RV}" stroke="#4f8ec0" stroke-width="16" fill="none"/>'
+gr += f'<path d="{RV}" stroke="#e8f8ff" stroke-width="4" fill="none" stroke-dasharray="30 50 8 60" opacity=".85"/>'
+# roads + town
+for rd in ('M-330 -60 Q-120 -40 -20 -10 T330 110', 'M-40 -330 Q-20 -120 -10 0 T30 330', 'M120 -300 Q60 -120 20 0'):
+    gr += f'<path d="{rd}" stroke="#efe6cc" stroke-width="3.5" fill="none" opacity=".85"/>'
+for _ in range(70):
+    x, y = random.gauss(-20, 30), random.gauss(-10, 24)
+    gr += f'<rect x="{x:.0f}" y="{y:.0f}" width="{random.randint(4, 9)}" height="{random.randint(4, 8)}" fill="{random.choice(["#efe4cc", "#c97a5a", "#b8b4c0", "#e0a070"])}" transform="rotate(24 {x:.0f} {y:.0f})"/>'
+# little cumulus over the ground and their shadows
+for _ in range(16):
+    a_, rr = random.uniform(0, 6.28), random.uniform(40, RG - 30)
+    x, y, s_ = math.cos(a_) * rr, math.sin(a_) * rr, random.uniform(8, 18)
+    gr += f'<ellipse cx="{x - 14:.0f}" cy="{y + 12:.0f}" rx="{s_ * 1.6:.0f}" ry="{s_:.0f}" fill="#1e2e1a" opacity=".28"/>'
+    gr += ''.join(f'<circle cx="{x + dx * s_:.0f}" cy="{y + dy * s_:.0f}" r="{s_ * q:.0f}" fill="#ffffff" opacity=".92"/>' for dx, dy, q in ((-.8, .2, .7), (0, 0, 1), (.8, .2, .7), (.3, -.5, .6)))
+gr += f'<circle r="{RG}" fill="url(#hazeA)"/>'
+b += f'<g transform="translate({CX} {CY}) scale(1 {SY})"><circle r="{RG + 14}" fill="#c4d2ec" filter="url(#bA3)"/><g clip-path="url(#gclip)">{gr}</g></g>'
+
+# ---------- the vortex: two spiral arms of towering cumulus, far = hazy blue, near = sunset gold/violet ----------
+LIT = ('#b8587a', '#f29a78', '#ffe4bc')     # shade, body, highlight on the walls facing the sun
+DRK = ('#2a1046', '#6a3488', '#f2a6a0')     # walls turned away (warm rim on top)
+HZ_ = ('#8e98c8', '#b4bce0', '#e4e8f6')
+L = (.6, -.8)   # light comes from the top-right
+
+
+def cpuff(x, y, r, lit, hz):
+    e = max(0, math.hypot((x - 960) / 960, (y - 540) / 540) - .75) * .55 + max(0, 1 - math.hypot((x - 420) / 520, (y - 260) / 330)) * .3   # baked-in vignette + calmer text area
+    cols = [mix(mix(mix(DRK[i], LIT[i], lit), HZ_[i], hz), '#1a0828', e) for i in range(3)]
+    return (f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{r:.0f}" fill="{cols[0]}"/>'
+            f'<circle cx="{x + L[0] * r * .2:.0f}" cy="{y + L[1] * r * .2:.0f}" r="{r * .8:.0f}" fill="{cols[2]}"/>'
+            f'<circle cx="{x - L[0] * r * .02:.0f}" cy="{y - L[1] * r * .02:.0f}" r="{r * .8:.0f}" fill="{cols[1]}"/>')
+
+
+def litf(x, y):
+    ux, uy = x - CX, (y - CY) / SY; n = math.hypot(ux, uy) or 1
+    return .5 + .5 * ((ux * -.6 + uy * .8) / n)   # lower-left walls face the sun
+
+
+# soft body of each arm under the puffs
 g = ''
 for ph in (0, math.pi):
-    g += f'<path d="{band(ph, .62)}" fill="url(#bandA)"/>'
-b += f'<g filter="url(#cl)">{g}</g>'
-pf = ''
+    g += f'<path d="{band(ph, .5, 17)}" fill="#7a5a96"/>'
+b += f'<g filter="url(#bA2)" opacity=".85">{g}</g>'
+P = []
 for ph in (0, math.pi):
-    th = 4.0
-    while th < 31:
-        x, y, r = sp(th, ph, .93)
-        if r > 60 and random.random() < .8:
-            fade = min(1, (r - 60) / 260)
-            for _ in range(2):
-                f2 = random.uniform(.88, 1.0)
-                x, y, r = sp(th + random.uniform(-.05, .05), ph, f2)
-                pf += puff(x, y, r * random.uniform(.06, .16), '#d98a7a' if r < 500 else '#f2b49a', '#fff2e2', .3 + .6 * fade)
-        th += .12 + 12 / (r + 40)
-b += f'<g filter="url(#bA)">{pf}</g>'
-hl = ''.join(f'<path d="{band(ph + .1, .18, 8, 31)}" fill="#fffaf2" opacity=".45"/>' for ph in (0, math.pi))
+    th = 17.5
+    while th < 35:
+        x0, y0, r0 = sp(th, ph, .9)
+        for _ in range(4):
+            f2 = random.uniform(.82, .99)
+            x, y, r = sp(th + random.uniform(-.04, .04), ph, f2)
+            pr = r * random.uniform(.045, .1) * (1.15 if f2 > .93 else 1)
+            P.append((r, x, y, pr))
+        th += .06 + 11 / (r0 + 60)
+P.sort()   # far (small radius) first, near on top
+pf = ''
+for r, x, y, pr in P:
+    hz = max(0, 1 - (r - RG) / 420)
+    pf += cpuff(x, y, pr, litf(x, y), hz * .85)
+b += f'<g filter="url(#bA2)" opacity=".75">' + ''.join(f'<path d="{band(ph - .05, .22, 17)}" fill="#140828" transform="translate({CX} {CY}) scale(.86) translate({-CX} {-CY})"/>' for ph in (0, math.pi)) + '</g>'
+b += pf
+# sunlit edges on the sun-facing walls
+hl = ''.join(f'<path d="{band(ph + .12, .16, 19, 35)}" fill="#fff0d0" opacity=".35"/>' for ph in (0, math.pi))
 b += f'<g filter="url(#bA2)">{hl}</g>'
-b += '<rect width="1920" height="1080" fill="url(#sunA)"/>'
-# radial speed streaks (rushing toward the centre)
-for k in range(30):
-    a = random.uniform(0, 2 * math.pi); r0 = random.uniform(330, 600); r1 = r0 + random.uniform(160, 420)
+# god rays from the sun (top-right) into the tunnel
+rays = ''
+for a0, w0, op in ((200, 5, .16), (212, 3, .12), (222, 6, .14), (236, 4, .1), (190, 3, .1)):
+    a1, a2 = math.radians(a0 - w0 / 2), math.radians(a0 + w0 / 2)
+    rays += f'<path d="M1800 -20 L{1800 + math.cos(a1) * 1900:.0f} {-20 - math.sin(a1) * 1900 * -1:.0f} L{1800 + math.cos(a2) * 1900:.0f} {-20 - math.sin(a2) * 1900 * -1:.0f}Z" fill="#fff2cc" opacity="{op}"/>'
+b += f'<g filter="url(#bA4)">{rays}</g>'
+b += '<rect x="900" width="1020" height="860" fill="url(#sunA)"/>'
+# radial speed streaks rushing toward the centre
+for k in range(14):
+    a = random.uniform(0, 2 * math.pi); r0 = random.uniform(360, 620); r1 = r0 + random.uniform(160, 460)
     b += f'<path d="M{CX + math.cos(a) * r0:.0f} {CY + math.sin(a) * r0 * SY:.0f} L{CX + math.cos(a) * r1:.0f} {CY + math.sin(a) * r1 * SY:.0f}" stroke="#fff6ea" stroke-width="{random.choice([2, 3, 4])}" stroke-linecap="round" opacity="{random.uniform(.15, .45):.2f}"/>'
-b += '<rect width="1920" height="1080" fill="url(#vigA)"/>'
 # the faller
 b += '<rect width="1920" height="1080" fill="url(#glA)"/>'
-b += f'<g transform="translate(1225 420) rotate(-16) scale(1.08)">' + faller() + '</g>'
+b += f'<g transform="translate(1150 330) rotate(-16) scale(.98)">' + faller() + '</g>'
 b += spark(1560, 300, 22) + spark(980, 820, 16) + spark(1640, 690, 14) + spark(1450, 190, 12, op=.6)
-open('A.html', 'w', encoding='utf-8').write(page('#7a1820', svg(d, b), [('ABOUT', 116, 'w'), ('2.5 MIN', 236, 'y'), ('OF FALLING', 136, 'w')], '#2a0610', top=44))
+open('A.html', 'w', encoding='utf-8').write(page('#2a1446', svg(d, b), [('ABOUT', 116, 'w'), ('2.5 MIN', 236, 'y'), ('OF FALLING', 136, 'w')], '#16061e', top=44))
+
+def airliner():
+    """white twin-engine airliner, 3/4 view from slightly below, nose to the left; local coords ~ -330..330 x -190..170"""
+    o = ''
+    # far wing (behind the fuselage, swept back and up) + far engine peeking under the fuselage
+    o += f'<path d="M-40 -18 L150 -150 L192 -152 L110 -14Z" fill="url(#wingF)" stroke="{LINE}" stroke-width="6" stroke-linejoin="round"/>'
+    o += f'<path d="M92 -96 L118 -126" stroke="#8a98ac" stroke-width="4"/>'
+    # far horizontal stabiliser
+    o += f'<path d="M232 -20 L300 -86 L326 -86 L292 -16Z" fill="url(#wingF)" stroke="{LINE}" stroke-width="5" stroke-linejoin="round"/>'
+    # tail fin
+    o += f'<path d="M206 -26 L268 -176 L314 -180 L326 -40Z" fill="url(#finB)" stroke="{LINE}" stroke-width="6" stroke-linejoin="round"/>'
+    o += f'<path d="M262 -150 L300 -152 L310 -60" stroke="#ffd98a" stroke-width="5" fill="none" opacity=".7" stroke-linecap="round"/>'
+    # fuselage (long white tube, rounded nose, tapered tail)
+    F = 'M-300 6 C-300 -26 -270 -38 -220 -40 L230 -40 C268 -40 300 -36 336 -26 L336 -16 C300 12 260 32 220 34 L-220 34 C-276 34 -300 26 -300 6Z'
+    o += f'<path d="{F}" fill="url(#fusB)" stroke="{LINE}" stroke-width="7" stroke-linejoin="round"/>'
+    o += '<path d="M-286 -12 C-270 -30 -240 -34 -210 -34 L230 -34" stroke="#ffffff" stroke-width="6" fill="none" opacity=".9" stroke-linecap="round"/>'
+    # cheatline stripe + belly shade
+    o += '<path d="M-296 12 C-260 16 -230 16 -200 16 L250 16 C280 12 300 4 322 -6" stroke="#2f6fb8" stroke-width="7" fill="none"/>'
+    o += '<path d="M-260 28 L220 28" stroke="#9aa8bc" stroke-width="6" opacity=".6"/>'
+    # cockpit windows
+    o += f'<path d="M-282 -10 L-262 -24 L-238 -24 L-240 -10Z" fill="#20304a" stroke="{LINE}" stroke-width="3"/>'
+    o += f'<path d="M-234 -24 L-210 -24 L-212 -10 L-236 -10Z" fill="#20304a" stroke="{LINE}" stroke-width="3"/>'
+    o += '<path d="M-274 -12 L-262 -21" stroke="#9fd0ff" stroke-width="3"/>'
+    # passenger windows (one long row) + doors
+    o += ''.join(f'<rect x="{x}" y="-17" width="10" height="13" rx="4" fill="#20304a"/>' for x in range(-186, 222, 21))
+    for dx in (-200, 150):
+        o += f'<rect x="{dx}" y="-30" width="20" height="48" rx="6" fill="none" stroke="#8a98ac" stroke-width="3"/>'
+    # near horizontal stabiliser
+    o += f'<path d="M238 8 L314 74 L340 74 L300 2Z" fill="url(#wingN)" stroke="{LINE}" stroke-width="5" stroke-linejoin="round"/>'
+    # near wing: big, swept back, coming toward the viewer
+    W = 'M-70 18 L150 196 L204 200 L100 22Z'
+    o += f'<path d="{W}" fill="url(#wingN)" stroke="{LINE}" stroke-width="7" stroke-linejoin="round"/>'
+    o += '<path d="M-56 26 L156 192" stroke="#ffffff" stroke-width="5" opacity=".8"/>'
+    o += f'<path d="M150 196 L162 176 L186 178 L204 200Z" fill="#2f6fb8" stroke="{LINE}" stroke-width="4" stroke-linejoin="round"/>'  # winglet tip
+    o += '<path d="M60 70 L120 136 M104 30 L190 186" stroke="#a8b4c6" stroke-width="3" opacity=".7"/>'
+    # engines hanging under the wings (turbofan nacelles, intake to the left)
+    for ex, ey, s_ in ((-8, 46, .78), (40, 112, 1.0)):
+        o += f'<g transform="translate({ex} {ey}) scale({s_})">'
+        o += f'<path d="M-6 -20 L40 -34 L64 -30 L30 -8Z" fill="#c8d2de" stroke="{LINE}" stroke-width="5" stroke-linejoin="round"/>'   # pylon
+        o += f'<path d="M-50 -10 C-50 -34 -36 -40 0 -40 L74 -34 C96 -32 104 -22 104 -10 C104 2 96 12 74 14 L0 20 C-36 20 -50 14 -50 -10Z" fill="url(#engB)" stroke="{LINE}" stroke-width="6"/>'
+        o += f'<ellipse cx="-48" cy="-10" rx="13" ry="29" fill="#2a3446" stroke="{LINE}" stroke-width="5"/>'
+        o += '<ellipse cx="-46" cy="-10" rx="6" ry="16" fill="#5a6a82"/><circle cx="-46" cy="-10" r="4" fill="#c8d2de"/>'
+        o += '<path d="M-30 -32 L70 -28" stroke="#ffffff" stroke-width="5" opacity=".85" stroke-linecap="round"/>'
+        o += '</g>'
+    return o
+
+
 
 # ======================= B: WHERE WOULD YOU LAND?  (intuitive: lake / forest canopy / deep snow slope) =======================
 random.seed(11)
 HZ = 520
 d = lin('skB', [(0, '#2a5a94'), (.55, '#7fb2d8'), (1, '#e6f2f6')])
-d += rad('sunB', 1640, 110, 700, [(0, '#fffbe8', 1), (.12, '#fff3c8', .9), (.4, '#ffe8b0', .3), (1, '#ffe8b0', 0)])
+d += rad('sunB', 1860, 60, 760, [(0, '#fffbe8', 1), (.12, '#fff3c8', .9), (.4, '#ffe8b0', .3), (1, '#ffe8b0', 0)])
 d += lin('lakeB', [(0, '#5f8ab0'), (.35, '#1f4a72'), (1, '#0a1e36')])
 d += lin('snowB', [(0, '#ffffff'), (.6, '#e2eef8'), (1, '#9fbcd8')], x2=1, y2=1)
 d += rad('glowT', 960, 760, 380, [(0, '#fff2b0', .55), (1, '#fff2b0', 0)])
 d += rad('glowS', 1560, 640, 420, [(0, '#fffbe0', .6), (1, '#fffbe0', 0)])
+d += lin('fusB', [(0, '#ffffff'), (.55, '#eef2f7'), (1, '#b9c4d4')])
+d += lin('wingN', [(0, '#f4f7fb'), (1, '#c4cedc')], x2=1, y2=1)
+d += lin('wingF', [(0, '#c9d2de'), (1, '#e6ebf2')])
+d += lin('finB', [(0, '#3a80cc'), (1, '#1f4f8e')], x2=1, y2=1)
+d += lin('engB', [(0, '#ffffff'), (.6, '#e2e8f0'), (1, '#9aa8bc')])
 d += '<filter id="bB"><feGaussianBlur stdDeviation="6"/></filter><filter id="bB2"><feGaussianBlur stdDeviation="2"/></filter>'
 b = '<rect width="1920" height="1080" fill="url(#skB)"/><rect width="1920" height="1080" fill="url(#sunB)"/>'
-b += '<circle cx="1640" cy="110" r="52" fill="#fffef6"/>'
+b += '<circle cx="1860" cy="60" r="52" fill="#fffef6"/>'
 b += blobs(14, 700, 160, 1500, 380, '#ffffff', .25, .5, 60, 160).replace('<ellipse', '<ellipse filter="url(#bB)"')
 # far mountains
 b += f'<path d="M0 {HZ} L120 430 L220 470 L360 380 L470 455 L600 400 L740 470 L860 420 L980 {HZ} Z" fill="#7d97b8"/>'
@@ -178,10 +317,13 @@ for x, y, s in ((1640, 372, 1), (1690, 330, .8), (1730, 300, .7), (1585, 420, .9
     b += f'<path d="M{x} {y - 50 * s} L{x + 18 * s} {y} L{x - 18 * s} {y}Z" fill="#1f4a3a"/><path d="M{x} {y - 50 * s} L{x + 8 * s} {y - 30 * s} L{x - 6 * s} {y - 26 * s}Z" fill="#ffffff" opacity=".8"/>'
 b += '<rect width="1920" height="1080" fill="url(#glowT)" opacity=".8"/>'
 # soft golden halos on the forgiving surfaces, faint dotted paths from the faller
-for x0, y0, x1, y1, cx_, cy_ in ((1150, 350, 420, 820, 760, 470), (1175, 390, 960, 780, 1090, 560), (1205, 380, 1560, 650, 1440, 430)):
+for x0, y0, x1, y1, cx_, cy_ in ((1185, 470, 420, 820, 780, 560), (1215, 510, 960, 780, 1110, 620), (1250, 500, 1560, 650, 1440, 520)):
     b += f'<path d="M{x0} {y0} Q{cx_} {cy_} {x1} {y1}" stroke="#ffffff" stroke-width="7" stroke-dasharray="2 22" stroke-linecap="round" fill="none" opacity=".75"/>'
 b += spark(960, 760, 28) + spark(1560, 640, 28) + spark(1040, 820, 16) + spark(1660, 560, 16) + spark(820, 760, 14, op=.7)
-b += f'<g transform="translate(1180 300) rotate(10) scale(.62)">' + faller(suit='#d8572e', suit2='#9a3218', rim='#fff2c0') + '</g>'
+b += f'<g transform="translate(1215 420) rotate(10) scale(.6)">' + faller(suit='#d8572e', suit2='#9a3218', rim='#fff2c0') + '</g>'
+# the airliner high above (where the fall begins), with contrails and a dotted drop line to the faller
+b += '<path d="M1360 250 Q1290 300 1245 345" stroke="#ffffff" stroke-width="7" stroke-dasharray="2 22" stroke-linecap="round" fill="none" opacity=".8"/>'
+b += f'<g transform="translate(1470 215) rotate(-8) scale(.78)"><g filter="url(#bB)" opacity=".6"><path d="M80 38 L700 60" stroke="#ffffff" stroke-width="16" stroke-linecap="round"/><path d="M150 104 L720 150" stroke="#ffffff" stroke-width="20" stroke-linecap="round"/></g>' + airliner() + '</g>'
 open('B.html', 'w', encoding='utf-8').write(page('#2a5a94', svg(d, b), [('WHERE', 140, 'w'), ('WOULD YOU', 150, 'w'), ('LAND?', 236, 'y')], '#0a1a30', top=40))
 
 # ======================= C: SHE FELL IN HER SEAT  (intuitive: a seat row spinning like a rotor over the rainforest) =======================
