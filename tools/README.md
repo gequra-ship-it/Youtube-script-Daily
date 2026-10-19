@@ -31,7 +31,7 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 - Two Shorts per video: slugs `<slug>-short1`, `<slug>-short2` (also `-short`); the workflow uploads them to `<slug>/short/`. Put all three slugs in `render/.slug`.
 
 ## 2026-10-10 (epomis-frog-hunter-v2)
-- Kokoro speed re-measured at ~163 words/min (not 126): plan ~3,100 words for a ~20 min video. Always check `audio_prep.py`'s total.
+- Kokoro speed re-measured at ~163 words/min (not 126): plan ~3,450 words (min 3,300) for a 20+ min video. Always check `audio_prep.py`'s total.
 - `build3.py`: very short units (<1.6 s) merge into a neighbour; a short last unit re-splits with the previous one. A partial `SEL=` build now takes picture uids from `plan.json` (before, numbering restarted at 1 and pictures were mismatched).
 - `body.py` (2026-10-17): human proportions in head heights + `arm()` (2-link `mv-limb` arm with a hands.py hand; art_spec 6B); `python3 tools/body.py out.svg` draws the reference sheet. build3 animates `mv-limb-*` gently and in step.
 - `hands.py` (2026-10-17): anatomically sane hands for every picture (art_spec 6A); `python3 tools/hands.py out.svg` draws a test sheet.
