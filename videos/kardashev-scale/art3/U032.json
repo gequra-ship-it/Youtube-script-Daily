@@ -1,12 +1,29 @@
 {
- "centre": "Round gauge dial whose gold arc fills most of the way, between two big power pylons with sagging lines",
- "focus": null,
- "focus_word": null,
+ "centre": "spiral galaxy on a star chart, a signal crossing it",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "across the galaxy",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "send a signal",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "0.7",
-   "word": "zero point seven"
+   "type": "name",
+   "text": "galaxy",
+   "x": 1200,
+   "y": 680,
+   "to": [
+    1090,
+    590
+   ],
+   "word": "galaxy"
   }
  ]
 }

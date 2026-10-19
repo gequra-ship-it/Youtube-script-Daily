@@ -1,18 +1,34 @@
 {
- "centre": "a cold, hollow glass orb with frost cracks at the top of the glowing three-rung ladder",
- "focus": null,
- "focus_word": null,
+ "centre": "the Sun as a glowing gold-white star beside a gold step, with thirty glowing century tiles beneath",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "total power of the Sun",
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "Sun",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "cosmic ladder",
-   "x": 560,
-   "y": 600,
+   "text": "the Sun",
+   "x": 960,
+   "y": 285,
    "to": [
-    560,
-    690
+    960,
+    385
    ],
-   "word": "cosmic ladder"
+   "word": "the Sun"
+  },
+  {
+   "type": "num",
+   "text": "3,000 YEARS",
+   "word": "three thousand years"
   }
  ]
 }

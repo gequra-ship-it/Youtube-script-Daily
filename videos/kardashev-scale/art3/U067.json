@@ -1,23 +1,29 @@
 {
- "centre": "the glowing round porthole window in the door of the lab",
+ "centre": "a warm gold Sun over a calm sea, with a green sprout on the left and tilted solar panels on the right",
  "focus": [
   960,
-  520,
-  1.6
+  500,
+  1.7
  ],
- "focus_word": "step inside this lab",
- "spot": true,
+ "focus_word": "Sunlight",
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "Sunlight",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Miya's Lab",
-   "x": 1340,
+   "text": "Sunlight",
+   "x": 640,
    "y": 330,
    "to": [
-    1060,
-    400
+    868,
+    470
    ],
-   "word": "Miya's Lab"
+   "word": "Sunlight"
   }
  ]
 }

@@ -1,23 +1,23 @@
 {
- "centre": "a bright round light seen through the narrow opening of a tall gate at the top of a path of steps",
+ "centre": "a round calendar dial with a single tiny bright mark at the very end, above a long ribbon of cosmic time",
  "focus": [
   960,
-  470,
-  1.7
+  500,
+  1.6
  ],
- "focus_word": "Great Filter",
- "spot": true,
+ "focus_word": "cosmic calendar",
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "blink",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Great Filter",
-   "x": 1330,
-   "y": 330,
-   "to": [
-    1100,
-    260
-   ],
-   "word": "Great Filter"
+   "type": "num",
+   "text": "A FEW THOUSAND YEARS",
+   "word": "a few thousand years"
   }
  ]
 }

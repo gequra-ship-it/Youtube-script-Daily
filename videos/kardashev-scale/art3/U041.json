@@ -1,22 +1,25 @@
 {
- "centre": "a star wrapped by a swarm of separate mirrored gold collector panels, densest at the equator",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "round newspaper photo of a glowing radio source on a front page",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "page",
+   "word": "headlines",
+   "vol": 0.6
+  }
  ],
- "focus_word": "swarm of solar collectors",
  "labels": [
   {
    "type": "name",
-   "text": "solar collectors",
-   "x": 1300,
-   "y": 250,
+   "text": "headlines",
+   "x": 960,
+   "y": 300,
    "to": [
-    1180,
-    440
+    960,
+    215
    ],
-   "word": "solar collectors"
+   "word": "headlines"
   }
  ]
 }
