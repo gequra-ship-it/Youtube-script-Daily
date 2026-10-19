@@ -756,7 +756,7 @@ for k, u in enumerate(units):
     sp = t1 - v0 + 0.2
     JT = {}; JDEP = {}   # joint / chain groups in document order (outer first): their data-pivot / data-amp / data-per / data-phase
     for mt in re.finditer(r'<g\b[^>]*>', svg):
-        cm = re.search(r'class="[^"]*\bmv (mv-(?:chain|joint|limb)-[A-Za-z0-9-]+)', mt.group(0))
+        cm = re.search(r'class="[^"]*\bmv (mv-(?:chain|joint|limb|rotor)-[A-Za-z0-9-]+)', mt.group(0))
         if cm:
             at = dict(re.findall(r'(data-[a-z]+)="([^"]*)"', mt.group(0)))
             base = re.sub(r'-\d+$', '', cm.group(1)); at['_dep'] = JDEP.get(base, 0); JDEP[base] = at['_dep'] + 1   # depth = order of the link in its chain (outer first)
@@ -768,6 +768,13 @@ for k, u in enumerate(units):
         if nm == 'mv-glint-core' or nm.startswith('mv-core-'):    # the round centre object: one of 13 motions, never the same twice in a row
             ct = nm[8:].split('-')[0] if nm.startswith('mv-core-') else motions.legacy_core_type(len(CORE_USED))
             js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]')); CORE_USED.append(ct)
+            continue
+        if nm.startswith('mv-rotor-'):  # (2026-10-19) a part that turns round and round about data-pivot (clock hand, turbine blades, fan, wheel); data-per = seconds per turn, data-dir = 1 / -1
+            at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
+            pv = at.get('data-pivot', '').replace(',', ' ').split()
+            org = f'svgOrigin:"{pv[0]} {pv[1]}"' if len(pv) == 2 else 'transformOrigin:"50% 50%"'
+            pr = max(float(at.get('data-per', 8)), 0.5); dr = -1 if at.get('data-dir', '1').startswith('-') else 1
+            js.append(f'tl.fromTo({g},{{rotation:0,{org}}},{{rotation:{dr * 360 * sp / pr:.1f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});')
             continue
         if nm.startswith('mv-limb-'):   # human arm/leg links from tools/body.py (2026-10-17): small, IN STEP, no growth toward the tip
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]

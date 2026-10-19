@@ -66,3 +66,4 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 - `art3` 관절: `mv-joint-<이름>`(관절 하나, `data-pivot`·`data-amp`·`data-per`·`data-phase`), `mv-chain-<이름>-1,-2…`(겹쳐 넣은 마디 사슬, 끝으로 갈수록 크게·늦게). `tools/art_spec.md` 7절.
 - 병렬 렌더: `chunk_plan.py render/<slug>`로 구간 수 → `render/.chunked`에 `"<slug> <n>"` → `render-chunked.yml`(+`chunk_prep.py`). 지침서 20-7.
 - 3D(cine) 도구는 `cine-test/`에 보관(`build_cine.py`, `build_audio.py`, `cineshot.py`, `cine/`).
+- `mv-rotor-<이름>`(2026-10-19): 부분이 `data-pivot` 둘레를 계속 도는 모션(시계 바늘·바람개비·플라스마 고리, `data-per` 한 바퀴 초, `data-dir` ±1). 코어 타입 `turn` = 그 그룹만 회전(이웃 안 묶음, 풍차 날개). 움직이는 부분이 있는 물체에 전체 회전 코어 모션 금지(지침서 4-1).
