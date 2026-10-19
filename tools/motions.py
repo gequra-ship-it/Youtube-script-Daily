@@ -26,6 +26,8 @@ def core_js(ctype, g, t0, v0, sp, ring=None):
     yo = lambda per: f'ease:"sine.inOut",yoyo:true,repeat:{max(int(math.ceil(sp / per)) - 1, 0)},immediateRender:false'
     if ctype == 'spin':        # slow one-way turn (lens, clock, planet, gear)
         return [f'tl.fromTo({g},{{rotation:0,{C}}},{{rotation:{36 * sp:.1f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});']
+    if ctype == 'turn':        # (2026-10-19) turns ONLY this group (wind-turbine rotor, fan, propeller); neighbours are not wrapped in, so the tower/body stays still
+        return [f'tl.fromTo({g},{{rotation:0,{C}}},{{rotation:{90 * sp:.1f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});']
     if ctype == 'sway':        # pendulum around the top (lamp, bell, key, hanging things)
         return [f'tl.fromTo({g},{{rotation:-14,transformOrigin:"50% 0%"}},{{rotation:14,duration:1.4,{yo(1.4)}}},{v0:.3f});']
     if ctype == 'orbit':       # drifts along a loop: x and y use different periods, so it never just bobs up and down
@@ -98,9 +100,9 @@ function miyaWrapCores(cx,cy){
    var sr=svg.getBoundingClientRect(), k=svg.viewBox.baseVal.width/sr.width;
    function ok(e){var r=e.getBoundingClientRect(),w=r.width*k,h=r.height*k,x=(r.left-sr.left)*k+w/2,y=(r.top-sr.top)*k+h/2;
     return w>0&&w<=460&&h<=460&&Math.hypot(x-cx,y-cy)<=170;}
-   var i=kids.indexOf(core),a=i,b=i;
-   while(a>0&&ok(kids[a-1]))a--;
-   while(b<kids.length-1&&ok(kids[b+1]))b++;
+   var i=kids.indexOf(core),a=i,b=i, solo=/mv-core-turn/.test(core.getAttribute('class')||'');   // 'turn' = only the moving part itself, no neighbours (2026-10-19)
+   while(!solo&&a>0&&ok(kids[a-1]))a--;
+   while(!solo&&b<kids.length-1&&ok(kids[b+1]))b++;
    var g=document.createElementNS('http://www.w3.org/2000/svg','g');
    g.setAttribute('class',core.getAttribute('class')); core.setAttribute('class','');
    svg.insertBefore(g,kids[a]); for(var j=a;j<=b;j++)g.appendChild(kids[j]);

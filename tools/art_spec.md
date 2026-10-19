@@ -82,6 +82,9 @@ left/centre/right, not in the bottom 200 px or top-right corner; every visible p
 - `mv-chain-<name>-1`, `-2`, `-3`...: links NESTED (2 in 1, 3 in 2), each `data-pivot` where it meets its parent (tail, fin, tentacle, snake, neck, seaweed); each rotates about its pivot, carrying its children; amp x1.35 per link to the tip, lag 0.55 rad per link; default amp 7 deg, half-cycle 1.5 s.
 - Links overlap the parent a few px at the joint; no transform on link groups; pivots in drawing coords.
 
+- `mv-rotor-<name>` (2026-10-19): a part that keeps turning about `data-pivot="x y"` (clock hand, fan, wheel, plasma ring); `data-per` = seconds per full turn (default 8), `data-dir` = 1 or -1.
+- **Objects with moving parts (2026-10-19, rule):** never give them a whole-object centre motion (`spin`, `roll`, `flip`, `wobble`, `tremble`, `orbit`, `sway`): `miyaWrapCores` bundles the neighbouring shapes (tower, clock face, stand) into the same group, so the whole thing turns (a wind turbine's tower spun with its blades). Draw each moving part as its own group (`mv-rotor-*` for continuous turning, `mv-joint-*` for needles/hinges) and give the core a gentle type (`swell`, `heartbeat`, `approach`). If the core group itself is the turning part (rotor blades + hub, nothing else), use `mv-core-turn`: only that group turns (90 deg/s) and no neighbours are wrapped in; keep tower/body OUTSIDE the group.
+
 **Centre object `mv-core-<type>` (always)**, by its nature (guideline 4-1, `tools/motions.py`): spin, sway, orbit, glide, heartbeat,
 flicker, swell, tremble, approach, reveal, squeeze, wobble, roll, pop, ping, stamp, flip, draw, drop. Not the neighbour's type, never a plain bob;
 per video at least 10 types, none above 20 %. `draw` traces stroked outlines (give real outlines). Old `mv-glint-core`: type by rotation.
