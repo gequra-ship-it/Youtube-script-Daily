@@ -202,7 +202,7 @@ def create_ai_studio_script(youtube_title, transcript_text, part_num, total_part
 
 [작성 규칙 - 지침서 기준, 절대 어기지 마!]:
 1. **언어**: 영상에 들리고 보이는 것은 전부 영어야. [1부]는 영어 내레이션만 쓰고 한글, 이모지, 괄호 연출 메모, 타임코드, 장면 번호를 절대 넣지 마(TTS에 그대로 붙여 넣을 글이야). 원본이 한국어·일본어여도 자연스러운 영어로 옮겨 써. 숫자·단위·날짜는 영어 표기(예: "2.461 billion years ago", "380,000 km").
-2. **분량**: 이 영상은 우주·과학 주제(지침서의 우주 모드)라서 **분량 상·하한을 두지 않아.** 아래 원본 구간의 내용을 빠짐없이, 줄이거나 부풀리지 말고 그 길이대로 영어 내레이션으로 옮겨. (단 원본에 없는 내용을 늘리려고 지어내지는 마.)
+2. **분량**: 이 영상은 우주·과학 주제(지침서의 우주 모드)라서 **상한은 없고, [1부] 영어 단어 수는 최소 3,300단어(20분 이상)**여야 해. 아래 원본 구간의 내용을 빠짐없이 옮기고, 3,300단어에 못 미치면 원본에 있는 사례·수치·디테일을 더 풀어 쓰고 원리 설명과 일상 비유로 보강해. (단 원본에 없는 사실·숫자·인물·연구를 지어내지는 마. 비유와 설명 보강만 허용.)
 3. **문단 = 장면 하나**: [1부]는 문단마다 빈 줄로 구분해. 한 문단은 같은 장소·같은 생각을 다루는 장면 하나이고 **약 60~110단어(문장 4~7개, 약 25~40초)**로 써. 장면이 바뀔 때(장소·시대·예시·질문이 바뀔 때)만 문단을 나눠. 숫자 비교가 중심인 문단은 그 숫자들을 한 문단에 모아(영상에서 데이터 카드 한 장이 돼). 문장은 짧게(평균 15단어 안팎), 평서문과 의문문을 섞어.
 4. **말투**: 한 사람에게 이야기하듯 따뜻하고 공손한 대화체. 시청자를 "you"로 부르고 축약형(it's, don't)을 써도 돼. 수사 의문문은 영상 전체에서 8~18개.
 5. **구성**: ① 처음 60초 훅은 일상적인 감각("Take a look at your fingernails.") / 의외의 숫자나 사실 / 뒤집기 / 핵심 질문 / 출발 선언 중에서 골라 시작해. ② 본문은 구체적인 장면 묘사로 열고, 원리를 설명하고, 일상 비유를 들어. ③ 도입과 결말에 현대인의 일상 장면을 넣어. ④ 결말은 시청자의 현재로 돌아와 감성적으로 정리하고, 마지막에 주제에 맞는 은유로 구독을 부탁해. 채널은 "Miya's Lab" 또는 "this lab"이라고 부르고(철자 그대로), '서재(library)'라는 표현과 원본 채널 이름은 절대 쓰지 마.
@@ -241,6 +241,7 @@ def create_ai_studio_script(youtube_title, transcript_text, part_num, total_part
 """
     
     max_retries = 5
+    best_text, best_words, short_tries = None, 0, 0
     for attempt in range(max_retries):
         manager = multiprocessing.Manager()
         return_dict = manager.dict()
@@ -264,8 +265,15 @@ def create_ai_studio_script(youtube_title, transcript_text, part_num, total_part
             
             if status == 'SUCCESS':
                 print(f"✅ 대본 생성 성공! (Part {part_num}/{total_parts})", flush=True)
-                log_word_count(text, None, None)
-                return text
+                log_word_count(text, 3300, None)
+                words = count_narration_words(text) or 0
+                if words > best_words:
+                    best_text, best_words = text, words
+                if words < 3300 and short_tries < 3 and attempt < max_retries - 1:
+                    short_tries += 1
+                    print(f"🔁 20분 미만({words}단어): 재생성합니다 ({short_tries}/3).", flush=True)
+                    continue
+                return best_text
             else:
                 error_msg_lower = text.lower()
                 if "429" in error_msg_lower or "quota" in error_msg_lower or "resource_exhausted" in error_msg_lower:
@@ -279,7 +287,7 @@ def create_ai_studio_script(youtube_title, transcript_text, part_num, total_part
                 else:
                     print("⚠ 5번 연속 에러로 대본 생성을 포기합니다.", flush=True)
                     
-    return None
+    return best_text
 
 def create_korean_summary(script_text, label=""):
     """영어 대본을 전부 번역하지 않고, 읽기용 한국어 요약본만 만든다 (2026-10-16 사용자 요청: 대본이 영어라 이해가 어려움)."""
