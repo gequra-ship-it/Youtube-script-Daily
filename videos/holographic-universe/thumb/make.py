@@ -271,21 +271,46 @@ dD += rad('blug', 0, 0, 120, [(0, '#4ab0ff', .95), (.4, '#2a70ff', .35), (1, '#0
 dD += lin('pillR', [(0, '#ff8a7a'), (.45, '#e0221a'), (1, '#6a0606')])
 dD += lin('pillB', [(0, '#9ad0ff'), (.45, '#1a6ae0'), (1, '#06206a')])
 dD += lin('slv', [(0, '#0f1018'), (1, '#030308')], 1, 0)
-HL = (1000, 1000, -12); HR = (1500, 1000, 12); SZ = 200
+HL = (1010, 1010, -12); HR = (1510, 1010, 12); SZ = 215
+SK = dict(skin='#e2aa84', line='#0a0618')
 for (wx, wy, ang), sgn in ((HL, -1), (HR, 1)):
     a = math.radians(ang); px, py = math.cos(a), math.sin(a)
     bx = wx - math.sin(a) * 330; by = wy + math.cos(a) * 330
     pts = [(wx - px * 92, wy - py * 92), (wx + px * 92, wy + py * 92), (bx + px * 150, by + py * 150), (bx - px * 150, by - py * 150)]
     bD += '<path d="M' + ' L'.join(f'{p[0]:.0f} {p[1]:.0f}' for p in pts) + 'Z" fill="url(#slv)" stroke="#000" stroke-width="6"/>'
     o0 = pts[0] if sgn < 0 else pts[1]; o1 = pts[3] if sgn < 0 else pts[2]
-    bD += f'<path d="M{o0[0]:.0f} {o0[1]:.0f} L{o1[0]:.0f} {o1[1]:.0f}" stroke="#9ff0ff" stroke-width="5" opacity=".7"/>'
-bD += hand(HL[0], HL[1], HL[2], SZ, side='R', view='palm', pose='open', skin='#d2a483', line='#0a0618')
-bD += hand(HR[0], HR[1], HR[2], SZ, side='L', view='palm', pose='open', skin='#d2a483', line='#0a0618')
-for (wx, wy, ang), gid, pid, rot in ((HL, 'redg', 'pillR', -32), (HR, 'blug', 'pillB', 30)):
-    a = math.radians(ang); pcx = wx + math.sin(a) * SZ * .5; pcy = wy - math.cos(a) * SZ * .5
-    bD += f'<g transform="translate({pcx:.0f} {pcy:.0f})"><circle r="120" fill="url(#{gid})"/><g transform="rotate({rot})"><g transform="scale(1.25)">'
-    bD += f'<rect x="-58" y="-25" width="116" height="50" rx="25" fill="url(#{pid})" stroke="#10061a" stroke-width="4"/>'
-    bD += '<path d="M-44 -13 Q-10 -20 34 -14" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none" opacity=".8"/><path d="M0 -24 V24" stroke="#000" stroke-width="3" opacity=".4"/></g></g></g>'
+    bD += f'<path d="M{o0[0]:.0f} {o0[1]:.0f} L{o1[0]:.0f} {o1[1]:.0f}" stroke="#9ff0ff" stroke-width="6" opacity=".8"/>'
+    bD += f'<path d="M{pts[0][0]:.0f} {pts[0][1]:.0f} L{pts[1][0]:.0f} {pts[1][1]:.0f}" stroke="#1b1730" stroke-width="22"/>'
+for k, (wx, wy, ang) in enumerate((HL, HR)):
+    sgn = -1 if k == 0 else 1
+    a = math.radians(ang)
+    bD += f'<ellipse cx="{wx + math.sin(a) * 120:.0f}" cy="{wy - 150:.0f}" rx="190" ry="40" fill="#000" opacity="0" filter="url(#bl)"/>'
+    bD += hand(wx, wy, ang, SZ, side='R' if k == 0 else 'L', view='palm', pose='open', **SK)
+    # shading masked to the hand silhouette: cool rim from the glowing street, warm shade toward the wrist, coloured pill glow
+    mid = f'hm{k}'
+    dD += f'<mask id="{mid}" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="1080">' + hand(wx, wy, ang, SZ, side='R' if k == 0 else 'L', view='palm', pose='open', skin='#fff', line='#fff', creases=False) + '</mask>'
+    dD += lin(f'hs{k}', [(0, '#3a1a2a'), (.35, '#3a1a2a'), (.55, '#3a1a2a')], 0, 1).replace('stop-color="#3a1a2a"', 'stop-color="#2a0e1e"', 1)
+    cx0 = wx + sgn * 120
+    bD += f'<g mask="url(#{mid})">'
+    bD += f'<rect x="{wx - 260}" y="{wy - 60}" width="520" height="140" fill="#2a0e1e" opacity=".18" filter="url(#bl2)"/>'
+    bD += f'<rect x="{wx - (300 if sgn < 0 else 20)}" y="{wy - 520}" width="320" height="560" fill="#2a0e1e" opacity=".07" filter="url(#bl2)"/>'
+    bD += f'<rect x="{wx + (sgn * 100) - 60}" y="{wy - 540}" width="120" height="560" fill="#9ff0ff" opacity=".16" filter="url(#bl2)" transform="translate({sgn * 90} 0)"/>'
+    bD += f'<ellipse cx="{wx}" cy="{wy - 120}" rx="130" ry="110" fill="{"#ff5a40" if k == 0 else "#4aa8ff"}" opacity=".30" filter="url(#bl2)"/>'
+    bD += '</g>'
+    # knuckle-side highlight lines
+    bD += hand(wx, wy, ang, SZ, side='R' if k == 0 else 'L', view='palm', pose='open', skin='none', line='#ffd9bf', lw=1.6, creases=False).replace('opacity', 'opacity').replace('<g fill="#ffd9bf" stroke="#ffd9bf"', '<g fill="none" stroke="#ffd9bf" stroke-opacity="0"', 1) if False else ''
+    a = math.radians(ang); pcx = wx + math.sin(a) * SZ * .45; pcy = wy - math.cos(a) * SZ * .45
+    c_, id_ = ('#ff3a2a', 'R') if k == 0 else ('#2a7aff', 'B')
+    dD += (f'<linearGradient id="pc{id_}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{"#ffb0a0" if k == 0 else "#b0d8ff"}"/>'
+           f'<stop offset=".28" stop-color="{c_}"/><stop offset=".75" stop-color="{"#a00e08" if k == 0 else "#0a38b0"}"/><stop offset="1" stop-color="{"#4a0402" if k == 0 else "#041a5a"}"/></linearGradient>')
+    bD += f'<g transform="translate({pcx:.0f} {pcy:.0f})"><circle r="150" fill="url(#{"redg" if k == 0 else "blug"})"/><g transform="rotate({-30 if k == 0 else 28})"><g transform="scale(1.55)">'
+    bD += '<ellipse cx="6" cy="34" rx="62" ry="12" fill="#000" opacity=".45" filter="url(#bl3)"/>'
+    bD += f'<rect x="-60" y="-27" width="120" height="54" rx="27" fill="url(#pc{id_})" stroke="#10061a" stroke-width="4.5"/>'
+    bD += f'<path d="M-6 -27 H33 A27 27 0 0 1 33 27 H-6Z" fill="#fff" opacity=".13"/>'
+    bD += '<path d="M-6 -26 V26" stroke="#10061a" stroke-width="3" opacity=".55"/>'
+    bD += '<path d="M-48 -14 Q-20 -22 22 -18" stroke="#fff" stroke-width="8" stroke-linecap="round" fill="none" opacity=".9"/>'
+    bD += '<circle cx="-46" cy="-6" r="3" fill="#fff" opacity=".8"/><path d="M-40 17 Q0 24 44 16" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none" opacity=".3"/></g></g></g>'
+    bD += spark(pcx + (70 if k == 0 else -70), pcy - 70, 26, '#fff')
 open('D.html', 'w', encoding='utf-8').write(page('#141a44', svg(dD, bD), [('THE WORLD', 130, 'w'), ('MIGHT BE', 130, 'w'), ('PROJECTED', 160, 'y')], '#0a0618', top=50))
 
 
