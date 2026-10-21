@@ -264,6 +264,31 @@ b += spark(1500, 140, 24, '#e6fdff') + spark(1180, 250, 16) + spark(1760, 420, 1
 open('B.html', 'w', encoding='utf-8').write(page('#141a44', svg(d, b), [('THE WORLD', 130, 'w'), ('MIGHT BE', 130, 'w'), ('PROJECTED', 160, 'y')], '#0a0618', top=50))
 
 
+# ======================= D: B background + Matrix-homage hands with a red pill and a blue pill (user 2026-10-21) =======================
+bD = b.replace(person(660, 920, 150, '#07040c', '#bff6ff'), '').replace('<ellipse cx="660" cy="922" rx="46" ry="9" fill="#000" opacity=".5"/>', '')
+dD = d + rad('redg', 0, 0, 120, [(0, '#ff4a3a', .95), (.4, '#ff2a1a', .35), (1, '#ff0000', 0)])
+dD += rad('blug', 0, 0, 120, [(0, '#4ab0ff', .95), (.4, '#2a70ff', .35), (1, '#0040ff', 0)])
+dD += lin('pillR', [(0, '#ff8a7a'), (.45, '#e0221a'), (1, '#6a0606')])
+dD += lin('pillB', [(0, '#9ad0ff'), (.45, '#1a6ae0'), (1, '#06206a')])
+dD += lin('slv', [(0, '#0f1018'), (1, '#030308')], 1, 0)
+HL = (1000, 1000, -12); HR = (1500, 1000, 12); SZ = 200
+for (wx, wy, ang), sgn in ((HL, -1), (HR, 1)):
+    a = math.radians(ang); px, py = math.cos(a), math.sin(a)
+    bx = wx - math.sin(a) * 330; by = wy + math.cos(a) * 330
+    pts = [(wx - px * 92, wy - py * 92), (wx + px * 92, wy + py * 92), (bx + px * 150, by + py * 150), (bx - px * 150, by - py * 150)]
+    bD += '<path d="M' + ' L'.join(f'{p[0]:.0f} {p[1]:.0f}' for p in pts) + 'Z" fill="url(#slv)" stroke="#000" stroke-width="6"/>'
+    o0 = pts[0] if sgn < 0 else pts[1]; o1 = pts[3] if sgn < 0 else pts[2]
+    bD += f'<path d="M{o0[0]:.0f} {o0[1]:.0f} L{o1[0]:.0f} {o1[1]:.0f}" stroke="#9ff0ff" stroke-width="5" opacity=".7"/>'
+bD += hand(HL[0], HL[1], HL[2], SZ, side='R', view='palm', pose='open', skin='#d2a483', line='#0a0618')
+bD += hand(HR[0], HR[1], HR[2], SZ, side='L', view='palm', pose='open', skin='#d2a483', line='#0a0618')
+for (wx, wy, ang), gid, pid, rot in ((HL, 'redg', 'pillR', -32), (HR, 'blug', 'pillB', 30)):
+    a = math.radians(ang); pcx = wx + math.sin(a) * SZ * .5; pcy = wy - math.cos(a) * SZ * .5
+    bD += f'<g transform="translate({pcx:.0f} {pcy:.0f})"><circle r="120" fill="url(#{gid})"/><g transform="rotate({rot})"><g transform="scale(1.25)">'
+    bD += f'<rect x="-58" y="-25" width="116" height="50" rx="25" fill="url(#{pid})" stroke="#10061a" stroke-width="4"/>'
+    bD += '<path d="M-44 -13 Q-10 -20 34 -14" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none" opacity=".8"/><path d="M0 -24 V24" stroke="#000" stroke-width="3" opacity=".4"/></g></g></g>'
+open('D.html', 'w', encoding='utf-8').write(page('#141a44', svg(dD, bD), [('THE WORLD', 130, 'w'), ('MIGHT BE', 130, 'w'), ('PROJECTED', 160, 'y')], '#0a0618', top=50))
+
+
 # ======================= C: 3D SPACE = 2D?  (intuitive: a whole galaxy projected up from a thin glowing plate) =======================
 random.seed(37)
 GX, GY, GR = 1330, 430, 470
