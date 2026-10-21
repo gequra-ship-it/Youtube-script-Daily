@@ -2,369 +2,568 @@ import sys, os, math, random
 TOOLS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'tools')
 sys.path.insert(0, TOOLS)
 from thumb_lib import *
+from hands import hand
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
-# dark-matter-96-percent thumbnails (2026-10-21, Opus thumbnail agent, brief tools/briefs/thumb_art.md + guideline 16-6).
-# A = homage (Hokusai, "The Great Wave off Kanagawa", public domain; mirrored): a huge translucent indigo wave of the unseen ocean,
-#     its claws of foam made of stars and tiny galaxies, a bright spiral galaxy where Mt Fuji stands (S38: "tiny specks of bright foam
-#     floating on top of a vast, unseen ocean").  Text: STARS ARE JUST FOAM.
-# B = intuitive: a cosmic iceberg - a small sunlit tip above the waterline, a vast translucent blue-indigo hidden mass with a faint web
-#     inside, a tiny submarine shining a light on it (S33/S34: about five percent ordinary matter, the rest dark).  Text: WE SEE ONLY 5%.
-# C = intuitive: a book of 100 pages with only 5 readable - one glowing gold page, the others translucent indigo "invisible ink" pages
-#     fluttering up, in a dim library (S35 "The Invisible Ink").  Text: WHAT'S IN THE OTHER 95%?
-# Dark matter is only ever drawn as translucent blue-indigo haze; dark energy (A, B sky) as a faint cool teal outward push.
-FR = 'x="-60%" y="-60%" width="220%" height="220%"'
-FX = (f'<filter id="bl" {FR}><feGaussianBlur stdDeviation="8"/></filter><filter id="bl2" {FR}><feGaussianBlur stdDeviation="26"/></filter>'
-      f'<filter id="bl3" {FR}><feGaussianBlur stdDeviation="3"/></filter><filter id="bl5" {FR}><feGaussianBlur stdDeviation="60"/></filter>'
-      f'<filter id="bl1" {FR}><feGaussianBlur stdDeviation="1.4"/></filter>')
+# dark-matter-96-percent thumbnails v5 (2026-10-21, Opus thumbnail agent; v4 -> v5: B telescope redrawn in shaded 3/4 view, C rebuilt as a
+# simulation-style large-scale structure with DARK MATTER / VOID callouts, owner feedback on v4).  History:  v1 (Great Wave / iceberg / book), v2 (plain halo / arcs / Bullet
+# Cluster) and v3 (Project Hail Mary ship / lens / quasar) were rejected or partly rejected.  Owner on v3: develop B further; C showed only a
+# quasar, no dark matter; A must be a really FAMOUS scene and dark matter must be the visible hero.
+# A = homage: Caspar David Friedrich, "Wanderer above the Sea of Fog" (1818, public domain): the sea of fog is a glowing sea of dark matter
+#     with tiny gold galaxies floating on it like foam (S45, S17).  Text: AN UNSEEN OCEAN (S45 "a vast, unseen ocean").
+# B = intuitive: gravitational lensing computed with the point-lens equation (six lensed galaxies -> arcs / partial rings, bent star field)
+#     around an unseen mass inside a blue dark-matter halo and web; telescope + tethered astronaut (S12-S13).  Text: AN INVISIBLE LENS.
+# C = intuitive: the dark-matter cosmic web, galaxies as gold lanterns on its knots, a hero halo holding a spiral galaxy (S22).
+#     Text: THE HIDDEN WEB (S22 "an enormous web of invisible filaments").
+# Dark matter = translucent blue-indigo haze / glow only; ordinary matter = warm gold-white.
+R1 = 'x="-100%" y="-100%" width="300%" height="300%"'
+FX = ''.join(f'<filter id="b{s}" {R1}><feGaussianBlur stdDeviation="{s}"/></filter>' for s in [1, 2, 3, 5, 8, 14, 24, 40, 70, 120])
+FX += ''.join(f'<filter id="u{s}" filterUnits="userSpaceOnUse" x="-200" y="-200" width="2320" height="1480"><feGaussianBlur stdDeviation="{s}"/></filter>'
+              for s in [1, 2, 3, 6, 10, 20, 24])
 
 
-def cub(p0, p1, p2, p3, t):
-    u = 1 - t
-    return (u ** 3 * p0[0] + 3 * u * u * t * p1[0] + 3 * u * t * t * p2[0] + t ** 3 * p3[0],
-            u ** 3 * p0[1] + 3 * u * u * t * p1[1] + 3 * u * t * t * p2[1] + t ** 3 * p3[1])
+def haze(id, f1, f2, seed, disp=120, blur=16, rgb=(.30, .40, 1.0), gain=1.7, bias=-.45, oct=(4, 3)):
+    """translucent blue-indigo dark-matter haze: shape displaced by noise, blurred, then filled with clumpy coloured noise"""
+    r, g, b_ = rgb
+    return (f'<filter id="{id}" filterUnits="userSpaceOnUse" x="-200" y="-200" width="2320" height="1480">'
+            f'<feTurbulence type="fractalNoise" baseFrequency="{f1}" numOctaves="{oct[0]}" seed="{seed}" result="n"/>'
+            f'<feDisplacementMap in="SourceGraphic" in2="n" scale="{disp}" xChannelSelector="R" yChannelSelector="G" result="d"/>'
+            f'<feGaussianBlur in="d" stdDeviation="{blur}" result="db"/>'
+            f'<feTurbulence type="fractalNoise" baseFrequency="{f2}" numOctaves="{oct[1]}" seed="{seed + 3}" result="n2"/>'
+            f'<feColorMatrix in="n2" type="matrix" values="0 0 0 0 {r}  0 0 0 0 {g}  0 0 0 0 {b_}  {gain} 0 0 0 {bias}" result="c"/>'
+            f'<feComposite in="c" in2="db" operator="in"/></filter>')
 
 
-def sample(segs, n):
-    """segs: list of (p0,p1,p2,p3); returns n points per seg with unit normals (left of travel direction)"""
+def bg_stars(n, x0=0, x1=1920, y0=0, y1=1080, col='#dfe8ff', op=.6):
+    o = ''
+    for _ in range(n):
+        o += (f'<circle cx="{random.uniform(x0, x1):.0f}" cy="{random.uniform(y0, y1):.0f}" r="{random.choice([.8, 1.1, 1.1, 1.5, 2.0, 2.6])}" '
+              f'fill="{random.choice([col, col, "#fff3d8", "#c8d6ff"])}" opacity="{random.uniform(.15, op):.2f}"/>')
+    return o
+
+
+def far_gal(x, y, s, rot, col='#ffe6c0', op=.7):
+    return (f'<g transform="translate({x:.0f} {y:.0f}) rotate({rot:.0f})" opacity="{op:.2f}"><ellipse rx="{s * 2.4:.1f}" ry="{s * .8:.1f}" fill="{col}" opacity=".45" filter="url(#b3)"/>'
+            f'<ellipse rx="{s:.1f}" ry="{s * .35:.1f}" fill="{col}"/><circle r="{s * .3:.1f}" fill="#fff"/></g>')
+
+
+def flare(x, y, L, w=3, col='#fff4dc', op=.9, ang=0, n=2):
+    """diffraction-spike sparkle: n thin tapered spikes + soft dot"""
+    o = f'<g transform="translate({x:.0f} {y:.0f}) rotate({ang})" style="mix-blend-mode:screen">'
+    for k in range(n):
+        a = k * 180 / n
+        o += f'<ellipse rx="{L:.0f}" ry="{w:.1f}" fill="{col}" opacity="{op * .55:.2f}" transform="rotate({a})" filter="url(#b2)"/>'
+        o += f'<ellipse rx="{L * .55:.0f}" ry="{w * .45:.1f}" fill="#fff" opacity="{op:.2f}" transform="rotate({a})"/>'
+    o += f'<circle r="{w * 4:.1f}" fill="{col}" opacity="{op * .5:.2f}" filter="url(#b5)"/><circle r="{w * 1.4:.1f}" fill="#fff"/></g>'
+    return o
+
+
+def corner_dark(op=.9):
+    return f'<ellipse cx="1900" cy="1080" rx="460" ry="270" fill="#010208" opacity="{op}" filter="url(#b70)"/>'
+
+
+def W(name, d, b, lines, outline, bg='#02030a'):
+    open(name, 'w', encoding='utf-8').write(page(bg, svg(FX + d, b), lines, outline))
+
+
+def P(pts):
+    return 'M' + ' L'.join(f'{x:.1f} {y:.1f}' for x, y in pts)
+
+
+
+def astronaut(x, y, sc=1.0, rot=0, point_ang=25):
+    """small cute astronaut (feet at x,y), right arm raised pointing; gloves drawn with hands.py"""
+    a = f'<g transform="translate({x} {y}) rotate({rot}) scale({sc})">'
+    a += '<rect x="-26" y="-92" width="22" height="40" rx="8" fill="#9aa2b8" stroke="#141826" stroke-width="3"/>'
+    a += '<path d="M-13 -40 L-15 -3 L-3 -3 L-1 -30 L3 -30 L5 -3 L17 -3 L15 -40Z" fill="#e8ecf4" stroke="#141826" stroke-width="3" stroke-linejoin="round"/>'
+    a += '<rect x="-17" y="-96" width="36" height="60" rx="14" fill="#f2f4fa" stroke="#141826" stroke-width="3"/>'
+    a += '<path d="M14 -86 Q34 -104 40 -128" stroke="#141826" stroke-width="15" fill="none" stroke-linecap="round"/><path d="M14 -86 Q34 -104 40 -128" stroke="#eef1f8" stroke-width="9" fill="none" stroke-linecap="round"/>'
+    a += hand(40, -128, angle=point_ang, size=9, side='R', view='back', pose='point', skin='#eef1f8', line='#141826', lw=2.2)
+    a += '<path d="M-14 -84 Q-24 -64 -20 -46" stroke="#141826" stroke-width="15" fill="none" stroke-linecap="round"/><path d="M-14 -84 Q-24 -64 -20 -46" stroke="#e2e6f0" stroke-width="9" fill="none" stroke-linecap="round"/>'
+    a += hand(-20, -46, angle=185, size=8, side='L', view='back', pose='fist', skin='#e2e6f0', line='#141826', lw=2.2)
+    a += '<circle cx="2" cy="-114" r="22" fill="#f4f6fb" stroke="#141826" stroke-width="3"/>'
+    a += '<path d="M2 -128 Q24 -126 22 -108 Q14 -98 2 -102 Z" fill="#2a2140"/><path d="M8 -124 Q20 -122 20 -112" stroke="#ffd690" stroke-width="3" fill="none" opacity=".9"/>'
+    a += '<path d="M19 -130 Q26 -116 21 -100" stroke="#ffd690" stroke-width="2.5" fill="none" opacity=".85"/><path d="M19 -92 L19 -40" stroke="#ffd690" stroke-width="2.5" fill="none" opacity=".7"/>'
+    return a + '</g>'
+
+
+def mini_gal(x, y, s, rot=0, col='#ffcf70', op=1.0, tilt=.45):
+    """a small glowing gold spiral galaxy (a 'lantern')"""
+    o = f'<g transform="translate({x:.0f} {y:.0f}) rotate({rot:.0f})" opacity="{op:.2f}">'
+    o += f'<ellipse rx="{s * 3.2:.1f}" ry="{s * 3.2 * tilt:.1f}" fill="{col}" opacity=".35" filter="url(#b8)"/>'
+    for arm in (0, 1):
+        pts = [((.15 + t / 20 * .9) * s * 1.6 * math.cos(arm * math.pi + t / 20 * 3), (.15 + t / 20 * .9) * s * 1.6 * math.sin(arm * math.pi + t / 20 * 3) * tilt) for t in range(21)]
+        o += f'<path d="{P(pts)}" stroke="{col}" stroke-width="{max(1, s * .35):.1f}" fill="none" opacity=".8" stroke-linecap="round"/>'
+    o += f'<ellipse rx="{s * .7:.1f}" ry="{s * .7 * max(tilt, .5):.1f}" fill="#fff4dc"/><circle r="{s * .3:.1f}" fill="#fff"/></g>'
+    return o
+
+
+# ======================= A: AN UNSEEN OCEAN  (homage: Caspar David Friedrich, "Wanderer above the Sea of Fog", 1818) =======================
+# The sea of fog is drawn as a vast glowing sea of dark matter (blue-indigo haze); tiny gold galaxies float on it like foam (script S45:
+# "tiny specks of bright foam floating on top of a vast, unseen ocean"; S17 "a much larger, invisible sea").
+random.seed(4401)
+HZ = 470   # horizon
+d = haze('hzF', .0035, .007, 61, disp=90, blur=14, rgb=(.42, .55, 1.0), gain=1.9, bias=-.35)
+d += haze('hzF2', .006, .016, 71, disp=40, blur=4, rgb=(.70, .78, 1.0), gain=2.4, bias=-1.05)
+d += lin('aSky', [(0, '#03030c'), (.45, '#0c0c2c'), (.8, '#22245e'), (1, '#4a4a8a')])
+d += lin('aRock', [(0, '#2a2433'), (.25, '#14111c'), (1, '#050409')])
+d += f'<linearGradient id="rimG" x1="0" y1="0" x2="1920" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9fb4ff"/><stop offset=".45" stop-color="#ffe2a8"/><stop offset=".62" stop-color="#ffe9c0"/><stop offset="1" stop-color="#9fb4ff"/></linearGradient>'
+b = f'<rect width="1920" height="{HZ + 40}" fill="url(#aSky)"/><rect y="{HZ}" width="1920" height="{1080 - HZ}" fill="#141640"/>'
+b += bg_stars(380, y1=HZ - 20)
+# milky band of stars across the sky
+mb = ''
+for _ in range(700):
+    t = random.random(); x = 1920 - t * 2100; y = 40 + t * 330 + random.gauss(0, 45)
+    if y < HZ - 30:
+        mb += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{random.choice([.7, 1, 1, 1.4, 1.9])}" fill="{random.choice(["#fff", "#dfe6ff", "#ffe9d0"])}" opacity="{random.uniform(.2, .8):.2f}"/>'
+b += f'<path d="M1950 30 L-150 380" stroke="#7a6cc0" stroke-width="160" opacity=".13" filter="url(#b40)"/>{mb}'
+for _ in range(6):
+    b += far_gal(random.uniform(900, 1880), random.uniform(40, 380), random.uniform(3, 6), random.uniform(0, 180), op=.6)
+# the light beyond the sea: a blazing gold-white glow on the horizon behind the wanderer
+GLX = 1180
+b += f'<g style="mix-blend-mode:screen"><ellipse cx="{GLX}" cy="{HZ}" rx="1000" ry="260" fill="#6a5ab8" opacity=".35" filter="url(#b70)"/>'
+b += f'<ellipse cx="{GLX}" cy="{HZ}" rx="620" ry="150" fill="#ffb868" opacity=".45" filter="url(#b70)"/>'
+b += f'<ellipse cx="{GLX}" cy="{HZ}" rx="320" ry="60" fill="#ffe0a8" opacity=".8" filter="url(#b24)"/>'
+b += f'<ellipse cx="{GLX}" cy="{HZ}" rx="140" ry="18" fill="#fff" opacity=".95" filter="url(#b5)"/>'
+for k in range(16):   # faint rays fanning up from the horizon
+    a = math.radians(-170 + k * (160 / 15) + random.uniform(-3, 3)); L = random.uniform(500, 900)
+    b += f'<path d="M{GLX - 14} {HZ} L{GLX + L * math.cos(a):.0f} {HZ + L * math.sin(a):.0f} L{GLX + 14} {HZ}Z" fill="#ffe2b0" opacity="{random.uniform(.04, .09):.2f}"/>'
+b += '</g>'
+# distant mountain ridges on both sides of the horizon (as in the painting), fading into the sea
+b += f'<path d="M-20 {HZ + 10} L-20 {HZ - 60} L90 {HZ - 95} L170 {HZ - 70} L260 {HZ - 120} L360 {HZ - 60} L470 {HZ - 40} L560 {HZ + 10}Z" fill="#2a2c62" opacity=".9"/>'
+b += f'<path d="M1430 {HZ + 10} L1520 {HZ - 50} L1600 {HZ - 40} L1700 {HZ - 105} L1790 {HZ - 70} L1940 {HZ - 90} L1940 {HZ + 10}Z" fill="#2a2c62" opacity=".9"/>'
+b += f'<path d="M90 {HZ - 95} L170 {HZ - 70} L260 {HZ - 120} L360 {HZ - 60}" stroke="#8fa0ff" stroke-width="2" fill="none" opacity=".5"/>'
+b += f'<path d="M1520 {HZ - 50} L1600 {HZ - 40} L1700 {HZ - 105} L1790 {HZ - 70} L1940 {HZ - 90}" stroke="#ffd8a8" stroke-width="2" fill="none" opacity=".5"/>'
+
+
+def billow(y0, amp, step, seed):
+    """top edge of a fog bank: chain of soft round billows"""
+    rnd = random.Random(seed); x = -120; o = f'M-120 1100 L-120 {y0}'
+    while x < 2040:
+        w = step * rnd.uniform(.35, 1.7); h = amp * rnd.uniform(.2, 1.9)
+        o += f' Q{x + w / 2:.0f} {y0 - h * 2:.0f} {x + w:.0f} {y0 + rnd.uniform(-amp * .9, amp * .9):.0f}'
+        x += w
+    return o + ' L2040 1100Z'
+
+
+# fog banks of dark matter, far (pale, thin) to near (deep, big billows); crags poke through between them
+banks = [(HZ + 8, 10, 120, '#5a64b8', .9), (HZ + 45, 16, 170, '#4c58b0', .9), (HZ + 110, 26, 230, '#3e4aa6', .92),
+         (HZ + 200, 38, 300, '#33409c', .94), (HZ + 320, 52, 380, '#2a3590', .95), (HZ + 470, 70, 460, '#222c80', .96)]
+crags = {2: f'<path d="M180 {HZ + 150} L250 {HZ + 70} L290 {HZ + 90} L340 {HZ + 30} L380 {HZ + 55} L430 {HZ + 40} L520 {HZ + 150}Z" fill="#1a1838"/>'
+           f'<path d="M250 {HZ + 70} L290 {HZ + 90} L340 {HZ + 30} L380 {HZ + 55} L430 {HZ + 40}" stroke="#c8d2ff" stroke-width="2.5" fill="none" opacity=".6"/>',
+         3: f'<path d="M1500 {HZ + 260} L1560 {HZ + 150} L1620 {HZ + 120} L1660 {HZ + 150} L1720 {HZ + 100} L1800 {HZ + 180} L1860 {HZ + 260}Z" fill="#15132e"/>'
+            f'<path d="M1560 {HZ + 150} L1620 {HZ + 120} L1660 {HZ + 150} L1720 {HZ + 100} L1800 {HZ + 180}" stroke="#ffd8a8" stroke-width="2.5" fill="none" opacity=".55"/>',
+         4: f'<path d="M-20 {HZ + 420} L-20 {HZ + 250} L60 {HZ + 230} L130 {HZ + 180} L200 {HZ + 230} L260 {HZ + 300} L300 {HZ + 420}Z" fill="#100e22"/>'
+            f'<path d="M-20 {HZ + 250} L60 {HZ + 230} L130 {HZ + 180} L200 {HZ + 230} L260 {HZ + 300}" stroke="#aabaff" stroke-width="3" fill="none" opacity=".55"/>'}
+foam = ''
+for i, (y0, amp, step, col, op) in enumerate(banks):
+    pth = billow(y0, amp, step, 900 + i)
+    if i in crags:
+        b += crags[i]
+    d += f'<linearGradient id="fg{i}" x1="0" y1="{y0 - amp * 2}" x2="0" y2="{y0 + 260}" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#c4ceff"/><stop offset=".18" stop-color="{col}"/><stop offset="1" stop-color="#0c0f36"/></linearGradient>'
+    b += f'<path d="{pth}" fill="url(#fg{i})" opacity="{op}" filter="url(#b{3 if i < 2 else 8})"/>'
+    b += f'<g filter="url(#hzF2)" opacity="{.35 + i * .05:.2f}"><path d="{pth}" fill="#fff"/></g>'
+    b += f'<path d="{pth}" fill="none" stroke="url(#rimG)" stroke-width="{2 + i * .6:.1f}" opacity="{.6 - i * .09:.2f}" filter="url(#b{2 if i < 3 else 5})"/>'
+    b += f'<path d="{pth}" fill="none" stroke="url(#rimG)" stroke-width="{10 + i * 4}" opacity=".18" filter="url(#b8)"/>'
+    # tiny galaxies floating on this bank (smaller further away), like foam on the sea
+    for _ in range(12 + i * 4):
+        x = random.uniform(-20, 1940); yy = y0 + random.uniform(-amp * 1.2, 40 + i * 20); s = (1.5 + i * 1.5) * random.uniform(.6, 1.4)
+        if 1560 < x and yy > 860: continue
+        if 820 < x < 1520 and yy > 640: continue   # leave the foreground crag area clean
+        foam += mini_gal(x, yy, s, random.uniform(-25, 25), random.choice(['#ffcf70', '#ffd890', '#ffe0a8', '#a8c4ff']), random.uniform(.6, 1))
+    b += foam; foam = ''
+b += f'<g filter="url(#hzF)" opacity=".55"><rect x="-50" y="{HZ + 60}" width="2020" height="{1080 - HZ}" fill="#fff"/></g>'
+# a deep blue glow of the whole dark sea + light reflected on it under the horizon glow
+b += f'<g style="mix-blend-mode:screen"><ellipse cx="{GLX}" cy="{HZ + 60}" rx="700" ry="110" fill="#ffcf90" opacity=".18" filter="url(#b40)"/>'
+b += '<ellipse cx="960" cy="860" rx="1100" ry="260" fill="#4a5cff" opacity=".18" filter="url(#b70)"/></g>'
+for x, y, L in [(260, 640, 40), (1640, 700, 46), (620, 760, 34), (1760, 560, 30), (480, 560, 28)]:
+    b += flare(x, y, L, 1.8, '#ffe8c0', .8)
+# the foreground crag the wanderer stands on
+WX, WY = 1160, 712
+CR = f'M760 1090 L800 990 L860 950 L905 880 L960 850 L1010 800 L1062 770 L1100 728 L1135 716 L1205 712 L1222 676 L1258 670 L1278 694 L1300 742 L1352 772 L1400 838 L1452 870 L1500 950 L1540 1000 L1560 1090Z'
+b += f'<path d="{CR}" fill="#ffc070" opacity=".35" filter="url(#b8)"/>'
+b += f'<path d="{CR}" fill="url(#aRock)"/>'
+b += '<path d="M800 990 L860 950 L905 880 L960 850 L1010 800 L1062 770 L1100 728 L1135 716 L1205 712 L1222 676 L1258 670 L1278 694 L1300 742 L1352 772 L1400 838 L1452 870 L1500 950" stroke="#ffd9a0" stroke-width="3.5" fill="none" opacity=".9" filter="url(#b1)"/>'
+for p in ['M960 850 L990 920 L970 1000', 'M1300 742 L1280 820 L1320 900', 'M1100 728 L1120 800 L1090 880 L1110 960', 'M1400 838 L1390 920', 'M1205 712 L1200 780 L1230 850']:
+    b += f'<path d="{p}" stroke="#2c2638" stroke-width="3" fill="none" opacity=".8"/><path d="{p}" stroke="#ffd9a0" stroke-width="1.2" fill="none" opacity=".22" transform="translate(2 -1)"/>'
+# the wanderer: back turned, dark coat, walking stick, wind in the hair; back-lit (gold rim all around)
+
+
+def wanderer():
+    o = ''
+    o += '<path d="M-14 -150 L-22 -70 L-30 -2 L-12 -2 L-4 -70 L2 -150Z"/>'                       # viewer-left leg
+    o += '<path d="M6 -150 L30 -92 L52 -60 L70 -38 L56 -26 L34 -50 L10 -88 Z"/>'                  # viewer-right leg, stepping up
+    o += '<path d="M-36 -6 L-6 -6 L-4 2 L-40 2Z M52 -40 L78 -44 L80 -34 L54 -28Z"/>'              # boots
+    o += '<path d="M-46 -298 C-52 -262 -54 -206 -50 -170 L-62 -116 C-30 -108 30 -108 66 -116 L52 -170 C56 -206 54 -262 46 -298 Q0 -314 -46 -298Z"/>'  # coat
+    o += '<path d="M-44 -292 C-60 -262 -66 -226 -62 -196 L-50 -194 C-48 -224 -42 -252 -34 -276Z"/>'  # left arm
+    o += '<path d="M44 -292 C60 -262 66 -228 66 -200 L54 -198 C52 -228 46 -254 36 -276Z"/>'        # right arm
+    o += '<path d="M-14 -306 L14 -306 L12 -320 L-12 -320Z"/>'                                     # collar / neck
+    o += '<ellipse cx="0" cy="-336" rx="21" ry="25"/>'                                           # head
+    o += '<path d="M-23 -336 C-26 -350 -18 -366 -4 -364 C2 -370 14 -368 18 -360 C24 -360 28 -354 26 -348 C30 -344 28 -338 24 -336 C26 -330 22 -326 18 -326 Z"/>'  # tousled hair
+    return o
+
+
+b += f'<g transform="translate({WX} {WY}) scale(1.12)">'
+b += f'<line x1="72" y1="-196" x2="104" y2="-6" stroke="#ffd9a0" stroke-width="9" opacity=".5" filter="url(#b3)"/>'
+b += f'<g fill="#ffd090" opacity=".85" filter="url(#b3)" transform="translate(0 -1) scale(1.02)">{wanderer()}</g>'
+b += f'<g fill="#ffe6b8" transform="translate(0 0) scale(1.012)">{wanderer()}</g>'
+b += f'<g fill="#0b120f">{wanderer()}</g>'
+b += '<path d="M-30 -290 C-34 -240 -36 -200 -34 -160" stroke="#24342a" stroke-width="3" fill="none" opacity=".7"/><path d="M0 -170 L2 -112" stroke="#24342a" stroke-width="3" opacity=".8"/>'
+b += '<line x1="72" y1="-196" x2="104" y2="-6" stroke="#1a120c" stroke-width="5" stroke-linecap="round"/>'
+b += hand(62, -200, angle=165, size=13, side='R', view='back', pose='hold', skin='#e2c4a0', line='#120c08', lw=2)
+b += hand(-56, -196, angle=190, size=12, side='L', view='back', pose='fist', skin='#e2c4a0', line='#120c08', lw=2)
+b += '</g>'
+# drifting dark-matter mist in front of the crag (depth)
+b += '<g filter="url(#hzF)" opacity=".6"><path d="M600 1100 C760 1000 900 1040 1000 1020 C1150 990 1300 1060 1500 1100Z" fill="#fff"/></g>'
+b += corner_dark(.6)
+W('A.html', d, b, [('AN', 120, 'w'), ('UNSEEN', 150, 'w'), ('OCEAN', 220, 'y')], '#05061e')
+
+
+# ======================= B: AN INVISIBLE LENS  (point-lens equation: arcs + partial rings around an unseen mass) =======================
+random.seed(7702)
+CX, CY, TE = 1290, 500, 250
+d = haze('hzB', .004, .006, 21, disp=120, blur=26, rgb=(.32, .42, 1.0), gain=1.9, bias=-.4)
+d += haze('hzB2', .008, .012, 31, disp=50, blur=10, rgb=(.50, .62, 1.0), gain=2.4, bias=-.95)
+d += rad('bBg', CX, CY, 1400, [(0, '#1c1a48', 1), (.3, '#0f0e30', 1), (.65, '#060718', 1), (1, '#020309', 1)])
+d += rad('bVoid', CX, CY, TE * .92, [(0, '#000000', 1), (.6, '#020210', .95), (1, '#0a0c2a', 0)])
+d += lin('tube', [(0, '#e8eef8'), (.25, '#aab4c8'), (.6, '#4c5468'), (1, '#1a1d2a')])
+d += lin('foil', [(0, '#fff0b0'), (.3, '#e0b048'), (.7, '#9a6a1c'), (1, '#4a3008')])
+d += lin('panel', [(0, '#6a5cd0'), (.5, '#2e2c80'), (1, '#141238')], 1, 1)
+
+
+def lens(bx, by):
+    """point lens: source offset (bx,by) -> two images [(x, y, tangential stretch, radial stretch, angle_deg, sign, |theta|)]"""
+    bb = math.hypot(bx, by) or 1e-3; s = math.sqrt(bb * bb + 4 * TE * TE); ux, uy = bx / bb, by / bb
+    out = []
+    for th, sg in [((bb + s) / 2, 1), ((bb - s) / 2, -1)]:
+        a = abs(th); q = (TE / a) ** 2
+        out.append((CX + ux * th, CY + uy * th, min(1 / max(abs(1 - q), 1e-3), 30), 1 / (1 + q), math.degrees(math.atan2(uy, ux)) + 90, sg, a))
+    return out
+
+
+def galaxy_pts(n, R, rot, incl, cols, arms=2, wind=2.6, core=.25):
     pts = []
-    for s in segs:
-        for k in range(n):
-            t = k / n
-            a = cub(*s, t); b = cub(*s, min(1, t + .01))
-            dx, dy = b[0] - a[0], b[1] - a[1]; L = math.hypot(dx, dy) or 1
-            pts.append((a[0], a[1], dy / L, -dx / L))
+    for k in range(n):
+        if random.random() < core:
+            r = abs(random.gauss(0, R * .22)); a = random.uniform(0, 2 * math.pi); c = cols[0]; w = 1.0
+        else:
+            arm = random.randrange(arms); t = random.random() ** .9; a = arm * 2 * math.pi / arms + t * wind + random.gauss(0, .2)
+            r = (.15 + t * .85) * R + random.gauss(0, R * .06); c = random.choice(cols); w = .8
+        x, y = r * math.cos(a), r * math.sin(a) * incl
+        cr, sr = math.cos(rot), math.sin(rot)
+        pts.append((x * cr - y * sr, x * sr + y * cr, c, w))
     return pts
 
 
-def mini_galaxy(x, y, s, rot, col='#fff1c8', op=1):
-    o = f'<g transform="translate({x:.0f} {y:.0f}) rotate({rot:.0f})" opacity="{op:.2f}">'
-    o += f'<ellipse rx="{s * 2.4:.1f}" ry="{s * .8:.1f}" fill="{col}" opacity=".35" filter="url(#bl3)"/>'
-    o += f'<path d="M{-s * 2:.1f} 0 Q{-s:.1f} {-s * .9:.1f} 0 0 Q{s:.1f} {s * .9:.1f} {s * 2:.1f} 0" stroke="{col}" stroke-width="{max(1, s * .35):.1f}" fill="none" opacity=".8"/>'
-    o += f'<circle r="{s * .45:.1f}" fill="#fff"/></g>'
-    return o
-
-
-def spiral_galaxy(cx, cy, R, tilt, squash, n, core='#fff3d0', arm='#ffd98a', arm2='#9fc4ff'):
-    o = f'<g transform="translate({cx} {cy}) rotate({tilt}) scale(1 {squash})">'
-    o += f'<circle r="{R * 1.15:.0f}" fill="{arm}" opacity=".18" filter="url(#bl2)"/>'
-    for k in range(n):
-        arm_i = k % 2; t = random.random() ** .7
-        ang = arm_i * math.pi + t * 3.6 + random.gauss(0, .22)
-        r = t * R + random.gauss(0, R * .03)
-        x, y = r * math.cos(ang), r * math.sin(ang)
-        c = random.choice([arm, arm, '#ffffff', arm2])
-        o += f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{random.choice([1.2, 1.8, 2.6]) * (1.4 - t * .5):.1f}" fill="{c}" opacity="{random.uniform(.35, .95):.2f}"/>'
-    o += f'<circle r="{R * .32:.0f}" fill="{core}" opacity=".85" filter="url(#bl)"/><circle r="{R * .12:.0f}" fill="#fff"/></g>'
-    return o
-
-
-def W(name, d, b, lines, outline, top=40, bg='#03040c'):
-    open(name, 'w', encoding='utf-8').write(page(bg, svg(FX + d, b), lines, outline, top=top))
-
-
-# ======================= A: STARS ARE JUST FOAM  (homage: Hokusai, The Great Wave off Kanagawa, mirrored) =======================
-random.seed(11)
-d = lin('skyA', [(0, '#05061a'), (.55, '#0c1640'), (.8, '#173064'), (1, '#1d3a6a')])
-d += lin('wave', [(0, '#5d86ff'), (.25, '#2f4fc8'), (.6, '#16237a'), (1, '#080c34')], x2=.3, y2=1)
-d += lin('seaA', [(0, '#10204e'), (1, '#03061a')])
-d += rad('fuji', 560, 790, 520, [(0, '#ffe2a0', .55), (.3, '#ffb35a', .18), (1, '#ff9a3a', 0)])
-d += rad('teal', 1500, 600, 1100, [(0, '#3fe0d0', .0), (.6, '#3fe0d0', .07), (1, '#3fe0d0', 0)])
-HZ = 840
-b = '<rect width="1920" height="1080" fill="url(#skyA)"/><rect width="1920" height="1080" fill="url(#teal)"/>'
-b += stars(260, HZ, col='#e8f0ff', op=.55, sparks=0)
-b += '<rect width="1920" height="1080" fill="url(#fuji)"/>'
-# "Mt Fuji": the bright spiral galaxy on the horizon - our glowing island
-b += spiral_galaxy(560, 770, 210, -8, .34, 900)
-b += f'<rect x="0" y="{HZ}" width="1920" height="{1080 - HZ}" fill="url(#seaA)"/>'
-b += f'<ellipse cx="560" cy="{HZ + 30}" rx="260" ry="26" fill="#ffd98a" opacity=".35" filter="url(#bl)"/>'
-for k in range(14):   # glints of the galaxy on the sea
-    y = HZ + 18 + k * 14; w = 220 - k * 10
-    b += f'<rect x="{560 - w / 2 + random.uniform(-30, 30):.0f}" y="{y}" width="{w:.0f}" height="3" rx="1.5" fill="#ffe2a0" opacity="{.5 - k * .03:.2f}"/>'
-for k in range(26):   # far ripples
-    x = random.uniform(0, 1100); y = random.uniform(HZ + 10, 1060)
-    b += f'<path d="M{x:.0f} {y:.0f} q30 -10 60 0 t60 0" stroke="#5d7ad8" stroke-width="2" fill="none" opacity="{random.uniform(.15, .35):.2f}"/>'
-# the great wave: outline, mirrored (hollow faces left, lip curls to the left)
-TIP = (950, 505)
-FACE = 'M560 1080 C760 960 1060 860 1150 680 C1210 560 1170 440 1080 430 C1030 432 975 455 950 505'
-OUT = [((950, 505), (935, 400), (1000, 280), (1120, 210)), ((1120, 210), (1250, 135), (1430, 120), (1560, 175)),
-       ((1560, 175), (1700, 235), (1820, 360), (1920, 430))]
-WP = FACE + ' C935 400 1000 280 1120 210 C1250 135 1430 120 1560 175 C1700 235 1820 360 1920 430 L1920 1080Z'
-d += f'<clipPath id="wclip"><path d="{WP}"/></clipPath>'
-b += f'<path d="{WP}" fill="#4a6cff" opacity=".55" filter="url(#bl2)"/>'
-b += f'<path d="{WP}" fill="url(#wave)" opacity=".9"/>'
-# inner bands following the crest (Hokusai's lined water: alternating light / dark bands), clipped to the wave
-g = '<g clip-path="url(#wclip)">'
-pts = sample(OUT, 40)
-for k, off in enumerate(range(30, 620, 34)):
-    q = [(x - nx * off, y - ny * off) for x, y, nx, ny in pts]
-    dd = 'M' + ' L'.join(f'{x:.0f} {y:.0f}' for x, y in q)
-    light = k % 2 == 0
-    g += f'<path d="{dd}" stroke="{"#4f74f0" if light else "#0a1050"}" stroke-width="{16 if light else 12}" fill="none" opacity="{max(.12, (.55 if light else .45) - k * .025):.2f}"/>'
-    if light:
-        g += f'<path d="{dd}" stroke="#c9d7ff" stroke-width="3" fill="none" opacity="{max(.1, .45 - k * .025):.2f}" stroke-dasharray="{random.randint(90, 220)} {random.randint(20, 60)}"/>'
-# white foam band hugging the crest
-g += '<path d="M950 505 C935 400 1000 280 1120 210 C1250 135 1430 120 1560 175 C1700 235 1820 360 1920 430" stroke="#f1f5ff" stroke-width="44" fill="none" opacity=".95"/>'
-g += '<path d="M950 505 C935 400 1000 280 1120 210 C1250 135 1430 120 1560 175 C1700 235 1820 360 1920 430" stroke="#1a2a8a" stroke-width="56" fill="none" opacity=".0"/>'
-for x, y, nx, ny in sample(OUT, 50):
-    g += f'<circle cx="{x - nx * 22:.0f}" cy="{y - ny * 22:.0f}" r="{random.uniform(3, 7):.1f}" fill="#1c2c94" opacity=".7"/>'
-# faint web filaments and knots inside the dark water (dark matter haze)
+b = '<rect width="1920" height="1080" fill="url(#bBg)"/>'
+# dark-matter halo + web of the lens: translucent blue-indigo haze, darkest at the centre
+web = [(f'M{CX} {CY} C1000 700 700 760 250 1150', 170), (f'M{CX} {CY} C1600 300 1750 120 2100 -60', 180), (f'M{CX} {CY} C1700 640 1900 660 2150 760', 130),
+       (f'M{CX} {CY} C1100 200 1000 0 960 -200', 130), (f'M{CX} {CY} C900 450 500 380 -100 300', 110), (f'M{CX} {CY} C1450 800 1500 1000 1480 1200', 120)]
+b += f'<g filter="url(#hzB)" opacity=".95"><circle cx="{CX}" cy="{CY}" r="{TE * 2.0:.0f}" fill="#fff"/>' + ''.join(f'<path d="{p}" stroke="#fff" stroke-width="{w}" fill="none"/>' for p, w in web) + '</g>'
+b += f'<g filter="url(#hzB2)" opacity=".55"><circle cx="{CX}" cy="{CY}" r="{TE * 1.65:.0f}" fill="none" stroke="#fff" stroke-width="160"/>' + ''.join(f'<path d="{p}" stroke="#fff" stroke-width="36" fill="none"/>' for p, w in web) + '</g>'
+b += ''.join(f'<path d="{p}" stroke="#9fb2ff" stroke-width="3" fill="none" opacity=".22" filter="url(#b3)"/>' for p, w in web)
+b += f'<circle cx="{CX}" cy="{CY}" r="{TE * 2.05:.0f}" fill="none" stroke="#a8b8ff" stroke-width="10" opacity=".18" filter="url(#b14)"/>'
+# cluster galaxies glowing inside the halo and along the web (ordinary matter, gold)
 for _ in range(30):
-    x0, y0 = random.uniform(1200, 1900), random.uniform(380, 1040)
-    x1, y1 = x0 + random.uniform(-160, 160), y0 + random.uniform(-120, 120)
-    g += f'<path d="M{x0:.0f} {y0:.0f} Q{(x0 + x1) / 2 + random.uniform(-40, 40):.0f} {(y0 + y1) / 2 + random.uniform(-40, 40):.0f} {x1:.0f} {y1:.0f}" stroke="#8da2ff" stroke-width="3" fill="none" opacity=".22" filter="url(#bl1)"/>'
-    g += f'<circle cx="{x0:.0f}" cy="{y0:.0f}" r="{random.uniform(5, 12):.0f}" fill="#9fb3ff" opacity=".25" filter="url(#bl3)"/>'
-# hollow face: darker, with white streams running up into the curl
-g += '<path d="M560 1080 C760 960 1060 860 1150 680 C1210 560 1170 440 1080 430 C1250 520 1330 800 1240 1080Z" fill="#040720" opacity=".55" filter="url(#bl5)"/>'
+    a = random.uniform(0, 2 * math.pi); r = random.uniform(TE * 1.25, TE * 2.1)
+    x, y = CX + r * math.cos(a), CY + r * math.sin(a) * .9
+    if x < 820 and y < 560: continue
+    if x > 1600 and y > 860: continue
+    s = random.uniform(2.5, 6)
+    b += f'<ellipse cx="{x:.0f}" cy="{y:.0f}" rx="{s * 4:.0f}" ry="{s * 3:.0f}" fill="#ffc870" opacity=".3" filter="url(#b5)"/><ellipse cx="{x:.0f}" cy="{y:.0f}" rx="{s:.1f}" ry="{s * .75:.1f}" fill="#ffe8b8"/>'
+b += f'<circle cx="{CX}" cy="{CY}" r="{TE * .92:.0f}" fill="url(#bVoid)"/>'
+# background star field bent around the lens: stars near the ring are stretched into short arcs (drawn over the transparent haze)
+st = ''
+for _ in range(2200):
+    bx, by = random.uniform(-1380, 720), random.uniform(-600, 660)
+    r0 = random.choice([.9, 1.2, 1.2, 1.6, 2.1, 2.8]); op = random.uniform(.25, .9); col = random.choice(['#e4ecff', '#e4ecff', '#fff1d6', '#bcd0ff'])
+    for x, y, tg, rd, ang, sg, a in lens(bx, by):
+        if not (0 <= x <= 1920 and 0 <= y <= 1080): continue
+        o2 = op if sg > 0 else op * min(1, .3 * (a / TE) ** 4)
+        if o2 < .06: continue
+        st += f'<ellipse cx="{x:.1f}" cy="{y:.1f}" rx="{r0 * min(tg, 10):.1f}" ry="{max(.6, r0 * rd):.1f}" transform="rotate({ang:.0f} {x:.1f} {y:.1f})" fill="{col}" opacity="{o2:.2f}"/>'
+b += st
+# warm light behind the arcs
+b += f'<circle cx="{CX}" cy="{CY}" r="{TE * 1.45:.0f}" fill="#ffaa50" opacity=".13" filter="url(#b70)" style="mix-blend-mode:screen"/>'
+# lensed background galaxies: several distinct sources -> arcs, counter-images and partial rings (deep gold and blue)
+SRC = [((48, -40), 88, .5, .6, ['#fff0c0', '#ffb848', '#ffc860', '#ffa838', '#ffd890'], 3600, .62),
+       ((-26, 22), 40, 1.0, .7, ['#e8f0ff', '#8fb0ff', '#a8c4ff', '#7a9cff'], 1800, .6),
+       ((-125, 82), 52, 1.2, .55, ['#ffe0b0', '#ff9a40', '#ffb060', '#ff8a30'], 1500, .65),
+       ((112, 132), 46, 2.2, .5, ['#f0f4ff', '#a8c4ff', '#cfe0ff', '#8fb0ff'], 1300, .65),
+       ((-68, -150), 42, .3, .6, ['#fff0c8', '#ffc860', '#ffd890'], 1200, .65),
+       ((175, -55), 30, 1.8, .6, ['#ffe0c0', '#ff8f60', '#ffb080'], 800, .6)]
+arcs = ''
+for (sx, sy), R, rot, incl, cols, n, op in SRC:
+    for px, py, c, w in galaxy_pts(n, R, rot, incl, cols):
+        for x, y, tg, rd, ang, sg, a in lens(sx + px, sy + py):
+            if sg < 0 and a < TE * .4: continue
+            o2 = op * w * (1 if sg > 0 else .75)
+            arcs += f'<ellipse cx="{x:.1f}" cy="{y:.1f}" rx="{2.2 * min(tg, 14):.1f}" ry="{max(1.4, 2.4 * rd):.1f}" transform="rotate({ang:.0f} {x:.1f} {y:.1f})" fill="{c}" opacity="{o2:.2f}"/>'
+b += f'<g id="arcs" filter="url(#u1)">{arcs}</g>'
+b += '<use href="#arcs" filter="url(#u6)" opacity=".55" style="mix-blend-mode:screen"/>'
+b += '<use href="#arcs" filter="url(#u20)" opacity=".75" style="mix-blend-mode:screen"/>'
+b += f'<circle cx="{CX}" cy="{CY}" r="{TE}" fill="none" stroke="#ffb850" stroke-width="26" opacity=".22" filter="url(#b14)" style="mix-blend-mode:screen"/>'
+b += f'<circle cx="{CX}" cy="{CY}" r="{TE}" fill="none" stroke="#ffe0a0" stroke-width="1.6" opacity=".35"/>'
+# lens glints on the brightest knots
+g1 = lens(48, -40)[0]; g2 = lens(-26, 22)[0]; g3 = lens(-125, 82)[0]
+b += flare(g1[0], g1[1], 160, 3.2, '#ffe2a8', .95, 8) + flare(g2[0], g2[1], 90, 2.4, '#d8e4ff', .8, 30) + flare(g3[0], g3[1], 70, 2.2, '#ffd8a0', .8, 20)
+b += f'<ellipse cx="{g1[0]:.0f}" cy="{g1[1]:.0f}" rx="800" ry="4" fill="#ffe8c0" opacity=".45" filter="url(#b2)" style="mix-blend-mode:screen"/>'
+b += f'<ellipse cx="{g1[0]:.0f}" cy="{g1[1]:.0f}" rx="600" ry="22" fill="#90b0ff" opacity=".12" filter="url(#b14)" style="mix-blend-mode:screen"/>'
+b += flare(1720, 130, 50, 2, '#dfe8ff', .7) + flare(960, 900, 36, 1.8, '#dfe8ff', .6) + spark(1830, 560, 14, '#d6dfff') + spark(870, 640, 12)
+# the space telescope, lower left, aimed at the ring (3/4 view: aperture toward the lens, barrel shaded as a cylinder, rim light
+# from the lens glow on the upper edge, blue bounce light from the haze below); a tethered astronaut points at the arcs (scale)
+TX, TY, TA = 470, 805, -30
+TR_, RX_ = 66, 21          # barrel radius, perspective half-width of the round ends
+d += (f'<linearGradient id="tBar" x1="0" y1="{-TR_}" x2="0" y2="{TR_}" gradientUnits="userSpaceOnUse">'
+      '<stop offset="0" stop-color="#fff0d0"/><stop offset=".05" stop-color="#f4f2ee"/><stop offset=".2" stop-color="#cdd3df"/><stop offset=".45" stop-color="#8a92a6"/>'
+      '<stop offset=".75" stop-color="#3e4558"/><stop offset=".93" stop-color="#22283a"/><stop offset="1" stop-color="#4c5c9a"/></linearGradient>')
+d += (f'<linearGradient id="tFoil" x1="0" y1="{-TR_ - 8}" x2="0" y2="{TR_ + 8}" gradientUnits="userSpaceOnUse">'
+      '<stop offset="0" stop-color="#fff6c8"/><stop offset=".08" stop-color="#f6cf68"/><stop offset=".35" stop-color="#c8902e"/><stop offset=".7" stop-color="#6c4412"/>'
+      '<stop offset=".93" stop-color="#3a2408"/><stop offset="1" stop-color="#6a5a8a"/></linearGradient>')
+d += lin('tPan', [(0, '#5a4ccc'), (.45, '#2c2a86'), (1, '#16144a')], 1, 1)
+d += lin('tDoor', [(0, '#fff2d8'), (.3, '#d8dce6'), (1, '#5a6276')], 1, 1)
+d += rad('tAp', 0, 0, TR_, [(0, '#1a2244', 1), (.7, '#070a18', 1), (1, '#02030a', 1)])
+d += lin('tDish', [(0, '#ffffff'), (.5, '#c8cedc'), (1, '#5a6276')], 1, 1)
+
+
+def cyl(x0, x1, R, rx, fill, stroke='#0b0d18'):
+    """cylinder side seen 3/4 from the +x end: rectangle with the hidden far end bulging toward -x"""
+    return f'<path d="M{x1} {-R} L{x0} {-R} A{rx} {R} 0 0 0 {x0} {R} L{x1} {R} Z" fill="{fill}" stroke="{stroke}" stroke-width="2.5"/>'
+
+
+def wing(p, shade):
+    """solar wing as a perspective quad p = [inner-top, inner-bottom, outer-bottom, outer-top] with a 3 x 8 cell grid"""
+    (ax, ay), (bx, by), (cx_, cy_), (dx, dy) = p
+    o = f'<path d="M{ax} {ay} L{bx} {by} L{cx_} {cy_} L{dx} {dy}Z" fill="#b8c0d2" stroke="#0b0d18" stroke-width="3"/>'
+    def at(u, v):   # u across (a->b), v outward (inner->outer)
+        x0, y0 = ax + (dx - ax) * v, ay + (dy - ay) * v; x1, y1 = bx + (cx_ - bx) * v, by + (cy_ - by) * v
+        return x0 + (x1 - x0) * u, y0 + (y1 - y0) * u
+    for i in range(3):
+        for j in range(8):
+            g = .06
+            q = [at(i / 3 + g / 3, j / 8 + g / 8), at((i + 1) / 3 - g / 3, j / 8 + g / 8), at((i + 1) / 3 - g / 3, (j + 1) / 8 - g / 8), at(i / 3 + g / 3, (j + 1) / 8 - g / 8)]
+            o += f'<path d="{P(q)}Z" fill="url(#tPan)"/>'
+            o += f'<path d="M{q[0][0]:.1f} {q[0][1]:.1f} L{q[1][0]:.1f} {q[1][1]:.1f}" stroke="#a8a4ff" stroke-width="1" opacity=".45"/>'
+    sx0, sy0 = at(0, .15); sx1, sy1 = at(1, .55)   # diagonal sheen of the glow on the cells
+    o += f'<path d="M{at(0, .05)[0]:.0f} {at(0, .05)[1]:.0f} L{at(.6, 0)[0]:.0f} {at(.6, 0)[1]:.0f} L{at(1, .35)[0]:.0f} {at(1, .35)[1]:.0f} L{at(.4, .6)[0]:.0f} {at(.4, .6)[1]:.0f}Z" fill="#ffe0b0" opacity="{shade}" filter="url(#b8)"/>'
+    o += f'<path d="M{ax} {ay} L{dx} {dy}" stroke="#ffe6b8" stroke-width="2.5" opacity=".8"/>'
+    return o
+
+
+R = TR_
+tel = f'<g transform="translate({TX} {TY}) rotate({TA})">'
+tel += '<ellipse cx="0" cy="0" rx="330" ry="220" fill="#ffc070" opacity=".12" filter="url(#b40)"/>'
+# far solar wing (behind the barrel) on its boom
+tel += f'<rect x="-48" y="{-R - 30}" width="9" height="34" fill="#4a5064" stroke="#0b0d18" stroke-width="2"/>'
+tel += wing([(-104, -R - 30), (-8, -R - 30), (16, -R - 232), (-64, -R - 232)], .3)
+# aft shroud (gold foil) and the main barrel
+tel += cyl(-240, -146, R + 8, RX_ + 2, 'url(#tFoil)')
 for k in range(7):
-    o = 18 + k * 30
-    g += (f'<path d="M{600 + o * 1.4:.0f} 1080 C{790 + o:.0f} {960 - o * .2:.0f} {1070 + o * .6:.0f} {860 - o * .3:.0f} {1150 + o * .5:.0f} {680 - o * .1:.0f} '
-          f'C{1205 + o * .3:.0f} {560 - o * .1:.0f} {1170 + o * .2:.0f} {445 + o * .1:.0f} {1085 + o * .1:.0f} {440 + o * .15:.0f}" stroke="#b9cbff" stroke-width="{5 - k * .5:.1f}" '
-          f'fill="none" opacity="{.5 - k * .05:.2f}" stroke-dasharray="{random.randint(60, 140)} {random.randint(20, 50)}"/>')
-g += '</g>'
-b += g
-b += '<path d="M560 1080 C760 960 1060 860 1150 680 C1210 560 1170 440 1080 430 C1030 432 975 455 950 505" stroke="#e6eeff" stroke-width="6" fill="none" opacity=".8"/>'
-# rim light along the crest
-b += '<path d="M950 505 C935 400 1000 280 1120 210 C1250 135 1430 120 1560 175 C1700 235 1820 360 1920 430" stroke="#d8e4ff" stroke-width="18" fill="none" opacity=".5" filter="url(#bl)"/>'
-# foam claws made of stars: big hooked fingers reaching out and curling down (Hokusai's claws)
+    xx = -232 + k * 13
+    tel += f'<path d="M{xx} {-R - 6} q{random.uniform(-4, 4):.0f} {R * .6:.0f} {random.uniform(-3, 3):.0f} {R:.0f} q{random.uniform(-4, 4):.0f} {R * .6:.0f} {random.uniform(-3, 3):.0f} {R + 4}" stroke="#5a360a" stroke-width="1.4" fill="none" opacity=".5"/>'
+tel += f'<path d="M-146 {-R - 8} A{RX_ + 2} {R + 8} 0 0 0 -146 {R + 8}" stroke="#2a1a04" stroke-width="3" fill="none"/>'
+tel += cyl(-150, 176, R, RX_, 'url(#tBar)')
+for xx in (-96, -20, 60, 128):   # equipment-bay seams following the curvature
+    tel += f'<path d="M{xx} {-R} A{RX_} {R} 0 0 0 {xx} {R}" stroke="#141826" stroke-width="3" fill="none" opacity=".75"/>'
+    tel += f'<path d="M{xx + 3} {-R + 2} A{RX_} {R - 2} 0 0 0 {xx + 3} {R - 2}" stroke="#eef2fa" stroke-width="1.2" fill="none" opacity=".35"/>'
+for xx in (-130, -60, 20, 96):   # small access panels and bolts
+    tel += f'<rect x="{xx}" y="{-R * .2:.0f}" width="22" height="26" rx="2" fill="none" stroke="#1e2232" stroke-width="1.5" opacity=".6"/>'
+    tel += ''.join(f'<circle cx="{xx + bx_}" cy="{-R * .2 + by_:.0f}" r="1.3" fill="#1e2232" opacity=".7"/>' for bx_, by_ in [(3, 3), (19, 3), (3, 23), (19, 23)])
+# handrail along the top
+tel += f'<path d="M-120 {-R - 7} L150 {-R - 7}" stroke="#f2d27a" stroke-width="3.5" fill="none"/>'
+tel += ''.join(f'<line x1="{xx}" y1="{-R - 7}" x2="{xx}" y2="{-R}" stroke="#c8a040" stroke-width="2.5"/>' for xx in range(-110, 160, 45))
+# rim light from the lens on the upper edge + bounce light on the lower edge
+tel += f'<path d="M176 {-R} L-150 {-R} A{RX_} {R} 0 0 0 {-150 - RX_ * .7:.0f} {-R * .7:.0f}" stroke="#fff2d0" stroke-width="4" fill="none" opacity=".95" filter="url(#b1)"/>'
+tel += f'<path d="M176 {-R} L-150 {-R}" stroke="#ffc870" stroke-width="16" fill="none" opacity=".35" filter="url(#b5)"/>'
+tel += f'<path d="M-150 {R} L176 {R}" stroke="#7f9cff" stroke-width="3" fill="none" opacity=".55"/>'
+# aperture: lip, dark tube interior, secondary-mirror spider, a gold reflection of the arcs in the mirror
+tel += f'<ellipse cx="176" cy="0" rx="{RX_}" ry="{R}" fill="#aab2c4" stroke="#0b0d18" stroke-width="2.5"/>'
+tel += f'<ellipse cx="178" cy="0" rx="{RX_ * .78:.1f}" ry="{R * .86:.1f}" fill="url(#tAp)"/>'
+tel += f'<path d="M178 {-R * .86:.1f} L178 {R * .86:.1f} M{178 - RX_ * .78:.1f} 0 L{178 + RX_ * .78:.1f} 0" stroke="#3a4258" stroke-width="1.4"/>'
+tel += '<ellipse cx="178" cy="0" rx="5" ry="12" fill="#2a3048" stroke="#5a6278" stroke-width="1"/>'
+tel += f'<path d="M{178 - RX_ * .5:.1f} {R * .5:.0f} A{RX_ * .55:.1f} {R * .62:.1f} 0 0 1 {178 + RX_ * .1:.1f} {-R * .58:.0f}" stroke="#ffc860" stroke-width="3" fill="none" opacity=".85" filter="url(#b1)"/>'
+tel += f'<path d="M{176 - RX_ * .2:.1f} {-R:.0f} A{RX_} {R} 0 0 1 {176 + RX_:.0f} 0" stroke="#fff4dc" stroke-width="3" fill="none" opacity=".95"/>'
+# aperture door, hinged at the top of the opening, swung open toward the lens
+tel += f'<path d="M166 {-R - 2} L182 {-R - 4} L190 {-R - 10}" stroke="#4a5064" stroke-width="6" fill="none"/><circle cx="180" cy="{-R - 3}" r="5" fill="#8a92a6" stroke="#0b0d18" stroke-width="2"/>'
+tel += f'<g transform="translate(200 {-R - 50}) rotate(-62)"><ellipse rx="64" ry="20" fill="url(#tDoor)" stroke="#0b0d18" stroke-width="2.5"/>'
+tel += '<ellipse rx="52" ry="13" fill="none" stroke="#7a8296" stroke-width="1.5" opacity=".7"/><path d="M-62 -6 A64 20 0 0 1 60 -8" stroke="#fff4dc" stroke-width="3" fill="none"/></g>'
+# near solar wing (in front), larger: it is closer to us
+tel += f'<rect x="-52" y="{R - 2}" width="10" height="34" fill="#4a5064" stroke="#0b0d18" stroke-width="2"/>'
+tel += wing([(-108, R + 30), (-4, R + 30), (-6, R + 300), (-136, R + 300)], .22)
+# high-gain antenna on a boom under the barrel
+tel += f'<path d="M70 {R} L96 {R + 74}" stroke="#4a5064" stroke-width="5"/><path d="M70 {R} L96 {R + 74}" stroke="#c8cedc" stroke-width="1.5"/>'
+tel += f'<g transform="translate(100 {R + 86}) rotate(-24)"><ellipse rx="40" ry="15" fill="url(#tDish)" stroke="#0b0d18" stroke-width="2.5"/>'
+tel += '<ellipse rx="30" ry="9" fill="none" stroke="#8a92a6" stroke-width="1.2"/><line x1="0" y1="0" x2="0" y2="-22" stroke="#2a3048" stroke-width="2"/><circle cx="0" cy="-23" r="3" fill="#c8cedc"/>'
+tel += '<path d="M-38 -5 A40 15 0 0 1 36 -7" stroke="#fff2d0" stroke-width="2.5" fill="none"/></g>'
+# star trackers, nav lights, tiny thruster puffs with glints
+tel += f'<path d="M-170 {-R - 8} l-10 -22 l22 -6 l6 20Z" fill="#8a92a6" stroke="#0b0d18" stroke-width="2"/><circle cx="-176" cy="{-R - 26}" r="3" fill="#1a2040"/>'
+tel += f'<circle cx="-30" cy="{-R + 14}" r="3.5" fill="#ff6a50"/><circle cx="-30" cy="{-R + 14}" r="9" fill="#ff6a50" opacity=".45" filter="url(#b3)"/>'
+tel += f'<circle cx="150" cy="{R - 16}" r="3" fill="#7affc0"/><circle cx="150" cy="{R - 16}" r="8" fill="#7affc0" opacity=".45" filter="url(#b3)"/>'
+for px_, py_, ang_ in [(-240, -R + 6, 200), (-238, R - 6, 160)]:
+    tel += f'<g transform="translate({px_} {py_}) rotate({ang_})"><ellipse cx="22" cy="0" rx="26" ry="6" fill="#bfe0ff" opacity=".55" filter="url(#b3)"/><ellipse cx="12" cy="0" rx="10" ry="2.5" fill="#fff" opacity=".9"/></g>'
+tel += '</g>'
+b += tel
+b += flare(TX + 176 * .866 + 70, TY - 176 * .5 - 30, 40, 1.8, '#fff0d0', .9, 15)
+b += '<path d="M520 694 C600 650 690 690 750 676" stroke="#dfe6f2" stroke-width="2.5" fill="none" opacity=".85"/>'
+b += astronaut(790, 690, .62, 20, 30)
+
+b += corner_dark(.8)
+W('B.html', d, b, [('AN', 120, 'w'), ('INVISIBLE', 150, 'y'), ('LENS', 210, 'w')], '#07061a')
 
 
-def claw(x, y, a, L, sw):
-    """one tapered, hooked foam finger from (x, y), start direction a, length L; curls down at the end (filled shape)"""
-    n = 16; cen = []; px, py, ang = x, y, a
+# ======================= C: THE HIDDEN WEB  (cosmic large-scale structure: dark-matter filaments and knots, empty voids) =======================
+# Script S22: "dark matter clumped together first, building an enormous web of invisible filaments. Ordinary gas then fell into the thickest
+# knots of that web and lit up as stars and galaxies."  Look of the Millennium / IllustrisTNG renders: the web is the boundary network of
+# Voronoi cells (cells = voids).  Dark matter = blue-indigo glow along filaments and knots; galaxies = gold specks in the knots.
+# Two callouts (HTML labels + leader lines): DARK MATTER -> a thick filament knot, VOID (MOSTLY EMPTY) -> a void.
+import numpy as np
+from scipy.spatial import Voronoi
+random.seed(5521); np.random.seed(5521)
+VOIDC = (1245, 640)   # the labelled void
+
+
+def seeds(n, mind, x0, y0, x1, y1, fixed=(), keep_out=None):
+    pts = list(fixed); tries = 0
+    while len(pts) < n and tries < 40000:
+        tries += 1; p = (random.uniform(x0, x1), random.uniform(y0, y1))
+        if keep_out and math.hypot(p[0] - keep_out[0][0], p[1] - keep_out[0][1]) < keep_out[1]: continue
+        if all(math.hypot(p[0] - q[0], p[1] - q[1]) > mind for q in pts): pts.append(p)
+    return pts
+
+
+def edges_of(pts, clip=(-260, -260, 2180, 1340)):
+    vor = Voronoi(np.array(pts)); out = []
+    for (i, j) in vor.ridge_vertices:
+        if i < 0 or j < 0: continue
+        (xa, ya), (xb, yb) = vor.vertices[i], vor.vertices[j]
+        if min(xa, xb) < clip[0] or max(xa, xb) > clip[2] or min(ya, yb) < clip[1] or max(ya, yb) > clip[3]: continue
+        out.append((i, j, (xa, ya), (xb, yb)))
+    return vor, out
+
+
+def wiggle(a, b_, amp, n=14, rr=None):
+    rr = rr or random; L = math.hypot(b_[0] - a[0], b_[1] - a[1]) or 1; nx, ny = -(b_[1] - a[1]) / L, (b_[0] - a[0]) / L
+    ph = [rr.uniform(0, 6.3) for _ in range(3)]; pts = []
     for k in range(n + 1):
-        t = k / n; cen.append((px, py, ang, sw * (1 - t) ** .8 + 1.5))
-        ang -= 2.6 * t * t / n * 3     # curvature grows toward the tip
-        px += L / n * math.cos(ang); py += L / n * math.sin(ang)
-    lft = [(cx + w / 2 * math.sin(an), cy - w / 2 * math.cos(an)) for cx, cy, an, w in cen]
-    rgt = [(cx - w / 2 * math.sin(an), cy + w / 2 * math.cos(an)) for cx, cy, an, w in cen]
-    poly = lft + rgt[::-1]
-    dd = 'M' + ' L'.join(f'{p:.0f} {q:.0f}' for p, q in poly) + 'Z'
-    o = f'<path d="{dd}" fill="#2a40b8" transform="translate(3 5)" opacity=".8"/>'
-    o += f'<path d="{dd}" fill="#f6f8ff"/>'
-    ex, ey = cen[-1][0], cen[-1][1]
-    o += f'<circle cx="{ex:.0f}" cy="{ey:.0f}" r="{sw * .45:.1f}" fill="#fff3c8"/><circle cx="{ex:.0f}" cy="{ey:.0f}" r="{sw * .9:.1f}" fill="#ffe2a0" opacity=".45" filter="url(#bl3)"/>'
-    return o
+        t = k / n; e = math.sin(math.pi * t)
+        off = amp * e * (math.sin(t * 5 + ph[0]) * .75 + math.sin(t * 9 + ph[1]) * .25)
+        pts.append((a[0] + (b_[0] - a[0]) * t + nx * off, a[1] + (b_[1] - a[1]) * t + ny * off))
+    return pts
 
 
-cl = ''
-cpts = sample([OUT[0], OUT[1]], 6)
-for i, (x, y, nx, ny) in reversed(list(enumerate(cpts[:8]))):
-    base = math.atan2(ny, nx) - .45
-    big = 1.35 - i * .06
-    for f in range(4):
-        a = base + (f - 1.5) * .3 + random.uniform(-.06, .06)
-        cl += claw(x - nx * 16, y - ny * 16, a, random.uniform(80, 130) * big, random.uniform(20, 26) * big)
-b += cl
-# foam dots on the crest body (stars riding the water)
-for x, y, nx, ny in sample(OUT, 30):
-    for _ in range(3):
-        dd = random.uniform(30, 90)
-        b += f'<circle cx="{x + nx * dd:.0f}" cy="{y + ny * dd:.0f}" r="{random.uniform(2, 5):.1f}" fill="#fff6dc" opacity="{random.uniform(.4, .95):.2f}"/>'
-# spray: falling specks of stars and tiny galaxies off the lip and crest
-for _ in range(170):
-    x = random.uniform(820, 1650); y = random.uniform(60, 820)
-    inside = (x > 1000 and y > 240 + (x - 1000) * .1) and not (x < 1180 and y > 440)
-    if inside or (y < 520 and x < 900) or (x > 1250 and y > 230): continue
-    if random.random() < .08:
-        b += mini_galaxy(x, y, random.uniform(4, 7), random.uniform(-40, 40))
-    else:
-        r = random.choice([1.6, 2.4, 3.4, 4.6])
-        b += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{r}" fill="#fff4d6" opacity="{random.uniform(.5, 1):.2f}"/>'
-        if r > 3: b += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{r * 3:.0f}" fill="#ffe2a0" opacity=".3" filter="url(#bl3)"/>'
-for (x, y, s) in [(1000, 160, 8), (1300, 90, 8), (1180, 120, 6), (1500, 110, 7), (900, 560, 6)]:
-    b += mini_galaxy(x, y, s, random.uniform(-30, 30))
-b += spark(1060, 180, 28) + spark(1400, 80, 20) + spark(895, 640, 16) + spark(1660, 160, 14)
-# boats riding the face (tiny rowers for scale)
+d = rad('cBg', 1200, 560, 1500, [(0, '#070718', 1), (.5, '#040410', 1), (1, '#020308', 1)])
+d += ('<filter id="grainW" filterUnits="userSpaceOnUse" x="-200" y="-200" width="2320" height="1480"><feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="2" seed="9"/>'
+      '<feDisplacementMap in="SourceGraphic" scale="16" xChannelSelector="R" yChannelSelector="G"/></filter>')
+d += haze('hzL', .005, .009, 77, disp=50, blur=16, rgb=(.30, .40, 1.0), gain=2.0, bias=-.35, oct=(2, 2))
+d += rad('txtDark', 300, 260, 700, [(0, '#020308', .85), (.6, '#020308', .55), (1, '#020308', 0)])
+b = '<rect width="1920" height="1080" fill="url(#cBg)"/>'
+b += bg_stars(60, op=.3)
 
+# ---- far, fine web (side filaments, small cells), dim
+P2 = seeds(260, 85, -250, -250, 2170, 1330)
+vor2, E2 = edges_of(P2)
+far_core = ''; far_dots = ''
+for i, j, a, b_ in E2:
+    mx, my = (a[0] + b_[0]) / 2, (a[1] + b_[1]) / 2
+    if math.hypot(mx - VOIDC[0], my - VOIDC[1]) < 230: continue
+    w = random.lognormvariate(-.3, .5)
+    pts = wiggle(a, b_, 6)
+    far_core += f'<path d="{P(pts)}" stroke="#7a8cff" stroke-width="{.8 + w * 1.2:.1f}" fill="none" opacity="{min(.5, .15 + w * .15):.2f}"/>'
+    L = math.hypot(b_[0] - a[0], b_[1] - a[1])
+    for _ in range(int(L / 45 * w)):
+        t = random.random(); x = a[0] + (b_[0] - a[0]) * t + random.gauss(0, 4); y = a[1] + (b_[1] - a[1]) * t + random.gauss(0, 4)
+        far_dots += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{random.choice([.6, .8, 1.1])}" fill="#b8c6ff" opacity="{random.uniform(.2, .6):.2f}"/>'
+b += f'<g filter="url(#u3)" opacity=".8">{far_core}</g><g style="mix-blend-mode:screen">{far_dots}</g>'
 
-def boat(x, y, ang, L=230, n=7):
-    o = f'<g transform="translate({x} {y}) rotate({ang})">'
-    o += f'<path d="M{-L / 2} -6 Q0 22 {L / 2} -14 L{L / 2 - 10} -2 Q0 34 {-L / 2 + 6} 4Z" fill="#000" opacity=".35" filter="url(#bl3)"/>'
-    o += f'<path d="M{-L / 2} -8 Q0 18 {L / 2} -18 L{L / 2 - 14} -4 Q0 30 {-L / 2 + 8} 4Z" fill="#c9b07a" stroke="#2a1d10" stroke-width="3"/>'
-    o += f'<path d="M{-L / 2 + 10} -4 Q0 20 {L / 2 - 16} -12" stroke="#ffe7b0" stroke-width="2.5" fill="none" opacity=".8"/>'
-    for k in range(n):
-        px = -L / 2 + 30 + k * (L - 60) / (n - 1); py = 4 - 6 * math.sin(k / (n - 1) * math.pi)
-        o += f'<path d="M{px - 7:.0f} {py:.0f} Q{px:.0f} {py - 26:.0f} {px + 7:.0f} {py:.0f}Z" fill="#141a33"/><circle cx="{px:.0f}" cy="{py - 22:.0f}" r="6" fill="#141a33"/>'
-        o += f'<circle cx="{px + 2:.0f}" cy="{py - 23:.0f}" r="2.4" fill="#ffd98a" opacity=".6"/>'
-    o += '</g>'
-    return o
+# ---- main web (big cells = voids), bright dark-matter filaments
+P1 = seeds(46, 250, -300, -300, 2220, 1380, fixed=[VOIDC], keep_out=(VOIDC, 400))
+vor1, E1 = edges_of(P1)
+deg = {}; mass = {}
+EW = []
+for i, j, a, b_ in E1:
+    w = min(2.8, random.lognormvariate(-.15, .65))
+    EW.append((i, j, a, b_, w))
+    for v in (i, j):
+        deg[v] = deg.get(v, 0) + 1; mass[v] = mass.get(v, 0) + w
+glow = ''; mid = ''; core = ''; dots = ''; side = ''; cloud = ''; gold_f = ''
+for i, j, a, b_, w in EW:
+    rr = random.Random(i * 1000 + j)
+    pts = wiggle(a, b_, 18 + w * 6, 16, rr)
+    pp = P(pts)
+    glow += f'<path d="{pp}" stroke="#3446d8" stroke-width="{40 + w * 50:.0f}" fill="none" opacity="{.2 + w * .12:.2f}" stroke-linecap="round"/>'
+    cloud += f'<path d="{pp}" stroke="#fff" stroke-width="{24 + w * 40:.0f}" fill="none" opacity="{min(1, .35 + w * .3):.2f}" stroke-linecap="round"/>'
+    mid += f'<path d="{pp}" stroke="#6f86ff" stroke-width="{5 + w * 8:.0f}" fill="none" opacity="{.35 + w * .15:.2f}" stroke-linecap="round"/>'
+    core += f'<path d="{pp}" stroke="#dfe8ff" stroke-width="{.8 + w * 1.6:.1f}" fill="none" opacity="{min(.9, .15 + w * .3):.2f}" stroke-linecap="round"/>'
+    for _ in range(int(w * w * 3)):   # a few gold galaxies along the strong filaments too
+        k_ = random.randrange(len(pts)); gx_, gy_ = pts[k_][0] + random.gauss(0, 6), pts[k_][1] + random.gauss(0, 6)
+        gold_f += f'<circle cx="{gx_:.0f}" cy="{gy_:.0f}" r="4.5" fill="#ffb850" opacity=".4" filter="url(#b3)"/><circle cx="{gx_:.0f}" cy="{gy_:.0f}" r="1.6" fill="#ffe6b0"/>'
+    # simulation grain along the filament: dense blue-white particles, thicker in strong filaments
+    L = math.hypot(b_[0] - a[0], b_[1] - a[1])
+    for _ in range(int(L / 18 * w)):
+        k = random.random() * (len(pts) - 1); k0 = int(k); f = k - k0; k1 = min(k0 + 1, len(pts) - 1)
+        x = pts[k0][0] + (pts[k1][0] - pts[k0][0]) * f + random.gauss(0, 3 + w * 5); y = pts[k0][1] + (pts[k1][1] - pts[k0][1]) * f + random.gauss(0, 3 + w * 5)
+        dots += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{random.choice([.7, .9, 1.2, 1.6])}" fill="{random.choice(["#c8d4ff", "#e8eeff", "#9fb0ff"])}" opacity="{random.uniform(.3, .85):.2f}"/>'
+    # short side filaments branching off into the voids
+    for _ in range(int(w * 2)):
+        t = random.uniform(.2, .8); k0 = int(t * (len(pts) - 1)); x0, y0 = pts[k0]
+        ang = math.atan2(b_[1] - a[1], b_[0] - a[0]) + random.choice([-1, 1]) * random.uniform(.9, 1.6); Ls = random.uniform(40, 110)
+        x1, y1 = x0 + Ls * math.cos(ang), y0 + Ls * math.sin(ang)
+        if math.hypot(x1 - VOIDC[0], y1 - VOIDC[1]) < 200: continue
+        sp = wiggle((x0, y0), (x1, y1), 6, 8, rr)
+        side += f'<path d="{P(sp)}" stroke="#8fa2ff" stroke-width="{1 + w * .6:.1f}" fill="none" opacity=".45" stroke-linecap="round"/>'
+b += f'<g filter="url(#u20)" style="mix-blend-mode:screen">{glow}</g>'
+b += f'<g filter="url(#hzL)" style="mix-blend-mode:screen">{cloud}</g>'
+b += f'<g filter="url(#u6)" style="mix-blend-mode:screen" opacity=".8">{mid}</g>'
+b += f'<g filter="url(#u1)" style="mix-blend-mode:screen">{side}</g>'
+b += f'<g filter="url(#u1)" style="mix-blend-mode:screen">{core}</g>'
+b += f'<g style="mix-blend-mode:screen">{dots}{gold_f}</g>'
+# knots (Voronoi vertices): dense dark-matter clumps with gold galaxies sitting in them
+kn = ''; gold = ''; best = []
+for v, m in mass.items():
+    x, y = vor1.vertices[v]
+    if not (-60 < x < 1980 and -60 < y < 1140): continue
+    s = m / 3
+    best.append((m, x, y))
+    kn += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{50 + s * 70:.0f}" fill="#4a5cff" opacity="{min(.7, .25 + s * .18):.2f}" filter="url(#b24)"/>'
+    kn += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{12 + s * 16:.0f}" fill="#b8c6ff" opacity="{min(.8, .3 + s * .2):.2f}" filter="url(#b8)"/>'
+    for _ in range(int(60 * s)):
+        r_ = abs(random.gauss(0, 8 + s * 10)); a_ = random.uniform(0, 6.3)
+        kn += f'<circle cx="{x + r_ * math.cos(a_):.0f}" cy="{y + r_ * math.sin(a_):.0f}" r="{random.choice([.8, 1.1, 1.5])}" fill="#eef2ff" opacity="{random.uniform(.4, .95):.2f}"/>'
+    for _ in range(int(3 + s * 6)):
+        r_ = abs(random.gauss(0, 6 + s * 8)); a_ = random.uniform(0, 6.3); gx, gy = x + r_ * math.cos(a_), y + r_ * math.sin(a_)
+        sz = random.uniform(1.5, 3.0) * (.9 + s * .35)
+        gold += f'<circle cx="{gx:.0f}" cy="{gy:.0f}" r="{sz * 3:.1f}" fill="#ffb850" opacity=".45" filter="url(#b3)"/><circle cx="{gx:.0f}" cy="{gy:.0f}" r="{sz:.1f}" fill="#ffe6b0"/>'
+b += f'<g style="mix-blend-mode:screen">{kn}{gold}</g>'
+best.sort(reverse=True)
+for m, x, y in best[:7]:
+    if (x < 820 and y < 600) or (x > 1580 and y > 860): continue
+    b += flare(x, y, 30 + m * 12, 1.4 + m * .25, '#ffe8c0', .85, random.uniform(0, 40))
+# the void: a dark bubble with only a few faint galaxies (very little matter)
+b += f'<circle cx="{VOIDC[0]}" cy="{VOIDC[1]}" r="170" fill="#010207" opacity=".55" filter="url(#b40)"/>'
+for _ in range(7):
+    a_ = random.uniform(0, 6.3); r_ = random.uniform(40, 150)
+    b += f'<circle cx="{VOIDC[0] + r_ * math.cos(a_):.0f}" cy="{VOIDC[1] + r_ * math.sin(a_):.0f}" r="1.2" fill="#c8d4ff" opacity=".5"/>'
+# depth: out-of-focus near filaments crossing close to the camera
+b += '<g filter="url(#b24)" opacity=".5" style="mix-blend-mode:screen"><path d="M-120 1180 C150 1000 360 960 620 1180" stroke="#4a5cff" stroke-width="70" fill="none"/>'
+b += '<path d="M1580 -120 C1680 60 1800 140 2060 180" stroke="#4a5cff" stroke-width="60" fill="none"/></g>'
+b += '<g filter="url(#b8)" opacity=".7" style="mix-blend-mode:screen"><path d="M-120 1180 C150 1000 360 960 620 1180" stroke="#a8b8ff" stroke-width="10" fill="none"/></g>'
+# keep the headline area calm, darken the bottom-right corner
+b += '<rect width="1920" height="1080" fill="url(#txtDark)"/>'
+b += corner_dark(.85)
 
-
-b += boat(890, 920, -26, 300, 8) + boat(330, 1000, 6, 200, 6)
-# foreground small wave (left) with a little claw crest
-b += '<path d="M0 1080 L0 960 C120 900 240 880 320 905 C380 925 400 965 370 975 C420 990 520 1030 640 1080Z" fill="#1a2c8a" opacity=".9"/>'
-b += '<path d="M0 960 C120 900 240 880 320 905 C380 925 400 965 370 975" stroke="#dce6ff" stroke-width="7" fill="none" opacity=".75"/>'
-for k in range(8):
-    x = 120 + k * 32; y = 905 - 20 * math.sin(k / 7 * math.pi) + 5
-    b += f'<circle cx="{x}" cy="{y - 6:.0f}" r="{random.uniform(5, 9):.0f}" fill="#f4f7ff" opacity=".9"/>'
-# keep bottom-right calm
-b += '<rect x="1540" y="840" width="460" height="300" fill="#02030f" opacity=".55" filter="url(#bl2)"/>'
-W('A.html', d, b, [('STARS ARE', 142, 'w'), ('JUST', 142, 'w'), ('FOAM', 236, 'y')], '#03051a')
-
-# ======================= B: WE SEE ONLY 5%  (intuitive: cosmic iceberg) =======================
-random.seed(22)
-WL = 470
-d = lin('skyB', [(0, '#04051a'), (.7, '#0c1a46'), (1, '#1b3d6a')])
-d += lin('seaB', [(0, '#0e2a5a'), (.35, '#071538'), (1, '#02040f')])
-d += rad('sunB', 1760, 110, 700, [(0, '#fff3cf', .9), (.08, '#ffd98a', .55), (.35, '#ff9d4a', .12), (1, '#ff9d4a', 0)])
-d += rad('haze', 1200, 760, 560, [(0, '#6a7dff', .55), (.55, '#3640c8', .4), (1, '#1c1f86', .2)])
-d += rad('tealB', 960, 300, 1100, [(0, '#3fe0d0', 0), (.7, '#3fe0d0', .06), (1, '#3fe0d0', 0)])
-d += lin('iceL', [(0, '#9fbbe8'), (1, '#3e5c9e')]) + lin('iceR', [(0, '#fffaf0'), (.6, '#ffe2a8'), (1, '#e8b870')])
-b = '<rect width="1920" height="1080" fill="url(#skyB)"/><rect width="1920" height="1080" fill="url(#tealB)"/>'
-b += stars(220, WL - 20, col='#e8f0ff', op=.55, sparks=0)
-b += f'<rect width="1920" height="{WL}" fill="url(#sunB)"/>'
-b += '<circle cx="1760" cy="110" r="26" fill="#fffaf0"/>' + spark(1760, 110, 90, '#fff6dc', .9)
-# far horizon galaxies / bergs
-b += mini_galaxy(300, 420, 9, -10, op=.7) + mini_galaxy(980, 380, 7, 20, op=.6)
-# underwater
-b += f'<rect x="0" y="{WL}" width="1920" height="{1080 - WL}" fill="url(#seaB)"/>'
-for k in range(9):   # light rays from the surface
-    x = 700 + k * 130 + random.uniform(-30, 30)
-    b += f'<path d="M{x:.0f} {WL} L{x + 70:.0f} {WL} L{x - 160:.0f} 1080 L{x - 320:.0f} 1080Z" fill="#bcd6ff" opacity="{random.uniform(.03, .07):.2f}" filter="url(#bl)"/>'
-# the hidden mass: translucent blue-indigo haze, much bigger than the tip
-HIDP = [(1080, WL), (960, 520), (840, 560), (760, 640), (690, 700), (660, 790), (700, 880), (780, 950), (900, 1010), (1040, 1050),
-        (1180, 1070), (1330, 1055), (1440, 1010), (1530, 940), (1600, 860), (1690, 790), (1740, 700), (1720, 610), (1680, 540), (1640, WL)]
-HID = 'M' + ' L'.join(f'{x} {y}' for x, y in HIDP) + 'Z'
-d += f'<clipPath id="hclip"><path d="{HID}"/></clipPath>'
-b += f'<path d="{HID}" fill="#4a5cff" opacity=".45" filter="url(#bl5)"/>'
-b += f'<path d="{HID}" fill="url(#haze)" opacity=".85" filter="url(#bl3)"/>'
-g = '<g clip-path="url(#hclip)">'
-g += '<rect x="600" y="470" width="560" height="620" fill="#0a0e50" opacity=".35" filter="url(#bl5)"/>'
-g += '<rect x="1350" y="470" width="420" height="620" fill="#9fb0ff" opacity=".14" filter="url(#bl5)"/>'
-INN = [(1000, 640), (1150, 600), (1330, 640), (1500, 620), (900, 820), (1100, 830), (1300, 860), (1480, 800), (1150, 980), (1380, 990)]
-for (x0, y0) in HIDP:   # crystal ridges from the outline to the nearest inner points
-    for (x1, y1) in sorted(INN, key=lambda p: (p[0] - x0) ** 2 + (p[1] - y0) ** 2)[:1]:
-        g += f'<path d="M{x0} {y0} L{x1} {y1}" stroke="#c4cfff" stroke-width="3" opacity=".22"/>'
-for (x0, y0) in INN:
-    for (x1, y1) in sorted(INN, key=lambda p: (p[0] - x0) ** 2 + (p[1] - y0) ** 2)[1:3]:
-        g += f'<path d="M{x0} {y0} L{x1} {y1}" stroke="#c4cfff" stroke-width="2.5" opacity=".16"/>'
-for k in range(10):   # crystal facets, faint
-    x0 = random.uniform(700, 1650); y0 = random.uniform(WL, 1040)
-    g += f'<path d="M{x0:.0f} {y0:.0f} l{random.uniform(-260, 260):.0f} {random.uniform(60, 240):.0f}" stroke="#b9c6ff" stroke-width="3" opacity=".18"/>'
-nodes = [(random.uniform(720, 1660), random.uniform(WL + 40, 1030)) for _ in range(40)]
-for i, (x0, y0) in enumerate(nodes):   # cosmic web inside
-    near = sorted(nodes, key=lambda p: (p[0] - x0) ** 2 + (p[1] - y0) ** 2)[1:3]
-    for (x1, y1) in near:
-        g += f'<path d="M{x0:.0f} {y0:.0f} Q{(x0 + x1) / 2 + random.uniform(-30, 30):.0f} {(y0 + y1) / 2 + random.uniform(-30, 30):.0f} {x1:.0f} {y1:.0f}" stroke="#a9b8ff" stroke-width="3" fill="none" opacity=".35" filter="url(#bl1)"/>'
-    g += f'<circle cx="{x0:.0f}" cy="{y0:.0f}" r="{random.uniform(8, 16):.0f}" fill="#c4ceff" opacity=".35" filter="url(#bl3)"/><circle cx="{x0:.0f}" cy="{y0:.0f}" r="2.4" fill="#eef1ff" opacity=".8"/>'
-g += f'<rect x="600" y="{WL}" width="1300" height="70" fill="#9fb8ff" opacity=".18" filter="url(#bl)"/>'
-g += '</g>'
-b += g
-b += f'<path d="{HID}" fill="none" stroke="#8ea0ff" stroke-width="4" opacity=".5" filter="url(#bl3)"/>'
-for _ in range(60):   # bubbles / specks
-    x = random.uniform(150, 1550); y = random.uniform(WL + 20, 1060)
-    if x > 1500 and y > 860: continue
-    b += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{random.uniform(1.5, 4):.1f}" fill="none" stroke="#cfe0ff" stroke-width="1.5" opacity="{random.uniform(.2, .5):.2f}"/>'
-# the visible tip, sunlit from the upper right, studded with stars
-TIPP = [(1100, WL), (1170, 400), (1235, 300), (1330, 140), (1395, 225), (1455, 195), (1525, 320), (1590, 410), (1615, WL)]
-b += '<path d="M' + ' L'.join(f'{x} {y}' for x, y in TIPP) + 'Z" fill="#ffe2a0" opacity=".45" filter="url(#bl2)"/>'
-faces = [([(1100, WL), (1170, 400), (1235, 300), (1330, 140), (1290, 300), (1300, WL)], 'url(#iceL)'),
-         ([(1330, 140), (1395, 225), (1420, 330), (1480, WL), (1300, WL), (1290, 300)], 'url(#iceR)'),
-         ([(1395, 225), (1455, 195), (1440, 300), (1420, 330)], '#c9d8f4'),
-         ([(1455, 195), (1525, 320), (1590, 410), (1615, WL), (1480, WL), (1420, 330), (1440, 300)], 'url(#iceR)')]
-for poly, fill in faces:
-    b += '<path d="M' + ' L'.join(f'{x} {y}' for x, y in poly) + f'Z" fill="{fill}" stroke="#ffffff" stroke-opacity=".35" stroke-width="2"/>'
-b += '<path d="M1330 140 L1290 300 L1300 470" stroke="#fffaf0" stroke-width="5" fill="none" opacity=".9"/>'
-b += '<path d="M1455 195 L1440 300 L1420 330 L1480 470" stroke="#fff3d0" stroke-width="4" fill="none" opacity=".8"/>'
-b += '<path d="M1330 140 L1395 225 L1455 195 L1525 320 L1590 410" stroke="#fffdf4" stroke-width="6" fill="none" opacity=".9" filter="url(#bl1)"/>'
-for _ in range(16):   # cracks on the shadow side
-    x = random.uniform(1150, 1280); y = random.uniform(330, 460)
-    b += f'<path d="M{x:.0f} {y:.0f} l{random.uniform(10, 40):.0f} {random.uniform(-30, 10):.0f}" stroke="#2a3f78" stroke-width="2" opacity=".6"/>'
-for _ in range(26):   # stars embedded in the visible tip
-    x = random.uniform(1180, 1580); y = random.uniform(240, 460)
-    b += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{random.uniform(1.5, 3.5):.1f}" fill="#ffffff" opacity="{random.uniform(.5, 1):.2f}"/>'
-b += spark(1330, 140, 34) + spark(1525, 318, 18) + spark(1250, 300, 14)
-# waterline: bright skin and the tip's reflection
-b += f'<rect x="0" y="{WL - 2}" width="1920" height="5" fill="#cfe6ff" opacity=".7"/>'
-b += f'<rect x="1060" y="{WL - 6}" width="600" height="14" fill="#fff0c4" opacity=".5" filter="url(#bl3)"/>'
-for k in range(10):
-    b += f'<rect x="{1150 + random.uniform(-30, 60):.0f}" y="{WL + 8 + k * 9}" width="{380 - k * 30:.0f}" height="3" fill="#ffe7b0" opacity="{.45 - k * .04:.2f}"/>'
-# tiny submarine with a searchlight on the hidden mass (scale)
-SX, SY = 470, 820
-b += f'<path d="M{SX + 60} {SY - 6} L{SX + 520} {SY - 130} L{SX + 560} {SY + 90} L{SX + 60} {SY + 10}Z" fill="#dbe8ff" opacity=".18" filter="url(#bl)"/>'
-b += f'<ellipse cx="{SX + 540}" cy="{SY - 20}" rx="70" ry="110" fill="#e6efff" opacity=".22" filter="url(#bl2)"/>'
-b += f'<g transform="translate({SX} {SY}) rotate(-8)"><ellipse rx="70" ry="24" fill="#d9a441" stroke="#2a1a08" stroke-width="3"/>'
-b += '<rect x="-22" y="-44" width="40" height="24" rx="8" fill="#c48f30" stroke="#2a1a08" stroke-width="3"/>'
-b += '<path d="M-70 0 L-92 -16 L-92 16Z" fill="#a8782a" stroke="#2a1a08" stroke-width="3"/>'
-for k in range(3): b += f'<circle cx="{-30 + k * 26}" cy="0" r="7" fill="#9fe0ff" stroke="#2a1a08" stroke-width="2.5"/>'
-b += '<circle cx="66" cy="-2" r="7" fill="#fffbe8"/><path d="M-50 -14 Q0 -30 50 -14" stroke="#ffe7b0" stroke-width="3" fill="none" opacity=".8"/></g>'
-b += '<rect x="1560" y="860" width="420" height="260" fill="#010309" opacity=".6" filter="url(#bl2)"/>'
-W('B.html', d, b, [('WE SEE', 150, 'w'), ('ONLY <span class="g">5%</span>', 220, 'w')], '#03051a', top=50)
-
-# ======================= C: WHAT'S IN THE OTHER 95%?  (intuitive: the book with five readable pages) =======================
-random.seed(33)
-d = lin('wallC', [(0, '#07081c'), (1, '#121838')])
-d += rad('glowC', 1180, 560, 760, [(0, '#ffd98a', .55), (.3, '#ff9d4a', .18), (1, '#ff9d4a', 0)])
-d += lin('gold', [(0, '#fff6dc'), (.5, '#ffe2a0'), (1, '#e9b56a')], x2=1, y2=1)
-d += lin('inv', [(0, '#3a4adf'), (1, '#141a6a')], x2=1, y2=1)
-d += lin('desk', [(0, '#3a2216'), (1, '#0e0705')])
-b = '<rect width="1920" height="1080" fill="url(#wallC)"/>'
-# library shelves receding in the dark
-for side in (0, 1):
-    for col in range(3):
-        x0 = 40 + col * 260 if side == 0 else 1920 - 300 - col * 260
-        if side == 0 and col == 0: x0 = 30
-        op = .55 - col * .12
-        b += f'<rect x="{x0}" y="0" width="240" height="900" fill="#0d1130" opacity="{op:.2f}"/>'
-        for r in range(7):
-            y = 40 + r * 125
-            b += f'<rect x="{x0}" y="{y + 110}" width="240" height="10" fill="#1d2350" opacity="{op:.2f}"/>'
-            x = x0 + 8
-            while x < x0 + 225:
-                w = random.randint(12, 26); h = random.randint(70, 105)
-                c = random.choice(['#2a2f6a', '#3a2a5a', '#23415a', '#4a3020', '#2a3a2a'])
-                b += f'<rect x="{x}" y="{y + 110 - h}" width="{w}" height="{h}" fill="{c}" opacity="{op * .9:.2f}"/>'
-                x += w + 2
-b += '<rect width="1920" height="1080" fill="url(#glowC)"/>'
-# desk
-b += '<path d="M0 860 L1920 860 L1920 1080 L0 1080Z" fill="url(#desk)"/><rect x="0" y="856" width="1920" height="6" fill="#ffcf8a" opacity=".25"/>'
-# book: covers and page blocks
-SX = 1180; ST = 560; SB = 860
-b += f'<ellipse cx="{SX}" cy="900" rx="600" ry="40" fill="#000" opacity=".55" filter="url(#bl)"/>'
-b += f'<path d="M{SX} {SB + 30} C1000 {SB + 10} 820 {SB + 10} 690 {SB + 20} L700 {ST - 10} C820 {ST - 40} 1000 {ST - 40} {SX} {ST}Z" fill="#4a1e14" stroke="#d9a441" stroke-width="4"/>'
-b += f'<path d="M{SX} {SB + 30} C1360 {SB + 10} 1540 {SB + 10} 1670 {SB + 20} L1660 {ST - 10} C1540 {ST - 40} 1360 {ST - 40} {SX} {ST}Z" fill="#4a1e14" stroke="#d9a441" stroke-width="4"/>'
-# page edges (thickness) along the bottom: many blue lines, five gold
-for k in range(14):
-    y = SB + 2 + k * 2
-    b += f'<path d="M{SX} {y + 6} C1000 {y - 14} 860 {y - 14} 720 {y - 4}" stroke="#2c3790" stroke-width="1.6" fill="none"/>'
-    gold = k in (2, 5, 8, 10, 12)
-    b += f'<path d="M{SX} {y + 6} C1360 {y - 14} 1500 {y - 14} 1640 {y - 4}" stroke="{"#ffd98a" if gold else "#2c3790"}" stroke-width="{2.4 if gold else 1.6}" fill="none"/>'
-# left page: invisible ink - translucent indigo with ghost lines
-LP = f'M{SX} {ST} C1040 {ST - 50} 860 {ST - 40} 720 {ST - 10} L720 {SB - 6} C860 {SB - 30} 1040 {SB - 30} {SX} {SB}Z'
-RP = f'M{SX} {ST} C1320 {ST - 50} 1500 {ST - 40} 1640 {ST - 10} L1640 {SB - 6} C1500 {SB - 30} 1320 {SB - 30} {SX} {SB}Z'
-b += f'<path d="{LP}" fill="url(#inv)" opacity=".85"/><path d="{LP}" fill="none" stroke="#9fb3ff" stroke-width="3" opacity=".6"/>'
-for k in range(11):
-    y = ST + 30 + k * 24
-    b += f'<path d="M760 {y + 4} C900 {y - 18} 1050 {y - 16} 1150 {y + 2}" stroke="#7d92ff" stroke-width="5" fill="none" opacity=".16" stroke-dasharray="{random.randint(20, 60)} 10 {random.randint(30, 80)} 14"/>'
-# right page: the one readable page, glowing gold
-b += f'<path d="{RP}" fill="#ffd98a" opacity=".7" filter="url(#bl2)"/>'
-b += f'<path d="{RP}" fill="url(#gold)"/>'
-for k in range(10):
-    y = ST + 26 + k * 25
-    if 3 <= k <= 6:   # a little diagram: a spiral galaxy sketch on the page
-        continue
-    b += f'<path d="M1215 {y + 2} C1320 {y - 18} 1480 {y - 16} 1605 {y - 2}" stroke="#6a4214" stroke-width="5" fill="none" opacity=".6" stroke-dasharray="{random.randint(24, 60)} 9 {random.randint(14, 40)} 9 {random.randint(30, 70)} 9"/>'
-b += '<g transform="translate(1330 670) rotate(-6)"><ellipse rx="78" ry="34" fill="none" stroke="#6a4214" stroke-width="3" opacity=".7"/>'
-b += '<path d="M-70 4 Q-30 -40 0 0 Q30 40 70 -4" stroke="#6a4214" stroke-width="4" fill="none" opacity=".8"/><circle r="8" fill="#6a4214"/></g>'
-b += '<g transform="translate(1520 668)"><circle r="40" fill="none" stroke="#6a4214" stroke-width="3" opacity=".6"/><path d="M0 0 L0 -40 A40 40 0 0 1 38 -12Z" fill="#6a4214" opacity=".55"/></g>'
-# fluttering invisible-ink pages rising from the spine (translucent indigo, glowing blue edges)
-for k, th in enumerate([150, 135, 120, 104, 88, 72, 58, 44]):
-    a = math.radians(th); Wd = 470
-    tx, ty = SX + Wd * math.cos(a), ST - Wd * .78 * math.sin(a)
-    bx, by = SX + Wd * math.cos(a) * .96, SB - Wd * .7 * math.sin(a)
-    cu = 70 * (1 if th < 90 else -1)
-    pth = (f'M{SX} {ST} Q{SX + (tx - SX) * .5 + cu * .3:.0f} {ST + (ty - ST) * .5 - 70:.0f} {tx:.0f} {ty:.0f} '
-           f'Q{tx + cu * .25:.0f} {(ty + by) / 2:.0f} {bx:.0f} {by:.0f} Q{SX + (bx - SX) * .5 + cu * .3:.0f} {SB + (by - SB) * .5 - 70:.0f} {SX} {SB}Z')
-    b += f'<path d="{pth}" fill="#3b4ce0" opacity=".16"/>'
-    b += f'<path d="{pth}" fill="none" stroke="#a9baff" stroke-width="3" opacity=".55"/>'
-    b += f'<path d="M{SX} {ST} Q{SX + (tx - SX) * .5 + cu * .3:.0f} {ST + (ty - ST) * .5 - 70:.0f} {tx:.0f} {ty:.0f}" stroke="#dfe6ff" stroke-width="4" fill="none" opacity=".75" filter="url(#bl1)"/>'
-# glow over the gold page, dust motes and sparks
-b += '<ellipse cx="1420" cy="560" rx="260" ry="120" fill="#ffe2a0" opacity=".25" filter="url(#bl5)"/>'
-for _ in range(90):
-    x = random.uniform(760, 1660); y = random.uniform(120, 560)
-    c = random.choice(['#fff1c8', '#fff1c8', '#b9c6ff'])
-    b += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{random.choice([1.5, 2.2, 3.2])}" fill="{c}" opacity="{random.uniform(.35, .9):.2f}"/>'
-b += spark(1450, 470, 26) + spark(1010, 250, 18, '#d6dfff') + spark(1300, 180, 14, '#d6dfff') + spark(1580, 360, 16)
-b += '<rect x="1560" y="880" width="420" height="240" fill="#020203" opacity=".55" filter="url(#bl2)"/>'
-W('C.html', d, b, [("WHAT'S IN", 130, 'w'), ('THE OTHER', 130, 'w'), ('95%?', 240, 'y')], '#03051a')
-print('ok')
+# ---- callouts: leader lines in SVG, labels as HTML
+cands = [(m, x, y) for m, x, y in best if 1300 < x < 1720 and 300 < y < 520 and math.hypot(x - VOIDC[0], y - VOIDC[1]) > 200]
+DMx, DMy = (cands[0][1], cands[0][2]) if cands else (1560, 330)
+LBx, LBy = max(800, DMx - 640), max(60, DMy - 260)   # DARK MATTER label up-left of the knot, leader goes down-right
+VLx, VLy = VOIDC
+lead = lambda x0, y0, x1, y1: (f'<path d="M{x0:.0f} {y0:.0f} L{x1:.0f} {y1:.0f}" stroke="#05061a" stroke-width="9" stroke-linecap="round"/>'
+                               f'<path d="M{x0:.0f} {y0:.0f} L{x1:.0f} {y1:.0f}" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>'
+                               f'<circle cx="{x1:.0f}" cy="{y1:.0f}" r="11" fill="none" stroke="#05061a" stroke-width="8"/><circle cx="{x1:.0f}" cy="{y1:.0f}" r="11" fill="none" stroke="#fff" stroke-width="3.5"/>')
+ang = math.atan2(DMy - LBy - 30, DMx - LBx - 180)
+b += lead(LBx + 330, LBy + 34, DMx - 14 * math.cos(ang), DMy - 14 * math.sin(ang))
+LBL = ('<div style="position:absolute;left:{x}px;top:{y}px;font-family:Fredoka,sans-serif;font-weight:700;font-size:{s}px;letter-spacing:2px;line-height:1;'
+       'color:{c};-webkit-text-stroke:10px #05061a;paint-order:stroke fill;text-align:center;white-space:nowrap">{t}</div>')
+labels = LBL.format(x=LBx, y=LBy, s=62, c='#c9d6ff', t='DARK MATTER')
+labels += LBL.format(x=VLx - 70, y=VLy - 40, s=64, c='#ffffff', t='VOID')
+labels += LBL.format(x=VLx - 118, y=VLy + 30, s=34, c='#ffffff', t='MOSTLY EMPTY')
+open('C.html', 'w', encoding='utf-8').write(page('#02030a', svg(FX + d, b) + labels, [('THE', 130, 'w'), ('HIDDEN', 150, 'w'), ('WEB', 260, 'y')], '#07061a'))
+print('ok', DMx, DMy)
