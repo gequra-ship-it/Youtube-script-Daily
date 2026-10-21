@@ -1,4 +1,5 @@
 import os
+import re
 import time
 import multiprocessing
 from datetime import datetime
@@ -10,6 +11,24 @@ YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
 SAVE_DIR = "./scripts_igwahyung"
+
+PUBLISHED_DATE = None  # 선택된 영상의 게시일(YYYY-MM-DD), 없으면 실행일 사용
+
+def script_date():
+    return PUBLISHED_DATE or datetime.now().strftime("%Y-%m-%d")
+
+def video_title_of(script_text, fallback):
+    """대본의 '[영상 제목]: 영어 / 한국어'에서 영어 제목만 뽑는다(없으면 fallback)."""
+    m = re.search(r"\[영상 제목\]:\s*(.+)", script_text)
+    if not m:
+        return fallback
+    en = re.sub(r"\s*\(Part \d+/\d+\)\s*$", "", m.group(1).split(" / ")[0]).strip()
+    return en or fallback
+
+def safe_title(title, max_len=80):
+    t = re.sub(r'[\\/:*?"<>|\x00-\x1f]', "", title)
+    t = re.sub(r"\s+", " ", t).strip(" .")
+    return t[:max_len].rstrip(" .") or "untitled"
 HISTORY_FILE = os.path.join(SAVE_DIR, "history.txt")
 
 def get_unprocessed_top_video():
@@ -49,6 +68,8 @@ def get_unprocessed_top_video():
             
             if video_id not in processed_videos:
                 print(f"✅ 새로운 타겟 영상 발견: {video_title}", flush=True)
+                global PUBLISHED_DATE
+                PUBLISHED_DATE = item["snippet"].get("publishedAt", "")[:10] or None
                 return video_title, video_id
                 
         print("⚠️ 상위 50개 영상을 모두 처리했습니다!", flush=True)
@@ -333,12 +354,11 @@ if __name__ == "__main__":
         
         if script_text:
             summary = create_korean_summary(script_text)
-            current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"script_{current_time}.txt"
+            filename = f"{script_date()}_{safe_title(video_title_of(script_text, title))}.txt"
             text_file_path = os.path.join(SAVE_DIR, filename)
             
             with open(text_file_path, "w", encoding="utf-8") as f:
-                f.write(f"레퍼런스 주제: {title}\n\n")
+                f.write(f"날짜: {script_date()}\n제목: {video_title_of(script_text, title)}\n레퍼런스 주제: {title}\n\n")
                 if summary:
                     f.write("=== 한국어 요약 (전체 번역이 아닌 요약본) ===\n" + summary.strip() + "\n\n")
                 f.write(script_text)
