@@ -5,12 +5,12 @@
     python3 tools/title_lint.py titles.txt [--thumb "..."]    # one title per line
 
 Adapted from title.py in Jakeschincariol/youtube-agent-skill (MIT), with this channel's limits:
-title <= 70 chars (mobile feed shows ~40), Title Case, no emoji, no all-caps words, no vague hype,
-thumbnail 2-5 words and no word shared with the title. Advisory only; numbers must come from the script.
+title <= 60 chars (mobile feed shows ~40), Title Case, no emoji, no all-caps words, no vague hype,
+thumbnail 2-3 words and no word shared with the title. Advisory only; numbers must come from the script.
 """
 import re, sys, os
 
-MAX, MOBILE = 70, 40
+MAX, MOBILE = 60, 40
 VAGUE = {"amazing", "incredible", "insane", "crazy", "huge", "massive", "ultimate", "best", "powerful",
          "secret", "revolutionary", "mindblowing", "epic", "perfect", "everything"}
 STOP = {"the", "a", "an", "of", "for", "to", "in", "on", "and", "or", "is", "are", "with", "your", "you",
@@ -37,7 +37,7 @@ def check(title, thumb=None):
         shared = (set(words(t)) - STOP) & (set(words(thumb)) - STOP)
         if shared: issues.append(f"thumbnail repeats title: {', '.join(sorted(shared))}")
         k = len(words(thumb))
-        if not 2 <= k <= 5: issues.append(f"thumbnail has {k} words (2-5)")
+        if not 2 <= k <= 3: issues.append(f"thumbnail has {k} words (2-3)")
     return n, issues
 
 def main():
@@ -49,6 +49,7 @@ def main():
     for t in titles:
         n, issues = check(t, thumb)
         print(f'{"OK " if not issues else "FIX"} [{n}] {t}')
+        if not re.search(r"\d", t): print("      (note) no number/year - add one only if the script has it")
         if n > MOBILE: print(f'      (note) mobile feed shows ~"{t[:MOBILE].rsplit(" ", 1)[0]}..."')
         for i in issues: print(f"      - {i}")
 
