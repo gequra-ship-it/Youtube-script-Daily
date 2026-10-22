@@ -301,6 +301,8 @@ def obj_js(kind, g, at, t0, v0, sp):
 
 MOTION_JS = """
 function miyaEase(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;}
+// travelling motion (path object, tracking camera): constant speed with short 15 % soft start/stop (no mid-way speed-up, owner 2026-10-22)
+function miyaCruise(x){var r=.15,v=1/(1-r);return x<r?v*x*x/(2*r):x>1-r?1-v*(1-x)*(1-x)/(2*r):v*(r/2+x-r);}
 function miyaClamp(x){return Math.min(1,Math.max(0,x));}
 // new transitions: clip-path of picture `el` from k (0..1); the overlay #trfx carries the light edges
 function miyaTr(el,tr,k,W,H){
@@ -344,7 +346,7 @@ function miyaPath(tl,g,d,t0,dur,rot,rot0){
  function ang(k){var a=p.getPointAtLength(L*k),b=p.getPointAtLength(Math.min(L,L*k+2));return Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI;}
  var a0=ang(0);t.style.display=pd;t.style.visibility=pv;
  function ap(k){var q=p.getPointAtLength(L*k);gsap.set(g,{x:q.x-P0.x,y:q.y-P0.y,rotation:rot?ang(k)-a0+(rot0||0):0,svgOrigin:P0.x+' '+P0.y});}
- tl.to(o,{k:1,duration:dur,ease:'power2.inOut',immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
+ tl.to(o,{k:1,duration:dur,ease:miyaCruise,immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
 }
 // camera tracking: the camera centre follows an SVG path (same window and ease as the object), zooming in at the start and out at the end
 function miyaTrack(tl,wsel,d,t0,dur,sc,W,H,ease){
@@ -354,7 +356,7 @@ function miyaTrack(tl,wsel,d,t0,dur,sc,W,H,ease){
  function ap(k){var q=p.getPointAtLength(L*k),r=Math.min(1,k/.12,(1-k)/.12),s=1+(sc-1)*r*r*(3-2*r);
   var cx=Math.min(Math.max(q.x,W/2/s),W-W/2/s),cy=Math.min(Math.max(q.y,H/2/s),H-H/2/s);
   gsap.set(w,{scale:s,x:W/2-cx*s,y:H/2-cy*s,transformOrigin:'0px 0px'});}
- tl.to(o,{k:1,duration:dur,ease:ease,immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
+ tl.to(o,{k:1,duration:dur,ease:ease==='power2.inOut'?miyaCruise:ease,immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
 }
 // strokes draw themselves on (network edges)
 function miyaDraw(tl,g,v0,st,dur){
