@@ -45,7 +45,7 @@ Abstract ideas: symbolic (sand drift, stacked layers, rain of dots), never rings
 ## 6A. Hands — MANDATORY (2026-10-17)
 Hands needing fingers (6B) only via `tools/hands.py`, never free-hand; other hands simple and round.
 ```python
-import sys; sys.path.insert(0, '/home/user/rp/tools'); from hands import hand
+import sys; sys.path.insert(0, 'tools')  # run from the repo root; from hands import hand
 svg += hand(x, y, angle, size, side='L'|'R', view='palm'|'back', pose='open'|'flat'|'wave'|'point'|'fist'|'hold', skin=..., line=...)
 ```
 (x, y) wrist, `angle` finger direction (0 = up, clockwise), `size` palm length px. Built in: middle finger ~ palm; thumb low on the palm

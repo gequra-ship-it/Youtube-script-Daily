@@ -1,7 +1,7 @@
 # Shared hand drawing for picture agents (2026-10-17, user: "the thumbs bend at grotesque angles and are far too long").
 # Agents must draw every visible hand with this module instead of free-hand paths.
 #
-#   import sys; sys.path.insert(0, '/home/user/rp/tools'); from hands import hand
+#   import sys; sys.path.insert(0, 'tools')  # run from the repo root; from hands import hand
 #   svg += hand(x, y, angle=0, size=120, side='L', view='palm', pose='open', skin='#c98f63', line='#2b1d14')
 #
 # (x, y)  = centre of the WRIST (where the forearm ends), in picture coordinates.
