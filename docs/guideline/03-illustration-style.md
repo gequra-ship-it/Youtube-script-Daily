@@ -26,7 +26,7 @@
 ```
 soft 2D editorial illustration, thin hand-drawn ink lines, subtle hatching, soft gradients and gentle glow,
 [paper background in palette paper_base | night background palette night_top->night_bottom | dusk gradient palette dusk_stops]  (colours from the video's palette, see 3-5),
-one bright round focal object exactly at the center, calm dignified figures, 16:9, no text,
+one bright focal object (position per guideline 3-2; a round object at the centre is optional), calm dignified figures, 16:9, no text,
 [scene-specific backdrop that fits the narration: room | landscape | lab shelf | microscope field | notebook page | timeline ...], [scene description]
 ```
 네거티브: `thick black outline, flat cartoon, 3d render, photorealistic, anime, chibi, neon on white, watermark, text, concentric rings, radiating lines, sunburst rays`
