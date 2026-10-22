@@ -276,6 +276,11 @@ for k, u in enumerate(units):
     pool = ['zoom', 'fade', 'slide', 'match', 'wash', 'wipe', 'iris', 'eye', 'push', 'whip', 'tilt'] + NEW_TR   # 5 more 2026-10-22: seam, diamond, page, zigzag, wave
     if u['scene'] != p['scene']:
         pool.remove('match'); pool += ['zoom', 'wash', 'eye']   # scene change: favour the big covering cuts
+    # (2026-10-22) pictures without a round centre object: 'match' (circle from the centre) and 'zoom' (into the centre) have nothing to grow from
+    def _core(x):
+        try: return bool(re.search(r'mv-(core|glint-core)', open(f'{ART3}/{x["uid"]}.svg', encoding='utf-8').read()))
+        except OSError: return True
+    if not (_core(u) and _core(p)): pool = [x for x in pool if x not in ('match', 'zoom')]
     # 'blinds' (colour bars dropping down) removed for all videos, user decision 2026-10-16
     if u['scene'] in SLOW_SC:   # slow scene: calm transitions only
         pool = [x for x in pool if x in ('fade', 'match', 'eye', 'iris', 'slide', 'zoom')] or ['fade']
