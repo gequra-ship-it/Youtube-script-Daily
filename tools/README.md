@@ -71,3 +71,6 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 ## 2026-10-22 additions (motion test, user decision)
 - `motions.py`: 5 new transitions `seam` (line drawn from bottom-left to top-right, then it opens into a diagonal band), `diamond`, `page`, `zigzag`, `wave` (`NEW_TR`, `tr_js`, `miyaTr` driven by a modifier-based proxy tween so it is seek-safe) and 12 position-free object motions (`OBJ_KINDS`, `obj_js`: path, flip, fill, grow, swing, topple, liquid, bubble, edge, keyturn, shackle, popin). `build3.py` adds them to the transition pool (16 types now), sounds (`TRSND`), the `#trfx` overlay, the page-fold exit, and parses `data-*` of the new `mv-<kind>-<name>` groups. Tested only in a headless-Chromium harness (seek at several times, all five transitions and every motion kind); not yet seen in a full MP4 render.
 - The 20 s test video (8 scenes, v8) and its source are in the project files, `motion-demo/`.
+
+## 2026-10-22 additions (title lint)
+`python3 tools/title_lint.py --title "..." [--thumb "..."]` checks a title/thumbnail text pair against guideline 16-6 and 17-3 (advisory). Adapted from Jakeschincariol/youtube-agent-skill (MIT).
