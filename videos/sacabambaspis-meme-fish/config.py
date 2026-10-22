@@ -28,10 +28,9 @@ CHAPTERS = [(1, "The Derpiest Face"), (3, "The Woman Who Made the Face"), (4, "T
             (19, "Armor Made of Bone"), (21, "Before the Armor"), (24, "Armored Cousins"), (26, "A Crowd Frozen in Stone"),
             (28, "How Good Is the Model?"), (31, "The Invention of Jaws"), (34, "Ice Over Gondwana"), (36, "A Cousin, Not an Ancestor"),
             (40, "A Meme That Teaches")]
-SOURCES = ["Gagnier, Blieck & Rodrigo (1986). Sacabambaspis janvieri, an Ordovician vertebrate from Bolivia",
-           "Pradel et al. (2006). Studies of the tail and body of Sacabambaspis",
-           "Ritchie & Gilbert-Tomlinson (1977). The Arandaspida from the Ordovician of Australia",
-           "Pilcher, H. BBC Science Focus: article on Sacabambaspis and the Helsinki model",
+SOURCES = ["Gagnier, Blieck & Rodrigo (1986): original description of Sacabambaspis (Bolivia); anatomy summary in the Wikipedia article Sacabambaspis (consulted 2026-10-22)",
+           "Ritchie & Gilbert-Tomlinson (1977): naming of the Arandaspida; summary in the Wikipedia article Arandaspida (consulted 2026-10-22)",
+           "Pilcher, H. BBC Science Focus: article on Sacabambaspis and the Helsinki museum model (2026)",
            "Finnish Museum of Natural History, Helsinki: fossil fish exhibit (1995)"]
 HASHTAGS = "#MiyasLab #Sacabambaspis #Paleontology #Evolution #AncientLife"
 BG = dict(face='night', meme='paper', sculptor='dusk', ordovician='night', invert='dusk', andes='paper', shore='dusk', shellskin='paper',
