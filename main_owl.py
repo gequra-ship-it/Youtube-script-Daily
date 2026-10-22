@@ -25,6 +25,20 @@ def video_title_of(script_text, fallback):
     en = re.sub(r"\s*\(Part \d+/\d+\)\s*$", "", m.group(1).split(" / ")[0]).strip()
     return en or fallback
 
+def korean_title_of(script_text, summary, fallback):
+    """한국어 제목: '[영상 제목]: 영어 / 한국어' 뒤쪽, 없으면 요약의 '■ 영상 제목: 영어 (한국어)' 괄호 안, 그래도 없으면 fallback."""
+    m = re.search(r"\[영상 제목\]:\s*(.+)", script_text or "")
+    if m and " / " in m.group(1):
+        ko = m.group(1).split(" / ", 1)[1].strip()
+        if re.search(r"[가-힣]", ko):
+            return ko
+    m = re.search(r"■ 영상 제목:\s*(.+)", summary or "")
+    if m:
+        g = re.search(r"\(([^()]*[가-힣].*)\)\s*$", m.group(1))
+        if g:
+            return re.sub(r"\s*\(\d+부[^()]*\)\s*$", "", g.group(1)).strip()
+    return fallback
+
 def safe_title(title, max_len=80):
     t = re.sub(r'[\\/:*?"<>|\x00-\x1f]', "", title)
     t = re.sub(r"\s+", " ", t).strip(" .")
@@ -382,7 +396,7 @@ if __name__ == "__main__":
             
             if script_text:
                 summary = create_korean_summary(script_text, f" (Part {part_num}/{total_parts})")
-                filename = f"{script_date()}_{safe_title(video_title_of(script_text, title))}_Part{part_num}.txt"
+                filename = f"{script_date()}_{safe_title(korean_title_of(script_text, summary, video_title_of(script_text, title)))}_Part{part_num}.txt"
                 text_file_path = os.path.join(SAVE_DIR, filename)
                 
                 with open(text_file_path, "w", encoding="utf-8") as f:
