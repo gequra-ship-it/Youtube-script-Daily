@@ -286,6 +286,8 @@ keep art style and line art consistent, no morphing, no text
 장면별 상세 명세(12-3)는 채팅에 쓰지 않고 HTML 장면 패널에 넣는다.
 
 ### 12-1. 작업 순서
+**영상 한 편의 전체 순서 (miya 2026-10-22, 다른 장의 순서 언급보다 우선): ① 대본 확인·수정(아래 1~3) → ② TTS(음성·단어 시간) → ③ 썸네일 3장 → ④ 그림 → ⑤ 렌더·Drive 업로드.** 썸네일은 시안 3장(접촉 시트)을 사용자에게 보여 주고 **통과/수정 답을 받은 뒤에만** ④로 넘어간다. 확인 전에는 그림 에이전트 실행·렌더·Drive 업로드(`deliver/`, `.deliver_only` 푸시 포함)를 하지 않는다. 수정 요청이면 고쳐서 다시 보이고 통과를 받는다.
+
 1. **언어 확인**: 한국어면 영어로 번역(0장 4번).
 2. **길이 확인**: 단어 수 ÷ 163. 목표 약 3,450단어, 허용 3,300~3,700(우주 모드는 상한 없이 하한 3,300). 미만이면 10장 구조로 보강(보강 사실은 **A등급만**, 출처 기록), 초과면 반복·곁가지를 덜어낸다. 채팅에 "원래 ○단어 → ○단어, 추가/삭제 내용"을 짧게. 음성을 만든 뒤 실제 길이가 20분 미만이면 알리고 보강할지 묻는다.
 3. **사실 확인 (등급제, 사용자 결정 2026-10-10)**: 모든 사실 주장을 표로(항목 | 원문 | 등급 | 처리·근거).
@@ -297,7 +299,7 @@ keep art style and line art consistent, no morphing, no text
    | **D** | 근거와 모순 | 반드시 고치고 표에 표시 |
    - **지어내지 않는다**: 존재하지 않는 사례·연구·숫자·인용·인물 금지. 자극은 사실의 배열로.
    - A~D 처리를 반영한 내레이션으로 만들고 표에 표시. 애매하면 한 단계 보수적으로(A가 아니라 B).
-4. **장면 설계**: 컷, 등장인물·장소 시트, 칠판 구간, 효과음 큐, 팔레트(3-5). 5. HTML 애니메틱(13장). 6. 대본 txt(14장, HTML과 글자 하나까지 같게). 7. 썸네일 3장(16장).
+4. **장면 설계**: 컷, 등장인물·장소 시트, 칠판 구간, 효과음 큐, 팔레트(3-5). 5. HTML 애니메틱(13장). 6. 대본 txt(14장, HTML과 글자 하나까지 같게). 7. 썸네일은 위 ③에서 TTS 직후에 만든다(16장, 사용자 확인 필수). 4~6의 그림·렌더는 썸네일 통과 뒤.
 8. MP4 렌더(15장): Actions 서버 렌더(15-5, 병렬 20-7)가 기본(대화로는 30MiB 한도라 MP4를 못 보냄). 막히면 15-1~15-4의 이 환경 렌더.
 9. 제목·설명 파일(17장), 타임스탬프는 렌더 MP4의 실제 컷 시각.
 10. **Drive 저장(18장)**: 모든 산출물을 **Git으로 보내 Actions가 Drive로 올린다**(사용자 결정: PC가 꺼져 있을 수 있음). 썸네일·txt는 `render/<슬러그>/deliver/`.
@@ -419,7 +421,7 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 ### 15-6. 렌더 원본 만들기 (새 화풍 방식, 2026-10-09 구현·확인)
 
 **제작 순서 (`tools/README.md`에도 있음)**
-1. 음성: `tools/tts.sh` → `tools/audio_prep.py` → `tools/align.py`(21-5).
+1. 음성: `tools/tts.sh` → `tools/audio_prep.py` → `tools/align.py`(21-5). **그다음 썸네일 3장을 만들어 사용자 확인(통과/수정)을 받는다(16-6, 12-1). 통과 전에는 3번 그림을 시작하지 않는다.**
 2. `SLUG=x PLAN=1 python3 tools/build3.py` → `videos/x/plan.json`(uid, 대본, 배경 종류, 전환, 앞뒤 대본, `pal`).
 3. 그림: `tools/art_spec.md`(세로 10절, 우주 11절) + `art_brief.md`(등장인물 시트, 에이전트별 스크래치 폴더)로 하위 에이전트가 `videos/x/art3/<uid>.svg`·`.json`을 그린다(에이전트당 10~20장, 장면 단위, 21-3). 사이드카 키 `centre`, `focus`, `focus_word`, `sfx`, `labels`, `iris`, `spot`, `speed`. 확인 `tools/svgshot.py`, `tools/labelshot.py`.
 4. `SLUG=x python3 tools/build3.py` → `render/x/`(세로 `VERT=1`, 일부 시험 `SEL=1,2,3`, 그림 없을 때 시험용 `FALLBACK=1`). 로그 `fallback art 0` 확인.
@@ -474,12 +476,12 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 4. **색은 대본 내용으로, 팔레트는 뼈대**(3-5; 2026-10-18: "그라데이션 밤하늘·바다는 아니야"). 주제 팔레트(`tools/palettes.py`)는 출발점일 뿐이고 그림 에이전트가 소재에 맞게 색을 바꾸거나 더해도 된다. 초점 대상이 배경보다 훨씬 밝거나 선명하게(후광 가능), 포인트 색은 금 `#F2D27A` + 보색 하나. 지평선은 높이의 65~80%, 그 아래 더 어둡게.
 5. **완성도**: 크고 디테일한 대상(음영, 가장자리 빛, 질감, 소품), 분명한 빛 방향·후광, 앞·중간·뒤 깊이, 큰 대비. 네온 윤곽·얇은 밝은 윤곽선 가능.
 6. 오른쪽 아래 비움, 글자와 핵심 그림 겹치지 않음. 7. 세 장은 소재·대상 위치·글자 형식(질문형, 등식·숫자형, 선언형)을 다르게.
-8. **Opus 에이전트가 만든다**(2026-10-18, 지시문 `tools/briefs/thumb_art.md`): 영상마다 에이전트 1명이 3장 + 접촉 시트 1장으로 확인, 8줄 이내 보고 → 사용자에게 예시로 먼저 확인(21-4) → Drive 업로드. 캡처 `tools/thumb_shot.py`(A~F).
+8. **Opus 에이전트가 만든다**(2026-10-18, 지시문 `tools/briefs/thumb_art.md`): 영상마다 에이전트 1명이 3장 + 접촉 시트 1장으로 확인, 8줄 이내 보고 → **사용자에게 접촉 시트로 보이고 통과/수정 답을 받는다(필수, 2026-10-22)** → 통과한 뒤에만 Drive 업로드. 확인 전에는 그림·렌더·업로드 금지. 순서는 TTS 다음, 그림 앞(12-1). 캡처 `tools/thumb_shot.py`(A~F).
 
 ### 16-7. 2026-10-18 제작 기록 (Opus 에이전트, 접촉 시트·320px 판독 확인; 영상 내용은 직접 보지 않음)
 - 통과한 12장: dinosaur-restorations A~C, desert-oasis A~C, left-handed-ten-percent A~C, paleozoic-chronicles D~F(문구·유형 표는 archive). 한 영상(3장)당 에이전트 1명, 약 5~10분, 토큰 약 11만~14만.
 - **이미 쓴 오마주(다른 영상에서 다시 쓰지 않음, `tools/briefs/thumb_art.md` 목록)**: 죠스, 쥬라기 공원, 아라비아의 로렌스, 라이온 킹, 록키, E.T., 아담의 창조, 트루먼 쇼, 인터스텔라.
-- **업로드**: 썸네일만 올릴 때 `render/<슬러그>/.deliver_only`(빈 파일) + `render/.slug`(슬러그 한 줄씩) 푸시 → `render.yml`이 `deliver/`만 올림. 확인 뒤 `.deliver_only`를 지우고 `.slug`를 `none`으로 되돌려 푸시.
+- **업로드**: 사용자가 통과시킨 뒤에만. 썸네일만 올릴 때 `render/<슬러그>/.deliver_only`(빈 파일) + `render/.slug`(슬러그 한 줄씩) 푸시 → `render.yml`이 `deliver/`만 올림. 확인 뒤 `.deliver_only`를 지우고 `.slug`를 `none`으로 되돌려 푸시.
 
 ### 16-5. 제작 확인 기록 (2026-10-08, 대본: The Deadly Science of Why You Must Never Eat Humans)
 - 2026-10-08~10의 썸네일 기록(구 화풍·새 화풍·에포미스)은 archive에 있다.
@@ -632,6 +634,7 @@ ABOUT MIYA'S LAB
 
 ### 21-2. 순서 (명령)
 1. 음성: 작업 폴더에 없으면 `SLUG=<slug> HYPERFRAMES_PYTHON=/home/user/kvenv/bin/python tools/tts.sh` 후 `SLUG=<slug> python3 tools/audio_prep.py`(롱폼 45문단 약 15분, 백그라운드), 그다음 `align.py`(21-5).
+1-1. (새 영상) 음성 뒤 썸네일 3장 → 사용자 확인 → 통과 후 그림(12-1 순서).
 2. 롱폼: `SLUG=<slug> python3 tools/remake.py` → 예전 `plan.json`을 `$MIYA_WORK/<slug>/plan_prev.json`에 두고 다시 나눈 뒤 `remap_art.py`가 가장 많이 겹치는 예전 그림을 붙이고 `.dest`·`.skip_deliver`를 점검. 출력의 `NO ART`와 `NEEDS VARIANT`(앞 단위와 같은 그림)만 그린다.
 3. 숏츠 대본 3편(에이전트, Sonnet) → 음성 → `SLUG=<slug>-shortN VERT=1 PLAN=1 python3 tools/build3.py` → 그림(21-3).
 4. 빌드 4개(`fallback art 0` 확인), `tools/gen_text.py`(대본·메타데이터), 썸네일 `tools/thumb_shot.py`.
