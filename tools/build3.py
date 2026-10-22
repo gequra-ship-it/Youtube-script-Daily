@@ -549,6 +549,7 @@ if getattr(CFG, 'STYLE', 'default') == 'cosmic':   # cosmic videos: no swish/hus
              'seam': ('warp', -0.5, 0.5), 'diamond': ('glimmer', -0.8, 0.6), 'page': ('sparkle', -0.5, 0.5), 'zigzag': ('warp', -0.5, 0.5), 'wave': ('glimmer', -0.7, 0.6),
              'dip': ('glimmer', -0.45, 0.55), 'flash': ('bloom', -0.35, 0.7), 'zoom': ('warp', -0.45, 0.8)}
 focus_cam = {}; label_t = []
+UIDX = {u['n']: i for i, u in enumerate(units)}
 for u in units:
     nn = u['n']
     if u['kind'] == 'chalk': continue
@@ -571,7 +572,11 @@ for u in units:
             if sc.get('focus_tick', True): cues.append(dict(name='tick', t=a + 0.35, vol=0.6, pri=1, unit=u['uid']))
     for k2, (ty, lid, gid, l) in enumerate(label_items.get(nn, [])):
         tl_ = tword(l.get('word')) or (u['t0'] + 0.4 + 0.5 * k2)
-        label_t.append((nn, ty, lid, gid, min(max(tl_ - 0.1, u['t0'] + 0.15), u['t1'] - 1.0)))
+        # (2026-10-22, user: the cut came before the text could be read) the label must be fully visible for its reading time before the NEXT
+        # picture's transition starts (that starts TIN[tr] before this cut ends); if the narration word comes too late it pops earlier
+        ni = UIDX[nn] + 1; nt = TIN.get(units[ni]['tr'], 0) if ni < len(units) and units[ni]['kind'] != 'chalk' else 0
+        need = max(1.5, .45 * len(str(l.get('text', '')).split()) + .7)
+        label_t.append((nn, ty, lid, gid, max(min(max(tl_ - 0.1, u['t0'] + 0.15), u['t1'] - nt - need), u['t0'] + 0.1)))
     for e in sc.get('sfx', []):
         te = tword(e.get('word'))
         if te is None: te = u['t0'] + 1.0
