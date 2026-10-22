@@ -24,4 +24,4 @@
 - 2026-10-22: 사용자 결정으로 가운데 원형 고정을 풀고(3-2) 전환 5종(`seam`·`diamond`·`page`·`zigzag`·`wave`)과 위치 제한 없는 객체 모션 12종을 추가(`tools/motions.py`, `build3.py`, 지침서 4-1·4-3, `art_spec.md` 7장). 20초 시험 영상 v8에서 확인.
 - 2026-10-22: 대본 초반 5분을 질문·가정 상황·영화 장면 훅으로 재밌게 쓰는 규칙(지침서 10-2A)과 대본 생성 프롬프트 반영(`main.py`, `main_owl.py` 구성 항목).
 
-- 2026-10-22: 제목 60자·썸네일 2~3단어로 개정(17-3, 16-2, 16-6), `tools/title_lint.py`·`hookscore.py`·`hooks.json` 추가(출처 youtube-agent-skill, MIT), 사용한 대본은 `scripts/used/`·`scripts_owl/used/`로 보관(12-1).
+- 2026-10-22: 제목·썸네일 규칙은 기존 유지(60자/3단어 개정안은 채택 안 함), `tools/title_lint.py`·`hookscore.py`·`hooks.json` 추가(출처 youtube-agent-skill, MIT), 사용한 대본은 `scripts/used/`·`scripts_owl/used/`로 보관(12-1).
