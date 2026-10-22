@@ -147,3 +147,153 @@ function miyaFitChalk(){
 }
 miyaFitChalk(); if(document.fonts&&document.fonts.ready)document.fonts.ready.then(miyaFitChalk);
 """
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# 2026-10-22 (user decision, from the 20 s motion test): the round centre object is no longer required, and the
+# pictures may use object motions anywhere on the canvas plus five more transitions. See guideline 3-2, 4-1, 4-3.
+# ---------------------------------------------------------------------------------------------------------------
+
+# New transitions (build3 pool). Each one is driven by a seekable proxy tween: miyaTr() recomputes the clip-path from k (0..1).
+#   seam    a yellow line draws from the bottom left to the top right, then the seam opens into a widening diagonal band
+#   diamond a diamond opens from an off-centre point (it ends fully covering every corner, so nothing pops at the end)
+#   page    the old picture folds away to the left like a page, the new one is revealed behind it
+#   zigzag  a torn zigzag edge sweeps left to right
+#   wave    a wavy yellow edge rises from the bottom
+NEW_TR = ['seam', 'diamond', 'page', 'zigzag', 'wave']
+TR_DUR = {'seam': 1.0, 'diamond': 0.9, 'page': 0.8, 'zigzag': 0.9, 'wave': 1.0}
+
+
+def tr_js(tr, T, v0, W, H):
+    """JS statements that bring picture `T` (css selector) in with one of NEW_TR, starting at v0."""
+    d = TR_DUR[tr]
+    if tr == 'page':   # the old picture's exit (scaleX -> 0 about its left edge, same ease) is added by build3
+        return [f'tl.fromTo("{T}",{{clipPath:"inset(0px 0px 0px 100%)"}},{{clipPath:"inset(0px 0px 0px 0%)",duration:{d},ease:"power2.inOut",immediateRender:false}},{v0:.3f});',
+                f'tl.set("{T}",{{clipPath:"none"}},{v0 + d + .01:.3f});',
+                f'tl.set("#tredge",{{display:"block"}},{v0:.3f});tl.set("#tredge",{{display:"none"}},{v0 + d:.3f});',
+                f'tl.fromTo("#treline",{{attr:{{x1:{W},y1:0,x2:{W},y2:{H}}}}},{{attr:{{x1:0,y1:0,x2:0,y2:{H}}},duration:{d},ease:"power2.inOut",immediateRender:false}},{v0:.3f});']
+    return [f'miyaTrAnim(tl,"{T}","{tr}",{v0:.3f},{d},{W},{H});']
+
+
+# Object motions anywhere in a picture (art groups `id="mv-<kind>-<name>"` with data-* attributes, see art_spec.md 7):
+#   path     data-path="M.. C.."  follows the path (paper plane, rocket), turning with it unless data-rot="0"; data-dur, data-delay
+#   flip     turns data-deg (180) about data-pivot (hourglass), data-delay, data-dur
+#   fill     scales from data-from (0) to data-to (1) along data-axis (y) about data-pivot (sand, bars, gauges); data-delay, data-dur
+#   grow     = fill, from 0
+#   swing    damped pendulum about data-pivot, data-amp degrees, data-per seconds
+#   topple   falls data-deg (72) about data-pivot (domino), data-delay, data-dur
+#   liquid   rises data-rise px and scrolls data-scroll px sideways (a wide wavy-topped shape clipped by the vessel)
+#   bubble   rises data-rise px while fading, repeats every data-per seconds
+#   edge     the group's strokes draw themselves on (network lines), data-delay, data-dur
+#   keyturn  a side-view key bow turning about its shaft: scaleY 1 -> data-to (.32) about data-pivot
+#   shackle  lifts data-lift px and swings data-deg about data-pivot (padlock opening)
+#   popin    pops in with an overshoot about its own centre (network nodes)
+OBJ_KINDS = ['path', 'flip', 'fill', 'grow', 'swing', 'topple', 'liquid', 'bubble', 'edge', 'keyturn', 'shackle', 'popin']
+
+
+def obj_js(kind, g, at, t0, v0, sp):
+    """GSAP lines for one object motion. at: the group's data-* attributes, g: JS expression for the element,
+    t0: picture start, v0: transition-in start, sp: seconds the picture stays (plus margin)."""
+    f = lambda k, d: float(at.get('data-' + k, d))
+    pv = at.get('data-pivot', '').replace(',', ' ').split()
+    org = (lambda dflt: f'svgOrigin:"{pv[0]} {pv[1]}"') if len(pv) == 2 else (lambda dflt: f'transformOrigin:"{dflt}"')
+    st = t0 + f('delay', 0.3); du = f('dur', 1.0)
+    if kind == 'path':
+        d = at.get('data-path', '').replace('"', '')
+        return [f'miyaPath(tl,{g},"{d}",{st:.3f},{du if "data-dur" in at else min(sp - .6, 3.4):.3f},{0 if at.get("data-rot") == "0" else 1},{f("rot0", 0)});']
+    if kind == 'flip':
+        return [f'tl.set({g},{{rotation:0,{org("50% 50%")}}},{v0:.3f});',
+                f'tl.to({g},{{rotation:{f("deg", 180)},duration:{du},ease:"power2.inOut",immediateRender:false}},{st:.3f});']
+    if kind in ('fill', 'grow'):
+        pr = 'scaleX' if at.get('data-axis') == 'x' else 'scaleY'
+        a, b = f('from', 0), f('to', 1)
+        return [f'tl.set({g},{{{pr}:{a},{org("50% 100%" if pr == "scaleY" else "0% 50%")}}},{v0:.3f});',
+                f'tl.to({g},{{{pr}:{b},duration:{du},ease:"power1.inOut",immediateRender:false}},{st:.3f});']
+    if kind == 'swing':
+        amp, per = f('amp', 28), f('per', 2.4)
+        n = max(int(math.ceil(sp / (per / 2))), 2)
+        kf = ','.join(f'{{rotation:{amp * (-1) ** i * .78 ** i:.2f},duration:{per / 2:.3f},ease:"sine.inOut"}}' for i in range(n))
+        return [f'tl.set({g},{{rotation:0,{org("50% 0%")}}},{v0:.3f});',
+                f'tl.to({g},{{keyframes:[{kf}],immediateRender:false}},{v0:.3f});']
+    if kind == 'topple':
+        return [f'tl.set({g},{{rotation:0,{org("100% 100%")}}},{v0:.3f});',
+                f'tl.to({g},{{rotation:{f("deg", 72)},duration:{f("dur", .55)},ease:"power2.inOut",immediateRender:false}},{st:.3f});']
+    if kind == 'liquid':
+        out = [f'tl.fromTo({g},{{y:0}},{{y:{-f("rise", 300):.0f},duration:{du if "data-dur" in at else 2.4},ease:"power1.inOut",immediateRender:false}},{st:.3f});']
+        if f('scroll', 0):
+            out.append(f'tl.fromTo({g},{{x:0}},{{x:{-f("scroll", 0):.0f},duration:1.6,ease:"none",repeat:{max(int(math.ceil(sp / 1.6)) - 1, 0)},immediateRender:false}},{v0:.3f});')
+        return out
+    if kind == 'bubble':
+        per = f('per', 1.6); rise = f('rise', 200)
+        return [f'tl.set({g},{{opacity:0}},{v0:.3f});',
+                f'tl.fromTo({g},{{y:0,opacity:.8}},{{y:{-rise:.0f},opacity:0,duration:{per},ease:"none",repeat:{max(int(math.ceil(sp / per)) - 1, 0)},immediateRender:false}},{st:.3f});']
+    if kind == 'edge':
+        return [f'miyaDraw(tl,{g},{v0:.3f},{st:.3f},{du});']
+    if kind == 'keyturn':
+        return [f'tl.set({g},{{scaleY:1,{org("50% 50%")}}},{v0:.3f});',
+                f'tl.to({g},{{scaleY:{f("to", .32)},duration:{f("dur", .8)},ease:"power2.inOut",immediateRender:false}},{st:.3f});']
+    if kind == 'shackle':
+        return [f'tl.set({g},{{y:0,rotation:0,{org("50% 100%")}}},{v0:.3f});',
+                f'tl.to({g},{{y:{-f("lift", 46):.0f},rotation:{f("deg", -16)},duration:{f("dur", .6)},ease:"power2.inOut",immediateRender:false}},{st:.3f});']
+    if kind == 'popin':
+        return [f'tl.set({g},{{scale:0,opacity:0,{org("50% 50%")}}},{v0:.3f});',
+                f'tl.to({g},{{scale:1,opacity:1,duration:.45,ease:"back.out(2)",immediateRender:false}},{st:.3f});']
+    raise ValueError(kind)
+
+
+MOTION_JS = """
+function miyaEase(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;}
+function miyaClamp(x){return Math.min(1,Math.max(0,x));}
+// new transitions: clip-path of picture `el` from k (0..1); the overlay #trfx carries the light edges
+function miyaTr(el,tr,k,W,H){
+ var e=miyaEase(k),c='none',l1=document.getElementById('trl1'),l2=document.getElementById('trl2'),pz=document.getElementById('trpz'),pd=document.getElementById('trpd');
+ [l1,l2,pz,pd].forEach(function(n){n.setAttribute('opacity',0);});
+ function line(n,x1,y1,x2,y2){n.setAttribute('x1',x1);n.setAttribute('y1',y1);n.setAttribute('x2',x2);n.setAttribute('y2',y2);n.setAttribute('opacity',1);}
+ if(k>=1){el.style.clipPath='none';return;}
+ if(tr==='seam'){
+  var len=Math.hypot(W,H),ux=W/len,uy=-H/len,nx=-uy,ny=ux,cx=W/2,cy=H/2,L=len*1.5,wmax=W*H/len+40;
+  var dr=miyaClamp(k/.35),op=miyaEase(miyaClamp((k-.35)/.65)),w=op*wmax;
+  function P(s,o){return (cx+ux*s+nx*o).toFixed(1)+'px '+(cy+uy*s+ny*o).toFixed(1)+'px';}
+  if(op===0){c='polygon(0px 0px,0px 0px,0px 0px,0px 0px)';var q=1-Math.pow(1-dr,3);line(l1,0,H,W*q,H-H*q);}
+  else{c='polygon('+[P(-L,-w),P(L,-w),P(L,w),P(-L,w)].join(',')+')';
+   [[l1,-w],[l2,w]].forEach(function(a){line(a[0],cx-ux*L+nx*a[1],cy-uy*L+ny*a[1],cx+ux*L+nx*a[1],cy+uy*L+ny*a[1]);});}
+ }else if(tr==='diamond'){
+  var px=W*.73,py=H*.28,rmax=Math.max(px,W-px)+Math.max(py,H-py)+30,r=e*rmax;
+  c='polygon('+[px+'px '+(py-r)+'px',(px+r)+'px '+py+'px',px+'px '+(py+r)+'px',(px-r)+'px '+py+'px'].join(',')+')';
+  pd.setAttribute('points',[px+','+(py-r),(px+r)+','+py,px+','+(py+r),(px-r)+','+py].join(' '));pd.setAttribute('opacity',1-miyaEase(miyaClamp((k-.6)/.4)));
+ }else if(tr==='zigzag'){
+  var a=90*W/1920,xe=-a-30+e*(W+a+60),n=12,pts=['0px 0px',xe+'px 0px'],dd='M'+xe+' 0';
+  for(var i=1;i<=n;i++){var x=xe+(i%2?-a:0),y=i*H/n;pts.push(x+'px '+y+'px');dd+='L'+x+' '+y;}
+  pts.push('0px '+H+'px');c='polygon('+pts.join(',')+')';pz.setAttribute('d',dd);pz.setAttribute('stroke','#fff');pz.setAttribute('opacity',1-miyaClamp((k-.85)/.15));
+ }else if(tr==='wave'){
+  var ye=(H+170)+e*(-H-340),ph=k*9,s=W/48,pts2=['0px '+H+'px'],dd2='';
+  for(var x2=0;x2<=W+1;x2+=s){var y2=ye+Math.sin(x2*.012+ph)*45;pts2.push(x2.toFixed(0)+'px '+y2.toFixed(1)+'px');dd2+=(dd2?'L':'M')+x2.toFixed(0)+' '+y2.toFixed(1);}
+  pts2.push(W+'px '+H+'px');c='polygon('+pts2.join(',')+')';pz.setAttribute('d',dd2);pz.setAttribute('stroke','#ffd54a');pz.setAttribute('opacity',1-miyaClamp((k-.85)/.15));
+ }
+ el.style.clipPath=c;
+}
+function miyaTrAnim(tl,sel,tr,t0,dur,W,H){
+ var el=document.querySelector(sel),o={k:0};
+ tl.set('#trfx',{display:'block'},t0);
+ tl.to(o,{k:1,duration:dur,ease:'none',immediateRender:false,modifiers:{k:function(v){miyaTr(el,tr,v,W,H);return v;}}},t0);   // modifiers, not onUpdate: seeking suppresses callbacks
+ tl.set('#trfx',{display:'none'},t0+dur+.01); tl.set(sel,{clipPath:'none'},t0+dur+.01);
+}
+// object follows an SVG path, turning with it (paper plane, rocket)
+function miyaPath(tl,g,d,t0,dur,rot,rot0){
+ var t=g.closest('.t'),pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';
+ var NS='http://www.w3.org/2000/svg',svg=g.ownerSVGElement,p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('visibility','hidden');svg.appendChild(p);
+ var L=p.getTotalLength(),P0=p.getPointAtLength(0),o={k:0};
+ function ang(k){var a=p.getPointAtLength(L*k),b=p.getPointAtLength(Math.min(L,L*k+2));return Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI;}
+ var a0=ang(0);t.style.display=pd;t.style.visibility=pv;
+ function ap(k){var q=p.getPointAtLength(L*k);gsap.set(g,{x:q.x-P0.x,y:q.y-P0.y,rotation:rot?ang(k)-a0+(rot0||0):0,svgOrigin:P0.x+' '+P0.y});}
+ tl.to(o,{k:1,duration:dur,ease:'power2.inOut',immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
+}
+// strokes draw themselves on (network edges)
+function miyaDraw(tl,g,v0,st,dur){
+ var t=g.closest('.t'),pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';
+ var els=Array.prototype.filter.call(g.querySelectorAll('path,line,polyline,polygon,circle,ellipse,rect'),function(e){try{e.__len=e.getTotalLength();return e.__len>0;}catch(x){return false;}});
+ t.style.display=pd;t.style.visibility=pv;
+ tl.set(els,{strokeDasharray:function(i,e){return e.__len;},strokeDashoffset:function(i,e){return e.__len;}},v0);
+ tl.to(els,{strokeDashoffset:0,duration:dur,ease:'power1.inOut',stagger:.05,immediateRender:false},st);
+}
+"""
