@@ -74,3 +74,4 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 
 ## 2026-10-22 additions (title lint)
 `python3 tools/title_lint.py --title "..." [--thumb "..."]` checks a title/thumbnail text pair against guideline 16-6 and 17-3 (advisory). Adapted from Jakeschincariol/youtube-agent-skill (MIT).
+- 2026-10-22 (later): 5 more object motions (`shake`, `dash`, `scroll`, `slam`, `rise`), camera tracking (`track_spec`, `track_js`, `miyaTrack`: follows `mv-path`, 3+ `mv-topple`, or `mv-track-*`; replaces focus/drift; build log `tracking cams`), speech bubbles up to 2 per unit (`labels_lib.py`) and ~1 unit in 3 (guideline 3-6).

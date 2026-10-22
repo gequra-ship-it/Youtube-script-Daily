@@ -80,7 +80,7 @@ def check(sc, text, W, H, vert):
     if len(labs) > 3: errs.append('more than 3 labels')
     kinds = [l.get('type') for l in labs]
     if kinds.count('num') > 1: errs.append('more than one num badge')
-    if kinds.count('say') > 1: errs.append('more than one speech bubble')
+    if kinds.count('say') > 2: errs.append('more than two speech bubbles')   # 2026-10-22: up to two (two things talking)
     lo = text.lower()
     x0, x1, y0, y1 = (100, 940, 300, 1400) if vert else (120, 1800, 80, 860)
     for l in labs:
