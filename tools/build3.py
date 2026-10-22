@@ -236,7 +236,7 @@ if os.environ.get('SEL') and os.environ.get('PLAN') != '1' and os.path.exists(_p
 # we drew"): cut times inside a scene move so every picture stays >= MINU s (slow scenes >= MINU_SLOW), keeping each
 # cut as close as possible to its word. No picture is dropped; if a scene is too short for all of its pictures at the
 # minimum, they share the scene time evenly. config HOOK['minu'] (default 3.5 when HOOK is set), HOOK['minu_slow'] (4.5).
-MINU = (HOOK or {}).get('minu', 3.5 * PACE if HOOK else 0); MINU_SLOW = (HOOK or {}).get('minu_slow', MINU + 1.0 * PACE if MINU else 0)
+MINU = (HOOK or {}).get('minu', 4.0 * PACE if HOOK else 0); MINU_SLOW = (HOOK or {}).get('minu_slow', MINU + 1.0 * PACE if MINU else 0)
 retimed = 0
 if MINU:
     for i in SEL:
