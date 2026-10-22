@@ -257,7 +257,13 @@ TR_WORDS = [   # a word in the unit text picks a transition that shows the same 
     ('whip', r'\b(speed\w*|race\w*|racing|rush\w*|sudden\w*|instant\w*|flash\w*)\b'),
     ('tilt', r'(\bimagine\b|\bwhat if\b|\bsurpris\w*|\btwist\w*)'),
     ('eye',  r'\b(open\w*|wake|woke|awake\w*|realis\w*|realiz\w*|discover\w*|reveal\w*)\b'),
+    ('wave', r'\b(water\w*|ocean\w*|sea|seas|wave\w*|flood\w*|tide\w*|liquid\w*|flow\w*)\b'),
+    ('page', r'\b(chapter\w*|story|stories|history|book\w*|page\w*|record\w*)\b'),
+    ('seam', r'\b(because|cause\w*|result\w*|therefore|consequence\w*|lead\w* to)\b'),
+    ('zigzag', r'\b(break\w*|broke\w*|split\w*|tear\w*|tore|crack\w*|rip\w*|shatter\w*)\b'),
+    ('diamond', r'\b(gem\w*|diamond\w*|crystal\w*|secret\w*|unlock\w*)\b'),
 ]
+from motions import NEW_TR
 rng = random.Random(20261009)
 last2 = []; TR_COUNT = {}
 for k, u in enumerate(units):
@@ -267,7 +273,7 @@ for k, u in enumerate(units):
     if u['kind'] == 'chalk' or p['kind'] == 'chalk':
         u['tr'] = 'hard'; last2 = []; continue
     # 12 types (7 added 2026-10-14, user decision; the mosaic 'dots' was tried and dropped the same day): not every cut grows out of the centre object any more
-    pool = ['zoom', 'fade', 'slide', 'match', 'wash', 'wipe', 'iris', 'eye', 'push', 'whip', 'tilt']
+    pool = ['zoom', 'fade', 'slide', 'match', 'wash', 'wipe', 'iris', 'eye', 'push', 'whip', 'tilt'] + NEW_TR   # 5 more 2026-10-22: seam, diamond, page, zigzag, wave
     if u['scene'] != p['scene']:
         pool.remove('match'); pool += ['zoom', 'wash', 'eye']   # scene change: favour the big covering cuts
     # 'blinds' (colour bars dropping down) removed for all videos, user decision 2026-10-16
@@ -278,7 +284,7 @@ for k, u in enumerate(units):
         pool = [x for x in pool if x not in last2[-2:]] or pool
     # balance: a type already used a lot is picked less (so 13 types spread out); a matching word wins half the time
     # unless that type is already above its fair share
-    fair = (sum(TR_COUNT.values()) + 1) / 11
+    fair = (sum(TR_COUNT.values()) + 1) / 16
     kw = [t for t, rx in TR_WORDS if t in pool and TR_COUNT.get(t, 0) <= fair * 1.3 and re.search(rx, u['text'], re.I)]
     if kw and rng.random() < .5: u['tr'] = kw[0]
     else: u['tr'] = rng.choices(pool, weights=[1 / (1 + TR_COUNT.get(x, 0)) ** 1.5 for x in pool])[0]
@@ -295,7 +301,8 @@ if CINE:   # transitions come from videos/<slug>/cine.json: a chapter's or shot'
         u['tr'] = 'cut' if _k == 0 else ('dip' if u['kind'] == 'chalk' or (_k and units[_k - 1]['kind'] == 'chalk') else _first.get(u.get('uid'), 'none'))
     CINE_BEATS = _cine.get('beats', {})
 TIN = {'hard': 0.0, 'zoom': 0.5, 'fade': 0.6, 'slide': 0.7, 'match': 0.9, 'wash': 0.0,
-       'wipe': 0.8, 'iris': 0.9, 'eye': 0.8, 'blinds': 0.65, 'push': 0.7, 'whip': 0.45, 'tilt': 0.8}
+       'wipe': 0.8, 'iris': 0.9, 'eye': 0.8, 'blinds': 0.65, 'push': 0.7, 'whip': 0.45, 'tilt': 0.8,
+       'seam': 1.0, 'diamond': 0.9, 'page': 0.8, 'zigzag': 0.9, 'wave': 1.0}
 
 # ---------- sidecars / art ----------
 def side(u):
@@ -453,9 +460,10 @@ h.append('''@font-face{font-family:Fredoka;src:url(Fredoka-700.woff2) format("wo
 .w svg{position:absolute;left:0;top:0;width:%dpx;height:%dpx}
 #wash{position:absolute;left:0;top:0;width:%dpx;height:%dpx;opacity:0;z-index:1000;pointer-events:none}
 #tredge{position:absolute;left:0;top:0;width:%dpx;height:%dpx;z-index:999;pointer-events:none;display:none}
+#trfx{position:absolute;left:0;top:0;width:%dpx;height:%dpx;z-index:999;pointer-events:none;display:none}
 .trb{position:absolute;top:0;height:%dpx;z-index:999;transform:scaleY(0);transform-origin:top;pointer-events:none}
 .trs{position:absolute;left:0;height:6px;border-radius:3px;background:#fff;z-index:999;opacity:0;pointer-events:none}
-''' % ((W, H) * 7 + (H,)))
+''' % ((W, H) * 8 + (H,)))
 h.append(capcss); h.append(labels_lib.CSS)
 h.append('''#logo{position:absolute;left:1799px;top:40px;width:81px;height:81px;z-index:1003}
 #grain{position:absolute;left:0;top:0;width:@Wpx;height:@Hpx;z-index:1001;opacity:.35;pointer-events:none;object-fit:cover}
@@ -521,6 +529,7 @@ h.append('<div id="badges" style="position:absolute;left:0;top:0;width:0;height:
 h.append('<div id="wash"></div><img id="grain" src="grain.png">' + ('' if VERT else '<img id="logo" src="logo.png">'))
 # shared overlays for the 2026-10-14 transitions (cuts never overlap: units are at least 1.5 s apart)
 h.append(f'<svg id="tredge" viewBox="0 0 {W} {H}"><line id="treline" x1="0" y1="0" x2="0" y2="0" stroke="#ffd54a" stroke-width="10" stroke-linecap="round"/></svg>')
+h.append(f'<svg id="trfx" viewBox="0 0 {W} {H}"><polygon id="trpd" points="0,0 0,0 0,0" fill="none" stroke="#ffd54a" stroke-width="10" opacity="0"/><path id="trpz" d="M0 0" fill="none" stroke-width="10" stroke-linejoin="round" opacity="0"/><line id="trl1" x1="0" y1="0" x2="0" y2="0" stroke="#ffd54a" stroke-width="10" stroke-linecap="round" opacity="0"/><line id="trl2" x1="0" y1="0" x2="0" y2="0" stroke="#ffd54a" stroke-width="10" opacity="0"/></svg>')
 NB = 6; h.append(''.join(f'<div class="trb" id="trb{i}" style="left:{i * W // NB}px;width:{W // NB + 2}px"></div>' for i in range(NB)))
 h.append(''.join(f'<div class="trs" id="trs{i}" style="top:{int(H * (.1 + .09 * i))}px;width:{int(W * (.26 + ((i * 37) % 36) / 100))}px"></div>' for i in range(9)))
 for k, c in enumerate(caps):
@@ -531,11 +540,13 @@ cues = []   # dict(name, t, vol, pri)
 TRSND = {'zoom': ('swish', -0.85, 0.9), 'slide': ('swish', -0.6, 0.6), 'match': ('hush', -0.7, 0.8), 'wash': ('rustle', -0.5, 0.7),
          'wipe': ('swish', -0.7, 0.6), 'iris': ('hush', -0.9, 0.7), 'eye': ('hush', -0.7, 0.6), 'blinds': ('rustle', -0.6, 0.6),
          'push': ('swish', -0.6, 0.6), 'whip': ('swish', -0.4, 0.8), 'tilt': ('pop', -0.7, 0.6),
+         'seam': ('swish', -0.7, 0.6), 'diamond': ('hush', -0.8, 0.7), 'page': ('rustle', -0.6, 0.6), 'zigzag': ('swish', -0.6, 0.6), 'wave': ('hush', -0.8, 0.7),
          'dip': ('hush', -0.5, 0.55), 'flash': ('hush', -0.4, 0.7), 'zoom': ('swish', -0.85, 0.9)}
 if getattr(CFG, 'STYLE', 'default') == 'cosmic':   # cosmic videos: no swish/hush (guideline 3-7)
     TRSND = {'zoom': ('warp', -0.45, 0.8), 'slide': ('warp', -0.35, 0.5), 'match': ('glimmer', -0.5, 0.7), 'wash': ('sparkle', -0.4, 0.6),
              'wipe': ('warp', -0.6, 0.5), 'iris': ('glimmer', -0.8, 0.6), 'eye': ('glimmer', -0.6, 0.6), 'blinds': ('sparkle', -0.5, 0.5),
              'push': ('warp', -0.5, 0.5), 'whip': ('warp', -0.35, 0.7), 'tilt': ('pop', -0.7, 0.5),
+             'seam': ('warp', -0.5, 0.5), 'diamond': ('glimmer', -0.8, 0.6), 'page': ('sparkle', -0.5, 0.5), 'zigzag': ('warp', -0.5, 0.5), 'wave': ('glimmer', -0.7, 0.6),
              'dip': ('glimmer', -0.45, 0.55), 'flash': ('bloom', -0.35, 0.7), 'zoom': ('warp', -0.45, 0.8)}
 focus_cam = {}; label_t = []
 for u in units:
@@ -645,7 +656,7 @@ if CINE:   # cine look: the page is written by tools/build_cine.py
 
 # ---------- timeline ----------
 import motions  # centre-object motions (guideline 4-1)
-js = ['<script>' + motions.WRAP_JS + motions.CHALK_FIT_JS + f'miyaWrapCores({CX},{CY});const tl=gsap.timeline({{paused:true}});']
+js = ['<script>' + motions.WRAP_JS + motions.MOTION_JS + motions.CHALK_FIT_JS + f'miyaWrapCores({CX},{CY});const tl=gsap.timeline({{paused:true}});']
 ORG = f'{CX}px {CY}px'
 MV = {'flame': ('pulse', .30), 'lamp': ('glow', 1.2), 'lantern': ('glow', 1.3), 'beacon': ('glow', 1.5), 'glint': ('glow', 1.4),
       'spark': ('pulse', .25), 'smoke': ('drift', 1.6), 'steam': ('drift', 1.3), 'stink': ('drift', 1.1), 'cells': ('drift', 1.8),
@@ -724,6 +735,8 @@ for k, u in enumerate(units):
     elif tr == 'tilt':   # the new picture tips in like a card
         js.append(f'tl.fromTo("{T}",{{rotation:-8,scale:1.25,opacity:0,transformOrigin:"50% 120%"}},{{rotation:0,scale:1,opacity:1,duration:.8,ease:"back.out(1.4)",immediateRender:false}},{v0:.3f});')
         js.append(f'tl.set("{T}",{{transformOrigin:"{ORG}"}},{v0 + .81:.3f});')
+    elif tr in motions.NEW_TR:   # (2026-10-22) seam / diamond / page / zigzag / wave, see tools/motions.py
+        js.extend(motions.tr_js(tr, T, v0, W, H))
     # --- exit (depends on how the NEXT unit comes in) ---
     if nxt and nxt['kind'] != 'chalk':
         if nxt['tr'] == 'zoom':
@@ -732,6 +745,8 @@ for k, u in enumerate(units):
             st = max(t1 - .7, t0 + .8); js.append(f'tl.to("{T}",{{x:{-int(W * .18)},duration:{t1 - st:.3f},ease:"power2.in"}},{st:.3f});')
         elif nxt['tr'] == 'push':
             st = t1 - .7; js.append(f'tl.to("{T}",{{y:{-H},duration:.7,ease:"power3.inOut"}},{st:.3f});')
+        elif nxt['tr'] == 'page':   # folds away to the left while the next picture is revealed from the right
+            st = t1 - .8; js.append(f'tl.to("{T}",{{scaleX:0,transformOrigin:"0% 50%",duration:.8,ease:"power2.inOut"}},{st:.3f});')
         elif nxt['tr'] == 'whip':
             st = t1 - .45; js.append(f'tl.to("{T}",{{x:{-W},duration:.45,ease:"expo.out"}},{st:.3f});')
     # --- focus camera (only when the picture has a focus target) ---
@@ -756,7 +771,7 @@ for k, u in enumerate(units):
     sp = t1 - v0 + 0.2
     JT = {}; JDEP = {}   # joint / chain groups in document order (outer first): their data-pivot / data-amp / data-per / data-phase
     for mt in re.finditer(r'<g\b[^>]*>', svg):
-        cm = re.search(r'class="[^"]*\bmv (mv-(?:chain|joint|limb|rotor)-[A-Za-z0-9-]+)', mt.group(0))
+        cm = re.search(r'class="[^"]*\bmv (mv-(?:chain|joint|limb|rotor|' + '|'.join(motions.OBJ_KINDS) + ')-[A-Za-z0-9-]+)', mt.group(0))
         if cm:
             at = dict(re.findall(r'(data-[a-z]+)="([^"]*)"', mt.group(0)))
             base = re.sub(r'-\d+$', '', cm.group(1)); at['_dep'] = JDEP.get(base, 0); JDEP[base] = at['_dep'] + 1   # depth = order of the link in its chain (outer first)
@@ -768,6 +783,10 @@ for k, u in enumerate(units):
         if nm == 'mv-glint-core' or nm.startswith('mv-core-'):    # the round centre object: one of 13 motions, never the same twice in a row
             ct = nm[8:].split('-')[0] if nm.startswith('mv-core-') else motions.legacy_core_type(len(CORE_USED))
             js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]')); CORE_USED.append(ct)
+            continue
+        if nm.split('-')[1] in motions.OBJ_KINDS and nm.count('-') >= 2:   # (2026-10-22) object motions anywhere in the picture (guideline 4-1)
+            at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
+            js.extend(motions.obj_js(nm.split('-')[1], g, at, t0, v0, sp))
             continue
         if nm.startswith('mv-rotor-'):  # (2026-10-19) a part that turns round and round about data-pivot (clock hand, turbine blades, fan, wheel); data-per = seconds per turn, data-dir = 1 / -1
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
