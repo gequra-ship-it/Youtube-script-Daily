@@ -435,6 +435,16 @@ function miyaPath(tl,g,d,t0,dur,rot,rot0){
  function ap(k){var q=p.getPointAtLength(L*k);gsap.set(g,{x:q.x-P0.x,y:q.y-P0.y,rotation:rot?ang(k)-a0+(rot0||0):0,svgOrigin:P0.x+' '+P0.y});}
  tl.to(o,{k:1,duration:dur,ease:'power2.inOut',immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
 }
+// camera tracking: the camera centre follows an SVG path (same window and ease as the object), zooming in at the start and out at the end
+function miyaTrack(tl,wsel,d,t0,dur,sc,W,H,ease){
+ var w=document.querySelector(wsel),t=w.closest('.t'),pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';
+ var NS='http://www.w3.org/2000/svg',svg=w.querySelector('svg'),p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('visibility','hidden');svg.appendChild(p);
+ var L=p.getTotalLength(),o={k:0};t.style.display=pd;t.style.visibility=pv;
+ function ap(k){var q=p.getPointAtLength(L*k),r=Math.min(1,k/.12,(1-k)/.12),s=1+(sc-1)*r*r*(3-2*r);
+  var cx=Math.min(Math.max(q.x,W/2/s),W-W/2/s),cy=Math.min(Math.max(q.y,H/2/s),H-H/2/s);
+  gsap.set(w,{scale:s,x:W/2-cx*s,y:H/2-cy*s,transformOrigin:'0px 0px'});}
+ tl.to(o,{k:1,duration:dur,ease:ease,immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
+}
 // strokes draw themselves on (network edges)
 function miyaDraw(tl,g,v0,st,dur){
  var t=g.closest('.t'),pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';
