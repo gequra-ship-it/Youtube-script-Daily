@@ -27,3 +27,8 @@
 - 2026-10-22: 제목·썸네일 규칙은 기존 유지(60자/3단어 개정안은 채택 안 함), `tools/title_lint.py`·`hookscore.py`·`hooks.json` 추가(출처 youtube-agent-skill, MIT), 사용한 대본은 `scripts/used/`·`scripts_owl/used/`로 보관(12-1).
 
 - 2026-10-22: 지침서 분리(토큰 절약): `docs/miyas-lab-guideline.md`는 핵심 약 11KB, 장별 내용은 `docs/guideline/NN-*.md`(내용은 그대로, 21-4·12-1·0·1·11장은 핵심에). 분리 직전 전체본은 `docs/archive/guideline-2026-10-22-before-split.md`.
+
+## 2026-10-22 (후속)
+- `build3.py` `PACE = 1.5`: 컷 길이(최소·최대) ×1.5, config `PACE = 1`이면 예전 길이. 전환 풀은 중심 코어 물체가 없는 쌍에서 `match`·`zoom`을 뺀다.
+- `motions.py` `miyaCruise`: 경로 객체와 트래킹 카메라는 일정 속도(양 끝 15%만 부드럽게).
+- `tools/motion_preview.py`, `tools/briefs/scene_motion.md` 추가. 문어 영상 샘플 그림·새 plan은 브랜치 `octopus-sample-redraw`에만 있다(render-pipeline에 넣지 않음).
