@@ -178,6 +178,20 @@ def count_narration_words(script_text):
     except (ValueError, IndexError):
         return None
 
+def log_hook_score(script_text):
+    """[1부] 첫 약 40단어(첫 15초)의 훅 점수를 로그로만 남긴다(참고용, tools/hookscore.py; 재생성하지 않음)."""
+    try:
+        import sys as _sys
+        _sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
+        import hookscore
+        start = script_text.index("=== 1부")
+        body = script_text[start:].split("\n", 1)[1]
+        hook = " ".join(body.split()[:40])
+        _, verdict, name, _ = hookscore.score(hook)
+        print(f"🎣 훅 점수(참고용) {verdict}/100 {hookscore.band(verdict)} · 공식: {name}", flush=True)
+    except Exception as e:
+        print(f"ℹ️ 훅 점수 건너뜀: {e}", flush=True)
+
 def log_word_count(script_text, low, high):
     words = count_narration_words(script_text)
     if words is None:
@@ -279,6 +293,7 @@ def create_ai_studio_script(youtube_title, transcript_text):
             if status == 'SUCCESS':
                 print("✅ 대본 생성 성공!", flush=True)
                 log_word_count(text, 3300, 3700)
+                log_hook_score(text)
                 words = count_narration_words(text) or 0
                 if words > best_words:
                     best_text, best_words = text, words
