@@ -25,3 +25,5 @@
 - 2026-10-22: 대본 초반 5분을 질문·가정 상황·영화 장면 훅으로 재밌게 쓰는 규칙(지침서 10-2A)과 대본 생성 프롬프트 반영(`main.py`, `main_owl.py` 구성 항목).
 
 - 2026-10-22: 제목·썸네일 규칙은 기존 유지(60자/3단어 개정안은 채택 안 함), `tools/title_lint.py`·`hookscore.py`·`hooks.json` 추가(출처 youtube-agent-skill, MIT), 사용한 대본은 `scripts/used/`·`scripts_owl/used/`로 보관(12-1).
+
+- 2026-10-22: 지침서 분리(토큰 절약): `docs/miyas-lab-guideline.md`는 핵심 약 11KB, 장별 내용은 `docs/guideline/NN-*.md`(내용은 그대로, 21-4·12-1·0·1·11장은 핵심에). 분리 직전 전체본은 `docs/archive/guideline-2026-10-22-before-split.md`.

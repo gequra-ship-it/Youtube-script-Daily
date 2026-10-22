@@ -1,5 +1,5 @@
 # Brief for the Opus thumbnail agent (guideline 16-6, user decision 2026-10-18)
-You make THREE YouTube thumbnails (A, B, C; 1920x1080 PNG) for ONE video of the channel Miya's Lab. Read first: `docs/miyas-lab-guideline.md` section 16 (esp. 16-2, 16-6), `tools/thumb_lib.py` (page/text helpers), `tools/hands.py` (draw every visible hand with it), `tools/art_spec.md` section 6A/6B if you draw people (cute proportions, no grotesque hands).
+You make THREE YouTube thumbnails (A, B, C; 1920x1080 PNG) for ONE video of the channel Miya's Lab. Read first: `docs/guideline/16-thumbnail.md` (esp. 16-2, 16-6), `tools/thumb_lib.py` (page/text helpers), `tools/hands.py` (draw every visible hand with it), `tools/art_spec.md` section 6A/6B if you draw people (cute proportions, no grotesque hands).
 
 ## What a good thumbnail is here (the owner's words: "it must be fun and eye-catching")
 The owner's four favourites, and WHY they work:
