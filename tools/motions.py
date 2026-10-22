@@ -188,7 +188,49 @@ def tr_js(tr, T, v0, W, H):
 #   keyturn  a side-view key bow turning about its shaft: scaleY 1 -> data-to (.32) about data-pivot
 #   shackle  lifts data-lift px and swings data-deg about data-pivot (padlock opening)
 #   popin    pops in with an overshoot about its own centre (network nodes)
-OBJ_KINDS = ['path', 'flip', 'fill', 'grow', 'swing', 'topple', 'liquid', 'bubble', 'edge', 'keyturn', 'shackle', 'popin']
+#   shake    quick left-right shake, data-amp px (3), data-dur s (.25): a lock clicking, an impact
+#   dash     the dashes of a dashed line march along it (a travelled route), data-speed px/s (40)
+#   scroll   drifts sideways data-dist px (160) over the whole picture (parallax stars, clouds)
+#   slam     slams in from 2.4x size with a slight turn (a stamp or title)
+#   rise     slides up data-from px (60) while fading in (a tag, a label)
+OBJ_KINDS = ['path', 'flip', 'fill', 'grow', 'swing', 'topple', 'liquid', 'bubble', 'edge', 'keyturn', 'shackle', 'popin',
+             'shake', 'dash', 'scroll', 'slam', 'rise']
+
+
+def path_timing(at, t0, sp):
+    """Start and duration of a path motion (shared by the object and the tracking camera)."""
+    st = t0 + float(at.get('data-delay', 0.3))
+    du = float(at['data-dur']) if 'data-dur' in at else min(sp - .6, 3.4)
+    return st, du
+
+
+def track_spec(raw, sidecar):
+    """Camera tracking for a picture with a long travelling motion (2026-10-22): returns (d, delay, dur or None, scale) or None.
+    Sources: a `mv-path-*` object (the camera follows it), an empty group `mv-track-*` with data-path (a route only the camera follows),
+    or three or more `mv-topple-*` dominoes (the camera pans along their pivots). Sidecar `"track": false` turns it off, `{"scale": 1.4}` sets the zoom."""
+    import re
+    tk = sidecar.get('track') if sidecar else None
+    if tk is False: return None
+    sc = float(tk.get('scale', 1.3)) if isinstance(tk, dict) else 1.3
+    tags = [dict(re.findall(r'(data-[a-z]+)="([^"]*)"', m.group(0)), _id=m.group(1))
+            for m in re.finditer(r'<g\b[^>]*\bid="(mv-(?:path|track|topple)-[^"]*)"[^>]*>', raw)]
+    for a in tags:
+        if a['_id'].startswith(('mv-path-', 'mv-track-')) and a.get('data-track') != '0' and a.get('data-path'):
+            return a['data-path'].replace('"', ''), float(a.get('data-delay', 0.3)), (float(a['data-dur']) if 'data-dur' in a else None), float(a.get('data-scale', sc)), 'power2.inOut'
+    tp = [a for a in tags if a['_id'].startswith('mv-topple-') and len(a.get('data-pivot', '').replace(',', ' ').split()) == 2]
+    if len(tp) >= 3:
+        tp.sort(key=lambda a: float(a.get('data-delay', 0.3)))
+        pts = [a['data-pivot'].replace(',', ' ').split() for a in tp]
+        d = 'M' + ' L'.join(f'{x} {y}' for x, y in pts)
+        d0 = float(tp[0].get('data-delay', 0.3)); d1 = float(tp[-1].get('data-delay', 0.3)) + float(tp[-1].get('data-dur', .55))
+        return d, d0, d1 - d0, sc, 'sine.inOut'
+    return None
+
+
+def track_js(spec, wsel, t0, sp, W, H):
+    d, delay, dur, scale, ease = spec
+    st = t0 + delay; du = dur if dur is not None else min(sp - .6, 3.4)
+    return f'miyaTrack(tl,"{wsel}","{d}",{st:.3f},{du:.3f},{scale},{W},{H},"{ease}");'
 
 
 def obj_js(kind, g, at, t0, v0, sp):
@@ -200,7 +242,8 @@ def obj_js(kind, g, at, t0, v0, sp):
     st = t0 + f('delay', 0.3); du = f('dur', 1.0)
     if kind == 'path':
         d = at.get('data-path', '').replace('"', '')
-        return [f'miyaPath(tl,{g},"{d}",{st:.3f},{du if "data-dur" in at else min(sp - .6, 3.4):.3f},{0 if at.get("data-rot") == "0" else 1},{f("rot0", 0)});']
+        pst, pdu = path_timing(at, t0, sp)
+        return [f'miyaPath(tl,{g},"{d}",{pst:.3f},{pdu:.3f},{0 if at.get("data-rot") == "0" else 1},{f("rot0", 0)});']
     if kind == 'flip':
         return [f'tl.set({g},{{rotation:0,{org("50% 50%")}}},{v0:.3f});',
                 f'tl.to({g},{{rotation:{f("deg", 180)},duration:{du},ease:"power2.inOut",immediateRender:false}},{st:.3f});']
@@ -238,6 +281,21 @@ def obj_js(kind, g, at, t0, v0, sp):
     if kind == 'popin':
         return [f'tl.set({g},{{scale:0,opacity:0,{org("50% 50%")}}},{v0:.3f});',
                 f'tl.to({g},{{scale:1,opacity:1,duration:.45,ease:"back.out(2)",immediateRender:false}},{st:.3f});']
+    if kind == 'shake':
+        amp = f('amp', 3); dd = f('dur', .25); per = .03
+        return [f'tl.fromTo({g},{{x:{-amp}}},{{x:{amp},duration:{per},ease:"none",yoyo:true,repeat:{max(int(dd / per) - 1, 1)},immediateRender:false}},{st:.3f});',
+                f'tl.set({g},{{x:0}},{st + dd + per:.3f});']
+    if kind == 'dash':
+        sel = f'Array.prototype.slice.call({g}.querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"))'
+        return [f'tl.fromTo({sel},{{strokeDashoffset:0}},{{strokeDashoffset:{-f("speed", 40) * sp:.0f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});']
+    if kind == 'scroll':
+        return [f'tl.fromTo({g},{{x:0}},{{x:{-f("dist", 160):.0f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});']
+    if kind == 'slam':
+        return [f'tl.set({g},{{scale:2.4,opacity:0,rotation:{f("rot", -4)},{org("50% 50%")}}},{v0:.3f});',
+                f'tl.to({g},{{scale:1,opacity:1,rotation:0,duration:.28,ease:"power4.in",immediateRender:false}},{st:.3f});']
+    if kind == 'rise':
+        return [f'tl.set({g},{{y:{f("from", 60):.0f},opacity:0}},{v0:.3f});',
+                f'tl.to({g},{{y:0,opacity:1,duration:{f("dur", .5)},ease:"power2.out",immediateRender:false}},{st:.3f});']
     raise ValueError(kind)
 
 
@@ -287,6 +345,16 @@ function miyaPath(tl,g,d,t0,dur,rot,rot0){
  var a0=ang(0);t.style.display=pd;t.style.visibility=pv;
  function ap(k){var q=p.getPointAtLength(L*k);gsap.set(g,{x:q.x-P0.x,y:q.y-P0.y,rotation:rot?ang(k)-a0+(rot0||0):0,svgOrigin:P0.x+' '+P0.y});}
  tl.to(o,{k:1,duration:dur,ease:'power2.inOut',immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
+}
+// camera tracking: the camera centre follows an SVG path (same window and ease as the object), zooming in at the start and out at the end
+function miyaTrack(tl,wsel,d,t0,dur,sc,W,H,ease){
+ var w=document.querySelector(wsel),t=w.closest('.t'),pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';
+ var NS='http://www.w3.org/2000/svg',svg=w.querySelector('svg'),p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('visibility','hidden');svg.appendChild(p);
+ var L=p.getTotalLength(),o={k:0};t.style.display=pd;t.style.visibility=pv;
+ function ap(k){var q=p.getPointAtLength(L*k),r=Math.min(1,k/.12,(1-k)/.12),s=1+(sc-1)*r*r*(3-2*r);
+  var cx=Math.min(Math.max(q.x,W/2/s),W-W/2/s),cy=Math.min(Math.max(q.y,H/2/s),H-H/2/s);
+  gsap.set(w,{scale:s,x:W/2-cx*s,y:H/2-cy*s,transformOrigin:'0px 0px'});}
+ tl.to(o,{k:1,duration:dur,ease:ease,immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
 }
 // strokes draw themselves on (network edges)
 function miyaDraw(tl,g,v0,st,dur){

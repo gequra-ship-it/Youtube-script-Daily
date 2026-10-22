@@ -666,6 +666,7 @@ MV = {'flame': ('pulse', .30), 'lamp': ('glow', 1.2), 'lantern': ('glow', 1.3), 
       'drift-nebula': ('nebula', 10.0), 'orbit': ('orbit', 24.0), 'pulse': ('glow', 1.6)}
 import pivots   # shoulder/wrist pivots for arm and hand groups (arms used to swing off the body)
 PIV = pivots.compute(sorted({art_path(u)[0] for u in units if u['kind'] != 'chalk'}), W, H, cache=f'{B}/pivots.json')
+TRACKED = []   # pictures with a tracking camera
 CORE_USED = []   # centre-motion type per picture, in order (checked after the loop)
 for k, u in enumerate(units):
     nn = u['n']; t0, t1 = u['t0'], u['t1']; tr = u['tr']; T = f'#t{nn}'; Wq = f'#w{nn}'
@@ -749,8 +750,12 @@ for k, u in enumerate(units):
             st = t1 - .8; js.append(f'tl.to("{T}",{{scaleX:0,transformOrigin:"0% 50%",duration:.8,ease:"power2.inOut"}},{st:.3f});')
         elif nxt['tr'] == 'whip':
             st = t1 - .45; js.append(f'tl.to("{T}",{{x:{-W},duration:.45,ease:"expo.out"}},{st:.3f});')
+    # --- tracking camera (2026-10-22): a long travelling motion (path object, dominoes) is followed; it replaces focus and drift ---
+    trk = motions.track_spec(open(art_path(u)[0], encoding='utf-8').read(), side(u))
+    if trk:
+        js.append(motions.track_js(trk, Wq, t0, t1 - v0 + 0.2, W, H)); TRACKED.append(u['uid'])
     # --- focus camera (only when the picture has a focus target) ---
-    if nn in focus_cam:
+    elif nn in focus_cam:
         a, (fx, fy, s) = focus_cam[nn]
         cxm = min(max(fx, W / 2 / s), W - W / 2 / s); cym = min(max(fy, H / 2 / s), H - H / 2 / s)
         js.append(f'tl.to("{Wq}",{{scale:{s},x:{W / 2 - cxm * s:.1f},y:{H / 2 - cym * s:.1f},duration:1.4,ease:"power2.inOut"}},{a:.3f});')
@@ -880,4 +885,4 @@ json.dump(data, open(B + ('/build_data.json' if len(SEL) == len(SCENES) else '/b
 dd = [u['t1'] - u['t0'] for u in units]
 from collections import Counter
 print('slow scenes', sorted(SLOW_SC), '| cuts moved for min time', retimed, f'(min {MINU}/{MINU_SLOW} s) |', 'labels', len(label_t), 'total', TOTAL, 'units', len(units), 'avg', round(sum(dd) / len(dd), 2), 'max', round(max(dd), 2), 'caps', len(caps), 'sfx cues', len(cues), 'fallback art', len(fallback_used))
-print('transitions', dict(Counter(u['tr'] for u in units)), 'focus cams', len(focus_cam))
+print('transitions', dict(Counter(u['tr'] for u in units)), 'focus cams', len(focus_cam), 'tracking cams', len(TRACKED))
