@@ -321,7 +321,7 @@ keep art style and line art consistent, no morphing, no text
 8. MP4 렌더(15장): Actions 서버 렌더(15-5, 병렬 20-7)가 기본(대화로는 30MiB 한도라 MP4를 못 보냄). 막히면 15-1~15-4의 이 환경 렌더.
 9. 제목·설명 파일(17장), 타임스탬프는 렌더 MP4의 실제 컷 시각.
 10. **Drive 저장(18장)**: 모든 산출물을 **Git으로 보내 Actions가 Drive로 올린다**(사용자 결정: PC가 꺼져 있을 수 있음). 썸네일·txt는 `render/<슬러그>/deliver/`.
-    - **사용한 대본 보관 (miya 2026-10-22)**: 영상을 만든 대본은 렌더를 올리는 푸시에 함께 `scripts/used/<슬러그>__<원래 파일명>.txt`(`main_owl.py` 대본은 `scripts_owl/used/`)로 옮긴다(`git mv`, 사용자가 직접 준 대본은 같은 이름으로 복사해 저장). `scripts/`·`scripts_owl/` 맨 위에는 아직 안 쓴 대본만 남는다. 현재 안 쓴 대본: 곰 진화(`script_20261010_130348`), 보레알로펠타(`script_20261010_151513`).
+    - **사용한 대본 보관 (miya 2026-10-22)**: 영상을 만든 대본은 렌더를 올리는 푸시에 함께 `scripts/used/<슬러그>__<원래 파일명>.txt`(`main_owl.py` 대본은 `scripts_owl/used/`)로 옮긴다(`git mv`, 사용자가 직접 준 대본은 같은 이름으로 복사해 저장). `scripts/`·`scripts_owl/` 맨 위에는 아직 안 쓴 대본만 남는다. 안 쓴 대본은 `scripts/`·`scripts_owl/` 맨 위에 그대로 있다.
 
 ### 12-2. 장면 목록 (HTML 장면 목록에 표시)
 | # | 시작~끝(예상) | 유형 | 한 줄 연출 |
