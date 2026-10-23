@@ -1,19 +1,37 @@
 {
- "centre": "TRAPPIST-1e wrapped in a thick blue atmosphere while its young star flares",
- "labels": [
-  {
-   "type": "name",
-   "text": "TRAPPIST-1e",
-   "x": 1250,
-   "y": 320,
-   "to": [
-    1040,
-    430
-   ],
-   "word": "TRAPPIST-1e"
-  }
- ],
+ "centre": "Earth on a road between a lit stone gate already passed (left) and a dark gate in fog ahead (right); a searchlight swings between them",
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "loom",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Behind us?",
+   "x": 640,
+   "y": 330,
+   "to": [
+    915,
+    545
+   ],
+   "word": "behind"
+  },
+  {
+   "type": "say",
+   "text": "Or ahead?",
+   "x": 1280,
+   "y": 330,
+   "to": [
+    1010,
+    545
+   ],
+   "word": "ahead"
+  }
+ ],
+ "motion": "swing: a searchlight from Earth sweeps back and forth between the gate behind and the gate ahead = which side is the filter on"
 }

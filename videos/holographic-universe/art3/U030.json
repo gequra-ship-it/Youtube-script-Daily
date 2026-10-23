@@ -1,17 +1,19 @@
 {
- "centre": "glowing three-dimensional pawn floating in front of a glass hologram plate",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "three-dimensional objects",
- "sfx": [
+ "centre": "a glass cube of space with glowing points inside; a flat sheet of data dots unrolls from its face and dashed links tie each inside point to a spot on the sheet",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "hush",
-   "word": "holograms",
-   "vol": 0.6
+   "type": "name",
+   "text": "two-dimensional edge",
+   "x": 1300,
+   "y": 790,
+   "to": [
+    1300,
+    680
+   ],
+   "word": "two-dimensional edge"
   }
  ],
- "labels": []
+ "motion": "a 3D region described by data on its 2D edge: the flat edge sheet unrolls out of the cube (mv-grow x), dashed links march from points inside to their spots on the sheet (mv-dash)"
 }

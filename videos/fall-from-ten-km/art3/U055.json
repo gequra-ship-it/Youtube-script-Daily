@@ -1,17 +1,20 @@
 {
- "centre": "speed dial with its needle deep in the red zone",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "three hundred kilometers per hour",
+ "centre": "the spread-eagle passenger seen from below, wide and flat, with streams of air molecules rising into its underside; a speed gauge beside it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "300 KM/H",
-   "word": "three hundred kilometers"
+   "type": "name",
+   "text": "terminal velocity",
+   "x": 1370,
+   "y": 150,
+   "to": [
+    1360,
+    240
+   ],
+   "word": "terminal velocity"
   }
- ]
+ ],
+ "motion": "catch as many air molecules as possible, speed falls: molecule streams rise and strike the body (mv-bubble x3) while the speed gauge drains to its lowest level (mv-fill)"
 }

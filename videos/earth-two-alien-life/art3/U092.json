@@ -1,18 +1,24 @@
 {
- "centre": "golden star with a dark planet passing between it and a telescope",
+ "centre": "Kepler-452b sitting inside a soft green habitable-zone band",
  "focus": [
-  650,
+  960,
   500,
-  2.0
+  1.5
  ],
- "focus_word": "exoplanet",
- "sfx": [
+ "focus_word": "habitable zone",
+ "labels": [
   {
-   "name": "tick",
-   "word": "crosses",
-   "vol": 0.6
+   "type": "name",
+   "text": "habitable zone",
+   "x": 1300,
+   "y": 220,
+   "to": [
+    980,
+    250
+   ],
+   "word": "habitable zone"
   }
  ],
- "labels": [],
- "spot": true
+ "spot": true,
+ "motion": "dashes march along the habitable-zone band (dash)"
 }

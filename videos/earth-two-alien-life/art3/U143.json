@@ -1,31 +1,37 @@
 {
- "centre": "Earth turned dry and hazy under a swollen, brighter Sun",
+ "centre": "a huge neighbouring rocky world rising above the horizon, much larger than a small full Moon in the corner of the sky",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "bloom",
+   "word": "rise above the horizon",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Sun",
-   "x": 330,
-   "y": 720,
+   "text": "full Moon",
+   "x": 560,
+   "y": 250,
    "to": [
-    230,
-    600
+    360,
+    236
    ],
-   "word": "our own Sun"
+   "word": "full Moon"
   },
   {
-   "type": "name",
-   "text": "Earth",
-   "x": 1220,
-   "y": 300,
+   "type": "say",
+   "text": "Whoa, so big!",
+   "x": 330,
+   "y": 420,
    "to": [
-    1050,
-    420
+    330,
+    260
    ],
-   "word": "Earth"
+   "word": "larger"
   }
  ],
- "spot": true
+ "motion": "another world rises above the horizon: the giant globe climbs slowly out from behind the ground (mv-path), dwarfing the small full Moon"
 }

@@ -1,17 +1,19 @@
 {
- "centre": "a large warm orange-red sun low in the sky, framed by dark leafy fronds with a hint of green",
- "focus": [
-  330,
-  640,
-  1.7
- ],
- "focus_word": "alien leaves",
- "sfx": [
+ "centre": "an exoplanet gliding down a notebook-sketch valley (hot slope, icy slope) and resting in the green bottom",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "cloth",
-   "word": "rustle",
-   "vol": 0.5
+   "type": "name",
+   "text": "exoplanet",
+   "x": 1240,
+   "y": 560,
+   "to": [
+    1030,
+    630
+   ],
+   "word": "exoplanet"
   }
  ],
- "labels": []
+ "motion": "resting gracefully in the zone: the planet glides down the valley and comes to rest in the green middle (mv-path, camera tracks)"
 }

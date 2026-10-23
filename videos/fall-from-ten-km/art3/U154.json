@@ -1,21 +1,30 @@
 {
- "centre": "coil spring squeezed between two plates in a warm disc",
+ "centre": "glass bubble holding a pair of lungs, between a thermometer and a pressure gauge",
  "focus": [
-  960,
+  1500,
   500,
-  1.6
+  1.8
  ],
- "focus_word": "crumple",
+ "focus_word": "air pressure",
  "sfx": [
   {
-   "name": "thud",
-   "word": "first hit",
+   "name": "breath",
+   "word": "breath",
    "vol": 0.6
   }
  ],
- "labels": [],
- "iris": [
-  430,
-  560
- ]
+ "labels": [
+  {
+   "type": "name",
+   "text": "Air pressure",
+   "x": 1500,
+   "y": 300,
+   "to": [
+    1500,
+    400
+   ],
+   "word": "air pressure"
+  }
+ ],
+ "motion": "delicate balance of pressure and temperature: the pressure gauge needle swings and settles like a damped pendulum (mv-swing), pure explanation so gentle only"
 }

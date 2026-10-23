@@ -1,7 +1,19 @@
 {
- "centre": "a motionless deep-orange red dwarf sun hanging over hills, with a faint dotted ghost path of a normal sun",
+ "centre": "a person seen from behind on a hill watching a red sun that sits still at the top of a faint day-arc",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "It never moves?",
+   "x": 250,
+   "y": 930,
+   "to": [
+    320,
+    1078.0
+   ],
+   "word": "never moves"
+  }
+ ],
+ "motion": "edge: the arc a sun would normally travel draws across the sky while the real sun stays fixed on it; clouds scroll past (the sky changes, the Sun never moves)"
 }

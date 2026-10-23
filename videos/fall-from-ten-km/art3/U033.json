@@ -1,7 +1,37 @@
 {
- "centre": "glowing apple falling toward the earth, a gold gravity arrow under it",
+ "centre": "glowing two-atom gas molecule about to hit a shirt sleeve and skin",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "collide",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Gas molecules",
+   "x": 1200,
+   "y": 370,
+   "to": [
+    1020,
+    470
+   ],
+   "word": "gas molecules"
+  },
+  {
+   "type": "say",
+   "text": "Bonk!",
+   "x": 760,
+   "y": 200,
+   "to": [
+    940,
+    450
+   ],
+   "word": "collide"
+  }
+ ],
+ "motion": "molecule flies into the sleeve and skin (path)"
 }

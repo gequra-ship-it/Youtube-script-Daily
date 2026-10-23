@@ -1,17 +1,20 @@
 {
- "centre": "a dark planet with a thin bright sliver of starlight glowing through the edge of its atmosphere",
- "focus": [
-  1050,
-  500,
-  2.1
- ],
- "focus_word": "tiny sliver",
- "sfx": [
+ "centre": "a tilted Earth above a liquid sea whose wobbling axis settles as a large moon rises beside it",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "glimmer",
-   "word": "sliver",
-   "vol": 0.55
+   "type": "name",
+   "text": "Moon",
+   "x": 1580,
+   "y": 300,
+   "to": [
+    1410,
+    370
+   ],
+   "word": "moon"
   }
  ],
- "labels": []
+ "spot": true,
+ "motion": "a large moon may steady the tilt: Earth's tilted axis wobbles and dies down (mv-swing, damped) above a liquid sea while the Moon rises into view (mv-rise)"
 }

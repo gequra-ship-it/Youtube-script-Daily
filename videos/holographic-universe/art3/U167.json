@@ -1,11 +1,19 @@
 {
- "centre": "a dark globe of which only a small patch is lit by a lantern",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "far less understood",
- "sfx": [],
- "labels": []
+ "centre": "glowing sphere with mist half wiped away, fog banks around (clearing away misunderstandings)",
+ "focus": null,
+ "focus_word": null,
+ "motion": "clearing away misunderstandings: the fog banks drift off sideways (scroll)",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Clearer now!",
+   "x": 1260,
+   "y": 300,
+   "to": [
+    1050,
+    430
+   ],
+   "word": "clear away"
+  }
+ ]
 }

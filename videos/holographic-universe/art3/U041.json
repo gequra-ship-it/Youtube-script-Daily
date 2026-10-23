@@ -1,11 +1,36 @@
 {
- "centre": "glowing cube above a wide plate whose whole surface contributes",
- "focus": [
-  960,
-  700,
-  1.5
- ],
- "focus_word": "whole surface",
+ "centre": "a giant elliptical galaxy with a ringed black hole on the left, our Milky Way spiral on the right",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Messier eighty-seven",
+   "x": 430,
+   "y": 150,
+   "to": [
+    420,
+    400
+   ],
+   "word": "Messier"
+  },
+  {
+   "type": "num",
+   "text": "TWENTY TWENTY-TWO",
+   "word": "twenty twenty-two"
+  },
+  {
+   "type": "name",
+   "text": "Milky Way",
+   "x": 1440,
+   "y": 270,
+   "to": [
+    1440,
+    490
+   ],
+   "word": "Milky Way"
+  }
+ ],
+ "motion": "from one galaxy to the next: the camera travels from Messier 87 to the Milky Way (mv-track), where the second black hole image rises in (mv-rise)"
 }

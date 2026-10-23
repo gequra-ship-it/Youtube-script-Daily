@@ -1,29 +1,26 @@
 {
- "centre": "water drop with a hexagon molecule coming apart into drifting atoms",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "dissolve",
+ "centre": "a cosmic speedometer whose needle sweeps up while the dark lines of a star's spectrum slide toward red; a dotted invisible planet tugs the star",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pop",
-   "word": "dissolve",
-   "vol": 0.6
+   "name": "tick",
+   "word": "speedometer",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Organic molecules",
-   "x": 1330,
-   "y": 330,
+   "text": "Doppler shift",
+   "x": 1440,
+   "y": 300,
    "to": [
-    1050,
-    470
+    1440,
+    380
    ],
-   "word": "organic molecules"
+   "word": "Doppler shift"
   }
- ]
+ ],
+ "motion": "a speedometer reading: the needle sweeps across the dial (mv-flip about its hub) and the spectral lines drift redward (mv-scroll)"
 }

@@ -30,7 +30,7 @@
   "dur": 6.58,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "Most people instinctively choose the water, picturing a deep, forgiving dive."
+  "nxt": "Most people instinctively choose the water, picturing a deep, forgiving dive. But the physics points the other way."
  },
  {
   "uid": "U002",
@@ -59,18 +59,18 @@
     "#c9d4ff"
    ]
   },
-  "text": "Most people instinctively choose the water, picturing a deep, forgiving dive.",
-  "dur": 4.42,
-  "transition_in": "eye",
+  "text": "Most people instinctively choose the water, picturing a deep, forgiving dive. But the physics points the other way.",
+  "dur": 7.92,
+  "transition_in": "diamond",
   "prev": "If you were falling from the sky without a parachute, would you aim for a deep lake or a dense forest?",
-  "nxt": "But the physics points the other way."
+  "nxt": ""
  },
  {
   "uid": "U003",
-  "scene": 1,
-  "title": "Hook",
-  "art_theme": "hook",
-  "bg": "dusk",
+  "scene": 2,
+  "title": "Speed",
+  "art_theme": "speed",
+  "bg": "night",
   "pal": {
    "palette": "space",
    "paper_base": "#e3e6ec",
@@ -92,11 +92,11 @@
     "#c9d4ff"
    ]
   },
-  "text": "But the physics points the other way.",
-  "dur": 3.5,
-  "transition_in": "push",
-  "prev": "Most people instinctively choose the water, picturing a deep, forgiving dive.",
-  "nxt": ""
+  "text": "A person falling belly-down through the lower atmosphere settles at roughly two hundred kilometers per hour, about fifty-five meters per second.",
+  "dur": 8.22,
+  "transition_in": "slide",
+  "prev": "",
+  "nxt": "At that speed, the surface you meet decides almost everything."
  },
  {
   "uid": "U004",
@@ -125,18 +125,18 @@
     "#c9d4ff"
    ]
   },
-  "text": "A person falling belly-down through the lower atmosphere",
-  "dur": 3.5,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "settles at roughly two hundred kilometers per hour, about fifty-five meters per second."
+  "text": "At that speed, the surface you meet decides almost everything.",
+  "dur": 6.0,
+  "transition_in": "whip",
+  "prev": "A person falling belly-down through the lower atmosphere settles at roughly two hundred kilometers per hour, about fifty-five meters per second.",
+  "nxt": ""
  },
  {
   "uid": "U005",
-  "scene": 2,
-  "title": "Speed",
-  "art_theme": "speed",
-  "bg": "night",
+  "scene": 3,
+  "title": "Water",
+  "art_theme": "water",
+  "bg": "paper",
   "pal": {
    "palette": "space",
    "paper_base": "#e3e6ec",
@@ -158,18 +158,18 @@
     "#c9d4ff"
    ]
   },
-  "text": "settles at roughly two hundred kilometers per hour, about fifty-five meters per second.",
-  "dur": 5.96,
-  "transition_in": "slide",
-  "prev": "A person falling belly-down through the lower atmosphere",
-  "nxt": "At that speed, the surface you meet decides almost everything."
+  "text": "Water is almost incompressible, and it cannot move out of the way fast enough when you strike it at that speed.",
+  "dur": 5.68,
+  "transition_in": "seam",
+  "prev": "",
+  "nxt": "Instead of letting you in gently, it pushes back hard, much like a solid surface."
  },
  {
   "uid": "U006",
-  "scene": 2,
-  "title": "Speed",
-  "art_theme": "speed",
-  "bg": "night",
+  "scene": 3,
+  "title": "Water",
+  "art_theme": "water",
+  "bg": "paper",
   "pal": {
    "palette": "space",
    "paper_base": "#e3e6ec",
@@ -191,11 +191,11 @@
     "#c9d4ff"
    ]
   },
-  "text": "At that speed, the surface you meet decides almost everything.",
-  "dur": 4.76,
-  "transition_in": "whip",
-  "prev": "settles at roughly two hundred kilometers per hour, about fifty-five meters per second.",
-  "nxt": ""
+  "text": "Instead of letting you in gently, it pushes back hard, much like a solid surface.",
+  "dur": 5.68,
+  "transition_in": "page",
+  "prev": "Water is almost incompressible, and it cannot move out of the way fast enough when you strike it at that speed.",
+  "nxt": "Hitting a lake or the ocean flat-on is very often fatal."
  },
  {
   "uid": "U007",
@@ -224,113 +224,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "Water is almost incompressible,",
-  "dur": 3.5,
-  "transition_in": "tilt",
-  "prev": "",
-  "nxt": "and it cannot move out of the way fast enough when you strike it at that speed."
- },
- {
-  "uid": "U008",
-  "scene": 3,
-  "title": "Water",
-  "art_theme": "water",
-  "bg": "paper",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "and it cannot move out of the way fast enough when you strike it at that speed.",
-  "dur": 3.5,
-  "transition_in": "wash",
-  "prev": "Water is almost incompressible,",
-  "nxt": "Instead of letting you in gently, it pushes back hard, much like a solid surface."
- },
- {
-  "uid": "U009",
-  "scene": 3,
-  "title": "Water",
-  "art_theme": "water",
-  "bg": "paper",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "Instead of letting you in gently, it pushes back hard, much like a solid surface.",
-  "dur": 5.78,
-  "transition_in": "eye",
-  "prev": "and it cannot move out of the way fast enough when you strike it at that speed.",
-  "nxt": "Hitting a lake or the ocean flat-on is very often fatal."
- },
- {
-  "uid": "U010",
-  "scene": 3,
-  "title": "Water",
-  "art_theme": "water",
-  "bg": "paper",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
   "text": "Hitting a lake or the ocean flat-on is very often fatal.",
-  "dur": 4.25,
-  "transition_in": "iris",
+  "dur": 5.68,
+  "transition_in": "match",
   "prev": "Instead of letting you in gently, it pushes back hard, much like a solid surface.",
   "nxt": ""
  },
  {
-  "uid": "U011",
+  "uid": "U008",
   "scene": 4,
   "title": "The Secret Variable",
   "art_theme": "stopdist",
@@ -356,80 +257,47 @@
     "#c9d4ff"
    ]
   },
-  "text": "The secret variable is stopping distance. When a body stops over a few millimeters, the force is enormous.",
-  "dur": 7.56,
-  "transition_in": "fade",
-  "prev": "",
-  "nxt": "Lengthen the distance, and the time, and the peak force falls. As an illustration,"
- },
- {
-  "uid": "U012",
-  "scene": 4,
-  "title": "The Secret Variable",
-  "art_theme": "stopdist",
-  "bg": "night",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "Lengthen the distance, and the time, and the peak force falls. As an illustration,",
-  "dur": 5.88,
-  "transition_in": "match",
-  "prev": "The secret variable is stopping distance. When a body stops over a few millimeters, the force is enormous.",
-  "nxt": "stopping over three meters instead of three centimeters spreads the same energy across a hundred times more distance."
- },
- {
-  "uid": "U013",
-  "scene": 4,
-  "title": "The Secret Variable",
-  "art_theme": "stopdist",
-  "bg": "night",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "stopping over three meters instead of three centimeters spreads the same energy across a hundred times more distance.",
-  "dur": 7.18,
+  "text": "The secret variable is stopping distance. When a body stops over a few millimeters, the force is enormous. Lengthen the distance, and the time, and the peak force falls.",
+  "dur": 11.96,
   "transition_in": "iris",
-  "prev": "Lengthen the distance, and the time, and the peak force falls. As an illustration,",
+  "prev": "",
+  "nxt": "As an illustration, stopping over three meters instead of three centimeters spreads the same energy across a hundred times more distance."
+ },
+ {
+  "uid": "U009",
+  "scene": 4,
+  "title": "The Secret Variable",
+  "art_theme": "stopdist",
+  "bg": "night",
+  "pal": {
+   "palette": "space",
+   "paper_base": "#e3e6ec",
+   "paper_ink": "#151a2e",
+   "night_top": "#050818",
+   "night_bottom": "#0d1634",
+   "night_line": "#cfd8ff",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#e8d8c0",
+    "#8a7fb0",
+    "#2c2f66"
+   ],
+   "dusk_ink": "#151a2e",
+   "accents": [
+    "#4f6bd6",
+    "#f2c14e",
+    "#8fd6e8",
+    "#c9d4ff"
+   ]
+  },
+  "text": "As an illustration, stopping over three meters instead of three centimeters spreads the same energy across a hundred times more distance.",
+  "dur": 8.66,
+  "transition_in": "slide",
+  "prev": "The secret variable is stopping distance. When a body stops over a few millimeters, the force is enormous. Lengthen the distance, and the time, and the peak force falls.",
   "nxt": ""
  },
  {
-  "uid": "U014",
+  "uid": "U010",
   "scene": 5,
   "title": "Trees",
   "art_theme": "trees",
@@ -455,47 +323,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "That is why dense trees matter.",
-  "dur": 3.5,
-  "transition_in": "tilt",
+  "text": "That is why dense trees matter. As a body hits the top of the canopy, thin twigs snap first and take a modest share of the energy.",
+  "dur": 6.83,
+  "transition_in": "zoom",
   "prev": "",
-  "nxt": "As a body hits the top of the canopy, thin twigs snap first and take a modest share of the energy."
- },
- {
-  "uid": "U015",
-  "scene": 5,
-  "title": "Trees",
-  "art_theme": "trees",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "As a body hits the top of the canopy, thin twigs snap first and take a modest share of the energy.",
-  "dur": 5.34,
-  "transition_in": "slide",
-  "prev": "That is why dense trees matter.",
   "nxt": "Then thicker branches bend and break, absorbing much more."
  },
  {
-  "uid": "U016",
+  "uid": "U011",
   "scene": 5,
   "title": "Trees",
   "art_theme": "trees",
@@ -522,13 +357,13 @@
    ]
   },
   "text": "Then thicker branches bend and break, absorbing much more.",
-  "dur": 4.42,
-  "transition_in": "wash",
-  "prev": "As a body hits the top of the canopy, thin twigs snap first and take a modest share of the energy.",
+  "dur": 6.0,
+  "transition_in": "zigzag",
+  "prev": "That is why dense trees matter. As a body hits the top of the canopy, thin twigs snap first and take a modest share of the energy.",
   "nxt": "Many small collisions stretch the stop across several meters instead of a split second."
  },
  {
-  "uid": "U017",
+  "uid": "U012",
   "scene": 5,
   "title": "Trees",
   "art_theme": "trees",
@@ -555,13 +390,13 @@
    ]
   },
   "text": "Many small collisions stretch the stop across several meters instead of a split second.",
-  "dur": 5.57,
-  "transition_in": "whip",
+  "dur": 6.0,
+  "transition_in": "wipe",
   "prev": "Then thicker branches bend and break, absorbing much more.",
   "nxt": ""
  },
  {
-  "uid": "U018",
+  "uid": "U013",
   "scene": 6,
   "title": "Snow",
   "art_theme": "snow",
@@ -588,13 +423,13 @@
    ]
   },
   "text": "Deep, freshly fallen snow can do something similar.",
-  "dur": 3.68,
-  "transition_in": "wipe",
+  "dur": 6.0,
+  "transition_in": "tilt",
   "prev": "",
-  "nxt": "It is mostly trapped air in a lattice of crystals,"
+  "nxt": "It is mostly trapped air in a lattice of crystals, so it compresses gradually, like the crumple zone of a car."
  },
  {
-  "uid": "U019",
+  "uid": "U014",
   "scene": 6,
   "title": "Snow",
   "art_theme": "snow",
@@ -620,14 +455,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "It is mostly trapped air in a lattice of crystals,",
-  "dur": 3.5,
-  "transition_in": "push",
+  "text": "It is mostly trapped air in a lattice of crystals, so it compresses gradually, like the crumple zone of a car.",
+  "dur": 6.0,
+  "transition_in": "diamond",
   "prev": "Deep, freshly fallen snow can do something similar.",
-  "nxt": "so it compresses gradually, like the crumple zone of a car."
+  "nxt": "On a steep slope, a head-on impact becomes a glancing blow, and the body slides, shedding speed across distance."
  },
  {
-  "uid": "U020",
+  "uid": "U015",
   "scene": 6,
   "title": "Snow",
   "art_theme": "snow",
@@ -653,80 +488,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "so it compresses gradually, like the crumple zone of a car.",
-  "dur": 3.7,
-  "transition_in": "whip",
-  "prev": "It is mostly trapped air in a lattice of crystals,",
-  "nxt": "On a steep slope, a head-on impact becomes a glancing blow,"
- },
- {
-  "uid": "U021",
-  "scene": 6,
-  "title": "Snow",
-  "art_theme": "snow",
-  "bg": "paper",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "On a steep slope, a head-on impact becomes a glancing blow,",
-  "dur": 4.42,
-  "transition_in": "zoom",
-  "prev": "so it compresses gradually, like the crumple zone of a car.",
-  "nxt": "and the body slides, shedding speed across distance."
- },
- {
-  "uid": "U022",
-  "scene": 6,
-  "title": "Snow",
-  "art_theme": "snow",
-  "bg": "paper",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "and the body slides, shedding speed across distance.",
-  "dur": 3.91,
-  "transition_in": "wipe",
-  "prev": "On a steep slope, a head-on impact becomes a glancing blow,",
+  "text": "On a steep slope, a head-on impact becomes a glancing blow, and the body slides, shedding speed across distance.",
+  "dur": 7.21,
+  "transition_in": "wave",
+  "prev": "It is mostly trapped air in a lattice of crystals, so it compresses gradually, like the crumple zone of a car.",
   "nxt": ""
  },
  {
-  "uid": "U023",
+  "uid": "U016",
   "scene": 7,
   "title": "Real Survivors",
   "art_theme": "survivors",
@@ -753,13 +522,13 @@
    ]
   },
   "text": "Real survivors show the pattern.",
-  "dur": 4.5,
-  "transition_in": "slide",
+  "dur": 7.5,
+  "transition_in": "zoom",
   "prev": "",
-  "nxt": "In 1972, flight attendant Vesna Vulovic fell about ten thousand meters with part of her aircraft,"
+  "nxt": "In 1972, flight attendant Vesna Vulovic fell about ten thousand meters with part of her aircraft, and accounts say she came down on a wooded, snowy slope."
  },
  {
-  "uid": "U024",
+  "uid": "U017",
   "scene": 7,
   "title": "Real Survivors",
   "art_theme": "survivors",
@@ -785,14 +554,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "In 1972, flight attendant Vesna Vulovic fell about ten thousand meters with part of her aircraft,",
-  "dur": 4.92,
+  "text": "In 1972, flight attendant Vesna Vulovic fell about ten thousand meters with part of her aircraft, and accounts say she came down on a wooded, snowy slope.",
+  "dur": 7.5,
   "transition_in": "match",
   "prev": "Real survivors show the pattern.",
-  "nxt": "and accounts say she came down on a wooded, snowy slope."
+  "nxt": "In 1971, Juliane Koepcke fell about three kilometers, still strapped into her seat, into the Peruvian rainforest."
  },
  {
-  "uid": "U025",
+  "uid": "U018",
   "scene": 7,
   "title": "Real Survivors",
   "art_theme": "survivors",
@@ -818,80 +587,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "and accounts say she came down on a wooded, snowy slope.",
-  "dur": 4.5,
-  "transition_in": "zoom",
-  "prev": "In 1972, flight attendant Vesna Vulovic fell about ten thousand meters with part of her aircraft,",
-  "nxt": "In 1971, Juliane Koepcke fell about three kilometers,"
- },
- {
-  "uid": "U026",
-  "scene": 7,
-  "title": "Real Survivors",
-  "art_theme": "survivors",
-  "bg": "night",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "In 1971, Juliane Koepcke fell about three kilometers,",
-  "dur": 4.5,
+  "text": "In 1971, Juliane Koepcke fell about three kilometers, still strapped into her seat, into the Peruvian rainforest.",
+  "dur": 7.6,
   "transition_in": "slide",
-  "prev": "and accounts say she came down on a wooded, snowy slope.",
-  "nxt": "still strapped into her seat, into the Peruvian rainforest."
- },
- {
-  "uid": "U027",
-  "scene": 7,
-  "title": "Real Survivors",
-  "art_theme": "survivors",
-  "bg": "night",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "still strapped into her seat, into the Peruvian rainforest.",
-  "dur": 4.5,
-  "transition_in": "fade",
-  "prev": "In 1971, Juliane Koepcke fell about three kilometers,",
+  "prev": "In 1972, flight attendant Vesna Vulovic fell about ten thousand meters with part of her aircraft, and accounts say she came down on a wooded, snowy slope.",
   "nxt": ""
  },
  {
-  "uid": "U028",
+  "uid": "U019",
   "scene": 8,
   "title": "Time and Force",
   "art_theme": "clock",
@@ -917,47 +620,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "Stretch an impact from one hundredth of a second to one tenth of a second,",
-  "dur": 4.31,
-  "transition_in": "tilt",
-  "prev": "",
-  "nxt": "and the average force drops to one tenth."
- },
- {
-  "uid": "U029",
-  "scene": 8,
-  "title": "Time and Force",
-  "art_theme": "clock",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "and the average force drops to one tenth.",
-  "dur": 3.5,
+  "text": "Stretch an impact from one hundredth of a second to one tenth of a second, and the average force drops to one tenth.",
+  "dur": 7.62,
   "transition_in": "push",
-  "prev": "Stretch an impact from one hundredth of a second to one tenth of a second,",
-  "nxt": "That is the difference between a stop that breaks a body and one that,"
+  "prev": "",
+  "nxt": "That is the difference between a stop that breaks a body and one that, with a lot of luck, it can survive."
  },
  {
-  "uid": "U030",
+  "uid": "U020",
   "scene": 8,
   "title": "Time and Force",
   "art_theme": "clock",
@@ -983,47 +653,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "That is the difference between a stop that breaks a body and one that,",
-  "dur": 3.5,
-  "transition_in": "wipe",
-  "prev": "and the average force drops to one tenth.",
-  "nxt": "with a lot of luck, it can survive."
- },
- {
-  "uid": "U031",
-  "scene": 8,
-  "title": "Time and Force",
-  "art_theme": "clock",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "with a lot of luck, it can survive.",
-  "dur": 3.5,
-  "transition_in": "match",
-  "prev": "That is the difference between a stop that breaks a body and one that,",
+  "text": "That is the difference between a stop that breaks a body and one that, with a lot of luck, it can survive.",
+  "dur": 7.19,
+  "transition_in": "zigzag",
+  "prev": "Stretch an impact from one hundredth of a second to one tenth of a second, and the average force drops to one tenth.",
   "nxt": ""
  },
  {
-  "uid": "U032",
+  "uid": "U021",
   "scene": 9,
   "title": "Call to Action",
   "art_theme": "cta",
@@ -1049,43 +686,10 @@
     "#c9d4ff"
    ]
   },
-  "text": "Discover the biomechanics of high-altitude falls,",
-  "dur": 3.68,
-  "transition_in": "push",
-  "prev": "",
-  "nxt": "and how a few people beat impossible odds, on the full episode at Miya's Lab."
- },
- {
-  "uid": "U033",
-  "scene": 9,
-  "title": "Call to Action",
-  "art_theme": "cta",
-  "bg": "night",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "and how a few people beat impossible odds, on the full episode at Miya's Lab.",
-  "dur": 6.71,
+  "text": "Discover the biomechanics of high-altitude falls, and how a few people beat impossible odds, on the full episode at Miya's Lab.",
+  "dur": 10.39,
   "transition_in": "wash",
-  "prev": "Discover the biomechanics of high-altitude falls,",
+  "prev": "",
   "nxt": ""
  }
 ]

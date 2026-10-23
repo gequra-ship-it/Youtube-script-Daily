@@ -1,17 +1,19 @@
 {
- "centre": "one bright twinkling star high above the dunes",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "twinkling stars",
- "sfx": [
+ "centre": "a frozen rust-red Martian desert under a small pale sun, frost creeping over the rocks while faint violet ultraviolet rays rain down",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "glimmer",
-   "word": "twinkling",
-   "vol": 0.5
+   "type": "name",
+   "text": "Mars",
+   "x": 300,
+   "y": 430,
+   "to": [
+    360,
+    620
+   ],
+   "word": "Mars"
   }
  ],
- "labels": []
+ "motion": "frozen, bone-dry desert bathed in radiation: frost crust spreads across the ground (mv-grow x) while dashed ultraviolet rays keep falling (mv-dash)"
 }

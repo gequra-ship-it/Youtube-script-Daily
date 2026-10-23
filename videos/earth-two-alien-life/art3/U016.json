@@ -1,7 +1,27 @@
 {
- "centre": "an imagined ocean world with a shimmer of water",
+ "centre": "the inner solar system as a backyard over a fence: dull Venus and Mars on dotted orbits, and a blue Earth gliding along its orbit while one green sprout of life pops up on it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "track": false,
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "life",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Just me here?",
+   "x": 1380,
+   "y": 330,
+   "to": [
+    1140,
+    450
+   ],
+   "word": "lonely"
+  }
+ ],
+ "motion": "life as a lonely accident in our backyard: Earth glides along its orbit past its lifeless neighbours (mv-path, no tracking) and a single sprout pops up on it (mv-popin)"
 }

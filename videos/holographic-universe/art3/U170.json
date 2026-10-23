@@ -1,29 +1,20 @@
 {
- "centre": "a bright observer point inside a glassy bubble that light from outside cannot cross",
- "focus": [
-  960,
-  500,
-  1.5
- ],
- "focus_word": "cosmological horizon",
- "sfx": [
-  {
-   "name": "pulse",
-   "word": "horizon",
-   "vol": 0.5
-  }
- ],
+ "centre": "a glass cube standing for a region of space on a blueprint grid; its outline draws, then rows of small glowing facts light up across its face",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Cosmological horizon",
-   "x": 1480,
-   "y": 230,
+   "text": "region of space",
+   "x": 1450,
+   "y": 760,
    "to": [
-    1330,
-    330
+    1180,
+    700
    ],
-   "word": "cosmological horizon"
+   "word": "region of space"
   }
- ]
+ ],
+ "motion": "how many independent facts describe a region: the cube's outline draws (mv-edge), then the facts light up row by row across its surface (mv-grow x6)"
 }

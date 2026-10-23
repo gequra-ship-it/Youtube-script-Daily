@@ -1,24 +1,17 @@
 {
- "centre": "glowing bridge lamp at dusk above the water, a person diving head-first beside it",
+ "centre": "a passenger diving along a dashed imagined path into a lake at dusk; a gold arrow then points from the lake to the forest",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
    "name": "splash",
    "word": "dive",
-   "vol": 0.6
+   "vol": 0.55
   }
  ],
- "labels": [
-  {
-   "type": "say",
-   "text": "Looks soft!",
-   "x": 330,
-   "y": 420,
-   "to": [
-    236,
-    684
-   ]
-  }
- ]
+ "labels": [],
+ "track": {
+  "scale": 1.25
+ },
+ "motion": "path: the passenger dives along the imagined line into the lake (choose the water, picture a dive); edge: a gold arrow then draws from the lake to the trees (physics points the other way); camera follows the dive"
 }

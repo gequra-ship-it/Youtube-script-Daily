@@ -1,17 +1,23 @@
 {
- "centre": "glossy gold gravity orb with a down arrow",
+ "centre": "a red-suited skydiver seen from below in a soft gold glow, dashed ghost positions of arms and legs",
  "focus": [
   960,
-  560,
-  1.7
+  520,
+  1.6
  ],
- "focus_word": "nine point eight",
- "sfx": [],
+ "focus_word": "arms and legs",
  "labels": [
   {
-   "type": "num",
-   "text": "9.8 M/S",
-   "word": "nine point eight"
+   "type": "say",
+   "text": "Watch me go!",
+   "x": 1150,
+   "y": 330,
+   "to": [
+    1020,
+    400
+   ],
+   "word": "speed"
   }
- ]
+ ],
+ "motion": "body tilts as limbs change (swing)"
 }

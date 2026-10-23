@@ -1,11 +1,27 @@
 {
- "centre": "bright stiff dome of water rising where a flat falling body is about to strike the surface",
- "focus": [
-  540,
-  860,
-  1.7
+ "centre": "two test lanes at night: a ball stops against a hard wall (big force arrow) and another stops in a long cushion (small arrow)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "stops",
+   "vol": 0.65
+  }
  ],
- "focus_word": "strike it",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Stopping distance",
+   "x": 450,
+   "y": 1375,
+   "to": [
+    640,
+    1312
+   ],
+   "word": "stopping distance"
+  }
+ ],
+ "track": false,
+ "motion": "path + slam: a ball hits the hard wall over millimeters and a huge force arrow slams in; path + fill + rise: a second ball presses a long cushion and only a small arrow rises (lengthen the distance, peak force falls)"
 }

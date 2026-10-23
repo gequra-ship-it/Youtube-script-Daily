@@ -1,17 +1,26 @@
 {
- "centre": "red dwarf star erupting a huge glowing flare loop",
- "focus": [
-  1040,
-  370,
-  1.8
- ],
- "focus_word": "stellar flares",
+ "centre": "Earth set inside a thermostat dial whose needle holds in the green zone; a steady line runs across time as life grows along the ground",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "bloom",
-   "word": "erupting",
-   "vol": 0.7
+   "name": "tick",
+   "word": "thermostat",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Just right.",
+   "x": 470,
+   "y": 120,
+   "to": [
+    470,
+    205
+   ],
+   "word": "stable"
+  }
+ ],
+ "motion": "edge: a steady temperature line draws across time; grow: life sprouts one after another along it (life flourishes); joint: needle holds steady"
 }

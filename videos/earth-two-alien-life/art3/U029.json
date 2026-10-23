@@ -1,17 +1,14 @@
 {
- "centre": "a golden sun at the hub of a ticking brass clockwork of gears and planets",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "clockwork",
+ "centre": "a brass telescope lens in the sky whose focus ring turns until a blue-green twin world inside comes into sharp focus, while small observatories pop up all around the globe below",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "clockwork",
-   "vol": 0.6
+   "name": "pop",
+   "word": "hundreds of astronomers",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [],
+ "motion": "the prize comes into sharp focus: the lens focus ring turns once (mv-flip as a turn) and the twin world sharpens (mv-core-reveal); observatories across the globe pop up one after another (mv-popin x9)"
 }

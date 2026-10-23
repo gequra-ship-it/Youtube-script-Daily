@@ -1,19 +1,14 @@
 {
- "centre": "brass fulcrum medallion of a level balance scale, up and down arrows equal",
+ "centre": "the curled passenger ball dropping fast along a diagonal route through stacked cloud decks, air parting around it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "Gravity",
-   "x": 560,
-   "y": 440,
-   "to": [
-    650,
-    575
-   ],
-   "word": "gravity"
+   "name": "wind",
+   "word": "slices",
+   "vol": 0.55
   }
- ]
+ ],
+ "labels": [],
+ "motion": "body slices through the air and speeds up: the tucked ball follows a long dropping path (mv-path, camera tracks) over a marching dashed route (mv-dash)"
 }

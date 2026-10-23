@@ -1,7 +1,26 @@
 {
- "centre": "a translucent bubble of air held aloft by warm rising currents above an ice field",
+ "centre": "a leafy plant and a volcano on a night plain each breathe out the same puff of oxygen and methane; a dashed arrow links the two puffs",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "geological",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Me too!",
+   "x": 1620,
+   "y": 470,
+   "to": [
+    1470,
+    540
+   ],
+   "word": "mimicking"
+  }
+ ],
+ "motion": "rise + edge: the plant's gas puff rises first, then the volcano puffs the very same mix and a dashed arrow draws from one to the other (mimicking)"
 }

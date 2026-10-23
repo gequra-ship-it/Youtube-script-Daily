@@ -1,11 +1,23 @@
 {
- "centre": "a rocky amber-lit world orbiting a small distant red star",
+ "centre": "Earth, a blue-green planet, at a measured distance from the large Sun",
  "focus": [
   960,
   500,
-  1.8
+  1.7
  ],
- "focus_word": "rocky world",
- "sfx": [],
- "labels": []
+ "focus_word": "Earth",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 960,
+   "y": 345,
+   "to": [
+    960,
+    440
+   ],
+   "word": "Earth"
+  }
+ ],
+ "motion": "sunlight stream crosses the gap from Sun to Earth (dash)"
 }

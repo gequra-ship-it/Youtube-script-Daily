@@ -1,35 +1,26 @@
 {
- "centre": "a gold rounded ball shape with dashed airflow lines parting around it, skydivers on both sides",
- "focus": [
-  540,
-  860,
-  1.6
+ "centre": "the passenger in mid-air pulling knees to chest and wrapping the arms around them, curling into a tight ball",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "cloth",
+   "word": "curl",
+   "vol": 0.5
+  }
  ],
- "focus_word": "tight ball",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Skydivers",
-   "x": 310,
-   "y": 470,
-   "to": [
-    190,
-    560
-   ],
-   "word": "Skydivers"
-  },
-  {
-   "type": "name",
    "text": "Tight ball",
-   "x": 540,
-   "y": 1110,
+   "x": 800,
+   "y": 1340,
    "to": [
-    540,
-    1020
+    650,
+    1120
    ],
    "word": "tight ball"
   }
  ],
- "spot": true
+ "motion": "flip x5: thigh, shin, both arms and the torso fold in over three seconds, so the falling passenger curls into a tight ball"
 }

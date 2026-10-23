@@ -1,17 +1,20 @@
 {
- "centre": "round speed dial with the needle high, between a slow and a fast faller",
- "focus": [
-  1470,
-  500,
-  1.7
- ],
- "focus_word": "slam into",
- "sfx": [
+ "centre": "the passenger falling over a moonlit cloud bank, pulling arms and legs in towards a ball",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "wind",
-   "word": "slam into",
-   "vol": 0.55
+   "type": "say",
+   "text": "What now?!",
+   "x": 1320,
+   "y": 230,
+   "to": [
+    1080,
+    440
+   ],
+   "word": "What do you do"
   }
  ],
- "labels": []
+ "motion": "the impulse to curl into a ball: the spread arms and legs swing in under the body (mv-flip about shoulders and hips)"
 }

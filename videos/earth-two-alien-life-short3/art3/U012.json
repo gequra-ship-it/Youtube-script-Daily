@@ -1,23 +1,30 @@
 {
- "centre": "a tilted spiral galaxy crossed by a dotted golden path to a bright ship spark",
+ "centre": "a round glowing window set in a huge sheer brick wall",
  "focus": [
   540,
   860,
-  1.6
+  1.5
  ],
- "focus_word": "galaxy",
+ "focus_word": "wall",
  "sfx": [
   {
-   "name": "warp",
-   "word": "cross the entire galaxy",
-   "vol": 0.6
+   "name": "stone",
+   "word": "wall",
+   "vol": 0.7
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "TENS OF MILLIONS",
-   "word": "tens of millions of years"
+   "type": "say",
+   "text": "Way too high!",
+   "x": 800,
+   "y": 700,
+   "to": [
+    600,
+    830
+   ],
+   "word": "wall"
   }
- ]
+ ],
+ "motion": "The wall rises from the ground up."
 }

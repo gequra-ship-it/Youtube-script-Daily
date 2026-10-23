@@ -1,23 +1,31 @@
 {
- "centre": "frosted back of a hand with white-blue ice on the fingertips",
- "focus": [
-  960,
-  420,
-  1.8
+ "centre": "a belly-down faller seen from below, deep in a thick, crowded lower layer of air, beside a speed bar that shrinks",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "cloth",
+   "word": "falling belly-down",
+   "vol": 0.5
+  }
  ],
- "focus_word": "frostbite",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Frostbite",
-   "x": 1280,
-   "y": 330,
+   "text": "Belly-down",
+   "x": 600,
+   "y": 470,
    "to": [
-    1040,
-    380
+    920,
+    640
    ],
-   "word": "frostbite"
+   "word": "belly-down"
+  },
+  {
+   "type": "num",
+   "text": "200 KM/H",
+   "word": "two hundred kilometers"
   }
- ]
+ ],
+ "motion": "lower down the speed slows: the camera descends from thin air into the crowded lower layer to the belly-down faller (mv-track), then the speed bar shrinks back (mv-fill)"
 }

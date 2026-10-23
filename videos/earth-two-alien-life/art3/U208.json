@@ -1,19 +1,31 @@
 {
- "centre": "neighbour world shown full, far larger than a small full Moon beside it",
- "labels": [
-  {
-   "type": "name",
-   "text": "Moon",
-   "x": 1500,
-   "y": 400,
-   "to": [
-    1500,
-    476
-   ],
-   "word": "full Moon"
-  }
- ],
+ "centre": "three worlds on time lanes: an old gold-lit world races far ahead, another follows, Earth still waits at the start line",
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "tiny fraction",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "BILLIONS OF YEARS",
+   "word": "billions of years"
+  },
+  {
+   "type": "say",
+   "text": "Just starting!",
+   "x": 470,
+   "y": 650,
+   "to": [
+    360,
+    700
+   ],
+   "word": "head start"
+  }
+ ],
+ "motion": "path (no tracking): the old civilization's world streaks far ahead along its time lane with a light trail, a second one follows, Earth stays at the start = billions of years of head start"
 }

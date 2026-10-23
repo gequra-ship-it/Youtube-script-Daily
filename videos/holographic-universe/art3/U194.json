@@ -1,18 +1,19 @@
 {
- "centre": "a glowing knot where gold stitches pull patches of a quilt of space together",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "stitch space together",
- "sfx": [
+ "centre": "the dawn sun just below the hills, not yet risen",
+ "focus": null,
+ "focus_word": null,
+ "motion": "we do not know yet: still dawn, clouds drift slowly, birds already move (scroll)",
+ "labels": [
   {
-   "name": "click",
-   "word": "stitch",
-   "vol": 0.55
+   "type": "say",
+   "text": "Who knows?",
+   "x": 800,
+   "y": 170,
+   "to": [
+    650,
+    265
+   ],
+   "word": "do not know"
   }
- ],
- "labels": [],
- "spot": true
+ ]
 }

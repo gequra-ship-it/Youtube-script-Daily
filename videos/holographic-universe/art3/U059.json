@@ -1,17 +1,28 @@
 {
- "centre": "large radio dish tilted to the night sky on a ridge",
- "focus": [
-  960,
-  520,
-  1.6
- ],
- "focus_word": "In twenty nineteen",
- "sfx": [
+ "centre": "dark sphere wrapped in a faint warm thermal glow with heat shimmer",
+ "labels": [
   {
-   "name": "click",
-   "word": "nineteen",
-   "vol": 0.5
+   "type": "name",
+   "text": "Hawking radiation",
+   "x": 1450,
+   "y": 300,
+   "to": [
+    1060,
+    430
+   ],
+   "word": "Hawking radiation"
+  },
+  {
+   "type": "say",
+   "text": "A faint glow?",
+   "x": 420,
+   "y": 330,
+   "to": [
+    870,
+    470
+   ],
+   "word": "glow"
   }
  ],
- "labels": []
+ "motion": "black holes emit a faint thermal glow: warm specks rise off the sphere (bubble) + a bubble; focus removed"
 }

@@ -1,13 +1,23 @@
 {
- "centre": "a glowing clock dial turning over a long ruler of distance marks",
- "focus": null,
- "focus_word": null,
- "sfx": [
+ "centre": "TRAPPIST-1e matched against Earth between guide lines, with a level balance beside them",
+ "focus": [
+  420,
+  500,
+  1.6
+ ],
+ "focus_word": "our own planet",
+ "labels": [
   {
-   "name": "tick",
-   "word": "tens of millions of years",
-   "vol": 0.6
+   "type": "say",
+   "text": "Nearly twins!",
+   "x": 420,
+   "y": 260,
+   "to": [
+    430,
+    385
+   ],
+   "word": "same range"
   }
  ],
- "labels": []
+ "motion": "gentle: existing balance beam sway kept; bubble only (nothing travels in the text)"
 }

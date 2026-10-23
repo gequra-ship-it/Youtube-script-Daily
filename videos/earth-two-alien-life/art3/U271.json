@@ -1,17 +1,27 @@
 {
- "centre": "a glowing green living orb with leaves, with streams of blue and coral gas balls rising from it",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "astronomical quantities",
+ "centre": "a glowing ball of golden thread rolling away from two stargazers and unravelling a path toward the stars",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pulse",
-   "word": "pumps",
-   "vol": 0.6
+   "name": "pop",
+   "word": "subscribing",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Come along!",
+   "x": 1340,
+   "y": 200,
+   "to": [
+    1520,
+    320
+   ],
+   "word": "together"
+  }
+ ],
+ "spot": true,
+ "motion": "unraveling mysteries and exploring together: a golden thread ball rolls from the two stargazers out toward the stars (mv-path, camera tracks) unreeling its thread behind it (mv-edge)"
 }

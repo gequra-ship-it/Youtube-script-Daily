@@ -1,12 +1,21 @@
 {
- "centre": "small round window on the sky packed with stars, a telescope aimed at it",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "two age bars growing back from 'now': Kepler-452's bar reaches further into the past than the Sun's, each star appearing at its birth point",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "parent star",
+   "vol": 0.55
+  }
  ],
- "focus_word": "single patch",
- "sfx": [],
- "labels": [],
- "spot": true
+ "labels": [
+  {
+   "type": "num",
+   "text": "6 BILLION YEARS",
+   "word": "six billion years old"
+  }
+ ],
+ "motion": "older star: age bars grow back from the now-line (mv-grow x2, longer for Kepler-452), stars pop in at their births (mv-popin)"
 }

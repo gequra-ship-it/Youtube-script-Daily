@@ -1,24 +1,24 @@
 {
- "centre": "disc with one glowing quarter, between a dense and a thin air tube",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a stopwatch whose hand sweeps half the dial, above a blood vessel and a draining blood-oxygen bar",
+ "focus": [
+  540,
+  960,
+  1.5
+ ],
+ "focus_word": "thirty seconds",
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "thirty seconds",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "num",
-   "text": "10 KM",
-   "word": "ten kilometers"
-  },
-  {
-   "type": "name",
-   "text": "Sea level",
-   "x": 790,
-   "y": 480,
-   "to": [
-    640,
-    480
-   ],
-   "word": "sea level"
+   "text": "30 S",
+   "word": "thirty seconds"
   }
- ]
+ ],
+ "motion": "flip: the stopwatch hand sweeps half a turn (about thirty seconds) while fill: the blood-oxygen bar drains in step (little oxygen reaching your blood)"
 }

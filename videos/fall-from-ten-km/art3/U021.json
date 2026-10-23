@@ -1,23 +1,26 @@
 {
- "centre": "disc with one glowing quarter",
+ "centre": "a racing red heart in the centre between the falling passenger puffing quick breaths and a draining golden oxygen bar",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "iris": [
-  1560,
-  480
+ "sfx": [
+  {
+   "name": "breath",
+   "word": "breathing would quicken",
+   "vol": 0.6
+  }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Sea level",
-   "x": 360,
-   "y": 150,
+   "text": "oxygen",
+   "x": 1550,
+   "y": 560,
    "to": [
-    360,
-    210
+    1550,
+    640
    ],
-   "word": "sea level"
+   "word": "oxygen"
   }
- ]
+ ],
+ "motion": "panic burns the oxygen: the heart beats fast (mv-core-heartbeat), quick breath puffs rise from the faller (mv-bubble), the ECG line races (mv-dash) and the oxygen bar drains (mv-fill x)"
 }

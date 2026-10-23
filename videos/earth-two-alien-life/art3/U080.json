@@ -1,29 +1,37 @@
 {
- "centre": "amber star and a small planet balancing around a bright centre-of-mass point",
- "focus": [
-  1000,
-  500,
-  1.8
- ],
- "focus_word": "center of mass",
+ "centre": "Kepler-186f with a dashed Earth outline traced over it and one radius line, nearly the same size",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "center of mass",
-   "vol": 0.6
+   "name": "pencil",
+   "word": "radius",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Center of mass",
-   "x": 1000,
-   "y": 300,
+   "text": "Earth",
+   "x": 390,
+   "y": 290,
    "to": [
-    1000,
-    490
+    390,
+    385
    ],
-   "word": "center of mass"
+   "word": "Earth"
+  },
+  {
+   "type": "say",
+   "text": "Twins?",
+   "x": 560,
+   "y": 720,
+   "to": [
+    420,
+    580
+   ],
+   "word": "almost identical"
   }
- ]
+ ],
+ "motion": "dashed comparison line between Earth and the new world marches (dash)"
 }

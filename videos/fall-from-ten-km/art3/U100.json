@@ -1,19 +1,27 @@
 {
- "centre": "sunlit round crown at the top of the forest canopy where a falling body arrives",
+ "centre": "a person in a crash-test lab bracing, arms up and knees locked, as a padded sled rolls toward them; tension marks pop up on arms, legs and torso",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "cloth",
+   "word": "tensing",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Canopy",
-   "x": 1260,
-   "y": 330,
+   "type": "say",
+   "text": "Here it comes!",
+   "x": 430,
+   "y": 270,
    "to": [
-    1060,
-    440
+    740,
+    450
    ],
-   "word": "canopy"
+   "word": "collision"
   }
- ]
+ ],
+ "track": false,
+ "motion": "path (no camera track): the padded sled rolls in steadily; the person's muscles tense arms, legs, torso in turn (popin) and the whole body trembles stiffly (shake)"
 }

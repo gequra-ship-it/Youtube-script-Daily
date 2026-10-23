@@ -1,7 +1,19 @@
 {
- "centre": "a big banded orange gas giant on a scatter chart of many dots, with a small pale rocky planet glinting in a corner",
+ "centre": "a water bubble holding a coiled chain of coloured beads, with loose molecules drifting in currents",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Bump!",
+   "x": 420,
+   "y": 220,
+   "to": [
+    335,
+    310
+   ],
+   "word": "collide"
+  }
+ ],
+ "motion": "dashes flow along a current as molecules drift and collide (dash)"
 }

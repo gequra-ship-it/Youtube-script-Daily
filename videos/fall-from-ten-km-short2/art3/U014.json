@@ -1,19 +1,26 @@
 {
- "centre": "bright sunlit tree crown in the middle of a dense canopy seen from above, faller above and a layered brake panel below",
+ "centre": "a cutaway block of snow (ice crystal lattice with trapped air) squashing slowly above a car whose crumple zone folds",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "compresses gradually",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Dense trees",
-   "x": 770,
-   "y": 400,
+   "text": "crumple zone",
+   "x": 330,
+   "y": 970,
    "to": [
-    700,
-    640
+    720,
+    1150
    ],
-   "word": "dense trees"
+   "word": "crumple zone"
   }
- ]
+ ],
+ "motion": "fill: the snow block squashes slowly from the top (compresses gradually); fill (x): the car's front folds in against a barrier (like a crumple zone)"
 }

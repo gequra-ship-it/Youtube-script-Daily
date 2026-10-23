@@ -1,17 +1,19 @@
 {
- "centre": "black hole swallowing a book in a gas whirlpool",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "lost for good",
- "sfx": [
+ "centre": "golden gravity well inside a glass cylinder; the cylinder's boundary is drawn on and fills with glowing dots",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "stone",
-   "word": "lost for good",
-   "vol": 0.6
+   "type": "name",
+   "text": "boundary",
+   "x": 740,
+   "y": 340,
+   "to": [
+    800,
+    470
+   ],
+   "word": "boundary"
   }
  ],
- "labels": []
+ "motion": "the boundary of the space draws itself around the gravity well (mv-edge), then the quantum dots appear on it (mv-rise)"
 }

@@ -1,11 +1,37 @@
 {
- "centre": "TRAPPIST-1e squeezed between its neighbour worlds, side by side on one plane",
- "focus": [
-  960,
-  500,
-  1.5
+ "centre": "the Kepler telescope looks out at a gold star; a small rocky planet travels along the green habitable band around it, with other far systems beyond",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "rocky planets",
+   "vol": 0.55
+  }
  ],
- "focus_word": "packed so closely together",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Kepler",
+   "x": 380,
+   "y": 150,
+   "to": [
+    370,
+    240
+   ],
+   "word": "Kepler's data"
+  },
+  {
+   "type": "say",
+   "text": "Cozy here!",
+   "x": 1560,
+   "y": 400,
+   "to": [
+    1660,
+    535
+   ],
+   "word": "habitable zones"
+  }
+ ],
+ "motion": "path: the rocky planet travels along the green habitable band around its star and the camera rides with it"
 }

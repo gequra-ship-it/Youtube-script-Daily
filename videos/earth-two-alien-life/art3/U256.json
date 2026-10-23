@@ -1,17 +1,42 @@
 {
- "centre": "a water molecule absorbing a wavy red infrared light wave and flashing with energy",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "infrared light",
+ "centre": "Proxima Centauri b with an orange day side, dark night side and glowing twilight band, beside TRAPPIST-1e",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pulse",
-   "word": "absorb",
+   "name": "drip",
+   "word": "fresh water",
    "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Proxima Centauri b",
+   "x": 800,
+   "y": 740,
+   "to": [
+    920,
+    610
+   ],
+   "word": "Proxima Centauri b"
+  },
+  {
+   "type": "name",
+   "text": "TRAPPIST-1e",
+   "x": 1500,
+   "y": 330,
+   "to": [
+    1500,
+    404
+   ],
+   "word": "TRAPPIST-1e"
+  }
+ ],
+ "spot": true,
+ "iris": [
+  1500,
+  470
+ ],
+ "motion": "a water drop falls on TRAPPIST-1e"
 }

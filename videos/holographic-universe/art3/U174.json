@@ -1,13 +1,37 @@
 {
- "centre": "a faint hint-sphere floating above a blank open book",
+ "centre": "a glass sphere above night mountains filling up with glowing matter, fed by a stream from a grid of yes (gold) and no (hollow) bits",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "page",
-   "word": "dictionary",
-   "vol": 0.5
+   "name": "click",
+   "word": "yes or no",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Yes!",
+   "x": 250,
+   "y": 200,
+   "to": [
+    330,
+    300
+   ],
+   "word": "yes or no"
+  },
+  {
+   "type": "say",
+   "text": "No!",
+   "x": 720,
+   "y": 230,
+   "to": [
+    600,
+    300
+   ],
+   "word": "yes or no"
+  }
+ ],
+ "motion": "things arise from yes/no answers: bits rise out of the land one by one (mv-rise), a dashed stream carries them across (mv-dash), and the sphere fills from the bottom with glowing matter (mv-liquid)"
 }

@@ -1,11 +1,35 @@
 {
- "centre": "a planet half Earth and half alien world, joined down the middle as a near match",
+ "centre": "a data panel tracing a wobbling signal while a rocky world pops into view on its orbit around Proxima Centauri",
  "focus": [
-  1500,
-  470,
-  1.7
+  1440,
+  440,
+  1.6
  ],
- "focus_word": "temperature",
- "sfx": [],
- "labels": []
+ "focus_word": "rocky world",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "discovery",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "TWO THOUSAND SIXTEEN",
+   "word": "two thousand and sixteen"
+  },
+  {
+   "type": "say",
+   "text": "Hello, neighbor!",
+   "x": 1500,
+   "y": 640,
+   "to": [
+    1580,
+    485
+   ],
+   "word": "rocky world"
+  }
+ ],
+ "motion": "a discovery announced: the signal trace draws across the panel (mv-edge), the orbit draws, then the rocky world pops in (mv-popin)"
 }

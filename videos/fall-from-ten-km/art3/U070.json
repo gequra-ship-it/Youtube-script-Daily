@@ -1,7 +1,20 @@
 {
- "centre": "the passenger curled into a tight protective ball, eyes squeezed shut, in a soft glow",
+ "centre": "the small passenger high above a wide landscape of rock, lake and dense forest; a thin crescent of light appears over the forest",
  "focus": null,
  "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Anywhere soft?",
+   "x": 600,
+   "y": 130,
+   "to": [
+    790,
+    150
+   ],
+   "word": "mercy"
+  }
+ ],
+ "motion": "where is a sliver of mercy: clouds drift across the wide landscape (mv-scroll), then a sliver of light pops in over the forest (mv-popin)"
 }

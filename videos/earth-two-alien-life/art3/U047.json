@@ -1,11 +1,19 @@
 {
- "centre": "magnifying lens over a star chart with a tiny blue planet inside",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "a long black void from our planet on the left to a minuscule planet beside a faint far star on the right",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Over here!",
+   "x": 1360,
+   "y": 300,
+   "to": [
+    1536,
+    462
+   ],
+   "word": "planet"
+  }
  ],
- "focus_word": "where to look",
- "sfx": [],
- "labels": []
+ "motion": "trillions of miles of void: the camera travels the whole gap from home to the tiny far planet (mv-track) along a marching dotted line (mv-dash)"
 }

@@ -1,17 +1,19 @@
 {
- "centre": "a planet whose left side blazes white-hot toward a giant red star at the edge, right side dark",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "blinding, blazing daylight",
- "sfx": [
+ "centre": "the same planet turned away: a dark frosted night side with a thin orange edge",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "bloom",
-   "word": "blazing",
-   "vol": 0.6
+   "type": "say",
+   "text": "Brrr, so cold",
+   "x": 770,
+   "y": 640,
+   "to": [
+    600,
+    790
+   ],
+   "word": "frozen"
   }
  ],
- "labels": []
+ "motion": "Camera crosses from the thin lit rim to the frozen dark side."
 }

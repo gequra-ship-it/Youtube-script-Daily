@@ -1,23 +1,19 @@
 {
- "centre": "blue-green Earth globe in front of a world map with water-drop pins",
- "focus": [
-  960,
-  500,
-  1.6
- ],
+ "centre": "bulb slightly dimmed by a speck between it and a watching eye",
+ "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Earth",
-   "x": 1330,
-   "y": 520,
+   "type": "say",
+   "text": "Hmm, dimmer",
+   "x": 330,
+   "y": 330,
    "to": [
-    1090,
-    510
+    306,
+    465
    ],
-   "word": "Earth"
+   "word": "dims"
   }
- ]
+ ],
+ "motion": "camera follows the line of sight from eye to bulb (track); eye reacts"
 }

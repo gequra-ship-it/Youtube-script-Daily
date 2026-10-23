@@ -1,17 +1,27 @@
 {
- "centre": "dark planet silhouette wrapped in a thin glowing sliver of atmosphere, aurora ribbons behind",
- "focus": [
-  1030,
-  500,
-  2.0
- ],
- "focus_word": "delicate skin of gas",
+ "centre": "a round stone medallion cracking in two, set in a crumbling wall",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "delicate",
-   "vol": 0.55
+   "name": "stone",
+   "word": "dismantled",
+   "vol": 0.65
   }
  ],
- "labels": []
+ "spot": true,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Oof!",
+   "x": 700,
+   "y": 250,
+   "to": [
+    860,
+    400
+   ],
+   "word": "dismantled"
+  }
+ ],
+ "motion": "a crack line draws across the medallion"
 }

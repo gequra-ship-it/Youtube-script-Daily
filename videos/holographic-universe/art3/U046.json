@@ -1,11 +1,26 @@
 {
- "centre": "glass sphere holding a small galaxy, dots on its surface",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "one plain closed box linked to four magnified views, each with the same atoms in a different arrangement",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "hidden detail",
+   "vol": 0.5
+  }
  ],
- "focus_word": "entire physical universe",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "atoms",
+   "x": 600,
+   "y": 450,
+   "to": [
+    740,
+    540
+   ],
+   "word": "atoms"
+  }
+ ],
+ "motion": "hidden detail: lines run out of the closed box (mv-edge) and four magnified views pop up one by one, each a different arrangement (mv-popin)"
 }

@@ -1,29 +1,37 @@
 {
- "centre": "a bent, uneven aluminium panel caught in a flat spin, with flattened spin arrows",
- "focus": [
-  540,
-  866,
-  1.6
- ],
- "focus_word": "violent flat spin",
+ "centre": "an x-ray style figure on a lightbox: a gold shock spark climbs the leg bones and stops at the pelvis, below the spine and skull",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "flat spin",
+   "name": "thud",
+   "word": "first hit",
    "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Flat spin",
-   "x": 700,
-   "y": 560,
+   "text": "Spine",
+   "x": 800,
+   "y": 860,
    "to": [
-    700,
-    780
+    556,
+    860
    ],
-   "word": "flat spin"
+   "word": "spine"
+  },
+  {
+   "type": "name",
+   "text": "Skull",
+   "x": 800,
+   "y": 600,
+   "to": [
+    575,
+    620
+   ],
+   "word": "skull"
   }
- ]
+ ],
+ "motion": "shake on the first hit, then path: the shock spark climbs from the foot up the shin and thigh to the pelvis and stops there (legs absorb it before the spine and skull); camera follows"
 }

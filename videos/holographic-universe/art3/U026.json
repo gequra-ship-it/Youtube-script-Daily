@@ -1,7 +1,26 @@
 {
- "centre": "dim lamp lens whose weak beam fades before reaching a plate",
+ "centre": "light from a lamp hits a hologram plate; rebuilt wave fronts travel to a large eye on the right while a ghost cube appears behind the plate",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "bloom",
+   "word": "Illuminate",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Looks so real!",
+   "x": 1480,
+   "y": 230,
+   "to": [
+    1460,
+    395
+   ],
+   "word": "your eyes"
+  }
+ ],
+ "motion": "illuminate the plate and the wave fronts are rebuilt: the lamp light draws onto the plate, then curved wave fronts draw on one after another towards the eye (mv-edge x2), and the object appears behind the plate (mv-rise)"
 }

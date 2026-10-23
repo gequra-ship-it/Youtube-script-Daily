@@ -1,18 +1,31 @@
 {
- "centre": "glowing pixel grid of a camera sensor catching raining points of light",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "photons",
- "sfx": [
+ "centre": "Earth turned dry and hazy under a swollen, brighter Sun",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "glimmer",
-   "word": "photons",
-   "vol": 0.6
+   "type": "name",
+   "text": "Sun",
+   "x": 330,
+   "y": 720,
+   "to": [
+    230,
+    600
+   ],
+   "word": "our own Sun"
+  },
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 1220,
+   "y": 300,
+   "to": [
+    1050,
+    420
+   ],
+   "word": "Earth"
   }
  ],
- "labels": [],
- "spot": true
+ "spot": true,
+ "motion": "camera slides from Earth toward the swelling Sun (track)"
 }

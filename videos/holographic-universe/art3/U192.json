@@ -1,18 +1,30 @@
 {
- "centre": "a glowing pink orb cut in two with flakes drifting off",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "removed the entanglement",
- "sfx": [
+ "centre": "a glowing sphere, half space grid and half information dots",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "drip",
-   "word": "removed",
-   "vol": 0.5
+   "type": "name",
+   "text": "Space",
+   "x": 420,
+   "y": 270,
+   "to": [
+    420,
+    362
+   ],
+   "word": "space"
+  },
+  {
+   "type": "name",
+   "text": "Information",
+   "x": 1500,
+   "y": 270,
+   "to": [
+    1500,
+    368
+   ],
+   "word": "information"
   }
  ],
- "labels": [],
- "spot": true
+ "motion": "space and information closely connected: the threads linking grid sphere and info dots are drawn (edge draw)"
 }

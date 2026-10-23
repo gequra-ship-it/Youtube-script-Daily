@@ -1,13 +1,26 @@
 {
- "centre": "solid glowing gold sphere resting on a sturdy gold shelf",
+ "centre": "dark horizon sphere on the gold first shelf whose surface gets covered by a gold mesh of area patches",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
    "name": "stone",
    "word": "supported",
-   "vol": 0.6
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "horizon",
+   "x": 760,
+   "y": 520,
+   "to": [
+    690,
+    660
+   ],
+   "word": "horizon"
+  }
+ ],
+ "motion": "edge: the gold patch mesh draws itself over the whole horizon surface (entropy counted by the area of the horizon)"
 }

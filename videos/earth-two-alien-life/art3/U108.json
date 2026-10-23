@@ -1,24 +1,30 @@
 {
- "centre": "the dim red star Kepler-186 marked by gold corner brackets inside the swan of Cygnus",
+ "centre": "a balance with Earth and Proxima b settling level, set inside the green temperate zone between a hot and a cold region",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "500 LIGHT-YEARS",
-   "word": "five hundred light-years"
+   "type": "name",
+   "text": "habitable zone",
+   "x": 1000,
+   "y": 170,
+   "to": [
+    1000,
+    250
+   ],
+   "word": "habitable zone"
   },
   {
-   "type": "name",
-   "text": "Cygnus",
-   "x": 1560,
-   "y": 340,
+   "type": "say",
+   "text": "We match!",
+   "x": 560,
+   "y": 330,
    "to": [
-    1270,
-    425
+    690,
+    480
    ],
-   "word": "Cygnus"
+   "word": "comparable"
   }
- ]
+ ],
+ "motion": "mass comparable to Earth: the balance beam swings and settles level (mv-swing), the scene sits in the green zone between hot and cold"
 }

@@ -1,13 +1,14 @@
 {
- "centre": "round cold gauge with frosty blue glow, needle near the very low end",
+ "centre": "a transparent sphere of space at the right slowly filling with packed glowing bits streaming in along a lane",
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "pack more and more",
+   "vol": 0.55
+  }
+ ],
+ "motion": "pack more and more information into a sphere: bits stream along a lane (mv-dash, mv-path) and the packed bits rise inside the glass sphere (mv-liquid clipped by the sphere)",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "60 BILLIONTHS OF A DEGREE",
-   "word": "sixty billionths of a degree"
-  }
- ]
+ "labels": []
 }

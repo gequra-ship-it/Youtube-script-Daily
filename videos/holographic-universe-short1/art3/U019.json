@@ -1,14 +1,25 @@
 {
- "centre": "glowing golden sphere hovering over a small glass plate above a paper",
- "focus": null,
- "focus_word": null,
+ "centre": "black hole horizon sphere covered in small square patches, same size as a region sphere above",
  "sfx": [
   {
-   "name": "pencil",
-   "word": "name",
+   "name": "stone",
+   "word": "no region",
    "vol": 0.55
   }
  ],
- "labels": [],
- "spot": false
+ "spot": true,
+ "labels": [
+  {
+   "type": "say",
+   "text": "No more",
+   "x": 780,
+   "y": 420,
+   "to": [
+    560,
+    560
+   ],
+   "word": "more"
+  }
+ ],
+ "motion": "limit line judders: no region may exceed the black hole bound"
 }

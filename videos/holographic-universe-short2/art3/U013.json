@@ -1,17 +1,26 @@
 {
- "centre": "black hole smaller than its dashed ghost outlines, light leaving",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "shrinks and evaporates",
+ "centre": "conference hall: a black hole slide on the screen, a plain encyclopedia rising on the stage table, audience from behind",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "starfall",
-   "word": "carries energy away",
-   "vol": 0.5
+   "name": "page",
+   "word": "baseball encyclopedia",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "I'm the prize!",
+   "x": 780,
+   "y": 790,
+   "to": [
+    600,
+    840
+   ],
+   "word": "baseball encyclopedia"
+  }
+ ],
+ "motion": "camera glides from the black hole slide down to the stage, where the prize encyclopedia rises into view (mv-track + mv-rise)"
 }

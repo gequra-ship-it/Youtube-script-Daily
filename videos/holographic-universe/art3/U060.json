@@ -1,29 +1,20 @@
 {
- "centre": "Earth with a network of telescope sites joined by thin light lines",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "Event Horizon Telescope",
+ "centre": "a horizon sphere whose patch mesh draws on, its area unrolled into a panel with one quarter lit",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "collaboration",
-   "vol": 0.55
+   "name": "pencil",
+   "word": "calculation",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Event Horizon Telescope",
-   "x": 1380,
-   "y": 300,
-   "to": [
-    1050,
-    450
-   ],
-   "word": "Event Horizon Telescope"
+   "type": "num",
+   "text": "AREA / 4",
+   "word": "divided by four"
   }
- ]
+ ],
+ "motion": "the calculation fixes the entropy: the horizon mesh draws on (mv-edge), the area unrolls (mv-grow x), one quarter of it lights up (mv-rise) = area divided by four"
 }

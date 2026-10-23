@@ -1,13 +1,20 @@
 {
- "centre": "round glowing lamp at the end of a lit path that small figures follow",
+ "centre": "a long library shelf at night with an empty dashed gap where the dictionary should stand",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "step",
-   "word": "persuaded",
-   "vol": 0.5
+   "type": "name",
+   "text": "dictionary",
+   "x": 1180,
+   "y": 420,
+   "to": [
+    1330,
+    540
+   ],
+   "word": "dictionary"
   }
  ],
- "labels": []
+ "motion": "nobody has found the dictionary yet: the camera searches along the bookshelf (mv-track) to an empty dashed gap whose outline marches (mv-dash), a small spark pops in there (mv-popin)"
 }

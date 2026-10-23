@@ -1,7 +1,35 @@
 {
- "centre": "a soft pale cloud of air with small floating molecules inside, layered sky bands behind",
+ "centre": "our night-side Earth with golden city lights, next to an empty dotted outline where a planet B would be",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Planet B",
+   "x": 1480,
+   "y": 300,
+   "to": [
+    1480,
+    362
+   ],
+   "word": "planet B"
+  },
+  {
+   "type": "say",
+   "text": "Nowhere else!",
+   "x": 640,
+   "y": 300,
+   "to": [
+    880,
+    440
+   ],
+   "word": "planet B"
+  }
+ ],
+ "spot": true,
+ "iris": [
+  1480,
+  460
+ ],
+ "motion": "track: camera slides from Earth to the empty outline"
 }

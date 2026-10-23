@@ -1,13 +1,31 @@
 {
- "centre": "one huge amber glowing globe among other giant worlds in a cloudy sky",
+ "centre": "red dwarf TRAPPIST-1 far above a dotted light-year ruler from a tiny Earth",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "glowing globes",
-   "vol": 0.55
+   "name": "warp",
+   "word": "forty light-years",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "40 LIGHT-YEARS",
+   "word": "forty light-years"
+  },
+  {
+   "type": "name",
+   "text": "TRAPPIST-1",
+   "x": 750,
+   "y": 960,
+   "to": [
+    600,
+    880
+   ],
+   "word": "TRAPPIST-1"
+  }
+ ],
+ "motion": "Camera climbs the light-year ruler from tiny Earth up to the distant star."
 }

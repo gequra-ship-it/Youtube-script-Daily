@@ -1,13 +1,19 @@
 {
- "centre": "a round pinned photo of Kepler-186f linked by red strings to star charts on a scientist's wall",
+ "centre": "a small rocky world moving in from the frosty cold to huddle right beside a big, dim red dwarf",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "pulse",
-   "word": "shockwaves",
-   "vol": 0.55
+   "type": "say",
+   "text": "Brr! Closer...",
+   "x": 1300,
+   "y": 300,
+   "to": [
+    1500,
+    390
+   ],
+   "word": "huddle"
   }
  ],
- "labels": []
+ "motion": "the planet must huddle close: it travels from the cold frosty side in to a tight spot beside the dim star (mv-path, camera follows)"
 }

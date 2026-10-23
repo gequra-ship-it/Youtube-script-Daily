@@ -1,29 +1,32 @@
 {
- "centre": "blue-green planet on a telescope screen beside a warm red star",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "habitable zone",
- "sfx": [
-  {
-   "name": "sparkle",
-   "word": "habitable zone",
-   "vol": 0.6
-  }
- ],
+ "centre": "a planet completes one dotted orbit round a gold star while a stopwatch hand turns; on the right a magnified planet gets a calliper across its width",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Habitable zone",
-   "x": 1420,
-   "y": 330,
+   "text": "orbit",
+   "x": 600,
+   "y": 160,
    "to": [
-    1130,
-    450
+    600,
+    250
    ],
-   "word": "habitable zone"
+   "word": "orbit"
+  },
+  {
+   "type": "name",
+   "text": "diameter",
+   "x": 1390,
+   "y": 800,
+   "to": [
+    1390,
+    712
+   ],
+   "word": "diameter"
   }
- ]
+ ],
+ "track": false,
+ "motion": "orbit period then diameter: planet circles the star once in 5 s with a stopwatch hand (mv-rotor x2), then a calliper beam grows across the big planet (mv-grow x)"
 }

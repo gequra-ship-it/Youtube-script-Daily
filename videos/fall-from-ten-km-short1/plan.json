@@ -26,11 +26,11 @@
     "#c9d4ff"
    ]
   },
-  "text": "What happens to your body if you suddenly fall out of an airplane at ten thousand meters?",
-  "dur": 5.78,
+  "text": "What happens to your body if you suddenly fall out of an airplane at ten thousand meters? The first enemy is not the ground rushing toward you.",
+  "dur": 9.26,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "The first enemy is not the ground rushing toward you. It is the cold, thin air itself."
+  "nxt": "It is the cold, thin air itself. And yet history records a handful of people who fell from this height and lived."
  },
  {
   "uid": "U002",
@@ -59,17 +59,17 @@
     "#c9d4ff"
    ]
   },
-  "text": "The first enemy is not the ground rushing toward you. It is the cold, thin air itself.",
-  "dur": 6.72,
-  "transition_in": "push",
-  "prev": "What happens to your body if you suddenly fall out of an airplane at ten thousand meters?",
-  "nxt": "And yet history records a handful of people who fell from this height and lived."
+  "text": "It is the cold, thin air itself. And yet history records a handful of people who fell from this height and lived.",
+  "dur": 8.22,
+  "transition_in": "diamond",
+  "prev": "What happens to your body if you suddenly fall out of an airplane at ten thousand meters? The first enemy is not the ground rushing toward you.",
+  "nxt": ""
  },
  {
   "uid": "U003",
-  "scene": 1,
-  "title": "Hook",
-  "art_theme": "hook",
+  "scene": 2,
+  "title": "Thin Air",
+  "art_theme": "thinair",
   "bg": "night",
   "pal": {
    "palette": "space",
@@ -92,11 +92,11 @@
     "#c9d4ff"
    ]
   },
-  "text": "And yet history records a handful of people who fell from this height and lived.",
-  "dur": 4.98,
-  "transition_in": "whip",
-  "prev": "The first enemy is not the ground rushing toward you. It is the cold, thin air itself.",
-  "nxt": ""
+  "text": "At ten kilometers up, the air pressure is only about a quarter of what it is at sea level.",
+  "dur": 6.0,
+  "transition_in": "slide",
+  "prev": "",
+  "nxt": "With so little oxygen reaching your blood, an ordinary person has roughly thirty seconds, sometimes even less, of useful consciousness."
  },
  {
   "uid": "U004",
@@ -125,11 +125,11 @@
     "#c9d4ff"
    ]
   },
-  "text": "At ten kilometers up, the air pressure is only about a quarter of what it is at sea level.",
-  "dur": 5.7,
+  "text": "With so little oxygen reaching your blood, an ordinary person has roughly thirty seconds, sometimes even less, of useful consciousness.",
+  "dur": 8.47,
   "transition_in": "fade",
-  "prev": "",
-  "nxt": "With so little oxygen reaching your blood, an ordinary person has roughly thirty seconds,"
+  "prev": "At ten kilometers up, the air pressure is only about a quarter of what it is at sea level.",
+  "nxt": "After that, the starving brain can no longer cope, and you pass out."
  },
  {
   "uid": "U005",
@@ -158,18 +158,18 @@
     "#c9d4ff"
    ]
   },
-  "text": "With so little oxygen reaching your blood, an ordinary person has roughly thirty seconds,",
-  "dur": 6.02,
-  "transition_in": "zoom",
-  "prev": "At ten kilometers up, the air pressure is only about a quarter of what it is at sea level.",
-  "nxt": "sometimes even less, of useful consciousness."
+  "text": "After that, the starving brain can no longer cope, and you pass out.",
+  "dur": 6.0,
+  "transition_in": "tilt",
+  "prev": "With so little oxygen reaching your blood, an ordinary person has roughly thirty seconds, sometimes even less, of useful consciousness.",
+  "nxt": ""
  },
  {
   "uid": "U006",
-  "scene": 2,
-  "title": "Thin Air",
-  "art_theme": "thinair",
-  "bg": "night",
+  "scene": 3,
+  "title": "Cold",
+  "art_theme": "cold",
+  "bg": "paper",
   "pal": {
    "palette": "space",
    "paper_base": "#e3e6ec",
@@ -191,18 +191,18 @@
     "#c9d4ff"
    ]
   },
-  "text": "sometimes even less, of useful consciousness.",
-  "dur": 3.72,
-  "transition_in": "eye",
-  "prev": "With so little oxygen reaching your blood, an ordinary person has roughly thirty seconds,",
-  "nxt": "After that, the starving brain can no longer cope, and you pass out."
+  "text": "Then comes the cold. The air temperature at this height is typically around minus fifty degrees Celsius, and the wind rushing past your skin strips away heat.",
+  "dur": 8.23,
+  "transition_in": "zoom",
+  "prev": "",
+  "nxt": "Without protective gear, frostbite can begin within minutes."
  },
  {
   "uid": "U007",
-  "scene": 2,
-  "title": "Thin Air",
-  "art_theme": "thinair",
-  "bg": "night",
+  "scene": 3,
+  "title": "Cold",
+  "art_theme": "cold",
+  "bg": "paper",
   "pal": {
    "palette": "space",
    "paper_base": "#e3e6ec",
@@ -224,11 +224,11 @@
     "#c9d4ff"
    ]
   },
-  "text": "After that, the starving brain can no longer cope, and you pass out.",
-  "dur": 5.03,
-  "transition_in": "wipe",
-  "prev": "sometimes even less, of useful consciousness.",
-  "nxt": ""
+  "text": "Without protective gear, frostbite can begin within minutes.",
+  "dur": 6.0,
+  "transition_in": "page",
+  "prev": "Then comes the cold. The air temperature at this height is typically around minus fifty degrees Celsius, and the wind rushing past your skin strips away heat.",
+  "nxt": "The sky at this altitude looks a lot more like another planet than anywhere we live."
  },
  {
   "uid": "U008",
@@ -257,113 +257,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "Then comes the cold. The air temperature at this height is typically around minus fifty degrees Celsius,",
-  "dur": 6.6,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "and the wind rushing past your skin strips away heat."
- },
- {
-  "uid": "U009",
-  "scene": 3,
-  "title": "Cold",
-  "art_theme": "cold",
-  "bg": "paper",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "and the wind rushing past your skin strips away heat.",
-  "dur": 3.84,
-  "transition_in": "whip",
-  "prev": "Then comes the cold. The air temperature at this height is typically around minus fifty degrees Celsius,",
-  "nxt": "Without protective gear, frostbite can begin within minutes."
- },
- {
-  "uid": "U010",
-  "scene": 3,
-  "title": "Cold",
-  "art_theme": "cold",
-  "bg": "paper",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "Without protective gear, frostbite can begin within minutes.",
-  "dur": 4.22,
-  "transition_in": "match",
-  "prev": "and the wind rushing past your skin strips away heat.",
-  "nxt": "The sky at this altitude looks a lot more like another planet than anywhere we live."
- },
- {
-  "uid": "U011",
-  "scene": 3,
-  "title": "Cold",
-  "art_theme": "cold",
-  "bg": "paper",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
   "text": "The sky at this altitude looks a lot more like another planet than anywhere we live.",
-  "dur": 5.57,
-  "transition_in": "wipe",
+  "dur": 6.0,
+  "transition_in": "wash",
   "prev": "Without protective gear, frostbite can begin within minutes.",
   "nxt": ""
  },
  {
-  "uid": "U012",
+  "uid": "U009",
   "scene": 4,
   "title": "Drag",
   "art_theme": "drag",
@@ -389,47 +290,47 @@
     "#c9d4ff"
    ]
   },
-  "text": "Meanwhile, you are falling. At first you speed up at nine point eight meters per second squared.",
-  "dur": 6.3,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "But the air pushes back. The faster you fall, the more air you slam into, and the stronger the drag becomes."
- },
- {
-  "uid": "U013",
-  "scene": 4,
-  "title": "Drag",
-  "art_theme": "drag",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "But the air pushes back. The faster you fall, the more air you slam into, and the stronger the drag becomes.",
+  "text": "Meanwhile, you are falling. At first you speed up at nine point eight meters per second squared. But the air pushes back.",
   "dur": 7.98,
   "transition_in": "push",
-  "prev": "Meanwhile, you are falling. At first you speed up at nine point eight meters per second squared.",
+  "prev": "",
+  "nxt": "The faster you fall, the more air you slam into, and the stronger the drag becomes."
+ },
+ {
+  "uid": "U010",
+  "scene": 4,
+  "title": "Drag",
+  "art_theme": "drag",
+  "bg": "dusk",
+  "pal": {
+   "palette": "space",
+   "paper_base": "#e3e6ec",
+   "paper_ink": "#151a2e",
+   "night_top": "#050818",
+   "night_bottom": "#0d1634",
+   "night_line": "#cfd8ff",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#e8d8c0",
+    "#8a7fb0",
+    "#2c2f66"
+   ],
+   "dusk_ink": "#151a2e",
+   "accents": [
+    "#4f6bd6",
+    "#f2c14e",
+    "#8fd6e8",
+    "#c9d4ff"
+   ]
+  },
+  "text": "The faster you fall, the more air you slam into, and the stronger the drag becomes.",
+  "dur": 6.0,
+  "transition_in": "seam",
+  "prev": "Meanwhile, you are falling. At first you speed up at nine point eight meters per second squared. But the air pushes back.",
   "nxt": "Soon the upward drag matches the downward pull of gravity, and you stop speeding up."
  },
  {
-  "uid": "U014",
+  "uid": "U011",
   "scene": 4,
   "title": "Drag",
   "art_theme": "drag",
@@ -456,13 +357,13 @@
    ]
   },
   "text": "Soon the upward drag matches the downward pull of gravity, and you stop speeding up.",
-  "dur": 5.7,
-  "transition_in": "wash",
-  "prev": "But the air pushes back. The faster you fall, the more air you slam into, and the stronger the drag becomes.",
+  "dur": 6.0,
+  "transition_in": "wipe",
+  "prev": "The faster you fall, the more air you slam into, and the stronger the drag becomes.",
   "nxt": ""
  },
  {
-  "uid": "U015",
+  "uid": "U012",
   "scene": 5,
   "title": "Terminal Velocity",
   "art_theme": "terminal",
@@ -488,47 +389,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "That steady speed is called terminal velocity.",
-  "dur": 3.5,
-  "transition_in": "zoom",
+  "text": "That steady speed is called terminal velocity. In the thin air up high, it can briefly top three hundred kilometers per hour.",
+  "dur": 6.74,
+  "transition_in": "whip",
   "prev": "",
-  "nxt": "In the thin air up high, it can briefly top three hundred kilometers per hour."
- },
- {
-  "uid": "U016",
-  "scene": 5,
-  "title": "Terminal Velocity",
-  "art_theme": "terminal",
-  "bg": "night",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "In the thin air up high, it can briefly top three hundred kilometers per hour.",
-  "dur": 5.24,
-  "transition_in": "iris",
-  "prev": "That steady speed is called terminal velocity.",
   "nxt": "Lower down, where the air is thicker, it settles at roughly two hundred kilometers per hour."
  },
  {
-  "uid": "U017",
+  "uid": "U013",
   "scene": 5,
   "title": "Terminal Velocity",
   "art_theme": "terminal",
@@ -555,13 +423,13 @@
    ]
   },
   "text": "Lower down, where the air is thicker, it settles at roughly two hundred kilometers per hour.",
-  "dur": 6.26,
-  "transition_in": "match",
-  "prev": "In the thin air up high, it can briefly top three hundred kilometers per hour.",
+  "dur": 6.0,
+  "transition_in": "wave",
+  "prev": "That steady speed is called terminal velocity. In the thin air up high, it can briefly top three hundred kilometers per hour.",
   "nxt": "That is about fifty-five meters every single second."
  },
  {
-  "uid": "U018",
+  "uid": "U014",
   "scene": 5,
   "title": "Terminal Velocity",
   "art_theme": "terminal",
@@ -588,13 +456,13 @@
    ]
   },
   "text": "That is about fifty-five meters every single second.",
-  "dur": 3.74,
-  "transition_in": "tilt",
+  "dur": 6.0,
+  "transition_in": "eye",
   "prev": "Lower down, where the air is thicker, it settles at roughly two hundred kilometers per hour.",
   "nxt": ""
  },
  {
-  "uid": "U019",
+  "uid": "U015",
   "scene": 6,
   "title": "The Landing Problem",
   "art_theme": "landing",
@@ -621,13 +489,13 @@
    ]
   },
   "text": "Surviving the fall is not the real question. The real question is the stop.",
-  "dur": 5.62,
-  "transition_in": "fade",
+  "dur": 6.0,
+  "transition_in": "push",
   "prev": "",
-  "nxt": "Concrete, asphalt, and solid rock stop a body over a few millimeters,"
+  "nxt": "Concrete, asphalt, and solid rock stop a body over a few millimeters, and bones and organs cannot take that force."
  },
  {
-  "uid": "U020",
+  "uid": "U016",
   "scene": 6,
   "title": "The Landing Problem",
   "art_theme": "landing",
@@ -653,47 +521,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "Concrete, asphalt, and solid rock stop a body over a few millimeters,",
-  "dur": 4.66,
-  "transition_in": "wash",
+  "text": "Concrete, asphalt, and solid rock stop a body over a few millimeters, and bones and organs cannot take that force.",
+  "dur": 7.57,
+  "transition_in": "zigzag",
   "prev": "Surviving the fall is not the real question. The real question is the stop.",
-  "nxt": "and bones and organs cannot take that force."
- },
- {
-  "uid": "U021",
-  "scene": 6,
-  "title": "The Landing Problem",
-  "art_theme": "landing",
-  "bg": "paper",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "and bones and organs cannot take that force.",
-  "dur": 3.74,
-  "transition_in": "match",
-  "prev": "Concrete, asphalt, and solid rock stop a body over a few millimeters,",
   "nxt": "Survival depends on how far, and how long, it takes your speed to drop to zero."
  },
  {
-  "uid": "U022",
+  "uid": "U017",
   "scene": 6,
   "title": "The Landing Problem",
   "art_theme": "landing",
@@ -720,13 +555,13 @@
    ]
   },
   "text": "Survival depends on how far, and how long, it takes your speed to drop to zero.",
-  "dur": 5.55,
-  "transition_in": "push",
-  "prev": "and bones and organs cannot take that force.",
+  "dur": 6.0,
+  "transition_in": "zoom",
+  "prev": "Concrete, asphalt, and solid rock stop a body over a few millimeters, and bones and organs cannot take that force.",
   "nxt": ""
  },
  {
-  "uid": "U023",
+  "uid": "U018",
   "scene": 7,
   "title": "Soft Stops",
   "art_theme": "softstop",
@@ -753,13 +588,13 @@
    ]
   },
   "text": "The accounts of survivors point to surfaces that give way.",
-  "dur": 3.62,
-  "transition_in": "slide",
+  "dur": 6.0,
+  "transition_in": "whip",
   "prev": "",
-  "nxt": "A dense forest canopy can act as a multi-stage brake,"
+  "nxt": "A dense forest canopy can act as a multi-stage brake, as twigs snap and thicker branches bend and break."
  },
  {
-  "uid": "U024",
+  "uid": "U019",
   "scene": 7,
   "title": "Soft Stops",
   "art_theme": "softstop",
@@ -785,14 +620,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "A dense forest canopy can act as a multi-stage brake,",
-  "dur": 3.76,
-  "transition_in": "iris",
+  "text": "A dense forest canopy can act as a multi-stage brake, as twigs snap and thicker branches bend and break.",
+  "dur": 6.0,
+  "transition_in": "zigzag",
   "prev": "The accounts of survivors point to surfaces that give way.",
-  "nxt": "as twigs snap and thicker branches bend and break."
+  "nxt": "Deep snow on a steep slope compresses gradually, and the slope turns a head-on hit into a long slide. Each stretches the stop."
  },
  {
-  "uid": "U025",
+  "uid": "U020",
   "scene": 7,
   "title": "Soft Stops",
   "art_theme": "softstop",
@@ -818,80 +653,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "as twigs snap and thicker branches bend and break.",
-  "dur": 3.96,
-  "transition_in": "wash",
-  "prev": "A dense forest canopy can act as a multi-stage brake,",
-  "nxt": "Deep snow on a steep slope compresses gradually,"
- },
- {
-  "uid": "U026",
-  "scene": 7,
-  "title": "Soft Stops",
-  "art_theme": "softstop",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "Deep snow on a steep slope compresses gradually,",
-  "dur": 3.5,
-  "transition_in": "eye",
-  "prev": "as twigs snap and thicker branches bend and break.",
-  "nxt": "and the slope turns a head-on hit into a long slide. Each stretches the stop."
- },
- {
-  "uid": "U027",
-  "scene": 7,
-  "title": "Soft Stops",
-  "art_theme": "softstop",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "and the slope turns a head-on hit into a long slide. Each stretches the stop.",
-  "dur": 5.5,
-  "transition_in": "slide",
-  "prev": "Deep snow on a steep slope compresses gradually,",
+  "text": "Deep snow on a steep slope compresses gradually, and the slope turns a head-on hit into a long slide. Each stretches the stop.",
+  "dur": 8.34,
+  "transition_in": "iris",
+  "prev": "A dense forest canopy can act as a multi-stage brake, as twigs snap and thicker branches bend and break.",
   "nxt": ""
  },
  {
-  "uid": "U028",
+  "uid": "U021",
   "scene": 8,
   "title": "Water Warning",
   "art_theme": "water",
@@ -917,47 +686,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "What about water? It feels like the soft choice, but at two hundred kilometers per hour,",
-  "dur": 6.02,
-  "transition_in": "whip",
+  "text": "What about water? It feels like the soft choice, but at two hundred kilometers per hour, water is almost incompressible and cannot get out of the way fast enough.",
+  "dur": 10.66,
+  "transition_in": "wave",
   "prev": "",
-  "nxt": "water is almost incompressible and cannot get out of the way fast enough."
- },
- {
-  "uid": "U029",
-  "scene": 8,
-  "title": "Water Warning",
-  "art_theme": "water",
-  "bg": "paper",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "water is almost incompressible and cannot get out of the way fast enough.",
-  "dur": 4.66,
-  "transition_in": "wipe",
-  "prev": "What about water? It feels like the soft choice, but at two hundred kilometers per hour,",
   "nxt": "It can behave much like a hard surface, and hitting it flat-on is very often fatal."
  },
  {
-  "uid": "U030",
+  "uid": "U022",
   "scene": 8,
   "title": "Water Warning",
   "art_theme": "water",
@@ -984,13 +720,13 @@
    ]
   },
   "text": "It can behave much like a hard surface, and hitting it flat-on is very often fatal.",
-  "dur": 6.08,
-  "transition_in": "slide",
-  "prev": "water is almost incompressible and cannot get out of the way fast enough.",
+  "dur": 6.1,
+  "transition_in": "wipe",
+  "prev": "What about water? It feels like the soft choice, but at two hundred kilometers per hour, water is almost incompressible and cannot get out of the way fast enough.",
   "nxt": ""
  },
  {
-  "uid": "U031",
+  "uid": "U023",
   "scene": 9,
   "title": "Call to Action",
   "art_theme": "cta",
@@ -1016,47 +752,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "The physics of thin air, terminal velocity,",
-  "dur": 3.5,
-  "transition_in": "eye",
+  "text": "The physics of thin air, terminal velocity, and the mechanics of stopping tell a story you probably never expected.",
+  "dur": 8.34,
+  "transition_in": "page",
   "prev": "",
-  "nxt": "and the mechanics of stopping tell a story you probably never expected."
- },
- {
-  "uid": "U032",
-  "scene": 9,
-  "title": "Call to Action",
-  "art_theme": "cta",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "and the mechanics of stopping tell a story you probably never expected.",
-  "dur": 4.82,
-  "transition_in": "fade",
-  "prev": "The physics of thin air, terminal velocity,",
   "nxt": "Watch our full deep dive on Miya's Lab to uncover the complete science of the ultimate fall."
  },
  {
-  "uid": "U033",
+  "uid": "U024",
   "scene": 9,
   "title": "Call to Action",
   "art_theme": "cta",
@@ -1083,9 +786,9 @@
    ]
   },
   "text": "Watch our full deep dive on Miya's Lab to uncover the complete science of the ultimate fall.",
-  "dur": 7.28,
+  "dur": 7.26,
   "transition_in": "push",
-  "prev": "and the mechanics of stopping tell a story you probably never expected.",
+  "prev": "The physics of thin air, terminal velocity, and the mechanics of stopping tell a story you probably never expected.",
   "nxt": ""
  }
 ]

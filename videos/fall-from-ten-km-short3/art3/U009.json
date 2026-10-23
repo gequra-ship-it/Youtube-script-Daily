@@ -1,24 +1,24 @@
 {
- "centre": "the passenger seen from below in the belly-to-earth spread-eagle position, soft gold glow behind",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "spread-eagle",
- "sfx": [],
+ "centre": "a tall speed column whose level sinks, beside a skydiver in the stable spread position above a dusk sea",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
+   "type": "num",
+   "text": "200 KM/H",
+   "word": "two hundred"
+  },
+  {
    "type": "name",
-   "text": "Spread-eagle",
-   "x": 540,
-   "y": 1100,
+   "text": "Terminal velocity",
+   "x": 620,
+   "y": 520,
    "to": [
-    540,
-    1000
+    380,
+    600
    ],
-   "word": "spread-eagle"
+   "word": "terminal velocity"
   }
  ],
- "spot": true
+ "motion": "fill: the speed column level sinks from full to under half over 3.6 s (terminal velocity falls toward its lowest value)"
 }

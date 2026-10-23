@@ -1,13 +1,24 @@
 {
- "centre": "a round oxbow lake glowing gold in the rainforest at dusk, seen from above",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "red blood drop holding a few sparse oxygen molecules",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "oxygen in our blood",
  "labels": [
   {
-   "type": "num",
-   "text": "17 YEARS OLD",
-   "word": "seventeen-year-old"
+   "type": "name",
+   "text": "Oxygen",
+   "x": 1130,
+   "y": 330,
+   "to": [
+    1010,
+    440
+   ],
+   "word": "oxygen"
   }
- ]
+ ],
+ "track": false,
+ "motion": "climbing: the hiker walks up the mountain slope (mv-path, camera keeps the oxygen focus) while the red oxygen level in the gauge falls (mv-fill)"
 }

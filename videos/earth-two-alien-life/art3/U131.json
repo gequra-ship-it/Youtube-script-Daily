@@ -1,20 +1,24 @@
 {
- "centre": "a golden year dial: the star in the middle, the planet riding the turning hand",
- "focus": null,
- "focus_word": null,
+ "centre": "a tidally locked planet with a glowing green-teal twilight strip",
  "sfx": [
   {
-   "name": "tick",
-   "word": "orbital period",
+   "name": "sparkle",
+   "word": "eternal twilight strip",
    "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "385 DAYS",
-   "word": "three hundred and eighty-five days"
+   "type": "name",
+   "text": "twilight strip",
+   "x": 1380,
+   "y": 330,
+   "to": [
+    1000,
+    420
+   ],
+   "word": "twilight strip"
   }
  ],
- "spot": true
+ "motion": "a light mote travels the twilight strip, camera follows (path + tracking)"
 }

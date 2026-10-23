@@ -1,18 +1,19 @@
 {
- "centre": "warm glowing sphere tiled with small square patches",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "temperature",
- "sfx": [
+ "centre": "three things in a zigzag at dusk: a glowing hologram crystal (idea), a slate with curves (mathematics), our universe above an empty dashed pedestal (no proof)",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "pulse",
-   "word": "temperature",
-   "vol": 0.5
+   "type": "say",
+   "text": "Honest answer!",
+   "x": 720,
+   "y": 1200,
+   "to": [
+    430,
+    1170
+   ],
+   "word": "honest"
   }
  ],
- "labels": [],
- "spot": false
+ "motion": "track + rise: the camera zigzags from the idea to the mathematics to our universe on its empty pedestal as each one rises into view (powerful idea, real mathematics, no proof)"
 }

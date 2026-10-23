@@ -1,7 +1,24 @@
 {
- "centre": "star on a plotted wave of measurement dots with a tiny body circling it",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "a soft amber-red dwarf low in the twilight above sketched, dotted outlines of imagined alien plants",
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "thrive",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Anyone here?",
+   "x": 900,
+   "y": 620,
+   "to": [
+    735,
+    735
+   ],
+   "word": "plants"
+  }
+ ],
+ "motion": "camera drifts from the wanderer toward the imagined plants (track)"
 }

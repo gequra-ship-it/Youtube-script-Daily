@@ -1,17 +1,26 @@
 {
- "centre": "flat panel of glowing data dots with a ghost cube beside it",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "two-dimensional edge",
+ "centre": "a jigsaw puzzle on an easel with its middle piece missing; the piece covered in tiny dots flies in from the window and fits",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "data",
-   "vol": 0.6
+   "name": "pop",
+   "word": "entropy",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "entropy",
+   "x": 1000,
+   "y": 170,
+   "to": [
+    880,
+    300
+   ],
+   "word": "entropy"
+  }
+ ],
+ "motion": "the missing piece of the puzzle: the dotted entropy piece flies along one smooth curve into the gap (mv-path, camera tracks it)"
 }

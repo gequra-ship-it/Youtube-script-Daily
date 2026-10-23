@@ -1,7 +1,26 @@
 {
- "centre": "ocean-covered world with glinting seas",
+ "centre": "glowing ocean-world TRAPPIST-1e with a hint of green, seen from a balcony by a silhouette",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "majestic skies",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Is that rain?",
+   "x": 430,
+   "y": 1040,
+   "to": [
+    290,
+    1140
+   ],
+   "word": "rain"
+  }
+ ],
+ "motion": "Rain falls from the sky above the watcher."
 }

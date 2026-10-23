@@ -1,13 +1,26 @@
 {
- "centre": "a glowing brass dial gauge with a needle on a workshop bench",
+ "centre": "a glass jar holding a tiled horizon sphere carried onto the top shelf of an archive shelf, where a gold tick tag pops up",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pulse",
-   "word": "working tool",
-   "vol": 0.6
+   "name": "click",
+   "word": "well supported",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Entropy",
+   "x": 1160,
+   "y": 100,
+   "to": [
+    1160,
+    160
+   ],
+   "word": "entropy"
+  }
+ ],
+ "motion": "sorting the shelf: the horizon jar is carried along a smooth arc onto the 'well supported' top shelf (mv-path, camera follows), then a gold tick tag rises beside it (mv-rise)"
 }

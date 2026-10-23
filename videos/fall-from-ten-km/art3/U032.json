@@ -1,13 +1,31 @@
 {
- "centre": "the unconscious passenger falling limp, arms trailing up, in a pale icy glow among wind streaks",
+ "centre": "a falling passenger pulled down towards the planet while puffs of atmosphere rise up to push back",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "wind",
-   "word": "fight the wind",
-   "vol": 0.6
+   "type": "say",
+   "text": "Come on down!",
+   "x": 430,
+   "y": 700,
+   "to": [
+    560,
+    845
+   ],
+   "word": "Gravity"
+  },
+  {
+   "type": "say",
+   "text": "Not so fast!",
+   "x": 1480,
+   "y": 520,
+   "to": [
+    1185,
+    615
+   ],
+   "word": "pushes back"
   }
  ],
- "labels": []
+ "motion": "gravity pulls, the atmosphere pushes back: the faller with its gravity arrow is drawn down a smooth curve towards the planet (mv-path, camera follows) and puffs of air with up arrows rise to meet it (mv-rise)"
 }

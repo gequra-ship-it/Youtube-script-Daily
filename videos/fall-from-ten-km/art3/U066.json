@@ -1,13 +1,26 @@
 {
- "centre": "the passenger falling belly-down, seen from the side, on a dashed height line above night mountains",
+ "centre": "a person dives in a long arc from a small stone bridge into a calm river at dusk while a friend watches",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "refreshing",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "3-4 KM",
-   "word": "three to four kilometers"
+   "type": "say",
+   "text": "Refreshing!",
+   "x": 330,
+   "y": 200,
+   "to": [
+    228,
+    255
+   ],
+   "word": "refreshing"
   }
- ]
+ ],
+ "motion": "diving into a river from a small bridge: the diver follows an arc from the rail into the water (mv-path, camera tracks), a splash pops in (mv-popin)"
 }

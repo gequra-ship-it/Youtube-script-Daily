@@ -1,7 +1,42 @@
 {
- "centre": "a blue-green world with soft green patches, tiny bubbles of air rising from its limb",
+ "centre": "a spiral galaxy with a small marker far off its centre, between a Sun-centred sketch and a cluster of galaxies",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Solar System",
+   "x": 400,
+   "y": 330,
+   "to": [
+    400,
+    440
+   ],
+   "word": "solar system"
+  },
+  {
+   "type": "name",
+   "text": "Galaxy",
+   "x": 960,
+   "y": 780,
+   "to": [
+    960,
+    630
+   ],
+   "word": "galaxy"
+  },
+  {
+   "type": "name",
+   "text": "Universe",
+   "x": 1500,
+   "y": 250,
+   "to": [
+    1500,
+    330
+   ],
+   "word": "universe"
+  }
+ ],
+ "spot": true,
+ "motion": "track: survey from Sun sketch to galaxy to universe"
 }

@@ -1,23 +1,30 @@
 {
- "centre": "a stabilizing rocket seen from behind, its four fins in an X around the nozzle",
+ "centre": "the bright metal seatbelt buckle on the passenger's lap, inside a torn piece of cabin",
  "focus": [
   960,
   500,
-  1.6
+  1.8
  ],
- "focus_word": "four fins",
- "sfx": [],
+ "focus_word": "strapped to their seats",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "strapped",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Fins",
-   "x": 1180,
-   "y": 260,
+   "type": "say",
+   "text": "Held tight!",
+   "x": 1280,
+   "y": 330,
    "to": [
-    1040,
-    410
+    990,
+    500
    ],
-   "word": "fins"
+   "word": "held"
   }
- ]
+ ],
+ "motion": "shake: the strapped seat jolts while the cabin piece tumbles"
 }

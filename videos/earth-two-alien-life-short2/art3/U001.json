@@ -1,23 +1,37 @@
 {
- "centre": "small silver Moon above a twilight hill with a viewer seen from behind",
- "focus": [
-  540,
-  860,
-  1.8
+ "centre": "a person on a dusk hill (from behind) with a tiny Moon to the left while three giant alien worlds rise into the sky above",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "glowing globes",
+   "vol": 0.55
+  }
  ],
- "focus_word": "tiny silver Moon",
- "sfx": [],
  "labels": [
   {
    "type": "name",
    "text": "Moon",
-   "x": 760,
-   "y": 720,
+   "x": 300,
+   "y": 900,
    "to": [
-    590,
-    810
+    205,
+    838
    ],
    "word": "Moon"
+  },
+  {
+   "type": "say",
+   "text": "Giant glowing globes!",
+   "x": 560,
+   "y": 1150,
+   "to": [
+    340,
+    1200
+   ],
+   "word": "giant glowing globes"
   }
- ]
+ ],
+ "motion": "tracking camera tilts up from the gazer into the sky while three giant worlds rise one after another (rise x3), done by ~8 s"
 }

@@ -1,13 +1,31 @@
 {
- "centre": "a faint dashed glowing orb, an idea not yet solid",
+ "centre": "a balance by a calm night lake: a boundary plate of dots on one pan and a small glass globe holding a solid little world on the other, settling level",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "sparkle",
-   "word": "tantalizing",
-   "vol": 0.55
+   "type": "say",
+   "text": "Same story!",
+   "x": 400,
+   "y": 300,
+   "to": [
+    560,
+    470
+   ],
+   "word": "valid languages"
+  },
+  {
+   "type": "say",
+   "text": "I'm not fake!",
+   "x": 1540,
+   "y": 300,
+   "to": [
+    1330,
+    420
+   ],
+   "word": "fake"
   }
  ],
- "labels": []
+ "motion": "both descriptions are equally valid: the balance with the boundary plate and the interior world swings and settles level (mv-swing, damped)"
 }

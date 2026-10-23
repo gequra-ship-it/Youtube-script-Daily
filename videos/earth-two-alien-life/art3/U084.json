@@ -1,29 +1,26 @@
 {
- "centre": "round speedometer dial whose scale runs blue to red, needle in the middle",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "speedometer",
+ "centre": "a person seen from behind stands on ruddy rocky ground under a large deep-red star high overhead; a dashed Sun-size circle appears inside it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "speedometer",
-   "vol": 0.6
+   "name": "step",
+   "word": "stood",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Doppler shift",
-   "x": 1420,
-   "y": 330,
+   "type": "say",
+   "text": "So much bigger!",
+   "x": 1450,
+   "y": 470,
    "to": [
-    1068,
-    450
+    1180,
+    600
    ],
-   "word": "Doppler shift"
+   "word": "larger"
   }
- ]
+ ],
+ "motion": "looking up at noon: camera tilts from the person up to the big star (mv-track), then a dashed Sun-size circle pops inside it to show it looks larger (mv-popin)"
 }

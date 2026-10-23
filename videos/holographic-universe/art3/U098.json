@@ -1,11 +1,26 @@
 {
- "centre": "black sphere whose glowing skin is a shell of bright dots, ghostly interiors inside",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "a university clock tower at night with a glowing gold clock; a paper flies from a lit window and a small glass model pops up above it",
+ "sfx": [
+  {
+   "name": "page",
+   "word": "paper",
+   "vol": 0.55
+  }
  ],
- "focus_word": "the skin alone",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Harvard",
+   "x": 640,
+   "y": 470,
+   "to": [
+    650,
+    575
+   ],
+   "word": "Harvard"
+  }
+ ],
+ "motion": "published a paper that gave a concrete example: the paper flies out of a lit window along a smooth arc (mv-path, camera follows), then a small model of the example pops up (mv-popin); clock hands turn (mv-rotor)",
+ "focus": null,
+ "focus_word": null
 }

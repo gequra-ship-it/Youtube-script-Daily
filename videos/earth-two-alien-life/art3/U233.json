@@ -1,19 +1,26 @@
 {
- "centre": "Earth wrapped in a golden greenhouse blanket that traps arrows of sunlight",
+ "centre": "a scanning reticle crosses the grey cratered surface of a dead exoplanet under a dim red star and stops on faint dashed traces in a far crater",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "warning",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Greenhouse effect",
-   "x": 1370,
-   "y": 330,
+   "text": "dead exoplanet",
+   "x": 640,
+   "y": 300,
    "to": [
-    1060,
+    600,
     420
    ],
-   "word": "greenhouse effect"
+   "word": "dead exoplanet"
   }
- ]
+ ],
+ "motion": "path + tracking: the search reticle sweeps across the dead world and locks onto faint traces that glow red = finding evidence, a warning"
 }

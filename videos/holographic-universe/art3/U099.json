@@ -1,11 +1,20 @@
 {
- "centre": "dark horizon sphere hovering over a flat glowing plate rippled with interference lines",
- "focus": [
-  960,
-  730,
-  1.6
+ "centre": "a glowing gold disc with a paper page, many small pages linking to it",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Read me!",
+   "x": 960,
+   "y": 170,
+   "to": [
+    960,
+    400
+   ],
+   "word": "papers"
+  }
  ],
- "focus_word": "flat recording",
- "sfx": [],
- "labels": []
+ "track": false,
+ "motion": "path: citing papers fly in toward the centre paper along their link lines (cited again and again)"
 }

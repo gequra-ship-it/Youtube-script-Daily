@@ -1,11 +1,30 @@
 {
- "centre": "a huge glowing orange hot gas giant with swirling bands",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "a top-down star system diagram: the green habitable band draws on, then a hot, a cold and a just-right bowl appear",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Goldilocks zone",
+   "x": 860,
+   "y": 170,
+   "to": [
+    830,
+    300
+   ],
+   "word": "Goldilocks zone"
+  },
+  {
+   "type": "say",
+   "text": "Just right!",
+   "x": 1090,
+   "y": 390,
+   "to": [
+    880,
+    520
+   ],
+   "word": "Goldilocks"
+  }
  ],
- "focus_word": "scorching gas",
- "sfx": [],
- "labels": []
+ "motion": "a concept is named: the habitable band draws on around the star (mv-edge), then three bowls pop in, the just-right one in the band (mv-popin)"
 }

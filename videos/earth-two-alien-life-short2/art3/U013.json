@@ -1,28 +1,31 @@
 {
- "centre": "TRAPPIST-1e in the green habitable-zone band on a diagonal line of worlds",
- "focus": [
-  650,
-  1010,
-  1.6
- ],
- "focus_word": "Goldilocks zone",
+ "centre": "a balance scale holding Earth and TRAPPIST-1e; the tilted beam slowly levels out",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "3 OF 7 WORLDS",
-   "word": "three of these seven"
+   "type": "name",
+   "text": "Earth",
+   "x": 200,
+   "y": 1230,
+   "to": [
+    250,
+    1100
+   ],
+   "word": "Earth's"
   },
   {
    "type": "name",
-   "text": "Goldilocks zone",
-   "x": 730,
-   "y": 740,
+   "text": "TRAPPIST-1e",
+   "x": 790,
+   "y": 1230,
    "to": [
-    700,
-    930
+    800,
+    1080
    ],
-   "word": "Goldilocks zone"
+   "word": "TRAPPIST-1e"
   }
- ]
+ ],
+ "motion": "flip: the tilted balance beam swings level (size, mass and gravity in the same range as Earth's), done by ~5 s; dash: gravity arrows pull down under both pans"
 }

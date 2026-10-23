@@ -1,25 +1,30 @@
 {
- "centre": "golden impact ball with the faller silhouette sinking into a snow bank, car with crumpled nose beside",
+ "centre": "round posture dial with a small figure falling feet first",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "sand",
-   "word": "compresses",
-   "vol": 0.6
+   "name": "wind",
+   "word": "falling person",
+   "vol": 0.55
   }
+ ],
+ "iris": [
+  420,
+  450
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Crumple zone",
-   "x": 560,
-   "y": 210,
+   "type": "say",
+   "text": "Stay aware!",
+   "x": 640,
+   "y": 190,
    "to": [
-    540,
-    330
+    450,
+    250
    ],
-   "word": "crumple zone"
+   "word": "aware"
   }
- ]
+ ],
+ "motion": "slam: the correct red posture card stamps in (landing posture matters most)"
 }

@@ -1,18 +1,30 @@
 {
- "centre": "banded blue planet with a dimension line measuring its width",
+ "centre": "a bigger rocky world rising into the empty middle slot of a planet cabinet, between a small Earth and a big ice giant",
  "focus": [
   960,
-  570,
-  1.9
+  500,
+  1.5
  ],
- "focus_word": "diameter",
+ "focus_word": "super-Earth",
  "sfx": [
   {
-   "name": "pencil",
-   "word": "exact physical diameter",
-   "vol": 0.6
+   "name": "pop",
+   "word": "super-Earth",
+   "vol": 0.55
   }
  ],
- "labels": [],
- "spot": true
+ "labels": [
+  {
+   "type": "name",
+   "text": "super-Earth",
+   "x": 960,
+   "y": 230,
+   "to": [
+    960,
+    400
+   ],
+   "word": "super-Earth"
+  }
+ ],
+ "motion": "placing it in a category: the super-Earth rises into the middle slot (mv-rise), then a gold bracket draws round that slot (mv-edge)"
 }

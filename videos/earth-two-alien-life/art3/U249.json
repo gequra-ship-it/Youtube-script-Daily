@@ -1,13 +1,27 @@
 {
- "centre": "a small glowing blue-green world hovering above a golden chalice, the holy grail",
+ "centre": "a long gallery shelf of dull barren worlds ending in our blue Earth under a glass dome, lit by a spotlight",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
    "name": "sparkle",
-   "word": "holy grail",
-   "vol": 0.6
+   "word": "rare",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 1340,
+   "y": 330,
+   "to": [
+    1500,
+    440
+   ],
+   "word": "Earth"
+  }
+ ],
+ "spot": true,
+ "motion": "the more we search, the rarer home looks: the camera scans along a shelf of barren worlds (mv-track) and ends on fragile Earth under glass as a spotlight grows down onto it (mv-grow)"
 }

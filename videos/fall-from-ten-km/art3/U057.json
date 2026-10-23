@@ -1,29 +1,20 @@
 {
- "centre": "the passenger seen from above, falling belly-down with arms and legs spread",
- "focus": [
-  960,
-  510,
-  1.6
- ],
- "focus_word": "belly-down",
- "sfx": [
-  {
-   "name": "cloth",
-   "word": "falling belly-down",
-   "vol": 0.55
-  }
- ],
+ "centre": "a bent, uneven aluminium panel whirling in a flat spin in turbulent air; a small passenger spinning beside it with dizzy stars",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Belly-down",
-   "x": 1290,
-   "y": 310,
+   "type": "say",
+   "text": "So dizzy...",
+   "x": 1500,
+   "y": 250,
    "to": [
-    1010,
-    470
+    1430,
+    360
    ],
-   "word": "belly-down"
+   "word": "dizziness"
   }
- ]
+ ],
+ "motion": "turbulence sends an uneven object into a violent flat spin: the panel turns fast (mv-rotor), turbulent eddies drift (mv-scroll), the small faller spins and dizzy stars circle its head (mv-rotor)"
 }

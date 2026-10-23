@@ -1,11 +1,20 @@
 {
- "centre": "magnifier lens showing one delicate snow crystal inside an airy lattice",
- "focus": [
-  540,
-  860,
-  1.8
+ "centre": "a force-time graph: a tall narrow red spike stretches into a wide low gold hump with the same area; a stopwatch ticks beside it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "second",
+   "vol": 0.5
+  }
  ],
- "focus_word": "lattice of crystals",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "FORCE: ONE TENTH",
+   "word": "drops to one tenth"
+  }
+ ],
+ "motion": "fill x + fill y together: the impact pulse stretches ten times wider in time while its height drops to a tenth (stretch the impact, force drops to one tenth); rotor: stopwatch hand"
 }

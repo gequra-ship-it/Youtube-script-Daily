@@ -1,17 +1,26 @@
 {
- "centre": "a temperate green-blue planet keeping one face to its red star, with a padlock beside it",
- "focus": [
-  1480,
-  340,
-  1.8
- ],
- "focus_word": "locked rotation",
+ "centre": "the curved limb of a planet from orbit: small white hydrogen atoms keep rising off into space while a blue oxygen layer stays and thickens",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "locked rotation",
+   "name": "starfall",
+   "word": "escapes into space",
    "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Off I go!",
+   "x": 1320,
+   "y": 330,
+   "to": [
+    1185,
+    520
+   ],
+   "word": "escapes"
+  }
+ ],
+ "motion": "bubble + fill: hydrogen atoms keep rising and fading into space while the oxygen glow above the limb grows thicker"
 }

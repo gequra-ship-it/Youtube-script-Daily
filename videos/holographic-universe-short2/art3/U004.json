@@ -1,11 +1,30 @@
 {
- "centre": "dark glass sphere with a faint book dissolving into dots",
+ "centre": "glowing crystal orb of the present state with threads drawn to future (up) and past (down); a book and a small black hole beside it",
  "focus": [
-  540,
-  860,
+  250,
+  1010,
   1.6
  ],
- "focus_word": "gone forever",
- "sfx": [],
- "labels": []
+ "focus_word": "erase a book",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "determines",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Can't erase me!",
+   "x": 330,
+   "y": 1210,
+   "to": [
+    262,
+    1080
+   ],
+   "word": "erase"
+  }
+ ],
+ "motion": "threads of cause draw from the present orb up to the future and down to the past (mv-edge), orb heartbeat"
 }

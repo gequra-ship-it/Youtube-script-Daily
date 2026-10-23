@@ -1,23 +1,19 @@
 {
- "centre": "a golden planet inside a transparent glass box of space",
- "focus": [
-  960,
-  500,
-  1.5
- ],
- "focus_word": "region of space",
- "sfx": [],
+ "centre": "newspapers slamming onto a night news kiosk, the biggest front page showing a glowing globe on a plate",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "region of space",
-   "x": 1330,
-   "y": 270,
+   "type": "say",
+   "text": "Not so fast!",
+   "x": 1300,
+   "y": 150,
    "to": [
-    1170,
-    340
+    1010,
+    290
    ],
-   "word": "region of space"
+   "word": "They have not"
   }
- ]
+ ],
+ "motion": "headlines pile up: three front pages slam down one after another (mv-slam x3), then the big one shakes at 'They have not' (mv-shake) while its globe objects"
 }

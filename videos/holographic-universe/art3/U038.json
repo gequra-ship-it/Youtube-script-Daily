@@ -1,11 +1,24 @@
 {
- "centre": "open eye receiving light from a hologram plate with a floating ghost cube",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "glowing hot cracked round hatch, heat waves and thermometer",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "heat",
+   "vol": 0.55
+  }
  ],
- "focus_word": "your eyes",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Too hot!",
+   "x": 470,
+   "y": 330,
+   "to": [
+    860,
+    460
+   ],
+   "word": "heat"
+  }
+ ],
+ "motion": "questions about heat: the thermometer reading climbs (fill) and the hatch complains (bubble); focus removed"
 }

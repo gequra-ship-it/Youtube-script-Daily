@@ -1,36 +1,30 @@
 {
- "centre": "black hole with lensed disk caught between a quantum cloud and a gravity well",
- "focus": null,
- "focus_word": null,
+ "centre": "a distant exploding star flashing in its galaxy, while neighbouring galaxies race away with ever longer streaks",
  "sfx": [
   {
-   "name": "stone",
-   "word": "clash",
+   "name": "bloom",
+   "word": "exploding",
    "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Quantum theory",
-   "x": 400,
-   "y": 270,
+   "text": "exploding stars",
+   "x": 430,
+   "y": 230,
    "to": [
-    400,
-    400
+    448,
+    380
    ],
-   "word": "quantum theory"
-  },
-  {
-   "type": "name",
-   "text": "Gravity",
-   "x": 1500,
-   "y": 250,
-   "to": [
-    1500,
-    330
-   ],
-   "word": "gravity"
+   "word": "exploding stars"
   }
- ]
+ ],
+ "iris": [
+  448,
+  420
+ ],
+ "motion": "exploding stars show the expansion is accelerating: a supernova flashes in (mv-slam), then the galaxies' streaks grow longer one after another, longer the farther out (mv-grow x), as the camera follows outward (mv-track)",
+ "focus": null,
+ "focus_word": null
 }

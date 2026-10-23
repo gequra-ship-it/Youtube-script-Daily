@@ -1,14 +1,20 @@
 {
- "centre": "a spring-scale dial whose needle swings toward the far mark",
+ "centre": "a balance scale in space weighing a hot world against an icy world, settling level above a small backyard",
  "focus": null,
  "focus_word": null,
  "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "TWICE THE GRAVITY",
-   "word": "twice as strong"
+   "type": "say",
+   "text": "Just right.",
+   "x": 1240,
+   "y": 260,
+   "to": [
+    1060,
+    440
+   ],
+   "word": "balance"
   }
  ],
- "spot": true
+ "motion": "nature finds a balance point: the beam with the hot and the icy world rocks and slowly settles level (mv-swing, damped)"
 }

@@ -1,23 +1,31 @@
 {
- "centre": "magnifying lens over the slightly bent knee",
- "focus": [
-  960,
-  520,
-  1.7
- ],
- "focus_word": "slightly bent knees",
+ "centre": "airliner shown in cutaway: warm cabin with passengers inside a pressure hull outline, icy streaks rushing past outside",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Feet-first landing",
-   "x": 680,
-   "y": 700,
+   "text": "Pressure hull",
+   "x": 700,
+   "y": 300,
    "to": [
-    955,
-    620
+    760,
+    410
    ],
-   "word": "feet-first landing"
+   "word": "pressure hull"
+  },
+  {
+   "type": "say",
+   "text": "Cozy in here!",
+   "x": 1340,
+   "y": 300,
+   "to": [
+    1190,
+    470
+   ],
+   "word": "breath of life"
   }
- ]
+ ],
+ "motion": "the sturdy hull holds the cabin while speeding through the icy void: the hull outline and frames draw on around the warm cabin (mv-edge), ice streaks and crystals rush past (mv-scroll)"
 }

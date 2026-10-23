@@ -1,11 +1,24 @@
 {
- "centre": "a big magnifying telescope lens showing a small ocean world in fine detail",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "TRAPPIST-1e warmed by its red star, an even match for sunlit Earth across the picture",
+ "iris": [
+  400,
+  520
  ],
- "focus_word": "alien world",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 400,
+   "y": 340,
+   "to": [
+    400,
+    440
+   ],
+   "word": "Earth"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "track": false,
+ "motion": "starlight packets travel from the red star to the planet (path)"
 }

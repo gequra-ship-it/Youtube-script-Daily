@@ -1,19 +1,31 @@
 {
- "centre": "glowing light bulb: a clear thought above the passenger",
+ "centre": "the passenger hugging himself while wind streaks rush past; a tall thermometer's column drops",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "wind",
+   "vol": 0.62
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Useful consciousness",
-   "x": 540,
-   "y": 640,
+   "type": "num",
+   "text": "-50 \u00b0C",
+   "word": "minus fifty degrees Celsius"
+  },
+  {
+   "type": "say",
+   "text": "So cold!",
+   "x": 600,
+   "y": 500,
    "to": [
-    540,
-    745
+    392,
+    668
    ],
-   "word": "useful consciousness"
+   "word": "cold"
   }
- ]
+ ],
+ "motion": "fill: the thermometer column sinks (minus fifty degrees), dash: wind streaks rush past, scroll: heat wisps blown off the skin, shake: the passenger shivers"
 }

@@ -1,18 +1,14 @@
 {
- "centre": "close-up of the passenger\u2019s face, eyes shut, tilted, as the spinning world smears and darkens",
+ "centre": "the passenger sliding feet first down a long, steep moonlit snow slope, a dashed trail behind",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "say",
-   "text": "So dizzy...",
-   "x": 1260,
-   "y": 640,
-   "to": [
-    1000,
-    575
-   ]
+   "name": "sand",
+   "word": "slides",
+   "vol": 0.5
   }
- ]
+ ],
+ "labels": [],
+ "motion": "the body slides along the slope and sheds speed across distance: the passenger follows the slope downhill (mv-path, camera tracks) over a marching dashed trail (mv-dash)"
 }

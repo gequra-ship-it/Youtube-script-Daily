@@ -1,17 +1,19 @@
 {
- "centre": "a brilliant white-gold light shining from between two heavy doors swung wide open",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "doors",
- "sfx": [
+ "centre": "an ocean planet drifting from its warm star out into the dark while a sheet of ice spreads over it",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "woodblock",
-   "word": "doors",
-   "vol": 0.55
+   "type": "say",
+   "text": "So cold...",
+   "x": 1380,
+   "y": 300,
+   "to": [
+    1520,
+    430
+   ],
+   "word": "freezes"
   }
  ],
- "labels": []
+ "motion": "drifts too far: the planet glides along a route into the dark (mv-path, camera tracks) and its water ices over from the top (mv-fill)"
 }

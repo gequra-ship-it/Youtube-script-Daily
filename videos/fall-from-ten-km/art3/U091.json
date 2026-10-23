@@ -1,11 +1,31 @@
 {
- "centre": "bright sun glint on a calm dusk lake seen from above",
+ "centre": "a white airliner shaking inside dark thunderclouds above the rainforest roof; a pale altitude line draws down from it to the trees",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "iris": [
-  1500,
-  230
- ]
+ "sfx": [
+  {
+   "name": "rain",
+   "word": "thunderstorm",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "3 KM",
+   "word": "three kilometers"
+  },
+  {
+   "type": "name",
+   "text": "Peruvian rainforest",
+   "x": 1380,
+   "y": 690,
+   "to": [
+    1300,
+    830
+   ],
+   "word": "Peruvian rainforest"
+  }
+ ],
+ "motion": "shake: the airliner judders in the thunderstorm and breaks up; then the altitude line draws down to the forest roof (edge) for 'three kilometers up'"
 }

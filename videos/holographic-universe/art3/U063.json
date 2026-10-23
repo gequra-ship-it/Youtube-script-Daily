@@ -1,17 +1,26 @@
 {
- "centre": "ring-shaped black hole shadow at the heart of the Milky Way band, small marker for us far out",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "Milky Way",
+ "centre": "a radio dish on a night hill searching a distant black hole; its monitor shows only a flat empty line",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "starfall",
-   "word": "Milky Way",
-   "vol": 0.55
+   "name": "pulse",
+   "word": "detected",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Nothing yet...",
+   "x": 640,
+   "y": 300,
+   "to": [
+    520,
+    450
+   ],
+   "word": "Nobody"
+  }
+ ],
+ "motion": "nobody has detected it: the dish swings searching toward the black hole (mv-swing) while the monitor's flat line just marches on (mv-dash)"
 }

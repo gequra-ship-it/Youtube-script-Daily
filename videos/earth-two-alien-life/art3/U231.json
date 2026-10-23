@@ -1,13 +1,26 @@
 {
- "centre": "a round cross-section of sky, crust and mantle with arrows carrying elements between them",
+ "centre": "a strained home world; around it three threats slam in one by one: a radiation sign, a thermometer that fills to the top, a red-eyed chip",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "recycles",
-   "vol": 0.6
+   "name": "woodblock",
+   "word": "Nuclear war",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "artificial intelligence",
+   "x": 1330,
+   "y": 780,
+   "to": [
+    1040,
+    750
+   ],
+   "word": "artificial intelligence"
+  }
+ ],
+ "motion": "slam x3 + fill: the three threats hit in the order they are named and the thermometer runs away to the top = a list of catastrophes"
 }

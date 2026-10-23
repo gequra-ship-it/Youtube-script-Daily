@@ -1,18 +1,24 @@
 {
- "centre": "bright lamp bulb glowing in a dim room",
+ "centre": "a cool deep orange-red dwarf star with Kepler-186f on a dotted orbit",
  "focus": [
   960,
   500,
-  1.8
+  1.5
  ],
- "focus_word": "lamp",
- "sfx": [
+ "focus_word": "cool red dwarf",
+ "labels": [
   {
-   "name": "click",
-   "word": "lamp",
-   "vol": 0.6
+   "type": "name",
+   "text": "Kepler-186f",
+   "x": 1330,
+   "y": 340,
+   "to": [
+    1222,
+    420
+   ],
+   "word": "Kepler-186f"
   }
  ],
- "labels": [],
- "spot": true
+ "spot": true,
+ "motion": "left alone: contrast statement, orbit already moves"
 }

@@ -1,29 +1,20 @@
 {
- "centre": "baseball resting on a plain closed encyclopedia tied with a red prize ribbon",
- "focus": [
-  960,
-  580,
-  1.5
- ],
- "focus_word": "baseball encyclopedia",
- "sfx": [
-  {
-   "name": "page",
-   "word": "encyclopedia",
-   "vol": 0.55
-  }
- ],
+ "centre": "a glowing horizon sphere whose surface fills with small area patches band by band, beside a thermometer whose level rises",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Baseball encyclopedia",
-   "x": 1440,
-   "y": 380,
+   "text": "temperature",
+   "x": 1200,
+   "y": 800,
    "to": [
-    1210,
-    600
+    1430,
+    740
    ],
-   "word": "baseball encyclopedia"
+   "word": "temperature"
   }
- ]
+ ],
+ "motion": "the horizon has a temperature and an entropy proportional to its area: the thermometer fills (mv-fill) while area patches pop in band by band over the sphere (mv-popin x5)"
 }

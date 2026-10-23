@@ -1,13 +1,26 @@
 {
- "centre": "a gold orb joined by bridge arcs to a bent-grid tile and a dot tile",
+ "centre": "black hole sphere wrapped in a thin glowing mesh (its boundary)",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "correspondence",
-   "vol": 0.55
+   "name": "sparkle",
+   "word": "crack",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Information paradox",
+   "x": 1330,
+   "y": 330,
+   "to": [
+    1040,
+    460
+   ],
+   "word": "information paradox"
+  }
+ ],
+ "motion": "a new direction: a spark of the boundary picture travels from the hologram plate toward the black hole (path, camera tracks)"
 }

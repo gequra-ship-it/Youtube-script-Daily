@@ -1,19 +1,42 @@
 {
- "centre": "Proxima Centauri b glowing just beyond a front-porch railing, like a neighbour's world",
+ "centre": "a cut-away slab of sky, crust and mantle with a big loop of glowing arrows carrying element dots between them",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "step",
-   "word": "front porch",
-   "vol": 0.6
-  }
- ],
+ "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "4 LIGHT-YEARS",
-   "word": "four light-years"
+   "type": "name",
+   "text": "crust",
+   "x": 230,
+   "y": 450,
+   "to": [
+    380,
+    450
+   ],
+   "word": "crust"
+  },
+  {
+   "type": "name",
+   "text": "mantle",
+   "x": 1430,
+   "y": 820,
+   "to": [
+    1300,
+    760
+   ],
+   "word": "mantle"
+  },
+  {
+   "type": "name",
+   "text": "atmosphere",
+   "x": 1400,
+   "y": 160,
+   "to": [
+    1240,
+    200
+   ],
+   "word": "atmosphere"
   }
- ]
+ ],
+ "motion": "edge + popin: the loop draws itself atmosphere -> crust -> mantle -> back while element dots appear on it (continuously recycles)"
 }

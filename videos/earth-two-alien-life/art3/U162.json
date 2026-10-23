@@ -1,13 +1,30 @@
 {
- "centre": "Proxima Centauri b at the end of a long glowing flight path from tiny Earth",
+ "centre": "Earth wrapped in a golden greenhouse blanket that traps arrows of sunlight",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "starfall",
-   "word": "single human lifetime",
-   "vol": 0.6
+   "type": "name",
+   "text": "Greenhouse effect",
+   "x": 1370,
+   "y": 330,
+   "to": [
+    1060,
+    420
+   ],
+   "word": "greenhouse effect"
+  },
+  {
+   "type": "say",
+   "text": "Cozy!",
+   "x": 1400,
+   "y": 300,
+   "to": [
+    1060,
+    450
+   ],
+   "word": "trapping"
   }
  ],
- "labels": []
+ "motion": "sunlight arrows get trapped under the blanket one after another (popin) + bubble"
 }

@@ -1,11 +1,20 @@
 {
- "centre": "sunlit tree crown with a bright core on a green hill at dusk",
- "focus": [
-  540,
-  860,
-  1.6
+ "centre": "passenger falling belly-down through clouds, a drag arrow grows to match gravity while a speed dial needle settles",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "lower atmosphere",
+   "vol": 0.55
+  }
  ],
- "focus_word": "the other way",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "200 KM/H",
+   "word": "two hundred kilometers"
+  }
+ ],
+ "motion": "grow: the upward drag arrow grows until it equals gravity; flip: the dial needle climbs and stops (settles at a speed); dash: air streaks rush upward"
 }

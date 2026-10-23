@@ -1,7 +1,37 @@
 {
- "centre": "a round glass flask of glowing orange liquid full of swirling particles",
+ "centre": "a glass bowl with a bent grid inside (anti-de Sitter space) and a flat panel of glowing dots (its boundary), joined by a growing double arrow",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "click",
+   "word": "equivalent",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Anti-de Sitter space",
+   "x": 620,
+   "y": 200,
+   "to": [
+    620,
+    335
+   ],
+   "word": "anti-de Sitter space"
+  },
+  {
+   "type": "name",
+   "text": "Boundary",
+   "x": 1380,
+   "y": 720,
+   "to": [
+    1380,
+    590
+   ],
+   "word": "boundary"
+  }
+ ],
+ "motion": "two descriptions declared equivalent: the boundary panel rises into view (mv-rise) and a double arrow grows across to link it with the bowl (mv-grow)"
 }

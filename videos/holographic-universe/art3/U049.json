@@ -1,17 +1,25 @@
 {
- "centre": "heavy glowing mass sinking into a bent grid of space",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "general relativity",
+ "centre": "a cup of hot tea tossed from a rooftop ledge, flying in an arc into a dark black hole in the dusk sky",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "general relativity",
-   "vol": 0.6
+   "name": "pop",
+   "word": "toss",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Bye-bye!",
+   "x": 560,
+   "y": 480,
+   "to": [
+    380,
+    590
+   ]
+  }
+ ],
+ "motion": "toss the tea into a black hole: the steaming cup flies one long arc and vanishes into the dark disc (mv-path, camera tracks it)"
 }

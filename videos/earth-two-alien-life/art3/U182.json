@@ -1,17 +1,26 @@
 {
- "centre": "a fixed orange-white red-dwarf sun hanging over an alien rocky plain",
+ "centre": "a round green microbe cell on a dusk lake, sending up blue oxygen and coral methane balls that rise and fade, over and over",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "step",
-   "word": "standing on the surface",
-   "vol": 0.5
+   "name": "pop",
+   "word": "gases",
+   "vol": 0.6
   }
  ],
- "labels": [],
- "iris": [
-  430,
-  680
- ]
+ "labels": [
+  {
+   "type": "say",
+   "text": "Refilling again!",
+   "x": 1340,
+   "y": 360,
+   "to": [
+    1060,
+    450
+   ],
+   "word": "replenishing"
+  }
+ ],
+ "motion": "bubble: gas balls keep rising off the cell and fading away while the cell beats (heartbeat), so the supply is continuously replenished"
 }

@@ -1,17 +1,21 @@
 {
- "centre": "a magnifier lens showing the seat frame's metal cells folding flat under load",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "built to crush",
+ "centre": "a tiny passenger falls along a dotted route from the airliner down through cloud layers to the fields, beside a ticking stopwatch",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
  "sfx": [
   {
-   "name": "thud",
-   "word": "crush under load",
-   "vol": 0.6
+   "name": "tick",
+   "word": "two and a half minutes",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "2.5 MINUTES",
+   "word": "two and a half minutes"
+  }
+ ],
+ "motion": "the whole descent: faller follows one long smooth path from the plane to the ground (mv-path, 6.4 s, no tracking so the whole column stays visible) while the stopwatch hand turns (mv-rotor)"
 }

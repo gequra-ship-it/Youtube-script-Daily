@@ -1,29 +1,18 @@
 {
- "centre": "a red blood cell loaded with oxygen molecules inside a blood vessel",
+ "centre": "a round magnifier on the water showing molecules packed shoulder to shoulder, trembling under the load",
  "focus": [
   960,
-  510,
-  1.8
+  500,
+  1.6
  ],
- "focus_word": "bloodstream",
- "sfx": [
-  {
-   "name": "bubble",
-   "word": "bloodstream",
-   "vol": 0.5
-  }
- ],
+ "focus_word": "incompressible",
+ "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Oxygen",
-   "x": 520,
-   "y": 300,
-   "to": [
-    470,
-    392
-   ],
-   "word": "oxygen"
+   "type": "num",
+   "text": "200 KM/H",
+   "word": "two hundred kilometers"
   }
- ]
+ ],
+ "motion": "water cannot get out of the way: the falling speed arrow grows toward the surface (mv-grow), the water's sideways arrows crawl only slowly (mv-dash), the packed molecules tremble (mv-core-tremble)"
 }

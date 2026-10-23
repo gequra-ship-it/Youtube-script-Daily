@@ -1,17 +1,17 @@
 {
- "centre": "a gold-white star shifting gently side to side, with faint ghost copies marking the wobble",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "wobbles",
- "sfx": [
+ "centre": "a blue-green Earth-like twin planet with cloud swirls and a hint of green, rising over a calm ocean, small Earth at the left",
+ "labels": [
   {
-   "name": "pulse",
-   "word": "rhythmic",
-   "vol": 0.6
+   "type": "say",
+   "text": "Hello, twin!",
+   "x": 640,
+   "y": 190,
+   "to": [
+    430,
+    300
+   ],
+   "word": "twin"
   }
  ],
- "labels": []
+ "motion": "a search ring travels along the dotted line from our Earth to the twin (path + track)"
 }

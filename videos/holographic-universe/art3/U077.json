@@ -1,17 +1,30 @@
 {
- "centre": "black hole with bright gold lensed disk, a golden magnifier glass near it",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "clue",
- "sfx": [
+ "centre": "a black hole with an even warm glow giving off random specks of thermal radiation; the book that fell in is only a dashed ghost outline",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "sparkle",
-   "word": "clue",
-   "vol": 0.5
+   "type": "say",
+   "text": "Just warm noise...",
+   "x": 1500,
+   "y": 170,
+   "to": [
+    1330,
+    250
+   ],
+   "word": "random glow"
+  },
+  {
+   "type": "name",
+   "text": "book",
+   "x": 470,
+   "y": 680,
+   "to": [
+    470,
+    590
+   ],
+   "word": "book"
   }
  ],
- "labels": []
+ "motion": "the radiation leaving is purely thermal: random specks keep rising off the horizon and fading (mv-bubble x7), the book stays only a dashed outline"
 }

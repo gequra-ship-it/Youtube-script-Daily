@@ -1,17 +1,26 @@
 {
- "centre": "orb of random glowing specks; an open book with neat rows of contents on the left, cut off from it",
- "focus": [
-  420,
-  510,
-  1.7
- ],
- "focus_word": "contents of the book",
+ "centre": "a curving row of stepping blocks in space, each getting a glowing check, leading to a final block drawn only as a dashed outline",
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "random glow",
+   "name": "click",
+   "word": "checks",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Not yet!",
+   "x": 1520,
+   "y": 480,
+   "to": [
+    1560,
+    380
+   ],
+   "word": "not been proven"
+  }
+ ],
+ "motion": "passed many checks but not proven: checks pop onto the blocks one after another (mv-popin) as the camera climbs the row (mv-track) to the last block, only a dashed outline whose dashes keep marching (mv-dash)",
+ "focus": null,
+ "focus_word": null
 }

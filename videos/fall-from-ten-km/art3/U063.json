@@ -1,11 +1,30 @@
 {
- "centre": "a red-suited skydiver seen from below in a soft gold glow, dashed ghost positions of arms and legs",
- "focus": [
-  960,
-  520,
-  1.6
+ "centre": "plain red octagonal stop sign with a white bar on a short post beside a road",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Stopping distance",
+   "x": 560,
+   "y": 250,
+   "to": [
+    840,
+    780
+   ],
+   "word": "stopping distance"
+  },
+  {
+   "type": "say",
+   "text": "Stop!",
+   "x": 1350,
+   "y": 450,
+   "to": [
+    1040,
+    560
+   ],
+   "word": "stopping"
+  }
  ],
- "focus_word": "arms and legs",
- "sfx": [],
- "labels": []
+ "motion": "stopping distance bars grow out from the sign (grow)"
 }

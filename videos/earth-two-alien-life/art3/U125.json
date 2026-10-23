@@ -1,26 +1,30 @@
 {
- "centre": "round data lens showing a starlight curve with a small dip",
+ "centre": "a fixed orange-white red-dwarf sun hanging over an alien rocky plain",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pulse",
-   "word": "emerged",
-   "vol": 0.6
+   "name": "step",
+   "word": "standing on the surface",
+   "vol": 0.5
   }
+ ],
+ "iris": [
+  430,
+  680
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Kepler",
-   "x": 470,
-   "y": 640,
+   "type": "say",
+   "text": "What a view!",
+   "x": 640,
+   "y": 400,
    "to": [
-    400,
-    520
+    445,
+    515
    ],
-   "word": "Kepler's data"
+   "word": "Imagine"
   }
  ],
- "spot": true
+ "motion": "warm dust streaks drift past the standing watcher (scroll) + bubble"
 }

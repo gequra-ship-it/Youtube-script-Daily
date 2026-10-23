@@ -1,12 +1,37 @@
 {
- "centre": "round stopwatch dial between a tall narrow force spike and a wide low force hill",
- "focus": [
-  540,
-  860,
-  1.5
+ "centre": "stiff glassy dome of water rising where a figure hits the surface",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "hard surface",
+   "vol": 0.65
+  }
  ],
- "focus_word": "drop to zero",
- "sfx": [],
- "labels": [],
- "spot": true
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hard surface",
+   "x": 700,
+   "y": 640,
+   "to": [
+    560,
+    850
+   ],
+   "word": "hard surface"
+  },
+  {
+   "type": "say",
+   "text": "Ouch!",
+   "x": 620,
+   "y": 340,
+   "to": [
+    350,
+    455
+   ],
+   "word": "fatal"
+  }
+ ],
+ "motion": "path+shake+track: the faller hits the stiff water dome flat-on, dome shudders on impact, camera follows the drop; Ouch bubble"
 }

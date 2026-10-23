@@ -1,18 +1,36 @@
 {
- "centre": "glowing 3D orb floating above a flat patterned plate",
- "focus": [
-  540,
-  1180,
-  1.8
- ],
- "focus_word": "flat surface",
+ "centre": "credit card with a shiny round hologram patch",
  "sfx": [
   {
-   "name": "pop",
-   "word": "flat surface",
+   "name": "click",
+   "word": "credit cards",
    "vol": 0.5
   }
  ],
- "labels": [],
- "spot": true
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hologram",
+   "x": 540,
+   "y": 520,
+   "to": [
+    540,
+    780
+   ],
+   "word": "hologram"
+  },
+  {
+   "type": "say",
+   "text": "Small trick",
+   "x": 790,
+   "y": 540,
+   "to": [
+    560,
+    840
+   ],
+   "word": "trick"
+  }
+ ],
+ "spot": true,
+ "motion": "sheen strokes draw on beside the hologram patch (the small trick on the card)"
 }

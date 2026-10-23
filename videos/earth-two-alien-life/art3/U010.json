@@ -1,17 +1,19 @@
 {
- "centre": "our small blue-green Earth among countless far galaxies",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "the only living minds",
- "sfx": [
+ "centre": "two ancestors seen from behind on a night hill, one pointing up at a bright star, beside which a small imagined world sprouts a garden of glowing blossoms",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "glimmer",
-   "word": "universe",
-   "vol": 0.55
+   "type": "say",
+   "text": "A garden up there?",
+   "x": 700,
+   "y": 330,
+   "to": [
+    500,
+    470
+   ],
+   "word": "wondered"
   }
  ],
- "labels": []
+ "motion": "ancestors wondered whether distant fires held gardens: a dotted line of wonder flows to the star (mv-dash) and blossoms grow one by one on the little world beside it (mv-grow x5)"
 }

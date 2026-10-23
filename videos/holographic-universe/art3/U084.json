@@ -1,13 +1,23 @@
 {
- "centre": "black sphere with a faint warm glowing rim",
+ "centre": "round window with a setting sun, light falling toward a lone figure seen from behind",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "iris": [
+  1450,
+  720
+ ],
+ "labels": [
   {
-   "name": "glimmer",
-   "word": "glow",
-   "vol": 0.5
+   "type": "say",
+   "text": "Not convinced!",
+   "x": 1230,
+   "y": 560,
+   "to": [
+    1450,
+    690
+   ],
+   "word": "concede"
   }
  ],
- "labels": []
+ "motion": "shake: the standing man shakes his head side to side (did not concede)"
 }

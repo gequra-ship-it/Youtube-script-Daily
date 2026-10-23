@@ -1,28 +1,26 @@
 {
- "centre": "round posture dial with a small figure falling feet first",
+ "centre": "front of the jet engine under the broad wing above the clouds",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
    "name": "wind",
-   "word": "falling person",
+   "word": "clouds",
    "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "Stay alert.",
-   "x": 650,
-   "y": 200,
+   "type": "name",
+   "text": "Wings",
+   "x": 1420,
+   "y": 560,
    "to": [
-    450,
-    270
-   ]
+    1440,
+    420
+   ],
+   "word": "wings"
   }
  ],
- "iris": [
-  420,
-  450
- ]
+ "motion": "broad wings cutting through clouds: the camera sweeps from the engine out along the wing to its tip (mv-track), existing wing flex kept"
 }

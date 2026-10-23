@@ -1,17 +1,20 @@
 {
- "centre": "transparent sphere of space filling with small glowing bits streaming in from both sides",
- "focus": [
-  960,
-  500,
-  1.5
- ],
- "focus_word": "sphere of space",
- "sfx": [
+ "centre": "a flat boundary sheet of dots with one gold region linked by threads to particles in the rest, which light up one by one",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "glimmer",
-   "word": "pack more and more",
-   "vol": 0.55
+   "type": "name",
+   "text": "boundary",
+   "x": 420,
+   "y": 300,
+   "to": [
+    520,
+    380
+   ],
+   "word": "boundary"
   }
  ],
- "labels": []
+ "motion": "entanglement links one region to the rest: dashes march along the threads (mv-dash) and the partner particles light up gold one after another, sharing one state (mv-popin x6)"
 }

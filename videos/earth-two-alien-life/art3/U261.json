@@ -1,13 +1,20 @@
 {
- "centre": "a distant banded gas-swirled planet with coloured gas puffs around it, a small Webb telescope far to the left",
+ "centre": "a glowing round paper lamp hanging in a cosy living room",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "spot": true,
  "labels": [
   {
-   "type": "num",
-   "text": "TRILLIONS OF MILES",
-   "word": "trillions of miles"
+   "type": "say",
+   "text": "So cosy",
+   "x": 480,
+   "y": 300,
+   "to": [
+    700,
+    420
+   ],
+   "word": "room"
   }
- ]
+ ],
+ "motion": "lamp light rays draw on"
 }

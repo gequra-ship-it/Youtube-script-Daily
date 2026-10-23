@@ -1,23 +1,37 @@
 {
- "centre": "a round porthole onto the seafloor where white carbonate rock builds up",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "a small observatory on a hill swings its telescope first to the amber world Kepler-186f, then on to the larger blue-green Kepler-452b",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "point",
+   "vol": 0.5
+  }
  ],
- "focus_word": "carbonate rocks",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Carbonate rocks",
-   "x": 1330,
-   "y": 330,
+   "text": "Kepler-186f",
+   "x": 1050,
+   "y": 140,
    "to": [
-    1040,
-    540
+    1050,
+    230
    ],
-   "word": "carbonate rocks"
+   "word": "Kepler-186f"
+  },
+  {
+   "type": "name",
+   "text": "Kepler-452b",
+   "x": 1470,
+   "y": 720,
+   "to": [
+    1470,
+    615
+   ],
+   "word": "Kepler-452b"
   }
- ]
+ ],
+ "motion": "flip (two turns about the mount): the telescope aims at Kepler-186f, then swings on to Kepler-452b as each is named"
 }

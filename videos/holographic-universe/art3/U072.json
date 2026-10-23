@@ -1,17 +1,19 @@
 {
- "centre": "round gauge dial with a needle that only rises",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "does not decrease",
- "sfx": [
+ "centre": "a glowing information cube breaking into fragments that drift apart but keep glowing, and a stone tablet of the strict rule slamming in",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "tick",
-   "word": "decrease",
-   "vol": 0.5
+   "type": "name",
+   "text": "information",
+   "x": 560,
+   "y": 790,
+   "to": [
+    560,
+    600
+   ],
+   "word": "information"
   }
  ],
- "labels": []
+ "motion": "a strict rule: information is never destroyed: the fragments drift apart but stay glowing (mv-scroll), the rule tablet slams in (mv-slam)"
 }

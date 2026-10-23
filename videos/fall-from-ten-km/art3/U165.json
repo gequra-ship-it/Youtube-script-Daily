@@ -1,23 +1,30 @@
 {
- "centre": "glowing elevator call button on a steel plate",
- "focus": [
-  1510,
-  500,
-  1.6
- ],
- "focus_word": "elevator",
- "sfx": [],
+ "centre": "desk globe with a dotted flight path in Miya's Lab",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Elevator",
-   "x": 1170,
-   "y": 330,
+   "text": "Miya's Lab",
+   "x": 1140,
+   "y": 110,
    "to": [
-    1320,
-    420
+    1000,
+    140
    ],
-   "word": "elevator"
+   "word": "Miya's Lab"
+  },
+  {
+   "type": "say",
+   "text": "Thank you!",
+   "x": 620,
+   "y": 400,
+   "to": [
+    440,
+    362
+   ],
+   "word": "Thank"
   }
- ]
+ ],
+ "motion": "thank you for journeying: the plane trail in the window draws itself across the sky and the plane dot pops in at its tip (mv-edge + mv-popin); bubble from the waving host"
 }

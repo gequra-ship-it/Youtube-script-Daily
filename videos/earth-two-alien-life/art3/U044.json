@@ -1,11 +1,30 @@
 {
- "centre": "a blue-green Earth-like twin planet with cloud swirls and a hint of green, rising over a calm ocean, small Earth at the left",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "a sketched cross-section from a hot deep-sea vent to a lake buried under the Antarctic ice, both with tiny glowing microbes",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "volcanic vents",
+   "x": 640,
+   "y": 470,
+   "to": [
+    460,
+    590
+   ],
+   "word": "volcanic vents"
+  },
+  {
+   "type": "name",
+   "text": "Antarctic ice",
+   "x": 1300,
+   "y": 200,
+   "to": [
+    1420,
+    300
+   ],
+   "word": "Antarctic ice"
+  }
  ],
- "focus_word": "Earth twin",
- "sfx": [],
- "labels": []
+ "motion": "a survey from boiling vents to buried ice: camera tracks left to right (mv-track), microbes drift (mv-cells), vent smoke rises"
 }

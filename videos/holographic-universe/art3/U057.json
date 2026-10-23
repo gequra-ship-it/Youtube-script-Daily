@@ -1,13 +1,26 @@
 {
- "centre": "round hatch door standing ajar, light inside, arrows pointing one way",
+ "centre": "a chain of three: a horizon sphere tiled with entropy patches, a thermometer filling up, and a black hole that begins to glow",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "door",
-   "vol": 0.5
+   "name": "glimmer",
+   "word": "glow",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Getting warm...",
+   "x": 1200,
+   "y": 250,
+   "to": [
+    992,
+    300
+   ],
+   "word": "temperature"
+  }
+ ],
+ "motion": "entropy implies temperature implies glow: arrow draws on (mv-edge), thermometer fills (mv-fill), second arrow draws, the black hole's glow pops in (mv-popin)"
 }

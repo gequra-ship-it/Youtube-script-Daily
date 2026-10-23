@@ -1,17 +1,37 @@
 {
- "centre": "dust puff where the boots touch the grass",
- "focus": [
-  960,
-  560,
-  1.8
- ],
- "focus_word": "boots touch the ground",
+ "centre": "pair of lungs glowing on the chest as they fill with air",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "step",
-   "word": "touch",
-   "vol": 0.6
+   "name": "breath",
+   "word": "deep breath",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Oxygen",
+   "x": 470,
+   "y": 250,
+   "to": [
+    560,
+    385
+   ],
+   "word": "oxygen"
+  },
+  {
+   "type": "say",
+   "text": "Ahh, so fresh!",
+   "x": 1190,
+   "y": 190,
+   "to": [
+    990,
+    255
+   ],
+   "word": "air"
+  }
+ ],
+ "motion": "deep breath of cool air: the dotted air streams run toward the person (mv-dash) while the lungs fill (existing swell); bubble from the person"
 }

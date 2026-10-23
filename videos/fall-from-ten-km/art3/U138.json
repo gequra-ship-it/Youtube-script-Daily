@@ -1,33 +1,14 @@
 {
- "centre": "a round wall dial for muscle tension, needle between relaxed and tense, the passenger pointing at it",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "muscle tension",
- "sfx": [],
- "labels": [
+ "centre": "a survivor lying quietly on the mossy floor of a forest clearing at dusk, tree crowns swaying gently",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "name",
-   "text": "Muscle tension",
-   "x": 960,
-   "y": 690,
-   "to": [
-    960,
-    630
-   ],
-   "word": "muscle tension"
-  },
-  {
-   "type": "say",
-   "text": "Hmm...",
-   "x": 600,
-   "y": 250,
-   "to": [
-    440,
-    375
-   ]
+   "name": "wind",
+   "word": "sighs in the breeze",
+   "vol": 0.5
   }
- ]
+ ],
+ "labels": [],
+ "motion": "the camera glides down from the swaying treetops to the survivor lying quietly (mv-track), crowns sway in the breeze (mv-joint), the survivor breathes (mv-breathe)"
 }

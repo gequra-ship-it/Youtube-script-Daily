@@ -1,11 +1,20 @@
 {
- "centre": "a gold coin with a feather emblem above a forked road: a falling stone on one side, a drifting feather on the other",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "a large brass stopwatch at the left whose hand sweeps half a turn while a red arc fills behind it; an ordinary person stands at the right under the stars",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "thirty seconds",
+   "vol": 0.6
+  }
  ],
- "focus_word": "fatal or miraculous",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "30 SECONDS",
+   "word": "thirty seconds"
+  }
+ ],
+ "motion": "roughly thirty seconds: the stopwatch hand sweeps half a turn (mv-flip 180 deg) as the red arc draws on behind it (mv-edge)"
 }

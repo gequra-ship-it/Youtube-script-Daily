@@ -1,7 +1,27 @@
 {
- "centre": "a single gold-white star glowing alone in a dim dashed patch of fog",
+ "centre": "a flat wallpaper of evenly printed specks rolling up and away from the sky, revealing deep space full of stars that each have their own planets, watched by a person from behind",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "track": false,
+ "sfx": [
+  {
+   "name": "page",
+   "word": "wallpaper",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Whoa... worlds!",
+   "x": 720,
+   "y": 560,
+   "to": [
+    440,
+    590
+   ],
+   "word": "realized"
+  }
+ ],
+ "motion": "the sky is not an empty wallpaper: the flat dotted sheet slides up and off the sky (mv-path, camera still) to reveal stars with planets; the onlooker breathes and looks up"
 }

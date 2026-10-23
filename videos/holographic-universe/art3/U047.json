@@ -1,17 +1,20 @@
 {
- "centre": "black hole with thick glowing lensed accretion disk, a dotted trail leading to it",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "extreme objects",
- "sfx": [
+ "centre": "a sealed glass box of gas linked to a gauge whose level only climbs, beside a ratchet wheel that turns one way",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "warp",
-   "word": "visit",
-   "vol": 0.6
+   "type": "name",
+   "text": "isolated system",
+   "x": 560,
+   "y": 190,
+   "to": [
+    560,
+    280
+   ],
+   "word": "isolated system"
   }
  ],
- "labels": []
+ "motion": "entropy does not decrease: the gauge level climbs (mv-fill) while the ratchet wheel turns one way only (mv-rotor)"
 }

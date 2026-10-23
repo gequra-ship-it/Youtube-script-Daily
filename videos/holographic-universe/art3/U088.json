@@ -1,13 +1,30 @@
 {
- "centre": "round glowing gauge dial with a needle, an arc filled up to a value",
- "focus": null,
- "focus_word": null,
+ "centre": "a paper with a small hologram drawing flies from a desk stack across the study and is pinned to the cork board",
  "sfx": [
   {
-   "name": "pencil",
-   "word": "calculation",
-   "vol": 0.6
+   "name": "page",
+   "word": "a paper",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "The World as a Hologram",
+   "x": 1450,
+   "y": 720,
+   "to": [
+    1450,
+    610
+   ],
+   "word": "The World as a Hologram"
+  }
+ ],
+ "iris": [
+  470,
+  560
+ ],
+ "motion": "the idea gets its name in a paper: the paper flies from the desk to the board along a smooth arc (mv-path, camera follows) and a pin slams it in place (mv-slam), the name that stuck",
+ "focus": null,
+ "focus_word": null
 }

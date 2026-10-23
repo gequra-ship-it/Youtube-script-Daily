@@ -1,12 +1,26 @@
 {
- "centre": "a red-suited skydiver seen from below in a soft gold glow, dashed ghost positions of arms and legs",
- "focus": [
-  540,
-  883,
-  1.6
+ "centre": "a red-suited skydiver in a spread pose falling from the high dusk sky down toward the cloud deck",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "fall from the sky",
+   "vol": 0.55
+  }
  ],
- "focus_word": "arms and legs",
- "sfx": [],
- "labels": [],
- "spot": true
+ "labels": [
+  {
+   "type": "say",
+   "text": "Yes!",
+   "x": 800,
+   "y": 1040,
+   "to": [
+    600,
+    1120
+   ],
+   "word": "Skydivers say yes"
+  }
+ ],
+ "motion": "path: the skydiver falls along a long S curve from the top of the sky to the clouds (how you fall from the sky); camera follows"
 }

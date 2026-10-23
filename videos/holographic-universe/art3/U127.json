@@ -1,23 +1,27 @@
 {
- "centre": "hologram orb with dotted surface floating above an edge-lit plate on a small table",
+ "centre": "a glowing droplet bead sliding freely down a slope past a stuck blob of thick honey",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "Leonard Susskind",
-   "x": 610,
-   "y": 250,
-   "to": [
-    610,
-    325
-   ],
-   "word": "Leonard Susskind"
+   "name": "pencil",
+   "word": "Calculations",
+   "vol": 0.55
   }
  ],
- "iris": [
-  610,
-  600
- ]
+ "spot": true,
+ "labels": [
+  {
+   "type": "say",
+   "text": "So slippery!",
+   "x": 560,
+   "y": 700,
+   "to": [
+    640,
+    540
+   ],
+   "word": "stickiness"
+  }
+ ],
+ "motion": "path: a disc glides down the slope with almost no friction (extremely low stickiness); camera follows"
 }

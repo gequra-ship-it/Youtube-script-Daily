@@ -1,17 +1,26 @@
 {
- "centre": "small bright shell with a few big glowing patches inside a vast faint lattice of volume points",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "far smaller",
+ "centre": "a brass magnifying lens over a half-drawn dashed shape",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "glimmer",
-   "word": "far smaller",
+   "word": "hypothesis",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Just a hunch?",
+   "x": 640,
+   "y": 250,
+   "to": [
+    900,
+    430
+   ],
+   "word": "suspicion"
+  }
+ ],
+ "motion": "dash: dashed ghost outlines keep drifting round (a hypothesis, not settled)"
 }

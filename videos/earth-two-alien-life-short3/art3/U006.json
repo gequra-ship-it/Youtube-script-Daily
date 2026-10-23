@@ -1,34 +1,30 @@
 {
- "centre": "young blue-green Earth floating above old layered ages",
- "focus": [
-  540,
-  860,
-  1.5
- ],
- "focus_word": "Earth",
- "sfx": [
-  {
-   "name": "tick",
-   "word": "four and a half billion",
-   "vol": 0.55
-  }
- ],
+ "centre": "a small satellite with golden body and blue solar panels over a galaxy map of lit signal marks",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Earth",
+   "text": "Milky Way",
    "x": 540,
-   "y": 680,
+   "y": 640,
    "to": [
     540,
-    770
+    780
    ],
-   "word": "Earth"
+   "word": "Milky Way"
   },
   {
-   "type": "num",
-   "text": "4.5 BILLION YEARS",
-   "word": "four and a half billion years"
+   "type": "say",
+   "text": "Hello, anyone there?",
+   "x": 800,
+   "y": 760,
+   "to": [
+    610,
+    845
+   ],
+   "word": "explore"
   }
- ]
+ ],
+ "motion": "Camera sweeps along the galaxy of signal marks."
 }

@@ -1,36 +1,17 @@
 {
- "centre": "round metal manhole cover lit on an asphalt road between concrete pavement",
+ "centre": "a white twin-jet airliner high above a sea of clouds; its tail section breaks away and tumbles down behind it",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "concrete",
-   "vol": 0.6
+   "name": "wind",
+   "word": "broke apart",
+   "vol": 0.55
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Concrete",
-   "x": 680,
-   "y": 160,
-   "to": [
-    560,
-    200
-   ],
-   "word": "concrete"
-  },
-  {
-   "type": "name",
-   "text": "Asphalt",
-   "x": 1380,
-   "y": 300,
-   "to": [
-    1330,
-    380
-   ],
-   "word": "asphalt"
-  }
- ]
+ "labels": [],
+ "track": {
+  "scale": 1.15
+ },
+ "motion": "path: the tail section separates and tumbles down along a smooth curve (camera tracks it, light zoom), the front section keeps flying (scroll) trailing a marching contrail (dash)"
 }

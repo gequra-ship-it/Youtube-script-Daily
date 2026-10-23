@@ -1,30 +1,37 @@
 {
- "centre": "round thought bubble holding a puzzle piece between two empty chairs",
+ "centre": "bright present-moment state on a world line, past and future snapshots either side",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "today",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "John Wheeler",
-   "x": 430,
-   "y": 520,
+   "text": "Past",
+   "x": 400,
+   "y": 400,
    "to": [
     400,
-    620
+    510
    ],
-   "word": "John Wheeler"
+   "word": "past"
   },
   {
    "type": "name",
-   "text": "Jacob Bekenstein",
-   "x": 1500,
-   "y": 520,
+   "text": "Future",
+   "x": 1520,
+   "y": 290,
    "to": [
     1520,
-    620
+    380
    ],
-   "word": "Jacob Bekenstein"
+   "word": "future"
   }
- ]
+ ],
+ "motion": "the state today determines past and future: a light bit travels along the world line from the past snapshot through now to the future (path, camera tracks)"
 }

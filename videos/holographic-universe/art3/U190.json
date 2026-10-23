@@ -1,18 +1,30 @@
 {
- "centre": "a round boundary disc with a glowing gold curve dipping into the interior between two boundary points",
+ "centre": "a glowing orb (the region of space) inside a glass-box room",
  "focus": [
-  960,
-  500,
-  1.8
+  1290,
+  470,
+  1.6
  ],
- "focus_word": "minimal surface",
+ "focus_word": "its boundary",
  "sfx": [
   {
-   "name": "pencil",
-   "word": "minimal surface",
-   "vol": 0.55
+   "name": "glimmer",
+   "word": "information",
+   "vol": 0.5
   }
  ],
- "labels": [],
- "spot": true
+ "labels": [
+  {
+   "type": "name",
+   "text": "Boundary",
+   "x": 1560,
+   "y": 300,
+   "to": [
+    1320,
+    400
+   ],
+   "word": "boundary"
+  }
+ ],
+ "motion": "information on its boundary: the glass box boundary is traced (edge draw)"
 }

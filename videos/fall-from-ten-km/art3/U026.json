@@ -1,23 +1,25 @@
 {
- "centre": "stopwatch with half the dial in red",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "thirty seconds",
- "sfx": [
-  {
-   "name": "tick",
-   "word": "thirty seconds",
-   "vol": 0.6
-  }
- ],
+ "centre": "a tall thermometer whose blue column sinks while frost crystals draw on around a white airliner in an icy high-altitude night sky",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
    "type": "num",
-   "text": "10,000 M",
-   "word": "ten thousand meters"
+   "text": "-50 °C",
+   "word": "minus fifty degrees Celsius"
+  },
+  {
+   "type": "say",
+   "text": "Brrr!",
+   "x": 790,
+   "y": 520,
+   "to": [
+    612,
+    560
+   ],
+   "word": "ten kilometers"
   }
- ]
+ ],
+ "motion": "minus fifty at ten kilometres: the thermometer's column falls (mv-fill) and frost crystals draw on across the sky (mv-edge)"
 }

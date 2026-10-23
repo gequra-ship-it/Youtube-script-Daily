@@ -1,25 +1,23 @@
 {
- "centre": "a pale moon above a lone hilltop watcher in the silent night sky",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "glimmer",
-   "word": "night sky",
-   "vol": 0.6
-  }
+ "centre": "a golden balance: a heap of habitable planets on one pan, an empty pan with a faint silent dish on the other",
+ "focus": [
+  540,
+  860,
+  1.5
  ],
+ "focus_word": "Fermi Paradox",
  "labels": [
   {
-   "type": "say",
-   "text": "So quiet...",
-   "x": 300,
-   "y": 1010,
+   "type": "name",
+   "text": "Fermi Paradox",
+   "x": 540,
+   "y": 560,
    "to": [
-    418,
-    1130
+    540,
+    750
    ],
-   "word": "silent"
+   "word": "Fermi Paradox"
   }
- ]
+ ],
+ "motion": "swing: the balance beam keeps rocking and cannot settle (contradiction = Fermi Paradox); focus on the pivot"
 }

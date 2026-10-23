@@ -1,7 +1,26 @@
 {
- "centre": "a glowing crystal floating above a hologram plate",
+ "centre": "a black hole with a glowing disk on the left; one spark of Hawking radiation travels across space to an open notebook on a lamp-lit desk",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "calculated",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hawking radiation",
+   "x": 790,
+   "y": 230,
+   "to": [
+    640,
+    330
+   ],
+   "word": "Hawking radiation"
+  }
+ ],
+ "motion": "Page calculates how Hawking radiation behaves: a radiation spark flies from the black hole to the notebook (mv-path, camera follows) along a marching dotted trail (mv-dash)"
 }

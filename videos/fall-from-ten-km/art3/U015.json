@@ -1,23 +1,36 @@
 {
- "centre": "a magnifying lens showing the passenger's body falling in the upper troposphere",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "a translucent profile of a head and chest: one lonely oxygen molecule travels in through the mouth, down the airway into the lungs and on to blood cells that wait with empty spots",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "breath",
+   "word": "each breath",
+   "vol": 0.55
+  }
  ],
- "focus_word": "the human body",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Upper troposphere",
-   "x": 1200,
-   "y": 300,
+   "type": "say",
+   "text": "Where is everyone?",
+   "x": 360,
+   "y": 190,
    "to": [
-    1280,
-    355
+    270,
+    300
+   ]
+  },
+  {
+   "type": "name",
+   "text": "bloodstream",
+   "x": 1560,
+   "y": 520,
+   "to": [
+    1560,
+    630
    ],
-   "word": "upper troposphere"
+   "word": "bloodstream"
   }
- ]
+ ],
+ "motion": "each breath carries little oxygen: a single oxygen molecule follows the airway into the lung and on into the blood vessel (mv-path, camera tracks it)"
 }

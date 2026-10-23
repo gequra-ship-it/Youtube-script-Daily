@@ -1,18 +1,31 @@
 {
- "centre": "glass bowl of curved space with a bent grid and a bright core",
+ "centre": "coral glass sphere marking the horizon, a bright point of observer inside",
  "focus": [
   540,
-  900,
-  1.7
+  860,
+  1.6
  ],
- "focus_word": "negative cosmological",
+ "focus_word": "cosmological horizon",
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "catch",
-   "vol": 0.6
+   "name": "pulse",
+   "word": "horizon",
+   "vol": 0.55
   }
  ],
- "labels": [],
- "spot": false
+ "spot": false,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Open questions",
+   "x": 780,
+   "y": 540,
+   "to": [
+    600,
+    840
+   ],
+   "word": "questions"
+  }
+ ],
+ "motion": "a second horizon line rises: our universe has one too"
 }

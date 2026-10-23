@@ -1,19 +1,26 @@
 {
- "centre": "small planet globe pulling, with gravity arrow down and drag arrow up beside a falling person",
+ "centre": "close-up of the passenger's face as the eyes open in the roaring wind, the moonlit fields far below rushing up into view",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "roar of the wind",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Upward force",
-   "x": 700,
-   "y": 250,
+   "type": "say",
+   "text": "Whoa!",
+   "x": 840,
+   "y": 600,
    "to": [
-    580,
-    470
+    515,
+    520
    ],
-   "word": "upward force"
+   "word": "ground"
   }
- ]
+ ],
+ "motion": "eyes open, the wind roars, the ground rushes up: the eyes open (mv-grow), dashed wind streams past the head (mv-dash), and the patchwork ground rises up into view (mv-rise)"
 }

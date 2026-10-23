@@ -1,30 +1,22 @@
 {
- "centre": "slightly squashed gold ball just touching a concrete wall, a ruler strip showing a tiny gap",
- "focus": [
-  758,
-  860,
-  1.8
- ],
- "focus_word": "few millimeters",
- "sfx": [
-  {
-   "name": "thud",
-   "word": "solid rock",
-   "vol": 0.65
-  }
- ],
+ "centre": "the passenger sliding down a steep snowy slope from a compressed landing pocket, a trail drawing itself behind",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Concrete",
-   "x": 860,
-   "y": 560,
+   "text": "Deep snow",
+   "x": 420,
+   "y": 520,
    "to": [
-    860,
-    700
+    201,
+    672
    ],
-   "word": "Concrete"
+   "word": "Deep snow"
   }
  ],
- "spot": true
+ "track": {
+  "scale": 1.25
+ },
+ "motion": "path: from the snow pocket the passenger slides a long way down the slope (head-on hit turned into a slide, camera follows); edge: the slide trail draws on behind"
 }

@@ -1,13 +1,26 @@
 {
- "centre": "a glass globe of space grid whose edge dissolves into dots",
+ "centre": "a little glowing light travelling up a winding dusk path to a small lab on a hill, whose door swings open",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "fundamental",
-   "vol": 0.5
+   "name": "step",
+   "word": "step inside",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Come on in!",
+   "x": 1130,
+   "y": 320,
+   "to": [
+    1380,
+    440
+   ],
+   "word": "step inside"
+  }
+ ],
+ "motion": "end of the journey: a small light travels up the winding path to the lab (mv-path, camera follows), then the lab door swings open (mv-fill x) for 'step inside'"
 }

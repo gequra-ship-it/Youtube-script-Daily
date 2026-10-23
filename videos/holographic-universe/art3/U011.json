@@ -1,25 +1,26 @@
 {
- "centre": "a glowing wire cube with a small sun inside, floating above a hologram plate",
+ "centre": "a glass sphere of space with a small galaxy inside; glowing bits appear patch by patch on its boundary, then a pinned note card rises",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "bloom",
-   "word": "holographic principle",
+   "name": "pulse",
+   "word": "information",
    "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "holographic principle",
-   "x": 1420,
-   "y": 860,
+   "text": "boundary",
+   "x": 1150,
+   "y": 210,
    "to": [
-    1240,
-    745
+    930,
+    300
    ],
-   "word": "holographic principle"
+   "word": "boundary"
   }
- ]
+ ],
+ "motion": "information written on the boundary: glowing bits pop in around the sphere patch by patch (mv-popin x5), then the honest note card rises in (mv-rise)"
 }

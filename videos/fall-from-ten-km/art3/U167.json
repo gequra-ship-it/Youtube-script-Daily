@@ -1,13 +1,19 @@
 {
- "centre": "glowing gold orb travelling a dotted descent path past a cabin window, ice crystal, lungs and the ground",
+ "centre": "large pale moon rising in the starry dusk sky",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "thud",
-   "word": "collision",
-   "vol": 0.6
+   "type": "say",
+   "text": "Wow, the sky!",
+   "x": 600,
+   "y": 340,
+   "to": [
+    450,
+    490
+   ],
+   "word": "sky"
   }
  ],
- "labels": []
+ "motion": "never stop looking up: the moon slowly rises (mv-path) and the camera tilts up with it; bubble from the stargazer"
 }

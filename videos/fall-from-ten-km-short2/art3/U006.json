@@ -1,23 +1,17 @@
 {
- "centre": "magnifying lens over patchwork ground showing grass, water, concrete and rock",
+ "centre": "coral ball bouncing back off a flat stiff sea surface",
  "focus": [
   540,
-  860,
-  1.8
+  900,
+  1.6
  ],
- "focus_word": "surface",
- "sfx": [],
- "labels": [
+ "focus_word": "solid surface",
+ "sfx": [
   {
-   "type": "name",
-   "text": "Surface",
-   "x": 720,
-   "y": 540,
-   "to": [
-    580,
-    810
-   ],
-   "word": "surface"
+   "name": "thud",
+   "word": "pushes back hard",
+   "vol": 0.65
   }
- ]
+ ],
+ "motion": "grow then rise: the red downward arrow grows (the fall), then the teal arrow pushes up out of the surface (it pushes back hard)"
 }

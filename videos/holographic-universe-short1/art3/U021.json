@@ -1,18 +1,20 @@
 {
- "centre": "glass sphere crammed with glowing dots of information",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "sphere of space",
- "sfx": [
+ "centre": "warm lamp glowing on a table in a calm night room",
+ "focus": null,
+ "focus_word": null,
+ "spot": false,
+ "labels": [
   {
-   "name": "glimmer",
-   "word": "more and more",
-   "vol": 0.5
+   "type": "say",
+   "text": "Not proven",
+   "x": 700,
+   "y": 420,
+   "to": [
+    540,
+    860
+   ],
+   "word": "proven"
   }
  ],
- "labels": [],
- "spot": true
+ "motion": "dashes march along an unfinished line: not proven"
 }

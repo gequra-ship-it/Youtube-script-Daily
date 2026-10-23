@@ -1,7 +1,48 @@
 {
- "centre": "golden energy ball splitting into one tall red bar (all at once) and a row of small pale bars (spread out)",
+ "centre": "a museum plinth under a spotlight where the lower skeleton assembles piece by piece: pelvis, thick thigh bones, shin bones, ankles",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "sturdiest",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pelvis",
+   "x": 1290,
+   "y": 220,
+   "to": [
+    1050,
+    260
+   ],
+   "word": "pelvis"
+  },
+  {
+   "type": "name",
+   "text": "Ankles",
+   "x": 1300,
+   "y": 700,
+   "to": [
+    1080,
+    730
+   ],
+   "word": "ankles"
+  },
+  {
+   "type": "say",
+   "text": "Built tough!",
+   "x": 620,
+   "y": 170,
+   "to": [
+    880,
+    250
+   ],
+   "word": "sturdiest"
+  }
+ ],
+ "motion": "rise: the sturdy bones drop into place from the top down in turn (pelvis, long leg bones, shins, ankles), assembling the lower skeleton on the plinth"
 }

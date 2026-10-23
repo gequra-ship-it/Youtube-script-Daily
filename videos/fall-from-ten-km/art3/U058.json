@@ -1,13 +1,26 @@
 {
- "centre": "cup anemometer on a hilltop mast, turning",
+ "centre": "a rocket seen from behind with four fins in an X, next to the passenger from above with arms and legs outstretched like the fins",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "cloth",
+   "word": "outstretched",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "200 KM/H",
-   "word": "two hundred kilometers"
+   "type": "name",
+   "text": "four fins",
+   "x": 470,
+   "y": 200,
+   "to": [
+    560,
+    360
+   ],
+   "word": "four fins"
   }
- ]
+ ],
+ "motion": "outstretched limbs damp the rotation: the falling figure turns back and forth less and less until steady (mv-swing, damped), then dashed lines link the rocket fins to the limbs (mv-edge)"
 }

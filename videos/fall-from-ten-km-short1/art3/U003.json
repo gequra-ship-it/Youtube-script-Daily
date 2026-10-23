@@ -1,12 +1,24 @@
 {
- "centre": "a round glowing lantern on a stump; a person tells the survivors' story to two listeners",
+ "centre": "disc with one glowing quarter, between a dense and a thin air tube",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "iris": [
-  816,
-  1000
+ "labels": [
+  {
+   "type": "num",
+   "text": "10 KM",
+   "word": "ten kilometers"
+  },
+  {
+   "type": "name",
+   "text": "Sea level",
+   "x": 790,
+   "y": 480,
+   "to": [
+    640,
+    480
+   ],
+   "word": "sea level"
+  }
  ],
- "spot": true
+ "motion": "track: camera drifts down from the dense air tube through the pressure disc to the thin tube (pressure drops with height); no bubble"
 }

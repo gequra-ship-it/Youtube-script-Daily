@@ -1,18 +1,26 @@
 {
- "centre": "a glowing droplet bead sliding freely down a slope past a stuck blob of thick honey",
- "focus": [
-  960,
-  500,
-  1.9
- ],
- "focus_word": "extremely low stickiness",
+ "centre": "a hanging list whose blank rows write themselves, next to our universe as a glass ball of galaxies over a hologram plate",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pencil",
-   "word": "Calculations",
+   "name": "page",
+   "word": "the honest list",
    "vol": 0.55
   }
  ],
- "labels": [],
- "spot": true
+ "labels": [
+  {
+   "type": "say",
+   "text": "What about me?",
+   "x": 1330,
+   "y": 210,
+   "to": [
+    1330,
+    300
+   ],
+   "word": "a universe like ours"
+  }
+ ],
+ "motion": "here is the honest list: the list's rows appear one after another, bullet then line (mv-popin + mv-edge), while our universe-ball waits beside it and asks"
 }

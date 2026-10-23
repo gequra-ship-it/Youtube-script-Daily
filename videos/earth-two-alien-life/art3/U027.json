@@ -1,17 +1,30 @@
 {
- "centre": "a bright gold-white star with faint dotted orbit paths and tiny planets, in a milky-way sky above a ridge",
+ "centre": "a pale blue-white world with soft clouds, surrounded by a drifting crowd of many other colourful worlds",
  "focus": [
   960,
   500,
-  1.8
+  1.7
  ],
- "focus_word": "planets",
+ "focus_word": "worlds",
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "planets",
-   "vol": 0.6
+   "name": "starfall",
+   "word": "billions",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "So many!",
+   "x": 1420,
+   "y": 300,
+   "to": [
+    1010,
+    440
+   ],
+   "word": "worlds"
+  }
+ ],
+ "motion": "a drifting crowd of extra worlds streams past (scroll)"
 }

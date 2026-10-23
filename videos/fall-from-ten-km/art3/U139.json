@@ -1,24 +1,21 @@
 {
- "centre": "amber warning lamp glowing on a test-lab wall",
+ "centre": "close-up of damp forest ground with moss and a puddle; pine needles and broken twigs drift down and settle",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "breath",
-   "word": "brace",
-   "vol": 0.55
-  }
- ],
+ "track": false,
+ "sfx": [],
  "labels": [
   {
    "type": "say",
-   "text": "Here it comes",
-   "x": 290,
-   "y": 120,
+   "text": "Soft landing.",
+   "x": 1480,
+   "y": 540,
    "to": [
-    432,
-    274
-   ]
+    1300,
+    712
+   ],
+   "word": "settle"
   }
- ]
+ ],
+ "motion": "pine needles and twigs settle: five of them drift down on gentle S-curves one after another and land on the ground (mv-path each, no tracking)"
 }

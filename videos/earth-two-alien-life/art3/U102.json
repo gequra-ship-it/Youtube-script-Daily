@@ -1,25 +1,31 @@
 {
- "centre": "warm banded planet at the centre of a flood of many small worlds",
+ "centre": "an hourglass flipping and slowly draining beside a tiny spacecraft that barely creeps along an endless ruler",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "bloom",
-   "word": "floodgates",
-   "vol": 0.7
+   "name": "tick",
+   "word": "tens of millions of years",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Kepler",
-   "x": 520,
-   "y": 260,
+   "type": "num",
+   "text": "TENS OF MILLIONS OF YEARS",
+   "word": "tens of millions of years"
+  },
+  {
+   "type": "say",
+   "text": "Are we there yet?",
+   "x": 1080,
+   "y": 520,
    "to": [
-    760,
-    430
+    900,
+    630
    ],
-   "word": "Kepler"
+   "word": "spacecraft"
   }
- ]
+ ],
+ "motion": "it would take ages: the hourglass flips, then the upper sand drains while the lower fills from the bottom (mv-flip + mv-fill + mv-grow); the craft barely moves (mv-scroll)"
 }

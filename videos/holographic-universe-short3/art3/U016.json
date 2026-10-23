@@ -1,18 +1,26 @@
 {
- "centre": "bright galaxy with a column of galaxies spacing out",
- "focus": [
-  540,
-  1000,
-  1.5
- ],
- "focus_word": "accelerating",
+ "centre": "our universe above an open dictionary on a desk; its pages turn but the right page stays blank and the dashed link never reaches it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "accelerating",
+   "name": "page",
+   "word": "dictionary",
    "vol": 0.5
   }
  ],
- "labels": [],
- "spot": false
+ "labels": [
+  {
+   "type": "say",
+   "text": "Nobody yet?",
+   "x": 800,
+   "y": 900,
+   "to": [
+    760,
+    1000
+   ],
+   "word": "nobody"
+  }
+ ],
+ "motion": "fill (x, 1 to -1): three pages of the dictionary flip over one after another and the page stays blank (nobody has found the dictionary for a universe like ours)"
 }

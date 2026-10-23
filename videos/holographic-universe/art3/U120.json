@@ -1,11 +1,31 @@
 {
- "centre": "round window with a setting sun, light falling toward a lone figure seen from behind",
+ "centre": "a black hole at left and our cosmic horizon bubble at right joined by a drawn link; a faint ghost sphere rises from a hologram plate between them",
  "focus": null,
  "focus_word": null,
- "iris": [
-  1450,
-  720
- ],
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hey, twin!",
+   "x": 330,
+   "y": 200,
+   "to": [
+    420,
+    330
+   ],
+   "word": "black hole"
+  },
+  {
+   "type": "say",
+   "text": "Just a hint...",
+   "x": 1560,
+   "y": 760,
+   "to": [
+    1500,
+    650
+   ],
+   "word": "hint is not"
+  }
+ ],
+ "motion": "the horizon is just like a black hole and hints at a hologram: a link draws from the black hole to the horizon bubble (mv-edge), then a faint hint-sphere rises off a hologram plate (mv-rise)"
 }

@@ -1,25 +1,38 @@
 {
- "centre": "a round thermostat dial with a needle steady in the middle and a tiny Earth on its hub",
+ "centre": "simple single-celled microbes glowing in dark water beneath an ice shelf",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "thermostat",
-   "vol": 0.6
+   "name": "drip",
+   "word": "beneath the ice",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Global thermostat",
-   "x": 1370,
-   "y": 330,
+   "text": "alien ocean",
+   "x": 1380,
+   "y": 470,
    "to": [
-    1060,
-    450
+    1210,
+    560
    ],
-   "word": "global thermostat"
+   "word": "alien ocean"
+  },
+  {
+   "type": "say",
+   "text": "Hi there!",
+   "x": 760,
+   "y": 560,
+   "to": [
+    930,
+    660
+   ],
+   "word": "microbes"
   }
- ]
+ ],
+ "spot": true,
+ "motion": "discovering microbes beneath the ice: the camera dives from the ice ceiling down to the water (mv-track) where single cells pop in one by one (mv-popin) with rising bubbles"
 }

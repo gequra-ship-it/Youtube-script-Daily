@@ -1,29 +1,26 @@
 {
- "centre": "round cushion of pressed air molecules with an upward arrow",
- "focus": [
-  1460,
-  540,
-  1.6
- ],
- "focus_word": "air resistance",
+ "centre": "the passenger curled into a tight ball over a measuring floor, a faint spread-eagle ghost behind, the shadow area below shrinking",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "air resistance",
-   "vol": 0.6
+   "name": "cloth",
+   "word": "Curling",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Air resistance",
-   "x": 1400,
-   "y": 330,
+   "text": "Tight ball",
+   "x": 1430,
+   "y": 250,
    "to": [
-    1560,
-    450
+    1050,
+    340
    ],
-   "word": "air resistance"
+   "word": "tight ball"
   }
- ]
+ ],
+ "motion": "a tight ball shrinks the surface area: the wide shaded area on the floor shrinks to the ball's small patch (nested mv-fill x and y), air streams past (mv-dash)"
 }

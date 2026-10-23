@@ -1,7 +1,26 @@
 {
- "centre": "glowing globe lamp hanging in an open room floating in space, walls dotted with glowing tiles",
+ "centre": "a smooth water drop condensing out of loose dots",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "water",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "molecules",
+   "x": 400,
+   "y": 300,
+   "to": [
+    400,
+    420
+   ],
+   "word": "molecules"
+  }
+ ],
+ "motion": "grow: the smooth stream flows out of the molecule-filled drop (water emerging from molecules)"
 }

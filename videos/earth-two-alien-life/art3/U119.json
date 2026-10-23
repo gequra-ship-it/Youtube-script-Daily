@@ -1,23 +1,20 @@
 {
- "centre": "a round year dial with a red dwarf at its hub and Kepler-186f sweeping round it, calendar pages around",
+ "centre": "a red dwarf with a planet shown at six points of its tight orbit, always turning the same bright face toward the star",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "tick",
-   "word": "full year",
-   "vol": 0.5
-  }
- ],
+ "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "130 DAYS",
-   "word": "one hundred and thirty"
+   "type": "name",
+   "text": "tidal locking",
+   "x": 1500,
+   "y": 330,
+   "to": [
+    1250,
+    470
+   ],
+   "word": "tidal locking"
   }
  ],
- "iris": [
-  400,
-  430
- ]
+ "motion": "tidal locking: the close orbit draws on around the red dwarf (mv-edge) and the planet pops in at six points along it (mv-popin), its bright basin always turned toward the star"
 }

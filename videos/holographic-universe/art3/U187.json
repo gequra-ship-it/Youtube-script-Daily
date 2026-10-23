@@ -1,18 +1,30 @@
 {
- "centre": "a glowing violet link orb joining a pair of entangled orbs on one side and a curved mesh sheet on the other",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "formula linking two very different things",
- "sfx": [
+ "centre": "the round morning sun in the window",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "pencil",
-   "word": "formula",
-   "vol": 0.55
+   "type": "name",
+   "text": "Coffee",
+   "x": 1720,
+   "y": 300,
+   "to": [
+    1536,
+    410
+   ],
+   "word": "coffee"
+  },
+  {
+   "type": "say",
+   "text": "Mmm, so warm!",
+   "x": 1290,
+   "y": 200,
+   "to": [
+    1395,
+    365
+   ],
+   "word": "coffee"
   }
  ],
- "labels": [],
- "spot": true
+ "motion": "morning coffee: the sunlight patch spreads onto the floor (rise), person sips and breathes as before"
 }

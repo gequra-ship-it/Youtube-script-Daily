@@ -1,29 +1,37 @@
 {
- "centre": "a glass sphere with a bent grid inside and a ring of glowing dots on its surface",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "anti-de Sitter space",
+ "centre": "a gold cryostat chandelier with a small chip whose qubits light up, linked to a little glass bowl universe whose bent grid draws in",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "anti-de Sitter",
-   "vol": 0.5
+   "name": "click",
+   "word": "build",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Anti-de Sitter space",
-   "x": 1370,
-   "y": 330,
+   "type": "say",
+   "text": "Hello, tiny world!",
+   "x": 640,
+   "y": 700,
    "to": [
-    1080,
-    440
+    424,
+    556
    ],
-   "word": "anti-de Sitter"
+   "word": "toy universes"
+  },
+  {
+   "type": "name",
+   "text": "quantum computer",
+   "x": 760,
+   "y": 200,
+   "to": [
+    520,
+    230
+   ],
+   "word": "quantum computers"
   }
- ]
+ ],
+ "motion": "physicists build toy universes on quantum computers: qubits light up on the chip (mv-popin), then the link and the toy universe's bent grid draw in (mv-edge)"
 }

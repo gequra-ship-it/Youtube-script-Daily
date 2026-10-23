@@ -1,13 +1,25 @@
 {
- "centre": "round glass flask holding a blue ball and a coral ball pushed apart by a small crackle mark",
+ "centre": "our blue Earth, a glowing oasis, drifting across an endless frozen desert of icy dunes under the stars",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "pop",
-   "word": "gases",
-   "vol": 0.6
+   "type": "num",
+   "text": "BILLIONS OF LIGHT-YEARS",
+   "word": "billions of light-years"
+  },
+  {
+   "type": "say",
+   "text": "What a ride!",
+   "x": 1380,
+   "y": 240,
+   "to": [
+    1530,
+    370
+   ],
+   "word": "unfathomable"
   }
  ],
- "labels": []
+ "spot": true,
+ "motion": "riding a blue oasis through a freezing desert: Earth drifts a long way across the frozen dunes (mv-path, camera tracks) while the dunes slide past underneath (mv-scroll)"
 }

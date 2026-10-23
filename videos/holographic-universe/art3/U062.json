@@ -1,29 +1,35 @@
 {
- "centre": "bright ring black hole shadow at the heart of a big yellow elliptical galaxy with a thin jet",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "Messier eighty-seven",
- "sfx": [
-  {
-   "name": "glimmer",
-   "word": "galaxy",
-   "vol": 0.5
-  }
- ],
+ "centre": "a tall temperature scale over a mottled cosmic background; a tiny black hole marker slides down below the cosmic background mark to just above absolute zero",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
+   "type": "num",
+   "text": "60 BILLIONTHS OF A DEGREE",
+   "word": "sixty billionths"
+  },
+  {
    "type": "name",
-   "text": "Messier eighty-seven",
-   "x": 1330,
-   "y": 330,
+   "text": "cosmic background",
+   "x": 1180,
+   "y": 600,
    "to": [
-    1040,
-    470
+    822,
+    690
    ],
-   "word": "Messier eighty-seven"
+   "word": "cosmic background"
+  },
+  {
+   "type": "name",
+   "text": "absolute zero",
+   "x": 1180,
+   "y": 820,
+   "to": [
+    915,
+    792
+   ],
+   "word": "absolute zero"
   }
- ]
+ ],
+ "motion": "the glow is colder than the cosmic background: the black hole marker slides down the scale past the background mark (mv-path, camera follows), frost pops in (mv-popin)"
 }

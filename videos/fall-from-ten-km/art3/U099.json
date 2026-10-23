@@ -1,23 +1,28 @@
 {
- "centre": "bright sunlit tree crown in the middle of a dense canopy seen from above",
- "focus": [
-  1530,
-  480,
-  1.4
- ],
- "focus_word": "multi-stage brake",
- "sfx": [],
+ "centre": "a round wall dial for muscle tension, needle between relaxed and tense, the passenger pointing at it",
  "labels": [
   {
    "type": "name",
-   "text": "Multi-stage brake",
-   "x": 1530,
-   "y": 665,
+   "text": "Muscle tension",
+   "x": 960,
+   "y": 690,
    "to": [
-    1530,
-    610
+    960,
+    630
    ],
-   "word": "multi-stage brake"
+   "word": "muscle tension"
+  },
+  {
+   "type": "say",
+   "text": "Muscles!",
+   "x": 420,
+   "y": 190,
+   "to": [
+    425,
+    305
+   ],
+   "word": "muscle"
   }
- ]
+ ],
+ "motion": "shake: the muscle fibres tremble in tension"
 }

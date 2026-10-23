@@ -1,19 +1,26 @@
 {
- "centre": "gold ball resting on the flat top of a speed curve that stops rising, with a card of balanced up and down arrows above",
+ "centre": "the passenger curled into a small ball slicing straight down through streaming night air above town lights",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "slice through it",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Terminal velocity",
-   "x": 560,
-   "y": 1140,
+   "type": "say",
+   "text": "Slice through!",
+   "x": 800,
+   "y": 1120,
    "to": [
-    540,
-    975
+    600,
+    1220
    ],
-   "word": "terminal velocity"
+   "word": "slice"
   }
- ]
+ ],
+ "motion": "path: the curled ball drops fast and straight from top to bottom (slices through the air, speed rises); dash: air streams upward past it; camera follows"
 }

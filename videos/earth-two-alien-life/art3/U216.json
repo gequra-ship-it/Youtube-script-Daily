@@ -1,17 +1,19 @@
 {
- "centre": "TRAPPIST-1e with a glowing core and magnetic field loops deflecting the red star's wind",
- "focus": [
-  960,
-  500,
-  1.5
- ],
- "focus_word": "protective magnetic field",
- "sfx": [
+ "centre": "A lantern-orb floating above a fork in a night road, one branch toward a small lit gate and the other into dark mist",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "pulse",
-   "word": "protective magnetic field",
-   "vol": 0.5
+   "type": "say",
+   "text": "Which way?",
+   "x": 1250,
+   "y": 360,
+   "to": [
+    1030,
+    450
+   ],
+   "word": "where"
   }
  ],
- "labels": []
+ "motion": "where does the filter lie: mist drifts over the dark branch of the fork (scroll)"
 }

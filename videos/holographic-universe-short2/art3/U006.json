@@ -1,11 +1,26 @@
 {
- "centre": "bright orb on a vertical timeline with a past below and future above",
- "focus": [
-  540,
-  860,
-  1.6
+ "centre": "small black hole with warm photons drifting away as curving wisps",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "glow",
+   "vol": 0.5
+  }
  ],
- "focus_word": "past and its future",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hawking radiation",
+   "x": 540,
+   "y": 1060,
+   "to": [
+    540,
+    960
+   ],
+   "word": "Hawking radiation"
+  }
+ ],
+ "motion": "three photons stream away from the hole (the glow); camera follows the first"
 }

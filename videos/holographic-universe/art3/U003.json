@@ -1,13 +1,19 @@
 {
- "centre": "a heavy polished teal ball on a small stand",
+ "centre": "a glass globe holding stars, in front of a torn-open wall",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "stone",
-   "word": "heavy",
-   "vol": 0.6
+   "type": "say",
+   "text": "Just a trick?",
+   "x": 1420,
+   "y": 250,
+   "to": [
+    1040,
+    420
+   ],
+   "word": "illusion"
   }
  ],
- "labels": []
+ "motion": "the wall is torn open on a cosmic illusion: torn paper flaps swing slowly (swing) + a doubtful bubble"
 }

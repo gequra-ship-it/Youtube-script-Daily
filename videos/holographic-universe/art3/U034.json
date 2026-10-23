@@ -1,17 +1,26 @@
 {
- "centre": "magnifier showing a wave with marked peaks and valleys",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "peaks and valleys",
+ "centre": "a bright star squeezed down to a tiny black hole, light paths looping back into it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "timing",
-   "vol": 0.6
+   "name": "stone",
+   "word": "nothing can escape",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Can't get out!",
+   "x": 1230,
+   "y": 300,
+   "to": [
+    1040,
+    360
+   ],
+   "word": "escape"
+  }
+ ],
+ "motion": "a mass so compact that nothing escapes: the star shrinks to a point (two nested mv-fill), the black hole pops in (mv-popin) and light runs along loops back into it (mv-dash)"
 }

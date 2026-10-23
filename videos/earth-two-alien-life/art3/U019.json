@@ -1,23 +1,30 @@
 {
- "centre": "Venus wrapped in thick yellow sulfuric acid clouds",
+ "centre": "a lone brass orrery of our solar system ticking under a glass bell jar, floating in empty darkness",
  "focus": [
   960,
-  500,
+  470,
   1.5
  ],
- "focus_word": "Venus",
- "sfx": [],
+ "focus_word": "clockwork mechanism",
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "ticking away",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Venus",
-   "x": 1300,
+   "type": "say",
+   "text": "Tick... tock...",
+   "x": 1500,
    "y": 330,
    "to": [
-    1060,
+    1280,
     420
    ],
-   "word": "Venus"
+   "word": "ticking"
   }
- ]
+ ],
+ "motion": "a solitary clockwork ticking in isolation: the orrery arms turn at different speeds (mv-rotor x3), gears turn and a small pendulum ticks (mv-swing), the sun glows (mv-pulse-core)"
 }

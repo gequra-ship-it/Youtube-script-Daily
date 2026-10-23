@@ -1,13 +1,42 @@
 {
- "centre": "amber star with faded ghost copies either side as it wobbles, tugged by a dotted unseen planet",
+ "centre": "a huge blazing yellow Sun at right; at left a much smaller deep-red dwarf with Kepler-186f circling it on a dotted orbit",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "tick",
-   "word": "wobbles",
-   "vol": 0.6
+   "type": "name",
+   "text": "Sun",
+   "x": 1520,
+   "y": 820,
+   "to": [
+    1520,
+    730
+   ],
+   "word": "Sun"
+  },
+  {
+   "type": "name",
+   "text": "red dwarf",
+   "x": 480,
+   "y": 280,
+   "to": [
+    480,
+    430
+   ],
+   "word": "red dwarf"
+  },
+  {
+   "type": "name",
+   "text": "Kepler-186f",
+   "x": 760,
+   "y": 760,
+   "to": [
+    560,
+    660
+   ],
+   "word": "Kepler-186f"
   }
  ],
- "labels": []
+ "motion": "smaller, dimmer than the Sun: camera travels from the blazing Sun across to the small red dwarf (mv-track) while Kepler-186f circles it (mv-rotor)"
 }

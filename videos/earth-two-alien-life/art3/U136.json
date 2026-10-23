@@ -1,30 +1,17 @@
 {
- "centre": "a super-Earth specimen glowing in the middle slot of a planet cabinet",
+ "centre": "a temperate green-blue planet keeping one face to its red star, with a padlock beside it",
  "focus": [
-  960,
-  500,
-  1.6
+  1480,
+  340,
+  1.8
  ],
- "focus_word": "super-Earth",
+ "focus_word": "locked rotation",
  "sfx": [
   {
-   "name": "pop",
-   "word": "super-Earth",
+   "name": "click",
+   "word": "locked rotation",
    "vol": 0.55
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "super-Earth",
-   "x": 960,
-   "y": 250,
-   "to": [
-    960,
-    380
-   ],
-   "word": "super-Earth"
-  }
- ],
- "spot": true
+ "motion": "starlight streams along a dashed line to the locked face (dash)"
 }

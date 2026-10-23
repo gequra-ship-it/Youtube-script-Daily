@@ -1,17 +1,27 @@
 {
- "centre": "cutaway rocky planet: cracked crust plates, glowing molten core, magnetic field loops either side",
- "focus": [
-  960,
-  500,
-  1.9
- ],
- "focus_word": "magnetic heart",
+ "centre": "a golden link drawing from Earth to another world, whose green biosphere lights up and is stamped with a check",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "plates",
-   "vol": 0.6
+   "name": "bloom",
+   "word": "living biosphere",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Not alone?",
+   "x": 520,
+   "y": 330,
+   "to": [
+    470,
+    455
+   ],
+   "word": "living"
+  }
+ ],
+ "spot": true,
+ "motion": "confirming life elsewhere: a link draws from Earth to another world (mv-edge), its biosphere glows up (mv-popin) and a check slams in (mv-slam)"
 }

@@ -1,30 +1,37 @@
 {
- "centre": "a bright collision blaze where two flattened gold nuclei meet in a beam pipe",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "quark-gluon plasma",
+ "centre": "a black hole on the right with faint dashed glow marching outward, a sealed vial with a bit floating above, and a detector dish on a hill whose meter needle finds nothing",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "bloom",
-   "word": "collide",
-   "vol": 0.7
+   "name": "pulse",
+   "word": "Hawking radiation",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "quark-gluon plasma",
-   "x": 1380,
-   "y": 300,
+   "text": "Hawking radiation",
+   "x": 1080,
+   "y": 620,
    "to": [
-    1040,
-    450
+    1130,
+    520
    ],
-   "word": "quark-gluon plasma"
+   "word": "Hawking radiation"
+  },
+  {
+   "type": "say",
+   "text": "Nothing yet...",
+   "x": 600,
+   "y": 430,
+   "to": [
+    500,
+    560
+   ],
+   "word": "never observed"
   }
  ],
- "spot": true
+ "motion": "predicted but never observed: Hawking glow marches outward as dashes from the black hole (mv-dash) while the detector's meter needle only twitches near zero (mv-swing)"
 }

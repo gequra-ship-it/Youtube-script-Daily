@@ -1,25 +1,30 @@
 {
- "centre": "pale blue ice planet seen as a crescent above a night village",
+ "centre": "brass fulcrum medallion of a level balance, up and down arrows equal",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "hush",
-   "word": "another planet",
-   "vol": 0.55
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Another planet",
-   "x": 700,
-   "y": 640,
+   "text": "Gravity",
+   "x": 250,
+   "y": 1090,
    "to": [
-    570,
-    740
+    230,
+    985
    ],
-   "word": "another planet"
+   "word": "gravity"
+  },
+  {
+   "type": "name",
+   "text": "Drag",
+   "x": 800,
+   "y": 1090,
+   "to": [
+    850,
+    985
+   ],
+   "word": "drag"
   }
- ]
+ ],
+ "motion": "swing: the balance beam with both pans rocks and settles level (drag matches gravity, speeding up stops)"
 }

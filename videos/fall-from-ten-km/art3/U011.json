@@ -1,29 +1,31 @@
 {
- "centre": "moonlit cloud top far below, seen through the gap where the cabin floor was",
+ "centre": "a hanging balance in a dark study: a gear (mechanics) in one pan and a heart (biology) in the other, the beam swinging as it decides",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "swish",
-   "word": "vanishing",
-   "vol": 0.55
-  }
- ],
+ "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Cabin floor",
-   "x": 1560,
-   "y": 600,
+   "type": "say",
+   "text": "Mechanics first!",
+   "x": 520,
+   "y": 230,
    "to": [
-    1420,
-    720
+    640,
+    400
    ],
-   "word": "cabin floor"
+   "word": "mechanical"
+  },
+  {
+   "type": "say",
+   "text": "Biology too!",
+   "x": 1420,
+   "y": 230,
+   "to": [
+    1280,
+    410
+   ],
+   "word": "biological"
   }
  ],
- "iris": [
-  475,
-  420
- ]
+ "motion": "what decides fatal or miraculous: the balance with a gear and a heart swings and slowly settles (mv-swing, damped)"
 }

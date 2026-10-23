@@ -1,11 +1,37 @@
 {
- "centre": "glowing round paper lantern on a post at the end of a path lined with milestones",
+ "centre": "a round disc formed by a blue physics half (gravity and drag arrows) and a green biology half (heart and leaf) locking together; lucky charms topple on a ledge",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "iris": [
-  380,
-  640
- ]
+ "sfx": [
+  {
+   "name": "click",
+   "word": "meeting",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Physics",
+   "x": 1300,
+   "y": 330,
+   "to": [
+    1060,
+    400
+   ],
+   "word": "physics"
+  },
+  {
+   "type": "name",
+   "text": "Biological resilience",
+   "x": 1350,
+   "y": 680,
+   "to": [
+    1050,
+    560
+   ],
+   "word": "biological resilience"
+  }
+ ],
+ "motion": "not lucky coincidences but physics meeting biology: the die and clover topple over (mv-topple), then the physics half comes down and the biology half rises until they lock into one disc (mv-rise)"
 }

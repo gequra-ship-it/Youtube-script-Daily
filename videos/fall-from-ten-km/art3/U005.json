@@ -1,13 +1,26 @@
 {
- "centre": "white twin-jet airliner seen nose-on, cruising high above the clouds",
+ "centre": "a cosy living room (armchair, lamp, plant, cup) inside a cutaway white airliner gliding through a calm dusk sky",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "moving through the sky",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "10 KM",
-   "word": "ten kilometers"
+   "type": "name",
+   "text": "Living room",
+   "x": 1180,
+   "y": 200,
+   "to": [
+    1240,
+    330
+   ],
+   "word": "living room"
   }
- ]
+ ],
+ "motion": "a living room moving through the sky: the cutaway airliner-room glides along a gentle curve across the dusk sky (mv-path, camera tracks it)"
 }

@@ -1,30 +1,23 @@
 {
- "centre": "glowing ankle joint on an X-ray light box, a long leg bone below",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a gold ball resting on a long soft cushion in an evening room; a warm glow spreads from under it to both ends of the cushion",
+ "focus": [
+  540,
+  1120,
+  1.5
+ ],
+ "focus_word": "spread the impact",
  "labels": [
   {
-   "type": "name",
-   "text": "Ankles",
-   "x": 540,
-   "y": 400,
+   "type": "say",
+   "text": "More time!",
+   "x": 770,
+   "y": 860,
    "to": [
-    540,
-    790
+    585,
+    990
    ],
-   "word": "ankles"
-  },
-  {
-   "type": "name",
-   "text": "Long bones",
-   "x": 300,
-   "y": 1110,
-   "to": [
-    400,
-    1290
-   ],
-   "word": "long bones"
+   "word": "more time"
   }
- ]
+ ],
+ "motion": "fill (x): the warm impact glow spreads sideways from under the ball to both ends of the cushion over four seconds (spread the impact over more body and time)"
 }

@@ -1,13 +1,28 @@
 {
- "centre": "face of the passenger asleep, eyes closed",
- "focus": null,
- "focus_word": null,
- "sfx": [
+ "centre": "frosted back of a hand with white-blue ice on the fingertips",
+ "labels": [
   {
-   "name": "breath",
-   "word": "pass out",
-   "vol": 0.55
+   "type": "name",
+   "text": "Frostbite",
+   "x": 700,
+   "y": 640,
+   "to": [
+    640,
+    740
+   ],
+   "word": "frostbite"
+  },
+  {
+   "type": "say",
+   "text": "Brrr!",
+   "x": 170,
+   "y": 720,
+   "to": [
+    430,
+    900
+   ],
+   "word": "frostbite"
   }
  ],
- "labels": []
+ "motion": "shake: the frosted hand shivers (cold, frostbite starting); Brrr bubble"
 }

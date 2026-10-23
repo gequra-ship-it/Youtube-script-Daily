@@ -1,17 +1,26 @@
 {
- "centre": "a faint ghostly sphere of dots rising from a hologram plate",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "hint",
+ "centre": "a night study: an open notebook on a book stand where a pencil sketch of a black hole draws itself and a glowing bit pops out of the page, a black hole in the window",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "hint",
+   "name": "pencil",
+   "word": "proposed a slogan",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Black holes",
+   "x": 1310,
+   "y": 760,
+   "to": [
+    1310,
+    600
+   ],
+   "word": "black holes"
+  }
+ ],
+ "motion": "a slogan is proposed: the black-hole sketch draws itself on the notebook (mv-edge), then a glowing bit pops out of the page for 'it from bit' (mv-popin)"
 }

@@ -1,17 +1,35 @@
 {
- "centre": "glossy gold gravity orb with a down arrow",
+ "centre": "a speed dial whose needle swings up into the red zone, a small faller above, Earth's curved limb far below",
  "focus": [
   540,
   860,
-  1.7
+  1.5
  ],
- "focus_word": "nine point eight",
- "sfx": [],
+ "focus_word": "three hundred kilometers per hour",
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "terminal velocity",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
+   "type": "name",
+   "text": "terminal velocity",
+   "x": 540,
+   "y": 1100,
+   "to": [
+    540,
+    1000
+   ],
+   "word": "terminal velocity"
+  },
+  {
    "type": "num",
-   "text": "9.8 M/S",
-   "word": "nine point eight"
+   "text": "300 KM/H",
+   "word": "three hundred kilometers"
   }
- ]
+ ],
+ "motion": "flip: the dial needle sweeps up to the red zone and holds there (a steady top speed)"
 }

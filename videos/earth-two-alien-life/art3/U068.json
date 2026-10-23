@@ -1,11 +1,20 @@
 {
- "centre": "gold-white star with a faint green habitable-zone band and a tiny planet",
- "focus": [
-  1288,
-  500,
-  1.8
- ],
- "focus_word": "gentle zone",
+ "centre": "the Kepler telescope at left holds one steady sight line to a single star patch while a dim dashed zigzag route between other targets stays untaken",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Staying right here.",
+   "x": 420,
+   "y": 250,
+   "to": [
+    380,
+    380
+   ],
+   "word": "wander"
+  }
+ ],
+ "motion": "did not wander: the untaken zigzag route only marches dimly (mv-dash) while Kepler's sight line grows straight to one patch and stays (mv-grow x)"
 }

@@ -1,17 +1,38 @@
 {
- "centre": "a heat gauge with its needle pegged in the red over a baked wasteland",
- "focus": [
-  330,
-  260,
-  1.8
- ],
- "focus_word": "unmoving, blazing sun",
+ "centre": "a blue oxygen molecule and a coral methane molecule fly together in sunlight, flash, and become a water molecule and a carbon dioxide molecule",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
  "sfx": [
   {
    "name": "bloom",
-   "word": "blazing sun",
+   "word": "react",
    "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "water",
+   "x": 480,
+   "y": 260,
+   "to": [
+    670,
+    310
+   ],
+   "word": "water"
+  },
+  {
+   "type": "name",
+   "text": "carbon dioxide",
+   "x": 1300,
+   "y": 480,
+   "to": [
+    1230,
+    380
+   ],
+   "word": "carbon dioxide"
+  }
+ ],
+ "motion": "path: oxygen from the left and methane from the right glide into each other under the sun, shake, a flash pops and water + carbon dioxide pop out"
 }

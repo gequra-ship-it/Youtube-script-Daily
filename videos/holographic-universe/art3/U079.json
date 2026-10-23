@@ -1,23 +1,37 @@
 {
- "centre": "one large merged black hole with swirling gold gas, two smaller holes approaching from either side",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "black hole with lensed disk caught between a quantum cloud and a gravity well",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "clash",
+   "vol": 0.6
+  }
  ],
- "focus_word": "larger",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "horizon",
-   "x": 960,
-   "y": 625,
+   "text": "Quantum theory",
+   "x": 400,
+   "y": 270,
    "to": [
-    960,
-    602
+    400,
+    400
    ],
-   "word": "horizon"
+   "word": "quantum theory"
+  },
+  {
+   "type": "name",
+   "text": "Gravity",
+   "x": 1500,
+   "y": 250,
+   "to": [
+    1500,
+    330
+   ],
+   "word": "gravity"
   }
- ]
+ ],
+ "motion": "dash: energy lines march in from both sides and the two clouds jolt at the clash"
 }

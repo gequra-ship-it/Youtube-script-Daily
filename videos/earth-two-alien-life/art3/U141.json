@@ -1,25 +1,26 @@
 {
- "centre": "our Sun, a warm gold star, beside an older twin and an hourglass",
+ "centre": "footprints on the ground of TRAPPIST-1e between canyon walls, and above them a sky of huge neighbouring worlds and a red sun",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "num",
-   "text": "1.5 BILLION YEARS",
-   "word": "one and a half billion"
-  },
-  {
-   "type": "name",
-   "text": "Sun",
-   "x": 760,
-   "y": 300,
-   "to": [
-    900,
-    420
-   ],
-   "word": "our Sun"
+   "name": "step",
+   "word": "stood on the surface",
+   "vol": 0.6
   }
  ],
- "spot": true
+ "labels": [
+  {
+   "type": "name",
+   "text": "TRAPPIST-1e",
+   "x": 1260,
+   "y": 800,
+   "to": [
+    1000,
+    790
+   ],
+   "word": "TRAPPIST-1e"
+  }
+ ],
+ "motion": "standing on the surface and looking up: the camera tilts from the footprints on the ground up into the strange sky (mv-track)"
 }

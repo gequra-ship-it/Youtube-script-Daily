@@ -1,25 +1,37 @@
 {
- "centre": "shiny tilted hologram card with a glowing faceted shape floating on it",
- "focus": null,
- "focus_word": null,
+ "centre": "a glass cylinder of curved space (left) whose dotted surface unrolls into a flat glowing sheet (right), with a double arrow between",
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "hologram",
+   "name": "click",
+   "word": "correspondence",
    "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "hologram",
-   "x": 960,
-   "y": 790,
+   "text": "interior",
+   "x": 560,
+   "y": 190,
    "to": [
-    960,
-    640
+    560,
+    290
    ],
-   "word": "hologram"
+   "word": "interior"
+  },
+  {
+   "type": "name",
+   "text": "boundary",
+   "x": 1150,
+   "y": 230,
+   "to": [
+    1150,
+    330
+   ],
+   "word": "boundary"
   }
- ]
+ ],
+ "motion": "the boundary has one dimension fewer: the cylinder's dotted surface unrolls sideways into a flat sheet (mv-grow x), then a double arrow rises in to pair interior and boundary (mv-rise)",
+ "focus": null,
+ "focus_word": null
 }

@@ -1,17 +1,31 @@
 {
- "centre": "neighbour world tilted toward us with a bright glittering polar ice cap",
- "focus": [
-  960,
-  420,
-  1.8
- ],
- "focus_word": "glittering ice caps",
+ "centre": "the Milky Way seen face-on; a golden web of communication links spreads from one home star across the whole galaxy in three waves",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "glittering",
+   "name": "tick",
+   "word": "blink",
    "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Milky Way",
+   "x": 1330,
+   "y": 200,
+   "to": [
+    1180,
+    330
+   ],
+   "word": "Milky Way"
+  },
+  {
+   "type": "num",
+   "text": "TENS OF MILLIONS OF YEARS",
+   "word": "tens of millions of years"
+  }
+ ],
+ "motion": "edge + popin in three waves: links draw outward from one star until the whole galaxy is connected = communications across the entire Milky Way"
 }

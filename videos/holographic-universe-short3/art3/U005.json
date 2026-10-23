@@ -1,7 +1,35 @@
 {
- "centre": "black hole whirlpool with a coloured sequence of bits falling in above and the same sequence emerging below",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "black hole with a faint dashed cloud of ghost particles, above a flat-line detector screen",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "radiation",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hawking radiation",
+   "x": 540,
+   "y": 560,
+   "to": [
+    540,
+    780
+   ],
+   "word": "Hawking radiation"
+  },
+  {
+   "type": "say",
+   "text": "Never observed",
+   "x": 320,
+   "y": 1150,
+   "to": [
+    420,
+    1285
+   ],
+   "word": "observed"
+  }
+ ],
+ "motion": "dashes march along the flat detector trace: never observed"
 }

@@ -1,29 +1,19 @@
 {
- "centre": "a sphere whose surface is covered with a grid of glowing bits",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "boundary",
- "sfx": [
-  {
-   "name": "pulse",
-   "word": "information",
-   "vol": 0.55
-  }
- ],
+ "centre": "a golden idea orb on a growing scaffold of maths whose bridge reaches across a chasm but stops short of a bubble holding our universe",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "boundary",
-   "x": 1200,
-   "y": 330,
+   "type": "say",
+   "text": "Almost there...",
+   "x": 520,
+   "y": 150,
    "to": [
-    1060,
-    430
+    470,
+    230
    ],
-   "word": "boundary"
+   "word": "powerful idea"
   }
- ]
+ ],
+ "motion": "real maths behind the idea, but no proof for our universe: the scaffold grows up (mv-grow y), the bridge grows out over the gap and stops short (mv-grow x), the missing span is only a marching dashed guess (mv-dash)"
 }

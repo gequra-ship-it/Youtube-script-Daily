@@ -1,29 +1,21 @@
 {
- "centre": "huge glowing bulb with a tiny firefly crawling on the glass",
- "focus": [
-  1030,
-  400,
-  2.0
- ],
- "focus_word": "firefly",
- "sfx": [
-  {
-   "name": "sparkle",
-   "word": "firefly",
-   "vol": 0.6
-  }
- ],
+ "centre": "a belt of planet cards from the catalog slides through a scanner window beside an Earth reference card; an Earth-like card arrives and is flagged",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "firefly",
-   "x": 1330,
-   "y": 300,
+   "text": "catalog",
+   "x": 1400,
+   "y": 790,
    "to": [
-    1045,
-    395
+    1400,
+    660
    ],
-   "word": "firefly"
+   "word": "catalog"
   }
- ]
+ ],
+ "track": false,
+ "motion": "spotting close matches in the catalog: the card belt scrolls past the scanner (mv-scroll) until an Earth-like card lands in the window and is flagged (mv-popin)"
 }

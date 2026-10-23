@@ -1,7 +1,23 @@
 {
- "centre": "glowing orb of theory with formula-like curls, resting on a stone plinth",
+ "centre": "brass pivot of a cosmic balance: a region of space on one pan, a same-size black hole on the other",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "iris": [
+  1380,
+  560
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Steady now!",
+   "x": 360,
+   "y": 300,
+   "to": [
+    520,
+    470
+   ],
+   "word": "hold"
+  }
+ ],
+ "motion": "swing: the balance rocks and settles level (a region cannot hold more than the black hole of the same size)"
 }

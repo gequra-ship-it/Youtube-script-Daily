@@ -1,41 +1,17 @@
 {
- "centre": "the bright Alpha Centauri star pair with a tiny red Proxima Centauri far off to the side",
- "focus": null,
- "focus_word": null,
+ "centre": "large ruddy red sun hanging over a calm imagined ocean",
+ "focus": [
+  960,
+  600,
+  1.6
+ ],
+ "focus_word": "vast oceans",
  "sfx": [
   {
    "name": "glimmer",
-   "word": "Proxima Centauri",
-   "vol": 0.6
+   "word": "vast oceans",
+   "vol": 0.5
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Alpha Centauri",
-   "x": 700,
-   "y": 330,
-   "to": [
-    900,
-    470
-   ],
-   "word": "Alpha Centauri"
-  },
-  {
-   "type": "name",
-   "text": "Proxima Centauri",
-   "x": 1380,
-   "y": 220,
-   "to": [
-    1490,
-    320
-   ],
-   "word": "Proxima Centauri"
-  },
-  {
-   "type": "num",
-   "text": "4 LIGHT-YEARS",
-   "word": "four light-years"
-  }
- ]
+ "motion": "calm ocean swell drifts under the big sun (scroll)"
 }

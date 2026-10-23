@@ -1,13 +1,26 @@
 {
- "centre": "TRAPPIST-1e hovering over an open book whose first chapter has just begun",
- "sfx": [
-  {
-   "name": "page",
-   "word": "opening chapter",
-   "vol": 0.55
-  }
- ],
+ "centre": "a long arc of blue-green habitable-looking worlds along a galactic arm, every one of them quiet and empty",
  "focus": null,
  "focus_word": null,
- "labels": []
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "habitable real estate",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Anyone home?",
+   "x": 1440,
+   "y": 290,
+   "to": [
+    1610,
+    440
+   ],
+   "word": "devoid"
+  }
+ ],
+ "motion": "track: the camera glides along a whole arm of habitable worlds and finds no one = packed with real estate, devoid of life"
 }

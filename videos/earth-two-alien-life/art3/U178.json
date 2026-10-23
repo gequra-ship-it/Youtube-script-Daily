@@ -1,23 +1,48 @@
 {
- "centre": "Moon with dark patches facing a larger Earth, tied by a dotted pull",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "three molecules (carbon dioxide, methane, water) each dropping a dashed line to its own dark gap in a rainbow spectrum on graph paper",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "one precise frequency",
+   "vol": 0.5
+  }
  ],
- "focus_word": "Moon",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Moon",
-   "x": 1180,
-   "y": 330,
+   "text": "Carbon dioxide",
+   "x": 470,
+   "y": 230,
    "to": [
-    1030,
-    440
+    470,
+    330
    ],
-   "word": "Moon"
+   "word": "Carbon dioxide"
+  },
+  {
+   "type": "name",
+   "text": "methane",
+   "x": 1010,
+   "y": 220,
+   "to": [
+    1010,
+    310
+   ],
+   "word": "methane"
+  },
+  {
+   "type": "name",
+   "text": "water vapor",
+   "x": 1500,
+   "y": 230,
+   "to": [
+    1500,
+    330
+   ],
+   "word": "water vapor"
   }
- ]
+ ],
+ "motion": "track along the spectrum; each molecule's dashed line draws down (edge) and its absorption gap pops in as it is named"
 }

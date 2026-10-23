@@ -1,11 +1,17 @@
 {
  "centre": "a warm cream mug of coffee with a golden glow, held in two hands by a dawn window",
- "focus": [
-  960,
-  500,
-  1.6
+ "labels": [
+  {
+   "type": "say",
+   "text": "Mmm, cozy!",
+   "x": 1380,
+   "y": 300,
+   "to": [
+    1060,
+    430
+   ],
+   "word": "warm"
+  }
  ],
- "focus_word": "warm cup of coffee",
- "sfx": [],
- "labels": []
+ "motion": "camera eases in toward the warm cup (track) as the viewer looks at it"
 }

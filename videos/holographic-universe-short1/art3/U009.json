@@ -1,30 +1,26 @@
 {
- "centre": "black hole with bright photon ring and glowing disk",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "event horizon",
+ "centre": "close-up of a black hole horizon covered in tiny tiles; groups of four tiles light up one after another",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pulse",
-   "word": "point of no return",
-   "vol": 0.55
+   "name": "tick",
+   "word": "exact value",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Event horizon",
-   "x": 540,
-   "y": 1050,
+   "text": "Planck units",
+   "x": 330,
+   "y": 780,
    "to": [
-    540,
-    958
+    318,
+    1103
    ],
-   "word": "event horizon"
+   "word": "Planck units"
   }
  ],
- "spot": true
+ "motion": "popin wave + tracking camera: tiles on the horizon light up in groups of four from left to right while the camera glides along (area divided by four, in Planck units), done by about 5.1 s"
 }

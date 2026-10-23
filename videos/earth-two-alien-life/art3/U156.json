@@ -1,25 +1,24 @@
 {
- "centre": "an orange rocky world resting in a green temperate band between hot and frozen zones",
+ "centre": "Earth at left with a glowing swirling core; a magnetosphere bubble swells out around it into a long tail",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pulse",
-   "word": "habitable zone",
-   "vol": 0.6
-  }
+ "sfx": [],
+ "iris": [
+  640,
+  540
  ],
  "labels": [
   {
    "type": "name",
-   "text": "habitable zone",
-   "x": 960,
-   "y": 260,
+   "text": "magnetosphere",
+   "x": 1250,
+   "y": 150,
    "to": [
-    960,
-    340
+    1180,
+    228
    ],
-   "word": "habitable zone"
+   "word": "magnetosphere"
   }
- ]
+ ],
+ "motion": "fill x+y: the magnetic bubble swells out from Earth (dynamo generates the magnetosphere); rotor: core swirls"
 }

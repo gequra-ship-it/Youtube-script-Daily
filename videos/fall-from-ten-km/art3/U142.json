@@ -1,33 +1,19 @@
 {
- "centre": "glowing round joint where two bones fold",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "relaxed joints",
- "sfx": [
-  {
-   "name": "click",
-   "word": "locking",
-   "vol": 0.6
-  }
- ],
+ "centre": "new green sprout with a glowing bud growing from a broken stump",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "Relaxed joints",
-   "x": 760,
-   "y": 680,
+   "type": "say",
+   "text": "Whew!",
+   "x": 330,
+   "y": 520,
    "to": [
-    900,
-    580
+    335,
+    665
    ],
-   "word": "relaxed joints"
+   "word": "life"
   }
  ],
- "iris": [
-  360,
-  500
- ]
+ "motion": "life held on: the green sprout with its glowing bud grows up out of the broken stump (mv-grow); bubble from the survivor lying on the grass"
 }

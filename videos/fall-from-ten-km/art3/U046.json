@@ -1,29 +1,30 @@
 {
- "centre": "glowing two-atom gas molecule about to hit a shirt sleeve and skin",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "gas molecules",
- "sfx": [
-  {
-   "name": "pop",
-   "word": "collide",
-   "vol": 0.6
-  }
- ],
+ "centre": "the passenger, eyes fluttering, falling into a soft glow among gathering oxygen molecules",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Gas molecules",
-   "x": 1200,
-   "y": 370,
+   "text": "Oxygen-rich air",
+   "x": 1480,
+   "y": 700,
    "to": [
-    1020,
-    470
+    1380,
+    760
    ],
-   "word": "gas molecules"
+   "word": "oxygen-rich air"
+  },
+  {
+   "type": "say",
+   "text": "Where am I?",
+   "x": 1250,
+   "y": 300,
+   "to": [
+    1010,
+    400
+   ],
+   "word": "consciousness"
   }
- ]
+ ],
+ "motion": "oxygen molecules drift past (scroll)"
 }

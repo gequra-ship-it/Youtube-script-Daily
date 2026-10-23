@@ -1,29 +1,30 @@
 {
- "centre": "round parachute canopy with a parachutist hanging below",
- "focus": null,
- "focus_word": null,
+ "centre": "the passenger stands still on the evening pavement just outside a lit doorway, warm light spreading under the shoes",
+ "focus": [
+  840,
+  640,
+  1.5
+ ],
+ "focus_word": "solid ground",
  "sfx": [
   {
-   "name": "cloth",
-   "word": "parachutists",
+   "name": "step",
+   "word": "step outside",
    "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Parachute landing fall",
-   "x": 1330,
-   "y": 820,
+   "type": "say",
+   "text": "Ahh, solid ground.",
+   "x": 1080,
+   "y": 420,
    "to": [
-    985,
-    790
+    870,
+    470
    ],
-   "word": "parachute landing fall"
+   "word": "pause"
   }
  ],
- "iris": [
-  1520,
-  560
- ]
+ "motion": "pause and feel the solid ground: the passenger stands outside the door, a warm glow spreads sideways under the shoes (mv-fill) as the camera pushes in (focus)"
 }

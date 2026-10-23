@@ -1,17 +1,30 @@
 {
- "centre": "white-blue frozen planet with cracked ice, frost ferns and ice shards around it",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "freezes",
- "sfx": [
+ "centre": "amber star sinking into a warped gravity grid with a small body circling it",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "click",
-   "word": "freezes",
-   "vol": 0.6
+   "type": "name",
+   "text": "Radial velocity",
+   "x": 1420,
+   "y": 300,
+   "to": [
+    1010,
+    460
+   ],
+   "word": "radial velocity"
+  },
+  {
+   "type": "say",
+   "text": "So heavy!",
+   "x": 620,
+   "y": 300,
+   "to": [
+    900,
+    470
+   ],
+   "word": "gravity"
   }
  ],
- "labels": []
+ "motion": "gravity well and orbit already move; only a bubble"
 }

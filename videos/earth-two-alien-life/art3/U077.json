@@ -1,13 +1,26 @@
 {
- "centre": "round lens split in two halves: a wobbling star and a star with a dark planet in front",
+ "centre": "a round pinned photo of Kepler-186f linked by red strings to star charts on a scientist's wall",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pop",
-   "word": "two brilliant methods",
-   "vol": 0.6
+   "name": "pulse",
+   "word": "shockwaves",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "No way!",
+   "x": 640,
+   "y": 250,
+   "to": [
+    860,
+    430
+   ],
+   "word": "excitement"
+  }
+ ],
+ "motion": "shockwave arcs buzz around the photo of the world (shake); a pinned note gasps"
 }

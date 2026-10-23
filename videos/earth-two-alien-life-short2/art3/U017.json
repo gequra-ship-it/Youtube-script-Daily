@@ -1,11 +1,31 @@
 {
- "centre": "TRAPPIST-1e framed by four golden corner marks among dimmer candidate worlds",
- "focus": [
-  540,
-  860,
-  1.5
- ],
- "focus_word": "promising candidates",
+ "centre": "the James Webb Space Telescope turns its golden hexagon mirror to aim at the tiny red TRAPPIST-1 system; a sight line draws to it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "James Webb Space Telescope",
+   "x": 540,
+   "y": 1390,
+   "to": [
+    540,
+    1290
+   ],
+   "word": "James Webb Space Telescope"
+  },
+  {
+   "type": "say",
+   "text": "Aiming right now!",
+   "x": 330,
+   "y": 720,
+   "to": [
+    560,
+    980
+   ],
+   "word": "aiming"
+  }
+ ],
+ "motion": "flip: the telescope turns to aim its mirror at the tiny system (aiming), done by ~3.9 s; edge: the sight line draws to the target, done by ~5 s"
 }

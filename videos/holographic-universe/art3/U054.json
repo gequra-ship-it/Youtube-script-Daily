@@ -1,17 +1,31 @@
 {
- "centre": "dark sphere with a thin bright rim above a timeline with one marked year",
- "focus": [
-  1250,
-  700,
-  1.7
- ],
- "focus_word": "nineteen sixty-seven",
+ "centre": "a data panel: a gravitational-wave signal running through a window, and the final horizon bar growing larger than the two original bars",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "click",
-   "word": "sixty-seven",
-   "vol": 0.55
+   "word": "true",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "TWENTY FIFTEEN",
+   "word": "twenty fifteen"
+  },
+  {
+   "type": "name",
+   "text": "gravitational waves",
+   "x": 560,
+   "y": 700,
+   "to": [
+    560,
+    620
+   ],
+   "word": "gravitational waves"
+  }
+ ],
+ "motion": "the first gravitational waves confirm it: the chirp signal runs through the readout (mv-scroll), the final horizon bar grows past the two originals (mv-grow) and a check pops in (mv-popin)"
 }

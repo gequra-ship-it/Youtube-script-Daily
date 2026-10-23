@@ -1,36 +1,40 @@
 {
- "centre": "bright soft landing-spot disc on a calm lake seen from above with the faller above it",
+ "centre": "the passenger drops onto the top of a dense dusk canopy where thin twigs snap; a small gauge fills a little",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "splash",
-   "word": "lake",
-   "vol": 0.55
+   "name": "rustle",
+   "word": "twigs snap",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Lake",
-   "x": 190,
-   "y": 1230,
+   "type": "say",
+   "text": "Snap!",
+   "x": 760,
+   "y": 640,
    "to": [
-    250,
-    1090
+    690,
+    760
    ],
-   "word": "lake"
+   "word": "snap"
   },
   {
    "type": "name",
-   "text": "Flat-on",
-   "x": 800,
-   "y": 1090,
+   "text": "canopy",
+   "x": 230,
+   "y": 760,
    "to": [
-    775,
-    1200
+    260,
+    880
    ],
-   "word": "flat-on"
+   "word": "canopy"
   }
- ]
+ ],
+ "track": {
+  "scale": 1.2
+ },
+ "motion": "path: the passenger falls onto the top of the canopy; topple: three thin twigs snap one after another; fill: a side gauge fills only a little (a modest share of the energy)"
 }

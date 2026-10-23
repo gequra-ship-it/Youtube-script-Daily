@@ -1,13 +1,20 @@
 {
- "centre": "a magnifying glass over the case files, threads leading to four factor cards",
+ "centre": "a person standing in front of slowly turning gears on blueprint paper, between a pressure dial and a temperature dial with a narrow green band",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "page",
-   "word": "some details",
-   "vol": 0.5
+   "type": "say",
+   "text": "Just right.",
+   "x": 1560,
+   "y": 180,
+   "to": [
+    1540,
+    280
+   ],
+   "word": "narrow band"
   }
  ],
- "labels": []
+ "motion": "built to work within a narrow band: both dial needles swing and settle inside the green band (mv-swing, damped, inside the band after about 2 s) while the gears behind the body turn (mv-rotor)"
 }

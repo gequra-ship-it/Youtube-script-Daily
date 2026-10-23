@@ -1,11 +1,26 @@
 {
- "centre": "glowing idea orb with dotted surface drifting down between two rooftops at dusk",
+ "centre": "a glowing brass dial gauge with a needle on a workshop bench",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "iris": [
-  530,
-  705
- ]
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "working tool",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Handy tool!",
+   "x": 960,
+   "y": 270,
+   "to": [
+    960,
+    395
+   ],
+   "word": "tool"
+  }
+ ],
+ "motion": "path: the wrench slides across the bench toward the dial (holography as a working tool); camera follows"
 }

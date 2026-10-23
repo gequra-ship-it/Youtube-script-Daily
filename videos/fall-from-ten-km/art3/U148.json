@@ -1,29 +1,30 @@
 {
- "centre": "simple pelvis bone seen through a round x-ray window",
- "focus": [
-  960,
-  520,
-  1.6
- ],
- "focus_word": "the pelvis",
- "sfx": [
-  {
-   "name": "thud",
-   "word": "straight into",
-   "vol": 0.6
-  }
- ],
+ "centre": "yellow oxygen mask held up by a flight attendant during the safety demonstration",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Pelvis",
-   "x": 1210,
-   "y": 400,
+   "text": "Safety demonstration",
+   "x": 470,
+   "y": 230,
    "to": [
-    1060,
-    470
+    660,
+    320
    ],
-   "word": "pelvis"
+   "word": "safety demonstration"
+  },
+  {
+   "type": "say",
+   "text": "Watch this!",
+   "x": 330,
+   "y": 470,
+   "to": [
+    690,
+    404
+   ],
+   "word": "watch"
   }
- ]
+ ],
+ "motion": "safety demonstration: the dropped yellow oxygen mask swings gently on its tube (mv-swing) while the attendant shows it; bubble from the attendant"
 }

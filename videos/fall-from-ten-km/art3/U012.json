@@ -1,19 +1,26 @@
 {
- "centre": "the passenger in a spread-eagle pose in front of a pale gold moon, high above night fields",
+ "centre": "a gold stopwatch with a red second hand above a long staircase going down into the night",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "empty space",
-   "vol": 0.55
+   "name": "tick",
+   "word": "second by second",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "10,000 M",
-   "word": "ten thousand meters"
+   "type": "say",
+   "text": "Here we go",
+   "x": 520,
+   "y": 160,
+   "to": [
+    230,
+    135
+   ],
+   "word": "step"
   }
- ]
+ ],
+ "motion": "step through the journey: camera descends the staircase (track)"
 }

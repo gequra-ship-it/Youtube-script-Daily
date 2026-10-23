@@ -1,29 +1,36 @@
 {
- "centre": "framed ordinary photograph with grainy brightness tiles",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "ordinary photograph",
+ "centre": "a small probe flying a long curve toward a black hole with a glowing lensed disk",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "photograph",
-   "vol": 0.6
+   "name": "warp",
+   "word": "visit",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "photograph",
-   "x": 960,
-   "y": 240,
+   "type": "say",
+   "text": "Here we go!",
+   "x": 430,
+   "y": 600,
    "to": [
-    960,
-    380
+    262,
+    700
+   ]
+  },
+  {
+   "type": "name",
+   "text": "Black holes",
+   "x": 1430,
+   "y": 250,
+   "to": [
+    1430,
+    360
    ],
-   "word": "photograph"
+   "word": "Black holes"
   }
- ]
+ ],
+ "motion": "a journey to the most extreme objects: the probe follows one long smooth curve toward the black hole (mv-path, camera tracks it)"
 }

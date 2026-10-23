@@ -1,30 +1,30 @@
 {
- "centre": "golden damper sphere hanging inside a flexing tower",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "three yellow oxygen masks drop from the overhead panel of an airliner cabin above a calm seated passenger",
+ "focus": [
+  960,
+  400,
+  1.6
+ ],
+ "focus_word": "oxygen masks",
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "drop",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Engineering",
-   "x": 1260,
-   "y": 230,
+   "text": "Oxygen masks",
+   "x": 1250,
+   "y": 340,
    "to": [
-    1010,
-    250
+    1300,
+    420
    ],
-   "word": "engineering"
-  },
-  {
-   "type": "name",
-   "text": "Biology",
-   "x": 330,
-   "y": 190,
-   "to": [
-    520,
-    280
-   ],
-   "word": "biology"
+   "word": "oxygen masks"
   }
- ]
+ ],
+ "motion": "masks drop from above: each mask drops out of the panel (mv-rise from above) and swings on its tube (mv-swing); passenger breathes and looks up"
 }

@@ -1,19 +1,19 @@
 {
- "centre": "round speed dial with the needle high, between a slow faller card above and a fast faller card below with a bigger drag arrow",
+ "centre": "gold ball resting on the flat top of a speed curve that stops rising, with a card of balanced up and down arrows above",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Drag",
-   "x": 810,
-   "y": 1290,
+   "text": "Terminal velocity",
+   "x": 560,
+   "y": 1140,
    "to": [
-    575,
-    1340
+    540,
+    975
    ],
-   "word": "drag"
+   "word": "terminal velocity"
   }
- ]
+ ],
+ "motion": "edge: the speed curve draws itself, rising then flattening where the ball rests (forces balance, terminal velocity)"
 }

@@ -1,11 +1,30 @@
 {
- "centre": "two bright neighbouring stars seen through an observatory dome slit with a telescope aimed at them",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "TRAPPIST-1e wrapped in a thick blue atmosphere while its young star flares",
+ "labels": [
+  {
+   "type": "name",
+   "text": "TRAPPIST-1e",
+   "x": 1250,
+   "y": 320,
+   "to": [
+    1040,
+    430
+   ],
+   "word": "TRAPPIST-1e"
+  },
+  {
+   "type": "say",
+   "text": "Ouch!",
+   "x": 1400,
+   "y": 330,
+   "to": [
+    1060,
+    440
+   ],
+   "word": "turbulent"
+  }
  ],
- "focus_word": "closest star system",
- "sfx": [],
- "labels": []
+ "focus": null,
+ "focus_word": null,
+ "motion": "a flare loop erupts from the young star (grow) + bubble"
 }

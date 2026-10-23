@@ -1,17 +1,30 @@
 {
- "centre": "sealed closed book with a round golden lock",
+ "centre": "a glass cylinder of space: bent grid inside, gold dots on its surface",
  "focus": [
-  960,
+  1500,
   500,
-  1.8
+  1.5
  ],
- "focus_word": "like a book",
+ "focus_word": "boundary",
  "sfx": [
   {
-   "name": "page",
-   "word": "book",
-   "vol": 0.5
+   "name": "click",
+   "word": "equivalent",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "boundary",
+   "x": 1500,
+   "y": 270,
+   "to": [
+    1500,
+    345
+   ],
+   "word": "boundary"
+  }
+ ],
+ "motion": "popin + edge: gravity world, then the boundary world appear and the double arrows draw between them (equivalent)"
 }

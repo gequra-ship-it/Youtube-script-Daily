@@ -1,29 +1,31 @@
 {
- "centre": "black hole sitting at the bottom of a deep well in a bent grid of space",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "Black holes",
- "sfx": [
-  {
-   "name": "pulse",
-   "word": "Black holes",
-   "vol": 0.7
-  }
- ],
+ "centre": "round thought bubble holding a puzzle piece between two empty chairs",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Black holes",
-   "x": 1420,
-   "y": 230,
+   "text": "John Wheeler",
+   "x": 430,
+   "y": 520,
    "to": [
-    1030,
-    455
+    400,
+    620
    ],
-   "word": "Black holes"
+   "word": "John Wheeler"
+  },
+  {
+   "type": "name",
+   "text": "Jacob Bekenstein",
+   "x": 1500,
+   "y": 520,
+   "to": [
+    1520,
+    620
+   ],
+   "word": "Jacob Bekenstein"
   }
- ]
+ ],
+ "track": false,
+ "motion": "Wheeler puts a puzzle to his student: a puzzle piece travels from the left chair to the right chair (path)"
 }

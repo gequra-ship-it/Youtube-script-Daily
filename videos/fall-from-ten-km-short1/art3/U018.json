@@ -1,20 +1,30 @@
 {
- "centre": "stopwatch with the hand moved on by one second, a skydiver and a car on a night road",
+ "centre": "sunlit tree crown with a bright core on a green hill",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "tick",
-   "word": "every single second",
-   "vol": 0.55
-  }
- ],
  "labels": [
   {
-   "type": "num",
-   "text": "55 M/S",
-   "word": "fifty-five meters"
+   "type": "name",
+   "text": "Survivors",
+   "x": 640,
+   "y": 660,
+   "to": [
+    290,
+    520
+   ],
+   "word": "survivors"
+  },
+  {
+   "type": "say",
+   "text": "Soft!",
+   "x": 700,
+   "y": 450,
+   "to": [
+    560,
+    740
+   ],
+   "word": "give way"
   }
  ],
- "spot": true
+ "motion": "path+track: the faller drops into the leafy tree crown that gives way, camera follows; Soft! bubble"
 }

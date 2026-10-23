@@ -1,41 +1,24 @@
 {
- "centre": "warm disc with a curved roll arrow above the rolling body",
+ "centre": "a small white airliner crossing the twilight sky above the rooftops, drawing a thin chalky contrail behind it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Calf",
-   "x": 590,
-   "y": 850,
+   "text": "Contrail",
+   "x": 720,
+   "y": 470,
    "to": [
-    695,
-    800
+    720,
+    345
    ],
-   "word": "calf"
-  },
-  {
-   "type": "name",
-   "text": "Hip",
-   "x": 930,
-   "y": 860,
-   "to": [
-    930,
-    822
-   ],
-   "word": "hip"
-  },
-  {
-   "type": "name",
-   "text": "Back",
-   "x": 1220,
-   "y": 850,
-   "to": [
-    1045,
-    815
-   ],
-   "word": "back"
+   "word": "contrail"
   }
- ]
+ ],
+ "iris": [
+  1450,
+  700
+ ],
+ "sfx": [],
+ "motion": "a contrail draws a line across the sky: the airliner flies along a long curve (mv-path, camera follows) and its contrail draws on behind it (mv-edge)"
 }

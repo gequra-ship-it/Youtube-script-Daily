@@ -1,7 +1,19 @@
 {
- "centre": "round dial gauge with a needle resting in the green middle zone",
+ "centre": "the blinding lamp inside a lighthouse lantern room at night, a tiny glowing firefly crawling across it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Can you see me?",
+   "x": 1380,
+   "y": 300,
+   "to": [
+    1155,
+    400
+   ],
+   "word": "firefly"
+  }
+ ],
+ "motion": "a firefly crawls across the lighthouse bulb: it walks a slow path over the glare (mv-path) and the camera follows it"
 }

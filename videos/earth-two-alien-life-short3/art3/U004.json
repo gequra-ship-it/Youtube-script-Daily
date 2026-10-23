@@ -1,13 +1,24 @@
 {
- "centre": "a cold pale-blue glowing orb amid frost",
+ "centre": "a notebook timeline: old planets appear along it first, our Sun is born only at the bottom, then stars sprinkle the page",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "sparkle",
-   "word": "chills",
-   "vol": 0.6
+   "type": "num",
+   "text": "100-400 BILLION",
+   "word": "one hundred billion and four hundred billion"
+  },
+  {
+   "type": "say",
+   "text": "Wait for me!",
+   "x": 780,
+   "y": 1130,
+   "to": [
+    590,
+    1205
+   ],
+   "word": "Sun"
   }
  ],
- "labels": []
+ "motion": "edge + popin + track: the timeline draws downward with the camera following it, older planets pop in along it, the Sun pops in last (born later), then stars sprinkle in for the star count"
 }

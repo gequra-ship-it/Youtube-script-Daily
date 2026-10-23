@@ -1,17 +1,26 @@
 {
- "centre": "glowing snowflake disc above a thermometer",
- "focus": [
-  540,
-  1250,
-  1.7
+ "centre": "pale blue ice planet seen as a crescent above a night village",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "another planet",
+   "vol": 0.55
+  }
  ],
- "focus_word": "minus fifty degrees",
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "-50 C",
-   "word": "minus fifty degrees Celsius"
+   "type": "name",
+   "text": "Another planet",
+   "x": 700,
+   "y": 640,
+   "to": [
+    570,
+    740
+   ],
+   "word": "another planet"
   }
- ]
+ ],
+ "motion": "track: camera surveys from the pale planet-like sky down over the night village (the sky versus where we live); no bubble"
 }

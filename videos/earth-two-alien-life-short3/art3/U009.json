@@ -1,13 +1,30 @@
 {
- "centre": "a glowing engine orb under a small probe capsule drawn as a blueprint",
- "focus": null,
- "focus_word": null,
+ "centre": "a large radio dish on a desert horizon tilting up to deep space, a monitor beside it showing a flat line",
+ "focus": [
+  440,
+  1000,
+  1.5
+ ],
+ "focus_word": "deep space",
  "sfx": [
   {
-   "name": "pencil",
-   "word": "invent",
-   "vol": 0.55
+   "name": "pulse",
+   "word": "radio dishes",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hello? Anyone?",
+   "x": 300,
+   "y": 620,
+   "to": [
+    380,
+    850
+   ],
+   "word": "radio dishes"
+  }
+ ],
+ "motion": "flip + edge: the dish tilts up toward deep space, then a perfectly flat trace draws across the monitor (we hear nothing but silence)"
 }

@@ -1,28 +1,26 @@
 {
- "centre": "round white temperature gauge with the needle in the blue cold zone",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "a speed-versus-time graph: a little faller rides the gold curve as it rises and flattens into a level line, where equal up and down arrows appear",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "terminal velocity",
+   "vol": 0.5
+  }
  ],
- "focus_word": "air temperature",
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "10 KM",
-   "word": "ten kilometers"
-  },
-  {
    "type": "name",
-   "text": "Air temperature",
-   "x": 1300,
-   "y": 340,
+   "text": "Terminal velocity",
+   "x": 1180,
+   "y": 470,
    "to": [
-    1040,
-    450
+    1400,
+    334
    ],
-   "word": "air temperature"
+   "word": "terminal velocity"
   }
- ]
+ ],
+ "motion": "acceleration stops at terminal velocity: a faller rides the speed curve up until it flattens (mv-path, camera follows), then equal up and down force arrows rise in (mv-rise)"
 }

@@ -1,13 +1,26 @@
 {
- "centre": "a gold ball on a blueprint grid, air slipping past it and a long red fall arrow below",
+ "centre": "a notebook diagram: survivor accounts on the left point to a tree canopy drawn in three stacked braking stages",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pencil",
-   "word": "aerodynamics",
+   "name": "rustle",
+   "word": "vegetation",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "tree canopies",
+   "x": 1220,
+   "y": 170,
+   "to": [
+    1220,
+    270
+   ],
+   "word": "tree canopies"
+  }
+ ],
+ "motion": "canopies act as a multi-stage brake: the three canopy stages rise in one after another (mv-rise x3), then the brake arrows and the pointer from the accounts draw on (mv-edge)"
 }

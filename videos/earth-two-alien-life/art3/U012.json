@@ -1,17 +1,17 @@
 {
- "centre": "a full moon above standing stones, with dotted myth figures among the stars",
- "focus": [
-  480,
-  310,
-  1.8
- ],
- "focus_word": "ancient myths",
- "sfx": [
+ "centre": "Earth between hazy Venus and rusty Mars, lit by a Sun off to the left",
+ "labels": [
   {
-   "name": "sparkle",
-   "word": "ancient myths",
-   "vol": 0.55
+   "type": "say",
+   "text": "Yikes!",
+   "x": 380,
+   "y": 230,
+   "to": [
+    400,
+    350
+   ],
+   "word": "hostile"
   }
  ],
- "labels": []
+ "motion": "camera sweeps from hazy Venus past Earth to rusty Mars, the harsh neighbours (track)"
 }

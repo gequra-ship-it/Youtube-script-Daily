@@ -1,29 +1,17 @@
 {
- "centre": "small black hole with warm photons drifting away as curving wisps",
+ "centre": "black hole smaller than its dashed ghost outlines, light leaving",
  "focus": [
   540,
   860,
-  1.5
+  1.6
  ],
- "focus_word": "thermal glow",
+ "focus_word": "shrinks and evaporates",
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "glow",
+   "name": "starfall",
+   "word": "carries energy away",
    "vol": 0.5
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Hawking radiation",
-   "x": 540,
-   "y": 1060,
-   "to": [
-    540,
-    960
-   ],
-   "word": "Hawking radiation"
-  }
- ]
+ "motion": "gauge drains: the black hole shrinks and evaporates"
 }

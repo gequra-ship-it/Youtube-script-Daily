@@ -1,17 +1,24 @@
 {
- "centre": "wireframe sphere being sketched on graph paper",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "exact solution",
+ "centre": "black hole with bright gold lensed disk, a golden magnifier glass near it",
  "sfx": [
   {
-   "name": "pencil",
-   "word": "found",
-   "vol": 0.6
+   "name": "sparkle",
+   "word": "clue",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Aha, a clue!",
+   "x": 1500,
+   "y": 810,
+   "to": [
+    1270,
+    730
+   ],
+   "word": "clue"
+  }
+ ],
+ "motion": "Bekenstein notices a clue: a sparkle pops at the magnifier (popin) + exclamation bubble; focus removed"
 }

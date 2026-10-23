@@ -1,7 +1,37 @@
 {
- "centre": "the passenger's calm sleeping face resting on a bank of night clouds",
+ "centre": "a frozen alien-looking polar plain with two moons high above a cloud floor, and a warm green valley of houses far below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "another planet",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Another planet",
+   "x": 560,
+   "y": 250,
+   "to": [
+    760,
+    470
+   ],
+   "word": "another planet"
+  },
+  {
+   "type": "say",
+   "text": "Too cold up there!",
+   "x": 1500,
+   "y": 660,
+   "to": [
+    1300,
+    762
+   ],
+   "word": "down below"
+  }
+ ],
+ "motion": "compares the icy height with the world below: the camera climbs from the warm valley up through the clouds to the frozen polar plain (mv-track) where two alien moons rise into view (mv-rise)"
 }

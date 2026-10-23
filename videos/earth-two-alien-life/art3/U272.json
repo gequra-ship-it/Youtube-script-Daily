@@ -1,7 +1,20 @@
 {
- "centre": "one large glowing green leaf, vein lit, with a few blue oxygen balls drifting off",
+ "centre": "a brass compass lying on a star chart, a community gathered round",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "spot": true,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Welcome!",
+   "x": 1450,
+   "y": 300,
+   "to": [
+    1350,
+    460
+   ],
+   "word": "joining"
+  }
+ ],
+ "motion": "track: camera sweeps along the gathered community"
 }

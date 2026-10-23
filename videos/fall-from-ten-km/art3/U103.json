@@ -1,29 +1,38 @@
 {
- "centre": "bright clearing glowing at the end of a path between forest trunks",
- "focus": [
-  1170,
-  830,
-  1.5
- ],
- "focus_word": "forest floor",
+ "centre": "glass sphere holding only a few oxygen molecules",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "rustle",
-   "word": "forest floor",
-   "vol": 0.55
+   "name": "wind",
+   "word": "limp",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Forest floor",
-   "x": 1170,
-   "y": 640,
+   "text": "Oxygen deprivation",
+   "x": 1340,
+   "y": 205,
    "to": [
-    1170,
-    800
+    1480,
+    280
    ],
-   "word": "forest floor"
+   "word": "oxygen deprivation"
+  },
+  {
+   "type": "say",
+   "text": "Feeling limp",
+   "x": 700,
+   "y": 250,
+   "to": [
+    450,
+    420
+   ],
+   "word": "limp"
   }
- ]
+ ],
+ "track": false,
+ "motion": "path: the falling-oxygen arrow slides down by the gauge (oxygen deprivation)"
 }

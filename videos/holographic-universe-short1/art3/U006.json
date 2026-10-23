@@ -1,18 +1,27 @@
 {
- "centre": "hologram card seen head-on with a small solid shape inside, two tilted cards beside it",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "tilt it",
+ "centre": "black hole with bright photon ring and glowing disk",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "swish",
-   "word": "tilt it",
-   "vol": 0.5
+   "name": "pulse",
+   "word": "point of no return",
+   "vol": 0.55
   }
  ],
- "labels": [],
- "spot": true
+ "labels": [
+  {
+   "type": "name",
+   "text": "Event horizon",
+   "x": 540,
+   "y": 1050,
+   "to": [
+    540,
+    958
+   ],
+   "word": "event horizon"
+  }
+ ],
+ "spot": true,
+ "motion": "a bright speck travels in toward the horizon, the point of no return; camera follows"
 }

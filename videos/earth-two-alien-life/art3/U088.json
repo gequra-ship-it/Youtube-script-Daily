@@ -1,19 +1,35 @@
 {
- "centre": "golden star with a small dark planet crossing its face, on a notebook page",
+ "centre": "Earth at left and the larger, paler blue-green Kepler-452b at right, joined by a long dashed gap of starry space",
  "focus": null,
  "focus_word": null,
  "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Transit method",
-   "x": 1330,
-   "y": 210,
+   "type": "num",
+   "text": "ONE THOUSAND FOUR HUNDRED",
+   "word": "one thousand four hundred"
+  },
+  {
+   "type": "say",
+   "text": "Hi, cousin!",
+   "x": 420,
+   "y": 340,
    "to": [
-    1000,
-    420
+    400,
+    470
+   ]
+  },
+  {
+   "type": "say",
+   "text": "Hello, little one!",
+   "x": 1420,
+   "y": 280,
+   "to": [
+    1460,
+    380
    ],
-   "word": "transit method"
+   "word": "older"
   }
- ]
+ ],
+ "motion": "far away, a bigger cousin: camera travels the long gap from Earth to Kepler-452b (mv-track) while dashes march along it (mv-dash); the two greet each other"
 }

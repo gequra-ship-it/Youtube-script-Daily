@@ -1,23 +1,48 @@
 {
- "centre": "a stabilizing rocket seen from behind, its four fins in an X around the nozzle",
- "focus": [
-  540,
-  860,
-  1.6
+ "centre": "a parachutist in olive uniform on a grass field toppling sideways; gold contact dots appear along the ground at calf, thigh, hip and back",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "step",
+   "word": "Boots touch down",
+   "vol": 0.6
+  }
  ],
- "focus_word": "four fins",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Fins",
-   "x": 680,
-   "y": 700,
+   "text": "Calf",
+   "x": 290,
+   "y": 1300,
    "to": [
-    635,
-    760
+    366,
+    1190
    ],
-   "word": "fins"
+   "word": "calf"
+  },
+  {
+   "type": "name",
+   "text": "Hip",
+   "x": 560,
+   "y": 1370,
+   "to": [
+    541,
+    1190
+   ],
+   "word": "hip"
+  },
+  {
+   "type": "name",
+   "text": "Back",
+   "x": 790,
+   "y": 1300,
+   "to": [
+    646,
+    1190
+   ],
+   "word": "back"
   }
- ]
+ ],
+ "motion": "topple: after the boots touch down the body falls over to the side; popin x4: contact points appear in order calf, thigh, hip, back (the roll across the body)"
 }

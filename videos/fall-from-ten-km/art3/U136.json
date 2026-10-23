@@ -1,24 +1,30 @@
 {
- "centre": "pale golden moon low over a quiet night hill, calm passenger standing at left",
+ "centre": "bright golden energy orb with three glowing flows leading to a bent metal panel, sound waves and rising heat",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "breath",
-   "word": "painless",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
-   "type": "say",
-   "text": "Okay.",
-   "x": 340,
-   "y": 410,
+   "type": "name",
+   "text": "Sound",
+   "x": 1640,
+   "y": 350,
    "to": [
-    500,
-    500
-   ]
+    1560,
+    270
+   ],
+   "word": "sound"
+  },
+  {
+   "type": "name",
+   "text": "Heat",
+   "x": 1780,
+   "y": 560,
+   "to": [
+    1650,
+    690
+   ],
+   "word": "heat"
   }
- ]
+ ],
+ "motion": "energy goes into sound, heat and bending: three sound waves pop out one by one and the heat wisps rise and fade (mv-popin + mv-bubble)"
 }

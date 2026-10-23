@@ -1,29 +1,26 @@
 {
- "centre": "hologram seal on a manuscript title page: edge-lit plate with a glowing dotted sphere",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "The World as a Hologram",
+ "centre": "a big lab dial whose needle sweeps down and stops right beside the gold predicted mark, next to an open dictionary book",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "page",
-   "word": "a paper",
-   "vol": 0.5
+   "name": "click",
+   "word": "measured",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "The World as a Hologram",
-   "x": 960,
-   "y": 300,
+   "type": "say",
+   "text": "So close!",
+   "x": 380,
+   "y": 170,
    "to": [
-    960,
-    395
+    560,
+    290
    ],
-   "word": "The World as a Hologram"
+   "word": "not far from it"
   }
- ]
+ ],
+ "motion": "the measured value lands near the prediction: the dial needle sweeps a long way down and stops just beside the gold predicted mark (mv-flip as a needle sweep)"
 }

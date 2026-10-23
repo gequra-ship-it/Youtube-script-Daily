@@ -1,13 +1,27 @@
 {
- "centre": "blue planet lit on one side by a distant star",
+ "centre": "two huge gates in a dark cosmic wall swing open on a flood of light and planets",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "faint glow",
-   "vol": 0.55
+   "name": "bloom",
+   "word": "floodgates",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Here we come!",
+   "x": 960,
+   "y": 240,
+   "to": [
+    960,
+    430
+   ],
+   "word": "floodgates"
+  }
+ ],
+ "track": false,
+ "motion": "floodgates broke open: gates jolt (mv-shake) and swing open to their hinges (mv-fill x), then planets pour out one after another (mv-popin x11)"
 }

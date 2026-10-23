@@ -1,19 +1,27 @@
 {
- "centre": "stopwatch with the hand moved on by one second, glowing above a road",
+ "centre": "a gold ball striking a glass tank packed tight with water molecules",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "swish",
-   "word": "kilometers per hour",
-   "vol": 0.55
+   "name": "splash",
+   "word": "strike",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "200 KM/H",
-   "word": "two hundred kilometers"
+   "type": "say",
+   "text": "Cannot move!",
+   "x": 300,
+   "y": 640,
+   "to": [
+    330,
+    900
+   ],
+   "word": "cannot move"
   }
- ]
+ ],
+ "track": false,
+ "motion": "path: the ball falls onto the water; shake: the packed molecules jolt but stay tight (almost incompressible); rise: two small side arrows appear late (it cannot move out of the way fast enough)"
 }

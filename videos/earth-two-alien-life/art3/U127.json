@@ -1,18 +1,26 @@
 {
- "centre": "a glowing packet of cyan-white starlight travelling the long trail",
+ "centre": "thick glaciers of frozen nitrogen and carbon dioxide building up on the dark night side under a starry sky",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "warp",
-   "word": "light-years away",
-   "vol": 0.55
+   "name": "glimmer",
+   "word": "freeze",
+   "vol": 0.5
   }
  ],
- "labels": [],
- "iris": [
-  1650,
-  330
+ "labels": [
+  {
+   "type": "name",
+   "text": "solid nitrogen",
+   "x": 1050,
+   "y": 260,
+   "to": [
+    1040,
+    430
+   ],
+   "word": "solid nitrogen"
+  }
  ],
- "spot": true
+ "motion": "the air freezes out: thick glaciers rise up from the ground and grow to full height (mv-fill)"
 }

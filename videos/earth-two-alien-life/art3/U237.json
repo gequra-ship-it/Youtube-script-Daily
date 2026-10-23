@@ -1,11 +1,15 @@
 {
- "centre": "a glowing molten orb where a chunk of rock is melting into liquid",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "a gold-rimmed magnifying glass sweeping along the Milky Way band and stopping over a tiny Earth, which then fills the lens",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "magnifying glass",
+   "vol": 0.5
+  }
  ],
- "focus_word": "melting",
- "sfx": [],
- "labels": []
+ "labels": [],
+ "spot": true,
+ "motion": "holding a magnifying glass up to our existence: the lens glides along the Milky Way (mv-path, camera tracks it) and stops on Earth, which pops up magnified inside it (mv-popin)"
 }

@@ -1,28 +1,26 @@
 {
- "centre": "glowing bridge lamp at dusk above a river where a person dives from the bridge end",
- "focus": [
-  620,
-  460,
-  1.7
- ],
- "focus_word": "small bridge",
+ "centre": "a row of three airline seats seen from above, belt buckled, spinning like a rotor high over the rainforest",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "splash",
-   "word": "Diving",
-   "vol": 0.6
+   "name": "click",
+   "word": "strapped",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "Ahh, cool!",
-   "x": 420,
-   "y": 330,
+   "type": "name",
+   "text": "Helicopter rotor",
+   "x": 1505,
+   "y": 470,
    "to": [
-    570,
-    430
-   ]
+    1505,
+    410
+   ],
+   "word": "helicopter rotor"
   }
- ]
+ ],
+ "motion": "flip: the helicopter inset rotor spins (seats spun like a rotor); the seat row keeps its core spin"
 }

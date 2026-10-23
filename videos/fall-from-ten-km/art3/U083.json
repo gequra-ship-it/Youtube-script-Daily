@@ -1,22 +1,27 @@
 {
- "centre": "a soft snowy forest clearing seen from above, the safer landing spot the faller drifts toward",
+ "centre": "a broken fuselage chunk tumbling slowly, big drag arrows pushing up under it",
  "focus": [
-  720,
-  430,
-  1.5
+  960,
+  500,
+  1.6
  ],
- "focus_word": "more promising ground",
- "sfx": [],
+ "focus_word": "Falling pieces of aircraft",
+ "iris": [
+  1500,
+  430
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "Over there!",
-   "x": 660,
-   "y": 200,
+   "type": "name",
+   "text": "Drag",
+   "x": 690,
+   "y": 680,
    "to": [
-    470,
-    190
-   ]
+    850,
+    720
+   ],
+   "word": "drag"
   }
- ]
+ ],
+ "motion": "grow: the big drag arrows build up under the tumbling piece (drag slows the fall)"
 }

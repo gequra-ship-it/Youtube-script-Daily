@@ -1,23 +1,21 @@
 {
- "centre": "star leaning toward Earth with tight blue waves and a blue-shifted spectrum",
- "focus": [
-  1270,
-  500,
-  1.6
- ],
- "focus_word": "bluer",
+ "centre": "two measuring strips: on top a long distance bar from the bright Sun out to Earth, below a short bar from the dim red dwarf to Kepler-186f",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
  "labels": [
   {
    "type": "name",
    "text": "Earth",
    "x": 1560,
-   "y": 360,
+   "y": 180,
    "to": [
     1560,
-    455
+    280
    ],
    "word": "Earth"
   }
- ]
+ ],
+ "track": false,
+ "motion": "orbits much closer: the Sun-Earth distance bar grows long and Earth arrives, then the red dwarf's bar grows only a short way to Kepler-186f (mv-grow x2 + mv-rise x2)"
 }

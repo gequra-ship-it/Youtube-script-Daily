@@ -1,28 +1,14 @@
 {
- "centre": "a soft amber-red dwarf low in the twilight above sketched, dotted outlines of imagined alien plants",
- "focus": [
-  480,
-  700,
-  1.7
- ],
- "focus_word": "alien plants",
+ "centre": "a tidally locked planet split in two: a blinding day half facing the star, a frozen night half under a field of stars",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "thrive",
-   "vol": 0.5
+   "name": "sparkle",
+   "word": "star-strewn",
+   "vol": 0.55
   }
  ],
- "labels": [
-  {
-   "type": "say",
-   "text": "What grows here?",
-   "x": 600,
-   "y": 560,
-   "to": [
-    728,
-    730
-   ]
-  }
- ]
+ "labels": [],
+ "motion": "first the blinding glare spreads over the day half (mv-grow), then ice glints and stars appear one by one over the frozen night half (staggered mv-popin)"
 }

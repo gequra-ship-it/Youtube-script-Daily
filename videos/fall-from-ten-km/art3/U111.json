@@ -1,19 +1,26 @@
 {
- "centre": "a glowing window in a broken fuselage panel lying in a snowy wood at dusk",
+ "centre": "a military parachutist in olive under a golden canopy drifting down over a dusk drop zone; on touchdown the whole figure tips over sideways",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "parachutists",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Wreckage",
-   "x": 1460,
-   "y": 300,
+   "text": "Parachute landing fall",
+   "x": 1250,
+   "y": 420,
    "to": [
-    1300,
-    380
+    1200,
+    780
    ],
-   "word": "wreckage"
+   "word": "parachute landing fall"
   }
- ]
+ ],
+ "motion": "path: the parachutist glides down a smooth curve to the drop zone (camera tracks), and as the boots touch the ground the figure tips sideways (topple) instead of staying upright"
 }

@@ -1,24 +1,19 @@
 {
- "centre": "a plain round kitchen wall clock above the breakfast table",
+ "centre": "a person from behind tilting their head up on a rooftop while the blue daytime sky sinks away like a thin veil, exposing a vast dark star-filled ocean above",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "tick",
-   "word": "ordinary",
-   "vol": 0.55
-  }
- ],
  "labels": [
   {
    "type": "say",
-   "text": "Just another morning.",
-   "x": 720,
-   "y": 260,
+   "text": "So dark up there...",
+   "x": 760,
+   "y": 470,
    "to": [
-    473,
-    411
-   ]
+    470,
+    560
+   ],
+   "word": "staring"
   }
- ]
+ ],
+ "motion": "tilt your head upward into darkness: the head tilts up (mv-flip as a one-time turn), the blue sky veil sinks to the horizon (mv-fill y) revealing the dark star ocean, and the camera looks up with it (mv-track)"
 }

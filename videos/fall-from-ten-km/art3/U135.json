@@ -1,19 +1,20 @@
 {
- "centre": "force gauge dial with the needle moving off the red zone, between a tall short pulse and a low wide pulse",
+ "centre": "a gold ball falling through steady streamlines of air molecules, an up arrow of air resistance and a down arrow of gravity of equal length",
  "focus": null,
  "focus_word": null,
  "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Peak force",
-   "x": 820,
-   "y": 260,
+   "type": "say",
+   "text": "Not so fast!",
+   "x": 1440,
+   "y": 210,
    "to": [
-    540,
-    290
+    1262,
+    312
    ],
-   "word": "peak force"
+   "word": "resist"
   }
- ]
+ ],
+ "motion": "air molecules resist with steady consistency: dashes stream evenly up along the streamlines around the ball (mv-dash) and the molecules drift up (mv-cells); the ball glows (mv-glint)"
 }

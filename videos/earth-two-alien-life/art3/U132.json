@@ -1,14 +1,14 @@
 {
- "centre": "Earth over a calendar grid, with two almost equal year bars below",
+ "centre": "a tidally locked planet with winds carrying heat from its sunlit face over the poles to its frozen dark face",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "num",
-   "text": "365 DAYS",
-   "word": "three hundred and sixty-five days"
+   "name": "pulse",
+   "word": "distribute heat",
+   "vol": 0.5
   }
  ],
- "spot": true
+ "labels": [],
+ "motion": "circulation spreads heat: warm flow arrows draw on from the sunlit face around to the dark face (mv-edge), then warmth glows up across the dark half (mv-grow)"
 }

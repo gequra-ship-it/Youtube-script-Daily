@@ -1,29 +1,31 @@
 {
- "centre": "a golden medallion with a white check mark, the first checkpoint on a long trail of flags",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "first checkpoint",
+ "centre": "a small rocket climbs from Earth's glowing limb along a smooth arc into deep space, then the Kepler telescope appears beyond it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "checkpoint",
+   "name": "warp",
+   "word": "launched",
    "vol": 0.6
   }
  ],
  "labels": [
   {
+   "type": "num",
+   "text": "TWO THOUSAND AND NINE",
+   "word": "two thousand and nine"
+  },
+  {
    "type": "name",
-   "text": "Checkpoint",
-   "x": 1380,
-   "y": 330,
+   "text": "Kepler Space Telescope",
+   "x": 1450,
+   "y": 560,
    "to": [
-    1080,
-    470
+    1530,
+    420
    ],
-   "word": "checkpoint"
+   "word": "Kepler Space Telescope"
   }
- ]
+ ],
+ "motion": "launched into deep space: rocket follows a long arc from Earth outward (mv-path, camera tracks), then Kepler pops free (mv-popin)"
 }

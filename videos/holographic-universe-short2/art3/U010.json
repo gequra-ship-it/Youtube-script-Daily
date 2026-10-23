@@ -1,23 +1,26 @@
 {
- "centre": "golden pivot disc of a balance scale, Sun on one pan and a small black hole on the other",
- "focus": [
-  200,
-  1030,
-  1.6
+ "centre": "quiet black hole giving off random warm sparks; above it an open book with blank pages",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "crackle",
+   "word": "purely thermal",
+   "vol": 0.5
+  }
  ],
- "focus_word": "our Sun",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Our Sun",
-   "x": 250,
-   "y": 760,
+   "type": "say",
+   "text": "Where did it go?",
+   "x": 330,
+   "y": 350,
    "to": [
-    205,
-    1010
+    470,
+    470
    ],
-   "word": "our Sun"
+   "word": "Where did the information go"
   }
- ]
+ ],
+ "motion": "random thermal sparks rise from the hole (mv-bubble), camera follows the glow up to the blank book (mv-track)"
 }

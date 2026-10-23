@@ -1,7 +1,26 @@
 {
- "centre": "a swirling ball where an orange warm stream and a blue cold stream spiral into each other",
+ "centre": "a red dwarf throws a flare plume down at a blue planet whose magnetic shield field lines open around it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "bloom",
+   "word": "violent flares",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Need a shield!",
+   "x": 820,
+   "y": 1330,
+   "to": [
+    620,
+    1220
+   ],
+   "word": "magnetic shield"
+  }
+ ],
+ "motion": "grow: a flare plume erupts from the red dwarf down to the planet; shake: the planet jolts on impact; edge: the magnetic shield field lines draw on around it"
 }

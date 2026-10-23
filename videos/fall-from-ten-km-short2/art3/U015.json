@@ -1,29 +1,29 @@
 {
- "centre": "thin twig snapping in two inside a soft round glow",
- "focus": [
-  540,
-  860,
-  1.9
- ],
- "focus_word": "thin twigs",
+ "centre": "the passenger comes down beside a steep snowy slope, touches it at a glancing angle and slides down, leaving a groove",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "woodblock",
-   "word": "snap",
-   "vol": 0.6
+   "name": "swish",
+   "word": "slides",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Thin twigs",
-   "x": 680,
-   "y": 740,
+   "text": "steep slope",
+   "x": 740,
+   "y": 820,
    "to": [
-    590,
-    830
+    720,
+    1125
    ],
-   "word": "thin twigs"
+   "word": "steep slope"
   }
- ]
+ ],
+ "track": {
+  "scale": 1.25
+ },
+ "motion": "path: the faller drops, meets the slope at a shallow angle instead of the crossed-out head-on line, and slides down it; edge: the groove draws behind (shedding speed across distance); camera follows"
 }

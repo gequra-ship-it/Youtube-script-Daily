@@ -1,11 +1,26 @@
 {
- "centre": "a red-suited skydiver in a tracking pose over a faint gold wing shape, gliding on a shallow path",
- "focus": [
-  960,
-  495,
-  1.5
+ "centre": "round stopwatch dial with a gold sector between a tall narrow force spike and a wide low force hill",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "lengthen",
+   "vol": 0.55
+  }
  ],
- "focus_word": "gliding wing",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Peak force",
+   "x": 720,
+   "y": 300,
+   "to": [
+    520,
+    420
+   ],
+   "word": "peak force"
+  }
+ ],
+ "motion": "fill: the slow-stop arrow lengthens and the low force hill widens (longer stopping time and distance)"
 }

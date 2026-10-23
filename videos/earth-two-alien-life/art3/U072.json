@@ -1,11 +1,20 @@
 {
- "centre": "camera lens showing a blinding star glare with a tiny planet dot beside it",
- "focus": [
-  1000,
-  505,
-  1.8
- ],
- "focus_word": "Earth-sized",
+ "centre": "the Milky Way spiral on the left; along an arm, nearby stars each carry several orbiting planets",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Milky Way",
+   "x": 520,
+   "y": 250,
+   "to": [
+    640,
+    420
+   ],
+   "word": "Milky Way"
+  }
+ ],
+ "motion": "planets outnumber stars: camera travels from the galaxy out along an arm (mv-track) to stars that each have planets circling (mv-rotor)"
 }

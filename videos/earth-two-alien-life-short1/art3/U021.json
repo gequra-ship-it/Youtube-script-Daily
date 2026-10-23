@@ -1,13 +1,26 @@
 {
- "centre": "a gridded wireframe globe wrapped in a thick glowing atmosphere, warm left and cool right (climate model)",
+ "centre": "a person from behind with a small telescope on a hill; strange worlds appear one by one in the widening gaze",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "computer climate models",
-   "vol": 0.6
+   "name": "sparkle",
+   "word": "discover",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Far stranger!",
+   "x": 170,
+   "y": 1010,
+   "to": [
+    322,
+    1106.0
+   ],
+   "word": "far stranger"
+  }
+ ],
+ "motion": "grow: the gaze cone reaches deeper into the sky (peer deeper); popin: strange worlds appear one after another (we discover stranger habitats)"
 }

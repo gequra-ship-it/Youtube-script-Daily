@@ -1,20 +1,31 @@
 {
- "centre": "bright flash where a thick stick snaps under a heavy weight pressing down",
+ "centre": "a gold speed arrow driving down onto a calm lake whose tightly packed water turns into a stiff wall",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "Bones",
-   "x": 280,
-   "y": 1160,
-   "to": [
-    250,
-    1010
-   ],
-   "word": "bones"
+   "name": "splash",
+   "word": "What about water",
+   "vol": 0.55
   }
  ],
- "spot": true
+ "labels": [
+  {
+   "type": "num",
+   "text": "200 KM/H",
+   "word": "two hundred kilometers per hour"
+  },
+  {
+   "type": "say",
+   "text": "Too fast!",
+   "x": 800,
+   "y": 1150,
+   "to": [
+    700,
+    1000
+   ],
+   "word": "fast enough"
+  }
+ ],
+ "motion": "grow: the speed arrow drives down to the lake (falling at speed); liquid: the soft surface ripples; shake + rise: the packed water cannot get out of the way and stiffens into a wall"
 }

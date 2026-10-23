@@ -1,11 +1,26 @@
 {
- "centre": "magnified window onto fine overlapping ripples on a plate",
- "focus": [
-  960,
-  500,
-  1.9
+ "centre": "a beam of light travelling a long curve and vanishing across the event horizon of a black hole",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "starfall",
+   "word": "Cross it",
+   "vol": 0.55
+  }
  ],
- "focus_word": "tiny ripples",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "event horizon",
+   "x": 1560,
+   "y": 240,
+   "to": [
+    1430,
+    440
+   ],
+   "word": "event horizon"
+  }
+ ],
+ "motion": "the point of no return: a light pulse travels one smooth curve and disappears behind the horizon (mv-path, camera tracks it)"
 }

@@ -1,23 +1,30 @@
 {
- "centre": "frosted back of a hand with white-blue ice on the fingertips",
- "focus": [
-  563,
-  722,
-  1.8
- ],
- "focus_word": "frostbite",
- "sfx": [],
+ "centre": "the passenger falling belly-down while a gold drag arrow grows up from the thick air beneath",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Frostbite",
-   "x": 700,
-   "y": 640,
+   "text": "drag",
+   "x": 760,
+   "y": 1180,
    "to": [
-    640,
-    740
+    575,
+    1150
    ],
-   "word": "frostbite"
+   "word": "drag"
+  },
+  {
+   "type": "say",
+   "text": "Whoa!",
+   "x": 760,
+   "y": 540,
+   "to": [
+    570,
+    690
+   ],
+   "word": "slam into"
   }
- ]
+ ],
+ "motion": "grow: the drag arrow grows the faster you fall, bubble: air streams up past the body, shake: the faller jolts as he slams into more air"
 }

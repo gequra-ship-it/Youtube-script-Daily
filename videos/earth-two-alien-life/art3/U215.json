@@ -1,11 +1,23 @@
 {
- "centre": "TRAPPIST-1e with a quarter cut away showing a dense metallic iron core",
+ "centre": "A tall dark stone wall with only a very narrow gap, and a small glowing lantern-orb standing before it",
  "focus": [
-  985,
-  475,
-  1.9
+  960,
+  500,
+  1.8
  ],
- "focus_word": "dense iron",
- "sfx": [],
- "labels": []
+ "focus_word": "evolutionary barrier",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Too narrow!",
+   "x": 640,
+   "y": 300,
+   "to": [
+    900,
+    440
+   ],
+   "word": "barrier"
+  }
+ ],
+ "motion": "barrier with one very narrow gap: the thin light slit grows up through the wall (fill)"
 }

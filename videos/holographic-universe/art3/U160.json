@@ -1,17 +1,20 @@
 {
- "centre": "a gold seal medallion with a large tick mark",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "enormous number",
- "sfx": [
+ "centre": "a small rover with a lamp climbing a long switchback road up a steep night mountain towards a tiny glowing speck at the summit",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "click",
-   "word": "checks",
-   "vol": 0.5
+   "type": "say",
+   "text": "Up here!",
+   "x": 1470,
+   "y": 210,
+   "to": [
+    1262,
+    228
+   ],
+   "word": "hard"
   }
  ],
- "labels": []
+ "motion": "direct tests are hard: a little rover climbs the long winding road towards the tiny summit glow (mv-path, camera follows), the speck twinkles (mv-glint)"
 }

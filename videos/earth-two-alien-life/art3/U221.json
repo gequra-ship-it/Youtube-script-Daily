@@ -1,13 +1,37 @@
 {
- "centre": "a magnifying lens revealing a small planet and its tilted orbit",
+ "centre": "a single cell leaps at a tall stone hurdle on the sea floor and falls short; clusters of complex multicellular life glow beyond it",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pencil",
-   "word": "geometry",
-   "vol": 0.6
+   "name": "stone",
+   "word": "hurdle",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "multicellular organisms",
+   "x": 1420,
+   "y": 250,
+   "to": [
+    1500,
+    440
+   ],
+   "word": "multicellular organisms"
+  },
+  {
+   "type": "say",
+   "text": "Too high!",
+   "x": 820,
+   "y": 560,
+   "to": [
+    1060,
+    720
+   ],
+   "word": "hurdle"
+  }
+ ],
+ "motion": "path (no tracking) + shake: the single cell jumps at the wall in one long arc, falls back, and the wall thuds = the insurmountable hurdle"
 }

@@ -1,23 +1,30 @@
 {
- "centre": "the passenger seen from below in the belly-to-earth spread-eagle position, soft gold glow behind",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "spread-eagle position",
- "sfx": [],
+ "centre": "thick branch bending and splitting inside a round soft glow",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Spread-eagle",
-   "x": 1230,
-   "y": 230,
+   "text": "Thicker branches",
+   "x": 1400,
+   "y": 640,
    "to": [
-    1040,
-    360
+    1210,
+    390
    ],
-   "word": "spread-eagle"
+   "word": "thicker branches"
+  },
+  {
+   "type": "say",
+   "text": "Snap!",
+   "x": 1090,
+   "y": 670,
+   "to": [
+    945,
+    525
+   ],
+   "word": "break"
   }
- ]
+ ],
+ "motion": "fill: the absorbed-energy bar grows (absorbing much more as the thick branch bends and breaks)"
 }

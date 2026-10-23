@@ -1,19 +1,18 @@
 {
- "centre": "blue-green planet resting inside a soft green habitable band between a hot star and the cold dark",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "centre": "a dark planet lit only on its star-facing edge: starlight beams draw in, then a faint reflection heads off to a small telescope",
+ "focus": [
+  760,
+  560,
+  1.5
+ ],
+ "focus_word": "reflect",
+ "sfx": [
   {
-   "type": "name",
-   "text": "Habitable zone",
-   "x": 1300,
-   "y": 640,
-   "to": [
-    1130,
-    430
-   ],
-   "word": "habitable zone"
+   "name": "sparkle",
+   "word": "glow",
+   "vol": 0.55
   }
- ]
+ ],
+ "labels": [],
+ "motion": "no light of its own: beams travel from the star to the planet (mv-edge-in), then a fainter reflection leaves it (mv-edge-out)"
 }

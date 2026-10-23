@@ -1,19 +1,31 @@
 {
- "centre": "pale low winter sun over a frosty field",
+ "centre": "a brass lever balance on a desk at night: a gold gravity weight on one end, air puffs piling onto the other until the beam levels",
  "focus": null,
  "focus_word": null,
  "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Sea level",
-   "x": 560,
-   "y": 840,
+   "text": "Gravity",
+   "x": 420,
+   "y": 630,
    "to": [
-    700,
-    790
+    640,
+    470
    ],
-   "word": "sea level"
+   "word": "gravity"
+  },
+  {
+   "type": "name",
+   "text": "Air resistance",
+   "x": 1520,
+   "y": 620,
+   "to": [
+    1290,
+    450
+   ],
+   "word": "air resistance"
   }
- ]
+ ],
+ "motion": "air resistance grows until it balances gravity: air puffs pile onto the right end one by one (mv-popin), then the tipped beam swings up to level (mv-flip)"
 }

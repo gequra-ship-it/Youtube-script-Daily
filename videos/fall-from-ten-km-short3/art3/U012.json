@@ -1,29 +1,20 @@
 {
- "centre": "a round speed gauge with its needle sinking toward the low end, a spread faller above with gravity and drag arrows",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "lowest value",
- "sfx": [
-  {
-   "name": "tick",
-   "word": "lowest value",
-   "vol": 0.5
-  }
- ],
+ "centre": "a rocket with four fins on graph paper beside a falling passenger whose outstretched limbs work like fins",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
  "labels": [
   {
    "type": "name",
-   "text": "Terminal velocity",
-   "x": 700,
-   "y": 520,
+   "text": "Fins",
+   "x": 170,
+   "y": 1080,
    "to": [
-    600,
-    640
+    190,
+    930
    ],
-   "word": "terminal velocity"
+   "word": "four fins"
   }
- ]
+ ],
+ "motion": "swing: the passenger's rotation rocks and dies away (limbs damp the rotation); path: then a short curved glide to the lower left (steer a little)"
 }

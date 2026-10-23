@@ -1,17 +1,22 @@
 {
- "centre": "a clear round pool of liquid water on brown alien soil, fed by a stream, tiny green hints on the shore",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "liquid water",
- "sfx": [
+ "centre": "an amber sun resting on the curved horizon of the twilight ring; a faint glow crawls along the ring",
+ "focus": null,
+ "focus_word": null,
+ "track": {
+  "scale": 1.3
+ },
+ "labels": [
   {
-   "name": "drip",
-   "word": "liquid water",
-   "vol": 0.6
+   "type": "name",
+   "text": "twilight ring",
+   "x": 740,
+   "y": 1360,
+   "to": [
+    700,
+    1060
+   ],
+   "word": "twilight ring"
   }
  ],
- "labels": []
+ "motion": "path + dash: a faint glow (only a possibility of life) crawls along the twilight ring under the amber sun, the camera follows it"
 }

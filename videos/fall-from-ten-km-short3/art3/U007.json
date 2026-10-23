@@ -1,26 +1,37 @@
 {
- "centre": "the curled passenger ball punching down through a night cloud deck, with long speed streaks",
+ "centre": "a red-suited skydiver seen from above over dusk cloud tops, arms and legs opening into the spread-eagle",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "slice through it",
-   "vol": 0.6
+   "name": "cloth",
+   "word": "Arms and legs go wide",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Falling speed",
-   "x": 680,
-   "y": 1300,
+   "text": "Spread-eagle",
+   "x": 540,
+   "y": 1330,
    "to": [
-    845,
-    1200
+    540,
+    1180
    ],
-   "word": "falling speed"
+   "word": "spread-eagle"
+  },
+  {
+   "type": "say",
+   "text": "Go wide!",
+   "x": 790,
+   "y": 560,
+   "to": [
+    575,
+    720
+   ],
+   "word": "go wide"
   }
  ],
- "spot": true
+ "motion": "flip x4: the arms swing up and out, then the legs open, so the skydiver opens from a tucked shape into the wide spread-eagle; scroll: cloud tops drift below"
 }

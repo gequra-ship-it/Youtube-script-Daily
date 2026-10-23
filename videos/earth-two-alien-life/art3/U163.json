@@ -1,23 +1,26 @@
 {
- "centre": "red dwarf star with fiery flare loops and a small planet at left",
+ "centre": "a panorama from a rain cloud over hills, down a river into the sea, to white carbonate rock layers on the seafloor",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "rainfall",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Red dwarf",
-   "x": 1380,
-   "y": 300,
+   "text": "carbonate rocks",
+   "x": 1500,
+   "y": 690,
    "to": [
-    1050,
-    440
+    1520,
+    810
    ],
-   "word": "red dwarf"
+   "word": "carbonate rocks"
   }
  ],
- "iris": [
-  420,
-  730
- ]
+ "motion": "track: camera follows the carbon from the rain cloud down the river into the ocean; dash: rain falls, river flows; grow: carbonate layers build on the seafloor"
 }

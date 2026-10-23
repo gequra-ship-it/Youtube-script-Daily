@@ -1,11 +1,26 @@
 {
- "centre": "a tiny light-sail probe pushed by a beam of light, with speed streaks behind",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "a big volcano on the left of centre breathing out grey puffs, each carrying a little carbon dioxide molecule up into the dusk sky",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "bloom",
+   "word": "Volcanoes",
+   "vol": 0.55
+  }
  ],
- "focus_word": "robotic probe",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "carbon dioxide",
+   "x": 1300,
+   "y": 380,
+   "to": [
+    1060,
+    260
+   ],
+   "word": "carbon dioxide"
+  }
+ ],
+ "motion": "bubble: gas puffs keep rising out of the crater into the air (release CO2); scroll: high haze drifts away"
 }

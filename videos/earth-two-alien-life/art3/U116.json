@@ -1,25 +1,26 @@
 {
- "centre": "our blazing gold-white Sun in a bright sky, the small cool red dwarf dim in a dark half at the left",
+ "centre": "rocky planet pelted by wind particles and wavy X-rays, tiny calm Earth at right",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "bloom",
-   "word": "blazing",
+   "name": "pulse",
+   "word": "X-ray radiation",
    "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Sun",
-   "x": 1380,
-   "y": 250,
+   "text": "Earth",
+   "x": 1560,
+   "y": 560,
    "to": [
-    1060,
-    410
+    1560,
+    610
    ],
-   "word": "Sun"
+   "word": "Earth"
   }
- ]
+ ],
+ "motion": "a burst of wind particles flies at the planet (path)"
 }

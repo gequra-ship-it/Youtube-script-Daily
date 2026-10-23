@@ -1,17 +1,26 @@
 {
- "centre": "large ruddy red sun hanging over a calm imagined ocean",
- "focus": [
-  960,
-  600,
-  1.6
- ],
- "focus_word": "vast oceans",
+ "centre": "grey molecules drift together over a night tide pool; the first green cell pops into being and splits off a copy of itself",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "vast oceans",
-   "vol": 0.5
+   "name": "bloom",
+   "word": "miracle",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "self-replicating cell",
+   "x": 1340,
+   "y": 300,
+   "to": [
+    1180,
+    430
+   ],
+   "word": "self-replicating cell"
+  }
+ ],
+ "motion": "path (6 molecules converge) then popin + path: the first cell appears and copies itself = dead chemistry becoming a self-replicating cell"
 }

@@ -1,24 +1,17 @@
 {
- "centre": "the passenger's face close-up, eyes fluttering open, hair blown upward by the wind",
- "focus": null,
- "focus_word": null,
+ "centre": "coral ball bouncing back off a flat stiff sea surface",
+ "focus": [
+  960,
+  640,
+  1.6
+ ],
+ "focus_word": "solid surface",
  "sfx": [
   {
-   "name": "wind",
-   "word": "roar of the wind",
-   "vol": 0.6
+   "name": "thud",
+   "word": "pushes back hard",
+   "vol": 0.65
   }
  ],
- "labels": [
-  {
-   "type": "say",
-   "text": "Wait, I'm awake?",
-   "x": 1420,
-   "y": 640,
-   "to": [
-    1000,
-    600
-   ]
-  }
- ]
+ "motion": "dash + rise: the dotted rebound trail marches away from the water and the teal push-back arrow rises after impact"
 }

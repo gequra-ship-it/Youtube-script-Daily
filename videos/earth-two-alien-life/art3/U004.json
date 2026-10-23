@@ -1,7 +1,26 @@
 {
- "centre": "the rising dawn sun over rooftops, seen through the window",
+ "centre": "a plain round kitchen wall clock above the breakfast table",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "ordinary",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Same old again",
+   "x": 700,
+   "y": 310,
+   "to": [
+    460,
+    345
+   ],
+   "word": "ordinary"
+  }
+ ],
+ "motion": "nothing moves in the text; existing clock hands, only a bubble"
 }

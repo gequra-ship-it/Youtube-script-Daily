@@ -1,11 +1,30 @@
 {
- "centre": "the red dwarf with Kepler-186f just beside it on a short tape, above Earth far from the Sun on a long one",
+ "centre": "a bare rocky plain under a red dwarf, raw X-ray streaks blasting the surface and a bare irradiated boulder",
  "focus": [
-  1040,
-  510,
-  1.7
+  1470,
+  590,
+  1.6
  ],
- "focus_word": "much closer",
- "sfx": [],
- "labels": []
+ "focus_word": "irradiated rock",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "raw X-rays",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "X-rays",
+   "x": 860,
+   "y": 330,
+   "to": [
+    700,
+    400
+   ],
+   "word": "X-rays"
+  }
+ ],
+ "motion": "raw X-rays blast the airless surface: the pale irradiated glow spreads from the star side across the plain (mv-grow) and the bare rock shudders when it is hit (mv-shake)"
 }

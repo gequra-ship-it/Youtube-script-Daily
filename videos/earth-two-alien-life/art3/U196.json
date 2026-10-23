@@ -1,17 +1,41 @@
 {
- "centre": "a simulated globe drawn as a coloured cell mesh between data panels",
+ "centre": "a blue-white active star sends a marching ultraviolet wave to a big water molecule over a dark sea; it shakes and its two hydrogens fly apart from the oxygen",
  "focus": [
-  960,
-  500,
-  1.6
+  1100,
+  540,
+  1.5
  ],
- "focus_word": "Computer simulations",
+ "focus_word": "split water molecules",
  "sfx": [
   {
-   "name": "tick",
-   "word": "Computer simulations",
-   "vol": 0.5
+   "name": "sparkle",
+   "word": "ultraviolet",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "hydrogen",
+   "x": 1420,
+   "y": 320,
+   "to": [
+    1380,
+    400
+   ],
+   "word": "hydrogen"
+  },
+  {
+   "type": "name",
+   "text": "oxygen",
+   "x": 1100,
+   "y": 700,
+   "to": [
+    1100,
+    615
+   ],
+   "word": "oxygen"
+  }
+ ],
+ "motion": "dash + shake + path: the ultraviolet wave marches from the star to the molecule, it shakes, then the two hydrogens fly off left and right"
 }

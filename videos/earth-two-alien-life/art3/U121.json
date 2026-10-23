@@ -1,23 +1,26 @@
 {
- "centre": "the large red dwarf with a dashed outline of the smaller Sun traced inside it, a postcard of Earth's sky beside",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "close-up of a planet beside its red dwarf; its surface spins, slows and stops with the bright basin facing the star",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "same side",
+   "vol": 0.5
+  }
  ],
- "focus_word": "somewhat larger",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Sun",
-   "x": 1190,
-   "y": 330,
+   "type": "say",
+   "text": "Slowing down...",
+   "x": 1500,
+   "y": 170,
    "to": [
-    1030,
-    435
+    1330,
+    300
    ],
-   "word": "Sun"
+   "word": "slows"
   }
- ]
+ ],
+ "motion": "friction slows the spin until one side faces the star: the surface turns (mv-flip 630 deg, ease-out) and comes to rest with the bright basin pointing at the red dwarf"
 }

@@ -1,29 +1,20 @@
 {
- "centre": "small oval airliner window glowing with dusk sky",
+ "centre": "a big oval airliner window; through it the patchwork fields and river ribbons shrink away below while clouds slide past",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "cloth",
-   "word": "lean back",
-   "vol": 0.5
-  }
- ],
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Headrest",
-   "x": 420,
-   "y": 165,
+   "text": "rivers",
+   "x": 1500,
+   "y": 420,
    "to": [
-    400,
-    255
+    1078,
+    640
    ],
-   "word": "headrest"
+   "word": "ribbons of rivers"
   }
  ],
- "iris": [
-  430,
-  480
- ]
+ "motion": "the world shrinks away: the patchwork landscape scales down from 1.7x to 1x inside the window (nested mv-fill x+y), clouds drift past (mv-scroll)"
 }

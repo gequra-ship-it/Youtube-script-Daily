@@ -1,25 +1,26 @@
 {
- "centre": "golden ball with faller silhouette sinking into a snow bank, car with crumpled nose beside",
+ "centre": "at dusk in a garden: a rigid dry stick snaps under a push while a green sapling bends and springs back",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "sand",
-   "word": "compresses",
+   "name": "stone",
+   "word": "breaks",
    "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Crumple zone",
-   "x": 560,
+   "type": "say",
+   "text": "With luck!",
+   "x": 600,
    "y": 470,
    "to": [
-    330,
-    640
+    760,
+    590
    ],
-   "word": "crumple zone"
+   "word": "luck"
   }
- ]
+ ],
+ "motion": "topple + shake: the rigid stick snaps (a stop that breaks); swing: the sapling bends and springs back (one it can survive)"
 }

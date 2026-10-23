@@ -1,19 +1,26 @@
 {
- "centre": "a teal planet with a gold rim light",
+ "centre": "a glowing wire cube with a small sun inside, floating above a hologram plate",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "bloom",
+   "word": "holographic principle",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Miya's Lab",
-   "x": 430,
-   "y": 520,
+   "text": "holographic principle",
+   "x": 1420,
+   "y": 860,
    "to": [
-    430,
-    380
+    1240,
+    745
    ],
-   "word": "Miya's Lab"
+   "word": "holographic principle"
   }
- ]
+ ],
+ "motion": "the plate projects the cube: the light beam grows up from the plate into the cube (grow)"
 }

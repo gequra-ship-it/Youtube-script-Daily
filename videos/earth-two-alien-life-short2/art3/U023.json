@@ -1,45 +1,37 @@
 {
- "centre": "dark planet with a thin glowing atmosphere ring, its light falling onto a spectrum strip with three dark gaps",
- "focus": [
-  540,
-  1225,
-  1.5
+ "centre": "Earth with a second Earth far above, a dotted path with gates between",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "Earth Two",
+   "vol": 0.6
+  }
  ],
- "focus_word": "oxygen",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "oxygen",
+   "text": "Earth Two",
+   "x": 720,
+   "y": 640,
+   "to": [
+    770,
+    555
+   ],
+   "word": "Earth Two"
+  },
+  {
+   "type": "say",
+   "text": "Race you there!",
    "x": 330,
-   "y": 1330,
+   "y": 700,
    "to": [
-    300,
-    1270
+    500,
+    820
    ],
-   "word": "oxygen"
-  },
-  {
-   "type": "name",
-   "text": "water vapor",
-   "x": 540,
-   "y": 1330,
-   "to": [
-    540,
-    1270
-   ],
-   "word": "water vapor"
-  },
-  {
-   "type": "name",
-   "text": "methane",
-   "x": 730,
-   "y": 1330,
-   "to": [
-    760,
-    1270
-   ],
-   "word": "methane"
+   "word": "race"
   }
- ]
+ ],
+ "motion": "Camera follows the dotted path toward Earth Two as the dashes march."
 }

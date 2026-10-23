@@ -1,17 +1,37 @@
 {
- "centre": "a bright spiral galaxy whose neighbours race away with ever longer streaks",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "accelerating",
+ "centre": "four glowing jigsaw pieces made of calculation pages fitting together one by one into a square among pinned notes",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "warp",
-   "word": "accelerating",
+   "name": "pop",
+   "word": "fit together",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "We fit!",
+   "x": 600,
+   "y": 300,
+   "to": [
+    800,
+    360
+   ],
+   "word": "fit together"
+  },
+  {
+   "type": "say",
+   "text": "Who knew?",
+   "x": 1400,
+   "y": 760,
+   "to": [
+    1200,
+    690
+   ],
+   "word": "unexpectedly"
+  }
+ ],
+ "motion": "progress arrives one clue at a time: jigsaw pieces rise in one after another and fit together (mv-rise x4), a spark pops where they meet (mv-popin)"
 }

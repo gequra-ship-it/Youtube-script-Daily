@@ -1,30 +1,30 @@
 {
- "centre": "a white twin-jet airliner seen head-on, shaking in a thunderstorm, one wing breaking away",
- "focus": null,
- "focus_word": null,
+ "centre": "airliner fuselage cross-section with its roof panel lifted away, one passenger on a seat",
+ "focus": [
+  960,
+  520,
+  1.7
+ ],
+ "focus_word": "hull",
  "sfx": [
   {
-   "name": "rain",
-   "word": "thunderstorm",
+   "name": "wind",
+   "word": "aerodynamics",
    "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "DECEMBER 1971",
-   "word": "December 1971"
-  },
-  {
    "type": "name",
-   "text": "Peruvian rainforest",
-   "x": 1480,
-   "y": 700,
+   "text": "Hull",
+   "x": 1260,
+   "y": 600,
    "to": [
-    1520,
-    800
+    1070,
+    590
    ],
-   "word": "Peruvian rainforest"
+   "word": "hull"
   }
- ]
+ ],
+ "motion": "hull removed: the lifted roof panel flaps loose in the wind like a damped pendulum (mv-swing)"
 }

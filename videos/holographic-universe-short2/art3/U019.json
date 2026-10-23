@@ -1,19 +1,29 @@
 {
- "centre": "black-hole slide on the screen of a conference hall",
+ "centre": "rise-and-fall curve drawn on a dark diagram plate; below it a wireframe model black hole with missing patches",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "track": {
+  "scale": 1.25
+ },
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "Page curve",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Dublin",
-   "x": 540,
-   "y": 470,
+   "text": "Page curve",
+   "x": 330,
+   "y": 480,
    "to": [
-    540,
-    640
+    470,
+    590
    ],
-   "word": "Dublin"
+   "word": "Page curve"
   }
- ]
+ ],
+ "motion": "a bright point draws the rise-and-fall Page curve (mv-edge + mv-path, camera tracks)"
 }

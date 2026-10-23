@@ -1,7 +1,24 @@
 {
- "centre": "a water molecule: one big pale-blue ball with two small white balls, next to a carbon dioxide trio",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "strange ocean waves rising and crashing on shores of dark volcanic glass under a red dwarf",
+ "focus": [
+  960,
+  640,
+  1.5
+ ],
+ "focus_word": "ocean waves",
+ "labels": [
+  {
+   "type": "name",
+   "text": "volcanic glass",
+   "x": 620,
+   "y": 470,
+   "to": [
+    420,
+    680
+   ],
+   "word": "volcanic glass"
+  }
+ ],
+ "spot": true,
+ "motion": "waves crashing on volcanic glass: the alien sea swells up and rolls in (mv-liquid) and spray bursts where it hits the glass shores (mv-popin)"
 }

@@ -1,13 +1,26 @@
 {
- "centre": "teal banded alien world ringed by many different planets filling the frame",
+ "centre": "an observatory telescope on a hill turning up toward the bright Alpha Centauri pair",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "starfall",
-   "word": "overflowing",
-   "vol": 0.6
+   "name": "click",
+   "word": "turned",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Alpha Centauri",
+   "x": 1180,
+   "y": 190,
+   "to": [
+    1360,
+    290
+   ],
+   "word": "Alpha Centauri"
+  }
+ ],
+ "motion": "astronomers turned their telescopes: the tube turns up (mv-topple), a sight beam appears (mv-popin) and the camera rides from the dome to the star pair (mv-track)"
 }

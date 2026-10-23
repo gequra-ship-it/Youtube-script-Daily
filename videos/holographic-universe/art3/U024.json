@@ -1,29 +1,27 @@
 {
- "centre": "glowing viewing port on an electron microscope column",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "electron microscope",
+ "centre": "bright interference spot where two laser beams cross",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "improve",
-   "vol": 0.5
+   "name": "glimmer",
+   "word": "laser",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Electron microscope",
-   "x": 1330,
-   "y": 330,
+   "text": "reference beam",
+   "x": 700,
+   "y": 170,
    "to": [
-    1060,
-    440
+    740,
+    380
    ],
-   "word": "electron microscope"
+   "word": "reference beam"
   }
- ]
+ ],
+ "track": false,
+ "motion": "laser light interferes with a reference beam: two light bits leave the splitter by the two routes and meet at the plate (path x2)"
 }

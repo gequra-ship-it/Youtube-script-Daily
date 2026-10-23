@@ -1,24 +1,14 @@
 {
- "centre": "face-on spiral galaxy with a golden core, a field of stars each with small planets beside it",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "Milky Way",
- "sfx": [],
- "labels": [
+ "centre": "a magnifying lens gliding across a sky chart into the Sun's close neighbourhood, where a small world comes into view",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "name",
-   "text": "Milky Way",
-   "x": 1290,
-   "y": 350,
-   "to": [
-    1050,
-    450
-   ],
-   "word": "Milky Way"
+   "name": "pop",
+   "word": "alien world",
+   "vol": 0.6
   }
  ],
- "spot": true
+ "labels": [],
+ "motion": "search our immediate neighbourhood: the lens sweeps in from the far field to the stars near the Sun (mv-path, camera tracks), then a small world pops in under it (mv-popin)"
 }

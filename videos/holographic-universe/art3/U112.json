@@ -1,13 +1,30 @@
 {
- "centre": "last bright flash where the black hole was, radiation specks spread far away",
- "focus": null,
- "focus_word": null,
+ "centre": "a glass sphere with a bent grid inside and a ring of glowing dots on its surface",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "anti-de Sitter space",
  "sfx": [
   {
-   "name": "pop",
-   "word": "evaporates completely",
+   "name": "glimmer",
+   "word": "anti-de Sitter",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Anti-de Sitter space",
+   "x": 1370,
+   "y": 330,
+   "to": [
+    1080,
+    440
+   ],
+   "word": "anti-de Sitter"
+  }
+ ],
+ "motion": "grow: the curved space unfolds toward the viewer (anti-de Sitter space)"
 }

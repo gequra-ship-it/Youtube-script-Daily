@@ -1,25 +1,31 @@
 {
- "centre": "pale blue ice planet seen as a crescent above a night village",
+ "centre": "stopwatch with the hand moved on by one second",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "hush",
-   "word": "another planet",
-   "vol": 0.55
+   "name": "swish",
+   "word": "sports car",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
+   "type": "num",
+   "text": "55 M/S",
+   "word": "Fifty-five meters"
+  },
+  {
    "type": "name",
-   "text": "Another planet",
-   "x": 1380,
-   "y": 300,
+   "text": "Sports car",
+   "x": 1480,
+   "y": 540,
    "to": [
-    1050,
-    420
+    1470,
+    625
    ],
-   "word": "another planet"
+   "word": "sports car"
   }
- ]
+ ],
+ "motion": "skydiver speeds across the scene (path, camera follows)"
 }

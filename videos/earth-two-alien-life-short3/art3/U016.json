@@ -1,23 +1,30 @@
 {
- "centre": "a glowing golden orb inside a narrow stone gate, drifting in fog",
+ "centre": "a long golden leap arc from a grey cluster of inert molecules up to a glowing colony of many cells in a shaft of light",
  "focus": [
-  540,
-  860,
-  1.6
+  700,
+  600,
+  1.5
  ],
- "focus_word": "Great Filter",
- "sfx": [],
+ "focus_word": "miracle",
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "miracle",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Great Filter",
-   "x": 540,
-   "y": 560,
+   "type": "say",
+   "text": "We made it!",
+   "x": 520,
+   "y": 430,
    "to": [
-    540,
-    720
+    650,
+    525
    ],
-   "word": "Great Filter"
+   "word": "miracle"
   }
- ]
+ ],
+ "motion": "edge + popin: a golden arc draws the long jump from inert chemicals up to where the multicellular colony pops into being (rare miracle)"
 }

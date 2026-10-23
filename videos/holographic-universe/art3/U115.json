@@ -1,13 +1,26 @@
 {
- "centre": "glass sphere on a pedestal whose inner grid bends, between two camps of physicists seen from behind",
+ "centre": "a huge dark globe of a universe like ours; a lantern beam reaches out and lights only one small patch of it",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "step",
-   "word": "split into camps",
+   "name": "glimmer",
+   "word": "far less understood",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Still in the dark...",
+   "x": 1020,
+   "y": 120,
+   "to": [
+    1120,
+    175
+   ],
+   "word": "far less understood"
+  }
+ ],
+ "motion": "holography for our universe is far less understood: the lantern beam grows across to the dark globe (mv-grow x) and lights only a small patch (mv-popin)"
 }

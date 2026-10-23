@@ -1,25 +1,25 @@
 {
- "centre": "large six-armed snowflake crystal glowing over a night mountain valley",
+ "centre": "a row of three airline seats seen from behind, a small figure strapped in the middle, high above a dense rainforest at night",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "wind",
-   "word": "snow",
-   "vol": 0.5
-  }
- ],
+ "sfx": [],
  "labels": [
   {
+   "type": "num",
+   "text": "3 KM",
+   "word": "three kilometers"
+  },
+  {
    "type": "name",
-   "text": "Snow",
-   "x": 760,
-   "y": 600,
+   "text": "Peruvian rainforest",
+   "x": 300,
+   "y": 1000,
    "to": [
-    640,
-    780
+    330,
+    1110
    ],
-   "word": "snow"
+   "word": "Peruvian rainforest"
   }
- ]
+ ],
+ "motion": "tracking + edge: the camera follows a long dashed drop line that draws down from the seat row to the rainforest canopy (fell about three kilometers into the rainforest); swing: the strapped-in seat row sways"
 }

@@ -1,17 +1,24 @@
 {
- "centre": "intact glowing closed book guarded by an arc, small black hole below",
+ "centre": "tall thermometer whose liquid sinks to just above the absolute zero mark; a Sun and a same-mass black hole beside it",
  "focus": [
-  540,
-  860,
+  690,
+  1180,
   1.6
  ],
- "focus_word": "erase a book",
+ "focus_word": "absolute zero",
  "sfx": [
   {
-   "name": "click",
-   "word": "not be able",
+   "name": "tick",
+   "word": "sixty",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "60 BILLIONTHS OF A DEGREE",
+   "word": "sixty billionths"
+  }
+ ],
+ "motion": "thermometer liquid sinks almost to absolute zero (mv-fill), dotted Sun-to-black-hole mass link marches (mv-dash)"
 }

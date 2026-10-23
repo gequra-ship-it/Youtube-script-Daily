@@ -1,7 +1,26 @@
 {
- "centre": "round stage screen showing a black hole, in a conference hall seen from the back rows",
+ "centre": "our home as a small glowing blue world at left, a curved glowing cosmological horizon, a far galaxy whose light travels toward us but stalls at the horizon",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "horizon",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "cosmological horizon",
+   "x": 1440,
+   "y": 250,
+   "to": [
+    1226,
+    300
+   ],
+   "word": "cosmological horizon"
+  }
+ ],
+ "motion": "light from far away never reaches us: a photon leaves the far galaxy and travels toward us but stops at the horizon (mv-path, camera tracks it)"
 }

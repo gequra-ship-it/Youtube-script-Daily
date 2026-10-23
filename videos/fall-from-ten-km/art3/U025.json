@@ -1,18 +1,26 @@
 {
- "centre": "glowing light bulb: a clear thought",
+ "centre": "a frosty winter morning at the sea: a pale sun rising over the water, frosted houses, a person whose breath steams, and a thermometer on a post sitting at freezing",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "biting cold",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "Stay calm",
-   "x": 700,
-   "y": 560,
+   "type": "name",
+   "text": "Sea level",
+   "x": 520,
+   "y": 860,
    "to": [
-    455,
-    335
-   ]
+    520,
+    720
+   ],
+   "word": "sea level"
   }
- ]
+ ],
+ "motion": "a chilly winter morning at sea level: the pale sun rises over the sea (mv-rise) while the camera pans from the water across the frosty shore to the thermometer at freezing (mv-track)"
 }

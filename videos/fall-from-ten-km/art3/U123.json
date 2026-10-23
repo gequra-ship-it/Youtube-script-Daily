@@ -1,11 +1,41 @@
 {
- "centre": "a round heart monitor showing a calm, steady pulse in a quiet hospital room",
+ "centre": "a warm glowing porthole in the cold aircraft skin, a calm passenger inside",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "roaring outside",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Thin wall",
+   "x": 470,
+   "y": 190,
+   "to": [
+    640,
+    254
+   ],
+   "word": "thin wall"
+  },
+  {
+   "type": "say",
+   "text": "All calm here",
+   "x": 1230,
+   "y": 300,
+   "to": [
+    1040,
+    470
+   ],
+   "word": "wall"
+  }
+ ],
  "iris": [
-  1510,
-  620
- ]
+  650,
+  500
+ ],
+ "motion": "thin wall between a calm passenger and the roaring wind: wind streaks and ice crystals outside stream past (mv-scroll) while the cabin stays still; bubble from the passenger"
 }

@@ -1,25 +1,37 @@
 {
- "centre": "round stopwatch dial with a gold sector between a tall narrow force spike above and a wide low force hill below",
+ "centre": "golden ball with the faller silhouette inside, mid-canopy, slowing through branches",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pencil",
-   "word": "Lengthen",
-   "vol": 0.55
+   "name": "rustle",
+   "word": "small collisions",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Peak force",
-   "x": 330,
-   "y": 400,
+   "text": "Small collisions",
+   "x": 690,
+   "y": 560,
    "to": [
-    520,
-    420
+    610,
+    760
    ],
-   "word": "peak force"
+   "word": "small collisions"
+  },
+  {
+   "type": "say",
+   "text": "Easy now!",
+   "x": 130,
+   "y": 640,
+   "to": [
+    480,
+    790
+   ],
+   "word": "stop"
   }
- ]
+ ],
+ "motion": "dash+track: the dotted fall route marches through the branches and the camera sinks with the slowing faller; bubble"
 }

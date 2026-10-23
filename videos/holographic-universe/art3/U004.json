@@ -1,7 +1,27 @@
 {
- "centre": "a glass globe holding stars, in front of a torn-open wall",
+ "centre": "a glowing wireframe globe projected above a flat hologram plate",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "projection",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "projection",
+   "x": 1360,
+   "y": 330,
+   "to": [
+    1070,
+    440
+   ],
+   "word": "projection"
+  }
+ ],
+ "track": false,
+ "motion": "a light bit rises from the plate along the beam into the globe: the whole 3D shape is a projection (path)"
 }

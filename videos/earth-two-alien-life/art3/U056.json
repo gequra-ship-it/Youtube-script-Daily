@@ -1,29 +1,11 @@
 {
- "centre": "ocean world with white clouds above a calm rolling sea at sunset",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "rolling oceans",
+ "centre": "amber star with faded ghost copies either side as it wobbles, tugged by a dotted unseen planet",
  "sfx": [
   {
-   "name": "bloom",
-   "word": "oceans",
+   "name": "tick",
+   "word": "wobbles",
    "vol": 0.6
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Oceans",
-   "x": 1380,
-   "y": 330,
-   "to": [
-    1060,
-    520
-   ],
-   "word": "oceans"
-  }
- ]
+ "motion": "camera sways left-right with the star wobble (track)"
 }

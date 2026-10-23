@@ -1,17 +1,30 @@
 {
- "centre": "a pale blue-white world with soft clouds, surrounded by a drifting crowd of many other colourful worlds",
+ "centre": "water drop with a hexagon molecule coming apart into drifting atoms",
  "focus": [
   960,
   500,
-  1.7
+  1.8
  ],
- "focus_word": "worlds",
+ "focus_word": "dissolve",
  "sfx": [
   {
-   "name": "starfall",
-   "word": "billions",
-   "vol": 0.5
+   "name": "pop",
+   "word": "dissolve",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Organic molecules",
+   "x": 1330,
+   "y": 330,
+   "to": [
+    1050,
+    470
+   ],
+   "word": "organic molecules"
+  }
+ ],
+ "motion": "molecules dissolve and drift upward in the water (bubble)"
 }

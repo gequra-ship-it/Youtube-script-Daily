@@ -1,23 +1,26 @@
 {
- "centre": "dark sphere wrapped in a faint warm thermal glow with heat shimmer",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "a sphere sketched on drafting paper; tiny surface patches each light up one dot, with one patch magnified",
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "boundary",
+   "vol": 0.5
+  }
  ],
- "focus_word": "faint thermal glow",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Hawking radiation",
-   "x": 1450,
-   "y": 300,
+   "type": "say",
+   "text": "My own patch!",
+   "x": 1400,
+   "y": 200,
    "to": [
-    1060,
-    430
+    1400,
+    300
    ],
-   "word": "Hawking radiation"
+   "word": "tiny patch"
   }
- ]
+ ],
+ "motion": "one degree of freedom per tiny patch: sphere outline draws on (mv-edge), then patch dots pop in one by one across the boundary (mv-popin) while the camera tracks along the surface (mv-track)",
+ "focus": null,
+ "focus_word": null
 }

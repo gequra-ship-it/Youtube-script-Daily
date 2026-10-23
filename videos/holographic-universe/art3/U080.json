@@ -1,13 +1,27 @@
 {
- "centre": "round laser-mirror disc with a gold gravitational wave signal passing through",
+ "centre": "glass sphere on a pedestal whose inner grid bends, between two camps of physicists seen from behind",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pulse",
-   "word": "gravitational waves",
+   "name": "step",
+   "word": "split into camps",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hmm, maybe?",
+   "x": 380,
+   "y": 610,
+   "to": [
+    250,
+    745
+   ],
+   "word": "camps"
+  }
+ ],
+ "track": false,
+ "motion": "path: the right-hand camp slowly moves away from the left one (split into camps)"
 }

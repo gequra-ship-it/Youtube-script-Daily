@@ -1,29 +1,26 @@
 {
- "centre": "thermometer bulb filled with icy blue, the liquid very low",
- "focus": [
-  960,
-  520,
-  1.8
- ],
- "focus_word": "biting cold",
+ "centre": "a falling passenger slamming into a pile-up of air molecules beside two gauges, speed and resistance, filling together",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "biting cold",
-   "vol": 0.6
+   "name": "thud",
+   "word": "slam into",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Biting cold",
-   "x": 560,
-   "y": 330,
+   "type": "say",
+   "text": "Oof!",
+   "x": 330,
+   "y": 760,
    "to": [
-    900,
-    480
+    548,
+    618
    ],
-   "word": "biting cold"
+   "word": "slam into"
   }
- ]
+ ],
+ "motion": "the faster you fall, the stronger the resistance: the speed gauge and the resistance gauge fill up side by side (mv-fill) and the faller jolts as it slams into the air (mv-shake)"
 }

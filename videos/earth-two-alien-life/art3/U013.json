@@ -1,28 +1,30 @@
 {
- "centre": "a small clay oil lamp burning on a stone plinth between columns at night",
- "focus": null,
- "focus_word": null,
+ "centre": "Venus wrapped in drifting sulfuric acid cloud bands, with a round close-up of its scorching ground where a block of lead melts into a puddle",
+ "focus": [
+  530,
+  520,
+  1.6
+ ],
+ "focus_word": "melt solid lead",
  "sfx": [
   {
-   "name": "page",
-   "word": "philosophers",
-   "vol": 0.5
+   "name": "drip",
+   "word": "melt solid lead",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "What's out there?",
-   "x": 760,
+   "type": "name",
+   "text": "Venus",
+   "x": 880,
    "y": 300,
    "to": [
-    458,
-    465
-   ]
+    1075,
+    390
+   ],
+   "word": "Venus"
   }
  ],
- "iris": [
-  440,
-  520
- ]
+ "motion": "furnace: Venus cloud bands drift across the disc (mv-scroll inside the clipped globe); in the close-up the lead block sinks (mv-fill) while its puddle spreads (mv-grow), heat haze rises"
 }

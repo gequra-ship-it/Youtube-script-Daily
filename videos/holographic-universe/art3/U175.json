@@ -1,17 +1,26 @@
 {
- "centre": "a glowing round doorway of light at the far end of a path",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "open problems",
+ "centre": "a hazy dotted idea-cloud on the left that a glowing patch from a black hole turns into a crisp tiled sphere",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "bloom",
-   "word": "open",
+   "name": "stone",
+   "word": "sharp new shape",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Black hole entropy",
+   "x": 1390,
+   "y": 680,
+   "to": [
+    1390,
+    540
+   ],
+   "word": "black hole entropy"
+  }
+ ],
+ "motion": "an untested idea gets a sharp shape: the hazy idea-cloud wavers (mv-shake), a glowing patch flies from the black hole to it (mv-path) and a crisp tiled sphere slams in (mv-slam)"
 }

@@ -1,7 +1,26 @@
 {
- "centre": "a scorched dark rock world glowing with lava-orange cracks, day side",
+ "centre": "a night-side plain: a temperature gauge plunges while slabs of frozen air rise up as glaciers",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "solid glaciers",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "So low!",
+   "x": 420,
+   "y": 470,
+   "to": [
+    262,
+    420
+   ],
+   "word": "plunge so low"
+  }
+ ],
+ "motion": "fill: the gauge column plunges (temperatures plunge); rise: glacier slabs rise in one after another (the air freezes into solid glaciers)"
 }

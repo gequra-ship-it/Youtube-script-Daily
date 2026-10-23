@@ -1,17 +1,25 @@
 {
- "centre": "the bright metal seatbelt buckle on the passenger's lap, inside a torn piece of cabin",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "strapped to their seats",
- "sfx": [
+ "centre": "a long dusk descent from a tiny airliner at cruising height down to a small parachutist rolling on the ground, passing a snow pile, a snapped branch, crumpled metal and a seat row",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "click",
-   "word": "strapped",
-   "vol": 0.6
+   "type": "num",
+   "text": "10 KM",
+   "word": "ten kilometers"
+  },
+  {
+   "type": "say",
+   "text": "Roll with it!",
+   "x": 1420,
+   "y": 620,
+   "to": [
+    1590,
+    760
+   ],
+   "word": "all along"
   }
  ],
- "labels": []
+ "motion": "track + rise: the camera descends the whole ten kilometres along the dashed route while the earlier ideas (snow, branches, metal, seats) rise into view one by one, ending at the small roll"
 }

@@ -1,29 +1,13 @@
 {
- "centre": "ghost dotted planet hanging from a spring scale beside a stack of weights",
+ "centre": "a round light gauge in front of an overcast Earth evening with a dull low sun and lit cottage windows; its needle sinks from the sun end to the cloud end",
  "focus": [
-  960,
-  500,
+  600,
+  440,
   1.6
  ],
- "focus_word": "minimum mass",
- "sfx": [
-  {
-   "name": "bloom",
-   "word": "revealing",
-   "vol": 0.6
-  }
- ],
- "labels": [
-  {
-   "type": "name",
-   "text": "minimum mass",
-   "x": 1470,
-   "y": 500,
-   "to": [
-    1075,
-    500
-   ],
-   "word": "minimum mass"
-  }
- ]
+ "focus_word": "dim, overcast evening",
+ "spot": true,
+ "sfx": [],
+ "labels": [],
+ "motion": "brightness feels dim: the gauge needle swings down from bright to dim (mv-flip about its hub) while overcast clouds drift (mv-scroll)"
 }

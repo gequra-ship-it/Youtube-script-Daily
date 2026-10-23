@@ -1,30 +1,26 @@
 {
- "centre": "credit card with a shiny round hologram patch",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "hologram",
+ "centre": "a flat plastic card held in a hand, a faceted gem floating above it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "credit cards",
+   "name": "swish",
+   "word": "tilt it",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Hologram",
-   "x": 540,
+   "type": "say",
+   "text": "Different angles!",
+   "x": 330,
    "y": 520,
    "to": [
-    540,
-    780
+    470,
+    700
    ],
-   "word": "hologram"
+   "word": "different angles"
   }
  ],
- "spot": true
+ "motion": "flip + fill/grow: the hand slowly tilts the plastic card and the floating gem turns (squeezes away, a new face opens) (tilt it, different angles), done by about 5.4 s"
 }

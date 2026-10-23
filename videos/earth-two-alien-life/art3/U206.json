@@ -1,13 +1,26 @@
 {
- "centre": "one tiny twinkling point of light, the way planets look from Earth",
+ "centre": "a timeline across deep space: older star systems with planets appear one after another, and only at the far right a loose dust cloud, our solar system to be",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "twinkling points",
+   "name": "tick",
+   "word": "billions of years",
    "vol": 0.55
   }
  ],
- "focus": null,
- "focus_word": null,
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Wait for me!",
+   "x": 1560,
+   "y": 300,
+   "to": [
+    1575,
+    420
+   ],
+   "word": "cloud of dust"
+  }
+ ],
+ "motion": "rise + dash: time marches along the dashed timeline while older systems rise in order; the dust cloud appears last, far to the right"
 }

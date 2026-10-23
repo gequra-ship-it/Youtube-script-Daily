@@ -1,18 +1,41 @@
 {
- "centre": "close-up of the passenger's face, eyes shut, tilted, as the spinning world smears",
+ "centre": "round parachute canopy with a parachutist hanging below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "cloth",
+   "word": "parachutists",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "So dizzy...",
-   "x": 800,
-   "y": 640,
+   "type": "name",
+   "text": "Parachute landing fall",
+   "x": 540,
+   "y": 1370,
    "to": [
-    600,
-    940
-   ]
+    540,
+    1225
+   ],
+   "word": "parachute landing fall"
+  },
+  {
+   "type": "say",
+   "text": "Roll!",
+   "x": 130,
+   "y": 830,
+   "to": [
+    500,
+    1030
+   ],
+   "word": "landing fall"
   }
- ]
+ ],
+ "iris": [
+  880,
+  1110
+ ],
+ "motion": "path+track: distant parachutists drift down while the camera sinks with the main parachutist toward the ground; bubble"
 }

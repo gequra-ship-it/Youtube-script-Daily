@@ -1,17 +1,26 @@
 {
- "centre": "planet cutaway with glowing iron core and looping magnetic field lines",
- "focus": [
-  540,
-  860,
-  2.0
- ],
- "focus_word": "iron core",
+ "centre": "a small planet crossing the face of its red star, with a light-curve dip below",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pulse",
-   "word": "magnetic field",
-   "vol": 0.6
+   "name": "starfall",
+   "word": "sliver of starlight",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Just passing through",
+   "x": 800,
+   "y": 1060,
+   "to": [
+    620,
+    920
+   ],
+   "word": "passes"
+  }
+ ],
+ "motion": "Planet crosses the star while the light-curve dip draws itself."
 }

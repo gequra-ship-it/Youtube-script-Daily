@@ -1,29 +1,37 @@
 {
- "centre": "dark horizon sphere tiled with small patches, one patch enlarged showing dots",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "event horizon",
+ "centre": "a conference hall seen from the back rows; on stage a seated speaker hands a plain closed book across to a standing colleague",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "proportional",
-   "vol": 0.5
+   "name": "page",
+   "word": "encyclopedia",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "event horizon",
-   "x": 960,
-   "y": 690,
+   "text": "baseball encyclopedia",
+   "x": 1600,
+   "y": 590,
    "to": [
-    960,
-    606
+    1125,
+    505
    ],
-   "word": "event horizon"
+   "word": "baseball encyclopedia"
+  },
+  {
+   "type": "say",
+   "text": "What a prize!",
+   "x": 1500,
+   "y": 640,
+   "to": [
+    1430,
+    760
+   ],
+   "word": "prize"
   }
- ]
+ ],
+ "motion": "Hawking conceded and handed over the prize: the book travels across the stage from the seated figure to the standing one (mv-path, camera follows); figures and audience breathe"
 }

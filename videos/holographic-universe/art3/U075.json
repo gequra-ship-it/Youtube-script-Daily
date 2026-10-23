@@ -1,11 +1,31 @@
 {
- "centre": "black dark sphere with steam spiralling in, falling entropy tube, cracked slab",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "a Sun beside a sun-mass black hole; a short golden bar for the age of the universe and a blue bar for its evaporation that runs far past the frame",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "age of the universe",
+   "vol": 0.5
+  }
  ],
- "focus_word": "vanish",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "13.8 BILLION YEARS",
+   "word": "thirteen point eight"
+  },
+  {
+   "type": "name",
+   "text": "age of the universe",
+   "x": 600,
+   "y": 430,
+   "to": [
+    700,
+    505
+   ],
+   "word": "age of the universe"
+  }
+ ],
+ "motion": "far longer than the age of the universe: the gold bar grows and stops (mv-grow), the blue evaporation bar keeps growing off the frame while the camera follows it (mv-grow + mv-track)"
 }

@@ -1,13 +1,31 @@
 {
- "centre": "white stopwatch dial with a gold sweep",
+ "centre": "a skydiver in a red jumpsuit flexing arms and legs above a dusk cloud sea, with faint ghost shapes of a tuck and a dive",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "tick",
-   "word": "every passing second",
-   "vol": 0.6
+   "type": "name",
+   "text": "Skydivers",
+   "x": 400,
+   "y": 230,
+   "to": [
+    790,
+    330
+   ],
+   "word": "Skydivers"
+  },
+  {
+   "type": "say",
+   "text": "Watch this!",
+   "x": 1120,
+   "y": 190,
+   "to": [
+    860,
+    320
+   ],
+   "word": "flexible"
   }
  ],
- "labels": []
+ "motion": "a flexible, articulated body changes shape: the skydiver's arms and legs flex in and out at the joints (mv-joint) while air streams round the changing shape (mv-dash)"
 }

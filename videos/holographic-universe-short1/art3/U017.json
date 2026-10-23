@@ -1,22 +1,20 @@
 {
- "centre": "glass sphere of space with a bent grid inside",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "gravity",
- "sfx": [
+ "centre": "a balance in space: a glass sphere full of information dots on one pan, a black hole of the same size on the other",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
+ "labels": [
   {
-   "name": "glimmer",
-   "word": "gravity",
-   "vol": 0.5
+   "type": "say",
+   "text": "Might be true!",
+   "x": 800,
+   "y": 620,
+   "to": [
+    826,
+    860
+   ],
+   "word": "true"
   }
  ],
- "labels": [],
- "spot": true,
- "iris": [
-  540,
-  860
- ]
+ "motion": "flip + path: the balance beam tips toward the black hole and the two pans move with it (a neat reason it might be true: comparing a packed sphere with a black hole), done by about 3.3 s"
 }

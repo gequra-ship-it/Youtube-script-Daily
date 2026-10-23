@@ -1,30 +1,34 @@
 {
- "centre": "red dwarf TRAPPIST-1 far above a dotted light-year ruler from a tiny Earth",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "warp",
-   "word": "forty light-years",
-   "vol": 0.6
-  }
+ "centre": "small red dwarf star beside a Jupiter of the same size, tiny Earth for scale",
+ "focus": [
+  540,
+  1190,
+  1.7
  ],
+ "focus_word": "barely larger than Jupiter",
  "labels": [
   {
-   "type": "num",
-   "text": "40 LIGHT-YEARS",
-   "word": "forty light-years"
-  },
-  {
    "type": "name",
-   "text": "TRAPPIST-1",
-   "x": 750,
-   "y": 960,
+   "text": "Jupiter",
+   "x": 690,
+   "y": 1080,
    "to": [
     600,
-    880
+    1150
    ],
-   "word": "TRAPPIST-1"
+   "word": "Jupiter"
+  },
+  {
+   "type": "say",
+   "text": "Small but mighty",
+   "x": 700,
+   "y": 1000,
+   "to": [
+    590,
+    900
+   ],
+   "word": "miniature"
   }
- ]
+ ],
+ "motion": "Jupiter slides in beside the small star for the size comparison."
 }

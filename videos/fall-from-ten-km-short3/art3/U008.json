@@ -1,25 +1,31 @@
 {
- "centre": "a gold ball on a blueprint grid, air slipping past it and a long red fall arrow below",
+ "centre": "the spread-eagle passenger seen head-on, wide and flat, with air molecules rising and striking its underside",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pencil",
-   "word": "poor choice",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
-   "type": "say",
-   "text": "Not the ball!",
-   "x": 600,
-   "y": 370,
+   "type": "name",
+   "text": "Air molecules",
+   "x": 540,
+   "y": 1360,
    "to": [
-    835,
-    400
-   ]
+    540,
+    1260
+   ],
+   "word": "air molecules"
+  },
+  {
+   "type": "say",
+   "text": "Catch the air!",
+   "x": 640,
+   "y": 520,
+   "to": [
+    560,
+    740
+   ],
+   "word": "air molecules"
   }
  ],
- "spot": true
+ "spot": true,
+ "motion": "fill: the yellow width bracket stretches out as the body spreads wide to catch more air; bubble"
 }

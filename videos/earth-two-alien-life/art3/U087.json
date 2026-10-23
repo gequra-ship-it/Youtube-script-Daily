@@ -1,29 +1,27 @@
 {
- "centre": "spiral galaxy with a scatter of tiny star systems, each with a small planet",
- "focus": [
-  960,
-  500,
-  1.5
- ],
- "focus_word": "common",
+ "centre": "rows of faint Kepler light curves; one bright curve draws on and dips, and the blue-green planet Kepler-452b rises up out of it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "common",
+   "name": "pulse",
+   "word": "emerged",
    "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Galaxy",
-   "x": 1450,
-   "y": 330,
+   "text": "Kepler-452b",
+   "x": 1420,
+   "y": 300,
    "to": [
-    1090,
-    450
+    1100,
+    360
    ],
-   "word": "galaxy"
+   "word": "Kepler-452b"
   }
- ]
+ ],
+ "track": false,
+ "motion": "a candidate emerged from the data: one light curve draws on with its dip (mv-edge), then Kepler-452b rises out of it (mv-rise)"
 }

@@ -1,23 +1,34 @@
 {
- "centre": "red dwarf star with seven tiny planets packed inside the span of Mercury's orbit around the Sun above",
- "focus": [
-  840,
-  560,
-  1.7
- ],
- "focus_word": "Mercury",
+ "centre": "standing on TRAPPIST-1e (person in a helmet from behind): a sibling world climbs above the horizon, far bigger than the tiny full Moon top left",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Mercury",
-   "x": 840,
-   "y": 480,
+   "text": "full Moon",
+   "x": 400,
+   "y": 400,
    "to": [
-    840,
-    545
+    258,
+    430
    ],
-   "word": "Mercury"
+   "word": "full Moon"
+  },
+  {
+   "type": "name",
+   "text": "TRAPPIST-1e",
+   "x": 700,
+   "y": 1340,
+   "to": [
+    600,
+    1300
+   ],
+   "word": "TRAPPIST-1e"
   }
- ]
+ ],
+ "track": {
+  "scale": 1.2
+ },
+ "motion": "path: the neighbouring world rises from behind the horizon and climbs high into the sky (camera follows), done by ~6.8 s; the tiny Moon stays for scale"
 }

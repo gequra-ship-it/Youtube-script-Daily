@@ -1,17 +1,26 @@
 {
- "centre": "a round front-page photo of a glowing globe above a plate",
- "focus": [
-  960,
-  470,
-  1.5
- ],
- "focus_word": "headlines",
+ "centre": "a hand tilting a generic credit card in window light; the shiny hologram square shifts its colours",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "page",
-   "word": "headlines",
+   "name": "glimmer",
+   "word": "shiny square",
    "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Tilt me!",
+   "x": 760,
+   "y": 230,
+   "to": [
+    1050,
+    330
+   ],
+   "word": "tilt"
+  }
+ ],
+ "motion": "tilting the card in the light: hand and card rock about the wrist in a slowly settling tilt (mv-swing) while colour bands slide across the shiny square (mv-scroll)"
 }

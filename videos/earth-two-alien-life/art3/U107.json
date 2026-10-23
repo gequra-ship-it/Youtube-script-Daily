@@ -1,25 +1,31 @@
 {
- "centre": "Kepler-186f, a rust-brown and grey-green rocky world, unveiled in two soft spotlight beams",
+ "centre": "Proxima Centauri b, an orange-lit rocky world at the end of a dotted path that starts at a lit doorstep on Earth",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
    "name": "bloom",
-   "word": "discovery",
+   "word": "nearest known",
    "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Kepler-186f",
-   "x": 1420,
-   "y": 300,
+   "text": "Proxima Centauri b",
+   "x": 1180,
+   "y": 180,
    "to": [
-    1050,
-    420
+    1430,
+    270
    ],
-   "word": "Kepler-186f"
+   "word": "Proxima Centauri b"
+  },
+  {
+   "type": "num",
+   "text": "4 LIGHT-YEARS",
+   "word": "four light-years"
   }
- ]
+ ],
+ "motion": "from your doorstep to our nearest neighbour: camera travels the dotted route from a lit doorway on Earth to Proxima b (mv-track + mv-dash)"
 }

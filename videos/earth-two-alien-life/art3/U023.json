@@ -1,7 +1,21 @@
 {
- "centre": "small living Earth glowing alone against the dark band of the Milky Way",
+ "centre": "a monstrous banded gas giant, its day side glowing, racing around a tight dotted orbit close to its blazing parent star",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "track": false,
+ "sfx": [
+  {
+   "name": "bloom",
+   "word": "scorching gas",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "4 DAYS",
+   "word": "four days"
+  }
+ ],
+ "motion": "circling its star in just four days: the gas giant makes one full lap of its tight orbit (mv-path, camera still), the orbit dashes march (mv-dash)"
 }

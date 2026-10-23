@@ -1,18 +1,26 @@
 {
- "centre": "bright exploding star in a faint distant galaxy",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "exploding stars",
+ "centre": "the cosmic horizon as a warm glowing shell around a small observer, beside a thermometer that warms up",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "bloom",
-   "word": "exploding",
-   "vol": 0.6
+   "name": "glimmer",
+   "word": "hint",
+   "vol": 0.5
   }
  ],
- "labels": [],
- "spot": false
+ "labels": [
+  {
+   "type": "name",
+   "text": "temperature",
+   "x": 690,
+   "y": 420,
+   "to": [
+    870,
+    540
+   ],
+   "word": "temperature"
+  }
+ ],
+ "motion": "liquid: the thermometer liquid rises with a wavy top while the patches on the horizon shell twinkle (such a horizon has a temperature and an area entropy)"
 }

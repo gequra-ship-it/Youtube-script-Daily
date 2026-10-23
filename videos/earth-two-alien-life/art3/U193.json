@@ -1,11 +1,26 @@
 {
- "centre": "a glowing parcel of heat carried along an arc from the lit face to the dark face",
- "focus": [
-  1500,
-  760,
-  1.7
+ "centre": "TRAPPIST-1e lit red by its star on the left; its light becomes a rainbow spectrum on the right where an oxygen gap and a methane gap appear side by side",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "starfall",
+   "word": "greatest discovery",
+   "vol": 0.6
+  }
  ],
- "focus_word": "frozen dark face",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "TRAPPIST-1e",
+   "x": 470,
+   "y": 260,
+   "to": [
+    470,
+    340
+   ],
+   "word": "TRAPPIST-1e"
+  }
+ ],
+ "motion": "dash + grow + popin: light streams from the planet, the spectrum unrolls left to right, then the oxygen and methane gaps pop in together"
 }

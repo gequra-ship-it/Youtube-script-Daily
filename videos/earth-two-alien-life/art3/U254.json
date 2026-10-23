@@ -1,23 +1,18 @@
 {
- "centre": "Webb's golden hexagonal mirror segments, receiving a beam of light that passed a planet's thin atmosphere",
+ "centre": "Earth wrapped in a silky, finely woven protective cocoon of light",
  "focus": [
   960,
   500,
-  1.8
+  1.7
  ],
- "focus_word": "Webb's mirrors",
- "sfx": [],
- "labels": [
+ "focus_word": "protective cocoon",
+ "sfx": [
   {
-   "type": "name",
-   "text": "Webb",
-   "x": 1380,
-   "y": 330,
-   "to": [
-    1040,
-    440
-   ],
-   "word": "Webb"
+   "name": "cloth",
+   "word": "wrapped",
+   "vol": 0.5
   }
- ]
+ ],
+ "spot": true,
+ "motion": "cocoon threads draw on around Earth"
 }

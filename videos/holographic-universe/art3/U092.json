@@ -1,17 +1,14 @@
 {
- "centre": "black hole with lensed bright disk seen from afar",
- "focus": [
-  400,
-  650,
-  1.7
- ],
- "focus_word": "Nobody has detected",
+ "centre": "a white-hot sphere packed with bits, sitting in a dip of bent space, squeezes down and collapses into a black hole",
  "sfx": [
   {
-   "name": "pulse",
-   "word": "detected",
-   "vol": 0.55
+   "name": "stone",
+   "word": "collapses",
+   "vol": 0.6
   }
  ],
+ "motion": "energy has gravity, keep going and the sphere collapses: the packed sphere shrinks (nested mv-fill x and y), a lensed black hole pops in where it was (mv-popin) and the bent grid jolts (mv-shake)",
+ "focus": null,
+ "focus_word": null,
  "labels": []
 }

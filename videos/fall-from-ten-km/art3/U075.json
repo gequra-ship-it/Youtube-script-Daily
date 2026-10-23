@@ -1,17 +1,20 @@
 {
- "centre": "the passenger seen from the side, chest down, back slightly arched, limbs spread, over fields",
- "focus": [
-  960,
-  480,
-  1.6
- ],
- "focus_word": "arch your back",
- "sfx": [
+ "centre": "a cut-away forest with a zigzag route through branch layers to the forest floor; small collision bursts along it and a long stopping-distance bar beside a tiny one",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "cloth",
-   "word": "extend your arms",
-   "vol": 0.55
+   "type": "name",
+   "text": "forest floor",
+   "x": 1060,
+   "y": 820,
+   "to": [
+    940,
+    892
+   ],
+   "word": "forest floor"
   }
  ],
- "labels": []
+ "motion": "many small collisions stretch the stopping distance: collision bursts pop in one by one down the route (mv-popin x5) while the stopping-distance bar grows down beside them (mv-grow)"
 }

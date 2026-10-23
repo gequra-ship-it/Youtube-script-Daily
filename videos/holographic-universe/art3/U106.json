@@ -1,21 +1,37 @@
 {
- "centre": "middle-sized black hole between a larger one and a tiny shrinking one, radiation dots leaving",
- "focus": [
-  1500,
-  500,
-  1.8
- ],
- "focus_word": "eventually evaporates",
- "iris": [
-  380,
-  520
- ],
+ "centre": "an open dictionary on a night desk: a black hole sketched on the left page, a golden arrow over the spine, a hot swirling state appearing on the right page",
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "evaporates",
-   "vol": 0.5
+   "name": "page",
+   "word": "dictionary",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "That's me!",
+   "x": 700,
+   "y": 300,
+   "to": [
+    735,
+    545
+   ],
+   "word": "black hole"
+  },
+  {
+   "type": "say",
+   "text": "Hello, other me!",
+   "x": 1280,
+   "y": 300,
+   "to": [
+    1185,
+    500
+   ],
+   "word": "swirling"
+  }
+ ],
+ "motion": "a dictionary translates between the two: a golden arrow draws itself from the black hole across the spine (mv-edge), then the hot swirl rises onto the facing page (mv-rise) and keeps turning (mv-rotor)",
+ "focus": null,
+ "focus_word": null
 }

@@ -1,13 +1,30 @@
 {
- "centre": "planet whose spin arrows fade as friction slows it, between meshing gears",
- "focus": null,
- "focus_word": null,
+ "centre": "a soft cloud of air with floating molecules; five wavy light beams go in, two are soaked up and only three come out",
+ "focus": [
+  980,
+  450,
+  1.5
+ ],
+ "focus_word": "molecules",
  "sfx": [
   {
-   "name": "tick",
-   "word": "slows",
-   "vol": 0.55
+   "name": "pulse",
+   "word": "absorb",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Gulp!",
+   "x": 1150,
+   "y": 300,
+   "to": [
+    1010,
+    380
+   ],
+   "word": "absorb"
+  }
+ ],
+ "motion": "dash: light waves stream through the air; shake: two molecules jiggle as they soak up their wavelengths (absorb)"
 }

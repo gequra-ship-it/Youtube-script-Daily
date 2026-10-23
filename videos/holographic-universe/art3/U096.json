@@ -1,7 +1,26 @@
 {
- "centre": "calm glass sphere with a single glowing point inside, above a dark planet horizon",
+ "centre": "a night room filled with a lattice of faint volume points; a tall blue column of counted points beside a tiny gold column",
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "far smaller",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Just us, really!",
+   "x": 1560,
+   "y": 520,
+   "to": [
+    1530,
+    680
+   ],
+   "word": "far smaller"
+  }
+ ],
+ "motion": "the true number is far smaller than counting every point: a tall column of volume points grows up (mv-grow), then the real count grows only a few cells (mv-grow)",
  "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "focus_word": null
 }

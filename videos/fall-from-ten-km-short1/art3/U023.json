@@ -1,23 +1,37 @@
 {
- "centre": "sunlit tree crown with a bright core on a green hill",
- "focus": [
-  540,
-  860,
-  1.7
+ "centre": "a gold story trail winding over dusk hills past three stops: a thin-air cloud, a speed dial, a ball on a soft mound",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "page",
+   "word": "tell a story",
+   "vol": 0.5
+  }
  ],
- "focus_word": "surfaces",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Survivors",
-   "x": 640,
-   "y": 660,
+   "text": "terminal velocity",
+   "x": 600,
+   "y": 980,
    "to": [
-    290,
-    520
+    610,
+    910
    ],
-   "word": "survivors"
+   "word": "terminal velocity"
+  },
+  {
+   "type": "name",
+   "text": "stopping",
+   "x": 760,
+   "y": 1370,
+   "to": [
+    640,
+    1290
+   ],
+   "word": "stopping"
   }
- ]
+ ],
+ "motion": "edge: a story trail draws itself down the hills while the camera follows it (track); popin: thin air, terminal velocity and stopping appear as the trail reaches each"
 }

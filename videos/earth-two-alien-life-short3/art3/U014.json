@@ -1,29 +1,31 @@
 {
- "centre": "a large radio dish facing the sky on its mast",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "radio dishes",
+ "centre": "a big single cell in sunlit ancient ocean water, a small microbe swimming into it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pulse",
-   "word": "radio dishes",
+   "name": "pop",
+   "word": "merged",
    "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "radio dishes",
-   "x": 540,
-   "y": 640,
+   "type": "num",
+   "text": "2 BILLION YEARS",
+   "word": "two billion years"
+  },
+  {
+   "type": "say",
+   "text": "Come on in!",
+   "x": 810,
+   "y": 690,
    "to": [
-    540,
-    770
+    700,
+    800
    ],
-   "word": "radio dishes"
+   "word": "merged"
   }
- ]
+ ],
+ "motion": "path + popin: a small microbe swims along a curve into the big cell and a warm glow pops where they merge (two microbes merged); camera follows"
 }

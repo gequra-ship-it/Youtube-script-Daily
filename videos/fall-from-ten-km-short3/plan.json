@@ -26,11 +26,11 @@
     "#c9d4ff"
    ]
   },
-  "text": "Can the way you position your arms and legs actually change how you fall from the sky?",
-  "dur": 6.2,
+  "text": "Can the way you position your arms and legs actually change how you fall from the sky? Skydivers say yes.",
+  "dur": 5.86,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "Skydivers say yes. And the worst thing you can do is curl into a tight ball."
+  "nxt": "And the worst thing you can do is curl into a tight ball."
  },
  {
   "uid": "U002",
@@ -59,10 +59,10 @@
     "#c9d4ff"
    ]
   },
-  "text": "Skydivers say yes. And the worst thing you can do is curl into a tight ball.",
-  "dur": 5.52,
-  "transition_in": "eye",
-  "prev": "Can the way you position your arms and legs actually change how you fall from the sky?",
+  "text": "And the worst thing you can do is curl into a tight ball.",
+  "dur": 5.86,
+  "transition_in": "tilt",
+  "prev": "Can the way you position your arms and legs actually change how you fall from the sky? Skydivers say yes.",
   "nxt": ""
  },
  {
@@ -92,11 +92,11 @@
     "#c9d4ff"
    ]
   },
-  "text": "When you fall, gravity pulls you down and the air pushes back.",
-  "dur": 4.1,
+  "text": "When you fall, gravity pulls you down and the air pushes back. That push is aerodynamic drag, and it grows as you speed up.",
+  "dur": 8.84,
   "transition_in": "zoom",
   "prev": "",
-  "nxt": "That push is aerodynamic drag, and it grows as you speed up."
+  "nxt": "Soon the two forces balance, your acceleration stops, and you reach terminal velocity."
  },
  {
   "uid": "U004",
@@ -125,18 +125,18 @@
     "#c9d4ff"
    ]
   },
-  "text": "That push is aerodynamic drag, and it grows as you speed up.",
-  "dur": 4.74,
-  "transition_in": "whip",
-  "prev": "When you fall, gravity pulls you down and the air pushes back.",
-  "nxt": "Soon the two forces balance, your acceleration stops, and you reach terminal velocity."
+  "text": "Soon the two forces balance, your acceleration stops, and you reach terminal velocity.",
+  "dur": 6.08,
+  "transition_in": "slide",
+  "prev": "When you fall, gravity pulls you down and the air pushes back. That push is aerodynamic drag, and it grows as you speed up.",
+  "nxt": ""
  },
  {
   "uid": "U005",
-  "scene": 2,
-  "title": "Gravity and Drag",
-  "art_theme": "drag",
-  "bg": "paper",
+  "scene": 3,
+  "title": "The Ball",
+  "art_theme": "ball",
+  "bg": "night",
   "pal": {
    "palette": "space",
    "paper_base": "#e3e6ec",
@@ -158,11 +158,11 @@
     "#c9d4ff"
    ]
   },
-  "text": "Soon the two forces balance, your acceleration stops, and you reach terminal velocity.",
-  "dur": 6.08,
-  "transition_in": "fade",
-  "prev": "That push is aerodynamic drag, and it grows as you speed up.",
-  "nxt": ""
+  "text": "Curling up shrinks your surface area. With less body in the way of the rushing air, you slice through it, and your falling speed rises.",
+  "dur": 6.79,
+  "transition_in": "push",
+  "prev": "",
+  "nxt": "If your goal is to slow down, the ball is a poor choice."
  },
  {
   "uid": "U006",
@@ -191,18 +191,18 @@
     "#c9d4ff"
    ]
   },
-  "text": "Curling up shrinks your surface area.",
-  "dur": 3.5,
-  "transition_in": "push",
-  "prev": "",
-  "nxt": "With less body in the way of the rushing air, you slice through it, and your falling speed rises."
+  "text": "If your goal is to slow down, the ball is a poor choice.",
+  "dur": 6.0,
+  "transition_in": "seam",
+  "prev": "Curling up shrinks your surface area. With less body in the way of the rushing air, you slice through it, and your falling speed rises.",
+  "nxt": ""
  },
  {
   "uid": "U007",
-  "scene": 3,
-  "title": "The Ball",
-  "art_theme": "ball",
-  "bg": "night",
+  "scene": 4,
+  "title": "Spread-Eagle",
+  "art_theme": "spread",
+  "bg": "dusk",
   "pal": {
    "palette": "space",
    "paper_base": "#e3e6ec",
@@ -224,18 +224,18 @@
     "#c9d4ff"
    ]
   },
-  "text": "With less body in the way of the rushing air, you slice through it, and your falling speed rises.",
-  "dur": 5.32,
-  "transition_in": "wipe",
-  "prev": "Curling up shrinks your surface area.",
-  "nxt": "If your goal is to slow down, the ball is a poor choice."
+  "text": "Skydivers use the belly-to-earth spread-eagle. Arms and legs go wide, your back arches slightly, and your chest faces the ground.",
+  "dur": 8.3,
+  "transition_in": "diamond",
+  "prev": "",
+  "nxt": "Now your body catches as many air molecules as possible,"
  },
  {
   "uid": "U008",
-  "scene": 3,
-  "title": "The Ball",
-  "art_theme": "ball",
-  "bg": "night",
+  "scene": 4,
+  "title": "Spread-Eagle",
+  "art_theme": "spread",
+  "bg": "dusk",
   "pal": {
    "palette": "space",
    "paper_base": "#e3e6ec",
@@ -257,11 +257,11 @@
     "#c9d4ff"
    ]
   },
-  "text": "If your goal is to slow down, the ball is a poor choice.",
-  "dur": 3.97,
-  "transition_in": "whip",
-  "prev": "With less body in the way of the rushing air, you slice through it, and your falling speed rises.",
-  "nxt": ""
+  "text": "Now your body catches as many air molecules as possible,",
+  "dur": 6.0,
+  "transition_in": "page",
+  "prev": "Skydivers use the belly-to-earth spread-eagle. Arms and legs go wide, your back arches slightly, and your chest faces the ground.",
+  "nxt": "and your terminal velocity falls toward its lowest value, around two hundred kilometers per hour."
  },
  {
   "uid": "U009",
@@ -290,146 +290,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "Skydivers use the belly-to-earth spread-eagle.",
-  "dur": 3.5,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "Arms and legs go wide, your back arches slightly, and your chest faces the ground."
- },
- {
-  "uid": "U010",
-  "scene": 4,
-  "title": "Spread-Eagle",
-  "art_theme": "spread",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "Arms and legs go wide, your back arches slightly, and your chest faces the ground.",
-  "dur": 5.96,
-  "transition_in": "match",
-  "prev": "Skydivers use the belly-to-earth spread-eagle.",
-  "nxt": "Now your body catches as many air molecules as possible,"
- },
- {
-  "uid": "U011",
-  "scene": 4,
-  "title": "Spread-Eagle",
-  "art_theme": "spread",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "Now your body catches as many air molecules as possible,",
-  "dur": 3.84,
-  "transition_in": "wipe",
-  "prev": "Arms and legs go wide, your back arches slightly, and your chest faces the ground.",
-  "nxt": "and your terminal velocity falls toward its lowest value,"
- },
- {
-  "uid": "U012",
-  "scene": 4,
-  "title": "Spread-Eagle",
-  "art_theme": "spread",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "and your terminal velocity falls toward its lowest value,",
-  "dur": 3.5,
-  "transition_in": "whip",
+  "text": "and your terminal velocity falls toward its lowest value, around two hundred kilometers per hour.",
+  "dur": 6.0,
+  "transition_in": "seam",
   "prev": "Now your body catches as many air molecules as possible,",
-  "nxt": "around two hundred kilometers per hour."
- },
- {
-  "uid": "U013",
-  "scene": 4,
-  "title": "Spread-Eagle",
-  "art_theme": "spread",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "around two hundred kilometers per hour.",
-  "dur": 3.5,
-  "transition_in": "slide",
-  "prev": "and your terminal velocity falls toward its lowest value,",
   "nxt": ""
  },
  {
-  "uid": "U014",
+  "uid": "U010",
   "scene": 5,
   "title": "Stability",
   "art_theme": "stability",
@@ -456,13 +324,13 @@
    ]
   },
   "text": "Spreading out also keeps you stable.",
-  "dur": 3.5,
-  "transition_in": "iris",
+  "dur": 6.0,
+  "transition_in": "wipe",
   "prev": "",
-  "nxt": "An uneven object can fall into a violent flat spin,"
+  "nxt": "An uneven object can fall into a violent flat spin, and a fast spin can cause dizziness and even blackouts."
  },
  {
-  "uid": "U015",
+  "uid": "U011",
   "scene": 5,
   "title": "Stability",
   "art_theme": "stability",
@@ -488,14 +356,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "An uneven object can fall into a violent flat spin,",
-  "dur": 3.5,
-  "transition_in": "eye",
+  "text": "An uneven object can fall into a violent flat spin, and a fast spin can cause dizziness and even blackouts.",
+  "dur": 6.0,
+  "transition_in": "iris",
   "prev": "Spreading out also keeps you stable.",
-  "nxt": "and a fast spin can cause dizziness and even blackouts."
+  "nxt": "Outstretched limbs act like the four fins of a rocket and damp the rotation. You can even steer a little by tilting your hands and shoulders."
  },
  {
-  "uid": "U016",
+  "uid": "U012",
   "scene": 5,
   "title": "Stability",
   "art_theme": "stability",
@@ -521,80 +389,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "and a fast spin can cause dizziness and even blackouts.",
-  "dur": 3.78,
-  "transition_in": "wash",
-  "prev": "An uneven object can fall into a violent flat spin,",
-  "nxt": "Outstretched limbs act like the four fins of a rocket and damp the rotation."
- },
- {
-  "uid": "U017",
-  "scene": 5,
-  "title": "Stability",
-  "art_theme": "stability",
-  "bg": "paper",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "Outstretched limbs act like the four fins of a rocket and damp the rotation.",
-  "dur": 5.32,
+  "text": "Outstretched limbs act like the four fins of a rocket and damp the rotation. You can even steer a little by tilting your hands and shoulders.",
+  "dur": 8.13,
   "transition_in": "tilt",
-  "prev": "and a fast spin can cause dizziness and even blackouts.",
-  "nxt": "You can even steer a little by tilting your hands and shoulders."
- },
- {
-  "uid": "U018",
-  "scene": 5,
-  "title": "Stability",
-  "art_theme": "stability",
-  "bg": "paper",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "You can even steer a little by tilting your hands and shoulders.",
-  "dur": 4.03,
-  "transition_in": "push",
-  "prev": "Outstretched limbs act like the four fins of a rocket and damp the rotation.",
+  "prev": "An uneven object can fall into a violent flat spin, and a fast spin can cause dizziness and even blackouts.",
   "nxt": ""
  },
  {
-  "uid": "U019",
+  "uid": "U013",
   "scene": 6,
   "title": "Feet First",
   "art_theme": "feetfirst",
@@ -627,7 +429,7 @@
   "nxt": "The long bones of the legs, the ankles, and the pelvis are among the sturdiest in the body."
  },
  {
-  "uid": "U020",
+  "uid": "U014",
   "scene": 6,
   "title": "Feet First",
   "art_theme": "feetfirst",
@@ -654,13 +456,13 @@
    ]
   },
   "text": "The long bones of the legs, the ankles, and the pelvis are among the sturdiest in the body.",
-  "dur": 6.18,
+  "dur": 6.22,
   "transition_in": "wash",
   "prev": "Then, in the final moments, the usual advice is a feet-first landing with slightly bent knees.",
-  "nxt": "They take the first hit and may crumple,"
+  "nxt": "They take the first hit and may crumple, absorbing energy before the shock reaches the spine and skull."
  },
  {
-  "uid": "U021",
+  "uid": "U015",
   "scene": 6,
   "title": "Feet First",
   "art_theme": "feetfirst",
@@ -686,47 +488,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "They take the first hit and may crumple,",
-  "dur": 3.5,
-  "transition_in": "match",
+  "text": "They take the first hit and may crumple, absorbing energy before the shock reaches the spine and skull.",
+  "dur": 6.96,
+  "transition_in": "iris",
   "prev": "The long bones of the legs, the ankles, and the pelvis are among the sturdiest in the body.",
-  "nxt": "absorbing energy before the shock reaches the spine and skull."
- },
- {
-  "uid": "U022",
-  "scene": 6,
-  "title": "Feet First",
-  "art_theme": "feetfirst",
-  "bg": "night",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "absorbing energy before the shock reaches the spine and skull.",
-  "dur": 3.5,
-  "transition_in": "wipe",
-  "prev": "They take the first hit and may crumple,",
   "nxt": ""
  },
  {
-  "uid": "U023",
+  "uid": "U016",
   "scene": 7,
   "title": "The Roll",
   "art_theme": "roll",
@@ -753,13 +522,13 @@
    ]
   },
   "text": "Military parachutists add one more trick, the parachute landing fall.",
-  "dur": 5.2,
-  "transition_in": "push",
+  "dur": 5.49,
+  "transition_in": "seam",
   "prev": "",
-  "nxt": "Boots touch down, then the body collapses to the side and rolls across the calf,"
+  "nxt": "Boots touch down, then the body collapses to the side and rolls across the calf, thigh, hip, and back."
  },
  {
-  "uid": "U024",
+  "uid": "U017",
   "scene": 7,
   "title": "The Roll",
   "art_theme": "roll",
@@ -785,14 +554,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "Boots touch down, then the body collapses to the side and rolls across the calf,",
-  "dur": 4.88,
-  "transition_in": "wash",
+  "text": "Boots touch down, then the body collapses to the side and rolls across the calf, thigh, hip, and back.",
+  "dur": 5.49,
+  "transition_in": "eye",
   "prev": "Military parachutists add one more trick, the parachute landing fall.",
-  "nxt": "thigh, hip, and back. A hard vertical stop becomes rotation along the ground."
+  "nxt": "A hard vertical stop becomes rotation along the ground."
  },
  {
-  "uid": "U025",
+  "uid": "U018",
   "scene": 7,
   "title": "The Roll",
   "art_theme": "roll",
@@ -818,14 +587,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "thigh, hip, and back. A hard vertical stop becomes rotation along the ground.",
-  "dur": 6.38,
-  "transition_in": "slide",
-  "prev": "Boots touch down, then the body collapses to the side and rolls across the calf,",
+  "text": "A hard vertical stop becomes rotation along the ground.",
+  "dur": 5.49,
+  "transition_in": "zigzag",
+  "prev": "Boots touch down, then the body collapses to the side and rolls across the calf, thigh, hip, and back.",
   "nxt": ""
  },
  {
-  "uid": "U026",
+  "uid": "U019",
   "scene": 8,
   "title": "Honest Limit",
   "art_theme": "limit",
@@ -851,146 +620,47 @@
     "#c9d4ff"
    ]
   },
-  "text": "None of this makes a fall from ten kilometers safe.",
-  "dur": 3.52,
-  "transition_in": "whip",
-  "prev": "",
-  "nxt": "A roll cannot cancel that much speed, and luck plays the dominant role."
- },
- {
-  "uid": "U027",
-  "scene": 8,
-  "title": "Honest Limit",
-  "art_theme": "limit",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "A roll cannot cancel that much speed, and luck plays the dominant role.",
-  "dur": 5.04,
-  "transition_in": "match",
-  "prev": "None of this makes a fall from ten kilometers safe.",
-  "nxt": "But the ideas are the same ones again and again:"
- },
- {
-  "uid": "U028",
-  "scene": 8,
-  "title": "Honest Limit",
-  "art_theme": "limit",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "But the ideas are the same ones again and again:",
-  "dur": 3.5,
-  "transition_in": "iris",
-  "prev": "A roll cannot cancel that much speed, and luck plays the dominant role.",
-  "nxt": "spread the impact over more body and more time."
- },
- {
-  "uid": "U029",
-  "scene": 8,
-  "title": "Honest Limit",
-  "art_theme": "limit",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "spread the impact over more body and more time.",
-  "dur": 3.5,
-  "transition_in": "slide",
-  "prev": "But the ideas are the same ones again and again:",
-  "nxt": ""
- },
- {
-  "uid": "U030",
-  "scene": 9,
-  "title": "Call to Action",
-  "art_theme": "cta",
-  "bg": "night",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "The physics of surviving the impossible will change how you see the human body.",
-  "dur": 5.46,
+  "text": "None of this makes a fall from ten kilometers safe. A roll cannot cancel that much speed, and luck plays the dominant role.",
+  "dur": 8.64,
   "transition_in": "fade",
   "prev": "",
-  "nxt": "Watch the complete breakdown right now on Miya's Lab."
+  "nxt": "But the ideas are the same ones again and again: spread the impact over more body and more time."
  },
  {
-  "uid": "U031",
+  "uid": "U020",
+  "scene": 8,
+  "title": "Honest Limit",
+  "art_theme": "limit",
+  "bg": "dusk",
+  "pal": {
+   "palette": "space",
+   "paper_base": "#e3e6ec",
+   "paper_ink": "#151a2e",
+   "night_top": "#050818",
+   "night_bottom": "#0d1634",
+   "night_line": "#cfd8ff",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#e8d8c0",
+    "#8a7fb0",
+    "#2c2f66"
+   ],
+   "dusk_ink": "#151a2e",
+   "accents": [
+    "#4f6bd6",
+    "#f2c14e",
+    "#8fd6e8",
+    "#c9d4ff"
+   ]
+  },
+  "text": "But the ideas are the same ones again and again: spread the impact over more body and more time.",
+  "dur": 6.92,
+  "transition_in": "whip",
+  "prev": "None of this makes a fall from ten kilometers safe. A roll cannot cancel that much speed, and luck plays the dominant role.",
+  "nxt": ""
+ },
+ {
+  "uid": "U021",
   "scene": 9,
   "title": "Call to Action",
   "art_theme": "cta",
@@ -1016,10 +686,10 @@
     "#c9d4ff"
    ]
   },
-  "text": "Watch the complete breakdown right now on Miya's Lab.",
-  "dur": 4.87,
-  "transition_in": "iris",
-  "prev": "The physics of surviving the impossible will change how you see the human body.",
+  "text": "The physics of surviving the impossible will change how you see the human body. Watch the complete breakdown right now on Miya's Lab.",
+  "dur": 10.33,
+  "transition_in": "zigzag",
+  "prev": "",
   "nxt": ""
  }
 ]

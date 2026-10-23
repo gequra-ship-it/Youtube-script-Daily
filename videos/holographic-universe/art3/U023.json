@@ -1,7 +1,26 @@
 {
- "centre": "warm hanging lamp bulb over a study desk at dusk",
+ "centre": "an oscilloscope screen with two light waves of equal height but shifted timing sliding along; a stopwatch ticks below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "timing",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "phase",
+   "x": 1240,
+   "y": 460,
+   "to": [
+    1080,
+    520
+   ],
+   "word": "phase"
+  }
+ ],
+ "motion": "phase = timing of peaks and valleys: two waves slide along together with their peaks (dots) and valleys (rings) offset at the red time line (mv-scroll); a stopwatch hand turns (mv-rotor)"
 }

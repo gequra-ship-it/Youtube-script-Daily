@@ -1,39 +1,45 @@
 {
- "centre": "falling passenger's head in a pale halo, air streaking past",
+ "centre": "magnifying lens packed tight with air molecules (thick soup of air)",
  "focus": [
-  1000,
+  960,
   500,
-  1.6
+  1.8
  ],
- "focus_word": "your skin",
+ "focus_word": "thicker soup of molecules",
  "sfx": [
   {
-   "name": "wind",
-   "word": "rushes",
-   "vol": 0.65
+   "name": "bubble",
+   "word": "thicker soup",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Skin",
-   "x": 1330,
-   "y": 380,
+   "text": "Denser air",
+   "x": 1230,
+   "y": 660,
    "to": [
-    1150,
-    440
+    1040,
+    585
    ],
-   "word": "skin"
+   "word": "denser air"
   },
   {
    "type": "say",
-   "text": "Brr!",
-   "x": 1160,
-   "y": 700,
+   "text": "Squeezed in here",
+   "x": 700,
+   "y": 300,
    "to": [
-    1020,
-    580
-   ]
+    900,
+    440
+   ],
+   "word": "molecules"
   }
- ]
+ ],
+ "iris": [
+  420,
+  420
+ ],
+ "motion": "spoon stirs the thick soup of molecules (swing)"
 }

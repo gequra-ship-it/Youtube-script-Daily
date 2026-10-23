@@ -1,17 +1,20 @@
 {
- "centre": "a round dial whose needle sits just past zero",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "small positive",
- "sfx": [
+ "centre": "a balance scale in an observatory dome, a small hologram on one pan and a glassy universe orb on the other, rocking without ever settling",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "tick",
-   "word": "small",
-   "vol": 0.5
+   "type": "name",
+   "text": "hologram",
+   "x": 360,
+   "y": 700,
+   "to": [
+    600,
+    560
+   ],
+   "word": "hologram"
   }
  ],
- "labels": []
+ "motion": "no experiment has settled the question: the balance beam keeps rocking between a hologram and our universe and never comes to rest (mv-joint)"
 }

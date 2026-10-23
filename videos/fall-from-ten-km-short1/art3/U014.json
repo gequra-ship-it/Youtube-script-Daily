@@ -1,30 +1,21 @@
 {
- "centre": "brass fulcrum medallion of a level balance, up and down arrows equal",
+ "centre": "stopwatch with the hand moved on by one second, a skydiver and a car on a night road",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "every single second",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Gravity",
-   "x": 250,
-   "y": 1090,
-   "to": [
-    230,
-    985
-   ],
-   "word": "gravity"
-  },
-  {
-   "type": "name",
-   "text": "Drag",
-   "x": 800,
-   "y": 1090,
-   "to": [
-    850,
-    985
-   ],
-   "word": "drag"
+   "type": "num",
+   "text": "55 M/S",
+   "word": "fifty-five meters"
   }
- ]
+ ],
+ "spot": true,
+ "motion": "dash: the road centre dashes stream backwards under the car (fifty-five meters every second); no bubble"
 }

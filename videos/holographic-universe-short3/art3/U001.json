@@ -1,5 +1,5 @@
 {
- "centre": "glowing gold crystal shape floating above a flat hologram plate",
+ "centre": "glowing universe orb projected above a hologram plate while a headline sheet flies down past it",
  "focus": null,
  "focus_word": null,
  "sfx": [
@@ -9,5 +9,18 @@
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Proved?",
+   "x": 300,
+   "y": 640,
+   "to": [
+    470,
+    790
+   ],
+   "word": "proved"
+  }
+ ],
+ "motion": "path: one headline sheet glides in a long S from the top left past the hologram universe and lands by the plate (headlines saying it was proved); camera follows it"
 }

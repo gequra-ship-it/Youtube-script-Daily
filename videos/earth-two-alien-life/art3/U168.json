@@ -1,25 +1,20 @@
 {
- "centre": "rocky planet pelted by wind particles and wavy X-rays, tiny calm Earth at right",
+ "centre": "a small hilltop observatory whose dashed reach beam stops halfway to a cracked distant planet; a flat seismograph line below it",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pulse",
-   "word": "X-ray radiation",
-   "vol": 0.6
-  }
- ],
+ "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Earth",
-   "x": 1560,
-   "y": 560,
+   "type": "say",
+   "text": "Too far!",
+   "x": 880,
+   "y": 300,
    "to": [
-    1560,
-    610
+    850,
+    480
    ],
-   "word": "Earth"
+   "word": "cannot"
   }
- ]
+ ],
+ "motion": "fill: the reach beam stretches toward the planet but stops halfway; shake + popin: it shudders to a stop (we cannot dig there)"
 }

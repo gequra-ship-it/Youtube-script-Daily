@@ -1,11 +1,31 @@
 {
- "centre": "small glass fragment with a small porthole showing a small cube",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "dishes across the Earth linking up, then the first image of a black hole's shadow pops up as a photo",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "first image",
+   "vol": 0.55
+  }
  ],
- "focus_word": "smaller window",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "TWENTY NINETEEN",
+   "word": "twenty nineteen"
+  },
+  {
+   "type": "name",
+   "text": "Event Horizon Telescope",
+   "x": 560,
+   "y": 330,
+   "to": [
+    520,
+    500
+   ],
+   "word": "Event Horizon Telescope"
+  }
+ ],
+ "motion": "a collaboration releases an image: lines link the dishes across the Earth (mv-edge), then the shadow image pops up (mv-popin)"
 }

@@ -1,29 +1,20 @@
 {
- "centre": "thin twig snapping in two inside a soft round glow",
- "focus": [
-  960,
-  500,
-  2.0
- ],
- "focus_word": "thin twigs",
- "sfx": [
-  {
-   "name": "woodblock",
-   "word": "snap",
-   "vol": 0.6
-  }
- ],
+ "centre": "a doctor beside a light box showing a leg diagram whose knee and ankle fold softly instead of locking",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Thin twigs",
-   "x": 1200,
-   "y": 340,
+   "type": "say",
+   "text": "Hmm, maybe...",
+   "x": 400,
+   "y": 250,
    "to": [
-    1110,
-    450
+    590,
+    380
    ],
-   "word": "thin twigs"
+   "word": "suspect"
   }
- ]
+ ],
+ "motion": "flip: the shin folds about the knee and then the foot about the ankle (nested hinges) while a curved arrow draws the give (edge)"
 }

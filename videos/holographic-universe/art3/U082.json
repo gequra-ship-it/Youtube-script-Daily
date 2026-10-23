@@ -1,7 +1,30 @@
 {
- "centre": "orb split into a tiled-patch half and a dot-cloud half",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "red wax seal on a framed wager with three signature scribbles",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "bet",
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "bet",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Care to bet?",
+   "x": 560,
+   "y": 600,
+   "to": [
+    352,
+    760
+   ],
+   "word": "bet"
+  }
+ ],
+ "motion": "popin: the written bet (text lines and signature) appears on the framed document"
 }

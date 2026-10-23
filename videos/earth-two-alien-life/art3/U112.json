@@ -1,17 +1,34 @@
 {
- "centre": "a scorching banded gas giant glowing white-hot on its day side, hugging a blinding star",
+ "centre": "red dwarf star with fiery flare loops and a small planet at left",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "bloom",
-   "word": "scorching",
-   "vol": 0.6
+   "type": "name",
+   "text": "Red dwarf",
+   "x": 1380,
+   "y": 300,
+   "to": [
+    1050,
+    440
+   ],
+   "word": "red dwarf"
+  },
+  {
+   "type": "say",
+   "text": "Yikes!",
+   "x": 470,
+   "y": 570,
+   "to": [
+    430,
+    700
+   ],
+   "word": "perils"
   }
  ],
- "labels": [],
  "iris": [
-  160,
-  480
- ]
+  420,
+  730
+ ],
+ "motion": "new flare loops draw out of the red dwarf (edge)"
 }

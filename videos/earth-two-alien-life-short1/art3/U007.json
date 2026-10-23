@@ -1,12 +1,7 @@
 {
  "centre": "the Moon showing its near face (dark patches) toward Earth below, dotted line between",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "Moon",
- "sfx": [],
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
@@ -18,6 +13,18 @@
     820
    ],
    "word": "Moon"
+  },
+  {
+   "type": "say",
+   "text": "Still watching you",
+   "x": 800,
+   "y": 1400,
+   "to": [
+    650,
+    1310
+   ],
+   "word": "forever"
   }
- ]
+ ],
+ "motion": "Moon travels along its orbit and turns with the path so the same face keeps pointing at Earth."
 }

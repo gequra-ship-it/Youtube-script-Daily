@@ -1,47 +1,20 @@
 {
- "centre": "golden ball with faller silhouette above a snow lump, between a crumpled metal panel and a snapped branch on a shelf",
+ "centre": "chaos on the left (a chair and lamp toppling among floating papers) against order on the right: a strobe picture of a falling ball with evenly growing gaps and a gravity arrow",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "creak",
-   "word": "snapping",
-   "vol": 0.6
-  }
- ],
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Crumpling metal",
-   "x": 430,
-   "y": 330,
+   "text": "Gravity",
+   "x": 1480,
+   "y": 845,
    "to": [
-    420,
-    540
+    1590,
+    770
    ],
-   "word": "Crumpling metal"
-  },
-  {
-   "type": "name",
-   "text": "Snapping branches",
-   "x": 1500,
-   "y": 330,
-   "to": [
-    1560,
-    570
-   ],
-   "word": "snapping branches"
-  },
-  {
-   "type": "name",
-   "text": "Compressing snow",
-   "x": 960,
-   "y": 830,
-   "to": [
-    960,
-    740
-   ],
-   "word": "compressing snow"
+   "word": "Gravity"
   }
- ]
+ ],
+ "motion": "chaos upends our world but gravity is predictable: chair and lamp topple over (mv-topple), while the falling ball appears flash by flash with steadily growing gaps (mv-popin chain) and the gravity arrow grows down (mv-grow)"
 }

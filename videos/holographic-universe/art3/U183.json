@@ -1,18 +1,26 @@
 {
- "centre": "a bright measured dot nearly covering a dashed predicted marker on a rising curve",
- "focus": [
-  960,
-  500,
-  1.9
- ],
- "focus_word": "not far from it",
+ "centre": "on the left a young universe whose galaxies fly apart, on the right a black hole with a lensed disk; the camera travels from one to the other",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "measured",
-   "vol": 0.6
+   "name": "glimmer",
+   "word": "expands",
+   "vol": 0.5
   }
  ],
- "labels": [],
- "spot": true
+ "labels": [
+  {
+   "type": "name",
+   "text": "Black hole",
+   "x": 1420,
+   "y": 680,
+   "to": [
+    1420,
+    540
+   ],
+   "word": "black hole"
+  }
+ ],
+ "motion": "two open questions: galaxies fly apart from a bright point as the universe expands (mv-path x8), then the camera travels across to the black hole for the second question (mv-track)"
 }

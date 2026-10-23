@@ -1,17 +1,31 @@
 {
- "centre": "small planet resting in a dip of a bent sheet of space, ruler and clock beside it",
- "focus": [
-  960,
-  560,
-  1.6
- ],
- "focus_word": "bending of space and time",
- "sfx": [
+ "centre": "a cracked stone law tablet on the left, a black hole on the right whose surface fills with a mesh of patches",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "tick",
-   "word": "time",
-   "vol": 0.5
+   "type": "say",
+   "text": "Am I broken?",
+   "x": 560,
+   "y": 160,
+   "to": [
+    560,
+    270
+   ],
+   "word": "break"
+  },
+  {
+   "type": "say",
+   "text": "Who, me?",
+   "x": 1380,
+   "y": 210,
+   "to": [
+    1380,
+    322
+   ],
+   "word": "carry"
   }
  ],
- "labels": []
+ "motion": "did black holes break the law or carry entropy: the cracked tablet shudders (mv-shake), then a mesh of patches draws itself onto the black hole (mv-edge)"
 }

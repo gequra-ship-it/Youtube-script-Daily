@@ -1,11 +1,26 @@
 {
- "centre": "a glowing balance point holding a warm ember and an ice crystal in equilibrium",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "a cross-section of a night ocean: an undersea volcano on the left, a dark hydrothermal vent on the right breathing coral methane bubbles above glowing green serpentine rock",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "bloom",
+   "word": "volcanic activity",
+   "vol": 0.6
+  }
  ],
- "focus_word": "balance points",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "serpentinization",
+   "x": 860,
+   "y": 690,
+   "to": [
+    1150,
+    880
+   ],
+   "word": "serpentinization"
+  }
+ ],
+ "motion": "track: the camera dives from the sea surface down to the vent (deep within) while vent smoke and methane drift up and the volcano glows"
 }

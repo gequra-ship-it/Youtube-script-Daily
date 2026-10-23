@@ -1,25 +1,31 @@
 {
- "centre": "round test ball in a wind tunnel with air streamlines and wake swirls",
+ "centre": "a red blood cell in a flowing blood vessel, oxygen pairs latching onto its rim one by one",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "drag",
-   "vol": 0.55
+   "name": "bubble",
+   "word": "bloodstream",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
+   "type": "num",
+   "text": "3-4 KM",
+   "word": "three to four kilometers"
+  },
+  {
    "type": "name",
-   "text": "Aerodynamic drag",
-   "x": 600,
-   "y": 240,
+   "text": "Oxygen",
+   "x": 1300,
+   "y": 330,
    "to": [
-    450,
-    330
+    1050,
+    425
    ],
-   "word": "aerodynamic drag"
+   "word": "oxygen"
   }
- ]
+ ],
+ "motion": "oxygen returns to the bloodstream: blood cells stream along the vessel (mv-scroll) while oxygen pairs pop onto the centre cell one by one (mv-popin) and it pulses (mv-core-heartbeat)"
 }

@@ -1,29 +1,26 @@
 {
- "centre": "black hole with a faint dashed cloud of ghost particles, above a flat-line detector screen",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "Hawking radiation",
+ "centre": "a sound-wave pulse in a narrowing stream of fluid inside a lab tank, swept down to the throat where the flow outruns sound",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "pulse",
-   "word": "radiation",
-   "vol": 0.55
+   "word": "sound waves",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Hawking radiation",
-   "x": 540,
-   "y": 560,
+   "text": "flowing fluids",
+   "x": 270,
+   "y": 1365,
    "to": [
-    540,
-    780
+    445,
+    1300
    ],
-   "word": "Hawking radiation"
+   "word": "flowing fluids"
   }
- ]
+ ],
+ "motion": "path + dash: the fluid streams down the narrowing channel and carries a sound pulse that points upstream down to the throat (sound waves in flowing fluids mimic a horizon); camera follows"
 }

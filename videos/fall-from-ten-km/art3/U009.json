@@ -1,13 +1,26 @@
 {
- "centre": "ice crystal in the thin, frozen air outside the window",
+ "centre": "a dark storm cloud (the nightmare) drifts away, revealing a warm glow and three small people standing on a moonlit hill, one raising a hand to tell the tale",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "breath",
-   "word": "human biology",
+   "name": "cloth",
+   "word": "lived to tell",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Listen to this...",
+   "x": 1180,
+   "y": 330,
+   "to": [
+    1440,
+    470
+   ],
+   "word": "tell the tale"
+  }
+ ],
+ "motion": "nightmare gives way to survivors: the storm cloud slides off to the left (mv-scroll), then a handful of small people rise onto the hilltop one by one (mv-rise)"
 }

@@ -1,30 +1,26 @@
 {
- "centre": "bright soft landing-spot disc on a calm lake seen from above with the faller high above",
+ "centre": "a monitor at night: a tall, short red force spike and a long, low golden hump drawn over it, the peak line dropping",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "small gain in time",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Lake",
-   "x": 600,
-   "y": 740,
+   "text": "Peak force",
+   "x": 980,
+   "y": 160,
    "to": [
-    680,
-    640
+    690,
+    200
    ],
-   "word": "lake"
-  },
-  {
-   "type": "name",
-   "text": "Flat-on",
-   "x": 1560,
-   "y": 600,
-   "to": [
-    1640,
-    430
-   ],
-   "word": "flat-on"
+   "word": "peak force"
   }
- ]
+ ],
+ "motion": "edge: a longer, lower force curve draws itself over the tall short spike and an arrow shows the peak dropping; dashes march along the longer time span (dash)"
 }

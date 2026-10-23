@@ -1,23 +1,26 @@
 {
- "centre": "Kepler-186f sitting squarely inside the soft green habitable band of a huge red dwarf at the left",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "a tiny light-sail probe riding a beam along a dotted route from Earth to Proxima Centauri",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "starfall",
+   "word": "single human lifetime",
+   "vol": 0.6
+  }
  ],
- "focus_word": "habitable zone",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "habitable zone",
-   "x": 1290,
-   "y": 250,
+   "type": "say",
+   "text": "Almost there!",
+   "x": 1300,
+   "y": 240,
    "to": [
-    1080,
-    330
+    1430,
+    360
    ],
-   "word": "habitable zone"
+   "word": "lifetime"
   }
- ]
+ ],
+ "motion": "a probe could reach it in a lifetime: the light-sail probe travels the whole route from Earth to Proxima (mv-path, camera tracks), route dashes flow (mv-dash)"
 }

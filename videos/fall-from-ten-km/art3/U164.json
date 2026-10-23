@@ -1,23 +1,24 @@
 {
- "centre": "stopwatch dial with half the sweep filled gold",
+ "centre": "a round shield of blue hexagon tiles with a gold centre tile over a small tent on a stormy night ridge",
  "focus": [
   960,
-  500,
-  1.8
+  470,
+  1.6
  ],
- "focus_word": "two and a half minutes",
- "sfx": [
-  {
-   "name": "tick",
-   "word": "two and a half minutes",
-   "vol": 0.6
-  }
- ],
+ "focus_word": "build stronger shields",
+ "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "2.5 MIN",
-   "word": "two and a half minutes"
+   "type": "name",
+   "text": "Shields",
+   "x": 1290,
+   "y": 590,
+   "to": [
+    1110,
+    520
+   ],
+   "word": "shields"
   }
- ]
+ ],
+ "motion": "build stronger shields: hexagon tiles pop in from the centre outward to build the shield (mv-popin), then the lines of the forces draw on as they flow past it (mv-edge)"
 }

@@ -1,27 +1,13 @@
 {
- "centre": "a broken fuselage chunk tumbling slowly, big drag arrows pushing up under it",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "Falling pieces of aircraft",
- "sfx": [],
- "iris": [
-  1500,
-  430
- ],
- "labels": [
+ "centre": "soft round cushion taking one big arrow and spreading it into many small arrows",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "name",
-   "text": "Drag",
-   "x": 690,
-   "y": 680,
-   "to": [
-    850,
-    720
-   ],
-   "word": "drag"
+   "name": "thud",
+   "word": "impact",
+   "vol": 0.55
   }
- ]
+ ],
+ "motion": "spread: the five small arrows grow out of the cushion one after the other, the big arrow force fanning out over more of the body and over time (mv-grow)"
 }

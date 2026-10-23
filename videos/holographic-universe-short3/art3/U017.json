@@ -1,12 +1,27 @@
 {
- "centre": "smooth pale-blue sphere of expanding space with a mesh and a small bright core",
- "focus": [
-  540,
-  860,
-  1.6
+ "centre": "magnifying lens showing coarse square grains of space with one bright grain",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "jitter",
+   "vol": 0.5
+  }
  ],
- "focus_word": "small positive",
- "sfx": [],
- "labels": [],
- "spot": false
+ "spot": false,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Tiny jitter",
+   "x": 790,
+   "y": 540,
+   "to": [
+    545,
+    860
+   ],
+   "word": "jitter"
+  }
+ ],
+ "motion": "camera pushes in on the one bright grain (graininess, tiny jitter)"
 }

@@ -1,29 +1,26 @@
 {
- "centre": "glass bowl whose surface is dotted with glowing points, linked by a double arrow to a flat dotted plate above",
- "focus": [
-  540,
-  470,
-  1.6
- ],
- "focus_word": "boundary",
+ "centre": "a distant galaxy where a star explodes, its light running down to an observatory dome on the ground",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "boundary",
+   "name": "bloom",
+   "word": "exploding",
    "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Boundary",
-   "x": 720,
-   "y": 600,
+   "text": "exploding stars",
+   "x": 520,
+   "y": 330,
    "to": [
-    650,
-    510
+    700,
+    470
    ],
-   "word": "boundary"
+   "word": "exploding stars"
   }
- ]
+ ],
+ "motion": "track + dash + popin: the camera climbs the light path from the telescope up to the far galaxy where the star flares, while other galaxies drift apart (measurements of distant exploding stars, accelerating)"
 }

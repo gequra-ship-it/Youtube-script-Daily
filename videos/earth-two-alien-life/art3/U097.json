@@ -1,7 +1,26 @@
 {
- "centre": "small Kepler telescope silhouetted against a bright distant sun-like glow, Earth far behind",
+ "centre": "a hunched walker with a heavy pack trudging slowly across the rocky plain of Kepler-452b under a gold-white sun",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "step",
+   "word": "every single step",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Oof, so heavy!",
+   "x": 1000,
+   "y": 400,
+   "to": [
+    1030,
+    500
+   ],
+   "word": "heavy"
+  }
+ ],
+ "motion": "walking feels heavy: the hunched walker trudges right along the plain (mv-path, camera tracks) with swinging legs (mv-joint x2)"
 }

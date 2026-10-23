@@ -1,17 +1,19 @@
 {
- "centre": "planet whose blue atmosphere is torn into a long stream into space",
- "focus": [
-  1250,
-  500,
-  1.5
- ],
- "focus_word": "atmosphere",
- "sfx": [
+ "centre": "a blue-green world with soft green patches, tiny bubbles of air rising from its limb",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "starfall",
-   "word": "strip its atmosphere",
-   "vol": 0.6
+   "type": "say",
+   "text": "Breathe in!",
+   "x": 600,
+   "y": 330,
+   "to": [
+    870,
+    470
+   ],
+   "word": "breathe"
   }
  ],
- "labels": []
+ "motion": "living things breathe out puffs of air rising from the world (bubble) + bubble"
 }
