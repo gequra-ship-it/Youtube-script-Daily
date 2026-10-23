@@ -1,24 +1,48 @@
 {
- "centre": "nautilus reaching many thin tentacles toward a scent trail",
- "focus": [
-  640,
-  860,
-  1.6
- ],
- "focus_word": "ninety tentacles",
+ "centre": "impact plume at the horizon; bands of dust, soot and sulfur spreading across the sky over a fading sun",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "bubble",
-   "word": "chemicals in the water",
-   "vol": 0.5
+   "name": "thud",
+   "word": "the asteroid hit",
+   "vol": 0.7
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "90 TENTACLES",
-   "word": "ninety tentacles"
+   "type": "name",
+   "text": "dust",
+   "x": 420,
+   "y": 360,
+   "to": [
+    420,
+    440
+   ],
+   "word": "dust"
+  },
+  {
+   "type": "name",
+   "text": "soot",
+   "x": 470,
+   "y": 545,
+   "to": [
+    470,
+    610
+   ],
+   "word": "soot"
+  },
+  {
+   "type": "name",
+   "text": "sulfur",
+   "x": 520,
+   "y": 925,
+   "to": [
+    520,
+    840
+   ],
+   "word": "sulfur"
   }
  ],
- "spot": true
+ "motion": "the plume shakes at the impact, then dust, soot and sulfur veils grow across the sky one after another and cover the sun (grow x)"
 }

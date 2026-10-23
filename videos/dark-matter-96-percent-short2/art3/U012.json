@@ -1,29 +1,20 @@
 {
- "centre": "tilted Andromeda-like spiral galaxy with companions, two star trails and a bent-line spectrum strip",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "Andromeda",
- "sfx": [
-  {
-   "name": "sparkle",
-   "word": "Andromeda",
-   "vol": 0.6
-  }
- ],
+ "centre": "a pink-violet spiral galaxy; one star on the rim runs its orbit too fast and breaks away past the dashed orbit while the core strains",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Andromeda",
-   "x": 760,
-   "y": 720,
+   "type": "say",
+   "text": "Can't hold on!",
+   "x": 320,
+   "y": 1290,
    "to": [
-    600,
-    810
+    510,
+    940
    ],
-   "word": "Andromeda"
+   "word": "hold"
   }
- ]
+ ],
+ "motion": "path + tracking: a rim star races round and escapes along a tangent (too fast to hold); shake: the core strains; dash: the orbit it should keep"
 }

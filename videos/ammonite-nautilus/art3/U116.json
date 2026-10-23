@@ -1,23 +1,26 @@
 {
- "centre": "bloom of green phytoplankton with growing ammonite larvae",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "camera sinking from a choppy, soot-filled surface down to a calm nautilus in the twilight zone",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "go deeper",
+   "vol": 0.5
+  }
  ],
- "focus_word": "phytoplankton",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Phytoplankton",
-   "x": 1300,
-   "y": 360,
+   "text": "twilight zone",
+   "x": 1420,
+   "y": 560,
    "to": [
-    1060,
-    470
+    1150,
+    650
    ],
-   "word": "phytoplankton"
+   "word": "twilight zone"
   }
- ]
+ ],
+ "motion": "camera tracks straight down from the chaotic surface (debris drifting) to the calm twilight zone: go deeper"
 }

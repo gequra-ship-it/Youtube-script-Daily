@@ -1,7 +1,18 @@
 {
- "centre": "blazing gold star with a long curved speed trail among streaking stars",
+ "centre": "round magnifier lens over a sky-survey frame showing only a few faint dim stars on dark, too few",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Where are they?",
+   "x": 700,
+   "y": 250,
+   "to": [
+    900,
+    450
+   ]
+  }
+ ],
+ "motion": "camera sweeps the survey frame while the lens searches"
 }

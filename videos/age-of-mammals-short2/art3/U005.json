@@ -1,29 +1,26 @@
 {
- "centre": "hot pale sun over a deepening rift valley",
- "focus": [
-  540,
-  1250,
-  1.6
- ],
- "focus_word": "Rift Valley",
+ "centre": "two early ancestors walking across open ground from a woodland patch to a fruit tree",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "drying",
+   "name": "step",
+   "word": "cross open ground",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Rift Valley",
-   "x": 300,
-   "y": 1290,
+   "type": "say",
+   "text": "Fruit trees!",
+   "x": 560,
+   "y": 980,
    "to": [
-    470,
-    1350
+    655,
+    1120
    ],
-   "word": "Rift Valley"
+   "word": "fruit trees"
   }
- ]
+ ],
+ "motion": "path + tracking camera: the pair walk (jointed legs) from the woodland across open ground to the fruit tree; dash: the trail behind them"
 }

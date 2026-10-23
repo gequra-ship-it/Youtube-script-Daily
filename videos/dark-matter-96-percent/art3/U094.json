@@ -1,17 +1,24 @@
 {
- "centre": "small bright cluster of visible galaxies inside a blue dark-matter haze, with a light path bending more strongly than the dotted expected one",
- "focus": [
-  1180,
-  310,
-  1.7
- ],
- "focus_word": "stronger",
- "sfx": [
+ "centre": "a cutaway of an old gold mine: a lift cage goes down the shaft to a glowing round detector vessel in a deep gallery",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "pencil",
-   "word": "bending",
-   "vol": 0.55
+   "type": "num",
+   "text": "1.5 KM",
+   "word": "one and a half kilometers"
+  },
+  {
+   "type": "name",
+   "text": "LUX-ZEPLIN",
+   "x": 1420,
+   "y": 610,
+   "to": [
+    1420,
+    690
+   ],
+   "word": "LUX-ZEPLIN"
   }
  ],
- "labels": []
+ "motion": "path + camera tracking: the lift cage descends the old gold mine shaft and the camera follows it down and along the gallery to the detector"
 }

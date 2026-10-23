@@ -1,21 +1,26 @@
 {
- "centre": "low sun in the notch between two deep rift cliffs",
+ "centre": "a small shrew steps out of a damp burrow onto grey ash and walks into the dusk; another peeks from the burrow; a white flag lies unused",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "deepens",
-   "vol": 0.65
+   "name": "rustle",
+   "word": "stepped out",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Rift Valley",
-   "x": 960,
-   "y": 200,
-   "word": "Rift Valley"
+   "type": "say",
+   "text": "Brr... let's go!",
+   "x": 1300,
+   "y": 450,
+   "to": [
+    1350,
+    600
+   ],
+   "word": "stepped out"
   }
- ]
+ ],
+ "motion": "mammals stepped out from burrows: the shrew walks out of the burrow across the ash with stepping legs (mv-path + mv-joint legs, 0.5-4.0 s), camera follows; little footprints flow behind (mv-dash)"
 }

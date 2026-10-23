@@ -1,21 +1,23 @@
 {
- "centre": "glowing brain under a glass dome on a pedestal",
+ "centre": "glowing brain on a cushion in a museum glass case with a blank price tag swinging",
  "focus": [
-  540,
-  860,
-  1.6
+  560,
+  920,
+  1.5
  ],
- "focus_word": "very expensive organ",
- "sfx": [],
+ "focus_word": "expensive organ",
  "labels": [
   {
-   "type": "num",
-   "text": "20% OF RESTING ENERGY",
-   "word": "twenty percent"
+   "type": "say",
+   "text": "Afford it?",
+   "x": 280,
+   "y": 820,
+   "to": [
+    235,
+    990
+   ],
+   "word": "afford"
   }
  ],
- "iris": [
-  300,
-  1260
- ]
+ "motion": "swing: a blank price tag sways on the precious brain's case (an expensive organ); the ancestor looks up"
 }

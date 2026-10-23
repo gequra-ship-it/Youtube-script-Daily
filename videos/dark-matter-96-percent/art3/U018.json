@@ -1,24 +1,26 @@
 {
- "centre": "round glass flask filled with blue-indigo haze, a thin layer of gold grains at its bottom",
- "focus": [
-  960,
-  560,
-  1.8
- ],
- "focus_word": "just under five percent",
+ "centre": "a tilted spiral galaxy wrapped in a faint coral halo of hot gas; one gas puff drifts around it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "just under five percent",
-   "vol": 0.6
+   "name": "glimmer",
+   "word": "drifting",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "JUST UNDER 5%",
-   "word": "just under five percent"
+   "type": "name",
+   "text": "hot gas",
+   "x": 640,
+   "y": 250,
+   "to": [
+    560,
+    420
+   ],
+   "word": "hot gas"
   }
  ],
- "spot": true
+ "motion": "path + track: a faint puff of hot gas drifts around the galaxy through its halo, the camera follows it"
 }

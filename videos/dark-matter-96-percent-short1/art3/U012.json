@@ -1,41 +1,26 @@
 {
- "centre": "large faint blue haze of dark matter dwarfing five small gold spheres, three struck-out particles below",
+ "centre": "a radio dish watches a distant exploding star while a galaxy appears farther and farther apart with growing gaps",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "bloom",
+   "word": "exploding stars",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Protons",
-   "x": 250,
-   "y": 1300,
+   "type": "say",
+   "text": "Speeding up!",
+   "x": 470,
+   "y": 1150,
    "to": [
-    250,
+    330,
     1200
    ],
-   "word": "protons"
-  },
-  {
-   "type": "name",
-   "text": "Neutrons",
-   "x": 540,
-   "y": 1300,
-   "to": [
-    540,
-    1205
-   ],
-   "word": "neutrons"
-  },
-  {
-   "type": "name",
-   "text": "Electrons",
-   "x": 830,
-   "y": 1300,
-   "to": [
-    830,
-    1195
-   ],
-   "word": "electrons"
+   "word": "speeding up"
   }
- ]
+ ],
+ "motion": "popin series: the exploding star flashes, then a galaxy appears at five moments with ever wider gaps, showing the expansion speeding up"
 }

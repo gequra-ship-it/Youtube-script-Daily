@@ -1,25 +1,19 @@
 {
- "centre": "glowing eye of a stalking cat peering through night grass",
+ "centre": "firelit face of a storyteller speaking to the group",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "rustle",
-   "word": "stealthy",
-   "vol": 0.55
-  }
- ],
  "labels": [
   {
-   "type": "name",
-   "text": "Flexible spines",
-   "x": 1400,
-   "y": 230,
+   "type": "say",
+   "text": "Listen closely...",
+   "x": 1300,
+   "y": 300,
    "to": [
-    1420,
-    360
+    985,
+    548
    ],
-   "word": "flexible spines"
+   "word": "communicating"
   }
- ]
+ ],
+ "motion": "camera pushes slowly in toward the speaking storyteller among the listeners"
 }

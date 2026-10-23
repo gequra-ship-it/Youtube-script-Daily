@@ -1,29 +1,23 @@
 {
- "centre": "living chambered nautilus swimming in a museum aquarium tank",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "nautilus",
- "sfx": [
-  {
-   "name": "bubble",
-   "word": "nautilus",
-   "vol": 0.5
-  }
- ],
+ "centre": "a cliff of rock layers cut by dark crisis bands, with ammonite fossils in every layer and a living ammonite at the top",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Nautilus",
-   "x": 1380,
-   "y": 330,
+   "type": "say",
+   "text": "Not so fragile!",
+   "x": 1440,
+   "y": 130,
    "to": [
-    1080,
-    470
+    1218,
+    226
    ],
-   "word": "nautilus"
+   "word": "fragile"
   }
- ]
+ ],
+ "track": {
+  "scale": 1.5
+ },
+ "motion": "camera climbs up the rock layers through three crisis bands, past fossils in every layer, to the living ammonite (mv-track)"
 }

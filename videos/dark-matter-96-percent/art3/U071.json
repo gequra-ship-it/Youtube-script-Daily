@@ -1,13 +1,24 @@
 {
- "centre": "bright gold sphere where three different instruments' views of galaxies meet",
+ "centre": "a soft blue dark-matter haze orb, joined one by one by four more and a slice, dwarfing a single small gold sphere of ordinary matter",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "click",
-   "word": "same answer",
-   "vol": 0.6
+   "type": "num",
+   "text": "27%",
+   "word": "twenty-seven percent"
+  },
+  {
+   "type": "say",
+   "text": "I feel tiny!",
+   "x": 330,
+   "y": 300,
+   "to": [
+    330,
+    440
+   ],
+   "word": "dwarfing"
   }
  ],
- "labels": []
+ "motion": "more than five times: dark-matter orbs pop in one after another until five and a bit stand beside the one gold sphere (mv-popin x5, centre orb mv-core-swell)"
 }

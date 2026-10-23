@@ -1,23 +1,30 @@
 {
- "centre": "tossed coin, half land and half water",
- "focus": [
-  320,
-  720,
-  1.6
- ],
- "focus_word": "predators",
- "sfx": [],
+ "centre": "whale-like ear bone in a round medallion",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Predators",
-   "x": 470,
-   "y": 590,
+   "text": "Ear bones",
+   "x": 720,
+   "y": 720,
    "to": [
-    380,
-    690
+    610,
+    820
    ],
-   "word": "predators"
+   "word": "ear bones"
+  },
+  {
+   "type": "name",
+   "text": "Four legs",
+   "x": 330,
+   "y": 640,
+   "to": [
+    515,
+    555
+   ],
+   "word": "four legs"
   }
- ]
+ ],
+ "motion": "path + tracking: a red marker runs along the dotted line from the walker ear down to the whale ear (the ear bones already resemble a whale)"
 }

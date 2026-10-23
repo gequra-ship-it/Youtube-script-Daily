@@ -1,25 +1,16 @@
 {
- "centre": "blowhole on a whale's back with a puff of mist, seen from above",
+ "centre": "majestic whale rising through moonlit water while a small clumsy paddler splashes at the surface",
  "focus": null,
  "focus_word": null,
+ "track": {
+  "scale": 1.2
+ },
  "sfx": [
   {
-   "name": "hush",
-   "word": "blowhole",
-   "vol": 0.55
+   "name": "breath",
+   "word": "quiet moment",
+   "vol": 0.5
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Blowhole",
-   "x": 790,
-   "y": 640,
-   "to": [
-    590,
-    850
-   ],
-   "word": "blowhole"
-  }
- ]
+ "motion": "path + track: the whale glides up from the deep toward the moonlit surface (the transformation); joint: the clumsy paddler's legs paddle"
 }

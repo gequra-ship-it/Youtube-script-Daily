@@ -1,19 +1,37 @@
 {
- "centre": "dark round asteroid beside a mountain and city for scale",
+ "centre": "nutshell bowl heaped with seeds",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pencil",
-   "word": "roughly",
-   "vol": 0.55
+   "name": "rustle",
+   "word": "seeds",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "10 KM WIDE",
-   "word": "ten kilometers"
+   "type": "name",
+   "text": "Grubs",
+   "x": 360,
+   "y": 790,
+   "to": [
+    690,
+    760
+   ],
+   "word": "grubs"
+  },
+  {
+   "type": "say",
+   "text": "Enough for us!",
+   "x": 330,
+   "y": 420,
+   "to": [
+    625,
+    580
+   ],
+   "word": "enough"
   }
- ]
+ ],
+ "motion": "food for a family: a buried grub wriggles across the burrow floor (mv-path), mother bubble"
 }

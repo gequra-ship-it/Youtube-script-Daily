@@ -1,11 +1,19 @@
 {
- "centre": "plump slow golden fish under the water",
- "focus": [
-  1520,
-  150,
-  1.8
+ "centre": "a small dog-sized early horse with several toes walking across a woodland floor under a faint outline of a modern horse",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hello up there!",
+   "x": 1120,
+   "y": 470,
+   "to": [
+    1350,
+    640
+   ],
+   "word": "small dog"
+  }
  ],
- "focus_word": "terrestrial predators",
- "sfx": [],
- "labels": []
+ "motion": "path + tracking: the little early horse trots under the big horse outline, legs stepping; camera follows"
 }

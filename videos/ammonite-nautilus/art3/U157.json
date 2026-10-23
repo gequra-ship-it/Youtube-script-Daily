@@ -1,23 +1,31 @@
 {
- "centre": "a brass energy gauge with its needle near empty",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "growth stages of a nautilus from tiny hatchling to adult along a slow progress bar, a wall clock spinning through the years",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "years",
+   "vol": 0.5
+  }
  ],
- "focus_word": "energy needs",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "food",
-   "x": 1230,
-   "y": 330,
+   "type": "num",
+   "text": "MORE THAN A DECADE",
+   "word": "decade"
+  },
+  {
+   "type": "say",
+   "text": "Still growing...",
+   "x": 330,
+   "y": 470,
    "to": [
-    1330,
-    400
+    320,
+    640
    ],
-   "word": "food"
+   "word": "slowly"
   }
- ]
+ ],
+ "motion": "fill (x) + rotor: a slow growth bar crawls from hatchling to adult while the clock hand spins through the years"
 }

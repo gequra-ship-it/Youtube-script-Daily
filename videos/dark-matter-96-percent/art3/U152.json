@@ -1,13 +1,42 @@
 {
- "centre": "dense dark-matter clump (blue haze) pulling gold gas inward",
+ "centre": "three glass columns on a dark plane: a thin gold layer, a blue haze filling about a quarter, teal light filling about two thirds",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pulse",
-   "word": "gravity",
+   "name": "bloom",
+   "word": "overwhelming",
    "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "27% AND 68%",
+   "word": "twenty-seven percent"
+  },
+  {
+   "type": "name",
+   "text": "dark matter",
+   "x": 960,
+   "y": 170,
+   "to": [
+    960,
+    240
+   ],
+   "word": "Dark matter"
+  },
+  {
+   "type": "name",
+   "text": "dark energy",
+   "x": 1500,
+   "y": 140,
+   "to": [
+    1400,
+    236
+   ],
+   "word": "dark energy"
+  }
+ ],
+ "motion": "grow: the blue column rises to twenty-seven percent, then the teal column rises much higher to sixty-eight percent"
 }

@@ -1,13 +1,26 @@
 {
- "centre": "dim sun behind dark layered veil over a cold frosty landscape, thermometer low",
+ "centre": "a squid, a cuttlefish and an octopus swim together out of a rubble field of empty shells into open bright water",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "colder",
+   "name": "bubble",
+   "word": "survive",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "We made it!",
+   "x": 1000,
+   "y": 200,
+   "to": [
+    1170,
+    290
+   ],
+   "word": "survive"
+  }
+ ],
+ "motion": "path + track: the three soft-bodied relatives leave the empty-shell rubble and swim up into open water (they survived)"
 }

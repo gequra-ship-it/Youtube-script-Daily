@@ -1,19 +1,26 @@
 {
- "centre": "nautilus hovering beside a steep coral reef slope",
+ "centre": "bronze ammonite swimming in bright sunlit water",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "sunlit",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "coral reefs",
-   "x": 380,
-   "y": 330,
+   "text": "Ammonites",
+   "x": 760,
+   "y": 1040,
    "to": [
-    160,
-    430
+    600,
+    930
    ],
-   "word": "coral reefs"
+   "word": "ammonites"
   }
- ]
+ ],
+ "motion": "more ammonites pop into the sunlit water one after another (many of them lived there)"
 }

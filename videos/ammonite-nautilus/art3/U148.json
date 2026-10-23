@@ -1,11 +1,26 @@
 {
- "centre": "small copepod animal with hungry fish above it and faded plankton below",
- "focus": [
-  950,
-  500,
-  1.7
+ "centre": "a row of shelled cephalopods on a twilight shelf topple one by one; only the nautilus is left upright at the end",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "few",
+   "vol": 0.5
+  }
  ],
- "focus_word": "Small animals",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Just lucky, I guess.",
+   "x": 1430,
+   "y": 330,
+   "to": [
+    1560,
+    560
+   ],
+   "word": "simply"
+  }
+ ],
+ "motion": "topple x5 (camera pans along): the other shelled lineages fall one after another, the nautilus is one of the few left"
 }

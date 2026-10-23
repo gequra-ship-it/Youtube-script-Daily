@@ -1,23 +1,17 @@
 {
- "centre": "glowing pink brain with warm amber light",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "hungry brain",
- "sfx": [],
- "labels": [
+ "centre": "glowing stone hand-axe held up in a modern open hand",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "name",
-   "text": "Brain",
-   "x": 400,
-   "y": 650,
-   "to": [
-    460,
-    820
-   ],
-   "word": "brain"
+   "name": "stone",
+   "word": "stone-wielding",
+   "vol": 0.6
   }
- ]
+ ],
+ "iris": [
+  515,
+  610
+ ],
+ "motion": "tracking camera slides from the walking survivors down to the hand holding the stone (legacy handed down)"
 }

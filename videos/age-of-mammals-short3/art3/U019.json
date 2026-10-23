@@ -1,25 +1,22 @@
 {
- "centre": "glowing streamlined water drop with current lines sliding around it",
+ "centre": "glowing dot twisting from a whale card past sea creatures down to a hippo",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "swish",
-   "word": "streamlined shape",
-   "vol": 0.55
-  }
- ],
+ "track": {
+  "scale": 1.2
+ },
  "labels": [
   {
-   "type": "name",
-   "text": "Land runner",
-   "x": 300,
-   "y": 1130,
+   "type": "say",
+   "text": "Hello, cousin!",
+   "x": 800,
+   "y": 1080,
    "to": [
-    470,
-    1240
+    700,
+    1210
    ],
-   "word": "land runner"
+   "word": "hippopotamuses"
   }
- ]
+ ],
+ "motion": "path + track: the link from the whale skips the sea creatures with a twist and lands on the hippo"
 }

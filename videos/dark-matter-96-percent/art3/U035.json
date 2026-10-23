@@ -1,19 +1,18 @@
 {
- "centre": "a giant elliptical galaxy glowing at the heart of a swarm of galaxies",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "centre": "a spiral galaxy of visible matter: an inner star laps the centre fast while an outer star creeps slowly",
+ "focus": [
+  1222,
+  493,
+  1.6
+ ],
+ "focus_word": "outskirts",
+ "track": false,
+ "sfx": [
   {
-   "type": "name",
-   "text": "galaxies",
-   "x": 1520,
-   "y": 470,
-   "to": [
-    1420,
-    590
-   ],
-   "word": "galaxies"
+   "name": "glimmer",
+   "word": "outskirts",
+   "vol": 0.5
   }
- ]
+ ],
+ "motion": "path: an inner star races a full lap while an outer star only creeps, the solar-system pattern applied to a galaxy; the camera then pushes into the slow outskirts"
 }

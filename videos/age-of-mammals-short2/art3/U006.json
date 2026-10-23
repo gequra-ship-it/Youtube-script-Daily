@@ -1,36 +1,26 @@
 {
- "centre": "round patch of woodland seen from above, light in its middle",
+ "centre": "worried face of an ancestor crouched on all fours in tall grass",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
    "name": "rustle",
-   "word": "woodland",
-   "vol": 0.5
+   "word": "tall grass",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Woodland",
-   "x": 250,
-   "y": 440,
+   "type": "say",
+   "text": "Can't see!",
+   "x": 350,
+   "y": 720,
    "to": [
-    225,
-    590
+    520,
+    830
    ],
-   "word": "woodland"
-  },
-  {
-   "type": "name",
-   "text": "Savannah",
-   "x": 760,
-   "y": 1290,
-   "to": [
-    700,
-    1170
-   ],
-   "word": "savannah"
+   "word": "blind"
   }
- ]
+ ],
+ "motion": "tracking camera creeps through the tall grass from the crawling ancestor toward the unseen lion; ancestor says Cant see!"
 }

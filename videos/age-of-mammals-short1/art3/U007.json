@@ -1,33 +1,41 @@
 {
- "centre": "small globe with grass-green patches spreading over its continents",
+ "centre": "glowing glass flask holding grass blades with glittering silica crystals",
  "focus": [
   540,
   860,
   1.7
  ],
- "focus_word": "grassland",
+ "focus_word": "silica",
  "sfx": [
   {
    "name": "hush",
-   "word": "new kind",
+   "word": "defense",
    "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Grassland",
-   "x": 660,
-   "y": 690,
+   "text": "Silica",
+   "x": 400,
+   "y": 740,
    "to": [
-    590,
-    800
+    480,
+    840
    ],
-   "word": "grassland"
+   "word": "silica"
+  },
+  {
+   "type": "say",
+   "text": "Tiny glass!",
+   "x": 700,
+   "y": 1000,
+   "to": [
+    595,
+    945
+   ],
+   "word": "glass"
   }
  ],
- "iris": [
-  540,
-  860
- ]
+ "motion": "popin: glass crystals pop up one by one around the flask (silica particles); flask says Tiny glass!"
 }

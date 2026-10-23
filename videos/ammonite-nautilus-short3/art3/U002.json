@@ -1,18 +1,37 @@
 {
- "centre": "nautilus hugging the dark edge of the reef",
- "focus": [
-  410,
-  1190,
-  1.7
- ],
- "focus_word": "ate scraps",
+ "centre": "nautilus sheltering under a rock overhang while an asteroid streaks far above",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "drip",
-   "word": "scraps",
+   "name": "hush",
+   "word": "survived",
    "vol": 0.5
   }
  ],
- "labels": [],
- "spot": true
+ "labels": [
+  {
+   "type": "name",
+   "text": "Asteroid",
+   "x": 640,
+   "y": 330,
+   "to": [
+    810,
+    230
+   ],
+   "word": "asteroid"
+  },
+  {
+   "type": "say",
+   "text": "Phew, safe!",
+   "x": 740,
+   "y": 1010,
+   "to": [
+    480,
+    890
+   ],
+   "word": "survived"
+  }
+ ],
+ "motion": "the asteroid streaks down the sky far above while the nautilus shelters; camera follows it; nautilus speaks"
 }

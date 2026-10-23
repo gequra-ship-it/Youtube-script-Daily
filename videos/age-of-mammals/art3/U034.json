@@ -1,15 +1,24 @@
 {
- "centre": "small shrew glowing with warmth on frosty ground",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "dim predator's tired amber eye, heavy lid",
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "collapse",
+   "vol": 0.6
+  }
  ],
- "focus_word": "small animal",
- "sfx": [],
- "labels": [],
- "iris": [
-  1470,
-  650
- ]
+ "labels": [
+  {
+   "type": "say",
+   "text": "So hungry...",
+   "x": 330,
+   "y": 330,
+   "to": [
+    640,
+    545
+   ],
+   "word": "food"
+  }
+ ],
+ "motion": "collapse: camera sinks down over the starving predator (mv-track), predator bubble"
 }

@@ -1,23 +1,30 @@
 {
- "centre": "spiral emblem half bronze half cream where two separate lineages meet",
+ "centre": "round lens with intricate fractal-like folded chamber walls, beside an ammonite",
  "focus": [
   960,
   500,
   1.8
  ],
- "focus_word": "matching spirals",
- "sfx": [],
+ "focus_word": "elaborate, fractal-like folds",
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "elaborate",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Convergent evolution",
-   "x": 960,
-   "y": 665,
+   "text": "Ammonites",
+   "x": 1250,
+   "y": 330,
    "to": [
-    960,
-    615
+    1440,
+    450
    ],
-   "word": "convergent evolution"
+   "word": "Ammonites"
   }
- ]
+ ],
+ "motion": "fractal-like folds: the wall folds draw themselves on (mv-edge) while dashed arrows march outward (mv-dash)"
 }

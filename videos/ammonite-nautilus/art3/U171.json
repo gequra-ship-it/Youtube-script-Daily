@@ -1,25 +1,19 @@
 {
- "centre": "a clump of marine snow made of dead plankton sinking",
+ "centre": "a spotlight on bright ammonites in mid-water; below in the dark margin a small nautilus creeps toward a fish scrap",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "rain",
-   "word": "marine snow",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
-   "type": "name",
-   "text": "marine snow",
-   "x": 1240,
-   "y": 760,
+   "type": "say",
+   "text": "Leftovers again.",
+   "x": 1620,
+   "y": 620,
    "to": [
-    1030,
-    580
+    1500,
+    740
    ],
-   "word": "marine snow"
+   "word": "scraps"
   }
- ]
+ ],
+ "motion": "path + track: away from the spotlight, the nautilus slowly creeps along the dark margin to the scraps"
 }

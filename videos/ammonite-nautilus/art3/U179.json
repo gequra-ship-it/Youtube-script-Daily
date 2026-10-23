@@ -1,34 +1,23 @@
 {
- "centre": "cutaway nautilus egg: thick capsule wall around a big glowing yolk",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "a long rock-time strip with five dark breaks; a broken sign pops up over each, the last an ammonite",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "five major",
+   "vol": 0.5
+  }
  ],
- "focus_word": "plenty of yolk",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Protective capsule",
-   "x": 640,
-   "y": 330,
-   "to": [
-    838,
-    440
-   ],
-   "word": "thick protective capsules"
-  },
-  {
-   "type": "name",
-   "text": "Yolk",
-   "x": 1240,
-   "y": 380,
-   "to": [
-    990,
-    500
-   ],
-   "word": "yolk"
+   "type": "num",
+   "text": "5 MASS EXTINCTIONS",
+   "word": "five major"
   }
- ]
+ ],
+ "track": {
+  "scale": 1.35
+ },
+ "motion": "popin x5 + track: the camera scans along the time strip and a sign pops up at each of the five breaks (five mass extinctions)"
 }

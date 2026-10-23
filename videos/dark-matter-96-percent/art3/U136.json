@@ -1,29 +1,27 @@
 {
- "centre": "tall glowing pale tank of liquid in a cavern deep underground",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "detectors",
+ "centre": "a drop of ink falling from a pipette into a bathtub that then stretches wider",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
  "sfx": [
   {
-   "name": "stone",
-   "word": "deep underground",
+   "name": "drip",
+   "word": "drop of ink",
    "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Detectors",
-   "x": 1400,
-   "y": 470,
+   "type": "say",
+   "text": "Here I go!",
+   "x": 1230,
+   "y": 230,
    "to": [
-    1062,
-    480
+    985,
+    262
    ],
-   "word": "detectors"
+   "word": "Think"
   }
- ]
+ ],
+ "motion": "path + rise + fill x: the ink drop falls into the water, the ink spreads in, then the bathtub keeps growing wider"
 }

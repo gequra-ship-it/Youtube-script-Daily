@@ -1,19 +1,27 @@
 {
- "centre": "nautilus drifting in dark water, away from the sunlit corner",
+ "centre": "a nautilus drawing water in, squeezing a jet out of its funnel and moving the other way",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "squeeze it out",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "nautilus",
-   "x": 1300,
-   "y": 330,
+   "text": "funnel",
+   "x": 600,
+   "y": 760,
    "to": [
-    1040,
-    440
+    871.8,
+    582.3
    ],
-   "word": "nautilus"
+   "word": "funnel"
   }
  ],
- "focus": null,
- "focus_word": null,
- "sfx": []
+ "motion": "jet propulsion in order: water flows in (dash), a jet bursts out of the funnel (popin), the animal glides the other way (path) under a drawn arrow (edge); no camera tracking",
+ "track": false
 }

@@ -1,19 +1,31 @@
 {
- "centre": "nautilus resting in the twilight zone below fading disturbance",
+ "centre": "a customs desk: a permit is stamped, the barrier arm lifts, and a dashed export route runs from a crate of nautilus shells to a cargo ship",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "effect",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
+   "type": "num",
+   "text": "2017",
+   "word": "2017"
+  },
+  {
    "type": "name",
-   "text": "twilight zone",
-   "x": 1400,
-   "y": 470,
+   "text": "permits",
+   "x": 440,
+   "y": 250,
    "to": [
-    1090,
-    500
+    430,
+    360
    ],
-   "word": "twilight zone"
+   "word": "permits"
   }
- ]
+ ],
+ "motion": "slam + flip + dash + track: the rule takes effect (stamp), the barrier lifts, and the camera follows the export route that now needs permits"
 }

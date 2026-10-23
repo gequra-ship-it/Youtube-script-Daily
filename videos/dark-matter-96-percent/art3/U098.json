@@ -1,23 +1,26 @@
 {
- "centre": "round brass magnifying glass between two framed maps: a coral hot-gas map and a blue mass-haze map on a desk",
- "focus": [
-  510,
-  510,
-  1.7
- ],
- "focus_word": "hot gas",
+ "centre": "a computer screen running a simulation: dark matter specks gather into knots, then invisible filaments link them into a web",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "page",
-   "word": "two maps",
-   "vol": 0.55
+   "name": "bloom",
+   "word": "Big Bang",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "2006",
-   "word": "2006"
+   "type": "name",
+   "text": "Filaments",
+   "x": 1150,
+   "y": 450,
+   "to": [
+    1140,
+    300
+   ],
+   "word": "filaments"
   }
- ]
+ ],
+ "motion": "popin + edge: haze knots pop up across the screen one after another, then filaments draw between them - the simulated web builds itself"
 }

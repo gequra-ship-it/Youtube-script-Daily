@@ -1,15 +1,37 @@
 {
- "centre": "a female ammonite releasing a long stream of tiny eggs",
- "focus": [
-  1350,
-  480,
-  1.6
+ "centre": "an adult ammonite just under a dusty, darkened surface",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "near the surface",
+   "vol": 0.5
+  }
  ],
- "focus_word": "very many of them",
- "iris": [
-  1400,
-  480
+ "labels": [
+  {
+   "type": "name",
+   "text": "Adult ammonites",
+   "x": 1240,
+   "y": 360,
+   "to": [
+    1010,
+    420
+   ],
+   "word": "Adult ammonites"
+  },
+  {
+   "type": "say",
+   "text": "Uh-oh.",
+   "x": 1310,
+   "y": 560,
+   "to": [
+    1090,
+    552
+   ],
+   "word": "problem"
+  }
  ],
- "sfx": [],
- "labels": []
+ "motion": "the smaller ammonites drift away (scroll) while the big adult worries (bubble)"
 }

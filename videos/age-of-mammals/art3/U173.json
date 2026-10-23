@@ -1,25 +1,30 @@
 {
- "centre": "golden island summit breaking the sea surface above a rising seabed ridge",
+ "centre": "sprouting seed in a hollow of dark soil",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "bubble",
-   "word": "rises",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Isthmus of Panama",
-   "x": 1380,
-   "y": 380,
+   "text": "Seeds",
+   "x": 1180,
+   "y": 330,
    "to": [
-    1060,
-    480
+    1010,
+    470
    ],
-   "word": "Isthmus of Panama"
+   "word": "seeds"
+  },
+  {
+   "type": "say",
+   "text": "Grow, little seed!",
+   "x": 560,
+   "y": 350,
+   "to": [
+    540,
+    500
+   ]
   }
- ]
+ ],
+ "motion": "the migrating herd moves off to the right while the tender stays and waters the seed (mv-path)",
+ "track": false
 }

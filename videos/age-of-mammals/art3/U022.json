@@ -1,28 +1,48 @@
 {
- "centre": "dinosaur egg in a twig nest",
+ "centre": "a night panorama: a warm palm, a bird and a mammal glowing with their own heat, and a lizard waiting on a cold rock for the rising sun",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "flutter",
+   "word": "birds",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "OVER 100 MILLION YEARS",
-   "word": "a hundred million"
+   "type": "name",
+   "text": "birds",
+   "x": 700,
+   "y": 250,
+   "to": [
+    790,
+    350
+   ],
+   "word": "birds"
   },
   {
    "type": "name",
-   "text": "Dinosaurs",
-   "x": 330,
-   "y": 230,
+   "text": "reptiles",
+   "x": 1280,
+   "y": 470,
    "to": [
-    545,
-    375
+    1480,
+    650
    ],
-   "word": "dinosaurs"
+   "word": "reptiles"
+  },
+  {
+   "type": "say",
+   "text": "Sun, please!",
+   "x": 1620,
+   "y": 470,
+   "to": [
+    1615,
+    660
+   ],
+   "word": "sun"
   }
  ],
- "iris": [
-  1500,
-  740
- ]
+ "motion": "comparing who makes their own heat: the camera pans from the warm palm past the glowing bird and mammal to the cold lizard (mv-track) while the sun it relies on rises (mv-rise)"
 }

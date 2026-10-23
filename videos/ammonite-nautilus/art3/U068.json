@@ -1,24 +1,34 @@
 {
- "centre": "nautilus inside the dim twilight band",
- "labels": [
+ "centre": "cutaway nautilus with gas-filled chambers, hovering at one depth",
+ "focus": [
+  935,
+  500,
+  1.7
+ ],
+ "focus_word": "gas-filled chambers",
+ "iris": [
+  1500,
+  520
+ ],
+ "sfx": [
   {
-   "type": "num",
-   "text": "200 TO 700 M",
-   "word": "two hundred"
-  },
-  {
-   "type": "name",
-   "text": "twilight zone",
-   "x": 1400,
-   "y": 330,
-   "to": [
-    1630,
-    400
-   ],
-   "word": "twilight zone"
+   "name": "bubble",
+   "word": "gas-filled",
+   "vol": 0.5
   }
  ],
- "focus": null,
- "focus_word": null,
- "sfx": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "gas-filled chambers",
+   "x": 700,
+   "y": 340,
+   "to": [
+    880,
+    450
+   ],
+   "word": "gas-filled chambers"
+  }
+ ],
+ "motion": "bubble: gas-filled chamber bubbles rise slowly while the nautilus hovers at one depth (hover with little effort)"
 }

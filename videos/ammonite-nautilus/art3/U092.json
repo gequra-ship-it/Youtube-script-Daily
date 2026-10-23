@@ -1,25 +1,26 @@
 {
- "centre": "mantle cavity squeezing water out through the funnel (diagram)",
- "focus": null,
- "focus_word": null,
+ "centre": "a young nautilus searching along a sandy sea floor past scraps, the plankton layer far above",
+ "motion": "path (camera tracks): the young nautilus travels along the sea floor finding scraps; the surface plankton drifts out of reach above",
  "sfx": [
   {
-   "name": "splash",
-   "word": "squeeze it out",
-   "vol": 0.5
+   "name": "step",
+   "word": "searching",
+   "vol": 0.45
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "funnel",
-   "x": 1430,
-   "y": 770,
+   "type": "say",
+   "text": "Found a snack!",
+   "x": 1250,
+   "y": 400,
    "to": [
-    1230,
-    630
+    1480,
+    570
    ],
-   "word": "funnel"
+   "word": "surface plankton"
   }
- ]
+ ],
+ "focus": null,
+ "focus_word": null
 }

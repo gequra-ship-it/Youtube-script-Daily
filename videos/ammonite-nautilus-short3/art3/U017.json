@@ -1,13 +1,35 @@
 {
- "centre": "dim sun behind bands of dust, soot and sulfur particles",
+ "centre": "nautilus gliding down to a sunken fish on the sea floor",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "wind",
-   "word": "blocked much of the sunlight",
-   "vol": 0.5
+   "type": "name",
+   "text": "nautilus",
+   "x": 480,
+   "y": 1040,
+   "to": [
+    600,
+    960
+   ],
+   "word": "nautilus"
+  },
+  {
+   "type": "say",
+   "text": "Feast time!",
+   "x": 790,
+   "y": 1130,
+   "to": [
+    620,
+    890
+   ],
+   "word": "feast"
   }
  ],
- "labels": []
+ "spot": true,
+ "iris": [
+  300,
+  1010
+ ],
+ "motion": "the sunken fish twitches as the scavenger arrives for the brief feast; nautilus speaks"
 }

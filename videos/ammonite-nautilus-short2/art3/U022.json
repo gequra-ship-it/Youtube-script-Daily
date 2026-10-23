@@ -1,18 +1,31 @@
 {
- "centre": "young nautilus close up, tentacles reaching forward",
- "focus": [
-  420,
-  930,
-  1.7
- ],
- "focus_word": "tentacles",
+ "centre": "a nautilus hatchling crossing the sea floor to scraps (a dead fish and a shed crab shell); a one-millimeter larva speck above",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "bubble",
-   "word": "swim",
-   "vol": 0.5
+   "name": "step",
+   "word": "sea floor",
+   "vol": 0.45
   }
  ],
- "labels": [],
- "spot": true
+ "labels": [
+  {
+   "type": "num",
+   "text": "1 MM",
+   "word": "one-millimeter"
+  },
+  {
+   "type": "say",
+   "text": "Food!",
+   "x": 500,
+   "y": 740,
+   "to": [
+    700,
+    905
+   ],
+   "word": "food"
+  }
+ ],
+ "motion": "path: the hatchling travels along the sea floor to the scraps (look for scraps on the sea floor); camera tracks it"
 }

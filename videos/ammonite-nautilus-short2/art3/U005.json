@@ -1,13 +1,26 @@
 {
- "centre": "jelly-like ball of countless tiny ammonite eggs",
+ "centre": "a tiny ammonite hatchling carried by a dashed ocean current up to the surface",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "counted",
+   "name": "swish",
+   "word": "ocean currents",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Plankton",
+   "x": 470,
+   "y": 580,
+   "to": [
+    640,
+    490
+   ],
+   "word": "plankton"
+  }
+ ],
+ "motion": "path: the hatchling is swept along the current from the depths up to the surface (could not swim against it, drifted near the surface); camera tracks it; dash: the current lines flow"
 }

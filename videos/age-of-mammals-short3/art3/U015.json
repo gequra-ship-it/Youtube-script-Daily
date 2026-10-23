@@ -1,28 +1,41 @@
 {
- "centre": "round fossil tray holding a small long-snouted skull",
+ "centre": "big early-whale skull; the nostril opening slides from the snout tip up to the top of the skull and becomes a blowhole",
  "focus": [
-  540,
-  860,
-  1.7
+  600,
+  800,
+  1.5
  ],
- "focus_word": "fossils",
- "sfx": [],
+ "focus_word": "nostrils",
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "blowhole",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "50 MILLION YEARS OLD",
-   "word": "fifty million"
+   "type": "name",
+   "text": "Nostrils",
+   "x": 760,
+   "y": 1060,
+   "to": [
+    858,
+    885
+   ],
+   "word": "nostrils"
   },
   {
    "type": "name",
-   "text": "Fossils",
-   "x": 720,
-   "y": 710,
+   "text": "blowhole",
+   "x": 560,
+   "y": 620,
    "to": [
-    610,
-    820
+    450,
+    685
    ],
-   "word": "fossils"
+   "word": "blowhole"
   }
- ]
+ ],
+ "motion": "path (no tracking): the nostril migrates along the skull from the snout tip to the top; bubble: once there it sprays like a blowhole"
 }

@@ -1,30 +1,37 @@
 {
- "centre": "an empty-looking museum bell jar holding only a faint blue haze",
+ "centre": "a toy pinwheel turning in the grass, the camera rises to a big slowly turning spiral galaxy",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "spiral galaxies",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "dark matter",
-   "x": 700,
-   "y": 290,
+   "type": "say",
+   "text": "Spin, spin!",
+   "x": 600,
+   "y": 440,
    "to": [
-    900,
-    470
+    470,
+    548
    ],
-   "word": "dark matter"
+   "word": "familiar place"
   },
   {
    "type": "name",
-   "text": "dark energy",
-   "x": 1500,
-   "y": 290,
+   "text": "spiral galaxies",
+   "x": 1300,
+   "y": 745,
    "to": [
-    1500,
-    420
+    1330,
+    650
    ],
-   "word": "dark energy"
+   "word": "spiral galaxies"
   }
- ]
+ ],
+ "motion": "track + rotor: from a familiar spinning pinwheel the camera travels up to a slowly spinning spiral galaxy (pinwheel and galaxy arms both turn)"
 }

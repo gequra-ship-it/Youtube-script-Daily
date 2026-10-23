@@ -1,28 +1,30 @@
 {
- "centre": "split stone nodule with a curled fossil of an early mammal",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "twig snapping in a pool of moonlight",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "snapping twig",
+   "vol": 0.6
+  }
  ],
- "focus_word": "first mammals",
- "sfx": [],
+ "iris": [
+  440,
+  700
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "200 MILLION YEARS AGO",
-   "word": "two hundred million"
-  },
-  {
-   "type": "name",
-   "text": "First mammal",
-   "x": 1280,
-   "y": 350,
+   "type": "say",
+   "text": "Shh, what was that?",
+   "x": 700,
+   "y": 590,
    "to": [
-    1050,
-    470
+    510,
+    725
    ],
-   "word": "first mammals"
+   "word": "twig"
   }
- ]
+ ],
+ "motion": "listening in the dark: camera creeps from the shrew toward the snapping twig (mv-track), shrew bubble"
 }

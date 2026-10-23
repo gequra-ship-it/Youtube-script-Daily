@@ -1,29 +1,32 @@
 {
- "centre": "glowing snowflake between a frozen leaf and a frilly suture pattern",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "snowflakes",
- "sfx": [
-  {
-   "name": "hush",
-   "word": "frozen leaves",
-   "vol": 0.45
-  }
- ],
+ "centre": "three ammonites with different shell shapes swimming in lanes: the slim one far ahead, the bulky one slow",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Snowflake",
-   "x": 1160,
-   "y": 330,
+   "type": "say",
+   "text": "Slow and steady!",
+   "x": 800,
+   "y": 790,
    "to": [
-    1040,
-    430
+    520,
+    745
    ],
-   "word": "snowflakes"
+   "word": "rounded"
+  },
+  {
+   "type": "say",
+   "text": "Wheee!",
+   "x": 1480,
+   "y": 190,
+   "to": [
+    1450,
+    300
+   ],
+   "word": "swimming styles"
   }
- ]
+ ],
+ "motion": "different swimming styles: three shells race along their lanes at different speeds in the same time (three paths, no camera tracking)",
+ "track": false
 }

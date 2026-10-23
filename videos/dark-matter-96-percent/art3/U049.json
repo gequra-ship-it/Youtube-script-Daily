@@ -1,28 +1,26 @@
 {
- "centre": "dim deep-blue Neptune, lonely in the dark far from a tiny distant Sun",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "a small glowing galaxy while a vast faint blue haze swells outward far beyond its stars, pale threads drawing on",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "extended well beyond",
+   "vol": 0.5
+  }
  ],
- "focus_word": "Neptune",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Neptune",
-   "x": 1290,
-   "y": 330,
+   "text": "glowing stars",
+   "x": 1200,
+   "y": 700,
    "to": [
     1050,
-    450
+    520
    ],
-   "word": "Neptune"
-  },
-  {
-   "type": "num",
-   "text": "UNDER 6 KM/S",
-   "word": "less than six"
+   "word": "glowing stars"
   }
- ]
+ ],
+ "motion": "grow + edge: whatever holds the galaxy is revealed as a faint blue haze that swells from the glowing disk to far beyond it, then pale threads draw on inside it"
 }

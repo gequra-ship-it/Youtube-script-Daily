@@ -1,35 +1,37 @@
 {
- "centre": "cutaway nautilus egg with a golden yolk and a curled embryo",
- "focus": [
-  540,
-  890,
-  1.7
+ "centre": "shed crab shell lying on the sea floor between two nautiluses",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "sea floor",
+   "vol": 0.5
+  }
  ],
- "focus_word": "yolk",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Yolk",
-   "x": 760,
-   "y": 1080,
+   "text": "Scraps",
+   "x": 540,
+   "y": 1110,
    "to": [
-    600,
-    940
+    540,
+    930
    ],
-   "word": "yolk"
+   "word": "scraps"
   },
   {
-   "type": "name",
-   "text": "Embryo",
-   "x": 300,
-   "y": 700,
+   "type": "say",
+   "text": "Yum, scraps!",
+   "x": 240,
+   "y": 1010,
    "to": [
-    500,
-    800
+    250,
+    850
    ],
-   "word": "embryo"
+   "word": "scraps"
   }
  ],
- "spot": true
+ "motion": "the young nautilus swims down along the sea floor toward the scraps; camera follows; young speaks"
 }

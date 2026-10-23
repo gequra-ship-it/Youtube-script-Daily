@@ -30,7 +30,7 @@
   "dur": 8.44,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "Everything humanity has ever studied, from the smallest atom to the most colossal galaxy,"
+  "nxt": "Everything humanity has ever studied, from the smallest atom to the most colossal galaxy, accounts for only about five percent."
  },
  {
   "uid": "U002",
@@ -59,44 +59,44 @@
     "#c9d4ff"
    ]
   },
-  "text": "Everything humanity has ever studied, from the smallest atom to the most colossal galaxy,",
-  "dur": 4.52,
+  "text": "Everything humanity has ever studied, from the smallest atom to the most colossal galaxy, accounts for only about five percent.",
+  "dur": 9.02,
   "transition_in": "iris",
   "prev": "Did you know that every star, planet, and galaxy you can see in the night sky makes up just under five percent of the cosmos?",
-  "nxt": "accounts for only about five percent."
+  "nxt": ""
  },
  {
   "uid": "U003",
-  "scene": 1,
-  "title": "Hook",
-  "art_theme": "hook",
-  "bg": "dusk",
+  "scene": 2,
+  "title": "A Sliver of Starlight",
+  "art_theme": "s2",
+  "bg": "night",
   "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
    "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
    ],
-   "dusk_ink": "#151a2e",
+   "dusk_ink": "#12182c",
    "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
    ]
   },
-  "text": "accounts for only about five percent.",
-  "dur": 4.5,
-  "transition_in": "match",
-  "prev": "Everything humanity has ever studied, from the smallest atom to the most colossal galaxy,",
-  "nxt": ""
+  "text": "Here is an even stranger twist. Even inside that five percent, the stars we love to photograph are only a sliver.",
+  "dur": 7.43,
+  "transition_in": "zoom",
+  "prev": "",
+  "nxt": "When astronomers add up all the starlight in the cosmos, they find that stars hold well under one percent of the total."
  },
  {
   "uid": "U004",
@@ -125,11 +125,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "Here is an even stranger twist.",
-  "dur": 4.5,
+  "text": "When astronomers add up all the starlight in the cosmos, they find that stars hold well under one percent of the total.",
+  "dur": 7.43,
   "transition_in": "eye",
-  "prev": "",
-  "nxt": "Even inside that five percent, the stars we love to photograph are only a sliver."
+  "prev": "Here is an even stranger twist. Even inside that five percent, the stars we love to photograph are only a sliver.",
+  "nxt": "Most ordinary matter is thin, hot gas, far too faint to see with the naked eye."
  },
  {
   "uid": "U005",
@@ -158,80 +158,14 @@
     "#ff7a5a"
    ]
   },
-  "text": "Even inside that five percent, the stars we love to photograph are only a sliver.",
-  "dur": 4.5,
-  "transition_in": "zoom",
-  "prev": "Here is an even stranger twist.",
-  "nxt": "When astronomers add up all the starlight in the cosmos, they find that stars hold well under one percent of the total."
- },
- {
-  "uid": "U006",
-  "scene": 2,
-  "title": "A Sliver of Starlight",
-  "art_theme": "s2",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "When astronomers add up all the starlight in the cosmos, they find that stars hold well under one percent of the total.",
-  "dur": 6.88,
-  "transition_in": "fade",
-  "prev": "Even inside that five percent, the stars we love to photograph are only a sliver.",
-  "nxt": "Most ordinary matter is thin, hot gas, far too faint to see with the naked eye."
- },
- {
-  "uid": "U007",
-  "scene": 2,
-  "title": "A Sliver of Starlight",
-  "art_theme": "s2",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
   "text": "Most ordinary matter is thin, hot gas, far too faint to see with the naked eye.",
-  "dur": 6.4,
-  "transition_in": "iris",
+  "dur": 7.43,
+  "transition_in": "fade",
   "prev": "When astronomers add up all the starlight in the cosmos, they find that stars hold well under one percent of the total.",
   "nxt": ""
  },
  {
-  "uid": "U008",
+  "uid": "U006",
   "scene": 3,
   "title": "One Hundred Pieces",
   "art_theme": "s3",
@@ -257,47 +191,14 @@
     "#6b7c85"
    ]
   },
-  "text": "Imagine the universe as a puzzle of one hundred pieces.",
-  "dur": 4.5,
-  "transition_in": "slide",
+  "text": "Imagine the universe as a puzzle of one hundred pieces. Only five of them are made of the ordinary matter that builds planets, stars, and you.",
+  "dur": 9.21,
+  "transition_in": "zoom",
   "prev": "",
-  "nxt": "Only five of them are made of the ordinary matter that builds planets, stars, and you."
- },
- {
-  "uid": "U009",
-  "scene": 3,
-  "title": "One Hundred Pieces",
-  "art_theme": "s3",
-  "bg": "paper",
-  "pal": {
-   "palette": "lab",
-   "paper_base": "#e6e8e6",
-   "paper_ink": "#1c2326",
-   "night_top": "#0a1214",
-   "night_bottom": "#14262b",
-   "night_line": "#8fe3d0",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#eae4d0",
-    "#9ec3c0",
-    "#4c7c80"
-   ],
-   "dusk_ink": "#1c2326",
-   "accents": [
-    "#3f9a96",
-    "#e0a84a",
-    "#d9694a",
-    "#6b7c85"
-   ]
-  },
-  "text": "Only five of them are made of the ordinary matter that builds planets, stars, and you.",
-  "dur": 5.24,
-  "transition_in": "eye",
-  "prev": "Imagine the universe as a puzzle of one hundred pieces.",
   "nxt": "The other ninety-five pieces are invisible. Scientists call them dark matter and dark energy."
  },
  {
-  "uid": "U010",
+  "uid": "U007",
   "scene": 3,
   "title": "One Hundred Pieces",
   "art_theme": "s3",
@@ -324,16 +225,115 @@
    ]
   },
   "text": "The other ninety-five pieces are invisible. Scientists call them dark matter and dark energy.",
-  "dur": 6.97,
+  "dur": 7.5,
   "transition_in": "match",
-  "prev": "Only five of them are made of the ordinary matter that builds planets, stars, and you.",
+  "prev": "Imagine the universe as a puzzle of one hundred pieces. Only five of them are made of the ordinary matter that builds planets, stars, and you.",
+  "nxt": ""
+ },
+ {
+  "uid": "U008",
+  "scene": 4,
+  "title": "Dark Matter",
+  "art_theme": "s4",
+  "bg": "night",
+  "pal": {
+   "palette": "nebula",
+   "paper_base": "#e4e2ec",
+   "paper_ink": "#17142e",
+   "night_top": "#050314",
+   "night_bottom": "#160a33",
+   "night_line": "#ffd0f0",
+   "night_glow": "#ff5fc8",
+   "dusk_stops": [
+    "#ffd2b8",
+    "#c0509a",
+    "#2a1b6e"
+   ],
+   "dusk_ink": "#17142e",
+   "accents": [
+    "#ff5fc8",
+    "#36d6d0",
+    "#8a6bff",
+    "#ffd27a"
+   ]
+  },
+  "text": "Dark matter accounts for roughly twenty-seven percent of the entire universe, dwarfing everything we know by more than five times.",
+  "dur": 7.41,
+  "transition_in": "slide",
+  "prev": "",
+  "nxt": "It is not made of protons, neutrons, or electrons."
+ },
+ {
+  "uid": "U009",
+  "scene": 4,
+  "title": "Dark Matter",
+  "art_theme": "s4",
+  "bg": "night",
+  "pal": {
+   "palette": "nebula",
+   "paper_base": "#e4e2ec",
+   "paper_ink": "#17142e",
+   "night_top": "#050314",
+   "night_bottom": "#160a33",
+   "night_line": "#ffd0f0",
+   "night_glow": "#ff5fc8",
+   "dusk_stops": [
+    "#ffd2b8",
+    "#c0509a",
+    "#2a1b6e"
+   ],
+   "dusk_ink": "#17142e",
+   "accents": [
+    "#ff5fc8",
+    "#36d6d0",
+    "#8a6bff",
+    "#ffd27a"
+   ]
+  },
+  "text": "It is not made of protons, neutrons, or electrons.",
+  "dur": 7.41,
+  "transition_in": "eye",
+  "prev": "Dark matter accounts for roughly twenty-seven percent of the entire universe, dwarfing everything we know by more than five times.",
+  "nxt": "It emits no light, absorbs no light, and reflects no light, yet scientists suspect its gravity is the glue that holds galaxies together."
+ },
+ {
+  "uid": "U010",
+  "scene": 4,
+  "title": "Dark Matter",
+  "art_theme": "s4",
+  "bg": "night",
+  "pal": {
+   "palette": "nebula",
+   "paper_base": "#e4e2ec",
+   "paper_ink": "#17142e",
+   "night_top": "#050314",
+   "night_bottom": "#160a33",
+   "night_line": "#ffd0f0",
+   "night_glow": "#ff5fc8",
+   "dusk_stops": [
+    "#ffd2b8",
+    "#c0509a",
+    "#2a1b6e"
+   ],
+   "dusk_ink": "#17142e",
+   "accents": [
+    "#ff5fc8",
+    "#36d6d0",
+    "#8a6bff",
+    "#ffd27a"
+   ]
+  },
+  "text": "It emits no light, absorbs no light, and reflects no light, yet scientists suspect its gravity is the glue that holds galaxies together.",
+  "dur": 7.41,
+  "transition_in": "iris",
+  "prev": "It is not made of protons, neutrons, or electrons.",
   "nxt": ""
  },
  {
   "uid": "U011",
-  "scene": 4,
-  "title": "Dark Matter",
-  "art_theme": "s4",
+  "scene": 5,
+  "title": "Dark Energy",
+  "art_theme": "s5",
   "bg": "night",
   "pal": {
    "palette": "nebula",
@@ -356,17 +356,17 @@
     "#ffd27a"
    ]
   },
-  "text": "Dark matter accounts for roughly twenty-seven percent of the entire universe,",
-  "dur": 4.74,
+  "text": "Dark energy makes up roughly sixty-eight percent.",
+  "dur": 6.69,
   "transition_in": "fade",
   "prev": "",
-  "nxt": "dwarfing everything we know by more than five times. It is not made of protons, neutrons, or electrons."
+  "nxt": "In the 1990s, astronomers studying distant exploding stars discovered that the expansion of our universe is not slowing down. It is speeding up."
  },
  {
   "uid": "U012",
-  "scene": 4,
-  "title": "Dark Matter",
-  "art_theme": "s4",
+  "scene": 5,
+  "title": "Dark Energy",
+  "art_theme": "s5",
   "bg": "night",
   "pal": {
    "palette": "nebula",
@@ -389,17 +389,17 @@
     "#ffd27a"
    ]
   },
-  "text": "dwarfing everything we know by more than five times. It is not made of protons, neutrons, or electrons.",
-  "dur": 7.58,
+  "text": "In the 1990s, astronomers studying distant exploding stars discovered that the expansion of our universe is not slowing down. It is speeding up.",
+  "dur": 6.69,
   "transition_in": "slide",
-  "prev": "Dark matter accounts for roughly twenty-seven percent of the entire universe,",
-  "nxt": "It emits no light, absorbs no light, and reflects no light,"
+  "prev": "Dark energy makes up roughly sixty-eight percent.",
+  "nxt": "Something is actively pushing the fabric of spacetime apart, and we call it dark energy."
  },
  {
   "uid": "U013",
-  "scene": 4,
-  "title": "Dark Matter",
-  "art_theme": "s4",
+  "scene": 5,
+  "title": "Dark Energy",
+  "art_theme": "s5",
   "bg": "night",
   "pal": {
    "palette": "nebula",
@@ -422,410 +422,146 @@
     "#ffd27a"
    ]
   },
-  "text": "It emits no light, absorbs no light, and reflects no light,",
-  "dur": 4.5,
+  "text": "Something is actively pushing the fabric of spacetime apart, and we call it dark energy.",
+  "dur": 6.69,
   "transition_in": "iris",
-  "prev": "dwarfing everything we know by more than five times. It is not made of protons, neutrons, or electrons.",
-  "nxt": "yet scientists suspect its gravity is the glue that holds galaxies together."
- },
- {
-  "uid": "U014",
-  "scene": 4,
-  "title": "Dark Matter",
-  "art_theme": "s4",
-  "bg": "night",
-  "pal": {
-   "palette": "nebula",
-   "paper_base": "#e4e2ec",
-   "paper_ink": "#17142e",
-   "night_top": "#050314",
-   "night_bottom": "#160a33",
-   "night_line": "#ffd0f0",
-   "night_glow": "#ff5fc8",
-   "dusk_stops": [
-    "#ffd2b8",
-    "#c0509a",
-    "#2a1b6e"
-   ],
-   "dusk_ink": "#17142e",
-   "accents": [
-    "#ff5fc8",
-    "#36d6d0",
-    "#8a6bff",
-    "#ffd27a"
-   ]
-  },
-  "text": "yet scientists suspect its gravity is the glue that holds galaxies together.",
-  "dur": 5.42,
-  "transition_in": "match",
-  "prev": "It emits no light, absorbs no light, and reflects no light,",
+  "prev": "In the 1990s, astronomers studying distant exploding stars discovered that the expansion of our universe is not slowing down. It is speeding up.",
   "nxt": ""
  },
  {
-  "uid": "U015",
-  "scene": 5,
-  "title": "Dark Energy",
-  "art_theme": "s5",
+  "uid": "U014",
+  "scene": 6,
+  "title": "Your Living Room",
+  "art_theme": "s6",
   "bg": "night",
   "pal": {
-   "palette": "nebula",
-   "paper_base": "#e4e2ec",
-   "paper_ink": "#17142e",
-   "night_top": "#050314",
-   "night_bottom": "#160a33",
-   "night_line": "#ffd0f0",
-   "night_glow": "#ff5fc8",
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
    "dusk_stops": [
-    "#ffd2b8",
-    "#c0509a",
-    "#2a1b6e"
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
    ],
-   "dusk_ink": "#17142e",
+   "dusk_ink": "#12182c",
    "accents": [
-    "#ff5fc8",
-    "#36d6d0",
-    "#8a6bff",
-    "#ffd27a"
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
    ]
   },
-  "text": "Dark energy makes up roughly sixty-eight percent. In the 1990s,",
-  "dur": 5.4,
-  "transition_in": "fade",
+  "text": "If a cloud of dark matter passed through your living room right now, you would not see it, hear it, or feel it touch your skin.",
+  "dur": 8.1,
+  "transition_in": "zigzag",
   "prev": "",
-  "nxt": "astronomers studying distant exploding stars discovered that the expansion of our universe is not slowing down."
+  "nxt": "Leading hypotheses suggest it may consist of undiscovered subatomic particles that barely interact with normal matter at all, but no one knows for sure."
+ },
+ {
+  "uid": "U015",
+  "scene": 6,
+  "title": "Your Living Room",
+  "art_theme": "s6",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Leading hypotheses suggest it may consist of undiscovered subatomic particles that barely interact with normal matter at all, but no one knows for sure.",
+  "dur": 10.77,
+  "transition_in": "wipe",
+  "prev": "If a cloud of dark matter passed through your living room right now, you would not see it, hear it, or feel it touch your skin.",
+  "nxt": ""
  },
  {
   "uid": "U016",
-  "scene": 5,
-  "title": "Dark Energy",
-  "art_theme": "s5",
+  "scene": 7,
+  "title": "The Cosmic Pie",
+  "art_theme": "s7",
   "bg": "night",
   "pal": {
-   "palette": "nebula",
-   "paper_base": "#e4e2ec",
-   "paper_ink": "#17142e",
-   "night_top": "#050314",
-   "night_bottom": "#160a33",
-   "night_line": "#ffd0f0",
-   "night_glow": "#ff5fc8",
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
    "dusk_stops": [
-    "#ffd2b8",
-    "#c0509a",
-    "#2a1b6e"
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
    ],
-   "dusk_ink": "#17142e",
+   "dusk_ink": "#12182c",
    "accents": [
-    "#ff5fc8",
-    "#36d6d0",
-    "#8a6bff",
-    "#ffd27a"
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
    ]
   },
-  "text": "astronomers studying distant exploding stars discovered that the expansion of our universe is not slowing down.",
-  "dur": 6.84,
-  "transition_in": "zoom",
-  "prev": "Dark energy makes up roughly sixty-eight percent. In the 1990s,",
-  "nxt": "It is speeding up. Something is actively pushing the fabric of spacetime apart, and we call it dark energy."
+  "text": "Normal matter makes up roughly five percent. Dark matter claims about twenty-seven percent. And dark energy commands an overwhelming sixty-eight percent.",
+  "dur": 10.6,
+  "transition_in": "slide",
+  "prev": "",
+  "nxt": "Together, dark matter and dark energy make up roughly ninety-five to ninety-six percent of the total cosmic pie. It is a humbling picture of our reality."
  },
  {
   "uid": "U017",
-  "scene": 5,
-  "title": "Dark Energy",
-  "art_theme": "s5",
+  "scene": 7,
+  "title": "The Cosmic Pie",
+  "art_theme": "s7",
   "bg": "night",
   "pal": {
-   "palette": "nebula",
-   "paper_base": "#e4e2ec",
-   "paper_ink": "#17142e",
-   "night_top": "#050314",
-   "night_bottom": "#160a33",
-   "night_line": "#ffd0f0",
-   "night_glow": "#ff5fc8",
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
    "dusk_stops": [
-    "#ffd2b8",
-    "#c0509a",
-    "#2a1b6e"
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
    ],
-   "dusk_ink": "#17142e",
+   "dusk_ink": "#12182c",
    "accents": [
-    "#ff5fc8",
-    "#36d6d0",
-    "#8a6bff",
-    "#ffd27a"
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
    ]
   },
-  "text": "It is speeding up. Something is actively pushing the fabric of spacetime apart, and we call it dark energy.",
-  "dur": 7.82,
+  "text": "Together, dark matter and dark energy make up roughly ninety-five to ninety-six percent of the total cosmic pie. It is a humbling picture of our reality.",
+  "dur": 10.87,
   "transition_in": "eye",
-  "prev": "astronomers studying distant exploding stars discovered that the expansion of our universe is not slowing down.",
+  "prev": "Normal matter makes up roughly five percent. Dark matter claims about twenty-seven percent. And dark energy commands an overwhelming sixty-eight percent.",
   "nxt": ""
  },
  {
   "uid": "U018",
-  "scene": 6,
-  "title": "Your Living Room",
-  "art_theme": "s6",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "If a cloud of dark matter passed through your living room right now,",
-  "dur": 4.02,
-  "transition_in": "whip",
-  "prev": "",
-  "nxt": "you would not see it, hear it, or feel it touch your skin."
- },
- {
-  "uid": "U019",
-  "scene": 6,
-  "title": "Your Living Room",
-  "art_theme": "s6",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "you would not see it, hear it, or feel it touch your skin.",
-  "dur": 4.1,
-  "transition_in": "wipe",
-  "prev": "If a cloud of dark matter passed through your living room right now,",
-  "nxt": "Leading hypotheses suggest it may consist of undiscovered"
- },
- {
-  "uid": "U020",
-  "scene": 6,
-  "title": "Your Living Room",
-  "art_theme": "s6",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "Leading hypotheses suggest it may consist of undiscovered",
-  "dur": 3.64,
-  "transition_in": "tilt",
-  "prev": "you would not see it, hear it, or feel it touch your skin.",
-  "nxt": "subatomic particles that barely interact with normal matter at all, but no one knows for sure."
- },
- {
-  "uid": "U021",
-  "scene": 6,
-  "title": "Your Living Room",
-  "art_theme": "s6",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "subatomic particles that barely interact with normal matter at all, but no one knows for sure.",
-  "dur": 7.11,
-  "transition_in": "whip",
-  "prev": "Leading hypotheses suggest it may consist of undiscovered",
-  "nxt": ""
- },
- {
-  "uid": "U022",
-  "scene": 7,
-  "title": "The Cosmic Pie",
-  "art_theme": "s7",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "Normal matter makes up roughly five percent. Dark matter claims about twenty-seven percent.",
-  "dur": 6.3,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "And dark energy commands an overwhelming sixty-eight percent."
- },
- {
-  "uid": "U023",
-  "scene": 7,
-  "title": "The Cosmic Pie",
-  "art_theme": "s7",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "And dark energy commands an overwhelming sixty-eight percent.",
-  "dur": 4.5,
-  "transition_in": "match",
-  "prev": "Normal matter makes up roughly five percent. Dark matter claims about twenty-seven percent.",
-  "nxt": "Together, dark matter and dark energy make up roughly ninety-five to ninety-six percent of the total cosmic pie."
- },
- {
-  "uid": "U024",
-  "scene": 7,
-  "title": "The Cosmic Pie",
-  "art_theme": "s7",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "Together, dark matter and dark energy make up roughly ninety-five to ninety-six percent of the total cosmic pie.",
-  "dur": 6.17,
-  "transition_in": "slide",
-  "prev": "And dark energy commands an overwhelming sixty-eight percent.",
-  "nxt": "It is a humbling picture of our reality."
- },
- {
-  "uid": "U025",
-  "scene": 7,
-  "title": "The Cosmic Pie",
-  "art_theme": "s7",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "It is a humbling picture of our reality.",
-  "dur": 4.5,
-  "transition_in": "fade",
-  "prev": "Together, dark matter and dark energy make up roughly ninety-five to ninety-six percent of the total cosmic pie.",
-  "nxt": ""
- },
- {
-  "uid": "U026",
   "scene": 8,
   "title": "Bright Foam",
   "art_theme": "outro",
@@ -851,47 +587,14 @@
     "#c9d4ff"
    ]
   },
-  "text": "When you step outside tonight and look up at the night sky,",
-  "dur": 3.5,
-  "transition_in": "wash",
+  "text": "When you step outside tonight and look up at the night sky, remember that the stars and galaxies are not the main show.",
+  "dur": 7.1,
+  "transition_in": "seam",
   "prev": "",
-  "nxt": "remember that the stars and galaxies are not the main show."
- },
- {
-  "uid": "U027",
-  "scene": 8,
-  "title": "Bright Foam",
-  "art_theme": "outro",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "remember that the stars and galaxies are not the main show.",
-  "dur": 3.62,
-  "transition_in": "push",
-  "prev": "When you step outside tonight and look up at the night sky,",
   "nxt": "They are merely tiny specks of bright foam floating on top of a vast, unseen ocean."
  },
  {
-  "uid": "U028",
+  "uid": "U019",
   "scene": 8,
   "title": "Bright Foam",
   "art_theme": "outro",
@@ -919,12 +622,12 @@
   },
   "text": "They are merely tiny specks of bright foam floating on top of a vast, unseen ocean.",
   "dur": 6.32,
-  "transition_in": "match",
-  "prev": "remember that the stars and galaxies are not the main show.",
-  "nxt": "To explore the quiet frontiers of this mystery, watch the full video on Miya's Lab,"
+  "transition_in": "wave",
+  "prev": "When you step outside tonight and look up at the night sky, remember that the stars and galaxies are not the main show.",
+  "nxt": "To explore the quiet frontiers of this mystery, watch the full video on Miya's Lab, and let us illuminate the unknown together."
  },
  {
-  "uid": "U029",
+  "uid": "U020",
   "scene": 8,
   "title": "Bright Foam",
   "art_theme": "outro",
@@ -950,43 +653,10 @@
     "#c9d4ff"
    ]
   },
-  "text": "To explore the quiet frontiers of this mystery, watch the full video on Miya's Lab,",
-  "dur": 5.8,
-  "transition_in": "eye",
+  "text": "To explore the quiet frontiers of this mystery, watch the full video on Miya's Lab, and let us illuminate the unknown together.",
+  "dur": 9.52,
+  "transition_in": "page",
   "prev": "They are merely tiny specks of bright foam floating on top of a vast, unseen ocean.",
-  "nxt": "and let us illuminate the unknown together."
- },
- {
-  "uid": "U030",
-  "scene": 8,
-  "title": "Bright Foam",
-  "art_theme": "outro",
-  "bg": "dusk",
-  "pal": {
-   "palette": "space",
-   "paper_base": "#e3e6ec",
-   "paper_ink": "#151a2e",
-   "night_top": "#050818",
-   "night_bottom": "#0d1634",
-   "night_line": "#cfd8ff",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#e8d8c0",
-    "#8a7fb0",
-    "#2c2f66"
-   ],
-   "dusk_ink": "#151a2e",
-   "accents": [
-    "#4f6bd6",
-    "#f2c14e",
-    "#8fd6e8",
-    "#c9d4ff"
-   ]
-  },
-  "text": "and let us illuminate the unknown together.",
-  "dur": 3.72,
-  "transition_in": "wipe",
-  "prev": "To explore the quiet frontiers of this mystery, watch the full video on Miya's Lab,",
   "nxt": ""
  }
 ]

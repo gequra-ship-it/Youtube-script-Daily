@@ -1,29 +1,31 @@
 {
- "centre": "Milky Way-like spiral galaxy resting in the pan of a hanging scale, being weighed",
- "focus": [
-  960,
-  520,
-  1.7
- ],
- "focus_word": "weigh",
+ "centre": "a person on a hill watching a huge teal glow rise from behind the horizon, the small blue 27 % slice above",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "woodblock",
-   "word": "weigh",
-   "vol": 0.6
+   "name": "sparkle",
+   "word": "surprise",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "our own galaxy",
-   "x": 1430,
-   "y": 420,
+   "type": "num",
+   "text": "27%",
+   "word": "twenty-seven percent"
+  },
+  {
+   "type": "say",
+   "text": "Even bigger?!",
+   "x": 1290,
+   "y": 470,
    "to": [
-    1075,
-    500
+    1540,
+    640
    ],
-   "word": "our own galaxy"
+   "word": "bigger"
   }
- ]
+ ],
+ "motion": "rise: the even bigger surprise (a vast teal glow of galaxies) rises over the horizon while the person watches"
 }

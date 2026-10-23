@@ -1,17 +1,23 @@
 {
- "centre": "a faint glassy blue haze passing straight through an open hand without touching it",
+ "centre": "a cluster of bright gold-white foam specks floating on a crest of a faint blue indigo ocean",
  "focus": [
   540,
-  900,
-  1.6
+  860,
+  1.8
  ],
- "focus_word": "touch your skin",
- "sfx": [
+ "focus_word": "bright foam",
+ "labels": [
   {
-   "name": "glimmer",
-   "word": "touch your skin",
-   "vol": 0.55
+   "type": "name",
+   "text": "bright foam",
+   "x": 540,
+   "y": 1030,
+   "to": [
+    540,
+    940
+   ],
+   "word": "bright foam"
   }
  ],
- "labels": []
+ "motion": "path (no camera): the bright foam cluster rides one slow loop over the wave crest, floating on the unseen ocean"
 }

@@ -1,18 +1,26 @@
 {
- "centre": "round burrow mouth seen from inside, moonlit night outside",
+ "centre": "an atlas sheet: the green rainforest band shrinks toward the equator while cool dry winds sweep across",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "drier winds",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "Cosy here!",
-   "x": 540,
-   "y": 560,
+   "type": "name",
+   "text": "rainforests",
+   "x": 760,
+   "y": 110,
    "to": [
-    492,
-    700
-   ]
+    700,
+    440
+   ],
+   "word": "rainforests"
   }
- ]
+ ],
+ "motion": "fill + dash: the rainforest band squeezes in toward the equator line while dashed winds flow in from the edges"
 }

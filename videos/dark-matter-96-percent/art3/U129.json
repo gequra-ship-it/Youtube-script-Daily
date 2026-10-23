@@ -1,11 +1,32 @@
 {
- "centre": "glassy blue-haze orb, the unknown dark matter, linked by dotted lines to small icons of different observations: a galaxy, a lensing arc, a cluster and a web",
+ "centre": "two galaxy clusters on the fabric of spacetime pushed apart by a teal glow, their gold gravity threads stretching",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "iris": [
-  430,
-  560
+ "track": false,
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "pushing",
+   "vol": 0.55
+  }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "HUNDREDS OF BILLIONS",
+   "word": "hundreds of billions"
+  },
+  {
+   "type": "say",
+   "text": "Don't let go!",
+   "x": 1500,
+   "y": 300,
+   "to": [
+    1520,
+    440
+   ],
+   "word": "gravitational"
+  }
+ ],
+ "motion": "path (two clusters) + fill x: space pushes the clusters apart while their gravity threads stretch between them"
 }

@@ -1,29 +1,26 @@
 {
- "centre": "hatchling nautilus, a miniature adult, above a ruler",
- "focus": [
-  540,
-  840,
-  1.6
- ],
- "focus_word": "hard shell",
- "sfx": [],
- "labels": [
+ "centre": "ammonite fossil where the family branches end at one pale rock line",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "num",
-   "text": "3 CM",
-   "word": "three centimeters"
-  },
-  {
-   "type": "name",
-   "text": "Miniature",
-   "x": 760,
-   "y": 690,
-   "to": [
-    610,
-    790
-   ],
-   "word": "miniature"
+   "name": "stone",
+   "word": "vanished",
+   "vol": 0.6
   }
  ],
- "spot": true
+ "labels": [
+  {
+   "type": "name",
+   "text": "Every ammonite lineage",
+   "x": 540,
+   "y": 530,
+   "to": [
+    420,
+    630
+   ],
+   "word": "every ammonite lineage"
+  }
+ ],
+ "motion": "the two side ammonites tip over one after the other as the lineages end"
 }

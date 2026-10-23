@@ -1,19 +1,29 @@
 {
- "centre": "nautilus turned the other way",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "hatchling nautilus, a miniature adult, above a ruler",
+ "focus": [
+  540,
+  840,
+  1.6
+ ],
+ "focus_word": "hard shell",
  "labels": [
   {
+   "type": "num",
+   "text": "3 CM",
+   "word": "three centimeters"
+  },
+  {
    "type": "name",
-   "text": "Nautilus",
+   "text": "Miniature",
    "x": 760,
-   "y": 680,
+   "y": 690,
    "to": [
-    600,
+    610,
     790
    ],
-   "word": "nautilus"
+   "word": "miniature"
   }
- ]
+ ],
+ "spot": true,
+ "motion": "the faint full-size adult outline rises in behind the miniature hatchling"
 }

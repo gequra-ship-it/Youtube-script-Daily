@@ -1,24 +1,26 @@
 {
- "centre": "round diatom, a plankton cell, with tiny hatchlings drifting nearby",
- "focus": [
-  560,
-  880,
-  1.6
+ "centre": "one surviving young ammonite below a cloud of tiny eggs",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "lucky survivors",
+   "vol": 0.5
+  }
  ],
- "focus_word": "near the surface",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Plankton",
+   "text": "Lucky survivors",
    "x": 540,
    "y": 1100,
    "to": [
     540,
     960
    ],
-   "word": "plankton"
+   "word": "lucky survivors"
   }
  ],
- "spot": true
+ "motion": "the two lucky young ammonites swim up toward the open water; camera follows the first"
 }

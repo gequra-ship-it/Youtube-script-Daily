@@ -1,19 +1,26 @@
 {
- "centre": "glowing asteroid arriving from space over the sea",
+ "centre": "dust settles on a stony ammonite fossil while a living nautilus swims on",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "swish",
-   "word": "catastrophe from space",
-   "vol": 0.55
+   "name": "sand",
+   "word": "dust settled",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "66 MILLION YEARS AGO",
-   "word": "sixty-six million"
+   "type": "say",
+   "text": "Why me?",
+   "x": 1180,
+   "y": 230,
+   "to": [
+    1250,
+    360
+   ],
+   "word": "Why"
   }
- ]
+ ],
+ "motion": "the dust veil sinks and settles on the floor (mv-liquid downward), uncovering the stone ammonite and the swimming nautilus"
 }

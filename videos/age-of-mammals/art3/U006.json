@@ -1,28 +1,26 @@
 {
- "centre": "tiny curled-up mammal between giant feet",
- "iris": [
-  1530,
-  300
- ],
+ "centre": "a tiny mammal walking along a dotted trail across an unrolled map of the Cenozoic: forest, grassland, ice, campfire",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "thud",
-   "word": "feet of giants",
-   "vol": 0.6
+   "name": "page",
+   "word": "grand history",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "Stay very still...",
-   "x": 1180,
-   "y": 330,
+   "type": "name",
+   "text": "Cenozoic era",
+   "x": 980,
+   "y": 260,
    "to": [
-    1040,
-    470
-   ]
+    980,
+    360
+   ],
+   "word": "Cenozoic era"
   }
  ],
- "focus": null,
- "focus_word": null
+ "motion": "a journey through history: the little mammal walks the winding trail across the map (mv-path, camera follows), dashes march along the route (mv-dash)"
 }

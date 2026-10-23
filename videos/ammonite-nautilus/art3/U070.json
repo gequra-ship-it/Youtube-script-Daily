@@ -1,7 +1,30 @@
 {
- "centre": "brass medallion with a depth arrow at the balance pivot",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "round gauge dial with a needle, a campfire flame on the left and a valve on the right",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "metabolism",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "metabolism",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Metabolism",
+   "x": 1300,
+   "y": 330,
+   "to": [
+    1040,
+    440
+   ],
+   "word": "metabolism"
+  }
+ ],
+ "motion": "flip: the valve wheel turns a quarter-turn open (rate at which energy is burned); flame and needle keep their own motion"
 }

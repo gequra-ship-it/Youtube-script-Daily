@@ -1,13 +1,37 @@
 {
- "centre": "nautilus deep in a canyon, a bubble question mark beside it",
+ "centre": "a food jar slowly emptying beside a low metabolism gauge while a nautilus rests calmly in a deep rock crevice",
+ "motion": "fill: the food store drains slowly for 5 s while the nautilus rests (going a long time without eating); needle joint stays low",
  "sfx": [
   {
-   "name": "hush",
-   "word": "Why",
-   "vol": 0.5
+   "name": "breath",
+   "word": "long time",
+   "vol": 0.45
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "low metabolic rate",
+   "x": 900,
+   "y": 140,
+   "to": [
+    900,
+    250
+   ],
+   "word": "low metabolic rate"
+  },
+  {
+   "type": "say",
+   "text": "I can wait.",
+   "x": 1180,
+   "y": 400,
+   "to": [
+    1350,
+    560
+   ],
+   "word": "without eating"
   }
  ],
  "focus": null,
- "focus_word": null,
- "labels": []
+ "focus_word": null
 }

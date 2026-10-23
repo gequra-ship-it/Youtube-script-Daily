@@ -1,33 +1,48 @@
 {
- "centre": "a magnifying glass over the bright core of a galaxy photo",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "visible matter",
+ "centre": "a clear blue haze orb that radio waves, visible light and X-rays pass straight through, on to a radio dish, an optical telescope and an X-ray telescope that see nothing of it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pencil",
-   "word": "calculate",
-   "vol": 0.55
+   "name": "pulse",
+   "word": "radio waves",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Visible matter",
-   "x": 1240,
-   "y": 330,
+   "text": "radio waves",
+   "x": 980,
+   "y": 245,
    "to": [
-    1040,
-    430
+    980,
+    318
    ],
-   "word": "visible matter"
+   "word": "radio waves"
+  },
+  {
+   "type": "name",
+   "text": "visible light",
+   "x": 980,
+   "y": 418,
+   "to": [
+    980,
+    494
+   ],
+   "word": "visible light"
+  },
+  {
+   "type": "name",
+   "text": "X-rays",
+   "x": 980,
+   "y": 770,
+   "to": [
+    980,
+    692
+   ],
+   "word": "X-rays"
   }
  ],
- "iris": [
-  1600,
-  720
- ]
+ "motion": "light passes straight through: three kinds of light stream through the haze (mv-dash) while the camera travels with them from the orb to the three telescopes (mv-track)"
 }

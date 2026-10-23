@@ -1,7 +1,26 @@
 {
- "centre": "full golden moon over the night savanna",
+ "centre": "block view of the land: a lake dries up, then the middle block of the Rift Valley sinks",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "drying",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Rift Valley",
+   "x": 300,
+   "y": 600,
+   "to": [
+    520,
+    760
+   ],
+   "word": "Rift Valley"
+  }
+ ],
+ "motion": "fill (x): the lake shrinks as the climate dries; then the middle block slides down (liquid rise -170) as the Rift Valley deepens"
 }

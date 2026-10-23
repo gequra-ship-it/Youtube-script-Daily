@@ -1,18 +1,37 @@
 {
- "centre": "magnifying lens showing a tiny ammonite hatchling",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "tiny shell",
- "sfx": [],
- "labels": [
+ "centre": "an ammonite mother releasing a long stream of tiny eggs into a big cloud",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "num",
-   "text": "1 MM",
-   "word": "one millimeter"
+   "name": "bubble",
+   "word": "laid very many",
+   "vol": 0.5
   }
  ],
- "spot": true
+ "labels": [
+  {
+   "type": "say",
+   "text": "Very many!",
+   "x": 700,
+   "y": 400,
+   "to": [
+    430,
+    500
+   ],
+   "word": "very many"
+  },
+  {
+   "type": "name",
+   "text": "ammonite eggs",
+   "x": 400,
+   "y": 1350,
+   "to": [
+    600,
+    1230
+   ],
+   "word": "ammonite eggs"
+  }
+ ],
+ "motion": "edge: 100 tiny eggs appear one after another along the stream into a cloud (females laid very many); track: the camera follows the stream down"
 }

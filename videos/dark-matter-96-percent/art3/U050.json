@@ -1,7 +1,19 @@
 {
- "centre": "whole spiral galaxy made only of visible gold-white stars floating in dark empty space",
+ "centre": "a galaxy core with outer stars whirling round it so fast that their thin dashed threads of visible gravity tremble",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Too fast!",
+   "x": 560,
+   "y": 150,
+   "to": [
+    860,
+    425
+   ],
+   "word": "moving so rapidly"
+  }
+ ],
+ "motion": "rotor + shake: the outer stars whirl round the core very fast the whole time while their thin threads of visible gravity start to tremble, too weak to hold them"
 }

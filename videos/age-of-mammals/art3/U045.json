@@ -1,29 +1,37 @@
 {
- "centre": "round magnifier lens showing a thin clay layer between rock strata",
- "focus": [
-  960,
-  500,
-  1.9
- ],
- "focus_word": "thin layer",
+ "centre": "a small songbird flying from an ancient fern dawn to a modern telephone wire",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "geologists",
+   "name": "flutter",
+   "word": "singing",
    "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Clay",
-   "x": 1180,
-   "y": 380,
+   "type": "say",
+   "text": "Still singing!",
+   "x": 1300,
+   "y": 300,
    "to": [
-    1040,
-    460
+    1470,
+    430
    ],
-   "word": "clay"
+   "word": "singing"
+  },
+  {
+   "type": "name",
+   "text": "Birds",
+   "x": 1560,
+   "y": 640,
+   "to": [
+    1470,
+    500
+   ],
+   "word": "birds"
   }
- ]
+ ],
+ "motion": "path + tracking: one small feathered survivor flies from the ancient dawn across to the telephone wire of today; the camera follows its flight"
 }

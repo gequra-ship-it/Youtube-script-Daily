@@ -1,13 +1,23 @@
 {
- "centre": "X-ray scanner window glowing over a fossil",
- "focus": null,
- "focus_word": null,
- "sfx": [
+ "centre": "a cluster of tiny ammonite hatchlings and plankton carried along by a surface current",
+ "motion": "path (camera tracks) + dash: the current streaks flow and the hatchlings drift helplessly with them near the surface",
+ "track": {
+  "scale": 1.5
+ },
+ "labels": [
   {
-   "name": "click",
-   "word": "X-ray scans",
-   "vol": 0.5
+   "type": "say",
+   "text": "Wheee!",
+   "x": 1380,
+   "y": 280,
+   "to": [
+    1530,
+    400
+   ],
+   "word": "drifted"
   }
  ],
- "labels": []
+ "focus": null,
+ "focus_word": null,
+ "sfx": []
 }

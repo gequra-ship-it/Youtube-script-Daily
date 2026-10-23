@@ -1,29 +1,42 @@
 {
- "centre": "fossil skull lit in the cliff, skeleton beside it",
- "focus": [
-  1250,
-  520,
-  1.5
- ],
- "focus_word": "Pakicetus",
+ "centre": "a cross-section of the sea where a ridge of land rises from the seabed above the surface",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "sand",
-   "word": "fossils",
+   "name": "splash",
+   "word": "rises",
    "vol": 0.55
   }
  ],
  "labels": [
   {
+   "type": "num",
+   "text": "3 MILLION YEARS AGO",
+   "word": "three million"
+  },
+  {
    "type": "name",
-   "text": "Pakicetus",
-   "x": 1420,
-   "y": 320,
+   "text": "Isthmus of Panama",
+   "x": 1380,
+   "y": 250,
    "to": [
-    1300,
-    460
+    1030,
+    340
    ],
-   "word": "Pakicetus"
+   "word": "Isthmus of Panama"
+  },
+  {
+   "type": "say",
+   "text": "Hey, a wall!",
+   "x": 420,
+   "y": 520,
+   "to": [
+    420,
+    610
+   ],
+   "word": "depths"
   }
- ]
+ ],
+ "motion": "grow: the land ridge rises from the seabed through the sea surface; fish watch, bubbles drift up"
 }

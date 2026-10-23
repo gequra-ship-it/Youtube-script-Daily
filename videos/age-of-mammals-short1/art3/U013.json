@@ -1,13 +1,30 @@
 {
- "centre": "golden disc around a cropped grass tuft with bright new shoots, a horse head grazing above",
+ "centre": "very tall high-crowned tooth with white enamel folds in tan cementum, a short tooth beside it, horse and antelope heads above",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "pop",
-   "word": "grows back",
-   "vol": 0.55
+   "type": "name",
+   "text": "Cementum",
+   "x": 250,
+   "y": 1000,
+   "to": [
+    445,
+    1050
+   ],
+   "word": "cementum"
+  },
+  {
+   "type": "name",
+   "text": "Enamel",
+   "x": 820,
+   "y": 1180,
+   "to": [
+    618,
+    1150
+   ],
+   "word": "enamel"
   }
  ],
- "labels": []
+ "motion": "tracking camera: starts on the horse and antelope, then glides down the whole height of the tall tooth (remarkably tall, high-crowned) to its enamel and cementum layers"
 }

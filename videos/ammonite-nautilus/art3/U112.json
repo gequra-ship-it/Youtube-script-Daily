@@ -1,27 +1,26 @@
 {
- "centre": "hatchling ammonite drifting among plankton near the surface",
- "focus": [
-  520,
-  400,
-  1.6
- ],
- "focus_word": "plankton",
- "iris": [
-  520,
-  400
+ "centre": "an ammonite high in the light above a depth ruler; pressure arrows grow with depth to a dashed limit where a ghost shell cracks",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "crushing pressure",
+   "vol": 0.55
+  }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "plankton",
-   "x": 430,
-   "y": 230,
+   "type": "say",
+   "text": "Too deep for me!",
+   "x": 1230,
+   "y": 200,
    "to": [
-    500,
-    320
+    1010,
+    250
    ],
-   "word": "plankton"
+   "word": "deep"
   }
  ],
- "sfx": []
+ "motion": "camera descends from the ammonite to the deep limit while bigger pressure arrows pop in, then the ghost shell at the limit shakes: deep refuge out of reach"
 }

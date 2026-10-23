@@ -1,17 +1,37 @@
 {
- "centre": "crossed-out equals sign badge between a coiled ammonite and a nautilus",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "do not mean close relatives",
+ "centre": "a nautilus cross-section and a submarine in a glass test tank; water drains from the shell chambers and from the ballast tank",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pencil",
-   "word": "drop an assumption",
-   "vol": 0.5
+   "name": "bubble",
+   "word": "gas",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "ballast tank",
+   "x": 1340,
+   "y": 680,
+   "to": [
+    1340,
+    530
+   ],
+   "word": "ballast tank"
+  },
+  {
+   "type": "name",
+   "text": "chambers",
+   "x": 560,
+   "y": 120,
+   "to": [
+    600,
+    300
+   ],
+   "word": "chambers"
+  }
+ ],
+ "motion": "the liquid level drops in the shell chambers and in the submarine's ballast tank (mv-liquid down) while gas bubbles rise (mv-bubble)"
 }

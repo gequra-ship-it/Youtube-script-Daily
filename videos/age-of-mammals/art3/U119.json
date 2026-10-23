@@ -1,13 +1,41 @@
 {
- "centre": "blue globe with drifting green continents",
- "focus": null,
- "focus_word": null,
+ "centre": "sun above the narrow land wall that splits two seas",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "severed",
  "sfx": [
   {
-   "name": "stone",
-   "word": "drift",
-   "vol": 0.55
+   "name": "wind",
+   "word": "weather",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Atlantic",
+   "x": 540,
+   "y": 680,
+   "to": [
+    600,
+    640
+   ],
+   "word": "Atlantic"
+  },
+  {
+   "type": "name",
+   "text": "Pacific",
+   "x": 1380,
+   "y": 680,
+   "to": [
+    1330,
+    640
+   ],
+   "word": "Pacific"
+  }
+ ],
+ "motion": "land strip rises between the two oceans and severs them (mv-rise)"
 }

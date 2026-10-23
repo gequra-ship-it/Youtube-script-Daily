@@ -1,19 +1,30 @@
 {
- "centre": "pale bubble holding a tiny drifting ammonite larva",
+ "centre": "a nautilus shell travels from a fishing boat's trap along a dashed trade route to a market stall of decorations, a pendant and a collector box",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Larvae",
-   "x": 1280,
-   "y": 730,
+   "text": "jewelry",
+   "x": 1520,
+   "y": 220,
    "to": [
-    1250,
-    600
+    1540,
+    420
    ],
-   "word": "larvae"
+   "word": "jewelry"
+  },
+  {
+   "type": "name",
+   "text": "decorations",
+   "x": 1180,
+   "y": 220,
+   "to": [
+    1300,
+    520
+   ],
+   "word": "decorations"
   }
- ]
+ ],
+ "motion": "path + dash + track: a caught shell is carried along the trade route from the boat to the market stall"
 }

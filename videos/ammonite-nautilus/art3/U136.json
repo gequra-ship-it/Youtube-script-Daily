@@ -1,17 +1,20 @@
 {
- "centre": "glowing impact crater seen from above on a coastline map",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "crater",
+ "centre": "a bush of ammonite lineages grows across a notebook page to a red boundary line, then is wiped pale in one stroke",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "thud",
-   "word": "crater",
-   "vol": 0.7
+   "name": "hush",
+   "word": "erased",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "300 MILLION YEARS",
+   "word": "three hundred million"
+  }
+ ],
+ "motion": "edge + popin + track: the lineage bush grows left to right (camera follows), then fill: a pale wipe erases it from the boundary in a blink"
 }

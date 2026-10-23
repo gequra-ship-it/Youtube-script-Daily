@@ -1,11 +1,20 @@
 {
- "centre": "large golden-white spiral galaxy with a tiny atom above it",
- "focus": [
-  540,
-  860,
-  1.8
+ "centre": "scale ladder from a tiny atom past a planet and a star up to a colossal spiral galaxy",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "colossal galaxy",
+   "vol": 0.6
+  }
  ],
- "focus_word": "colossal galaxy",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "5%",
+   "word": "five percent"
+  }
+ ],
+ "motion": "track: the camera climbs the scale ladder from the smallest atom to the colossal galaxy (dash marks the route, atom electrons turn)"
 }

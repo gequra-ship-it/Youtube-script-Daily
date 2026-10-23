@@ -1,19 +1,31 @@
 {
- "centre": "calm nautilus in still deep water below choppy upper layers",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "magnifying lens over a living nautilus in a tank",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "living nautiluses",
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "inference",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "the deep",
-   "x": 760,
-   "y": 1100,
+   "text": "living nautilus",
+   "x": 540,
+   "y": 1050,
    "to": [
-    640,
+    540,
     960
    ],
-   "word": "the deep"
+   "word": "living nautiluses"
   }
- ]
+ ],
+ "spot": true,
+ "motion": "dashes march along the dotted link between the fossil and the living nautilus (an inference)"
 }

@@ -1,23 +1,26 @@
 {
- "centre": "phone screen glowing with a round spiral galaxy",
- "focus": [
-  960,
-  500,
-  1.5
+ "centre": "an open book on the table whose page turns over, between a solid apple and a steaming mug",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "page",
+   "word": "entire story",
+   "vol": 0.55
+  }
  ],
- "focus_word": "glowing screen",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "glowing screen",
-   "x": 1330,
-   "y": 320,
+   "type": "say",
+   "text": "Solid as ever!",
+   "x": 1560,
+   "y": 360,
    "to": [
-    1070,
-    420
+    1560,
+    520
    ],
-   "word": "glowing screen"
+   "word": "solidly"
   }
- ]
+ ],
+ "motion": "fill (x, 1 to -1): the book's page turns over, a whole story told by the solid things around (steam drifts, apple glints)"
 }

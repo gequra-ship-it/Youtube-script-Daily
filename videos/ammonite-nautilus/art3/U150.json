@@ -1,17 +1,34 @@
 {
- "centre": "flask of acidic liquid with a shell dissolving in it, under rain",
+ "centre": "a living nautilus next to a fossil shell of the same body plan",
  "focus": [
   960,
-  520,
-  1.7
+  500,
+  1.6
  ],
- "focus_word": "acid rain",
+ "focus_word": "living fossil",
+ "iris": [
+  400,
+  500
+ ],
  "sfx": [
   {
-   "name": "rain",
-   "word": "acid rain",
-   "vol": 0.6
+   "name": "stone",
+   "word": "ancient relatives",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "living fossil",
+   "x": 1240,
+   "y": 330,
+   "to": [
+    1040,
+    420
+   ],
+   "word": "living fossil"
+  }
+ ],
+ "motion": "living nautilus vs ancient relative: dotted link from fossil to nautilus flows (mv-dash), existing zoom kept"
 }

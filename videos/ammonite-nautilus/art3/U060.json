@@ -1,11 +1,31 @@
 {
- "centre": "pocket watch: depth changed over time",
- "iris": [
-  500,
-  600
- ],
+ "centre": "ammonite feeding on small plankton in the sunlit upper ocean",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "small plankton",
+   "x": 1450,
+   "y": 790,
+   "to": [
+    1450,
+    560
+   ],
+   "word": "small plankton"
+  },
+  {
+   "type": "say",
+   "text": "Yum, tasty!",
+   "x": 1150,
+   "y": 690,
+   "to": [
+    1085,
+    560
+   ],
+   "word": "fed"
+  }
+ ],
+ "motion": "path: a second ammonite cruises through the sunlit upper water toward the plankton (fed on small plankton); the near one comments",
+ "track": false
 }

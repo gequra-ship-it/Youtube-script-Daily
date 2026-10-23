@@ -1,35 +1,30 @@
 {
- "centre": "a curled shrimp scrap, small for the hatchling, huge for the larva",
- "sfx": [],
- "labels": [
+ "centre": "an ammonite fossil in a lit museum case, its fractal suture lines drawing themselves round the shell",
+ "focus": [
+  960,
+  480,
+  1.6
+ ],
+ "focus_word": "fractal sutures",
+ "sfx": [
   {
-   "type": "num",
-   "text": "3 CM",
-   "word": "three-centimeter"
-  },
-  {
-   "type": "name",
-   "text": "Larva",
-   "x": 1330,
-   "y": 400,
-   "to": [
-    1242,
-    552
-   ],
-   "word": "larva"
-  },
-  {
-   "type": "name",
-   "text": "Hatchling",
-   "x": 470,
-   "y": 270,
-   "to": [
-    450,
-    360
-   ],
-   "word": "hatchling"
+   "name": "hush",
+   "word": "fractal sutures",
+   "vol": 0.5
   }
  ],
- "focus": null,
- "focus_word": null
+ "labels": [
+  {
+   "type": "name",
+   "text": "fractal sutures",
+   "x": 960,
+   "y": 250,
+   "to": [
+    960,
+    330
+   ],
+   "word": "fractal sutures"
+  }
+ ],
+ "motion": "edge: the delicate fractal sutures draw on round the fossil while the camera pushes in on them"
 }

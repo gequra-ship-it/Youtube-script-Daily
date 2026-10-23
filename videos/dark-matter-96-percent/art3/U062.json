@@ -1,29 +1,26 @@
 {
- "centre": "Andromeda galaxy seen tilted, warm gold bulge, stars and gas on cool/warm sides marked with motion arrows",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "Andromeda galaxy",
+ "centre": "a galaxy cluster in a blue dark-matter haze; light from a far galaxy behind is stretched into glowing gold arcs around it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "sparkle",
-   "word": "stars",
-   "vol": 0.55
+   "word": "glowing arcs",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Andromeda",
-   "x": 660,
-   "y": 330,
+   "text": "clusters of galaxies",
+   "x": 1120,
+   "y": 190,
    "to": [
-    780,
-    450
+    1110,
+    400
    ],
-   "word": "Andromeda"
+   "word": "clusters of galaxies"
   }
- ]
+ ],
+ "motion": "light from far behind travels to the cluster (mv-track from the far galaxy), then is stretched into arcs (mv-grow, x, arcs widen)"
 }

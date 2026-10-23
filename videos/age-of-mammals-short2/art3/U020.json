@@ -1,17 +1,19 @@
 {
- "centre": "clay bowl of golden dense food seen from above",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "nutritious",
- "sfx": [
+ "centre": "winding trail from asteroid ash past a mammoth to a modern city, a small mammal travelling it",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "pop",
-   "word": "nutritious",
-   "vol": 0.5
+   "type": "say",
+   "text": "Epic journey!",
+   "x": 560,
+   "y": 1170,
+   "to": [
+    690,
+    1310
+   ],
+   "word": "epic journey"
   }
  ],
- "labels": []
+ "motion": "path + tracking camera: a small mammal walks the whole story from asteroid ash to modern civilization; dash: the trail"
 }

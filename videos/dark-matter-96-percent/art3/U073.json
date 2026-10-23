@@ -1,17 +1,41 @@
 {
- "centre": "small glowing tilted galaxy inside a vast faint blue haze with pale threads",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "glowing stars",
- "sfx": [
+ "centre": "a survey viewfinder sweeping the sky, passing a faint red dim star and stopping on a small black hole",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "sparkle",
-   "word": "glowing stars",
-   "vol": 0.6
+   "type": "say",
+   "text": "Not me!",
+   "x": 560,
+   "y": 255,
+   "to": [
+    560,
+    390
+   ],
+   "word": "faint objects"
+  },
+  {
+   "type": "name",
+   "text": "dim stars",
+   "x": 560,
+   "y": 580,
+   "to": [
+    560,
+    450
+   ],
+   "word": "dim stars"
+  },
+  {
+   "type": "name",
+   "text": "small black holes",
+   "x": 1350,
+   "y": 760,
+   "to": [
+    1350,
+    595
+   ],
+   "word": "small black holes"
   }
  ],
- "labels": []
+ "motion": "astronomers checked: a survey viewfinder travels over the sky from the dim star to the small black hole (mv-path, camera tracks)"
 }

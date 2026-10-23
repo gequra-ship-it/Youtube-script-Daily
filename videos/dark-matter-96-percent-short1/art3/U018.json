@@ -1,23 +1,13 @@
 {
- "centre": "a faint blue-indigo haze cloud drifting through a living room, in front of a starry window",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "cloud of dark matter",
- "sfx": [],
- "labels": [
+ "centre": "a person steps out of a lit door at dusk and looks up; above, small galaxies sit inside a far bigger faint haze",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "name",
-   "text": "dark matter",
-   "x": 540,
-   "y": 1040,
-   "to": [
-    540,
-    960
-   ],
-   "word": "dark matter"
+   "name": "step",
+   "word": "step outside",
+   "vol": 0.5
   }
- ]
+ ],
+ "motion": "track: the camera rises from the person who stepped outside up into the night sky, where the stars and galaxies are small specks in a big faint haze"
 }

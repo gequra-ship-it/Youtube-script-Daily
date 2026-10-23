@@ -1,17 +1,19 @@
 {
- "centre": "tight glittering star cluster above a night horizon with a camera on a tripod",
- "focus": [
-  250,
-  1170,
-  1.8
- ],
- "focus_word": "photograph",
- "sfx": [
+ "centre": "faint orange-red cloud of thin hot gas with a few dim galaxies inside, a human eye below looking at it",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "click",
-   "word": "photograph",
-   "vol": 0.6
+   "type": "say",
+   "text": "Too faint!",
+   "x": 790,
+   "y": 1060,
+   "to": [
+    590,
+    1215
+   ],
+   "word": "faint"
   }
  ],
- "labels": []
+ "motion": "bubble: thin hot gas wisps rise off the faint cloud (thin, hot gas); eye says \"Too faint!\" (far too faint to see); focus removed so the rising wisps stay in view"
 }

@@ -1,7 +1,30 @@
 {
- "centre": "pale low sun glowing through the silent forest",
- "focus": null,
- "focus_word": null,
+ "centre": "a stone slab in a dig site where a sand cover is brushed away to reveal the fossil of a tiny early mammal",
+ "focus": [
+  960,
+  650,
+  1.6
+ ],
+ "focus_word": "first mammals",
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "200 MILLION YEARS AGO",
+   "word": "two hundred million"
+  },
+  {
+   "type": "name",
+   "text": "First mammals",
+   "x": 1260,
+   "y": 470,
+   "to": [
+    1100,
+    600
+   ],
+   "word": "first mammals"
+  }
+ ],
+ "motion": "the first mammals appear: a brush sweeps across the slab (mv-path) as the sand cover shrinks away (mv-fill x) to reveal the tiny fossil, which glows (mv-glint)",
+ "track": false
 }

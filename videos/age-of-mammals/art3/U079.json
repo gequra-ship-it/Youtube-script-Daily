@@ -1,13 +1,27 @@
 {
- "centre": "glowing golden orb with a curled baby inside, held over a resting mother",
+ "centre": "Antarctica seen from above as South America and Australia drift away; a cold current then circles it",
  "focus": null,
  "focus_word": null,
+ "track": false,
  "sfx": [
   {
-   "name": "hush",
-   "word": "secret advantage",
+   "name": "splash",
+   "word": "ocean current",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Antarctica",
+   "x": 1180,
+   "y": 150,
+   "to": [
+    1080,
+    360
+   ],
+   "word": "Antarctica"
+  }
+ ],
+ "motion": "path + dash: South America and Australia slide away from Antarctica, then the freezing current appears and flows round the pole (clockwise = eastward)"
 }

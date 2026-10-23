@@ -1,11 +1,26 @@
 {
- "centre": "young ammonite drifting just under the sunlit surface",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "a lineage tree whose every branch grows to one glowing boundary line and stops",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "vanished",
+   "vol": 0.6
+  }
  ],
- "focus_word": "surface",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "ammonite lineage",
+   "x": 760,
+   "y": 160,
+   "to": [
+    700,
+    245
+   ],
+   "word": "ammonite lineage"
+  }
+ ],
+ "motion": "lineage lines draw on left to right with new ammonite generations popping in along them, and all stop dead at the boundary: no new generation"
 }

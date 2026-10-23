@@ -1,29 +1,13 @@
 {
- "centre": "glowing round growth point at the base of grass, right at the soil line",
- "focus": [
-  540,
-  880,
-  1.7
- ],
- "focus_word": "base",
+ "centre": "gold medal with a tall strong tooth, at the end of a glowing branch in a family tree",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "rustle",
-   "word": "destroy",
+   "name": "chime",
+   "word": "favored",
    "vol": 0.55
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Soil",
-   "x": 700,
-   "y": 990,
-   "to": [
-    600,
-    940
-   ],
-   "word": "soil"
-  }
- ]
+ "motion": "path + tracking: a gold spark climbs the glowing branch up to the medal while the camera follows (selection keeps the lasting tooth)"
 }

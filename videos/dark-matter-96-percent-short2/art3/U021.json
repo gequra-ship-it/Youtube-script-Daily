@@ -1,17 +1,20 @@
 {
- "centre": "small gold spiral galaxy wrapped in a huge faint blue-indigo haze",
- "focus": [
-  540,
-  860,
-  1.5
- ],
- "focus_word": "invisible halo",
- "sfx": [
+ "centre": "a web of faint blue dark-matter filaments with galaxies at the knots; a small galaxy slides along a filament into the big central knot",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "pulse",
-   "word": "invisible halo",
-   "vol": 0.6
+   "type": "say",
+   "text": "Come here!",
+   "x": 780,
+   "y": 1060,
+   "to": [
+    610,
+    935
+   ],
+   "word": "gravity"
   }
  ],
- "labels": []
+ "motion": "path + tracking: a galaxy is pulled along a filament into the central knot (the invisible grip of gravity); edge: the web threads draw on"
 }

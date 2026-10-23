@@ -1,19 +1,26 @@
 {
- "centre": "the Sun, bright gold-white, with planets lined up along a dotted line on either side (schematic)",
+ "centre": "brass magnifying lens showing a small glowing galaxy, in front of a night window",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "tested again",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "solar system",
-   "x": 960,
-   "y": 290,
+   "type": "say",
+   "text": "Check again!",
+   "x": 560,
+   "y": 300,
    "to": [
-    960,
-    392
+    900,
+    520
    ],
-   "word": "solar system"
+   "word": "tested"
   }
- ]
+ ],
+ "motion": "results are tested again: check marks pop in one by one (mv-popin)"
 }

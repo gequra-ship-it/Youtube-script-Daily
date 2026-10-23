@@ -1,15 +1,37 @@
 {
- "centre": "blue-haze galaxy cluster with several glowing gold lensed arcs stretched around it, a thick glass lens as comparison at right",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "a geological cross-section: cosmic rays streak down from the sky and stop in thick rock while a glowing detector tank sits safe in a cavern far below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "thick rock",
+   "vol": 0.6
+  }
  ],
- "focus_word": "glowing arcs",
- "sfx": [],
- "labels": [],
- "iris": [
-  1500,
-  520
- ]
+ "labels": [
+  {
+   "type": "name",
+   "text": "Detectors",
+   "x": 1420,
+   "y": 760,
+   "to": [
+    1050,
+    780
+   ],
+   "word": "detectors"
+  },
+  {
+   "type": "name",
+   "text": "Cosmic rays",
+   "x": 1000,
+   "y": 160,
+   "to": [
+    1120,
+    110
+   ],
+   "word": "cosmic rays"
+  }
+ ],
+ "motion": "grow: one cosmic ray after another shoots down and stops inside the rock layers, never reaching the deep detector"
 }

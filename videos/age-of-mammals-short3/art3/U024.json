@@ -1,23 +1,26 @@
 {
- "centre": "brass magnifying lens over a Basilosaurus showing its tiny hind leg",
- "focus": [
-  540,
-  900,
-  1.8
+ "centre": "whale back at the surface, a white spout growing up from its blowhole",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "blowhole",
+   "vol": 0.55
+  }
  ],
- "focus_word": "tiny hind legs",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Hind legs",
-   "x": 400,
-   "y": 1030,
+   "type": "say",
+   "text": "Ahh, much better!",
+   "x": 780,
+   "y": 760,
    "to": [
-    530,
-    985
+    880,
+    1080
    ],
-   "word": "hind legs"
+   "word": "kept"
   }
- ]
+ ],
+ "motion": "fill + bubble: the spout rises from the blowhole (the old nose used for a new job) and droplets keep lifting"
 }

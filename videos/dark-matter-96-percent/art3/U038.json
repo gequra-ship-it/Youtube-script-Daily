@@ -1,17 +1,37 @@
 {
- "centre": "bright central galaxy of a galaxy cluster inside a much larger faint blue-indigo dark-matter haze",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "the cluster",
+ "centre": "a star leaving its curve",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "far more mass",
-   "vol": 0.6
+   "name": "starfall",
+   "word": "flies off",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Straight line",
+   "x": 1480,
+   "y": 410,
+   "to": [
+    1480,
+    498
+   ],
+   "word": "straight line"
+  },
+  {
+   "type": "say",
+   "text": "Whee!",
+   "x": 780,
+   "y": 330,
+   "to": [
+    945,
+    478
+   ],
+   "word": "flies"
+  }
+ ],
+ "motion": "the star leaves its curve and flies off straight, camera follows (mv-path)"
 }

@@ -1,11 +1,7 @@
 {
  "centre": "round sandpaper disc with grass blades stuck in its grit",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "sandpaper",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "sand",
@@ -16,13 +12,15 @@
  "labels": [
   {
    "type": "say",
-   "text": "So gritty!",
-   "x": 740,
-   "y": 720,
+   "text": "Gritty!",
+   "x": 800,
+   "y": 400,
    "to": [
-    610,
-    560
-   ]
+    612,
+    503
+   ],
+   "word": "sandpaper"
   }
- ]
+ ],
+ "motion": "horse chews (nod+jaw) on grit; horse says Gritty!; focus dropped so the bubble stays in the safe area"
 }

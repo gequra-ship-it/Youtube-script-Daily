@@ -2,12 +2,23 @@
  "centre": "bright golden evening star above a hill with a stargazer seen from behind",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "num",
    "text": "UNDER 5%",
    "word": "under five percent"
+  },
+  {
+   "type": "say",
+   "text": "Did you know?",
+   "x": 770,
+   "y": 890,
+   "to": [
+    560,
+    1040
+   ],
+   "word": "Did you know"
   }
- ]
+ ],
+ "motion": "path + tracking: the ringed planet glides in a long arc across the night sky (everything we can see up there) while the camera follows; stargazer asks \"Did you know?\""
 }

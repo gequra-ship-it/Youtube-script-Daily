@@ -1,13 +1,19 @@
 {
- "centre": "large ammonite fossil inside layered rock",
+ "centre": "strong ammonite displayed on a stone plinth",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "stone",
-   "word": "survived",
-   "vol": 0.5
+   "type": "say",
+   "text": "Still strong!",
+   "x": 1390,
+   "y": 600,
+   "to": [
+    1070,
+    540
+   ],
+   "word": "weak"
   }
  ],
- "labels": []
+ "motion": "vanished although not weak: the two faint ghost shells drift up and away from their arches (mv-path x2); the ammonite on its plinth says Still strong"
 }

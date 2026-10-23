@@ -1,25 +1,15 @@
 {
- "centre": "pale hot sun over a dry cracked plain",
+ "centre": "asteroid strikes the far horizon; a smoke plume rises and a smoke bank slides over the sun while ash buries the land around dim sauropods",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "sand",
-   "word": "drying",
-   "vol": 0.5
+   "name": "thud",
+   "word": "struck",
+   "vol": 0.65
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "East Africa",
-   "x": 1400,
-   "y": 330,
-   "to": [
-    1420,
-    640
-   ],
-   "word": "East Africa"
-  }
- ]
+ "labels": [],
+ "track": false,
+ "motion": "asteroid struck, smoke smothered the sun, the masters fell: rock streaks to the horizon (mv-path), the ground shakes (mv-shake), impact glow and plume grow (mv-grow), the smoke bank drifts over the sun (mv-path, 3.3-6.6 s) and the ash level rises over the dinosaurs (mv-fill); no tracking"
 }

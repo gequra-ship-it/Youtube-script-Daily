@@ -1,17 +1,31 @@
 {
- "centre": "one last glowing food speck in a dim, empty sea",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "starve",
- "sfx": [
+ "centre": "a nautilus deep below a sunlit band where the food web's fish turn belly-up",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
+ "labels": [
   {
-   "name": "breath",
-   "word": "starve",
-   "vol": 0.5
+   "type": "name",
+   "text": "food web",
+   "x": 760,
+   "y": 420,
+   "to": [
+    760,
+    245
+   ],
+   "word": "food web"
+  },
+  {
+   "type": "say",
+   "text": "Not easy here...",
+   "x": 760,
+   "y": 640,
+   "to": [
+    1030,
+    680
+   ],
+   "word": "easy"
   }
  ],
- "labels": []
+ "motion": "in the sunlit band the food-web fish flip belly-up one after another while far below the nautilus waves its cirri: food web collapsed far above"
 }

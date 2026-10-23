@@ -1,13 +1,19 @@
 {
- "centre": "pale low sun veiled in dry haze",
+ "centre": "an ape crawling on all fours through tall yellow grass while a leopard crouches hidden ahead",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "wind",
-   "word": "winds",
-   "vol": 0.6
+   "type": "name",
+   "text": "leopard",
+   "x": 1560,
+   "y": 380,
+   "to": [
+    1450,
+    640
+   ],
+   "word": "leopard"
   }
  ],
- "labels": []
+ "motion": "path + tracking: the ape crawls through the tall stems on all fours, camera follows it toward the hidden leopard"
 }

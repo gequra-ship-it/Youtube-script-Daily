@@ -1,17 +1,19 @@
 {
- "centre": "a bright white-gold supernova, same family as the last one, with a dim twin far to the right",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "brightness",
- "sfx": [
+ "centre": "a far-future astronomer from behind with a telescope under an almost empty sky; only one big nearby galaxy and a small companion remain, faint dashed ghosts of vanished galaxies appear",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "glimmer",
-   "word": "dim",
-   "vol": 0.55
+   "type": "say",
+   "text": "Is this all?",
+   "x": 330,
+   "y": 380,
+   "to": [
+    440,
+    500
+   ],
+   "word": "neighbors"
   }
  ],
- "labels": []
+ "motion": "joint + rise: the telescope sweeps the nearly empty sky while dashed ghost outlines of the galaxies that once filled it rise faintly in one by one (they will never be seen)"
 }

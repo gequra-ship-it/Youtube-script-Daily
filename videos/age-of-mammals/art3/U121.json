@@ -1,17 +1,27 @@
 {
- "centre": "icy white south pole cap",
+ "centre": "a cross-section of East African plateau where the middle block drops between two faults, opening the Rift Valley with cliffs",
  "focus": null,
  "focus_word": null,
+ "track": false,
  "sfx": [
   {
-   "name": "wind",
-   "word": "fierce",
+   "name": "stone",
+   "word": "cliffs",
    "vol": 0.6
   }
  ],
- "labels": [],
- "iris": [
-  1500,
-  680
- ]
+ "labels": [
+  {
+   "type": "name",
+   "text": "Rift Valley",
+   "x": 960,
+   "y": 300,
+   "to": [
+    960,
+    600
+   ],
+   "word": "Rift Valley"
+  }
+ ],
+ "motion": "edge + path (no tracking): fault lines crack open, then the valley floor sinks between them, carving cliffs"
 }

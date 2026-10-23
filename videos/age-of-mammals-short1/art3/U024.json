@@ -1,24 +1,37 @@
 {
- "centre": "golden eye of a hidden predator watching the plain",
- "focus": [
-  540,
-  480,
-  1.8
+ "centre": "a chestnut horse in an evening field lowering its head into the grass",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "rustle",
+   "word": "grazing",
+   "vol": 0.5
+  }
  ],
- "focus_word": "grazing herd",
- "sfx": [],
- "spot": true,
  "labels": [
   {
    "type": "name",
-   "text": "Grazing herd",
-   "x": 540,
-   "y": 420,
+   "text": "Teeth",
+   "x": 170,
+   "y": 1000,
    "to": [
-    540,
-    500
+    195,
+    1150
    ],
-   "word": "grazing herd"
+   "word": "teeth"
+  },
+  {
+   "type": "name",
+   "text": "Hooves",
+   "x": 610,
+   "y": 1395,
+   "to": [
+    470,
+    1320
+   ],
+   "word": "hooves"
   }
- ]
+ ],
+ "motion": "flip (slow 60 degree turn about the shoulder): the horse lowers its neck and head down into the grass = a horse grazing in a field; tail swishes"
 }

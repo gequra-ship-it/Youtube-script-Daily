@@ -1,17 +1,19 @@
 {
- "centre": "tilted pale blue spiral galaxy on a photographic plate with farther galaxies drifting away",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "distant galaxies",
- "sfx": [],
+ "centre": "a long band of galaxy shapes, each outlined by a thin dashed measuring ellipse, receding through cosmic-time slices; a blue dark-matter web runs through them",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "num",
-   "text": "1929",
-   "word": "1929"
+   "type": "name",
+   "text": "dark matter",
+   "x": 700,
+   "y": 300,
+   "to": [
+    700,
+    470
+   ],
+   "word": "dark matter"
   }
- ]
+ ],
+ "motion": "track + edge: the camera surveys along the band from near to far (back in cosmic time) while the dark-matter web draws on beneath the measured galaxy shapes"
 }

@@ -1,30 +1,23 @@
 {
- "centre": "round glass window showing one tall high-crowned tooth",
+ "centre": "cold pale moon above a blizzard tundra with a mammoth",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "harsh extremes",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Horse",
-   "x": 520,
-   "y": 330,
-   "to": [
-    500,
-    520
-   ],
-   "word": "Horses"
-  },
-  {
-   "type": "name",
-   "text": "Antelope",
-   "x": 1380,
-   "y": 330,
-   "to": [
-    1420,
-    520
-   ],
-   "word": "antelopes"
+   "text": "Ice Age",
+   "x": 1330,
+   "y": 260,
+   "word": "Ice Age"
   }
- ]
+ ],
+ "track": false,
+ "motion": "mammoth plods across the frozen ground (mv-path)"
 }

@@ -1,19 +1,26 @@
 {
- "centre": "a young nautilus on the sea floor near a scrap, adult beside it",
+ "centre": "a well-developed nautilus hatchling leaving its opened egg case and travelling along the sea floor to scraps",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "hatch",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Young nautiluses",
-   "x": 1180,
-   "y": 330,
+   "text": "scraps",
+   "x": 1560,
+   "y": 520,
    "to": [
-    990,
-    440
+    1500,
+    660
    ],
-   "word": "Young nautiluses"
+   "word": "scraps"
   }
- ]
+ ],
+ "motion": "the egg lid flips open, then the hatchling travels along the floor to the scraps (camera follows): hatchlings big enough to forage"
 }

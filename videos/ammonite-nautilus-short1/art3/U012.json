@@ -1,24 +1,37 @@
 {
- "centre": "cut nautilus shell with chambers and siphuncle",
- "focus": [
-  540,
-  860,
-  1.6
+ "centre": "large ammonite fossil in stone with frilly suture lines",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "wavy lines",
+   "vol": 0.5
+  }
  ],
- "focus_word": "siphuncle",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Siphuncle",
-   "x": 720,
-   "y": 640,
+   "text": "Sutures",
+   "x": 820,
+   "y": 380,
    "to": [
-    497,
-    851
+    700,
+    560
    ],
-   "word": "siphuncle"
+   "word": "sutures"
+  },
+  {
+   "type": "say",
+   "text": "Like snowflakes!",
+   "x": 560,
+   "y": 1260,
+   "to": [
+    560,
+    1140
+   ],
+   "word": "snowflakes"
   }
  ],
- "spot": true
+ "motion": "edge: the wavy suture lines draw on whorl by whorl across the fossil, then a frozen leaf and a snowflake pop in (look like)"
 }

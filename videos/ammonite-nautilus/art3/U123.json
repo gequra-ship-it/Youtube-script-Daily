@@ -1,34 +1,26 @@
 {
- "centre": "glowing yolk sac inside a cutaway nautilus egg, embryo on its side",
- "focus": [
-  990,
-  500,
-  1.6
+ "centre": "a nautilus resting in a rock crevice beside a slowly swinging pendulum",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "slow metabolism",
+   "vol": 0.5
+  }
  ],
- "focus_word": "rich supply of yolk",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "yolk",
-   "x": 760,
-   "y": 340,
+   "text": "slow metabolism",
+   "x": 1250,
+   "y": 760,
    "to": [
-    880,
-    450
+    1250,
+    650
    ],
-   "word": "yolk"
-  },
-  {
-   "type": "name",
-   "text": "embryo",
-   "x": 1190,
-   "y": 610,
-   "to": [
-    1150,
-    535
-   ],
-   "word": "embryo"
+   "word": "slow metabolism"
   }
- ]
+ ],
+ "motion": "only a few last flakes at the top; a big pendulum swings in long slow arcs beside the still nautilus: very slow metabolism"
 }

@@ -1,12 +1,13 @@
 {
- "centre": "cut ammonite with the tube along the outer edge",
- "focus": [
-  450,
-  790,
-  1.7
+ "centre": "one chamber with liquid along its folded walls",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "liquid",
+   "vol": 0.5
+  }
  ],
- "focus_word": "outer edge",
- "sfx": [],
- "labels": [],
- "spot": true
+ "motion": "liquid level rises in one glass while the other drains (movement of liquid)"
 }

@@ -1,29 +1,31 @@
 {
- "centre": "magnifier lens over the soil line showing a glowing grass base",
+ "centre": "cracked long bone end showing golden marrow",
  "focus": [
   960,
   500,
-  1.8
+  1.7
  ],
- "focus_word": "base",
+ "focus_word": "bone marrow",
  "sfx": [
   {
-   "name": "rustle",
-   "word": "soil",
-   "vol": 0.55
+   "name": "stone",
+   "word": "smash",
+   "vol": 0.7
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Soil",
-   "x": 1240,
-   "y": 600,
+   "text": "Bone marrow",
+   "x": 700,
+   "y": 330,
    "to": [
-    1240,
-    520
+    930,
+    480
    ],
-   "word": "soil"
+   "word": "bone marrow"
   }
- ]
+ ],
+ "track": false,
+ "motion": "the stone arm comes down on the bone and the bone shudders on impact (mv-path + mv-shake)"
 }

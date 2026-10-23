@@ -1,17 +1,26 @@
 {
- "centre": "young spiral galaxy cradled in a pale blue dark-matter halo, hanging in a cosmic web",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "galaxies",
+ "centre": "a bright teal-white orb of dark energy filling the sky, half hidden behind translucent veils",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "galaxies",
-   "vol": 0.6
+   "name": "glimmer",
+   "word": "deepest mysteries",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who am I?",
+   "x": 1360,
+   "y": 300,
+   "to": [
+    1060,
+    420
+   ],
+   "word": "true nature"
+  }
+ ],
+ "motion": "path: the front veil slides aside, but a second veil still hides the glowing orb - its true nature stays a mystery"
 }

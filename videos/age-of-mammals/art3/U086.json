@@ -1,36 +1,19 @@
 {
- "centre": "warm cream leathery egg in a grass nest",
- "focus": null,
- "focus_word": null,
+ "centre": "an indricothere walks up to a tall tree and browses the last green leaves at its top",
+ "focus": [
+  1230,
+  300,
+  1.5
+ ],
+ "focus_word": "highest surviving leaves",
  "sfx": [
   {
-   "name": "drip",
-   "word": "milk",
+   "name": "step",
+   "word": "walk",
    "vol": 0.55
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Platypus",
-   "x": 420,
-   "y": 420,
-   "to": [
-    440,
-    515
-   ],
-   "word": "platypus"
-  },
-  {
-   "type": "name",
-   "text": "Echidna",
-   "x": 1500,
-   "y": 400,
-   "to": [
-    1500,
-    500
-   ],
-   "word": "echidna"
-  }
- ]
+ "labels": [],
+ "track": false,
+ "motion": "path + joint: the indricothere strides to the tall tree (legs swing) and its long neck dips into the top leaves to browse"
 }

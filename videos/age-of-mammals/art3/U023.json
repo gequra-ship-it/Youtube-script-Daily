@@ -1,22 +1,14 @@
 {
- "centre": "warm-lit den mouth with a shrew inside",
+ "centre": "a small mammal trotting across a frosty clearing at night, a glowing furnace of warmth inside its body that slowly runs low",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "say",
-   "text": "Stay small, stay hidden",
-   "x": 360,
-   "y": 560,
-   "to": [
-    500,
-    690
-   ]
+   "name": "wind",
+   "word": "cold night",
+   "vol": 0.5
   }
  ],
- "iris": [
-  420,
-  720
- ]
+ "labels": [],
+ "motion": "the inner furnace keeps it active through the cold night: the warm-glowing mammal trots across the frost (mv-scroll, walking legs), then its inner fuel level drops (mv-liquid) - the price"
 }

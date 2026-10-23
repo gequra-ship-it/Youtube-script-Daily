@@ -1,17 +1,26 @@
 {
- "centre": "round magnified tooth surface with sharp ridges",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "ridges",
+ "centre": "round pale-blue water drop above the lowered sea",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "grinding",
-   "vol": 0.55
+   "name": "drip",
+   "word": "locked in ice",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sea level",
+   "x": 560,
+   "y": 300,
+   "to": [
+    560,
+    420
+   ],
+   "word": "sea level"
+  }
+ ],
+ "motion": "sea level drops as water is locked in ice (mv-fill)"
 }

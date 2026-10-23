@@ -1,29 +1,20 @@
 {
- "centre": "nautilus with a thick shell under water pressure",
- "focus": [
-  950,
-  490,
-  1.7
- ],
- "focus_word": "thick shell",
- "sfx": [
-  {
-   "name": "thud",
-   "word": "pressure",
-   "vol": 0.5
-  }
- ],
+ "centre": "a fossil ammonite in rock linked to a reconstructed living ammonite jetting bubbles; a speed dial needle cannot settle",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "thick shell",
-   "x": 700,
-   "y": 330,
+   "type": "say",
+   "text": "How fast? Who knows!",
+   "x": 1500,
+   "y": 380,
    "to": [
-    880,
-    440
+    1310,
+    600
    ],
-   "word": "thick shell"
+   "word": "how fast"
   }
- ]
+ ],
+ "motion": "same jet system: bubbles puff from the ammonite's funnel (bubble); the unknown speed is a dial needle that swings back and forth (swing)"
 }

@@ -1,25 +1,20 @@
 {
- "centre": "a star leaving its curve",
+ "centre": "a perfectly clear glass pane with stars showing through it, while a black inky cloud (the wrong idea) drifts away off it",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "starfall",
-   "word": "flies off",
-   "vol": 0.55
-  }
- ],
+ "track": false,
  "labels": [
   {
-   "type": "name",
-   "text": "Straight line",
-   "x": 1480,
-   "y": 410,
+   "type": "say",
+   "text": "Ta-da!",
+   "x": 1430,
+   "y": 250,
    "to": [
-    1480,
-    498
+    1250,
+    300
    ],
-   "word": "straight line"
+   "word": "clear glass"
   }
- ]
+ ],
+ "motion": "not a black cloud: the inky cloud slides away down-left (mv-path, no tracking) and uncovers the clear glass pane with stars behind it"
 }

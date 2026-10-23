@@ -1,28 +1,22 @@
 {
- "centre": "a tiny glass cube, one cubic centimetre, holding a faint wisp",
+ "centre": "a fainter, more distant supernova, with the brighter expected position ghosted nearer",
  "focus": [
   960,
   500,
-  1.6
+  1.7
  ],
- "focus_word": "cubic centimeter",
- "sfx": [],
+ "focus_word": "fainter",
  "labels": [
   {
-   "type": "num",
-   "text": "A THIRD OF A PROTON",
-   "word": "a third"
-  },
-  {
-   "type": "name",
-   "text": "Proton",
-   "x": 1380,
+   "type": "say",
+   "text": "So faint!",
+   "x": 1300,
    "y": 330,
    "to": [
-    1360,
-    410
-   ],
-   "word": "proton"
+    1000,
+    480
+   ]
   }
- ]
+ ],
+ "motion": "dashed line marches from expected spot to farther star"
 }

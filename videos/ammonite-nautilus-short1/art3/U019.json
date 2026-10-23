@@ -1,13 +1,20 @@
 {
- "centre": "polished stone disc with a leaf-like suture pattern",
+ "centre": "living nautilus swimming in a sunlit sea",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "track": false,
+ "labels": [
   {
-   "name": "stone",
-   "word": "in stone",
-   "vol": 0.5
+   "type": "say",
+   "text": "Our story!",
+   "x": 760,
+   "y": 1130,
+   "to": [
+    500,
+    900
+   ],
+   "word": "story"
   }
  ],
- "labels": []
+ "motion": "the distant asteroid slides slowly down the sky; the nautilus speaks for the channel"
 }

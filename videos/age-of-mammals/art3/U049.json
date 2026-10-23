@@ -1,25 +1,26 @@
 {
- "centre": "dim pale sun disc veiled behind thick ash over a dark forest floor",
+ "centre": "a giant flightless terror bird with a huge hooked beak stalking across the meadow toward a crown on a rock",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "months",
-   "vol": 0.55
+   "name": "step",
+   "word": "stalk",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Forest floor",
-   "x": 560,
-   "y": 700,
+   "text": "Terror birds",
+   "x": 1120,
+   "y": 170,
    "to": [
-    330,
-    790
+    880,
+    300
    ],
-   "word": "forest floor"
+   "word": "terror birds"
   }
- ]
+ ],
+ "motion": "path + tracking: the terror bird stalks from the right across the meadow toward the crown on the rock (legs stepping); the camera walks with it"
 }

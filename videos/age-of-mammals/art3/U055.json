@@ -1,17 +1,19 @@
 {
- "centre": "round tally disc, three quarters dark and one quarter bright gold",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "three-quarters",
- "sfx": [
+ "centre": "womb cross-section with placenta, cord and a growing curled embryo",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "hush",
-   "word": "wiped out",
-   "vol": 0.5
+   "type": "name",
+   "text": "Placenta",
+   "x": 1470,
+   "y": 210,
+   "to": [
+    1250,
+    300
+   ],
+   "word": "placentas"
   }
  ],
- "labels": []
+ "motion": "fill (x+y) + dash: nourishment flows down the cord while the embryo grows from small to full size inside the safe womb"
 }

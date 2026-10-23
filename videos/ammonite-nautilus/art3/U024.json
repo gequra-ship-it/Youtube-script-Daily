@@ -1,17 +1,31 @@
 {
- "centre": "small ammonoid shell at the bottleneck of a lineage tree",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "only a few lineages",
- "sfx": [
+ "centre": "a family tree on graph paper: the nautilus on a branch splitting off low and early, the ammonites on a later branch",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "pencil",
-   "word": "reduced",
-   "vol": 0.5
+   "type": "name",
+   "text": "nautiloids",
+   "x": 700,
+   "y": 640,
+   "to": [
+    640,
+    720
+   ],
+   "word": "nautiloids"
+  },
+  {
+   "type": "name",
+   "text": "Ammonites",
+   "x": 1240,
+   "y": 700,
+   "to": [
+    1200,
+    540
+   ],
+   "word": "Ammonites"
   }
  ],
- "labels": []
+ "motion": "the tree grows: trunk up, then the early nautiloid branch to the left, then the later ammonite branch to the right (mv-grow sequence)"
 }

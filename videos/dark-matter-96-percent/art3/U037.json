@@ -1,29 +1,38 @@
 {
- "centre": "a small glowing knot of gold thread (the visible matter) whose threads cannot hold the galaxies",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "visible matter",
+ "centre": "notebook sketch of a galaxy; a star travels round a curved path held by a teal string of gravity to the centre",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
  "sfx": [
   {
-   "name": "pop",
-   "word": "hold them together",
+   "name": "sparkle",
+   "word": "A star moving",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "visible matter",
+   "text": "gravity",
    "x": 700,
-   "y": 600,
+   "y": 250,
    "to": [
-    880,
-    540
+    790,
+    440
    ],
-   "word": "visible matter"
+   "word": "gravity is the string"
+  },
+  {
+   "type": "name",
+   "text": "curved path",
+   "x": 1450,
+   "y": 250,
+   "to": [
+    1251,
+    345
+   ],
+   "word": "curved path"
   }
- ]
+ ],
+ "motion": "path + dash: the star travels two-thirds of the way round its curved path while its gravity string stays pointed at the galaxy centre; the dashed path marches along"
 }

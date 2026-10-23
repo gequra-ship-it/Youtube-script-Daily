@@ -1,29 +1,31 @@
 {
- "centre": "plump slow fish glowing in shallow water",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "slow fish",
+ "centre": "living Pakicetus on the ground above a dig site; its fossil skeleton draws itself in the rock layers below",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "splash",
-   "word": "hunting",
+   "name": "stone",
+   "word": "fossils",
    "vol": 0.55
   }
  ],
  "labels": [
   {
+   "type": "num",
+   "text": "50 MILLION YEARS OLD",
+   "word": "fifty million"
+  },
+  {
    "type": "name",
-   "text": "Slow fish",
-   "x": 700,
-   "y": 730,
+   "text": "Pakicetus",
+   "x": 300,
+   "y": 470,
    "to": [
-    610,
-    800
+    420,
+    560
    ],
-   "word": "slow fish"
+   "word": "Pakicetus"
   }
- ]
+ ],
+ "motion": "rise: Pakicetus appears as it is named; edge: its fossil skeleton is traced bone by bone in the rock while the fossils are described"
 }

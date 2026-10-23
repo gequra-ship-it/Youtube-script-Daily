@@ -1,29 +1,19 @@
 {
- "centre": "a drop of acidic water spreading thin in a huge ocean basin",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "acidic water",
- "sfx": [
-  {
-   "name": "drip",
-   "word": "diluted",
-   "vol": 0.55
-  }
- ],
+ "centre": "baited underwater camera lens",
+ "focus": null,
+ "focus_word": null,
+ "motion": "scientists survey with baited cameras: camera pans slowly along the survey scene to the baited camera (mv-track)",
  "labels": [
   {
-   "type": "name",
-   "text": "acidic water",
-   "x": 1260,
-   "y": 330,
+   "type": "say",
+   "text": "Smells good!",
+   "x": 560,
+   "y": 470,
    "to": [
-    1030,
-    450
+    500,
+    640
    ],
-   "word": "acidic water"
+   "word": "baited"
   }
  ]
 }

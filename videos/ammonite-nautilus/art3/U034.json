@@ -1,11 +1,23 @@
 {
- "centre": "spiral design drawn on a blueprint between two separate lineages with a compass",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "similar design",
+ "centre": "a large ammonite fossil on a stone slab under a lamp, its frilly suture lines glowing pale",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "sutures",
+   "x": 420,
+   "y": 230,
+   "to": [
+    660,
+    330
+   ],
+   "word": "sutures"
+  }
+ ],
+ "track": {
+  "scale": 1.4
+ },
+ "motion": "camera travels along the wavy suture lines across the fossil (mv-track), then a frozen leaf and a snowflake pop in beside it (mv-popin)"
 }

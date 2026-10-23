@@ -1,17 +1,31 @@
 {
- "centre": "fossil ammonite shell with an empty question-mark shaped dotted outline where its soft body would be",
- "focus": [
-  1115,
-  520,
-  1.7
- ],
- "focus_word": "the animal inside",
- "sfx": [
+ "centre": "a bright shallow Paleozoic sea with a crinoid meadow filling up with nautiloids; a modern nautilus watches from the deep corner",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "hush",
-   "word": "less about the animal",
-   "vol": 0.4
+   "type": "say",
+   "text": "Why down here?",
+   "x": 1520,
+   "y": 560,
+   "to": [
+    1490,
+    740
+   ],
+   "word": "down there"
+  },
+  {
+   "type": "name",
+   "text": "nautiloids",
+   "x": 760,
+   "y": 110,
+   "to": [
+    760,
+    200
+   ],
+   "word": "nautiloids"
   }
  ],
- "labels": []
+ "motion": "far more common: nautiloids pop into the shallow sea one after another (popin) while the deep-water nautilus looks up"
 }

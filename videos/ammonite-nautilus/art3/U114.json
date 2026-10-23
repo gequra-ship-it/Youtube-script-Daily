@@ -1,28 +1,30 @@
 {
- "centre": "one lucky survivor hatchling glowing among fading specks, an adult beyond",
- "iris": [
-  1500,
-  400
- ],
- "sfx": [
-  {
-   "name": "hush",
-   "word": "a few lucky survivors",
-   "vol": 0.5
-  }
- ],
+ "centre": "two surviving adult ammonites watching a cloud of tiny hatchlings drift into nearly empty water",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
+   "type": "name",
+   "text": "hatchlings",
+   "x": 1460,
+   "y": 700,
+   "to": [
+    1460,
+    580
+   ],
+   "word": "hatchlings"
+  },
+  {
    "type": "say",
-   "text": "Made it!",
-   "x": 760,
+   "text": "Where's the food?",
+   "x": 1200,
    "y": 300,
    "to": [
-    930,
-    430
-   ]
+    1420,
+    490
+   ],
+   "word": "eat"
   }
  ],
- "focus": null,
- "focus_word": null
+ "motion": "the hatchling cloud drifts along a path away from the adults into the empty ocean (camera follows): tiny hatchlings, little plankton"
 }

@@ -1,25 +1,35 @@
 {
- "centre": "round mossy leaf cluster at the tip of the swaying branch",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "creak",
-   "word": "swaying branch",
-   "vol": 0.5
-  }
+ "centre": "museum diagram: a short old tooth beside a tall high-crowned tooth made of alternating enamel and cementum layers",
+ "focus": [
+  1250,
+  330,
+  1.6
  ],
+ "focus_word": "Layers of hard enamel",
+ "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Too far?",
-   "x": 620,
-   "y": 210,
+   "type": "name",
+   "text": "enamel",
+   "x": 1560,
+   "y": 200,
    "to": [
-    470,
-    395
+    1330,
+    225
    ],
-   "word": "Can you"
+   "word": "enamel"
+  },
+  {
+   "type": "name",
+   "text": "cementum",
+   "x": 1570,
+   "y": 400,
+   "to": [
+    1365,
+    380
+   ],
+   "word": "cementum"
   }
- ]
+ ],
+ "motion": "grow + fill: the tall high-crowned tooth grows up beside the short old one, then the softer cementum wears lower than the enamel, leaving ridges"
 }

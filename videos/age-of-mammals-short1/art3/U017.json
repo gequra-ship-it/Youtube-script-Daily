@@ -1,13 +1,19 @@
 {
- "centre": "gold medal with a tall strong tooth, at the end of a glowing branch in a family tree",
+ "centre": "stopwatch with a racing hand between a fleeing antelope and a chasing cat",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "chime",
-   "word": "favored",
-   "vol": 0.55
+   "type": "say",
+   "text": "Survive!",
+   "x": 380,
+   "y": 320,
+   "to": [
+    325,
+    405
+   ],
+   "word": "survival"
   }
  ],
- "labels": []
+ "motion": "tracking camera sweeps from the chasing cat up to the fleeing antelope (race); antelope says Survive!"
 }

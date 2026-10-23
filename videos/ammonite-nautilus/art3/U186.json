@@ -1,13 +1,22 @@
 {
- "centre": "a nautilus drawn like an engineering blueprint",
- "sfx": [
+ "centre": "a swimming ammonite in a bright sea is swept over by sudden night, then the camera moves to a nautilus at the dim reef margin",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "pencil",
-   "word": "built",
-   "vol": 0.5
+   "type": "say",
+   "text": "Doing just fine.",
+   "x": 1500,
+   "y": 300,
+   "to": [
+    1340,
+    470
+   ],
+   "word": "margins"
   }
  ],
- "labels": [],
- "focus": null,
- "focus_word": null
+ "track": {
+  "scale": 1.3
+ },
+ "motion": "fill(x) + track: night sweeps across the ammonite's sunlit sea (rules changed overnight), then the camera travels right to the nautilus on the margins"
 }

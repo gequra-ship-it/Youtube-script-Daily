@@ -1,17 +1,19 @@
 {
- "centre": "bright low sun behind a wolf-like land mammal wading into shallow water",
- "focus": [
-  400,
-  1100,
-  1.6
- ],
- "focus_word": "wade",
- "sfx": [
+ "centre": "bright ball of small fish under the paddling animal",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "splash",
-   "word": "wade",
-   "vol": 0.65
+   "type": "say",
+   "text": "Fish!",
+   "x": 640,
+   "y": 320,
+   "to": [
+    805,
+    395
+   ],
+   "word": "food"
   }
  ],
- "labels": []
+ "motion": "left as is (paddler, weed chains and orbiting fish already move); paddler says Fish!"
 }

@@ -1,25 +1,41 @@
 {
- "centre": "nautilus at the tip of an early side branch",
+ "centre": "ammonite climbing a family tree from the nautilus branch to squid, cuttlefish and octopus",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pencil",
-   "word": "a branch",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Nautiloids",
-   "x": 300,
-   "y": 1380,
+   "text": "Squid",
+   "x": 640,
+   "y": 360,
    "to": [
-    470,
-    1220
+    770,
+    400
    ],
-   "word": "nautiloids"
+   "word": "squid"
+  },
+  {
+   "type": "name",
+   "text": "Cuttlefish",
+   "x": 820,
+   "y": 790,
+   "to": [
+    830,
+    705
+   ],
+   "word": "cuttlefish"
+  },
+  {
+   "type": "name",
+   "text": "Octopus",
+   "x": 800,
+   "y": 1080,
+   "to": [
+    770,
+    990
+   ],
+   "word": "octopuses"
   }
- ]
+ ],
+ "motion": "path: the ammonite climbs the family tree from the nautilus's early branch up to the squid, cuttlefish and octopus branches; camera follows"
 }

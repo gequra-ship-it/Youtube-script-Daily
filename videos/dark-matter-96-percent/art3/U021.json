@@ -1,14 +1,20 @@
 {
- "centre": "bright gold-white orb wrapped in a twisted figure-eight band of light",
+ "centre": "a detective corkboard of sky clues linked by red string, ending at an empty card under a magnifying glass",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "pop",
-   "word": "twist",
-   "vol": 0.55
+   "type": "say",
+   "text": "Nothing here?",
+   "x": 1250,
+   "y": 740,
+   "to": [
+    1430,
+    640
+   ],
+   "word": "missing"
   }
  ],
- "labels": [],
- "spot": true
+ "motion": "track along the red string from clue to clue (dash marching), ending on the magnifier over an empty card: nobody has seen it"
 }

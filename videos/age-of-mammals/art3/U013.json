@@ -1,34 +1,28 @@
 {
- "centre": "low gold sun between sauropods at dusk",
- "focus": [
-  400,
-  420,
-  1.7
- ],
- "focus_word": "dinosaurs",
+ "centre": "magnifying lens over a tiny fossil mammal skull",
  "sfx": [
   {
-   "name": "step",
-   "word": "ruled the land",
-   "vol": 0.6
+   "name": "hush",
+   "word": "older",
+   "vol": 0.55
   }
+ ],
+ "iris": [
+  1500,
+  640
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Dinosaurs",
-   "x": 720,
-   "y": 230,
+   "type": "say",
+   "text": "Surprise!",
+   "x": 1330,
+   "y": 470,
    "to": [
-    580,
-    330
+    1450,
+    635
    ],
-   "word": "dinosaurs"
-  },
-  {
-   "type": "num",
-   "text": "150 MILLION YEARS",
-   "word": "hundred and fifty million"
+   "word": "expect"
   }
- ]
+ ],
+ "motion": "old mammal revealed: camera drifts from the lens to the shrew (mv-track), shrew says surprise"
 }

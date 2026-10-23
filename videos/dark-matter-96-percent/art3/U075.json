@@ -1,11 +1,30 @@
 {
- "centre": "bright gold galaxy nucleus with stars leaving along straight dotted paths",
+ "centre": "Milky Way-like spiral galaxy resting in the pan of a hanging scale, being weighed",
  "focus": [
-  1181,
-  345,
+  960,
+  520,
   1.7
  ],
- "focus_word": "could not possibly hold them",
- "sfx": [],
- "labels": []
+ "focus_word": "weigh",
+ "sfx": [
+  {
+   "name": "woodblock",
+   "word": "weigh",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "our own galaxy",
+   "x": 1430,
+   "y": 420,
+   "to": [
+    1075,
+    500
+   ],
+   "word": "our own galaxy"
+  }
+ ],
+ "motion": "gauge bar fills as the galaxy is weighed"
 }

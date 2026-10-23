@@ -1,29 +1,13 @@
 {
- "centre": "shrew curled into a warm furry ball",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "warm fur",
+ "centre": "a glowing wall of dust racing across the land, trees falling one after another",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "drip",
-   "word": "damp",
-   "vol": 0.5
+   "name": "wind",
+   "word": "Shockwaves",
+   "vol": 0.7
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Warm fur",
-   "x": 1250,
-   "y": 360,
-   "to": [
-    1040,
-    440
-   ],
-   "word": "warm fur"
-  }
- ]
+ "motion": "fill (x) + topple + tracking: the shock front grows across the continent from the impact glow and each tree falls as it passes; the camera rides along"
 }

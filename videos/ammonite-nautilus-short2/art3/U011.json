@@ -1,19 +1,20 @@
 {
- "centre": "drifting cloud of tiny fish eggs in open water",
+ "centre": "a female nautilus swimming along a reef ledge, leaving three large eggs behind",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "large eggs",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Open water",
-   "x": 810,
-   "y": 1130,
-   "to": [
-    760,
-    1260
-   ],
-   "word": "open water"
+   "type": "num",
+   "text": "3 CM",
+   "word": "three centimeters"
   }
- ]
+ ],
+ "motion": "path: the female glides along the ledge (camera tracks); popin: only a few large eggs appear one by one behind her"
 }

@@ -1,21 +1,26 @@
 {
- "centre": "fossil ammonite in rock; its speed unknown",
- "focus": [
-  960,
-  520,
-  1.6
- ],
- "focus_word": "fossils",
- "iris": [
-  1550,
-  410
- ],
+ "centre": "a coast at night: a giant tsunami rolls in, the ground cracks and shakes, wildfires flare, then a dark dust cloud rises",
+ "motion": "path (camera tracks) for the tsunami, then shake (earthquake), popin flames (wildfires), rise of a dust cloud (deadliest effects came afterward)",
  "sfx": [
   {
    "name": "stone",
-   "word": "fossils",
-   "vol": 0.5
+   "word": "earthquakes",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "tsunamis",
+   "x": 700,
+   "y": 300,
+   "to": [
+    880,
+    420
+   ],
+   "word": "tsunamis"
+  }
+ ],
+ "focus": null,
+ "focus_word": null
 }

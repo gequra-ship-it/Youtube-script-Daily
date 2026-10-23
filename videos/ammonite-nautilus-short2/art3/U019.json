@@ -1,13 +1,26 @@
 {
- "centre": "nautilus egg in cold water, frosty blue",
+ "centre": "the sun seen from under the sea being blotted out by a growing veil of dust and soot",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "close to a year",
-   "vol": 0.5
+   "name": "wind",
+   "word": "Dust and soot",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Phytoplankton",
+   "x": 540,
+   "y": 1380,
+   "to": [
+    560,
+    1280
+   ],
+   "word": "phytoplankton"
+  }
+ ],
+ "motion": "fill: the dust and soot veil grows down over the sun (blocked the sunlight); path (no tracking): the pale phytoplankton sinks (mass die-off)"
 }

@@ -1,13 +1,19 @@
 {
- "centre": "bright clue-light hanging in the night sky between two more lights joined by a dotted path",
+ "centre": "a hilltop observatory catching light from the tilted Andromeda galaxy; glowing gas knots on the disk are marked",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "pop",
-   "word": "third",
-   "vol": 0.55
+   "type": "name",
+   "text": "Andromeda",
+   "x": 1180,
+   "y": 600,
+   "to": [
+    1250,
+    420
+   ],
+   "word": "Andromeda"
   }
  ],
- "labels": []
+ "motion": "track + dash: light marches down a beam from Andromeda into the telescope while the camera travels up the beam to the galaxy whose stars and gas are being measured"
 }

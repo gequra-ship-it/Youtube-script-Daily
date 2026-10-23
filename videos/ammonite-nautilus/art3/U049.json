@@ -1,17 +1,37 @@
 {
- "centre": "round lens showing liquid droplets flowing along folded chamber wall",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "movement of liquid",
+ "centre": "nautilus with a thick shell under water pressure",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "drip",
-   "word": "liquid",
+   "name": "thud",
+   "word": "pressure",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "thick shell",
+   "x": 700,
+   "y": 330,
+   "to": [
+    880,
+    440
+   ],
+   "word": "thick shell"
+  },
+  {
+   "type": "say",
+   "text": "Too warm!",
+   "x": 1650,
+   "y": 640,
+   "to": [
+    1535,
+    700
+   ],
+   "word": "warm"
+  }
+ ],
+ "motion": "avoids warm shallow water: the small nautilus sinks along the dashed line away from the surface (mv-path), camera follows it down"
 }

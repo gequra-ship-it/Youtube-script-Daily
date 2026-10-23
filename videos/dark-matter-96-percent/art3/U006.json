@@ -1,7 +1,30 @@
 {
- "centre": "the Moon, rim-lit above Earth's dusk horizon",
+ "centre": "the Sun, glowing in the middle of a scale from atom to galaxy",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "atom",
+   "x": 400,
+   "y": 300,
+   "to": [
+    400,
+    440
+   ],
+   "word": "smallest atom"
+  },
+  {
+   "type": "name",
+   "text": "galaxy",
+   "x": 1500,
+   "y": 210,
+   "to": [
+    1500,
+    360
+   ],
+   "word": "colossal galaxy"
+  }
+ ],
+ "motion": "camera sweeps from smallest atom to colossal galaxy (mv-track)"
 }

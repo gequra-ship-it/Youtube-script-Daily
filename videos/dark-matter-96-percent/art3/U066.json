@@ -1,11 +1,26 @@
 {
- "centre": "bright data star on a flat gold speed plateau curve, a dotted falling curve showing what was expected",
- "focus": [
-  1540,
-  500,
-  1.6
+ "centre": "hot coral gas of the colliding clusters glowing, its X-ray map outlines drawing on, watched by an X-ray telescope",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "X-rays",
+   "vol": 0.6
+  }
  ],
- "focus_word": "edge of the visible disk",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "hot gas",
+   "x": 1060,
+   "y": 255,
+   "to": [
+    1000,
+    410
+   ],
+   "word": "hot gas"
+  }
+ ],
+ "motion": "the map of the hot gas: outlines of the X-ray glow draw on around the gas (mv-edge) while the gas glows (mv-lamp)"
 }

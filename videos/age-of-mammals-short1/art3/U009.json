@@ -1,29 +1,30 @@
 {
- "centre": "glowing glass flask holding grass blades with glittering silica crystals",
+ "centre": "glowing round growth point at the base of grass, right at the soil line",
  "focus": [
   540,
-  860,
+  880,
   1.7
  ],
- "focus_word": "silica",
+ "focus_word": "base",
  "sfx": [
   {
-   "name": "hush",
-   "word": "defense",
+   "name": "rustle",
+   "word": "destroy",
    "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Silica",
-   "x": 400,
-   "y": 740,
+   "text": "Soil",
+   "x": 700,
+   "y": 990,
    "to": [
-    480,
-    840
+    600,
+    940
    ],
-   "word": "silica"
+   "word": "soil"
   }
- ]
+ ],
+ "motion": "grow: the blades regrow from the base (grass grows from the soil line, cannot be destroyed)"
 }

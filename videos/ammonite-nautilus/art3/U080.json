@@ -1,23 +1,30 @@
 {
- "centre": "magnified inset of the Baculites mouthparts",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "one lucky survivor hatchling glowing among fading specks, an adult beyond",
+ "iris": [
+  1500,
+  400
  ],
- "focus_word": "mouthparts",
- "sfx": [],
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "a few lucky survivors",
+   "vol": 0.5
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "Baculites",
-   "x": 560,
-   "y": 640,
+   "type": "say",
+   "text": "Made it!",
+   "x": 1160,
+   "y": 360,
    "to": [
-    600,
-    740
+    1045,
+    525
    ],
-   "word": "Baculites"
+   "word": "survivors"
   }
- ]
+ ],
+ "motion": "dash: dashes march from the lucky hatchling toward the adult it will become (a few survivors keep the species going); hatchling cheers"
 }

@@ -1,29 +1,48 @@
 {
- "centre": "a bright white-gold exploding star on the edge of a distant galaxy",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "exploding stars",
+ "centre": "three bars growing one after another: a tiny gold one for normal matter, a blue haze bar for dark matter, a long teal bar for dark energy",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "bloom",
-   "word": "exploding",
-   "vol": 0.7
+   "name": "pop",
+   "word": "five percent",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "exploding stars",
-   "x": 540,
-   "y": 1040,
+   "text": "Normal matter",
+   "x": 420,
+   "y": 460,
    "to": [
-    540,
-    950
+    190,
+    520
    ],
-   "word": "exploding stars"
+   "word": "Normal matter"
+  },
+  {
+   "type": "name",
+   "text": "Dark matter",
+   "x": 640,
+   "y": 770,
+   "to": [
+    420,
+    820
+   ],
+   "word": "Dark matter"
+  },
+  {
+   "type": "name",
+   "text": "dark energy",
+   "x": 540,
+   "y": 1330,
+   "to": [
+    600,
+    1230
+   ],
+   "word": "dark energy"
   }
- ]
+ ],
+ "motion": "grow (x): the three shares grow in turn as they are named, the last one stretching the farthest"
 }

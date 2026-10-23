@@ -1,36 +1,31 @@
 {
- "centre": "ripple-pattern globe tinted with blue haze, teal and gold, the mix that makes the pattern",
+ "centre": "our galaxy at left, the Andromeda galaxy far off at right with one pulsing star in its outer arm",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "dark energy",
-   "vol": 0.55
+   "name": "pulse",
+   "word": "pulsing star",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Dark matter",
-   "x": 400,
-   "y": 300,
-   "to": [
-    400,
-    470
-   ],
-   "word": "dark matter"
+   "type": "num",
+   "text": "1924",
+   "word": "1924"
   },
   {
    "type": "name",
-   "text": "Dark energy",
-   "x": 1500,
+   "text": "Andromeda",
+   "x": 1240,
    "y": 250,
    "to": [
-    1500,
-    470
+    1400,
+    430
    ],
-   "word": "dark energy"
+   "word": "Andromeda"
   }
- ]
+ ],
+ "motion": "track: the camera travels from our galaxy across the gulf to Andromeda, where a pulsing star shows it lies far beyond"
 }

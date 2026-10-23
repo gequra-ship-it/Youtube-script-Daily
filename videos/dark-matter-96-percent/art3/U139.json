@@ -1,19 +1,14 @@
 {
- "centre": "tall glass-and-steel tank full of glowing pale liquid xenon between sensor arrays",
+ "centre": "orb at the point where the falling gold curve meets the steady teal line",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "Liquid xenon",
-   "x": 1380,
-   "y": 500,
-   "to": [
-    1060,
-    500
-   ],
-   "word": "liquid xenon"
+   "name": "bloom",
+   "word": "took over",
+   "vol": 0.6
   }
- ]
+ ],
+ "spot": true,
+ "motion": "gold curve draws down while camera follows it to the handover"
 }

@@ -1,11 +1,20 @@
 {
- "centre": "magnifying glass showing a spiral galaxy with one gold star marked on the outer rim",
- "focus": [
-  636,
-  880,
-  1.8
- ],
- "focus_word": "outer rim",
+ "centre": "the tilted Andromeda galaxy with a measuring slit along its long axis; a teal reticle slides from the core to the rim and a spectrum strip below draws its speed line",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Andromeda",
+   "x": 300,
+   "y": 540,
+   "to": [
+    430,
+    760
+   ],
+   "word": "Andromeda"
+  }
+ ],
+ "motion": "path: the reticle measures along the galaxy from core to rim; edge: the speed line draws on the spectrum; camera tracking follows core -> rim -> spectrum"
 }

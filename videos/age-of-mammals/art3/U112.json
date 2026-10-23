@@ -1,19 +1,41 @@
 {
- "centre": "hippo head peeking out of a night river",
+ "centre": "golden medal with two arrows pointing opposite ways between a bank with an elephant and a bank with a big cat",
+ "iris": [
+  400,
+  640
+ ],
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "step",
+   "word": "migrate",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Hippopotamuses",
-   "x": 1420,
-   "y": 640,
+   "text": "Elephants",
+   "x": 470,
+   "y": 330,
    "to": [
-    1075,
-    545
+    490,
+    470
    ],
-   "word": "hippopotamuses"
+   "word": "elephants"
+  },
+  {
+   "type": "name",
+   "text": "Carnivores",
+   "x": 1420,
+   "y": 420,
+   "to": [
+    1420,
+    540
+   ],
+   "word": "carnivores"
   }
- ]
+ ],
+ "motion": "elephants migrate one way, carnivores the other: they cross the river toward each other (two paths), camera on the elephant"
 }

@@ -1,7 +1,37 @@
 {
- "centre": "brass compass between the land and the sea",
+ "centre": "low sun over a swamp where a small pig-sized elephant ancestor wades",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "began",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pig",
+   "x": 380,
+   "y": 600,
+   "to": [
+    380,
+    720
+   ],
+   "word": "pig"
+  },
+  {
+   "type": "name",
+   "text": "Tapir",
+   "x": 1500,
+   "y": 610,
+   "to": [
+    1500,
+    730
+   ],
+   "word": "tapir"
+  }
+ ],
+ "motion": "the elephant ancestor appears small between pig and tapir (rise)"
 }

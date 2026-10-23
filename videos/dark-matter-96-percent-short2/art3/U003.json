@@ -1,13 +1,19 @@
 {
- "centre": "glowing speed dial with a needle and a teal-to-gold arc",
+ "centre": "the Sun, a white-gold glowing star with soft corona, planets on dotted arcs",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "tick",
-   "word": "speed",
-   "vol": 0.6
+   "type": "name",
+   "text": "Sun",
+   "x": 800,
+   "y": 780,
+   "to": [
+    610,
+    840
+   ],
+   "word": "Sun"
   }
  ],
- "labels": []
+ "motion": "dash: the dotted orbit lines march fast on the inner orbits and barely creep on the far ones (inner worlds race, distant planets drift lazily)"
 }

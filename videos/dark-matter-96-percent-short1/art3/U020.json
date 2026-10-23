@@ -1,7 +1,26 @@
 {
- "centre": "a faceted glassy unknown particle with a dashed hypothetical outline",
+ "centre": "a person with a telescope and lantern on a hill as the faint cosmic web lights up thread by thread across the sky",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "illuminate",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Let us explore!",
+   "x": 820,
+   "y": 1110,
+   "to": [
+    690,
+    1190
+   ],
+   "word": "explore"
+  }
+ ],
+ "motion": "edge: the hidden cosmic web lights up thread by thread across the sky (illuminate the unknown) while the lantern glows"
 }

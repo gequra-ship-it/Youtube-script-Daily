@@ -1,19 +1,17 @@
 {
- "centre": "clump of phytoplankton cells",
+ "centre": "empty dull bubble where the food used to be",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "Phytoplankton",
-   "x": 470,
-   "y": 1110,
-   "to": [
-    520,
-    960
-   ],
-   "word": "phytoplankton"
+   "name": "breath",
+   "word": "starve",
+   "vol": 0.5
   }
- ]
+ ],
+ "iris": [
+  300,
+  1250
+ ],
+ "motion": "the tiny hatchlings drift slowly sideways in empty water, with no food around them"
 }

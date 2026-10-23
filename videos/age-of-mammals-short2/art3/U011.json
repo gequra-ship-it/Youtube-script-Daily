@@ -1,33 +1,26 @@
 {
- "centre": "river pebble broken open, pale sharp fracture edge glinting",
- "focus": [
-  540,
-  860,
-  1.9
- ],
- "focus_word": "glass-like edge",
+ "centre": "long bone on an anvil rock at night; a heavy stone drops on it and the bone splits to show glowing marrow",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "pebble",
+   "name": "thud",
+   "word": "smash",
    "vol": 0.6
   }
- ],
- "iris": [
-  540,
-  860
  ],
  "labels": [
   {
    "type": "name",
-   "text": "River pebble",
-   "x": 440,
-   "y": 680,
+   "text": "bone marrow",
+   "x": 540,
+   "y": 1320,
    "to": [
-    480,
-    800
+    540,
+    1085
    ],
-   "word": "river pebble"
+   "word": "bone marrow"
   }
- ]
+ ],
+ "motion": "path + shake: the heavy stone smashes down onto the bone, then the two halves slide apart, revealing the glowing marrow"
 }

@@ -1,16 +1,13 @@
 {
- "centre": "dark glass disc with a small bright gold wedge for the five percent",
- "focus": [
-  565,
-  775,
-  1.8
- ],
- "focus_word": "five percent",
+ "centre": "big warm gas cloud with a thin bright sliver of stars at its edge; a camera's viewfinder frame slides onto the sliver",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
  "sfx": [
   {
-   "name": "pop",
-   "word": "five percent",
-   "vol": 0.6
+   "name": "click",
+   "word": "photograph",
+   "vol": 0.55
   }
  ],
  "labels": [
@@ -18,6 +15,18 @@
    "type": "num",
    "text": "5%",
    "word": "five percent"
+  },
+  {
+   "type": "say",
+   "text": "Only a sliver?",
+   "x": 470,
+   "y": 1110,
+   "to": [
+    340,
+    1225
+   ],
+   "word": "sliver"
   }
- ]
+ ],
+ "motion": "path: the camera's viewfinder glides across the big gas cloud and settles on the thin sliver of stars (the part we photograph)"
 }

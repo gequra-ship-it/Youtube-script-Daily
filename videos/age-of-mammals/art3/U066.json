@@ -1,19 +1,26 @@
 {
- "centre": "round songbird singing on a telephone wire",
+ "centre": "primate on a branch judging the jump to a swaying branch across a misty drop",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "creak",
+   "word": "swaying branch",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Birds",
-   "x": 1440,
-   "y": 300,
+   "type": "say",
+   "text": "Hmm, risky...",
+   "x": 640,
+   "y": 240,
    "to": [
-    1530,
-    400
+    500,
+    380
    ],
-   "word": "birds"
+   "word": "Can you"
   }
- ]
+ ],
+ "motion": "swing + edge: the far branch sways while a dashed jump arc is measured out from the primate toward it"
 }

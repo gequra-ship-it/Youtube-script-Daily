@@ -1,25 +1,17 @@
 {
- "centre": "glowing crack where a long bone will break on an anvil stone",
- "focus": null,
- "focus_word": null,
+ "centre": "clay bowl of golden dense food seen from above",
+ "focus": [
+  540,
+  860,
+  1.8
+ ],
+ "focus_word": "nutritious",
  "sfx": [
   {
-   "name": "thud",
-   "word": "smash",
-   "vol": 0.65
+   "name": "pop",
+   "word": "nutritious",
+   "vol": 0.5
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Long bones",
-   "x": 300,
-   "y": 1090,
-   "to": [
-    380,
-    885
-   ],
-   "word": "long bones"
-  }
- ]
+ "motion": "rise: golden food crumbs float up around the bowl one by one (dense food pays the cost); gentle only"
 }

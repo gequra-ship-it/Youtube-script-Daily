@@ -1,11 +1,20 @@
 {
- "centre": "small bright gold spiral galaxy, the visible stars and gas, inside a much larger faint blue haze of uncertain size",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "stars and gas",
+ "centre": "the Big Bang point at left with the expansion funnel opening out but flattening, galaxies held back by gravity threads",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Big Bang",
+   "x": 300,
+   "y": 300,
+   "to": [
+    245,
+    495
+   ],
+   "word": "Big Bang"
+  }
+ ],
+ "motion": "edge + dash: the expansion outline draws from the Big Bang outward and flattens (slowing); gravity-thread dashes march inward"
 }

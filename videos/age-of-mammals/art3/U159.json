@@ -1,23 +1,17 @@
 {
- "centre": "big round leg joint above a long lower limb bone",
+ "centre": "a small spark in a stone hearth grows into a tall dancing flame while an early human kneels beside it; a dim mammoth stands in the dark",
  "focus": [
-  980,
-  640,
+  990,
+  540,
   1.6
  ],
- "focus_word": "lower limb bones",
- "sfx": [],
- "labels": [
+ "focus_word": "dancing flame",
+ "sfx": [
   {
-   "type": "name",
-   "text": "Lower limb bones",
-   "x": 1200,
-   "y": 760,
-   "to": [
-    1000,
-    720
-   ],
-   "word": "lower limb bones"
+   "name": "crackle",
+   "word": "flame of fire",
+   "vol": 0.65
   }
- ]
+ ],
+ "motion": "grow: the fire swells from a spark to a tall dancing flame and its warm light spreads as they learn to harness it"
 }

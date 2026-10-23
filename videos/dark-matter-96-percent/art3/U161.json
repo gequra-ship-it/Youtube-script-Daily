@@ -1,17 +1,26 @@
 {
- "centre": "round budget chart split into gold, blue-haze and teal slices",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "budget",
+ "centre": "the Andromeda galaxy up close, a full spiral among countless far galaxies",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "budget",
+   "name": "sparkle",
+   "word": "countless more",
    "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Andromeda",
+   "x": 560,
+   "y": 250,
+   "to": [
+    760,
+    420
+   ],
+   "word": "Andromeda"
+  }
+ ],
+ "motion": "camera sweeps across Andromeda and the countless galaxies around it"
 }

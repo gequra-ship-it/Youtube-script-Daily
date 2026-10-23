@@ -1,25 +1,37 @@
 {
- "centre": "dial with the needle resting at the low end",
+ "centre": "ammonite in the middle of a fading food-chain ladder",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "metabolic rate",
+   "name": "breath",
+   "word": "collapse",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "metabolic rate",
-   "x": 700,
-   "y": 1030,
+   "text": "plankton",
+   "x": 540,
+   "y": 1250,
    "to": [
-    580,
-    930
+    480,
+    1330
    ],
-   "word": "metabolic rate"
+   "word": "plankton"
+  },
+  {
+   "type": "name",
+   "text": "predators",
+   "x": 300,
+   "y": 330,
+   "to": [
+    430,
+    395
+   ],
+   "word": "predators"
   }
- ]
+ ],
+ "motion": "the arrow climbs the food chain from plankton up to the predators while the camera rides up with it"
 }

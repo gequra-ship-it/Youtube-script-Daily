@@ -1,13 +1,18 @@
 {
- "centre": "glowing gold marker dot on a long timeline over rock layers",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "centre": "huge sauropod legs stomping beside dense ferns where a dim meat-eater shows gleaming serrated teeth",
+ "focus": [
+  1420,
+  600,
+  1.7
+ ],
+ "focus_word": "Serrated teeth",
+ "sfx": [
   {
-   "type": "num",
-   "text": "66 MILLION YEARS AGO",
-   "word": "sixty-six million"
+   "name": "thud",
+   "word": "heavy step",
+   "vol": 0.7
   }
- ]
+ ],
+ "labels": [],
+ "motion": "heavy steps shake the earth: the giant legs stomp (mv-joint), the ferns tremble (mv-shake), dust puffs (mv-popin); then the dim predator slides out of the shadow with gleaming teeth (mv-rise, mv-glint)"
 }

@@ -1,11 +1,18 @@
 {
- "centre": "warm glow in the middle of an open palm",
+ "centre": "an open palm rising into a quiet sunlit room, warm veins lighting up beneath the skin",
  "focus": [
   960,
-  480,
+  720,
   1.5
  ],
- "focus_word": "palm of your hand",
- "sfx": [],
- "labels": []
+ "focus_word": "warmth pulsing",
+ "sfx": [
+  {
+   "name": "breath",
+   "word": "quiet look",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "motion": "the palm rises into view (mv-rise), then warm veins draw on under the skin (mv-edge) and the palm glows; push in on the warmth"
 }

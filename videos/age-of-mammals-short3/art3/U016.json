@@ -1,34 +1,26 @@
 {
- "centre": "whale-like ear bone in a round medallion",
- "focus": [
-  540,
-  860,
-  1.7
+ "centre": "round cloud of breath above a whale's head at the sea surface",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "surface",
+   "vol": 0.55
+  }
  ],
- "focus_word": "ear bones",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Ear bones",
-   "x": 720,
-   "y": 720,
+   "type": "say",
+   "text": "Phew, air!",
+   "x": 790,
+   "y": 1000,
    "to": [
-    610,
-    820
+    650,
+    1045
    ],
-   "word": "ear bones"
-  },
-  {
-   "type": "name",
-   "text": "Four legs",
-   "x": 330,
-   "y": 640,
-   "to": [
-    515,
-    555
-   ],
-   "word": "four legs"
+   "word": "breathe"
   }
- ]
+ ],
+ "motion": "bubble: air bubbles rise from the body under the water while the whale blows at the surface; whale says Phew air"
 }

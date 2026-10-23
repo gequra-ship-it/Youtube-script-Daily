@@ -1,19 +1,30 @@
 {
- "centre": "ammonite darting through bright water",
+ "centre": "calm nautilus in still deep water below choppy upper layers",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Ammonites",
-   "x": 400,
-   "y": 640,
+   "text": "the deep",
+   "x": 760,
+   "y": 1100,
    "to": [
-    500,
-    790
+    640,
+    960
    ],
-   "word": "Ammonites"
+   "word": "the deep"
+  },
+  {
+   "type": "say",
+   "text": "Quiet down here",
+   "x": 290,
+   "y": 1090,
+   "to": [
+    450,
+    880
+   ],
+   "word": "deep"
   }
- ]
+ ],
+ "motion": "the depth gauge marks pop in one after another going down: slower and weaker in the deep; the nautilus speaks"
 }

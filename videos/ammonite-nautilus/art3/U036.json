@@ -1,23 +1,45 @@
 {
- "centre": "magnified chambers divided by walls with a thin tube running through them",
+ "centre": "ammonite cutaway shell with water-pressure arrows pressing down on it",
  "focus": [
   960,
-  500,
-  1.9
+  560,
+  1.7
  ],
- "focus_word": "siphuncle",
- "sfx": [],
+ "focus_word": "water pressure",
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "water pressure",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Siphuncle",
-   "x": 1230,
-   "y": 340,
+   "text": "Water pressure",
+   "x": 1380,
+   "y": 330,
    "to": [
-    1040,
-    490
+    1100,
+    300
    ],
-   "word": "siphuncle"
+   "word": "water pressure"
+  },
+  {
+   "type": "say",
+   "text": "Not budging!",
+   "x": 1360,
+   "y": 640,
+   "to": [
+    1060,
+    600
+   ],
+   "word": "strengthen"
   }
- ]
+ ],
+ "iris": [
+  960,
+  560
+ ],
+ "motion": "folds strengthen thin shells against water pressure: the pressure arrows grow downward onto the shell (mv-grow)"
 }

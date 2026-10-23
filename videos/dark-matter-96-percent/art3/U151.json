@@ -1,29 +1,20 @@
 {
- "centre": "glassy blue dark-matter haze sphere with light streaming straight through it",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "Dark matter",
+ "centre": "the cosmic pie assembling from three glowing pieces: a big teal piece, a blue haze piece and a thin gold sliver",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "light",
-   "vol": 0.55
+   "name": "click",
+   "word": "together",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Dark matter",
-   "x": 1330,
-   "y": 300,
-   "to": [
-    1050,
-    440
-   ],
-   "word": "Dark matter"
+   "type": "num",
+   "text": "5%",
+   "word": "five percent"
   }
- ]
+ ],
+ "motion": "path x3 (no tracking): the three pieces fly in and lock together into one pie, then the thin gold five-percent sliver lights up"
 }

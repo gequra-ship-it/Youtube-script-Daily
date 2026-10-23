@@ -1,23 +1,35 @@
 {
- "centre": "slim, compressed ammonite shell in a museum drawer",
+ "centre": "a close-up nautilus with a pinhole eye and beak-like jaws; the fish it sees is only a soft blur",
  "focus": [
-  1040,
-  500,
+  800,
+  560,
   1.6
  ],
- "focus_word": "slim",
+ "focus_word": "pinhole eyes",
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "slim",
-   "x": 1150,
-   "y": 330,
+   "text": "pinhole eyes",
+   "x": 640,
+   "y": 300,
    "to": [
-    1150,
-    392
+    760,
+    545
    ],
-   "word": "slim"
+   "word": "pinhole eyes"
+  },
+  {
+   "type": "say",
+   "text": "All a blur...",
+   "x": 1100,
+   "y": 400,
+   "to": [
+    880,
+    600
+   ],
+   "word": "blurry"
   }
  ],
- "sfx": []
+ "motion": "the beak-like jaws open and close (joint) while a blurry fish drifts by unchased (scroll); camera pushes in to the pinhole eye"
 }

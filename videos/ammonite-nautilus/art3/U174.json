@@ -1,7 +1,41 @@
 {
- "centre": "the last flake of a thinning rain of food",
+ "centre": "ammonite fossil held in one hand, nautilus shell in the other",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "ammonite fossil",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "ammonite fossil",
+   "x": 560,
+   "y": 400,
+   "to": [
+    860,
+    470
+   ],
+   "word": "ammonite fossil"
+  },
+  {
+   "type": "name",
+   "text": "nautilus shell",
+   "x": 1500,
+   "y": 380,
+   "to": [
+    1500,
+    470
+   ],
+   "word": "nautilus shell"
+  }
+ ],
+ "iris": [
+  1500,
+  560
+ ],
+ "motion": "imagine holding a fossil in one hand and a shell in the other: the left arm with the ammonite rises first, then the right arm with the nautilus shell (mv-rise)"
 }

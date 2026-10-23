@@ -1,24 +1,19 @@
 {
- "centre": "round glowing steel vessel of pale liquid in a deep gold-mine gallery",
+ "centre": "a rope pulled between a dense gold cluster of matter (left) and an even teal fabric of dark energy (right); the knot slides toward matter",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "1.5 KM",
-   "word": "one and a half kilometers"
-  },
-  {
-   "type": "name",
-   "text": "Gold mine",
-   "x": 1380,
-   "y": 330,
+   "type": "say",
+   "text": "Heave!",
+   "x": 360,
+   "y": 230,
    "to": [
-    1500,
-    432
+    450,
+    330
    ],
-   "word": "gold mine"
+   "word": "tug of war"
   }
- ]
+ ],
+ "motion": "path: the rope and its knot slide left toward the dense matter cluster (matter wins the tug of war); fabric points stay evenly spaced"
 }

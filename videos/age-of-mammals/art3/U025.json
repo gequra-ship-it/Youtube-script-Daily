@@ -1,29 +1,26 @@
 {
- "centre": "knot hole in a fallen log with a shrew face peeking out",
+ "centre": "dark asteroid with a glowing edge arcing down onto the shallow sea off the Mexican coast",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "rustle",
-   "word": "scurry",
-   "vol": 0.6
+   "name": "thud",
+   "word": "strikes",
+   "vol": 0.75
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Titans",
-   "x": 560,
-   "y": 120,
+   "text": "Mexico",
+   "x": 1600,
+   "y": 470,
    "to": [
-    600,
-    215
+    1680,
+    600
    ],
-   "word": "titans"
+   "word": "Mexico"
   }
  ],
- "iris": [
-  720,
-  720
- ]
+ "motion": "path + tracking + popin: the asteroid arcs across the sky onto the shallow water and a flash pops at the strike; the camera follows the rock"
 }

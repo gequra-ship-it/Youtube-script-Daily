@@ -1,23 +1,30 @@
 {
- "centre": "nautilus embryo inside its egg, feeding from its own yolk sac",
- "sfx": [],
- "iris": [
-  420,
-  170
- ],
+ "centre": "nautilus swimming past a dark reef slope",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Surface plankton",
-   "x": 1300,
-   "y": 340,
+   "text": "nautilus",
+   "x": 1180,
+   "y": 700,
    "to": [
-    1300,
-    220
+    1000,
+    590
    ],
-   "word": "surface plankton"
+   "word": "nautilus"
+  },
+  {
+   "type": "say",
+   "text": "So dark...",
+   "x": 1200,
+   "y": 300,
+   "to": [
+    1030,
+    470
+   ],
+   "word": "dark"
   }
  ],
- "focus": null,
- "focus_word": null
+ "motion": "nautilus still moving through dark water: camera follows its swim along the reef slope (mv-track)"
 }

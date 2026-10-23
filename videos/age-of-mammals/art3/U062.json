@@ -1,25 +1,26 @@
 {
- "centre": "nutshell bowl heaped with seeds",
+ "centre": "fossil croc skull in a polar river bank, then a living crocodile relative in a steamy swamp",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "rustle",
-   "word": "seeds",
-   "vol": 0.5
+   "name": "stone",
+   "word": "Fossils",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Grubs",
-   "x": 360,
-   "y": 790,
+   "type": "say",
+   "text": "Nice and warm!",
+   "x": 1560,
+   "y": 470,
    "to": [
-    690,
-    760
+    1700,
+    636
    ],
-   "word": "grubs"
+   "word": "steamy"
   }
- ]
+ ],
+ "motion": "track: the camera moves from the fossil in the rock to the living crocodile relative swimming in the warm polar swamp; steam rises"
 }

@@ -1,11 +1,38 @@
 {
- "centre": "distant fig tree heavy with ripe fruit across open ground",
- "focus": [
-  960,
-  480,
-  1.6
+ "centre": "frost spreads over the tundra; two woolly mammoths grow thick fur and a calf walks over to join them",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "the world froze",
+   "vol": 0.55
+  }
  ],
- "focus_word": "fruiting trees",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Thick fur",
+   "x": 560,
+   "y": 330,
+   "to": [
+    700,
+    500
+   ],
+   "word": "thick fur"
+  },
+  {
+   "type": "say",
+   "text": "Wait for me!",
+   "x": 1290,
+   "y": 430,
+   "to": [
+    1300,
+    610
+   ],
+   "word": "forged social bonds"
+  }
+ ],
+ "track": false,
+ "motion": "the world froze, mammals grew fur and forged bonds: frost sheet spreads from the left (mv-grow x, 0.3-2.9 s), the adults' fur fringes thicken (mv-grow y), then the calf walks to the herd (mv-path, 3.6-6.0 s); snow drifts (mv-scroll); no tracking"
 }

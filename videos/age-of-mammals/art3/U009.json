@@ -1,25 +1,31 @@
 {
- "centre": "brass porthole lens showing a mammoth landscape",
+ "centre": "a herd of long-necked sauropods walking across a dusk floodplain",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "page",
-   "word": "grand history",
-   "vol": 0.55
+   "name": "step",
+   "word": "ruled the land",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Cenozoic era",
-   "x": 1460,
-   "y": 470,
+   "text": "dinosaurs",
+   "x": 1180,
+   "y": 200,
    "to": [
-    1460,
-    580
+    1350,
+    420
    ],
-   "word": "Cenozoic era"
+   "word": "dinosaurs"
+  },
+  {
+   "type": "num",
+   "text": "OVER 150 MILLION YEARS",
+   "word": "hundred and fifty million"
   }
  ],
- "focus": null,
- "focus_word": null
+ "motion": "dinosaurs ruled the land: the sauropod herd walks steadily across the plain (mv-scroll) with stepping legs (mv-joint)"
 }

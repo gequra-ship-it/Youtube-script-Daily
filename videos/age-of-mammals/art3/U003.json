@@ -1,17 +1,36 @@
 {
- "centre": "glowing heat orb in the chest of a notebook body sketch",
+ "centre": "a tiny mammal trembling in its underground den as a giant foot steps down above",
+ "focus": [
+  900,
+  640,
+  1.6
+ ],
+ "focus_word": "trembling",
  "sfx": [
   {
-   "name": "pencil",
-   "word": "Where did",
-   "vol": 0.5
+   "name": "thud",
+   "word": "feet of giants",
+   "vol": 0.65
   }
  ],
- "iris": [
-  390,
-  450
+ "labels": [
+  {
+   "type": "num",
+   "text": "66 MILLION YEARS AGO",
+   "word": "Sixty-six million"
+  },
+  {
+   "type": "say",
+   "text": "Stay still...",
+   "x": 640,
+   "y": 500,
+   "to": [
+    990,
+    664
+   ],
+   "word": "trembling"
+  }
  ],
- "focus": null,
- "focus_word": null,
- "labels": []
+ "motion": "a giant foot comes down onto the ground above the den (mv-rise from above), the soil jolts (mv-shake) and the hiding mammal trembles (mv-shake)",
+ "track": false
 }

@@ -1,21 +1,37 @@
 {
- "centre": "a white dwarf at its limit, gas still streaming in from a red companion, warm cracks of light starting",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "critical mass",
+ "centre": "a round cloud of golden stardust between a bone and a blood drop",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "bloom",
-   "word": "explode",
-   "vol": 0.65
+   "name": "sparkle",
+   "word": "stardust",
+   "vol": 0.55
   }
  ],
- "labels": [],
- "iris": [
-  1520,
-  570
- ]
+ "labels": [
+  {
+   "type": "name",
+   "text": "calcium",
+   "x": 420,
+   "y": 230,
+   "to": [
+    350,
+    330
+   ],
+   "word": "calcium"
+  },
+  {
+   "type": "name",
+   "text": "iron",
+   "x": 1500,
+   "y": 260,
+   "to": [
+    1500,
+    340
+   ],
+   "word": "iron"
+  }
+ ],
+ "motion": "stardust flows along the dotted line to bone and blood"
 }

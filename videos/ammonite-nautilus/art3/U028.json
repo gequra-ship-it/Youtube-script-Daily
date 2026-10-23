@@ -1,13 +1,23 @@
 {
- "centre": "glowing asteroid standing out among grey storm clouds",
- "focus": null,
- "focus_word": null,
- "sfx": [
+ "centre": "magnified chambers divided by walls with a thin tube running through them",
+ "focus": [
+  960,
+  500,
+  1.9
+ ],
+ "focus_word": "siphuncle",
+ "labels": [
   {
-   "name": "wind",
-   "word": "disaster",
-   "vol": 0.5
+   "type": "name",
+   "text": "Siphuncle",
+   "x": 1230,
+   "y": 340,
+   "to": [
+    1040,
+    490
+   ],
+   "word": "siphuncle"
   }
  ],
- "labels": []
+ "motion": "chambers linked by a thin tube: the siphuncle tube draws on through the chambers (mv-edge) at the moment it is named"
 }

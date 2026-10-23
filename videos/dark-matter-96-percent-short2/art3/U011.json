@@ -1,17 +1,26 @@
 {
- "centre": "small observatory dome with a glowing slit and telescope on a dark hill under a nebula sky",
- "focus": [
-  540,
-  860,
-  1.7
+ "centre": "rotation curve over an edge-on galaxy: a teal dot races up and then stays level all the way to the dashed disk edge; the falling ghost curve is left behind",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "warp",
+   "word": "fast",
+   "vol": 0.55
+  }
  ],
- "focus_word": "astronomer",
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "1970",
-   "word": "1970"
+   "type": "name",
+   "text": "visible disk",
+   "x": 720,
+   "y": 1290,
+   "to": [
+    880,
+    1160
+   ],
+   "word": "visible disk"
   }
- ]
+ ],
+ "motion": "path + edge + tracking: the speed dot climbs fast and then runs flat to the edge of the disk while the flat curve draws behind it"
 }

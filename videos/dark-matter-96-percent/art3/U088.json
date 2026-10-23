@@ -1,13 +1,19 @@
 {
- "centre": "round porthole window with a metal bezel looking out on a glowing starfield, in an observatory wall",
+ "centre": "a big blue dark matter haze linked to many observation cards, while a small coral idea links to one",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "click",
-   "word": "window",
-   "vol": 0.6
+   "type": "name",
+   "text": "Dark matter",
+   "x": 1300,
+   "y": 640,
+   "to": [
+    1170,
+    560
+   ],
+   "word": "dark matter"
   }
  ],
- "labels": []
+ "motion": "edge: one coral link draws from the alternative idea to one card, then blue links draw from dark matter to card after card - many observations at once"
 }

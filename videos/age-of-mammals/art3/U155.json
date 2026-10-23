@@ -1,25 +1,26 @@
 {
- "centre": "round puff of dust swirling above the grass",
+ "centre": "leafy clump on a branch being stripped by the sloth",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "sand",
-   "word": "dust",
-   "vol": 0.5
+   "name": "rustle",
+   "word": "stripping branches",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Dust",
-   "x": 1170,
-   "y": 280,
+   "text": "Ground sloth",
+   "x": 400,
+   "y": 250,
    "to": [
-    1020,
-    420
+    650,
+    330
    ],
-   "word": "dust"
+   "word": "ground sloths"
   }
- ]
+ ],
+ "motion": "pale forest trunks drift past (mv-scroll) as the sloth lumbers on through the forest"
 }

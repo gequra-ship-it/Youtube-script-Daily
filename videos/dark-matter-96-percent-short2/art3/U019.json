@@ -1,17 +1,52 @@
 {
- "centre": "a bright star flung outward on a long curved track into the dark",
- "focus": [
-  540,
-  860,
-  1.5
- ],
- "focus_word": "flung their stars",
+ "centre": "faint blue-indigo haze cloud, with a proton, a neutron and an electron set aside and crossed out",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "warp",
-   "word": "flung",
+   "name": "pop",
+   "word": "not made of protons",
    "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "protons",
+   "x": 250,
+   "y": 460,
+   "to": [
+    250,
+    520
+   ],
+   "word": "protons"
+  },
+  {
+   "type": "name",
+   "text": "neutrons",
+   "x": 810,
+   "y": 550,
+   "to": [
+    830,
+    610
+   ],
+   "word": "neutrons"
+  },
+  {
+   "type": "name",
+   "text": "electrons",
+   "x": 330,
+   "y": 1070,
+   "to": [
+    285,
+    1140
+   ],
+   "word": "electrons"
+  }
+ ],
+ "iris": [
+  540,
+  860
+ ],
+ "motion": "slam: the red crosses stamp onto proton, neutron and electron one after another as each is named (not made of these)"
 }

@@ -1,7 +1,26 @@
 {
- "centre": "gold-white orb of the young expansion with fading echoes bunching closer, slowing down",
+ "centre": "an observatory dome on a Chilean ridge whose telescope snaps photo frames that spread one after another across the whole southern sky; a spinning spiral galaxy overhead",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "click",
+   "word": "photographs",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Snap! And again!",
+   "x": 330,
+   "y": 560,
+   "to": [
+    470,
+    520
+   ],
+   "word": "photographs"
+  }
+ ],
+ "motion": "popin sequence: photo frames appear one after another across the sky until it is covered (repeatedly photographs the whole southern sky); the telescope nods between shots (joint); the galaxy turns (rotor)"
 }

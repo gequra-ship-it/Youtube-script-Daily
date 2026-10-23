@@ -1,13 +1,26 @@
 {
- "centre": "golden crown resting on a mossy boulder, waiting to be claimed",
+ "centre": "a land mammal swimming underwater near a slow fish while a predator watches from the bank",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "silent plains",
+   "name": "bubble",
+   "word": "slow fish",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Uh-oh!",
+   "x": 470,
+   "y": 470,
+   "to": [
+    520,
+    590
+   ],
+   "word": "hunting"
+  }
+ ],
+ "motion": "fill (y): over generations the swimmer's legs shorten and its body grows sleeker while it paddles; air bubbles rise"
 }

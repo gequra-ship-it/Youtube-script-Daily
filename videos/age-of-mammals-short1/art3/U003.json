@@ -1,7 +1,10 @@
 {
- "centre": "pocket watch with its hand running backwards, buried in rock layers",
+ "centre": "brass pocket watch, hands running backwards, sinking through rock layers into the Miocene layer",
  "focus": null,
  "focus_word": null,
+ "track": {
+  "scale": 1.4
+ },
  "sfx": [
   {
    "name": "tick",
@@ -11,15 +14,21 @@
  ],
  "labels": [
   {
+   "type": "num",
+   "text": "23 MILLION YEARS AGO",
+   "word": "twenty-three million"
+  },
+  {
    "type": "name",
    "text": "Miocene",
-   "x": 560,
-   "y": 1300,
+   "x": 760,
+   "y": 1360,
    "to": [
-    600,
-    1185
+    700,
+    1250
    ],
    "word": "Miocene"
   }
- ]
+ ],
+ "motion": "path + tracking: the watch (hands turning backwards) sinks along an S route through the rock layers down to the Miocene layer = going back in time"
 }

@@ -1,25 +1,26 @@
 {
- "centre": "cream-gold dust cloud bursting under a sauropod foot",
+ "centre": "a shrew-like mammal scurrying under a fallen log at night while a tiny opossum-like mammal sits on top and titans stand on the horizon",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "thud",
-   "word": "heavy step",
-   "vol": 0.7
+   "name": "rustle",
+   "word": "scurry",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Sauropods",
-   "x": 1420,
-   "y": 330,
+   "text": "Titans",
+   "x": 820,
+   "y": 170,
    "to": [
-    1110,
-    150
+    700,
+    250
    ],
-   "word": "sauropods"
+   "word": "titans"
   }
  ],
- "focus": null,
- "focus_word": null
+ "motion": "they scurry under fallen logs: the little mammal runs the whole length of the gap under the log (mv-path, camera follows)"
 }

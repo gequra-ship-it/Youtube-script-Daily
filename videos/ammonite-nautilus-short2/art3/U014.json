@@ -1,17 +1,26 @@
 {
- "centre": "empty dull bubble where the food used to be",
+ "centre": "a nautilus egg in cold water under a year arc of seasons; the cap opens and a miniature nautilus rises out",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "breath",
-   "word": "starve",
+   "name": "tick",
+   "word": "close to a year",
    "vol": 0.5
   }
  ],
- "labels": [],
- "iris": [
-  300,
-  1250
- ]
+ "labels": [
+  {
+   "type": "name",
+   "text": "nautilus embryo",
+   "x": 300,
+   "y": 1350,
+   "to": [
+    470,
+    1170
+   ],
+   "word": "nautilus embryo"
+  }
+ ],
+ "motion": "path (no tracking): a marker travels the whole year of seasons (close to a year to hatch); flip: the egg cap opens; rise: a miniature nautilus emerges (not a tiny larva)"
 }

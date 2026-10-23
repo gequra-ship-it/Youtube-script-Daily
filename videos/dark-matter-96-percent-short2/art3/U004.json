@@ -1,19 +1,32 @@
 {
- "centre": "the Sun, a white-gold glowing star with soft corona, planets on dotted arcs",
+ "centre": "the Sun at the top; small Mercury races along a long inner arc with a gold speed trail while blue Neptune creeps a short way on its far orbit",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "track": false,
+ "sfx": [
+  {
+   "name": "warp",
+   "word": "speeds",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Sun",
-   "x": 800,
-   "y": 780,
+   "type": "num",
+   "text": "47 KM/S",
+   "word": "forty-seven"
+  },
+  {
+   "type": "say",
+   "text": "No rush...",
+   "x": 520,
+   "y": 1120,
    "to": [
-    610,
-    840
+    330,
+    1220
    ],
-   "word": "Sun"
+   "word": "plods"
   }
- ]
+ ],
+ "motion": "two paths, same time: Mercury sweeps a long arc (fast) while Neptune moves only a few degrees (plods); no tracking so both stay in view"
 }

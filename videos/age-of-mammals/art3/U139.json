@@ -1,13 +1,27 @@
 {
- "centre": "round green meadow patch seen from above",
+ "centre": "two upright walkers striding across a fresh ash layer, their footprints appearing behind them",
  "focus": null,
  "focus_word": null,
+ "track": false,
  "sfx": [
   {
-   "name": "wind",
-   "word": "spreads",
+   "name": "step",
+   "word": "walkers",
    "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Wait for me!",
+   "x": 1060,
+   "y": 220,
+   "to": [
+    935,
+    360
+   ],
+   "word": "walkers"
+  }
+ ],
+ "motion": "path + popin (no tracking): the two walkers stride across the ash on two legs, prints popping in behind them"
 }

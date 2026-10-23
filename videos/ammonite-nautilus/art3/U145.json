@@ -1,11 +1,19 @@
 {
- "centre": "green phytoplankton cell under a dim sun with a low gauge",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "a soft bubble of young squid, octopus and cuttlefish at the centre; routes spread out to four hunting grounds",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "cephalopods",
+   "x": 960,
+   "y": 760,
+   "to": [
+    960,
+    610
+   ],
+   "word": "cephalopods"
+  }
  ],
- "focus_word": "photosynthesis",
- "sfx": [],
- "labels": []
+ "motion": "edge + popin: routes spread from the centre and a hunter appears at each end (spreading into many hunting roles)"
 }

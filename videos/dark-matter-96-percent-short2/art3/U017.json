@@ -1,17 +1,26 @@
 {
- "centre": "tilted spiral galaxy with a bright gold core, fast stars streaking out of its rim",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "moving so rapidly",
+ "centre": "a galaxy cluster wrapped in blue haze bends the light of a far galaxy above into glowing gold arcs seen by a small telescope below",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "starfall",
-   "word": "moving so rapidly",
-   "vol": 0.6
+   "name": "sparkle",
+   "word": "glowing arcs",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "clusters of galaxies",
+   "x": 720,
+   "y": 610,
+   "to": [
+    600,
+    800
+   ],
+   "word": "clusters of galaxies"
+  }
+ ],
+ "motion": "path x2 + tracking: light from the far galaxy bends around both sides of the cluster down to the telescope; edge: the glowing arcs draw on as it arrives"
 }

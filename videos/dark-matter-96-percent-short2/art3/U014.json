@@ -1,13 +1,26 @@
 {
- "centre": "a bright blue-white star racing along a long glowing curved trail",
+ "centre": "calm, whole face-on spiral galaxy with a gold-white core",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "starfall",
-   "word": "astonishingly",
+   "name": "sparkle",
+   "word": "beautifully intact",
    "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Still here!",
+   "x": 820,
+   "y": 430,
+   "to": [
+    690,
+    650
+   ],
+   "word": "remain"
+  }
+ ],
+ "motion": "rotor: the whole spiral turns slowly and calmly and stays intact; galaxy says \"Still here!\""
 }

@@ -1,19 +1,37 @@
 {
- "centre": "broad head of a giant snake rising from the swamp, golden eyes",
+ "centre": "a hippo in a river and a whale in the sea, linked by a family-tree branch that draws on",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "hippopotamuses",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Giant snake",
-   "x": 1300,
-   "y": 380,
+   "type": "say",
+   "text": "Hi, cousin!",
+   "x": 560,
+   "y": 330,
    "to": [
-    1080,
-    480
+    680,
+    520
    ],
-   "word": "Giant snakes"
+   "word": "relatives"
+  },
+  {
+   "type": "say",
+   "text": "Oh, hello!",
+   "x": 1340,
+   "y": 360,
+   "to": [
+    1260,
+    560
+   ],
+   "word": "hippopotamuses"
   }
- ]
+ ],
+ "motion": "edge: a family-tree branch draws up from a shared root and splits to the hippo in the river and the whale in the sea"
 }

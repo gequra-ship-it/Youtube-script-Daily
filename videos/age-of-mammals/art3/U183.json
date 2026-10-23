@@ -1,44 +1,16 @@
 {
- "centre": "round patch of forest with a sunlit clearing seen from above",
- "iris": [
-  1500,
-  430
- ],
- "focus": [
-  1500,
-  430,
-  1.8
- ],
- "focus_word": "woodland",
+ "centre": "bright moon breaking through storm clouds over the sea",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "rustle",
-   "word": "fracture",
-   "vol": 0.5
+   "name": "rain",
+   "word": "stormy oceans",
+   "vol": 0.55
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Woodland",
-   "x": 1500,
-   "y": 270,
-   "to": [
-    1500,
-    360
-   ],
-   "word": "woodland"
-  },
-  {
-   "type": "name",
-   "text": "Savannah",
-   "x": 1290,
-   "y": 600,
-   "to": [
-    1320,
-    660
-   ],
-   "word": "savannah"
-  }
- ]
+ "motion": "camera crosses the stormy sea from the island to the whale, which arcs forward through the waves (mv-path + track)",
+ "track": {
+  "scale": 1.3
+ }
 }

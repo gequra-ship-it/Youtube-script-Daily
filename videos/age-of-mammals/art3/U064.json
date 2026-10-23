@@ -1,23 +1,26 @@
 {
- "centre": "lone pale fossil dinosaur egg",
- "focus": [
-  1300,
-  560,
-  1.6
- ],
- "focus_word": "colossal rulers",
+ "centre": "early primate leaping between mossy canopy branches; lens on its grasping hand",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "gone",
-   "vol": 0.6
+   "name": "rustle",
+   "word": "mossy branches",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "OVER 100 MILLION YEARS",
-   "word": "hundred million"
+   "type": "name",
+   "text": "Flat nails",
+   "x": 1180,
+   "y": 230,
+   "to": [
+    1548,
+    350
+   ],
+   "word": "flat nails"
   }
- ]
+ ],
+ "motion": "path + popin: the primate leaps along an arc from one mossy branch to the next (camera follows), then a lens pops in on its flat-nailed grasping hand"
 }

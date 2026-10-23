@@ -1,11 +1,37 @@
 {
- "centre": "nautilus shell cut in half showing its chambers on a workshop bench with an ammonite cutaway beside it",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "glowing question-mark orb flanked by two ammonites with thought bubbles",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "Why did ammonites evolve",
+   "vol": 0.4
+  }
  ],
- "focus_word": "Cut either shell in half",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Maybe?",
+   "x": 300,
+   "y": 480,
+   "to": [
+    420,
+    590
+   ],
+   "word": "complicated"
+  },
+  {
+   "type": "say",
+   "text": "Not sure!",
+   "x": 1600,
+   "y": 480,
+   "to": [
+    1530,
+    590
+   ],
+   "word": "debating"
+  }
+ ],
+ "motion": "scientists still debating: the two thought bubbles pop in one after the other (mv-popin x2) and the ammonites trade a Maybe / Not sure"
 }

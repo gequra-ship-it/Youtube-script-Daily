@@ -1,27 +1,26 @@
 {
- "centre": "shrew's round ear glowing from inside",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "forest fires lighting up one after another and a dark column of soot rising into the high atmosphere",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "crackle",
+   "word": "Wildfires",
+   "vol": 0.65
+  }
  ],
- "focus_word": "middle ear bones",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Middle ear bones",
-   "x": 1240,
-   "y": 330,
+   "text": "Soot",
+   "x": 1420,
+   "y": 250,
    "to": [
-    990,
-    500
+    1250,
+    220
    ],
-   "word": "middle ear bones"
+   "word": "Soot"
   }
  ],
- "iris": [
-  700,
-  625
- ]
+ "motion": "popin + rise + tracking: fires pop up across the forest, then the soot column rises and the camera climbs with it to the upper atmosphere"
 }

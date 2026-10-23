@@ -1,17 +1,30 @@
 {
- "centre": "magnifying lens over a tiny ammonite and nautilus shell, jigsaw pieces beside it",
+ "centre": "living chambered nautilus swimming in a museum aquarium tank",
  "focus": [
   960,
   500,
-  1.8
+  1.7
  ],
- "focus_word": "puzzle",
+ "focus_word": "nautilus",
  "sfx": [
   {
-   "name": "page",
-   "word": "classic puzzles",
+   "name": "bubble",
+   "word": "nautilus",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Nautilus",
+   "x": 1380,
+   "y": 330,
+   "to": [
+    1080,
+    470
+   ],
+   "word": "nautilus"
+  }
+ ],
+ "motion": "quiet relative: a few slow bubbles rise from the nautilus (mv-bubble), calm and small"
 }

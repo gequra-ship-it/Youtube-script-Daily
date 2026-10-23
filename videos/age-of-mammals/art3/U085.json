@@ -1,29 +1,40 @@
 {
- "centre": "kangaroo pouch with a young joey peeking out",
- "focus": [
-  960,
-  480,
-  1.8
- ],
- "focus_word": "pouch",
+ "centre": "a towering indricothere beside a small rhinoceros; the camera climbs from the rhino up the giant's neck",
+ "focus": null,
+ "focus_word": null,
+ "track": {
+  "scale": 1.4
+ },
  "sfx": [
   {
-   "name": "step",
-   "word": "kangaroos",
-   "vol": 0.55
+   "name": "thud",
+   "word": "colossal",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Kangaroo",
-   "x": 740,
-   "y": 340,
+   "text": "rhinoceros",
+   "x": 1560,
+   "y": 560,
    "to": [
-    800,
-    245
+    1520,
+    700
    ],
-   "word": "kangaroos"
+   "word": "rhinoceros"
+  },
+  {
+   "type": "name",
+   "text": "indricotheres",
+   "x": 1480,
+   "y": 240,
+   "to": [
+    1200,
+    180
+   ],
+   "word": "indricotheres"
   }
- ]
+ ],
+ "motion": "track: the camera starts on an ordinary rhinoceros and climbs up the indricothere's leg and neck to its head, showing how colossal it is"
 }

@@ -1,17 +1,26 @@
 {
- "centre": "a telescope lens with a glowing supernova inside, seen through an open dome",
- "focus": [
-  960,
-  500,
-  1.9
- ],
- "focus_word": "distant exploding stars",
+ "centre": "a bright face-on spiral galaxy seen through the open slit of an observatory dome, the sky still full of galaxies",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "observed",
-   "vol": 0.55
+   "name": "glimmer",
+   "word": "lucky",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Still here!",
+   "x": 860,
+   "y": 140,
+   "to": [
+    660,
+    240
+   ],
+   "word": "visible"
+  }
+ ],
+ "motion": "telescope sways gently while looking; bubble on a galaxy"
 }

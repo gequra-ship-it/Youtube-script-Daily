@@ -1,25 +1,37 @@
 {
- "centre": "early primate mid-leap, big forward eyes",
+ "centre": "glass-like bead showing a grass blade full of glittering silica crystals",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "rustle",
-   "word": "mossy branches",
-   "vol": 0.55
+   "name": "hush",
+   "word": "hides",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Early primate",
-   "x": 640,
-   "y": 300,
+   "text": "Grass",
+   "x": 1560,
+   "y": 340,
    "to": [
-    870,
+    1560,
     420
    ],
-   "word": "early primates"
+   "word": "grass"
+  },
+  {
+   "type": "say",
+   "text": "Ouch, sharp!",
+   "x": 640,
+   "y": 340,
+   "to": [
+    570,
+    440
+   ],
+   "word": "brutal"
   }
- ]
+ ],
+ "motion": "grass hides its defence: glints of silica pop onto the blade (popin); deer winces"
 }

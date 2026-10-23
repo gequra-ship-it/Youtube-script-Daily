@@ -1,19 +1,19 @@
 {
- "centre": "smooth glowing teal-white orb at the middle of a stretching grid of space, galaxies drifting away",
+ "centre": "an underground detector tank in a cavern deep under rock layers while faint particles stream straight through everything",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "bloom",
-   "word": "dark energy",
-   "vol": 0.6
-  }
- ],
  "labels": [
   {
-   "type": "num",
-   "text": "68%",
-   "word": "sixty-eight percent"
+   "type": "say",
+   "text": "Barely at all?",
+   "x": 540,
+   "y": 880,
+   "to": [
+    540,
+    1030
+   ],
+   "word": "barely"
   }
- ]
+ ],
+ "motion": "dash: faint particles stream straight down through rock and the detector tank without stopping; popin: one rare tiny flash (barely interact)"
 }

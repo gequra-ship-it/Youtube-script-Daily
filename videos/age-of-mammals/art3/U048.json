@@ -1,25 +1,26 @@
 {
- "centre": "planet Earth wrapped in a thick dark soot blanket seen from space",
+ "centre": "a row of empty little stages set in a plain, a forest, a swamp and a hill, their lights coming on",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "hush",
-   "word": "blanket",
-   "vol": 0.55
+   "name": "creak",
+   "word": "stages",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Globe",
-   "x": 1380,
-   "y": 380,
+   "type": "say",
+   "text": "Is this one free?",
+   "x": 1560,
+   "y": 860,
    "to": [
-    1090,
-    470
+    1700,
+    870
    ],
-   "word": "globe"
+   "word": "claim"
   }
- ]
+ ],
+ "motion": "popin: the spotlights of the empty ecological stages switch on one after another, waiting for someone to claim them"
 }

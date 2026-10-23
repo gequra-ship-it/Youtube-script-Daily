@@ -1,29 +1,19 @@
 {
- "centre": "large wilting green leaf turning brown at its edge",
- "focus": [
-  960,
-  500,
-  1.9
- ],
- "focus_word": "leaves",
- "sfx": [
-  {
-   "name": "rustle",
-   "word": "wither",
-   "vol": 0.6
-  }
- ],
+ "centre": "a giant snake slithering through a warm swamp below, a row of new mammal shapes popping up above",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Leaves",
-   "x": 1360,
-   "y": 380,
+   "text": "Giant snakes",
+   "x": 1080,
+   "y": 680,
    "to": [
-    1070,
-    450
+    1330,
+    790
    ],
-   "word": "leaves"
+   "word": "Giant snakes"
   }
- ]
+ ],
+ "motion": "scroll + chain + popin: the giant snake slithers left through the swamp (body waving), then five new mammal shapes pop up one after another at dizzying speed"
 }

@@ -1,23 +1,30 @@
 {
- "centre": "magnifying lens over a stone tool in dig layers",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "Ethiopia",
- "sfx": [
-  {
-   "name": "sand",
-   "word": "found",
-   "vol": 0.5
-  }
- ],
+ "centre": "glowing pink brain with warm amber light",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "num",
-   "text": "2.6 MILLION YEARS",
-   "word": "two point six million"
+   "type": "name",
+   "text": "Brain",
+   "x": 400,
+   "y": 650,
+   "to": [
+    460,
+    820
+   ],
+   "word": "brain"
+  },
+  {
+   "type": "say",
+   "text": "So hungry!",
+   "x": 800,
+   "y": 720,
+   "to": [
+    640,
+    810
+   ],
+   "word": "hungry"
   }
- ]
+ ],
+ "motion": "path + tracking: an energy spark flows from the share gauge into the brain (it demands a huge share of energy); brain says So hungry!"
 }

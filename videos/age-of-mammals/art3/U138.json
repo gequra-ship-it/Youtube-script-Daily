@@ -1,11 +1,31 @@
 {
- "centre": "golden seed splitting open with a green shoot",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "a trail of upright-walker footprints pressed one by one into grey volcanic ash, a distant volcano smoking",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "volcanic ash",
+   "vol": 0.55
+  }
  ],
- "focus_word": "revolutionary",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "3.5 MILLION YEARS OLD",
+   "word": "three and a half million"
+  },
+  {
+   "type": "name",
+   "text": "Laetoli",
+   "x": 1420,
+   "y": 330,
+   "to": [
+    1160,
+    420
+   ],
+   "word": "Laetoli"
+  }
+ ],
+ "motion": "slam + tracking: footprints press into the ash one after another along the trail, the camera follows them into the distance"
 }

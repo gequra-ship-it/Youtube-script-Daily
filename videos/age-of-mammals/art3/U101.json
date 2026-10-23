@@ -1,23 +1,30 @@
 {
- "centre": "furry bat body and face",
- "focus": [
-  1440,
+ "centre": "low golden sun over an empty plain",
+ "iris": [
   420,
-  1.7
+  600
  ],
- "focus_word": "long fingers",
- "sfx": [],
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "open grasslands",
+   "vol": 0.55
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "Long fingers",
-   "x": 1340,
-   "y": 250,
+   "type": "say",
+   "text": "Nowhere to hide!",
+   "x": 520,
+   "y": 400,
    "to": [
-    1440,
-    355
+    540,
+    530
    ],
-   "word": "long fingers"
+   "word": "hide"
   }
- ]
+ ],
+ "motion": "nothing to move except the existing sun glide; the exposed grazer speaks"
 }

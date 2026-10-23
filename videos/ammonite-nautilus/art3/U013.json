@@ -1,23 +1,26 @@
 {
- "centre": "ammonite fossil on a stand under a spotlight in a museum glass case",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "pearly bubble with a question mark between a fading ammonite and a sunlit nautilus",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "How could",
+   "vol": 0.5
+  }
  ],
- "focus_word": "ammonites",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Ammonite",
-   "x": 1330,
-   "y": 420,
+   "type": "say",
+   "text": "Still here!",
+   "x": 1480,
+   "y": 390,
    "to": [
-    1070,
-    500
+    1480,
+    490
    ],
-   "word": "ammonites"
+   "word": "survived"
   }
- ]
+ ],
+ "motion": "the lookalike survived while the other group disappeared: the faint ammonite drifts away leftward (mv-path), nautilus stays and says Still here"
 }

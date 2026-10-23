@@ -1,7 +1,37 @@
 {
- "centre": "gold pocket watch on a field-notebook page",
+ "centre": "glowing eye of a stalking cat peering through night grass",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "rustle",
+   "word": "stealthy",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Flexible spines",
+   "x": 1400,
+   "y": 230,
+   "to": [
+    1420,
+    360
+   ],
+   "word": "flexible spines"
+  },
+  {
+   "type": "say",
+   "text": "Shh, quiet!",
+   "x": 560,
+   "y": 330,
+   "to": [
+    740,
+    470
+   ],
+   "word": "stealthy"
+  }
+ ],
+ "motion": "the cat stalks forward low and stealthy: slow creep along a smooth path, camera follows (path + track)"
 }

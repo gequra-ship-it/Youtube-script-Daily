@@ -1,17 +1,19 @@
 {
- "centre": "three supernovae at growing distances along a sight line, the fainter ones farther away",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "fainter supernova",
- "sfx": [
+ "centre": "a person on a balcony seen from behind holds up a small luminous light; a golden thread from it traces a web across the dark sea of the sky",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "click",
-   "word": "greater distance",
-   "vol": 0.5
+   "type": "say",
+   "text": "What are you?",
+   "x": 330,
+   "y": 330,
+   "to": [
+    430,
+    440
+   ],
+   "word": "decipher"
   }
  ],
- "labels": []
+ "motion": "edge: from the small light in the person's hand a golden thread traces out the hidden web of the dark sea, line by line (striving to decipher it)"
 }

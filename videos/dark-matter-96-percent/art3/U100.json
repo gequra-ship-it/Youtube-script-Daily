@@ -1,17 +1,26 @@
 {
- "centre": "glowing blue dark-matter haze lump with pale core, joined by pale web threads to other lumps, with tiny lensed arcs",
+ "centre": "a dark haze scaffold across space with spiral galaxies glowing inside lanterns that hang from it",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pulse",
-   "word": "lensing",
-   "vol": 0.6
+   "name": "glimmer",
+   "word": "lantern",
+   "vol": 0.55
   }
  ],
- "labels": [],
- "iris": [
-  560,
-  420
- ]
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hang in there!",
+   "x": 1150,
+   "y": 390,
+   "to": [
+    1000,
+    640
+   ],
+   "word": "lantern"
+  }
+ ],
+ "motion": "swing + camera tracking: galaxy lanterns sway on their threads while the camera travels along the dark scaffold they hang from"
 }

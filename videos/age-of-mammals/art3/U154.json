@@ -1,25 +1,40 @@
 {
- "centre": "big red pushpin where red strings meet on a cork board",
+ "centre": "woolly mammoth with a cut-away of shaggy fur over thick fat; a sabre-toothed cat creeps along the steppe ridge",
  "focus": null,
  "focus_word": null,
+ "track": {
+  "scale": 1.2
+ },
  "sfx": [
   {
-   "name": "click",
-   "word": "link",
-   "vol": 0.5
+   "name": "wind",
+   "word": "wind-swept",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Tall teeth",
-   "x": 560,
-   "y": 190,
+   "text": "Insulating fat",
+   "x": 330,
+   "y": 300,
    "to": [
-    470,
-    300
+    440,
+    565
    ],
-   "word": "tall teeth"
+   "word": "insulating fat"
+  },
+  {
+   "type": "name",
+   "text": "Saber-toothed cat",
+   "x": 1520,
+   "y": 470,
+   "to": [
+    1600,
+    610
+   ],
+   "word": "Saber-toothed cats"
   }
- ]
+ ],
+ "motion": "path + track: in the second sentence the sabre-toothed cat stalks low along the ridge and the camera follows it; snow streaks drift with the wind"
 }

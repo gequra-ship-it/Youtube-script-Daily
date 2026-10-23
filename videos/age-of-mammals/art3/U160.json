@@ -1,29 +1,20 @@
 {
- "centre": "big shiny hoof stepping down",
- "focus": [
-  960,
-  520,
-  1.7
- ],
- "focus_word": "hooves",
- "sfx": [
-  {
-   "name": "step",
-   "word": "hooves",
-   "vol": 0.6
-  }
- ],
+ "centre": "a family around a warm circle of embers inside a cave; at the cave mouth two predators with glinting eyes back away into the dark",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
  "labels": [
   {
-   "type": "name",
-   "text": "Hooves",
-   "x": 1190,
-   "y": 430,
+   "type": "say",
+   "text": "Too bright!",
+   "x": 760,
+   "y": 380,
    "to": [
-    1060,
-    500
+    770,
+    540
    ],
-   "word": "hooves"
+   "word": "terrifying predators"
   }
- ]
+ ],
+ "motion": "rise + path: firelight floods the pitch-black cave, then the two predators slink backwards out of sight behind the cave walls"
 }

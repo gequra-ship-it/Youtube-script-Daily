@@ -1,34 +1,19 @@
 {
- "centre": "Mercury, a small grey-gold cratered planet lit by the Sun, with a fast gold trail",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "Mercury",
- "sfx": [
-  {
-   "name": "warp",
-   "word": "speeds",
-   "vol": 0.6
-  }
- ],
+ "centre": "a blue planet with a medium gold trail, between faster inner and slower outer planets",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "Mercury",
-   "x": 760,
-   "y": 720,
+   "type": "say",
+   "text": "So slow!",
+   "x": 690,
+   "y": 1170,
    "to": [
-    600,
-    810
+    770,
+    1290
    ],
-   "word": "Mercury"
-  },
-  {
-   "type": "num",
-   "text": "47 KM/S",
-   "word": "forty-seven"
+   "word": "slower"
   }
- ]
+ ],
+ "motion": "grow: a gold distance line stretches down the ruler from the Sun (the farther out you go); outer planet says \"So slow!\""
 }

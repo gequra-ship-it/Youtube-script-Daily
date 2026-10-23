@@ -1,17 +1,31 @@
 {
- "centre": "large glowing brain, the biggest of three growing brains",
- "focus": [
-  540,
-  860,
-  1.5
+ "centre": "modern person in front of a city window; a network of nerve cells draws itself inside the head",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "nerve cells",
+   "vol": 0.5
+  }
  ],
- "focus_word": "triple in volume",
- "sfx": [],
  "labels": [
   {
    "type": "num",
-   "text": "3 MILLION YEARS",
-   "word": "three million years"
+   "text": "86 BILLION",
+   "word": "eighty-six billion"
+  },
+  {
+   "type": "name",
+   "text": "nerve cells",
+   "x": 800,
+   "y": 520,
+   "to": [
+    630,
+    680
+   ],
+   "word": "nerve cells"
   }
- ]
+ ],
+ "motion": "edge + popin: the network of nerve cells wires itself up inside today's brain, node by node"
 }

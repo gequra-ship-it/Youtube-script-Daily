@@ -1,13 +1,31 @@
 {
- "centre": "pale cold sun between shifting clouds",
+ "centre": "round lens over the arch of a side-view foot",
+ "focus": [
+  1500,
+  320,
+  1.8
+ ],
+ "focus_word": "big toes",
+ "spot": true,
  "sfx": [
   {
-   "name": "wind",
-   "word": "weather patterns",
-   "vol": 0.55
+   "name": "sand",
+   "word": "feet",
+   "vol": 0.5
   }
  ],
- "labels": [],
- "focus": null,
- "focus_word": null
+ "labels": [
+  {
+   "type": "name",
+   "text": "Big toes",
+   "x": 1290,
+   "y": 200,
+   "to": [
+    1450,
+    235
+   ],
+   "word": "big toes"
+  }
+ ],
+ "motion": "footprints with arch and forward big toe appear one after another over time (mv-popin)"
 }

@@ -1,33 +1,48 @@
 {
- "centre": "glass lens showing a curled whale-like ear bone",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "ear bones",
+ "centre": "armadillo walking along the narrow land bridge",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "step",
-   "word": "walked",
-   "vol": 0.55
+   "word": "march",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Ear bones",
-   "x": 960,
-   "y": 340,
+   "text": "Opossums",
+   "x": 580,
+   "y": 380,
    "to": [
-    960,
-    425
+    610,
+    520
    ],
-   "word": "ear bones"
+   "word": "Opossums"
+  },
+  {
+   "type": "name",
+   "text": "Armadillos",
+   "x": 1290,
+   "y": 330,
+   "to": [
+    1070,
+    450
+   ],
+   "word": "armadillos"
+  },
+  {
+   "type": "say",
+   "text": "Onward!",
+   "x": 1560,
+   "y": 470,
+   "to": [
+    1530,
+    590
+   ],
+   "word": "march"
   }
  ],
- "iris": [
-  420,
-  620
- ]
+ "motion": "opossums and armadillos march north across the bridge (three paths), camera follows the big armadillo"
 }

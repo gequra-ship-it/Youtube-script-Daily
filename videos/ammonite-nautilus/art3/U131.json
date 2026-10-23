@@ -1,23 +1,42 @@
 {
- "centre": "a glowing cloud of drifting surface plankton",
+ "centre": "a curled shrimp scrap between a big nautilus hatchling and a speck-sized larva under a lens",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "surface plankton",
-   "x": 600,
-   "y": 520,
-   "to": [
-    860,
-    500
-   ],
-   "word": "surface plankton"
+   "name": "pencil",
+   "word": "built",
+   "vol": 0.5
   }
  ],
- "iris": [
-  1450,
-  760
- ]
+ "labels": [
+  {
+   "type": "num",
+   "text": "3 CM",
+   "word": "three-centimeter"
+  },
+  {
+   "type": "say",
+   "text": "A feast!",
+   "x": 420,
+   "y": 250,
+   "to": [
+    600,
+    390
+   ],
+   "word": "hatchling"
+  },
+  {
+   "type": "say",
+   "text": "Way too big!",
+   "x": 1420,
+   "y": 300,
+   "to": [
+    1450,
+    430
+   ],
+   "word": "larva"
+  }
+ ],
+ "motion": "size bars grow along the ruler: a long one under the hatchling, then only a tiny tick under the larva: same scrap, very different eaters"
 }

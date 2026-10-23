@@ -1,18 +1,32 @@
 {
- "centre": "bright gold-white bulge of a tilted spiral galaxy wrapped in a huge faint coral halo of hot gas",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "hot gas",
- "sfx": [
+ "centre": "a small glowing gold knot of visible matter with short frayed threads; the cluster's galaxies race away from it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
+ "labels": [
   {
-   "name": "glimmer",
-   "word": "drifting",
-   "vol": 0.55
+   "type": "say",
+   "text": "Come back!",
+   "x": 960,
+   "y": 330,
+   "to": [
+    960,
+    455
+   ],
+   "word": "moving so fast"
+  },
+  {
+   "type": "name",
+   "text": "visible matter",
+   "x": 1290,
+   "y": 470,
+   "to": [
+    1008,
+    500
+   ],
+   "word": "visible matter"
   }
  ],
- "labels": [],
- "spot": true
+ "motion": "path x5 (no tracking) + shake: the galaxies race outward along curves, faster than the small gold knot of visible matter can hold, the knot shakes"
 }

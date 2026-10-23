@@ -1,30 +1,37 @@
 {
- "centre": "dark parrot-like nautilus beak, close up",
- "focus": [
-  540,
-  860,
-  1.5
- ],
- "focus_word": "beak-like jaws",
+ "centre": "dial with the needle resting at the low end",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "strong",
-   "vol": 0.55
+   "name": "tick",
+   "word": "metabolic rate",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "beak-like jaws",
-   "x": 540,
-   "y": 600,
+   "text": "metabolic rate",
+   "x": 700,
+   "y": 1030,
    "to": [
-    560,
-    700
+    580,
+    930
    ],
-   "word": "beak-like jaws"
+   "word": "metabolic rate"
+  },
+  {
+   "type": "say",
+   "text": "Not hungry!",
+   "x": 620,
+   "y": 1160,
+   "to": [
+    300,
+    1215
+   ],
+   "word": "eating"
   }
  ],
- "spot": true
+ "motion": "the hourglass turns over: a long time passes without eating; the resting nautilus speaks"
 }

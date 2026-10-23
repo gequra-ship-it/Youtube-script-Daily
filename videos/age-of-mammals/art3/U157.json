@@ -1,11 +1,25 @@
 {
- "centre": "amber eye of a crouching predator",
- "focus": [
-  1580,
-  610,
-  1.9
+ "centre": "smouldering ember bundle carried at the chest in a blizzard",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "brutally challenging landscape",
+   "vol": 0.6
+  }
  ],
- "focus_word": "grazing herd",
- "sfx": [],
- "labels": []
+ "motion": "slow camera pan along the bundled figures trudging through the blizzard",
+ "labels": [
+  {
+   "type": "say",
+   "text": "So cold out!",
+   "x": 700,
+   "y": 250,
+   "to": [
+    945,
+    345
+   ]
+  }
+ ]
 }

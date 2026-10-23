@@ -1,24 +1,16 @@
 {
- "centre": "a calm nautilus hovering deep below a troubled, dusty surface",
+ "centre": "a tower of food-web tiers (plankton at the base, a big fish on top) tilting apart tier by tier from the bottom up as a crack climbs",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "breath",
-   "word": "Waiting out",
+   "name": "stone",
+   "word": "collapse",
    "vol": 0.5
   }
  ],
- "labels": [
-  {
-   "type": "say",
-   "text": "I can wait.",
-   "x": 1290,
-   "y": 300,
-   "to": [
-    1060,
-    450
-   ]
-  }
- ],
- "focus": null,
- "focus_word": null
+ "track": {
+  "scale": 1.3
+ },
+ "motion": "edge+topple chain: a crack draws up from the base and the tiers tip one after another from the bottom up (collapse at the base spreads upward); camera tracks up the tower"
 }

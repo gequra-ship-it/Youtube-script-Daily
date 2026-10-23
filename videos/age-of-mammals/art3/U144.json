@@ -1,25 +1,18 @@
 {
- "centre": "lush green grass patch seen from above in a vast grassland patchwork",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "wind",
-   "word": "grasslands",
-   "vol": 0.55
-  }
- ],
+ "centre": "thick bone end-on, dense stony wall around a small glowing marrow core",
  "labels": [
   {
-   "type": "name",
-   "text": "Grasslands",
-   "x": 1380,
-   "y": 700,
+   "type": "say",
+   "text": "Too hard!",
+   "x": 330,
+   "y": 430,
    "to": [
-    1300,
-    600
+    450,
+    560
    ],
-   "word": "grasslands"
+   "word": "dense"
   }
- ]
+ ],
+ "track": false,
+ "motion": "jackal creeps up to the bone but cannot get inside (mv-path), jackal complains"
 }

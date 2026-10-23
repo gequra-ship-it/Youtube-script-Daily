@@ -1,7 +1,22 @@
 {
- "centre": "face-on spiral galaxy surrounded by many other galaxies of different shapes and tilts",
+ "centre": "a light path from a far galaxy bending around a small visible galaxy cluster much more strongly than the dotted expected path, then a hidden blue halo appears",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "track": {
+  "scale": 1.2
+ },
+ "labels": [
+  {
+   "type": "name",
+   "text": "visible matter",
+   "x": 960,
+   "y": 250,
+   "to": [
+    960,
+    470
+   ],
+   "word": "visible matter"
+  }
+ ],
+ "motion": "bending stronger than expected: light travels the deep bent path instead of the dotted one (mv-path, camera tracks), then the unseen halo rises into view (mv-rise)"
 }

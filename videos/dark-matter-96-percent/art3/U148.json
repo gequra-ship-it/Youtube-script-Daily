@@ -1,11 +1,19 @@
 {
- "centre": "bright golden galaxy glowing on a ghostly blue skeleton of dark-matter spine and ribs",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "round magnifying lens showing a few sharp stars and a small galaxy while the surrounding sky is blurry",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Is it real?",
+   "x": 700,
+   "y": 300,
+   "to": [
+    940,
+    470
+   ],
+   "word": "real"
+  }
  ],
- "focus_word": "skeleton",
- "sfx": [],
- "labels": []
+ "motion": "lens searches slowly across the sky, camera follows; bubble"
 }

@@ -1,13 +1,31 @@
 {
- "centre": "brass magnifying lens showing a small glowing galaxy, in front of a night window",
+ "centre": "coral hot gas left behind in the middle while two blue dark-matter haze lumps carrying gold galaxies pass straight through and out to both sides",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "track": false,
+ "labels": [
   {
-   "name": "tick",
-   "word": "tested again",
-   "vol": 0.6
+   "type": "name",
+   "text": "most of the mass",
+   "x": 1500,
+   "y": 250,
+   "to": [
+    1500,
+    380
+   ],
+   "word": "most of the mass"
+  },
+  {
+   "type": "name",
+   "text": "The gas",
+   "x": 960,
+   "y": 760,
+   "to": [
+    960,
+    590
+   ],
+   "word": "The gas"
   }
  ],
- "labels": []
+ "motion": "gas slowed, mass passed straight through: the two haze lumps glide out to left and right (two mv-path, no tracking) while the gas stays behind glowing (mv-lamp)"
 }

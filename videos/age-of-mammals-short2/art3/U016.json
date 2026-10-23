@@ -1,33 +1,30 @@
 {
- "centre": "broken end of a long bone showing glowing golden marrow",
+ "centre": "night hearth: flames rise, tubers soften in the embers, a stick lowers raw meat over the fire",
  "focus": [
   540,
-  860,
-  1.8
+  1120,
+  1.5
  ],
- "focus_word": "bone marrow",
- "sfx": [],
+ "focus_word": "Cooking",
+ "sfx": [
+  {
+   "name": "crackle",
+   "word": "flames",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Bone marrow",
-   "x": 360,
-   "y": 1060,
+   "text": "tubers",
+   "x": 250,
+   "y": 1330,
    "to": [
-    500,
-    900
+    440,
+    1220
    ],
-   "word": "bone marrow"
-  },
-  {
-   "type": "say",
-   "text": "Can't reach it!",
-   "x": 700,
-   "y": 590,
-   "to": [
-    472,
-    622
-   ]
+   "word": "tubers"
   }
- ]
+ ],
+ "motion": "grow: the fire rises from the embers (fire changed the menu); flip: the stick lowers the raw meat over the flames; steam from the tubers"
 }

@@ -1,7 +1,26 @@
 {
- "centre": "dim scattered gas cloud, a galaxy that never quite formed",
+ "centre": "a thin gold slice of the pie stretching across the dark, holding a tree, a textbook, a telescope and a galaxy photo",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "page",
+   "word": "every textbook",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Cozy in here!",
+   "x": 1260,
+   "y": 360,
+   "to": [
+    1250,
+    470
+   ],
+   "word": "thin slice"
+  }
+ ],
+ "motion": "track + popin x5: the camera travels along the thin slice while life, a textbook, a telescope and a telescope image appear inside it"
 }

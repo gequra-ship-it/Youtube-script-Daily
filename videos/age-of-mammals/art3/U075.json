@@ -1,7 +1,42 @@
 {
- "centre": "round glass flask with a tiny mammal glowing inside",
+ "centre": "a Pakicetus skull fossil being uncovered in a lantern-lit dig, with a pin on Pakistan on a small globe",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "fossils",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "50 MILLION YEARS",
+   "word": "fifty million"
+  },
+  {
+   "type": "name",
+   "text": "Pakicetus",
+   "x": 1120,
+   "y": 520,
+   "to": [
+    1200,
+    690
+   ],
+   "word": "Pakicetus"
+  },
+  {
+   "type": "name",
+   "text": "Pakistan",
+   "x": 1180,
+   "y": 190,
+   "to": [
+    1430,
+    250
+   ],
+   "word": "Pakistan"
+  }
+ ],
+ "motion": "fill (x) + slam: the sand cover is brushed away to reveal the Pakicetus skull, then a pin slams onto Pakistan on the globe"
 }

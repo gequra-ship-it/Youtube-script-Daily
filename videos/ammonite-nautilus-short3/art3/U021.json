@@ -1,19 +1,26 @@
 {
- "centre": "heavy sphere of deep water that smooths a wild temperature line",
+ "centre": "a small boat at dusk hauling a baited trap with a nautilus inside up from the reef, where a handful of nautiluses remain",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "caught",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Deep water",
-   "x": 780,
-   "y": 760,
+   "text": "shells",
+   "x": 830,
+   "y": 870,
    "to": [
-    640,
-    820
+    610,
+    720
    ],
-   "word": "Deep water"
+   "word": "shells"
   }
- ]
+ ],
+ "motion": "the trap with a nautilus is hauled straight up toward the boat (path, camera tracks) while a handful stay on the reef below"
 }

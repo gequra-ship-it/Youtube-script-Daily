@@ -1,13 +1,27 @@
 {
- "centre": "last sunlit tree crown with a glowing fruit",
- "focus": null,
- "focus_word": null,
- "sfx": [
+ "centre": "glowing banded planet in the evening sky",
+ "focus": [
+  520,
+  640,
+  1.7
+ ],
+ "focus_word": "telescopes",
+ "iris": [
+  460,
+  640
+ ],
+ "labels": [
   {
-   "name": "rustle",
-   "word": "canopy",
-   "vol": 0.55
+   "type": "name",
+   "text": "Telescope",
+   "x": 560,
+   "y": 400,
+   "to": [
+    640,
+    600
+   ],
+   "word": "telescopes"
   }
  ],
- "labels": []
+ "motion": "the telescope tube swings up toward the planet (mv-topple, one slow tilt)"
 }

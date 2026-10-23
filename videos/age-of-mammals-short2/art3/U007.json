@@ -1,17 +1,19 @@
 {
- "centre": "ripe glowing fruit in a round fruit-tree crown",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "fruit trees",
- "sfx": [
+ "centre": "upright ancestor above tall grass, shading the eyes, a sight line reaching a distant predator",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "step",
-   "word": "cross open ground",
-   "vol": 0.5
+   "type": "say",
+   "text": "Danger!",
+   "x": 200,
+   "y": 800,
+   "to": [
+    290,
+    985
+   ],
+   "word": "danger"
   }
  ],
- "labels": []
+ "motion": "edge: the sight line draws itself from the upright ancestor's eyes across the plain to the danger; shake: the distant predator stirs; grass sways"
 }

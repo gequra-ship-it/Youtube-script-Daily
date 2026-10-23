@@ -1,13 +1,26 @@
 {
- "centre": "living nautilus glowing in today's sea",
+ "centre": "fiery asteroid with a long glowing trail arriving over the Gulf of Mexico coast",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "hush",
-   "word": "Why?",
-   "vol": 0.5
+   "name": "wind",
+   "word": "asteroid",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Chicxulub",
+   "x": 1560,
+   "y": 770,
+   "to": [
+    1330,
+    860
+   ],
+   "word": "Chicxulub"
+  }
+ ],
+ "motion": "asteroid strikes at Chicxulub: it dives from upper left to the planet surface on one long path (mv-path) with camera tracking"
 }

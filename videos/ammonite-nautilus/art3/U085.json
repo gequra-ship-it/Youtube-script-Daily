@@ -1,13 +1,20 @@
 {
- "centre": "round clue card of ammonite gut contents pinned on an evidence board",
- "focus": null,
- "focus_word": null,
- "sfx": [
+ "centre": "a female nautilus moving along rocks in an aquarium tank, leaving large eggs on hard surfaces one at a time",
+ "motion": "path (camera tracks) + popin x3: she glides along the rocks and an egg appears on each hard surface as she passes",
+ "sfx": [],
+ "labels": [
   {
-   "name": "click",
-   "word": "clues",
-   "vol": 0.5
+   "type": "say",
+   "text": "There you go.",
+   "x": 1350,
+   "y": 200,
+   "to": [
+    1500,
+    330
+   ],
+   "word": "one at a time"
   }
  ],
- "labels": []
+ "focus": null,
+ "focus_word": null
 }

@@ -1,23 +1,34 @@
 {
- "centre": "translucent blue-indigo dark matter glass-haze orb with pale core, a flat black cloud shown to the left as the wrong idea",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "Dark matter",
- "sfx": [],
+ "centre": "a tiny glass cube, one cubic centimetre, holding a faint wisp",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
+   "type": "num",
+   "text": "A THIRD OF A PROTON",
+   "word": "a third"
+  },
+  {
    "type": "name",
-   "text": "Dark matter",
-   "x": 1260,
-   "y": 690,
+   "text": "Proton",
+   "x": 1380,
+   "y": 330,
    "to": [
-    1060,
-    550
+    1360,
+    410
    ],
-   "word": "Dark matter"
+   "word": "proton"
+  },
+  {
+   "type": "say",
+   "text": "So tiny!",
+   "x": 700,
+   "y": 330,
+   "to": [
+    880,
+    440
+   ]
   }
- ]
+ ],
+ "motion": "camera pushes in on the tiny cube"
 }

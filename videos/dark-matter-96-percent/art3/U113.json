@@ -1,35 +1,20 @@
 {
- "centre": "tilted Milky Way spiral galaxy glowing gold, surrounded by a swarm of tiny gold Sun dots, with one lone Sun at left",
+ "centre": "our Milky Way at left while distant galaxies rush away from it to the right",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "expanding",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "num",
-   "text": "1 TRILLION",
-   "word": "one trillion"
-  },
-  {
-   "type": "name",
-   "text": "Milky Way",
-   "x": 1330,
-   "y": 300,
-   "to": [
-    1060,
-    455
-   ],
-   "word": "Milky Way"
-  },
-  {
-   "type": "name",
-   "text": "the Sun",
-   "x": 440,
-   "y": 690,
-   "to": [
-    340,
-    585
-   ],
-   "word": "the Sun"
+   "text": "1929",
+   "word": "1929"
   }
- ]
+ ],
+ "motion": "path + tracking: distant galaxies glide away from our galaxy, the camera rides with the farthest one"
 }

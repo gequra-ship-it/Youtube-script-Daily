@@ -1,13 +1,26 @@
 {
- "centre": "calm, whole face-on spiral galaxy with a gold-white core",
+ "centre": "faint blue-indigo haze cloud drifting unnoticed through a living room at night",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "beautifully intact",
+   "name": "cloth",
+   "word": "your living room",
    "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Nothing!",
+   "x": 770,
+   "y": 1000,
+   "to": [
+    570,
+    1060
+   ],
+   "word": "feel"
+  }
+ ],
+ "motion": "path + tracking: the faint haze cloud drifts across the living room, past the sofa, unseen; camera follows; person says \"Nothing!\"; focus removed"
 }

@@ -1,19 +1,26 @@
 {
- "centre": "steamy green Eocene globe",
+ "centre": "grass stubs bitten short; fresh blades shoot up again from the glowing base while a grazer chews the tops",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "grows back",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Eocene epoch",
-   "x": 1300,
-   "y": 330,
+   "type": "say",
+   "text": "I'll grow back!",
+   "x": 520,
+   "y": 300,
    "to": [
-    1060,
-    430
+    800,
+    450
    ],
-   "word": "Eocene"
+   "word": "grows back"
   }
- ]
+ ],
+ "motion": "grow + joint: a grazer's jaw chews the bitten tops, then new blades push up again from the base near the soil"
 }

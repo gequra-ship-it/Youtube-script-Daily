@@ -1,21 +1,19 @@
 {
- "centre": "magnifying lens over an ammonite shell with a dashed ghost outline of the inferred soft body, jigsaw with a missing piece behind",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "informed inference",
- "sfx": [
+ "centre": "nautilus picking at a scrap on a dim twilight reef slope",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "pencil",
-   "word": "informed inference",
-   "vol": 0.5
+   "type": "say",
+   "text": "Scraps will do!",
+   "x": 1010,
+   "y": 300,
+   "to": [
+    880,
+    510
+   ],
+   "word": "scraps"
   }
  ],
- "labels": [],
- "iris": [
-  960,
-  500
- ]
+ "motion": "path + camera track: a scrap sinks through dim water to the nautilus mouth (life on scraps); nautilus comments"
 }

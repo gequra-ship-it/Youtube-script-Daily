@@ -1,18 +1,26 @@
 {
- "centre": "leaf-wrapped bundle of ripe figs carried in both arms",
- "focus": [
-  1480,
-  690,
-  1.7
- ],
- "focus_word": "vulnerable infants",
- "spot": true,
+ "centre": "warm campfire flame in a forest clearing",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "rustle",
-   "word": "carry",
-   "vol": 0.55
+   "name": "crackle",
+   "word": "warm campfire",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Tell it again!",
+   "x": 640,
+   "y": 480,
+   "to": [
+    690,
+    600
+   ],
+   "word": "marvel"
+  }
+ ],
+ "motion": "left alone: warm explanation picture, existing bubble kept"
 }

@@ -1,27 +1,26 @@
 {
- "centre": "a round jelly mass of small ammonite eggs",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "small eggs",
- "iris": [
-  470,
-  380
+ "centre": "a beaker filling with acid over a thick adult shell and a thin hatchling shell that fizzes and pits",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "dissolve",
+   "vol": 0.5
+  }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "small eggs",
-   "x": 1260,
-   "y": 330,
+   "type": "say",
+   "text": "Oh no...",
+   "x": 1330,
+   "y": 560,
    "to": [
-    1050,
-    440
+    1110,
+    735
    ],
-   "word": "small eggs"
+   "word": "vulnerable"
   }
  ],
- "sfx": []
+ "motion": "acid liquid rises in the beaker over both shells, then only the thin hatchling shell fizzes and gets pitted: acid dissolves thin shells"
 }

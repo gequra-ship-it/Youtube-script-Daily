@@ -1,13 +1,38 @@
 {
- "centre": "large round instrument dial with its needle swung far past the red mark",
+ "centre": "two galaxy clusters (gold galaxies, coral gas, blue dark-matter haze) rushing together and colliding in the middle",
  "focus": null,
  "focus_word": null,
+ "track": false,
  "sfx": [
   {
-   "name": "stone",
-   "word": "shock",
-   "vol": 0.6
+   "name": "bloom",
+   "word": "collided",
+   "vol": 0.65
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Bullet Cluster",
+   "x": 960,
+   "y": 215,
+   "to": [
+    960,
+    400
+   ],
+   "word": "Bullet Cluster"
+  },
+  {
+   "type": "say",
+   "text": "Oof!",
+   "x": 1330,
+   "y": 270,
+   "to": [
+    1120,
+    420
+   ],
+   "word": "collided"
+  }
+ ],
+ "motion": "two huge clusters collided: both clusters travel toward each other (two mv-path, no tracking), meet with a flash (mv-popin) and a jolt (mv-shake)"
 }

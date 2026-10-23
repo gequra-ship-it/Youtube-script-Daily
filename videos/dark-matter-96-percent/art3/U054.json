@@ -1,29 +1,19 @@
 {
- "centre": "the glowing gold core of a spiral galaxy",
+ "centre": "bright galaxy nucleus held in a cradle of faint pale threads",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "sparkle",
-   "word": "galaxy",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
-   "type": "name",
-   "text": "Galaxy",
-   "x": 620,
-   "y": 760,
+   "type": "say",
+   "text": "Hold on!",
+   "x": 600,
+   "y": 250,
    "to": [
-    760,
-    660
+    900,
+    470
    ],
-   "word": "galaxy"
+   "word": "hold"
   }
  ],
- "iris": [
-  1480,
-  330
- ]
+ "motion": "gravitational glue threads draw in and hold the galaxy (mv-edge)"
 }

@@ -1,23 +1,37 @@
 {
- "centre": "glowing gold idea lamp bulb hanging alone, an unusual proposal, while a small gold group stands apart from a crowd of dim dots",
+ "centre": "a burning candle: its golden flame glows at the centre, identical candles on the shelf beside it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "iris": [
-  430,
-  545
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "standard candles",
+   "vol": 0.55
+  }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "scientists",
-   "x": 420,
-   "y": 720,
+   "text": "Standard candles",
+   "x": 1400,
+   "y": 520,
    "to": [
-    430,
-    600
+    1420,
+    620
    ],
-   "word": "scientists"
+   "word": "standard candles"
+  },
+  {
+   "type": "say",
+   "text": "Same glow!",
+   "x": 330,
+   "y": 500,
+   "to": [
+    501,
+    650
+   ],
+   "word": "standard"
   }
- ]
+ ],
+ "motion": "identical candles rise into line (standard candles); bubble on a candle"
 }

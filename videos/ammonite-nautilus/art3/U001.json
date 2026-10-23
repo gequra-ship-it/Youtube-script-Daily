@@ -1,5 +1,5 @@
 {
- "centre": "ammonite drifting in the dark prehistoric sea",
+ "centre": "an ammonite and a nautilus drifting side by side through a sunlit prehistoric sea, almost alike",
  "focus": null,
  "focus_word": null,
  "sfx": [
@@ -9,5 +9,18 @@
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hey, twin!",
+   "x": 1290,
+   "y": 250,
+   "to": [
+    1620,
+    380
+   ],
+   "word": "twins"
+  }
+ ],
+ "motion": "the two look-alikes drift together along one long S path (two mv-path, data-rot 0); the camera tracks them; bubble on 'twins'"
 }

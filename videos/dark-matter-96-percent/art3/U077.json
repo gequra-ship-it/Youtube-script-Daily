@@ -1,13 +1,26 @@
 {
- "centre": "bright nucleus of a large calm intact spiral galaxy",
+ "centre": "a balance in space: a small bright galaxy with gas on one pan, a much heavier faint blue haze on the other",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "beautifully intact",
-   "vol": 0.55
+   "name": "stone",
+   "word": "weight",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Stars and gas",
+   "x": 520,
+   "y": 250,
+   "to": [
+    520,
+    470
+   ],
+   "word": "stars and gas"
+  }
+ ],
+ "motion": "flip: the balance beam tips toward the haze pan (pans counter-rotate to hang level) - the seen stars and gas are only a small part of the weight"
 }

@@ -1,17 +1,26 @@
 {
- "centre": "sharp stone flake held in a fist, bright cutting edge",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "slice",
+ "centre": "big glowing brain inside a head, with a faint smaller brain outline",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "swish",
-   "word": "slice",
-   "vol": 0.6
+   "name": "hush",
+   "word": "jackpot",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Bigger brain",
+   "x": 300,
+   "y": 470,
+   "to": [
+    460,
+    790
+   ],
+   "word": "bigger brain"
+  }
+ ],
+ "motion": "path + tracking: a gold food crumb travels from the hand to the mouth and on up into the glowing brain (calories pay for a bigger brain)"
 }

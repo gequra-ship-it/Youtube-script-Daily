@@ -1,17 +1,23 @@
 {
- "centre": "round fever dial with needle swinging from red toward blue",
+ "centre": "swirling water disc showing a turning ocean current",
  "focus": [
   960,
   500,
-  1.8
+  1.7
  ],
- "focus_word": "fever",
- "sfx": [
+ "focus_word": "currents",
+ "labels": [
   {
-   "name": "hush",
-   "word": "begins to break",
-   "vol": 0.5
+   "type": "name",
+   "text": "Panama",
+   "x": 1250,
+   "y": 330,
+   "to": [
+    1520,
+    380
+   ],
+   "word": "Panama"
   }
  ],
- "labels": []
+ "motion": "Panama land rises from the east shore (mv-grow) while the dashed current is pushed along (mv-dash)"
 }

@@ -1,29 +1,31 @@
 {
- "centre": "nautilus squirting water from its funnel",
- "focus": [
-  1060,
-  590,
-  1.8
- ],
- "focus_word": "funnel",
+ "centre": "glowing asteroid arriving from space over the sea",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "bubble",
-   "word": "squirting water",
+   "name": "swish",
+   "word": "catastrophe from space",
    "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "funnel",
-   "x": 1210,
+   "type": "num",
+   "text": "66 MILLION YEARS AGO",
+   "word": "sixty-six million"
+  },
+  {
+   "type": "say",
+   "text": "Uh-oh!",
+   "x": 420,
    "y": 690,
    "to": [
-    1075,
-    600
+    570,
+    790
    ],
-   "word": "funnel"
+   "word": "catastrophe"
   }
- ]
+ ],
+ "motion": "catastrophe from space: asteroid streaks in from upper left to the sea on one long path, camera tracks it; creature says Uh-oh"
 }

@@ -1,36 +1,26 @@
 {
- "centre": "ammonite in the middle of a fading food-chain ladder",
+ "centre": "fast fish whose energy flame burns down above; below, a nautilus tucked calmly inside a reef crevice",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "breath",
-   "word": "collapse",
+   "name": "crackle",
+   "word": "burns energy",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "plankton",
-   "x": 540,
-   "y": 1250,
+   "type": "say",
+   "text": "Just waiting.",
+   "x": 330,
+   "y": 1010,
    "to": [
-    480,
-    1330
+    470,
+    1130
    ],
-   "word": "plankton"
-  },
-  {
-   "type": "name",
-   "text": "predators",
-   "x": 300,
-   "y": 330,
-   "to": [
-    430,
-    395
-   ],
-   "word": "predators"
+   "word": "Waiting"
   }
- ]
+ ],
+ "motion": "the darting fish's flame shrinks (fill = burns energy quickly), then the camera sinks to the nautilus waiting in the crevice (track)"
 }

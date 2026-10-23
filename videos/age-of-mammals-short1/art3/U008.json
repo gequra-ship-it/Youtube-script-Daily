@@ -1,7 +1,38 @@
 {
- "centre": "sunlit lush grass tuft in a golden disc over a wide open meadow",
+ "centre": "cream molar with a worried face grinding back and forth on a sheet of sandpaper under a grass blade full of glinting grains",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "track": false,
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "grinding",
+   "vol": 0.65
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Grains",
+   "x": 300,
+   "y": 450,
+   "to": [
+    400,
+    610
+   ],
+   "word": "grains"
+  },
+  {
+   "type": "say",
+   "text": "Ouch, ouch!",
+   "x": 830,
+   "y": 860,
+   "to": [
+    640,
+    990
+   ],
+   "word": "grinding"
+  }
+ ],
+ "motion": "path (two flat loops, no camera tracking): the molar grinds left and right across the sandpaper = chewing grass is like grinding teeth on sandpaper; grains glint in the blade"
 }

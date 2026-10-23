@@ -1,7 +1,31 @@
 {
- "centre": "faint translucent blue haze orb with a pale glimmer inside (dark matter, mystery)",
+ "centre": "a gold curve of cosmic expansion that flattens, turns at a glowing marker, then bends upward; the Sun and Earth appear later on the time ribbon",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "six billion years ago",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "6 BILLION YEARS AGO",
+   "word": "six billion years ago"
+  },
+  {
+   "type": "name",
+   "text": "Sun and Earth",
+   "x": 1440,
+   "y": 600,
+   "to": [
+    1240,
+    650
+   ],
+   "word": "Sun and Earth"
+  }
+ ],
+ "motion": "edge + tracking: the expansion curve draws through cosmic time, slowing, then turning upward at the marker; Sun and Earth pop in after it"
 }

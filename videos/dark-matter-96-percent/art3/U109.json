@@ -1,23 +1,30 @@
 {
- "centre": "small dim red-brown dwarf star, faint but rim-lit, ordinary matter",
+ "centre": "sphere of the whole sky mottled with tiny warm and cool ripples, scanned by a small satellite",
  "focus": [
-  960,
-  500,
-  1.9
+  450,
+  590,
+  1.7
  ],
- "focus_word": "faint objects",
- "sfx": [],
+ "focus_word": "Planck",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "mapped",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "faint objects",
-   "x": 640,
-   "y": 350,
+   "text": "Planck",
+   "x": 430,
+   "y": 430,
    "to": [
-    925,
-    440
+    430,
+    545
    ],
-   "word": "faint objects"
+   "word": "Planck"
   }
- ]
+ ],
+ "motion": "dashed scan loop marches around the mapped sky"
 }

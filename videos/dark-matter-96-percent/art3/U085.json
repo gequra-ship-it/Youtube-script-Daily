@@ -1,11 +1,26 @@
 {
- "centre": "glowing telescope mirror seen face-on, with a radio dish left and an X-ray satellite right",
- "focus": [
-  1500,
-  470,
-  1.6
+ "centre": "a ghostly blue particle gliding straight through a lattice of gold atoms, which barely notice",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "undiscovered",
+   "vol": 0.6
+  }
  ],
- "focus_word": "X-rays",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hm? Anyone there?",
+   "x": 1240,
+   "y": 238,
+   "to": [
+    1462,
+    376
+   ],
+   "word": "barely interact"
+  }
+ ],
+ "motion": "path + camera tracking: the particle crosses the whole lattice; atoms beside its path only twitch (shake) - it barely interacts with normal matter"
 }

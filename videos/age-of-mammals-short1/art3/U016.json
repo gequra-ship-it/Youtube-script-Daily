@@ -1,13 +1,37 @@
 {
- "centre": "cream tooth with its top ground flat, a dotted outline of the lost cusps above it, empty plate below",
+ "centre": "golden-eyed cat hidden in tall grass, a dashed sightline running to a tiny grazing herd on the flat horizon",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "sand",
-   "word": "grind down",
-   "vol": 0.55
+   "name": "breath",
+   "word": "spot",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "I see you...",
+   "x": 790,
+   "y": 980,
+   "to": [
+    580,
+    1150
+   ],
+   "word": "spot"
+  },
+  {
+   "type": "name",
+   "text": "Grazing herd",
+   "x": 660,
+   "y": 540,
+   "to": [
+    655,
+    620
+   ],
+   "word": "grazing herd"
+  }
+ ],
+ "motion": "tracking camera along the dashed sightline: from the hidden predator's eyes across the open plain to the far herd on the flat horizon (spot from miles away)"
 }

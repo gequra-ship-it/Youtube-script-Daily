@@ -1,7 +1,26 @@
 {
- "centre": "glowing orb split between green land and blue water, floating above a shore cut-away",
+ "centre": "wader at the waterline between a predator on land and slow fish in the bay",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "fish",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Which way?",
+   "x": 700,
+   "y": 640,
+   "to": [
+    372,
+    790
+   ],
+   "word": "Why"
+  }
+ ],
+ "motion": "path (no tracking): slow fish drift through the bay while a predator waits on land; the wader stands between the two reasons"
 }

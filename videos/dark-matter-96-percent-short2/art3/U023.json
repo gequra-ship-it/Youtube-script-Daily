@@ -1,17 +1,30 @@
 {
- "centre": "soft glassy blue-indigo orb of dark matter that three light beams pass straight through",
+ "centre": "glass flask holding one glowing speck, between two other vials, on a shelf at dusk",
  "focus": [
   540,
   860,
   1.6
  ],
- "focus_word": "no light",
+ "focus_word": "undiscovered subatomic particles",
  "sfx": [
   {
    "name": "glimmer",
-   "word": "emits no light",
+   "word": "undiscovered",
    "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who knows?",
+   "x": 720,
+   "y": 680,
+   "to": [
+    610,
+    770
+   ],
+   "word": "no one knows"
+  }
+ ],
+ "motion": "bubble: tiny motes of light drift up inside the glowing flask (hypothetical undiscovered particles); flask says \"Who knows?\""
 }

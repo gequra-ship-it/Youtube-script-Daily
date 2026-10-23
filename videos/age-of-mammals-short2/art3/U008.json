@@ -1,17 +1,19 @@
 {
- "centre": "worried face of an ancestor crouched on all fours in tall grass",
- "focus": [
-  790,
-  610,
-  1.7
- ],
- "focus_word": "stalking predators",
- "sfx": [
+ "centre": "adult ancestor passing a bundle of fruit to a child under a big tree; a heavy stone at the feet",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "rustle",
-   "word": "tall grass",
-   "vol": 0.55
+   "type": "say",
+   "text": "Food!",
+   "x": 860,
+   "y": 900,
+   "to": [
+    785,
+    1070
+   ],
+   "word": "food"
   }
  ],
- "labels": []
+ "motion": "path: the fruit travels in an arc from the adult's free hand to the child's raised hands (carry food to infants)"
 }

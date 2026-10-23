@@ -1,17 +1,30 @@
 {
- "centre": "worn molar crown with raised self-sharpening enamel ridges grinding grass",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "self-sharpening ridges",
- "sfx": [
+ "centre": "magnifying lens showing a small foot with several toes",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "stone",
-   "word": "grinding grass",
-   "vol": 0.55
+   "type": "name",
+   "text": "Toes",
+   "x": 740,
+   "y": 960,
+   "to": [
+    600,
+    905
+   ],
+   "word": "toes"
+  },
+  {
+   "type": "say",
+   "text": "Tiny me!",
+   "x": 820,
+   "y": 400,
+   "to": [
+    625,
+    490
+   ],
+   "word": "small"
   }
  ],
- "labels": []
+ "motion": "tracking camera glides from the small horse down to the many-toed foot in the lens; horse says Tiny me!"
 }

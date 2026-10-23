@@ -1,15 +1,19 @@
 {
- "centre": "clear glassy blue dark matter haze orb bending the light of a distant spiral galaxy on its way to a watching eye",
- "focus": [
-  1570,
-  500,
-  1.7
+ "centre": "a small observatory on a hill watching a spiral galaxy turn inside its faint blue halo",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Keep watching!",
+   "x": 620,
+   "y": 470,
+   "to": [
+    480,
+    570
+   ],
+   "word": "watching"
+  }
  ],
- "focus_word": "watching",
- "sfx": [],
- "labels": [],
- "iris": [
-  1570,
-  500
- ]
+ "motion": "camera tracking: from the observatory along its line of sight up to the galaxy whose stars turn (rotor) - learning by watching what it does"
 }

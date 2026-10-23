@@ -1,13 +1,23 @@
 {
- "centre": "a nautilus hatchling breaking out of its opened egg capsule",
- "sfx": [
+ "centre": "glowing amber bud at the end of an old branch, holding a nautilus",
+ "focus": [
+  960,
+  500,
+  1.5
+ ],
+ "focus_word": "a very old branch",
+ "labels": [
   {
-   "name": "pop",
-   "word": "hatch",
-   "vol": 0.6
+   "type": "name",
+   "text": "tree of life",
+   "x": 560,
+   "y": 330,
+   "to": [
+    470,
+    440
+   ],
+   "word": "tree of life"
   }
  ],
- "labels": [],
- "focus": null,
- "focus_word": null
+ "motion": "protecting a very old branch: the two protecting hands rise up to cup the amber bud (mv-rise)"
 }

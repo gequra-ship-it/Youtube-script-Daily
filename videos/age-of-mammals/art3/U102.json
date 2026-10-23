@@ -1,24 +1,26 @@
 {
- "centre": "full pale moon above the night canopy",
+ "centre": "low sun over a flat plain; a crouching predator in the grass stares across at a distant grazing herd",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "flutter",
-   "word": "fly",
-   "vol": 0.6
+   "name": "step",
+   "word": "high-speed",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "say",
-   "text": "Wait for me!",
-   "x": 1430,
+   "text": "Uh-oh!",
+   "x": 1560,
    "y": 470,
    "to": [
-    1450,
-    640
-   ]
+    1530,
+    590
+   ],
+   "word": "spot"
   }
- ]
+ ],
+ "motion": "track + path: the camera follows the predator's gaze across the flat horizon to the herd, which then bolts away (the high-speed race begins)"
 }

@@ -1,18 +1,26 @@
 {
- "centre": "huge golden eye of a giant flightless bird",
+ "centre": "the paddler's nostril sliding from snout tip to the top of its skull; a whale rises and spouts",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "majestic whales",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "Mine now!",
-   "x": 1440,
-   "y": 280,
+   "type": "name",
+   "text": "Nostrils",
+   "x": 540,
+   "y": 330,
    "to": [
-    1500,
-    540
-   ]
+    760,
+    512
+   ],
+   "word": "nostrils"
   }
- ]
+ ],
+ "motion": "path + dash + rise: the nostril travels up the skull (camera follows), then a majestic whale rises from the sea and spouts"
 }

@@ -1,11 +1,26 @@
 {
- "centre": "tawny paw pad with sharp curved claws",
- "focus": [
-  960,
-  470,
-  1.7
+ "centre": "a tall thermometer whose red column falls while two continents slide apart on the crust",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "drift",
+   "vol": 0.55
+  }
  ],
- "focus_word": "sharpen their claws",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Phew, cooling off!",
+   "x": 640,
+   "y": 210,
+   "to": [
+    372,
+    250
+   ],
+   "word": "begins to break"
+  }
+ ],
+ "motion": "fill + scroll: the fever breaks (thermometer column falls) while two crust plates with their continents keep drifting apart over the mantle"
 }

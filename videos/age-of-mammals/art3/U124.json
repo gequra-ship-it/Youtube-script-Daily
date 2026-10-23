@@ -1,17 +1,26 @@
 {
- "centre": "round lush rainforest tree crown glowing green",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "rainforests",
+ "centre": "an ape at the edge of a thin tree patch; a route draws across open ground to fruiting trees on the far side",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "rustle",
-   "word": "shrink",
-   "vol": 0.55
+   "word": "fruiting trees",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "open ground",
+   "x": 980,
+   "y": 860,
+   "to": [
+    1000,
+    712
+   ],
+   "word": "open ground"
+  }
+ ],
+ "motion": "popin + edge: fruit appears on the far trees, then the route draws itself from the ape across open ground to them"
 }

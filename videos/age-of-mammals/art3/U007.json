@@ -1,11 +1,25 @@
 {
- "centre": "blinding white flash with the dark asteroid inside",
- "iris": [
-  400,
-  560
- ],
+ "centre": "glowing round seed with a green sprout of two leaves",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "new life",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "New life",
+   "x": 1290,
+   "y": 420,
+   "to": [
+    1040,
+    440
+   ],
+   "word": "new life"
+  }
+ ]
 }

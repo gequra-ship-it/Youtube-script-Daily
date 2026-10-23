@@ -1,19 +1,13 @@
 {
- "centre": "a glowing paper lantern hanging in a living room",
+ "centre": "a bright white-gold supernova, same family as the last one, with a dim twin far to the right",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "Dark matter",
-   "x": 420,
-   "y": 470,
-   "to": [
-    560,
-    590
-   ],
-   "word": "dark matter"
+   "name": "glimmer",
+   "word": "dim",
+   "vol": 0.55
   }
- ]
+ ],
+ "motion": "camera follows the light from the bright star to its dim twin"
 }

@@ -1,23 +1,26 @@
 {
- "centre": "hazy pale sun low over a dark Cretaceous land with dinosaur silhouettes",
- "focus": [
-  430,
-  660,
-  1.7
+ "centre": "magnifying lens over a tiny ammonite and nautilus shell, jigsaw pieces beside it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "page",
+   "word": "classic puzzles",
+   "vol": 0.5
+  }
  ],
- "focus_word": "Tyrannosaurus rex",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Tyrannosaurus rex",
+   "type": "say",
+   "text": "Do we fit?",
    "x": 640,
-   "y": 560,
+   "y": 520,
    "to": [
-    520,
-    650
+    730,
+    610
    ],
-   "word": "Tyrannosaurus rex"
+   "word": "puzzle"
   }
- ]
+ ],
+ "motion": "two puzzle pieces (the two cephalopod stories) slide toward each other (mv-path x2, no tracking); piece asks Do we fit"
 }

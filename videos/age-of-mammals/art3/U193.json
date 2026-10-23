@@ -1,25 +1,31 @@
 {
- "centre": "warm glow of the heated torso of the upright hominin",
+ "centre": "one night coastline: a bat flaps out of a cave, an elephant stands on the plain and a blue whale surfaces in the sea",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "Cool breezes",
+   "name": "flutter",
+   "word": "bats",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Cool breezes",
-   "x": 440,
-   "y": 250,
+   "type": "num",
+   "text": "6,000+ SPECIES",
+   "word": "six thousand"
+  },
+  {
+   "type": "say",
+   "text": "Plenty of room!",
+   "x": 1260,
+   "y": 470,
    "to": [
-    520,
-    320
+    1240,
+    650
    ],
-   "word": "Cool breezes"
+   "word": "blue whales"
   }
- ]
+ ],
+ "motion": "from bats to elephants to blue whales: the camera surveys the coast left to right in the order they are named (mv-track 0.3-5.1 s); bat wings flap (mv-joint), whale tail beats (mv-chain)"
 }

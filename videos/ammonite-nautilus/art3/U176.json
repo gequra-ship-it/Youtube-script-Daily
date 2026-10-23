@@ -1,18 +1,38 @@
 {
- "centre": "a nautilus resting still inside a rock crevice",
+ "centre": "a crowned ammonite topples off the winners' podium while a warm glow grows round the plain nautilus on the low step; Earth looks on",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "track": false,
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "winning",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "say",
-   "text": "Just resting.",
-   "x": 1260,
-   "y": 250,
+   "text": "Who, me?",
+   "x": 700,
+   "y": 380,
    "to": [
-    1080,
-    410
-   ]
+    880,
+    520
+   ],
+   "word": "unimportant"
+  },
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 330,
+   "y": 200,
+   "to": [
+    330,
+    262
+   ],
+   "word": "Earth"
   }
- ]
+ ],
+ "motion": "path+grow: the crowned champion tumbles off its podium (Earth does not care who is winning), then a glow grows round the nautilus (traits that seemed unimportant)"
 }

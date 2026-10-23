@@ -1,28 +1,26 @@
 {
- "centre": "a nautilus hatchling, a miniature copy of the adult",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "centre": "magnifying glass looking at a living nautilus egg",
+ "sfx": [
   {
-   "type": "num",
-   "text": "3 CM",
-   "word": "three centimeters"
-  },
-  {
-   "type": "name",
-   "text": "hard shell",
-   "x": 1220,
-   "y": 300,
-   "to": [
-    970,
-    420
-   ],
-   "word": "hard shell"
+   "name": "hush",
+   "word": "inference",
+   "vol": 0.5
   }
  ],
- "iris": [
-  300,
-  470
- ]
+ "labels": [
+  {
+   "type": "name",
+   "text": "Living nautilus",
+   "x": 420,
+   "y": 330,
+   "to": [
+    380,
+    520
+   ],
+   "word": "living nautiluses"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "motion": "camera follows the inference from living nautilus through the lens to the unknown rock; dashed arrows march"
 }

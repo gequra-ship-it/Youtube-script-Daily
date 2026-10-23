@@ -1,17 +1,30 @@
 {
- "centre": "bright sun-filled gap in a broken jungle canopy",
+ "centre": "an ape rising onto its hind legs so its head and eyes come up above the tall yellow grass",
  "focus": [
   960,
-  500,
-  1.7
+  420,
+  1.5
  ],
- "focus_word": "open woodlands",
+ "focus_word": "eyes rise",
  "sfx": [
   {
    "name": "rustle",
-   "word": "break apart",
-   "vol": 0.55
+   "word": "stand upright",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Whoa, what a view!",
+   "x": 1260,
+   "y": 330,
+   "to": [
+    1010,
+    440
+   ],
+   "word": "Suddenly"
+  }
+ ],
+ "motion": "rise + edge: the ape rises up from the grass onto two legs, then a sight line reaches out over the grass tops"
 }

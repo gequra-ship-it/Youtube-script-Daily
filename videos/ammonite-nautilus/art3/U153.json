@@ -1,23 +1,26 @@
 {
- "centre": "magnifying lens over a pale thin-shelled ammonite hatchling",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "a nautilus below a fishing boat, a baited trap waiting nearby",
+ "sfx": [
+  {
+   "name": "breath",
+   "word": "new danger",
+   "vol": 0.5
+  }
  ],
- "focus_word": "thin shells",
- "sfx": [],
+ "focus": null,
+ "focus_word": null,
+ "motion": "baited trap has just been lowered by the boat and sways on its line (mv-swing); nautilus reacts",
  "labels": [
   {
-   "type": "name",
-   "text": "Ammonites",
-   "x": 620,
+   "type": "say",
+   "text": "Uh oh!",
+   "x": 700,
    "y": 330,
    "to": [
-    900,
-    440
+    1010,
+    490
    ],
-   "word": "ammonites"
+   "word": "danger"
   }
  ]
 }

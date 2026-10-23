@@ -1,17 +1,37 @@
 {
- "centre": "stone slab holding an exceptionally preserved ammonite with its soft body outline",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "exceptionally preserved fossils",
+ "centre": "nautiloid heading down from a crowded zone to the sparse deep",
  "sfx": [
   {
-   "name": "stone",
-   "word": "exceptionally preserved",
+   "name": "hush",
+   "word": "One hypothesis",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "deeper, food-poor water",
+   "x": 600,
+   "y": 800,
+   "to": [
+    760,
+    740
+   ],
+   "word": "deeper, food-poor water"
+  },
+  {
+   "type": "say",
+   "text": "Too crowded!",
+   "x": 1040,
+   "y": 170,
+   "to": [
+    1215,
+    235
+   ],
+   "word": "competition"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "motion": "dash + camera track: the dashed down-arrows march and the camera follows the descent from the crowded shallows to the sparse deep; crowd squid complains"
 }

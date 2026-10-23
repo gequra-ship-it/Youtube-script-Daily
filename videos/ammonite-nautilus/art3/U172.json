@@ -1,23 +1,29 @@
 {
- "centre": "fallen food on the sea floor with scavengers gathering",
- "focus": [
-  640,
-  560,
-  1.6
+ "centre": "fast fish and squid racing along current lanes while a slow nautilus nibbles a tiny scrap",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "fastest",
+   "vol": 0.5
+  }
  ],
- "focus_word": "scavengers",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "scavengers",
-   "x": 640,
-   "y": 420,
+   "type": "say",
+   "text": "This is plenty.",
+   "x": 800,
+   "y": 470,
    "to": [
-    640,
-    520
+    650,
+    620
    ],
-   "word": "scavengers"
+   "word": "little"
   }
- ]
+ ],
+ "track": {
+  "scale": 1.3
+ },
+ "motion": "scroll: strong and fast animals race past; track pans from the racers down to the nautilus getting by on a tiny scrap"
 }

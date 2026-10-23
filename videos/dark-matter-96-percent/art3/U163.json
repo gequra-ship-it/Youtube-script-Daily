@@ -1,13 +1,31 @@
 {
- "centre": "pale blue glowing orb half hidden behind parting dark veils, a hidden surprise",
+ "centre": "a small gold space telescope with a dark sunshield flying away from Earth along a dotted trail toward far galaxies and a faint blue haze",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "surprise",
-   "vol": 0.55
+   "name": "bloom",
+   "word": "launched",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Euclid",
+   "x": 1180,
+   "y": 210,
+   "to": [
+    1180,
+    360
+   ],
+   "word": "Euclid"
+  },
+  {
+   "type": "num",
+   "text": "2023",
+   "word": "2023"
+  }
+ ],
+ "motion": "path: the Euclid telescope leaves Earth and flies out toward the far galaxies it will hunt (camera tracks it), the dotted trail marches behind it (dash)"
 }

@@ -1,29 +1,42 @@
 {
- "centre": "broad flat molar crown with ridged cusps, seen from above",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "broad teeth",
+ "centre": "long eel-like Basilosaurus with a measuring tape along its body and tiny hind legs",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "rustle",
-   "word": "tough new leaves",
-   "vol": 0.55
+   "name": "tick",
+   "word": "eighteen meters",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
+   "type": "num",
+   "text": "18 M",
+   "word": "eighteen meters"
+  },
+  {
    "type": "name",
-   "text": "Broad teeth",
-   "x": 1190,
-   "y": 300,
+   "text": "Basilosaurus",
+   "x": 1420,
+   "y": 700,
    "to": [
-    1060,
-    420
+    1480,
+    590
    ],
-   "word": "broad teeth"
+   "word": "Basilosaurus"
+  },
+  {
+   "type": "name",
+   "text": "Tiny hind legs",
+   "x": 640,
+   "y": 720,
+   "to": [
+    568,
+    610
+   ],
+   "word": "tiny hind legs"
   }
- ]
+ ],
+ "motion": "edge + track: a measuring tape draws out from head to tail while the camera travels the long body and ends on the tiny hind legs"
 }

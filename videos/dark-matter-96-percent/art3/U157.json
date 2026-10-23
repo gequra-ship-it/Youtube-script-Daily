@@ -1,13 +1,26 @@
 {
- "centre": "glowing photon orb carried by a faint wavy microwave stream",
+ "centre": "a brass balance: a thick book of blank pages on one pan sinks against small brass weights on the other",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pulse",
-   "word": "microwaves",
-   "vol": 0.55
+   "name": "stone",
+   "word": "how heavy",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Can't read me!",
+   "x": 560,
+   "y": 330,
+   "to": [
+    620,
+    500
+   ],
+   "word": "read"
+  }
+ ],
+ "motion": "flip (rotate to -8 deg, pans counter-rotate): the beam tips down on the book's side - we can weigh the pages but not read them"
 }

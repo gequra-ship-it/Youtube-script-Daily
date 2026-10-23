@@ -1,11 +1,23 @@
 {
- "centre": "bright golden bulge of a spiral galaxy on a blueprint-style board, arrows long near the centre and short at the rim",
+ "centre": "a speed chart over an edge-on galaxy: the measured speed curve rises and then stays flat all the way to the edge of the visible disk",
  "focus": [
-  1481,
-  451,
-  1.8
+  1400,
+  520,
+  1.6
  ],
- "focus_word": "outer rim",
- "sfx": [],
- "labels": []
+ "focus_word": "edge of the visible disk",
+ "labels": [
+  {
+   "type": "name",
+   "text": "visible disk",
+   "x": 1180,
+   "y": 690,
+   "to": [
+    1300,
+    800
+   ],
+   "word": "visible disk"
+  }
+ ],
+ "motion": "edge: the measured speed curve draws itself, rising and then running flat far past where the faint expected curve falls; the camera then pushes to the edge of the disk"
 }

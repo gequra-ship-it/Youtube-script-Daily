@@ -1,19 +1,37 @@
 {
- "centre": "adult female ammonite releasing a stream of eggs",
+ "centre": "an ammonite larva growing bigger among plenty of phytoplankton in warm water",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "paid off",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Very many",
-   "x": 300,
-   "y": 1180,
+   "type": "say",
+   "text": "Paid off!",
+   "x": 820,
+   "y": 640,
    "to": [
-    420,
-    1320
+    690,
+    820
    ],
-   "word": "very many"
+   "word": "paid off"
+  },
+  {
+   "type": "name",
+   "text": "Phytoplankton",
+   "x": 330,
+   "y": 1210,
+   "to": [
+    330,
+    1080
+   ],
+   "word": "phytoplankton"
   }
- ]
+ ],
+ "motion": "fill x+y: the larva grows from small to big (grow quickly); scroll: plenty of phytoplankton drifts past"
 }

@@ -1,25 +1,13 @@
 {
- "centre": "low setting sun over a flat open grassland",
+ "centre": "golden dust cloud kicked up by a running herd",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "Open grassland",
-   "vol": 0.55
+   "name": "thud",
+   "word": "thundering",
+   "vol": 0.6
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Grassland",
-   "x": 760,
-   "y": 1200,
-   "to": [
-    760,
-    1080
-   ],
-   "word": "grassland"
-  }
- ]
+ "motion": "tracking camera moves along with the thundering herd (they run on, dust rolls)"
 }

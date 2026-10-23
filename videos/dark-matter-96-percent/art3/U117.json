@@ -1,11 +1,30 @@
 {
- "centre": "edge-on gold glowing galaxy like a lit island floating above a vast faint blue sea of dark matter",
+ "centre": "a Type Ia supernova, a white-gold burst at the edge of a faint host galaxy",
  "focus": [
   960,
   500,
-  1.5
+  1.8
  ],
- "focus_word": "glowing island",
- "sfx": [],
- "labels": []
+ "focus_word": "exploding star",
+ "sfx": [
+  {
+   "name": "bloom",
+   "word": "exploding star",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Type Ia supernova",
+   "x": 1370,
+   "y": 320,
+   "to": [
+    1050,
+    450
+   ],
+   "word": "Type Ia supernova"
+  }
+ ],
+ "motion": "blast spikes pop out as the star explodes"
 }

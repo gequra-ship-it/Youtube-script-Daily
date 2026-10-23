@@ -1,29 +1,30 @@
 {
- "centre": "faint glassy blue haze orb with pale threads that lets starlight pass without any glint",
+ "centre": "a wall clock in the living room while the person reads a phone and a faint stream of dark matter specks flows through them",
  "focus": [
-  960,
-  500,
-  1.7
+  600,
+  560,
+  1.5
  ],
- "focus_word": "dark matter",
+ "focus_word": "passing through",
  "sfx": [
   {
-   "name": "pulse",
-   "word": "dark matter",
-   "vol": 0.6
+   "name": "tick",
+   "word": "right now",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Dark matter",
-   "x": 1230,
-   "y": 330,
+   "type": "say",
+   "text": "Quiet night...",
+   "x": 650,
+   "y": 340,
    "to": [
-    1050,
-    430
+    520,
+    490
    ],
-   "word": "dark matter"
+   "word": "probably"
   }
- ]
+ ],
+ "motion": "scroll: a stream of faint blue specks and threads flows steadily through the person and the room - it is passing through right now"
 }

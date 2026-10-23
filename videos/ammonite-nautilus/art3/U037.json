@@ -1,17 +1,26 @@
 {
- "centre": "porthole view of one chamber with water below and gas above, a thin tube letting liquid and gas move",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "liquid and gas",
+ "centre": "an ammonite cutaway with liquid sloshing between frilly walls, beside a balance that weighs strength against liquid flow",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "bubble",
-   "word": "liquid and gas",
-   "vol": 0.55
+   "name": "drip",
+   "word": "liquid",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Maybe both?",
+   "x": 1560,
+   "y": 230,
+   "to": [
+    1530,
+    400
+   ],
+   "word": "mix of both"
+  }
+ ],
+ "motion": "liquid sloshes through the chambers (mv-liquid with scroll) while the balance of the two ideas keeps swinging undecided (mv-swing)"
 }

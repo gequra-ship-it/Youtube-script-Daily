@@ -1,13 +1,23 @@
 {
- "centre": "one supernova burst among rows of identical white dwarf and companion pairs",
+ "centre": "a bright star the person on the hill looks up at",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "iris": [
+  560,
+  640
+ ],
+ "labels": [
   {
-   "name": "tick",
-   "word": "similar",
-   "vol": 0.5
+   "type": "say",
+   "text": "Look up!",
+   "x": 780,
+   "y": 330,
+   "to": [
+    580,
+    470
+   ],
+   "word": "look up"
   }
  ],
- "labels": []
+ "motion": "camera tilts up with the gaze line to the star; bubble"
 }

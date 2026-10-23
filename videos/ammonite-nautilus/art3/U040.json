@@ -1,29 +1,37 @@
 {
- "centre": "nautilus cutaway shell with a teal tube through the middle of its chamber walls, plus magnified inset",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "middle of each chamber wall",
+ "centre": "ammonite fossil shell with an empty dashed gap where its soft body goes, a living nautilus and a squid in tanks to compare",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pop",
-   "word": "chamber wall",
+   "name": "click",
+   "word": "fill the gaps",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Nautilus",
-   "x": 620,
-   "y": 340,
+   "text": "living cephalopods",
+   "x": 860,
+   "y": 230,
    "to": [
-    850,
-    440
+    610,
+    470
    ],
-   "word": "nautilus"
+   "word": "living cephalopods"
+  },
+  {
+   "type": "name",
+   "text": "preserved fossils",
+   "x": 1530,
+   "y": 820,
+   "to": [
+    1330,
+    790
+   ],
+   "word": "preserved fossils"
   }
- ]
+ ],
+ "motion": "compare + fill: dashed comparison links march between the living animals and the shell (dash); a soft body lifts off the rare fossil slab and slides into the gap (path, camera follows)"
 }

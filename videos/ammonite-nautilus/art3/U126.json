@@ -1,13 +1,34 @@
 {
- "centre": "a cold, pale nautilus egg on a rock with a row of moons above",
- "focus": null,
- "focus_word": null,
- "sfx": [
+ "centre": "cutaway nautilus egg: thick capsule wall around a big glowing yolk",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "plenty of yolk",
+ "labels": [
   {
-   "name": "tick",
-   "word": "close to a year",
-   "vol": 0.5
+   "type": "name",
+   "text": "Protective capsule",
+   "x": 640,
+   "y": 330,
+   "to": [
+    838,
+    440
+   ],
+   "word": "thick protective capsules"
+  },
+  {
+   "type": "name",
+   "text": "Yolk",
+   "x": 1240,
+   "y": 380,
+   "to": [
+    990,
+    500
+   ],
+   "word": "yolk"
   }
  ],
- "labels": []
+ "motion": "gentle vent steam rising beside the capsule (explanation picture, gentle object motion)"
 }

@@ -1,28 +1,30 @@
 {
- "centre": "small cratered grey-brown Mercury racing past, rim-lit from the Sun side, with afterimages and speed streaks",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "Mercury",
- "sfx": [],
+ "centre": "three observatory windows (radio dish, dome telescope, space telescope, each with a different galaxy); under each a result card rises with the same flat speed curve",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "Mercury",
-   "x": 1290,
-   "y": 330,
+   "type": "say",
+   "text": "Me too!",
+   "x": 1080,
+   "y": 112,
    "to": [
-    1040,
-    450
+    900,
+    330
    ],
-   "word": "Mercury"
+   "word": "different teams"
   },
   {
-   "type": "num",
-   "text": "47 KM/S",
-   "word": "forty-seven kilometers per second"
+   "type": "say",
+   "text": "Same here!",
+   "x": 1460,
+   "y": 112,
+   "to": [
+    1470,
+    270
+   ],
+   "word": "same answer"
   }
- ]
+ ],
+ "motion": "rise + track: three different instruments each send up a result card with the same flat curve, one after another, and the camera travels along the row"
 }

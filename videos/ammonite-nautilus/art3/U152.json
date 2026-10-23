@@ -1,17 +1,19 @@
 {
- "centre": "water droplet with a crumbling shell chip inside",
- "focus": [
-  960,
-  520,
-  1.8
- ],
- "focus_word": "calcium carbonate",
- "sfx": [
+ "centre": "a magnifying lens showing a nautilus, ancient shelled relatives faint around it",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "bubble",
-   "word": "dissolve",
-   "vol": 0.5
+   "type": "name",
+   "text": "outer shell",
+   "x": 1180,
+   "y": 360,
+   "to": [
+    960,
+    440
+   ],
+   "word": "outer shell"
   }
  ],
- "labels": []
+ "motion": "looking at a nautilus is a glimpse: camera slowly pans in on the lens (mv-track)"
 }

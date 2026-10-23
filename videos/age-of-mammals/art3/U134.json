@@ -1,11 +1,18 @@
 {
- "centre": "round x-ray window into the belly packed with leaves",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "sun-bright waterhole on the savannah",
+ "spot": true,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hominins",
+   "x": 430,
+   "y": 400,
+   "to": [
+    440,
+    470
+   ],
+   "word": "Hominins"
+  }
  ],
- "focus_word": "vast amounts of vegetation",
- "sfx": [],
- "labels": []
+ "motion": "three hominins walk slowly across the savannah (mv-path x3, camera follows the group)"
 }

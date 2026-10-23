@@ -1,13 +1,19 @@
 {
- "centre": "magnifying loupe showing glittering glass grains inside a grass blade",
+ "centre": "a horse chewing clipped grass tops while the bitten tuft below grows back up",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "pop",
-   "word": "tiny",
-   "vol": 0.5
+   "type": "say",
+   "text": "I'm back!",
+   "x": 820,
+   "y": 640,
+   "to": [
+    690,
+    830
+   ],
+   "word": "grows back"
   }
  ],
- "labels": []
+ "motion": "edge: the bitten grass blades draw themselves back up from their stubs (grows back), the horse keeps chewing with a jaw joint (grazers keep chewing)"
 }

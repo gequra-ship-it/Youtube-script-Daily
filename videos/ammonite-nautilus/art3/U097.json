@@ -1,29 +1,11 @@
 {
- "centre": "round gauge dial with a needle, a campfire flame on the left and a valve on the right",
+ "centre": "Earth with glowing debris falling back across it",
  "focus": [
   960,
   500,
-  1.8
+  1.6
  ],
- "focus_word": "metabolism",
- "sfx": [
-  {
-   "name": "click",
-   "word": "metabolism",
-   "vol": 0.5
-  }
- ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Metabolism",
-   "x": 1300,
-   "y": 330,
-   "to": [
-    1040,
-    440
-   ],
-   "word": "metabolism"
-  }
- ]
+ "focus_word": "falling back",
+ "motion": "path: all glowing debris streaks keep falling down-right across the sky while Earth glides; focus kept",
+ "track": false
 }

@@ -1,7 +1,29 @@
 {
- "centre": "a nautilus egg safe in a rock niche below a fading plankton layer",
- "sfx": [],
- "labels": [],
+ "centre": "a long deep-time ribbon from a nautilus on the reef up to a small person who pops in on the pier at its very tip",
  "focus": null,
- "focus_word": null
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "step",
+   "word": "us",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Over to you.",
+   "x": 720,
+   "y": 520,
+   "to": [
+    540,
+    660
+   ],
+   "word": "depends"
+  }
+ ],
+ "track": {
+  "scale": 1.3
+ },
+ "motion": "track + popin: the camera follows the long time ribbon from the ancient nautilus to its tip, where the person (us) pops in last (a geological moment ago)"
 }

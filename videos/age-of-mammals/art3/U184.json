@@ -1,29 +1,36 @@
 {
- "centre": "worried primate face with huge forward-facing eyes",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "primates",
+ "centre": "low warm sun over a grassy plain",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "breath",
-   "word": "existential crisis",
-   "vol": 0.5
+   "name": "step",
+   "word": "run across",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Arboreal primates",
-   "x": 1250,
+   "text": "Wild horses",
+   "x": 1440,
    "y": 330,
    "to": [
-    1040,
-    440
+    1560,
+    560
    ],
-   "word": "arboreal primates"
+   "word": "wild horses"
+  },
+  {
+   "type": "say",
+   "text": "Run free!",
+   "x": 1500,
+   "y": 330,
+   "to": [
+    1690,
+    370
+   ]
   }
- ]
+ ],
+ "motion": "the grass streams past the galloping horses (mv-scroll, legs already move)"
 }

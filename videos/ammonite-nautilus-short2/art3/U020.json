@@ -1,25 +1,23 @@
 {
- "centre": "leathery egg splitting open as a young nautilus comes out",
+ "centre": "lone ammonite larva in dark, nearly empty water",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pop",
-   "word": "emerges",
-   "vol": 0.55
-  }
+ "iris": [
+  290,
+  480
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Tiny larva",
-   "x": 800,
-   "y": 680,
+   "type": "say",
+   "text": "So hungry!",
+   "x": 770,
+   "y": 1060,
    "to": [
-    800,
-    600
+    600,
+    900
    ],
-   "word": "tiny larva"
+   "word": "eat"
   }
- ]
+ ],
+ "motion": "the cloud of tiny larvae drifts down into the dark, nearly empty water; a larva speaks; camera follows"
 }

@@ -1,17 +1,37 @@
 {
- "centre": "pale-blue glassy dark matter haze orb pulling nearby stars on curved paths, thin web threads running away",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "gravity",
+ "centre": "heavy glassy blue haze orb on a spotlit pedestal, the weakly interacting massive particle suspect, with a tiny wave-like axion on a pedestal at right",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pulse",
-   "word": "gravity",
+   "name": "click",
+   "word": "axions",
    "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "weakly interacting",
+   "x": 640,
+   "y": 340,
+   "to": [
+    880,
+    440
+   ],
+   "word": "weakly interacting"
+  },
+  {
+   "type": "name",
+   "text": "axions",
+   "x": 1450,
+   "y": 420,
+   "to": [
+    1496,
+    530
+   ],
+   "word": "axions"
+  }
+ ],
+ "motion": "camera moves from the heavy suspect to the axion"
 }

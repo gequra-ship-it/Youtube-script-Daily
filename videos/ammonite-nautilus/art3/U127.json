@@ -1,13 +1,34 @@
 {
- "centre": "a nautilus hatchling pushing out of its opened egg",
- "focus": null,
- "focus_word": null,
- "sfx": [
+ "centre": "nautilus embryo inside its egg, feeding from its own yolk sac",
+ "iris": [
+  420,
+  170
+ ],
+ "labels": [
   {
-   "name": "pop",
-   "word": "emerges",
-   "vol": 0.5
+   "type": "name",
+   "text": "Surface plankton",
+   "x": 1300,
+   "y": 340,
+   "to": [
+    1300,
+    220
+   ],
+   "word": "surface plankton"
+  },
+  {
+   "type": "say",
+   "text": "Snack packed!",
+   "x": 700,
+   "y": 470,
+   "to": [
+    1000,
+    548
+   ],
+   "word": "food"
   }
  ],
- "labels": []
+ "focus": null,
+ "focus_word": null,
+ "motion": "surface plankton drifts past above while the embryo has its own food (scroll); embryo bubble"
 }

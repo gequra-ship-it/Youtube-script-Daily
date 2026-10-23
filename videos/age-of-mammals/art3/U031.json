@@ -1,28 +1,26 @@
 {
- "centre": "twig snapping in a pool of moonlight",
+ "centre": "a rock cliff with a thin rust-red clay line between the layers, a dinosaur bone below it",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "snapping twig",
-   "vol": 0.6
+   "name": "stone",
+   "word": "crust",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "What was that?",
-   "x": 420,
-   "y": 470,
+   "type": "name",
+   "text": "Thin layer",
+   "x": 1440,
+   "y": 600,
    "to": [
-    580,
-    700
-   ]
+    1300,
+    476
+   ],
+   "word": "thin layer"
   }
  ],
- "iris": [
-  440,
-  700
- ]
+ "motion": "tracking + edge: the camera climbs from the dinosaur bone up the rock to the thin layer, which draws across the cliff and glints with metal"
 }

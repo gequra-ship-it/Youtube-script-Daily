@@ -1,41 +1,26 @@
 {
- "centre": "round white Antarctica separating between two dark landmasses",
+ "centre": "small globe with a white polar cap and a falling temperature curve",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "colder",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Antarctica",
-   "x": 960,
-   "y": 300,
+   "text": "Pliocene",
+   "x": 1460,
+   "y": 380,
    "to": [
-    960,
-    400
+    1620,
+    500
    ],
-   "word": "Antarctica"
-  },
-  {
-   "type": "name",
-   "text": "South America",
-   "x": 430,
-   "y": 200,
-   "to": [
-    430,
-    290
-   ],
-   "word": "South America"
-  },
-  {
-   "type": "name",
-   "text": "Australia",
-   "x": 1510,
-   "y": 330,
-   "to": [
-    1510,
-    415
-   ],
-   "word": "Australia"
+   "word": "Pliocene"
   }
- ]
+ ],
+ "motion": "world drifts along the dotted trail toward the cold Pliocene: a blue marker travels it (mv-path, camera tracks)"
 }

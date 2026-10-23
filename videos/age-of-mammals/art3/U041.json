@@ -1,25 +1,26 @@
 {
- "centre": "dark soot cloud with a hot orange underside rising into the high atmosphere",
+ "centre": "a towering heap of leaves shrinking down to a few seeds in front of a tiny shrew",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "hush",
-   "word": "shoot",
-   "vol": 0.6
+   "name": "pop",
+   "word": "superpower",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Soot",
-   "x": 1480,
-   "y": 340,
+   "type": "say",
+   "text": "Plenty for me!",
+   "x": 1340,
+   "y": 560,
    "to": [
-    1300,
-    400
+    1000,
+    745
    ],
-   "word": "Soot"
+   "word": "small"
   }
- ]
+ ],
+ "motion": "fill (y, shrinking): the huge heap of vegetation sinks down to a few seeds, the meal a shrew-size body needs"
 }

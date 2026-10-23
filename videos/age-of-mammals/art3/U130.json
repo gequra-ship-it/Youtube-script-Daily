@@ -1,24 +1,26 @@
 {
- "centre": "big low sun between the giant legs",
+ "centre": "an upright hominin walking at night carrying an armful of fruit toward an infant waiting by a sleeping nest",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "thud",
-   "word": "colossal",
-   "vol": 0.6
+   "name": "step",
+   "word": "step",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "say",
-   "text": "So big!",
-   "x": 560,
-   "y": 600,
+   "text": "Yay, food!",
+   "x": 1330,
+   "y": 560,
    "to": [
-    500,
-    720
-   ]
+    1470,
+    700
+   ],
+   "word": "infants"
   }
  ],
- "focus": null,
- "focus_word": null
+ "motion": "path + tracking: the hominin walks upright with both hands full of food, the camera follows it to the waiting infant"
 }

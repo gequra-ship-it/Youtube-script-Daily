@@ -1,17 +1,19 @@
 {
- "centre": "glowing question-mark orb flanked by two ammonites with thought bubbles",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "Scientists are still debating",
- "sfx": [
+ "centre": "nautilus drifting in dark water, away from the sunlit corner",
+ "labels": [
   {
-   "name": "hush",
-   "word": "Why did ammonites evolve",
-   "vol": 0.4
+   "type": "name",
+   "text": "nautilus",
+   "x": 1300,
+   "y": 330,
+   "to": [
+    1040,
+    440
+   ],
+   "word": "nautilus"
   }
  ],
- "labels": []
+ "focus": null,
+ "focus_word": null,
+ "motion": "lives very differently: the dashed route line flows past, marking the nautilus own path (mv-dash)"
 }

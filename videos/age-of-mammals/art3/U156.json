@@ -1,17 +1,35 @@
 {
- "centre": "low golden sun over an empty plain",
- "iris": [
-  420,
-  600
- ],
- "sfx": [
+ "centre": "tiny woolly mammoths on snowy Wrangel Island on the left; the pyramids of Egypt already standing in the warm desert on the right",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "wind",
-   "word": "open grasslands",
-   "vol": 0.55
+   "type": "num",
+   "text": "4,000 YEARS AGO",
+   "word": "four thousand"
+  },
+  {
+   "type": "name",
+   "text": "Wrangel Island",
+   "x": 470,
+   "y": 470,
+   "to": [
+    470,
+    625
+   ],
+   "word": "Wrangel Island"
+  },
+  {
+   "type": "say",
+   "text": "Still here!",
+   "x": 780,
+   "y": 560,
+   "to": [
+    552,
+    640
+   ],
+   "word": "survive"
   }
  ],
- "labels": [],
- "focus": null,
- "focus_word": null
+ "motion": "track + dash: the camera travels from the last mammoths on Wrangel Island along the dotted arc to the pyramids already standing in Egypt"
 }

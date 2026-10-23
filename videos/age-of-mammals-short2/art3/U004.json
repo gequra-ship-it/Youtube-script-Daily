@@ -1,23 +1,30 @@
 {
- "centre": "small globe with Africa and a glowing dot on East Africa",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "East Africa",
- "sfx": [],
+ "centre": "rainforest seen from above, splitting along open strips into separate patches",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "East Africa",
-   "x": 700,
-   "y": 690,
+   "text": "Woodland",
+   "x": 280,
+   "y": 450,
    "to": [
-    590,
-    830
+    300,
+    540
    ],
-   "word": "East Africa"
+   "word": "woodland"
+  },
+  {
+   "type": "name",
+   "text": "Savannah",
+   "x": 760,
+   "y": 1300,
+   "to": [
+    760,
+    1110
+   ],
+   "word": "savannah"
   }
- ]
+ ],
+ "motion": "edge: pale savannah strips draw themselves across the forest, breaking it into patches; popin: small savannah trees appear in the gaps"
 }

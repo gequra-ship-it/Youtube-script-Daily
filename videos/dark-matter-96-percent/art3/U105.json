@@ -1,13 +1,35 @@
 {
- "centre": "round universe disc with a blue-haze wedge of about a quarter, dark matter, among gold star dots",
+ "centre": "left: a bright galaxy inside its dark-matter halo; right: thin gas that never gathered, drifting apart",
  "focus": null,
  "focus_word": null,
  "sfx": [],
+ "iris": [
+  480,
+  500
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "27%",
-   "word": "twenty-seven percent"
+   "type": "name",
+   "text": "galaxies",
+   "x": 480,
+   "y": 790,
+   "to": [
+    480,
+    640
+   ],
+   "word": "galaxies"
+  },
+  {
+   "type": "say",
+   "text": "Anyone here?",
+   "x": 1440,
+   "y": 320,
+   "to": [
+    1440,
+    485
+   ],
+   "word": "not at all"
   }
- ]
+ ],
+ "motion": "camera tracks from the formed galaxy (with head start) to the empty right side where gas drifts apart (scroll, without)"
 }

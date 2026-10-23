@@ -1,19 +1,26 @@
 {
- "centre": "round window on a bitten grass tuft with a fresh green blade regrowing",
+ "centre": "glowing golden marrow globule bursting with energy",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "explosion",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Grass",
-   "x": 1460,
-   "y": 600,
+   "type": "say",
+   "text": "Yum!",
+   "x": 1330,
+   "y": 300,
    "to": [
-    1470,
-    760
+    1480,
+    380
    ],
-   "word": "grass"
+   "word": "marrow"
   }
- ]
+ ],
+ "motion": "calorie sparks burst out of the marrow (mv-grow), eater says yum"
 }

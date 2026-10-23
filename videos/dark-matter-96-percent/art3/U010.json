@@ -1,14 +1,25 @@
 {
- "centre": "gold-white sphere at the pivot of a balance beam; a tiny gold grain outweighed by a haze of dark matter on the other pan",
+ "centre": "our Sun as a big gold sphere linked by a dashed line to its tiny place in a spiral galaxy whose stars fill in",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "tick",
-   "word": "ratio",
-   "vol": 0.6
+   "type": "name",
+   "text": "Sun",
+   "x": 400,
+   "y": 650,
+   "to": [
+    400,
+    572
+   ],
+   "word": "Sun"
+  },
+  {
+   "type": "num",
+   "text": "100-400 BILLION",
+   "word": "one hundred billion"
   }
  ],
- "labels": [],
- "spot": true
+ "motion": "popin x5 in waves: the galaxy's stars appear spreading out from the Sun's place, the dashed link marches (dash)"
 }

@@ -1,25 +1,26 @@
 {
- "centre": "last small green patch of pasture in a bare dusty plain",
+ "centre": "a row of mammals growing from shrew size to a big plant-eater chewing leaves, a size curve rising above them",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "step",
-   "word": "starve",
+   "name": "rustle",
+   "word": "tough new leaves",
    "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Pasture",
-   "x": 1380,
-   "y": 330,
+   "text": "Broad teeth",
+   "x": 1600,
+   "y": 250,
    "to": [
-    1060,
-    450
+    1780,
+    440
    ],
-   "word": "pastures"
+   "word": "broad teeth"
   }
- ]
+ ],
+ "motion": "tracking + edge + joint: the camera rides along the row as the size curve draws on from small to big; the big plant-eater chews tough leaves"
 }

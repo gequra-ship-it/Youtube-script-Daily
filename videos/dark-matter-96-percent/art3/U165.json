@@ -1,17 +1,24 @@
 {
- "centre": "inflating teal globe with a faint grid and gold galaxy dots drifting apart on its skin",
+ "centre": "observatory dome on a dark mountain peak with a glowing slit under a Milky Way sky",
  "focus": [
   960,
   500,
-  1.8
+  1.7
  ],
- "focus_word": "expanding",
- "sfx": [
+ "focus_word": "Rubin Observatory",
+ "labels": [
   {
-   "name": "glimmer",
-   "word": "expanding",
-   "vol": 0.55
+   "type": "name",
+   "text": "Rubin Observatory",
+   "x": 1380,
+   "y": 560,
+   "to": [
+    1075,
+    530
+   ],
+   "word": "Rubin Observatory"
   }
  ],
- "labels": []
+ "spot": true,
+ "motion": "survey beam sweeps from the dome slit"
 }

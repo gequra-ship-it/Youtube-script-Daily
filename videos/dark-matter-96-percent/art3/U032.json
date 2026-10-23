@@ -1,13 +1,37 @@
 {
- "centre": "glowing street lamp above a foggy lane with footprints",
+ "centre": "blueprint board: a spiral galaxy with speed arrows long near the centre and short at the rim, and a falling speed curve",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "step",
-   "word": "detective",
+   "name": "pencil",
+   "word": "much slower",
    "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "outer rim",
+   "x": 1000,
+   "y": 215,
+   "to": [
+    918,
+    420
+   ],
+   "word": "outer rim"
+  },
+  {
+   "type": "name",
+   "text": "crowded center",
+   "x": 470,
+   "y": 835,
+   "to": [
+    612,
+    520
+   ],
+   "word": "crowded center"
+  }
+ ],
+ "motion": "grow + edge: speed arrows grow one after another from the centre outward, each shorter than the last, then the expected speed curve draws itself falling toward the rim"
 }

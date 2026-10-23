@@ -1,29 +1,24 @@
 {
- "centre": "a glowing teal-white orb pushing outward in a stretched grid of space",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "pushing the fabric",
- "sfx": [
-  {
-   "name": "pulse",
-   "word": "speeding up",
-   "vol": 0.6
-  }
- ],
+ "centre": "the cosmic pie: a tiny gold slice, then the dark matter and dark energy slices sweep around it; a small person watches from a hill",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "dark energy",
-   "x": 540,
-   "y": 1040,
+   "type": "num",
+   "text": "95-96%",
+   "word": "ninety-five"
+  },
+  {
+   "type": "say",
+   "text": "Humbling!",
+   "x": 780,
+   "y": 1200,
    "to": [
-    540,
-    950
+    560,
+    1240
    ],
-   "word": "dark energy"
+   "word": "humbling"
   }
- ]
+ ],
+ "motion": "edge: the dark matter slice and then the much larger dark energy slice sweep around the pie until only the gold sliver is left"
 }

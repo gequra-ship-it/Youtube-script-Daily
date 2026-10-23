@@ -1,29 +1,18 @@
 {
- "centre": "teal tube cross-section disc between a nautilus cutaway and an ammonite cutaway",
+ "centre": "a fossil ammonite shell in quarry rock layers; the soft animal it held is only a dashed ghost outline with a question mark",
  "focus": [
-  960,
-  500,
-  1.8
+  760,
+  470,
+  1.5
  ],
- "focus_word": "the tube",
+ "focus_word": "animal inside",
  "sfx": [
   {
-   "name": "pop",
-   "word": "not in the same place",
-   "vol": 0.5
+   "name": "stone",
+   "word": "fossilize",
+   "vol": 0.55
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Tube",
-   "x": 960,
-   "y": 330,
-   "to": [
-    960,
-    420
-   ],
-   "word": "tube"
-  }
- ]
+ "labels": [],
+ "motion": "dashes march round the ghost outline of the unknown soft body (mv-dash) and a question mark pops in (mv-popin); camera pushes in on 'animal inside'"
 }

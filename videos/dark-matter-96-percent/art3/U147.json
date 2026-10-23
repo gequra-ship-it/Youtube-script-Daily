@@ -1,17 +1,31 @@
 {
- "centre": "a lantern with a glowing spiral galaxy inside, hanging from a dark haze scaffold",
+ "centre": "teal-white glowing orb (dark energy) where a flat dashed line and a slowly bending amber curve with data points part",
  "focus": [
   960,
   500,
   1.7
  ],
- "focus_word": "lantern",
+ "focus_word": "dark energy",
  "sfx": [
   {
-   "name": "glimmer",
-   "word": "lantern",
-   "vol": 0.55
+   "name": "pulse",
+   "word": "DESI",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "DESI",
+   "x": 745,
+   "y": 610,
+   "to": [
+    795,
+    522
+   ],
+   "word": "DESI"
+  }
+ ],
+ "spot": true,
+ "motion": "flat line marches on while the amber curve hints at change"
 }
