@@ -343,7 +343,7 @@ function miyaPath(tl,g,d,t0,dur,rot,rot0){
  var t=g.closest('.t'),pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';
  var NS='http://www.w3.org/2000/svg',svg=g.ownerSVGElement,p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('visibility','hidden');svg.appendChild(p);
  var L=p.getTotalLength(),P0=p.getPointAtLength(0),o={k:0};
- function ang(k){var a=p.getPointAtLength(L*k),b=p.getPointAtLength(Math.min(L,L*k+2));return Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI;}
+ function ang(k){var s0=Math.max(0,Math.min(L-2,L*k)),a=p.getPointAtLength(s0),b=p.getPointAtLength(Math.min(L,s0+2));return Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI;}
  var a0=ang(0);t.style.display=pd;t.style.visibility=pv;
  function ap(k){var q=p.getPointAtLength(L*k);gsap.set(g,{x:q.x-P0.x,y:q.y-P0.y,rotation:rot?ang(k)-a0+(rot0||0):0,svgOrigin:P0.x+' '+P0.y});}
  tl.to(o,{k:1,duration:dur,ease:miyaCruise,immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
