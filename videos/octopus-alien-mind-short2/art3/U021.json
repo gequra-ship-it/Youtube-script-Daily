@@ -1,23 +1,13 @@
 {
- "centre": "a round magnified view of light-sensing cells, each holding the same single golden pigment",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "only one type",
- "sfx": [],
- "labels": [
+ "centre": "lab test: a lamp switches on over a dish of octopus skin, and its pigment spots open up in the light; a dark dish beside it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "name",
-   "text": "light-sensitive pigment",
-   "x": 540,
-   "y": 1070,
-   "to": [
-    540,
-    1180
-   ],
-   "word": "light-sensitive pigment"
+   "name": "click",
+   "word": "lab tests",
+   "vol": 0.5
   }
- ]
+ ],
+ "motion": "mv-grow: the lamp beam reaches down to the skin patch, then its pigment spots spread open (nested mv-fill) as the skin responds to light"
 }

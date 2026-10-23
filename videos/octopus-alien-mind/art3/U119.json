@@ -1,27 +1,31 @@
 {
- "centre": "two nested coconut shell halves held under a veined octopus walking on its arms",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "coconut shell halves",
+ "centre": "a messenger RNA copy travelling from the nucleus with its DNA to a ribosome, where a protein chain appears",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "coconut shell halves",
-   "x": 1300,
-   "y": 600,
+   "text": "DNA",
+   "x": 330,
+   "y": 200,
    "to": [
-    1060,
-    520
+    330,
+    430
    ],
-   "word": "coconut shell halves"
+   "word": "DNA"
+  },
+  {
+   "type": "name",
+   "text": "proteins",
+   "x": 1620,
+   "y": 250,
+   "to": [
+    1640,
+    350
+   ],
+   "word": "proteins"
   }
  ],
- "iris": [
-  400,
-  600
- ]
+ "motion": "path (+ camera follows) + popin: the messenger RNA copy travels from the nucleus to the ribosome, then the protein beads pop out one by one"
 }

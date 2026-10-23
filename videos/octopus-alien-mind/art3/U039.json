@@ -1,23 +1,42 @@
 {
- "centre": "octopus whose mantle is a patchwork of paint colours",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "an octopus seen from above on sand, each of its eight arms carrying its own glowing nerve cord and little processing nodes",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "processing centers",
+   "vol": 0.5
+  }
  ],
- "focus_word": "flexible canvas",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "canvas",
-   "x": 1230,
-   "y": 300,
+   "type": "num",
+   "text": "TWO-THIRDS IN THE ARMS",
+   "word": "two-thirds"
+  },
+  {
+   "type": "say",
+   "text": "I got this!",
+   "x": 1600,
+   "y": 330,
    "to": [
-    1050,
-    420
+    1470,
+    430
    ],
-   "word": "canvas"
+   "word": "semi-autonomous"
+  },
+  {
+   "type": "say",
+   "text": "Me too!",
+   "x": 480,
+   "y": 380,
+   "to": [
+    640,
+    470
+   ],
+   "word": "processing centers"
   }
- ]
+ ],
+ "motion": "popin + dash + track: nodes light up arm after arm round the body while signals run along each arm's own cord; camera sweeps round the ring of arms"
 }

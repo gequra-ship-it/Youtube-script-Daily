@@ -1,23 +1,26 @@
 {
- "centre": "an eyeball cut in half with blue, green and red light focusing at slightly different depths inside",
- "focus": [
-  960,
-  500,
-  2.0
+ "centre": "an octopus behind aquarium glass whose gaze runs along four visitors and stops at one",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "individual humans",
+   "vol": 0.5
+  }
  ],
- "focus_word": "shifted its focus",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "depths",
-   "x": 560,
-   "y": 660,
+   "type": "say",
+   "text": "I know you!",
+   "x": 430,
+   "y": 160,
    "to": [
-    400,
-    520
+    470,
+    330
    ],
-   "word": "depths"
+   "word": "tell"
   }
- ]
+ ],
+ "motion": "track: the camera follows the octopus's gaze along the row of visitors and stops on the one it recognises (lamp glow)"
 }

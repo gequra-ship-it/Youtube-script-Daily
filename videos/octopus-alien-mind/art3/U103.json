@@ -1,24 +1,25 @@
 {
- "centre": "a glowing light bulb hanging on a cord, the idea",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "idea",
- "sfx": [
-  {
-   "name": "hush",
-   "word": "idea",
-   "vol": 0.55
-  }
- ],
+ "centre": "an octopus in a small tank tips the first of a row of dominoes; the chain runs along the bench and knocks over a coffee mug",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "2016",
-   "word": "2016"
+   "type": "say",
+   "text": "Oh no!",
+   "x": 1420,
+   "y": 420,
+   "to": [
+    1300,
+    590
+   ],
+   "word": "annoying results"
   }
  ],
- "spot": true
+ "iris": [
+  300,
+  520
+ ],
+ "track": false,
+ "motion": "topple: the octopus pushes the first domino and the chain of cause and effect runs along the bench (until the mug falls"
 }

@@ -1,35 +1,23 @@
 {
- "centre": "a garden snail pulled back inside its brown spiral shell on a leaf",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "breath",
-   "word": "passive defense",
-   "vol": 0.5
-  }
+ "centre": "octopus whose mantle is a patchwork of paint colours",
+ "focus": [
+  960,
+  500,
+  1.6
  ],
+ "focus_word": "flexible canvas",
  "labels": [
   {
    "type": "name",
-   "text": "garden snails",
-   "x": 1290,
-   "y": 330,
+   "text": "canvas",
+   "x": 1230,
+   "y": 300,
    "to": [
     1050,
-    430
+    420
    ],
-   "word": "garden snails"
-  },
-  {
-   "type": "say",
-   "text": "Nobody home!",
-   "x": 1260,
-   "y": 470,
-   "to": [
-    1060,
-    560
-   ]
+   "word": "canvas"
   }
- ]
+ ],
+ "motion": "popin: paint patches pop onto the mantle - the body becomes a canvas"
 }

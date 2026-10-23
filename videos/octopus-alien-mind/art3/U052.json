@@ -1,27 +1,48 @@
 {
- "centre": "golden central brain glowing in an x-ray window between the octopus's eyes",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "one-third of the neurons",
- "sfx": [],
- "iris": [
-  380,
-  470
+ "centre": "the octopus with its central brain glowing as it sends a command",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "flee",
+   "vol": 0.5
+  }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "central brain",
-   "x": 1240,
+   "text": "reef",
+   "x": 1640,
+   "y": 430,
+   "to": [
+    1580,
+    560
+   ],
+   "word": "reef"
+  },
+  {
+   "type": "name",
+   "text": "shark",
+   "x": 560,
+   "y": 160,
+   "to": [
+    430,
+    250
+   ],
+   "word": "shark"
+  },
+  {
+   "type": "say",
+   "text": "Go that way!",
+   "x": 700,
    "y": 300,
    "to": [
-    1000,
+    920,
     470
    ],
-   "word": "central brain"
+   "word": "crawl toward"
   }
- ]
+ ],
+ "motion": "dash: command arrows run toward the reef and away from the shark"
 }

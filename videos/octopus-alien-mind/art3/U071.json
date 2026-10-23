@@ -1,36 +1,20 @@
 {
- "centre": "the octopus with its central brain glowing as it sends a command",
+ "centre": "a big golden octopus eye; red, yellow and blue light beads pass through its pupil into a row of identical cells with one pigment",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "swish",
-   "word": "flee",
-   "vol": 0.5
-  }
- ],
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "reef",
-   "x": 1640,
-   "y": 430,
+   "text": "visual pigment",
+   "x": 1570,
+   "y": 760,
    "to": [
-    1580,
+    1570,
     560
    ],
-   "word": "reef"
-  },
-  {
-   "type": "name",
-   "text": "shark",
-   "x": 560,
-   "y": 160,
-   "to": [
-    430,
-    250
-   ],
-   "word": "shark"
+   "word": "visual pigment"
   }
- ]
+ ],
+ "motion": "path: coloured light beads travel from the scene through the pupil and all end in the same kind of light-sensitive cell"
 }

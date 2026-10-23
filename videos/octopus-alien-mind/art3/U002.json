@@ -1,29 +1,11 @@
 {
- "centre": "flying saucer hovering in the night sky with a glowing dome",
- "focus": [
-  960,
-  480,
-  1.6
- ],
- "focus_word": "flying saucer",
+ "centre": "octopus swimming upward, mantle first, arms trailing",
  "sfx": [
   {
-   "name": "wind",
-   "word": "in the sky",
+   "name": "bubble",
+   "word": "swim up",
    "vol": 0.5
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "flying saucer",
-   "x": 1240,
-   "y": 400,
-   "to": [
-    1060,
-    470
-   ],
-   "word": "flying saucer"
-  }
- ]
+ "motion": "track: camera rises with the octopus swimming up from the depths"
 }

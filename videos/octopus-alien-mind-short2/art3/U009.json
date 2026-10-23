@@ -1,19 +1,30 @@
 {
- "centre": "cluster of bright white leucophore cells scattering light",
+ "centre": "round skin patch with pigment sacs open and shut in a wave pattern",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Leucophores",
-   "x": 540,
-   "y": 1070,
+   "text": "Pixels",
+   "x": 820,
+   "y": 1030,
    "to": [
-    540,
-    965
+    760,
+    1100
    ],
-   "word": "leucophores"
+   "word": "pixels"
+  },
+  {
+   "type": "say",
+   "text": "Like pixels!",
+   "x": 560,
+   "y": 380,
+   "to": [
+    330,
+    530
+   ],
+   "word": "pixels"
   }
- ]
+ ],
+ "motion": "pixel screen slides up into view as the pixel comparison is made; octopus says Like pixels!"
 }

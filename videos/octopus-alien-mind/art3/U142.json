@@ -1,34 +1,26 @@
 {
- "centre": "Otto the octopus perched on the rim of his tank",
- "focus": [
-  960,
-  520,
-  1.6
+ "centre": "the octopus mantle leading a jet-propelled swim, arms streaming behind",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "jet propulsion",
+   "vol": 0.55
+  }
  ],
- "focus_word": "climbed onto the rim",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Otto",
-   "x": 1360,
-   "y": 330,
+   "text": "jet propulsion",
+   "x": 1050,
+   "y": 780,
    "to": [
-    1050,
-    420
+    1040,
+    690
    ],
-   "word": "Otto"
-  },
-  {
-   "type": "name",
-   "text": "rim",
-   "x": 1250,
-   "y": 690,
-   "to": [
-    1300,
-    606
-   ],
-   "word": "rim"
+   "word": "jet propulsion"
   }
- ]
+ ],
+ "motion": "path + tracking: the octopus jets forward (left) by jet propulsion and the camera follows it"
 }

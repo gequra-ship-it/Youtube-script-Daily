@@ -1,34 +1,26 @@
 {
- "centre": "a round clear glass jar with a red crab inside, gold screw lid on top",
- "focus": [
-  960,
-  470,
-  1.7
+ "centre": "two enzymes gripping folded hairpins in an RNA strand, linked down to DNA regions that get locked",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "not be free",
+   "vol": 0.5
+  }
  ],
- "focus_word": "a crab",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "crab",
-   "x": 640,
-   "y": 360,
+   "text": "folded structures",
+   "x": 980,
+   "y": 150,
    "to": [
-    900,
-    520
+    800,
+    200
    ],
-   "word": "crab"
-  },
-  {
-   "type": "name",
-   "text": "screw lid",
-   "x": 1240,
-   "y": 250,
-   "to": [
-    1030,
-    345
-   ],
-   "word": "screw lid"
+   "word": "folded structures"
   }
- ]
+ ],
+ "motion": "edge + slam: links draw from each RNA fold down to its matching DNA, then a padlock slams onto each region (not free to change)"
 }

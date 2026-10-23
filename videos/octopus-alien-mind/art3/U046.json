@@ -1,17 +1,37 @@
 {
- "centre": "glowing golden octopus brain inside a see-through octopus, nerve cords in every arm",
+ "centre": "small glowing brain held in the curled tip of one octopus arm",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "iris": [
-  380,
-  330
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "local intelligence",
+   "vol": 0.5
+  }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "500 MILLION NEURONS",
-   "word": "five hundred million"
+   "type": "name",
+   "text": "the arm",
+   "x": 1300,
+   "y": 720,
+   "to": [
+    1060,
+    580
+   ],
+   "word": "the arm"
+  },
+  {
+   "type": "say",
+   "text": "I think, too!",
+   "x": 1250,
+   "y": 200,
+   "to": [
+    1000,
+    340
+   ],
+   "word": "local intelligence"
   }
- ]
+ ],
+ "motion": "none: nothing moves in the narration; speech bubble only"
 }

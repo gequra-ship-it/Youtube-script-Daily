@@ -1,19 +1,26 @@
 {
- "centre": "a glowing glass globe holding a double helix of coloured beads (DNA), same as before",
+ "centre": "a bright match flame burning",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "crackle",
+   "word": "burns bright",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "humans",
-   "x": 1500,
-   "y": 190,
+   "text": "octopus",
+   "x": 400,
+   "y": 260,
    "to": [
-    1500,
-    400
+    400,
+    330
    ],
-   "word": "humans"
+   "word": "octopus"
   }
- ]
+ ],
+ "motion": "fill: the bright match flame shrinks down - it burns bright, but briefly"
 }

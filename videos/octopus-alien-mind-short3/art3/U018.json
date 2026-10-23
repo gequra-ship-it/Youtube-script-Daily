@@ -1,19 +1,26 @@
 {
- "centre": "a large golden octopus eye with a slit pupil looking up",
+ "centre": "a veined octopus stilt-walking across the sea floor carrying coconut shell halves",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "step",
+   "word": "stilt-walking",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Seattle Aquarium",
+   "text": "coconut shell halves",
    "x": 540,
-   "y": 1330,
+   "y": 1300,
    "to": [
-    540,
-    1170
+    560,
+    1020
    ],
-   "word": "Seattle Aquarium"
+   "word": "coconut shell halves"
   }
- ]
+ ],
+ "motion": "mv-path: the veined octopus stilt-walks across the sea floor with its shell halves, bobbing (camera follows); its leg arms swing as mv-chain"
 }

@@ -1,23 +1,29 @@
 {
- "centre": "an octopus squeezing up through a narrow gap in the tank lid",
- "focus": [
-  540,
-  860,
-  1.7
+ "centre": "an octopus sliding head first into a floor drain",
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "the sea",
+   "vol": 0.5
+  }
  ],
- "focus_word": "small gap",
- "sfx": [],
  "labels": [
   {
+   "type": "num",
+   "text": "50 M",
+   "word": "fifty meters"
+  },
+  {
    "type": "name",
-   "text": "small gap",
-   "x": 700,
-   "y": 990,
+   "text": "drainpipe",
+   "x": 760,
+   "y": 1020,
    "to": [
-    606,
-    905
+    440,
+    1060
    ],
-   "word": "small gap"
+   "word": "drainpipe"
   }
- ]
+ ],
+ "motion": "camera slides along the drainpipe from the tank to the sea"
 }

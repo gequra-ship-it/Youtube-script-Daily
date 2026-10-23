@@ -1,19 +1,32 @@
 {
- "centre": "a round nerve cell body, glowing, with branching fibres and a long axon",
+ "centre": "a lab bench at night: a diagram of an octopus whose two gland dots travel into a dish, beside a tank with a female and her eggs",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "track": false,
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "experiments",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
+   "type": "num",
+   "text": "1970S",
+   "word": "1970s"
+  },
+  {
    "type": "name",
-   "text": "nervous system",
-   "x": 960,
-   "y": 270,
+   "text": "optic glands",
+   "x": 860,
+   "y": 250,
    "to": [
-    960,
+    520,
     385
    ],
-   "word": "nervous system"
+   "word": "optic glands"
   }
- ]
+ ],
+ "motion": "path + dash: the two optic-gland dots lift off the diagram and travel along dashed routes into a dish (glands removed, shown as a diagram); no tracking"
 }

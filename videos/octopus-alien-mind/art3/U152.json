@@ -1,34 +1,31 @@
 {
- "centre": "a magnifying glass over a golden octopus eye",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "which cues",
+ "centre": "two banded arms waving out of a burrow like a swimming sea snake while damselfish turn away",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "cues",
-   "x": 1180,
-   "y": 300,
+   "text": "sea snake",
+   "x": 1260,
+   "y": 160,
    "to": [
-    1360,
-    300
+    1300,
+    290
    ],
-   "word": "cues"
+   "word": "sea snake"
   },
   {
-   "type": "name",
-   "text": "small",
-   "x": 1000,
-   "y": 700,
+   "type": "say",
+   "text": "Yikes, a snake!",
+   "x": 1500,
+   "y": 430,
    "to": [
-    940,
-    760
+    1620,
+    545
    ],
-   "word": "small"
+   "word": "scare"
   }
- ]
+ ],
+ "motion": "chain + edge + shake + scroll: the banded arms wave like a sea snake, a ghost sea snake draws on for comparison, the damselfish startle and drift away"
 }

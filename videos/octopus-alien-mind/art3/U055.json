@@ -1,23 +1,41 @@
 {
- "centre": "one big glowing nerve ganglion in the arm, a processing centre of its own",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "an octopus eye in a head half red, half blended into the rock",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "camouflage",
+   "vol": 0.5
+  }
  ],
- "focus_word": "processing centers",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "processing centers",
-   "x": 1340,
-   "y": 250,
+   "text": "camouflage",
+   "x": 1480,
+   "y": 230,
    "to": [
-    1040,
-    420
+    1300,
+    380
    ],
-   "word": "processing centers"
+   "word": "camouflage"
+  },
+  {
+   "type": "say",
+   "text": "Can you see me?",
+   "x": 620,
+   "y": 260,
+   "to": [
+    930,
+    560
+   ],
+   "word": "camouflage"
   }
- ]
+ ],
+ "iris": [
+  1500,
+  600
+ ],
+ "motion": "none: nothing moves in the narration; speech bubble only"
 }

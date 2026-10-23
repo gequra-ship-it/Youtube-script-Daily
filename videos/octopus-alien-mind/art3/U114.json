@@ -1,40 +1,26 @@
 {
- "centre": "a glass petri dish holding a patch of octopus skin whose colour cells open under lamp light",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "patches of skin",
+ "centre": "a striped play ball held up by octopus arms",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "light",
+   "name": "pop",
+   "word": "play",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "patches of skin",
-   "x": 960,
-   "y": 300,
+   "text": "play",
+   "x": 1180,
+   "y": 330,
    "to": [
-    960,
-    440
+    1040,
+    430
    ],
-   "word": "patches of skin"
-  },
-  {
-   "type": "name",
-   "text": "light",
-   "x": 620,
-   "y": 650,
-   "to": [
-    700,
-    470
-   ],
-   "word": "light"
+   "word": "play"
   }
- ]
+ ],
+ "motion": "swing: the play ball bobs to and fro on the arm tip, play with no purpose"
 }

@@ -1,25 +1,14 @@
 {
- "centre": "a round glass flask of blue blood clamped on a lab stand",
+ "centre": "a small octopus at the foot of stone steps that build up one by one and vanish into mist toward a faint city",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "drip",
-   "word": "blood",
-   "vol": 0.5
+   "name": "stone",
+   "word": "building",
+   "vol": 0.55
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "octopus",
-   "x": 400,
-   "y": 330,
-   "to": [
-    400,
-    430
-   ],
-   "word": "octopus"
-  }
- ]
+ "labels": [],
+ "motion": "grow + track: the steps build up one by one from the octopus into the mist, the camera climbs with them"
 }

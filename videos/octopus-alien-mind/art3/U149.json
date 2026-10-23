@@ -1,23 +1,41 @@
 {
- "centre": "a giant Pacific octopus head rising at the water surface",
- "focus": [
-  1150,
-  600,
-  1.7
- ],
- "focus_word": "bristly stick",
- "sfx": [],
+ "centre": "the mimic octopus flattened into a flatfish shape, arms swept back",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "bristly stick",
-   "x": 1380,
-   "y": 740,
+   "text": "lionfish",
+   "x": 390,
+   "y": 210,
    "to": [
-    1150,
-    630
+    300,
+    270
    ],
-   "word": "bristly stick"
+   "word": "lionfish"
+  },
+  {
+   "type": "name",
+   "text": "flatfish",
+   "x": 960,
+   "y": 300,
+   "to": [
+    960,
+    410
+   ],
+   "word": "flatfish"
+  },
+  {
+   "type": "name",
+   "text": "banded sea snakes",
+   "x": 1530,
+   "y": 360,
+   "to": [
+    1530,
+    290
+   ],
+   "word": "banded sea snakes"
   }
- ]
+ ],
+ "motion": "popin: each imitation pops in as its animal is named (lionfish, sea snakes, flatfish)"
 }

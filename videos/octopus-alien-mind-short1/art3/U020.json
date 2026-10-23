@@ -1,19 +1,26 @@
 {
- "centre": "mid-sized coiled shell with a small cephalopod peeking out",
+ "centre": "dim octopus silhouette in the deep sea while a large glowing nervous system grows out from its brain through all eight arms",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "large",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "ancestors",
-   "x": 840,
-   "y": 340,
+   "text": "nervous system",
+   "x": 300,
+   "y": 400,
    "to": [
-    700,
-    430
+    480,
+    650
    ],
-   "word": "The ancestors"
+   "word": "nervous system"
   }
- ]
+ ],
+ "motion": "edge: glowing nerve cords and side branches draw outward from the brain through every arm (pushed to become so large)"
 }

@@ -1,19 +1,18 @@
 {
- "centre": "the banded mimic octopus rising out of its sand burrow instead of hiding",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "centre": "a person on a pier watching the sunset sea while below the waves an octopus shows three glowing hearts in a cutaway",
+ "focus": [
+  1160,
+  650,
+  1.7
+ ],
+ "focus_word": "three hearts",
+ "sfx": [
   {
-   "type": "name",
-   "text": "Southeast Asia",
-   "x": 1450,
-   "y": 130,
-   "to": [
-    1450,
-    230
-   ],
-   "word": "Southeast Asia"
+   "name": "wind",
+   "word": "open ocean",
+   "vol": 0.5
   }
- ]
+ ],
+ "labels": [],
+ "motion": "scroll + popin: the surface waves roll sideways while the octopus's three hearts appear one by one beneath them"
 }

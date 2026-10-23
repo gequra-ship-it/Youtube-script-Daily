@@ -1,19 +1,40 @@
 {
- "centre": "an octopus arm tip curling inside a dark rock crevice",
+ "centre": "a round patch of skin packed with tiny pigment sacs, open and closed to draw a wave pattern",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "pixels",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "crevice",
-   "x": 1370,
-   "y": 300,
+   "text": "pixels",
+   "x": 1500,
+   "y": 220,
    "to": [
-    1150,
+    1500,
+    300
+   ],
+   "word": "pixels"
+  },
+  {
+   "type": "name",
+   "text": "pigment sacs",
+   "x": 600,
+   "y": 260,
+   "to": [
+    870,
     430
    ],
-   "word": "crevice"
+   "word": "pigment sacs"
   }
+ ],
+ "iris": [
+  1500,
+  450
  ]
 }

@@ -1,17 +1,48 @@
 {
- "centre": "the soft round front end of a small worm-like animal crawling on the ancient sea floor",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "worm-like animal",
+ "centre": "a shore with a clam and an oyster underwater and a garden snail on a leaf; as a gull flies over, each one shuts itself in its shell",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "sand",
-   "word": "crawled",
+   "name": "click",
+   "word": "oysters",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "clams",
+   "x": 300,
+   "y": 540,
+   "to": [
+    400,
+    665
+   ],
+   "word": "clams"
+  },
+  {
+   "type": "name",
+   "text": "oysters",
+   "x": 800,
+   "y": 500,
+   "to": [
+    850,
+    640
+   ],
+   "word": "oysters"
+  },
+  {
+   "type": "say",
+   "text": "Not today!",
+   "x": 1600,
+   "y": 430,
+   "to": [
+    1470,
+    590
+   ],
+   "word": "passive defense"
+  }
+ ],
+ "motion": "scroll + flip + fill: a gull flies across and the clam, then the oyster snap shut and the snail pulls into its shell (passive defense)"
 }

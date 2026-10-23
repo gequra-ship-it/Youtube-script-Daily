@@ -1,24 +1,37 @@
 {
- "centre": "octopus seen from below, mouth at the centre of eight arms lit with nerve beads",
+ "centre": "a soft robot arm being built segment by segment on a lab bench, next to an aquarium octopus and a design sheet",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "click",
+   "word": "build soft robots",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "TWO-THIRDS",
-   "word": "two-thirds"
+   "type": "say",
+   "text": "Like this?",
+   "x": 1520,
+   "y": 220,
+   "to": [
+    1180,
+    250
+   ],
+   "word": "soft robots"
   },
   {
-   "type": "name",
-   "text": "eight arms",
-   "x": 1500,
-   "y": 200,
+   "type": "say",
+   "text": "Close!",
+   "x": 430,
+   "y": 300,
    "to": [
-    1300,
-    330
+    420,
+    460
    ],
-   "word": "eight arms"
+   "word": "robot designers"
   }
- ]
+ ],
+ "motion": "rise + edge: the design sheet draws itself, then the robot's soft segments rise into place one by one from the base to the tip, and the finished arm sways"
 }

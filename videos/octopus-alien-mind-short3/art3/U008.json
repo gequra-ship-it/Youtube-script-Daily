@@ -1,34 +1,37 @@
 {
- "centre": "an octopus sliding head first into a floor drain",
- "focus": [
-  540,
-  1050,
-  1.5
- ],
- "focus_word": "drainpipe",
+ "centre": "Otto squirting a jet of water up at the bright lamp, which goes out",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "splash",
-   "word": "the sea",
-   "vol": 0.5
+   "word": "jet of water",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "50 M",
-   "word": "fifty meters"
+   "type": "name",
+   "text": "Otto",
+   "x": 230,
+   "y": 1250,
+   "to": [
+    340,
+    1120
+   ],
+   "word": "Otto"
   },
   {
-   "type": "name",
-   "text": "drainpipe",
-   "x": 760,
-   "y": 1020,
+   "type": "say",
+   "text": "Too bright!",
+   "x": 300,
+   "y": 880,
    "to": [
-    440,
-    1060
+    400,
+    990
    ],
-   "word": "drainpipe"
+   "word": "bright lamp"
   }
- ]
+ ],
+ "motion": "mv-edge + mv-path: the water jet draws itself from Otto up to the lamp (camera follows the drop), mv-shake: the lamp is hit, mv-rise (fade): the room goes dark"
 }

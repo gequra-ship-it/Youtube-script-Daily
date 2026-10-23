@@ -1,24 +1,14 @@
 {
- "centre": "the round turret eye of a chameleon whose body is slowly turning from green to brown",
+ "centre": "a veined octopus with two stacked coconut halves under its body, pulling another half out of the mud",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "rustle",
-   "word": "Many animals",
+   "name": "sand",
+   "word": "dug shells out of the mud",
    "vol": 0.5
   }
  ],
- "labels": [
-  {
-   "type": "say",
-   "text": "Almost there...",
-   "x": 560,
-   "y": 640,
-   "to": [
-    740,
-    570
-   ]
-  }
- ]
+ "labels": [],
+ "motion": "rise + bubble: a coconut half is pulled up out of the mud by two arms while mud clouds puff up"
 }

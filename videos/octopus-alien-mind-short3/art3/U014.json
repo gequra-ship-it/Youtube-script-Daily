@@ -1,40 +1,31 @@
 {
- "centre": "a clear jar with a screw lid and a crab inside",
- "focus": [
-  540,
-  880,
-  1.6
- ],
- "focus_word": "crab",
+ "centre": "eight octopuses appearing one by one in a wall of tanks, then two people in the same T-shirt",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "bubble",
-   "word": "clear jar",
-   "vol": 0.4
+   "name": "pop",
+   "word": "giant Pacific octopuses",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "crab",
-   "x": 360,
-   "y": 1080,
-   "to": [
-    480,
-    960
-   ],
-   "word": "crab"
+   "type": "num",
+   "text": "8 OCTOPUSES",
+   "word": "eight"
   },
   {
    "type": "name",
-   "text": "clear jar",
-   "x": 340,
-   "y": 650,
+   "text": "same T-shirt",
+   "x": 540,
+   "y": 1200,
    "to": [
-    440,
-    780
+    400,
+    1150
    ],
-   "word": "clear jar"
+   "word": "same T-shirt"
   }
- ]
+ ],
+ "motion": "mv-popin x8: the octopuses appear tank by tank as the mv-track camera scans the wall, then mv-rise: the two people in the same T-shirt step in"
 }

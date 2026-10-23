@@ -1,40 +1,32 @@
 {
- "centre": "two coconut halves closed into a round shelter, an octopus eye peeking from the seam",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "shelter",
- "sfx": [
-  {
-   "name": "click",
-   "word": "assemble",
-   "vol": 0.55
-  }
- ],
+ "centre": "an enzyme clamp sliding along an RNA message to change one letter, then two slightly different proteins rising",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
  "labels": [
   {
    "type": "name",
-   "text": "shelter",
-   "x": 700,
-   "y": 330,
+   "text": "enzymes",
+   "x": 300,
+   "y": 400,
    "to": [
-    880,
-    430
+    260,
+    480
    ],
-   "word": "shelter"
+   "word": "enzymes"
   },
   {
    "type": "name",
-   "text": "threat",
-   "x": 1380,
-   "y": 600,
+   "text": "different proteins",
+   "x": 1500,
+   "y": 860,
    "to": [
-    1420,
-    410
+    1580,
+    740
    ],
-   "word": "threat"
+   "word": "different proteins"
   }
- ]
+ ],
+ "motion": "path + rise: the enzyme slides along the message to the letter it changes, then two slightly different proteins rise (camera stays wide)"
 }

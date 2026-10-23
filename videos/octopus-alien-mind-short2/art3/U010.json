@@ -1,13 +1,20 @@
 {
- "centre": "clock with slow hands on a terrarium wall",
+ "centre": "a sharp-eyed grouper swims down toward an octopus that matches its rock in colour but not in shape",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "tick",
-   "word": "slowly",
-   "vol": 0.45
+   "type": "say",
+   "text": "Uh-oh...",
+   "x": 250,
+   "y": 880,
+   "to": [
+    345,
+    1040
+   ],
+   "word": "predator"
   }
  ],
- "labels": []
+ "motion": "mv-path: the sharp-eyed predator glides in toward the colour-matched octopus (camera tracks it)"
 }

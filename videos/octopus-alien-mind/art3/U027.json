@@ -1,30 +1,48 @@
 {
- "centre": "a large clam slightly opening on a sandy sea floor",
+ "centre": "a night reef panorama: an octopus jetting away, one nearly invisible on a mossy rock, and one sheltering under a held shell",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "speed",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "clams",
-   "x": 1250,
-   "y": 330,
+   "text": "speed",
+   "x": 300,
+   "y": 240,
    "to": [
-    1060,
-    440
+    360,
+    360
    ],
-   "word": "clams"
+   "word": "speed"
   },
   {
    "type": "name",
-   "text": "oysters",
-   "x": 420,
-   "y": 380,
+   "text": "camouflage",
+   "x": 980,
+   "y": 330,
    "to": [
-    420,
-    520
+    960,
+    470
    ],
-   "word": "oysters"
+   "word": "camouflage"
+  },
+  {
+   "type": "name",
+   "text": "clever behavior",
+   "x": 1500,
+   "y": 300,
+   "to": [
+    1510,
+    420
+   ],
+   "word": "clever behavior"
   }
- ]
+ ],
+ "motion": "track + dash: the camera travels along the reef past the three tools in order - a jetting octopus with streaming speed lines, a camouflaged one, a clever one under a shell"
 }

@@ -1,25 +1,27 @@
 {
- "centre": "a coconut shell shelter on display under a glass dome",
+ "centre": "the setting sun over the sea; an octopus swims toward it, waving, past a bell buoy",
  "focus": null,
  "focus_word": null,
+ "track": false,
  "sfx": [
   {
-   "name": "hush",
-   "word": "first documented case",
+   "name": "bell",
+   "word": "subscribe",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "invertebrate",
-   "x": 240,
-   "y": 360,
+   "type": "say",
+   "text": "See you soon!",
+   "x": 340,
+   "y": 1040,
    "to": [
-    195,
-    470
+    600,
+    1100
    ],
-   "word": "invertebrate"
+   "word": "subscribe"
   }
- ]
+ ],
+ "motion": "mv-path: the octopus swims across the sunset sea toward the sun, waving an arm; mv-swing bell buoy rocks; sun mv-core-swell (match from U025)"
 }

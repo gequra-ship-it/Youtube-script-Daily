@@ -1,23 +1,37 @@
 {
- "centre": "pale cockle shell held by an arm",
- "focus": [
-  540,
-  860,
-  1.6
+ "centre": "pink brain glowing like a manager above its workers",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "describe",
+   "vol": 0.5
+  }
  ],
- "focus_word": "suckers",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "suckers",
-   "x": 340,
-   "y": 1110,
+   "text": "manager",
+   "x": 830,
+   "y": 720,
    "to": [
-    470,
-    890
+    640,
+    830
    ],
-   "word": "suckers"
+   "word": "manager"
+  },
+  {
+   "type": "name",
+   "text": "field workers",
+   "x": 270,
+   "y": 1000,
+   "to": [
+    262,
+    1150
+   ],
+   "word": "field workers"
   }
- ]
+ ],
+ "motion": "manager-to-workers tree lines draw on, orders passing down"
 }

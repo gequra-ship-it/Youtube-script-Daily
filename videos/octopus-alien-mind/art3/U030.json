@@ -1,23 +1,37 @@
 {
- "centre": "a slow snail on a mudflat, its see-through head showing a simple ring of nerves",
- "focus": [
-  1160,
-  580,
-  1.8
+ "centre": "an octopus with every arm bending a different way, its glowing brain wired into a large computing network that lights up",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "computing power",
+   "vol": 0.5
+  }
  ],
- "focus_word": "simpler nervous system",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "nervous system",
-   "x": 1300,
-   "y": 450,
+   "type": "say",
+   "text": "So many moves!",
+   "x": 330,
+   "y": 180,
    "to": [
-    1190,
-    580
+    560,
+    320
    ],
-   "word": "nervous system"
+   "word": "endless ways"
+  },
+  {
+   "type": "name",
+   "text": "computing power",
+   "x": 1280,
+   "y": 860,
+   "to": [
+    1420,
+    780
+   ],
+   "word": "computing power"
   }
- ]
+ ],
+ "motion": "chain + edge: all eight arms bend and wave in different ways while a big computing network draws out from the brain (a boneless body takes a lot of computing power)"
 }

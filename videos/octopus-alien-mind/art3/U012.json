@@ -1,11 +1,28 @@
 {
- "centre": "octopus eye close-up pressed to the aquarium glass, horizontal slit pupil",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "ancient spiral cephalopod shell at the fork of two roads",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "hundreds of millions of years ago",
+   "vol": 0.5
+  }
  ],
- "focus_word": "lock eyes",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "cephalopods",
+   "x": 1560,
+   "y": 760,
+   "to": [
+    1560,
+    660
+   ],
+   "word": "cephalopods"
+  }
+ ],
+ "iris": [
+  1560,
+  520
+ ],
+ "motion": "dash + track: dashes run up the fork and the camera follows the octopus road"
 }

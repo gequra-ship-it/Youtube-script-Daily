@@ -1,21 +1,37 @@
 {
- "centre": "a pale clam on the sand being felt by an octopus arm tip",
- "focus": [
-  990,
-  480,
-  1.7
- ],
- "focus_word": "tastes the surface",
+ "centre": "a cross-section of octopus skin whose surface rises into spikes, round nodules and ridges, each pushed up by muscles below",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "sand",
-   "word": "explores",
-   "vol": 0.45
+   "name": "pop",
+   "word": "spikes",
+   "vol": 0.5
   }
  ],
- "labels": [],
- "iris": [
-  330,
-  470
- ]
+ "labels": [
+  {
+   "type": "name",
+   "text": "papillae",
+   "x": 470,
+   "y": 210,
+   "to": [
+    500,
+    380
+   ],
+   "word": "papillae"
+  },
+  {
+   "type": "name",
+   "text": "ridges",
+   "x": 1470,
+   "y": 300,
+   "to": [
+    1470,
+    470
+   ],
+   "word": "ridges"
+  }
+ ],
+ "motion": "grow: the papillae push up out of the flat skin one after another, spikes then nodules then ridges"
 }

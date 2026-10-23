@@ -1,23 +1,20 @@
 {
- "centre": "the octopus central brain glowing softly inside its head",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "central brain",
+ "centre": "a sharp-eyed grouper swimming along the reef toward a rock-coloured octopus sitting on a rock",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "central brain",
-   "x": 1390,
-   "y": 260,
+   "type": "say",
+   "text": "Nice try!",
+   "x": 1060,
+   "y": 190,
    "to": [
-    1040,
-    470
+    1320,
+    395
    ],
-   "word": "central brain"
+   "word": "sharp-eyed predator"
   }
- ]
+ ],
+ "motion": "path: the predator fish swims along the reef (camera tracks it) and stops in front of the octopus whose colour alone matches the rock"
 }

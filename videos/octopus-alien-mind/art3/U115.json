@@ -1,38 +1,26 @@
 {
- "centre": "a sunlit round patch of octopus skin on the mantle, taking on rock colours",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "a common octopus in a tank blowing a floating pill bottle along the surface toward the stream from the inflow pipe",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "stream of water",
+   "vol": 0.5
+  }
  ],
- "focus_word": "sense light on its own",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "camouflage",
-   "x": 1340,
-   "y": 300,
+   "text": "pill bottles",
+   "x": 760,
+   "y": 140,
    "to": [
-    1180,
-    640
+    560,
+    230
    ],
-   "word": "camouflage"
-  },
-  {
-   "type": "name",
-   "text": "skin",
-   "x": 620,
-   "y": 380,
-   "to": [
-    870,
-    470
-   ],
-   "word": "skin"
+   "word": "pill bottles"
   }
  ],
- "iris": [
-  400,
-  640
- ]
+ "motion": "path (+ camera follows): the bottle floats from the octopus's jet along the surface into the inflow stream; bubble: jet bubbles"
 }

@@ -1,40 +1,19 @@
 {
- "centre": "a round glowing drop of oxygen-rich blue blood where the gill vessels meet",
- "focus": [
-  620,
-  560,
-  1.6
- ],
- "focus_word": "branchial hearts",
- "sfx": [
-  {
-   "name": "bubble",
-   "word": "oxygen",
-   "vol": 0.5
-  }
- ],
+ "centre": "a round porthole showing a reef in colour on one half and in octopus senses on the other",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "branchial hearts",
-   "x": 620,
-   "y": 760,
+   "type": "say",
+   "text": "My world!",
+   "x": 1560,
+   "y": 300,
    "to": [
-    620,
-    650
+    1550,
+    440
    ],
-   "word": "branchial hearts"
-  },
-  {
-   "type": "name",
-   "text": "gills",
-   "x": 470,
-   "y": 400,
-   "to": [
-    520,
-    430
-   ],
-   "word": "gills"
+   "word": "world"
   }
- ]
+ ],
+ "motion": "none: statement; octopus answers in a bubble, flip and arm motions kept"
 }

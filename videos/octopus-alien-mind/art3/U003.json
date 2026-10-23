@@ -1,13 +1,34 @@
 {
- "centre": "octopus swimming upward, mantle first, arms trailing",
- "focus": null,
- "focus_word": null,
- "sfx": [
+ "centre": "common octopus sitting on a reef rock, brighter than the other creatures",
+ "focus": [
+  960,
+  470,
+  1.6
+ ],
+ "focus_word": "the octopus stands out",
+ "labels": [
   {
-   "name": "bubble",
-   "word": "swim up",
-   "vol": 0.5
+   "type": "name",
+   "text": "octopus",
+   "x": 1290,
+   "y": 300,
+   "to": [
+    1060,
+    380
+   ],
+   "word": "octopus"
+  },
+  {
+   "type": "say",
+   "text": "Who, me?",
+   "x": 620,
+   "y": 330,
+   "to": [
+    900,
+    520
+   ],
+   "word": "octopus"
   }
  ],
- "labels": []
+ "motion": "path: the school of fish swims on across the top while the octopus stays put, so it stands out; existing Who-me bubble kept"
 }

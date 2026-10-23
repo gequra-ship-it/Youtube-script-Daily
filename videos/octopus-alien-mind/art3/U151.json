@@ -1,23 +1,36 @@
 {
- "centre": "the octopus mantle squeezing as it jets water",
+ "centre": "two banded arms rising out of a burrow while damselfish dart in to attack",
  "focus": [
-  1110,
+  1180,
   600,
-  1.7
+  1.45
  ],
- "focus_word": "water funnels",
+ "focus_word": "burrow",
+ "track": false,
  "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "water funnels",
-   "x": 1220,
-   "y": 760,
+   "type": "say",
+   "text": "Go away!",
+   "x": 820,
+   "y": 340,
    "to": [
-    1050,
-    632
+    1010,
+    455
    ],
-   "word": "water funnels"
+   "word": "attacked"
+  },
+  {
+   "type": "name",
+   "text": "burrow",
+   "x": 1560,
+   "y": 640,
+   "to": [
+    1360,
+    715
+   ],
+   "word": "burrow"
   }
- ]
+ ],
+ "motion": "path + rise: damselfish dart in, then the octopus's two held-out arms rise from the burrow; no tracking (focus on the burrow)"
 }

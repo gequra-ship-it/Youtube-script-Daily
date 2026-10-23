@@ -1,19 +1,30 @@
 {
- "centre": "a round temperature dial with the needle in the cold blue zone",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a large octopus rising into view behind the aquarium glass and looking back at a visitor seen from behind",
+ "focus": [
+  1180,
+  470,
+  1.6
+ ],
+ "focus_word": "looking at you",
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "aquarium",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "oxygen",
-   "x": 900,
-   "y": 260,
+   "type": "say",
+   "text": "Hello, you.",
+   "x": 1000,
+   "y": 250,
    "to": [
-    660,
-    390
+    1150,
+    430
    ],
-   "word": "oxygen"
+   "word": "looks back"
   }
- ]
+ ],
+ "motion": "rise: the octopus rises from behind the rocks to the glass and looks at the visitor; arms ripple"
 }

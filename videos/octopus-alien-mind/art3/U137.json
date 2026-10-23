@@ -1,28 +1,37 @@
 {
- "centre": "Inky the octopus pressed against the tank glass, underside with mouth and suckers",
- "focus": [
-  960,
-  450,
-  1.6
+ "centre": "an octopus gliding down through cold, oxygen-poor water to a rocky den",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "oxygen",
+   "vol": 0.5
+  }
  ],
- "focus_word": "Inky",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Inky",
-   "x": 1400,
-   "y": 290,
+   "text": "cold water",
+   "x": 860,
+   "y": 210,
    "to": [
-    1060,
-    400
+    700,
+    180
    ],
-   "word": "Inky"
+   "word": "cold water"
   },
   {
-   "type": "num",
-   "text": "2016",
-   "word": "2016"
+   "type": "say",
+   "text": "Nice and chilly!",
+   "x": 1150,
+   "y": 420,
+   "to": [
+    1380,
+    560
+   ],
+   "word": "habitats"
   }
- ]
+ ],
+ "motion": "path + tracking: the octopus glides down through cold water to a rocky den (its habitat); the camera follows"
 }

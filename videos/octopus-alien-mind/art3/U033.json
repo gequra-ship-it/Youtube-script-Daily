@@ -1,23 +1,31 @@
 {
- "centre": "octopus with only a faint dashed ghost of the old shell in its mantle",
- "focus": [
-  960,
-  470,
-  1.6
+ "centre": "a see-through common octopus whose body fills with glowing neurons, brain first, then out along the arms",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "neurons",
+   "vol": 0.5
+  }
  ],
- "focus_word": "lost it almost entirely",
- "sfx": [],
  "labels": [
   {
+   "type": "num",
+   "text": "500 MILLION NEURONS",
+   "word": "five hundred million"
+  },
+  {
    "type": "name",
-   "text": "octopuses",
-   "x": 1250,
+   "text": "common octopus",
+   "x": 640,
    "y": 330,
    "to": [
-    1065,
-    440
+    1050,
+    330
    ],
-   "word": "in octopuses"
+   "word": "common octopus"
   }
- ]
+ ],
+ "motion": "popin: neurons light up brain first, then wave by wave out to the arm tips (counting them)"
 }

@@ -1,36 +1,31 @@
 {
- "centre": "a shiny gold ball at the end of a falling domino chain",
+ "centre": "side-view cutaway octopus: the systemic heart in the mantle sends blue blood to the brain and down the arms",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "click",
-   "word": "cause and effect",
-   "vol": 0.5
-  }
- ],
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "cause",
-   "x": 650,
-   "y": 400,
+   "text": "systemic heart",
+   "x": 1330,
+   "y": 230,
    "to": [
-    640,
-    540
+    1245,
+    400
    ],
-   "word": "cause"
+   "word": "systemic heart"
   },
   {
    "type": "name",
-   "text": "effect",
-   "x": 1520,
-   "y": 330,
+   "text": "brain",
+   "x": 820,
+   "y": 290,
    "to": [
-    1520,
-    425
+    970,
+    395
    ],
-   "word": "effect"
+   "word": "brain"
   }
- ]
+ ],
+ "motion": "edge + popin + track: oxygen-rich blood runs from the heart to the brain, then along each arm to the tips; the camera rides with it"
 }

@@ -1,13 +1,37 @@
 {
- "centre": "a round clock dial with a slow hand",
+ "centre": "an unlit oil lamp with a round cream glass globe in an empty room",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "time",
+   "name": "creak",
+   "word": "no elders",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "no books",
+   "x": 390,
+   "y": 170,
+   "to": [
+    390,
+    300
+   ],
+   "word": "no books"
+  },
+  {
+   "type": "name",
+   "text": "no elders",
+   "x": 1560,
+   "y": 300,
+   "to": [
+    1570,
+    600
+   ],
+   "word": "no elders"
+  }
+ ],
+ "motion": "swing: the empty rocking chair rocks by itself - no elders to pass on knowledge"
 }

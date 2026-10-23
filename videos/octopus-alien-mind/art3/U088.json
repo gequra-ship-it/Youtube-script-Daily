@@ -1,23 +1,42 @@
 {
- "centre": "the glowing octopus brain between its eyes, wired by bright nerves into every arm and the skin",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "two coconut halves closed into a round shelter, an octopus eye peeking from the seam",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "shelter",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "assemble",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "nervous system",
-   "x": 380,
-   "y": 300,
+   "text": "shelter",
+   "x": 700,
+   "y": 330,
    "to": [
-    640,
-    600
+    880,
+    430
    ],
-   "word": "nervous system"
+   "word": "shelter"
+  },
+  {
+   "type": "name",
+   "text": "threat",
+   "x": 1380,
+   "y": 600,
+   "to": [
+    1420,
+    410
+   ],
+   "word": "threat"
   }
  ],
- "iris": [
-  420,
-  690
- ]
+ "motion": "path + shake: the predator glides in, then the closed coconut shelter clacks shut",
+ "track": false
 }

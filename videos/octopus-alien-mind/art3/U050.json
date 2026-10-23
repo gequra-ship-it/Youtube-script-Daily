@@ -1,30 +1,37 @@
 {
- "centre": "glowing central brain inside a person's head in profile",
+ "centre": "an octopus arm exploring the sea floor, tasting a rock and then a crab before deciding what to grab",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "explores",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "central brain",
-   "x": 1300,
-   "y": 250,
+   "type": "say",
+   "text": "Uh oh!",
+   "x": 1620,
+   "y": 470,
    "to": [
-    1030,
-    430
+    1500,
+    640
    ],
-   "word": "central brain"
+   "word": "crab"
   },
   {
    "type": "name",
-   "text": "vertebrates",
-   "x": 400,
-   "y": 580,
+   "text": "rock",
+   "x": 1000,
+   "y": 470,
    "to": [
-    400,
-    660
+    1000,
+    600
    ],
-   "word": "vertebrates"
+   "word": "rock"
   }
- ]
+ ],
+ "motion": "dash + popin + shake: a dotted trail runs from the arm tip over the rock to the crab; taste dots pop on the rock, then on the crab, which flinches"
 }

@@ -1,30 +1,26 @@
 {
- "centre": "the same round globe on the nerve channel, now with the gold gate open and potassium beads flowing through",
+ "centre": "a glowing optic gland behind the octopus's eye wired to a wall switch that flips and drains a life gauge",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "click",
+   "word": "switch",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "nerves",
-   "x": 960,
-   "y": 270,
+   "text": "optic glands",
+   "x": 640,
+   "y": 300,
    "to": [
-    960,
-    380
+    478,
+    488
    ],
-   "word": "nerves"
-  },
-  {
-   "type": "name",
-   "text": "freezing water",
-   "x": 1500,
-   "y": 250,
-   "to": [
-    1500,
-    340
-   ],
-   "word": "freezing water"
+   "word": "optic glands"
   }
- ]
+ ],
+ "motion": "edge + flip + fill: the wire draws from the gland, the switch lever flips, then the life gauge drains"
 }

@@ -1,51 +1,37 @@
 {
- "centre": "a round skin papilla pushed up by bundles of muscle, in a skin cross-section",
- "focus": [
-  960,
-  520,
-  1.6
- ],
- "focus_word": "papillae",
+ "centre": "a clear glass puzzle ball with a shrimp inside and a gold plug",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pop",
-   "word": "spikes",
+   "name": "click",
+   "word": "solved",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "papillae",
-   "x": 1240,
-   "y": 330,
-   "to": [
-    1050,
-    420
-   ],
-   "word": "papillae"
-  },
-  {
-   "type": "name",
-   "text": "muscles",
-   "x": 700,
-   "y": 700,
-   "to": [
-    905,
-    650
-   ],
-   "word": "muscles"
-  },
-  {
-   "type": "name",
-   "text": "spikes",
-   "x": 1450,
+   "text": "puzzles",
+   "x": 1460,
    "y": 400,
    "to": [
-    1300,
-    500
+    1460,
+    480
    ],
-   "word": "spikes"
+   "word": "puzzles"
+  },
+  {
+   "type": "say",
+   "text": "Ooh, a puzzle!",
+   "x": 330,
+   "y": 260,
+   "to": [
+    345,
+    370
+   ],
+   "word": "puzzles"
   }
- ]
+ ],
+ "motion": "track: camera follows the long arm reaching over to the puzzle ball"
 }

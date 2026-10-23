@@ -1,7 +1,20 @@
 {
- "centre": "a round porthole lens showing the same fish in shades of grey",
+ "centre": "an octopus hides in a rock den while a patch of moonlight slides along its outstretched arm",
  "focus": null,
  "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hmm, light?",
+   "x": 820,
+   "y": 760,
+   "to": [
+    860,
+    990
+   ],
+   "word": "light"
+  }
+ ],
+ "motion": "mv-path: a patch of light slides along the outstretched arm from tip to den (the skin may sense it); camera tracks it"
 }

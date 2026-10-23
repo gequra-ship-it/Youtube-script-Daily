@@ -1,13 +1,40 @@
 {
- "centre": "a round lab wall clock between two debating scientists",
- "focus": null,
- "focus_word": null,
+ "centre": "a round cutaway window into a drainpipe with Inky squeezing through it",
  "sfx": [
   {
-   "name": "page",
-   "word": "debated",
+   "name": "splash",
+   "word": "to the sea",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "drainpipe",
+   "x": 520,
+   "y": 520,
+   "to": [
+    520,
+    380
+   ],
+   "word": "drainpipe"
+  },
+  {
+   "type": "name",
+   "text": "sea",
+   "x": 1700,
+   "y": 760,
+   "to": [
+    1640,
+    680
+   ],
+   "word": "sea"
+  },
+  {
+   "type": "num",
+   "text": "50 M",
+   "word": "fifty meters"
+  }
+ ],
+ "motion": "tracking: the camera travels down the long drainpipe from the tank to the sea"
 }

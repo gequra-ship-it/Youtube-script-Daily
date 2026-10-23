@@ -1,29 +1,37 @@
 {
- "centre": "a bright hanging lamp being hit by a jet of water",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "bright lamp",
+ "centre": "an octopus wrapped around a clear jar with a crab inside, unscrewing the lid",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "splash",
-   "word": "jet of water",
-   "vol": 0.6
+   "name": "click",
+   "word": "unscrew",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "jet of water",
-   "x": 640,
-   "y": 1060,
+   "text": "crab",
+   "x": 850,
+   "y": 1120,
    "to": [
-    440,
-    990
+    630,
+    1085
    ],
-   "word": "jet of water"
+   "word": "crab"
+  },
+  {
+   "type": "name",
+   "text": "clear jar",
+   "x": 830,
+   "y": 900,
+   "to": [
+    722,
+    960
+   ],
+   "word": "clear jar"
   }
- ]
+ ],
+ "motion": "mv-scroll ridges (the lid turns) then mv-path: the unscrewed lid lifts off the jar (camera follows); mv-joint crab claw"
 }

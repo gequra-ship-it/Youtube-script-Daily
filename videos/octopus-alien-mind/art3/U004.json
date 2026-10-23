@@ -1,23 +1,35 @@
 {
- "centre": "common octopus sitting on a reef rock, brighter than the other creatures",
- "focus": [
-  960,
-  470,
-  1.6
- ],
- "focus_word": "the octopus stands out",
- "sfx": [],
+ "centre": "see-through octopus from below: three hearts pumping blue blood in the mantle, glowing nerve cords running out along all eight arms",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
+   "type": "num",
+   "text": "3 HEARTS",
+   "word": "three"
+  },
+  {
    "type": "name",
-   "text": "octopus",
-   "x": 1290,
-   "y": 300,
+   "text": "blue blood",
+   "x": 1240,
+   "y": 230,
    "to": [
-    1060,
-    380
+    985,
+    300
    ],
-   "word": "octopus"
+   "word": "blue blood"
+  },
+  {
+   "type": "name",
+   "text": "nervous system",
+   "x": 1460,
+   "y": 640,
+   "to": [
+    1220,
+    560
+   ],
+   "word": "nervous system"
   }
- ]
+ ],
+ "motion": "edge: the nerve cords draw outward from the brain ring along all eight arms (nervous system spread across eight arms); blue blood dashes flow, hearts pulse"
 }

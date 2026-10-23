@@ -1,11 +1,30 @@
 {
- "centre": "the octopus mantle mottled in the same amber, coral and teal as the reef",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
- "iris": [
-  250,
-  1000
+ "centre": "a golden octopus eye peeking from a mossy rock the octopus has blended into",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "master of disguise",
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "master of disguise",
+   "vol": 0.5
+  }
+ ],
+ "motion": "fish swims across past the perfectly blended octopus; camera follows; octopus says Can't see me!",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Can't see me!",
+   "x": 640,
+   "y": 700,
+   "to": [
+    620,
+    880
+   ],
+   "word": "disguise"
+  }
  ]
 }

@@ -1,19 +1,37 @@
 {
- "centre": "octopus peering out of its rock den, golden eyes",
+ "centre": "skull with a cutaway window showing the brain, spinal cord below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "carries signals",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "armor",
-   "x": 360,
-   "y": 420,
+   "text": "skull",
+   "x": 1250,
+   "y": 250,
    "to": [
-    360,
-    520
+    1060,
+    360
    ],
-   "word": "without armor"
+   "word": "skull"
+  },
+  {
+   "type": "name",
+   "text": "spinal cord",
+   "x": 1300,
+   "y": 800,
+   "to": [
+    985,
+    760
+   ],
+   "word": "spinal cord"
   }
- ]
+ ],
+ "motion": "path: a signal dot runs down the spinal cord from the brain; camera follows"
 }

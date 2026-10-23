@@ -1,29 +1,31 @@
 {
- "centre": "skin bump (papilla) cut open, rising on red muscle bundles",
- "focus": [
-  540,
-  900,
-  1.6
- ],
- "focus_word": "small bumps",
- "sfx": [
-  {
-   "name": "pop",
-   "word": "small bumps",
-   "vol": 0.5
-  }
- ],
+ "centre": "a squid above and a cuttlefish below in a tank; the camera ends on the cuttlefish's odd U-shaped pupil",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Papillae",
-   "x": 540,
-   "y": 640,
+   "text": "squid",
+   "x": 820,
+   "y": 380,
    "to": [
-    540,
-    760
+    760,
+    470
    ],
-   "word": "papillae"
+   "word": "squid"
+  },
+  {
+   "type": "name",
+   "text": "cuttlefish",
+   "x": 760,
+   "y": 1240,
+   "to": [
+    680,
+    1130
+   ],
+   "word": "cuttlefish"
   }
- ]
+ ],
+ "motion": "mv-track: camera travels from the squid down to the cuttlefish's U-shaped pupil (the odd pupils the hypothesis is about); cuttlefish arms sway"
 }

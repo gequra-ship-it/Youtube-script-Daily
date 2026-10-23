@@ -1,17 +1,26 @@
 {
- "centre": "an octopus walking across a wet aquarium floor",
+ "centre": "an octopus tipping a row of dominoes that climbs toward the Sea Star Aquarium",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "num",
-   "text": "8 FEET",
-   "word": "eight feet"
+   "name": "tick",
+   "word": "cause and effect",
+   "vol": 0.5
   }
  ],
- "iris": [
-  300,
-  560
- ]
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sea Star Aquarium",
+   "x": 540,
+   "y": 330,
+   "to": [
+    540,
+    372
+   ],
+   "word": "Sea Star Aquarium"
+  }
+ ],
+ "motion": "mv-topple x7 (cause and effect: the octopus tips the first domino, the chain climbs the steps) + mv-track up the chain to the aquarium"
 }

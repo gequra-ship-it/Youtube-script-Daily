@@ -1,19 +1,37 @@
 {
- "centre": "an amber nerve knot steering smooth parallel bundles of muscle fibres",
+ "centre": "a round lab wall clock between two debating scientists",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "page",
+   "word": "debated",
+   "vol": 0.5
+  }
+ ],
+ "motion": "none: debate only; two opposing bubbles, clock rotor kept",
  "labels": [
   {
-   "type": "name",
-   "text": "muscles",
-   "x": 1480,
-   "y": 210,
+   "type": "say",
+   "text": "I disagree!",
+   "x": 640,
+   "y": 390,
    "to": [
-    1380,
-    300
+    470,
+    460
    ],
-   "word": "muscles"
+   "word": "debated"
+  },
+  {
+   "type": "say",
+   "text": "Not so fast!",
+   "x": 1290,
+   "y": 390,
+   "to": [
+    1450,
+    460
+   ],
+   "word": "debated"
   }
  ]
 }

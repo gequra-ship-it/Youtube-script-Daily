@@ -1,28 +1,37 @@
 {
- "centre": "golden eye of a big predator fish",
- "focus": [
-  540,
-  860,
-  1.5
- ],
- "focus_word": "sharp-eyed predator",
+ "centre": "an octopus on a mottled reef patch; the reef's colours rise through its body until it matches, while two scientists debate below",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "swish",
-   "word": "predator",
+   "name": "rustle",
+   "word": "debated",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "say",
-   "text": "I see you!",
-   "x": 380,
-   "y": 560,
+   "text": "But how?",
+   "x": 230,
+   "y": 990,
    "to": [
-    250,
-    950
-   ]
+    228,
+    1130
+   ],
+   "word": "debated"
+  },
+  {
+   "type": "say",
+   "text": "Hmm, still unsure!",
+   "x": 770,
+   "y": 920,
+   "to": [
+    860,
+    1130
+   ],
+   "word": "long time"
   }
- ]
+ ],
+ "motion": "mv-liquid: the reef colours rise through the octopus body until it matches its surroundings; scientists breathe and nod"
 }

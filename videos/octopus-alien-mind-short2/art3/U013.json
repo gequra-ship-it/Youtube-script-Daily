@@ -1,11 +1,30 @@
 {
- "centre": "orange pigment sac with muscles, reached by a glowing nerve",
+ "centre": "a big golden octopus eye with a horizontal slit pupil",
  "focus": [
   540,
-  870,
+  860,
   1.6
  ],
- "focus_word": "muscles",
- "sfx": [],
- "labels": []
+ "focus_word": "colorblind",
+ "sfx": [
+  {
+   "name": "breath",
+   "word": "Here is the puzzle",
+   "vol": 0.5
+  }
+ ],
+ "motion": "grey puzzle piece turns over (the puzzle); octopus asks Colorblind?",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Colorblind?",
+   "x": 790,
+   "y": 760,
+   "to": [
+    650,
+    850
+   ],
+   "word": "colorblind"
+  }
+ ]
 }

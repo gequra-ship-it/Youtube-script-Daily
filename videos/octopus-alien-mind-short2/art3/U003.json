@@ -1,17 +1,31 @@
 {
- "centre": "lump of pink coral that is really an octopus, hidden slit eye",
- "focus": [
-  540,
-  870,
-  1.6
- ],
- "focus_word": "a lump of coral",
+ "centre": "cut-away block of octopus skin with three layers; a big black chromatophore sac in the top layer stretches open",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "bubble",
-   "word": "swim right past",
+   "name": "pop",
+   "word": "elastic sacs",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Chromatophores",
+   "x": 540,
+   "y": 440,
+   "to": [
+    540,
+    610
+   ],
+   "word": "chromatophores"
+  },
+  {
+   "type": "num",
+   "text": "3 KINDS OF CELLS",
+   "word": "three kinds"
+  }
+ ],
+ "motion": "mv-track rises from the three-layer block to the top layer; the elastic black sac stretches open (nested mv-fill x/y)"
 }

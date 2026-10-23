@@ -1,25 +1,26 @@
 {
- "centre": "small glowing brain held in the curled tip of one octopus arm",
+ "centre": "a layered skin block: deepest layer of white bead clusters (leucophores) scattering light upward, white patches appearing on the surface",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "hush",
-   "word": "local intelligence",
+   "name": "pop",
+   "word": "bright white patches",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "the arm",
-   "x": 1300,
-   "y": 720,
+   "text": "leucophores",
+   "x": 1120,
+   "y": 650,
    "to": [
-    1060,
-    580
+    1160,
+    740
    ],
-   "word": "the arm"
+   "word": "leucophores"
   }
- ]
+ ],
+ "motion": "track + bubble + popin: the camera sinks down through the skin layers to the deepest one, where white light scatters up from the bead clusters; white patches pop onto the surface"
 }

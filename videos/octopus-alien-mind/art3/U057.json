@@ -1,19 +1,37 @@
 {
- "centre": "octopus on a night reef, a small glowing nerve knot in each arm",
+ "centre": "a diver swimming over a night reef past three hidden octopuses: swaying seaweed, a mossy rock and a lump of coral",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "breath",
+   "word": "a diver",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "local nervous system",
-   "x": 1300,
-   "y": 200,
+   "type": "say",
+   "text": "Shh!",
+   "x": 1130,
+   "y": 560,
    "to": [
-    1110,
-    560
+    1020,
+    680
    ],
-   "word": "local nervous system"
+   "word": "mossy rock"
+  },
+  {
+   "type": "say",
+   "text": "Nothing here.",
+   "x": 520,
+   "y": 130,
+   "to": [
+    310,
+    220
+   ],
+   "word": "without noticing"
   }
- ]
+ ],
+ "motion": "path + chain: the diver swims right past the whole reef (camera follows) over seaweed, rock and coral that are all octopuses; the seaweed arms sway"
 }

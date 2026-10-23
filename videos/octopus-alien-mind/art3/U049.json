@@ -1,15 +1,31 @@
 {
- "centre": "magnifying glass over an octopus arm showing glowing neuron beads inside",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "where those neurons are",
+ "centre": "a calm octopus, eyes half closed, while one arm stretches far into a dark crevice in a reef wall",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
- "iris": [
-  440,
-  400
+ "labels": [
+  {
+   "type": "say",
+   "text": "You handle it.",
+   "x": 430,
+   "y": 200,
+   "to": [
+    420,
+    290
+   ],
+   "word": "central brain"
+  },
+  {
+   "type": "name",
+   "text": "crevice",
+   "x": 1500,
+   "y": 370,
+   "to": [
+    1400,
+    470
+   ],
+   "word": "crevice"
+  }
  ],
- "labels": []
+ "motion": "fill (x): the arm stretches out along the floor and deep into the dark crevice; the head stays calm"
 }

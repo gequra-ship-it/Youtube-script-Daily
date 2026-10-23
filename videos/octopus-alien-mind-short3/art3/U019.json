@@ -1,24 +1,35 @@
 {
- "centre": "a round glass globe tank with a giant Pacific octopus inside",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "two coconut shell halves closed into a ball, octopus eyes peeking from the gap",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "assembled",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "8 OCTOPUSES",
-   "word": "eight"
+   "type": "name",
+   "text": "shelter",
+   "x": 700,
+   "y": 1060,
+   "to": [
+    600,
+    940
+   ],
+   "word": "shelter"
   },
   {
-   "type": "name",
-   "text": "same T-shirt",
-   "x": 540,
-   "y": 1380,
+   "type": "say",
+   "text": "Quick, hide!",
+   "x": 330,
+   "y": 760,
    "to": [
-    245,
-    1200
+    500,
+    880
    ],
-   "word": "same T-shirt"
+   "word": "threat"
   }
- ]
+ ],
+ "motion": "threatening fish swoops down toward the shelter; camera follows; octopus says Quick, hide!"
 }

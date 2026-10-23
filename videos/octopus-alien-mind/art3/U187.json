@@ -1,23 +1,56 @@
 {
- "centre": "a round glass bubble holding a small reef with coral, kelp and an octopus",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "the central brain glowing gold inside a see-through octopus",
+ "focus": [
+  1480,
+  590,
+  1.8
+ ],
+ "focus_word": "taste the world",
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "taste",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "cephalopod",
-   "x": 1500,
-   "y": 360,
+   "text": "nervous system",
+   "x": 1250,
+   "y": 400,
    "to": [
-    1500,
-    470
+    1330,
+    520
    ],
-   "word": "cephalopod"
+   "word": "nervous system"
+  },
+  {
+   "type": "name",
+   "text": "arms",
+   "x": 1660,
+   "y": 520,
+   "to": [
+    1560,
+    600
+   ],
+   "word": "arms"
+  },
+  {
+   "type": "say",
+   "text": "Tasty!",
+   "x": 1600,
+   "y": 430,
+   "to": [
+    1530,
+    560
+   ],
+   "word": "taste"
   }
  ],
  "iris": [
   1500,
-  600
- ]
+  620
+ ],
+ "motion": "edge: the nerve cords draw out through the arms (spread through the body); the arm tip tastes the shell"
 }

@@ -1,25 +1,30 @@
 {
- "centre": "glowing round flask holding a tiny octopus-shaped web of nerve cells",
+ "centre": "a little round bathysphere diving down through stacked rock layers of time to a glowing ancient sea floor",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
    "name": "bubble",
-   "word": "separate experiment",
-   "vol": 0.5
+   "word": "travel back",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "experiment",
-   "x": 1270,
-   "y": 330,
+   "type": "num",
+   "text": "600 MILLION YEARS",
+   "word": "six hundred million"
+  },
+  {
+   "type": "say",
+   "text": "Bon voyage!",
+   "x": 360,
+   "y": 400,
    "to": [
-    1060,
-    420
-   ],
-   "word": "experiment"
+    300,
+    300
+   ]
   }
- ]
+ ],
+ "motion": "travel back in time: bathysphere follows a zigzag path down through the time layers (mv-path, camera tracks it) with rising bubbles (mv-bubble)"
 }

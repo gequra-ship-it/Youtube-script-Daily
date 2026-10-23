@@ -1,36 +1,38 @@
 {
- "centre": "a round teal enzyme ball clamped on a bead strand of RNA, with scissors and a pencil changing beads",
+ "centre": "a mother octopus in her den cleaning hanging egg strings while a crab walks past outside",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pencil",
-   "word": "change letters",
-   "vol": 0.55
+   "name": "bubble",
+   "word": "cleans",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "enzymes",
-   "x": 960,
-   "y": 250,
+   "type": "say",
+   "text": "I'll stay here.",
+   "x": 760,
+   "y": 300,
    "to": [
-    960,
-    405
+    1210,
+    560
    ],
-   "word": "enzymes"
+   "word": "guards"
   },
   {
    "type": "name",
-   "text": "RNA message",
-   "x": 1450,
-   "y": 740,
+   "text": "eggs",
+   "x": 1760,
+   "y": 420,
    "to": [
-    1450,
-    620
+    1560,
+    400
    ],
-   "word": "RNA message"
+   "word": "eggs"
   }
- ]
+ ],
+ "track": false,
+ "motion": "joint + bubble + walk: the mother's arm sweeps over the eggs as water puffs wash them, while a crab (food) walks past untouched"
 }

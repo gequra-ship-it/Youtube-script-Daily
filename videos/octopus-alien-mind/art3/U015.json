@@ -1,34 +1,20 @@
 {
- "centre": "single pink brain glowing on an x-ray lightbox, a spine of vertebrae below it",
- "focus": [
-  940,
-  600,
-  1.5
- ],
- "focus_word": "a spine",
+ "centre": "a small soft worm-like animal with a glowing nerve net crawling along the ancient sea floor between frond animals",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "spine",
-   "x": 1180,
-   "y": 760,
+   "type": "say",
+   "text": "Just wiggling!",
+   "x": 1130,
+   "y": 500,
    "to": [
-    935,
-    720
+    1090,
+    665
    ],
-   "word": "spine"
-  },
-  {
-   "type": "name",
-   "text": "single brain",
-   "x": 1190,
-   "y": 300,
-   "to": [
-    1040,
-    420
-   ],
-   "word": "single brain"
+   "word": "crawled"
   }
- ]
+ ],
+ "motion": "a worm-like animal crawls along the ocean floor: whole worm drifts right (mv-scroll) with a bobbing head (mv-joint), nerve net pulses (mv-glint), camera tracks the crawl (mv-track)"
 }

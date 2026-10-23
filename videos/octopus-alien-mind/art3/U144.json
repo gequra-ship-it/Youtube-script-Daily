@@ -1,25 +1,34 @@
 {
- "centre": "a power gauge with its needle dropped to zero in a dark aquarium",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "thud",
-   "word": "cut the power",
-   "vol": 0.5
-  }
+ "centre": "a round glass flask holding only a small blue reserve of oxygen at the bottom",
+ "focus": [
+  960,
+  560,
+  1.6
  ],
+ "focus_word": "small reserve of oxygen",
  "labels": [
   {
    "type": "name",
-   "text": "lamps",
-   "x": 1260,
-   "y": 220,
+   "text": "oxygen",
+   "x": 1180,
+   "y": 700,
    "to": [
-    1400,
-    180
+    1010,
+    600
    ],
-   "word": "lamps"
+   "word": "oxygen"
+  },
+  {
+   "type": "say",
+   "text": "So tired...",
+   "x": 640,
+   "y": 330,
+   "to": [
+    470,
+    430
+   ],
+   "word": "tiring"
   }
- ]
+ ],
+ "motion": "fill: the small blue oxygen reserve in the flask drains while the octopus tires"
 }

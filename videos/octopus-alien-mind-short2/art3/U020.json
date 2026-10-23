@@ -1,17 +1,25 @@
 {
- "centre": "a big golden octopus eye with a horizontal slit pupil",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "colorblind",
- "sfx": [
+ "centre": "a California two-spot octopus with blue eyespots; a magnifier glides over its skin showing small opsin molecules",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "breath",
-   "word": "Here is the puzzle",
-   "vol": 0.5
+   "type": "num",
+   "text": "2015",
+   "word": "2015"
+  },
+  {
+   "type": "name",
+   "text": "California two-spot octopus",
+   "x": 540,
+   "y": 470,
+   "to": [
+    540,
+    690
+   ],
+   "word": "California"
   }
  ],
- "labels": []
+ "motion": "mv-path: a magnifier glides over the skin showing opsins inside it (camera tracks the magnifier)"
 }

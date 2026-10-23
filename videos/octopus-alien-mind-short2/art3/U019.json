@@ -1,13 +1,26 @@
 {
- "centre": "octopus looking like a rough rock with algae-like flaps, one eye open",
+ "centre": "a scientist in a lab points at a petri dish with a glowing piece of octopus skin",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "rocks",
+   "name": "hush",
+   "word": "surprising",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Whoa, look!",
+   "x": 330,
+   "y": 640,
+   "to": [
+    335,
+    820
+   ],
+   "word": "surprising"
+  }
+ ],
+ "motion": "mv-track: camera moves from the surprised researcher along her pointing arm to the glowing skin sample"
 }

@@ -1,33 +1,14 @@
 {
- "centre": "golden donut-shaped octopus brain with the esophagus tube passing through its hole",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "like a donut",
+ "centre": "an octopus crawling along a rocky ledge, each of its eight arms moving in its own rhythm without tangling",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pop",
-   "word": "donut",
+   "name": "step",
+   "word": "how to move",
    "vol": 0.5
   }
  ],
- "iris": [
-  400,
-  560
- ],
- "labels": [
-  {
-   "type": "name",
-   "text": "esophagus",
-   "x": 1260,
-   "y": 260,
-   "to": [
-    990,
-    300
-   ],
-   "word": "esophagus"
-  }
- ]
+ "labels": [],
+ "motion": "path + chain: the octopus crawls across the ledge (camera follows) while its eight arms swing in staggered phases - coordinated, never tangled"
 }

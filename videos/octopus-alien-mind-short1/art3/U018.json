@@ -1,11 +1,20 @@
 {
- "centre": "glowing golden nerve knot (ganglion) inside an octopus arm",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "fine detail",
+ "centre": "a long, thin octopus pouring up through a narrow crack in a reef wall; only its glowing hard beak sets the limit",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Just fits!",
+   "x": 800,
+   "y": 430,
+   "to": [
+    600,
+    560
+   ],
+   "word": "beak"
+  }
+ ],
+ "motion": "path + tracking: the octopus slides up through the narrow crack (squeeze) and comes out above it; the camera follows"
 }

@@ -1,23 +1,26 @@
 {
- "centre": "the larger systemic heart glowing in an x-ray octopus, blue vessels running to the body and arms",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "a radio telescope dish turning up to aim at a distant star cluster, its signal dashes running toward the stars",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "searched the sky",
+   "vol": 0.5
+  }
  ],
- "focus_word": "systemic heart",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "systemic heart",
-   "x": 1320,
-   "y": 250,
+   "text": "radio telescopes",
+   "x": 330,
+   "y": 300,
    "to": [
-    1010,
-    430
+    420,
+    440
    ],
-   "word": "systemic heart"
+   "word": "radio telescopes"
   }
- ]
+ ],
+ "motion": "flip + dash + track: the dish turns up toward the stars, signal dashes flow out and the camera follows them to the distant stars"
 }

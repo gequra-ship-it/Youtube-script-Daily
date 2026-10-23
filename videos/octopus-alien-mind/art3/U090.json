@@ -1,34 +1,26 @@
 {
- "centre": "an amber chromatophore with its ring of tiny muscles, each muscle reached by a glowing nerve branch",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "a heavy stack of two big coconut shell halves sagging under a small octopus",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "heavy stack",
+   "vol": 0.55
+  }
  ],
- "focus_word": "muscles",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "nerve signals",
-   "x": 620,
-   "y": 420,
+   "text": "heavy stack of shells",
+   "x": 1400,
+   "y": 640,
    "to": [
-    660,
-    548
+    1100,
+    540
    ],
-   "word": "nerve signals"
-  },
-  {
-   "type": "name",
-   "text": "muscles",
-   "x": 1200,
-   "y": 610,
-   "to": [
-    1065,
-    560
-   ],
-   "word": "muscles"
+   "word": "heavy stack of shells"
   }
- ]
+ ],
+ "motion": "shake: the octopus wobbles under the heavy shell stack, clumsy"
 }

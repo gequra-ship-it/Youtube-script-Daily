@@ -1,7 +1,39 @@
 {
- "centre": "a ripe round fruit on a branch, drawn completely in shades of grey",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "an octopus crossing a wet floor at night between two tanks",
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "wet floors",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "wet floors",
+   "x": 300,
+   "y": 770,
+   "to": [
+    370,
+    835
+   ],
+   "word": "wet floors"
+  },
+  {
+   "type": "name",
+   "text": "fish",
+   "x": 1590,
+   "y": 260,
+   "to": [
+    1580,
+    430
+   ],
+   "word": "fish"
+  }
+ ],
+ "iris": [
+  1590,
+  470
+ ],
+ "motion": "dash + tracking: the camera follows the night crossing from tank to tank, the route dashes march"
 }

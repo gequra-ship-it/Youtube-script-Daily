@@ -1,25 +1,48 @@
 {
- "centre": "a glowing glass globe holding a double helix of coloured beads (DNA)",
+ "centre": "a bright setting sun over the savanna",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "hush",
-   "word": "even stranger",
+   "name": "breath",
+   "word": "care",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "octopus",
-   "x": 440,
-   "y": 270,
+   "text": "chimpanzees",
+   "x": 380,
+   "y": 470,
    "to": [
-    440,
-    400
+    380,
+    600
    ],
-   "word": "octopus"
+   "word": "chimpanzees"
+  },
+  {
+   "type": "name",
+   "text": "humans",
+   "x": 1200,
+   "y": 420,
+   "to": [
+    1220,
+    500
+   ],
+   "word": "humans"
+  },
+  {
+   "type": "name",
+   "text": "elephants",
+   "x": 1580,
+   "y": 480,
+   "to": [
+    1560,
+    600
+   ],
+   "word": "elephants"
   }
- ]
+ ],
+ "motion": "track: the camera travels across the chimpanzee, human and elephant families (long years of care from parents)"
 }

@@ -1,23 +1,28 @@
 {
- "centre": "a round porthole showing an octopus face with slit-pupil eyes among rows of other animals",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a golden puzzle ball with a twist-cap port held by curling octopus arms",
  "labels": [
   {
    "type": "name",
-   "text": "animals",
-   "x": 420,
-   "y": 160,
+   "text": "flexible arms",
+   "x": 760,
+   "y": 300,
    "to": [
-    420,
-    300
+    880,
+    410
    ],
-   "word": "animals"
+   "word": "flexible arms"
+  },
+  {
+   "type": "say",
+   "text": "Easy peasy!",
+   "x": 1600,
+   "y": 240,
+   "to": [
+    1400,
+    400
+   ],
+   "word": "problem-solving"
   }
  ],
- "iris": [
-  1514,
-  791
- ]
+ "motion": "track: camera follows the curling arm to the puzzle ball"
 }

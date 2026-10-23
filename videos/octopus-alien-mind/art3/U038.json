@@ -1,47 +1,46 @@
 {
- "centre": "camouflaged octopus blending into a mossy boulder",
- "focus": null,
- "focus_word": null,
+ "centre": "cutaway octopus head: a golden donut-shaped brain wrapping around the esophagus tube",
+ "focus": [
+  1140,
+  560,
+  1.6
+ ],
+ "focus_word": "wraps around the esophagus",
  "sfx": [
   {
-   "name": "swish",
-   "word": "speed",
-   "vol": 0.55
+   "name": "pencil",
+   "word": "central brain",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "speed",
-   "x": 330,
-   "y": 190,
-   "to": [
-    380,
-    330
-   ],
-   "word": "speed"
+   "type": "num",
+   "text": "ONE-THIRD IN THE BRAIN",
+   "word": "one-third"
   },
   {
    "type": "name",
-   "text": "camouflage",
-   "x": 960,
-   "y": 210,
+   "text": "central brain",
+   "x": 1200,
+   "y": 700,
    "to": [
-    960,
+    1230,
+    590
+   ],
+   "word": "central brain"
+  },
+  {
+   "type": "name",
+   "text": "esophagus",
+   "x": 940,
+   "y": 300,
+   "to": [
+    1130,
     360
    ],
-   "word": "camouflage"
-  },
-  {
-   "type": "name",
-   "text": "clever behavior",
-   "x": 1460,
-   "y": 170,
-   "to": [
-    1500,
-    270
-   ],
-   "word": "clever behavior"
+   "word": "esophagus"
   }
- ]
+ ],
+ "motion": "edge: the donut brain draws itself around the esophagus, back half first, then the front half closes the ring"
 }

@@ -1,36 +1,20 @@
 {
- "centre": "soft teal glow around the curling arm tip",
+ "centre": "an ancestral cephalopod whose big coiled shell shrinks and sinks into its body until almost nothing is left, on rock strata",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "stone",
-   "word": "just a rock",
-   "vol": 0.55
-  }
- ],
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "crab",
-   "x": 300,
-   "y": 440,
+   "text": "shell",
+   "x": 250,
+   "y": 420,
    "to": [
-    300,
+    470,
     560
    ],
-   "word": "crab"
-  },
-  {
-   "type": "name",
-   "text": "rock",
-   "x": 820,
-   "y": 1330,
-   "to": [
-    790,
-    1220
-   ],
-   "word": "rock"
+   "word": "shell"
   }
- ]
+ ],
+ "motion": "fill (x+y): the outer shell shrinks and tucks down into the body until almost gone; dash: the time arrow marches downward"
 }

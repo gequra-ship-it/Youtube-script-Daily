@@ -1,23 +1,48 @@
 {
- "centre": "a bright cluster of white leucophore cells scattering light, under the skin layers",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "a half coconut shell on the sand with an octopus eye peeking out from under its rim",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "flutter",
+   "word": "birds",
+   "vol": 0.5
+  }
  ],
- "focus_word": "leucophores",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "leucophores",
-   "x": 1250,
-   "y": 690,
+   "text": "birds",
+   "x": 700,
+   "y": 150,
    "to": [
-    1050,
-    570
+    560,
+    160
    ],
-   "word": "leucophores"
+   "word": "birds"
+  },
+  {
+   "type": "name",
+   "text": "primates",
+   "x": 1320,
+   "y": 160,
+   "to": [
+    1550,
+    160
+   ],
+   "word": "primates"
+  },
+  {
+   "type": "say",
+   "text": "Me too!",
+   "x": 700,
+   "y": 560,
+   "to": [
+    930,
+    690
+   ],
+   "word": "octopuses"
   }
- ]
+ ],
+ "motion": "none: comparison, nothing moves; the octopus claims its place in a bubble"
 }

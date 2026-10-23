@@ -1,23 +1,26 @@
 {
- "centre": "a round membrane disc holding one kind of light-sensitive pigment molecule",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "an octopus slipping out of its tank at night and crossing the moonlit aquarium floor toward the other tanks",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "leaving their tanks",
+   "vol": 0.5
+  }
  ],
- "focus_word": "visual pigment",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "visual pigment",
-   "x": 1220,
-   "y": 290,
+   "type": "say",
+   "text": "Shh...",
+   "x": 1130,
+   "y": 520,
    "to": [
-    1040,
-    410
+    1310,
+    690
    ],
-   "word": "visual pigment"
+   "word": "at night"
   }
- ]
+ ],
+ "motion": "path: the octopus climbs out of its tank, over the rim and across the floor at night; the camera follows its escape"
 }

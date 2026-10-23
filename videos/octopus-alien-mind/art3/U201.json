@@ -1,19 +1,26 @@
 {
- "centre": "a round shell-framed mirror whose reflection of the posing octopus looks like a striped fish",
+ "centre": "an octopus on a tide-pool rock at sunset waving one arm goodbye",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "Thank you",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "marine animals",
-   "x": 1520,
-   "y": 270,
+   "type": "say",
+   "text": "Thank you!",
+   "x": 1080,
+   "y": 300,
    "to": [
-    1520,
-    370
+    1340,
+    500
    ],
-   "word": "marine animals"
+   "word": "Thank you"
   }
- ]
+ ],
+ "motion": "swing + bubble: the octopus waves one arm like a goodbye while bubbles rise from the tide pool"
 }

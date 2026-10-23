@@ -1,41 +1,41 @@
 {
- "centre": "a round cutaway window into a drainpipe with Inky squeezing through it",
- "focus": null,
- "focus_word": null,
+ "centre": "a round glowing drop of oxygen-rich blue blood where the gill vessels meet",
+ "focus": [
+  620,
+  560,
+  1.6
+ ],
+ "focus_word": "branchial hearts",
  "sfx": [
   {
-   "name": "splash",
-   "word": "to the sea",
+   "name": "bubble",
+   "word": "oxygen",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "drainpipe",
-   "x": 520,
-   "y": 520,
+   "text": "branchial hearts",
+   "x": 620,
+   "y": 760,
    "to": [
-    520,
-    380
+    620,
+    650
    ],
-   "word": "drainpipe"
+   "word": "branchial hearts"
   },
   {
    "type": "name",
-   "text": "sea",
-   "x": 1700,
-   "y": 760,
+   "text": "gills",
+   "x": 470,
+   "y": 400,
    "to": [
-    1640,
-    680
+    520,
+    430
    ],
-   "word": "sea"
-  },
-  {
-   "type": "num",
-   "text": "50 M",
-   "word": "fifty meters"
+   "word": "gills"
   }
- ]
+ ],
+ "motion": "edge: blood comes into each branchial heart, then is pushed out through the gills to the oxygen-rich drop"
 }

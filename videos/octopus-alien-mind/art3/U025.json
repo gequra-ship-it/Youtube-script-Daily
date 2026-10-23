@@ -1,47 +1,28 @@
 {
- "centre": "a pink centralized brain with its spinal cord, linked to a bird, a dolphin and a person",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "flutter",
-   "word": "birds",
-   "vol": 0.5
-  }
- ],
+ "centre": "cuttlefish from above with its glowing cuttlebone inside",
  "labels": [
   {
    "type": "name",
-   "text": "birds",
-   "x": 560,
-   "y": 120,
+   "text": "cuttlefish",
+   "x": 960,
+   "y": 300,
    "to": [
-    560,
-    200
+    960,
+    405
    ],
-   "word": "birds"
+   "word": "cuttlefish"
   },
   {
    "type": "name",
-   "text": "dolphins",
-   "x": 1560,
-   "y": 380,
+   "text": "squid",
+   "x": 1690,
+   "y": 760,
    "to": [
-    1520,
-    480
+    1600,
+    650
    ],
-   "word": "dolphins"
-  },
-  {
-   "type": "name",
-   "text": "humans",
-   "x": 250,
-   "y": 270,
-   "to": [
-    250,
-    330
-   ],
-   "word": "humans"
+   "word": "squid"
   }
- ]
+ ],
+ "motion": "track: camera passes from the cuttlebone over the cuttlefish to the squid (small inner support)"
 }

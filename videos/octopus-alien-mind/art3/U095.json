@@ -1,36 +1,31 @@
 {
- "centre": "a round patch of octopus skin raised into many little nodules, in a film frame",
- "focus": null,
- "focus_word": null,
+ "centre": "an octopus wrapping an arm around the screw lid of a clear jar with a crab inside; the lid turns and lifts off",
+ "focus": [
+  1180,
+  470,
+  1.5
+ ],
+ "focus_word": "screw lid",
+ "spot": false,
  "sfx": [
   {
-   "name": "tick",
-   "word": "fraction of a second",
+   "name": "click",
+   "word": "unscrew the lid",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "nodules",
-   "x": 960,
-   "y": 290,
+   "type": "say",
+   "text": "Uh-oh...",
+   "x": 1500,
+   "y": 520,
    "to": [
-    960,
-    385
+    1230,
+    600
    ],
-   "word": "nodules"
-  },
-  {
-   "type": "name",
-   "text": "ridges",
-   "x": 1530,
-   "y": 300,
-   "to": [
-    1530,
-    400
-   ],
-   "word": "ridges"
+   "word": "crab"
   }
- ]
+ ],
+ "motion": "scroll + path: the lid's grip ridges slide round as the arm unscrews it, then the lid lifts off up and away"
 }

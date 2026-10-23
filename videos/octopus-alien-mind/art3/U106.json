@@ -1,27 +1,26 @@
 {
- "centre": "a round glass lens with a thin rainbow rim",
- "focus": [
-  1500,
-  480,
-  1.8
+ "centre": "a power gauge with its needle dropped to zero in a dark aquarium",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "cut the power",
+   "vol": 0.5
+  }
  ],
- "focus_word": "chromatic aberration",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "chromatic aberration",
-   "x": 1500,
-   "y": 330,
+   "text": "lamps",
+   "x": 1260,
+   "y": 220,
    "to": [
-    1500,
-    410
+    1400,
+    180
    ],
-   "word": "chromatic aberration"
+   "word": "lamps"
   }
  ],
- "iris": [
-  1500,
-  480
- ]
+ "motion": "rise: after the blackout the lamps are hung higher, rising into place"
 }

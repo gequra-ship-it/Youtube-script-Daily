@@ -1,24 +1,26 @@
 {
- "centre": "a round wall clock with turning hands between two researchers",
+ "centre": "at sunset an octopus swims up to a floating bell buoy that rings at the surface",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "a long time",
+   "name": "bell",
+   "word": "subscribe",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "say",
-   "text": "Hmm...",
-   "x": 250,
-   "y": 520,
+   "text": "See you soon!",
+   "x": 300,
+   "y": 780,
    "to": [
-    250,
-    878
-   ]
+    530,
+    880
+   ],
+   "word": "next one"
   }
- ]
+ ],
+ "motion": "mv-path: the octopus swims up toward the bell buoy (camera tracks it) while the bell swings (mv-swing), an invitation to subscribe"
 }

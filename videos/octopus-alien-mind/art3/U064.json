@@ -1,36 +1,37 @@
 {
- "centre": "a round grey rock gripped by an octopus arm",
+ "centre": "two lit panels: a lizard whose colour creeps slowly from brown to green, and an octopus whose brain is wired straight into its skin patches",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "grip rocks",
+   "name": "click",
+   "word": "wired directly",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "rocks",
-   "x": 1230,
-   "y": 300,
+   "type": "say",
+   "text": "Wait for me...",
+   "x": 470,
+   "y": 330,
    "to": [
-    1050,
-    440
+    650,
+    500
    ],
-   "word": "rocks"
+   "word": "slowly"
   },
   {
    "type": "name",
-   "text": "prey",
-   "x": 300,
-   "y": 820,
+   "text": "nervous system",
+   "x": 1400,
+   "y": 230,
    "to": [
-    340,
-    730
+    1400,
+    400
    ],
-   "word": "prey"
+   "word": "nervous system"
   }
- ]
+ ],
+ "motion": "fill + edge + rise: on the left the lizard's new colour creeps up over five seconds; on the right nerves draw from the brain into the skin and the patches snap at once"
 }

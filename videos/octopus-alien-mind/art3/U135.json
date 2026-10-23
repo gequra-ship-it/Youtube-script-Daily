@@ -1,25 +1,48 @@
 {
- "centre": "a pale wall clock at about two in the morning above a row of tanks",
+ "centre": "a round flask whose blood sample turns blue from the bottom as oxygen bubbles in, beside a copper hemocyanin molecule and an octopus",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "at night",
+   "name": "bubble",
+   "word": "turns blue",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "tanks",
-   "x": 1180,
-   "y": 590,
+   "text": "hemocyanin",
+   "x": 1000,
+   "y": 130,
    "to": [
-    1300,
-    700
+    1000,
+    230
    ],
-   "word": "tanks"
+   "word": "hemocyanin"
+  },
+  {
+   "type": "name",
+   "text": "copper",
+   "x": 1190,
+   "y": 420,
+   "to": [
+    1030,
+    318
+   ],
+   "word": "copper"
+  },
+  {
+   "type": "say",
+   "text": "Feeling blue!",
+   "x": 1500,
+   "y": 180,
+   "to": [
+    1450,
+    330
+   ],
+   "word": "blue"
   }
- ]
+ ],
+ "motion": "liquid + bubble: oxygen bubbles rise into the flask while the blue blood level rises (blood turns blue when it carries oxygen)"
 }

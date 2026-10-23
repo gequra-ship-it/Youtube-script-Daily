@@ -1,40 +1,41 @@
 {
- "centre": "an octopus crossing a wet floor at night between two tanks",
- "focus": null,
- "focus_word": null,
+ "centre": "a glass jar holding a blue hemocyanin molecule with only two oxygen pairs",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "less oxygen",
  "sfx": [
   {
-   "name": "drip",
-   "word": "wet floors",
+   "name": "pop",
+   "word": "less",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "wet floors",
-   "x": 300,
-   "y": 770,
+   "text": "hemoglobin",
+   "x": 700,
+   "y": 320,
    "to": [
-    370,
-    835
+    500,
+    480
    ],
-   "word": "wet floors"
+   "word": "hemoglobin"
   },
   {
    "type": "name",
-   "text": "fish",
-   "x": 1590,
-   "y": 260,
+   "text": "Hemocyanin",
+   "x": 1190,
+   "y": 300,
    "to": [
-    1580,
-    430
+    1030,
+    420
    ],
-   "word": "fish"
+   "word": "Hemocyanin"
   }
  ],
- "iris": [
-  1590,
-  470
- ]
+ "motion": "grow: the hemoglobin bar rises tall, then the shorter hemocyanin bar, less oxygen"
 }

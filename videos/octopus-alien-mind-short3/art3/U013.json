@@ -1,7 +1,19 @@
 {
- "centre": "a round puzzle box held by an octopus in a lab tank",
+ "centre": "an octopus swimming from one visitor to the other behind the glass",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Oh, it's you!",
+   "x": 520,
+   "y": 840,
+   "to": [
+    700,
+    880
+   ],
+   "word": "individual humans"
+  }
+ ],
+ "motion": "mv-path: the octopus swims from under one person to the other, checking each face (camera follows)"
 }

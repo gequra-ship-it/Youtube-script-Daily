@@ -1,19 +1,31 @@
 {
- "centre": "a round glass bowl tank with an octopus climbing out over its rim",
+ "centre": "red blood cells streaming through a magnified human vessel, with a hemoglobin molecule whose iron atom lights up",
  "focus": null,
  "focus_word": null,
  "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "escape artist",
-   "x": 1420,
-   "y": 280,
+   "text": "hemoglobin",
+   "x": 1660,
+   "y": 680,
    "to": [
-    1060,
-    330
+    1460,
+    720
    ],
-   "word": "escape artist"
+   "word": "hemoglobin"
+  },
+  {
+   "type": "name",
+   "text": "iron",
+   "x": 1080,
+   "y": 800,
+   "to": [
+    1335,
+    750
+   ],
+   "word": "iron"
   }
- ]
+ ],
+ "motion": "scroll + popin: red cells keep flowing along the vessel, then the iron atom in hemoglobin pops up"
 }

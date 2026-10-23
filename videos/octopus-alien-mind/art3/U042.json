@@ -1,19 +1,37 @@
 {
- "centre": "octopus with every arm bent a different way",
+ "centre": "a detached octopus arm on the sea floor, its base hidden behind a rock, lifting and curling instead of going limp; a lab dish on the left and an eel in a crevice on the right",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "cloth",
+   "word": "go limp",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "boneless body",
-   "x": 1330,
-   "y": 230,
+   "text": "predator",
+   "x": 1500,
+   "y": 330,
    "to": [
-    1060,
-    410
+    1440,
+    470
    ],
-   "word": "boneless body"
+   "word": "predator"
+  },
+  {
+   "type": "say",
+   "text": "Not done yet!",
+   "x": 700,
+   "y": 300,
+   "to": [
+    930,
+    380
+   ],
+   "word": "limp"
   }
- ]
+ ],
+ "motion": "swing + chain: the arm lifts and sways in long damped swings while its links keep curling - it does not go limp"
 }

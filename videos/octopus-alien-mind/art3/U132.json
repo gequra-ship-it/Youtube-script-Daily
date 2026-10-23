@@ -1,13 +1,37 @@
 {
- "centre": "a glowing light bulb with a tiny octopus shape inside, on a notebook page",
+ "centre": "a balance scale swinging between a flexible RNA strand and a steady block of genome",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "hush",
-   "word": "problem solving",
-   "vol": 0.5
+   "name": "creak",
+   "word": "trade-off",
+   "vol": 0.45
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "So bendy!",
+   "x": 330,
+   "y": 330,
+   "to": [
+    340,
+    500
+   ],
+   "word": "flexibility"
+  },
+  {
+   "type": "say",
+   "text": "Hold still!",
+   "x": 1180,
+   "y": 230,
+   "to": [
+    1180,
+    430
+   ],
+   "word": "genome"
+  }
+ ],
+ "motion": "swing: the balance beam tips back and forth between flexible RNA and the steady genome, settling (a trade-off)"
 }

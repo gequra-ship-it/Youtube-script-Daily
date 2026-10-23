@@ -1,28 +1,26 @@
 {
- "centre": "a pale polar octopus, round mantle and slit-pupil eyes, in icy water under floating ice",
- "focus": [
-  960,
-  480,
-  1.5
+ "centre": "a lab chart whose falling curve levels off at a gold halt marker, next to a tank with a recovering octopus",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "stopped",
+   "vol": 0.6
+  }
  ],
- "focus_word": "polar octopuses",
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "2012",
-   "word": "2012"
-  },
-  {
-   "type": "name",
-   "text": "polar octopuses",
-   "x": 560,
-   "y": 420,
+   "type": "say",
+   "text": "Feeling better!",
+   "x": 1560,
+   "y": 330,
    "to": [
-    840,
-    470
+    1620,
+    490
    ],
-   "word": "polar octopuses"
+   "word": "stopped"
   }
- ]
+ ],
+ "motion": "edge + slam: the decline curve draws down, then levels off after the removal marker, and a halt sign slams in (the decline stopped)"
 }

@@ -1,25 +1,37 @@
 {
- "centre": "round signpost on a winding night path, a spine-and-head symbol on it",
+ "centre": "a scientist points at a pinned chart where lines from a human and an octopus draw down and meet at a tiny soft-bodied ancestor",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "step",
-   "word": "familiar path",
+   "name": "pencil",
+   "word": "estimate",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "path",
-   "x": 760,
-   "y": 640,
+   "text": "common ancestor",
+   "x": 930,
+   "y": 760,
    "to": [
-    800,
-    750
+    1140,
+    728
    ],
-   "word": "path"
+   "word": "common ancestor"
+  },
+  {
+   "type": "say",
+   "text": "Related to them?",
+   "x": 1260,
+   "y": 210,
+   "to": [
+    1420,
+    280
+   ],
+   "word": "humans"
   }
- ]
+ ],
+ "motion": "scientists estimate a shared ancestor: lineage lines from human and octopus draw down and meet (mv-edge), then the tiny ancestor pops in (mv-popin)"
 }

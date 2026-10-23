@@ -1,11 +1,31 @@
 {
- "centre": "cut-away window in an octopus mantle showing two tiny shell remnants",
- "focus": [
-  540,
-  870,
-  1.7
- ],
- "focus_word": "lost it almost entirely",
+ "centre": "a sandy trail forks under evening water: the left road ends at a human silhouette with a spine and one brain, the right road at an octopus",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "spine",
+   "x": 200,
+   "y": 1110,
+   "to": [
+    300,
+    900
+   ],
+   "word": "spine"
+  },
+  {
+   "type": "name",
+   "text": "Cephalopods",
+   "x": 800,
+   "y": 560,
+   "to": [
+    800,
+    660
+   ],
+   "word": "Cephalopods"
+  }
+ ],
+ "motion": "path + tracking: a glowing traveller leaves the fork and follows the right-hand road to the octopus (a very different road); dashes march along both trails"
 }

@@ -1,11 +1,24 @@
 {
- "centre": "soft teal glow inside the dark crevice where the arm tip tastes",
- "focus": [
-  540,
-  860,
-  1.6
+ "centre": "large cream coiled shell with brown stripes in a museum specimen drawer",
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "the shell",
+   "vol": 0.5
+  }
  ],
- "focus_word": "dark crevice",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "shell",
+   "x": 720,
+   "y": 700,
+   "to": [
+    620,
+    790
+   ],
+   "word": "the shell"
+  }
+ ],
+ "motion": "small octopus creeps across the drawer toward the shell (the story of the shell); camera follows"
 }

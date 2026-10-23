@@ -1,30 +1,26 @@
 {
- "centre": "round flask brimming with glowing neurons, an octopus arm curled over it",
+ "centre": "an octopus arm seen from below, its two rows of suckers each lighting a sense ring, gripping a rock near a small crab",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "sensory organ",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "rat",
-   "x": 300,
-   "y": 470,
+   "text": "suckers",
+   "x": 560,
+   "y": 520,
    "to": [
-    320,
-    600
+    640,
+    690
    ],
-   "word": "rat"
-  },
-  {
-   "type": "name",
-   "text": "invertebrates",
-   "x": 1500,
-   "y": 470,
-   "to": [
-    1500,
-    610
-   ],
-   "word": "invertebrates"
+   "word": "suckers"
   }
- ]
+ ],
+ "motion": "edge + track: the camera travels up the arm while every sucker's sense ring draws on, base to tip - each sucker is a sense organ"
 }

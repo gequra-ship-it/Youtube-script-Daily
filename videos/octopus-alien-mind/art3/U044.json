@@ -1,29 +1,32 @@
 {
- "centre": "glass globe with a glowing model of the octopus nervous system",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "so large and so unusual",
- "sfx": [
-  {
-   "name": "hush",
-   "word": "so unusual",
-   "vol": 0.5
-  }
+ "centre": "round pebble gripped by the suckers of a detached arm",
+ "iris": [
+  360,
+  690
  ],
  "labels": [
   {
    "type": "name",
-   "text": "nervous system",
-   "x": 1230,
+   "text": "suckers",
+   "x": 1400,
    "y": 300,
    "to": [
-    1050,
+    1090,
     420
    ],
-   "word": "nervous system"
+   "word": "suckers"
+  },
+  {
+   "type": "say",
+   "text": "Got it!",
+   "x": 650,
+   "y": 300,
+   "to": [
+    900,
+    330
+   ],
+   "word": "grasp"
   }
- ]
+ ],
+ "motion": "track: camera follows the arm up from the base to the pebble it grasps; Got-it bubble kept"
 }

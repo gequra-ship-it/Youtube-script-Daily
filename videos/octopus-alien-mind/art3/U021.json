@@ -1,23 +1,26 @@
 {
- "centre": "a glowing nerve cell joined to a simple net of nerve cells inside the worm's soft body",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "a snail on a low-tide mudflat: its hard shell's growth lines draw in, then it creeps slowly away, a simple nerve ring in its see-through head",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "slow lifestyles",
+   "vol": 0.45
+  }
  ],
- "focus_word": "nerve cells",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "nerve cells",
-   "x": 1210,
-   "y": 350,
+   "text": "nervous system",
+   "x": 1460,
+   "y": 330,
    "to": [
-    1040,
-    440
+    1580,
+    570
    ],
-   "word": "nerve cells"
+   "word": "simpler nervous system"
   }
- ]
+ ],
+ "motion": "edge then path: the shell's growth layers draw in (invest in a hard shell), then the snail creeps slowly across the mudflat (slow lifestyles), camera following"
 }

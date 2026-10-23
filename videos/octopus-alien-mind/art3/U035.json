@@ -1,23 +1,26 @@
 {
- "centre": "pale soft octopus body curled up, no shell",
- "focus": [
-  960,
-  540,
-  1.6
+ "centre": "a glowing neuron travelling out of an octopus's head along one long arm across a sea chart",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "where those neurons are",
+   "vol": 0.5
+  }
  ],
- "focus_word": "soft",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "shell",
-   "x": 560,
-   "y": 590,
+   "type": "say",
+   "text": "Over here!",
+   "x": 1500,
+   "y": 420,
    "to": [
-    560,
-    670
+    1545,
+    520
    ],
-   "word": "hard shell"
+   "word": "where"
   }
- ]
+ ],
+ "motion": "path + rise: one neuron leaves the head and travels out along an arm to a map pin (it is WHERE they are); camera follows"
 }

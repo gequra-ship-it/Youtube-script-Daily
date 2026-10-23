@@ -1,13 +1,12 @@
 {
- "centre": "octopus brain glowing like a busy processor, nerve cords lit in every arm",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "tick",
-   "word": "computing power",
-   "vol": 0.5
-  }
+ "centre": "a detached octopus arm on the gravel of a lab tank; a soft probe touches it near the tip and the tip curls away",
+ "focus": [
+  1080,
+  640,
+  1.5
  ],
- "labels": []
+ "focus_word": "react to touch",
+ "sfx": [],
+ "labels": [],
+ "motion": "path + flip + shake: the probe glides in and touches the arm, the arm twitches and its tip curls up - it reacts to touch"
 }

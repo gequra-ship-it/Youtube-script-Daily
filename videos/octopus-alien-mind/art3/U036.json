@@ -1,35 +1,41 @@
 {
- "centre": "huge golden eye of a grouper watching a soft octopus",
+ "centre": "glowing central brain inside a person's head in profile",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "breath",
-   "word": "real risk",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
-   "type": "say",
-   "text": "Uh-oh!",
-   "x": 1560,
-   "y": 330,
+   "type": "name",
+   "text": "central brain",
+   "x": 1300,
+   "y": 250,
    "to": [
-    1540,
-    470
-   ]
+    1030,
+    430
+   ],
+   "word": "central brain"
   },
   {
    "type": "name",
-   "text": "predators",
-   "x": 440,
-   "y": 360,
+   "text": "vertebrates",
+   "x": 400,
+   "y": 580,
    "to": [
-    430,
-    260
+    400,
+    660
    ],
-   "word": "predators"
+   "word": "vertebrates"
+  },
+  {
+   "type": "say",
+   "text": "Big brain!",
+   "x": 1600,
+   "y": 330,
+   "to": [
+    1500,
+    450
+   ],
+   "word": "central brain"
   }
- ]
+ ],
+ "motion": "none: nothing moves in the narration; speech bubble only"
 }

@@ -1,36 +1,19 @@
 {
- "centre": "a glass globe holding a bead strand of RNA while a pencil rewrites one bead",
+ "centre": "one tiny translucent hatchling drifting up on the current",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pencil",
-   "word": "rewrite letters",
-   "vol": 0.55
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "enzymes",
-   "x": 960,
-   "y": 280,
+   "text": "hatchlings",
+   "x": 1080,
+   "y": 250,
    "to": [
-    960,
-    385
+    1010,
+    400
    ],
-   "word": "enzymes"
-  },
-  {
-   "type": "name",
-   "text": "protein",
-   "x": 1500,
-   "y": 330,
-   "to": [
-    1500,
-    420
-   ],
-   "word": "protein"
+   "word": "hatchlings"
   }
- ]
+ ],
+ "motion": "path + tracking: the hatchling drifts away on the current and the camera follows it"
 }

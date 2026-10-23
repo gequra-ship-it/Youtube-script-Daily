@@ -1,25 +1,37 @@
 {
- "centre": "a power gauge with its needle dropped to zero in a dark aquarium",
+ "centre": "a notebook page: separate story snapshots above, a grid of identical study tanks being drawn below",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "short circuit",
-   "vol": 0.6
+   "name": "page",
+   "word": "These stories",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "lamps",
-   "x": 330,
-   "y": 520,
+   "text": "individual observations",
+   "x": 540,
+   "y": 960,
    "to": [
-    240,
-    430
+    470,
+    930
    ],
-   "word": "lamps were later hung higher"
+   "word": "individual observations"
+  },
+  {
+   "type": "name",
+   "text": "controlled studies",
+   "x": 540,
+   "y": 1385,
+   "to": [
+    540,
+    1330
+   ],
+   "word": "controlled studies"
   }
- ]
+ ],
+ "motion": "mv-track: the camera scans down from the single story snapshots to the study grid; mv-edge: the grid of identical tanks draws itself"
 }

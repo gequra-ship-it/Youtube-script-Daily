@@ -1,23 +1,19 @@
 {
- "centre": "Otto the octopus on the rim of his tank, aiming his siphon",
- "focus": [
-  560,
-  900,
-  1.5
- ],
- "focus_word": "Otto",
- "sfx": [],
+ "centre": "a round puzzle box held by an octopus in a lab tank",
+ "focus": null,
+ "focus_word": null,
+ "motion": "latch of the teal puzzle box lifts open (puzzle solved); octopus says Got it!",
  "labels": [
   {
-   "type": "name",
-   "text": "Otto",
-   "x": 280,
-   "y": 1000,
+   "type": "say",
+   "text": "Got it!",
+   "x": 250,
+   "y": 1010,
    "to": [
-    440,
-    860
+    490,
+    1190
    ],
-   "word": "Otto"
+   "word": "solved"
   }
  ]
 }

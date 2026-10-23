@@ -1,19 +1,26 @@
 {
- "centre": "glowing amber octopus brain inside an x-ray octopus body",
+ "centre": "close-up of the octopus skin; papillae push up into spikes and ridges one after another",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "spikes",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Nervous system",
-   "x": 780,
-   "y": 470,
+   "text": "papillae",
+   "x": 640,
+   "y": 600,
    "to": [
-    620,
-    800
+    630,
+    760
    ],
-   "word": "nervous system"
+   "word": "papillae"
   }
- ]
+ ],
+ "motion": "mv-grow: papillae rise into spikes and ridges in quick succession (each in a fraction of a second), camera tracks along the skin"
 }

@@ -1,32 +1,26 @@
 {
- "centre": "a veined octopus resting on muddy sand",
- "focus": [
-  540,
-  900,
-  1.6
- ],
- "focus_word": "veined octopuses",
- "sfx": [],
- "labels": [
+ "centre": "an orange pill bottle on a loop between the water jet and the octopus",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "num",
-   "text": "2009",
-   "word": "2009"
-  },
-  {
-   "type": "name",
-   "text": "veined octopus",
-   "x": 790,
-   "y": 620,
-   "to": [
-    640,
-    760
-   ],
-   "word": "veined octopuses"
+   "name": "bubble",
+   "word": "blew them out again",
+   "vol": 0.5
   }
  ],
- "iris": [
-  290,
-  560
+ "motion": "dashes march around the loop the pill bottle travels (drift back, blown out again); octopus says Again!",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Again!",
+   "x": 640,
+   "y": 1230,
+   "to": [
+    440,
+    1220
+   ],
+   "word": "again"
+  }
  ]
 }

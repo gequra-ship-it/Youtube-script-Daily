@@ -1,29 +1,39 @@
 {
- "centre": "the golden eye of a common octopus with its horizontal slit pupil",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "extraordinary",
- "sfx": [
-  {
-   "name": "hush",
-   "word": "extraordinary",
-   "vol": 0.5
-  }
- ],
+ "centre": "a round wooden signpost at a fork, one arrow to our side, one to the octopus side",
  "labels": [
   {
    "type": "name",
-   "text": "octopus",
-   "x": 700,
-   "y": 330,
+   "text": "vertebrates",
+   "x": 400,
+   "y": 200,
    "to": [
-    830,
-    420
+    400,
+    290
    ],
-   "word": "octopus"
+   "word": "vertebrates"
+  },
+  {
+   "type": "name",
+   "text": "mollusks",
+   "x": 1450,
+   "y": 250,
+   "to": [
+    1520,
+    350
+   ],
+   "word": "mollusks"
+  },
+  {
+   "type": "say",
+   "text": "This way!",
+   "x": 1680,
+   "y": 240,
+   "to": [
+    1615,
+    390
+   ],
+   "word": "octopus side"
   }
- ]
+ ],
+ "motion": "track: camera travels from our side (vertebrates) across the fork to the octopus side (mollusks)"
 }

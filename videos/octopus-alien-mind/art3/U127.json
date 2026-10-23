@@ -1,23 +1,30 @@
 {
- "centre": "the head and golden eyes of an octopus gazing past a crab toward a shell far away",
- "focus": [
-  960,
-  480,
-  1.5
- ],
- "focus_word": "octopus",
- "sfx": [],
+ "centre": "the same round globe on the nerve channel, now with the gold gate open and potassium beads flowing through",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "octopus",
-   "x": 620,
-   "y": 300,
+   "text": "nerves",
+   "x": 960,
+   "y": 270,
    "to": [
-    870,
+    960,
+    380
+   ],
+   "word": "nerves"
+  },
+  {
+   "type": "name",
+   "text": "freezing water",
+   "x": 1500,
+   "y": 250,
+   "to": [
+    1500,
     340
    ],
-   "word": "octopus"
+   "word": "freezing water"
   }
- ]
+ ],
+ "motion": "fill: the thermometer drops to freezing while the opened channel keeps working"
 }

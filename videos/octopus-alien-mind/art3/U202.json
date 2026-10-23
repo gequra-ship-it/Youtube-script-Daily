@@ -1,41 +1,37 @@
 {
- "centre": "the mimic octopus flattened into a flatfish shape, arms swept back",
+ "centre": "the octopus head with golden eyes squeezing into a dark rock crevice",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "keep exploring",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "lionfish",
-   "x": 390,
-   "y": 210,
+   "text": "comments",
+   "x": 420,
+   "y": 130,
    "to": [
-    300,
-    270
+    360,
+    190
    ],
-   "word": "lionfish"
+   "word": "comments"
   },
   {
-   "type": "name",
-   "text": "flatfish",
-   "x": 960,
-   "y": 300,
+   "type": "say",
+   "text": "See you soon!",
+   "x": 1500,
+   "y": 560,
    "to": [
-    960,
-    410
+    1090,
+    560
    ],
-   "word": "flatfish"
-  },
-  {
-   "type": "name",
-   "text": "banded sea snakes",
-   "x": 1530,
-   "y": 360,
-   "to": [
-    1530,
-    290
-   ],
-   "word": "banded sea snakes"
+   "word": "time"
   }
- ]
+ ],
+ "motion": "track: slow push-in on the octopus at the crevice; comment bubbles drift"
 }

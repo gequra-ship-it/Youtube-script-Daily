@@ -1,28 +1,30 @@
 {
- "centre": "octopus main heart pumping blue blood, two gill hearts beside it",
+ "centre": "round editing enzyme with scissor-like blades swapping a bead on a genetic message strand",
  "focus": [
   960,
   520,
-  1.5
+  1.7
  ],
- "focus_word": "three beating hearts",
- "sfx": [],
+ "focus_word": "edit",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "edit",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "num",
-   "text": "3 HEARTS",
-   "word": "three"
-  },
-  {
    "type": "name",
-   "text": "blue blood",
-   "x": 700,
-   "y": 250,
+   "text": "genetic messages",
+   "x": 470,
+   "y": 440,
    "to": [
-    800,
-    420
+    430,
+    560
    ],
-   "word": "blue blood"
+   "word": "genetic messages"
   }
- ]
+ ],
+ "motion": "popin: a new bead pops into the strand while the old one drifts off - editing the genetic message"
 }

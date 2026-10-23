@@ -1,25 +1,41 @@
 {
- "centre": "coiled-shell ancestor of the octopus peeking out with one eye",
- "focus": null,
- "focus_word": null,
+ "centre": "glass globe with a glowing model of the octopus nervous system",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "so large and so unusual",
  "sfx": [
   {
    "name": "hush",
-   "word": "something unusual",
+   "word": "so unusual",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "ancestors",
-   "x": 690,
+   "text": "nervous system",
+   "x": 1230,
    "y": 300,
    "to": [
-    880,
+    1050,
     420
    ],
-   "word": "ancestors"
+   "word": "nervous system"
+  },
+  {
+   "type": "say",
+   "text": "Fascinating!",
+   "x": 700,
+   "y": 260,
+   "to": [
+    480,
+    380
+   ],
+   "word": "challenge"
   }
- ]
+ ],
+ "motion": "grow: the model's nerve arms swell outward to full size (nervous system pushed to become large); scientist bubble kept"
 }

@@ -1,15 +1,26 @@
 {
- "centre": "a large cuttlefish eye with a golden iris and a dark U-shaped pupil",
- "focus": [
-  960,
-  500,
-  1.9
+ "centre": "Otto the octopus on the rim of his tank squirting a jet of water up at the bright hanging lamp",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "squirted a jet of water",
+   "vol": 0.6
+  }
  ],
- "focus_word": "U-shaped pupils",
- "sfx": [],
- "labels": [],
- "iris": [
-  420,
-  620
- ]
+ "labels": [
+  {
+   "type": "name",
+   "text": "Otto",
+   "x": 420,
+   "y": 330,
+   "to": [
+    620,
+    420
+   ],
+   "word": "Otto"
+  }
+ ],
+ "motion": "edge + shake: the water jet shoots from Otto's siphon in an arc up to the lamp, and the lamp jolts when it is hit"
 }

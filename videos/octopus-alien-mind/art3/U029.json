@@ -1,23 +1,38 @@
 {
- "centre": "a polished slice of shell showing its hard layers of calcium carbonate bricks",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "aquarium tank: an octopus flattens itself and slides through a small opening in a divider, an inset shows its hard beak",
+ "track": false,
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "cloth",
+   "word": "squeeze through",
+   "vol": 0.5
+  }
  ],
- "focus_word": "hard shell",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "calcium carbonate",
-   "x": 1180,
-   "y": 330,
+   "text": "beak",
+   "x": 330,
+   "y": 430,
    "to": [
-    1040,
-    440
+    330,
+    370
    ],
-   "word": "calcium carbonate"
+   "word": "beak"
+  },
+  {
+   "type": "say",
+   "text": "Almost through!",
+   "x": 1250,
+   "y": 290,
+   "to": [
+    1000,
+    470
+   ],
+   "word": "squeeze"
   }
- ]
+ ],
+ "motion": "path + fill: the octopus slides right, flattens to pass the small opening in the divider and widens again on the other side (squeeze through any opening larger than its beak)"
 }

@@ -1,36 +1,30 @@
 {
- "centre": "a red crab in a pale spotlight, next to a look-alike rock",
+ "centre": "the rough rock-coloured octopus mantle bristling with algae-like skin spikes",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "click",
-   "word": "crab",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "crab",
-   "x": 1250,
-   "y": 300,
+   "text": "rocks",
+   "x": 330,
+   "y": 470,
    "to": [
-    1030,
-    430
+    330,
+    590
    ],
-   "word": "crab"
+   "word": "rocks"
   },
   {
    "type": "name",
-   "text": "rock",
-   "x": 400,
-   "y": 340,
+   "text": "algae",
+   "x": 1560,
+   "y": 330,
    "to": [
-    400,
+    1540,
     470
    ],
-   "word": "rock"
+   "word": "algae"
   }
- ]
+ ],
+ "motion": "popin: the skin spikes push out of the mantle as it reshapes to the rock and algae texture"
 }

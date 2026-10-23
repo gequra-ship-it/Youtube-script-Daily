@@ -1,5 +1,5 @@
 {
- "centre": "glowing gold octopus brain between the two eyes",
+ "centre": "cutaway octopus head: a donut-shaped gold brain wraps around the esophagus tube; a gauge fills one third",
  "focus": null,
  "focus_word": null,
  "sfx": [
@@ -11,15 +11,32 @@
  ],
  "labels": [
   {
+   "type": "num",
+   "text": "ONE-THIRD",
+   "word": "one-third"
+  },
+  {
    "type": "name",
    "text": "central brain",
-   "x": 720,
-   "y": 420,
+   "x": 250,
+   "y": 1160,
    "to": [
-    590,
-    810
+    430,
+    925
    ],
    "word": "central brain"
+  },
+  {
+   "type": "name",
+   "text": "esophagus",
+   "x": 790,
+   "y": 1290,
+   "to": [
+    560,
+    1120
+   ],
+   "word": "esophagus"
   }
- ]
+ ],
+ "motion": "edge: the gold brain ring draws itself around the esophagus (wraps around like a donut); fill: the side gauge rises to one third"
 }

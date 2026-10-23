@@ -1,36 +1,30 @@
 {
- "centre": "skull with a cutaway window showing the brain, spinal cord below",
+ "centre": "a glowing brain at the top of an org chart on a whiteboard",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "tick",
-   "word": "carries signals",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "skull",
-   "x": 1250,
-   "y": 250,
+   "text": "manager",
+   "x": 1260,
+   "y": 330,
    "to": [
-    1060,
-    360
+    1050,
+    450
    ],
-   "word": "skull"
+   "word": "manager"
   },
   {
    "type": "name",
-   "text": "spinal cord",
-   "x": 1300,
-   "y": 800,
+   "text": "field workers",
+   "x": 1650,
+   "y": 600,
    "to": [
-    985,
-    760
+    1290,
+    720
    ],
-   "word": "spinal cord"
+   "word": "field workers"
   }
- ]
+ ],
+ "motion": "edge: the org-chart lines draw from the manager brain down to the arm workers"
 }

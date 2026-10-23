@@ -1,29 +1,37 @@
 {
- "centre": "ancient spiral cephalopod shell at the fork of two roads",
+ "centre": "a tree of life growing up from a tiny worm and splitting again and again into branches tipped with animals",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "hundreds of millions of years ago",
+   "name": "rustle",
+   "word": "split",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "cephalopods",
-   "x": 1560,
+   "type": "say",
+   "text": "Look at us grow!",
+   "x": 1250,
    "y": 760,
    "to": [
-    1560,
-    660
+    1004,
+    816
    ],
-   "word": "cephalopods"
+   "word": "humble start"
+  },
+  {
+   "type": "name",
+   "text": "tree of life",
+   "x": 640,
+   "y": 770,
+   "to": [
+    945,
+    760
+   ],
+   "word": "tree of life"
   }
  ],
- "iris": [
-  1560,
-  520
- ]
+ "motion": "the tree of life splits into many branches: trunk, splits and branches grow tier by tier (mv-grow y/x), tip animals rise in (mv-rise), camera climbs the tree (mv-track)"
 }

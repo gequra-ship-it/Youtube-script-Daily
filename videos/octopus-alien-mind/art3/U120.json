@@ -1,36 +1,20 @@
 {
- "centre": "a coconut shell half being lifted out of the mud by an octopus arm",
+ "centre": "a mutated DNA bead whose change spreads very slowly through a row of fish generations along a growing timeline",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "sand",
-   "word": "dug shells out of the mud",
-   "vol": 0.5
-  }
- ],
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "mud",
-   "x": 700,
-   "y": 780,
+   "text": "generations",
+   "x": 900,
+   "y": 820,
    "to": [
     900,
-    690
+    742
    ],
-   "word": "mud"
-  },
-  {
-   "type": "name",
-   "text": "stacked",
-   "x": 430,
-   "y": 420,
-   "to": [
-    430,
-    520
-   ],
-   "word": "stacked"
+   "word": "generations"
   }
- ]
+ ],
+ "motion": "grow + track: the timeline bar grows slowly while the camera travels from the mutation along the generations to the octopus (the twist)"
 }

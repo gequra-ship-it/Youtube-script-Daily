@@ -1,23 +1,31 @@
 {
- "centre": "a glowing nerve knot (ganglion) inside a see-through octopus arm",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "fine detail",
+ "centre": "a pale octopus in front of red coral; the coral colour rises through its whole body until it matches",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "arms",
-   "x": 520,
-   "y": 380,
+   "type": "say",
+   "text": "Where did it go?",
+   "x": 470,
+   "y": 250,
    "to": [
-    560,
-    560
+    600,
+    400
    ],
-   "word": "arms"
+   "word": "How can"
+  },
+  {
+   "type": "say",
+   "text": "Perfect match!",
+   "x": 1080,
+   "y": 190,
+   "to": [
+    1310,
+    330
+   ],
+   "word": "very well"
   }
- ]
+ ],
+ "motion": "liquid: the colour of the surrounding coral rises up through the octopus skin from the arms to the top of the mantle"
 }

@@ -1,30 +1,30 @@
 {
- "centre": "a big round water bubble blown by the octopus",
+ "centre": "the banded mimic octopus with golden slit-pupil eyes facing a threat",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Researchers",
-   "x": 600,
-   "y": 520,
+   "text": "threat",
+   "x": 1440,
+   "y": 640,
    "to": [
-    400,
-    600
+    1440,
+    540
    ],
-   "word": "Researchers"
+   "word": "threat"
   },
   {
-   "type": "name",
-   "text": "captive octopuses",
-   "x": 1450,
-   "y": 210,
+   "type": "say",
+   "text": "Back off!",
+   "x": 620,
+   "y": 250,
    "to": [
-    1430,
-    380
+    880,
+    400
    ],
-   "word": "captive octopuses"
+   "word": "threat"
   }
- ]
+ ],
+ "motion": "none: fish drifts (existing walk) and the octopus faces it; bubble kept"
 }

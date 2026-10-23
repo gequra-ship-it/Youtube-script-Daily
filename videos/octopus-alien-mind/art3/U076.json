@@ -1,29 +1,31 @@
 {
- "centre": "an octopus eye in a head half red, half blended into the rock",
+ "centre": "a cuttlefish and a squid in dim water; a magnified cuttlefish eye whose round pupil closes into a U shape",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "hush",
-   "word": "camouflage",
-   "vol": 0.5
-  }
- ],
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "camouflage",
-   "x": 1480,
-   "y": 230,
+   "text": "cuttlefish",
+   "x": 560,
+   "y": 790,
    "to": [
-    1300,
-    380
+    560,
+    680
    ],
-   "word": "camouflage"
+   "word": "cuttlefish"
+  },
+  {
+   "type": "name",
+   "text": "squid",
+   "x": 640,
+   "y": 160,
+   "to": [
+    470,
+    222
+   ],
+   "word": "squid"
   }
  ],
- "iris": [
-  1500,
-  600
- ]
+ "motion": "fill: the iris flap lowers from the top of the magnified pupil and turns the round pupil into the odd U shape"
 }

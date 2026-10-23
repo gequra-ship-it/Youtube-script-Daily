@@ -1,25 +1,37 @@
 {
- "centre": "a round porthole window of a seaside marine centre with an octopus inside",
+ "centre": "an octopus crawling across the sea floor on its arms, the dashed swim route into open water left empty",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "New Zealand",
+   "name": "sand",
+   "word": "crawling",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "marine studies centre",
-   "x": 1530,
-   "y": 270,
+   "text": "open water",
+   "x": 1000,
+   "y": 140,
    "to": [
-    1260,
-    380
+    930,
+    205
    ],
-   "word": "marine studies centre"
+   "word": "open water"
+  },
+  {
+   "type": "name",
+   "text": "sea floor",
+   "x": 1580,
+   "y": 850,
+   "to": [
+    1520,
+    790
+   ],
+   "word": "sea floor"
   }
- ]
+ ],
+ "motion": "path + tracking + dash: the octopus crawls along the sea floor while the swim route through open water stays empty"
 }

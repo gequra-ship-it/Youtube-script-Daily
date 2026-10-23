@@ -1,29 +1,48 @@
 {
- "centre": "two coconut shell halves closed into a ball, octopus eyes peeking from the gap",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "shelter",
+ "centre": "a surprised octopus holding a pipe, a lamp and a coconut shell",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "assembled",
-   "vol": 0.55
+   "name": "pop",
+   "word": "surprising us",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "shelter",
-   "x": 700,
-   "y": 1060,
+   "text": "escapes",
+   "x": 250,
+   "y": 640,
    "to": [
-    600,
-    940
+    250,
+    510
    ],
-   "word": "shelter"
+   "word": "escapes"
+  },
+  {
+   "type": "name",
+   "text": "pranks",
+   "x": 830,
+   "y": 640,
+   "to": [
+    830,
+    500
+   ],
+   "word": "pranks"
+  },
+  {
+   "type": "name",
+   "text": "tools",
+   "x": 790,
+   "y": 1250,
+   "to": [
+    630,
+    1230
+   ],
+   "word": "tools"
   }
- ]
+ ],
+ "motion": "props pop in on each word: pipe (escapes), lamp (pranks), coconut shell (tools)"
 }

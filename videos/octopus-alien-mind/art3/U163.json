@@ -1,25 +1,34 @@
 {
- "centre": "a glowing glass globe holding a twisted bead strand of RNA with several beads glowing as if edited",
+ "centre": "the round golden eye of a large grouper watching a weak pale male octopus",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "hush",
-   "word": "RNA editing",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Cephalopods",
-   "x": 1470,
-   "y": 290,
+   "text": "males",
+   "x": 430,
+   "y": 300,
    "to": [
-    1470,
-    395
+    420,
+    430
    ],
-   "word": "Cephalopods"
+   "word": "males"
+  },
+  {
+   "type": "say",
+   "text": "Dinner time!",
+   "x": 690,
+   "y": 330,
+   "to": [
+    810,
+    490
+   ],
+   "word": "prey"
   }
- ]
+ ],
+ "iris": [
+  420,
+  560
+ ],
+ "motion": "popin: moon phases appear one by one as the weeks of decline pass; the grouper eyes its easy prey"
 }
