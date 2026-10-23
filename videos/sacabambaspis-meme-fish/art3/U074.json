@@ -1,23 +1,20 @@
 {
- "centre": "round red-rock fossil slab with the head shield seen from above, empty eye sockets at the very front",
- "focus": [
-  960,
-  480,
-  1.8
- ],
- "focus_word": "where the eyes sat",
+ "centre": "a cut-away block of the aspidine armour slides out of a shield fragment: layered bone with no cell spaces; an inset of ordinary bone shows living cells",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "fossils",
-   "x": 1210,
-   "y": 300,
+   "text": "aspidine",
+   "x": 1020,
+   "y": 250,
    "to": [
-    1030,
-    420
+    1020,
+    330
    ],
-   "word": "fossils"
+   "word": "aspidine"
   }
- ]
+ ],
+ "motion": "the cut-away block grows out of the fragment (mv-grow, x) to show the inside, then an inset of ordinary bone with cells pops in for contrast (mv-popin): aspidine, bone with no living cells"
 }

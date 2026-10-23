@@ -1,11 +1,13 @@
 {
- "centre": "round porthole on the closed box showing two overlapping cat silhouettes",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "a row of falling dominoes ending at a glowing die, a cracked clockwork clock and a house of cards behind",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "woodblock",
+   "word": "chain",
+   "vol": 0.55
+  }
  ],
- "focus_word": "both alive and dead",
- "sfx": [],
- "labels": []
+ "motion": "a simple chain of causes challenged: six dominoes topple in turn (mv-topple x6, camera tracks the chain) and stop at a chance die that rattles; the fragile house of cards trembles (mv-shake x2)"
 }

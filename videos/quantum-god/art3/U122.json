@@ -1,19 +1,26 @@
 {
- "centre": "empty glass vacuum jar glowing softly from inside",
+ "centre": "a soft cat silhouette walking across a stage into the spotlight",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "step",
+   "word": "Then",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "vacuum",
-   "x": 1340,
-   "y": 330,
+   "type": "say",
+   "text": "Who, me?",
+   "x": 1180,
+   "y": 420,
    "to": [
-    1050,
-    430
+    1330,
+    600
    ],
-   "word": "vacuum"
+   "word": "animal"
   }
- ]
+ ],
+ "motion": "path: the most famous animal in physics walks onto the stage into the spotlight; camera follows, tail sways"
 }

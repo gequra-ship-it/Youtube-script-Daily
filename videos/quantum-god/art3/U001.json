@@ -1,23 +1,26 @@
 {
- "centre": "round wall clock with a cream face and gold rim",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "a long-case wall clock at night: round face with a red second hand, gold pendulum swinging once a second",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "Tick",
+   "vol": 0.6
+  }
  ],
- "focus_word": "clock",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "clock",
-   "x": 1200,
-   "y": 330,
+   "type": "say",
+   "text": "Tick... tock...",
+   "x": 1290,
+   "y": 420,
    "to": [
-    1050,
-    420
+    1078,
+    440
    ],
-   "word": "clock"
+   "word": "Tick"
   }
- ]
+ ],
+ "motion": "joint: pendulum swings once a second; rotor: second hand; track: camera glides from the clock face down to the pendulum"
 }

@@ -1,19 +1,26 @@
 {
- "centre": "round keystone sphere being lowered into a half-built arch",
+ "centre": "round brass-rimmed viewing window of an electron instrument with faint bands on its screen",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "stone",
-   "word": "built",
-   "vol": 0.6
+   "name": "click",
+   "word": "sent electrons",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "25 YEARS",
-   "word": "twenty-five years"
+   "type": "say",
+   "text": "What is that?",
+   "x": 1100,
+   "y": 260,
+   "to": [
+    1010,
+    430
+   ],
+   "word": "something"
   }
- ]
+ ],
+ "motion": "dash: dashes stream along the beam from the electron gun toward the slit object; bubble reacts to the surprise (something else)"
 }

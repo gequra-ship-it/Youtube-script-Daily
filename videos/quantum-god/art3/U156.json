@@ -1,23 +1,48 @@
 {
- "centre": "bright particle riding a guiding wave",
+ "centre": "a long DNA double strand; a copier clamp slides along it leaving one wrong rung, a drop from a flask stains it, and wavy rays from a glowing pebble strike it",
  "focus": null,
- "iris": [
-  400,
-  560
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "chemical damage",
+   "vol": 0.55
+  }
  ],
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Bohm picture",
-   "x": 1300,
-   "y": 300,
+   "text": "copying errors",
+   "x": 520,
+   "y": 760,
    "to": [
-    1000,
-    420
+    710,
+    550
    ],
-   "word": "Bohm"
+   "word": "copying errors"
+  },
+  {
+   "type": "name",
+   "text": "chemical damage",
+   "x": 760,
+   "y": 230,
+   "to": [
+    1040,
+    330
+   ],
+   "word": "chemical damage"
+  },
+  {
+   "type": "name",
+   "text": "radiation",
+   "x": 1500,
+   "y": 760,
+   "to": [
+    1500,
+    560
+   ],
+   "word": "radiation"
   }
  ],
- "focus_word": null
+ "motion": "path + dash: the copier slides the whole strand (a copying error appears behind it), a chemical drop falls onto it, and radiation waves march down onto it"
 }

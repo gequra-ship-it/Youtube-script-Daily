@@ -1,7 +1,37 @@
 {
- "centre": "warm glass lantern hovering at a fork in the road",
- "sfx": [],
- "labels": [],
+ "centre": "an old printing room: a journal slams onto the desk while a framed jigsaw of a landscape waits for its one missing piece",
  "focus": null,
- "focus_word": null
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "published",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "paper",
+   "x": 660,
+   "y": 450,
+   "to": [
+    850,
+    540
+   ],
+   "word": "paper"
+  },
+  {
+   "type": "say",
+   "text": "Do I fit?",
+   "x": 1000,
+   "y": 200,
+   "to": [
+    1100,
+    290
+   ],
+   "word": "complete"
+  }
+ ],
+ "motion": "a paper is published: the journal slams onto the desk (mv-slam); is the description complete: the missing jigsaw piece rises into view beside the gap (mv-rise)"
 }

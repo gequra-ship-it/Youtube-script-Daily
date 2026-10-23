@@ -1,13 +1,23 @@
 {
- "centre": "a brass magnifying lens on an open history book, showing a fish head with its gill arches",
+ "centre": "magnifying lens over the meme face in a feed, showing the real armored head with its front eyes",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "iris": [
+  1520,
+  560
+ ],
+ "labels": [
   {
-   "name": "page",
-   "word": "vertebrate history",
-   "vol": 0.5
+   "type": "say",
+   "text": "Hmm, look!",
+   "x": 1640,
+   "y": 290,
+   "to": [
+    1525,
+    400
+   ],
+   "word": "look"
   }
  ],
- "labels": []
+ "motion": "camera moves in from the viewer toward the magnified face: look a little closer"
 }

@@ -1,19 +1,37 @@
 {
- "centre": "glowing cyan orb of empty space squeezed between two metal plates",
+ "centre": "a measuring gauge on the front of an opened box, a whole cat sitting up out of it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "click",
+   "word": "almost instantly",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "metal plates",
-   "x": 960,
-   "y": 190,
+   "type": "say",
+   "text": "Wide awake!",
+   "x": 470,
+   "y": 210,
    "to": [
-    1220,
-    300
+    690,
+    430
    ],
-   "word": "metal plates"
+   "word": "cat"
+  },
+  {
+   "type": "name",
+   "text": "measuring device",
+   "x": 1350,
+   "y": 470,
+   "to": [
+    1040,
+    590
+   ],
+   "word": "measuring device"
   }
- ]
+ ],
+ "motion": "rise + swing: a whole cat sits up out of the open box while the gauge needle swings once and settles almost at once"
 }

@@ -1,13 +1,23 @@
 {
- "centre": "printed journal page with a bright round diagram of two linked dots",
- "focus": null,
- "focus_word": null,
- "sfx": [
+ "centre": "softly glowing globe floating above an open book",
+ "focus": [
+  960,
+  560,
+  1.6
+ ],
+ "focus_word": "objective story",
+ "labels": [
   {
-   "name": "page",
-   "word": "paper",
-   "vol": 0.55
+   "type": "say",
+   "text": "Who knows?",
+   "x": 1330,
+   "y": 330,
+   "to": [
+    1030,
+    470
+   ],
+   "word": "nobody knows"
   }
  ],
- "labels": []
+ "motion": "left alone (globe approaches slowly); speech bubble only"
 }

@@ -1,19 +1,37 @@
 {
- "centre": "gold ball held still by three strings pulling on it",
+ "centre": "a long row of dominoes on a study table, each knocked over by the one before, started by a brass ball",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "woodblock",
+   "word": "follows",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "forces",
-   "x": 1250,
+   "text": "cause",
+   "x": 330,
+   "y": 520,
+   "to": [
+    330,
+    700
+   ],
+   "word": "earlier cause"
+  },
+  {
+   "type": "name",
+   "text": "effect",
+   "x": 1500,
    "y": 470,
    "to": [
-    1180,
-    360
+    1460,
+    640
    ],
-   "word": "forces"
+   "word": "effect"
   }
- ]
+ ],
+ "motion": "path + topple: a brass ball rolls into the first domino and the whole row falls one by one (every effect from an earlier cause); camera follows the chain"
 }

@@ -1,34 +1,37 @@
 {
- "centre": "glowing first gill arch inside the head",
- "focus": [
-  690,
-  860,
-  1.5
+ "centre": "a branching bush of life growing up from one root, living tips glowing, closed ends on dead branches, Sacabambaspis resting on one ending",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "rustle",
+   "word": "a bush",
+   "vol": 0.45
+  }
  ],
- "focus_word": "the first of the supporting arches",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "arches",
-   "x": 760,
-   "y": 600,
+   "type": "say",
+   "text": "Not a failure!",
+   "x": 388,
+   "y": 721,
    "to": [
-    740,
-    720
+    368,
+    861
    ],
-   "word": "arches"
+   "word": "failure"
   },
   {
    "type": "name",
-   "text": "gills",
-   "x": 860,
-   "y": 1130,
+   "text": "endings",
+   "x": 810,
+   "y": 821,
    "to": [
-    880,
-    1000
+    770,
+    731
    ],
-   "word": "gills"
+   "word": "endings"
   }
- ]
+ ],
+ "motion": "edge: the bush grows its many branches and side paths from the root (0.3-4.7 s); fish tail wriggles on its ending branch"
 }

@@ -1,7 +1,30 @@
 {
- "centre": "a gold coin embossed with a little armoured jawless fish, flipping like a lucky toss",
+ "centre": "oval portrait frame with Sacabambaspis and a red X badge",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sacabambaspis",
+   "x": 960,
+   "y": 260,
+   "to": [
+    960,
+    385
+   ],
+   "word": "Sacabambaspis"
+  },
+  {
+   "type": "say",
+   "text": "Nope!",
+   "x": 630,
+   "y": 380,
+   "to": [
+    420,
+    350
+   ],
+   "word": "not"
+  }
+ ],
+ "motion": "the red X badge is stamped on: not our grandparent (slam)"
 }

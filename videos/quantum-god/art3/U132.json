@@ -1,36 +1,37 @@
 {
- "centre": "warm round lamp glow between two desks",
+ "centre": "a gallery of four frames: one with a receding line of copies of the viewer, three with other pictures of the same physics",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pencil",
-   "word": "Tryon",
+   "name": "pop",
+   "word": "endless copies",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Edward Tryon",
-   "x": 400,
-   "y": 440,
+   "type": "say",
+   "text": "Hmm, really?",
+   "x": 330,
+   "y": 200,
    "to": [
-    400,
-    640
+    "405.1",
+    "389.2"
    ],
-   "word": "Edward Tryon"
+   "word": "careful"
   },
   {
    "type": "name",
-   "text": "Alexander Vilenkin",
-   "x": 1500,
-   "y": 440,
+   "text": "interpretation",
+   "x": 1300,
+   "y": 640,
    "to": [
-    1500,
-    640
+    1150,
+    480
    ],
-   "word": "Alexander Vilenkin"
+   "word": "interpretation"
   }
- ]
+ ],
+ "motion": "popin: copies of you pop up one after another in the first frame, then three more frames light up: an interpretation, one among several"
 }

@@ -1,47 +1,35 @@
 {
- "centre": "a magnifying lens over the zigzag muscle blocks of Haikouichthys",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "pencil",
-   "word": "stiff rod",
-   "vol": 0.5
-  }
+ "centre": "an anatomy chart of a jawless fish head whose first gill arch moves forward and becomes the jaw",
+ "focus": [
+  700,
+  560,
+  1.6
  ],
+ "focus_word": "the first",
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "stiff rod",
-   "x": 1380,
-   "y": 330,
+   "text": "gills",
+   "x": 1060,
+   "y": 300,
    "to": [
-    1360,
+    980,
     470
    ],
-   "word": "stiff rod"
+   "word": "gills"
   },
   {
    "type": "name",
-   "text": "pair of eyes",
-   "x": 380,
-   "y": 320,
+   "text": "jaw",
+   "x": 470,
+   "y": 360,
    "to": [
-    365,
-    455
+    500,
+    520
    ],
-   "word": "pair of eyes"
-  },
-  {
-   "type": "name",
-   "text": "zigzag blocks of muscle",
-   "x": 960,
-   "y": 740,
-   "to": [
-    960,
-    620
-   ],
-   "word": "zigzag blocks of muscle"
+   "word": "jaw"
   }
- ]
+ ],
+ "motion": "path + edge: the coral first gill arch slides forward to the mouth, then the upper and lower jaw bars draw out from it (the jaw growing from the first arch)"
 }

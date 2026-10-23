@@ -1,7 +1,31 @@
 {
- "centre": "ball sharp on its left half and fuzzy on its right half",
- "sfx": [],
- "labels": [],
+ "centre": "a glass bell jar on a lab bench with a hanging pendulum over a metal plate, the vacuum inside fizzing with particle pairs; a gauge beside it",
  "focus": null,
- "focus_word": null
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "precisely",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "NINETEEN NINETY-SEVEN",
+   "word": "nineteen ninety-seven"
+  },
+  {
+   "type": "name",
+   "text": "vacuum",
+   "x": 1300,
+   "y": 260,
+   "to": [
+    1190,
+    380
+   ],
+   "word": "vacuum"
+  }
+ ],
+ "motion": "measured precisely: pendulum in the jar swings and settles (mv-swing), gauge needle reads (mv-joint); the vacuum is not an absence, so particle pairs pop in one by one (mv-popin)"
 }

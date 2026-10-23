@@ -1,25 +1,30 @@
 {
- "centre": "a Sacabambaspis lying on the sea bed while fresh sediment heaps over its body",
+ "centre": "a magnifier sweeping along a row of light boxes with relatives' head-shield scans, ending at an empty viewer with only a dashed Sacabambaspis outline",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "sand",
-   "word": "sediment settled",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "sediment",
-   "x": 1420,
-   "y": 260,
+   "text": "Sacabambaspis",
+   "x": 1440,
+   "y": 220,
    "to": [
-    1300,
-    360
+    1440,
+    330
    ],
-   "word": "sediment"
+   "word": "Sacabambaspis"
+  },
+  {
+   "type": "say",
+   "text": "Nothing here...",
+   "x": 1180,
+   "y": 720,
+   "to": [
+    1340,
+    600
+   ],
+   "word": "cannot say"
   }
- ]
+ ],
+ "motion": "searching and not finding: the magnifier travels along the scans of relatives (path, camera tracks) and stops at the empty viewer"
 }

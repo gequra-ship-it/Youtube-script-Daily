@@ -1,13 +1,21 @@
 {
- "centre": "brass pocket watch with ticking hands",
+ "centre": "a long electron column sending single electrons one at a time to a detector screen",
  "focus": null,
  "focus_word": null,
+ "track": false,
  "sfx": [
   {
    "name": "tick",
-   "word": "October",
+   "word": "one at a time",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "NINETEEN EIGHTY-NINE",
+   "word": "nineteen eighty-nine"
+  }
+ ],
+ "motion": "electrons sent one at a time: three electrons travel the column in turn (mv-path, staggered, camera not tracking) and each leaves a dot as it lands (mv-popin)"
 }

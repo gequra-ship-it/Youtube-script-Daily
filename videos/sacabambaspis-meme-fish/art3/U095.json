@@ -1,23 +1,14 @@
 {
- "centre": "Sacabambaspis resting low on the sandy sea floor, head shield at the centre",
+ "centre": "brass travel compass with a swinging needle over a map of drifting continents",
  "focus": null,
  "focus_word": null,
- "iris": [
-  1500,
-  640
- ],
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "sea floor",
-   "x": 560,
-   "y": 760,
-   "to": [
-    650,
-    640
-   ],
-   "word": "sea floor"
+   "name": "sand",
+   "word": "scattered",
+   "vol": 0.5
   }
- ]
+ ],
+ "track": false,
+ "motion": "one continent drifts slowly away across the map, continents moved a long way (mv-path, camera tracking off); compass needle keeps swinging"
 }

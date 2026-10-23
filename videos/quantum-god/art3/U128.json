@@ -1,13 +1,35 @@
 {
- "centre": "round precision gauge with a cream face and a coral needle",
+ "centre": "a glowing wave rising from the papers on a late-night desk and flowing on across the room without ever stopping",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "precisely",
+   "name": "pencil",
+   "word": "proposed",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "NINETEEN FIFTY-SEVEN",
+   "word": "nineteen fifty-seven"
+  },
+  {
+   "type": "name",
+   "text": "Hugh Everett",
+   "x": 380,
+   "y": 400,
+   "to": [
+    470,
+    560
+   ],
+   "word": "Hugh Everett"
+  }
+ ],
+ "iris": [
+  480,
+  600
+ ],
+ "motion": "edge + scroll: a wave draws out of his papers and keeps rolling on to the right: what if the wave function never collapses"
 }

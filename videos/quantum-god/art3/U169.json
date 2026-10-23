@@ -1,13 +1,30 @@
 {
- "centre": "round opening in the clouds glowing with warm light over a quiet village",
+ "centre": "glowing atom symbol above one shared open book between two lecterns",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "hush",
-   "word": "cosmic observer",
-   "vol": 0.5
+   "type": "say",
+   "text": "It's quantum!",
+   "x": 330,
+   "y": 310,
+   "to": [
+    380,
+    470
+   ],
+   "word": "quantum"
+  },
+  {
+   "type": "say",
+   "text": "No, quantum!",
+   "x": 1560,
+   "y": 310,
+   "to": [
+    1540,
+    470
+   ],
+   "word": "quantum"
   }
  ],
- "labels": []
+ "motion": "dash: the strings from both lecterns to the shared book flow (both sides borrow the same language); two bubbles for the rival speakers"
 }

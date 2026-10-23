@@ -1,25 +1,19 @@
 {
- "centre": "the bony head shield of Sacabambaspis seen from above, glowing on a stand in a dark display case",
+ "centre": "a lantern-lit round slab of red rock with a crowd of small fish fossils on it",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "hush",
-   "word": "quiet surprise",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
-   "type": "name",
-   "text": "head shield",
-   "x": 1330,
-   "y": 330,
+   "type": "say",
+   "text": "So many!",
+   "x": 1230,
+   "y": 350,
    "to": [
-    1060,
-    440
+    1050,
+    480
    ],
-   "word": "head shield"
+   "word": "crowd"
   }
- ]
+ ],
+ "motion": "the camera travels from the lantern across the dark ground to the crowded fossil slab (mv-track)"
 }

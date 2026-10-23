@@ -1,38 +1,15 @@
 {
- "centre": "Sacabambaspis head shield with a cut-away window showing the gills and organs",
- "focus": [
-  1000,
-  500,
-  1.8
- ],
- "focus_word": "the gills",
- "sfx": [],
- "labels": [
+ "centre": "top view of Sacabambaspis swinging in a wide U-turn around a boulder; a dashed tight turn shows what it could not do",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "name",
-   "text": "gills",
-   "x": 880,
-   "y": 670,
-   "to": [
-    935,
-    560
-   ],
-   "word": "gills"
-  },
-  {
-   "type": "name",
-   "text": "main organs",
-   "x": 1160,
-   "y": 360,
-   "to": [
-    1050,
-    470
-   ],
-   "word": "main organs"
+   "name": "swish",
+   "word": "sharp turns",
+   "vol": 0.5
   }
  ],
- "iris": [
-  1500,
-  500
- ]
+ "labels": [],
+ "track": false,
+ "motion": "fish follows a wide U-turn round the boulder (mv-path, turns with it, no tracking) while the body chain bends and the stiff shield stays straight; dashed tight-turn ghost marches (mv-dash): rigid front makes sharp turns hard"
 }

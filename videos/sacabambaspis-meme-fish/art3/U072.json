@@ -1,25 +1,21 @@
 {
- "centre": "a bony eye ring from the fish's head shield, the eye inside left as a dashed blank",
+ "centre": "Sacabambaspis in murky water senses a nautiloid approaching: water ripples travel to its glowing lateral line",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pencil",
-   "word": "looked like",
-   "vol": 0.5
-  }
- ],
+ "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Sacabambaspis",
-   "x": 1480,
-   "y": 470,
+   "type": "say",
+   "text": "Who's there?",
+   "x": 640,
+   "y": 330,
    "to": [
-    1350,
-    600
+    806,
+    590
    ],
-   "word": "Sacabambaspis"
+   "word": "predator"
   }
- ]
+ ],
+ "track": false,
+ "motion": "the nautiloid glides in from the murk (mv-path, no tracking), ripples draw across to the fish (mv-edge), its lateral line glints (mv-glint) and it startles (mv-shake): detecting a disturbance in murky water"
 }

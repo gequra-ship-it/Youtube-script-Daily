@@ -1,23 +1,30 @@
 {
- "centre": "gold ball on a museum pedestal between a crank wheel and a sunflower",
+ "centre": "two figures seen from behind in a tall-windowed hall: a seated, uneasy listener and a standing speaker pointing at a chalkboard",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pop",
-   "word": "Quantum mechanics",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
-   "type": "num",
-   "text": "3 ARGUMENTS",
-   "word": "three arguments"
+   "type": "name",
+   "text": "Albert Einstein",
+   "x": 470,
+   "y": 380,
+   "to": [
+    560,
+    640
+   ],
+   "word": "Albert Einstein"
+  },
+  {
+   "type": "name",
+   "text": "Niels Bohr",
+   "x": 1560,
+   "y": 380,
+   "to": [
+    1400,
+    520
+   ],
+   "word": "Niels Bohr"
   }
  ],
- "iris": [
-  400,
-  560
- ]
+ "motion": "track: camera moves from the uneasy seated listener (leaning, shifting) to the standing defender gesturing at the board (limb)"
 }

@@ -1,30 +1,42 @@
 {
- "centre": "teal ball gliding on a ruler rail with an arrow",
- "sfx": [],
+ "centre": "two metal plates inside a vacuum chamber, slowly pressed together by the busier vacuum outside them",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "faint force",
+   "vol": 0.45
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Position",
-   "x": 400,
-   "y": 340,
-   "to": [
-    400,
-    440
-   ],
-   "word": "position"
+   "type": "num",
+   "text": "NINETEEN FORTY-EIGHT",
+   "word": "nineteen forty-eight"
   },
   {
    "type": "name",
-   "text": "Momentum",
-   "x": 1430,
-   "y": 330,
+   "text": "metal plates",
+   "x": 960,
+   "y": 190,
    "to": [
-    1250,
-    480
+    830,
+    260
    ],
-   "word": "momentum"
+   "word": "metal plates"
+  },
+  {
+   "type": "say",
+   "text": "Hey, who's pushing?",
+   "x": 1460,
+   "y": 230,
+   "to": [
+    1130,
+    300
+   ],
+   "word": "faint force"
   }
  ],
- "focus": null,
- "focus_word": null
+ "motion": "path+dash: the two metal plates creep toward each other while the dense vacuum ripples outside keep marching in - the faint force"
 }

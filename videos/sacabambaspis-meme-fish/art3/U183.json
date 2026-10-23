@@ -1,19 +1,26 @@
 {
- "centre": "a round emblem with a placoderm at the top of a food pyramid of smaller sea animals",
+ "centre": "ivory medallion with the calm Sacabambaspis head shield and front eyes",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "stay curious",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "placoderms",
-   "x": 1380,
-   "y": 330,
+   "type": "say",
+   "text": "Thank you!",
+   "x": 1260,
+   "y": 360,
    "to": [
-    1070,
-    450
+    945,
+    520
    ],
-   "word": "placoderms"
+   "word": "Thank you"
   }
- ]
+ ],
+ "motion": "hearts rise above the medallion as a thank-you"
 }

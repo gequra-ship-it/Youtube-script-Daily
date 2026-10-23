@@ -1,25 +1,48 @@
 {
- "centre": "glowing vertebra, one bone of a backbone, above an open book",
+ "centre": "soft plush toy of the googly-eyed fish model",
  "sfx": [
   {
-   "name": "page",
-   "word": "chapter",
-   "vol": 0.55
+   "name": "rustle",
+   "word": "Fan art",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "backbones",
-   "x": 1440,
-   "y": 420,
+   "text": "plush toys",
+   "x": 960,
+   "y": 300,
    "to": [
-    1150,
-    780
+    960,
+    390
    ],
-   "word": "backbones"
+   "word": "plush toys"
+  },
+  {
+   "type": "name",
+   "text": "key chains",
+   "x": 1260,
+   "y": 760,
+   "to": [
+    1440,
+    690
+   ],
+   "word": "key chains"
+  },
+  {
+   "type": "say",
+   "text": "Hug me!",
+   "x": 1250,
+   "y": 430,
+   "to": [
+    990,
+    520
+   ],
+   "word": "plush"
   }
  ],
  "focus": null,
- "focus_word": null
+ "focus_word": null,
+ "motion": "fan art, comics and stickers pop onto the board one after another; plush says a line"
 }

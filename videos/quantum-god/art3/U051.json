@@ -1,29 +1,13 @@
 {
- "centre": "glowing blue-white electron source firing dots to the right",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "electrons",
+ "centre": "unattended round detector lens",
  "sfx": [
   {
-   "name": "pop",
-   "word": "Fire",
-   "vol": 0.6
+   "name": "hush",
+   "word": "wash the pattern away",
+   "vol": 0.5
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Electrons",
-   "x": 1360,
-   "y": 310,
-   "to": [
-    1250,
-    480
-   ],
-   "word": "electrons"
-  }
- ]
+ "focus": null,
+ "focus_word": null,
+ "motion": "dashes stream from the lens to the unread screen: the detector records automatically (mv-dash)"
 }

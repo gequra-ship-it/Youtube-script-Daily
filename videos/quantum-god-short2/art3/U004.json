@@ -1,7 +1,26 @@
 {
- "centre": "ink pot with a feather quill",
+ "centre": "journal paper above a jigsaw picture of reality with one piece missing",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "page",
+   "word": "paper",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Complete?",
+   "x": 700,
+   "y": 820,
+   "to": [
+    640,
+    730
+   ],
+   "word": "complete"
+  }
+ ],
+ "motion": "edge: jigsaw cut lines draw across the picture of reality, leaving one glowing gap (glint) - is the description complete?"
 }

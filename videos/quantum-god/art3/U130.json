@@ -1,13 +1,45 @@
 {
- "centre": "empty glass orb with only a faint spark inside",
+ "centre": "glowing seed at the heart of a tree of light branches",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "hush",
-   "word": "nothing",
-   "vol": 0.5
+   "type": "name",
+   "text": "many-worlds",
+   "x": 1240,
+   "y": 250,
+   "to": [
+    1080,
+    380
+   ],
+   "word": "many-worlds"
+  },
+  {
+   "type": "name",
+   "text": "supporters",
+   "x": 380,
+   "y": 590,
+   "to": [
+    380,
+    650
+   ],
+   "word": "supporters"
+  },
+  {
+   "type": "say",
+   "text": "Makes sense!",
+   "x": 760,
+   "y": 640,
+   "to": [
+    455,
+    690
+   ],
+   "word": "serious"
   }
  ],
- "labels": []
+ "iris": [
+  380,
+  720
+ ],
+ "motion": "left alone (supporters breathe, core swells); speech bubble only"
 }

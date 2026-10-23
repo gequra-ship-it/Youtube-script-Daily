@@ -1,11 +1,30 @@
 {
- "centre": "round plate with two narrow glowing slits",
+ "centre": "round brass dial gauge with a needle",
  "focus": [
   960,
   500,
-  2.0
+  1.8
  ],
- "focus_word": "narrow slits",
- "sfx": [],
- "labels": []
+ "focus_word": "measurement",
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "measurement",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Measurement",
+   "x": 1380,
+   "y": 300,
+   "to": [
+    1050,
+    430
+   ],
+   "word": "measurement"
+  }
+ ],
+ "motion": "wire from the instrument to the dial draws itself: measurement is a physical hook-up, not a mind (mv-edge, plus existing needle)"
 }

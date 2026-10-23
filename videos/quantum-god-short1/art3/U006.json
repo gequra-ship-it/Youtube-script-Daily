@@ -1,7 +1,19 @@
 {
- "centre": "round screen with many light and dark bands",
+ "centre": "a tall electron column; one electron travels alone down the channel while the others wait in the source",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "electrons",
+   "x": 270,
+   "y": 470,
+   "to": [
+    465,
+    400
+   ],
+   "word": "electrons"
+  }
+ ],
+ "motion": "path: a single electron travels the whole column from the source to the detector (camera follows) while the others wait; popin: it lands as one hit (one at a time)"
 }

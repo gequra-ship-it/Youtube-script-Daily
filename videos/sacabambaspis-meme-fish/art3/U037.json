@@ -1,11 +1,37 @@
 {
- "centre": "a magnifying lens showing a small early jawless fish enlarged",
+ "centre": "Sacabambaspis on a lab tray with a magnifier showing its skin: bone plates sitting in the skin like a shell",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "iris": [
-  470,
-  650
- ]
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "shell-skinned",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "ostracoderms",
+   "x": 460,
+   "y": 420,
+   "to": [
+    520,
+    560
+   ],
+   "word": "ostracoderms"
+  },
+  {
+   "type": "name",
+   "text": "shell-skinned",
+   "x": 1390,
+   "y": 800,
+   "to": [
+    1390,
+    650
+   ],
+   "word": "shell-skinned"
+  }
+ ],
+ "motion": "a name that means shell-skinned: in the magnifier the bone plates pop into the skin one by one, forming a shell (mv-popin row)"
 }

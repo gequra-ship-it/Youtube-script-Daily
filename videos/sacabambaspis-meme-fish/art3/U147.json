@@ -1,23 +1,31 @@
 {
- "centre": "a lingulid brachiopod: tongue-shaped shell on a fleshy stalk dug into the sea floor",
+ "centre": "round fossil stone with a glowing scan window showing the fish bones inside",
  "focus": [
   960,
-  520,
-  1.6
+  500,
+  1.8
  ],
- "focus_word": "lingulid brachiopods",
- "sfx": [],
+ "focus_word": "inside fossils",
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "look inside",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "lingulid brachiopods",
-   "x": 1260,
+   "text": "Fossils",
+   "x": 1420,
    "y": 330,
    "to": [
-    1040,
+    1062,
     440
    ],
-   "word": "lingulid brachiopods"
+   "word": "fossils"
   }
- ]
+ ],
+ "track": false,
+ "motion": "a thin scan line sweeps down through the fossil window: looking inside without breaking"
 }

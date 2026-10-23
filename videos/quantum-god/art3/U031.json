@@ -1,17 +1,34 @@
 {
- "centre": "gauge dial with its needle pinned past the red zone",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "nonsense",
- "sfx": [
+ "centre": "two figures seen from behind in a tall-windowed hall; the left one raises a hand to answer",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "pencil",
-   "word": "nonsense",
-   "vol": 0.5
+   "type": "name",
+   "text": "Bohr",
+   "x": 300,
+   "y": 300,
+   "to": [
+    470,
+    380
+   ],
+   "word": "Bohr"
+  },
+  {
+   "type": "name",
+   "text": "Einstein",
+   "x": 1640,
+   "y": 330,
+   "to": [
+    1440,
+    400
+   ],
+   "word": "Einstein"
   }
  ],
- "labels": []
+ "iris": [
+  520,
+  600
+ ],
+ "motion": "Bohr answered Einstein: the left figure's raised arm gestures (mv-limb, amp 9/8) while a dashed arc of the reply draws across to Einstein (mv-edge)"
 }

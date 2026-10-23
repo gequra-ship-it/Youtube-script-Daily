@@ -1,29 +1,30 @@
 {
- "centre": "the rigid bony head shield of Sacabambaspis in side view, marked straight; only the body behind it bends",
- "focus": null,
- "focus_word": null,
+ "centre": "ivory medallion with a Sacabambaspis head shield, eyes at the front",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "shield",
  "sfx": [
   {
-   "name": "click",
-   "word": "rigid shield",
+   "name": "hush",
+   "word": "may start",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "shield",
-   "x": 700,
-   "y": 250,
+   "text": "Shield",
+   "x": 1290,
+   "y": 290,
    "to": [
-    860,
-    352
+    925,
+    455
    ],
    "word": "shield"
   }
  ],
- "iris": [
-  1460,
-  560
- ]
+ "motion": "the skeleton medallion is stamped in as 'your bones' is said (mv-slam); fish medallion keeps its approach"
 }

@@ -1,7 +1,37 @@
 {
- "centre": "closed eye disc, attention not needed",
- "sfx": [],
+ "centre": "a cutaway nucleus of plain nucleons searched by a magnifying glass that finds no clock or trigger; then a particle flies out on its own",
  "focus": null,
  "focus_word": null,
- "labels": []
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "randomness",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "No clock in here...",
+   "x": 1420,
+   "y": 200,
+   "to": [
+    1130,
+    280
+   ],
+   "word": "randomness"
+  },
+  {
+   "type": "name",
+   "text": "nucleus",
+   "x": 520,
+   "y": 200,
+   "to": [
+    800,
+    360
+   ],
+   "word": "nucleus"
+  }
+ ],
+ "motion": "path+popin with tracking: the magnifier searches all around the nucleus for a hidden clock or trigger and finds none; afterwards a particle pops out at random"
 }

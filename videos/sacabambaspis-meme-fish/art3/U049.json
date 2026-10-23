@@ -1,1 +1,19 @@
-{"centre": "round gauge dial with a swinging needle", "focus": null, "focus_word": null, "sfx": [], "labels": [{"type": "num", "text": "468 - 453 MILLION", "word": "four hundred and sixty-eight and four hundred and fifty-three million"}]}
+{
+ "centre": "two fish seen from above: a modern fish with side eyes and wide view cones, Sacabambaspis with two front eyes looking straight ahead",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Straight ahead!",
+   "x": 1640,
+   "y": 300,
+   "to": [
+    1420,
+    380
+   ],
+   "word": "forward-facing"
+  }
+ ],
+ "motion": "side eyes give a wide view, front eyes a narrow one: the modern fish's view cones open sideways (mv-grow x), later Sacabambaspis's two cones open forward (mv-grow y)"
+}

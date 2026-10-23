@@ -1,13 +1,26 @@
 {
- "centre": "old rolled scroll seen end on, tied with a blue ribbon",
+ "centre": "an unstable carbon-14 nucleus of small balls trembling above a lab bench, a wall clock with a sweeping hand and a fine gauge",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "page",
-   "word": "passed down",
-   "vol": 0.55
+   "name": "tick",
+   "word": "next hour",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "carbon-fourteen",
+   "x": 300,
+   "y": 400,
+   "to": [
+    470,
+    560
+   ],
+   "word": "carbon-fourteen"
+  }
+ ],
+ "motion": "core tremble + rotor + grow: the unstable nucleus jitters, the clock hand sweeps through the hour and the gauge rises exactly to its gold mark (the chance is known with great precision)"
 }

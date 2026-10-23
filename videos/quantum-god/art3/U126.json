@@ -1,19 +1,26 @@
 {
- "centre": "glowing two-lobed hydrogen orbital, cyan lobe and gold lobe, nucleus between",
+ "centre": "a quantum smear stretching from a single atom on a stand across a teacup, an alarm clock and a chair",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "bell",
+   "word": "warning",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "hydrogen",
-   "x": 1000,
-   "y": 800,
+   "text": "everyday objects",
+   "x": 1080,
+   "y": 380,
    "to": [
-    1000,
-    650
+    1230,
+    500
    ],
-   "word": "hydrogen"
+   "word": "everyday objects"
   }
- ]
+ ],
+ "motion": "grow + shake: the warning lamp blinks, then the atom's wave band stretches out over a cup, a clock and a chair, which shudder as it reaches them"
 }

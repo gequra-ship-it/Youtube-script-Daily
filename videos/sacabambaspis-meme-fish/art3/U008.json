@@ -1,11 +1,26 @@
 {
- "centre": "glass dome display case with the googly-eyed fish model inside, on a museum pedestal",
- "sfx": [],
- "labels": [],
- "iris": [
-  420,
-  600
+ "centre": "museum visitors puzzling over the model in its case under a painting of the ancient sea",
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "real question",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Really?",
+   "x": 610,
+   "y": 300,
+   "to": [
+    460,
+    420
+   ],
+   "word": "could not believe"
+  }
  ],
  "focus": null,
- "focus_word": null
+ "focus_word": null,
+ "motion": "swing: a hanging question sign swings over the gallery ('here is the real question'); visitors breathe and nod"
 }

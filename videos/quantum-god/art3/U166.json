@@ -1,13 +1,34 @@
 {
- "centre": "blank grey orb with a closed eye, blind to the collisions around it",
- "sfx": [
+ "centre": "thought bubble holding a tiny glowing world",
+ "iris": [
+  1520,
+  650
+ ],
+ "labels": [
   {
-   "name": "click",
-   "word": "collisions",
-   "vol": 0.5
+   "type": "name",
+   "text": "Experiments",
+   "x": 1520,
+   "y": 400,
+   "to": [
+    1500,
+    540
+   ],
+   "word": "Experiments"
+  },
+  {
+   "type": "say",
+   "text": "Just by thinking?",
+   "x": 440,
+   "y": 260,
+   "to": [
+    480,
+    415
+   ],
+   "word": "thoughts"
   }
  ],
- "labels": [],
  "focus": null,
- "focus_word": null
+ "focus_word": null,
+ "motion": "popin: thought dots pop up toward the little world (thoughts shape reality?) while the instrument needle stays steady"
 }

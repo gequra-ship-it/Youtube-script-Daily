@@ -1,0 +1,30 @@
+{
+ "centre": "the menu as a thought cloud of question marks, then Sacabambaspis gathering crumbs on the sea floor while a trilobite walks by",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Crumbs, please!",
+   "x": 1080,
+   "y": 400,
+   "to": [
+    1061.5,
+    641.9
+   ],
+   "word": "crumbs"
+  },
+  {
+   "type": "say",
+   "text": "Phew!",
+   "x": 1560,
+   "y": 520,
+   "to": [
+    1680,
+    720
+   ],
+   "word": "prey"
+  }
+ ],
+ "motion": "from the guessed menu to the crumbs: the camera travels along the sea floor from the question cloud to the fish (mv-track), the crumb pile at its mouth shrinks as it gathers (mv-fill)"
+}

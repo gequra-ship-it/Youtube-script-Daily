@@ -1,25 +1,18 @@
 {
- "centre": "large glossy raindrop under the building storm",
+ "centre": "flattened, cracked head shield fossil on a round stone",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "rain",
-   "word": "rain poured",
+   "name": "stone",
+   "word": "Rock presses",
    "vol": 0.6
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "rivers",
-   "x": 220,
-   "y": 1230,
-   "to": [
-    200,
-    1180
-   ],
-   "word": "rivers"
-  }
- ]
+ "iris": [
+  280,
+  460
+ ],
+ "track": false,
+ "motion": "path: rock slabs sink slowly onto the fossil (pressing for ages)"
 }

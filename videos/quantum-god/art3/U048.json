@@ -1,13 +1,19 @@
 {
- "centre": "a solid heavy round stone on a plinth",
+ "centre": "a person seen from behind looking through a window at the screen showing two plain bands",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "stone",
-   "word": "the argument was real",
-   "vol": 0.6
+   "type": "say",
+   "text": "Is it me?",
+   "x": 330,
+   "y": 200,
+   "to": [
+    500,
+    300
+   ],
+   "word": "looking"
   }
  ],
- "labels": []
+ "motion": "does a mind change reality just by looking: the person breathes and nods (mv-breathe, mv-nod) while a dotted gaze line flows from the head to the screen (mv-dash)"
 }

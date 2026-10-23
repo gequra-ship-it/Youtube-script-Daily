@@ -1,1 +1,37 @@
-{"centre": "round pocket-watch dial with a slowly turning hand and a shaded time span", "focus": null, "focus_word": null, "sfx": [], "labels": [{"type": "num", "text": "ABOUT 485", "word": "about four hundred and eighty-five"}]}
+{
+ "centre": "an early sea scorpion rising out of a crowded reef while a small Sacabambaspis flinches",
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "beginning to appear",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "sea scorpions",
+   "x": 1250,
+   "y": 420,
+   "to": [
+    1060,
+    540
+   ],
+   "word": "sea scorpions"
+  },
+  {
+   "type": "say",
+   "text": "Too crowded!",
+   "x": 560,
+   "y": 280,
+   "to": [
+    330,
+    430
+   ],
+   "word": "crowd"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "motion": "rise: the sea scorpion emerges from the sand (beginning to appear), legs paddling; shake: the small backboned fish flinches (not the rulers)"
+}

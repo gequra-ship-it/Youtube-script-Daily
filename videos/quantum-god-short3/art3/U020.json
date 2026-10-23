@@ -1,29 +1,14 @@
 {
- "centre": "solid wooden chair in a dusk room",
- "focus": [
-  540,
-  880,
-  1.7
- ],
- "focus_word": "chair",
+ "centre": "a wooden water wheel turning beside a mill at night, simple physics diagram arrows drawing themselves over it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "creak",
-   "word": "chair",
-   "vol": 0.55
+   "name": "splash",
+   "word": "nature",
+   "vol": 0.5
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "chair",
-   "x": 690,
-   "y": 700,
-   "to": [
-    640,
-    820
-   ],
-   "word": "chair"
-  }
- ]
+ "labels": [],
+ "motion": "rotor + edge + scroll: the water wheel turns, the river flows, and physics arrows draw on over the scene (physics explains how nature works)"
 }

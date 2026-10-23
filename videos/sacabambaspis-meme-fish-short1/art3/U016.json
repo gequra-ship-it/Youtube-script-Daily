@@ -1,23 +1,27 @@
 {
- "centre": "two eyes side by side, each in a ring of bony plates",
- "focus": [
-  540,
-  860,
-  1.9
+ "centre": "the model on a turntable with one googly eye; a hand brings the second eye along a curve into place",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "choice",
+   "vol": 0.5
+  }
  ],
- "focus_word": "ring of bone",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "ring of bone",
-   "x": 540,
-   "y": 1010,
+   "type": "say",
+   "text": "Stop laughing!",
+   "x": 300,
+   "y": 1290,
    "to": [
-    594,
-    912
+    470,
+    1110
    ],
-   "word": "ring of bone"
+   "word": "laugh"
   }
- ]
+ ],
+ "motion": "path (no camera tracking): the sculptor's hand carries the round black-and-white googly eye into the empty socket (her choice); laughing phone screens pop in at 'internet laugh'"
 }

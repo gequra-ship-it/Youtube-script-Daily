@@ -1,7 +1,35 @@
 {
- "centre": "faint dashed-outline orb half hidden in fog",
+ "centre": "a chalkboard where a nested puzzle draws itself: a box with a person and a small system inside, a second person outside",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "posed a puzzle",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "NINETEEN SIXTY-ONE",
+   "word": "nineteen sixty-one"
+  },
+  {
+   "type": "name",
+   "text": "Eugene Wigner",
+   "x": 300,
+   "y": 300,
+   "to": [
+    460,
+    420
+   ],
+   "word": "Eugene Wigner"
+  }
+ ],
+ "iris": [
+  470,
+  560
+ ],
+ "motion": "edge: the puzzle diagram (lab, friend inside, observer outside) draws itself on the board as he poses it; the prize medal glints on the desk"
 }

@@ -1,24 +1,26 @@
 {
- "centre": "close-up of the front of the head shield from above: two small pits glowing softly between the eyes and the shield",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "a dark storm cloud raining as it moves in over a barren coast with two winding rivers",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "rain",
+   "word": "rain poured",
+   "vol": 0.6
+  }
  ],
- "focus_word": "Two small pits",
- "spot": true,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "small pits",
-   "x": 1170,
-   "y": 360,
+   "text": "rivers",
+   "x": 560,
+   "y": 820,
    "to": [
-    985,
-    470
+    700,
+    680
    ],
-   "word": "small pits"
+   "word": "rivers"
   }
- ]
+ ],
+ "motion": "path + dash: the raining storm cloud drifts in from the sea over the coast (camera follows), rain streaks fall and water flows down the rivers"
 }

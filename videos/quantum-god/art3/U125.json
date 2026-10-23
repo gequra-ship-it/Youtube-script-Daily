@@ -1,13 +1,20 @@
 {
- "centre": "soft glowing hydrogen atom cloud with a bright nucleus and one tiny electron",
+ "centre": "a round glowing frame above the closed box holding two overlapping cat states, one sitting awake, one lying still",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "click",
-   "word": "tiny shift",
-   "vol": 0.5
+   "type": "name",
+   "text": "box",
+   "x": 1400,
+   "y": 640,
+   "to": [
+    1190,
+    660
+   ],
+   "word": "the box"
   }
  ],
- "labels": []
+ "motion": "scroll: two see-through cat states overlap and slide through each other while the box stays shut: both at once until opened"
 }

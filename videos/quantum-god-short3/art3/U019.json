@@ -1,17 +1,23 @@
 {
- "centre": "gold orb branching into many fainter copies",
+ "centre": "brass orrery with a gold sun and two planets on arms",
  "focus": [
-  540,
-  860,
-  1.6
+  800,
+  1190,
+  1.7
  ],
- "focus_word": "every outcome",
- "sfx": [
+ "focus_word": "Napoleon",
+ "labels": [
   {
-   "name": "pop",
-   "word": "happens",
-   "vol": 0.5
+   "type": "say",
+   "text": "Hmm?",
+   "x": 690,
+   "y": 1040,
+   "to": [
+    790,
+    1130
+   ],
+   "word": "Napoleon"
   }
  ],
- "labels": []
+ "motion": "popin: the hat on the sill (Napoleon's side of the story) pops in beside the orrery; bubble from the hat; focus kept"
 }

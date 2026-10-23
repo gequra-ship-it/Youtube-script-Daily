@@ -1,13 +1,30 @@
 {
- "centre": "roulette wheel seen from above with a small white ball",
+ "centre": "faceted gem with facets of different colours",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "tick",
-   "word": "random",
-   "vol": 0.5
+   "type": "say",
+   "text": "Not so fast!",
+   "x": 250,
+   "y": 880,
+   "to": [
+    250,
+    1070
+   ],
+   "word": "disagree"
+  },
+  {
+   "type": "say",
+   "text": "Hmm, really?",
+   "x": 800,
+   "y": 930,
+   "to": [
+    850,
+    1070
+   ],
+   "word": "means"
   }
  ],
- "labels": []
+ "motion": "rise: the rows of physicists rise into the room one after another around the gem; two bubbles show them disagreeing"
 }

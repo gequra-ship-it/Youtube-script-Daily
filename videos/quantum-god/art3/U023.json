@@ -1,23 +1,26 @@
 {
- "centre": "gold weight hanging on a chain from a single glowing hook",
- "focus": [
-  960,
-  190,
-  1.8
+ "centre": "a glowing lamp on a notebook page sending out energy as separate little packets that land one per step on a staircase",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "packets",
+   "vol": 0.5
+  }
  ],
- "focus_word": "first cause",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "first cause",
-   "x": 1230,
-   "y": 210,
+   "text": "quanta",
+   "x": 1470,
+   "y": 300,
    "to": [
-    985,
-    175
+    1610,
+    400
    ],
-   "word": "first cause"
+   "word": "quanta"
   }
- ]
+ ],
+ "motion": "popin: energy packets appear one by one, one per stair step, not a smooth ramp (energy comes in tiny separate packets)"
 }

@@ -1,11 +1,26 @@
 {
- "centre": "viewing disc with two plain bright bands",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "ivory die tumbling in the air with a gold glow",
+ "sfx": [
+  {
+   "name": "woodblock",
+   "word": "dice",
+   "vol": 0.55
+  }
  ],
- "focus_word": "two plain bands",
- "sfx": [],
- "labels": []
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Roll!",
+   "x": 1330,
+   "y": 330,
+   "to": [
+    1040,
+    440
+   ],
+   "word": "dice"
+  }
+ ],
+ "motion": "the dotted throw arc streams toward the die: nature rolls dice (mv-dash, plus existing flip)"
 }

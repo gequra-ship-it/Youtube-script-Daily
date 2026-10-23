@@ -1,11 +1,7 @@
 {
- "centre": "round wall disc with two glowing narrow slits",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "two narrow slits",
+ "centre": "an electron gun fires two electrons up through a wall with two narrow slits onto a screen, where two stripes appear",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "tick",
@@ -16,25 +12,26 @@
  "labels": [
   {
    "type": "name",
-   "text": "Electrons",
-   "x": 690,
-   "y": 1050,
+   "text": "two narrow slits",
+   "x": 770,
+   "y": 1010,
    "to": [
-    548,
-    1060
+    660,
+    930
    ],
-   "word": "electrons"
+   "word": "slits"
   },
   {
    "type": "name",
-   "text": "Slits",
-   "x": 700,
-   "y": 700,
+   "text": "screen",
+   "x": 300,
+   "y": 660,
    "to": [
-    580,
-    810
+    330,
+    590
    ],
-   "word": "slits"
+   "word": "screen"
   }
- ]
+ ],
+ "motion": "path: electrons fly from the gun through each slit to the screen (camera tracks the left one), then grow: two stripes appear where common sense expects them"
 }

@@ -1,17 +1,26 @@
 {
- "centre": "round medallion made of two matching halves, amber and teal, between two sealed envelopes",
+ "centre": "the early universe as a horn opening from a single bright point; ripples inside widen as it grows",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "page",
-   "word": "cards",
-   "vol": 0.5
+   "name": "bloom",
+   "word": "inflation",
+   "vol": 0.55
   }
  ],
- "labels": [],
- "iris": [
-  400,
-  590
- ]
+ "labels": [
+  {
+   "type": "name",
+   "text": "cosmic inflation",
+   "x": 1150,
+   "y": 190,
+   "to": [
+    1290,
+    330
+   ],
+   "word": "cosmic inflation"
+  }
+ ],
+ "motion": "grow(x) + track: the young universe opens out from one bright point and the camera rides along as it expands (cosmic inflation)"
 }

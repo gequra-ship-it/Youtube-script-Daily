@@ -1,11 +1,23 @@
 {
- "centre": "brass compass whose needle points right, away from a faint eye",
- "iris": [
-  400,
-  330
+ "centre": "cream clock face with a gold rim and a coral crack across it",
+ "focus": [
+  960,
+  500,
+  1.7
  ],
- "sfx": [],
- "labels": [],
- "focus": null,
- "focus_word": null
+ "focus_word": "clockwork",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Crack!",
+   "x": 1200,
+   "y": 330,
+   "to": [
+    1030,
+    430
+   ],
+   "word": "clockwork"
+  }
+ ],
+ "motion": "pendulum swings wider while the clock face trembles with its crack: the clockwork ends (mv-joint amp up, plus existing tremble)"
 }

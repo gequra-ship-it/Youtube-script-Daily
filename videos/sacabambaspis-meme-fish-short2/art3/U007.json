@@ -1,17 +1,35 @@
 {
- "centre": "round fossil nodule holding a piece of bony head shield",
+ "centre": "Sacabambaspis seen from above on a night sea floor: broad head shield, scaled body, thin whip-like tail",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "stone",
-   "word": "the reason we know it",
-   "vol": 0.55
+   "type": "num",
+   "text": "10 CM",
+   "word": "ten centimeters"
+  },
+  {
+   "type": "name",
+   "text": "head shield",
+   "x": 830,
+   "y": 470,
+   "to": [
+    665,
+    500
+   ],
+   "word": "head shield"
+  },
+  {
+   "type": "name",
+   "text": "whip-like tail",
+   "x": 300,
+   "y": 1200,
+   "to": [
+    530,
+    1210
+   ],
+   "word": "whip-like tail"
   }
  ],
- "labels": [],
- "iris": [
-  470,
-  450
- ]
+ "motion": "tracking camera surveys the fish from the head shield down the scaled body to the whip-like tail, following the narration front to back; ruler dashes march"
 }

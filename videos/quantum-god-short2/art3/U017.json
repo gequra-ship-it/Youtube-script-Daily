@@ -1,7 +1,26 @@
 {
- "centre": "blue ball held under a glowing gold ceiling bar",
+ "centre": "badge with a sealed message struck through, light streaks behind",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "faster",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Not that fast!",
+   "x": 330,
+   "y": 1120,
+   "to": [
+    495,
+    905
+   ],
+   "word": "faster"
+  }
+ ],
+ "motion": "scroll: a light capsule travels steadily across the top while the message badge stays struck out"
 }

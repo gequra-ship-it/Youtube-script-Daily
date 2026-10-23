@@ -1,28 +1,19 @@
 {
- "centre": "Sacabambaspis from above, head shield in the middle, with a measuring bracket",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "head shield",
- "sfx": [],
+ "centre": "small armored Sacabambaspis like a tiny submarine in dark water; a straight-shelled nautiloid bumps its shield and turns away",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "head shield",
-   "x": 330,
-   "y": 640,
+   "type": "say",
+   "text": "Not on the menu!",
+   "x": 560,
+   "y": 1300,
    "to": [
-    470,
-    790
+    720,
+    1090
    ],
-   "word": "head shield"
-  },
-  {
-   "type": "num",
-   "text": "10 CM",
-   "word": "ten centimeters"
+   "word": "hard to eat"
   }
- ]
+ ],
+ "motion": "path: a nautiloid glides in, its tentacles touch the hard shield (shake) and it veers off, camera follows; the fish keeps wriggling its flexible rear end (hard to eat, not fast)"
 }

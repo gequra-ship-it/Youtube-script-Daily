@@ -1,18 +1,14 @@
 {
- "centre": "Sacabambaspis head-on with its mouth shut, a plain slit and no jaw",
+ "centre": "Sacabambaspis seen head-on: its armored head shield, two front eyes and slit mouth",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "say",
-   "text": "Too hard...",
-   "x": 1300,
-   "y": 330,
-   "to": [
-    1010,
-    520
-   ]
+   "name": "hush",
+   "word": "One idea",
+   "vol": 0.5
   }
- ]
+ ],
+ "track": false,
+ "motion": "a hunter creeps in toward the fish, the idea of protection (mv-path, camera tracking off)"
 }

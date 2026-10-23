@@ -1,17 +1,30 @@
 {
- "centre": "bright teal globe with two ghost copies of itself, one gold and one coral",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "every outcome",
- "sfx": [
+ "centre": "globe standing steady on its own, borrowed wooden props left unused",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "pop",
-   "word": "outcome",
-   "vol": 0.55
+   "type": "name",
+   "text": "quantum language",
+   "x": 560,
+   "y": 170,
+   "to": [
+    450,
+    330
+   ],
+   "word": "quantum language"
+  },
+  {
+   "type": "say",
+   "text": "No props needed!",
+   "x": 1190,
+   "y": 260,
+   "to": [
+    1040,
+    440
+   ],
+   "word": "physics"
   }
  ],
- "labels": []
+ "motion": "topple x2: the borrowed wooden props fall away from the globe, which stands on its own (physics does not require it)"
 }

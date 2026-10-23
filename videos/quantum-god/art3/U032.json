@@ -1,17 +1,37 @@
 {
- "centre": "one bright gold packet of energy, a bead",
- "focus": [
-  960,
-  500,
-  2.0
- ],
- "focus_word": "packets",
+ "centre": "a brass balance weighing a gear (order) against a die (chance) in a library",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "separate",
+   "name": "creak",
+   "word": "argument",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Order, please!",
+   "x": 470,
+   "y": 250,
+   "to": [
+    600,
+    420
+   ],
+   "word": "argument"
+  },
+  {
+   "type": "say",
+   "text": "Roll with it!",
+   "x": 1440,
+   "y": 250,
+   "to": [
+    1300,
+    450
+   ],
+   "word": "random"
+  }
+ ],
+ "motion": "the argument weighs order against chance: the balance beam swings back and forth and slowly settles level (mv-swing), undecided"
 }

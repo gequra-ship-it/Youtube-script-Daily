@@ -1,13 +1,26 @@
 {
- "centre": "dim lantern-like orb floating in fog",
+ "centre": "an empty room: an empty chair beside a screen where dots appear by themselves and form bands",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "breath",
-   "word": "uncomfortable",
+   "name": "pop",
+   "word": "behaves",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "No audience needed",
+   "x": 1500,
+   "y": 560,
+   "to": [
+    1300,
+    450
+   ],
+   "word": "behaves"
+  }
+ ],
+ "motion": "reality behaves without a person or deity looking: beside an empty chair the screen's dots pop in batch by batch and form bands (mv-popin x6)"
 }

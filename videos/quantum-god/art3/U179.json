@@ -1,17 +1,26 @@
 {
- "centre": "round gilt museum frame holding a soft cat silhouette",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "the most famous animal",
+ "centre": "a forecast chart on the night sky: the observed cooling curve, its blue prediction toward a cold ember, and faint new branches",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "hush",
-   "word": "most famous animal",
+   "name": "pencil",
+   "word": "prediction",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "heat death",
+   "x": 1600,
+   "y": 740,
+   "to": [
+    1565,
+    672
+   ],
+   "word": "heat death"
+  }
+ ],
+ "motion": "a prediction, not a certainty: the forecast curve draws on toward a cold ember (mv-edge + mv-rise), then faint alternative branches draw out and new-discovery sparks pop in (mv-edge + mv-popin x2)"
 }

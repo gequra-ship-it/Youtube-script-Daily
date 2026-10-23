@@ -1,11 +1,26 @@
 {
- "centre": "a solid red apple in a pool of light, other things fade to dashes",
- "focus": [
-  960,
-  510,
-  1.6
+ "centre": "round measuring gauge with its needle settling on a reading",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "measured",
+   "vol": 0.5
+  }
  ],
- "focus_word": "perceived",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Measured what?",
+   "x": 660,
+   "y": 250,
+   "to": [
+    470,
+    365
+   ],
+   "word": "measured"
+  }
+ ],
+ "motion": "edge: the trend line draws across the chart, what the experiment measured; needle keeps settling"
 }

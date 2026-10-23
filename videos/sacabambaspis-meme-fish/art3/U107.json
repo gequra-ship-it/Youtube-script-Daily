@@ -1,7 +1,37 @@
 {
- "centre": "a magnified round section of aspidine bone with only empty channels, no cells",
+ "centre": "a Sacabambaspis lying on the sea bed while fresh sediment heaps over its body",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "sediment settled",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "sediment",
+   "x": 1420,
+   "y": 260,
+   "to": [
+    1300,
+    360
+   ],
+   "word": "sediment"
+  },
+  {
+   "type": "say",
+   "text": "Stuck!",
+   "x": 700,
+   "y": 330,
+   "to": [
+    880,
+    495
+   ],
+   "word": "buried"
+  }
+ ],
+ "motion": "sediment heap grows over the fish (fill)"
 }

@@ -1,13 +1,31 @@
 {
- "centre": "Sacabambaspis head-on with its slit mouth slightly open, drawing in water and tiny specks",
+ "centre": "a large Sacabambaspis with a cut-away window in its shield where white and blue mineral grains collect and the level rises",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "bubble",
-   "word": "different way",
-   "vol": 0.5
+   "type": "name",
+   "text": "calcium",
+   "x": 400,
+   "y": 130,
+   "to": [
+    450,
+    165
+   ],
+   "word": "calcium"
+  },
+  {
+   "type": "name",
+   "text": "phosphate",
+   "x": 1010,
+   "y": 130,
+   "to": [
+    900,
+    160
+   ],
+   "word": "phosphate"
   }
  ],
- "labels": []
+ "motion": "dotted streams of calcium and phosphate flow from the water into the shield (mv-dash) and the stored mineral level inside rises (mv-liquid): armour as a mineral store"
 }

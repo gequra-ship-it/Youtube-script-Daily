@@ -1,29 +1,26 @@
 {
- "centre": "brass magnifying lens over an ancient bone",
- "focus": [
-  1040,
-  520,
-  1.7
- ],
- "focus_word": "archaeologists",
+ "centre": "two stone pillars in a foggy plain, one topped by a particle with a fixed tag, the other by a light arrow; the tagged pillar topples",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "sand",
-   "word": "archaeologists",
-   "vol": 0.5
+   "name": "stone",
+   "word": "drop definite properties",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "bones",
-   "x": 560,
-   "y": 680,
+   "text": "definite properties",
+   "x": 520,
+   "y": 860,
    "to": [
-    420,
-    778
+    760,
+    745
    ],
-   "word": "bones"
+   "word": "definite properties"
   }
- ]
+ ],
+ "motion": "one assumption has to go: the pillar of definite properties topples (mv-topple) and the other pillar shudders (mv-shake) as dust puffs up (mv-popin)"
 }

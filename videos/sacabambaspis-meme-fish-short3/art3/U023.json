@@ -1,17 +1,30 @@
 {
- "centre": "round badge with a hinged jaw",
+ "centre": "a tall ladder under a night sky with an armored fish on the bottom rung and a person standing on the top",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "hush",
-   "word": "biggest changes",
-   "vol": 0.5
+   "type": "say",
+   "text": "Not a ladder!",
+   "x": 760,
+   "y": 1210,
+   "to": [
+    640,
+    1340
+   ],
+   "word": "ladder"
+  },
+  {
+   "type": "name",
+   "text": "humans",
+   "x": 790,
+   "y": 470,
+   "to": [
+    600,
+    520
+   ],
+   "word": "humans"
   }
  ],
- "labels": [],
- "iris": [
-  560,
-  450
- ]
+ "motion": "track: the camera climbs the ladder from the fish at the bottom to the person at the top (1.2-5.4 s), as the narration names the ladder; person breathes and nods, fish tail wriggles"
 }

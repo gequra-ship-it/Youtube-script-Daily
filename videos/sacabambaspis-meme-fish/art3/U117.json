@@ -1,19 +1,26 @@
 {
- "centre": "a glowing bony armour plate at the turning point of a winding road through time",
+ "centre": "a balance scale weighing the googly-eyed museum model against a fossil slab, never settling",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "creak",
+   "word": "grades",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "vertebrates",
-   "x": 1420,
-   "y": 520,
+   "type": "say",
+   "text": "Am I right?",
+   "x": 430,
+   "y": 300,
    "to": [
-    1420,
-    300
+    700,
+    470
    ],
-   "word": "vertebrates"
+   "word": "model"
   }
- ]
+ ],
+ "motion": "swing: the scale with the model on one pan and the fossil on the other rocks back and forth, unsettled, because no study has graded the model against the fossils"
 }

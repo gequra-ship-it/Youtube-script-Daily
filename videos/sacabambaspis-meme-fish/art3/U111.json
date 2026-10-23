@@ -1,19 +1,18 @@
 {
- "centre": "Sacabambaspis side view with its silvery head shield, the fish's coat of armor",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "centre": "an easel painting of Sacabambaspis: solid surviving head shield, the missing tail, eye and lip drawn in as the artist's choices",
+ "focus": [
+  1100,
+  450,
+  1.5
+ ],
+ "focus_word": "choices",
+ "sfx": [
   {
-   "type": "name",
-   "text": "coat of armor",
-   "x": 900,
-   "y": 290,
-   "to": [
-    920,
-    440
-   ],
-   "word": "coat of armor"
+   "name": "pencil",
+   "word": "artist",
+   "vol": 0.5
   }
- ]
+ ],
+ "labels": [],
+ "motion": "edge: the parts that did not survive (tail, tail fin, eye ring, lip, scales) draw themselves onto the painting, the artist's choices completing the reconstruction"
 }

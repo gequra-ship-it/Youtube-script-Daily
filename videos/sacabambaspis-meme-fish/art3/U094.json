@@ -1,25 +1,42 @@
 {
- "centre": "a heavy cross-section of dense bone from the head shield",
+ "centre": "the southern supercontinent with its shallow margins drawing on and four fossil-site markers",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "thud",
-   "word": "dense",
-   "vol": 0.6
-  }
- ],
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Sacabambaspis",
-   "x": 420,
-   "y": 470,
+   "text": "Bolivia",
+   "x": 300,
+   "y": 400,
    "to": [
-    300,
-    610
+    490,
+    450
    ],
-   "word": "Sacabambaspis"
+   "word": "Bolivia"
+  },
+  {
+   "type": "name",
+   "text": "Australia",
+   "x": 1620,
+   "y": 620,
+   "to": [
+    1480,
+    500
+   ],
+   "word": "Australia"
+  },
+  {
+   "type": "name",
+   "text": "Oman",
+   "x": 1220,
+   "y": 160,
+   "to": [
+    1100,
+    245
+   ],
+   "word": "Oman"
   }
- ]
+ ],
+ "motion": "edge + popin: the shallow-sea margin draws along the coast of the supercontinent while the fossil sites pop in as each country is named"
 }

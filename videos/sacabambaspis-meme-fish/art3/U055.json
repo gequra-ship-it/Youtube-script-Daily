@@ -1,23 +1,31 @@
 {
- "centre": "round cameo showing the front of Sacabambaspis with its slit mouth",
- "focus": [
-  960,
-  530,
-  1.8
- ],
- "focus_word": "jawless",
- "sfx": [],
+ "centre": "Sacabambaspis seen head-on: rounded silver head shield, two small ringed eyes at the very front, a jawless slit mouth",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "jawless",
-   "x": 1150,
-   "y": 640,
+   "text": "agnathans",
+   "x": 420,
+   "y": 190,
+   "to": [
+    400,
+    280
+   ],
+   "word": "agnathans"
+  },
+  {
+   "type": "say",
+   "text": "No jaw!",
+   "x": 1100,
+   "y": 340,
    "to": [
     1000,
-    540
+    505
    ],
-   "word": "jawless"
+   "word": "jaw"
   }
- ]
+ ],
+ "track": false,
+ "motion": "the jawless school glides in from the right and stops beside its label (mv-path, camera tracking off); bubble from the face"
 }

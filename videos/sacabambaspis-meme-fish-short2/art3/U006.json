@@ -1,19 +1,30 @@
 {
- "centre": "cut-away disc of skin: bone plates with bumps grown in the skin above soft tissue",
+ "centre": "round fossil nodule holding a piece of bony head shield",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "the reason we know it",
+   "vol": 0.55
+  }
+ ],
+ "iris": [
+  470,
+  450
+ ],
+ "motion": "shake: the digging pick taps at the rock (the coat is how we know it); bubble from the fish",
  "labels": [
   {
-   "type": "name",
-   "text": "plates of bone",
-   "x": 540,
-   "y": 1040,
+   "type": "say",
+   "text": "Nice coat!",
+   "x": 300,
+   "y": 335,
    "to": [
-    540,
-    820
+    400,
+    440
    ],
-   "word": "plates of bone"
+   "word": "hard coat"
   }
  ]
 }

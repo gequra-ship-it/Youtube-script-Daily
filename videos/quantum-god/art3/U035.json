@@ -1,13 +1,26 @@
 {
- "centre": "brass gear turning around a glowing hub",
+ "centre": "a small amber bullet-like ball flying toward a wall with two gaps",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pencil",
-   "word": "kept working",
+   "name": "tick",
+   "word": "bullets",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Two stripes",
+   "x": 1400,
+   "y": 250,
+   "to": [
+    1560,
+    400
+   ],
+   "word": "two stripes"
+  }
+ ],
+ "motion": "path: a bullet-like particle flies from the source through the upper slit to the screen, where bullets would make a stripe; camera follows"
 }

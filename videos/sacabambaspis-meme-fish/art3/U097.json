@@ -1,12 +1,38 @@
 {
- "centre": "a magnifying lens over the fossil body showing only scales and an empty space",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "a glowing cream fragment of bony armour with small round bumps",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "scientists found",
+   "vol": 0.5
+  }
  ],
- "focus_word": "no sign",
- "spot": true,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Astraspis",
+   "x": 380,
+   "y": 270,
+   "to": [
+    330,
+    380
+   ],
+   "word": "Astraspis"
+  },
+  {
+   "type": "name",
+   "text": "Eriptychius",
+   "x": 1500,
+   "y": 470,
+   "to": [
+    1400,
+    580
+   ],
+   "word": "Eriptychius"
+  }
+ ],
+ "track": false,
+ "motion": "the two named armored fish swim into place beside the fossil fragment (mv-path x2, camera tracking off)"
 }

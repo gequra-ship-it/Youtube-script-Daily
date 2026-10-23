@@ -1,29 +1,46 @@
 {
- "centre": "glowing golden orb with tiny gears and particles inside, rising from an open book",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "Laplace's demon",
+ "centre": "gold illuminated roundel on a large parchment leaf",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "page",
-   "word": "Later readers",
+   "word": "listed",
    "vol": 0.5
   }
  ],
  "labels": [
   {
+   "type": "num",
+   "text": "5 WAYS",
+   "word": "five ways"
+  },
+  {
    "type": "name",
-   "text": "Laplace's demon",
-   "x": 1290,
-   "y": 330,
+   "text": "Thomas Aquinas",
+   "x": 430,
+   "y": 245,
    "to": [
-    1060,
-    440
+    470,
+    380
    ],
-   "word": "Laplace's demon"
+   "word": "Thomas Aquinas"
+  },
+  {
+   "type": "name",
+   "text": "Summa Theologica",
+   "x": 1420,
+   "y": 690,
+   "to": [
+    1170,
+    680
+   ],
+   "word": "Summa Theologica"
   }
- ]
+ ],
+ "iris": [
+  470,
+  560
+ ],
+ "motion": "popin: the five marks on the page pop in one by one as the five ways are listed"
 }

@@ -1,30 +1,31 @@
 {
- "centre": "a split slab of yellowish Cambrian mudstone with tiny fossil imprints",
- "focus": [
-  1500,
-  600,
-  1.6
- ],
- "focus_word": "Chengjiang",
- "sfx": [
-  {
-   "name": "stone",
-   "word": "Cambrian rocks",
-   "vol": 0.55
-  }
- ],
+ "centre": "an osteostracan with glowing sensory fields on its head shield and paired front fins, swimming across a night sea",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Chengjiang",
-   "x": 1540,
-   "y": 360,
+   "text": "osteostracans",
+   "x": 640,
+   "y": 680,
    "to": [
-    1520,
-    520
+    420,
+    745
    ],
-   "word": "Chengjiang"
+   "word": "osteostracans"
+  },
+  {
+   "type": "name",
+   "text": "paired fins",
+   "x": 1180,
+   "y": 760,
+   "to": [
+    1330,
+    590
+   ],
+   "word": "paired fins"
   }
  ],
- "spot": false
+ "motion": "path: an osteostracan swims across steering with its paired front fins (joint flapping) while its sensory fields glow; camera follows"
 }

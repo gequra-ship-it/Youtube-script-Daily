@@ -1,13 +1,37 @@
 {
- "centre": "brass pivot of a balance that stays level on its own",
- "focus": null,
- "focus_word": null,
+ "centre": "dim cooling ember star",
  "sfx": [
   {
-   "name": "thud",
-   "word": "unnecessary",
-   "vol": 0.5
+   "name": "glimmer",
+   "word": "embers",
+   "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Dim embers",
+   "x": 400,
+   "y": 330,
+   "to": [
+    400,
+    470
+   ],
+   "word": "dim embers"
+  },
+  {
+   "type": "name",
+   "text": "Black holes",
+   "x": 1500,
+   "y": 340,
+   "to": [
+    1500,
+    510
+   ],
+   "word": "black holes"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "motion": "scroll: cold space bands drift slowly past the dim embers and black holes (thin, cold space)"
 }

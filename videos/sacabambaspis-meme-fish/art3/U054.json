@@ -1,29 +1,30 @@
 {
- "centre": "round skin sample covered in shell-like bone plates",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "shell-skinned",
- "sfx": [
-  {
-   "name": "page",
-   "word": "a name",
-   "vol": 0.5
-  }
- ],
+ "centre": "a balance scale: a fossil slab with its eye rings and dashed guesses of eye size on one pan, a googly eye and paint brush on the other",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Arandaspida",
-   "x": 1420,
-   "y": 330,
+   "text": "science",
+   "x": 420,
+   "y": 720,
    "to": [
-    1420,
-    420
+    560,
+    590
    ],
-   "word": "Arandaspida"
+   "word": "science"
+  },
+  {
+   "type": "name",
+   "text": "art",
+   "x": 1480,
+   "y": 720,
+   "to": [
+    1320,
+    590
+   ],
+   "word": "art"
   }
- ]
+ ],
+ "motion": "partly science and partly art: the balance beam rocks between the fossil pan and the paint pan and settles level (mv-swing)"
 }

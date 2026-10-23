@@ -1,25 +1,20 @@
 {
- "centre": "churning ball of muddy river water at the river mouth",
+ "centre": "dashed outline of the fish on a workbench, broken fossil pieces flying into place, three specimen trays above to compare",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "splash",
-   "word": "rushed out",
-   "vol": 0.55
-  }
- ],
+ "track": false,
  "labels": [
   {
    "type": "name",
-   "text": "bay",
-   "x": 860,
-   "y": 1150,
+   "text": "specimens",
+   "x": 540,
+   "y": 600,
    "to": [
-    800,
-    1080
+    540,
+    525
    ],
-   "word": "bay"
+   "word": "specimens"
   }
- ]
+ ],
+ "motion": "edge + path: the original outline draws itself, then five broken pieces fly in one after another and fit together (done by ~4.5 s); camera not tracking"
 }

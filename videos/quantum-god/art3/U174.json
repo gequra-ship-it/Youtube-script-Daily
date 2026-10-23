@@ -1,36 +1,26 @@
 {
- "centre": "glowing quantum particle sitting on the line between a lab and a gas cloud",
+ "centre": "radio dishes scanning toward a quiet far black hole whose predicted glow fades out before reaching them",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "bubble",
-   "word": "laboratory",
+   "name": "pulse",
+   "word": "radiation",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "laboratory",
-   "x": 420,
-   "y": 230,
+   "type": "say",
+   "text": "Nothing yet...",
+   "x": 330,
+   "y": 330,
    "to": [
-    395,
-    420
+    470,
+    470
    ],
-   "word": "laboratory"
-  },
-  {
-   "type": "name",
-   "text": "gas cloud",
-   "x": 1460,
-   "y": 200,
-   "to": [
-    1440,
-    360
-   ],
-   "word": "gas cloud"
+   "word": "Nobody"
   }
- ]
+ ],
+ "motion": "nobody has detected it: dishes keep scanning (mv-joint x2) while the predicted glow draws out from the hole and stops short (mv-edge)"
 }

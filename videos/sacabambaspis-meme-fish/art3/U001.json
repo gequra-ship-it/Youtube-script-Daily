@@ -1,11 +1,5 @@
 {
- "centre": "magnifying lens over the model's two round eyes at the very front of its head",
- "focus": [
-  960,
-  505,
-  1.8
- ],
- "focus_word": "Two round eyes",
+ "centre": "front view of the googly-eyed museum model face on a velvet stage",
  "sfx": [
   {
    "name": "breath",
@@ -13,5 +7,20 @@
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who, me?",
+   "x": 1380,
+   "y": 330,
+   "to": [
+    1150,
+    470
+   ],
+   "word": "permanent surprise"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "motion": "track: camera reads the face from the two front eyes down to the mouth; fill: the slit mouth drops open on 'hangs open'"
 }

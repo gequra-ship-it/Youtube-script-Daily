@@ -1,11 +1,26 @@
 {
- "centre": "bright blue-cyan ball resting at the bottom of a glowing energy bowl",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "round detector dial with a swinging needle",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "a detector",
+   "vol": 0.5
+  }
  ],
- "focus_word": "lowest energy state",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "detector",
+   "x": 960,
+   "y": 250,
+   "to": [
+    960,
+    385
+   ],
+   "word": "detector"
+  }
+ ],
+ "motion": "path (camera stays): the atom drifts along the dotted line toward the detector; needle keeps swinging; atom name label dropped because the atom moves"
 }

@@ -1,7 +1,26 @@
 {
- "centre": "gold seal with a checkmark",
- "sfx": [],
+ "centre": "a glass jar on a pedestal filling up with gold points of knowledge, next to an empty dashed outline of a value that does not exist",
  "focus": null,
  "focus_word": null,
- "labels": []
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "everything",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Full to the brim!",
+   "x": 520,
+   "y": 200,
+   "to": [
+    720,
+    330
+   ],
+   "word": "known"
+  }
+ ],
+ "motion": "fill+dash: the jar of what can be known fills to the top while beside it the outline of the non-existent value stays empty, its dashes only marching around"
 }

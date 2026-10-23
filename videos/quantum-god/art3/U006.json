@@ -1,17 +1,26 @@
 {
- "centre": "a single warm light high in the night sky",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "does God exist?",
+ "centre": "a glowing cloud of tiny dots at the end of a staircase of shrinking brass gears",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "hush",
-   "word": "does God exist",
+   "name": "step",
+   "word": "walk down",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Come closer...",
+   "x": 1470,
+   "y": 400,
+   "to": [
+    1420,
+    540
+   ],
+   "word": "smallest scale"
+  }
+ ],
+ "motion": "path: the gazer walks down the gear steps toward the dot cloud, camera follows; rotors: each gear turns; cells: dots drift"
 }

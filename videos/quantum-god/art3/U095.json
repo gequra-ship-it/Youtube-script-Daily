@@ -1,13 +1,19 @@
 {
- "centre": "fuzzy glowing orb set in a stone-wall niche",
- "sfx": [
+ "centre": "brass-rimmed lens catching starlight",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "click",
-   "word": "built",
-   "vol": 0.5
+   "type": "say",
+   "text": "Hmm?",
+   "x": 1290,
+   "y": 330,
+   "to": [
+    1030,
+    430
+   ],
+   "word": "question"
   }
  ],
- "labels": [],
- "focus": null,
- "focus_word": null
+ "motion": "the telescope sweeps slowly across the sky while the lens catches starlight: asking the question (mv-joint, plus existing approach)"
 }

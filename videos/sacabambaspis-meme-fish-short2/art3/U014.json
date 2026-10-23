@@ -1,7 +1,27 @@
 {
- "centre": "rounded brachiopod shell the jawless fish noses but cannot bite",
+ "centre": "top view: the stiff-fronted fish makes a wide, slow U-turn around a boulder pile on a night reef",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "track": false,
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "sharp turns",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Wide turn...",
+   "x": 330,
+   "y": 380,
+   "to": [
+    190,
+    500
+   ],
+   "word": "sharp turns"
+  }
+ ],
+ "motion": "path (turning, no tracking): the fish swings round the rocks in one wide arc, its rigid shield never bends while only the tail wriggles; dashed route marches"
 }

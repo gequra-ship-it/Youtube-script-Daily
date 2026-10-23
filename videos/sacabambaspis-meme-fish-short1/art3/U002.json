@@ -1,11 +1,19 @@
 {
- "centre": "the model's small dark open mouth",
- "focus": [
-  540,
-  880,
-  1.7
+ "centre": "a lumpy clay face on a small turntable",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Oops!",
+   "x": 790,
+   "y": 760,
+   "to": [
+    580,
+    945
+   ],
+   "word": "wrong"
+  }
  ],
- "focus_word": "slit of a mouth",
- "sfx": [],
- "labels": []
+ "motion": "camera pushes in along the turntable to the lumpy face; \"Oops!\" bubble"
 }

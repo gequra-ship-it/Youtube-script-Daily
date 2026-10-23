@@ -1,19 +1,30 @@
 {
- "centre": "Sacabambaspis from above, swimming with only its tail, no side fins",
+ "centre": "a modern fish with its lateral line along the side, water flowing around it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "tail",
-   "x": 180,
-   "y": 1060,
+   "text": "modern fish",
+   "x": 540,
+   "y": 620,
    "to": [
-    330,
-    1130
+    540,
+    790
    ],
-   "word": "the tail did the work"
+   "word": "modern fish"
+  },
+  {
+   "type": "say",
+   "text": "I feel it!",
+   "x": 330,
+   "y": 740,
+   "to": [
+    340,
+    850
+   ],
+   "word": "feel movement"
   }
- ]
+ ],
+ "motion": "edge: the water swirls draw on around the fish (feeling movement in the water); bubble from the fish"
 }

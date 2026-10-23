@@ -1,13 +1,37 @@
 {
- "centre": "a round fishbowl with a goldfish, surrounded by framed portraits of familiar backboned animals",
+ "centre": "a small glowing lantern sinking from a boat into deep water, where an ancient nautiloid and a sea scorpion rise to meet it",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pop",
-   "word": "you can name",
+   "name": "bubble",
+   "word": "deep water",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Pick me!",
+   "x": 560,
+   "y": 520,
+   "to": [
+    500,
+    610
+   ],
+   "word": "ancient creature"
+  },
+  {
+   "type": "say",
+   "text": "Me next?",
+   "x": 1420,
+   "y": 560,
+   "to": [
+    1490,
+    670
+   ],
+   "word": "explore next"
+  }
+ ],
+ "motion": "sending a small light into the deep: the lantern sinks along a gentle S (path, camera follows down), then two ancient creatures rise towards it (rise)"
 }

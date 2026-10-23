@@ -1,13 +1,31 @@
 {
- "centre": "pocket watch with its hands running backwards on an old route map",
+ "centre": "the silvery museum model with googly eyes resting in its glass display case",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "step",
-   "word": "travel",
-   "vol": 0.5
+   "name": "click",
+   "word": "found it",
+   "vol": 0.55
   }
  ],
- "labels": [],
- "focus": null,
- "focus_word": null
+ "labels": [
+  {
+   "type": "num",
+   "text": "MORE THAN 20 YEARS",
+   "word": "twenty years"
+  },
+  {
+   "type": "say",
+   "text": "Found it!",
+   "x": 1640,
+   "y": 330,
+   "to": [
+    1470,
+    430
+   ],
+   "word": "found"
+  }
+ ],
+ "motion": "quiet display, existing dust and wobble; visitor with phone says a line"
 }

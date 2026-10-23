@@ -1,7 +1,26 @@
 {
- "centre": "a soft, see-through Haikouichthys in a round glow: no armor, no bone, no scales",
+ "centre": "a coral hinged jaw (upper and lower bar meeting at a hinge) in the same round highlight",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "click",
+   "word": "hinged jaws",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "hinged jaws",
+   "x": 1180,
+   "y": 300,
+   "to": [
+    1000,
+    470
+   ],
+   "word": "hinged jaws"
+  }
+ ],
+ "motion": "the jawed fish appears once the arch has become a jaw (popin)"
 }

@@ -1,23 +1,30 @@
 {
- "centre": "desk magnifier lens over broken fossil pieces",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "the pieces",
- "sfx": [],
+ "centre": "Sacabambaspis on an upper museum shelf and Arandaspis on a lower one; a glowing copy of the head shield slides down to fit the other",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "palaeontologist",
-   "x": 760,
-   "y": 560,
+   "text": "head shield",
+   "x": 300,
+   "y": 400,
    "to": [
-    790,
-    650
+    700,
+    480
    ],
-   "word": "palaeontologist"
+   "word": "head shield"
+  },
+  {
+   "type": "say",
+   "text": "Same missing jaw!",
+   "x": 640,
+   "y": 1360,
+   "to": [
+    880,
+    1175
+   ],
+   "word": "missing jaw"
   }
- ]
+ ],
+ "motion": "path: a translucent copy of Sacabambaspis's head shield slides down onto Arandaspis's shield to show the same kind (camera follows, 0.5-3.7 s); tails wriggle"
 }

@@ -1,29 +1,26 @@
 {
- "centre": "large brass belt wheel turned by the wheel before it",
- "focus": [
-  420,
-  470,
-  1.7
- ],
- "focus_word": "first mover",
+ "centre": "gauge dial with its needle pinned past the red zone",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "creak",
-   "word": "moves",
-   "vol": 0.55
+   "name": "pencil",
+   "word": "nonsense",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "first mover",
-   "x": 640,
-   "y": 320,
+   "type": "say",
+   "text": "Nonsense!",
+   "x": 960,
+   "y": 330,
    "to": [
-    440,
-    380
+    960,
+    440
    ],
-   "word": "first mover"
+   "word": "nonsense"
   }
- ]
+ ],
+ "motion": "edge: the old-physics curves draw across the page, then red crosses mark the nonsense answers (bubble over the gauge)"
 }

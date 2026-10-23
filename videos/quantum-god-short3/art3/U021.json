@@ -1,23 +1,37 @@
 {
- "centre": "fuzzy probability cloud of dots around a small gold nucleus",
- "focus": [
-  540,
-  860,
-  1.8
+ "centre": "a glowing particle travels a dashed road from a double-slit plate past a Bell test set-up to a gold play button",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "watch",
+   "vol": 0.55
+  }
  ],
- "focus_word": "Individual atoms",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "atoms",
-   "x": 690,
-   "y": 640,
+   "text": "double slit",
+   "x": 250,
+   "y": 330,
    "to": [
-    610,
-    800
+    440,
+    420
    ],
-   "word": "atoms"
+   "word": "double slit"
+  },
+  {
+   "type": "name",
+   "text": "Bell's test",
+   "x": 760,
+   "y": 690,
+   "to": [
+    600,
+    820
+   ],
+   "word": "Bell's test"
   }
- ]
+ ],
+ "motion": "path + dash + popin: a particle travels the marching dashed route from the double slit to Bell's test, the camera follows, and the play button pops in at the end (follow the experiments, watch the full video)"
 }

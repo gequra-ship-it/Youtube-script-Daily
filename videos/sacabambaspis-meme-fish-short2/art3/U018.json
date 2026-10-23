@@ -1,25 +1,26 @@
 {
- "centre": "a tadpole, round body and wriggling tail, compared with the swimming fish above",
+ "centre": "murky water: Sacabambaspis near the floor senses pressure waves from a sea scorpion approaching out of the silt",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "swish",
-   "word": "wriggling",
+   "name": "breath",
+   "word": "approaching predator",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "tadpole",
-   "x": 300,
-   "y": 1070,
+   "type": "say",
+   "text": "Who's there?",
+   "x": 400,
+   "y": 1350,
    "to": [
-    430,
-    940
+    580,
+    1185
    ],
-   "word": "tadpole"
+   "word": "disturbance"
   }
- ]
+ ],
+ "motion": "path: an early sea scorpion creeps out of the murk toward the fish (approaching predator), camera follows; pressure-wave dashes march to the glowing lateral line"
 }

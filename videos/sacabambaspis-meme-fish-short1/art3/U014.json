@@ -1,29 +1,34 @@
 {
- "centre": "one big googly doll's eye",
+ "centre": "an eye cut in half: lens and retina, fading",
  "focus": [
   540,
   860,
   1.6
  ],
- "focus_word": "googly doll's eyes",
- "sfx": [
-  {
-   "name": "pop",
-   "word": "googly",
-   "vol": 0.6
-  }
- ],
+ "focus_word": "retinas and lenses",
  "labels": [
   {
    "type": "name",
-   "text": "googly doll's eyes",
-   "x": 540,
-   "y": 1050,
+   "text": "Lenses",
+   "x": 330,
+   "y": 760,
    "to": [
-    540,
-    980
+    446,
+    830
    ],
-   "word": "googly doll's eyes"
+   "word": "lenses"
+  },
+  {
+   "type": "name",
+   "text": "Retinas",
+   "x": 720,
+   "y": 700,
+   "to": [
+    628,
+    790
+   ],
+   "word": "retinas"
   }
- ]
+ ],
+ "motion": "left alone: existing core flicker and cells fade already show the vanishing tissue"
 }

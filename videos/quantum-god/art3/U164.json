@@ -1,17 +1,19 @@
 {
- "centre": "glowing wave-orb whose ripples stream away and fade",
- "focus": [
-  1150,
-  500,
-  1.6
- ],
- "focus_word": "leaks",
- "sfx": [
+ "centre": "golden round pivot of a balance whose empty pans hang level",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "drip",
-   "word": "leaks",
-   "vol": 0.5
+   "type": "say",
+   "text": "Hmm, undecided",
+   "x": 470,
+   "y": 430,
+   "to": [
+    335,
+    570
+   ],
+   "word": "settle"
   }
  ],
- "labels": []
+ "motion": "scroll: thin wisps drift slowly past the level balance (still undecided); beam keeps its gentle joint motion"
 }

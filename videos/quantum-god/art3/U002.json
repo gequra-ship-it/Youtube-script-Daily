@@ -1,13 +1,31 @@
 {
- "centre": "gold pocket watch with a red second hand",
+ "centre": "round stone opening in a hall roof, showing stars and a golden moon",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "tick",
-   "word": "Tick",
-   "vol": 0.6
+   "type": "name",
+   "text": "thinkers",
+   "x": 960,
+   "y": 760,
+   "to": [
+    1300,
+    640
+   ],
+   "word": "thinkers"
+  },
+  {
+   "type": "say",
+   "text": "So vast!",
+   "x": 420,
+   "y": 300,
+   "to": [
+    560,
+    440
+   ],
+   "word": "universe"
   }
  ],
- "labels": []
+ "track": false,
+ "motion": "path: a comet slides across the round stone opening as the thinkers picture the whole universe (camera stays; bubble from the left thinker)"
 }

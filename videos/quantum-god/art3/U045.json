@@ -1,29 +1,19 @@
 {
- "centre": "a single still die lit by a shaft of warm light",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "dice",
- "sfx": [
-  {
-   "name": "thud",
-   "word": "throw dice",
-   "vol": 0.5
-  }
- ],
+ "centre": "a photographic plate whose dots form bands, wired to a gauge whose needle settles on a reading",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "dice",
-   "x": 1250,
-   "y": 360,
+   "text": "pattern",
+   "x": 600,
+   "y": 245,
    "to": [
-    1070,
-    440
+    600,
+    300
    ],
-   "word": "dice"
+   "word": "pattern"
   }
- ]
+ ],
+ "motion": "the pattern is a measured fact: the gauge needle swings and settles on its reading (mv-swing, damped)"
 }

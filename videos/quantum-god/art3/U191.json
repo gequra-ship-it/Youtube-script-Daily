@@ -1,34 +1,26 @@
 {
- "centre": "glowing seed at the heart of a tree of light branches",
+ "centre": "a glowing round flask with bubbles",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "many-worlds",
-   "x": 1240,
-   "y": 250,
-   "to": [
-    1080,
-    380
-   ],
-   "word": "many-worlds"
-  },
-  {
-   "type": "name",
-   "text": "supporters",
-   "x": 380,
-   "y": 590,
-   "to": [
-    380,
-    650
-   ],
-   "word": "supporters"
+   "name": "pop",
+   "word": "liking",
+   "vol": 0.55
   }
  ],
- "iris": [
-  380,
-  720
- ]
+ "labels": [
+  {
+   "type": "say",
+   "text": "Keep it bubbling!",
+   "x": 1380,
+   "y": 360,
+   "to": [
+    1010,
+    420
+   ],
+   "word": "keep"
+  }
+ ],
+ "motion": "existing popping flask and rising bell/heart bubbles kept (subscribing, liking); added a flask bubble"
 }

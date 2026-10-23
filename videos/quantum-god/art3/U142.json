@@ -1,13 +1,20 @@
 {
- "centre": "two glowing particles born together, teal and amber",
+ "centre": "a wall chart whose bars grow one by one into a smooth regular curve, beside spinning wheels and a rising coin stack",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "sfx": [],
+ "labels": [
   {
-   "name": "click",
-   "word": "prepared",
-   "vol": 0.55
+   "type": "name",
+   "text": "profit",
+   "x": 1640,
+   "y": 520,
+   "to": [
+    1790,
+    600
+   ],
+   "word": "profit"
   }
  ],
- "labels": []
+ "motion": "grow + edge + fill: totals of many spins build bar by bar into a regular curve, and the profit stack fills up predictably while the wheels keep spinning"
 }

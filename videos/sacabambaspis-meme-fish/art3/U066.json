@@ -1,23 +1,26 @@
 {
- "centre": "Sacabambaspis face head-on with its two front eyes in bony rings",
- "focus": [
-  960,
-  480,
-  1.8
+ "centre": "a heavy armored Sacabambaspis sinking in a gentle curve to rest on the sandy sea floor",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "sea floor",
+   "vol": 0.5
+  }
  ],
- "focus_word": "the eyes sit",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "ring of bone",
-   "x": 1150,
-   "y": 380,
+   "text": "sea floor",
+   "x": 1600,
+   "y": 830,
    "to": [
-    995,
-    470
+    1520,
+    770
    ],
-   "word": "ring of bone"
+   "word": "sea floor"
   }
- ]
+ ],
+ "motion": "fish glides down to the sea floor (mv-path, camera tracks the descent) and a puff of silt rises where it settles (mv-rise): dense bone, life near the bottom"
 }

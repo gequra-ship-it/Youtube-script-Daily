@@ -1,17 +1,26 @@
 {
- "centre": "warm glowing lamp-orb hanging in an arched doorway",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "doorway",
+ "centre": "one marble at a branching track whose copies roll down every branch at once and light every outcome cup",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "creak",
-   "word": "doorway",
+   "name": "click",
+   "word": "every outcome",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "many-worlds",
+   "x": 330,
+   "y": 330,
+   "to": [
+    330,
+    460
+   ],
+   "word": "many-worlds"
+  }
+ ],
+ "motion": "path: the one marble splits into copies that roll down all four branches together and every outcome cup lights - nothing random, every outcome happens"
 }

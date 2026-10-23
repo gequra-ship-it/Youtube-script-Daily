@@ -1,17 +1,26 @@
 {
- "centre": "close-up of the mouth area: a slit with many rows of tiny bony plates packed below it",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "a toolbox on a workbench opens and a bony armour plate with ochre bumps drops in beside a tooth and a scale",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "toolkit",
+   "vol": 0.5
+  }
  ],
- "focus_word": "small bony plates",
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "NEARLY 60 ROWS",
-   "word": "nearly sixty rows"
+   "type": "name",
+   "text": "toolkit",
+   "x": 1420,
+   "y": 470,
+   "to": [
+    1205,
+    560
+   ],
+   "word": "toolkit"
   }
- ]
+ ],
+ "motion": "the toolbox lid swings open on its hinge (mv-flip) and the armour plate drops into the kit (mv-rise from above): hard tissue in the skin became part of the vertebrate toolkit"
 }

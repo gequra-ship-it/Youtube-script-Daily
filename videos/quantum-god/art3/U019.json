@@ -1,7 +1,26 @@
 {
- "centre": "brass astrolabe hanging between two robed thinkers",
+ "centre": "the Sun drawn on an old parchment chart with the planets moving along dotted orbits",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "beautiful order",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "solar system",
+   "x": 1460,
+   "y": 230,
+   "to": [
+    1300,
+    380
+   ],
+   "word": "solar system"
+  }
+ ],
+ "motion": "path: every planet moves along its orbit at its own pace, inner ones faster (the beautiful order of the solar system); sun swells gently"
 }

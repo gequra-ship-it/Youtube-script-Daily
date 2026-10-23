@@ -1,11 +1,7 @@
 {
- "centre": "the museum model's face with two round googly eyes",
- "focus": [
-  540,
-  830,
-  1.6
- ],
- "focus_word": "Two round eyes",
+ "centre": "close-up of the museum model's face: two big googly eyes at the front, a small dark mouth below",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "hush",
@@ -13,5 +9,21 @@
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who, me?",
+   "x": 790,
+   "y": 1290,
+   "to": [
+    600,
+    1080
+   ],
+   "word": "surprise"
+  }
+ ],
+ "track": {
+  "scale": 1.4
+ },
+ "motion": "tracking camera moves from the two eyes down to the mouth as the narration does; the mouth slit drops open (fill y .3->1); googly pupils jiggle"
 }

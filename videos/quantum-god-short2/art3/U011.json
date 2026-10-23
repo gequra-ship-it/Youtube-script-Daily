@@ -1,23 +1,20 @@
 {
- "centre": "glass orb with a small sealed card hidden inside",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "hidden instructions",
+ "centre": "a glass agreement meter filling up to just below a gold limit bar",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Hidden instructions",
-   "x": 540,
-   "y": 1100,
+   "type": "say",
+   "text": "Obey the limit!",
+   "x": 760,
+   "y": 480,
    "to": [
-    540,
-    950
+    690,
+    625
    ],
-   "word": "hidden instructions"
+   "word": "limit"
   }
- ]
+ ],
+ "motion": "fill: the agreement level rises in the meter and stops just under the gold limit bar (local hidden instructions must obey the limit)"
 }

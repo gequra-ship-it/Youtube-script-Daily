@@ -1,17 +1,31 @@
 {
- "centre": "roulette wheel of possible outcomes at a fork of trails",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "outcome",
- "sfx": [
+ "centre": "two people far apart on two hills, each with a two-coloured orb; a thought cloud sets off from one head but stalls halfway, then both orbs flip together",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "hush",
-   "word": "open",
-   "vol": 0.5
+   "type": "say",
+   "text": "Can you hear me?",
+   "x": 360,
+   "y": 230,
+   "to": [
+    330,
+    452
+   ],
+   "word": "telepathy"
+  },
+  {
+   "type": "say",
+   "text": "Hmm?",
+   "x": 1600,
+   "y": 330,
+   "to": [
+    1590,
+    452
+   ],
+   "word": "matters"
   }
  ],
- "labels": []
+ "motion": "path + flip: a thought cloud sets off along the link but stalls halfway (entanglement cannot carry telepathy); the two orbs then flip together (correlation, not a message)"
 }

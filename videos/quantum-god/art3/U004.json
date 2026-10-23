@@ -1,17 +1,19 @@
 {
- "centre": "golden sun at the hub of a brass orrery",
+ "centre": "open gold pocket watch showing its gears",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "click",
-   "word": "wound up",
-   "vol": 0.55
+   "type": "say",
+   "text": "Who built it?",
+   "x": 1250,
+   "y": 330,
+   "to": [
+    1030,
+    430
+   ],
+   "word": "built"
   }
  ],
- "labels": [],
- "iris": [
-  1475,
-  565
- ]
+ "motion": "swing: the hanging lamp and its light cone sway gently over the watch while the watch asks who built it (bubble)"
 }

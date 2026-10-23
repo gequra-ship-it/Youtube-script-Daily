@@ -1,13 +1,17 @@
 {
- "centre": "round brass-rimmed viewing window of an electron instrument with faint bands on its screen",
- "focus": null,
- "focus_word": null,
- "sfx": [
+ "centre": "magnifying lens over an empty dish",
+ "labels": [
   {
-   "name": "click",
-   "word": "sent electrons",
-   "vol": 0.5
+   "type": "say",
+   "text": "Nothing!",
+   "x": 640,
+   "y": 300,
+   "to": [
+    900,
+    460
+   ],
+   "word": "Nobody"
   }
  ],
- "labels": []
+ "motion": "camera scans slowly along the empty drawers while the lens searches: nobody found such an experiment (mv-track)"
 }

@@ -1,11 +1,26 @@
 {
- "centre": "plain wall clock above a night city window",
- "focus": [
-  430,
-  700,
-  1.7
+ "centre": "a particle detector clicking and printing its record onto a moving paper tape; a person hoping with eyes closed is faded at the side",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "records information",
+   "vol": 0.5
+  }
  ],
- "focus_word": "superpositions",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "observer",
+   "x": 560,
+   "y": 290,
+   "to": [
+    560,
+    362
+   ],
+   "word": "observer"
+  }
+ ],
+ "motion": "dash + scroll: particles march into the detector and its record keeps scrolling out on the paper tape (the observer is a recording system), while the hopeful thought stays faint"
 }

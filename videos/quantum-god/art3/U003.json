@@ -1,19 +1,17 @@
 {
- "centre": "round stone opening in a hall roof, showing stars and a golden moon",
+ "centre": "golden sun at the hub of a brass orrery",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "thinkers",
-   "x": 960,
-   "y": 760,
-   "to": [
-    1300,
-    640
-   ],
-   "word": "thinkers"
+   "name": "click",
+   "word": "wound up",
+   "vol": 0.55
   }
- ]
+ ],
+ "iris": [
+  1475,
+  565
+ ],
+ "motion": "dash: dashed orbit lines march around the sun so the clockwork runs by fixed rules (planet arms keep turning)"
 }

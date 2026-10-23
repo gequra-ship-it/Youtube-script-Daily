@@ -1,30 +1,37 @@
 {
- "centre": "tossed gold coin stamped with the model's goofy face: joke or real?",
- "sfx": [],
+ "centre": "a big googly doll's eye from a craft store",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "googly doll's eyes",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "model",
-   "x": 430,
-   "y": 360,
+   "text": "googly doll's eyes",
+   "x": 960,
+   "y": 240,
    "to": [
-    400,
-    440
+    960,
+    378
    ],
-   "word": "the model"
+   "word": "googly doll's eyes"
   },
   {
-   "type": "name",
-   "text": "little fish",
-   "x": 1510,
-   "y": 320,
+   "type": "say",
+   "text": "Look at me!",
+   "x": 1650,
+   "y": 300,
    "to": [
-    1420,
-    510
+    1520,
+    360
    ],
-   "word": "little fish"
+   "word": "googly"
   }
  ],
- "focus": null,
- "focus_word": null
+ "motion": "camera travels from the hanging craft-store packet of eyes to the big googly eye; model says a line"
 }

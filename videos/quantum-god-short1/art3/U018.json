@@ -1,13 +1,51 @@
 {
- "centre": "round screen with two plain bands, faint stripes fading",
+ "centre": "an electron weaves down past three ordinary observers: a photon detector, a bit of gas and a speck of dust, each flashing as it interacts",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "hush",
-   "word": "disappears",
+   "name": "sand",
+   "word": "dust",
    "vol": 0.5
   }
  ],
- "labels": []
+ "track": {
+  "scale": 1.2
+ },
+ "labels": [
+  {
+   "type": "name",
+   "text": "photon detector",
+   "x": 330,
+   "y": 410,
+   "to": [
+    330,
+    470
+   ],
+   "word": "photon detector"
+  },
+  {
+   "type": "name",
+   "text": "gas",
+   "x": 830,
+   "y": 970,
+   "to": [
+    770,
+    900
+   ],
+   "word": "gas"
+  },
+  {
+   "type": "name",
+   "text": "speck of dust",
+   "x": 640,
+   "y": 1240,
+   "to": [
+    410,
+    1180
+   ],
+   "word": "dust"
+  }
+ ],
+ "motion": "path: one electron travels down past the photon detector, the gas and the dust (camera follows); popin: each observer flashes as the electron meets it"
 }

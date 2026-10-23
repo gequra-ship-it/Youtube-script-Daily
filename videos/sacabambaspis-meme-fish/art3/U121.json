@@ -1,30 +1,26 @@
 {
- "centre": "Haikouichthys, a tiny soft fish-like animal, in a round pool of light",
+ "centre": "an osteostracan that has steered a neat path through a rock arch, while a Sacabambaspis wobbles along the bottom",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "control",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Haikouichthys",
-   "x": 860,
-   "y": 290,
+   "type": "say",
+   "text": "Show-off!",
+   "x": 700,
+   "y": 600,
    "to": [
-    900,
-    470
+    730,
+    720
    ],
-   "word": "Haikouichthys"
-  },
-  {
-   "type": "name",
-   "text": "Myllokunmingia",
-   "x": 1470,
-   "y": 210,
-   "to": [
-    1440,
-    340
-   ],
-   "word": "Myllokunmingia"
+   "word": "Sacabambaspis"
   }
- ]
+ ],
+ "motion": "dash: dashes march along the smooth controlled route the finned osteostracan took through the arch; the Sacabambaspis wriggles below and reacts"
 }

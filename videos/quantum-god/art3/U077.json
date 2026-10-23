@@ -1,29 +1,37 @@
 {
- "centre": "round brass dial gauge with a needle",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "measurement",
+ "centre": "a notebook graph whose data points land exactly on the predicted curve, then a crossroads signpost pointing four ways",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "measurement",
+   "name": "pencil",
+   "word": "predicts",
    "vol": 0.55
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "Measurement",
-   "x": 1380,
+   "type": "say",
+   "text": "This way!",
+   "x": 1140,
+   "y": 230,
+   "to": [
+    1250,
+    320
+   ],
+   "word": "disagree"
+  },
+  {
+   "type": "say",
+   "text": "No, this way!",
+   "x": 1600,
    "y": 300,
    "to": [
-    1050,
-    430
+    1660,
+    410
    ],
-   "word": "measurement"
+   "word": "disagree"
   }
- ]
+ ],
+ "motion": "edge+popin then track: the prediction curve draws and the measured points land right on it; the camera then slides to the signpost whose arms argue about what it means"
 }

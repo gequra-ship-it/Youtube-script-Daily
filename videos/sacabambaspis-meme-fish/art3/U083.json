@@ -1,25 +1,37 @@
 {
- "centre": "a bright ball of water with tiny specks swirling, being sucked into the fish's mouth",
+ "centre": "on a night outcrop of Cambrian rock a slab splits open and two tiny fish-like fossils appear on the bedding plane",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "bubble",
-   "word": "suction",
+   "name": "stone",
+   "word": "rocks",
    "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Sacabambaspis",
-   "x": 480,
-   "y": 340,
+   "text": "Haikouichthys",
+   "x": 560,
+   "y": 470,
    "to": [
-    480,
-    470
+    720,
+    630
    ],
-   "word": "Sacabambaspis"
+   "word": "Haikouichthys"
+  },
+  {
+   "type": "name",
+   "text": "Myllokunmingia",
+   "x": 1300,
+   "y": 830,
+   "to": [
+    1180,
+    690
+   ],
+   "word": "Myllokunmingia"
   }
- ]
+ ],
+ "motion": "the top of the slab swings open (mv-topple) and the two small fossils pop into view (mv-popin, one after the other): finds in the Cambrian rocks of Chengjiang"
 }

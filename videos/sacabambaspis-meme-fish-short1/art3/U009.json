@@ -1,7 +1,37 @@
 {
- "centre": "a round magnifier lens showing the bumpy fish armor",
+ "centre": "three steps stacked top to bottom: a carved foam block, a clear mould filling with silicone, the finished silvery model",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "silicone",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "foam",
+   "x": 210,
+   "y": 470,
+   "to": [
+    330,
+    500
+   ],
+   "word": "foam"
+  },
+  {
+   "type": "name",
+   "text": "silicone",
+   "x": 200,
+   "y": 905,
+   "to": [
+    302,
+    930
+   ],
+   "word": "silicone"
+  }
+ ],
+ "motion": "liquid: silicone rises inside the mould while the step arrows march (dash); the finished model gets a popin shine at 'silvery glaze'"
 }

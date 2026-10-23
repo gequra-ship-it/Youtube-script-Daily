@@ -1,17 +1,31 @@
 {
- "centre": "fuzzy glowing particle with ghost outlines in fog",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "definite properties",
- "sfx": [
+ "centre": "a computer model of the base pair filling its progress bar on the left; a living cell with a counter whose needle cannot settle on the right",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "hush",
-   "word": "measurement",
-   "vol": 0.5
+   "type": "name",
+   "text": "computer models",
+   "x": 560,
+   "y": 230,
+   "to": [
+    560,
+    300
+   ],
+   "word": "computer models"
+  },
+  {
+   "type": "say",
+   "text": "Maybe? Maybe not.",
+   "x": 1560,
+   "y": 260,
+   "to": [
+    1450,
+    390
+   ],
+   "word": "living cells"
   }
  ],
- "labels": []
+ "motion": "fill + joint: the computer model finishes its run (plausible), while the counter over the living cell keeps wavering (we do not know how often)"
 }

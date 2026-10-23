@@ -1,11 +1,37 @@
 {
- "centre": "Sacabambaspis head shield from above, two eyes facing forward",
- "focus": [
-  880,
-  500,
-  1.8
+ "centre": "comparison in a glass tank: a modern fish with a swim bladder rising, and Sacabambaspis on the gravel with an empty dashed outline where no such organ is known",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "swim bladders",
+   "vol": 0.5
+  }
  ],
- "focus_word": "forward-facing pair of eyes",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "swim bladder",
+   "x": 540,
+   "y": 280,
+   "to": [
+    540,
+    430
+   ],
+   "word": "float"
+  },
+  {
+   "type": "say",
+   "text": "None for me!",
+   "x": 1330,
+   "y": 470,
+   "to": [
+    1124,
+    728
+   ],
+   "word": "no sign"
+  }
+ ],
+ "motion": "the swim bladder swells (mv-fill) and the modern fish floats up (mv-liquid used as a lift) with bubbles (mv-bubble); Sacabambaspis stays on the gravel: no sign of a float organ"
 }

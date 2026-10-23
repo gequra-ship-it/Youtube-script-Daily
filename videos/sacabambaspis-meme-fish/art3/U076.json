@@ -1,19 +1,20 @@
 {
- "centre": "Sacabambaspis seen head-on: rounded silver head shield, two small ringed eyes at the very front, a jawless slit mouth",
+ "centre": "an open textbook: a tooth section with its dentine on the left, a section through an armour bump on the right whose assumed dentine core drains away",
  "focus": null,
  "focus_word": null,
  "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "agnathans",
+   "text": "dentine",
    "x": 420,
-   "y": 190,
+   "y": 250,
    "to": [
-    400,
-    280
+    520,
+    360
    ],
-   "word": "agnathans"
+   "word": "dentine"
   }
- ]
+ ],
+ "motion": "a dashed arrow carries the old assumption from tooth to bump (mv-dash), then the dentine-coloured core inside the bump shrinks to nothing (mv-fill 1->0), leaving an empty dashed outline: they seem to contain none"
 }

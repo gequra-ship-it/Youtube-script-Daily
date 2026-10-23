@@ -1,7 +1,26 @@
 {
- "centre": "small globe, the physical world",
- "sfx": [],
+ "centre": "a row of shrinking dominoes falling one into the next until the chain reaches tiny jittering particles that do not line up",
  "focus": null,
  "focus_word": null,
- "labels": []
+ "sfx": [
+  {
+   "name": "woodblock",
+   "word": "domino",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "chain of causes",
+   "x": 560,
+   "y": 190,
+   "to": [
+    420,
+    420
+   ],
+   "word": "chain of causes"
+  }
+ ],
+ "motion": "topple+shake with tracking: the domino chain of causes topples from big to small and the camera follows, but at the end the smallest things only jitter at random instead of falling in line"
 }

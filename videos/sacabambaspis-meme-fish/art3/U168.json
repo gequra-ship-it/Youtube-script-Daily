@@ -1,13 +1,19 @@
 {
- "centre": "a hanging lamp lighting a small pedestal with the museum model in a quiet hall",
+ "centre": "a classroom ladder poster (fish at the bottom, a human at the top) swinging on its nail and being crossed out, with Sacabambaspis beside it",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "click",
-   "word": "honest answer",
-   "vol": 0.5
+   "type": "say",
+   "text": "Not quite!",
+   "x": 1130,
+   "y": 400,
+   "to": [
+    1190,
+    545
+   ],
+   "word": "not a ladder"
   }
  ],
- "labels": []
+ "motion": "correcting a common picture: the ladder poster swings crooked on its nail (swing) and a red cross is drawn over it (edge)"
 }

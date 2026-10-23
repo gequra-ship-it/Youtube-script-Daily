@@ -1,25 +1,26 @@
 {
- "centre": "hinged jaw made from the first arch, glowing",
+ "centre": "play button on a phone screen",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
    "name": "click",
-   "word": "hinged jaws",
-   "vol": 0.55
+   "word": "watch it next",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "name",
-   "text": "hinged jaws",
-   "x": 540,
-   "y": 1010,
+   "type": "say",
+   "text": "Play me!",
+   "x": 800,
+   "y": 690,
    "to": [
-    560,
-    900
+    715,
+    800
    ],
-   "word": "hinged jaws"
+   "word": "watch"
   }
- ]
+ ],
+ "motion": "track: camera pushes in on the play button"
 }

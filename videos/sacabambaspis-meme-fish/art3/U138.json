@@ -1,13 +1,19 @@
 {
- "centre": "brass travel compass with a swinging needle over a map of drifting continents",
+ "centre": "round bubble of warm shallow water with Sacabambaspis swimming low over sand",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "sand",
-   "word": "scattered",
-   "vol": 0.5
+   "type": "say",
+   "text": "Uh-oh!",
+   "x": 720,
+   "y": 330,
+   "to": [
+    866,
+    505
+   ],
+   "word": "safe"
   }
  ],
- "labels": []
+ "motion": "a predator creeps through the shallows (path + tracking)"
 }

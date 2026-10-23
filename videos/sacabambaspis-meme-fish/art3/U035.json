@@ -1,29 +1,48 @@
 {
- "centre": "the rounded head shield of an early sea scorpion with its dark eyes",
- "focus": [
-  1000,
-  540,
-  1.6
- ],
- "focus_word": "sea scorpions",
+ "centre": "world map pinned on a cork board; strings run from the Bolivian armor find to Argentina, Australia and Oman",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "sand",
-   "word": "beginning to appear",
+   "name": "pop",
+   "word": "turned up",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "sea scorpions",
-   "x": 1290,
-   "y": 330,
+   "text": "Argentina",
+   "x": 470,
+   "y": 690,
    "to": [
-    1040,
-    450
+    687.735,
+    591.79
    ],
-   "word": "sea scorpions"
+   "word": "Argentina"
+  },
+  {
+   "type": "name",
+   "text": "Australia",
+   "x": 1480,
+   "y": 420,
+   "to": [
+    1481.46,
+    530.56
+   ],
+   "word": "Australia"
+  },
+  {
+   "type": "name",
+   "text": "Oman",
+   "x": 1240,
+   "y": 250,
+   "to": [
+    1185.93,
+    359.51
+   ],
+   "word": "Oman"
   }
- ]
+ ],
+ "motion": "armor turns up in three more places: red strings draw out from Bolivia (mv-edge, staggered) and an armor piece pops in at each end (mv-popin)"
 }

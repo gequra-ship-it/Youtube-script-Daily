@@ -1,23 +1,41 @@
 {
- "centre": "round photo of the googly-eyed model on a phone feed",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "A photo",
- "sfx": [
-  {
-   "name": "pop",
-   "word": "went viral",
-   "vol": 0.55
-  }
- ],
+ "centre": "tossed gold coin stamped with the model's goofy face: joke or real?",
  "labels": [
   {
-   "type": "num",
-   "text": "2022",
-   "word": "2022"
+   "type": "name",
+   "text": "model",
+   "x": 430,
+   "y": 360,
+   "to": [
+    400,
+    440
+   ],
+   "word": "the model"
+  },
+  {
+   "type": "name",
+   "text": "little fish",
+   "x": 1510,
+   "y": 320,
+   "to": [
+    1420,
+    510
+   ],
+   "word": "little fish"
+  },
+  {
+   "type": "say",
+   "text": "Joke or real?",
+   "x": 260,
+   "y": 280,
+   "to": [
+    285,
+    460
+   ],
+   "word": "joke"
   }
- ]
+ ],
+ "focus": null,
+ "focus_word": null,
+ "motion": "question picture, left still; the model asks itself (bubble)"
 }

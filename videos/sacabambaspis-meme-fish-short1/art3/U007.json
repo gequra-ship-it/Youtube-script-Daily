@@ -1,23 +1,30 @@
 {
- "centre": "the model's face on a phone screen",
+ "centre": "a fossil fish exhibit behind opening museum doors: the silvery model in a glass case between framed fossil slabs",
  "focus": [
   540,
-  870,
-  1.5
+  900,
+  1.6
  ],
- "focus_word": "A photo of it",
+ "focus_word": "fossil fish exhibit",
  "sfx": [
   {
-   "name": "pop",
-   "word": "went viral",
+   "name": "creak",
+   "word": "The model",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "2022",
-   "word": "2022"
+   "type": "name",
+   "text": "exhibit",
+   "x": 735,
+   "y": 1080,
+   "to": [
+    640,
+    960
+   ],
+   "word": "exhibit"
   }
- ]
+ ],
+ "motion": "the two exhibit doors swing open (fill x 1->.1 about their hinges), then the camera pushes into the case at 'fossil fish exhibit'"
 }

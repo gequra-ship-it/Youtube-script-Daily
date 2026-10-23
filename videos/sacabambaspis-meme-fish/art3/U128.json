@@ -1,1 +1,26 @@
-{"centre": "cross-section disc: empty dashed centre, bony armor plates in the outer skin", "focus": [960, 500, 1.8], "focus_word": "inside the body", "sfx": [], "labels": []}
+{
+ "centre": "Dunkleosteus, a huge armored jawed fish with bony blades, gliding across the dark sea with a length bar under it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "giant",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Dunkleosteus",
+   "x": 1330,
+   "y": 250,
+   "to": [
+    1470,
+    420
+   ],
+   "word": "head shield"
+  }
+ ],
+ "motion": "path + tracking: the giant glides left to right across the scene (camera follows), its blade jaw opens and closes (joint), tail beats (chain), the length bar marches with it (dash)"
+}

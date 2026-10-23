@@ -1,11 +1,19 @@
 {
- "centre": "small warm glowing orb, the inner voice, inside the head",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "an electron's spreading wave passing through both slits of a plate",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Both? Neither?",
+   "x": 330,
+   "y": 330,
+   "to": [
+    330,
+    480
+   ],
+   "word": "both slits"
+  }
  ],
- "focus_word": "an inner voice",
- "sfx": [],
- "labels": []
+ "motion": "the electron goes through both slits: its wave spreads out from the source (mv-grow along x) and lights both slits at once (mv-rise x2)"
 }

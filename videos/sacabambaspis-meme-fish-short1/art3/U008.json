@@ -1,45 +1,30 @@
 {
- "centre": "a soft plush toy of the museum model",
+ "centre": "a specimen dish with a piece of fish armor",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Plush toys",
+   "text": "scientist",
+   "x": 300,
+   "y": 520,
+   "to": [
+    300,
+    600
+   ],
+   "word": "scientist"
+  },
+  {
+   "type": "say",
+   "text": "Oh well!",
    "x": 560,
-   "y": 720,
+   "y": 600,
    "to": [
-    560,
-    780
+    300,
+    667
    ],
-   "word": "plush toys"
-  },
-  {
-   "type": "name",
-   "text": "Stickers",
-   "x": 250,
-   "y": 960,
-   "to": [
-    240,
-    1040
-   ],
-   "word": "stickers"
-  },
-  {
-   "type": "name",
-   "text": "Key chains",
-   "x": 800,
-   "y": 1340,
-   "to": [
-    800,
-    1250
-   ],
-   "word": "key chains"
+   "word": "not"
   }
  ],
- "iris": [
-  800,
-  1180
- ]
+ "motion": "plain fact, no movement; one bubble only"
 }

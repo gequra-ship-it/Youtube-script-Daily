@@ -1,1 +1,37 @@
-{"centre": "small globe with simple continent shapes", "focus": null, "focus_word": null, "sfx": [], "labels": []}
+{
+ "centre": "an old map of the Bolivian Andes with a pin landing on the village of Sacabamba",
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "village",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sacabamba",
+   "x": 1330,
+   "y": 470,
+   "to": [
+    1150,
+    500
+   ],
+   "word": "Sacabamba"
+  },
+  {
+   "type": "name",
+   "text": "Cochabamba region",
+   "x": 1000,
+   "y": 330,
+   "to": [
+    930,
+    400
+   ],
+   "word": "Cochabamba region"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "motion": "track: the camera moves from the region map down to the village; slam: the pin lands on Sacabamba; dash: the region border marches"
+}

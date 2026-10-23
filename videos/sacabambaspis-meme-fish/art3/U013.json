@@ -1,13 +1,48 @@
 {
- "centre": "round thought bubble holding a big question-mark shape on a notebook page",
+ "centre": "three steps on a workbench: carved foam block, silicone mould, finished silvery model",
  "sfx": [
   {
-   "name": "hush",
-   "word": "real question",
+   "name": "sand",
+   "word": "foam",
    "vol": 0.5
   }
  ],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "foam",
+   "x": 400,
+   "y": 330,
+   "to": [
+    400,
+    445
+   ],
+   "word": "foam"
+  },
+  {
+   "type": "name",
+   "text": "silicone",
+   "x": 965,
+   "y": 300,
+   "to": [
+    965,
+    515
+   ],
+   "word": "silicone"
+  },
+  {
+   "type": "say",
+   "text": "Shiny!",
+   "x": 1500,
+   "y": 330,
+   "to": [
+    1350,
+    520
+   ],
+   "word": "silvery glaze"
+  }
+ ],
  "focus": null,
- "focus_word": null
+ "focus_word": null,
+ "motion": "popin sequence: foam block -> silicone mould pops in -> silvery model pops in with a glint (shaped, cast, glazed); dash arrows march between"
 }

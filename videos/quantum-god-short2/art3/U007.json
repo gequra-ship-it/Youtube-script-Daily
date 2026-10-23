@@ -1,17 +1,20 @@
 {
- "centre": "round glass source holding a blue and gold particle pair",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "two particles",
- "sfx": [
+ "centre": "two glass beads each holding the same folded instruction strip; a magnifier travels from one to the other",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
   {
-   "name": "pop",
-   "word": "separated",
-   "vol": 0.6
+   "type": "name",
+   "text": "Hidden instructions",
+   "x": 540,
+   "y": 345,
+   "to": [
+    500,
+    470
+   ],
+   "word": "hidden instructions"
   }
  ],
- "labels": []
+ "motion": "path: a magnifying lens glides from the upper particle to the lower one (camera tracks it), showing both carry the same hidden instruction strip"
 }

@@ -1,29 +1,37 @@
 {
- "centre": "all-seeing golden eye orb with a slit pupil (Laplace's demon)",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "demon",
+ "centre": "a wooden box on a gallery plinth whose lid flips open onto glowing field waves, beside an empty black glass case",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "hush",
-   "word": "demon",
+   "name": "creak",
+   "word": "nothing in them",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Laplace's demon",
-   "x": 1330,
-   "y": 290,
+   "text": "quantum state",
+   "x": 620,
+   "y": 170,
    "to": [
-    1050,
-    440
+    620,
+    250
    ],
-   "word": "Laplace's"
+   "word": "quantum state"
+  },
+  {
+   "type": "name",
+   "text": "philosophical nothing",
+   "x": 1320,
+   "y": 250,
+   "to": [
+    1320,
+    332
+   ],
+   "word": "philosophical nothing"
   }
- ]
+ ],
+ "motion": "the nothing in them is opened up: the box lid flips open (mv-flip) and fields rise out (mv-rise), while the black case beside it stays empty"
 }

@@ -1,17 +1,30 @@
 {
- "centre": "armored fish lying on the sea floor as mud settles over it",
- "focus": [
-  460,
-  1250,
-  1.6
- ],
- "focus_word": "a fossil needs",
- "sfx": [
+ "centre": "Sacabambaspis head shield, swimming with other fish around",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "sand",
-   "word": "sediment settled",
-   "vol": 0.5
+   "type": "name",
+   "text": "Sacabambaspis",
+   "x": 470,
+   "y": 720,
+   "to": [
+    520,
+    810
+   ],
+   "word": "Sacabambaspis"
+  },
+  {
+   "type": "say",
+   "text": "Hi, friends!",
+   "x": 720,
+   "y": 590,
+   "to": [
+    520,
+    840
+   ],
+   "word": "alone"
   }
  ],
- "labels": []
+ "motion": "track: camera follows the swimmers down through the school (not alone)"
 }

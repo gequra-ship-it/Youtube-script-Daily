@@ -1,7 +1,42 @@
 {
- "centre": "crisp solid glass ball, ordinary classical object",
- "sfx": [],
- "labels": [],
+ "centre": "a bookshelf filling with books that all carry the same glowing atom; a seminar stage with an atom on the screen and a warning triangle",
  "focus": null,
- "focus_word": null
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "page",
+   "word": "books",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "THE NINETEEN SEVENTIES",
+   "word": "nineteen seventies"
+  },
+  {
+   "type": "name",
+   "text": "books",
+   "x": 390,
+   "y": 760,
+   "to": [
+    390,
+    662
+   ],
+   "word": "books"
+  },
+  {
+   "type": "name",
+   "text": "seminars",
+   "x": 1500,
+   "y": 170,
+   "to": [
+    1480,
+    252
+   ],
+   "word": "seminars"
+  }
+ ],
+ "motion": "rise: book after book with the same atom on the cover rises onto the shelf (many books since the seventies), while the warning sign pulses"
 }

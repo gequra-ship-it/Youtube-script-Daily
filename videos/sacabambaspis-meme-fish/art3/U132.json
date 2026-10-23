@@ -1,19 +1,36 @@
 {
- "centre": "Sacabambaspis side view, head shield at the centre, with other armored jawless fish nearby",
+ "centre": "two long lanes on a gallery wall: armored jawless fish below and jawed fish above, running side by side from an Ordovician post to a late Devonian post",
  "focus": null,
  "focus_word": null,
  "sfx": [],
  "labels": [
   {
+   "type": "num",
+   "text": "100 MILLION YEARS",
+   "word": "hundred million years"
+  },
+  {
    "type": "name",
-   "text": "Sacabambaspis",
-   "x": 820,
-   "y": 330,
+   "text": "Ordovician",
+   "x": 330,
+   "y": 230,
    "to": [
-    930,
-    440
+    210,
+    285
    ],
-   "word": "Sacabambaspis"
+   "word": "Ordovician"
+  },
+  {
+   "type": "name",
+   "text": "late Devonian",
+   "x": 1530,
+   "y": 240,
+   "to": [
+    1710,
+    285
+   ],
+   "word": "late Devonian"
   }
- ]
+ ],
+ "motion": "grow (x) + popin + tracking: both lanes stretch left to right while fish icons pop in along them, camera travels along the time line"
 }

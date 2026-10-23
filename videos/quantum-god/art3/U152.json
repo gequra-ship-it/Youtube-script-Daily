@@ -1,23 +1,37 @@
 {
- "centre": "glowing amber particle that carries its own tag",
- "focus": [
-  960,
-  500,
-  1.8
+ "centre": "a tiny glowing wobble at lower left; from it the cosmic web of galaxies lights up node by node",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "web of galaxies",
+   "vol": 0.55
+  }
  ],
- "focus_word": "definite properties",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Local realism",
-   "x": 960,
-   "y": 670,
+   "type": "say",
+   "text": "Who, me?",
+   "x": 560,
+   "y": 600,
    "to": [
-    960,
-    600
+    340,
+    720
    ],
-   "word": "Local realism"
+   "word": "quietest wobbles"
+  },
+  {
+   "type": "name",
+   "text": "web of galaxies",
+   "x": 1180,
+   "y": 120,
+   "to": [
+    1250,
+    240
+   ],
+   "word": "web of galaxies"
   }
- ]
+ ],
+ "motion": "track + popin: the camera travels from the smallest wobble out along the filaments while the galaxy nodes of the great web light up one after another"
 }

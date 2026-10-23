@@ -1,18 +1,17 @@
 {
- "centre": "Sacabambaspis lying low on the sea floor, its bony shield toward a hunting nautiloid",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "centre": "head-on face with the slit mouth slightly open, sucking in bits of food",
+ "focus": [
+  540,
+  880,
+  1.8
+ ],
+ "focus_word": "suck food in",
+ "sfx": [
   {
-   "type": "say",
-   "text": "Too crunchy!",
-   "x": 820,
-   "y": 380,
-   "to": [
-    610,
-    640
-   ]
+   "name": "bubble",
+   "word": "suck food in",
+   "vol": 0.55
   }
- ]
+ ],
+ "motion": "dash: dotted food streams march into the mouth as the fish sucks food in; focus kept"
 }

@@ -1,7 +1,48 @@
 {
- "centre": "a round dream bubble with a graceful looping swimmer, crossed out",
+ "centre": "layered Stairway Sandstone outcrop with a fossil Arandaspis appearing in one layer",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "central Australia",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Alice Springs",
+   "x": 360,
+   "y": 470,
+   "to": [
+    350,
+    560
+   ],
+   "word": "Alice Springs"
+  },
+  {
+   "type": "name",
+   "text": "Stairway Sandstone",
+   "x": 1400,
+   "y": 300,
+   "to": [
+    1520,
+    440
+   ],
+   "word": "Stairway Sandstone"
+  },
+  {
+   "type": "name",
+   "text": "Arandaspis",
+   "x": 1200,
+   "y": 830,
+   "to": [
+    1460,
+    600
+   ],
+   "word": "Arandaspis"
+  }
+ ],
+ "motion": "dash + track + rise: a dashed route marches from Alice Springs to the sandstone, the camera follows it, then the fossil Arandaspis rises out of the layer"
 }

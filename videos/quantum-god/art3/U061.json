@@ -1,13 +1,26 @@
 {
- "centre": "single electron orb travelling through a vacuum tube",
+ "centre": "calipers squeezing a glowing particle on the left while a fan of momentum arrows widens on the right; a clumsy probe arm jolts above",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "one at a time",
+   "name": "click",
+   "word": "pin",
    "vol": 0.5
   }
  ],
- "focus": null,
- "focus_word": null,
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Oops, was that me?",
+   "x": 1330,
+   "y": 200,
+   "to": [
+    1040,
+    300
+   ],
+   "word": "clumsy"
+  }
+ ],
+ "motion": "path+fill+grow+shake: the caliper jaw slides in and the particle's blur narrows as the momentum fan widens; then the clumsy probe jolts (the instrument idea)"
 }

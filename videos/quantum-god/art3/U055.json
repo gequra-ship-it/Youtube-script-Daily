@@ -1,11 +1,26 @@
 {
- "centre": "round window showing many bright and dark vertical bands",
- "focus": [
-  960,
-  500,
-  2.0
+ "centre": "a stone doorway whose door swings open onto warm light holding a small steady world",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "creak",
+   "word": "doorway",
+   "vol": 0.5
+  }
  ],
- "focus_word": "light and dark bands",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "doorway",
+   "x": 1400,
+   "y": 300,
+   "to": [
+    1160,
+    420
+   ],
+   "word": "doorway"
+  }
+ ],
+ "motion": "some hoped the observer was a doorway for God: the door swings open on its hinge (mv-fill along x) onto light holding the world steady (mv-lamp)"
 }

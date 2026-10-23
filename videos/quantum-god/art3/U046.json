@@ -1,7 +1,26 @@
 {
- "centre": "brass magnifying glass over an old open book",
+ "centre": "round detector eye lens with amber glow",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "click",
+   "word": "detector",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Which way?",
+   "x": 800,
+   "y": 250,
+   "to": [
+    600,
+    380
+   ],
+   "word": "which"
+  }
+ ],
+ "motion": "popin: the two detectors pop in at the slits, then a bubble asks which way"
 }

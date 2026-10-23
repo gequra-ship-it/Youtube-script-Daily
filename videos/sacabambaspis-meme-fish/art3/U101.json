@@ -1,35 +1,35 @@
 {
- "centre": "a round magnified cut-away of the shield: pores on the surface lead down into a glowing canal",
+ "centre": "a stone slab crowded with more than thirty small fish fossils and tongue-shaped lingulid shells, a string square around them",
  "focus": [
-  960,
-  540,
-  1.7
+  1380,
+  610,
+  1.6
  ],
- "focus_word": "canals",
- "spot": true,
- "sfx": [],
+ "focus_word": "lingulid brachiopods",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "packed",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "pores",
-   "x": 760,
-   "y": 300,
-   "to": [
-    882,
-    418
-   ],
-   "word": "pores"
+   "type": "num",
+   "text": "MORE THAN 30",
+   "word": "thirty"
   },
   {
    "type": "name",
-   "text": "canals",
-   "x": 1220,
-   "y": 700,
+   "text": "lingulid brachiopods",
+   "x": 1520,
+   "y": 800,
    "to": [
-    1060,
-    560
+    1420,
+    650
    ],
-   "word": "canals"
+   "word": "lingulid brachiopods"
   }
- ]
+ ],
+ "motion": "edge: a string square draws around the crowd of fossils to show how small the area is; lamp glows; camera pushes onto the lingulid shells"
 }

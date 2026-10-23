@@ -1,30 +1,42 @@
 {
- "centre": "a billowing cloud of muddy sediment pouring into the clear shallow sea",
+ "centre": "a scan slice of an armored head on a big monitor: a dome of bone with dotted canals, three cavities appearing, and a dashed missing piece",
  "focus": null,
  "focus_word": null,
  "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "fresh water",
-   "x": 330,
-   "y": 640,
+   "text": "bones",
+   "x": 560,
+   "y": 230,
    "to": [
-    440,
-    330
+    640,
+    380
    ],
-   "word": "fresh water"
+   "word": "bones"
   },
   {
    "type": "name",
-   "text": "sediment",
-   "x": 1240,
-   "y": 300,
+   "text": "canals",
+   "x": 1000,
+   "y": 200,
    "to": [
-    1060,
-    440
+    960,
+    300
    ],
-   "word": "sediment"
+   "word": "canals"
+  },
+  {
+   "type": "name",
+   "text": "cavities",
+   "x": 960,
+   "y": 680,
+   "to": [
+    960,
+    590
+   ],
+   "word": "cavities"
   }
- ]
+ ],
+ "motion": "dash + popin: signal dots run along the canals in the bone while the cavities pop in one by one; a dashed empty piece stays missing (not complete)"
 }

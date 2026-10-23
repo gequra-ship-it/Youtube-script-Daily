@@ -1,1 +1,31 @@
-{"centre": "round x-ray window showing skull, ribs and spine", "focus": [960, 500, 1.8], "focus_word": "ribs", "sfx": [{"name": "page", "word": "skeleton", "vol": 0.5}], "labels": [{"type": "name", "text": "Skull", "x": 1290, "y": 290, "to": [990, 425], "word": "skull"}, {"type": "name", "text": "Ribs", "x": 650, "y": 330, "to": [890, 510], "word": "ribs"}, {"type": "name", "text": "Spine", "x": 1170, "y": 620, "to": [975, 575], "word": "spine"}]}
+{
+ "centre": "a Dunkleosteus-like placoderm with an armored head and bony blade jaws gliding through a dark Devonian sea",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Swim faster!",
+   "x": 640,
+   "y": 140,
+   "to": [
+    420,
+    200
+   ],
+   "word": "top predators"
+  },
+  {
+   "type": "name",
+   "text": "placoderms",
+   "x": 960,
+   "y": 820,
+   "to": [
+    700,
+    640
+   ],
+   "word": "placoderms"
+  }
+ ],
+ "motion": "path: the armored placoderm glides in from the right with its jaw slowly opening (camera follows) while small fish flee up-left"
+}

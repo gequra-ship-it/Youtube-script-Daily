@@ -1,7 +1,19 @@
 {
- "centre": "electron orb between two doorways",
- "sfx": [],
+ "centre": "warm glass lantern hovering at a fork in the road",
  "focus": null,
  "focus_word": null,
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Which way?",
+   "x": 640,
+   "y": 390,
+   "to": [
+    925,
+    470
+   ],
+   "word": "answer"
+  }
+ ],
+ "motion": "a small light walks out along one branch of the fork: thinkers answer in different ways (mv-path, camera tracks it)"
 }

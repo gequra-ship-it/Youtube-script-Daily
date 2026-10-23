@@ -1,27 +1,31 @@
 {
- "centre": "Arandaspis seen head-on: flat head shield, two front eyes, a plain slit mouth with no jaw",
- "focus": [
-  960,
-  525,
-  1.7
- ],
- "focus_word": "missing jaw",
- "sfx": [],
- "labels": [
+ "centre": "Earth globe with the southern supercontinent Gondwana, an ice cap spreading over it; a side window shows the sea level falling below the old mark",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "name",
-   "text": "head shield",
-   "x": 960,
-   "y": 340,
-   "to": [
-    960,
-    445
-   ],
-   "word": "head shield"
+   "name": "wind",
+   "word": "ice sheets",
+   "vol": 0.5
   }
  ],
- "iris": [
-  400,
-  470
- ]
+ "labels": [
+  {
+   "type": "num",
+   "text": "444 MILLION YEARS AGO",
+   "word": "four hundred"
+  },
+  {
+   "type": "name",
+   "text": "Gondwana",
+   "x": 380,
+   "y": 830,
+   "to": [
+    620,
+    760
+   ],
+   "word": "Gondwana"
+  }
+ ],
+ "motion": "grow (x+y) + liquid: the ice cap spreads out from the south pole over Gondwana, then the sea in the side window drops below the dashed old level"
 }

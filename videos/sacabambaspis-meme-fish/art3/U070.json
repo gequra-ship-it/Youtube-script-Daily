@@ -1,30 +1,42 @@
 {
- "centre": "fossil slab with the head-shield imprint and two eye rings at the very front",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "close-up of the head shield: a row of tiny pores pops open and glowing canals run beneath them into a lateral line",
+ "focus": [
+  860,
+  540,
+  1.6
+ ],
+ "focus_word": "canals",
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "quiet surprise",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "fossils",
-   "x": 760,
+   "text": "pores",
+   "x": 600,
    "y": 300,
    "to": [
-    900,
-    430
+    602,
+    529
    ],
-   "word": "fossils"
+   "word": "pores"
   },
   {
    "type": "name",
-   "text": "sculptor",
-   "x": 1300,
-   "y": 250,
+   "text": "lateral line",
+   "x": 1190,
+   "y": 330,
    "to": [
-    1490,
-    300
+    1250,
+    552
    ],
-   "word": "sculptor"
+   "word": "lateral line"
   }
- ]
+ ],
+ "spot": true,
+ "motion": "pores pop open one after another along the shield (mv-popin, staggered) and signal dashes run through the canals beneath (mv-dash); focus on the canals: pores lead into a lateral line system"
 }

@@ -1,17 +1,19 @@
 {
- "centre": "head-on face of Sacabambaspis: two front eyes and a slit mouth with no jaw",
- "focus": [
-  540,
-  880,
-  1.8
- ],
- "focus_word": "no jaw",
- "sfx": [
+ "centre": "Sacabambaspis from above, swimming with only its tail, no side fins",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "thud",
-   "word": "no jaw",
-   "vol": 0.55
+   "type": "name",
+   "text": "tail",
+   "x": 210,
+   "y": 860,
+   "to": [
+    400,
+    930
+   ],
+   "word": "the tail did the work"
   }
  ],
- "labels": []
+ "motion": "path + tracking camera: the fish is pushed forward by its tail; tail label moved to the end position"
 }

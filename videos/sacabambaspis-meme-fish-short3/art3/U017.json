@@ -1,30 +1,37 @@
 {
- "centre": "glowing sand-coloured marker on Alice Springs on a map of Australia",
+ "centre": "hinged jaw made from the first arch, glowing",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "click",
+   "word": "hinged jaws",
+   "vol": 0.55
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Alice Springs",
+   "text": "hinged jaws",
    "x": 540,
-   "y": 700,
+   "y": 1010,
    "to": [
-    540,
-    780
+    560,
+    900
    ],
-   "word": "Alice Springs"
+   "word": "hinged jaws"
   },
   {
-   "type": "name",
-   "text": "Stairway Sandstone",
-   "x": 540,
-   "y": 1300,
+   "type": "say",
+   "text": "Chomp!",
+   "x": 850,
+   "y": 770,
    "to": [
-    480,
-    1130
+    690,
+    850
    ],
-   "word": "Stairway Sandstone"
+   "word": "bite"
   }
- ]
+ ],
+ "motion": "popin: three stages appear in turn, arch to hinged jaw"
 }

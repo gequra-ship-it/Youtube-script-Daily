@@ -1,7 +1,17 @@
 {
- "centre": "round badge with two equal bars between two identical framed curves",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "gold seal with a check mark over bars that pass a dashed limit line",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "broken",
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "broken",
+   "vol": 0.6
+  }
+ ],
+ "motion": "grow: four gold bars extend one after another past the dashed limit line - all of them broke it"
 }

@@ -1,23 +1,26 @@
 {
- "centre": "round porthole screen showing two bright stripes",
- "focus": [
-  540,
-  860,
-  1.8
+ "centre": "a screen with many light and dark bands spreading out, and above it a huge eye that opens (is anyone watching?)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "strangest",
+   "vol": 0.55
+  }
  ],
- "focus_word": "two stripes",
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Screen",
-   "x": 700,
-   "y": 700,
+   "type": "say",
+   "text": "Anyone watching?",
+   "x": 540,
+   "y": 900,
    "to": [
-    630,
-    800
+    540,
+    990
    ],
-   "word": "screen"
+   "word": "watching"
   }
- ]
+ ],
+ "motion": "fill x: the strange band pattern spreads across the screen; camera tracks up to a huge eye whose lid opens (whether anyone is watching)"
 }

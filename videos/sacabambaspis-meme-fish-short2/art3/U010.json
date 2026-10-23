@@ -1,13 +1,31 @@
 {
- "centre": "brass porthole of a tiny armoured submarine with a flexible scaly rear end",
+ "centre": "underside of the head shield: a wide mouth area packed with rows of small bony plates",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "bubble",
-   "word": "submarine",
-   "vol": 0.55
+   "name": "click",
+   "word": "bony plates",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "NEARLY 60 ROWS",
+   "word": "sixty rows"
+  },
+  {
+   "type": "name",
+   "text": "bony plates",
+   "x": 540,
+   "y": 900,
+   "to": [
+    540,
+    720
+   ],
+   "word": "bony plates"
+  }
+ ],
+ "motion": "grow (x): row after row of small bony plates fills the mouth area from left to right, showing how packed it was (nearly sixty rows)"
 }

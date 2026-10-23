@@ -1,25 +1,48 @@
 {
- "centre": "gold-rimmed lens with a wave starting to smudge",
+ "centre": "warm round lantern hanging in a colonnade",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "pencil",
-   "word": "decoherence",
-   "vol": 0.55
+   "name": "hush",
+   "word": "something more",
+   "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "decoherence",
-   "x": 960,
-   "y": 780,
+   "text": "chance",
+   "x": 430,
+   "y": 440,
    "to": [
-    960,
-    610
+    430,
+    530
    ],
-   "word": "decoherence"
+   "word": "chance"
+  },
+  {
+   "type": "say",
+   "text": "Only chance?",
+   "x": 1260,
+   "y": 420,
+   "to": [
+    1432,
+    530
+   ],
+   "word": "chance"
+  },
+  {
+   "type": "say",
+   "text": "Needs more!",
+   "x": 1590,
+   "y": 400,
+   "to": [
+    1580,
+    520
+   ],
+   "word": "more"
   }
  ],
- "focus": null,
- "focus_word": null
+ "motion": "shake: the dice rattle (chance) while the two philosophers argue; bubbles show the disagreement"
 }

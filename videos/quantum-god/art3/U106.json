@@ -1,13 +1,23 @@
 {
- "centre": "clock dial with a small gold wedge showing the chance within the hour",
- "sfx": [
+ "centre": "bright particle riding a guiding wave",
+ "focus": null,
+ "iris": [
+  400,
+  560
+ ],
+ "labels": [
   {
-   "name": "tick",
-   "word": "hour",
-   "vol": 0.5
+   "type": "name",
+   "text": "Bohm picture",
+   "x": 1300,
+   "y": 300,
+   "to": [
+    1000,
+    420
+   ],
+   "word": "Bohm"
   }
  ],
- "labels": [],
- "focus": null,
- "focus_word": null
+ "focus_word": null,
+ "motion": "path + tracking: the bright particle rides the guiding wave from the left across to the right (nonlocal guiding wave, Bohm picture)"
 }

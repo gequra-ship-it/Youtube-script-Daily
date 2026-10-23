@@ -1,7 +1,24 @@
 {
- "centre": "a round sketch card pinned to a board, showing a dashed fish outline and a question mark",
+ "centre": "Astraspis, a squat armored jawless fish with star-shaped bumps, swimming across a dusk sea",
  "focus": null,
  "focus_word": null,
  "sfx": [],
- "labels": []
+ "iris": [
+  600,
+  570
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Twinkle, twinkle!",
+   "x": 1430,
+   "y": 300,
+   "to": [
+    1660,
+    500
+   ],
+   "word": "different oceans"
+  }
+ ],
+ "motion": "path: Astraspis swims across the sea floor showing its star-studded shield; the camera follows; it comments at the end"
 }

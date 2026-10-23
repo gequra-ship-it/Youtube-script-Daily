@@ -1,23 +1,41 @@
 {
- "centre": "Astraspis head shield from above, covered in small star-shaped bumps",
+ "centre": "front view of a lamprey round sucker mouth with rings of small teeth",
  "focus": [
   960,
   500,
   1.8
  ],
- "focus_word": "star-shaped bumps",
- "sfx": [],
+ "focus_word": "round mouth lined with teeth",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "attaches to its prey",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "star shield",
-   "x": 960,
-   "y": 330,
+   "text": "prey",
+   "x": 1360,
+   "y": 660,
    "to": [
-    960,
-    400
+    1460,
+    600
    ],
-   "word": "star shield"
+   "word": "prey"
+  },
+  {
+   "type": "say",
+   "text": "Mine!",
+   "x": 1180,
+   "y": 600,
+   "to": [
+    1400,
+    712
+   ],
+   "word": "attaches"
   }
- ]
+ ],
+ "motion": "the lamprey clamps on and tugs at its prey (shake)"
 }

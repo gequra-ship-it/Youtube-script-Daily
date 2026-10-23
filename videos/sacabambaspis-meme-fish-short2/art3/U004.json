@@ -1,11 +1,7 @@
 {
- "centre": "magnifying lens over the fish's skin: a mosaic of small bone plates",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "shell-skinned",
+ "centre": "comparison board: a trout with its inner bony skeleton above, Sacabambaspis with bone plates in its skin below",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "page",
@@ -16,14 +12,26 @@
  "labels": [
   {
    "type": "name",
-   "text": "shell-skinned",
-   "x": 540,
-   "y": 1050,
+   "text": "trout",
+   "x": 820,
+   "y": 822,
    "to": [
-    540,
-    975
+    770,
+    660
+   ],
+   "word": "trout"
+  },
+  {
+   "type": "name",
+   "text": "shell-skinned",
+   "x": 300,
+   "y": 852,
+   "to": [
+    330,
+    1030
    ],
    "word": "shell-skinned"
   }
- ]
+ ],
+ "motion": "tracking camera moves down from the trout (its inner skeleton draws on) to the shell-skinned fish (its skin plates trace on): inside bones vs bone in the skin"
 }

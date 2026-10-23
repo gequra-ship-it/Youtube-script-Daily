@@ -1,7 +1,19 @@
 {
- "centre": "round instrument porthole glowing with an electron beam",
+ "centre": "same glowing wave cloud, with two dashed paths through both slits",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "say",
+   "text": "Both at once?",
+   "x": 800,
+   "y": 690,
+   "to": [
+    630,
+    830
+   ],
+   "word": "both"
+  }
+ ],
+ "motion": "path x2 + dash: two electron dots travel along both dashed routes through both slits at once (camera tracking off); bubble from the cloud"
 }

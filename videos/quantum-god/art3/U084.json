@@ -1,7 +1,26 @@
 {
- "centre": "teal sphere with a rippling wave pattern, free in an empty hall",
- "sfx": [],
- "labels": [],
+ "centre": "a theatre stage floating in space; its curtain lifts to show the 'empty' stage teeming with flickering pairs and ripples",
  "focus": null,
- "focus_word": null
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "cloth",
+   "word": "blank stage",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "empty space",
+   "x": 1250,
+   "y": 110,
+   "to": [
+    1150,
+    400
+   ],
+   "word": "empty space"
+  }
+ ],
+ "motion": "fill: the curtain over the stage of empty space rolls up and shows it is not blank - tiny pairs and ripples flicker everywhere"
 }

@@ -1,29 +1,30 @@
 {
- "centre": "round screen with a single bright dot at the middle",
+ "centre": "round detector lens glowing cyan above the slit plate",
  "focus": [
   540,
   860,
-  2.0
+  1.7
  ],
- "focus_word": "single dot",
+ "focus_word": "detector",
  "sfx": [
   {
-   "name": "pop",
-   "word": "single dot",
-   "vol": 0.6
+   "name": "click",
+   "word": "detector",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Electron",
+   "text": "Detector",
    "x": 700,
-   "y": 1020,
+   "y": 700,
    "to": [
-    548,
-    872
+    620,
+    790
    ],
-   "word": "electron"
+   "word": "detector"
   }
- ]
+ ],
+ "motion": "grow: the two detector beams extend down from the lens to the slits (watching each path)"
 }

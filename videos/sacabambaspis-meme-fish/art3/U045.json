@@ -1,34 +1,31 @@
 {
- "centre": "a red rock slab holding a complete flattened Sacabambaspis fossil, head shield at the centre",
- "focus": [
-  960,
-  510,
-  1.6
- ],
- "focus_word": "more complete specimens",
- "sfx": [],
+ "centre": "glowing porthole of a tiny armored submarine",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "specimens",
-   "x": 960,
-   "y": 290,
+   "text": "armored submarine",
+   "x": 700,
+   "y": 250,
    "to": [
-    960,
-    400
+    760,
+    370
    ],
-   "word": "specimens"
+   "word": "armored submarine"
   },
   {
    "type": "name",
-   "text": "Bolivian rocks",
-   "x": 1480,
-   "y": 250,
+   "text": "flexible rear end",
+   "x": 1500,
+   "y": 330,
    "to": [
-    1480,
-    360
+    1500,
+    450
    ],
-   "word": "Bolivian rocks"
+   "word": "flexible rear end"
   }
- ]
+ ],
+ "track": false,
+ "motion": "sub glides in from the right (mv-path, ends in place so the name labels still point right; camera tracking off); rear end keeps its existing wriggle chain"
 }

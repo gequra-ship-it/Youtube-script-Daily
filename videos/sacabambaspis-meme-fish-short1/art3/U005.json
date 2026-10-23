@@ -1,19 +1,35 @@
 {
- "centre": "a split fossil nodule with the fish imprint",
- "focus": null,
- "focus_word": null,
+ "centre": "the model's face on a phone screen",
+ "focus": [
+  540,
+  870,
+  1.5
+ ],
+ "focus_word": "A photo of it",
  "sfx": [
   {
-   "name": "tick",
-   "word": "years ago",
+   "name": "pop",
+   "word": "went viral",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "num",
-   "text": "460 MILLION YEARS AGO",
-   "word": "four hundred and sixty million"
+   "text": "2022",
+   "word": "2022"
+  },
+  {
+   "type": "say",
+   "text": "Awww!",
+   "x": 330,
+   "y": 1010,
+   "to": [
+    232,
+    1150
+   ],
+   "word": "love"
   }
- ]
+ ],
+ "motion": "photo feed scrolls sideways as the picture goes viral; cheering visitor bubble"
 }
