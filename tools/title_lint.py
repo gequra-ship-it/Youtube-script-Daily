@@ -5,12 +5,12 @@
     python3 tools/title_lint.py titles.txt [--thumb "..."]    # one title per line
 
 Adapted from title.py in Jakeschincariol/youtube-agent-skill (MIT), with this channel's limits:
-title <= 70 chars (mobile feed shows ~40), Title Case, no emoji, no all-caps words, no vague hype,
+title <= 50 chars (mobile feed shows ~40), Title Case, no emoji, no all-caps words, no vague hype,
 thumbnail 2-4 words and no word shared with the title. Advisory only; numbers must come from the script.
 """
 import re, sys, os
 
-MAX, MOBILE = 70, 40
+MAX, MOBILE = 50, 40   # 2026-10-24: titles shorter (miya), was 70
 VAGUE = {"amazing", "incredible", "insane", "crazy", "huge", "massive", "ultimate", "best", "powerful",
          "secret", "revolutionary", "mindblowing", "epic", "perfect", "everything"}
 STOP = {"the", "a", "an", "of", "for", "to", "in", "on", "and", "or", "is", "are", "with", "your", "you",

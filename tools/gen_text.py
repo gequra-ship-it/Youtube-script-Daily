@@ -37,11 +37,13 @@ for c in d['caps']:
     if c['scene']!=cur:
         cur=c['scene']; L+=["",f"[S{cur:02d}]"]
     L.append(f"{ts(c['t0'])}  {c['text']}")
-open(f'{OUT}/{slug}_script.txt','w',encoding='utf-8').write("\n".join(L)+"\n")
+SCRIPT_REF = wdir() + f'/build/{slug}_script.txt'   # 2026-10-24: not delivered to Drive any more (miya), kept in the work dir for checking
+open(SCRIPT_REF,'w',encoding='utf-8').write("\n".join(L)+"\n")
 
-if not CFG.CHAPTERS:   # Shorts: title + description + hashtags only (no chapters)
-    M=(f"슬러그 {slug}, 작성일 {__import__('datetime').date.today().isoformat()}. 쇼츠(세로 9:16) 제목·설명. 제목 {len(CFG.TITLE)}자. 쇼츠 전용 제목·해시태그 규칙은 공식 문서로 확인하지 못함(일반 영상 한도 제목 100자·설명 5,000자 적용).\n\n"
-       "=== TITLE ===\n"+CFG.TITLE+"\n\n=== DESCRIPTION ===\n"+"\n\n".join(CFG.DESC)+"\n\n"+CFG.HASHTAGS+"\n")
+DESC_SHORT = CFG.DESC[0]   # 2026-10-24: description = 1-2 sentences only (about 1/3 of the old one); ABOUT and SOURCES are not delivered
+if len(DESC_SHORT) > 260: print(f"WARNING: description {len(DESC_SHORT)} chars (aim <= 260)")
+if not CFG.CHAPTERS:   # Shorts: title + description + hashtags only (no timeline)
+    M="=== TITLE ===\n"+CFG.TITLE+"\n\n=== DESCRIPTION ===\n"+DESC_SHORT+"\n\n"+CFG.HASHTAGS+"\n"
     open(f'{OUT}/{slug}_metadata.txt','w',encoding='utf-8').write(M); print(M); raise SystemExit
 ch=CFG.CHAPTERS
 lines=[]
@@ -50,12 +52,7 @@ for k,(i,t) in enumerate([c for c in ch if str(c[0]) in d['starts'] or c[0]==ch[
     st=0.0 if k==0 else d['starts'][str(i)]
     if prev is not None: assert st-prev>=10
     prev=st; m=int(st//60); s=int(st%60); lines.append(f"{m:02d}:{s:02d} {t}")
-import datetime
-src = ("SOURCES\n" + "\n".join("- " + x for x in CFG.SOURCES) + "\n\n") if CFG.SOURCES else ""
-M = (f"슬러그 {slug}, 작성일 {datetime.date.today().isoformat()}. 챕터 시각은 렌더 구성표(내레이션을 배치한 시각)에서 가져온 값이며, 렌더된 MP4 프레임으로 다시 재지는 않았음.\n"
-     f"제목 길이 {len(CFG.TITLE)}자(70자 이하). 설명의 ABOUT 문구는 지침서 14장의 제안 문구이며 사용자 확인 전.\n\n"
-     "=== TITLE ===\n" + CFG.TITLE + "\n\n=== DESCRIPTION ===\n" + "\n\n".join(CFG.DESC) + "\n\nCHAPTERS\n" + "\n".join(lines) + "\n\n" + src +
-     "ABOUT MIYA'S NOTE\nMiya's Note turns big questions into calm, illustrated explainers. New videos keep coming, so subscribe if you want the next one.\n\n" + CFG.HASHTAGS + "\n")
-assert len(CFG.TITLE) <= 70
+M = ("=== TITLE ===\n" + CFG.TITLE + "\n\n=== DESCRIPTION ===\n" + DESC_SHORT + "\n\nTIMELINE\n" + "\n".join(lines) + "\n\n" + CFG.HASHTAGS + "\n")
+assert len(CFG.TITLE) <= 100
 open(f'{OUT}/{slug}_metadata.txt','w',encoding='utf-8').write(M)
-print(M[:1500]); print(len(open(f'{OUT}/{slug}_script.txt').read()))
+print(M)
