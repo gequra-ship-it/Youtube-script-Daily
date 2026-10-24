@@ -12,7 +12,7 @@
 ## 브랜치
 | 브랜치 | 역할 |
 |---|---|
-| `render-pipeline` | 영상 제작의 원본. `tools/`, `docs/`, `videos/`(영상별 원본), `render/`(렌더 원본), 렌더 워크플로 `render.yml` |
+| `render-pipeline` | 영상 제작의 원본(매일 대본 코드·대본은 `main`에만 둔다, 2026-10-24 옛 복사본 삭제). `tools/`, `docs/`, `videos/`(영상별 원본), `render/`(렌더 원본), 렌더 워크플로 `render.yml` |
 | `main` | 매일 대본 생성(`main.py`, `main_owl.py`, 워크플로 `schedule.yml`·`schedule_owl.yml`). 예약 워크플로는 GitHub 규칙상 기본 브랜치인 `main`에서만 돈다. 봇이 매일 `scripts/`·`scripts_owl/`에 대본을 커밋한다. `docs/`·`tools/`는 사본 |
 
 - `docs/`·`tools/`를 고치면 `render-pipeline`에 먼저 반영하고 `main`에도 같은 내용을 넣는다(두 사본이 어긋나지 않게).
