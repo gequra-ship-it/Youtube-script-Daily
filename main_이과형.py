@@ -12,10 +12,10 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
 SAVE_DIR = "./scripts_igwahyung"
 
-PUBLISHED_DATE = None  # 선택된 영상의 게시일(YYYY-MM-DD), 없으면 실행일 사용
+PUBLISHED_DATE = None  # 참고 영상의 게시일(참고용). 대본 파일명·날짜는 생성일(실행일)을 쓴다(2026-10-24 수정: 예전엔 게시일이 파일명에 들어갔음)
 
 def script_date():
-    return PUBLISHED_DATE or datetime.now().strftime("%Y-%m-%d")
+    return datetime.now().strftime("%Y-%m-%d")
 
 def video_title_of(script_text, fallback):
     """대본의 '[영상 제목]: 영어 / 한국어'에서 영어 제목만 뽑는다(없으면 fallback)."""
