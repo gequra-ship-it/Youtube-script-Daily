@@ -6,6 +6,7 @@
 import os, re, sys, json, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import motions
+import sys; sys.path.insert(0, __import__('os').path.dirname(__import__('os').path.abspath(__file__))); from paths import chrome
 from playwright.sync_api import sync_playwright
 from PIL import Image
 
@@ -42,7 +43,7 @@ def page(uid):
     return body, n, bool(trk)
 
 with sync_playwright() as p:
-    b = p.chromium.launch(executable_path=os.environ.get('CHROME', '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'), args=['--no-sandbox'])
+    b = p.chromium.launch(executable_path=chrome(), args=['--no-sandbox'])
     pg = b.new_page(viewport={'width': W, 'height': H}); errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
     for uid in uids:
         body, n, trk = page(uid); f = f'{out}/_{uid}.html'; open(f, 'w', encoding='utf-8').write(body.replace('src="gsap.min.js"', f'src="file://{gsap}"'))

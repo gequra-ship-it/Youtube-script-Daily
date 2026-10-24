@@ -75,3 +75,9 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 ## 2026-10-22 additions (title lint)
 `python3 tools/title_lint.py --title "..." [--thumb "..."]` checks a title/thumbnail text pair against guideline 16-6 and 17-3 (advisory). Adapted from Jakeschincariol/youtube-agent-skill (MIT).
 - 2026-10-22 (later): 5 more object motions (`shake`, `dash`, `scroll`, `slam`, `rise`), camera tracking (`track_spec`, `track_js`, `miyaTrack`: follows `mv-path`, 3+ `mv-topple`, or `mv-track-*`; replaces focus/drift; build log `tracking cams`), speech bubbles up to 2 per unit (`labels_lib.py`) and ~1 unit in 3 (guideline 3-6).
+
+## 2026-10-24 additions (bear demo v3, user decision)
+- `motions.py`: object kinds `slide`, `fade`, `ticks`, `rack` (+ `popin` `data-axis`), `miyaTicks`/`miyaRack`; `miyaTrack`/`track_js` take the world size (sidecar `"world": [w, h]`) so the camera can travel or scroll over one big picture.
+- `rhythm.py` (new): `silence_windows`, `accent_times`, `gain_mask`; `build3.py` mutes music + sfx in two near-silences (config `SILENCE`, env `NOSILENCE=1`) and `bgm_lib.synth(accents=)` adds chord-tone accents on big scene changes (env `NOACCENT=1`). Guideline 9-5.
+- `paths.chrome()`: finds the installed Chromium (env `HYPERFRAMES_BROWSER_PATH`/`PW_CHROME`/`CHROME`, else newest `/opt/pw-browsers/chromium-*`); six preview tools use it.
+- Checked on a 4-scene test video (TTS, align, build, seek screenshots). Not checked: full MP4 render, sound by ear.
