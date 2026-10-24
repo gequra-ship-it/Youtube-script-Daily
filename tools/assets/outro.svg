@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080"><defs><radialGradient id="obg" cx=".5" cy=".45" r=".75"><stop offset="0" stop-color="#eff0dc"/><stop offset="1" stop-color="#dcdfc4"/></radialGradient></defs>
+<rect width="1920" height="1080" fill="url(#obg)"/>
+<path d="M120 230 L330 230 M1500 190 L1790 190 M200 930 L430 930 M1380 980 L1700 980" stroke="#9fae93" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+<g id="mv-glint-s1" fill="#e7b34a" stroke="#1d2b1c" stroke-width="3" stroke-linejoin="round"><path d="M250 330 q12 28 40 40 q-28 12 -40 40 q-12 -28 -40 -40 q28 -12 40 -40z"/></g>
+<g id="mv-glint-s2" fill="#e7b34a" stroke="#1d2b1c" stroke-width="3" stroke-linejoin="round"><path d="M1700 420 q9 20 29 29 q-20 9 -29 29 q-9 -20 -29 -29 q20 -9 29 -29z"/></g>
+<g id="mv-glint-s3" fill="#e7b34a" stroke="#1d2b1c" stroke-width="3" stroke-linejoin="round"><path d="M880 150 q8 18 26 26 q-18 8 -26 26 q-8 -18 -26 -26 q18 -8 26 -26z"/></g>
+<!-- subscribe button with bell -->
+<g id="mv-lean-subscribe">
+ <rect x="330" y="400" width="520" height="150" rx="75" fill="#c0443a" stroke="#1d2b1c" stroke-width="7"/>
+ <rect x="350" y="414" width="480" height="40" rx="20" fill="#fff" opacity=".16"/>
+ <g id="mv-bell-notify" transform="translate(590 482) scale(.72)">
+  <path d="M-52 40 q10 -18 10 -52 q0 -38 42 -44 q42 6 42 44 q0 34 10 52z" fill="#f6f1dd" stroke="#1d2b1c" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M-16 50 q16 22 32 0" fill="#e7b34a" stroke="#1d2b1c" stroke-width="6" stroke-linejoin="round"/>
+  <circle cx="0" cy="-64" r="9" fill="#e7b34a" stroke="#1d2b1c" stroke-width="5"/>
+  <path d="M60 -50 q18 14 18 34 M-60 -50 q-18 14 -18 34" fill="none" stroke="#f6f1dd" stroke-width="6" stroke-linecap="round"/>
+ </g>
+</g>
+<!-- thumbs up -->
+<g id="mv-hand-like" transform="translate(590 780)">
+ <rect x="-130" y="-30" width="64" height="130" rx="10" fill="#7fb6d9" stroke="#1d2b1c" stroke-width="7"/>
+ <path d="M-54 -22 q40 -30 52 -92 q4 -26 28 -18 q30 12 14 64 l-6 22 h92 q30 4 24 36 l-14 70 q-6 34 -34 34 h-130 q-12 0 -12 -14z" fill="#f4d9a8" stroke="#1d2b1c" stroke-width="7" stroke-linejoin="round"/>
+ <path d="M10 40 h96 M4 78 h92" stroke="#1d2b1c" stroke-width="5" stroke-linecap="round" opacity=".35"/>
+</g>
+<!-- frog -->
+<g id="mv-breathe-frog" transform="translate(1350 940) scale(5)" stroke="#1d2b1c" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="-22" cy="4" rx="16" ry="9" fill="#4d8a4a" stroke-width="3.2"/><ellipse cx="22" cy="4" rx="16" ry="9" fill="#4d8a4a" stroke-width="3.2"/>
+ <path d="M-34 0 q-6 -64 34 -70 q40 -2 42 62 q0 10 -6 12 q-36 6 -70 -4z" fill="#6aa55a" stroke-width="4"/>
+ <ellipse cx="2" cy="-12" rx="22" ry="20" fill="#9cc98a" stroke="none" opacity=".7"/>
+ <circle cx="-10" cy="-66" r="13" fill="#e3e5d6" stroke-width="3.2"/><circle cx="-8" cy="-66" r="5" fill="#1d2b1c" stroke="none"/>
+ <circle cx="22" cy="-66" r="13" fill="#e3e5d6" stroke-width="3.2"/><circle cx="24" cy="-66" r="5" fill="#1d2b1c" stroke="none"/>
+ <path d="M-8 -44 q14 12 28 0" fill="none" stroke-width="3.4"/>
+ <path d="M-34 -22 q-14 6 -16 22" fill="none" stroke-width="7.5"/><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke="#6aa55a" stroke-width="3.4"/>
+</g>
+<g id="mv-joint-wave" data-pivot="1500 820" data-amp="22" data-per=".3" stroke="#1d2b1c" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M1500 820 q50 -30 56 -120 q2 -40 34 -86" fill="none" stroke-width="42"/><path d="M1500 820 q50 -30 56 -120 q2 -40 34 -86" fill="none" stroke="#6aa55a" stroke-width="26"/>
+ <circle cx="1592" cy="606" r="34" fill="#6aa55a" stroke-width="12"/><circle cx="1592" cy="606" r="22" fill="#6aa55a" stroke="none"/>
+</g>
+</svg>

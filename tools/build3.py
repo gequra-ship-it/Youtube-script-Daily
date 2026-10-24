@@ -20,6 +20,8 @@ CX, CY = (540, 860) if VERT else (960, 500)          # centre object position (z
 OUT = sys.argv[1] if len(sys.argv) > 1 else f'{REPO}/render/{SLUG}'
 SEL = [int(x) for x in os.environ.get('SEL', '').split(',') if x] or list(range(1, len(SCENES) + 1))
 LEAD, GAP, TAIL = (0.3, 0.5, 1.2) if VERT else (1.0, 0.8, 2.5)
+OUTRO = SCENES[-1][0] == 'OUTRO' and not VERT      # fixed outro scene appended by paths.load_scenes (2026-10-24)
+if OUTRO: TAIL = 4.0                                 # narration ~5.9 s + 4 s = the last ~10 s of every long form
 # 2026-10-22 (owner): camera tracking + object motions carry the picture, so cuts are 1.5x longer than before.
 # PACE multiplies maxu/slow/minu of the default AND of any config HOOK; config PACE = 1 rebuilds an old plan unchanged.
 PACE = getattr(CFG, 'PACE', 1.5)
@@ -201,7 +203,9 @@ FIXED = os.path.exists(_plan0) and os.environ.get('UNITS') != 'new' and not os.e
 
 
 def fixed_units(i):
-    text = SCENES[i - 1][4]; pj = [p['text'] for p in json.load(open(_plan0)) if p['scene'] == i]; pos = 0; st = []
+    text = SCENES[i - 1][4]
+    if SCENES[i - 1][0] == 'OUTRO': return [(0, len(text))]      # one fixed picture, not in plan.json
+    pj = [p['text'] for p in json.load(open(_plan0)) if p['scene'] == i]; pos = 0; st = []
     for t in pj:
         j = text.find(t, pos)
         assert j >= 0, (f'scene {i}: unit text of plan.json not found in the scene text (script edited? run with UNITS=new)', t[:50])
@@ -313,6 +317,12 @@ TIN = {'hard': 0.0, 'zoom': 0.5, 'fade': 0.6, 'slide': 0.7, 'match': 0.9, 'wash'
        'wipe': 0.8, 'iris': 0.9, 'eye': 0.8, 'blinds': 0.65, 'push': 0.7, 'whip': 0.45, 'tilt': 0.8,
        'seam': 1.0, 'diamond': 0.9, 'page': 0.8, 'zigzag': 0.9, 'wave': 1.0}
 
+# fixed outro: every long form uses the same picture (tools/assets/outro.svg, no text; the words come from the captions); never drawn by agents
+for u in units:
+    if SCENES[u['scene'] - 1][0] == 'OUTRO':
+        os.makedirs(ART3, exist_ok=True)
+        for ext in ('svg', 'json'):
+            if os.path.exists(f'{ASSETS}/outro.{ext}'): shutil.copy(f'{ASSETS}/outro.{ext}', f'{ART3}/{u["uid"]}.{ext}')
 # ---------- sidecars / art ----------
 def side(u):
     if CINE: return CINE_BEATS.get(u['uid'], {})
@@ -331,7 +341,7 @@ if os.environ.get('PLAN') == '1':
     if not getattr(CFG, 'PAL_DEFAULT', None): print('WARNING: config.py has no PAL_DEFAULT -> legacy purple/peach palette. Choose palettes from tools/palettes.py for this topic.')
     plan = []
     for k, u in enumerate(units):
-        if u['kind'] == 'chalk': continue
+        if u['kind'] == 'chalk' or SCENES[u['scene'] - 1][0] == 'OUTRO': continue   # the outro picture is fixed (tools/assets/outro.svg)
         sc = SCENES[u['scene'] - 1]
         plan.append(dict(uid=u['uid'], scene=u['scene'], title=sc[1], art_theme=sc[3], bg=BGMODE.get(sc[3], 'paper'), pal=palettes.describe(palettes.for_theme(CFG, sc[3])), text=u['text'],
                          dur=round(u['t1'] - u['t0'], 2), transition_in=u['tr'], prev=units[k - 1]['text'] if k and units[k - 1]['scene'] == u['scene'] else '',
