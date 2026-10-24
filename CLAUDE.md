@@ -22,7 +22,7 @@
 - `render-pipeline`에 푸시할 때 `render/.slug`, `.github/workflows/render.yml`, `render/sample/**` 중 하나가 바뀌면 GitHub Actions 렌더가 바로 시작되고, 끝나면 Drive의 같은 이름 MP4를 덮어쓴다. 의도하지 않았다면 이 파일들을 건드리지 않는다.
 - 렌더는 `render/.chunked`(`"<slug> <구간 수>"`, 구간 수는 `python3 tools/chunk_plan.py render/<slug>`)를 바꾸는 푸시로 `render-chunked.yml`이 구간별 동시 렌더 후 합쳐 올린다(SVG·3D 모두, 지침서 20-7). 예전 한 작업 방식 `render.yml`은 `render/.slug`(한 줄에 슬러그 하나)로 돈다. 둘 다 바로 시작되고 덮어쓴다. 렌더 없이 워크플로 파일만 바꿀 때는 `.slug`를 없는 슬러그(예: `none`)로 두어 실행이 아무것도 올리지 않고 끝나게 한다.
 - 렌더 1회(작업 하나) 시간 한도는 300분이고, 슬러그를 순서대로 렌더한다. 롱폼은 영상 길이의 약 3~4배가 걸린다(2026-10-13 실행: 약 20분 영상이 숏츠 2편 포함 약 62~90분). 숏츠는 영상마다 5편(각 2:00~2:55, 지침서 19장)이라 롱폼과 숏츠를 다른 커밋으로 나눠 푸시하면 시간 한도에 여유가 생긴다. 여러 주제는 주제별로 커밋을 나눠 하나씩 푸시해 병렬로 돌린다(지침서 15-5).
-- Drive 경로는 `render/<slug>/.dest`로 정한다(지침서 18장). **2026-10-24 새 채널 Miya's Note: 새 영상은 `Miya's Note/<01. Life & Biology | 02. Space & Science>/NN_<slug>`(숏츠 `/short`, 5편), 아래 옛 구조는 Miya's Lab 보관용**(2026-10-16 구조): 새 영상은 `Space & Science/NN_<slug>`, `Life & Biology/NN_<slug>`(주제 폴더마다 01부터 번호, 숏츠는 `/short`), 예전 SVG 영상 보관은 `old/<영상>`, 3D 실험은 `cinema/<영상>`. 폴더 이름이 바뀌면 `.dest`도 바꾼다(안 그러면 새 폴더가 생긴다).
+- Drive 경로는 `render/<slug>/.dest`로 정한다(지침서 18장). **2026-10-24 새 채널 Miya's Note: 새 영상은 `Miya's Note/<01. Life & History | 02. Space & Science>/NN_<slug>`(숏츠 `/short`, 5편), 아래 옛 구조는 Miya's Lab 보관용**(2026-10-16 구조): 새 영상은 `Space & Science/NN_<slug>`, `Life & Biology/NN_<slug>`(주제 폴더마다 01부터 번호, 숏츠는 `/short`), 예전 SVG 영상 보관은 `old/<영상>`, 3D 실험은 `cinema/<영상>`. 폴더 이름이 바뀌면 `.dest`도 바꾼다(안 그러면 새 폴더가 생긴다).
 - 이미 만든 영상에 새 모션 규칙만 적용할 때는 `tools/restyle_motion.py`를 빌드 원본에만 쓴다(지침서 15-7).
 
 ## 항상 지킬 것 (자세한 내용은 지침서)
