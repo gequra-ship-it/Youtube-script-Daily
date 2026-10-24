@@ -350,9 +350,31 @@ def unit_words(u):
     return [(starts[i] + w[k][0], starts[i] + w[k][1]) for k, (a, b) in enumerate(TOK[i]) if a >= c0 and b <= c1 and k < len(w)]
 
 
+def unit_wordlist(u):
+    """[(word text, start, end)] of the spoken words of a unit (the frog's points / moods / moves are keyed by words)"""
+    i = u['scene']
+    if i not in WORDS: return []
+    w = WORDS[i]['words']; c0, c1 = u.get('c0', 0), u.get('c1', 10 ** 9); tx = SCENES[i - 1][4]
+    return [(tx[a:b], starts[i] + w[k][0], starts[i] + w[k][1]) for k, (a, b) in enumerate(TOK[i]) if a >= c0 and b <= c1 and k < len(w)]
+
+
 def frog_of(u):
     if not FROG_ON or u['kind'] == 'chalk': return None
     return frog.spec(side(u), VERT)
+
+
+def adj_focus(u, f):
+    """(2026-10-24, miya) the frog is part of the picture: a zoom must never push it (or its hop targets) out of the frame -> lower the zoom, or drop it (None)"""
+    if not f: return None
+    fg = frog_of(u)
+    if not fg: return f
+    pts = [(fg['x'], fg['y'] - 45 * fg['s'])] + [(m.get('x', fg['x']), m.get('y', fg['y']) - 45 * m.get('s', fg['s'])) for m in (fg.get('moves') or [])]
+    fx, fy, fs = float(f[0]), float(f[1]), float(f[2])
+    while fs > 1.0:
+        cx_ = min(max(fx, W / 2 / fs), W - W / 2 / fs); cy_ = min(max(fy, H / 2 / fs), H - H / 2 / fs)
+        if all(abs(px - cx_) * fs < W / 2 * .86 and abs(py - cy_) * fs < H / 2 * .86 for px, py in pts): break
+        fs = round(fs - .1, 2)
+    return [fx, fy, fs] if fs >= 1.15 else None
 
 
 CHALK_FROG = dict(x=190, y=H - 32, s=2.6, flip=1, point=None, delay=0.3)   # bottom-left on the chalkboard (vertical: same corner)
@@ -461,7 +483,7 @@ ROW_Y = [294, 459, 630]
 
 def frog_inject(svgtxt, u):
     d = frog_of(u)
-    return frog.inject(svgtxt, frog.markup(f'u{u["n"]}', d)) if d else svgtxt
+    return frog.inject(svgtxt, frog.markup(f'u{u["n"]}', d), d.get('ride')) if d else svgtxt
 
 
 def chalk_frog(i):
@@ -577,7 +599,7 @@ for u in units:
         lin, lout, litems = ('', '', []) if lerr else labels_lib.html_for(nn, sc0, BGMODE.get(th, 'paper'), palettes.PALETTES[palettes.for_theme(CFG, th)], W, H, VERT)
         label_items[nn] = litems
         spot = ''
-        fz = sc0.get('focus')
+        fz = adj_focus(u, sc0.get('focus'))
         if fz and sc0.get('spot', True):   # focus spotlight: the rest of the picture dims while the camera pushes in (guideline 4-1)
             fx, fy, fs = float(fz[0]), float(fz[1]), max(float(fz[2]), 1.0)
             spot = (f'<div class="spot" id="sp{nn}" style="position:absolute;left:0;top:0;width:{W}px;height:{H}px;pointer-events:none;opacity:0;'
@@ -633,7 +655,8 @@ for u in units:
     if f:
         tf = tword(sc.get('focus_word')) or (u['t0'] + 1.5)
         a = max(u['t0'] + 0.9, tf - 0.5); a = min(a, u['t1'] - 0.3 - 1.4)
-        if a > u['t0'] + 0.5:
+        f = adj_focus(u, f)
+        if f and a > u['t0'] + 0.5:
             focus_cam[nn] = (a, f)
             if sc.get('focus_tick', True): cues.append(dict(name='tick', t=a + 0.35, vol=0.6, pri=1, unit=u['uid']))
     for k2, (ty, lid, gid, l) in enumerate(label_items.get(nn, [])):
@@ -830,7 +853,7 @@ for k, u in enumerate(units):
         elif nxt['tr'] == 'whip':
             st = t1 - .45; js.append(f'tl.to("{T}",{{x:{-W},duration:.45,ease:"expo.out"}},{st:.3f});')
     _fd = frog_of(u)
-    if _fd: js.extend(frog.js(f'u{nn}', _fd, t0, t1, unit_words(u)))
+    if _fd: js.extend(frog.js(f'u{nn}', _fd, t0, t1, unit_words(u), wt=unit_wordlist(u)))
     # --- tracking camera (2026-10-22): a long travelling motion (path object, dominoes) is followed; it replaces focus and drift ---
     trk = motions.track_spec(open(art_path(u)[0], encoding='utf-8').read(), side(u))
     if trk:
@@ -965,5 +988,5 @@ data = dict(slug=SLUG, total=TOTAL, lead=LEAD, gap=GAP, tail=TAIL, starts={str(k
 json.dump(data, open(B + ('/build_data.json' if len(SEL) == len(SCENES) else '/build_data_partial.json'), 'w'), ensure_ascii=False, indent=1)
 dd = [u['t1'] - u['t0'] for u in units]
 from collections import Counter
-print('slow scenes', sorted(SLOW_SC), '| cuts moved for min time', retimed, f'(min {MINU}/{MINU_SLOW} s) |', 'labels', len(label_t), 'total', TOTAL, 'units', len(units), 'avg', round(sum(dd) / len(dd), 2), 'max', round(max(dd), 2), 'caps', len(caps), 'sfx cues', len(cues), 'fallback art', len(fallback_used))
+print('slow scenes', sorted(SLOW_SC), '| cuts moved for min time', retimed, f'(min {MINU}/{MINU_SLOW} s) |', 'labels', len(label_t), 'total', TOTAL, 'units', len(units), 'avg', round(sum(dd) / len(dd), 2), 'min', round(min(dd), 2), 'max', round(max(dd), 2), 'caps', len(caps), 'sfx cues', len(cues), 'fallback art', len(fallback_used))
 print('transitions', dict(Counter(u['tr'] for u in units)), 'focus cams', len(focus_cam), 'tracking cams', len(TRACKED))

@@ -15,4 +15,4 @@ SOURCES = []
 CHAPTERS = []
 PAL_DEFAULT = 'deepfield'
 PAL = dict()
-HOOK = dict(until=999, maxu=4.8)
+HOOK = dict(until=999, maxu=4.8, minu=5.667, minu_slow=6.667)   # min on-screen 8.5 s (slow 10 s) after PACE 1.5, miya 2026-10-24: scene changes felt too fast

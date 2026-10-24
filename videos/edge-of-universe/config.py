@@ -93,4 +93,4 @@ BG = {'andro1': 'night',
  'y982': 'night'}
 PAL_DEFAULT = 'deepfield'
 PAL = dict()
-HOOK = dict(until=300, maxu=4.5)
+HOOK = dict(until=300, maxu=4.5, minu=5.667, minu_slow=6.667)   # min on-screen 8.5 s (slow 10 s) after PACE 1.5, miya 2026-10-24: scene changes felt too fast
