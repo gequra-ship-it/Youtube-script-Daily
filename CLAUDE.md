@@ -5,7 +5,7 @@
 ## 먼저 읽을 파일
 - 지침서 원본: `docs/miyas-lab-guideline.md` (`render-pipeline` 브랜치가 원본, 현재 규칙만 담은 핵심 약 11KB + 장별 파일 `docs/guideline/`, 지금 단계에 해당하는 장만 읽는다). 이 파일과 지침서가 다르면 지침서가 우선이다. 옛 기록·전체 사본은 `docs/archive/`(평소 읽지 않는다).
 - **영상은 SVG 모션그래픽 방식으로 만든다(2026-10-16 사용자 결정으로 복귀).** 그림 명세: `tools/art_spec.md` (+ 영상별 `videos/<slug>/art_brief.md`). 3D 실험에서 얻은 카메라·속도감·초반 밀도·숏츠·관절 모션·병렬 렌더 규칙은 지침서 20장(코드: `tools/build3.py`의 `DRIFT`·`HOOK`·속도선·`mv-joint`/`mv-chain`, `tools/motion_check.py`, `tools/chunk_plan.py`)
-- 시네마틱 3D(cine)의 문서·코드는 `cine-test/`에 보관(`cine-test/README.md`). 사용자가 3D를 요청할 때만 쓴다
+- 시네마틱 3D(cine) 실험, 옛 Miya's Lab 영상(`videos/`·`render/` 전부)과 옛 문서는 2026-10-24에 지웠다. 필요하면 `archive/miyas-lab-2026-10-24` 브랜치에서 꺼낸다(`git checkout archive/miyas-lab-2026-10-24 -- <경로>`).
 - 도구 사용법: `tools/README.md`
 - 레포 구조 변경 기록: `docs/repo-changes.md`
 
