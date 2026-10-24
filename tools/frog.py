@@ -44,8 +44,9 @@ def markup(tag, d):
             f'<g clip-path="url(#{t}_cr)"><rect id="{t}_lr" x="8" y="-80" width="28" height="0" fill="{GREEN}" stroke="none"/></g>'
             f'<circle cx="-10" cy="-66" r="13" fill="none" stroke-width="3.2"/><circle cx="22" cy="-66" r="13" fill="none" stroke-width="3.2"/>'
             f'<path id="{t}_al" d="M-20 -64 q10 7 20 0" fill="none" stroke-width="3" opacity="0"/><path id="{t}_ar" d="M12 -64 q10 7 20 0" fill="none" stroke-width="3" opacity="0"/>'
-            f'<path d="M-8 -44 q14 12 28 0" fill="none" stroke-width="3.4"/>'
-            f'<ellipse id="{t}_mo" cx="6" cy="-39" rx="8" ry="0" fill="#7a2f2f" stroke-width="2.6"/>'
+            f'<path id="{t}_sm" d="M-8 -44 q14 12 28 0" fill="none" stroke-width="3.4"/>'
+            f'<ellipse id="{t}_mo" cx="6" cy="-44" rx="13" ry="0" fill="#7a2f2f" stroke-width="2.8"/>'
+            f'<ellipse id="{t}_tg" cx="6" cy="-44" rx="8" ry="0" fill="#e8847a" stroke="none"/>'
             f'<path d="M-34 -22 q-14 6 -16 22" fill="none" stroke-width="7.5"/><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/>'
             f'<g transform="translate(32 -22)"><g id="{t}_arm">'
             f'<path d="M0 0 L58 0" stroke-width="11"/><circle cx="60" cy="0" r="9" fill="{INK}" stroke="none"/>'
@@ -88,11 +89,12 @@ def js(tag, d, t0, t1, words, targets=None):
         out.append(f'tl.set("#{t}_arm",{{rotation:{up},{org}}},0);')
         n = max(1, int((t1 - a0 - .5) / .35))
         out.append(f'tl.fromTo("#{t}_arm",{{rotation:{up - 14}}},{{rotation:{up + 14},duration:.35,ease:"sine.inOut",repeat:{n},yoyo:true,immediateRender:false}},{a0 + .45:.3f});')
-    # mouth follows the spoken words
+    # mouth follows the spoken words: closed = smile (width 28); open = a big round "ahh" of the same width that hangs from the smile line, with a tongue
     for k, (ws, we) in enumerate(words):
         if ws < a0 or ws > t1: continue
-        r = (5.5, 7.0, 4.5)[k % 3]
-        out.append(f'tl.set("#{t}_mo",{{attr:{{ry:{r}}}}},{ws:.3f});tl.set("#{t}_mo",{{attr:{{ry:0}}}},{max(ws + .06, we - .03):.3f});')
+        r = (10, 7, 12, 8)[k % 4]; e = max(ws + .08, we - .03)
+        out.append(f'tl.set("#{t}_sm",{{opacity:0}},{ws:.3f});tl.set("#{t}_mo",{{attr:{{ry:{r},cy:{-44 + r}}}}},{ws:.3f});tl.set("#{t}_tg",{{attr:{{ry:{r * .42:.1f},cy:{-44 + r * 1.58:.1f}}}}},{ws:.3f});'
+                   f'tl.set("#{t}_mo",{{attr:{{ry:0,cy:-44}}}},{e:.3f});tl.set("#{t}_tg",{{attr:{{ry:0,cy:-44}}}},{e:.3f});tl.set("#{t}_sm",{{opacity:1}},{e:.3f});')
     # blink every ~2.7 s
     tb = a0 + 1.1
     while tb < t1 - .2:
