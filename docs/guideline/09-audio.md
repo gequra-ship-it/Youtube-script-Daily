@@ -37,3 +37,8 @@
 - **거의 무음 구간**: 영상당 2개 — ① 장면 하나 앞(내레이션이 끝나기 1.2초 전 ~ 다음 장면 시작 0.4초 전) ② 끝(마지막 낱말 0.3초 뒤~끝). 이때 음악·효과음만 꺼지고(0.15초 가장자리) 내레이션은 그대로. config `SILENCE = [장면 번호]`로 고르고(`[]`이면 끝만) 없으면 약 60% 지점. `NOSILENCE=1`이면 끔. `SEPARATE_AUDIO=1` 경로에는 적용되지 않음.
 - J컷/L컷은 전환 소리 오프셋(`TRSND` 음수)으로 이미 있음. 정지 화면(프리즈)은 구현하지 않음.
 - 확인: 시험 빌드의 로그(`rhythm: accents N | near-silences [...]`)와 구간 계산만 확인. 소리가 자연스러운지는 사용자가 듣고 판단(나는 들을 수 없음).
+
+## 9-6. 고정 아웃트로 (2026-10-24, miya)
+- 롱폼은 항상 같은 아웃트로로 끝난다(숏츠는 없음): 내레이션 고정 파일 `tools/assets/outro.wav`(af_heart, 약 5.9초, "Thanks for watching! Subscribing and liking really help me make these videos. See you in the next one.") + 고정 그림 `tools/assets/outro.svg`(글자 없음: 개구리 손 흔들기·구독 벨·좋아요, 자막이 글자를 대신함). 끝 여백을 4초로 늘려 그림이 약 10초 나온다.
+- 코드: `tools/paths.py`의 `load_scenes`가 마지막에 장면 `OUTRO`를 붙인다(`-shortN` 슬러그·`VERT=1`은 제외, `config.py`에 `OUTRO = False`면 끔 = 옛 영상 재빌드용). `tools/tts.sh`는 이 장면에 고정 wav를 복사하고, `build3.py`는 그림을 `art3/<uid>.svg`로 복사한다. `plan.json`에는 안 들어가니 그림 에이전트는 그리지 않는다.
+- 대본 단어 수(2,000~2,300)에는 아웃트로를 세지 않는다. 바꾸려면 `OUTRO_TEXT`·wav·svg를 함께 고친다(wav는 `npx hyperframes tts <txt> -v af_heart -o tools/assets/outro.wav`).

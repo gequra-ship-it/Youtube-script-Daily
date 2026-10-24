@@ -20,7 +20,23 @@ def wdir(slug=None):
 def load_scenes(slug=None):
     spec = importlib.util.spec_from_file_location('script', vdir(slug) + '/script.py')
     m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
-    return m.SCENES
+    sc = list(m.SCENES)
+    if has_outro(slug): sc.append(OUTRO_SCENE)
+    return sc
+
+
+# 2026-10-24 (owner): every long form ends with the same outro (fixed narration tools/assets/outro.wav + fixed picture tools/assets/outro.svg).
+# Added to the scene list here, so tts/audio_prep/align/build3/gen_text all see it. Shorts never get it; config.py `OUTRO = False` opts out (old rebuilds).
+OUTRO_TEXT = "Thanks for watching! Subscribing and liking really help me make these videos. See you in the next one."
+OUTRO_SCENE = ('OUTRO', 'Outro', 'ill', 'outro', OUTRO_TEXT)
+
+
+def has_outro(slug=None):
+    import re
+    s = slug or SLUG
+    if os.environ.get('VERT') == '1' or re.search(r'-short\d+$', s): return False
+    try: return getattr(load_config(s), 'OUTRO', True)
+    except Exception: return True
 
 
 def load_config(slug=None):
