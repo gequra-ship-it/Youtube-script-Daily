@@ -20,5 +20,5 @@
 ### 10-4. 결말
 시청자의 현재로 돌아온다("Tonight, try opening your window."). 감성적으로 정리.
 
-### 10-5. 구독 요청(CTA)
-주제에 맞춘 은유("Subscribing and liking is what lets Miya's Note send one more beam of light into the next night."). 채널은 "Miya's Note" 또는 "this lab". "library" 표현 금지.
+### 10-5. 구독 요청(CTA) (2026-10-24 개정)
+본문 대본 끝에는 구독·좋아요 요청을 쓰지 않는다. 롱폼 끝에 고정 아웃트로(9-6, "Thanks for watching! Subscribing and liking really help me make these videos. See you in the next one.")가 따로 붙기 때문이다(같은 요청이 두 번 나오면 어색함). 대본은 주제의 여운을 남기는 마무리 한두 문장으로 끝낸다. "library" 표현 금지.
