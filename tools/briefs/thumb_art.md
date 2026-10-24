@@ -18,3 +18,7 @@ Render with `cd /home/user/rp && MIYA_WORK=/home/user/miya-work SLUG=<slug> pyth
 
 ## Homages already used (do not reuse in another video)
 Jaws (poster), Jurassic Park (car mirror), Lawrence of Arabia, The Lion King (opening), Rocky (steps), E.T. (moon), The Creation of Adam (painting), The Truman Show, Interstellar. Pick other famous films/images; prefer one that truly matches the topic.
+
+## Mascot frog (owner decision 2026-10-24)
+Every thumbnail (A, B, C) includes the channel's notebook frog (`tools/assets/frog.svg`, same green body, ink outline, big round eyes). It does NOT explain anything here: put it into the scene in a pose, place and outfit that fits THIS thumbnail (riding on top of the spaceship, in a diving suit on the sea floor, peeking out of the dinosaur skull...). Surprised or curious face. About 1/5-1/3 of the frame height, never covering the main subject or the text. Recognisably the same frog in all three. Only the outfit/props change, not the frog's body colours.
+
