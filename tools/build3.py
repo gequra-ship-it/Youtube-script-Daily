@@ -10,7 +10,7 @@ import os, re, sys, json, html, shutil, subprocess, math, random
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 import numpy as np
-import palettes, labels_lib, caption_hl
+import palettes, labels_lib, caption_hl, frog
 SCENES = load_scenes()
 CFG = load_config()
 B = wdir() + '/build'
@@ -337,6 +337,36 @@ def art_path(u):
     return f'{vdir()}/art/{SCENES[u["scene"] - 1][3]}.svg', True
 
 
+
+# ---------- mascot frog explainer (2026-10-24, guideline 7-2): sidecar "frog" on a picture, automatic on chalkboard scenes ----------
+FROG_ON = getattr(CFG, 'FROG', True)
+
+
+def unit_words(u):
+    """absolute (start, end) of the spoken words of a unit (mouth sync)"""
+    i = u['scene']
+    if i not in WORDS: return []
+    w = WORDS[i]['words']; c0, c1 = u.get('c0', 0), u.get('c1', 10 ** 9)
+    return [(starts[i] + w[k][0], starts[i] + w[k][1]) for k, (a, b) in enumerate(TOK[i]) if a >= c0 and b <= c1 and k < len(w)]
+
+
+def frog_of(u):
+    if not FROG_ON or u['kind'] == 'chalk': return None
+    return frog.spec(side(u), VERT)
+
+
+CHALK_FROG = dict(x=190, y=H - 32, s=2.6, flip=1, point=None, delay=0.3)   # bottom-left on the chalkboard (vertical: same corner)
+
+
+# which units should carry the explainer frog (suggestion for the picture agents): explanation scenes, every other unit, at most ~22 % of all units
+FROG_HINT = {}
+if FROG_ON:
+    _prev = False; _cap = max(1, int(.22 * len([x for x in units if x['kind'] != 'chalk'])))
+    for u_ in units:
+        if u_['kind'] == 'chalk' or SCENES[u_['scene'] - 1][0] == 'OUTRO': _prev = False; continue
+        if len(FROG_HINT) < _cap and u_['scene'] in SLOW_SC and not _prev and u_['t0'] > 20: FROG_HINT[u_['uid']] = True; _prev = True
+        else: _prev = False
+
 if os.environ.get('PLAN') == '1':
     if not getattr(CFG, 'PAL_DEFAULT', None): print('WARNING: config.py has no PAL_DEFAULT -> legacy purple/peach palette. Choose palettes from tools/palettes.py for this topic.')
     plan = []
@@ -345,7 +375,7 @@ if os.environ.get('PLAN') == '1':
         sc = SCENES[u['scene'] - 1]
         plan.append(dict(uid=u['uid'], scene=u['scene'], title=sc[1], art_theme=sc[3], bg=BGMODE.get(sc[3], 'paper'), pal=palettes.describe(palettes.for_theme(CFG, sc[3])), text=u['text'],
                          dur=round(u['t1'] - u['t0'], 2), transition_in=u['tr'], prev=units[k - 1]['text'] if k and units[k - 1]['scene'] == u['scene'] else '',
-                         nxt=units[k + 1]['text'] if k + 1 < len(units) and units[k + 1]['scene'] == u['scene'] else ''))
+                         nxt=units[k + 1]['text'] if k + 1 < len(units) and units[k + 1]['scene'] == u['scene'] else '', frog_hint=bool(FROG_HINT.get(u['uid']))))
     os.makedirs(vdir(), exist_ok=True)
     json.dump(plan, open(f'{vdir()}/plan.json', 'w'), ensure_ascii=False, indent=1)
     d = [p['dur'] for p in plan]
@@ -429,17 +459,31 @@ CHALK = CFG.CHALK
 ROW_Y = [294, 459, 630]
 
 
+def frog_inject(svgtxt, u):
+    d = frog_of(u)
+    return frog.inject(svgtxt, frog.markup(f'u{u["n"]}', d)) if d else svgtxt
+
+
+def chalk_frog(i):
+    if not FROG_ON: return ''
+    return (f'<svg id="fgk{i}svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" style="position:absolute;left:0;top:0;pointer-events:none">'
+            + frog.markup(f'k{i}', CHALK_FROG) + '</svg>')
+
+
+CSRC_ST = ' style="left:340px"' if FROG_ON else ''
+
+
 def chalk_html(i):
     c = CHALK[i]; out = [f'<div class="chalk" id="k{i}">']
     out.append(f'<div class="ct">{html.escape(c["title"])}</div><div class="cs">{html.escape(c["sub"])}</div>')
-    out.append(f'<div class="csrc">{html.escape(c["src"])}</div><div class="csig">Talking in class:<br>Miya</div>')
+    out.append(f'<div class="csrc"{CSRC_ST}>{html.escape(c["src"])}</div><div class="csig">Talking in class:<br>Miya</div>')
     for r, (lab, val, info, col, key) in enumerate(c['rows']):
         out.append(f'<div class="ph" id="k{i}ph{r}" style="top:{ROW_Y[r]}px"></div>')
         out.append(f'<div class="row {col}" id="k{i}r{r}" style="top:{ROW_Y[r]}px"><span class="l">{html.escape(lab)}</span>'
                    f'<span class="v">{html.escape(val)}</span><span class="n">{html.escape(info)}</span></div>')
     out.append(f'<div class="cc" id="k{i}cc">{html.escape(c["concl"][0])}</div>')
-    out.append('<div class="chalks"><i style="background:#f4f1e8"></i><i style="background:#efca69"></i><i style="background:#e5826b"></i><i style="background:#9fd0e6"></i></div>')
-    out.append('<div class="erasers"><b></b><b></b></div></div>')
+    out.append(('<div class="chalks" style="left:430px">' if FROG_ON else '<div class="chalks">') + '<i style="background:#f4f1e8"></i><i style="background:#efca69"></i><i style="background:#e5826b"></i><i style="background:#9fd0e6"></i></div>')
+    out.append('<div class="erasers"><b></b><b></b></div>' + chalk_frog(i) + '</div>')
     return '\n'.join(out)
 
 
@@ -543,7 +587,7 @@ for u in units:
             ox, oy = (float(fz[0]), float(fz[1])) if fz else (CX, CY)
             spd = (f'<div class="spd" id="spd{nn}"><div style="position:absolute;left:{ox:.0f}px;top:{oy:.0f}px">'
                    + ''.join(f'<i style="transform:rotate({(k * 137.508) % 360:.1f}deg)"><b></b></i>' for k in range(NSPD)) + '</div></div>')
-        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p, sc0.get('world'))}{spot}{lin}</div>{spd}</div>')
+        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{frog_inject(load_svg(nn, p, sc0.get('world')), u)}{spot}{lin}</div>{spd}</div>')
         BADGES.append(lout)   # number badges live on their own layer so they do not vanish with the cut (user 2026-10-16)
 if label_errors: raise SystemExit('on-screen text (labels) problems, fix the sidecars:\n  ' + '\n  '.join(label_errors))
 h.append('<div id="badges" style="position:absolute;left:0;top:0;width:0;height:0;z-index:998">' + ''.join(BADGES) + '</div>')
@@ -713,6 +757,9 @@ for k, u in enumerate(units):
             js.append(f'tl.set("#k{i}ph{r}",{{opacity:0}},{tt:.3f});tl.fromTo("#k{i}r{r}",{{opacity:1,scale:.96}},{{scale:1.02,duration:.05,ease:"power1.out",immediateRender:false}},{tt:.3f});tl.to("#k{i}r{r}",{{scale:1,duration:.05,ease:"power1.in"}},{tt + .05:.3f});')
         js.append(f'tl.fromTo("#k{i}cc",{{opacity:1,scale:.96}},{{scale:1.02,duration:.05,immediateRender:false}},{ts[3]:.3f});tl.to("#k{i}cc",{{scale:1,duration:.05}},{ts[3] + .05:.3f});')
         js.append(f'tl.set("#k{i}r1",{{opacity:0}},{t0:.3f});tl.set("#k{i}r2",{{opacity:0}},{t0:.3f});tl.set("#k{i}cc",{{opacity:0}},{t0:.3f});tl.set("#k{i}ph1",{{opacity:1}},{t0:.3f});tl.set("#k{i}ph2",{{opacity:1}},{t0:.3f});')
+        if FROG_ON:   # the frog stands bottom-left and points at each row / the conclusion as it is spoken
+            _tg = [(ts[0], (700, ROW_Y[0] + 70)), (ts[1], (700, ROW_Y[1] + 70)), (ts[2], (700, ROW_Y[2] + 70)), (ts[3], (960, 800))]
+            js.extend(frog.js(f'k{i}', CHALK_FROG, t0, t1, unit_words(u), _tg))
         continue
     # resting state of wrapper + camera
     js.append(f'tl.set("{T}",{{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"{ORG}"}},{v0:.3f});')
@@ -782,6 +829,8 @@ for k, u in enumerate(units):
             st = t1 - .8; js.append(f'tl.to("{T}",{{scaleX:0,transformOrigin:"0% 50%",duration:.8,ease:"power2.inOut"}},{st:.3f});')
         elif nxt['tr'] == 'whip':
             st = t1 - .45; js.append(f'tl.to("{T}",{{x:{-W},duration:.45,ease:"expo.out"}},{st:.3f});')
+    _fd = frog_of(u)
+    if _fd: js.extend(frog.js(f'u{nn}', _fd, t0, t1, unit_words(u)))
     # --- tracking camera (2026-10-22): a long travelling motion (path object, dominoes) is followed; it replaces focus and drift ---
     trk = motions.track_spec(open(art_path(u)[0], encoding='utf-8').read(), side(u))
     if trk:

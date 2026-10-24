@@ -95,7 +95,7 @@ per video at least 10 types, none above 20 %. `draw` traces stroked outlines (gi
 ## 8. Sidecar JSON (exact keys)
 ```
 {"centre": "short English description of the centre object",
- "focus": [x, y, scale] or null, "focus_word": "exact words from the unit text" or null,
+ "focus": [x, y, scale] or null, "frog": {"x":..,"y":..,"s":2.4,"flip":1,"point":[x,y]} or true, "focus_word": "exact words from the unit text" or null,
  "sfx": [ {"name": "<library name>", "word": "<exact words from the unit text>", "vol": 0.5-0.8} ],
  "labels": [ ... ], "spot": true, "iris": [x, y], "world": [w, h]}
 ```
@@ -159,3 +159,6 @@ Remove old rings/rays, do not redraw people/objects. Per unit:
 ## Appendix B — the retired first look (v1, 2026-10-08)
 Never for new videos; only to reproduce the first one (`tools/build.py`, `videos/never-eat-human-meat/art/<id>.svg`): flat webtoon, black outlines
 (`stroke="#0A0A0A" stroke-width="6"`, details 4), one-tone cell shading, no gradients/glow, under ~800 KB. Palette etc.: archive copy.
+
+## 12. Mascot frog explainer (2026-10-24, guideline 7-2)
+Units with `frog_hint: true` in plan.json get the notebook frog. Leave a clear spot (~250x300 px) next to what is explained, in the picture, not under the caption (landscape feet y <= 880; vertical y <= 1400), and write `"frog": {"x": feet x, "y": feet y, "s": 2.4, "flip": 1 or -1 (-1 = arm points left), "point": [x, y of the thing to point at]}` in the sidecar. Do NOT draw the frog in the SVG (the builder adds it: hops in, points, talks, blinks). The frog must not cover the subject, labels or the logo corner.
