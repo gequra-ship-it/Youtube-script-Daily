@@ -15,7 +15,7 @@ args = sys.argv[1:]; times = [0.5, 1.5, 2.5, 3.5, 4.5]; plen = 5.0
 if '--times' in args: i = args.index('--times'); times = [float(x) for x in args[i + 1].split(',')]; del args[i:i + 2]
 if '--len' in args: i = args.index('--len'); plen = float(args[i + 1]); del args[i:i + 2]
 out = args[0]; uids = args[1:]; os.makedirs(out, exist_ok=True)
-art = os.environ.get('ART_DIR') or f'{ROOT}/videos/{SLUG}/art3'; W, H = (1080, 1920) if SLUG.endswith(('short1', 'short2', 'short3')) else (1920, 1080)
+art = os.environ.get('ART_DIR') or f'{ROOT}/videos/{SLUG}/art3'; W, H = (1080, 1920) if SLUG.endswith(('short1', 'short2', 'short3', 'short4', 'short5')) else (1920, 1080)
 gsap = next((f'{ROOT}/render/{d}/gsap.min.js' for d in sorted(os.listdir(f'{ROOT}/render')) if os.path.exists(f'{ROOT}/render/{d}/gsap.min.js')))
 
 def page(uid):

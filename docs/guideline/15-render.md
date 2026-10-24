@@ -38,7 +38,7 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 - 저장소 `gequra-ship-it/Youtube-script-Daily`(비공개, 예전 이름 `ht`/`HT`; 옛 이름으로 연결돼 있으면 Actions API가 막힘 → `list_repos` 확인, `add_repo`(access: push), 로컬 `origin`도 변경).
 - 워크플로 `.github/workflows/render.yml`(`render-video`, `ubuntu-24.04`, 300분)과 병렬 `render-chunked.yml`(20-7). 단계: Node 22 → FFmpeg·rclone → Chrome **예열**(버전 확인 최대 3번 + 빈 페이지) → `npx hyperframes@0.8.141 render`(MP4가 없으면 재시도, 3번까지) → ffprobe·음량 → Drive 업로드(비밀값이 있을 때만). 실패 로그 끝부분은 `<슬러그>_render_error.txt`로 Drive에. 한 슬러그가 실패해도 다음을 계속. 수동 실행 입력 `slug`(쉼표로 여러 개).
 - **렌더 시작 조건 (되돌리기 어려움)**: `render-pipeline` 푸시에서 `render/.slug`, `.github/workflows/render.yml`, `render/sample/**` 중 하나가 바뀌면 즉시 렌더하고 Drive의 같은 이름 MP4를 덮어쓴다. 같은 내용 재렌더는 `.slug` 줄 순서를 바꾼다. 워크플로만 바꿀 때는 `.slug`를 `none`으로. `.slug`가 없으면 `sample`(→ `_ci-test/`).
-- **다중 슬러그**: `.slug`에 한 줄에 하나(롱폼, `-short1`~`-short3`), 차례로 렌더. 목록은 fd 3으로 읽는다(`while read -r SLUG <&3 ... done 3< 파일`; 표준입력이면 첫 슬러그만 렌더되는 버그 — 롱폼이 몇 분 만에 끝나면 의심).
+- **다중 슬러그**: `.slug`에 한 줄에 하나(롱폼, `-short1`~`-short5`), 차례로 렌더. 목록은 fd 3으로 읽는다(`while read -r SLUG <&3 ... done 3< 파일`; 표준입력이면 첫 슬러그만 렌더되는 버그 — 롱폼이 몇 분 만에 끝나면 의심).
 - **렌더 원본** `render/<슬러그>/`: `index.html`, `gsap.min.js`, 폰트, 로고, 질감 PNG, `mix.m4a`(모든 소리를 미리 합침; `<audio>` 수백 트랙은 ffmpeg 5분 제한으로 실패. `SEPARATE_AUDIO=1`은 예전 방식). 100MB 넘는 파일은 일반 푸시 불가.
 - **제어 파일**: `.dest`(Drive 폴더, 18장; 없으면 `<슬러그>/`, `-short`·`-short1`~`-short9`면 접미어 뗀 이름의 `short/`), `.outname`(Drive 파일 이름), `.skip_deliver`(`deliver/` 다시 안 올림), `.deliver_only`(렌더 없이 `deliver/`만; 재렌더하려면 지움).
 - Drive 업로드 `rclone copyto … gdrive:<폴더>/… --drive-root-folder-id <Video & Thumbnail 폴더 ID>`. 비밀값 `RCLONE_CONF`(remote `gdrive`, 종류 `drive`, scope `1`)는 사용자가 Secrets에 등록. **비밀값은 읽거나 출력하지 않는다.**
