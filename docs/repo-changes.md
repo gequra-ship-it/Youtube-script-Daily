@@ -42,4 +42,5 @@
 - 2026-10-24: 내레이션 목소리를 Kokoro `am_michael`(남성) → `af_heart`(여성)로 변경(miya 선택; `tools/tts.sh`, `gen_text.py`, 지침서 9·14장). 이미 만든 음성은 옛 목소리라 새 영상부터 적용.
 - 2026-10-24: 본문 대본·`main*.py` 프롬프트에서 마지막 구독 요청 제거(고정 아웃트로와 중복, 지침서 10-5). 이미 쓴 대본 파일의 구독 문장은 개편 때 함께 정리.
 - 2026-10-24: 롱폼 고정 아웃트로(지침서 9-6): `paths.load_scenes`가 장면 `OUTRO`를 붙임, `tools/assets/outro.wav`·`outro.svg`, `tts.sh`·`build3.py` 처리. 시험 빌드(2장면 샘플)로 장면 길이 약 9.9초 확인, 전체 영상 렌더는 아직 안 함.
+- 2026-10-24: 썸네일에 노트 개구리 필수(지침서 16-7, `tools/briefs/thumb_art.md`, `tools/assets/frog.svg`).
 - 2026-10-24: 메타데이터에 출처(SOURCES)는 유지(출처가 있을 때만).
