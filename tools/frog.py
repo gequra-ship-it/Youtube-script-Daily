@@ -12,7 +12,7 @@ INK = '#1d2b1c'; GREEN = '#6aa55a'
 
 
 def defaults(vert=False):
-    return dict(x=210, y=1400, s=2.4, flip=1, point=None, delay=0.35) if vert else dict(x=220, y=880, s=2.4, flip=1, point=None, delay=0.35)
+    return dict(x=230, y=1400, s=3.2, flip=1, point=None, delay=0.35) if vert else dict(x=220, y=880, s=2.4, flip=1, point=None, delay=0.35)
 
 
 def spec(sidecar, vert=False):
