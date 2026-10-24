@@ -37,3 +37,4 @@
 - 곰 1분 시험 영상(v3, `/mnt/project-files/motion-demo/`)에서 승인된 것을 합침: `motions.py` 객체 모션 `slide`·`fade`·`ticks`·`rack`·`popin` axis, 트래킹 world 크기 분리(`miyaTrack` WW/WH), `build3.py` 사이드카 `world`, 새 `tools/rhythm.py`(거의 무음 구간·전환 강조)와 `bgm_lib.synth(accents=)`. 지침서 4-1·9-5, `art_spec.md` 7·8장. 불채택: 로그 줌, 끊기는 스크롤, 정지 화면·속도 램프(미구현).
 - `tools/paths.py` `chrome()`: 하드코딩된 chromium 경로를 쓰던 도구 6개가 설치된 크로미움을 자동으로 찾음.
 
+- 2026-10-24 새 채널 Miya's Note: 채널명 치환(지침서·도구·`main.py`·`main_owl.py`), 롱폼 15분 이내(2,000~2,300단어), 숏츠 3→5편(`main.py`·`main_owl.py` 3부 5편 × 약 380단어, 19장), Drive `Miya's Note/NN_<슬러그>`(18장). 이미 만든 대본·`videos/*/config.py` 해시태그는 아직 안 바꿈.

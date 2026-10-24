@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Miya's Lab composition builder v3 (new look: one picture per meaning unit, focus camera, 5 transitions, synced SFX).
+# Miya's Note composition builder v3 (new look: one picture per meaning unit, focus camera, 5 transitions, synced SFX).
 # usage: SLUG=x python3 build3.py [OUTDIR]
 # env: PLAN=1   only write videos/<slug>/plan.json (unit split) and exit
 #      SEL="1,2" build a partial test;  VERT=1  vertical 1080x1920 (Shorts, no logo)

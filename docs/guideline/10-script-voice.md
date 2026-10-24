@@ -21,4 +21,4 @@
 시청자의 현재로 돌아온다("Tonight, try opening your window."). 감성적으로 정리.
 
 ### 10-5. 구독 요청(CTA)
-주제에 맞춘 은유("Subscribing and liking is what lets Miya's Lab send one more beam of light into the next night."). 채널은 "Miya's Lab" 또는 "this lab". "library" 표현 금지.
+주제에 맞춘 은유("Subscribing and liking is what lets Miya's Note send one more beam of light into the next night."). 채널은 "Miya's Note" 또는 "this lab". "library" 표현 금지.

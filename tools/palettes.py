@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Topic palettes for Miya's Lab pictures (2026-10-10, user: "colours were only purple or orange; match the script").
+# Topic palettes for Miya's Note pictures (2026-10-10, user: "colours were only purple or orange; match the script").
 # Each palette gives the three background modes (paper / night / dusk), line colours, a wash colour for transitions and 4 accents.
 # A video picks palettes in its config.py:  PAL_DEFAULT = 'sunset'      # legacy videos without PAL_DEFAULT keep the old look; NEW videos must set PAL_DEFAULT (build_audio PLAN=1 warns);  PAL = {'<art_theme>': '<palette name>', ...}
 # Rule: choose the palette from what the script is ABOUT (place, material, mood), not from taste. Violet/magenta and orange are

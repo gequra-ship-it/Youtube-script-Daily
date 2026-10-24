@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Background music synthesiser for Miya's Lab (own composition, no samples, no vocals -> no copyright issue).
+# Background music synthesiser for Miya's Note (own composition, no samples, no vocals -> no copyright issue).
 # Soft pad + sparse soft plucks, slow chord changes, all content above ~200 Hz (no low drone), high-passed at 250 Hz.
 # Ducked under the narration with an envelope computed from the actual narration files.
 import sys, subprocess, wave

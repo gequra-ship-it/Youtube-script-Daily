@@ -1,4 +1,4 @@
-# Miya's Lab pipeline tools
+# Miya's Note pipeline tools
 
 Script (English narration) -> narration wavs -> render folder -> GitHub Actions render -> Google Drive.
 All paths come from `tools/paths.py`. Set `SLUG=<video-slug>` (and optionally `MIYA_WORK=<scratch dir>`, default `/tmp/miya-work`).
@@ -31,7 +31,7 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 - Two Shorts per video: slugs `<slug>-short1`, `<slug>-short2` (also `-short`); the workflow uploads them to `<slug>/short/`. Put all three slugs in `render/.slug`.
 
 ## 2026-10-10 (epomis-frog-hunter-v2)
-- Kokoro speed re-measured at ~163 words/min (not 126): plan ~3,450 words (min 3,300) for a 20+ min video. Always check `audio_prep.py`'s total.
+- Kokoro speed re-measured at ~163 words/min (not 126): plan ~2,200 words (2,000-2,300) for a video of at most 15 min (since 2026-10-24; was 3,450 for 20+ min). Always check `audio_prep.py`'s total.
 - `build3.py`: very short units (<1.6 s) merge into a neighbour; a short last unit re-splits with the previous one. A partial `SEL=` build now takes picture uids from `plan.json` (before, numbering restarted at 1 and pictures were mismatched).
 - `body.py` (2026-10-17): human proportions in head heights + `arm()` (2-link `mv-limb` arm with a hands.py hand; art_spec 6B); `python3 tools/body.py out.svg` draws the reference sheet. build3 animates `mv-limb-*` gently and in step.
 - `hands.py` (2026-10-17): anatomically sane hands for every picture (art_spec 6A); `python3 tools/hands.py out.svg` draws a test sheet.

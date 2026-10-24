@@ -28,7 +28,7 @@ CHAPTERS
 SOURCES
 - <대본에서 쓴 출처>
 
-ABOUT MIYA'S LAB
+ABOUT MIYA'S NOTE
 <채널 소개 고정 문구>
 
 #<해시태그> #<해시태그> #<해시태그> ...
@@ -38,11 +38,11 @@ ABOUT MIYA'S LAB
 - **제목 (채널 결정)**: Title Case, 70자 이하, 이모지·전부 대문자 금지, 핵심 단어 1~2개를 앞에(모바일 피드는 약 40자까지 보임). 없는 내용 약속 금지, 썸네일 문구 반복 금지, 숫자는 대본에 있는 것만.
   - 검사: `python3 tools/title_lint.py --title "..." --thumb "..."`(길이 70자·Title Case·이모지·과장어·썸네일 중복·썸네일 2~4단어; 참고용). 도구 출처: youtube-agent-skill(MIT) `yt-package`.
 - **첫 문단**: 영상의 질문과 가장 의외인 사실(대본에서).
-- **챕터 (채널 결정)**: 20분 기준 8~15개, 영어 Title Case 5단어 이하, **렌더 MP4의 실제 컷 시작 시각**(`mm:ss`). 추정 시각이면 머리 안내에 "추정". 모두 10초 이상, 첫 챕터 `00:00`.
+- **챕터 (채널 결정)**: 롱폼(15분 이내) 기준 5~10개(2026-10-24 개정, 제안), 영어 Title Case 5단어 이하, **렌더 MP4의 실제 컷 시작 시각**(`mm:ss`). 추정 시각이면 머리 안내에 "추정". 모두 10초 이상, 첫 챕터 `00:00`.
 - **SOURCES**: 칠판 `Source:`나 대본이 밝힌 출처가 있을 때만(없으면 블록 삭제). 지어내지 않는다.
-- **ABOUT MIYA'S LAB**: 모든 영상 같은 문구(사용자 확인 전 제안): `Miya's Lab turns big questions into calm, illustrated explainers. New videos keep coming, so subscribe if you want the next one.`
-- **해시태그 (채널 결정)**: 4~5개, 설명 맨 아래 한 줄. 첫째는 항상 `#MiyasLab`(0장 7번의 예외), 그다음 가장 중요한 주제어 둘, 나머지 주제어(CamelCase).
+- **ABOUT MIYA'S NOTE**: 모든 영상 같은 문구(사용자 확인 전 제안): `Miya's Note turns big questions into calm, illustrated explainers. New videos keep coming, so subscribe if you want the next one.`
+- **해시태그 (채널 결정)**: 4~5개, 설명 맨 아래 한 줄. 첫째는 항상 `#MiyasNote`(0장 7번의 예외), 그다음 가장 중요한 주제어 둘, 나머지 주제어(CamelCase).
 - 한글·이모지·대문자 남발·키워드 덤핑 금지. 사실 확인은 12-1과 같다.
 
 ### 17-4. 형식 예시 (구조 확인용, 시각은 예시값)
-제목 예 `The Deadly Science of Why You Must Never Eat Humans`, 챕터 예 `00:00 The Oldest Taboo`, 해시태그 예 `#MiyasLab #Science #Prions #Kuru`.
+제목 예 `The Deadly Science of Why You Must Never Eat Humans`, 챕터 예 `00:00 The Oldest Taboo`, 해시태그 예 `#MiyasNote #Science #Prions #Kuru`.

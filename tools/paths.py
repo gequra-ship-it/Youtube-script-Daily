@@ -1,4 +1,4 @@
-# Shared paths and scene loader for the Miya's Lab pipeline.
+# Shared paths and scene loader for the Miya's Note pipeline.
 import os, importlib.util
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS = REPO + '/tools/assets'

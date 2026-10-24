@@ -1,4 +1,4 @@
-# Miya's Lab picture spec (read fully)
+# Miya's Note picture spec (read fully)
 
 Read with `videos/<slug>/art_brief.md`. Older full text: `docs/archive/art_spec-full-2026-10-18.md`. 1-9 landscape; 10 Shorts and 11
 cosmic override them; Appendix A re-backdrops old pictures, B is the retired look.
