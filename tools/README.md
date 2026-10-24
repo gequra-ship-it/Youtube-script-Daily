@@ -28,7 +28,7 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 ## 2026-10-10 additions
 - `sfx_lib.py` v2: 25 quiet unpitched sounds x 3 variants (peak -24 dBFS). Old name `shimmer` is an alias of `hush`. Sidecar `sfx.name` list is in `art_spec.md` section 8.
 - `bgm_lib.py`: synthesised background music (own composition, no samples/vocals), highpass 250 Hz, ducked under the real narration (`n##.wav`), 13 dB below narration RMS (`BGM_BELOW`). `build3.py` writes `bgm.m4a` and adds it as audio track 20. `NOBGM=1` disables it.
-- Two Shorts per video: slugs `<slug>-short1`, `<slug>-short2` (also `-short`); the workflow uploads them to `<slug>/short/`. Put all three slugs in `render/.slug`.
+- Five Shorts per video (2026-10-24): slugs `<slug>-short1` ... `<slug>-short5`; each has its own `.dest` (`<long .dest>/short`). Put all six slugs in `render/.slug` (or split commits, 15-5).
 
 ## 2026-10-10 (epomis-frog-hunter-v2)
 - Kokoro speed re-measured at ~163 words/min (not 126): plan ~2,200 words (2,000-2,300) for a video of at most 15 min (since 2026-10-24; was 3,450 for 20+ min). Always check `audio_prep.py`'s total.

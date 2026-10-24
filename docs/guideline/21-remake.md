@@ -4,7 +4,7 @@
 
 ### 21-1. 무엇을 바꾸나
 - **롱폼**: 20-2 기본값·색 막대 없음·배지 유지·느린 장면 차분한 전환을 `build3.py`가 자동 적용.
-- **숏츠**: 예전 1분짜리 2편 대신 **새 3편, 각 2:00~2:55**(19장). 사실 확인된 롱폼 대본 안의 사실만(새 사실 금지, 같은 단서 표현 유지), 제목·훅·소재 겹치지 않게. 7~9장면, 약 380단어(330~440, 19-1). `config.py`에 `HOOK = dict(until=999, maxu=6.0, slow=7.5)`.
+- **숏츠**: 예전 1분짜리 2편 대신 **새 5편, 각 2:00~2:55**(19장). 사실 확인된 롱폼 대본 안의 사실만(새 사실 금지, 같은 단서 표현 유지), 제목·훅·소재 겹치지 않게. 7~9장면, 약 380단어(330~440, 19-1). `config.py`에 `HOOK = dict(until=999, maxu=6.0, slow=7.5)`.
 - **사람**: 새 그림은 3-1의 스타일(art_spec 6A·6B). 예전 그림의 사람은 사용자가 요청할 때만 고친다(`tools/briefs/people_restyle.md`).
 - **썸네일 3장**: 있는 시안은 그대로, 모자란 장만 만든다(16장).
 - **Drive**: `.dest`를 `old/<영상>`에서 주제 폴더 다음 번호로(18장). 남은 `.skip_deliver`는 지운다(대본·메타데이터·썸네일이 안 올라감).
@@ -13,7 +13,7 @@
 1. 음성: 작업 폴더에 없으면 `SLUG=<slug> HYPERFRAMES_PYTHON=/home/user/kvenv/bin/python tools/tts.sh` 후 `SLUG=<slug> python3 tools/audio_prep.py`(롱폼 45문단 약 15분, 백그라운드), 그다음 `align.py`(21-5).
 1-1. (새 영상) 음성 뒤 썸네일 3장 → 사용자 확인 → 통과 후 그림(12-1 순서).
 2. 롱폼: `SLUG=<slug> python3 tools/remake.py` → 예전 `plan.json`을 `$MIYA_WORK/<slug>/plan_prev.json`에 두고 다시 나눈 뒤 `remap_art.py`가 가장 많이 겹치는 예전 그림을 붙이고 `.dest`·`.skip_deliver`를 점검. 출력의 `NO ART`와 `NEEDS VARIANT`(앞 단위와 같은 그림)만 그린다.
-3. 숏츠 대본 3편(에이전트, Sonnet) → 음성 → `SLUG=<slug>-shortN VERT=1 PLAN=1 python3 tools/build3.py` → 그림(21-3).
+3. 숏츠 대본 5편(에이전트, Sonnet) → 음성 → `SLUG=<slug>-shortN VERT=1 PLAN=1 python3 tools/build3.py` → 그림(21-3).
 4. 빌드 4개(`fallback art 0` 확인), `tools/gen_text.py`(대본·메타데이터), 썸네일 `tools/thumb_shot.py`.
 5. `render/.chunked`에 `<slug> 3`과 숏츠 `<slug>-shortN 1` 세 줄, 커밋·푸시(20-7). 렌더 확인은 예약 메시지로.
 
