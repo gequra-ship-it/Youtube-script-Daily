@@ -266,7 +266,7 @@ def create_ai_studio_script(youtube_title, transcript_text, part_num, total_part
 9. **시리즈 연결**: {connection_instruction}
 
 [출력 양식 - 이 구조와 구분선을 정확히 지켜]:
-[영상 제목]: <영어 Title Case, 70자 이하, 이모지 없음, 전부 대문자 금지, 영상에 없는 내용을 약속하지 않기> (Part {part_num}/{total_parts})
+[영상 제목]: <영어 Title Case, 짧고 관심을 끄는 제목 약 50자 이하(질문형일 필요 없음, 직관적이든 은유적이든 상관없음), 이모지 없음, 전부 대문자 금지, 영상에 없는 내용을 약속하지 않기> (Part {part_num}/{total_parts})
 
 === 1부: TTS 입력용 전문 ===
 <영어 내레이션 문단들, 문단 사이 빈 줄>
