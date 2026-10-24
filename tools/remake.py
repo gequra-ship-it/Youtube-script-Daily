@@ -18,6 +18,6 @@ subprocess.run([sys.executable, f'{REPO}/tools/build3.py'], env=dict(env, PLAN='
 subprocess.run([sys.executable, f'{REPO}/tools/remap_art.py', prev], env=env, check=True)
 r = f'{REPO}/render/{slug}'
 dest = open(f'{r}/.dest').read().strip() if os.path.exists(f'{r}/.dest') else '(none: default folder)'
-print('Drive .dest:', dest, '  <- old/... is the archive; set "Miya\'s Note/<01. Life & Biology|02. Space & Science>/NN_<slug>" for a new upload' if dest.startswith('old/') else '')
+print('Drive .dest:', dest, '  <- old/... is the archive; set "Miya\'s Note/<01. Life & History|02. Space & Science>/NN_<slug>" for a new upload' if dest.startswith('old/') else '')
 if os.path.exists(f'{r}/.skip_deliver'):
     os.remove(f'{r}/.skip_deliver'); print('removed .skip_deliver (deliver/ uploads again)')
