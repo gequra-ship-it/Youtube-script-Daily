@@ -1,6 +1,6 @@
 ## 18. 저장 위치 (Google Drive, 영상별 폴더)
 
-- **Miya's Note 새 채널 (2026-10-24 사용자 결정, 기존 영상과 섞이면 확인이 어려워서)**: 새 영상은 모두 `Video & Thumbnail /` 아래 **`Miya's Note/NN_<슬러그>/`**(NN은 이 폴더 안 두 자리 순서, 01부터, 주제 구분 없음). 숏츠 5편은 `Miya's Note/NN_<슬러그>/short/`(`<슬러그>-short1~5`). `render/<슬러그>/.dest`를 `Miya's Note/NN_<슬러그>`(숏츠 `/short`)로 둔다. 아래 `Space & Science`·`Life & Biology`·`old`·`cinema`는 **옛 채널(Miya's Lab) 보관**이라 새 영상을 넣지 않는다. 폴더는 처음 올릴 때 Actions(rclone)가 만든다(미확인: 폴더 이름의 작은따옴표가 rclone 경로에서 문제없는지는 첫 업로드에서 확인).
+- **Miya's Note 새 채널 (2026-10-24 사용자 결정, 기존 영상과 섞이면 확인이 어려워서)**: 새 영상은 모두 `Video & Thumbnail /Miya's Note/` 아래 **주제 폴더** 안에 넣는다. 주제 폴더는 miya가 Drive에 만들어 둔 `01. Life & Biology`, `02. Space & Science`(폴더 ID는 코드에 안 쓰고 이름 경로로 올린다). 영상 폴더는 **`Miya's Note/<주제 폴더>/NN_<슬러그>/`**(NN은 그 주제 폴더 안 두 자리 순서, 01부터, 주제마다 따로). 숏츠 5편은 `.../NN_<슬러그>/short/`(`<슬러그>-short1~5`). `render/<슬러그>/.dest`는 예: `Miya's Note/01. Life & Biology/01_<슬러그>`(숏츠 `/short`). 새 주제가 생기면 miya가 폴더를 만들고 이 장에 적는다. 아래 `Space & Science`·`Life & Biology`·`old`·`cinema`(번호 접두어 없음)는 **옛 채널(Miya's Lab) 보관**이라 새 영상을 넣지 않는다. 새 영상 폴더는 처음 올릴 때 Actions(rclone)가 만든다(미확인: 폴더 이름의 작은따옴표·마침표·공백이 rclone 경로에서 문제없는지는 첫 업로드에서 확인; 재생목록 이름은 `Life & History`지만 Drive 폴더는 `Life & Biology`다).
 - **위치 (2026-10-16 사용자 결정)**: `유튜브 자동화 / Video & Thumbnail /` 아래 네 폴더.
   - `Space & Science/NN_<슬러그>/` — 우주·과학 새 영상. NN은 이 폴더 안 두 자리 순서(01부터). 숏츠는 `short/`.
   - `Life & Biology/NN_<슬러그>/` — 생명·생물학 새 영상. 번호는 따로 01부터. 숏츠는 `short/`.

@@ -43,4 +43,5 @@
 - 2026-10-24: 본문 대본·`main*.py` 프롬프트에서 마지막 구독 요청 제거(고정 아웃트로와 중복, 지침서 10-5). 이미 쓴 대본 파일의 구독 문장은 개편 때 함께 정리.
 - 2026-10-24: 롱폼 고정 아웃트로(지침서 9-6): `paths.load_scenes`가 장면 `OUTRO`를 붙임, `tools/assets/outro.wav`·`outro.svg`, `tts.sh`·`build3.py` 처리. 시험 빌드(2장면 샘플)로 장면 길이 약 9.9초 확인, 전체 영상 렌더는 아직 안 함.
 - 2026-10-24: 썸네일에 노트 개구리 필수(지침서 16-7, `tools/briefs/thumb_art.md`, `tools/assets/frog.svg`).
+- 2026-10-24: Drive 새 경로 `Miya's Note/<01. Life & Biology | 02. Space & Science>/NN_<슬러그>`(miya가 폴더 생성, 18장), 숏츠 3→5 문구 정리(21장, README), render-report 업로드 제거는 다음 렌더 때.
 - 2026-10-24: 메타데이터에 출처(SOURCES)는 유지(출처가 있을 때만).
