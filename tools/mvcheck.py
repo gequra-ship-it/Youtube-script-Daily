@@ -3,6 +3,7 @@
 # 2) for every id="mv-<type>-*" group: apply the pose the video uses (amplified x2 for visibility) and report changed pixels
 # 3) writes <outdir>/<name>_static.png and <name>_pose.png (all groups posed at once) for a visual check
 import sys, os, re, json
+import sys; sys.path.insert(0, __import__('os').path.dirname(__import__('os').path.abspath(__file__))); from paths import chrome
 from playwright.sync_api import sync_playwright
 import numpy as np
 from PIL import Image
@@ -20,7 +21,7 @@ def shot(pg, svg, js=''):
 def read(p): return re.sub(r'<\?xml[^>]*\?>', '', open(p, encoding='utf-8').read()).strip()
 svg = read(new); res = {}
 with sync_playwright() as p:
-    b = p.chromium.launch(executable_path=os.environ.get('HYPERFRAMES_BROWSER_PATH', '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'), args=['--disable-gpu']); pg = b.new_page(viewport={'width': 1920, 'height': 1080}); pg.set_default_timeout(90000)
+    b = p.chromium.launch(executable_path=chrome(), args=['--disable-gpu']); pg = b.new_page(viewport={'width': 1920, 'height': 1080}); pg.set_default_timeout(90000)
     st = shot(pg, svg); Image.fromarray(st.astype('uint8')).save(f'{out}/{name}_static.png')
     if orig:
         o = shot(pg, read(orig)); d = int((np.abs(st - o).sum(2) > 0).sum()); res['static_diff_pixels_vs_original'] = d

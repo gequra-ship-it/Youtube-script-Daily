@@ -30,7 +30,8 @@ def _env(n, a, r):
     e[:na] = np.linspace(0, 1, na) ** 2; e[n - nr:] = np.linspace(1, 0, nr) ** 2
     return e
 
-def synth(total, seed=5, style='default'):
+def synth(total, seed=5, style='default', accents=()):
+    """accents: times (s) of big picture changes; each gets two soft chord tones of the chord playing then (rhythm lock, guideline 9-4)"""
     if style == 'cosmic': return synth_cosmic(total, seed)
     rng = np.random.default_rng(seed)
     nchord = int(total / CHORD_S) + 2
@@ -58,6 +59,14 @@ def synth(total, seed=5, style='default'):
                 st = max(0, t0 + int((b + rng.uniform(-.02, .05)) * SR)); dd = int(2.4 * SR); t2 = np.arange(dd) / SR
                 f = hz(m); x = (np.sin(2 * np.pi * f * t2) + .3 * np.sin(2 * np.pi * 2 * f * t2) * np.exp(-t2 * 5)) * np.exp(-t2 * 2.2) * np.minimum(t2 / .012, 1) * .045
                 pan = rng.uniform(-.5, .5); L[st:st + dd] += x * (1 - pan); R[st:st + dd] += x * (1 + pan)
+    for ta in accents:                                 # accent plucks on the big transitions (2026-10-24)
+        ci = int(ta / CHORD_S)
+        if ci >= len(order) or ta < 0: continue
+        chord = PROGS[order[ci][0]][order[ci][1]]; st = int(ta * SR); dd = int(2.4 * SR); t2 = np.arange(dd) / SR
+        for m in (chord[1], chord[2] - 12 if chord[2] > 66 else chord[2]):
+            f = hz(m); x = (np.sin(2 * np.pi * f * t2) + .3 * np.sin(2 * np.pi * 2 * f * t2) * np.exp(-t2 * 5)) * np.exp(-t2 * 2.2) * np.minimum(t2 / .012, 1) * .06
+            e = min(dd, len(L) - st)
+            if e > 0: L[st:st + e] += x[:e]; R[st:st + e] += x[:e]
     out = []
     for ch in (L, R):
         ch = sosfilt(butter(2, 250, 'hp', fs=SR, output='sos'), ch)
@@ -124,8 +133,8 @@ def duck_gain(rms, hop=0.05, close_s=0.6, up_db=4.0, atk=0.25, rel=1.2):
         c = hop / (atk if v < cur else rel); cur += (v - cur) * min(c, 1.0); g[i] = cur
     return g, sp2
 
-def make_bgm(path_wav, total, files_starts, below_db=13.0, seed=5, style='default'):
-    x = synth(total, seed, style)
+def make_bgm(path_wav, total, files_starts, below_db=13.0, seed=5, style='default', accents=()):
+    x = synth(total, seed, style, accents)
     rms = narration_envelope(files_starts, total)
     g, sp = duck_gain(rms)
     hop = 0.05; tt = np.arange(len(x)) / SR

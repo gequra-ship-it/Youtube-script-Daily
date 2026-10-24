@@ -4,7 +4,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 from playwright.sync_api import sync_playwright
 out = f'{REPO}/render/{SLUG}/deliver'; os.makedirs(out, exist_ok=True)
-CHROME = os.environ.get('HYPERFRAMES_BROWSER_PATH', '/opt/pw-browsers/chromium-1194/chrome-linux/chrome')
+CHROME = chrome()
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path=CHROME)
     pg = b.new_page(viewport={'width': 1920, 'height': 1080}); errs = []

@@ -7,6 +7,7 @@
 # Hands rotate a little around their own centre (no translation), so they stay on the wrist.
 # Result per arm: [ox, oy, X, Y] = pivot in px from the group's local bounding-box corner (GSAP transformOrigin) and in root units.
 import os, json
+import sys; sys.path.insert(0, __import__('os').path.dirname(__import__('os').path.abspath(__file__))); from paths import chrome
 from playwright.sync_api import sync_playwright
 
 JS = r'''() => {
@@ -64,7 +65,7 @@ def compute(files, W=1920, H=1080, cache=None):
         else: todo.append(f)
     if todo:
         with sync_playwright() as p:
-            b = p.chromium.launch(executable_path=os.environ.get('PW_CHROME', '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'))
+            b = p.chromium.launch(executable_path=chrome())
             pg = b.new_page(viewport={'width': W, 'height': H})
             for f in todo:
                 s = open(f, encoding='utf-8').read()

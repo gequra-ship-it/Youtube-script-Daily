@@ -391,7 +391,7 @@ assert max(len(c['text']) for c in caps) <= CHARMAX, max(caps, key=lambda c: len
 
 
 # ---------- SVG inlining ----------
-def load_svg(n, path):
+def load_svg(n, path, world=None):
     s = open(path, encoding='utf-8').read()
     s = re.sub(r'<\?xml[^>]*\?>', '', s).strip()
     pre = f'u{n}_'
@@ -408,7 +408,9 @@ def load_svg(n, path):
     ids = {x for x in ids if not x.startswith('mv-')}
     for x in ids:
         s = s.replace(f'id="{x}"', f'id="{pre}{x}"').replace(f'url(#{x})', f'url(#{pre}{x})').replace(f'href="#{x}"', f'href="#{pre}{x}"')
-    s = re.sub(rf'\swidth="{W}"\s+height="{H}"', '', s, count=1)
+    s = re.sub(r'<svg\b[^>]*>', lambda m: re.sub(rf'\swidth="{W}"\s+height="{H}"', '', m.group(0)), s, count=1)   # only the root tag (a rect of the same size must keep its size)
+    if world:   # (2026-10-24) one big picture (sidecar "world": [w, h]): the svg is w x h px, the camera travels across it (guideline 4-1B)
+        s = re.sub(r'<svg\b', f'<svg style="width:{int(world[0])}px;height:{int(world[1])}px"', s, count=1)
     return s
 
 
@@ -531,7 +533,7 @@ for u in units:
             ox, oy = (float(fz[0]), float(fz[1])) if fz else (CX, CY)
             spd = (f'<div class="spd" id="spd{nn}"><div style="position:absolute;left:{ox:.0f}px;top:{oy:.0f}px">'
                    + ''.join(f'<i style="transform:rotate({(k * 137.508) % 360:.1f}deg)"><b></b></i>' for k in range(NSPD)) + '</div></div>')
-        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p)}{spot}{lin}</div>{spd}</div>')
+        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{load_svg(nn, p, sc0.get('world'))}{spot}{lin}</div>{spd}</div>')
         BADGES.append(lout)   # number badges live on their own layer so they do not vanish with the cut (user 2026-10-16)
 if label_errors: raise SystemExit('on-screen text (labels) problems, fix the sidecars:\n  ' + '\n  '.join(label_errors))
 h.append('<div id="badges" style="position:absolute;left:0;top:0;width:0;height:0;z-index:998">' + ''.join(BADGES) + '</div>')
@@ -545,6 +547,7 @@ for k, c in enumerate(caps):
     h.append(f'<div class="cap" id="c{k}"><span>{caption_hl.words_html(k, c["text"])}</span></div>')   # one <i> per word for the highlight
 
 # ---------- sound cues ----------
+import rhythm
 cues = []   # dict(name, t, vol, pri)
 TRSND = {'zoom': ('swish', -0.85, 0.9), 'slide': ('swish', -0.6, 0.6), 'match': ('hush', -0.7, 0.8), 'wash': ('rustle', -0.5, 0.7),
          'wipe': ('swish', -0.7, 0.6), 'iris': ('hush', -0.9, 0.7), 'eye': ('hush', -0.7, 0.6), 'blinds': ('rustle', -0.6, 0.6),
@@ -628,7 +631,8 @@ for c in cues:
 BGM_REPORT = None
 if os.environ.get('NOBGM') != '1':
     import bgm_lib
-    BGM_REPORT = bgm_lib.make_bgm(f'{B}/bgm.wav', TOTAL, [(f'{B}/n{i:02d}.wav', starts[i]) for i in SEL], below_db=float(os.environ.get('BGM_BELOW', '13')), style=getattr(CFG, 'STYLE', 'default'))
+    ACC = rhythm.accent_times(units, TIN) if os.environ.get('NOACCENT') != '1' else []   # chord-tone accents on the big picture changes (guideline 9-5)
+    BGM_REPORT = bgm_lib.make_bgm(f'{B}/bgm.wav', TOTAL, [(f'{B}/n{i:02d}.wav', starts[i]) for i in SEL], below_db=float(os.environ.get('BGM_BELOW', '13')), style=getattr(CFG, 'STYLE', 'default'), accents=ACC)
     run('ffmpeg', '-y', '-v', 'error', '-i', f'{B}/bgm.wav', '-c:a', 'aac', '-b:a', '96k', f'{OUT}/bgm.m4a')
     audio.append(('bgm.m4a', 0.0, TOTAL, 20, 1))
     print('bgm', {k: round(v, 1) for k, v in BGM_REPORT.items()})
@@ -640,12 +644,16 @@ if os.environ.get('SEPARATE_AUDIO') == '1':
         h.append(f'<audio src="{src}" data-start="{st:.3f}" data-duration="{dd:.3f}" data-track-index="{tr}" data-volume="{vol}"></audio>')
 else:
     SR = 48000; mixbuf = np.zeros((int(TOTAL * SR) + SR, 2), dtype=np.float32); cache = {}
+    SIL = [] if os.environ.get('NOSILENCE') == '1' else rhythm.silence_windows(CFG, SEL, starts, D, GAP, TOTAL, TAIL)   # near-silences: music and sfx off, narration stays (guideline 9-5)
+    SILM = rhythm.gain_mask(len(mixbuf), SR, SIL)
     for (src, st, dd, tr, vol) in audio:
         if src not in cache:
             raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', f'{OUT}/{src}', '-f', 'f32le', '-ac', '2', '-ar', str(SR), '-'], capture_output=True).stdout
             cache[src] = np.frombuffer(raw, dtype=np.float32).reshape(-1, 2)
         a = cache[src][:int(dd * SR)]; i0 = int(round(st * SR)); a = a[:max(0, len(mixbuf) - i0)]
+        if SIL and (src.startswith('sfx_') or src == 'bgm.m4a'): a = a * SILM[i0:i0 + len(a), None]
         mixbuf[i0:i0 + len(a)] += a * float(vol)
+    print('rhythm: accents', len(ACC) if os.environ.get('NOBGM') != '1' else 0, '| near-silences', [(round(a, 1), round(b, 1)) for a, b in SIL])
     mixbuf = mixbuf[:int(TOTAL * SR)]
     peak = float(np.abs(mixbuf).max()) if len(mixbuf) else 0.0
     if peak > 0.98: mixbuf *= 0.98 / peak
@@ -767,7 +775,7 @@ for k, u in enumerate(units):
     # --- tracking camera (2026-10-22): a long travelling motion (path object, dominoes) is followed; it replaces focus and drift ---
     trk = motions.track_spec(open(art_path(u)[0], encoding='utf-8').read(), side(u))
     if trk:
-        js.append(motions.track_js(trk, Wq, t0, t1 - v0 + 0.2, W, H)); TRACKED.append(u['uid'])
+        _wd = side(u).get('world') or (W, H); js.append(motions.track_js(trk, Wq, t0, t1 - v0 + 0.2, W, H, _wd[0], _wd[1])); TRACKED.append(u['uid'])
     # --- focus camera (only when the picture has a focus target) ---
     elif nn in focus_cam:
         a, (fx, fy, s) = focus_cam[nn]

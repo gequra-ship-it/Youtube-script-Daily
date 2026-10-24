@@ -4,6 +4,7 @@
 import sys, os, json, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import labels_lib, palettes
+import sys; sys.path.insert(0, __import__('os').path.dirname(__import__('os').path.abspath(__file__))); from paths import chrome
 from playwright.sync_api import sync_playwright
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 slug, out = sys.argv[1], sys.argv[2]; os.makedirs(out, exist_ok=True)
@@ -11,7 +12,7 @@ V = f'{REPO}/videos/{slug}'; plan = {p['uid']: p for p in json.load(open(f'{V}/p
 uids = sys.argv[3:] or list(plan)
 A = f'{REPO}/tools/assets'; bad = 0
 with sync_playwright() as pw:
-    b = pw.chromium.launch(executable_path='/opt/pw-browsers/chromium-1194/chrome-linux/chrome')
+    b = pw.chromium.launch(executable_path=chrome())
     for uid in uids:
         p = plan[uid]; svg = open(f'{V}/art3/{uid}.svg', encoding='utf-8').read()
         sc = json.load(open(f'{V}/art3/{uid}.json')) if os.path.exists(f'{V}/art3/{uid}.json') else {}

@@ -2,7 +2,7 @@
 # `mv-core-<type>`; each type below moves it differently, so the object is not always the same
 # up-and-down squash. Every tween is finite (repeat count, never -1) so the timeline stays seekable,
 # and nothing uses an SVG filter.
-import math
+import math, json
 
 # 19 types (13 + 6 taken from a motion-graphics reference on 2026-10-13: pop, ping, stamp, flip, draw, drop).
 # Order matters: build3 walks it with a step that never repeats a type in consecutive pictures.
@@ -193,8 +193,17 @@ def tr_js(tr, T, v0, W, H):
 #   scroll   drifts sideways data-dist px (160) over the whole picture (parallax stars, clouds)
 #   slam     slams in from 2.4x size with a slight turn (a stamp or title)
 #   rise     slides up data-from px (60) while fading in (a tag, a label)
+# Added 2026-10-24 (composition blocks from the lemo-opuscar study, test film motion-demo/bears-60s-v2, guideline 4-1B):
+#   slide    moves data-dx/data-dy px (default -960/0) from there to its place (a half-screen panel, a layer, a tab); data-dir="out" moves it
+#            from its place to the offset instead (eraser leaving, page off); data-dur .7, data-delay
+#   fade     opacity data-from (0) -> data-to (1) over data-dur (.4) at data-delay: a ghost lighting up (.1 -> .6), an eraser pass (from 1 to 0, dur .12)
+#   ticks    the group's children appear one by one, data-step s apart (.1), from data-delay; data-fill="#hex" recolours them instead of
+#            showing them (a row of squares filling: 1 square = 1 unit), data-n limits how many
+#   rack     rack focus: the group is soft (data-r px, 14) and sharpens to 0 (data-dir="in", default), or the reverse ("out"); data-delay, data-dur (1.2).
+#            Made from 6 offset ghost copies, no SVG filter. Put the near object in one rack group and the far one in another with the opposite dir.
+# `popin` takes data-axis="y" or "x": it grows along that axis only (a pull-tab slat flipping up).
 OBJ_KINDS = ['path', 'flip', 'fill', 'grow', 'swing', 'topple', 'liquid', 'bubble', 'edge', 'keyturn', 'shackle', 'popin',
-             'shake', 'dash', 'scroll', 'slam', 'rise']
+             'shake', 'dash', 'scroll', 'slam', 'rise', 'slide', 'fade', 'ticks', 'rack']
 
 
 def path_timing(at, t0, sp):
@@ -227,10 +236,10 @@ def track_spec(raw, sidecar):
     return None
 
 
-def track_js(spec, wsel, t0, sp, W, H):
+def track_js(spec, wsel, t0, sp, W, H, WW=None, WH=None):
     d, delay, dur, scale, ease = spec
     st = t0 + delay; du = dur if dur is not None else min(sp - .6, 3.4)
-    return f'miyaTrack(tl,"{wsel}","{d}",{st:.3f},{du:.3f},{scale},{W},{H},"{ease}");'
+    return f'miyaTrack(tl,"{wsel}","{d}",{st:.3f},{du:.3f},{scale},{W},{H},"{ease}",{WW or W},{WH or H});'
 
 
 def obj_js(kind, g, at, t0, v0, sp):
@@ -279,8 +288,23 @@ def obj_js(kind, g, at, t0, v0, sp):
         return [f'tl.set({g},{{y:0,rotation:0,{org("50% 100%")}}},{v0:.3f});',
                 f'tl.to({g},{{y:{-f("lift", 46):.0f},rotation:{f("deg", -16)},duration:{f("dur", .6)},ease:"power2.inOut",immediateRender:false}},{st:.3f});']
     if kind == 'popin':
-        return [f'tl.set({g},{{scale:0,opacity:0,{org("50% 50%")}}},{v0:.3f});',
-                f'tl.to({g},{{scale:1,opacity:1,duration:.45,ease:"back.out(2)",immediateRender:false}},{st:.3f});']
+        ax = at.get('data-axis')
+        pr = {'y': 'scaleY', 'x': 'scaleX'}.get(ax, 'scale')
+        return [f'tl.set({g},{{{pr}:0,opacity:0,{org("50% 50%")}}},{v0:.3f});',
+                f'tl.to({g},{{{pr}:1,opacity:1,duration:.45,ease:"back.out(2)",immediateRender:false}},{st:.3f});']
+    if kind == 'slide':
+        dx, dy = f('dx', -960), f('dy', 0); d = f('dur', .7)
+        a, b = ({'x': 0, 'y': 0}, {'x': dx, 'y': dy}) if at.get('data-dir') == 'out' else ({'x': dx, 'y': dy}, {'x': 0, 'y': 0})
+        return [f'tl.set({g},{{x:{a["x"]:.0f},y:{a["y"]:.0f}}},{v0:.3f});',
+                f'tl.to({g},{{x:{b["x"]:.0f},y:{b["y"]:.0f},duration:{d},ease:"power3.{"in" if at.get("data-dir") == "out" else "out"}",immediateRender:false}},{st:.3f});']
+    if kind == 'fade':
+        a, b = f('from', 0), f('to', 1)
+        return [f'tl.set({g},{{opacity:{a}}},{v0:.3f});',
+                f'tl.to({g},{{opacity:{b},duration:{f("dur", .4)},ease:"power1.inOut",immediateRender:false}},{st:.3f});']
+    if kind == 'ticks':
+        return [f'miyaTicks(tl,{g},{v0:.3f},{st:.3f},{f("step", .1)},{json.dumps(at.get("data-fill", ""))},{int(f("n", 9999))});']
+    if kind == 'rack':
+        return [f'miyaRack(tl,{g},{v0:.3f},{st:.3f},{f("dur", 1.2)},{f("r", 14)},{1 if at.get("data-dir", "in") == "in" else 0});']
     if kind == 'shake':
         amp = f('amp', 3); dd = f('dur', .25); per = .03
         return [f'tl.fromTo({g},{{x:{-amp}}},{{x:{amp},duration:{per},ease:"none",yoyo:true,repeat:{max(int(dd / per) - 1, 1)},immediateRender:false}},{st:.3f});',
@@ -304,6 +328,24 @@ function miyaEase(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;}
 // travelling motion (path object, tracking camera): constant speed with short 15 % soft start/stop (no mid-way speed-up, owner 2026-10-22)
 function miyaCruise(x){var r=.15,v=1/(1-r);return x<r?v*x*x/(2*r):x>1-r?1-v*(1-x)*(1-x)/(2*r):v*(r/2+x-r);}
 function miyaClamp(x){return Math.min(1,Math.max(0,x));}
+// children of group `g` appear one by one (or are recoloured to `fill`), `step` s apart, from time `st`; `n` limits how many
+function miyaTicks(tl,g,v0,st,step,fill,n){
+ var kids=Array.prototype.slice.call(g.children).slice(0,n);
+ kids.forEach(function(c,i){
+  if(fill){tl.set(c,{fill:fill},st+i*step);}else{tl.set(c,{opacity:0},v0);tl.set(c,{opacity:1},st+i*step);}
+ });
+}
+// rack focus without an SVG filter: six ghost copies on a circle of radius r*(1-k) around the group; k 0..1 is the sharpness
+// (dir 1: soft -> sharp, dir 0: sharp -> soft). The original gets less opaque while soft. Seek-safe: a modifier writes the state.
+function miyaRack(tl,g,v0,st,du,r,dir){
+ var N=6,ghosts=[],o={k:0};
+ for(var i=0;i<N;i++){var c=g.cloneNode(true);c.setAttribute('class','mvc');c.removeAttribute('id');Array.prototype.forEach.call(c.querySelectorAll('[class*=mv]'),function(n){n.setAttribute('class','mvc');});g.parentNode.insertBefore(c,g);ghosts.push(c);}
+ function ap(k){var s=dir?k:1-k,rr=r*(1-s);
+  ghosts.forEach(function(c,i){var a=i/N*Math.PI*2;c.setAttribute('transform','translate('+(Math.cos(a)*rr).toFixed(2)+' '+(Math.sin(a)*rr).toFixed(2)+')');c.setAttribute('opacity',rr>.4?.17:0);});
+  g.style.opacity=rr>.4?(.55+.45*s):1;}
+ ap(0);
+ tl.to(o,{k:1,duration:du,ease:'power2.inOut',immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},st);
+}
 // new transitions: clip-path of picture `el` from k (0..1); the overlay #trfx carries the light edges
 function miyaTr(el,tr,k,W,H){
  var e=miyaEase(k),c='none',l1=document.getElementById('trl1'),l2=document.getElementById('trl2'),pz=document.getElementById('trpz'),pd=document.getElementById('trpd');
@@ -350,12 +392,13 @@ function miyaPath(tl,g,d,t0,dur,rot,rot0){
  tl.to(o,{k:1,duration:dur,ease:miyaCruise,immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
 }
 // camera tracking: the camera centre follows an SVG path (same window and ease as the object), zooming in at the start and out at the end
-function miyaTrack(tl,wsel,d,t0,dur,sc,W,H,ease){
+function miyaTrack(tl,wsel,d,t0,dur,sc,W,H,ease,WW,WH){
+ WW=WW||W;WH=WH||H;   // W,H = the screen, WW,WH = the picture (a `world` picture is bigger than the screen)
  var w=document.querySelector(wsel),t=w.closest('.t'),pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';
  var NS='http://www.w3.org/2000/svg',svg=w.querySelector('svg'),p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('visibility','hidden');svg.appendChild(p);
  var L=p.getTotalLength(),o={k:0};t.style.display=pd;t.style.visibility=pv;
  function ap(k){var q=p.getPointAtLength(L*k),r=Math.min(1,k/.12,(1-k)/.12),s=1+(sc-1)*r*r*(3-2*r);
-  var cx=Math.min(Math.max(q.x,W/2/s),W-W/2/s),cy=Math.min(Math.max(q.y,H/2/s),H-H/2/s);
+  var cx=Math.min(Math.max(q.x,W/2/s),WW-W/2/s),cy=Math.min(Math.max(q.y,H/2/s),WH-H/2/s);
   gsap.set(w,{scale:s,x:W/2-cx*s,y:H/2-cy*s,transformOrigin:'0px 0px'});}
  tl.to(o,{k:1,duration:dur,ease:ease==='power2.inOut'?miyaCruise:ease,immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
 }

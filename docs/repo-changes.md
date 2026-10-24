@@ -32,3 +32,8 @@
 - `build3.py` `PACE = 1.5`: 컷 길이(최소·최대) ×1.5, config `PACE = 1`이면 예전 길이. 전환 풀은 중심 코어 물체가 없는 쌍에서 `match`·`zoom`을 뺀다.
 - `motions.py` `miyaCruise`: 경로 객체와 트래킹 카메라는 일정 속도(양 끝 15%만 부드럽게).
 - `tools/motion_preview.py`, `tools/briefs/scene_motion.md` 추가. 문어 영상 샘플 그림·새 plan은 브랜치 `octopus-sample-redraw`에만 있다(render-pipeline에 넣지 않음).
+
+## 2026-10-24
+- 곰 1분 시험 영상(v3, `/mnt/project-files/motion-demo/`)에서 승인된 것을 합침: `motions.py` 객체 모션 `slide`·`fade`·`ticks`·`rack`·`popin` axis, 트래킹 world 크기 분리(`miyaTrack` WW/WH), `build3.py` 사이드카 `world`, 새 `tools/rhythm.py`(거의 무음 구간·전환 강조)와 `bgm_lib.synth(accents=)`. 지침서 4-1·9-5, `art_spec.md` 7·8장. 불채택: 로그 줌, 끊기는 스크롤, 정지 화면·속도 램프(미구현).
+- `tools/paths.py` `chrome()`: 하드코딩된 chromium 경로를 쓰던 도구 6개가 설치된 크로미움을 자동으로 찾음.
+
