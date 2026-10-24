@@ -42,7 +42,7 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 - **렌더 원본** `render/<슬러그>/`: `index.html`, `gsap.min.js`, 폰트, 로고, 질감 PNG, `mix.m4a`(모든 소리를 미리 합침; `<audio>` 수백 트랙은 ffmpeg 5분 제한으로 실패. `SEPARATE_AUDIO=1`은 예전 방식). 100MB 넘는 파일은 일반 푸시 불가.
 - **제어 파일**: `.dest`(Drive 폴더, 18장; 없으면 `<슬러그>/`, `-short`·`-short1`~`-short9`면 접미어 뗀 이름의 `short/`), `.outname`(Drive 파일 이름), `.skip_deliver`(`deliver/` 다시 안 올림), `.deliver_only`(렌더 없이 `deliver/`만; 재렌더하려면 지움).
 - Drive 업로드 `rclone copyto … gdrive:<폴더>/… --drive-root-folder-id <Video & Thumbnail 폴더 ID>`. 비밀값 `RCLONE_CONF`(remote `gdrive`, 종류 `drive`, scope `1`)는 사용자가 Secrets에 등록. **비밀값은 읽거나 출력하지 않는다.**
-- 결과 확인은 지금은 Drive에 함께 올라가는 `<슬러그>_render_report.txt`(2026-10-24 납품물에서 제외 결정: 업로드 줄 제거는 다음 렌더 때 워크플로 수정과 함께, `render-chunked.yml`·`render.yml`)(서버 로그 본문은 못 읽음). 실행 상태는 `api.github.com/repos/<소유자>/<저장소>/actions/runs`·`jobs_url`. 실패 로그가 필요하면 사용자가 Actions 탭에서 복사.
+- 결과 확인은 Actions 실행 로그의 렌더 리포트(`cat report.txt`)에서 한다. `_render_report.txt`는 Drive에 올리지 않는다(2026-10-24 납품물에서 제외, 워크플로 업로드 줄 제거)(서버 로그 본문은 못 읽음). 실행 상태는 `api.github.com/repos/<소유자>/<저장소>/actions/runs`·`jobs_url`. 실패 로그가 필요하면 사용자가 Actions 탭에서 복사.
 - **감시**: 예약 메시지로 확인하고 중간 "정상" 보고는 하지 않는다(21-4가 2026-10-10의 "5분마다 정상 보고"보다 새 규칙). 끝나면 Drive 목록과 리포트 확인.
 - **확인하지 못한 것**: 서버 MP4의 실제 화면·소리(사용자가 훑어봄), rclone 공용 클라이언트 ID 2026년 중 중단 경고(본인 ID로 바꾸고 `RCLONE_CONF` 재등록 필요할 수 있음), 월 무료 실행 시간.
 - **오류 대응**: "푸시 안 된 커밋" 경고는 `git ls-remote --heads origin <브랜치>`와 `git rev-parse HEAD`가 같으면 무시. 브랜치 삭제 푸시는 실패하므로 사용자가 GitHub에서 지움. `__pycache__` 경고는 `.git/info/exclude`에 추가하고 `.pyc`를 되돌림. 차선은 사용자 PC 렌더(`render-package/` → `C:\miya-render`, `run_render.ps1`, 미검증).

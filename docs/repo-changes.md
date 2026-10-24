@@ -44,6 +44,7 @@
 - 2026-10-24: 롱폼 고정 아웃트로(지침서 9-6): `paths.load_scenes`가 장면 `OUTRO`를 붙임, `tools/assets/outro.wav`·`outro.svg`, `tts.sh`·`build3.py` 처리. 시험 빌드(2장면 샘플)로 장면 길이 약 9.9초 확인, 전체 영상 렌더는 아직 안 함.
 - 2026-10-24: 썸네일에 노트 개구리 필수(지침서 16-7, `tools/briefs/thumb_art.md`, `tools/assets/frog.svg`).
 - 2026-10-24: Drive 새 경로 `Miya's Note/<01. Life & History | 02. Space & Science>/NN_<슬러그>`(miya가 폴더 생성, 18장), 숏츠 3→5 문구 정리(21장, README), render-report 업로드 제거는 다음 렌더 때.
+- 2026-10-24: 렌더 워크플로(`render-chunked.yml`·`render.yml`)에서 `_render_report.txt` Drive 업로드 줄 제거(miya 요청), `render/.chunked`는 주석만 둠(옛 영상 렌더 방지; 푸시로 시작되는 실행은 렌더할 슬러그가 없어 바로 실패/종료).
 - 2026-10-24 (miya 요청, 카드로 확인): 새 대본으로 새로 만들기 위해 `render-pipeline`에서 옛 영상 `videos/*`(89개)·`render/<슬러그>/`(`sample`·`.slug`·`.chunked` 제외)·`cine-test/`·`docs/archive/`를 지움. 전체 사본은 브랜치 `archive/miyas-lab-2026-10-24`, 옛 작업 브랜치는 `archive/octopus-*`. `.chunked`가 옛 슬러그를 가리키니 새 영상 렌더 때 갱신한다. (git 기록 크기는 그대로, 기록 재작성 안 함.)
 - 2026-10-24: 설명하는 개구리 파이프라인(지침서 7-2, `tools/frog.py`, `build3.py`: 칠판 자동·그림 사이드카 `frog`, `plan.json`의 `frog_hint`, art_spec 12). 고정 아웃트로 그림의 개구리 찌그러짐 수정. 대본 파일명 날짜 = 생성일(`main*.py`).
 - 2026-10-24: 메타데이터에 출처(SOURCES)는 유지(출처가 있을 때만).

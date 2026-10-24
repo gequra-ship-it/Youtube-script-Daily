@@ -129,6 +129,5 @@ jobs:
           [ -f "render/$SLUG/.dest" ] && DEST_DIR=$(cat "render/$SLUG/.dest")
           OUTNAME="$SLUG"; [ -f "render/$SLUG/.outname" ] && OUTNAME=$(cat "render/$SLUG/.outname")
           rclone copyto "$SLUG.mp4" "gdrive:${DEST_DIR}/${OUTNAME}.mp4" --drive-root-folder-id "$ROOT_ID" --drive-chunk-size 64M
-          rclone copyto "${SLUG}_render_report.txt" "gdrive:${DEST_DIR}/${OUTNAME}_render_report.txt" --drive-root-folder-id "$ROOT_ID"
           if [ -d "render/$SLUG/deliver" ] && [ ! -f "render/$SLUG/.skip_deliver" ]; then rclone copy "render/$SLUG/deliver" "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID"; fi
           rclone lsl "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID"
