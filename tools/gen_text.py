@@ -43,7 +43,8 @@ open(SCRIPT_REF,'w',encoding='utf-8').write("\n".join(L)+"\n")
 DESC_SHORT = CFG.DESC[0]   # 2026-10-24: description = 1-2 sentences only (about 1/3 of the old one); ABOUT and SOURCES are not delivered
 if len(DESC_SHORT) > 260: print(f"WARNING: description {len(DESC_SHORT)} chars (aim <= 260)")
 if not CFG.CHAPTERS:   # Shorts: title + description + hashtags only (no timeline)
-    M="=== TITLE ===\n"+CFG.TITLE+"\n\n=== DESCRIPTION ===\n"+DESC_SHORT+"\n\n"+CFG.HASHTAGS+"\n"
+    SRC = ("SOURCES\n" + "\n".join("- " + x for x in CFG.SOURCES) + "\n\n") if getattr(CFG, 'SOURCES', None) else ""
+    M="=== TITLE ===\n"+CFG.TITLE+"\n\n=== DESCRIPTION ===\n"+DESC_SHORT+"\n\n"+SRC+CFG.HASHTAGS+"\n"
     open(f'{OUT}/{slug}_metadata.txt','w',encoding='utf-8').write(M); print(M); raise SystemExit
 ch=CFG.CHAPTERS
 lines=[]
@@ -52,7 +53,8 @@ for k,(i,t) in enumerate([c for c in ch if str(c[0]) in d['starts'] or c[0]==ch[
     st=0.0 if k==0 else d['starts'][str(i)]
     if prev is not None: assert st-prev>=10
     prev=st; m=int(st//60); s=int(st%60); lines.append(f"{m:02d}:{s:02d} {t}")
-M = ("=== TITLE ===\n" + CFG.TITLE + "\n\n=== DESCRIPTION ===\n" + DESC_SHORT + "\n\nTIMELINE\n" + "\n".join(lines) + "\n\n" + CFG.HASHTAGS + "\n")
+SRC = ("SOURCES\n" + "\n".join("- " + x for x in CFG.SOURCES) + "\n\n") if CFG.SOURCES else ""   # kept in the metadata (miya 2026-10-24); block omitted when the video names no source
+M = ("=== TITLE ===\n" + CFG.TITLE + "\n\n=== DESCRIPTION ===\n" + DESC_SHORT + "\n\nTIMELINE\n" + "\n".join(lines) + "\n\n" + SRC + CFG.HASHTAGS + "\n")
 assert len(CFG.TITLE) <= 100
 open(f'{OUT}/{slug}_metadata.txt','w',encoding='utf-8').write(M)
 print(M)
