@@ -1,0 +1,28 @@
+{
+ "centre": "padlock-shaped lock plate with dark keyhole",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "locks on your cells",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "do not fit",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Doesn't fit!",
+   "x": 640,
+   "y": 330,
+   "to": [
+    560,
+    530
+   ]
+  }
+ ]
+}

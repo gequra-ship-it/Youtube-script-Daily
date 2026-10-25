@@ -1,0 +1,42 @@
+{
+ "centre": "a magnifying lens over the middle stone of a dashed, unproven chain",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Can't prove it.",
+   "x": 300,
+   "y": 1000,
+   "to": [
+    285,
+    1080
+   ]
+  },
+  {
+   "type": "say",
+   "text": "Still debated.",
+   "x": 790,
+   "y": 1000,
+   "to": [
+    800,
+    1085
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "cheer",
+  "ride": "mv-core-glide-lens",
+  "x": 540,
+  "y": 722,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

@@ -1,0 +1,59 @@
+{
+ "centre": "empty microscope view with no bacteria, thermometer normal, four crossed boxes",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "no sign of bacteria",
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "no sign of bacteria",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hmm...",
+   "x": 700,
+   "y": 1110,
+   "to": [
+    790,
+    1065
+   ],
+   "word": "stumped"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "There was",
+    "mood": "curious"
+   },
+   {
+    "word": "There was",
+    "mood": "happy"
+   },
+   {
+    "word": "It did",
+    "mood": "curious"
+   },
+   {
+    "word": "And the",
+    "mood": "happy"
+   }
+  ],
+  "act": "cheer",
+  "ride": "mv-core-ping-view",
+  "x": 540,
+  "y": 759,
+  "s": 1.32,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

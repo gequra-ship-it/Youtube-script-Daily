@@ -1,0 +1,41 @@
+{
+ "centre": "glowing round peephole of a hot laboratory furnace",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "six hundred degrees",
+ "sfx": [
+  {
+   "name": "crackle",
+   "word": "heated",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "600 °C",
+   "word": "six hundred"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "In a",
+    "mood": "surprised"
+   }
+  ],
+  "act": "cheer",
+  "ride": "mv-core-swell-kiln",
+  "x": 960,
+  "y": 406,
+  "s": 1.22,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

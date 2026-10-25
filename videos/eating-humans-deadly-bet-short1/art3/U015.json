@@ -1,0 +1,47 @@
+{
+ "centre": "wall clock in a clean lab room, two friendly chimpanzees below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "long wait",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "chimpanzees",
+   "x": 560,
+   "y": 1380,
+   "to": [
+    600,
+    1260
+   ],
+   "word": "chimpanzees"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   },
+   {
+    "word": "After a",
+    "mood": "curious"
+   },
+   {
+    "word": "Kuru was",
+    "mood": "happy"
+   }
+  ],
+  "act": "sleepy",
+  "ride": "mv-core-approach-clock",
+  "x": 540,
+  "y": 773,
+  "s": 1.13,
+  "flip": -1,
+  "kind": "ride"
+ }
+}
