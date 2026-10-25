@@ -18,7 +18,7 @@
 - 썸네일은 영상마다 서로 다른 소재 3장: 영화 오마주형 + 직관형을 섞고(지침서 16-6), **Opus 에이전트가 만든다**. 색 팔레트는 뼈대일 뿐 그림 에이전트가 소재에 맞게 정한다(3-5).
 - 그림 에이전트 모델: 사람·동물·생물·복잡한 구성은 Opus, 단순한 것은 Sonnet. 큰 스타일 변경 전에는 예시 2~4장으로 먼저 확인받는다.
 - 출력 토큰 절약: 단계마다 결과를 알리지 않는다. 최종 렌더가 Drive에 올라갔을 때(또는 질문받았을 때, 막혀서 결정이 필요할 때)만 1~3줄로 알린다(지침서 21-4).
-- `render-pipeline`에서 `render/.chunked`(구간 병렬 렌더, `render-chunked.yml`) 또는 `render/.slug`·`.github/workflows/render.yml`이 바뀌는 푸시는 렌더·업로드를 시작하고 Drive의 같은 이름 파일을 덮어쓴다. 사용자가 원할 때만 한다(썸네일만 올릴 때는 `.deliver_only`, 지침서 16-7).
+- `render-pipeline`에서 `render/.chunked`(구간 병렬 렌더, `render-chunked.yml`) 또는 `render/.slug`·`.github/workflows/render.yml`이 바뀌는 푸시는 렌더·업로드를 시작하고 Drive의 같은 이름 파일을 덮어쓴다. 사용자가 원할 때만 한다(썸네일만 올릴 때는 `.deliver_only`, 지침서 16-6 8번 / 16-7).
 - 지침서를 고치면 `render-pipeline`과 `main` 두 브랜치의 사본을 같게 맞추고, 큰 구조 변경은 `docs/repo-changes.md`에 한 줄 남긴다.
 
 **답변 방식**

@@ -23,11 +23,10 @@ for s in SCENES:
     if str(i) not in d['starts']: continue   # partial build
     st=d['starts'][str(i)]; dd=d['D'][str(i)]
     cs=[c for c in cuts if c['scene']==i]
-    CINE3D=os.path.exists(f'{REPO}/render/{slug}/cine.js')
-    kind=('데이터 카드' if CINE3D else '칠판') if (s[2]=='chalk' or i in CFG.CHALK) else ('3D' if CINE3D else '일러스트')
+    kind='칠판' if (s[2]=='chalk' or i in CFG.CHALK) else '일러스트'
     L.append(f"[{s[0]}] {ts(st)}–{ts(st+dd)} ({dd:.1f}s) {kind} · {s[1]}")
     L.append(s[4])
-    L.append(("의미 단위: " if CINE3D else "그림(의미 단위): ")+", ".join(f"{c['id']} {ts(c['t0'])}–{ts(c['t1'])} [{c['tr']}]" for c in cs))
+    L.append("그림(의미 단위): "+", ".join(f"{c['id']} {ts(c['t0'])}–{ts(c['t1'])} [{c['tr']}]" for c in cs))
     sfx=[f"{x['name']} @{ts(x['t'])}" for x in d.get('sfx',[]) if x['unit'] in {c['id'] for c in cs}]
     if i in CFG.CHALK: sfx.append("분필 @"+", ".join(ts(t) for t in d['chalk_pop'][str(i)]))
     if not sfx: sfx.append("없음")

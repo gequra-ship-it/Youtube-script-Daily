@@ -35,7 +35,7 @@ npx --yes hyperframes@0.8.141 render
 
 MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치지 않음).
 
-- 저장소 `gequra-ship-it/Youtube-script-Daily`(비공개, 예전 이름 `ht`/`HT`; 옛 이름으로 연결돼 있으면 Actions API가 막힘 → `list_repos` 확인, `add_repo`(access: push), 로컬 `origin`도 변경).
+- 저장소 `gequra-ship-it/youtube-script-daily`(비공개, 예전 이름 `ht`/`HT`/`Youtube-script-Daily`; 옛 이름으로 연결돼 있으면 Actions API가 막힘 → `list_repos` 확인, `add_repo`(access: push), 로컬 `origin`도 변경).
 - 워크플로 `.github/workflows/render.yml`(`render-video`, `ubuntu-24.04`, 300분)과 병렬 `render-chunked.yml`(20-7). 단계: Node 22 → FFmpeg·rclone → Chrome **예열**(버전 확인 최대 3번 + 빈 페이지) → `npx hyperframes@0.8.141 render`(MP4가 없으면 재시도, 3번까지) → ffprobe·음량 → Drive 업로드(비밀값이 있을 때만). 실패 로그 끝부분은 `<슬러그>_render_error.txt`로 Drive에. 한 슬러그가 실패해도 다음을 계속. 수동 실행 입력 `slug`(쉼표로 여러 개).
 - **렌더 시작 조건 (되돌리기 어려움)**: `render-pipeline` 푸시에서 `render/.slug`, `.github/workflows/render.yml`, `render/sample/**` 중 하나가 바뀌면 즉시 렌더하고 Drive의 같은 이름 MP4를 덮어쓴다. 같은 내용 재렌더는 `.slug` 줄 순서를 바꾼다. 워크플로만 바꿀 때는 `.slug`를 `none`으로. `.slug`가 없으면 `sample`(→ `_ci-test/`).
 - **다중 슬러그**: `.slug`에 한 줄에 하나(롱폼, `-short1`~`-short5`), 차례로 렌더. 목록은 fd 3으로 읽는다(`while read -r SLUG <&3 ... done 3< 파일`; 표준입력이면 첫 슬러그만 렌더되는 버그 — 롱폼이 몇 분 만에 끝나면 의심).
@@ -59,7 +59,7 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 **구조**
 - 의미 단위: 문장→쉼표→단어 순으로 쪼개 최대 길이(기본 9.3초 = 6.2×PACE 1.5, 20-2) 이하로 합침. 1.6초 미만 단위는 이웃과 합치고, 장면 마지막 단위가 2초 미만이면 경계를 다시 나눈다.
 - 컷 = `div.t`(전환) 안 `div.w`(카메라) 안 SVG. id에 `u<번호>_` 접두어. 장면 간격 0.8초, 앞 여백 1.0초, 끝 여백 2.5초(본편).
-- 자막 줄: 문장 단위, 30자·7단어 이하(세로 22자·4단어), 쉼표에서 우선 끊음. 칠판은 레이아웃 B 3행. 옛 `tools/build.py`는 첫 영상 재현용.
+- 자막 줄: 문장 단위, 30자·7단어 이하(세로 22자·4단어), 쉼표에서 우선 끊음. 칠판은 레이아웃 B 3행.
 
 ### 15-7. 새 세션에서 시작하는 방법 (사용자는 대본만 보내면 된다)
 - 도구는 `render-pipeline` 브랜치의 `tools/`(목록·사용법 `tools/README.md`), 영상별 원본은 `videos/<슬러그>/`(`script.py`, `art3/*.svg`+`*.json`, `plan.json`, `config.py`, `art_brief.md`, `thumb/`). 레포 구조 변경은 `docs/repo-changes.md`. 안내 파일 `CLAUDE.md`(자동으로 읽힘), Claude 프로젝트 채팅용 짧은 지침 `docs/project-instructions.md`.

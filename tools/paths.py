@@ -8,8 +8,6 @@ WORK = os.environ.get('MIYA_WORK', '/tmp/miya-work')
 
 def vdir(slug=None):
     s = slug or SLUG; d = f'{REPO}/videos/{s}'
-    if not os.path.isdir(d) and os.path.isdir(f'{REPO}/cine-test/videos/{s}'):   # 3D (cine) test videos live in cine-test/ (2026-10-16)
-        d = f'{REPO}/cine-test/videos/{s}'
     return d
 
 

@@ -156,9 +156,5 @@ Remove old rings/rays, do not redraw people/objects. Per unit:
 5. Section 2 holds; keep `focus`/`focus_word`/`sfx` (fix coords if the focus target moved); never rename `mv-` groups. Edit in place (backup), preview outside `art3/`, no rays/rings left.
 6. Final answer: one line per uid `uid | backdrop kind`, plus any problem.
 
-## Appendix B — the retired first look (v1, 2026-10-08)
-Never for new videos; only to reproduce the first one (`tools/build.py`, `videos/never-eat-human-meat/art/<id>.svg`): flat webtoon, black outlines
-(`stroke="#0A0A0A" stroke-width="6"`, details 4), one-tone cell shading, no gradients/glow, under ~800 KB. Palette etc.: archive copy.
-
 ## 12. Mascot frog (2026-10-24, rewritten 2026-10-25, guideline 7-2)
 Picture agents do NOT draw the frog and do NOT write the `frog` sidecar key. In picture scenes the frog is a companion, not an explainer: after the pictures exist `tools/frog_place.py <slug>` puts it ON a moving object (injected into that `mv-` group, so it rides along) or small in a bottom corner of the background, with moods per sentence, a helmet (space) or goggles (water), no arm. Only the chalkboard has the explainer frog that points. So: leave a spot ~150x150 px free on top of the main moving object (a rideable group: core swell/heartbeat/wobble/sway/glide/approach/drop/ping/tremble, path, slide, swing) and in a bottom corner, and keep labels away from the top of that object. The frog must not cover the subject, labels or the logo corner.

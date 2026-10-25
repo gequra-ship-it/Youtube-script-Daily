@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Motion-density check (2026-10-16, guideline 20-4): finds stretches where the picture barely moves (what viewers call "boring").
 # usage: python3 tools/motion_check.py render/<slug> [--step 6] [--from 0] [--to END] [--thr 0.6]
-# Works on SVG pages (window.__timelines) and cine pages (via cine-test/tools/cineshot.py). For each sample time t it renders t and t+0.5 s,
+# Works on SVG pages (window.__timelines). For each sample time t it renders t and t+0.5 s,
 # measures the mean pixel change inside the picture area (left text block, captions and HUD edges excluded) and the change against
 # the previous sample (6 s earlier). A sample is LOW when both are small: motion < thr and change < 3. Runs of LOW samples are printed.
 import sys, os, glob, json, subprocess, argparse, tempfile
@@ -17,7 +17,8 @@ ts = []; t = a.t0
 while t + .5 < t1: ts += [round(t, 2), round(t + .5, 2)]; t += a.step
 out = tempfile.mkdtemp(prefix='mc_')
 vert = 'data-width="1080"' in html or '"w": 1080' in html
-if '__timelines' in html:
+if '__timelines' not in html: sys.exit('no window.__timelines in page')
+if True:
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path=os.environ.get('HYPERFRAMES_BROWSER_PATH', '/opt/pw-browsers/chromium'), args=['--no-sandbox'])
@@ -27,8 +28,6 @@ if '__timelines' in html:
             pg.evaluate("t => Object.values(window.__timelines).forEach(tl => { tl.pause(); tl.seek(t, false); })", x)
             pg.wait_for_timeout(80); pg.screenshot(path=f'{out}/f_{x:08.2f}.png')
         b.close()
-else:
-    subprocess.run([sys.executable, os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/cine-test/tools/cineshot.py', page, out] + [str(x) for x in ts], check=True, capture_output=True)
 fs = {round(float(os.path.basename(f)[2:-4]), 2): f for f in glob.glob(out + '/f_*.png')}
 def L(f):
     im = np.asarray(Image.open(f).convert('L').resize((270, 480) if vert else (480, 270)), dtype=np.float32)
