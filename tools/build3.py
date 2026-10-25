@@ -749,6 +749,7 @@ MV = {'flame': ('pulse', .30), 'lamp': ('glow', 1.2), 'lantern': ('glow', 1.3), 
 import pivots   # shoulder/wrist pivots for arm and hand groups (arms used to swing off the body)
 PIV = pivots.compute(sorted({art_path(u)[0] for u in units if u['kind'] != 'chalk'}), W, H, cache=f'{B}/pivots.json')
 TRACKED = []   # pictures with a tracking camera
+CORE_UIDS = []   # unit number per CORE_USED entry (for the repeat warning)
 CORE_USED = []   # centre-motion type per picture, in order (checked after the loop)
 for k, u in enumerate(units):
     nn = u['n']; t0, t1 = u['t0'], u['t1']; tr = u['tr']; T = f'#t{nn}'; Wq = f'#w{nn}'
@@ -874,7 +875,7 @@ for k, u in enumerate(units):
         g = f'gsap.utils.toArray("#w{nn} .{nm}")[{kk}]'
         if nm == 'mv-glint-core' or nm.startswith('mv-core-'):    # the round centre object: one of 13 motions, never the same twice in a row
             ct = nm[8:].split('-')[0] if nm.startswith('mv-core-') else motions.legacy_core_type(len(CORE_USED))
-            js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]')); CORE_USED.append(ct)
+            js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]')); CORE_USED.append(ct); CORE_UIDS.append(nn)
             continue
         if nm.split('-')[1] in motions.OBJ_KINDS and nm.count('-') >= 2:   # (2026-10-22) object motions anywhere in the picture (guideline 4-1)
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
@@ -937,7 +938,7 @@ if CORE_USED:
     cc = Counter(CORE_USED); rep_pairs = sum(1 for a, b in zip(CORE_USED, CORE_USED[1:]) if a == b)
     print('centre motions:', dict(cc), '| distinct', len(cc), '| same type twice in a row:', rep_pairs)
     if len(cc) < min(10, len(CORE_USED)): print('WARNING: fewer than 10 centre-motion types used (guideline 4-1)')
-    if rep_pairs: print('WARNING: the same centre motion appears in consecutive pictures')
+    if rep_pairs: print('WARNING: the same centre motion appears in consecutive pictures:', [(CORE_UIDS[i], CORE_UIDS[i + 1], a) for i, (a, b) in enumerate(zip(CORE_USED, CORE_USED[1:])) if a == b])
     if max(cc.values()) > .2 * len(CORE_USED) + 1: print('WARNING: one centre motion is over 20% of the pictures')
 UEND = {u['n']: u['t1'] for u in units}; USC = {u['n']: u['scene'] for u in units}
 SCEND = {i: (starts[SEL[SEL.index(i) + 1]] if i != SEL[-1] else TOTAL) for i in SEL}
