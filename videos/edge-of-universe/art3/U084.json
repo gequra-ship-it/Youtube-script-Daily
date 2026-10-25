@@ -2,14 +2,6 @@
  "centre": "a dashed bubble around Earth and nearby galaxies that tightens while far galaxies slip outside it",
  "focus": null,
  "frog": {
-  "x": 1520,
-  "y": 860,
-  "s": 2.4,
-  "flip": -1,
-  "point": [
-   1090,
-   500
-  ],
   "moods": [
    {
     "mood": "excited"
@@ -18,7 +10,12 @@
   "outfit": [
    "helmet"
   ],
-  "point_obj": "mv-core-squeeze"
+  "ride": "mv-path-slip",
+  "x": 1180,
+  "y": 583,
+  "s": 0.9,
+  "flip": -1,
+  "kind": "ride"
  },
  "focus_word": null,
  "sfx": [],

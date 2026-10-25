@@ -158,6 +158,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         timeline.append((a0 if tm is None else tm, 'mood', mo.get('mood', 'happy')))
     timeline.sort(key=lambda x: (x[0], {'move': 0, 'mood': 1, 'point': 2}[x[1]]))
     out.append(f'tl.set("#{t}_arm",{{rotation:{REST},{org}}},0);')
+    if not pts: out.append(f'tl.set("#{t}_arm",{{opacity:0}},0);')   # no pointing in this unit (rides / sits in the background): no arm stick
     cur_tgt = None; tracked = False; last_ang = REST
     for tm, kind, pl in timeline:
         if kind == 'move':
