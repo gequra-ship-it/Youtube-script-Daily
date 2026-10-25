@@ -372,11 +372,12 @@ CHALK_FROG = dict(x=190, y=H - 32, s=2.6, flip=1, point=None, delay=0.3)   # bot
 # which units should carry the explainer frog (suggestion for the picture agents): explanation scenes, every other unit, at most ~22 % of all units
 FROG_HINT = {}
 if FROG_ON:
-    _prev = False; _cap = max(1, int(.22 * len([x for x in units if x['kind'] != 'chalk'])))
+    # 2026-10-25 (miya: the frog should appear more and more varied): about every 4th picture unit (cap 26 %), any scene kind, never two in a row, not in the first 12 s
+    _gap = 9; _cap = max(1, int(.26 * len([x for x in units if x['kind'] != 'chalk'])))
     for u_ in units:
-        if u_['kind'] == 'chalk' or SCENES[u_['scene'] - 1][0] == 'OUTRO': _prev = False; continue
-        if len(FROG_HINT) < _cap and u_['scene'] in SLOW_SC and not _prev and u_['t0'] > 20: FROG_HINT[u_['uid']] = True; _prev = True
-        else: _prev = False
+        if u_['kind'] == 'chalk' or SCENES[u_['scene'] - 1][0] == 'OUTRO': _gap = 9; continue
+        _gap += 1
+        if len(FROG_HINT) < _cap and _gap >= 4 and u_['t0'] > 12: FROG_HINT[u_['uid']] = True; _gap = 0
 
 if FROG_ON and os.environ.get('PLAN') != '1':   # frog sidecar lint (guideline 7-2)
     for u_ in units:
@@ -884,14 +885,14 @@ for k, u in enumerate(units):
         if nm.startswith('mv-rotor-'):  # (2026-10-19) a part that turns round and round about data-pivot (clock hand, turbine blades, fan, wheel); data-per = seconds per turn, data-dir = 1 / -1
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
             pv = at.get('data-pivot', '').replace(',', ' ').split()
-            org = f'svgOrigin:"{pv[0]} {pv[1]}"' if len(pv) == 2 else 'transformOrigin:"50% 50%"'
+            org = f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]})' if len(pv) == 2 else 'transformOrigin:"50% 50%"'
             pr = max(float(at.get('data-per', 8)), 0.5); dr = -1 if at.get('data-dir', '1').startswith('-') else 1
             js.append(f'tl.fromTo({g},{{rotation:0,{org}}},{{rotation:{dr * 360 * sp / pr:.1f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});')
             continue
         if nm.startswith('mv-limb-'):   # human arm/leg links from tools/body.py (2026-10-17): small, IN STEP, no growth toward the tip
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
             pv = at.get('data-pivot', '').replace(',', ' ').split()
-            org = f'svgOrigin:"{pv[0]} {pv[1]}"' if len(pv) == 2 else 'transformOrigin:"50% 0%"'
+            org = f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]})' if len(pv) == 2 else 'transformOrigin:"50% 0%"'
             dep = at.get('_dep', 0)
             amp = min(float(at.get('data-amp', 2.5 if dep == 0 else 2.0)), 6.0)
             pj = float(at.get('data-per', 2.4)); lag = float(at.get('data-phase', 0.12 * dep)) * pj / math.pi
@@ -901,7 +902,7 @@ for k, u in enumerate(units):
         if nm.startswith('mv-chain-') or nm.startswith('mv-joint-'):   # creature joints (guideline 20-6): hinge rotation about data-pivot
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]; chain = nm.startswith('mv-chain-')
             pv = at.get('data-pivot', '').replace(',', ' ').split()
-            org = f'svgOrigin:"{pv[0]} {pv[1]}"' if len(pv) == 2 else 'transformOrigin:"0% 50%"'
+            org = f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]})' if len(pv) == 2 else 'transformOrigin:"0% 50%"'
             dep = at.get('_dep', kk) if chain else 0
             amp = float(at.get('data-amp', 7 if chain else 12)) * (1 + 0.35 * dep)   # the tip of a chain bends more
             pj = float(at.get('data-per', 1.5 if chain else 1.1))
