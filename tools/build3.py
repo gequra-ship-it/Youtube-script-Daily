@@ -4,8 +4,6 @@
 # env: PLAN=1   only write videos/<slug>/plan.json (unit split) and exit
 #      SEL="1,2" build a partial test;  VERT=1  vertical 1080x1920 (Shorts, no logo)
 #      FALLBACK=1  a unit without art3/<uid>.svg reuses the scene picture art/<id>.svg (tests only)
-#      CINE=1      cine look (2026-10-14): no SVG art; only narration/captions/SFX/BGM -> render/<slug>/mix.m4a + build_data.json,
-#                  then tools/build_cine.py writes the page from videos/<slug>/cine.json
 import os, re, sys, json, html, shutil, subprocess, math, random
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
@@ -28,7 +26,7 @@ PACE = getattr(CFG, 'PACE', 1.5)
 MAXU = 6.2 * PACE     # target max seconds per unit (narration part); +gap keeps every unit <= 7 s * PACE
 # 2026-10-16 (learned in the cine experiment, guideline 20-2): the first minutes must change picture more often.
 # config HOOK = dict(until=300, maxu=4.5): scenes that START before `until` seconds split at maxu instead of MAXU (more pictures).
-# Shorts: HOOK = dict(until=999, maxu=4.8). Extra keys (2026-10-16): minu (min on-screen s, default 3.5), minu_slow (4.5), slow (fewer pictures in slow scenes; changes uids).
+# Shorts: HOOK = dict(until=999, maxu=4.8). Extra keys (2026-10-16): minu (min on-screen s, default 5.667 before PACE), minu_slow (6.667), slow (fewer pictures in slow scenes; changes uids).
 # 2026-10-17 defaults (guideline 20-2/21, used for left-handed-ten-percent and desert-oasis remakes): a config WITHOUT HOOK gets
 # long = dict(until=300, maxu=5.5), Shorts (VERT) = dict(until=999, maxu=6.0, slow=7.5); min on-screen 8.5 s (slow scenes 10 s) since 2026-10-25.
 # `HOOK = None` in config.py turns pacing off (old unit split, needed only to rebuild an old plan.json unchanged).
@@ -242,7 +240,7 @@ if os.environ.get('SEL') and os.environ.get('PLAN') != '1' and os.path.exists(_p
 # ---------- minimum on-screen time (2026-10-16 user: "cuts after only 2-3 s feel too fast", and "use every picture
 # we drew"): cut times inside a scene move so every picture stays >= MINU s (slow scenes >= MINU_SLOW), keeping each
 # cut as close as possible to its word. No picture is dropped; if a scene is too short for all of its pictures at the
-# minimum, they share the scene time evenly. config HOOK['minu'] (default 3.5 when HOOK is set), HOOK['minu_slow'] (4.5).
+# minimum, they share the scene time evenly. config HOOK['minu'] (default 5.667 before PACE), HOOK["minu_slow"] (6.667).
 MINU = (HOOK or {}).get('minu', 4.0 * PACE if HOOK else 0); MINU_SLOW = (HOOK or {}).get('minu_slow', MINU + 1.0 * PACE if MINU else 0)
 retimed = 0
 if MINU:
@@ -305,17 +303,6 @@ for k, u in enumerate(units):
     if kw and rng.random() < .5: u['tr'] = kw[0]
     else: u['tr'] = rng.choices(pool, weights=[1 / (1 + TR_COUNT.get(x, 0)) ** 1.5 for x in pool])[0]
     last2.append(u['tr']); TR_COUNT[u['tr']] = TR_COUNT.get(u['tr'], 0) + 1
-CINE = os.environ.get('CINE') == '1'
-if CINE:   # transitions come from videos/<slug>/cine.json: a chapter's or shot's first unit carries its transition (for its sound)
-    _cine = json.load(open(os.environ.get('CINE_JSON') or f'{vdir()}/cine.json'))
-    _first = {}
-    for _ch in _cine['chapters']:
-        _shots = _ch.get('shots') or [dict(frm=_ch['from'], tr=_ch.get('tr', 'dip'))]
-        for _k, _s in enumerate(_shots):
-            _first[_s.get('frm', _s.get('from'))] = _s.get('tr', _ch.get('tr', 'dip')) if _k else _ch.get('tr', _s.get('tr', 'dip'))
-    for _k, u in enumerate(units):
-        u['tr'] = 'cut' if _k == 0 else ('dip' if u['kind'] == 'chalk' or (_k and units[_k - 1]['kind'] == 'chalk') else _first.get(u.get('uid'), 'none'))
-    CINE_BEATS = _cine.get('beats', {})
 TIN = {'hard': 0.0, 'zoom': 0.5, 'fade': 0.6, 'slide': 0.7, 'match': 0.9, 'wash': 0.0,
        'wipe': 0.8, 'iris': 0.9, 'eye': 0.8, 'blinds': 0.65, 'push': 0.7, 'whip': 0.45, 'tilt': 0.8,
        'seam': 1.0, 'diamond': 0.9, 'page': 0.8, 'zigzag': 0.9, 'wave': 1.0}
@@ -328,7 +315,6 @@ for u in units:
             if os.path.exists(f'{ASSETS}/outro.{ext}'): shutil.copy(f'{ASSETS}/outro.{ext}', f'{ART3}/{u["uid"]}.{ext}')
 # ---------- sidecars / art ----------
 def side(u):
-    if CINE: return CINE_BEATS.get(u['uid'], {})
     f = f'{ART3}/{u["uid"]}.json'
     return json.load(open(f)) if os.path.exists(f) else {}
 
@@ -595,7 +581,6 @@ DRIFT = getattr(CFG, 'DRIFT', True)   # slow continuous camera move on every pic
 fallback_used = []; label_errors = []; label_items = {}; BADGES = []
 for u in units:
     nn = u['n']
-    if CINE: continue
     if u['kind'] == 'chalk':
         h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{chalk_html(u["scene"])}</div></div>')
     else:
@@ -751,16 +736,6 @@ else:
         if f != 'mix.m4a' and os.path.exists(f'{OUT}/{f}'): os.remove(f'{OUT}/{f}')
     h.append(f'<audio src="mix.m4a" data-start="0" data-duration="{TOTAL:.3f}" data-track-index="0" data-volume="1"></audio>')
     print('audio premix', len(audio), 'pieces -> mix.m4a, peak', round(20 * math.log10(max(peak, 1e-9)), 1), 'dBFS')
-if CINE:   # cine look: the page is written by tools/build_cine.py
-    for f in os.listdir(OUT):
-        if f.startswith('sfx_') or f in ('Fredoka-700.woff2', 'PatrickHand-400.woff2', 'grain.png', 'chalk.wav', 'index.html'): os.remove(f'{OUT}/{f}')
-    data = dict(slug=SLUG, total=TOTAL, lead=LEAD, gap=GAP, tail=TAIL, starts={str(k): v for k, v in starts.items()}, D={str(i): D[i - 1] for i in SEL},
-                cuts=[dict(id=u['uid'], scene=u['scene'], kind=u['kind'], t0=u['t0'], t1=u['t1'], tr=u['tr'], text=u['text']) for u in units],
-                caps=caps, sfx=cues, chalk=chalk_t, snap=snap_report, chalk_pop={str(k): v.get('pop') for k, v in CHALK.items() if 'pop' in v}, sel=SEL)
-    json.dump(data, open(B + ('/build_data.json' if len(SEL) == len(SCENES) else '/build_data_partial.json'), 'w'), ensure_ascii=False, indent=1)
-    print('CINE audio/timing done:', TOTAL, 's,', len(units), 'units,', len(caps), 'caps,', len(cues), 'sfx cues')
-    sys.exit(0)
-
 # ---------- timeline ----------
 import motions  # centre-object motions (guideline 4-1)
 js = ['<script>' + motions.WRAP_JS + motions.MOTION_JS + motions.CHALK_FIT_JS + f'miyaWrapCores({CX},{CY});const tl=gsap.timeline({{paused:true}});']

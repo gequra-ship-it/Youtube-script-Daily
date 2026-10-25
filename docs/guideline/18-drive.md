@@ -7,5 +7,5 @@
   - `old/<영상>/` — 2026-10-16 이전 SVG 영상 보관(번호 없음).
   - `cinema/<영상>/` — 3D 실험 보관(`cosmic-prison-cine`, `_ci-test`).
 - 새 영상의 `render/<슬러그>/.dest`는 `Space & Science/NN_<슬러그>` 또는 `Life & Biology/NN_<슬러그>`(숏츠 `/short`). 예전 영상은 `.dest`가 `old/<영상>`이라 다시 렌더하면 보관본을 덮어쓴다. 고친 예전 영상을 새 작업으로 올리면 주제 폴더 다음 번호로. **폴더 이름이 바뀌면 `.dest`도 바꾼다**(안 그러면 새 폴더가 생긴다).
-- 영상마다 폴더 하나(루트에 파일 금지, 다른 영상 파일이 섞이지 않게 확인). 안의 파일은 모두 같은 슬러그로 시작: `<slug>.mp4`, `_thumbnail_A/B/C.png`, `_script.txt`, `_metadata.txt`, `_render_report.txt`, 그리고 `short/`에 `<slug>-short1~5`의 `.mp4`·`_script.txt`·`_metadata.txt`·`_render_report.txt`.
+- 영상마다 폴더 하나(루트에 파일 금지, 다른 영상 파일이 섞이지 않게 확인). 안의 파일은 모두 같은 슬러그로 시작: `<slug>.mp4`, `_thumbnail_A/B/C.png`, `_metadata.txt`, 그리고 `short/`에 `<slug>-short1~5`의 `.mp4`·`_metadata.txt`(대본 txt·렌더 리포트는 올리지 않음, 17-4).
 - **올리는 방법**: 모두 Actions가 올린다(15-5). Drive 커넥터 파일 업로드(base64)는 쓰지 않는다(폴더 생성·목록 확인은 됨). PC가 연결된 세션은 동기화 폴더 `G:\내 드라이브\유튜브 자동화\Video & Thumbnail\<폴더>\`에서 목록·리포트를 읽을 수 있다(승인 필요).

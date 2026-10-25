@@ -37,4 +37,4 @@ SOURCES
 - 한글·이모지·대문자 남발·키워드 덤핑 금지. 사실 확인은 12-1과 같다.
 
 ### 17-4. 사용자에게 넘기는 것 (2026-10-24)
-영상(MP4), 썸네일, 메타데이터 txt만. **대본 txt(`_script.txt`)와 렌더 리포트(`_render_report.txt`)는 넘기지 않는다.** `gen_text.py`는 대본 참고본을 작업 폴더(`<WORK>/<슬러그>/build/`)에만 만든다. 렌더 리포트는 현재 워크플로가 Drive에 올리므로 끄려면 `.github/workflows/render-chunked.yml`·`render.yml`을 고쳐야 하는데, 워크플로 파일을 고치면 렌더가 시작될 수 있어 아직 고치지 않았다(미해결).
+영상(MP4), 썸네일, 메타데이터 txt만. **대본 txt(`_script.txt`)와 렌더 리포트(`_render_report.txt`)는 넘기지 않는다.** `gen_text.py`는 대본 참고본을 작업 폴더(`<WORK>/<슬러그>/build/`)에만 만든다. 렌더 리포트는 Actions 로그에만 남고 Drive에는 올라가지 않는다(워크플로 업로드 줄 제거 확인, 2026-10-25).
