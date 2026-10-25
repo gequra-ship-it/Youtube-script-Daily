@@ -14,7 +14,8 @@
 #   "ride": "<id of a picture group>"  the frog is injected into that group. Only use groups whose motion does not flip/fade/clip
 #     (core swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble, path, slide, swing). Never flip, flicker, reveal, fade, fill, grow, edge.
 #   "moods": [{"word": "...", "mood": "happy|surprised|curious|worried|proud|excited"}] (first entry without "word" = at the start),
-#   "outfit": ["helmet"] | ["goggles"] (bubble space helmet / diving mask + snorkel),
+#   "outfit": ["helmet"] | ["goggles"] | ["diver"] (bubble space helmet / diving mask + snorkel / full diving suit with tank: use it in deep-water scenes),
+#   "talk": true|false  mouth follows the spoken words. Default: chalkboard explainer yes, picture companion (ride / bg) NO (miya 2026-10-25: no lip-sync needed; the mouth opens only when the scene calls for it, e.g. a surprised / excited mood),
 #   "enter": "hop" (default, jumps up from below) | "pop" (appears in place),
 #   optional pointing (chalkboard, or a deliberate exception): "point": [tx, ty] or "points": [{"word": "Voyager", "to": [x, y], "obj": "<group class>"}];
 #     with "obj" (or "point_obj") the arm FOLLOWS that moving object (its position is read from the page every frame, modifiers keep it seekable).
@@ -47,6 +48,11 @@ def outfit_markup(t, names):
     if 'goggles' in names:   # diving mask over the eyes + snorkel
         o += (f'<path d="M40 -66 q12 -12 8 -46" fill="none" stroke="#e0b84a" stroke-width="6"/><path d="M-34 -66 q-8 6 -4 14" fill="none" stroke-width="3"/>'
               f'<rect x="-27" y="-84" width="68" height="34" rx="14" fill="#9fd8ff" fill-opacity=".35" stroke-width="4.2"/><path d="M-27 -66 q-14 0 -16 8 M41 -66 q10 0 12 8" fill="none" stroke="#e0b84a" stroke-width="5"/>')
+    if 'diver' in names:     # diving suit (miya 2026-10-25): navy wetsuit with a yellow stripe, air tank + hose on the back, mask on the eyes
+        o += ('<rect x="-54" y="-60" width="17" height="42" rx="7" fill="#d9a630" stroke-width="3"/><rect x="-50" y="-66" width="9" height="8" rx="2" fill="#8a8f96" stroke-width="2.4"/><path d="M-45 -66 q-6 -20 18 -22" fill="none" stroke="#8a8f96" stroke-width="3.4"/>'
+              '<path d="M-35 -16 q-1 -20 6 -26 q36 8 72 0 q4 8 4 28 q0 10 -6 12 q-36 6 -70 -4z" fill="#24465e" stroke-width="3.6"/><path d="M-33 -22 q35 7 72 0" fill="none" stroke="#e8b838" stroke-width="3.2"/>'
+              '<path d="M40 -66 q12 -12 8 -46" fill="none" stroke="#e0b84a" stroke-width="6"/>'
+              '<rect x="-27" y="-84" width="68" height="34" rx="14" fill="#9fd8ff" fill-opacity=".35" stroke-width="4.2"/><path d="M-27 -66 q-14 0 -16 8 M41 -66 q10 0 12 8" fill="none" stroke="#e0b84a" stroke-width="5"/>')
     if 'helmet' in names:    # bubble helmet like the thumbnails
         o += (f'<circle cx="6" cy="-58" r="46" fill="#cfe9ff" fill-opacity=".14" stroke="#e6f1fb" stroke-width="3.4"/><path d="M-26 -84 q10 -16 28 -20" fill="none" stroke="#fff" stroke-width="4" stroke-opacity=".7"/>'
               f'<ellipse cx="6" cy="-14" rx="42" ry="9" fill="#e6f1fb" fill-opacity=".55" stroke="#e6f1fb" stroke-width="3"/>')
@@ -211,7 +217,8 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
                        f'tl.set("#{t}_pl",{{attr:{{cx:{-8 + M["pup"][0]},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});tl.set("#{t}_pr",{{attr:{{cx:{24 + M["pup"][0]},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});'
                        f'tl.set("#{t}_sm",{{attr:{{d:"{M["sm"]}",fill:"{M["fill"]}"}}}},{tm:.3f});tl.set("#{t}_ll,#{t}_lr",{{attr:{{height:{M["lid"]}}}}},{tm:.3f});')
     # mouth follows the spoken words: closed = the mood's mouth; open = a big round "ahh" of the same width that hangs from the smile line, with a tongue
-    for k, (ws, we) in enumerate(words):
+    talk = d.get('talk', not (d.get('ride') or d.get('kind') in ('ride', 'bg')))
+    for k, (ws, we) in enumerate(words if talk else []):
         if ws < a0 or ws > t1: continue
         r = (10, 7, 12, 8)[k % 4]; e = max(ws + .08, we - .03)
         out.append(f'tl.set("#{t}_sm",{{opacity:0}},{ws:.3f});tl.set("#{t}_mo",{{attr:{{ry:{r},cy:{-44 + r}}}}},{ws:.3f});tl.set("#{t}_tg",{{attr:{{ry:{r * .42:.1f},cy:{-44 + r * 1.58:.1f}}}}},{ws:.3f});'

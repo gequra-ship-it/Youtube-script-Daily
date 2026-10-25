@@ -224,6 +224,8 @@ def track_spec(raw, sidecar):
     tags = [dict(re.findall(r'(data-[a-z]+)="([^"]*)"', m.group(0)), _id=m.group(1))
             for m in re.finditer(r'<g\b[^>]*\bid="(mv-(?:path|track|topple)-[^"]*)"[^>]*>', raw)]
     for a in tags:
+        # a falling/sinking object must visibly move across the frame: the camera does not follow it (a followed fall looks frozen)
+        if a['_id'].startswith('mv-path-') and re.search(r'sink|fall|drop|plunge|descen|carcass', a['_id']): continue
         if a['_id'].startswith(('mv-path-', 'mv-track-')) and a.get('data-track') != '0' and a.get('data-path'):
             return a['data-path'].replace('"', ''), float(a.get('data-delay', 0.3)), (float(a['data-dur']) if 'data-dur' in a else None), float(a.get('data-scale', sc)), 'power2.inOut'
     tp = [a for a in tags if a['_id'].startswith('mv-topple-') and len(a.get('data-pivot', '').replace(',', ' ').split()) == 2]
@@ -247,7 +249,7 @@ def obj_js(kind, g, at, t0, v0, sp):
     t0: picture start, v0: transition-in start, sp: seconds the picture stays (plus margin)."""
     f = lambda k, d: float(at.get('data-' + k, d))
     pv = at.get('data-pivot', '').replace(',', ' ').split()
-    org = (lambda dflt: f'svgOrigin:"{pv[0]} {pv[1]}"') if len(pv) == 2 else (lambda dflt: f'transformOrigin:"{dflt}"')
+    org = (lambda dflt: f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]})') if len(pv) == 2 else (lambda dflt: f'transformOrigin:"{dflt}"')
     st = t0 + f('delay', 0.3); du = f('dur', 1.0)
     if kind == 'path':
         d = at.get('data-path', '').replace('"', '')
@@ -380,6 +382,15 @@ function miyaTrAnim(tl,sel,tr,t0,dur,W,H){
  tl.to(o,{k:1,duration:dur,ease:'none',immediateRender:false,modifiers:{k:function(v){miyaTr(el,tr,v,W,H);return v;}}},t0);   // modifiers, not onUpdate: seeking suppresses callbacks
  tl.set('#trfx',{display:'none'},t0+dur+.01); tl.set(sel,{clipPath:'none'},t0+dur+.01);
 }
+// (2026-10-25) GSAP svgOrigin and x/y live in the PARENT group's coordinate space, not in the picture's. data-pivot / path coordinates are picture (root svg) coordinates,
+// so a link inside a translated/scaled wrapper rotated about a point far from its joint (whale tails and fins came off the body). miyaM = picture -> parent-local matrix.
+function miyaM(g){var pa=g.parentNode,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',m=null;if(t){t.style.display='block';t.style.visibility='hidden';}
+ try{m=pa.getCTM();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}return m?m.inverse():null;}
+// data-pivot is meant in picture coordinates, but agents often wrote it in the coordinates the part was drawn in (inside a translated/scaled wrapper): use whichever reading lands nearer the part itself
+function miyaPv(g,x,y){var m=miyaM(g);if(!m)return x+' '+y;var cx=m.a*x+m.c*y+m.e,cy=m.b*x+m.d*y+m.f,b=null,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'';
+ if(t){t.style.display='block';t.style.visibility='hidden';}try{b=g.getBBox();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}
+ if(b&&b.width+b.height>0){function dd(u,v){return Math.hypot(Math.max(b.x-u,0,u-b.x-b.width),Math.max(b.y-v,0,v-b.y-b.height));}if(dd(x,y)+4<dd(cx,cy))return x+' '+y;}
+ return cx+' '+cy;}
 // object follows an SVG path, turning with it (paper plane, rocket)
 function miyaPath(tl,g,d,t0,dur,rot,rot0){
  var t=g.closest('.t'),pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';
@@ -387,8 +398,8 @@ function miyaPath(tl,g,d,t0,dur,rot,rot0){
  var L=p.getTotalLength(),P0=p.getPointAtLength(0),o={k:0};
  function ang(k){var s0=Math.max(0,Math.min(L-2,L*k)),a=p.getPointAtLength(s0),b=p.getPointAtLength(Math.min(L,s0+2));return Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI;}
  var a0=ang(0);t.style.display=pd;t.style.visibility=pv;
- gsap.set(g,{svgOrigin:P0.x+' '+P0.y});   // origin set once: re-setting it every frame made turning objects drift
- function ap(k){var q=p.getPointAtLength(L*k);gsap.set(g,{x:q.x-P0.x,y:q.y-P0.y,rotation:rot?ang(k)-a0+(rot0||0):0});}
+ var M=miyaM(g),O=miyaPv(g,P0.x,P0.y);if(O==P0.x+' '+P0.y)M=null;gsap.set(g,{svgOrigin:O});   // origin set once: re-setting it every frame made turning objects drift
+ function ap(k){var q=p.getPointAtLength(L*k),dx=q.x-P0.x,dy=q.y-P0.y;if(M){var ex=M.a*dx+M.c*dy,ey=M.b*dx+M.d*dy;dx=ex;dy=ey;}gsap.set(g,{x:dx,y:dy,rotation:rot?ang(k)-a0+(rot0||0):0});}
  tl.to(o,{k:1,duration:dur,ease:miyaCruise,immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
 }
 // camera tracking: the camera centre follows an SVG path (same window and ease as the object), zooming in at the start and out at the end
