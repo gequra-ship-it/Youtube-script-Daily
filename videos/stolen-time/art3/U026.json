@@ -1,0 +1,27 @@
+{
+ "centre": "an apple dropping from an English tree while a pure ivory clock keeps ticking untouched in the sky",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "ticking",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Whoa!",
+   "x": 820,
+   "y": 330,
+   "to": [
+    660,
+    410
+   ],
+   "word": "dropped an apple"
+  }
+ ],
+ "motion": "path (apple falls to the grass) + rotor (second hand keeps sweeping)",
+ "track": false
+}

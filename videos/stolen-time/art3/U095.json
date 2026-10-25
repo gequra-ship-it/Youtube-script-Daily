@@ -1,0 +1,39 @@
+{
+ "centre": "a calm teal planet in a still pool of light while violent flares, comets and a black hole rage around it",
+ "focus": [
+  960,
+  520,
+  1.5
+ ],
+ "focus_word": "stability",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hold steady!",
+   "x": 1220,
+   "y": 380,
+   "to": [
+    1010,
+    470
+   ]
+  }
+ ],
+ "motion": "mv-shake: the violent surroundings jitter; the planet itself only pings calmly",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-core-ping-u095",
+  "x": 960,
+  "y": 388,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

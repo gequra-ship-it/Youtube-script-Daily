@@ -1,0 +1,36 @@
+{
+ "centre": "balance scale: a fantasy cloud with stars on one pan, books and an equation page on the other",
+ "focus": [
+  650,
+  590,
+  1.6
+ ],
+ "focus_word": "wild fantasy",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Fantasy?",
+   "x": 520,
+   "y": 400,
+   "to": [
+    640,
+    560
+   ]
+  }
+ ],
+ "motion": "swing (balance beam rocks and settles)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "ride": "mv-swing-beam-u016",
+  "x": 960,
+  "y": 502,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

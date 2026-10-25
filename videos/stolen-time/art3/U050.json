@@ -1,0 +1,36 @@
+{
+ "centre": "a satellite with an atomic clock on its body whose hand races, beside a slower clock on a stand on the ground",
+ "focus": [
+  1250,
+  450,
+  1.7
+ ],
+ "focus_word": "atomic clocks",
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "faster",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "atomic clocks",
+   "x": 1010,
+   "y": 230,
+   "to": [
+    1230,
+    420
+   ],
+   "word": "atomic clocks"
+  },
+  {
+   "type": "num",
+   "text": "45 MICROSECONDS",
+   "word": "forty-five microseconds"
+  }
+ ],
+ "motion": "mv-rotor: satellite clock hands turn quickly, the ground clock turns slower (clocks race apart)",
+ "track": false
+}

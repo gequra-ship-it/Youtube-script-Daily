@@ -1,0 +1,31 @@
+{
+ "centre": "a heavy dark ball sinking into a dent of the rubber-sheet spacetime grid",
+ "focus": [
+  960,
+  520,
+  1.5
+ ],
+ "focus_word": "only mass",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "mass",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "motion": "drop (the heavy ball settles into the dent)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "ride": "mv-core-drop-ball-u123",
+  "x": 960,
+  "y": 420,
+  "s": 1.04,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

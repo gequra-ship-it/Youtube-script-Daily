@@ -1,0 +1,25 @@
+{
+ "centre": "round airlock hatch glowing warm at the centre; the astronaut steps out with wet, dripping boots",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "boots still wet",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Nice stroll!",
+   "x": 1700,
+   "y": 300,
+   "to": [
+    1470,
+    420
+   ]
+  }
+ ],
+ "motion": "walk (astronaut steps out of the airlock) + fade (wet footprints appear) + lamp (airlock light)"
+}

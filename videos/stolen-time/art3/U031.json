@@ -1,0 +1,32 @@
+{
+ "centre": "a light beam from a star with one ship racing toward it and one racing away, both measuring the same gold speed bar",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Same speed!",
+   "x": 1480,
+   "y": 250,
+   "to": [
+    1250,
+    320
+   ],
+   "word": "toward"
+  },
+  {
+   "type": "say",
+   "text": "Same here!",
+   "x": 400,
+   "y": 790,
+   "to": [
+    640,
+    700
+   ],
+   "word": "away from"
+  }
+ ],
+ "motion": "dash (light wave runs along the beam) + two short paths (ships fly opposite ways)",
+ "track": false
+}

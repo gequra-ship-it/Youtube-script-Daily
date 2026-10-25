@@ -1,0 +1,42 @@
+{
+ "centre": "astronaut stepping out of a glowing round airlock hatch whose doors slide apart, wet teal footprints and dripping boots",
+ "focus": [
+  540,
+  1230,
+  1.6
+ ],
+ "focus_word": "boots still wet",
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "boots still wet",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Quick stroll!",
+   "x": 300,
+   "y": 820,
+   "to": [
+    500,
+    950
+   ]
+  }
+ ],
+ "motion": "slide: airlock doors slide apart + ticks: wet footprints appear step by step + breathe",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "ride": "mv-slide-doorL-u011",
+  "x": 475,
+  "y": 477,
+  "s": 0.9,
+  "flip": 1,
+  "kind": "ride"
+ }
+}

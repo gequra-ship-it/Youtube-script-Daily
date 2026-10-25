@@ -1,0 +1,43 @@
+{
+ "centre": "black hole with a bent golden accretion disk, a tiny ocean planet far below",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "black hole",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "black hole",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "black hole",
+   "x": 740,
+   "y": 700,
+   "to": [
+    620,
+    800
+   ],
+   "word": "black hole"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "ride": "mv-core-tremble-hole",
+  "x": 540,
+  "y": 497,
+  "s": 1.5,
+  "flip": 1,
+  "kind": "ride"
+ }
+}

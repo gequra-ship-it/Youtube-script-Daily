@@ -1,0 +1,43 @@
+{
+ "centre": "a small ocean planet leaving its dotted orbit and spiralling into a golden-ringed black hole",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "starfall",
+   "word": "fall in",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "planet",
+   "x": 700,
+   "y": 330,
+   "to": [
+    880.0,
+    510.0
+   ],
+   "word": "planet"
+  }
+ ],
+ "motion": "mv-path-plunge: the planet spirals along its unstable orbit across the frame and drops toward the hole",
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-path-plunge-planet-u063",
+  "x": 863,
+  "y": 480,
+  "s": 0.9,
+  "flip": 1,
+  "kind": "ride"
+ }
+}

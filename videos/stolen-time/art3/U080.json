@@ -1,0 +1,23 @@
+{
+ "centre": "a railway-style boom gate raised open beside its post, with a golden-rimmed black hole and a tiny planet beyond",
+ "focus": [
+  1000,
+  500,
+  1.4
+ ],
+ "focus_word": "forbid",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Open road!",
+   "x": 960,
+   "y": 650,
+   "to": [
+    790,
+    565
+   ]
+  }
+ ],
+ "motion": "mv-joint: the boom gate swings up and rests open (the equations do not forbid it)"
+}

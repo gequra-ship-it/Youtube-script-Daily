@@ -1,0 +1,41 @@
+{
+ "centre": "a fast-spinning black hole whirlpool of gas, with a tiny teal planet balanced on its edge",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "spinning",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "planet",
+   "x": 820,
+   "y": 720,
+   "to": [
+    850,
+    830
+   ],
+   "word": "planet"
+  }
+ ],
+ "motion": "spin on the whirlpool, planet orbits",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "outfit": [
+   "helmet"
+  ],
+  "x": 324,
+  "y": 1770,
+  "s": 1.53,
+  "flip": 1,
+  "kind": "bg"
+ }
+}

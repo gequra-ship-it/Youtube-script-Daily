@@ -1,0 +1,45 @@
+{
+ "centre": "a towering wall of black water with a white foam crest rising along the whole horizon, the astronaut tiny before it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "races toward you",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Wall of black water",
+   "x": 520,
+   "y": 140,
+   "to": [
+    560,
+    290
+   ],
+   "word": "wall of black water"
+  }
+ ],
+ "motion": "grow (the horizon rises into a wall), breathe astronaut",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "A wall",
+    "mood": "curious"
+   }
+  ],
+  "outfit": [
+   "goggles"
+  ],
+  "x": 150,
+  "y": 1040,
+  "s": 1.35,
+  "flip": 1,
+  "kind": "bg"
+ }
+}

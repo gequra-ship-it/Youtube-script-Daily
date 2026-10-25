@@ -1,0 +1,54 @@
+{
+ "centre": "the caretaker at the desk watching the lander's faint frozen signal; tally marks for thousands of days fill the wall",
+ "focus": [
+  1400,
+  450,
+  1.8
+ ],
+ "focus_word": "faint signal from your lander",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "faint signal",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "OVER 8000 DAYS",
+   "word": "eight thousand four hundred days"
+  },
+  {
+   "type": "name",
+   "text": "lander",
+   "x": 1560,
+   "y": 330,
+   "to": [
+    1420,
+    400
+   ],
+   "word": "your lander"
+  }
+ ],
+ "iris": [
+  620,
+  560
+ ],
+ "motion": "ticks (day tallies appear across the wall) + lamp (signal blip) + breathe/nod (caretaker)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "outfit": [
+   "diver"
+  ],
+  "x": 150,
+  "y": 1040,
+  "s": 1.35,
+  "flip": 1,
+  "kind": "bg"
+ }
+}

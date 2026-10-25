@@ -1,0 +1,39 @@
+{
+ "centre": "astronaut seen from behind looking up at a huge black hole in a sky of smeared, bent starlight",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "the sky",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "So strange...",
+   "x": 800,
+   "y": 1080,
+   "to": [
+    580,
+    1030
+   ],
+   "word": "eerie"
+  }
+ ],
+ "motion": "black hole trembles (eerie) + astronaut breathe",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "ride": "mv-core-tremble-u015",
+  "x": 540,
+  "y": 332,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

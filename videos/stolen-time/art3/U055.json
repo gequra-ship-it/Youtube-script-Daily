@@ -1,0 +1,51 @@
+{
+ "centre": "a small black hole in the middle, a collapsing star feeding it from the left, and a handful of Suns on the right showing its mass",
+ "focus": [
+  1480,
+  510,
+  1.5
+ ],
+ "focus_word": "Suns",
+ "sfx": [
+  {
+   "name": "warp",
+   "word": "Enter",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Suns",
+   "x": 1480,
+   "y": 230,
+   "to": [
+    1470,
+    330
+   ],
+   "word": "Suns"
+  }
+ ],
+ "motion": "mv-ticks: the Suns appear one by one; mv-core-heartbeat: the black hole pulses",
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "A black",
+    "mood": "curious"
+   }
+  ],
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-core-heartbeat-bh-u055",
+  "x": 960,
+  "y": 291,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "centre": "giant black hole with anatomy callout lines, an apple falling beside it on the left",
+ "focus": [
+  1300,
+  480,
+  1.6
+ ],
+ "focus_word": "supermassive black holes",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "black holes",
+   "x": 1300,
+   "y": 250,
+   "to": [
+    1300,
+    350
+   ],
+   "word": "black holes"
+  }
+ ],
+ "motion": "path fall (apple drops) + core swell on the black hole",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "ride": "mv-core-swell-bh-u020",
+  "x": 1300,
+  "y": 118,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

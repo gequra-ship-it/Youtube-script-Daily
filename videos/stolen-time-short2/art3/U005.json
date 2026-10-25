@@ -1,0 +1,32 @@
+{
+ "centre": "a bright ivory atomic clock above a smaller ground clock, a dotted arrow showing the satellite clock racing ahead, ruler marks along both edges",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "faster",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "45 MICROSECONDS",
+   "word": "forty-five"
+  },
+  {
+   "type": "say",
+   "text": "Faster!",
+   "x": 300,
+   "y": 520,
+   "to": [
+    460,
+    780
+   ],
+   "word": "faster"
+  }
+ ],
+ "spot": true
+}

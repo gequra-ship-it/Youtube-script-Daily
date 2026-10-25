@@ -1,0 +1,30 @@
+{
+ "centre": "tall window into an Earth morning: a crib at the bottom, a child with a backpack walking up the path to a school with a bell tower, a speech bubble",
+ "focus": [
+  560,
+  1040,
+  1.6
+ ],
+ "focus_word": "started elementary school",
+ "sfx": [
+  {
+   "name": "step",
+   "word": "started elementary school",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Off to school!",
+   "x": 330,
+   "y": 640,
+   "to": [
+    540,
+    980
+   ],
+   "word": "started"
+  }
+ ],
+ "motion": "walk: the child walks up the path with the backpack (breathe + nod)"
+}

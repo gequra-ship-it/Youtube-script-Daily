@@ -1,0 +1,37 @@
+{
+ "centre": "two identical clocks on a workbench, one lifted on a tall pedestal by a ruler's length",
+ "focus": [
+  1100,
+  460,
+  1.5
+ ],
+ "focus_word": "thirty-three centimeters",
+ "sfx": [
+  {
+   "name": "woodblock",
+   "word": "lifted",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "33 CM",
+   "word": "thirty-three"
+  }
+ ],
+ "motion": "the right clock rises on its pedestal (slide), then ruler ticks appear one by one",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "ride": "mv-slide-lift-u044",
+  "x": 1220,
+  "y": 212,
+  "s": 1.4,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

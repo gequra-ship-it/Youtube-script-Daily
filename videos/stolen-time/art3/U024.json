@@ -1,0 +1,43 @@
+{
+ "centre": "gold equals medallion between Earth (with a clock tower) and Mars, two identical clocks ticking in step",
+ "focus": [
+  450,
+  420,
+  1.8
+ ],
+ "focus_word": "London",
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "one second",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "London",
+   "x": 640,
+   "y": 300,
+   "to": [
+    462,
+    290
+   ],
+   "word": "London"
+  }
+ ],
+ "motion": "two synced rotor second hands + dash link + core ping on the equals medallion",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "ride": "mv-core-ping-u024",
+  "x": 960,
+  "y": 399,
+  "s": 1.32,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

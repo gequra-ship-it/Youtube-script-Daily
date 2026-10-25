@@ -1,0 +1,40 @@
+{
+ "centre": "a teal ocean planet stretched into a taffy-like peanut near a black hole, tearing in two",
+ "focus": [
+  1100,
+  520,
+  1.5
+ ],
+ "focus_word": "taffy",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "tidal forces",
+   "x": 1100,
+   "y": 690,
+   "to": [
+    1100,
+    612
+   ],
+   "word": "tidal forces"
+  }
+ ],
+ "motion": "mv-slide (out): the near and far halves pull apart while the neck fades",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-slide-near-u075",
+  "x": 930,
+  "y": 444,
+  "s": 1.5,
+  "flip": 1,
+  "kind": "ride"
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "centre": "huge golden ball deep in a side-view dent of layered sheet lines, a small marble barely denting it",
+ "focus": [
+  620,
+  960,
+  1.6
+ ],
+ "focus_word": "deeper",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "heavier",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "So heavy!",
+   "x": 780,
+   "y": 620,
+   "to": [
+    680,
+    820
+   ],
+   "word": "heavier"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "ride": "mv-core-heartbeat-heavy",
+  "x": 620,
+  "y": 822,
+  "s": 1.47,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

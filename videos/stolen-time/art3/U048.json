@@ -1,0 +1,36 @@
+{
+ "centre": "a smartphone in a dashboard mount, its map drawing a golden driving route, a dot following it",
+ "focus": [
+  960,
+  470,
+  1.5
+ ],
+ "focus_word": "driving directions",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Turn left ahead!",
+   "x": 1400,
+   "y": 330,
+   "to": [
+    1130,
+    300
+   ]
+  }
+ ],
+ "track": false,
+ "motion": "mv-edge draws the route; mv-path moves the position dot along it; lane dashes march (driving)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "x": 1382,
+  "y": 1040,
+  "s": 1.42,
+  "flip": -1,
+  "kind": "bg"
+ }
+}

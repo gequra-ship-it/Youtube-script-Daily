@@ -1,0 +1,41 @@
+{
+ "centre": "two candles side by side: one tall and barely burnt, one melted to a stub, on a ledge above drifting sand",
+ "focus": [
+  420,
+  840,
+  1.5
+ ],
+ "focus_word": "three hours",
+ "sfx": [
+  {
+   "name": "crackle",
+   "word": "age",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "3 HOURS",
+   "word": "three hours"
+  }
+ ],
+ "motion": "approach on the tall candle, flame pulses, sand dots drift",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "The brutality",
+    "mood": "curious"
+   }
+  ],
+  "ride": "mv-core-approach-c",
+  "x": 420,
+  "y": 877,
+  "s": 0.9,
+  "flip": 1,
+  "kind": "ride"
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "centre": "a starbeam running down between two ships, one racing toward it and one away, both gauges showing the same light speed",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Same speed!",
+   "x": 300,
+   "y": 960,
+   "to": [
+    190,
+    1140
+   ],
+   "word": "toward"
+  },
+  {
+   "type": "say",
+   "text": "Still the same!",
+   "x": 760,
+   "y": 1250,
+   "to": [
+    890,
+    745
+   ],
+   "word": "away"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "ride": "mv-path-shipup-u012",
+  "x": 255,
+  "y": 1102,
+  "s": 1.21,
+  "flip": 1,
+  "kind": "ride"
+ }
+}

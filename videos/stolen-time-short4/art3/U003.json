@@ -1,0 +1,46 @@
+{
+ "centre": "the ocean planet racing along its orbit around the black hole (orbit diagram)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "HALF THE SPEED OF LIGHT",
+   "word": "half the speed of light"
+  },
+  {
+   "type": "name",
+   "text": "black hole",
+   "x": 540,
+   "y": 1180,
+   "to": [
+    540,
+    960
+   ],
+   "word": "black hole"
+  }
+ ],
+ "track": false,
+ "motion": "path: the planet races three quarters of the orbit (camera stays wide) + black hole flicker",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "Your slowed",
+    "mood": "curious"
+   }
+  ],
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-path-planet-u003",
+  "x": 144,
+  "y": 811,
+  "s": 0.9,
+  "flip": 1,
+  "kind": "ride"
+ }
+}

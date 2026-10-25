@@ -1,0 +1,46 @@
+{
+ "centre": "a teal ocean planet balanced on the point of a tall needle in a stage spotlight between parting red curtains, as if a story is about to begin",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "cloth",
+   "word": "beginning",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Don't look down",
+   "x": 790,
+   "y": 690,
+   "to": [
+    630,
+    820
+   ],
+   "word": "edge of destruction"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "And that",
+    "mood": "curious"
+   }
+  ],
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-core-wobble-u024",
+  "x": 549,
+  "y": 750,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

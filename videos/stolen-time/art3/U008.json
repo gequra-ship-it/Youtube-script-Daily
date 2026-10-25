@@ -1,0 +1,44 @@
+{
+ "centre": "dashed ghost outline of the teal ocean planet that a telescope searches for but never finds",
+ "focus": [
+  900,
+  560,
+  1.5
+ ],
+ "focus_word": "such a planet",
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "found",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Nothing yet",
+   "x": 690,
+   "y": 690,
+   "to": [
+    540,
+    700
+   ]
+  }
+ ],
+ "motion": "core flicker (ghost planet) + joint scope (telescope scans)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "outfit": [
+   "helmet"
+  ],
+  "x": 150,
+  "y": 1040,
+  "s": 1.35,
+  "flip": 1,
+  "kind": "bg"
+ }
+}

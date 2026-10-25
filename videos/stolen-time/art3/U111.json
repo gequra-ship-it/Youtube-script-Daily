@@ -1,0 +1,41 @@
+{
+ "centre": "round glowing window into an Earth morning: a small child with a backpack walking to school",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "step",
+   "word": "started elementary school",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Bye-bye!",
+   "x": 640,
+   "y": 430,
+   "to": [
+    850,
+    600
+   ]
+  }
+ ],
+ "iris": [
+  960,
+  480
+ ],
+ "motion": "walk (child walks toward the school inside the window) + breathe",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "x": 1382,
+  "y": 1040,
+  "s": 1.42,
+  "flip": -1,
+  "kind": "bg"
+ }
+}

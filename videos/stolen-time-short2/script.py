@@ -1,0 +1,43 @@
+# -*- coding: utf-8 -*-
+# stolen-time-short2 (Miya's Note). Script from miya 2026-10-25 (dated 2026-10-12); fact-checked per guideline 12-1.
+SCENES = [('S01', 'Part 1', 'ill', 'sh2_1', 'Gravity bends time, and your phone proves it every single day.'),
+ ('S02', 'Part 2', 'ill', 'sh2_2', 'You do not need to travel to the edge of the galaxy to see that this is real. Your smartphone uses it every day to give you driving directions.'),
+ ('S03',
+  'Part 3',
+  'ill',
+  'sh2_3',
+  'GPS satellites orbit about twenty thousand kilometers up, where gravity is weaker. Because of that, their atomic clocks run about forty-five microseconds faster per day than clocks on '
+  'the ground.'),
+ ('S04',
+  'Part 4',
+  'ill',
+  'sh2_4',
+  'Their high speed slows them back down by about seven microseconds, so the net difference is roughly thirty-eight. That sounds tiny. But if engineers did not correct for it, GPS '
+  'positions would drift by about ten kilometers every single day.'),
+ ('S05',
+  'Part 5',
+  'ill',
+  'sh2_5',
+  'On Earth, the difference is only millionths of a second, because our planet is a tiny cosmic pebble. So what happens if we put a world beside the most extreme object nature allows?'),
+ ('S06',
+  'Part 6',
+  'ill',
+  'sh2_6',
+  'To make three hours equal twenty-three Earth years, the time dilation factor must reach roughly sixty-seven thousand. One hour on the planet must match about sixty-seven thousand hours '
+  'far away.'),
+ ('S07', 'Part 7', 'ill', 'sh2_7', 'Enter the realm of supermassive black holes. A black hole born from a collapsing star typically holds about five to a few tens of Suns.'),
+ ('S08', 'Part 8', 'ill', 'sh2_8', 'But supermassive black holes hold millions, or even billions, of Suns. Near such a monster, spacetime is not a gentle hill.'),
+ ('S09', 'Part 9', 'ill', 'sh2_9', 'It plunges into a bottomless pit. There, time dilation grows from microseconds to human lifetimes.'),
+ ('S10', 'Part 10', 'ill', 'sh2_10', 'Every black hole is wrapped in a boundary called the event horizon. It is the point of no return.'),
+ ('S11',
+  'Part 11',
+  'ill',
+  'sh2_11',
+  'Beyond it, the escape speed exceeds the speed of light, so nothing can climb back out: no radio wave, no laser, no particle. And here is the strange part.'),
+ ('S12',
+  'Part 12',
+  'ill',
+  'sh2_12',
+  'If you could hover ever closer to the event horizon of a non-rotating black hole, time dilation would grow without limit. To a far-away observer, your watch would slow down and seem to '
+  'freeze.'),
+ ('S13', 'Part 13', 'ill', 'sh2_13', 'And that is only the beginning of how far this bending can go.')]

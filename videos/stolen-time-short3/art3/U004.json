@@ -1,0 +1,42 @@
+{
+ "centre": "a teal ocean planet balanced on the very peak of a hill-shaped curve, with the slope plunging into a black hole",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "creak",
+   "word": "balance",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Whoa, tipping!",
+   "x": 300,
+   "y": 700,
+   "to": [
+    460,
+    810
+   ],
+   "word": "lose its balance"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-core-wobble-u004",
+  "x": 549,
+  "y": 750,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

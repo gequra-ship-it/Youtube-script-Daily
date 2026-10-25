@@ -1,0 +1,32 @@
+{
+ "centre": "a coral map pin drifting away from the true gold X on a night street map, dashed drift line between them",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "drift",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "10 KM",
+   "word": "ten kilometers"
+  },
+  {
+   "type": "say",
+   "text": "Wrong street!",
+   "x": 760,
+   "y": 640,
+   "to": [
+    620,
+    790
+   ],
+   "word": "drift"
+  }
+ ],
+ "spot": true
+}

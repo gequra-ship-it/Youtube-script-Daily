@@ -1,0 +1,53 @@
+{
+ "centre": "Earth drawn tiny like a pebble, lit by a vast golden Sun limb filling the upper right",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "pebble",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 300,
+   "y": 1010,
+   "to": [
+    470,
+    900
+   ],
+   "word": "Earth"
+  },
+  {
+   "type": "say",
+   "text": "Tiny pebble!",
+   "x": 760,
+   "y": 1060,
+   "to": [
+    590,
+    900
+   ],
+   "word": "pebble"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "outfit": [
+   "helmet"
+  ],
+  "x": 150,
+  "y": 1770,
+  "s": 1.7,
+  "flip": 1,
+  "kind": "bg"
+ }
+}

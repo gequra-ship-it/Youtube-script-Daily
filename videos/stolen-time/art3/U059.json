@@ -1,0 +1,69 @@
+{
+ "centre": "the golden-rimmed black hole; a radio wave, a laser beam and a particle each try to escape and curl back in",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "no radio wave",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "radio wave",
+   "x": 560,
+   "y": 200,
+   "to": [
+    650,
+    280
+   ],
+   "word": "radio wave"
+  },
+  {
+   "type": "name",
+   "text": "laser",
+   "x": 1500,
+   "y": 250,
+   "to": [
+    1350,
+    300
+   ],
+   "word": "laser"
+  },
+  {
+   "type": "name",
+   "text": "particle",
+   "x": 1360,
+   "y": 790,
+   "to": [
+    1135,
+    745
+   ],
+   "word": "particle"
+  }
+ ],
+ "track": false,
+ "motion": "mv-edge draws the radio wave then the laser curling back; mv-path particle flies out and falls back in; core swell",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "And here",
+    "mood": "curious"
+   }
+  ],
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-core-swell-u059",
+  "x": 960,
+  "y": 221,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

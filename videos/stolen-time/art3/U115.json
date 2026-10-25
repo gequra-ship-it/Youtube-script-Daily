@@ -1,0 +1,50 @@
+{
+ "centre": "long mothership with a glowing round docking hatch; the lander flies up to dock, the black hole small and far below",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "dock with your mothership",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "dock",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "mothership",
+   "x": 1180,
+   "y": 385,
+   "to": [
+    1260,
+    470
+   ],
+   "word": "mothership"
+  }
+ ],
+ "iris": [
+  960,
+  500
+ ],
+ "motion": "path (lander climbs to the hatch) + core swell (hatch light)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-core-swell-hatch-u115",
+  "x": 960,
+  "y": 362,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

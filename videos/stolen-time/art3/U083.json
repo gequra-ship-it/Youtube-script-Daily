@@ -1,0 +1,50 @@
+{
+ "centre": "two panels: a clock sunk in a gravity dent beside a black hole, and a second clock rushing along with speed streaks that slides in on top",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "slows clocks",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "gravity",
+   "x": 760,
+   "y": 260,
+   "to": [
+    610,
+    590
+   ],
+   "word": "gravity"
+  },
+  {
+   "type": "name",
+   "text": "orbital speed",
+   "x": 1400,
+   "y": 740,
+   "to": [
+    1400,
+    610
+   ],
+   "word": "orbital speed"
+  }
+ ],
+ "motion": "mv-slide: the speed panel slides up onto the screen when the second cause is said; both clocks turn slowly",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "ride": "mv-slide-speed-u083",
+  "x": 1380,
+  "y": 182,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride"
+ }
+}
