@@ -14,6 +14,16 @@ OK = re.compile(r'^mv-(core-(swell|heartbeat|wobble|sway|glide|approach|drop|pin
 SPACE = re.compile(r'\b(space|star|stars|galax\w*|cosmic|universe|horizon|probe|voyager|light|planet|orbit|dark|expan\w*)\b', re.I)
 SEA = re.compile(r'\b(ocean|oceans|sea|seas|seafloor|underwater|dive|diving|water|whales?|reef|coral|fish|vents?|abyss\w*|deep|depths?|plankton|marine)\b', re.I)
 DEEP = re.compile(r'\b(deep|depths?|abyss\w*|dark|darkness|seafloor|sinks?|sinking|descen\w*|vents?|bones?|carcass|silt|thousands of meters)\b', re.I)
+ACTS = [   # (act, regex on the unit text, first mood)  -- first match wins (miya 2026-10-25: expression + motion that fits the situation, not only examples)
+    ('pull',   re.compile(r'\b(black holes?|event horizon|horizon|plunge\w*|spiral\w*|sink\w*|drag\w*|abyss|gravity trap|falls? in|pulled|inward|swallow\w*|devour\w*|doom\w*|crush\w*|well)\b', re.I), 'scared'),
+    ('wind',   re.compile(r'\b(speed\w*|rac(e|es|ing)|fast\w*|rocket|shuttle|lifts?|orbit\w*|fl(y|ies|ying)|hurtl\w*|streak\w*|whirl\w*|zip\w*|climb\w*|lander|route|dock\w*|launch\w*|race|travel\w*)\b', re.I), 'squint'),
+    ('waves',  re.compile(r'\b(waves?|tides?|tidal|ocean|sea|water|splash\w*|wading|knee-deep|shallow|brine)\b', re.I), 'surprised'),
+    ('shiver', re.compile(r'\b(alone|lonely|isolation|cold|terrif\w*|deadly|horror|fear|haunting|exhaustion|grief|mourn\w*|tragic\w*|brutal\w*)\b', re.I), 'scared'),
+    ('awe',    re.compile(r'\b(giants?|enormous|supermassive|vast|towering|huge|colossal|billions?|millions?|leviathan|monster|universe|galax\w*)\b', re.I), 'surprised'),
+    ('sleepy', re.compile(r'\b(years|decades|waiting|slow\w*|frozen|amber|steady|steadily|patient\w*|ticking|ticks?|clocks?)\b', re.I), 'sleepy'),
+    ('cheer',  re.compile(r'\b(solved|breakthrough|discover\w*|works?|yes|answer|possible|allows?|proved?|proof)\b', re.I), 'excited'),
+]
+HOLE = re.compile(r'hole|bh|singular|well|horizon', re.I)
 JS = '''()=>{const o=[];for(const g of document.querySelectorAll('g[id^="mv-"]')){const b=g.getBBox();if(b.width<8)continue;o.push([g.id,b.x,b.y,b.width,b.height])}return o}'''
 def mood_of(s):
     if s.rstrip().endswith('?'): return 'curious'
@@ -40,7 +50,13 @@ with sync_playwright() as p:
                 if m == prev and i: m = 'happy' if m != 'happy' else 'curious'
                 w = ' '.join(re.sub(r"[^\w']", '', t) for t in s.split()[:2]).strip()
                 moods.append({'mood': m} if i == 0 else {'word': w, 'mood': m}); prev = m
-            keep = {'moods': moods}
+            act = None; first = None
+            for nm, rx, md in ACTS:
+                if rx.search(text): act, first = nm, md; break
+            if act is None: act, first = ('float' if SPACE.search(text) else 'cheer'), ('happy' if SPACE.search(text) else 'excited')
+            if first: moods[0] = {'mood': first}
+            if len(moods) > 1 and moods[1]['mood'] == first: moods[1]['mood'] = 'curious'
+            keep = {'moods': moods, 'act': act}
             if SEA.search(text): keep['outfit'] = ['diver'] if DEEP.search(text) else ['goggles']   # diving suit + tank in deep/dark water, mask + snorkel near the surface (miya 2026-10-25)
             elif SPACE.search(text): keep['outfit'] = ['helmet']
             pg.set_content('<body style="margin:0">' + open(svg).read() + '</body>')
@@ -56,6 +72,9 @@ with sync_playwright() as p:
                 n += 1   # corners vary (miya 2026-10-25): far left, far right, left-third, right-third, each with its own size
                 xs = [150, W - 150, round(W * .3), round(W * .72)]; x0 = xs[(n - 1) % 4]; sz = [1.0, 1.15, .9, 1.05][(n - 1) % 4]
                 keep.update(x=x0, y=(H - 150) if vert else (H - 40), s=round((1.7 if vert else 1.35) * sz, 2), flip=1 if x0 < W / 2 else -1, kind='bg')
+            if act == 'pull':   # the hole the frog is dragged toward: a picture group named like a hole/well, else the picture centre
+                hg = [g for g in gs.values() if HOLE.search(g[0])]
+                keep['act'] = {'type': 'pull', 'to': [round(hg[0][1] + hg[0][3] / 2), round(hg[0][2] + hg[0][4] / 2)] if hg else [W // 2, H // 2]}
             d['frog'] = keep
             json.dump(d, open(fn, 'w'), ensure_ascii=False, indent=1)
             print(slug, uid, keep['kind'], pick, keep['x'], keep['y'], keep['s'])

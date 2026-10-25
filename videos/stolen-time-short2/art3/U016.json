@@ -27,13 +27,20 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "scared"
    },
    {
     "word": "There time",
     "mood": "curious"
    }
   ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    960
+   ]
+  },
   "ride": "mv-path-sink-lander-u016",
   "x": 540,
   "y": 488,

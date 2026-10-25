@@ -65,6 +65,9 @@ MOODS = {   # brows (left d, right d, opacity), pupil offset (dx, dy, r), mouth 
     'curious':   dict(bl='M-24 -82 q12 0 24 2', br='M10 -92 q12 -8 24 -2', bo=1, pup=(3, -4, 5), sm='M-8 -42 q14 7 28 -5', fill='none', lid=0),
     'worried':   dict(bl='M-24 -80 q12 -2 24 -8', br='M10 -88 q12 6 24 8', bo=1, pup=(0, 2, 5), sm='M-6 -38 q12 -9 24 0', fill='none', lid=0),
     'proud':     dict(bl='M-24 -84 q12 -6 24 0', br='M10 -84 q12 -6 24 0', bo=0, pup=(0, 1, 5), sm='M-10 -47 q16 20 32 0', fill='none', lid=9),
+    'scared':    dict(bl='M-24 -80 q12 -2 24 -9', br='M10 -89 q12 7 24 9', bo=1, pup=(0, 1, 3), sm='M-9 -39 q4.5 -7 9 0 q4.5 7 9 0 q4.5 -7 9 0', fill='none', lid=0),
+    'squint':    dict(bl='M-24 -78 q12 -6 24 -2', br='M10 -80 q12 4 24 8', bo=1, pup=(0, 0, 4), sm='M-10 -47 q16 24 32 0z', fill='#7a2f2f', lid=11),
+    'sleepy':    dict(bl='M-24 -80 q12 2 24 -2', br='M10 -82 q12 -2 24 2', bo=1, pup=(0, 3, 4.5), sm='M-6 -42 q8 3 16 0', fill='none', lid=14),
     'excited':   dict(bl='M-24 -90 q12 -8 24 0', br='M10 -90 q12 -8 24 0', bo=1, pup=(0, -1, 5.6), sm='M-10 -47 q16 24 32 0z', fill='#7a2f2f', lid=0),
 }
 
@@ -75,7 +78,8 @@ def markup(tag, d):
     return (f'<g id="{t}" transform="translate({x:.1f} {y:.1f}) scale({fl * s:.3f} {s:.3f})" stroke="{INK}" stroke-linejoin="round" stroke-linecap="round">'
             f'<defs><clipPath id="{t}_cl"><circle cx="-10" cy="-66" r="13"/></clipPath><clipPath id="{t}_cr"><circle cx="22" cy="-66" r="13"/></clipPath></defs>'
             f'<ellipse cx="0" cy="8" rx="52" ry="8" fill="#000" opacity=".18" stroke="none"/>'
-            f'<g id="{t}_in">'
+            f'<g id="{t}_wd" opacity="0" fill="none" stroke="#e8f3ff" stroke-width="3.4" stroke-linecap="round"><path d="M70 -70 h46"/><path d="M82 -44 h56"/><path d="M70 -18 h40"/><path d="M96 -88 h34"/></g>'
+            f'<g id="{t}_in"><g id="{t}_ac">'
             f'<ellipse cx="-22" cy="4" rx="16" ry="9" fill="#4d8a4a" stroke-width="3.2"/><ellipse cx="22" cy="4" rx="16" ry="9" fill="#4d8a4a" stroke-width="3.2"/>'
             f'<path d="M-34 0 q-6 -64 34 -70 q40 -2 42 62 q0 10 -6 12 q-36 6 -70 -4z" fill="{GREEN}" stroke-width="4"/>'
             f'<ellipse cx="2" cy="-12" rx="22" ry="20" fill="#9cc98a" stroke="none" opacity=".7"/>'
@@ -94,7 +98,7 @@ def markup(tag, d):
             f'<g transform="translate(32 -22)"><g id="{t}_arm">'
             f'<path d="M0 0 L58 0" stroke-width="11"/><circle cx="60" cy="0" r="9" fill="{INK}" stroke="none"/>'
             f'<path d="M0 0 L58 0" stroke="{GREEN}" stroke-width="6"/><circle cx="60" cy="0" r="6" fill="{GREEN}" stroke="none"/>'
-            f'</g></g></g></g>')
+            f'</g></g></g></g></g>')
 
 RIDEABLE = re.compile(r'^mv-(core-(swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble)|path|slide|swing)')
 
@@ -216,6 +220,46 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             out.append(f'tl.set("#{t}_bl",{{attr:{{d:"{M["bl"]}"}},opacity:{M["bo"]}}},{tm:.3f});tl.set("#{t}_br",{{attr:{{d:"{M["br"]}"}},opacity:{M["bo"]}}},{tm:.3f});'
                        f'tl.set("#{t}_pl",{{attr:{{cx:{-8 + M["pup"][0]},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});tl.set("#{t}_pr",{{attr:{{cx:{24 + M["pup"][0]},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});'
                        f'tl.set("#{t}_sm",{{attr:{{d:"{M["sm"]}",fill:"{M["fill"]}"}}}},{tm:.3f});tl.set("#{t}_ll,#{t}_lr",{{attr:{{height:{M["lid"]}}}}},{tm:.3f});')
+    # ---- body act (2026-10-25, miya: expression + motion that fits the situation); all tweens on #<t>_ac, absolute times so seeking works ----
+    act = d.get('act'); at = (act.get('type') if isinstance(act, dict) else act) or None
+    if at:
+        ac = f'"#{t}_ac"'; a1 = a0 + .5; T = t1 - .05; org2 = 'svgOrigin:"0 0"'
+        tg = (act.get('to') if isinstance(act, dict) else None) or [d['x'] + 300 * d['flip'], d['y']]
+        dirn = 1 if (tg[0] - d['x']) * d['flip'] >= 0 else -1   # +1 = the hole/thing lies in front of the frog (its facing side), -1 = behind
+        k = 0; tm = a1
+        if at == 'wind':      # leaning back into the wind, bracing, squinting; air streaks fly past
+            out.append(f'tl.to({ac},{{rotation:-10,x:-4,duration:.4,ease:"power2.out",{org2}}},{a1:.3f});')
+            n = 0
+            while tm < T - .1:
+                out.append(f'tl.to({ac},{{x:{-4 + (n % 3 - 1) * 2.2:.1f},y:{((n * 7) % 5 - 2) * 1.4:.1f},rotation:{-10 + (n % 2) * 2.4:.1f},duration:.09,ease:"none",{org2}}},{tm:.3f});'); tm += .09; n += 1
+            m2 = a1; j = 0
+            while m2 < T - .3:
+                out.append(f'tl.fromTo("#{t}_wd",{{x:50,opacity:0}},{{x:-30,opacity:.85,duration:.35,ease:"none",immediateRender:false}},{m2:.3f});tl.to("#{t}_wd",{{opacity:0,duration:.12}},{m2 + .35:.3f});'); m2 += .55; j += 1
+        elif at == 'pull':    # dragged toward the hole: slides and leans, digs in, gets dragged again (never quite escapes)
+            while tm < T - .2:
+                out.append(f'tl.to({ac},{{x:{dirn * 26},rotation:{dirn * 16},scaleX:1.06,duration:1.15,ease:"power2.in",{org2}}},{tm:.3f});')
+                out.append(f'tl.to({ac},{{x:{-dirn * 5},rotation:{-dirn * 7},scaleX:1,duration:.35,ease:"back.out(2.2)",{org2}}},{tm + 1.15:.3f});')
+                out.append(f'tl.to({ac},{{y:-4,duration:.07,yoyo:true,repeat:5,ease:"none"}},{tm + 1.2:.3f});')   # straining shake
+                tm += 1.9
+        elif at == 'float':   # weightless drift
+            while tm < T - .2:
+                out.append(f'tl.to({ac},{{y:-9,rotation:{3 if k % 2 == 0 else -3},duration:1.4,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{y:3,rotation:{-3 if k % 2 == 0 else 3},duration:1.4,ease:"sine.inOut",{org2}}},{tm + 1.4:.3f});'); tm += 2.8; k += 1
+        elif at == 'waves':   # riding / bracing against the swell
+            while tm < T - .2:
+                out.append(f'tl.to({ac},{{y:-14,rotation:{dirn * 7},duration:1.0,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{y:4,rotation:{-dirn * 6},duration:1.0,ease:"sine.inOut",{org2}}},{tm + 1.0:.3f});'); tm += 2.0
+        elif at == 'shiver':  # shaking with fear / cold / loneliness
+            while tm < T - .1:
+                out.append(f'tl.to({ac},{{x:{2.4 if k % 2 == 0 else -2.4},duration:.05,ease:"none"}},{tm:.3f});'); tm += .05; k += 1
+        elif at == 'awe':     # looks up at something huge, slowly leans back, little step back
+            out.append(f'tl.to({ac},{{rotation:-7,y:-3,duration:1.2,ease:"power1.out",{org2}}},{a1:.3f});tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-71}},duration:.3}},{a1:.3f});')
+            while tm < T - .2:
+                out.append(f'tl.to({ac},{{y:-8,duration:1.1,ease:"sine.inOut"}},{tm + 1.2:.3f});tl.to({ac},{{y:-2,duration:1.1,ease:"sine.inOut"}},{tm + 2.3:.3f});'); tm += 2.2
+        elif at == 'cheer':   # happy hops with a little arm-free wiggle
+            while tm < T - .2:
+                out.append(f'tl.to({ac},{{y:-26,rotation:{6 if k % 2 == 0 else -6},duration:.28,ease:"power2.out",{org2}}},{tm:.3f});tl.to({ac},{{y:0,rotation:0,duration:.3,ease:"bounce.out",{org2}}},{tm + .28:.3f});'); tm += 1.1; k += 1
+        elif at == 'sleepy':  # slow time: heavy slow sway, drooping
+            while tm < T - .2:
+                out.append(f'tl.to({ac},{{rotation:5,y:3,duration:2.2,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{rotation:-4,y:0,duration:2.2,ease:"sine.inOut",{org2}}},{tm + 2.2:.3f});'); tm += 4.4
     # mouth follows the spoken words: closed = the mood's mouth; open = a big round "ahh" of the same width that hangs from the smile line, with a tongue
     talk = d.get('talk', not (d.get('ride') or d.get('kind') in ('ride', 'bg')))
     for k, (ws, we) in enumerate(words if talk else []):

@@ -31,13 +31,20 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "scared"
    },
    {
     "word": "Your heart",
     "mood": "curious"
    }
   ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    540
+   ]
+  },
   "ride": "mv-core-heartbeat-u107",
   "x": 1480,
   "y": 382,
