@@ -57,7 +57,7 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 - 2026-10-13: the six picture specs were merged into `tools/art_spec.md` (sections 1-9 landscape, 10 Shorts, 11 cosmic, appendix A backdrop revision, appendix B retired v1 look). Record of repo changes: `docs/repo-changes.md`.
 
 ## 3D (cine) — 보관
-3D 도구와 명세는 `cine-test/`로 옮겼다(`cine-test/README.md`). `chunk_prep.py`(구간 나누기)는 SVG 병렬 렌더에도 쓰므로 여기에 남아 있다.
+3D 도구와 명세는 `cine-test/`로 옮겼고 이 폴더는 2026-10-24에 지웠다, 브랜치 `archive/miyas-lab-2026-10-24`에 있다(`cine-test/README.md`). `chunk_prep.py`(구간 나누기)는 SVG 병렬 렌더에도 쓰므로 여기에 남아 있다.
 
 ## 2026-10-16 추가 (지침서 20장)
 - `remake.py`: 기존 영상 다시 만들기(지침서 21장). `SLUG=x python3 tools/remake.py` → 예전 plan 보관, 다시 나누기, `remap_art.py`로 그림 재연결, `NO ART`/`NEEDS VARIANT` 단위 출력, `.dest`·`.skip_deliver` 점검. 에이전트 지시문은 `briefs/remake_art.md`(재사용), `briefs/people_restyle.md`(사람 ③ 스타일).
@@ -81,3 +81,11 @@ Check: with the saved TTS wavs, steps 2-3 reproduced the first video's `render/n
 - `rhythm.py` (new): `silence_windows`, `accent_times`, `gain_mask`; `build3.py` mutes music + sfx in two near-silences (config `SILENCE`, env `NOSILENCE=1`) and `bgm_lib.synth(accents=)` adds chord-tone accents on big scene changes (env `NOACCENT=1`). Guideline 9-5.
 - `paths.chrome()`: finds the installed Chromium (env `HYPERFRAMES_BROWSER_PATH`/`PW_CHROME`/`CHROME`, else newest `/opt/pw-browsers/chromium-*`); six preview tools use it.
 - Checked on a 4-scene test video (TTS, align, build, seek screenshots). Not checked: full MP4 render, sound by ear.
+
+## 2026-10-25 additions (edge-of-universe review, miya)
+- `frog_place.py <slug>...`: after the pictures exist, writes the sidecar `frog` of every `frog_hint` unit: the frog rides a moving picture group (injected inside it) or sits in a bottom corner; moods per sentence, helmet/goggles; no pointing in picture scenes. Run it before `build3.py`; picture agents never write the frog. Needs playwright (system `python3`).
+- `frogshot.py <out.png> <t1,t2,...>` (`SLUG=<slug> [VERT=1]`): contact strip of the built page at those seconds. It seeks with `tl.pause(); tl.seek(t, false)` (the same call `motion_check.py` uses) and launches Chromium with `--no-sandbox`; `timeline.pause(t)` or a launch without `--no-sandbox` hung forever in the cloud container.
+- `frog.py`: `ride` (frog injected into a picture group), optional `points` with `obj` (arm follows a moving object, read from the page each frame through GSAP `modifiers` so seeking works), moods, outfits, hops, arm hidden when a unit has no points.
+- `build3.py`: default minimum on-screen time 8.5 s (slow scenes 10 s); a config `HOOK` without `minu` keeps it. The log line now also prints the shortest unit (`min`).
+- `assets/logo.png`: Miya's Note frog+book logo (512 px, transparent corners).
+- Checked: built all six edge-of-universe pages, seek screenshots of shorts 1-3, full MP4 renders (long + 5 shorts) on Actions, picture check by the owner. Not checked: every frog placement by eye (labels/captions can overlap), sound.

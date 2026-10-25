@@ -1,6 +1,6 @@
 # 레포 구조 변경 기록 (요약)
 
-브랜치 병합, 파일 합치기·이동·삭제처럼 레포 구조가 바뀐 일만 한 줄씩 적는다. 자세한 옛 기록(명령, 충돌 목록, 대응표)은 `docs/archive/repo-changes-full-2026-10-18.md`. 영상 제작 규칙의 변경은 지침서 맨 위 결정 날짜 요약과 `docs/archive/guideline-full-2026-10-18.md`.
+브랜치 병합, 파일 합치기·이동·삭제처럼 레포 구조가 바뀐 일만 한 줄씩 적는다. 자세한 옛 기록(명령, 충돌 목록, 대응표)은 브랜치 `archive/miyas-lab-2026-10-24`의 `docs/archive/repo-changes-full-2026-10-18.md`. 영상 제작 규칙의 변경은 지침서 맨 위 결정 날짜 요약과 `docs/archive/guideline-full-2026-10-18.md`.
 
 ## 현재 구조
 | 브랜치 | 내용 |
@@ -8,8 +8,7 @@
 | `main` (기본) | 매일 대본 생성: `main.py`(6시), `main_owl.py`(7시), `main_이과형.py`(9시, KST) + 워크플로 `schedule.yml`·`schedule_owl.yml`·`schedule_igwahyung.yml`, 봇이 커밋하는 `scripts/`·`scripts_owl/`·`scripts_igwahyung/`. `docs/`·`tools/`는 `render-pipeline`의 사본. `render/`·`videos/`는 넣지 않는다(약 650MB) |
 | `render-pipeline` | 영상 제작 원본: `tools/`, `docs/`, `videos/<슬러그>/`, `render/<슬러그>/`, 워크플로 `render-chunked.yml`(구간 병렬 렌더)·`render.yml`(`render/.slug`) |
 | `claude/epic-ritchie-0mujsz` | 세션 작업 브랜치(`main`에 합쳐 쓰는 대본 도구용) |
-- `cine-test/`: 3D(cine) 방식 보관(문서·코드·영상). 사용자가 3D를 요청할 때만 쓴다.
-- `docs/archive/`: 슬림화 전 전체 사본(지침서, art_spec, repo-changes). 평소에는 읽지 않는다.
+- `cine-test/`(3D 보관)와 `docs/archive/`는 2026-10-24에 지웠다. 필요하면 브랜치 `archive/miyas-lab-2026-10-24`에서 꺼낸다.
 - 일부러 합치지 않은 것: `videos/*/art_brief.md`(영상별 등장인물·장소 시트), `videos/*/STATUS.md`·`NEXT.md`(영상별 작업 메모), `tools/README.md`(사용법).
 
 ## 타임라인
@@ -49,3 +48,4 @@
 - 2026-10-24 (miya 요청, 카드로 확인): 새 대본으로 새로 만들기 위해 `render-pipeline`에서 옛 영상 `videos/*`(89개)·`render/<슬러그>/`(`sample`·`.slug`·`.chunked` 제외)·`cine-test/`·`docs/archive/`를 지움. 전체 사본은 브랜치 `archive/miyas-lab-2026-10-24`, 옛 작업 브랜치는 `archive/octopus-*`. `.chunked`가 옛 슬러그를 가리키니 새 영상 렌더 때 갱신한다. (git 기록 크기는 그대로, 기록 재작성 안 함.)
 - 2026-10-24: 설명하는 개구리 파이프라인(지침서 7-2, `tools/frog.py`, `build3.py`: 칠판 자동·그림 사이드카 `frog`, `plan.json`의 `frog_hint`, art_spec 12). 고정 아웃트로 그림의 개구리 찌그러짐 수정. 대본 파일명 날짜 = 생성일(`main*.py`).
 - 2026-10-24: 메타데이터에 출처(SOURCES)는 유지(출처가 있을 때만).
+- 2026-10-25: 개구리 도구 정리(`tools/frog_place.py` 신설: 그림 장면 개구리 배치, `tools/frogshot.py`: 시간 이동 프레임 확인, `frog.py`: ride·팔 추적·표정·복장), 로고 교체(`tools/assets/logo.png`), `build3.py` 최소 화면 시간 기본값 8.5초. 임시 도구(`frog_auto.py`, `frog_obj.py`, `frog_auto2.py`)는 `frog_place.py`로 합치고 지움.

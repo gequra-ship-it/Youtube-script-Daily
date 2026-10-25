@@ -18,6 +18,7 @@ for s in SCENES: L+= [s[4],""]
 L+= ["===== 2부: 장면별 대본 =====",""]
 cuts=d['cuts']
 for s in SCENES:
+    if not s[0][1:].isdigit(): continue   # fixed outro scene (id OUTRO) has no script entry
     i=int(s[0][1:])
     if str(i) not in d['starts']: continue   # partial build
     st=d['starts'][str(i)]; dd=d['D'][str(i)]
