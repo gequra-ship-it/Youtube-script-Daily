@@ -1,0 +1,40 @@
+{
+ "centre": "lamp-lit gray whale skull and ribs on the seafloor, swarming with red worms, crabs, hagfish and isopods",
+ "focus": [
+  600,
+  620,
+  1.6
+ ],
+ "focus_word": "skeleton of a gray whale",
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "strange life",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "gray whale",
+   "x": 640,
+   "y": 430,
+   "to": [
+    600,
+    500
+   ],
+   "word": "gray whale"
+  },
+  {
+   "type": "say",
+   "text": "Visitors!",
+   "x": 380,
+   "y": 640,
+   "to": [
+    462,
+    748
+   ]
+  }
+ ],
+ "motion": "rack (skeleton comes into focus) + joint (crab claw)"
+}

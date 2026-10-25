@@ -1,0 +1,46 @@
+{
+ "centre": "a big whale vertebra with a cut-away window showing golden fat locked inside; an isopod nudges the hard bone",
+ "focus": [
+  960,
+  510,
+  1.5
+ ],
+ "focus_word": "hidden vault",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "sealed inside the bone",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Locked tight!",
+   "x": 560,
+   "y": 560,
+   "to": [
+    640,
+    720
+   ],
+   "word": "out of reach"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "Unlocking this",
+    "mood": "curious"
+   }
+  ],
+  "ride": "mv-core-heartbeat-fat",
+  "x": 960,
+  "y": 322,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride"
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "centre": "cut-away slab of bone sediment: crinoid-like worms on top, bacterial mats fading as the fuel runs out",
+ "focus": [
+  300,
+  620,
+  1.6
+ ],
+ "focus_word": "bacteria and worms",
+ "sfx": [
+  {
+   "name": "breath",
+   "word": "slowly die off",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Running on empty...",
+   "x": 380,
+   "y": 500,
+   "to": [
+    310,
+    600
+   ]
+  }
+ ],
+ "motion": "fade (mats), joint (worm)"
+}

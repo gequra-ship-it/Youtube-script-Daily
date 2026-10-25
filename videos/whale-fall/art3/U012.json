@@ -1,0 +1,29 @@
+{
+ "centre": "a bloated pale whale carcass floating belly-up just under the surface, gas bubbles escaping upward",
+ "focus": [
+  1000,
+  330,
+  1.5
+ ],
+ "focus_word": "gases escape",
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "gases escape",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Off we go!",
+   "x": 1260,
+   "y": 210,
+   "to": [
+    1150,
+    300
+   ]
+  }
+ ],
+ "motion": "bubble (gas escaping)"
+}

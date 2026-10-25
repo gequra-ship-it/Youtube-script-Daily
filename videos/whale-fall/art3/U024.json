@@ -1,0 +1,40 @@
+{
+ "centre": "a big Pacific sleeper shark gliding in toward the whale carcass",
+ "focus": [
+  900,
+  560,
+  1.7
+ ],
+ "focus_word": "Pacific sleeper sharks",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pacific sleeper shark",
+   "x": 720,
+   "y": 300,
+   "to": [
+    900,
+    470
+   ],
+   "word": "Pacific sleeper sharks"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "Pacific sleeper",
+    "mood": "curious"
+   }
+  ],
+  "ride": "mv-core-glide-shark",
+  "x": 541,
+  "y": 432,
+  "s": 1.5,
+  "flip": 1,
+  "kind": "ride"
+ }
+}

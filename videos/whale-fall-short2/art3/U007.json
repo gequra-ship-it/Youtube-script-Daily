@@ -1,0 +1,36 @@
+{
+ "centre": "a hagfish inside a huge billowing cloud of pale slime, a shark snout backing away",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "slime",
+   "x": 250,
+   "y": 560,
+   "to": [
+    400,
+    800
+   ],
+   "word": "slime"
+  },
+  {
+   "type": "say",
+   "text": "Blech!",
+   "x": 790,
+   "y": 330,
+   "to": [
+    800,
+    430
+   ],
+   "word": "threatened"
+  }
+ ],
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "release",
+   "vol": 0.6
+  }
+ ]
+}
