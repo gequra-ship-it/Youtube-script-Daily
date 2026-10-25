@@ -1,0 +1,53 @@
+# -*- coding: utf-8 -*-
+# eating-humans-deadly-bet-short5 (Miya's Note). Rewritten 2026-10-25 for the 2026-10-24 spec; fact-checked per guideline 12-1.
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh5_1',
+  'Why does the idea of eating human flesh turn your stomach before you even think about it? Biology may have part of the answer.'),
+ ('S02',
+  'Part 2',
+  'ill',
+  'sh5_2',
+  'Many researchers think disgust is not just a mood. They describe it as a kind of behavioral immune system. It pushes you away from things that carry disease: rotten food, waste, '
+  'sickness. Brain imaging studies have found that a region called the insula becomes active when people feel disgust. So that shudder may be doing a job.'),
+ ('S03',
+  'Part 3',
+  'ill',
+  'sh5_3',
+  'Here is a thought experiment, and to be clear, it is an imagined scenario, not a record of real people. Picture two groups of early humans, hundreds of thousands of years ago.'),
+ ('S04',
+  'Part 4',
+  'ill',
+  'sh5_4',
+  'Group A has no strong aversion to eating their dead. Group B feels an overwhelming revulsion. Over many generations, which group would you expect to suffer more from prion disease '
+  'and infection? In this story, Group A is hit harder, and Group B stays healthier. That difference could, over time, favor a stronger aversion.'),
+ ('S05',
+  'Part 5',
+  'ill',
+  'sh5_5',
+  'There is another benefit. A group that refuses to treat its members as food can build deeper trust. People who see one another as allies, not emergency rations, can hunt together '
+  'and raise children together. Disgust, empathy, and taboo may have supported each other. We cannot prove that sequence, and scientists still debate it.'),
+ ('S06',
+  'Part 6',
+  'ill',
+  'sh5_6',
+  'Genetics adds one more clue. In 2003, a team led by the researcher Simon Mead studied a gene called PRNP, which makes the prion protein. At position 129, people carry one of two '
+  'versions. Those with one of each, called heterozygotes, seemed better protected. Among Fore women who had survived kuru, most were heterozygous.'),
+ ('S07',
+  'Part 7',
+  'ill',
+  'sh5_7',
+  'The team then looked at populations around the world. They found that both versions are common in many regions, and they argued that this balance may reflect natural selection, '
+  'perhaps from deadly kuru-like epidemics in the distant past. That is an interpretation, not proof, and later researchers have challenged parts of the statistics.'),
+ ('S08',
+  'Part 8',
+  'ill',
+  'sh5_8',
+  'So treat it as a fascinating possibility. The taboo is also cultural, and cultures differ. But beneath the stories we tell, there may be a quiet biological logic.'),
+ ('S09',
+  'Part 9',
+  'ill',
+  'sh5_9',
+  'Disgust, empathy, and taboo may all have the same old story behind them. The full video tells it from the beginning.')
+]
