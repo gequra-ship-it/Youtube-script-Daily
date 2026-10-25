@@ -50,3 +50,5 @@
 - 2026-10-24: 메타데이터에 출처(SOURCES)는 유지(출처가 있을 때만).
 - 2026-10-25: 개구리 도구 정리(`tools/frog_place.py` 신설: 그림 장면 개구리 배치, `tools/frogshot.py`: 시간 이동 프레임 확인, `frog.py`: ride·팔 추적·표정·복장), 로고 교체(`tools/assets/logo.png`), `build3.py` 최소 화면 시간 기본값 8.5초. 임시 도구(`frog_auto.py`, `frog_obj.py`, `frog_auto2.py`)는 `frog_place.py`로 합치고 지움.
 - 2026-10-25 (miya, 고래 낙하 영상 검수): ① `tools/motions.py` `miyaPv`/`miyaM`: `data-pivot`(chain·joint·rotor 등)을 부품의 부모 좌표로 바꿔 쓰고, 에이전트가 감싼 그룹 안 좌표로 쓴 경우는 부품에 더 가까운 쪽을 고른다(꼬리가 몸통과 따로 도는 문제), `miyaPath`도 같은 변환 ② `mv-path-*` id에 sink|fall|drop|plunge|descen|carcass가 있으면 카메라가 따라가지 않는다(따라가면 낙하가 멈춰 보임), 새 도구 `tools/fallwrap.py`(오브젝트 전체를 낙하 경로 그룹으로 감쌈)·`tools/pivcheck.py`(회전축 검사) ③ `frog.py`: 복장 `diver`(잠수복), 그림 속 개구리는 말 입 모양 동기화 끔(`talk`, 칠판만), `frog_place.py`: 심해 단어면 diver·수면은 goggles, 구석 자리 4곳 순환, `build3.py` `FROG_HINT`: 약 4번째 그림마다(상한 26 %). 지침서 7-2·헤더 결정·art_spec 7.
+
+- 2026-10-25: 개구리 상황별 행동(`act`)·표정 추가 — `tools/frog.py`(`_ac` 그룹, 모션 8종, 표정 scared·squint·sleepy), `tools/frog_place.py`(단어로 act 선택), 지침서 7-2. stolen-time 6편에 적용(miya 요청).
