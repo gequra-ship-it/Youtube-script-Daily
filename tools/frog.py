@@ -1,18 +1,25 @@
 # -*- coding: utf-8 -*-
-# Notebook frog (Miya's Note mascot) as an explainer inside the video (owner decision 2026-10-24, guideline 7-2 / 20-8).
-# The frog hops in next to the thing it explains, points at it, talks (mouth follows the real word times) and blinks.
+# Notebook frog (Miya's Note mascot) inside the video (owner decisions 2026-10-24 / 2026-10-25, guideline 7-2).
+# Two roles:
+#   CHALKBOARD scenes: the explainer. It stands bottom-left, talks (mouth follows the real word times), blinks and points at the row being
+#     spoken (js(..., targets=...)); the arm turns only when the pointed row changes.
+#   PICTURE scenes (plan.json frog_hint units): NO explainer standing beside the picture. A companion: it rides a moving object (drawn INSIDE
+#     that picture group via inject(..., ride=id), so it moves and turns with it) or sits small in a bottom corner of the background; the arm is
+#     hidden unless the sidecar has points. tools/frog_place.py writes these sidecars (moods per sentence, helmet / goggles, ride or corner).
 # markup()  -> SVG group string to put INTO a picture svg (ids fg<tag>_*), or into an overlay svg for chalkboard scenes
 # js()      -> GSAP lines (absolute timeline seconds) for that frog
-# Sidecar key in art3/<uid>.json: "frog": {"x": 220, "y": 1040, "s": 2.4, "flip": 1, "point": [tx, ty], "delay": 0.35}
-#   x, y = feet position (picture coords), s = scale (82 units tall at s=1), flip = -1 mirrors it (arm then points left),
-#   point = what the arm points at, delay = seconds after the unit starts. `"frog": true` = defaults.
-#   2026-10-24 (miya feedback on the first shorts): the arm no longer waves or nods; it rests down and turns ONLY when the pointed object changes.
-#   More keys: "points": [{"word": "Voyager", "to": [x, y]}, ...]  (arm retargets when that word is spoken; "point" = the first one),
-#     "moods": [{"word": "...", "mood": "happy|surprised|curious|worried|proud|excited"}] (first entry without "word" = at the start),
-#     "moves": [{"word": "...", "x": .., "y": .., "flip": 1|-1, "s": ..}] (the frog hops to a new place while explaining; s may change the size),
-#     "outfit": ["helmet"] | ["goggles"] (bubble space helmet / diving mask + snorkel), "enter": "hop" (default, jumps up from below) | "pop" (appears in place,
-#     use it when the frog sits on/in something so it does not rise through the picture), "stay": true (no exit fade-out needed, default).
-#   The frog is part of the picture, so it can ride a spaceship, dive, stand next to an animal: just put x, y (feet) on that object and pick the size.
+# Sidecar key in art3/<uid>.json: "frog": {"x": 220, "y": 1040, "s": 2.4, "flip": 1, "delay": 0.35, ...}
+#   x, y = feet position (picture coords; for "ride" the coordinates of the group before it moves), s = scale (82 units tall at s=1),
+#   flip = -1 mirrors it, delay = seconds after the unit starts. `"frog": true` = defaults.
+#   "ride": "<id of a picture group>"  the frog is injected into that group. Only use groups whose motion does not flip/fade/clip
+#     (core swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble, path, slide, swing). Never flip, flicker, reveal, fade, fill, grow, edge.
+#   "moods": [{"word": "...", "mood": "happy|surprised|curious|worried|proud|excited"}] (first entry without "word" = at the start),
+#   "outfit": ["helmet"] | ["goggles"] (bubble space helmet / diving mask + snorkel),
+#   "enter": "hop" (default, jumps up from below) | "pop" (appears in place),
+#   optional pointing (chalkboard, or a deliberate exception): "point": [tx, ty] or "points": [{"word": "Voyager", "to": [x, y], "obj": "<group class>"}];
+#     with "obj" (or "point_obj") the arm FOLLOWS that moving object (its position is read from the page every frame, modifiers keep it seekable).
+#     The arm turns ONLY when the pointed object changes; no waving or nodding. A unit without points hides the arm.
+#   "moves": [{"word": "...", "x": .., "y": .., "flip": 1|-1, "s": ..}]  the frog hops to a new place (not used with "ride").
 import math, re
 
 INK = '#1d2b1c'; GREEN = '#6aa55a'
@@ -82,6 +89,19 @@ def markup(tag, d):
             f'<path d="M0 0 L58 0" stroke-width="11"/><circle cx="60" cy="0" r="9" fill="{INK}" stroke="none"/>'
             f'<path d="M0 0 L58 0" stroke="{GREEN}" stroke-width="6"/><circle cx="60" cy="0" r="6" fill="{GREEN}" stroke="none"/>'
             f'</g></g></g></g>')
+
+RIDEABLE = re.compile(r'^mv-(core-(swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble)|path|slide|swing)')
+
+
+def lint(d, vert=False):
+    """warnings for a PICTURE-scene frog sidecar (guideline 7-2, 2026-10-25): it must ride a moving object or sit in a bottom corner, never stand mid-picture or point"""
+    w = []
+    if d.get('point') or d.get('points'): w.append('points in a picture scene (the explainer is chalkboard only)')
+    if d.get('ride'):
+        if not RIDEABLE.match(d['ride']): w.append(f'rides {d["ride"]}, a motion that flips/fades/fills/clips (pick a core swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble, path, slide or swing group)')
+    elif d['y'] < (1920 - 200 if vert else 1080 - 100): w.append('stands mid-picture (use "ride" or a bottom corner: python3 tools/frog_place.py <slug>)')
+    return w
+
 
 
 def inject(svg_text, mk, ride=None):

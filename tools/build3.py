@@ -30,10 +30,13 @@ MAXU = 6.2 * PACE     # target max seconds per unit (narration part); +gap keeps
 # config HOOK = dict(until=300, maxu=4.5): scenes that START before `until` seconds split at maxu instead of MAXU (more pictures).
 # Shorts: HOOK = dict(until=999, maxu=4.8). Extra keys (2026-10-16): minu (min on-screen s, default 3.5), minu_slow (4.5), slow (fewer pictures in slow scenes; changes uids).
 # 2026-10-17 defaults (guideline 20-2/21, used for left-handed-ten-percent and desert-oasis remakes): a config WITHOUT HOOK gets
-# long = dict(until=300, maxu=5.5), Shorts (VERT) = dict(until=999, maxu=6.0, slow=7.5); min on-screen 3.5 s (slow scenes 4.5 s).
+# long = dict(until=300, maxu=5.5), Shorts (VERT) = dict(until=999, maxu=6.0, slow=7.5); min on-screen 8.5 s (slow scenes 10 s) since 2026-10-25.
 # `HOOK = None` in config.py turns pacing off (old unit split, needed only to rebuild an old plan.json unchanged).
-HOOK_DEFAULT = dict(until=999, maxu=6.0, slow=7.5) if VERT else dict(until=300, maxu=5.5)
+# (2026-10-25, miya: scene changes felt too fast once object motions went in) minu / minu_slow = 5.667 / 6.667 before PACE = 8.5 s / 10 s minimum on screen
+# whenever a scene is long enough for its pictures; a scene too short for them shares its time evenly (no picture is ever dropped).
+HOOK_DEFAULT = dict(until=999, maxu=6.0, slow=7.5, minu=5.667, minu_slow=6.667) if VERT else dict(until=300, maxu=5.5, minu=5.667, minu_slow=6.667)
 HOOK = getattr(CFG, 'HOOK', HOOK_DEFAULT)
+if HOOK: HOOK = {**{k: v for k, v in HOOK_DEFAULT.items() if k in ('minu', 'minu_slow')}, **HOOK}   # a config HOOK without minu keeps the default minimum
 if HOOK: HOOK = {k: (v * PACE if k in ('maxu', 'slow', 'minu', 'minu_slow') else v) for k, v in HOOK.items()}
 timing = json.load(open(B + '/timing_base.json')); D = timing['D']
 BGMODE = getattr(CFG, 'BG', {})
@@ -388,6 +391,11 @@ if FROG_ON:
         if u_['kind'] == 'chalk' or SCENES[u_['scene'] - 1][0] == 'OUTRO': _prev = False; continue
         if len(FROG_HINT) < _cap and u_['scene'] in SLOW_SC and not _prev and u_['t0'] > 20: FROG_HINT[u_['uid']] = True; _prev = True
         else: _prev = False
+
+if FROG_ON and os.environ.get('PLAN') != '1':   # frog sidecar lint (guideline 7-2)
+    for u_ in units:
+        f_ = frog_of(u_) if u_['kind'] != 'chalk' else None
+        for m_ in (frog.lint(f_, VERT) if f_ else []): print('WARNING: frog', u_['uid'], m_)
 
 if os.environ.get('PLAN') == '1':
     if not getattr(CFG, 'PAL_DEFAULT', None): print('WARNING: config.py has no PAL_DEFAULT -> legacy purple/peach palette. Choose palettes from tools/palettes.py for this topic.')
