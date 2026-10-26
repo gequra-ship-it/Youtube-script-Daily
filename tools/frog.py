@@ -65,6 +65,7 @@ MOODS = {   # brows (left d, right d, opacity), pupil offset (dx, dy, r), mouth 
     'curious':   dict(bl='M-24 -82 q12 0 24 2', br='M10 -92 q12 -8 24 -2', bo=1, pup=(3, -4, 5), sm='M-8 -42 q14 7 28 -5', fill='none', lid=0),
     'worried':   dict(bl='M-24 -80 q12 -2 24 -8', br='M10 -88 q12 6 24 8', bo=1, pup=(0, 2, 5), sm='M-6 -38 q12 -9 24 0', fill='none', lid=0),
     'proud':     dict(bl='M-24 -84 q12 -6 24 0', br='M10 -84 q12 -6 24 0', bo=0, pup=(0, 1, 5), sm='M-10 -47 q16 20 32 0', fill='none', lid=9),
+    'sad':       dict(bl='M-24 -76 q12 -4 24 -12', br='M10 -88 q12 8 24 12', bo=1, pup=(0, 3, 6), sm='M-8 -36 q14 -10 28 0', fill='none', lid=0),   # miya 2026-10-26: sad / pleading face (caged, lonely): brows slanting up in the middle, mouth turned down, pupils looking down
     'scared':    dict(bl='M-24 -80 q12 -2 24 -9', br='M10 -89 q12 7 24 9', bo=1, pup=(0, 1, 3), sm='M-9 -39 q4.5 -7 9 0 q4.5 7 9 0 q4.5 -7 9 0', fill='none', lid=0),
     'squint':    dict(bl='M-24 -78 q12 -6 24 -2', br='M10 -80 q12 4 24 8', bo=1, pup=(0, 0, 4), sm='M-10 -47 q16 24 32 0z', fill='#7a2f2f', lid=11),
     'sleepy':    dict(bl='M-24 -80 q12 2 24 -2', br='M10 -82 q12 -2 24 2', bo=1, pup=(0, 3, 4.5), sm='M-6 -42 q8 3 16 0', fill='none', lid=14),
