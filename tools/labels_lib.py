@@ -129,6 +129,12 @@ CSS = '''.lab{position:absolute;width:0;height:0;z-index:5}
 .badge.dark{background:rgba(8,10,18,.72);color:#fff;border-left:12px solid var(--acc)}
 .labov{position:absolute;left:0;top:0;pointer-events:none;z-index:4}
 .labov g{opacity:0}
+.lab b i{display:inline-block;font-style:normal;white-space:pre}
+.lab.name b{background-repeat:no-repeat;background-size:0% 100%}
+.lab.name.hl b{background-image:linear-gradient(#ffe66d,#ffe66d)}
+.lab.dark.name.hl b{background-image:linear-gradient(rgba(255,230,109,.55),rgba(255,230,109,.55))}
+.lab b u{position:absolute;left:14px;right:14px;bottom:4px;height:3px;background:currentColor;transform:scaleX(0);transform-origin:0 50%}
+.badge{transform-origin:0% 50%}
 '''
 
 
@@ -158,7 +164,8 @@ def html_for(n, sc, bgmode, pal, W, H, vert):
                 ex, ey = tx2 - dx / L * 10, ty2 - dy / L * 10
                 g = (f'<g id="{lid}g"><path d="M{x + px:.0f},{y + py:.0f} L{ex:.0f},{ey:.0f} L{x - px:.0f},{y - py:.0f} Z" fill="#fffdf7" stroke="#1f1d1a" stroke-width="3" stroke-linejoin="round"/></g>')
         if g: ov.append(g)
-        inner.append(f'<div class="lab {ty} {cls}" id="{lid}" style="left:{x:.0f}px;top:{y:.0f}px;--ink:{ink}"><span><b id="{lid}s">{tx}</b></span></div>')
+        body = letters(tx) + '<u></u>' if ty == 'name' else tx   # round 4: one <i> per letter so letter effects can address them
+        inner.append(f'<div class="lab {ty} {cls}{" hl" if ty == "name" else ""}" id="{lid}" style="left:{x:.0f}px;top:{y:.0f}px;--ink:{ink}"><span><b id="{lid}s" style="position:relative">{body}</b></span></div>')
         items.append((ty, lid, f'{lid}g' if g else None, l))
     if ov: inner.insert(0, f'<svg class="labov" width="{W}" height="{H}" viewBox="0 0 {W} {H}">{"".join(ov)}</svg>')
     return ''.join(inner), ''.join(outer), items
@@ -180,3 +187,92 @@ def count_js(lid, tt):
     return (f'(function(){{var c=document.querySelector("#{lid} .cnt");if(!c)return;var v=+c.dataset.v,d=+c.dataset.dec,gp=c.dataset.grp==="1";'
             f'tl.fromTo(c,{{innerText:0}},{{innerText:v,duration:.9,ease:"power2.out",immediateRender:false,'
             f'modifiers:{{innerText:function(x){{return (+x).toLocaleString("en-US",{{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:gp}});}}}}}},{tt:.3f});}})();')
+
+
+# ---- text effects (round 4, 2026-10-26, miya: "텍스트 효과도", on-screen text only, never subtitles). Deterministic: the style of a
+# name label is picked from NAME_FX by (unit number * 7 + label index), a speech bubble by its punctuation, a number badge by its order,
+# and a few words of the unit text add a reaction (shake on danger words, highlight on key words). No randomness, no model choice.
+import re as _re
+NAME_FX = ['pop', 'typewriter', 'slideleft', 'rise', 'flip', 'zoom', 'stamp', 'wobble', 'blur', 'wave', 'drop', 'scatter', 'spin', 'swing', 'elastic',
+           'sink', 'slideright', 'bounceletters', 'zoomletters', 'flipletters', 'glow', 'underline', 'highlight', 'squeeze', 'fan']
+SAY_FX = {'!': 'slam', '?': 'tilt', '...': 'slowfade', '~': 'jiggle'}   # else 'pop'; every bubble then floats (bob) while it stays
+NUM_FX = ['slide', 'drop', 'flip', 'zoom', 'stamp', 'flashbg']
+DANGERW = _re.compile(r'\b(danger\w*|deadly|lethal|kill\w*|attack\w*|poison\w*|terror\w*|panic\w*|crash\w*|explo\w*|collaps\w*)\b', _re.I)
+KEYW = _re.compile(r'\b(the (key|secret|answer|reason)|most important|in fact|actually|turns out|the truth)\b', _re.I)
+TEXT_FX_KINDS = NAME_FX + list(SAY_FX.values()) + ['pop', 'bob', 'shake'] + NUM_FX
+
+
+def letters(tx):
+    """escaped text as one <i> per character (spaces kept inside their own <i> so widths stay)"""
+    return ''.join(f'<i>{c}</i>' for c in _re.findall(r'&[a-z]+;|.', tx))
+
+
+def name_fx(nn, k):
+    return NAME_FX[(nn * 7 + k) % len(NAME_FX)]
+
+
+def say_fx(tx):
+    t = tx.strip()
+    if t.endswith('...') or t.endswith('\u2026'): return 'slowfade'
+    for p, f in SAY_FX.items():
+        if p in t: return f
+    return 'pop'
+
+
+def label_js(ty, lid, tt, nn, k, text, utext, te=None):
+    """entrance (+ reaction) tweens for one name / say label at absolute time tt (seek-safe, finite). te = leave time for bubbles (bob until then)."""
+    S = f'"#{lid}s"'; L = f'"#{lid}s i"'; js = []; A = f'{tt:.3f}'
+    if ty == 'say':
+        f = say_fx(text)
+        if f == 'slam': js.append(f'tl.fromTo({S},{{opacity:0,scale:1.8}},{{opacity:1,scale:1,duration:.22,ease:"power3.in",immediateRender:false}},{A});tl.fromTo({S},{{x:0}},{{x:5,duration:.04,yoyo:true,repeat:5,immediateRender:false}},{tt + .22:.3f});')
+        elif f == 'tilt': js.append(f'tl.fromTo({S},{{opacity:0,scale:.6,rotation:-12,transformOrigin:"50% 100%"}},{{opacity:1,scale:1,rotation:0,duration:.4,ease:"back.out(2.5)",immediateRender:false}},{A});tl.fromTo({S},{{rotation:0}},{{rotation:5,duration:.5,yoyo:true,repeat:3,ease:"sine.inOut",immediateRender:false}},{tt + .45:.3f});')
+        elif f == 'slowfade': js.append(f'tl.fromTo({S},{{opacity:0,y:10}},{{opacity:1,y:0,duration:1.1,ease:"sine.out",immediateRender:false}},{A});')
+        elif f == 'jiggle': js.append(f'tl.fromTo({S},{{opacity:0,scale:.6}},{{opacity:1,scale:1,duration:.25,ease:"back.out(2)",immediateRender:false}},{A});tl.fromTo({S},{{skewX:-6}},{{skewX:6,duration:.18,yoyo:true,repeat:5,ease:"sine.inOut",immediateRender:false}},{tt + .25:.3f});')
+        else: js.append(f'tl.fromTo({S},{{opacity:0,scale:.6}},{{opacity:1,scale:1,duration:.25,ease:"back.out(2)",immediateRender:false}},{A});')
+        if te and te - tt > 2.2:   # the bubble floats gently while it stays (never jumps)
+            js.append(f'tl.fromTo({S},{{y:0}},{{y:-6,duration:1.4,yoyo:true,repeat:{max(int((te - tt - 1) / 1.4), 1)},ease:"sine.inOut",immediateRender:false}},{tt + 1:.3f});')
+        if DANGERW.search(utext): js.append(f'tl.fromTo({S},{{x:0}},{{x:-4,duration:.05,yoyo:true,repeat:7,immediateRender:false}},{tt + 1.6:.3f});')
+        return js
+    f = name_fx(nn, k); n = len(_re.findall(r'&[a-z]+;|.', text)); st = max(.02, min(.07, .5 / max(n, 1)))
+    V = lambda a, b, d, e='power2.out': f'tl.fromTo({S},{{{a}}},{{{b},duration:{d},ease:"{e}",immediateRender:false}},{A});'
+    LV = lambda a, b, d, e='power2.out', s=st: f'tl.set({S},{{opacity:1}},{A});tl.fromTo({L},{{{a}}},{{{b},duration:{d},stagger:{s},ease:"{e}",immediateRender:false}},{A});'
+    if f == 'pop': js.append(V('opacity:0,scale:.6', 'opacity:1,scale:1', .25, 'back.out(2)'))
+    elif f == 'typewriter': js.append(LV('opacity:0', 'opacity:1', .02, 'none'))
+    elif f == 'slideleft': js.append(V('opacity:0,x:-40', 'opacity:1,x:0', .35))
+    elif f == 'slideright': js.append(V('opacity:0,x:40', 'opacity:1,x:0', .35))
+    elif f == 'rise': js.append(V('opacity:0,y:30', 'opacity:1,y:0', .4))
+    elif f == 'sink': js.append(V('opacity:0,y:-30', 'opacity:1,y:0', .4, 'bounce.out'))
+    elif f == 'flip': js.append(V('opacity:0,rotationX:-90,transformPerspective:500,transformOrigin:"50% 50%"', 'opacity:1,rotationX:0', .45))
+    elif f == 'zoom': js.append(V('opacity:0,scale:2.2', 'opacity:1,scale:1', .35, 'power3.out'))
+    elif f == 'stamp': js.append(V('opacity:0,scale:1.6,rotation:-6,transformOrigin:"50% 50%"', 'opacity:1,scale:1,rotation:-2', .2, 'power3.in'))
+    elif f == 'wobble': js.append(V('opacity:0,rotation:-10,scale:.8,transformOrigin:"50% 100%"', 'opacity:1,rotation:0,scale:1', .55, 'elastic.out(1,.4)'))
+    elif f == 'blur': js.append(V('opacity:0,filter:"blur(12px)"', 'opacity:1,filter:"blur(0px)"', .5))
+    elif f == 'wave': js.append(V('opacity:0', 'opacity:1', .2, 'none') + f'tl.fromTo({L},{{y:0}},{{y:-8,duration:.22,yoyo:true,repeat:1,stagger:{st},ease:"sine.inOut",immediateRender:false}},{tt + .15:.3f});')
+    elif f == 'drop': js.append(LV('opacity:0,y:-28', 'opacity:1,y:0', .3, 'bounce.out'))
+    elif f == 'scatter': js.append(f'tl.set({S},{{opacity:1}},{A});' + ''.join(f'tl.fromTo("#{lid}s i:nth-child({i + 1})",{{opacity:0,x:{((i * 37) % 41) - 20},y:{((i * 53) % 31) - 15},rotation:{((i * 29) % 40) - 20}}},{{opacity:1,x:0,y:0,rotation:0,duration:.4,ease:"power2.out",immediateRender:false}},{tt + i * st:.3f});' for i in range(n)))
+    elif f == 'spin': js.append(LV('opacity:0,rotation:90,transformOrigin:"50% 50%"', 'opacity:1,rotation:0', .3, 'back.out(1.5)'))
+    elif f == 'swing': js.append(V('opacity:0,rotation:-25,transformOrigin:"0% 0%"', 'opacity:1,rotation:0', .6, 'elastic.out(1,.5)'))
+    elif f == 'elastic': js.append(V('opacity:0,scaleX:.3,transformOrigin:"0% 50%"', 'opacity:1,scaleX:1', .7, 'elastic.out(1,.45)'))
+    elif f == 'bounceletters': js.append(LV('opacity:0,scale:0,transformOrigin:"50% 100%"', 'opacity:1,scale:1', .35, 'back.out(3)'))
+    elif f == 'zoomletters': js.append(LV('opacity:0,scale:2.5,transformOrigin:"50% 50%"', 'opacity:1,scale:1', .25))
+    elif f == 'flipletters': js.append(LV('opacity:0,rotationY:90,transformPerspective:400,transformOrigin:"50% 50%"', 'opacity:1,rotationY:0', .3))
+    elif f == 'glow': js.append(V('opacity:0,scale:.9', 'opacity:1,scale:1', .3) + f'tl.fromTo({S},{{textShadow:"0 0 0px rgba(255,230,109,0)"}},{{textShadow:"0 0 18px rgba(255,230,109,.9)",duration:.6,yoyo:true,repeat:3,ease:"sine.inOut",immediateRender:false}},{tt + .3:.3f});')
+    elif f == 'underline': js.append(V('opacity:0,y:12', 'opacity:1,y:0', .3) + f'tl.fromTo("#{lid}s u",{{scaleX:0}},{{scaleX:1,duration:.4,ease:"power2.out",immediateRender:false}},{tt + .3:.3f});')
+    elif f == 'highlight': js.append(V('opacity:0', 'opacity:1', .25, 'none') + f'tl.fromTo({S},{{backgroundSize:"0% 100%"}},{{backgroundSize:"100% 100%",duration:.5,ease:"power2.inOut",immediateRender:false}},{tt + .2:.3f});')
+    elif f == 'squeeze': js.append(V('opacity:0,scaleY:.2,scaleX:1.4,transformOrigin:"50% 50%"', 'opacity:1,scaleY:1,scaleX:1', .4, 'back.out(1.7)'))
+    elif f == 'fan': js.append(LV('opacity:0,rotation:-40,y:10,transformOrigin:"0% 100%"', 'opacity:1,rotation:0,y:0', .3, 'back.out(1.5)'))
+    if KEYW.search(utext) and f not in ('highlight', 'glow'):   # key sentence: the name gets a quick emphasis pulse 1 s after it lands
+        js.append(f'tl.fromTo({S},{{scale:1}},{{scale:1.1,duration:.16,yoyo:true,repeat:1,ease:"power2.out",immediateRender:false}},{tt + 1.1:.3f});')
+    return js
+
+
+def badge_js(lid, tt, idx):
+    """entrance for the number badge: style by its order among all badges (NUM_FX rotation)"""
+    f = NUM_FX[idx % len(NUM_FX)]; Q = f'"#{lid}"'; A = f'{tt:.3f}'
+    if f == 'slide': return [f'tl.fromTo({Q},{{opacity:0,x:-30}},{{opacity:1,x:0,duration:.3,ease:"power2.out",immediateRender:false}},{A});']
+    if f == 'drop': return [f'tl.fromTo({Q},{{opacity:0,y:-60}},{{opacity:1,y:0,duration:.5,ease:"bounce.out",immediateRender:false}},{A});']
+    if f == 'flip': return [f'tl.fromTo({Q},{{opacity:0,rotationX:90,transformPerspective:600,transformOrigin:"50% 0%"}},{{opacity:1,rotationX:0,duration:.45,ease:"power2.out",immediateRender:false}},{A});']
+    if f == 'zoom': return [f'tl.fromTo({Q},{{opacity:0,scale:1.8}},{{opacity:1,scale:1,duration:.3,ease:"power3.out",immediateRender:false}},{A});']
+    if f == 'stamp': return [f'tl.fromTo({Q},{{opacity:0,scale:1.5,rotation:-4}},{{opacity:1,scale:1,rotation:0,duration:.2,ease:"power3.in",immediateRender:false}},{A});']
+    return [f'tl.fromTo({Q},{{opacity:0,x:-30}},{{opacity:1,x:0,duration:.3,ease:"power2.out",immediateRender:false}},{A});',
+            f'tl.fromTo({Q},{{filter:"brightness(1)"}},{{filter:"brightness(1.6)",duration:.12,yoyo:true,repeat:1,immediateRender:false}},{tt + .9:.3f});']   # flashbg: a bright blink when the count lands

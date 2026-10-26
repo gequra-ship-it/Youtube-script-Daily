@@ -45,7 +45,14 @@ POOL = {'pull': ['AAAAAH!', 'Nooo!', 'Heeelp!', 'Whoaaa!'], 'wind': ['Whooosh!',
         'look': ['Ooh!', 'Oh!', "What's that?"], 'sway': ['Hum hum...', 'La la la...'], 'breathe': ['Ahh...', 'Phew...'], 'float': ['Wheee!', 'Floaty...'],
         'hide': ["Can't look!", 'Eeek!', 'Nope nope!'], 'peek': ['Peek-a-boo!', 'Psst...', 'Who, me?'], 'hang': ['Hold on!', 'Wheee!', "Don't let go!"], 'tap': ['Knock knock!', 'Hmm, hard.', 'Tap tap.'],
         'rest': ['Ahh...', 'Safe at last.', 'Home sweet home.'], 'scope': ['I see it!', 'There!', 'Ooh, far away.'], 'wave': ['Hi there!', 'Hello!', 'Over here!'], 'startle': ['Eek!', 'Whoa!', 'Yikes!'],
-        'bounce': ['Boing boing.', 'Bumpy!', 'Wobbly...'], 'lean': ['Here we go!', 'Steady...', 'Off we go!']}   # (2026-10-26 review: "AAAAAH!" 10x, "Wheee!" 12x in one video)
+        'bounce': ['Boing boing.', 'Bumpy!', 'Wobbly...'], 'lean': ['Here we go!', 'Steady...', 'Off we go!'],
+        'dance': ['La la la~', 'Boom-cha!', 'Doo-doo-doo~'], 'salute': ['Aye aye!', 'Yes, captain!', 'Ready!'], 'think': ['Hmm...', 'Let me think.', 'But why?'], 'facepalm': ['Oh no...', 'Oops.', 'Not again!'],
+        'idea': ['Aha!', 'I know!', 'Eureka!'], 'dig': ['Dig dig dig.', 'Almost there!', 'Found something?'], 'read': ['Interesting...', 'Page 2...', 'Let me read.'], 'eat': ['Nom nom.', 'Munch munch.', 'Yum!'],
+        'cry': ['Sniff...', 'So sad...', 'Boo-hoo...'], 'photo': ['Say cheese!', 'Click!', 'Perfect shot!'], 'sneeze': ['Achoo!', 'Ah... ah... choo!', 'Sniff.'], 'clap': ['Bravo!', 'Well done!', 'Hooray!'],
+        'magnify': ['A clue!', 'Hmm, interesting.', 'Look closer...'], 'snooze': ['Zzz...', 'So slow...', 'Mmm... zzz.'],
+        'stretch': ['Good morning!', 'Stretch~', 'New day!'], 'shrug': ['Who knows?', 'No idea.', 'Beats me.'], 'bow': ['Thank you!', 'Much respect.', 'Honored!'], 'nervous': ['Uh-oh...', 'Gulp.', 'Careful...'],
+        'flex': ['So strong!', 'Hnnng!', 'Mighty!'], 'balance': ['Steady...', 'Whoa, careful!', 'Easy does it.'], 'listen': ['Shh... listen.', 'Did you hear that?', 'Hmm?'], 'search': ['Where is it?', 'Over there?', 'Hmm, nothing.'],
+        'yawn': ['Yaaawn...', 'So tired...', 'Long day.'], 'write': ['Noted!', 'Let me write that.', 'Scribble scribble.'], 'wish': ['Please...', 'I hope so!', 'Fingers crossed!'], 'faint': ['Too much...', 'Whoa... *thud*', 'I need a minute.']}   # (2026-10-26 review: "AAAAAH!" 10x, "Wheee!" 12x in one video)
 CONTEXT = [(re.compile(r'\b(clocks?|ticking|ticks?|seconds?|minutes?|hours?)\b', re.I), 'Tick tock...'), (re.compile(r'\b(scales?|balance|weigh\w*)\b', re.I), 'Which way?'),
            (re.compile(r'\b(maps?|charts?|graphs?|numbers?)\b', re.I), 'Let me see...'), (re.compile(r'\b(bones?|skeleton)\b', re.I), 'Bones!')]   # calm frogs: a word about what is on screen
 LAST = {'word': None, 'k': {}}
@@ -58,7 +65,7 @@ def pick_word(nm, text):
     k = LAST['k'].get(nm, 0); w = pool[k % len(pool)]
     if w == LAST['word'] and len(pool) > 1: k += 1; w = pool[k % len(pool)]
     LAST['k'][nm] = k + 1; LAST['word'] = w; return w
-CALM = ('tilt', 'look', 'sway', 'nod', 'breathe', 'tap', 'rest', 'scope', 'wave', 'bounce', 'lean')   # calm acts always get a bubble (guideline 7-2 B-1)
+CALM = ('tilt', 'look', 'sway', 'nod', 'breathe', 'tap', 'rest', 'scope', 'wave', 'bounce', 'lean', 'dance', 'salute', 'think', 'facepalm', 'idea', 'dig', 'read', 'eat', 'cry', 'photo', 'sneeze', 'clap', 'magnify', 'snooze', 'stretch', 'shrug', 'bow', 'nervous', 'flex', 'balance', 'listen', 'search', 'yawn', 'write', 'wish', 'faint')   # calm acts always get a bubble (guideline 7-2 B-1)
 # ---- round 3 (2026-10-26, guideline 7-2 D "relation acts"): the frog relates to a person / an object in the picture. Keyed on unit words + group ids only,
 #      so a different model, script or picture set gives the same choice. Only applied when the act so far is weak (calm / none / float / sleepy / awe / waves / cheer).
 HIDEW = re.compile(r'\b(terrif\w*|horror|horrif\w*|nightmare\w*|scream\w*|gruesome|monstrous|can.?t (look|watch)|too scary|dreadful|bloody|gore)\b', re.I)
@@ -79,6 +86,92 @@ ANGRYW = re.compile(r'\b(war\b|wars\b|fight\w*|attack\w*|villain\w*|enem\w*|gree
 POPG = re.compile(r'mv-(core-(pop|ping|stamp|drop|flicker)|popin)', re.I)
 PULSEG = re.compile(r'mv-(core-(heartbeat|swell|wobble)|liquid|bubble)', re.I)
 TRAVELG = re.compile(r'mv-(core-(glide|approach)|path|slide)', re.I)
+# ---- round 4 (2026-10-26, miya: more motions / costumes ready for any script). Acts by narration words; outfits by narration words. Guideline 7-2 D / E.
+DANCEW = re.compile(r'\b(music\w*|song\w*|sing\w*|danc\w*|rhythm\w*|melod\w*|drum\w*|beat\b|concert|orchestra|tune\b|hum\w*)\b', re.I)
+SALUTEW = re.compile(r'\b(mission\w*|captain\w*|commander\w*|army|soldier\w*|navy|crew\b|launch\w*|general\b|officer\w*|admiral|pilot\w*|command\b|order(s|ed)\b)\b', re.I)
+THINKW = re.compile(r'\b(why\b|question\w*|wonder\w*|puzzl\w*|riddle\w*|paradox\w*|debate\w*|theor\w*|hypothes\w*|philosoph\w*|thought experiment|imagine|suppose)\b', re.I)
+FACEW = re.compile(r'\b(mistake\w*|wrong\b|fail\w*|error\w*|oops|blunder\w*|forgot\w*|disaster\w*|embarrass\w*|miscalculat\w*|backfire\w*|flaw\w*)\b', re.I)
+IDEAW = re.compile(r'\b(idea\w*|realiz\w*|realis\w*|eureka|figured out|insight\w*|invent\w*|solution\w*|clever|breakthrough\w*|aha\b|brilliant)\b', re.I)
+DIGW = re.compile(r'\b(dig\w*|dug\b|fossil\w*|excavat\w*|archaeolog\w*|paleontolog\w*|buried|unearth\w*|tomb\w*|sediment\w*|layers? of rock|underground)\b', re.I)
+READW = re.compile(r'\b(read\w*|books?|pages?|chapter\w*|librar\w*|diar\w*|letters?|manuscript\w*|documents?|written|writing\w*|journal\w*|scroll\w*|text\b|archive\w*)\b', re.I)
+EATW = re.compile(r'\b(eat\w*|ate\b|food\w*|meal\w*|hungry|hunger|feast\w*|dinner|lunch|breakfast|tast\w*|delicious|calorie\w*|cook\w*|recipe\w*|chew\w*|swallow\w*|snack\w*|diet\w*)\b', re.I)
+CRYW = re.compile(r'\b(died|die\b|dies\b|dying|death\w*|extinct\w*|gone forever|farewell|goodbye|mourn\w*|grie\w*|tragic\w*|funeral\w*|perish\w*|last of (its|their) kind|never (came|come) back)\b', re.I)
+PHOTOW = re.compile(r'\b(photo\w*|camera\w*|pictures?|images?|snapshot\w*|footage|film\w*|portrait\w*|selfie\w*|photograph\w*)\b', re.I)
+SNEEZEW = re.compile(r'\b(dust\w*|pollen|sneez\w*|allerg\w*|pepper|spores?|ash\b|ashes|smoke\w*|soot)\b', re.I)
+CLAPW = re.compile(r'\b(applau\w*|congratulat\w*|bravo|success\w*|achiev\w*|triumph\w*|victor\w*|won\b|winner\w*|celebrat\w*|well done|record-breaking|prize\w*|award\w*|medal\w*)\b', re.I)
+MAGW = re.compile(r'\b(clue\w*|evidence|investigat\w*|detective\w*|examin\w*|inspect\w*|microscop\w*|tiny|microscopic|trace\w*|fingerprint\w*|close(r|ly)? look|zoom in)\b', re.I)
+SNOOZEW = re.compile(r'\b(boring|bored|wait(ed|ing)?|hours? pass\w*|slowly|centuries pass\w*|nothing happen\w*|idle|dull|yawn\w*)\b', re.I)
+OUTFIT_WORDS = [('crown', r'\b(king\w*|queen\w*|royal\w*|empire\w*|emperor\w*|throne\w*|pharaoh\w*|monarch\w*|prince\w*|princess\w*|kingdom\w*|crown\w*)\b'),
+                ('knight', r'\b(knight\w*|battle\w*|castle\w*|medieval|sword\w*|armou?r\w*|siege\w*|warrior\w*|war\b|wars\b)\b'),
+                ('pirate', r'\b(pirate\w*|treasure\w*|sail\w*|ship\w*|voyage\w*|harbou?r\w*|galleon\w*|captain\w*)\b'),
+                ('doctor', r'\b(doctor\w*|disease\w*|virus\w*|hospital\w*|medic\w*|infect\w*|plague\w*|sick\w*|surgeon\w*|patient\w*|epidemic\w*|pandemic\w*|vaccine\w*)\b'),
+                ('chef', r'\b(cook\w*|recipe\w*|kitchen\w*|chef\w*|bak\w*|dish\w*|cuisine|ingredient\w*)\b'),
+                ('hardhat', r'\b(build\w*|construct\w*|engineer\w*|bridge\w*|tower\w*|machine\w*|factor(y|ies)|crane\w*|dam\b|tunnel\w*|skyscraper\w*|concrete)\b'),
+                ('headphones', r'\b(music\w*|sound\w*|song\w*|listen\w*|radio\w*|signal\w*|frequenc\w*|noise\w*|audio|echo\w*)\b'),
+                ('gradcap', r'\b(school\w*|learn\w*|student\w*|teacher\w*|lesson\w*|exam\w*|universit\w*|graduat\w*|professor\w*|classroom\w*|homework)\b'),
+                ('strawhat', r'\b(farm\w*|harvest\w*|wheat|crop\w*|field\w*|plant\w*|seed\w*|garden\w*|orchard\w*|cattle|cows?)\b'),
+                ('umbrella', r'\b(rain\w*|storm\w*|downpour|monsoon|drizzl\w*|umbrella\w*|wet\b|flood\w*)\b'),
+                ('sunglasses', r'\b(sun\b|sunny|sunlight|sunshine|beach\w*|desert\w*|heat\w*|hot\b|hotter|bright\w*|glare|summer|tropical)\b'),
+                ('partyhat', r'\b(part(y|ies)|celebrat\w*|birthday\w*|festival\w*|anniversar\w*|holiday\w*|new year|confetti|parade\w*)\b'),
+                ('wizard', r'\b(magic\w*|wizard\w*|myth\w*|legend\w*|spell\w*|witch\w*|fairy|dragon\w*|sorcer\w*|enchant\w*|alchem\w*)\b'),
+                ('detective', r'\b(clue\w*|detective\w*|evidence|investigat\w*|mystery|mysteries|solve\w*|suspect\w*|case\b|sleuth\w*)\b')]
+OUTFIT_WORDS += [('tophat', r'\b(gentlem[ae]n|victorian|19th century|magician\w*|formal|top hat|aristocra\w*)\b'),
+                 ('beret', r'\b(art\b|arts\b|artist\w*|paint\w*|sculpt\w*|museum\w*|gallery|canvas|paris|french)\b'),
+                 ('cowboy', r'\b(cowboy\w*|wild west|ranch\w*|rodeo|frontier\w*|texas|saloon|lasso\w*)\b'),
+                 ('bandana', r'\b(rebel\w*|bandit\w*|outlaw\w*|mechanic\w*|workshop\w*|garage\w*|treasure hunt\w*)\b'),
+                 ('flowercrown', r'\b(spring\w*|bloom\w*|blossom\w*|meadow\w*|flowers?|petal\w*|pollen)\b'),
+                 ('alien', r'\b(alien\w*|extraterrestrial\w*|ufo\w*|martian\w*|life beyond|little green)\b'),
+                 ('bunny', r'\b(rabbit\w*|bunny|bunnies|hare\b|hares\b|easter|hop(s|ped|ping)?\b)\b'),
+                 ('santa', r'\b(christmas|santa|gift\w*|present(s|ed)?\b|december|reindeer|sleigh)\b'),
+                 ('bowtie', r'\b(ceremon\w*|dinner part\w*|elegan\w*|fancy|gala|opera|tuxedo|banquet\w*|butler\w*)\b'),
+                 ('cape', r'\b(hero\w*|superhero\w*|rescue\w*|sav(e|ed|ing) (the|a|his|her|their)|brave\w*|courage\w*|defend\w*)\b'),
+                 ('backpack', r'\b(hik\w*|trek\w*|journey\w*|travel\w*|camp\w*|backpack\w*|trail\w*|wander\w*|pilgrim\w*)\b'),
+                 ('lifevest', r'\b(lifeboat\w*|shipwreck\w*|overboard|drown\w*|rescue at sea|sink(s|ing)? ship|capsiz\w*|flood\w*|titanic)\b'),
+                 ('raincoat', r'\b(wet\b|puddle\w*|slipper\w*|soak\w*|drench\w*|damp|mud\w*|swamp\w*)\b'),
+                 ('beanie', r'\b(chill\w*|autumn|fall season|cozy|cosy|knit\w*|crisp air|frosty morning)\b'),
+                 ('halo', r'\b(angel\w*|heaven\w*|saint\w*|holy|sacred|afterlife|blessed|divine|god\b|gods\b|goddess\w*)\b'),
+                 ('ghost', r'\b(ghost\w*|haunt\w*|spirit\w*|spooky|halloween|phantom\w*|undead|zombie\w*)\b'),
+                 ('viking', r'\b(viking\w*|norse|longship\w*|raid\w*|scandinavia\w*|valhalla)\b'),
+                 ('roman', r'\b(rome|roman\w*|legion\w*|gladiator\w*|caesar|colosseum|centurion\w*)\b'),
+                 ('samurai', r'\b(samurai|japan\w*|shogun\w*|katana|edo|ninja\w*)\b'),
+                 ('headlamp', r'\b(mine\b|mines\b|miner\w*|cavern\w*|tunnel\w*|underground|pitch[- ]black|cave\w*)\b'),
+                 ('firefighter', r'\b(firefight\w*|blaze\w*|hose\w*|wildfire\w*|put out the fire|fire brigade|fire truck)\b'),
+                 ('police', r'\b(police|crime\w*|arrest\w*|jail\w*|prison\w*|guard\w*|patrol\w*|sheriff\w*|law enforcement)\b'),
+                 ('aviator', r'\b(fly|flies|flying|flight\w*|pilot\w*|aviat\w*|airplane\w*|aircraft|wright brothers|cockpit)\b'),
+                 ('monocle', r'\b(rich\w*|wealth\w*|aristocra\w*|lord\w*|banker\w*|fortune\w*|millionaire\w*|billionaire\w*|luxur\w*|tycoon\w*)\b'),
+                 ('glasses', r'\b(expert\w*|professor\w*|research\w*|intellect\w*|genius\w*|scholar\w*|philosoph\w*|mathematic\w*|calculat\w*)\b'),
+                 ('medal', r'\b(champion\w*|olympi\w*|gold medal\w*|world record\w*|winner\w*|first place|trophy|trophies)\b'),
+                 ('laurel', r'\b(greece|greek\w*|ancient|athens|sparta\w*|poet\w*|olympus|plato|aristotle|socrates)\b'),
+                 ('propcap', r'\b(toy\w*|play\w*|kid\w*|child\w*|playground\w*|cartoon\w*|games?\b|puppet\w*)\b'),
+                 ('headband', r'\b(sport\w*|run(s|ner|ners|ning)?\b|race\w*|marathon\w*|exercis\w*|athlet\w*|training|gym|sprint\w*|jog\w*)\b'),
+                 ('vr', r'\b(virtual|simulat\w*|digital|computer\w*|software|cyber\w*|\bai\b|robot\w*|algorithm\w*|internet|online|video game\w*)\b'),
+                 ('tinfoil', r'\b(conspirac\w*|hoax\w*|skeptic\w*|sceptic\w*|paranoi\w*|rumou?r\w*|myth busted|fake)\b'),
+                 ('bandage', r'\b(injur\w*|hurt\w*|wound\w*|accident\w*|broken (leg|arm|bone)|bruis\w*|pain\w*|scar\w*)\b'),
+                 ('dino', r'\b(dinosaur\w*|jurassic|t\.? ?rex|prehistoric|cretaceous|triassic|velociraptor\w*)\b'),
+                 ('shark', r'\b(shark\w*|predator\w*|jaws)\b'),
+                 ('bee', r'\b(bees?\b|honey\w*|pollinat\w*|hive\w*|insect\w*|bugs?\b|wasp\w*|beetle\w*)\b'),
+                 ('clown', r'\b(funny|jok\w*|comed\w*|laugh\w*|silly|prank\w*|circus\w*|hilarious|giggl\w*)\b'),
+                 ('mustache', r'\b(mustache\w*|moustache\w*|old days|grandpa|grandfather\w*|elder\w*|19th|1800s|1900s|century ago)\b'),
+                 ('earmuffs', r'\b(loud\w*|nois\w*|deafen\w*|roar\w*|thunder\w*|blast\w*|decibel\w*)\b'),
+                 ('turtle', r'\b(turtle\w*|tortoise\w*|shell\w*|slow and steady|armou?r\w*)\b'),
+                 ('wings', r'\b(wings?\b|fairy|fairies|butterfl\w*|angel\w*|flutter\w*|moth\w*)\b'),
+                 ('crownleaf', r'\b(autumn leaves|harvest festival|thanksgiving|forest king|woodland\w*|druid\w*)\b')]
+OUTFIT_WORDS = [(n, re.compile(rx, re.I)) for n, rx in OUTFIT_WORDS]
+# round 4b acts by words (checked after the task acts, before 'wave'): (act, regex, mood)
+ACT_WORDS2 = [('stretch', r'\b(morning\w*|wak(e|es|ing|ened)\b|woke|dawn\w*|sunrise|a new day|fresh start)\b'),
+              ('shrug', r'\b(nobody knows|no one knows|uncertain\w*|unknown|not sure|who knows|we don.?t know|remains? a mystery|unclear|debated)\b'),
+              ('bow', r'\b(thank\w*|respect\w*|hono\w*|greet\w*|welcome\w*|tribute\w*|salute\w*|curtain call|applaud\w*)\b'),
+              ('nervous', r'\b(nervous\w*|anxious\w*|pressure|deadline\w*|danger\w*|risk\w*|tense|tension|stress\w*|worr\w*|hold your breath)\b'),
+              ('flex', r'\b(strong\w*|strength|power\w*|muscle\w*|mighty|force\w*|lift\w*|heav(y|ier|iest)|robust|tough)\b'),
+              ('balance', r'\b(balanc\w*|tightrope|careful\w*|on the edge|delicate|fragile|equilibrium|steady|stabl\w*)\b'),
+              ('listen', r'\b(hear\w*|listen\w*|whisper\w*|signal\w*|echo\w*|sound\w*|voice\w*|noise\w*|radio)\b'),
+              ('search', r'\b(lost\b|missing|search\w*|look(ed|ing)? for|where (is|are|did|was)|hunt(ed|ing)? for|seek\w*|scour\w*|track(ed|ing)? down)\b'),
+              ('yawn', r'\b(tired|exhaust\w*|sleepless|all night|long night|weary|fatigue\w*|drows\w*)\b'),
+              ('write', r'\b(wrote|writ(e|es|ing|ten)\b|not(e|es|ed|ing)\b|calculat\w*|equation\w*|formula\w*|record(ed|ing)?\b|list(ed|ing)?\b|journal\w*|diar\w*)\b'),
+              ('wish', r'\b(hop(e|es|ed|ing)\b|wish\w*|pray\w*|dream\w*|long(ed|ing)? for|yearn\w*|please let|fingers crossed)\b'),
+              ('faint', r'\b(faint\w*|collaps\w*|overwhelm\w*|pass(ed|es)? out|knock(ed)? out|too much|dizzy|exhausted|staggering|mind-?blowing|mind-?boggling)\b')]
+ACT_WORDS2 = [(a, re.compile(rx, re.I)) for a, rx in ACT_WORDS2]
+ACT_MOOD2 = {'stretch': 'sleepy', 'shrug': 'worried', 'bow': 'proud', 'nervous': 'worried', 'flex': 'proud', 'balance': 'squint', 'listen': 'curious', 'search': 'squint', 'yawn': 'sleepy', 'write': 'curious', 'wish': 'love', 'faint': 'dizzy'}
 WEAK = ('float', 'sleepy', 'awe', 'waves', 'cheer', 'nod', None)
 STRONG = ('pull', 'shiver', 'awe', 'wind', 'orbit', 'dizzy', 'slide', 'hide', 'peek', 'hang', 'startle')   # always get a sound word; the other acts every second unit (miya 2026-10-26: speech bubble with emotion / sound words)
 def says_for(act, keep, text, cnt):
@@ -146,14 +239,50 @@ def perch(pg, g, W, H, vert, tb, n):
         if sc == 0: break
     if best is None: return None
     return dict(x=best[1], y=best[2], s=s, flip=1 if best[1] < W / 2 else -1, bside=best[3])
+# round 4c (2026-10-26, miya: more expressions, picked per script + picture): sentence words -> one of the 20 new faces, first match wins,
+# checked BEFORE the old punctuation / number rules. Playful faces (laugh, grin, cheeky, mischief, smug, wink) are dropped on serious topics.
+MOODW = [
+    ('tearful', r'\b(goodbye|farewell|tears?|wept|weep\w*|cried|crying|grie\w*|heartbreak\w*|last breath)\b'),
+    ('hurt', r'\b(pain\w*|hurt\w*|sting\w*|bit(e|es|ten)|wound\w*|ouch|ache\w*|bruis\w*|burned)\b'),
+    ('queasy', r'\b(rot\w*|stench|stink\w*|slime|slimy|decay\w*|putrid|maggot\w*|vomit\w*|nause\w*|seasick)\b'),
+    ('disgust', r'\b(gross|disgust\w*|foul|revolting|filth\w*|yuck|eww|sewage)\b'),
+    ('chilly', r'\b(freez\w*|frozen|frost\w*|icy|ice-cold|chill\w*|subzero|blizzard\w*|shiver\w*)\b'),
+    ('hot', r'\b(scorch\w*|sweltering|blazing|heatwave|boiling hot|furnace|molten|sunburn\w*|overheat\w*)\b'),
+    ('awe', r'\b(vast|enormous|gigantic|immense|colossal|countless|unimaginabl\w*|towering|staggering|mind-boggling)\b'),
+    ('starry', r'\b(treasure\w*|jewel\w*|gold|diamond\w*|magic\w*|dream come true|sparkl\w*|glitter\w*|dazzl\w*)\b'),
+    ('laugh', r'\b(funny|hilarious|joke\w*|laugh\w*|giggl\w*|comical|ridiculous)\b'),
+    ('grin', r'\b(delicious|yummy|tasty|feast\w*|victory|won\b|winner\w*|jackpot|success\w*)\b'),
+    ('cheeky', r'\b(silly|playful|tease\w*|teasing|goof\w*|mischie\w*|naughty)\b'),
+    ('mischief', r'\b(sneak\w*|prank\w*|trick\w*|scheme\w*|plot\w*|cunning|sly)\b'),
+    ('smug', r'\b(of course|obviously|easy|easily|effortless\w*|genius|clever\w*|outsmart\w*)\b'),
+    ('wink', r'\b(secret\w*|between us|hint|wink\w*|spoiler|little trick)\b'),
+    ('pout', r'\b(unfair|refus\w*|denied|forbid\w*|not allowed|no way|banned|rejected)\b'),
+    ('bored', r'\b(boring|bored|tedious|monoton\w*|waiting|waited|nothing happen\w*|for centuries|for ages|dull)\b'),
+    ('confused', r'\b(confus\w*|puzzl\w*|strange\w*|odd|weird|baffl\w*|bewilder\w*|makes no sense|paradox\w*)\b'),
+    ('suspicious', r'\b(suspect\w*|suspicious|lie\b|lies\b|lying|fake\w*|fraud\w*|hidden|conceal\w*|hoax\w*|too good to be true)\b'),
+    ('determined', r'\b(mission\w*|must\b|never give up|persist\w*|struggl\w*|determin\w*|against all odds|fight on|push\w* on|endur\w*)\b'),
+    ('blush', r'\b(shy|embarrass\w*|blush\w*|compliment\w*|praise\w*|flatter\w*|bashful|crush on)\b'),
+]
+MOODW = [(m, re.compile(r, re.I)) for m, r in MOODW]
+PLAYFUL = ('laugh', 'grin', 'cheeky', 'mischief', 'smug', 'wink', 'blush', 'starry')
+# picture -> face: the name of the group the frog rides / stands by, when the sentence gave only a default face
+RIDE_MOOD = [('determined', r'rocket|ship|probe|voyager|plane|jet|sled|boat|raft|canoe|car\b|train'), ('awe', r'whale|giant|mountain|volcano|tower|dinosaur|mammoth|planet|galaxy|sun\b'),
+             ('starry', r'treasure|gold|gem|coin|crystal|jewel|crown'), ('hot', r'fire|lava|flame|furnace|sun\b|star\b'), ('chilly', r'ice|snow|glacier|iceberg|frost'),
+             ('queasy', r'skull|bone|carcass|rot|slime|garbage|trash')]
+RIDE_MOOD = [(m, re.compile(r, re.I)) for m, r in RIDE_MOOD]
+PAL_MOOD = {'ice': 'chilly', 'desert': 'hot'}   # palette default for a calm first face
+
+
 def mood_of(s):
+    for m, rx in MOODW:
+        if rx.search(s) and not (SERIOUS and m in PLAYFUL): return m
     if s.rstrip().endswith('?'): return 'curious'
     if s.rstrip().endswith('!'): return 'excited'
     if re.search(r'\b(never|impossible|terrifying|trapped|lost|prison|dark|fade|alone|gone)\b', s, re.I): return 'worried'
     if re.search(r'\d|\b(billion|million|thousand|trillion|faster|fastest)\b', s, re.I): return 'surprised'
     if re.search(r'\b(but|however|yet|actually|here)\b', s, re.I): return 'curious'
     return 'happy'
-n = 0
+n = 0; SERIOUS = False
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path=chrome(), args=['--no-sandbox']); pg = b.new_page()
     for slug in sys.argv[1:]:
@@ -267,6 +396,12 @@ with sync_playwright() as p:
             rk = keep.get('ride') or ''
             if weak and HIDEW.search(text):
                 keep['act'] = 'hide'; keep['moods'][0] = {'mood': 'scared'}
+            elif weak and CRYW.search(text) and not keep.get('cling'):   # round 4: a death / extinction / goodbye -> cries beside or on the object
+                keep['act'] = 'cry'; keep['moods'][0] = {'mood': 'sad'}
+            elif weak and FACEW.search(text):
+                keep['act'] = 'facepalm'; keep['moods'][0] = {'mood': 'worried'}
+            elif weak and IDEAW.search(text) and not SERIOUS:
+                keep['act'] = 'idea'; keep['moods'][0] = {'mood': 'excited'}
             elif weak and PEEKW.search(text) and big:   # hidden behind the biggest object, peeking out on the side toward the screen centre
                 _, bx, by, bw, bh = big[0]; side = 1 if bx + bw / 2 < W / 2 else -1; s0 = round(1.0 if not vert else 1.2, 2)
                 px = bx + bw - 10 if side > 0 else bx + 10; py = max(min(by + bh, H - (460 if vert else 290)), 82 * s0 + 150)
@@ -281,19 +416,35 @@ with sync_playwright() as p:
                 keep['act'] = 'rest'; keep['moods'][0] = {'mood': 'happy' if not NIGHTW.search(text) else 'sleepy'}
             elif weak and SCOPEW.search(text) and (SPACE.search(text) or palname in ('space', 'deepfield') or re.search(r'telescope|observ', text, re.I)):
                 keep['act'] = 'scope'; keep['moods'][0] = {'mood': 'curious'}
+            elif weak and DIGW.search(text) and not keep.get('ride'): keep['act'] = 'dig'; keep['moods'][0] = {'mood': 'curious'}            # round 4 task acts (words only)
+            elif weak and MAGW.search(text): keep['act'] = 'magnify'; keep['moods'][0] = {'mood': 'curious'}
+            elif weak and READW.search(text) and not dood: keep['act'] = 'read'; keep['moods'][0] = {'mood': 'curious'}
+            elif weak and PHOTOW.search(text): keep['act'] = 'photo'; keep['moods'][0] = {'mood': 'happy'}
+            elif weak and EATW.search(text) and not SERIOUS: keep['act'] = 'eat'; keep['moods'][0] = {'mood': 'happy'}
+            elif weak and DANCEW.search(text) and not SERIOUS: keep['act'] = 'dance'; keep['moods'][0] = {'mood': 'excited'}
+            elif weak and CLAPW.search(text) and not SERIOUS: keep['act'] = 'clap'; keep['moods'][0] = {'mood': 'proud'}
+            elif weak and SALUTEW.search(text): keep['act'] = 'salute'; keep['moods'][0] = {'mood': 'proud'}
+            elif weak and THINKW.search(text): keep['act'] = 'think'; keep['moods'][0] = {'mood': 'curious'}
+            elif weak and SNEEZEW.search(text) and not SPACE.search(text): keep['act'] = 'sneeze'; keep['moods'][0] = {'mood': 'squint'}
+            elif weak and SNOOZEW.search(text) and keep.get('ride'): keep['act'] = 'snooze'; keep['moods'][0] = {'mood': 'sleepy'}
+            elif weak and any(rx_.search(text) for _a, rx_ in ACT_WORDS2):   # round 4b data-driven acts (first matching word rule)
+                a2 = next(a_ for a_, rx_ in ACT_WORDS2 if rx_.search(text)); keep['act'] = a2; keep['moods'][0] = {'mood': ACT_MOOD2[a2]}
             elif weak and any(PERSON.search(g) for g in gs) and not keep.get('ride'):   # a person in the picture and nothing better to do: stands near them and waves
                 pg2 = sorted([g for g in gs.values() if PERSON.search(g[0])], key=lambda g: -g[4])[0]; pos2 = beside(pg2, W, H, vert, tb)
                 if pos2: keep.update(kind='bg', ride=None, act='wave', moods=[{'mood': 'happy'}], **pos2); keep.pop('roam', None)
             elif weak and rk and POPG.search(rk): keep['act'] = 'startle'
             elif weak and rk and PULSEG.search(rk) and cur in CALM: keep['act'] = 'bounce'
             elif weak and rk and TRAVELG.search(rk) and cur in CALM and n % 2 == 0: keep['act'] = 'lean'   # every other ride on a traveller leans back; the others keep their calm act (variety)
-            if keep.get('act') in ('scope', 'hide', 'tap', 'rest', 'wave', 'peek', 'hang'): keep.pop('roam', None)   # these are done in place, not while roaming
+            if keep.get('act') in ('scope', 'hide', 'tap', 'rest', 'wave', 'peek', 'hang', 'cry', 'facepalm', 'idea', 'dig', 'magnify', 'read', 'photo', 'eat', 'dance', 'clap', 'salute', 'think', 'sneeze', 'snooze') or keep.get('act') in ACT_MOOD2: keep.pop('roam', None)   # these are done in place, not while roaming
             # outfits by scene words (not over diving gear / helmet / fore)
             if not keep.get('outfit'):
                 if LABW.search(text): keep['outfit'] = ['lab']
                 elif EXPLW.search(text) and not SEA.search(text): keep['outfit'] = ['explorer']
                 elif SCARFW.search(text): keep['outfit'] = ['scarf']
                 elif NIGHTW.search(text): keep['outfit'] = ['nightcap']
+                else:   # round 4: 14 more costumes by narration words, first match in the list order (crown, knight, pirate, doctor, chef, hardhat, headphones, gradcap, strawhat, umbrella, sunglasses, partyhat, wizard, detective)
+                    for nm_, rx_ in OUTFIT_WORDS:
+                        if rx_.search(text) and not (nm_ == 'pirate' and SPACE.search(text)) and not (nm_ == 'sunglasses' and (SPACE.search(text) or SEA.search(text))): keep['outfit'] = [nm_]; break
             # extra faces on the first sentence when no strong act fixed it
             if keep.get('act') not in STRONG and not isinstance(keep.get('act'), dict):
                 if ANGRYW.search(text): keep['moods'][0] = {'mood': 'angry'}
@@ -339,6 +490,13 @@ with sync_playwright() as p:
             keep['says'] = says_for(keep['act'], keep, text, cnt_say); keep['bside'] = keep.get('bside') or (1 if keep['x'] < W / 2 else -1)
             if isinstance(keep['act'], dict) and keep['act'].get('type') == 'push': keep['says'] = [{'text': 'Heave-ho!', 't': 1.0, 'dur': 1.6, 'shout': True}]
             if keep.get('_huts'): keep['says'] = [{'text': w_, 't': round(t_, 2), 'dur': 1.0, 'shout': True} for t_, w_ in keep.pop('_huts')]
+            # round 4c: picture / palette faces when the first sentence gave only a default face and no strong act fixed one
+            if keep['moods'][0]['mood'] in ('happy', 'curious', 'surprised') and keep.get('act') not in STRONG and not isinstance(keep.get('act'), dict):
+                rn = keep.get('ride') or ''; pm = None
+                for m_, rx_ in RIDE_MOOD:
+                    if rx_.search(rn): pm = m_; break
+                pm = pm or PAL_MOOD.get(palname)
+                if pm and not (SERIOUS and pm in PLAYFUL): keep['moods'][0] = {'mood': pm}
             if SERIOUS:   # grim topics (config FROG_TONE='serious'): curious / worried faces, no cheering or happy sound words
                 for m_ in keep['moods']:
                     if m_['mood'] in ('excited', 'happy'): m_['mood'] = 'curious'

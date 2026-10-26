@@ -76,6 +76,7 @@ left/centre/right, not in the bottom 200 px or top-right corner; every visible p
 | `mv-lamp` `mv-lantern` `mv-beacon` `mv-glint` | light pulse (size 1 -> 1.06, opacity .85 -> 1) |
 | `mv-smoke` `mv-steam` `mv-stink` `mv-cells` `mv-rain` `mv-key` | drift up |
 | `mv-bell` `mv-knot` / `mv-antenna` | swing / sway |
+| `mv-<kind>-<name>` 35 more kinds (2026-10-26 round 4): `bob hover pendulum wiggle tilt crumble emph spin rollby float flap swim hop drip unfold unroll flagwave ripple sparkle circle squash neon shiver beat settle magnet bouncing creep sink ascend tick flicker breathe nodding sway` | each kind's AXIS is fixed in `tools/motions.py` (comment per kind): pendulum/drip/unfold = TOP edge, tilt/sway/squash/hop/bouncing = FEET (bottom), flap/tick/spin = CENTRE, unroll = LEFT edge, flagwave = the pole side, `circle` needs `data-pivot` = orbit centre (else it floats). Name the group after the THING (`mv-sway-tree`, `mv-spin-coin`): the builder reads the name and fixes a wrong axis or kind automatically (a tree never spins, a whale never drops/rolls, a lantern asked to spin swings instead); `data-keep="1"` keeps your choice |
 | `mv-blink-*` eyes of a creature/person (whites + pupils in ONE group, nothing else) | eyelids close for 0.07 s at an irregular rhythm (3.1 / 4.2 / 0.35 / 2.5 s); draw each face's eyes as their own group so they can blink (2026-10-26) |
 
 **Creature joints (guideline 20-6)**, never one stiff piece:
@@ -92,6 +93,10 @@ left/centre/right, not in the bottom 200 px or top-right corner; every visible p
 **Centre object `mv-core-<type>` (only when the scene uses one; flexible)**, by its nature (guideline 4-1, `tools/motions.py`): spin, sway, orbit, glide, heartbeat,
 flicker, swell, tremble, approach, reveal, squeeze, wobble, roll, pop, ping, stamp, flip, draw, drop. Not the neighbour's type, never a plain bob;
 per video at least 10 types, none above 20 %. `draw` traces stroked outlines (give real outlines). Old `mv-glint-core`: type by rotation.
+
+**Axis rule (2026-10-26, round 4, owner request):** every motion group is named after the thing it holds, in English, singular (`mv-core-sway-tree`, `mv-swing-sign`, `mv-sway-person`). The builder (`motions.pivot_of`) turns the name into the pivot: things standing on the ground (tree, pole, tower, person, house, flag, sign …) pivot at the BOTTOM (the trunk stays, the crown sways), hanging things (lantern, bell, rope, vine, icicle …) pivot at the TOP, centred things (ship, scale, planet, wheel, compass needle …) at the CENTRE. Non-round things never spin/roll/flip; heavy bodies never drop. If you draw a tree that really should pivot at the top (an upside-down reflection, say) add `data-keep="1"`. Do not write `data-pivot` to fake an axis the name already gives.
+
+Background effects (rain, snow, bubbles, fog, rays … 57 kinds) and on-screen text effects are added by the builder from the narration words and the palette; do NOT draw rain/snow/particles into the picture (guideline 4-1 "4차 보강").
 
 ## 8. Sidecar JSON (exact keys)
 ```

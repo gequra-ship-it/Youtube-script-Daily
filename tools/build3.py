@@ -492,13 +492,13 @@ CSRC_ST = ' style="left:340px"' if FROG_ON else ''
 
 def chalk_html(i):
     c = CHALK[i]; out = [f'<div class="chalk" id="k{i}">']
-    out.append(f'<div class="ct">{html.escape(c["title"])}</div><div class="cs">{html.escape(c["sub"])}</div>')
+    out.append(f'<div class="ct">{motions.chalk_title_html(c["title"])}</div><div class="cs">{html.escape(c["sub"])}</div>')   # round 4: written on letter by letter
     out.append(f'<div class="csrc"{CSRC_ST}>{html.escape(c["src"])}</div><div class="csig">Talking in class:<br>Miya</div>')
     for r, (lab, val, info, col, key) in enumerate(c['rows']):
         out.append(f'<div class="ph" id="k{i}ph{r}" style="top:{ROW_Y[r]}px"></div>')
         out.append(f'<div class="row {col}" id="k{i}r{r}" style="top:{ROW_Y[r]}px"><span class="l">{html.escape(lab)}</span>'
                    f'<span class="v">{html.escape(val)}</span><span class="n">{html.escape(info)}</span></div>')
-    out.append(f'<div class="cc" id="k{i}cc">{html.escape(c["concl"][0])}</div>')
+    out.append(f'<div class="cc" id="k{i}cc">{html.escape(c["concl"][0])}</div><div class="cul" id="k{i}ul"></div>')   # round 4: chalk underline under the conclusion
     out.append(('<div class="chalks" style="left:430px">' if FROG_ON else '<div class="chalks">') + '<i style="background:#f4f1e8"></i><i style="background:#efca69"></i><i style="background:#e5826b"></i><i style="background:#9fd0e6"></i></div>')
     out.append('<div class="erasers"><b></b><b></b></div>' + chalk_frog(i) + '</div>')
     return '\n'.join(out)
@@ -565,6 +565,8 @@ h.append('''#logo{position:absolute;left:1799px;top:40px;width:81px;height:81px;
 .row.y .v{color:#EFCA69}.row.c .v{color:#E5826B}
 .row .n{width:462px;padding-right:30px;text-align:right;font:400 26px/32px Patrick,sans-serif;color:#d9dccf}
 .cc{position:absolute;left:0;width:1920px;top:790px;text-align:center;font:700 38px/46px Fredoka,sans-serif;color:#fff;opacity:0}
+.cul{position:absolute;left:760px;width:400px;top:842px;height:4px;border-radius:2px;background:#efca69;opacity:0}
+.ct i{display:inline-block;font-style:normal}
 .chalks{position:absolute;left:70px;top:1032px;display:flex;gap:18px}.chalks i{display:block;width:56px;height:14px;border-radius:5px}
 .erasers{position:absolute;left:1722px;top:1022px;display:flex;gap:14px}.erasers b{display:block;width:70px;height:26px;border-radius:4px;background:#5b4a38;border-bottom:8px solid #c9b79a}
 '''.replace('@W', str(W)).replace('@H', str(H)))
@@ -583,8 +585,8 @@ def is_speed(u, sc0):
     if 'speed' in sc0: return bool(sc0['speed'])
     return getattr(CFG, 'STYLE', 'default') == 'cosmic' and bool(SPEED_RE.search(u['text']))
 DRIFT = getattr(CFG, 'DRIFT', True)   # slow continuous camera move on every picture without a focus target (guideline 20-1)
-fallback_used = []; label_errors = []; label_items = {}; BADGES = []
-for u in units:
+fallback_used = []; label_errors = []; label_items = {}; BADGES = []; FXU = {}; FXPREV = []
+for k, u in enumerate(units):   # k = unit index (round 4 effects are keyed on it)
     nn = u['n']
     if u['kind'] == 'chalk':
         h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{chalk_html(u["scene"])}</div></div>')
@@ -608,7 +610,10 @@ for u in units:
             spd = (f'<div class="spd" id="spd{nn}"><div style="position:absolute;left:{ox:.0f}px;top:{oy:.0f}px">'
                    + ''.join(f'<i style="transform:rotate({(k * 137.508) % 360:.1f}deg)"><b></b></i>' for k in range(NSPD)) + '</div></div>')
         ss = (f'<svg class="ss" id="ss{nn}" viewBox="0 0 {W} {H}"><g id="ssl{nn}"><line x1="0" y1="0" x2="230" y2="108" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".22"/><line x1="0" y1="0" x2="230" y2="108" stroke="#fff" stroke-width="3.5" stroke-linecap="round" opacity=".95"/><circle cx="230" cy="108" r="5" fill="#fff"/></g></svg>') if is_cosmic(u) else ''
-        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{frog_inject(load_svg(nn, p, sc0.get('world')), u)}{spot}{lin}</div>{spd}{ss}</div>')
+        _fx = motions.fx_for(u['text'], (u.get('pal') or {}).get('palette') if isinstance(u.get('pal'), dict) else palettes.for_theme(CFG, SCENES[u['scene'] - 1][3]), BGMODE.get(SCENES[u['scene'] - 1][3], 'paper'), k, u['t1'] - u['t0'], cosmic=is_cosmic(u), prev=FXPREV)
+        FXPREV.append(_fx[0][0] if _fx else None)
+        FXU[nn] = _fx; fxm = ''.join(motions.fx_markup(nn, kd, W, H, BGMODE.get(SCENES[u['scene'] - 1][3], 'paper')) for kd, _ in _fx)   # round 4 background effects (rain / snow / embers / flash / bubbles)
+        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{frog_inject(load_svg(nn, p, sc0.get('world')), u)}{spot}{lin}</div>{spd}{ss}{fxm}</div>')
         BADGES.append(lout)   # number badges live on their own layer so they do not vanish with the cut (user 2026-10-16)
 if label_errors: raise SystemExit('on-screen text (labels) problems, fix the sidecars:\n  ' + '\n  '.join(label_errors))
 h.append('<div id="badges" style="position:absolute;left:0;top:0;width:0;height:0;z-index:998">' + ''.join(BADGES) + '</div>')
@@ -635,7 +640,7 @@ if getattr(CFG, 'STYLE', 'default') == 'cosmic':   # cosmic videos: no swish/hus
              'push': ('warp', -0.5, 0.5), 'whip': ('warp', -0.35, 0.7), 'tilt': ('pop', -0.7, 0.5),
              'seam': ('warp', -0.5, 0.5), 'diamond': ('glimmer', -0.8, 0.6), 'page': ('sparkle', -0.5, 0.5), 'zigzag': ('warp', -0.5, 0.5), 'wave': ('glimmer', -0.7, 0.6),
              'dip': ('glimmer', -0.45, 0.55), 'flash': ('bloom', -0.35, 0.7), 'zoom': ('warp', -0.45, 0.8)}
-focus_cam = {}; label_t = []
+focus_cam = {}; label_t = []; label_full = []; UTXT = {}
 UIDX = {u['n']: i for i, u in enumerate(units)}
 for u in units:
     nn = u['n']
@@ -665,6 +670,7 @@ for u in units:
         ni = UIDX[nn] + 1; nt = TIN.get(units[ni]['tr'], 0) if ni < len(units) and units[ni]['kind'] != 'chalk' else 0
         need = max(1.5, .45 * len(str(l.get('text', '')).split()) + .7)
         label_t.append((nn, ty, lid, gid, max(min(max(tl_ - 0.1, u['t0'] + 0.15), u['t1'] - nt - need), u['t0'] + 0.1)))
+        label_full.append(label_t[-1] + (l,)); UTXT[nn] = u['text']
     for e in sc.get('sfx', []):
         te = tword(e.get('word'))
         if te is None: te = u['t0'] + 1.0
@@ -757,6 +763,7 @@ PIV = pivots.compute(sorted({art_path(u)[0] for u in units if u['kind'] != 'chal
 TRACKED = []   # pictures with a tracking camera
 CORE_UIDS = []   # unit number per CORE_USED entry (for the repeat warning)
 CORE_USED = []   # centre-motion type per picture, in order (checked after the loop)
+PIVFIX = []   # (uid, group, change) centre motions replaced by the name-based sanity rule (round 4); printed after the loop
 for k, u in enumerate(units):
     nn = u['n']; t0, t1 = u['t0'], u['t1']; tr = u['tr']; T = f'#t{nn}'; Wq = f'#w{nn}'
     v0 = t0 - TIN[tr]
@@ -770,7 +777,7 @@ for k, u in enumerate(units):
             js.append(f'tl.set("#k{i}ph{r}",{{opacity:0}},{tt:.3f});tl.fromTo("#k{i}r{r}",{{opacity:1,scale:.96}},{{scale:1.02,duration:.05,ease:"power1.out",immediateRender:false}},{tt:.3f});tl.to("#k{i}r{r}",{{scale:1,duration:.05,ease:"power1.in"}},{tt + .05:.3f});')
         js.append(f'tl.fromTo("#k{i}cc",{{opacity:1,scale:.96}},{{scale:1.02,duration:.05,immediateRender:false}},{ts[3]:.3f});tl.to("#k{i}cc",{{scale:1,duration:.05}},{ts[3] + .05:.3f});')
         js.append(f'tl.set("#k{i}r1",{{opacity:0}},{t0:.3f});tl.set("#k{i}r2",{{opacity:0}},{t0:.3f});tl.set("#k{i}cc",{{opacity:0}},{t0:.3f});tl.set("#k{i}ph1",{{opacity:1}},{t0:.3f});tl.set("#k{i}ph2",{{opacity:1}},{t0:.3f});')
-        js.extend(motions.chalk_life_js(i, t0, t1, ts, FROG_ON))   # round 3 chalk life (slot breathe, value pulse + arm tap in long gaps), see motions.chalk_life_js
+        js.extend(motions.chalk_life_js(i, t0, t1, ts, FROG_ON)); js.extend(motions.chalk_title_js(i, t0)); js.extend(motions.chalk_concl_js(i, ts[3]))   # round 4 text effects   # round 3 chalk life (slot breathe, value pulse + arm tap in long gaps), see motions.chalk_life_js
         if FROG_ON:   # the frog stands bottom-left and points at each row / the conclusion as it is spoken
             _tg = [(ts[0], (700, ROW_Y[0] + 70)), (ts[1], (700, ROW_Y[1] + 70)), (ts[2], (700, ROW_Y[2] + 70)), (ts[3], (960, 800))]
             js.extend(frog.js(f'k{i}', CHALK_FROG, t0, t1, unit_words(u), _tg))
@@ -866,6 +873,11 @@ for k, u in enumerate(units):
             per = 0.9 + 0.5 * ((q * 7) % 5) / 4; off = (q * 0.61803) % 1 * per
             rep = max(0, int(math.ceil((d - off) / per)) - 1)
             js.append(f'tl.fromTo("#spd{nn} i:nth-child({q + 1}) b",{{x:{R * .04:.0f},scaleX:.15,opacity:0}},{{x:{R * .62:.0f},scaleX:1.6,opacity:.9,duration:{per:.2f},ease:"power3.in",repeat:{rep},immediateRender:false}},{v0 + off:.3f});')
+    for kd, _ in FXU.get(nn, []):   # --- round 4 background effects; the flash lands on the trigger word when it is spoken ---
+        ft = None
+        if kd == 'flash':
+            mfl = motions.FLASHW.search(u['text']); ft = frog.find_word(mfl.group(0), unit_wordlist(u), t0, t1) if mfl else None
+        js.extend(motions.fx_js(nn, kd, v0, t1, H, flash_t=ft, W=W))
     if is_cosmic(u) and (t1 - v0) > 6 and k % 3 == 1:   # --- shooting star (round 3 fun rule): one streak across the upper sky, once, at a unit-indexed moment; never over the first 1.5 s or the last 1.5 s ---
         d = t1 - v0; sx = W * (.12 + .55 * ((k * .618) % 1)); sy = H * (.06 + .22 * ((k * .382) % 1)); ts = v0 + 1.5 + ((k * .73) % 1) * max(d - 3.2, .1)
         js.append(f'tl.set("#ss{nn}",{{opacity:1}},{ts:.3f});tl.fromTo("#ssl{nn}",{{x:{sx:.0f},y:{sy:.0f},opacity:0,scaleX:.2,svgOrigin:"0 0"}},{{x:{sx + 520:.0f},y:{sy + 245:.0f},opacity:.9,scaleX:1,duration:.55,ease:"power2.in",immediateRender:false}},{ts:.3f});'
@@ -875,7 +887,7 @@ for k, u in enumerate(units):
     sp = t1 - v0 + 0.2
     JT = {}; JDEP = {}   # joint / chain groups in document order (outer first): their data-pivot / data-amp / data-per / data-phase
     for mt in re.finditer(r'<g\b[^>]*>', svg):
-        cm = re.search(r'class="[^"]*\bmv (mv-(?:chain|joint|limb|rotor|' + '|'.join(motions.OBJ_KINDS) + ')-[A-Za-z0-9-]+)', mt.group(0))
+        cm = re.search(r'class="[^"]*\bmv (mv-(?:chain|joint|limb|rotor|core|' + '|'.join(motions.OBJ_KINDS) + ')-[A-Za-z0-9-]+)', mt.group(0))
         if cm:
             at = dict(re.findall(r'(data-[a-z]+)="([^"]*)"', mt.group(0)))
             base = re.sub(r'-\d+$', '', cm.group(1)); at['_dep'] = JDEP.get(base, 0); JDEP[base] = at['_dep'] + 1   # depth = order of the link in its chain (outer first)
@@ -886,12 +898,16 @@ for k, u in enumerate(units):
         g = f'gsap.utils.toArray("#w{nn} .{nm}")[{kk}]'
         if nm == 'mv-glint-core' or nm.startswith('mv-core-'):    # the round centre object: one of 13 motions, never the same twice in a row
             ct = nm[8:].split('-')[0] if nm.startswith('mv-core-') else motions.legacy_core_type(len(CORE_USED))
-            js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]')); CORE_USED.append(ct); CORE_UIDS.append(nn)
+            _at = (JT.get(nm) or [{}])[0]; ct2 = motions.core_sanitize(ct, nm, keep=_at.get('data-keep') == '1')   # round 4: name-based sanity (tree sways from the base, no spinning clocks, no bouncing whales)
+            if ct2 != ct: PIVFIX.append((u['uid'], nm, f'{ct}->{ct2}')); ct = ct2
+            js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]', pivot=motions.pivot_of(nm))); CORE_USED.append(ct); CORE_UIDS.append(nn)
             continue
         if nm.split('-')[1] in motions.OBJ_KINDS and nm.count('-') >= 2:   # (2026-10-22) object motions anywhere in the picture (guideline 4-1)
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
-            js.extend(motions.obj_js(nm.split('-')[1], g, at, t0, v0, sp))
-            js.extend(motions.settle_js(nm.split('-')[1], g, at, t0, v0, sp))   # round 3: a one-shot motion that ends early is followed by a soft breathe, never a frozen object
+            ok = nm.split('-')[1]; ok2 = motions.obj_sanitize(ok, nm, keep=at.get('data-keep') == '1')   # round 4 axis sanity (no spinning trees / rolling whales)
+            if ok2 != ok: PIVFIX.append((u['uid'], nm, f'{ok}->{ok2}'))
+            js.extend(motions.obj_js(ok2, g, at, t0, v0, sp, name=nm))
+            js.extend(motions.settle_js(ok2, g, at, t0, v0, sp))   # round 3: a one-shot motion that ends early is followed by a soft breathe, never a frozen object
             continue
         if nm.startswith('mv-rotor-'):  # (2026-10-19) a part that turns round and round about data-pivot (clock hand, turbine blades, fan, wheel); data-per = seconds per turn, data-dir = 1 / -1
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
@@ -948,8 +964,9 @@ for k, u in enumerate(units):
         elif kind == 'glow': js.append(f'tl.fromTo({g},{{scale:1,opacity:.85,transformOrigin:"50% 50%"}},{{scale:1.06,opacity:1,duration:{per:.3f},{ease}}},{v0:.3f});')
         elif kind == 'orbit':   # one-way turn around the group's centre (the group holds an invisible full orbit circle so its centre is the orbit centre)
             js.append(f'tl.fromTo({g},{{rotation:0,transformOrigin:"50% 50%"}},{{rotation:{360 * sp / per:.1f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});')
-        elif kind == 'sway': js.append(f'tl.fromTo({g},{{rotation:-7,transformOrigin:"50% 100%"}},{{rotation:7,duration:{per:.3f},{ease}}},{v0:.3f});')
-        else: js.append(f'tl.fromTo({g},{{rotation:-5,transformOrigin:"50% 0%"}},{{rotation:5,duration:{per:.3f},{ease}}},{v0:.3f});')
+        elif kind == 'sway': js.append(f'tl.fromTo({g},{{rotation:-7,transformOrigin:"{"50% 0%" if motions.pivot_of(nm) == "top" else "50% 100%"}"}},{{rotation:7,duration:{per:.3f},{ease}}},{v0:.3f});')   # round 4: hanging things from the top
+        else: js.append(f'tl.fromTo({g},{{rotation:-5,transformOrigin:"{"50% 100%" if motions.pivot_of(nm) == "bottom" else "50% 0%"}"}},{{rotation:5,duration:{per:.3f},{ease}}},{v0:.3f});')   # round 4: standing things from the base
+if PIVFIX: print('motion sanity (round 4): replaced', len(PIVFIX), 'centre motions by object name:', PIVFIX)
 if CORE_USED:
     from collections import Counter
     cc = Counter(CORE_USED); rep_pairs = sum(1 for a, b in zip(CORE_USED, CORE_USED[1:]) if a == b)
@@ -965,11 +982,13 @@ for (nn, ty, lid, gid, tt) in label_t:          # on-screen text pops in when it
         # stays at least 4.5 s and 2.5 s past its own picture, but leaves before the next badge and at the end of its scene
         nb = next((x for x in NUMT if x > tt + 0.01), 1e9)
         te = min(max(UEND[nn] + 2.5, tt + 4.5), nb - 0.25, SCEND[USC[nn]] - 0.1, TOTAL)
-        js.append(f'tl.fromTo("#{lid}",{{opacity:0,x:-30}},{{opacity:1,x:0,duration:.3,ease:"power2.out",immediateRender:false}},{tt:.3f});')
+        js.extend(labels_lib.badge_js(lid, tt, NUMT.index(tt)))   # round 4: entrance style rotates by badge order
         js.append(f'tl.to("#{lid}",{{opacity:0,x:-20,duration:.35,ease:"power1.in"}},{max(te - .35, tt + .4):.3f});')
         js.append(labels_lib.count_js(lid, tt))      # the number counts up from 0 as the badge comes in (guideline 3-6)
+        js.extend(motions.badge_bounce_js(lid, tt))   # round 4: lands with a small bounce
         continue
-    js.append(f'tl.fromTo("#{lid}s",{{opacity:0,scale:.6}},{{opacity:1,scale:1,duration:.25,ease:"back.out(2)",immediateRender:false}},{tt:.3f});')
+    _lab = next((l for (_n, _ty, _l, _g, _tt, l) in label_full if _l == lid), {}); _u = UTXT.get(nn, '')
+    js.extend(labels_lib.label_js(ty, lid, tt, nn, int(lid.rsplit('_', 1)[1]), str(_lab.get('text', '')), _u, te=UEND[nn]))   # round 4 text effects (style by unit number / punctuation / unit words)
     if gid: js.append(f'tl.set("#{gid}",{{opacity:1}},{tt:.3f});')
     if nn in focus_cam:       # keep the text the same size while the camera zooms in (it still follows its subject)
         a, (fx, fy, s) = focus_cam[nn]
