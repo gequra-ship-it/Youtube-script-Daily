@@ -4,7 +4,7 @@
 배경음악·효과음 없음, 남성 1인 TTS 추정(약 124Hz), -16.8 LUFS·LRA 3.5 LU, 초당 약 4.8음절, 19~27분. (Miya's Note은 배경음악·효과음을 넣는다, 9-3·9-4.)
 
 ### 9-2. 영어 출력 목표
-- 영어 TTS, 여성 1인(Kokoro `af_heart`, miya 2026-10-24 선택: 새 채널 대표 캐릭터 개구리와 어울리게), 모든 영상 같은 목소리. 내레이션 **-16.8 LUFS**, LRA 약 3.5 LU(새 목소리로 측정해 확인 전까지 기준값 유지).
+- 영어 TTS, **남성 1인(Kokoro `am_michael`, 차분한 중저음)**, 모든 영상 같은 목소리. miya 2026-10-26: 2026-10-24~26에 쓰던 여성 `af_heart`에서 원래 남성 목소리로 되돌림(그 사이 만든 4편은 af_heart, 새 영상부터 am_michael). 내레이션 **-16.8 LUFS**, LRA 약 3.5 LU.
 - **말 속도 (2026-10-10 재측정)**: 기본 속도에서 분당 약 160~167단어(평균 약 163). 계산은 **분당 163단어**, 음성을 만든 뒤 반드시 실제 길이를 잰다.
 - **영상 길이 15분 이내 (2026-10-24 새 채널 Miya's Note 사용자 결정; 이전 20분 이상 규칙을 대체)**. 영상 길이 = 음성 + 장면 간격(0.8초 × 장면 수) + 앞뒤 여백 3.5초.
 - **대본 약 2,200단어, 허용 2,000~2,300단어**(분당 163단어로 계산한 음성 12.3~14.1분 + 장면 간격·여백, 영상 약 13~15분 이내; 계산이며 렌더 실측 전). 이전: 3,450단어(영상 약 21~23분, 2026-10-19 변경: 3,100단어 기준은 실제 대본이 2,900 안팎에 머물러 20분에 못 미쳤음). 2,000 미만이면 12-1 길이 조정, 2,300 초과면 줄인다. 매일 대본 코드(`main.py`·`main_이과형.py`)는 미달 시 최대 3회 재생성한다.
@@ -39,7 +39,8 @@
 - 확인: 시험 빌드의 로그(`rhythm: accents N | near-silences [...]`)와 구간 계산만 확인. 소리가 자연스러운지는 사용자가 듣고 판단(나는 들을 수 없음).
 
 ## 9-6. 고정 아웃트로 (2026-10-24, miya)
-- 롱폼은 항상 같은 아웃트로로 끝난다(숏츠는 없음): 내레이션 고정 파일 `tools/assets/outro.wav`(af_heart, 약 5.9초, "Thanks for watching! Subscribing and liking really help me make these videos. See you in the next one.") + 고정 그림 `tools/assets/outro.svg`(칠판 배경, 글자 없음: 개구리 손 흔들기 + 분필 선 벨·좋아요, 자막이 글자를 대신함). 끝 여백을 4초로 늘려 그림이 약 10초 나온다.
+- 롱폼은 항상 같은 아웃트로로 끝난다(숏츠는 없음): 내레이션 고정 파일 `tools/assets/outro.wav`(am_michael, 2026-10-26 다시 생성, "Thanks for watching! Subscribing and liking really help me make these videos. See you in the next one.") + 고정 그림 `tools/assets/outro.svg`(칠판 배경, 글자 없음: 개구리 손 흔들기 + 분필 선 벨·좋아요, 자막이 글자를 대신함). 끝 여백을 4초로 늘려 그림이 약 10초 나온다.
 - 코드: `tools/paths.py`의 `load_scenes`가 마지막에 장면 `OUTRO`를 붙인다(`-shortN` 슬러그·`VERT=1`은 제외, `config.py`에 `OUTRO = False`면 끔 = 옛 영상 재빌드용). `tools/tts.sh`는 이 장면에 고정 wav를 복사하고, `build3.py`는 그림을 `art3/<uid>.svg`로 복사한다. `plan.json`에는 안 들어가니 그림 에이전트는 그리지 않는다.
-- 대본 단어 수(2,000~2,300)에는 아웃트로를 세지 않는다. 바꾸려면 `OUTRO_TEXT`·wav·svg를 함께 고친다(wav는 `npx hyperframes tts <txt> -v af_heart -o tools/assets/outro.wav`).
+- 대본 단어 수(2,000~2,300)에는 아웃트로를 세지 않는다. 바꾸려면 `OUTRO_TEXT`·wav·svg를 함께 고친다(wav는 `npx hyperframes tts <txt> -v am_michael -o tools/assets/outro.wav`).
 - 유튜브 종료 화면(끝 화면) 자리: 왼쪽 = 다음 영상 칸(약 600×338, x90~690·y370~708), 오른쪽 = 채널 원형(중심 x1620·y540, 반지름 160)을 분필 점선 틀로 비워 둔다. 개구리·벨·좋아요는 가운데 열. 종료 화면 요소는 영상 마지막 구간에 YouTube 스튜디오에서 직접 배치한다(업로드 때 수동, 점선 틀에 맞춘다).
+개정: 2026-10-26 (miya) 목소리를 af_heart → am_michael(원래 남성)로 되돌림, 아웃트로 wav 다시 생성.

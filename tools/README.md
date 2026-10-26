@@ -10,7 +10,7 @@ Per video you need `videos/<slug>/`:
 - `thumb/A.html`, `thumb/B.html`, `thumb/common.css`, `thumb/Fredoka-700.woff2` — two original thumbnails
 
 Steps (run from the repo root):
-1. `SLUG=x HYPERFRAMES_PYTHON=<venv python> tools/tts.sh` — Kokoro af_heart, one wav per scene.
+1. `SLUG=x HYPERFRAMES_PYTHON=<venv python> tools/tts.sh` — Kokoro `am_michael` (male; miya 2026-10-26 reverted from af_heart), one wav per scene; 4-digit years are spelled out by `tts_text.py`.
    The venv held `kokoro-onnx 0.6.1, soundfile, onnxruntime, phonemizer, espeakng-loader, numpy`.
    Setting it up from scratch was not re-tested.
 2. `SLUG=x python3 tools/audio_prep.py` — stereo, loudnorm -16.8 LUFS, per-scene clips, timing.
@@ -80,9 +80,14 @@ Steps (run from the repo root):
 - Checked on a 4-scene test video (TTS, align, build, seek screenshots). Not checked: full MP4 render, sound by ear.
 
 ## 2026-10-25 additions (edge-of-universe review, miya)
+- `tts_text.py`: TTS text pre-processing used by `tts.sh` (spells out 4-digit years so Kokoro reads "nineteen ninety").
+- `svgshot.py <out_dir> <svg>...`: static PNG of SVG files (viewBox size; `SHOT_W/SHOT_H` for vertical) for contact sheets.
+- `mvcheck.py <new.svg> [<original.svg>] [outdir]`: checks that adding `mv-` groups did not change the picture and renders every group in its posed state.
+- `motion_preview.py <out_dir> <uid>...` (with `SLUG=`): strip of one picture at several seconds using the same `motions.py` code as build3 (object motions + tracking camera), no full build.
+- `hookscore.py` + `hooks.json`: scores 3-5 hook candidates for the first 15 s of a script (guideline 3-1, reference only).
 - `frog_place.py <slug>...`: after the pictures exist, writes the sidecar `frog` of every `frog_hint` unit: the frog rides a moving picture group (injected inside it) or sits in a bottom corner; moods per sentence, helmet/goggles; no pointing in picture scenes. Run it before `build3.py`; picture agents never write the frog. Needs playwright (system `python3`).
 - `clip_prep.py <slug> <t0> <len>` (2026-10-26): renders any time range as a short sample clip (same trick as chunk_prep.py); mux audio with `ffmpeg -ss <t0> -t <len>`.
-- `fallwrap.py <svg> <first-needle> <last-needle> '<path d>' [dur] [delay] [name]` (2026-10-25): wraps a whole falling/sinking object (body + tail/joint groups) in `mv-path-sink-*` so it really moves across the frame; such paths are not followed by the camera. `pivcheck.py <slug>` (after build3): lists chain/joint/rotor pivots that land >40 px from their part. Pivots: `miyaPv` converts picture coordinates to the parent's space (or accepts inner coordinates when only those fit). `frog.py`: outfit `diver`, `talk` (picture frogs do not lip-sync; chalkboard frog does).
+- `fallwrap.py <svg> <first-needle> <last-needle> '<path d>' [dur] [delay] [name]` (2026-10-25): wraps a whole falling/sinking object (body + tail/joint groups) in `mv-path-sink-*` so it really moves across the frame; such paths are not followed by the camera. `pivots.py` (imported by build3, 2026-10-11): shoulder/wrist pivots for `mv-arm`/hand groups so arms do not swing off the body. `pivcheck.py <slug>` (after build3): lists chain/joint/rotor pivots that land >40 px from their part. Pivots: `miyaPv` converts picture coordinates to the parent's space (or accepts inner coordinates when only those fit). `frog.py`: outfit `diver`, `talk` (picture frogs do not lip-sync; chalkboard frog does).
 - `frogshot.py <out.png> <t1,t2,...>` (`SLUG=<slug> [VERT=1]`): contact strip of the built page at those seconds. It seeks with `tl.pause(); tl.seek(t, false)` (the same call `motion_check.py` uses) and launches Chromium with `--no-sandbox`; `timeline.pause(t)` or a launch without `--no-sandbox` hung forever in the cloud container.
 - `frog.py`: `ride` (frog injected into a picture group), optional `points` with `obj` (arm follows a moving object, read from the page each frame through GSAP `modifiers` so seeking works), moods, outfits, hops, arm hidden when a unit has no points.
 - `build3.py`: default minimum on-screen time 8.5 s (slow scenes 10 s); a config `HOOK` without `minu` keeps it. The log line now also prints the shortest unit (`min`).

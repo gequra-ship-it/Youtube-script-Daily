@@ -11,8 +11,8 @@ words=sum(len(s[4].split()) for s in SCENES)
 L=[]
 L+= [ CFG.TITLE,
  "Miya's Note · 내레이션 대본",
- f"영상 길이 {ts(d['total'])} (장면 간격 {d['gap']}초, 앞 여백 {d['lead']}초, 끝 여백 {d.get('tail',2.5)}초), 단어 수 {words}, 장면 {len(SCENES)}개, 단위(그림) {len(d['cuts'])}개. 길이는 Kokoro 음성(af_heart)의 실제 길이 기준.",
- "TTS: 영어, 여성 1인(Kokoro af_heart), 정규화 -16.8 LUFS. 원문 대비 바뀐 점: 사실 확인으로 수치·표현을 수정하고 단정 표현에 단서를 붙임(채팅의 확인 표 참고).",
+ f"영상 길이 {ts(d['total'])} (장면 간격 {d['gap']}초, 앞 여백 {d['lead']}초, 끝 여백 {d.get('tail',2.5)}초), 단어 수 {words}, 장면 {len(SCENES)}개, 단위(그림) {len(d['cuts'])}개. 길이는 Kokoro 음성(am_michael)의 실제 길이 기준.",
+ "TTS: 영어, 남성 1인(Kokoro am_michael), 정규화 -16.8 LUFS. 원문 대비 바뀐 점: 사실 확인으로 수치·표현을 수정하고 단정 표현에 단서를 붙임(채팅의 확인 표 참고).",
  "", "===== 1부: TTS 입력용 전문 (장면당 한 문단) =====",""]
 for s in SCENES: L+= [s[4],""]
 L+= ["===== 2부: 장면별 대본 =====",""]

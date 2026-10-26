@@ -19,7 +19,7 @@ OUT = sys.argv[1] if len(sys.argv) > 1 else f'{REPO}/render/{SLUG}'
 SEL = [int(x) for x in os.environ.get('SEL', '').split(',') if x] or list(range(1, len(SCENES) + 1))
 LEAD, GAP, TAIL = (0.3, 0.5, 1.2) if VERT else (1.0, 0.8, 2.5)
 OUTRO = SCENES[-1][0] == 'OUTRO' and not VERT      # fixed outro scene appended by paths.load_scenes (2026-10-24)
-if OUTRO: TAIL = 4.0                                 # narration ~5.9 s + 4 s = the last ~10 s of every long form
+if OUTRO: TAIL = 4.0                                 # narration ~6.4 s (am_michael, 2026-10-26) + 4 s = the last ~10 s of every long form
 # 2026-10-22 (owner): camera tracking + object motions carry the picture, so cuts are 1.5x longer than before.
 # PACE multiplies maxu/slow/minu of the default AND of any config HOOK; config PACE = 1 rebuilds an old plan unchanged.
 PACE = getattr(CFG, 'PACE', 1.5)
