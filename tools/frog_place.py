@@ -15,6 +15,7 @@ SPACE = re.compile(r'\b(space|star|stars|galax\w*|cosmic|universe|horizon|probe|
 SEA = re.compile(r'\b(ocean|oceans|sea|seas|seafloor|underwater|dive|diving|water|whales?|reef|coral|fish|vents?|abyss\w*|deep|depths?|plankton|marine)\b', re.I)
 DEEP = re.compile(r'\b(deep|depths?|abyss\w*|dark|darkness|seafloor|sinks?|sinking|descen\w*|vents?|bones?|carcass|silt|thousands of meters)\b', re.I)
 ACTS = [   # (act, regex on the unit text, first mood)  -- first match wins (miya 2026-10-25: expression + motion that fits the situation, not only examples)
+    ('slide',  re.compile(r'\b(gravity|gravitational|spacetime|warp\w*|dents?|dented|curves?|curved|curving|valley|slope|funnel|bowl|slid\w*|slides?|deeper|heavier|sinks?)\b', re.I), 'surprised'),   # gravity pit: the frog slides down into it (miya 2026-10-26)
     ('pull',   re.compile(r'\b(black holes?|event horizon|horizon|plunge\w*|spiral\w*|drag\w*|gravity trap|falls? in|pulled|inward|swallow\w*|devour\w*|doom\w*|well)\b', re.I), 'scared'),
     ('wind',   re.compile(r'\b(speed\w*|rac(e|es|ing)|fast\w*|rocket|shuttle|lifts?|orbit\w*|fl(y|ies|ying)|hurtl\w*|streak\w*|whirl\w*|zip\w*|climb\w*|lander|route|dock\w*|launch\w*|race|travel\w*)\b', re.I), 'squint'),
     ('waves',  re.compile(r'\b(waves?|tides?|tidal|ocean|sea|water|splash\w*|wading|knee-deep|shallow|brine)\b', re.I), 'surprised'),
@@ -36,8 +37,9 @@ def free_band(pg, W, H, vert, n):
         band = e[max(0, (yc - 80) // 8):(yc + 80) // 8, 10:-10].mean() + .002 * abs(yc - (lo + hi) / 2) * (n % 2)   # mild variety between units
         if best is None or band < best[0]: best = (band, yc)
     return best[1]
-SAYS = {'orbit': 'Whoa-oa-oa...', 'dizzy': 'Wooo-ooo...', 'pull': 'AAAAAH!', 'wind': 'Whooosh!', 'waves': 'Whoa-oa!', 'shiver': 'Brrrr...', 'awe': 'Woooow!', 'sleepy': 'Zzz...', 'cheer': 'Yay!', 'nod': None, 'tilt': 'Hmm?', 'look': None, 'sway': None, 'breathe': None, 'float': 'Wheee!'}
-STRONG = ('pull', 'shiver', 'awe', 'wind', 'orbit', 'dizzy')   # always get a sound word; the other acts every second unit (miya 2026-10-26: speech bubble with emotion / sound words)
+SAYS = {'orbit': 'Whoa-oa-oa...', 'dizzy': 'Wooo-ooo...', 'pull': 'AAAAAH!', 'wind': 'Whooosh!', 'waves': 'Whoa-oa!', 'shiver': 'Brrrr...', 'awe': 'Woooow!', 'sleepy': 'Zzz...', 'cheer': 'Yay!', 'slide': 'Wheee!', 'nod': 'Mm-hm!', 'tilt': 'Hmm?', 'look': 'Ooh!', 'sway': 'Hum hum...', 'breathe': 'Ahh...', 'float': 'Wheee!'}
+CALM = ('tilt', 'look', 'sway', 'nod', 'breathe')
+STRONG = ('pull', 'shiver', 'awe', 'wind', 'orbit', 'dizzy', 'slide')   # always get a sound word; the other acts every second unit (miya 2026-10-26: speech bubble with emotion / sound words)
 def says_for(act, keep, text, cnt):
     nm = act.get('type') if isinstance(act, dict) else act
     rm = (keep.get('roam') or {}).get('kind')
@@ -48,7 +50,7 @@ def says_for(act, keep, text, cnt):
     elif rm == 'moonhop': word = 'Boing!'
     elif rm == 'walk' and word is None: word = 'Hmm?' if keep['moods'][0]['mood'] == 'curious' else 'Tada!'
     if word is None: return []
-    if nm not in STRONG and cnt % 2: return []
+    if nm not in STRONG and nm not in CALM and cnt % 2: return []   # a calm default frog always gets a bubble (miya 2026-10-26: no meaningless frogs sitting on objects)
     return [{'text': word, 'shout': word.endswith('!') and nm in STRONG}]
 HEAT = re.compile(r'\b(heat\w*|hot|furnace|kiln|fire|flames?|burn\w*|boil\w*|scorch\w*|molten|lava|magma|sizzl\w*|celsius|oven|sun)\b', re.I)   # miya 2026-10-26: overheated = woozy swirl eyes
 FORE = re.compile(r'\b(fore people|papua|highlands?|villag\w*|tribe|tribal|clan|huts?|funeral\w*|mourn\w*|indigenous)\b', re.I)   # people-of-the-place scenes: native outfit
@@ -97,6 +99,7 @@ with sync_playwright() as p:
                 moods.append({'mood': m} if i == 0 else {'word': w, 'mood': m}); prev = m
             act = None; first = None; matched = False
             for nm, rx, md in ACTS:
+                if nm == 'slide' and re.search(r'black holes?|event horizon|horizon|plunge\w*|swallow\w*|devour\w*|spiral\w*|drag\w*|falls? in', text, re.I): continue   # those stay 'pull'
                 if rx.search(text): act, first = nm, md; matched = True; break
             if act is None:   # no situation word: a calm, varied reaction picked from the first sentence's mood, never a hop on every object (miya 2026-10-26)
                 m0 = moods[0]['mood']; cyc = ('sway', 'nod', 'look', 'tilt', 'breathe'); cnt_calm = globals().setdefault('cnt_calm', 0); globals()['cnt_calm'] = cnt_calm + 1
@@ -122,7 +125,17 @@ with sync_playwright() as p:
             if VEH.search(text) and not ROLL.search(text):   # a vehicle in the text: the frog clings beside the fin of the centre object (miya 2026-10-26)
                 core = [g for g in gs.values() if g[0].startswith('mv-core-') and OK.match(g[0])]
                 if core: pick = core[0][0]; keep['cling'] = True
-            if pick:
+            slid = False
+            if act == 'slide' and not ROLL.search(text):   # slides from the rim of the picture's pit (the heavy centre object / hole) down to its bottom
+                tgt = [g for g in gs.values() if g[0].startswith('mv-core-') or HOLE.search(g[0])]
+                tgt.sort(key=lambda g: -g[3] * g[4]); tx, ty = (round(tgt[0][1] + tgt[0][3] / 2), round(tgt[0][2] + tgt[0][4] * .6)) if tgt else (W // 2, round(H * .62))
+                side = 1 if n % 2 == 0 else -1; sx = max(150, min(W - 150, round(tx - side * W * (.3 if not vert else .35)))); sy = max(210, round(ty - H * (.2 if not vert else .1)))
+                s0 = round(.9 if not vert else 1.15, 2); n += 1; slid = True
+                keep.update(kind='bg', ride=None, x=sx, y=sy, s=s0, flip=1 if tx > sx else -1, act={'type': 'slide', 'to': [tx, ty]}); keep.pop('roam', None); keep.pop('cling', None)
+                keep['moods'] = [{'mood': 'surprised'}] + ([{'word': moods[1].get('word', ''), 'mood': 'scared'}] if len(moods) > 1 and moods[1].get('word') else [])
+                if SPACE.search(text): keep['outfit'] = ['helmet']
+            if slid: pass
+            elif pick:
                 _, x, y, w, h = gs[pick]; s = round(min(1.5, max(.9, w / 170)), 2); cx = x + w / 2
                 keep.update(ride=pick, x=round(cx), y=round(max(y + 8 * s, 82 * s + 40)), s=s, flip=1 if cx < W / 2 else -1, kind='ride')
                 if keep.pop('cling', False): keep.update(x=round(x + w * .95), y=round(y + h - 12), s=round(min(1.2, max(.9, h / 200)), 2), flip=-1, act='wind')
