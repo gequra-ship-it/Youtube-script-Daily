@@ -71,3 +71,6 @@
 - 2026-10-26: 개구리 `fly`(슈퍼맨 자세 발판) 동작 추가(`tools/frog.py`), 지침서 7-2 ⑥⑧: 빨려듦 비명→지평선 고리 헤롱→발판 날기, 모든 영상에 대본·그림 상황별 적용.
 - 2026-10-26: 개구리 기본 동작을 점프(cheer)·큰 출렁임(float)에서 차분한 `tilt`·`look`·`sway`·`nod`·`breathe`로 바꿈, cheer는 진짜 환호 단어일 때만(절반은 nod), 높이 -26→-16. `tools/frog.py`, `frog_place.py`, 지침서 7-2 ⑨.
 - 2026-10-26: 개구리 `slide`(중력 구덩이로 미끄러짐) 추가, 차분한 기본 동작에는 항상 말풍선(`CALM`), 지침서 7-2 ⑩⑪(의미 있는 개구리만: 모션·상황·의상·말풍선·오브젝트와 이동 중 하나는 필수). `frog.py`·`frog_place.py`.
+- 2026-10-26 (3차, miya): 개구리 관계 동작 10종·의상 4종·표정 3종·시선(`tools/frog.py`, `tools/frog_place.py`), 오브젝트 규칙 `tools/motions.py` `chalk_life_js`(칠판 행 사이 생기)·`settle_js`(일회성 모션 뒤 숨쉬기), `tools/build3.py` 유성(`is_cosmic`)·`mv-blink` 종류. 지침서 7-2 D-2, 4-1 '3차 보강', `tools/art_spec.md` 7·12장, `CLAUDE.md`. 4편 사이드카 재배치(`frog_place.py`), 렌더는 아직 안 돌림.
+- 2026-10-26 (레포 정리, miya 위임): 구간 렌더 잔재 `render/eating-humans-deadly-bet__s0~2`(mp4 포함 30MB) 삭제, `render/stolen-time-short1~5`에 남아 있던 미사용 `sfx_*.wav` 465개 삭제(다른 영상 폴더처럼 `mix.m4a`에 이미 섞여 있음), 루트 `README.md`를 레포 안내로 교체. 도구 55개는 전부 다른 코드·문서에서 참조되어 그대로 둠.
+

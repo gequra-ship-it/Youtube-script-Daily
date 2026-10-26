@@ -18,14 +18,15 @@
 
 **C. 어디에 두나 (위치·크기)**
 1. **주인공 오브젝트의 한가운데 위에 앉히지 않는다(2026-10-26 검토)**: 화면의 초점을 가렸다. 강한 상황(바람·떨림·빨려듦 등)으로 탈 때는 오브젝트의 **화면 가장자리 쪽 끝**(가로 20%/80% 지점)에, 실제로 그려진 표면 위에 발을 붙인다(`perch`). 차분한 동작(갸웃·살피기·끄덕임·숨쉬기·올려다보기·졸음)은 오브젝트 **옆 발치에 서서 오브젝트를 바라본다**(`beside`, 같은 그룹 안이라 같이 움직임).
-2. 개구리·말풍선이 그림 속 글자(라벨·말풍선)와 겹치면 반대쪽 끝/옆으로 옮긴다. 화면 가로 10~90% 밖(드리프트 카메라에 잘림)에는 두지 않는다.
+2. 개구리·말풍선이 그림 속 글자(라벨·말풍선)와 겹치면 반대쪽 끝/옆으로 옮긴다. 화면 가로 12~88% 밖(드리프트 카메라에 잘림)에는 두지 않는다.
+2-1. **안전 구역(2026-10-26 2차 검토, 4편 122장면)**: ① 자막 상자 위(롱폼 발 y ≤ H-190, 숏츠 ≤ H-360; 옆에 설 때 롱폼 ≤ H-290) — 자막을 밟는 개구리가 가장 많았다 ② 머리 위 말풍선 자리(발 y ≥ 82·s+150; 배경 띠는 롱폼 340~780) — 위 가장자리에 말풍선이 잘렸다 ③ 오른쪽 위 로고 구역(x > 0.74W이고 y < 430)에는 두지 않는다 ④ `mv-slide-*`·`mv-path-*`처럼 단위 중에 이동하는 오브젝트는 시작 위치 기준으로 붙으므로 **화면 중앙 쪽 끝/옆**에 붙인다(가장자리로 미끄러져 나가면 개구리가 잘린다) ⑤ 폭 260 미만의 작은 오브젝트(별·광자·손목시계)에는 타지 않고 옆에 선다 ⑥ 구멍(블랙홀) 그룹을 골랐으면 그 위에 서지 않고 옆에서 `pull`(겁먹음).
 3. 크기: 탈 때 s 0.8~1.25(오브젝트 폭/230), 곁에 설 때 0.95, 배경 이동 롱폼 ≈0.8·숏츠 ≈1.1(숏츠는 ×1.15). 같은 자리·같은 크기를 반복하지 않는다.
 4. 구멍(블랙홀) 자체를 고른 경우 그 위에 타지 않고 옆에 떠 있다가 빨려 들어간다.
 
 **D. 무엇을 하나 (동작 `act`, 위에서부터 먼저 맞는 것)** — 몸 동작은 안쪽 그룹 `#fg<tag>_ac`, 이동은 `_tr`, 회전은 `_rm`. 사이드카 `frog.act`(문자열 또는 `{"type":..}`)로 손으로 고칠 수 있다.
 | 상황(대본·그림) | 동작 | 표정 | 말풍선 예 |
 |---|---|---|---|
-| 중력·시공간 휘어짐·깔때기·그릇 + 무거운 중심 오브젝트 | `slide`(가장자리에서 바닥으로 미끄러짐, 바닥에서 살짝 헤롱) | surprised | Wheee! / Down I go! |
+| 중력·시공간 휘어짐·깔때기·그릇 + 그림에 구덩이·격자·천·무거운 천체(없으면 slide 안 함, 구멍 이름 그룹을 우선 목표) | `slide`(가장자리에서 바닥으로 미끄러짐, 바닥에서 살짝 헤롱) | surprised | Wheee! / Down I go! |
 | 블랙홀·지평선·빨려듦 | `pull`(똑바로 선 채 가늘게 떨며 쏠림, 기울임 없음) / 별에 타 있으면 `vanish`(돌며 작아져 사라짐) | scared | AAAAAH! / Nooo! / Heeelp! |
 | 지평선 고리 `mv-edge-horizon` / 입자·고리 | `orbit`(고리를 입자처럼 돎) | dizzy | Whoa-oa-oa... |
 | 속도·로켓·발사·상승 | `wind`(느린 사인 기울임 한 번, 바람 줄 없음) / 탈것이면 날개 옆 `cling` | squint | Whooosh! / Zoooom! |
@@ -40,17 +41,29 @@
 | 문 2개 이상 + 마을·집 | `huts`(집마다 들어가 옷 한 점씩, `fore_steps`) | excited | Woo-hoo! |
 | 진짜 환호(solved·discover…) | `cheer`(낮은 점프, 두 번에 한 번은 `nod`) | excited | Yay! / Got it! |
 | 배경 이동 | `roam`: 발판+뛰기 말 → 발판 위 `run`/`moonhop`, 휩쓸림 → `roll`, 우주·물 → `swim`/`lie`/`tumble`(느리게 출발·정지), 그 밖 `walk` | | Boing! / Blub blub! |
+| 공포·끔찍함(terrifying·horror·scream…) | `hide`(두 손으로 눈 가림, 손가락 사이로 봄) | scared | Eek! / Can't look! |
+| 숨김·비밀·미지(hidden·secret·mystery·lurk…) + 그림에 큰 단단한 물체(글로우·고리·선·배경 그룹 제외) | `peek`(그 물체 **뒤**에서 머리만 빼꼼, `behind`) | curious | Psst... / Who's there? |
+| 매달림·풍선·절벽·붙잡음 + 그림에 balloon·branch·rope·wire·ring·hook·tail·fin·antenna·pole… 그룹 | `hang`(그 아래 두 손으로 매달려 흔들림) | surprised | Hold on! / Whee-ee! |
+| 검사·측정·두드림·실험(test·check·measure·press·knock·scan…) + 탈 물체 | `tap`(앉아서 물체를 톡톡, 닿는 곳에 파장 고리 `_tp`) | curious | Knock knock! / Hmm? |
+| 휴식·안도·안전·집(rest·calm·finally·safe·home…) + 탈 물체 | `rest`(물체 위에 기대 눕기, 느린 숨) | sleepy | Phew... / Ahh... |
+| 관측·망원경·먼 곳(observe·telescope·distant·gaze…) 우주·밤 그림 | `scope`(망원경 `_sc`로 들여다봄, 가끔 내림) | squint | Oooh... / There! |
+| 그림에 사람 그룹(person·astronaut·scientist·villager…) | 그 옆에서 `wave`(손 흔들기, 사람 쪽 시선) | happy | Hi! / Hello! |
+| 탄 물체가 튀어나옴·쾅·신호(`core-pop/ping/stamp/drop/flicker`, `popin`) | `startle`(움찔 + 놀란 얼굴 → 제자리) | shock | Whoa! / Yikes! |
+| 탄 물체가 맥동(`core-heartbeat/swell/wobble`, `liquid`, `bubble`) 차분한 문장 | `bounce`(물체 박자에 맞춰 살짝 들썩) | happy | Boing~ |
+| 탄 물체가 이동(`core-glide/approach`, `path`, `slide`) 차분한 문장, 짝수 단위 | `lean`(진행 반대쪽으로 기울어 버팀) | squint | Hang on... |
 | 상황 단어 없음 | 차분한 동작 `tilt`·`look`·`sway`·`nod`·`breathe`, 우주면 가끔 느린 `float` — **제자리 점프 금지** | 문장별 | 화면 내용 단어 우선(Tick tock... / Which way? / Let me see...), 없으면 Hmm? / I see! |
 가두는 장면은 그림 안쪽 `sad` + "Let me out!"(손 사이드카 `lock`). 이 표에 없는 상황도 대본·그림에 맞는 동작·의상·말풍선·함께 이동을 새로 정해 쓴다(필요하면 `ACTS`·`frog.py`에 추가).
 
-**E. 의상 (miya 2026-10-25·26)**: 우주 = `helmet`, 깊고 어두운 바다 = `diver`(남색 슈트+공기통), 수면 가까운 물 = `goggles`, 포레족·원주민 장면 = `fore`, 그 외 평상복. 바다 팔레트(`ocean`) 영상에서는 우주 헬멧·`slide`를 쓰지 않는다(2026-10-26 검토: 고래 영상에 헬멧, 가라앉는 고래 사체에 "Wheee!").
+**E. 의상 (miya 2026-10-25·26)**: 우주 = `helmet`, 깊고 어두운 바다 = `diver`(남색 슈트+공기통), 수면 가까운 물 = `goggles`, 포레족·원주민 장면 = `fore`, 그 외 평상복. 3차 추가(2026-10-26): 실험실·과학자·현미경 = `lab`(흰 가운+고글), 탐험·정글·사막·동굴 = `explorer`(탐험 모자+가방), 추위·얼음·눈 = `scarf`(목도리, 입김), 잠·꿈·밤 = `nightcap`(수면 모자). 우선순위는 helmet/diver/goggles/fore → lab → explorer → scarf → nightcap, 단위 하나에 하나. 바다 팔레트(`ocean`) 영상에서는 우주 헬멧·`slide`를 쓰지 않는다(2026-10-26 검토: 고래 영상에 헬멧, 가라앉는 고래 사체에 "Wheee!").
 
 **F. 표정·말풍선**
-1. 표정은 문장마다(happy·surprised·curious·worried·proud·excited·scared·squint·sleepy·dizzy·sad). 양팔이 항상 보인다(가리키지 않으면 짧은 오른팔 `#fg<tag>_ra`).
+1. 표정은 문장마다(happy·surprised·curious·worried·proud·excited·scared·squint·sleepy·dizzy·sad + 3차 `love` 하트 눈(beautiful·favorite·adorable…)·`shock` 동그란 눈·입(suddenly·unbelievable·boom…)·`angry` 찡그림(war·attack·greed·stolen…)). 옆에 서 있는 개구리는 눈동자가 물체 쪽을 본다(`gaze`, `beside()`가 자동으로 둠). 양팔이 항상 보인다(가리키지 않으면 짧은 오른팔 `#fg<tag>_ra`).
 2. 말풍선 `frog.says`: 머리 위, 개구리를 따라감, 글자는 항상 똑바로, 영어만, 24자 이하, 한 단위 최대 하나(`huts`·`push` 예외), 외침은 떨림. **같은 말이 연달아 나오지 않게 상황별 단어 묶음(`POOL`)에서 돌려 쓴다**(2026-10-26 검토: 한 영상에 AAAAAH! 10번, Wheee! 12번). 강한 상황은 항상, 나머지는 한 단위 걸러, 차분한 동작은 항상. `"t":초`로 시각 지정.
 3. 무거운 주제(`config.py`의 `FROG_TONE = 'serious'`): excited/happy → curious, 환호·Yay·Tada·Wheee·Hop·Boing·Got it·moonhop·run 제거. 그렇게 해서 할 일이 없어진 개구리는 `look` + "Hmm..."(worried).
 
 **G. 등장·퇴장·눈 깜빡임 (2026-10-26 검토)**: 칠판 개구리만 아래에서 폴짝 등장. 그림 개구리는 그 자리에서 나타난다 — 탈 때는 오브젝트 뒤에서 살짝 올라오고(`peek`), 배경은 부드럽게 나타남(`fade`). 단위 끝 0.3초 전에 부드럽게 사라진다(한 프레임에 뚝 끊기지 않게). 눈 깜빡임은 불규칙한 간격(가끔 두 번 연속).
+
+**D-2. 오브젝트와의 관계 (3차 2026-10-26, 모델·대본이 달라도 같은 결과)**: 개구리 동작·의상·표정·말풍선은 전부 **단위 대본의 단어(정규식) + 그림의 `mv-`/`id` 그룹 이름 + 단위 번호**로만 정한다(난수 없음, 모델 판단 없음, `tools/frog_place.py`의 `HIDEW`·`PEEKW`·`HANGW/HANGG`·`TAPW`·`RESTW`·`SCOPEW`·`PERSON`·`POPG`·`PULSEG`·`TRAVELG`…). 판정 순서: ① 숨기(hide) ② 뒤에서 빼꼼(peek) ③ 매달리기(hang) ④ 두드리기(tap) ⑤ 쉬기(rest) ⑥ 망원경(scope) ⑦ 사람 옆 손 흔들기(wave) ⑧ 탄 물체 반응(startle → bounce → lean) ⑨ D표의 상황 동작 ⑩ 차분한 동작. 제자리 동작이 정해지면 `roam`은 지운다. 같은 입력이면 어떤 모델이 돌려도 같은 사이드카가 나와야 하고, 다르게 하고 싶으면 사이드카 `lock`으로만 바꾼다.
 
 **H. 작업 순서**
 1. 그림 에이전트는 개구리를 그리거나 사이드카에 쓰지 않는다. 그림이 끝나면 `python3 tools/frog_place.py <slug>` → `build3.py`.
@@ -58,4 +71,6 @@
 3. 확인: `SLUG=<slug> python3 tools/frogshot.py out.png 초,초,...`로 개구리 단위 프레임을 보고, 글자·자막·초점을 가리는 컷을 고친다.
 4. 예전 영상에 새 규칙만 적용: 최신 `render-pipeline`을 받고 `frog_place.py <slug>` → `build3.py`만 다시 돈다.
 
+개정: 2026-10-26 2차 검토(4편 122장면): 안전 구역(자막·말풍선 머리 위·로고), 이동 오브젝트는 중앙 쪽, 작은 오브젝트는 옆에, 구멍 위 금지, slide는 구덩이가 그려진 그림에서만(사과나무 옆 시계로 미끄러지던 것 제거), 강한 반응 배경 개구리는 자막 구역이 아닌 빈 띠에.
 개정: 2026-10-26 7-2 정리(누적 규칙 통합, 충돌 제거: 구석 앉기·모든 그림 개구리 폴짝 등장·바람 줄 삭제) + 검토 반영(중앙 위 걸터앉기 금지·옆에 서기, 글자 겹침 회피, 말풍선 반복 방지, 바다 영상 헬멧·slide 금지, 부드러운 등장·퇴장, 불규칙 깜빡임, 열 dizzy 버그 수정).
+개정: 2026-10-26 3차(miya: 모션·표정·의상 더 넣고 오브젝트도 규칙화): 관계 동작 10종(hide·peek·hang·tap·rest·scope·wave·startle·bounce·lean)·의상 4종(lab·explorer·scarf·nightcap)·표정 3종(love·shock·angry)·시선(gaze)·두드림 파장 추가, D-2 결정 순서 명시(정규식+그룹 이름+단위 번호, 난수·모델 판단 없음). 오브젝트 쪽 규칙은 4-1 끝 '3차 보강'.

@@ -325,6 +325,48 @@ def obj_js(kind, g, at, t0, v0, sp):
     raise ValueError(kind)
 
 
+SETTLE_KINDS = ('path', 'slide', 'slam', 'popin', 'rise', 'topple', 'flip')
+
+
+def settle_js(kind, g, at, t0, v0, sp):
+    """(round 3, 2026-10-26) After a one-shot motion ends, the object must not freeze: when more than 2.5 s of the picture remain,
+    it breathes (scale 1 -> 1.03, 2.6 s, sine) from the moment it comes to rest until the cut. Deterministic: only the group's data-* and timing matter."""
+    if kind not in SETTLE_KINDS or (at.get('data-dir') == 'out'): return []
+    f = lambda k, d: float(at.get('data-' + k, d))
+    if kind == 'path': st, du = path_timing(at, t0, sp)
+    elif kind == 'slam': st, du = t0 + f('delay', 0.3), .28
+    elif kind == 'popin': st, du = t0 + f('delay', 0.3), .45
+    elif kind == 'slide': st, du = t0 + f('delay', 0.3), f('dur', .7)
+    elif kind == 'rise': st, du = t0 + f('delay', 0.3), f('dur', .5)
+    elif kind == 'topple': st, du = t0 + f('delay', 0.3), f('dur', .55)
+    else: st, du = t0 + f('delay', 0.3), f('dur', 1.0)
+    end = st + du + .15; left = (v0 + sp - .2) - end
+    if left < 2.5: return []
+    per = 2.6; rep = max(int(math.ceil(left / per)) - 1, 0)
+    pv = at.get('data-pivot', '').replace(',', ' ').split()
+    org = f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]})' if len(pv) == 2 and kind in ('topple', 'flip') else 'transformOrigin:"50% 60%"'
+    return [f'tl.fromTo({g},{{scale:1,{org}}},{{scale:1.03,duration:{per},ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false}},{end:.3f});']
+
+
+def chalk_life_js(i, t0, t1, ts, frog_on=True):
+    """(round 3, 2026-10-26) Chalkboard life. The motion check of all 4 videos found every low-motion stretch inside a chalkboard gap between row pops.
+    C1 the empty dashed slots breathe (opacity .5-1, 1.1 s) until their row pops. C2 in a gap longer than 7 s, every 5 s the last filled row's value
+    (or the conclusion) pulses once (scale 1.08) and the frog's pointing arm taps it (y -7). Keyed on the pop times ts only -> same result for any script."""
+    js = []
+    for r in (1, 2):
+        nrep = int((ts[r] - t0 - .1) / 1.1) - 1
+        if nrep >= 1: js.append(f'tl.fromTo("#k{i}ph{r}",{{opacity:.5}},{{opacity:1,duration:1.1,ease:"sine.inOut",yoyo:true,repeat:{nrep},immediateRender:false}},{t0 + .05:.3f});')
+    for r, (ta, tb) in enumerate(zip(ts, ts[1:] + [t1])):
+        if tb - ta <= 7: continue
+        tp = ta + 5.0
+        while tp < tb - 2:
+            sel = f'#k{i}cc' if r == 3 else f'#k{i}r{r} .v'
+            js.append(f'tl.fromTo("{sel}",{{scale:1,transformOrigin:"50% 50%"}},{{scale:1.08,duration:.16,ease:"power2.out",yoyo:true,repeat:1,immediateRender:false}},{tp:.3f});')
+            if frog_on: js.append(f'tl.fromTo("#fgk{i}_arm",{{y:0}},{{y:-7,duration:.14,ease:"power2.out",yoyo:true,repeat:1,immediateRender:false}},{tp - .08:.3f});')
+            tp += 5.0
+    return js
+
+
 MOTION_JS = """
 function miyaEase(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;}
 // travelling motion (path object, tracking camera): constant speed with short 15 % soft start/stop (no mid-way speed-up, owner 2026-10-22)

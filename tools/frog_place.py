@@ -33,7 +33,7 @@ def free_band(pg, W, H, vert, n):
     pg.set_viewport_size({'width': W, 'height': H})
     im = np.asarray(Image.open(io.BytesIO(pg.screenshot())).convert('L').resize((W // 8, H // 8)), dtype=np.float32)
     gy, gx = np.gradient(im); e = np.hypot(gx, gy)
-    lo, hi = (420, 1380) if vert else (170, 800); best = None
+    lo, hi = (560, 1300) if vert else (340, 780); best = None   # (2026-10-26 review 2) feet no higher than this: head + bubble stayed inside the frame, logo and top edge free
     for yc in range(lo, hi + 1, 40):
         band = e[max(0, (yc - 80) // 8):(yc + 80) // 8, 10:-10].mean() + .002 * abs(yc - (lo + hi) / 2) * (n % 2)   # mild variety between units
         if best is None or band < best[0]: best = (band, yc)
@@ -42,7 +42,10 @@ SAYS = {'orbit': 'Whoa-oa-oa...', 'dizzy': 'Wooo-ooo...', 'pull': 'AAAAAH!', 'wi
 POOL = {'pull': ['AAAAAH!', 'Nooo!', 'Heeelp!', 'Whoaaa!'], 'wind': ['Whooosh!', 'Zoooom!', 'Hold on!'], 'shiver': ['Brrrr...', 'Eek...', 'Gulp.'],
         'awe': ['Woooow!', 'So big!', 'Whoa...'], 'sleepy': ['Zzz...', 'Yawn...'], 'slide': ['Wheee!', 'Down I go!', 'Whoa-oa!'], 'orbit': ['Whoa-oa-oa...', 'Round and round...'],
         'dizzy': ['Wooo-ooo...', 'So dizzy...'], 'waves': ['Whoa-oa!', 'Splash!'], 'cheer': ['Yay!', 'Got it!'], 'nod': ['Mm-hm!', 'I see!', 'Right!'], 'tilt': ['Hmm?', 'Huh?', 'Really?'],
-        'look': ['Ooh!', 'Oh!', "What's that?"], 'sway': ['Hum hum...', 'La la la...'], 'breathe': ['Ahh...', 'Phew...'], 'float': ['Wheee!', 'Floaty...']}   # (2026-10-26 review: "AAAAAH!" 10x, "Wheee!" 12x in one video)
+        'look': ['Ooh!', 'Oh!', "What's that?"], 'sway': ['Hum hum...', 'La la la...'], 'breathe': ['Ahh...', 'Phew...'], 'float': ['Wheee!', 'Floaty...'],
+        'hide': ["Can't look!", 'Eeek!', 'Nope nope!'], 'peek': ['Peek-a-boo!', 'Psst...', 'Who, me?'], 'hang': ['Hold on!', 'Wheee!', "Don't let go!"], 'tap': ['Knock knock!', 'Hmm, hard.', 'Tap tap.'],
+        'rest': ['Ahh...', 'Safe at last.', 'Home sweet home.'], 'scope': ['I see it!', 'There!', 'Ooh, far away.'], 'wave': ['Hi there!', 'Hello!', 'Over here!'], 'startle': ['Eek!', 'Whoa!', 'Yikes!'],
+        'bounce': ['Boing boing.', 'Bumpy!', 'Wobbly...'], 'lean': ['Here we go!', 'Steady...', 'Off we go!']}   # (2026-10-26 review: "AAAAAH!" 10x, "Wheee!" 12x in one video)
 CONTEXT = [(re.compile(r'\b(clocks?|ticking|ticks?|seconds?|minutes?|hours?)\b', re.I), 'Tick tock...'), (re.compile(r'\b(scales?|balance|weigh\w*)\b', re.I), 'Which way?'),
            (re.compile(r'\b(maps?|charts?|graphs?|numbers?)\b', re.I), 'Let me see...'), (re.compile(r'\b(bones?|skeleton)\b', re.I), 'Bones!')]   # calm frogs: a word about what is on screen
 LAST = {'word': None, 'k': {}}
@@ -55,8 +58,29 @@ def pick_word(nm, text):
     k = LAST['k'].get(nm, 0); w = pool[k % len(pool)]
     if w == LAST['word'] and len(pool) > 1: k += 1; w = pool[k % len(pool)]
     LAST['k'][nm] = k + 1; LAST['word'] = w; return w
-CALM = ('tilt', 'look', 'sway', 'nod', 'breathe')
-STRONG = ('pull', 'shiver', 'awe', 'wind', 'orbit', 'dizzy', 'slide')   # always get a sound word; the other acts every second unit (miya 2026-10-26: speech bubble with emotion / sound words)
+CALM = ('tilt', 'look', 'sway', 'nod', 'breathe', 'tap', 'rest', 'scope', 'wave', 'bounce', 'lean')   # calm acts always get a bubble (guideline 7-2 B-1)
+# ---- round 3 (2026-10-26, guideline 7-2 D "relation acts"): the frog relates to a person / an object in the picture. Keyed on unit words + group ids only,
+#      so a different model, script or picture set gives the same choice. Only applied when the act so far is weak (calm / none / float / sleepy / awe / waves / cheer).
+HIDEW = re.compile(r'\b(terrif\w*|horror|horrif\w*|nightmare\w*|scream\w*|gruesome|monstrous|can.?t (look|watch)|too scary|dreadful|bloody|gore)\b', re.I)
+PEEKW = re.compile(r'\b(invisible|hidden|hide\w*|hiding|secret\w*|myster\w*|unknown|unseen|lurk\w*|sneak\w*|spy\w*|behind|disguise\w*|camouflag\w*)\b', re.I)
+HANGW = re.compile(r'\b(hang\w*|dangl\w*|suspend\w*|balloon|cling\w*|grip\w*|hold on|hanging|swing\w*|ledge|cliff|edge of)\b', re.I)
+HANGG = re.compile(r'balloon|branch|rope|wire|cable|beam|bar\b|ring|hook|ledge|cliff|ceiling|arm\b|crane|bridge|tail|fin|antenna|pole', re.I)
+TAPW = re.compile(r'\b(test\w*|check\w*|examin\w*|measur\w*|press\w*|knock\w*|pok\w*|inspect\w*|sampl\w*|touch\w*|tap\w*|analy\w*|experiment\w*|scan\w*)\b', re.I)
+RESTW = re.compile(r'\b(rest\w*|relax\w*|calm\w*|peace\w*|quiet\w*|gentl\w*|finally|safe\w*|comfort\w*|home\b|settle\w*|shelter\w*|warm\w*|cozy|cosy)\b', re.I)
+SCOPEW = re.compile(r'\b(observ\w*|telescope\w*|astronom\w*|look(ed|ing)? up|watch(ed|ing)? the sky|search\w*|scan\w*|spot\w*|sight\w*|gaze\w*|peer\w*|far away|distant)\b', re.I)
+PERSON = re.compile(r'person|people|man\b|woman|men\b|women|kid|child|boy|girl|astronaut|scientist|researcher|doctor|officer|villager|figure|human|farmer|worker|crowd|caretaker|observer|diver\b|sailor|crew', re.I)
+LABW = re.compile(r'\b(lab|laboratory|experiment\w*|scientist\w*|researcher\w*|microscope\w*|test tube|petri|sample\w*|chemist\w*|biolog\w*|physicist\w*|study|studies)\b', re.I)
+EXPLW = re.compile(r'\b(expedition\w*|explor\w*|jungle|desert|island\w*|mountain\w*|trek\w*|safari|cave\w*|wilderness|highlands?|trail\w*|voyage\w*)\b', re.I)
+SCARFW = re.compile(r'\b(freez\w*|frozen|ice|icy|snow\w*|cold|colder|winter|arctic|antarctic\w*|glacier\w*|frost\w*|chill\w*)\b', re.I)
+NIGHTW = re.compile(r'\b(sleep\w*|asleep|dream\w*|bed\w*|nap|yawn\w*|midnight|bedtime|drows\w*|slumber\w*)\b', re.I)
+LOVEW = re.compile(r'\b(beautiful|lovely|favou?rite|ador\w*|love\w*|wonderful|delicious|gorgeous|precious|cute|charming)\b', re.I)
+SHOCKW = re.compile(r'\b(shock\w*|unbelievabl\w*|suddenly|boom|explod\w*|burst\w*|what\?|wait\b|gasp\w*|stunn\w*|astonish\w*|incredibl\w*)\b', re.I)
+ANGRYW = re.compile(r'\b(war\b|wars\b|fight\w*|attack\w*|villain\w*|enem\w*|greed\w*|cruel\w*|unfair|cheat\w*|steal\w*|stolen|thie\w*|rob\w*|furious|rage)\b', re.I)
+POPG = re.compile(r'mv-(core-(pop|ping|stamp|drop|flicker)|popin)', re.I)
+PULSEG = re.compile(r'mv-(core-(heartbeat|swell|wobble)|liquid|bubble)', re.I)
+TRAVELG = re.compile(r'mv-(core-(glide|approach)|path|slide)', re.I)
+WEAK = ('float', 'sleepy', 'awe', 'waves', 'cheer', 'nod', None)
+STRONG = ('pull', 'shiver', 'awe', 'wind', 'orbit', 'dizzy', 'slide', 'hide', 'peek', 'hang', 'startle')   # always get a sound word; the other acts every second unit (miya 2026-10-26: speech bubble with emotion / sound words)
 def says_for(act, keep, text, cnt):
     nm = act.get('type') if isinstance(act, dict) else act
     rm = (keep.get('roam') or {}).get('kind')
@@ -89,27 +113,33 @@ JST = '''()=>[...document.querySelectorAll('text')].map(t=>{const r=t.getBoundin
 JSS = '''([id,x,y0,y1])=>{const g=document.getElementById(id),m=g&&g.getScreenCTM();if(!m)return null;for(let y=y0;y<=y1;y+=3){const p=new DOMPoint(x,y).matrixTransform(m);for(const e of document.elementsFromPoint(p.x,p.y)){if(e.closest&&e.closest('[id="'+id+'"]')&&e.tagName!=='g')return y}}return null}'''   # x, y in the group's own coordinates
 def hits(box, tb):   # overlap area of a box (x0, y0, x1, y1) with the picture's text boxes
     return sum(max(0, min(box[2], a + c) - max(box[0], a)) * max(0, min(box[3], b + d) - max(box[1], b)) for a, b, c, d in tb)
+MOVING = re.compile(r'^mv-(slide|path)')   # groups that travel during the unit: the frog is placed on / beside them relative to their START box, so keep it on the side toward the screen centre (the object ends near an edge)
 def beside(g, W, H, vert, tb):
     """a calm frog (no strong situation) does not sit on top of the object: it stands beside it at its foot, facing it and looking at it (2026-10-26 review)"""
     _, x, y, w, h = g; s = round(.95 * (1.15 if vert else 1), 2); best = None
-    for side in ((-1, 1) if (x + w / 2) < W / 2 else (1, -1)):
-        fx = x - 40 * s if side < 0 else x + w + 40 * s; fy = min(y + h, H - (300 if vert else 150))
-        if not (.08 * W <= fx <= .92 * W): continue
+    order = (-1, 1) if (x + w / 2) < W / 2 else (1, -1)
+    if MOVING.match(g[0]): order = order[::-1]
+    for side in order:
+        fx = x - 40 * s if side < 0 else x + w + 40 * s; fy = max(min(y + h, H - (500 if vert else 290)), 82 * s + 150)
+        if not (.1 * W <= fx <= .9 * W): continue
         sc = hits((fx - 45 * s, fy - 100 * s, fx + 45 * s, fy), tb)
         if best is None or sc < best[0]: best = (sc, fx, fy, side)
     if best is None: return None
-    return dict(x=round(best[1]), y=round(best[2]), s=s, flip=-best[3], bside=best[3])
+    return dict(x=round(best[1]), y=round(best[2]), s=s, flip=-best[3], bside=best[3], gaze=1)   # gaze: pupils toward the object it faces
 def perch(pg, g, W, H, vert, tb, n):
     """(2026-10-26 review) where a riding frog sits: NOT on top of the middle of the object (it hid the focal point), but on the end of the object nearer
     the screen edge, feet on the drawn surface (scanned from the page), small; the other end when that one covers on-screen text"""
     _, x, y, w, h = g; s = round(min(1.25, max(.8, w / 230)) * (1.15 if vert else 1), 2)
+    if w < 260 or h < 90: return beside(g, W, H, vert, tb)   # a small object (a star, a photon, a watch): on its end = on its middle, so stand beside it instead
     ends = [.2, .8] if (x + w / 2) < W / 2 else [.8, .2]
+    if MOVING.match(g[0]): ends = ends[::-1]
     best = None
     for f in ends:
         fx = x + w * f; fy = pg.evaluate(JSS, [g[0], round(fx), round(max(0, y - 4)), round(y + h)])
-        if fy is None or not (.1 * W <= fx <= .9 * W): continue   # no drawn surface there, or too near the frame edge (the drift camera crops it)
+        if fy is None or not (.12 * W <= fx <= .88 * W): continue
+        if fx > .74 * W and (fy or 0) < (430 if not vert else 520): continue   # the channel logo sits top-right   # no drawn surface there, or too near the frame edge (the drift camera crops it)
         fy = fy + 4 * s
-        fy = max(fy, 82 * s + 40); bub = 1 if fx < W / 2 else -1
+        fy = max(fy, 82 * s + 150); bub = 1 if fx < W / 2 else -1   # head + bubble inside the frame (top crop of the drift camera, logo)
         box = (fx - 45 * s, fy - 100 * s, fx + 45 * s, fy); bbox = (fx + (0 if bub > 0 else -200), fy - 100 * s - 90, fx + (200 if bub > 0 else 0), fy - 100 * s)
         sc = hits(box, tb) * 3 + hits(bbox, tb)
         if best is None or sc < best[0]: best = (sc, round(fx), round(fy), bub)
@@ -175,9 +205,13 @@ with sync_playwright() as p:
                 core = [g for g in gs.values() if g[0].startswith('mv-core-') and OK.match(g[0])]
                 if core: pick = core[0][0]; keep['cling'] = True
             slid = False
+            PIT = re.compile(r'hole|bh|well|funnel|pit|grid|sheet|fabric|dent|bowl|warp|sun|star|planet|mass|earth', re.I)
+            if act == 'slide' and not ROLL.search(text) and not any(PIT.search(g) for g in gs) and not re.search(r'spacetime|space-time|fabric|warp', text, re.I):
+                act = None; keep['act'] = None   # (review 2) 'gravity' beside an apple tree and a clock: nothing to slide into -> treated like a unit without a situation word below
+                m0 = moods[0]['mood']; act = {'curious': 'tilt', 'surprised': 'look', 'worried': 'sway'}.get(m0, 'nod'); keep['act'] = act; keep['moods'][0] = {'mood': m0}
             if act == 'slide' and not ROLL.search(text):   # slides from the rim of the picture's pit (the heavy centre object / hole) down to its bottom
-                tgt = [g for g in gs.values() if g[0].startswith('mv-core-') or HOLE.search(g[0])]
-                tgt.sort(key=lambda g: -g[3] * g[4]); tx, ty = (round(tgt[0][1] + tgt[0][3] / 2), round(tgt[0][2] + tgt[0][4] * .6)) if tgt else (W // 2, round(H * .62))
+                tgt = [g for g in gs.values() if g[0].startswith('mv-core-') or HOLE.search(g[0]) or PIT.search(g[0])]
+                tgt.sort(key=lambda g: (0 if HOLE.search(g[0]) else 1, -g[3] * g[4])); tx, ty = (round(tgt[0][1] + tgt[0][3] / 2), round(tgt[0][2] + tgt[0][4] * .6)) if tgt else (W // 2, round(H * .62))
                 side = 1 if n % 2 == 0 else -1; sx = max(150, min(W - 150, round(tx - side * W * (.3 if not vert else .35)))); sy = max(210, round(ty - H * (.2 if not vert else .1)))
                 s0 = round(.9 if not vert else 1.15, 2); n += 1; slid = True
                 keep.update(kind='bg', ride=None, x=sx, y=sy, s=s0, flip=1 if tx > sx else -1, act={'type': 'slide', 'to': [tx, ty]}); keep.pop('roam', None); keep.pop('cling', None)
@@ -186,8 +220,9 @@ with sync_playwright() as p:
             if slid: pass
             elif pick:
                 _, x, y, w, h = gs[pick]
+                if HOLE.search(pick) and act not in ('orbit', 'pull') and not keep.get('cling'): act = 'pull'; keep['act'] = 'pull'; keep['moods'][0] = {'mood': 'scared'}   # (review 2) a frog standing on a black hole: pulled instead
                 calm = (act in CALM or act in ('awe', 'sleepy', 'float', None)) and not keep.get('cling')
-                pos = (beside(gs[pick], W, H, vert, tb) if calm else None) or perch(pg, gs[pick], W, H, vert, tb, n) or beside(gs[pick], W, H, vert, tb)
+                pos = (beside(gs[pick], W, H, vert, tb) if calm and not MOVING.match(pick) else None) or perch(pg, gs[pick], W, H, vert, tb, n) or beside(gs[pick], W, H, vert, tb)
                 if act == 'pull' and HOLE.search(pick) and not keep.get('cling'):   # the picked object IS the hole: the frog floats beside it and gets pulled in, it does not ride the hole
                     side = 1 if (x + w / 2) < W / 2 else -1; pos = dict(x=round(min(W * .9, max(W * .1, x + w / 2 + side * max(w * .75, W * .22)))), y=round(y + h * .55), s=.9, flip=-side); pick = None
                 if pos is None: pos = dict(x=round(x + w / 2), y=round(max(y + 8, 122)), s=1.0, flip=1 if x + w / 2 < W / 2 else -1)
@@ -212,18 +247,58 @@ with sync_playwright() as p:
                 sz = [1.0, .9, 1.1, .95][(n - 1) % 4]
                 if kind in ('swim', 'lie', 'tumble'): y0 = free_band(pg, W, H, vert, n); s0 = (1.1 if vert else .85) * sz
                 elif kind == 'roll': y0 = free_band(pg, W, H, vert, n); s0 = (1.1 if vert else .85) * sz
-                else: y0 = (H - 110) if vert else (H - 50); s0 = (1.05 if vert else .8) * sz
+                else: y0 = (H - 360) if vert else (H - 190); s0 = (1.05 if vert else .8) * sz   # (2026-10-26 review 2) above the caption box, never over the subtitles
                 if on_plat: y0 = round(on_plat[2] + 6)
                 right = (n % 2 == 1); dist = round(W * ((.28 if vert else .24) if kind in ('swim', 'lie', 'tumble', 'roll') else (.5 if vert else .15)))
-                x0 = (130 if right else W - 130); fl = 1 if right else -1
+                x0 = (260 if right else W - 260); fl = 1 if right else -1
                 if on_plat:   # stays on the platform, on the side away from the figure that runs on it
                     figs = [g for g in gs.values() if re.search(r'run|astro|breathe|legs|walker|person|man\b|woman|kid|child', g[0], re.I) and g[0] != on_plat[0]]
                     pcx = on_plat[1] + on_plat[3] / 2; fcx = (sum(g[1] + g[3] / 2 for g in figs) / len(figs)) if figs else pcx
                     right = fcx > pcx   # figure on the right -> frog starts on the left part and walks toward the facing side (right)
                     x0 = round(on_plat[1] + on_plat[3] * (.15 if right else .85)); fl = 1 if right else -1; dist = round(min(dist, on_plat[3] * .3))
-                else: x0 = max(170, min(W - 170, x0))
+                else: x0 = max(260, min(W - 260, x0))
+                if act in ('pull', 'shiver', 'awe') and not on_plat: y0 = free_band(pg, W, H, vert, n)   # a strong reaction in the open picture, not down in the caption zone
                 keep.update(x=x0, y=y0, s=round(s0, 2), flip=fl, kind='bg', roam=dict(kind=kind, dist=dist))
                 if act in ('float', 'cheer') or kind in ('swim', 'lie', 'tumble', 'roll'): keep['act'] = None   # the roaming motion replaces the in-place bob/hops; a drifting swimmer gets no lean/wind lines (miya 2026-10-26)
+            # ---- round 3 relation acts (2026-10-26, guideline 7-2 D): applied only on a weak act; each one keyed on words + group ids ----
+            cur = keep.get('act'); weak = (cur in CALM or cur in WEAK) and not isinstance(cur, dict) and not slid and not keep.get('cling')
+            SOFT = re.compile(r'glow|halo|ring|bg\b|background|sky|grid|star|nebula|circle|field|beam|light|aura|dust|particle|fog|mist|cloud|haze|wave|line|path|track|orbit|trail|edge|shadow|glint|lamp', re.I)
+            big = sorted([g for g in gs.values() if 200 <= g[3] <= W * .6 and g[4] >= 120 and not PLAT.search(g[0]) and not SOFT.search(g[0])], key=lambda g: -g[3] * g[4])   # a solid object to hide behind (no glows / rings / backgrounds)
+            rk = keep.get('ride') or ''
+            if weak and HIDEW.search(text):
+                keep['act'] = 'hide'; keep['moods'][0] = {'mood': 'scared'}
+            elif weak and PEEKW.search(text) and big:   # hidden behind the biggest object, peeking out on the side toward the screen centre
+                _, bx, by, bw, bh = big[0]; side = 1 if bx + bw / 2 < W / 2 else -1; s0 = round(1.0 if not vert else 1.2, 2)
+                px = bx + bw - 10 if side > 0 else bx + 10; py = max(min(by + bh, H - (460 if vert else 290)), 82 * s0 + 150)
+                keep.update(kind='bg', ride=None, behind=big[0][0], x=round(px), y=round(py), s=s0, flip=side, act='peek', moods=[{'mood': 'curious'}], bside=side); keep.pop('roam', None)
+            elif weak and HANGW.search(text) and any(HANGG.search(g) for g in gs):   # hangs under a branch / rope / beam / ring of the picture by both hands
+                hg_ = sorted([g for g in gs.values() if HANGG.search(g[0]) and g[3] >= 80], key=lambda g: -g[3])[0]
+                _, hx_, hy_, hw_, hh_ = hg_; s0 = round(.95 if not vert else 1.15, 2); fx_ = hx_ + hw_ * (.35 if hx_ + hw_ / 2 > W / 2 else .65)
+                keep.update(kind='ride' if OK.match(hg_[0]) else 'bg', ride=hg_[0] if OK.match(hg_[0]) else None, x=round(fx_), y=round(hy_ + hh_ + 96 * s0), s=s0, flip=1 if fx_ < W / 2 else -1, act='hang', moods=[{'mood': 'excited'}]); keep.pop('roam', None)
+            elif weak and TAPW.search(text) and keep.get('ride') and keep.get('kind') == 'ride':
+                keep['act'] = 'tap'; keep['moods'][0] = {'mood': 'curious'}
+            elif weak and RESTW.search(text) and keep.get('ride'):
+                keep['act'] = 'rest'; keep['moods'][0] = {'mood': 'happy' if not NIGHTW.search(text) else 'sleepy'}
+            elif weak and SCOPEW.search(text) and (SPACE.search(text) or palname in ('space', 'deepfield') or re.search(r'telescope|observ', text, re.I)):
+                keep['act'] = 'scope'; keep['moods'][0] = {'mood': 'curious'}
+            elif weak and any(PERSON.search(g) for g in gs) and not keep.get('ride'):   # a person in the picture and nothing better to do: stands near them and waves
+                pg2 = sorted([g for g in gs.values() if PERSON.search(g[0])], key=lambda g: -g[4])[0]; pos2 = beside(pg2, W, H, vert, tb)
+                if pos2: keep.update(kind='bg', ride=None, act='wave', moods=[{'mood': 'happy'}], **pos2); keep.pop('roam', None)
+            elif weak and rk and POPG.search(rk): keep['act'] = 'startle'
+            elif weak and rk and PULSEG.search(rk) and cur in CALM: keep['act'] = 'bounce'
+            elif weak and rk and TRAVELG.search(rk) and cur in CALM and n % 2 == 0: keep['act'] = 'lean'   # every other ride on a traveller leans back; the others keep their calm act (variety)
+            if keep.get('act') in ('scope', 'hide', 'tap', 'rest', 'wave', 'peek', 'hang'): keep.pop('roam', None)   # these are done in place, not while roaming
+            # outfits by scene words (not over diving gear / helmet / fore)
+            if not keep.get('outfit'):
+                if LABW.search(text): keep['outfit'] = ['lab']
+                elif EXPLW.search(text) and not SEA.search(text): keep['outfit'] = ['explorer']
+                elif SCARFW.search(text): keep['outfit'] = ['scarf']
+                elif NIGHTW.search(text): keep['outfit'] = ['nightcap']
+            # extra faces on the first sentence when no strong act fixed it
+            if keep.get('act') not in STRONG and not isinstance(keep.get('act'), dict):
+                if ANGRYW.search(text): keep['moods'][0] = {'mood': 'angry'}
+                elif SHOCKW.search(text): keep['moods'][0] = {'mood': 'shock'}
+                elif LOVEW.search(text) and not SERIOUS: keep['moods'][0] = {'mood': 'love'}
             # ---- miya 2026-10-26 situation acts: heat -> dizzy, notebook/page -> doodle, hut doors -> huts + outfit steps, movable object (lens/crate) -> push by its handle ----
             doors = pg.evaluate(JSD)
             if keep.get('act') not in ('pull',) and HEAT.search(text) and not ROLL.search(text):

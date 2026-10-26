@@ -478,7 +478,7 @@ ROW_Y = [294, 459, 630]
 
 def frog_inject(svgtxt, u):
     d = frog_of(u)
-    return frog.inject(svgtxt, frog.markup(f'u{u["n"]}', d), d.get('ride')) if d else svgtxt
+    return frog.inject(svgtxt, frog.markup(f'u{u["n"]}', d), d.get('ride'), d.get('behind')) if d else svgtxt
 
 
 def chalk_frog(i):
@@ -568,6 +568,7 @@ h.append('''#logo{position:absolute;left:1799px;top:40px;width:81px;height:81px;
 .chalks{position:absolute;left:70px;top:1032px;display:flex;gap:18px}.chalks i{display:block;width:56px;height:14px;border-radius:5px}
 .erasers{position:absolute;left:1722px;top:1022px;display:flex;gap:14px}.erasers b{display:block;width:70px;height:26px;border-radius:4px;background:#5b4a38;border-bottom:8px solid #c9b79a}
 '''.replace('@W', str(W)).replace('@H', str(H)))
+h.append('.ss{position:absolute;left:0;top:0;width:%dpx;height:%dpx;pointer-events:none;opacity:0}' % (W, H))   # round 3: one shooting star in some night-sky pictures (guideline 4-4)
 h.append('.spd{position:absolute;left:0;top:0;width:%dpx;height:%dpx;pointer-events:none;overflow:hidden;opacity:0}.spd i{position:absolute;left:0;top:0;width:0;height:0}.spd b{position:absolute;left:0;top:-2px;width:210px;height:4px;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.85));transform-origin:0 50%%;opacity:0}' % (W, H))
 h.append('</style></head><body>')
 h.append(f'<div id="root" data-composition-id="main" data-start="0" data-duration="{TOTAL}" data-width="{W}" data-height="{H}">')
@@ -575,6 +576,9 @@ h.append(f'<div id="root" data-composition-id="main" data-start="0" data-duratio
 # them with sidecar "speed": true (or turn them off with false).
 SPEED_RE = re.compile(r"\b(speed\w*|fast\w*|accelerat\w*|racing|races?|rush\w*|launch\w*|rocket\w*|warp\w*|hurtl\w*|flying|flee\w*|fled|reced\w*|expand\w*|explod\w*|burst\w*|blast\w*|stream\w*|zoom\w*)\b", re.I)
 NSPD = 30
+def is_cosmic(u):
+    """a night-sky picture of a space palette: gets the occasional shooting star (round 3, 2026-10-26; deterministic by unit index, no randomness)"""
+    return u['kind'] != 'chalk' and u.get('bg') == 'night' and (u.get('pal') or {}).get('palette') in ('space', 'deepfield')
 def is_speed(u, sc0):
     if 'speed' in sc0: return bool(sc0['speed'])
     return getattr(CFG, 'STYLE', 'default') == 'cosmic' and bool(SPEED_RE.search(u['text']))
@@ -603,7 +607,8 @@ for u in units:
             ox, oy = (float(fz[0]), float(fz[1])) if fz else (CX, CY)
             spd = (f'<div class="spd" id="spd{nn}"><div style="position:absolute;left:{ox:.0f}px;top:{oy:.0f}px">'
                    + ''.join(f'<i style="transform:rotate({(k * 137.508) % 360:.1f}deg)"><b></b></i>' for k in range(NSPD)) + '</div></div>')
-        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{frog_inject(load_svg(nn, p, sc0.get('world')), u)}{spot}{lin}</div>{spd}</div>')
+        ss = (f'<svg class="ss" id="ss{nn}" viewBox="0 0 {W} {H}"><g id="ssl{nn}"><line x1="0" y1="0" x2="230" y2="108" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".22"/><line x1="0" y1="0" x2="230" y2="108" stroke="#fff" stroke-width="3.5" stroke-linecap="round" opacity=".95"/><circle cx="230" cy="108" r="5" fill="#fff"/></g></svg>') if is_cosmic(u) else ''
+        h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{frog_inject(load_svg(nn, p, sc0.get('world')), u)}{spot}{lin}</div>{spd}{ss}</div>')
         BADGES.append(lout)   # number badges live on their own layer so they do not vanish with the cut (user 2026-10-16)
 if label_errors: raise SystemExit('on-screen text (labels) problems, fix the sidecars:\n  ' + '\n  '.join(label_errors))
 h.append('<div id="badges" style="position:absolute;left:0;top:0;width:0;height:0;z-index:998">' + ''.join(BADGES) + '</div>')
@@ -743,7 +748,7 @@ js = ['<script>' + motions.WRAP_JS + motions.MOTION_JS + motions.CHALK_FIT_JS + 
 ORG = f'{CX}px {CY}px'
 MV = {'flame': ('pulse', .30), 'lamp': ('glow', 1.2), 'lantern': ('glow', 1.3), 'beacon': ('glow', 1.5), 'glint': ('glow', 1.4),
       'spark': ('pulse', .25), 'smoke': ('drift', 1.6), 'steam': ('drift', 1.3), 'stink': ('drift', 1.1), 'cells': ('drift', 1.8),
-      'antenna': ('sway', .35), 'breathe': ('breathe', 2.2), 'nod': ('nod', 1.8), 'lean': ('lean', 3.0), 'arm': ('arm', 1.4),
+      'antenna': ('sway', .35), 'blink': ('blink', 3.1), 'breathe': ('breathe', 2.2), 'nod': ('nod', 1.8), 'lean': ('lean', 3.0), 'arm': ('arm', 1.4),
       'walk': ('walk', 3.5), 'hand': ('hand', 1.0), 'rain': ('drift', .9), 'bell': ('swing', .8), 'knot': ('swing', 1.2), 'key': ('drift', .8),
       # cosmic mode (guideline 3-7)
       'drift-nebula': ('nebula', 10.0), 'orbit': ('orbit', 24.0), 'pulse': ('glow', 1.6)}
@@ -765,6 +770,7 @@ for k, u in enumerate(units):
             js.append(f'tl.set("#k{i}ph{r}",{{opacity:0}},{tt:.3f});tl.fromTo("#k{i}r{r}",{{opacity:1,scale:.96}},{{scale:1.02,duration:.05,ease:"power1.out",immediateRender:false}},{tt:.3f});tl.to("#k{i}r{r}",{{scale:1,duration:.05,ease:"power1.in"}},{tt + .05:.3f});')
         js.append(f'tl.fromTo("#k{i}cc",{{opacity:1,scale:.96}},{{scale:1.02,duration:.05,immediateRender:false}},{ts[3]:.3f});tl.to("#k{i}cc",{{scale:1,duration:.05}},{ts[3] + .05:.3f});')
         js.append(f'tl.set("#k{i}r1",{{opacity:0}},{t0:.3f});tl.set("#k{i}r2",{{opacity:0}},{t0:.3f});tl.set("#k{i}cc",{{opacity:0}},{t0:.3f});tl.set("#k{i}ph1",{{opacity:1}},{t0:.3f});tl.set("#k{i}ph2",{{opacity:1}},{t0:.3f});')
+        js.extend(motions.chalk_life_js(i, t0, t1, ts, FROG_ON))   # round 3 chalk life (slot breathe, value pulse + arm tap in long gaps), see motions.chalk_life_js
         if FROG_ON:   # the frog stands bottom-left and points at each row / the conclusion as it is spoken
             _tg = [(ts[0], (700, ROW_Y[0] + 70)), (ts[1], (700, ROW_Y[1] + 70)), (ts[2], (700, ROW_Y[2] + 70)), (ts[3], (960, 800))]
             js.extend(frog.js(f'k{i}', CHALK_FROG, t0, t1, unit_words(u), _tg))
@@ -860,6 +866,10 @@ for k, u in enumerate(units):
             per = 0.9 + 0.5 * ((q * 7) % 5) / 4; off = (q * 0.61803) % 1 * per
             rep = max(0, int(math.ceil((d - off) / per)) - 1)
             js.append(f'tl.fromTo("#spd{nn} i:nth-child({q + 1}) b",{{x:{R * .04:.0f},scaleX:.15,opacity:0}},{{x:{R * .62:.0f},scaleX:1.6,opacity:.9,duration:{per:.2f},ease:"power3.in",repeat:{rep},immediateRender:false}},{v0 + off:.3f});')
+    if is_cosmic(u) and (t1 - v0) > 6 and k % 3 == 1:   # --- shooting star (round 3 fun rule): one streak across the upper sky, once, at a unit-indexed moment; never over the first 1.5 s or the last 1.5 s ---
+        d = t1 - v0; sx = W * (.12 + .55 * ((k * .618) % 1)); sy = H * (.06 + .22 * ((k * .382) % 1)); ts = v0 + 1.5 + ((k * .73) % 1) * max(d - 3.2, .1)
+        js.append(f'tl.set("#ss{nn}",{{opacity:1}},{ts:.3f});tl.fromTo("#ssl{nn}",{{x:{sx:.0f},y:{sy:.0f},opacity:0,scaleX:.2,svgOrigin:"0 0"}},{{x:{sx + 520:.0f},y:{sy + 245:.0f},opacity:.9,scaleX:1,duration:.55,ease:"power2.in",immediateRender:false}},{ts:.3f});'
+                  f'tl.to("#ssl{nn}",{{opacity:0,duration:.25,ease:"power1.out"}},{ts + .55:.3f});tl.set("#ss{nn}",{{opacity:0}},{ts + .85:.3f});')
     # --- motion groups (finite, seek-safe) ---
     p, fb = art_path(u); svg = load_svg(nn, p); cnt = {}
     sp = t1 - v0 + 0.2
@@ -881,6 +891,7 @@ for k, u in enumerate(units):
         if nm.split('-')[1] in motions.OBJ_KINDS and nm.count('-') >= 2:   # (2026-10-22) object motions anywhere in the picture (guideline 4-1)
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
             js.extend(motions.obj_js(nm.split('-')[1], g, at, t0, v0, sp))
+            js.extend(motions.settle_js(nm.split('-')[1], g, at, t0, v0, sp))   # round 3: a one-shot motion that ends early is followed by a soft breathe, never a frozen object
             continue
         if nm.startswith('mv-rotor-'):  # (2026-10-19) a part that turns round and round about data-pivot (clock hand, turbine blades, fan, wheel); data-per = seconds per turn, data-dir = 1 / -1
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
@@ -914,6 +925,11 @@ for k, u in enumerate(units):
         ease = f'ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false'
         if kind == 'pulse': js.append(f'tl.fromTo({g},{{scaleY:1,scaleX:1,transformOrigin:"50% 100%"}},{{scaleY:1.14,scaleX:.92,duration:{per:.3f},{ease}}},{v0:.3f});')
         elif kind == 'drift': js.append(f'tl.fromTo({g},{{y:0,x:0}},{{y:-14,x:6,duration:{per:.3f},{ease}}},{v0:.3f});')
+        elif kind == 'blink':   # (round 3) eyes close for a tenth of a second at an irregular rhythm (eyelid = the group squashes from its middle)
+            tb_ = v0 + .9 + .4 * (kk % 3); jb = 0
+            while tb_ < t1 - .3:
+                js.append(f'tl.to({g},{{scaleY:.08,duration:.07,yoyo:true,repeat:1,ease:"none",transformOrigin:"50% 50%"}},{tb_:.3f});'); tb_ += (per, per + 1.1, .35, per - .6)[jb % 4]; jb += 1
+            continue
         elif kind == 'breathe': js.append(f'tl.fromTo({g},{{scaleY:1,transformOrigin:"50% 100%"}},{{scaleY:1.03,duration:{per:.3f},{ease}}},{v0:.3f});')
         elif kind == 'nod': js.append(f'tl.fromTo({g},{{rotation:-3,transformOrigin:"50% 100%"}},{{rotation:3,duration:{per:.3f},{ease}}},{v0:.3f});')
         elif kind == 'lean': js.append(f'tl.fromTo({g},{{rotation:-2,transformOrigin:"50% 100%"}},{{rotation:2,duration:{per:.3f},{ease}}},{v0:.3f});')
