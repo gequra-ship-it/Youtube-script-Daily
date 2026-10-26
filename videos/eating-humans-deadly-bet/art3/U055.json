@@ -1,1 +1,85 @@
-{"centre": "Fore hill village; a small coral spark travels from one hut along the path to the others", "focus": null, "focus_word": null, "sfx": [], "labels": [{"type": "name", "text": "Kuru", "x": 300, "y": 300, "to": [300, 470], "word": "Kuru"}], "frog": {"moods": [{"mood": "curious"}, {"word": "in one", "mood": "excited"}], "act": {"type": "huts", "huts": [{"t": 0.6, "x": 300, "y": 686, "wear": "bottom", "stay": 0.3}, {"t": 2.5, "x": 820, "y": 686, "wear": "top", "stay": 0.3}, {"t": 4.2, "x": 1340, "y": 636, "wear": "head", "stay": 0.3}]}, "x": 130, "y": 700, "s": 1.25, "flip": 1, "kind": "bg", "outfit": ["fore_steps"], "says": [{"text": "Woo-hoo!", "t": 1.95, "dur": 1.2, "shout": true}, {"text": "Look at me!", "t": 3.85, "dur": 1.2, "shout": true}, {"text": "Ta-da!", "t": 5.55, "dur": 0.8, "shout": true}], "bside": 1}}
+{
+ "centre": "Fore hill village; a small coral spark travels from one hut along the path to the others",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Kuru",
+   "x": 300,
+   "y": 300,
+   "to": [
+    300,
+    470
+   ],
+   "word": "Kuru"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "in",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "huts",
+   "huts": [
+    {
+     "t": 0.6,
+     "x": 300,
+     "y": 684,
+     "wear": "bottom",
+     "stay": 0.3
+    },
+    {
+     "t": 2.5,
+     "x": 820,
+     "y": 684,
+     "wear": "top",
+     "stay": 0.3
+    },
+    {
+     "t": 4.3999999999999995,
+     "x": 1340,
+     "y": 634,
+     "wear": "head",
+     "stay": 0.3
+    }
+   ]
+  },
+  "x": 110,
+  "y": 700,
+  "s": 1.25,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "fore_steps"
+  ],
+  "says": [
+   {
+    "text": "Woo-hoo!",
+    "t": 1.95,
+    "dur": 1.0,
+    "shout": true
+   },
+   {
+    "text": "Look at me!",
+    "t": 3.85,
+    "dur": 1.0,
+    "shout": true
+   },
+   {
+    "text": "Ta-da!",
+    "t": 5.75,
+    "dur": 1.0,
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

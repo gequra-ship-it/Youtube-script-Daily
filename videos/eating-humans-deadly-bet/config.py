@@ -23,3 +23,4 @@ BG = {}
 PAL_DEFAULT = 'body'
 PAL = dict()
 HOOK = dict(until=300, maxu=6.6)
+FROG_TONE = 'serious'   # grim topic: the frog never cheers (frog_place.py, guideline 7-2)
