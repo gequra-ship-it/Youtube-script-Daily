@@ -163,10 +163,6 @@ with sync_playwright() as p:
                             act={'type': 'huts', 'huts': [{'t': t_, 'x': round(d_[0]), 'y': round(d_[1] + 4), 'wear': w_, 'stay': 0.3} for t_, d_, w_ in zip(ts, doors, ('bottom', 'top', 'head'))]})
                 keep.pop('ride', None); keep.pop('roam', None); keep['_huts'] = [(t_ + 1.35, w_) for t_, w_ in zip(ts, ('Woo-hoo!', 'Look at me!', 'Ta-da!'))]
             elif FORE.search(text) and not SEA.search(text) and not SPACE.search(text) and 'outfit' not in keep: keep['outfit'] = ['fore']
-            pp = [g for g in gs.values() if PARTICLE.match(g[0])]
-            if pp and ORBIT.search(text) and not ROLL.search(text):   # a particle / orbiting dot on a line in the picture: the frog rides it round and round, dizzy (miya 2026-10-26)
-                _, x, y, w, h = pp[0]; s0 = round(min(1.1, max(.8, w / 220)), 2); cx = x + w / 2
-                keep.update(kind='ride', ride=pp[0][0], x=round(cx), y=round(max(y + 8 * s0, 82 * s0 + 40)), s=s0, flip=1 if cx < W / 2 else -1, act='dizzy', moods=[{'mood': 'dizzy'}]); keep.pop('roam', None); keep.pop('cling', None)
             eh = [g for g in gs.values() if re.match(r'mv-edge-horizon', g[0])]
             if eh and re.search(r'horizon', text, re.I) and not ROLL.search(text):   # the drawn event-horizon ring (an arc group): the frog runs round it like a particle on its line, woozy (miya 2026-10-26)
                 _, hx, hy, hw, hh = eh[0]; r = hh / 2; hcx, hcy = hx + r, hy + r; s0 = round((.85 if not vert else 1.0), 2)
@@ -174,7 +170,7 @@ with sync_playwright() as p:
                 keep.pop('roam', None); keep.pop('cling', None); keep['moods'] = [{'mood': 'dizzy'}]; keep['outfit'] = ['helmet'] if SPACE.search(text) else []
             hg0 = [g for g in gs.values() if HOLE.search(g[0])]
             if not hg0 and re.search(r'black holes?|horizon', text, re.I): hg0 = [g for g in gs.values() if g[0].startswith('mv-core-')]   # the hole is the centre object
-            if keep.get('act') != 'dizzy' and not isinstance(keep.get('act'), dict) and ORBIT.search(text) and hg0 and not ROLL.search(text):   # a black hole ring / particles in the text: the frog circles the ring like a particle on its line, woozy (miya 2026-10-26)
+            if not isinstance(keep.get('act'), dict) and ORBIT.search(text) and hg0 and not ROLL.search(text):   # a black hole ring / particles in the text: the frog circles the ring like a particle on its line, woozy (miya 2026-10-26)
                 _, hx, hy, hw, hh = hg0[0]; hcx, hcy = hx + hw / 2, hy + hh / 2; rx = max(110, min(hw * .62, W * .3)); ry = rx * .3; th0 = -90 if not vert else -90
                 s0 = round((.9 if vert else .75) * [1.0, .9, 1.1][n % 3], 2)
                 keep.update(kind='bg', ride=None, x=round(hcx), y=round(hcy - ry), s=s0, flip=1 if hcx < W / 2 else -1, act={'type': 'orbit', 'c': [round(hcx), round(hcy)], 'rx': round(rx), 'ry': round(ry), 'th0': th0})
