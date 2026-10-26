@@ -1,9 +1,29 @@
 {
- "centre": "an astronaut hovering toward a black hole past a row of clocks that tick slower and redder near the horizon",
+ "centre": "a spacesuit frog hovering toward a black hole on a puff of jet smoke past a row of clocks that tick slower and redder near the horizon",
  "focus": null,
  "focus_word": null,
  "sfx": [],
  "labels": [],
  "track": false,
- "motion": "mv-path: the hovering astronaut drifts closer; clock rotors slow from 4 s to 900 s per turn (dilation grows)"
+ "motion": "mv-path: the hovering astronaut drifts closer; clock rotors slow from 4 s to 900 s per turn (dilation grows)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-path-hover-u060",
+  "x": 300,
+  "y": 636,
+  "s": 1.3,
+  "flip": 1,
+  "kind": "ride",
+  "says": [],
+  "bside": 1,
+  "lock": true
+ }
 }

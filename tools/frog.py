@@ -300,7 +300,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             x0_ = rx * math.cos(th0); y0_ = ry * math.sin(th0); stp = .12; tt = a1
             while tt < T - .02:
                 th = th0 + sd * 2 * math.pi * (tt + stp - a1) / per
-                gx = d['flip'] * (rx * math.cos(th) - x0_) / d['s']; gy = (ry * math.sin(th) - y0_) / d['s']; sc = 1 + .14 * math.sin(th)   # nearer (front of the ring) = a little bigger
+                gx = d['flip'] * (rx * math.cos(th) - x0_) / d['s']; gy = (ry * math.sin(th) - y0_) / d['s']; sc = 1 + float(act.get('depth', .14)) * math.sin(th)   # nearer (front of the ring) = a little bigger
                 out.append(f'tl.to("#{t}_tr",{{x:{gx:.1f},y:{gy:.1f},scaleX:{sc:.3f},scaleY:{sc:.3f},duration:{stp},ease:"none",svgOrigin:"0 0"}},{tt:.3f});'); tt += stp
             out.append(f'tl.to({ac},{{rotation:9,duration:.45,yoyo:true,repeat:{max(int((T - a1) / .45), 1)},ease:"sine.inOut",{org2}}},{a1:.3f});')   # head-rolling wobble
         elif at == 'dizzy':   # riding something that goes round and round (a particle on its line): head-rolling wobble, woozy face (miya 2026-10-26)
