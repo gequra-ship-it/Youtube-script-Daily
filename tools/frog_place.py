@@ -239,14 +239,50 @@ def perch(pg, g, W, H, vert, tb, n):
         if sc == 0: break
     if best is None: return None
     return dict(x=best[1], y=best[2], s=s, flip=1 if best[1] < W / 2 else -1, bside=best[3])
+# round 4c (2026-10-26, miya: more expressions, picked per script + picture): sentence words -> one of the 20 new faces, first match wins,
+# checked BEFORE the old punctuation / number rules. Playful faces (laugh, grin, cheeky, mischief, smug, wink) are dropped on serious topics.
+MOODW = [
+    ('tearful', r'\b(goodbye|farewell|tears?|wept|weep\w*|cried|crying|grie\w*|heartbreak\w*|last breath)\b'),
+    ('hurt', r'\b(pain\w*|hurt\w*|sting\w*|bit(e|es|ten)|wound\w*|ouch|ache\w*|bruis\w*|burned)\b'),
+    ('queasy', r'\b(rot\w*|stench|stink\w*|slime|slimy|decay\w*|putrid|maggot\w*|vomit\w*|nause\w*|seasick)\b'),
+    ('disgust', r'\b(gross|disgust\w*|foul|revolting|filth\w*|yuck|eww|sewage)\b'),
+    ('chilly', r'\b(freez\w*|frozen|frost\w*|icy|ice-cold|chill\w*|subzero|blizzard\w*|shiver\w*)\b'),
+    ('hot', r'\b(scorch\w*|sweltering|blazing|heatwave|boiling hot|furnace|molten|sunburn\w*|overheat\w*)\b'),
+    ('awe', r'\b(vast|enormous|gigantic|immense|colossal|countless|unimaginabl\w*|towering|staggering|mind-boggling)\b'),
+    ('starry', r'\b(treasure\w*|jewel\w*|gold|diamond\w*|magic\w*|dream come true|sparkl\w*|glitter\w*|dazzl\w*)\b'),
+    ('laugh', r'\b(funny|hilarious|joke\w*|laugh\w*|giggl\w*|comical|ridiculous)\b'),
+    ('grin', r'\b(delicious|yummy|tasty|feast\w*|victory|won\b|winner\w*|jackpot|success\w*)\b'),
+    ('cheeky', r'\b(silly|playful|tease\w*|teasing|goof\w*|mischie\w*|naughty)\b'),
+    ('mischief', r'\b(sneak\w*|prank\w*|trick\w*|scheme\w*|plot\w*|cunning|sly)\b'),
+    ('smug', r'\b(of course|obviously|easy|easily|effortless\w*|genius|clever\w*|outsmart\w*)\b'),
+    ('wink', r'\b(secret\w*|between us|hint|wink\w*|spoiler|little trick)\b'),
+    ('pout', r'\b(unfair|refus\w*|denied|forbid\w*|not allowed|no way|banned|rejected)\b'),
+    ('bored', r'\b(boring|bored|tedious|monoton\w*|waiting|waited|nothing happen\w*|for centuries|for ages|dull)\b'),
+    ('confused', r'\b(confus\w*|puzzl\w*|strange\w*|odd|weird|baffl\w*|bewilder\w*|makes no sense|paradox\w*)\b'),
+    ('suspicious', r'\b(suspect\w*|suspicious|lie\b|lies\b|lying|fake\w*|fraud\w*|hidden|conceal\w*|hoax\w*|too good to be true)\b'),
+    ('determined', r'\b(mission\w*|must\b|never give up|persist\w*|struggl\w*|determin\w*|against all odds|fight on|push\w* on|endur\w*)\b'),
+    ('blush', r'\b(shy|embarrass\w*|blush\w*|compliment\w*|praise\w*|flatter\w*|bashful|crush on)\b'),
+]
+MOODW = [(m, re.compile(r, re.I)) for m, r in MOODW]
+PLAYFUL = ('laugh', 'grin', 'cheeky', 'mischief', 'smug', 'wink', 'blush', 'starry')
+# picture -> face: the name of the group the frog rides / stands by, when the sentence gave only a default face
+RIDE_MOOD = [('determined', r'rocket|ship|probe|voyager|plane|jet|sled|boat|raft|canoe|car\b|train'), ('awe', r'whale|giant|mountain|volcano|tower|dinosaur|mammoth|planet|galaxy|sun\b'),
+             ('starry', r'treasure|gold|gem|coin|crystal|jewel|crown'), ('hot', r'fire|lava|flame|furnace|sun\b|star\b'), ('chilly', r'ice|snow|glacier|iceberg|frost'),
+             ('queasy', r'skull|bone|carcass|rot|slime|garbage|trash')]
+RIDE_MOOD = [(m, re.compile(r, re.I)) for m, r in RIDE_MOOD]
+PAL_MOOD = {'ice': 'chilly', 'desert': 'hot'}   # palette default for a calm first face
+
+
 def mood_of(s):
+    for m, rx in MOODW:
+        if rx.search(s) and not (SERIOUS and m in PLAYFUL): return m
     if s.rstrip().endswith('?'): return 'curious'
     if s.rstrip().endswith('!'): return 'excited'
     if re.search(r'\b(never|impossible|terrifying|trapped|lost|prison|dark|fade|alone|gone)\b', s, re.I): return 'worried'
     if re.search(r'\d|\b(billion|million|thousand|trillion|faster|fastest)\b', s, re.I): return 'surprised'
     if re.search(r'\b(but|however|yet|actually|here)\b', s, re.I): return 'curious'
     return 'happy'
-n = 0
+n = 0; SERIOUS = False
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path=chrome(), args=['--no-sandbox']); pg = b.new_page()
     for slug in sys.argv[1:]:
@@ -454,6 +490,13 @@ with sync_playwright() as p:
             keep['says'] = says_for(keep['act'], keep, text, cnt_say); keep['bside'] = keep.get('bside') or (1 if keep['x'] < W / 2 else -1)
             if isinstance(keep['act'], dict) and keep['act'].get('type') == 'push': keep['says'] = [{'text': 'Heave-ho!', 't': 1.0, 'dur': 1.6, 'shout': True}]
             if keep.get('_huts'): keep['says'] = [{'text': w_, 't': round(t_, 2), 'dur': 1.0, 'shout': True} for t_, w_ in keep.pop('_huts')]
+            # round 4c: picture / palette faces when the first sentence gave only a default face and no strong act fixed one
+            if keep['moods'][0]['mood'] in ('happy', 'curious', 'surprised') and keep.get('act') not in STRONG and not isinstance(keep.get('act'), dict):
+                rn = keep.get('ride') or ''; pm = None
+                for m_, rx_ in RIDE_MOOD:
+                    if rx_.search(rn): pm = m_; break
+                pm = pm or PAL_MOOD.get(palname)
+                if pm and not (SERIOUS and pm in PLAYFUL): keep['moods'][0] = {'mood': pm}
             if SERIOUS:   # grim topics (config FROG_TONE='serious'): curious / worried faces, no cheering or happy sound words
                 for m_ in keep['moods']:
                     if m_['mood'] in ('excited', 'happy'): m_['mood'] = 'curious'

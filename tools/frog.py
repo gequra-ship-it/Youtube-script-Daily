@@ -194,7 +194,44 @@ MOODS = {   # brows (left d, right d, opacity), pupil offset (dx, dy, r), mouth 
     'love':      dict(bl='M-24 -86 q12 -8 24 -2', br='M10 -88 q12 -6 24 2', bo=1, pup=(0, 0, 6.2), sm='M-10 -46 q16 18 32 0', fill='none', lid=4),
     'shock':     dict(bl='M-24 -94 q12 -8 24 0', br='M10 -94 q12 -8 24 0', bo=1, pup=(0, 0, 2.6), sm='M-2 -48 q8 -8 16 0 q4 14 -8 14 q-12 0 -8 -14z', fill='#7a2f2f', lid=0),
     'angry':     dict(bl='M-24 -90 q12 4 24 10', br='M10 -80 q12 -6 24 -10', bo=1, pup=(0, 0, 4.4), sm='M-8 -42 h28', fill='none', lid=6),
+    # 2026-10-26 round 4c (miya: more expressions, picked per script + picture, guideline 7-2 F). Optional keys: lidl / lidr = per-eye lid height
+    # (a wink / a wince), ex = extra parts shown with the face ('fl' blush, 'tg' tongue, 'st' star eyes, 'th' teeth, 'te' tears, 'sw' sweat, 'sp' swirls),
+    # mouth = open-mouth height (the round mouth replaces the smile line).
+    'wink':      dict(bl='M-24 -84 q12 -6 24 0', br='M10 -88 q12 -8 24 -2', bo=1, pup=(2, 0, 5), sm='M-8 -44 q14 12 28 -4', fill='none', lid=0, lidl=27),          # a secret / a trick / between us
+    'laugh':     dict(bl='M-24 -88 q12 -8 24 0', br='M10 -88 q12 -8 24 0', bo=1, pup=(0, 0, 5), sm='M-10 -47 q16 24 32 0z', fill='#7a2f2f', lid=27, ex=('fl',)),  # funny / joke / hilarious: eyes shut, big open mouth, blush
+    'grin':      dict(bl='M-24 -86 q12 -6 24 0', br='M10 -86 q12 -6 24 0', bo=1, pup=(0, 0, 5), sm='M-12 -46 q18 22 36 0z', fill='#7a2f2f', lid=2, ex=('th',)),     # delicious / won / success: wide grin with teeth
+    'pout':      dict(bl='M-24 -82 q12 2 24 4', br='M10 -78 q12 -4 24 -4', bo=1, pup=(0, 1, 5), sm='M0 -42 q6 -5 12 0 q-6 5 -12 0z', fill='#7a2f2f', lid=4, ex=('fl',)),  # unfair / refused / no way: small puckered mouth, puffed cheeks
+    'bored':     dict(bl='M-24 -82 q12 0 24 0', br='M10 -82 q12 0 24 0', bo=1, pup=(4, 1, 4.6), sm='M-6 -42 h24', fill='none', lid=13),                              # waiting / nothing happens / centuries: half lids, flat mouth, eyes aside
+    'confused':  dict(bl='M-24 -80 q12 4 24 2', br='M10 -94 q12 -8 24 0', bo=1, pup=(-3, -1, 5), sm='M-10 -42 q5 -6 10 0 q5 6 10 0 q5 -6 10 0', fill='none', lid=0),  # strange / odd / puzzle: one brow up, wavy mouth
+    'determined': dict(bl='M-24 -92 q12 6 24 8', br='M10 -84 q12 -6 24 -8', bo=1, pup=(0, -1, 5), sm='M-8 -44 q14 8 28 0', fill='none', lid=5),                    # mission / must / struggle on: brows down, tight smile
+    'smug':      dict(bl='M-24 -84 q12 -4 24 0', br='M10 -90 q12 -8 24 -2', bo=1, pup=(3, 0, 4.8), sm='M-6 -44 q12 6 24 -6', fill='none', lid=10),                   # of course / obviously / easy: half lids, lopsided smile
+    'chilly':    dict(bl='M-24 -86 q12 -6 24 -2', br='M10 -88 q12 -6 24 2', bo=1, pup=(0, 1, 5), sm='M-10 -42 q3.5 -5 7 0 q3.5 5 7 0 q3.5 -5 7 0 q3.5 5 7 0', fill='none', lid=0, ex=('fl',)),  # cold / frost / ice: chattering wavy mouth, red cheeks
+    'hot':       dict(bl='M-24 -82 q12 -2 24 -6', br='M10 -88 q12 6 24 6', bo=1, pup=(0, 2, 4.6), sm='M-8 -44 q14 10 28 0', fill='none', lid=8, ex=('fl', 'sw'), tongue=6),  # heat / scorching / sun: tongue out, sweat, flushed
+    'tearful':   dict(bl='M-24 -76 q12 -4 24 -12', br='M10 -88 q12 8 24 12', bo=1, pup=(0, 3, 6), sm='M-8 -36 q14 -10 28 0', fill='none', lid=0, ex=('te',)),         # goodbye / farewell / lost: sad face with tears
+    'queasy':    dict(bl='M-24 -80 q12 -2 24 -8', br='M10 -88 q12 6 24 8', bo=1, pup=(0, 2, 4.4), sm='M-10 -42 q5 6 10 0 q5 -6 10 0 q5 6 10 0', fill='none', lid=9, ex=('fl',)),  # rot / stench / slime: green-ish wobble (blush part recoloured by 'sick')
+    'suspicious': dict(bl='M-24 -84 q12 -2 24 2', br='M10 -82 q12 0 24 -2', bo=1, pup=(5, 0, 4.4), sm='M-6 -42 h22', fill='none', lid=7, lidr=12),                   # lie / fake / hidden / trust: narrowed uneven eyes, eyes to the side
+    'awe':       dict(bl='M-24 -92 q12 -8 24 -2', br='M10 -94 q12 -8 24 2', bo=1, pup=(0, -4, 6.4), sm='M1 -46 q5 -5 10 0 q2 8 -5 8 q-7 0 -5 -8z', fill='#7a2f2f', lid=0),   # vast / enormous / countless: huge pupils looking up, small open mouth
+    'mischief':  dict(bl='M-24 -90 q12 4 24 8', br='M10 -82 q12 -6 24 -8', bo=1, pup=(2, 1, 4.6), sm='M-12 -46 q18 20 36 -2', fill='none', lid=9),                   # sneak / prank / trick: V brows, sly wide smile
+    'hurt':      dict(bl='M-24 -80 q12 -2 24 -8', br='M10 -88 q12 6 24 8', bo=1, pup=(0, 1, 4.4), sm='M-10 -42 l5 -5 l5 5 l5 -5 l5 5 l5 -5', fill='none', lid=0, lidr=27, ex=('sw',)),  # pain / sting / bite: one eye winced shut, zigzag mouth
+    'starry':    dict(bl='M-24 -88 q12 -8 24 0', br='M10 -88 q12 -8 24 0', bo=1, pup=(0, 0, 0.1), sm='M-10 -47 q16 20 32 0', fill='none', lid=0, ex=('st',)),           # treasure / magic / dream come true: star eyes
+    'blush':     dict(bl='M-24 -84 q12 -6 24 0', br='M10 -84 q12 -6 24 0', bo=0, pup=(0, 1, 5), sm='M-6 -44 q12 8 24 0', fill='none', lid=6, ex=('fl',)),             # shy / praised / embarrassed: small smile, pink cheeks, lowered lids
+    'cheeky':    dict(bl='M-24 -86 q12 -6 24 0', br='M10 -90 q12 -8 24 -2', bo=1, pup=(2, 0, 5), sm='M-8 -44 q14 10 28 0', fill='none', lid=0, lidl=27, tongue=7),     # playful / tease / silly: tongue out, one eye shut
+    'disgust':   dict(bl='M-24 -86 q12 0 24 4', br='M10 -82 q12 -4 24 -4', bo=1, pup=(0, 1, 4.4), sm='M-8 -40 q14 -10 28 -2', fill='none', lid=8),                    # gross / foul / revolting: raised lip, narrowed eyes
 }
+
+
+def face_js(t, M, tm, gz=0, swirl=False):
+    """one tl.set block that puts a MOODS face on frog t at time tm (brows, pupils, mouth, lids per eye, extras); seek-safe"""
+    ll = M.get('lidl', M['lid']); lr = M.get('lidr', M['lid']); ex = set(M.get('ex', ())); tg = M.get('tongue', 0)
+    o = (f'tl.set("#{t}_bl",{{attr:{{d:"{M["bl"]}"}},opacity:{M["bo"]}}},{tm:.3f});tl.set("#{t}_br",{{attr:{{d:"{M["br"]}"}},opacity:{M["bo"]}}},{tm:.3f});'
+         f'tl.set("#{t}_pl",{{attr:{{cx:{-8 + M["pup"][0] + gz:.1f},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});tl.set("#{t}_pr",{{attr:{{cx:{24 + M["pup"][0] + gz:.1f},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});'
+         f'tl.set("#{t}_sm",{{attr:{{d:"{M["sm"]}",fill:"{M["fill"]}"}}}},{tm:.3f});tl.set("#{t}_ll",{{attr:{{height:{ll}}}}},{tm:.3f});tl.set("#{t}_lr",{{attr:{{height:{lr}}}}},{tm:.3f});'
+         f'tl.set("#{t}_spl,#{t}_spr",{{opacity:{1 if (swirl or "sp" in ex) else 0}}},{tm:.3f});'
+         f'tl.set("#{t}_fl1,#{t}_fl2",{{opacity:{.75 if "fl" in ex else 0}}},{tm:.3f});tl.set("#{t}_st",{{opacity:{1 if "st" in ex else 0}}},{tm:.3f});tl.set("#{t}_th",{{opacity:{1 if "th" in ex else 0}}},{tm:.3f});'
+         f'tl.set("#{t}_te",{{opacity:{1 if "te" in ex else 0}}},{tm:.3f});tl.set("#{t}_sw",{{opacity:{1 if "sw" in ex else 0}}},{tm:.3f});'
+         f'tl.set("#{t}_tg",{{attr:{{ry:{tg * 1.3:.1f},cy:{-44 + tg * 1.4:.1f}}}}},{tm:.3f});'
+         f'tl.set("#{t}_al",{{opacity:{1 if ll >= 27 else 0}}},{tm:.3f});tl.set("#{t}_ar",{{opacity:{1 if lr >= 27 else 0}}},{tm:.3f});')   # shut eyes get the happy arc
+    return o
 
 
 def markup(tag, d):
@@ -216,9 +253,11 @@ def markup(tag, d):
             f'<g id="{t}_spl" opacity="0"><circle cx="-10" cy="-66" r="12" fill="#e3e5d6" stroke="none"/><path d="M-10.0 -66.0 L-9.8 -65.9 L-9.6 -65.7 L-9.6 -65.4 L-9.8 -65.0 L-10.2 -64.8 L-10.7 -64.7 L-11.3 -64.8 L-11.9 -65.3 L-12.2 -65.9 L-12.4 -66.8 L-12.2 -67.7 L-11.6 -68.5 L-10.7 -69.2 L-9.6 -69.5 L-8.3 -69.3 L-7.1 -68.7 L-6.1 -67.7 L-5.5 -66.3 L-5.4 -64.7 L-6.0 -63.1 L-7.0 -61.7 L-8.6 -60.7 L-10.5 -60.3 L-12.6 -60.6 L-14.4 -61.6 L-15.9 -63.2 L-16.7 -65.4 L-16.8 -67.7 L-16.0 -70.1 L-14.4 -72.1 L-12.2 -73.4 L-9.5 -74.0 L-6.7 -73.6 L-4.2 -72.2 L-2.2 -70.0 L-1.1 -67.1 L-1.0 -64.0 L-2.0 -60.9 L-4.0 -58.3 L-6.9 -56.5" fill="none" stroke-width="2.4"/></g>'
             f'<g id="{t}_spr" opacity="0"><circle cx="22" cy="-66" r="12" fill="#e3e5d6" stroke="none"/><path d="M22.0 -66.0 L22.2 -65.9 L22.4 -65.7 L22.4 -65.4 L22.2 -65.0 L21.8 -64.8 L21.3 -64.7 L20.7 -64.8 L20.1 -65.3 L19.8 -65.9 L19.6 -66.8 L19.8 -67.7 L20.4 -68.5 L21.3 -69.2 L22.4 -69.5 L23.7 -69.3 L24.9 -68.7 L25.9 -67.7 L26.5 -66.3 L26.6 -64.7 L26.0 -63.1 L25.0 -61.7 L23.4 -60.7 L21.5 -60.3 L19.4 -60.6 L17.6 -61.6 L16.1 -63.2 L15.3 -65.4 L15.2 -67.7 L16.0 -70.1 L17.6 -72.1 L19.8 -73.4 L22.5 -74.0 L25.3 -73.6 L27.8 -72.2 L29.8 -70.0 L30.9 -67.1 L31.0 -64.0 L30.0 -60.9 L28.0 -58.3 L25.1 -56.5" fill="none" stroke-width="2.4"/></g>'
             f'<ellipse id="{t}_fl1" cx="-20" cy="-48" rx="9" ry="5.5" fill="#e8605a" stroke="none" opacity="0"/><ellipse id="{t}_fl2" cx="34" cy="-48" rx="9" ry="5.5" fill="#e8605a" stroke="none" opacity="0"/>'
+            f'<g id="{t}_st" opacity="0" fill="#f2c94c" stroke="#b8860b" stroke-width="1.6"><path d="M-10 -74 l2.4 5.6 6 .6 -4.6 4 1.4 6 -5.2 -3.2 -5.2 3.2 1.4 -6 -4.6 -4 6 -.6z"/><path d="M22 -74 l2.4 5.6 6 .6 -4.6 4 1.4 6 -5.2 -3.2 -5.2 3.2 1.4 -6 -4.6 -4 6 -.6z"/></g>'
             f'<path id="{t}_al" d="M-20 -64 q10 7 20 0" fill="none" stroke-width="3" opacity="0"/><path id="{t}_ar" d="M12 -64 q10 7 20 0" fill="none" stroke-width="3" opacity="0"/>'
             f'<path id="{t}_bl" d="M-24 -84 q12 -6 24 0" fill="none" stroke-width="3.4" opacity="0"/><path id="{t}_br" d="M10 -84 q12 -6 24 0" fill="none" stroke-width="3.4" opacity="0"/>'
             f'<path id="{t}_sm" d="M-8 -44 q14 12 28 0" fill="none" stroke-width="3.4"/>'
+            f'<path id="{t}_th" d="M-9 -45 h30 v5 q-15 3 -30 0z" fill="#fff" stroke="none" opacity="0"/>'
             f'<ellipse id="{t}_mo" cx="6" cy="-44" rx="13" ry="0" fill="#7a2f2f" stroke-width="2.8"/>'
             f'<ellipse id="{t}_tg" cx="6" cy="-44" rx="8" ry="0" fill="#e8847a" stroke="none"/>'
             f'<g id="{t}_la"><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke-width="7.5"/><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/></g>'
@@ -363,7 +402,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         tm = find_word(mo.get('word'), wt, a0, t1) if mo.get('word') else None
         timeline.append((a0 if tm is None else tm, 'mood', mo.get('mood', 'happy')))
     timeline.sort(key=lambda x: (x[0], {'move': 0, 'mood': 1, 'point': 2}[x[1]]))
-    out.append(f'tl.set("#{t}_arm",{{rotation:{REST},{org}}},0);tl.set("#{t}_spl,#{t}_spr,#{t}_fl1,#{t}_fl2,#{t}_sw,#{t}_dd,#{t}_pc,#{t}_sc,#{t}_sv,#{t}_bk,#{t}_cm,#{t}_mg,#{t}_lb,#{t}_te,#{t}_zz",{{opacity:0}},0);')
+    out.append(f'tl.set("#{t}_arm",{{rotation:{REST},{org}}},0);tl.set("#{t}_spl,#{t}_spr,#{t}_fl1,#{t}_fl2,#{t}_sw,#{t}_dd,#{t}_pc,#{t}_sc,#{t}_sv,#{t}_bk,#{t}_cm,#{t}_mg,#{t}_lb,#{t}_te,#{t}_zz,#{t}_st,#{t}_th",{{opacity:0}},0);')
     if not pts: out.append(f'tl.set("#{t}_arm",{{opacity:0}},0);')   # no pointing in this unit (rides / sits in the background): the long arm stick is hidden and a short resting right arm shows instead
     else: out.append(f'tl.set("#{t}_ra",{{opacity:0}},0);')   # pointing frog (chalkboard): the long pointing arm is the right arm
     cur_tgt = None; tracked = False; last_ang = REST
@@ -395,10 +434,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         else:
             M = MOODS.get(pl, MOODS['happy'])
             gz = 3 * float(d.get('gaze') or 0)   # round 3: a frog standing beside / looking at an object keeps its pupils toward it (its facing side = local +x)
-            out.append(f'tl.set("#{t}_bl",{{attr:{{d:"{M["bl"]}"}},opacity:{M["bo"]}}},{tm:.3f});tl.set("#{t}_br",{{attr:{{d:"{M["br"]}"}},opacity:{M["bo"]}}},{tm:.3f});'
-                       f'tl.set("#{t}_pl",{{attr:{{cx:{-8 + M["pup"][0] + gz:.1f},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});tl.set("#{t}_pr",{{attr:{{cx:{24 + M["pup"][0] + gz:.1f},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});'
-                       f'tl.set("#{t}_sm",{{attr:{{d:"{M["sm"]}",fill:"{M["fill"]}"}}}},{tm:.3f});tl.set("#{t}_ll,#{t}_lr",{{attr:{{height:{M["lid"]}}}}},{tm:.3f});'
-                       f'tl.set("#{t}_spl,#{t}_spr",{{opacity:{1 if pl == "dizzy" else 0}}},{tm:.3f});')
+            out.append(face_js(t, M, tm, gz=gz, swirl=(pl == 'dizzy')))
     # ---- body act (2026-10-25, miya: expression + motion that fits the situation); all tweens on #<t>_ac, absolute times so seeking works ----
     act = d.get('act'); at = (act.get('type') if isinstance(act, dict) else act) or None
     if at:
@@ -608,7 +644,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             out.append(f'tl.fromTo("#{t}_fl1,#{t}_fl2",{{opacity:0}},{{opacity:.7,duration:.3,immediateRender:false}},{a1 + .4:.3f});')
         elif at == 'cry':     # sad face, tears drop again and again, shoulders tremble (deaths / extinctions / goodbyes)
             M = MOODS['sad']
-            out.append(f'tl.set("#{t}_bl",{{attr:{{d:"{M["bl"]}"}},opacity:1}},{a1:.3f});tl.set("#{t}_br",{{attr:{{d:"{M["br"]}"}},opacity:1}},{a1:.3f});tl.set("#{t}_sm",{{attr:{{d:"{M["sm"]}",fill:"none"}}}},{a1:.3f});')
+            out.append(face_js(t, M, a1))
             out.append(f'tl.set("#{t}_te",{{opacity:1}},{a1 + .2:.3f});tl.to({ac},{{x:1.4,duration:.09,yoyo:true,repeat:{int(max(T - a1, .5) / .09)},ease:"none"}},{a1:.3f});')
             for j, te in enumerate(('te1', 'te2')):
                 out.append(f'tl.fromTo("#{t}_{te}",{{y:0,opacity:1}},{{y:46,opacity:0,duration:1.1,ease:"power1.in",repeat:{max(int((T - a1 - .2) / 1.1) - 1, 0)},immediateRender:false}},{a1 + .2 + j * .5:.3f});')
@@ -641,7 +677,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             if A.get('pup') is not None: out.append(f'tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:{A["pup"]}}},duration:.3}},{a1:.3f});')
             if A.get('mood'):
                 M = MOODS[A['mood']]
-                out.append(f'tl.set("#{t}_bl",{{attr:{{d:"{M["bl"]}"}},opacity:{M["bo"]}}},{a1:.3f});tl.set("#{t}_br",{{attr:{{d:"{M["br"]}"}},opacity:{M["bo"]}}},{a1:.3f});tl.set("#{t}_sm",{{attr:{{d:"{M["sm"]}",fill:"{M["fill"]}"}}}},{a1:.3f});tl.set("#{t}_ll,#{t}_lr",{{attr:{{height:{M["lid"]}}}}},{a1:.3f});')
+                out.append(face_js(t, M, a1))
             if A.get('mouth'): out.append(f'tl.set("#{t}_sm",{{opacity:0}},{a1:.3f});tl.set("#{t}_mo",{{attr:{{ry:{A["mouth"]},cy:{-44 + A["mouth"]}}}}},{a1:.3f});')
             fr, to, per = A['body']; fr = {k: (v * dirn if k in ('rotation', 'x') and A.get('mirror') else v) for k, v in fr.items()}; to = {k: (v * dirn if k in ('rotation', 'x') and A.get('mirror') else v) for k, v in to.items()}
             jsd = lambda d_: ','.join(f'{k}:{v}' for k, v in d_.items())
@@ -718,10 +754,10 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         out.append(f'tl.set("#{t}_sm",{{opacity:0}},{ws:.3f});tl.set("#{t}_mo",{{attr:{{ry:{r},cy:{-44 + r}}}}},{ws:.3f});tl.set("#{t}_tg",{{attr:{{ry:{r * .42:.1f},cy:{-44 + r * 1.58:.1f}}}}},{ws:.3f});'
                    f'tl.set("#{t}_mo",{{attr:{{ry:0,cy:-44}}}},{e:.3f});tl.set("#{t}_tg",{{attr:{{ry:0,cy:-44}}}},{e:.3f});tl.set("#{t}_sm",{{opacity:1}},{e:.3f});')
     # blinks at irregular intervals (back to the mood's eye height afterwards)
-    lid = MOODS.get((d.get('moods') or [{}])[0].get('mood', 'happy'), MOODS['happy'])['lid']
+    M0 = MOODS.get((d.get('moods') or [{}])[0].get('mood', 'happy'), MOODS['happy']); lid = M0['lid']; lidl, lidr = M0.get('lidl', lid), M0.get('lidr', lid)
     tb = a0 + 1.1; kb = 0
     while tb < t1 - .2:
         out.append(f'tl.to("#{t}_ll,#{t}_lr",{{attr:{{height:27}},duration:.06,ease:"none"}},{tb:.3f});tl.set("#{t}_al,#{t}_ar",{{opacity:1}},{tb + .06:.3f});'
-                   f'tl.set("#{t}_al,#{t}_ar",{{opacity:0}},{tb + .1:.3f});tl.to("#{t}_ll,#{t}_lr",{{attr:{{height:{lid}}},duration:.08,ease:"none"}},{tb + .1:.3f});')
+                   f'tl.set("#{t}_al,#{t}_ar",{{opacity:0}},{tb + .1:.3f});tl.to("#{t}_ll",{{attr:{{height:{lidl}}},duration:.08,ease:"none"}},{tb + .1:.3f});tl.to("#{t}_lr",{{attr:{{height:{lidr}}},duration:.08,ease:"none"}},{tb + .1:.3f});')
         tb += (2.3, 3.6, .32, 2.9, 4.1)[kb % 5]; kb += 1   # irregular blinks with an occasional double blink (a fixed 2.7 s looked mechanical)
     return out
