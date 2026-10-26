@@ -53,6 +53,16 @@ def outfit_markup(t, names):
               '<path d="M-35 -16 q-1 -20 6 -26 q36 8 72 0 q4 8 4 28 q0 10 -6 12 q-36 6 -70 -4z" fill="#24465e" stroke-width="3.6"/><path d="M-33 -22 q35 7 72 0" fill="none" stroke="#e8b838" stroke-width="3.2"/>'
               '<path d="M40 -66 q12 -12 8 -46" fill="none" stroke="#e0b84a" stroke-width="6"/>'
               '<rect x="-27" y="-84" width="68" height="34" rx="14" fill="#9fd8ff" fill-opacity=".35" stroke-width="4.2"/><path d="M-27 -66 q-14 0 -16 8 M41 -66 q10 0 12 8" fill="none" stroke="#e0b84a" stroke-width="5"/>')
+    if 'fore' in names:      # (miya 2026-10-26) Fore highlands outfit, simple and respectful: woven leaf waist-wrap, red-and-orange string bag (bilum) on a shoulder strap, feather headband
+        o += ('<path d="M-36 -22 q36 14 74 0 l-3 4 q-34 12 -68 0z" fill="#7a5a30" stroke-width="3"/>'
+              + ''.join(f'<path d="M{-33 + k * 7.6:.1f} -14 q-1 14 {-1 + (k % 3)} 18" fill="none" stroke="{["#5f8a3c", "#8a6a3c", "#6f9a44"][k % 3]}" stroke-width="5"/>' for k in range(9))
+              + '<path d="M-30 -56 q28 22 60 44" fill="none" stroke="#b5442a" stroke-width="4"/>'
+              '<path d="M-44 -22 q-4 -16 12 -20 q16 4 14 20 q-12 12 -26 0z" fill="#d9703a" stroke-width="3"/>'
+              '<path d="M-42 -30 h22 M-41 -24 h22 M-34 -40 v22 M-27 -40 v24" fill="none" stroke="#7a2f20" stroke-width="1.6"/>'
+              '<path d="M-26 -86 q32 -16 64 0" fill="none" stroke="#b5442a" stroke-width="5"/>'
+              '<ellipse cx="-2" cy="-100" rx="5" ry="15" transform="rotate(-18 -2 -100)" fill="#e8b838" stroke-width="2.6"/>'
+              '<ellipse cx="10" cy="-104" rx="5" ry="16" fill="#c2452d" stroke-width="2.6"/>'
+              '<ellipse cx="22" cy="-100" rx="5" ry="15" transform="rotate(18 22 -100)" fill="#2f8f5a" stroke-width="2.6"/>')
     if 'helmet' in names:    # bubble helmet like the thumbnails
         o += (f'<circle cx="6" cy="-58" r="46" fill="#cfe9ff" fill-opacity=".14" stroke="#e6f1fb" stroke-width="3.4"/><path d="M-26 -84 q10 -16 28 -20" fill="none" stroke="#fff" stroke-width="4" stroke-opacity=".7"/>'
               f'<ellipse cx="6" cy="-14" rx="42" ry="9" fill="#e6f1fb" fill-opacity=".55" stroke="#e6f1fb" stroke-width="3"/>')
@@ -67,8 +77,10 @@ MOODS = {   # brows (left d, right d, opacity), pupil offset (dx, dy, r), mouth 
     'proud':     dict(bl='M-24 -84 q12 -6 24 0', br='M10 -84 q12 -6 24 0', bo=0, pup=(0, 1, 5), sm='M-10 -47 q16 20 32 0', fill='none', lid=9),
     'sad':       dict(bl='M-24 -76 q12 -4 24 -12', br='M10 -88 q12 8 24 12', bo=1, pup=(0, 3, 6), sm='M-8 -36 q14 -10 28 0', fill='none', lid=0),   # miya 2026-10-26: sad / pleading face (caged, lonely): brows slanting up in the middle, mouth turned down, pupils looking down
     'scared':    dict(bl='M-24 -80 q12 -2 24 -9', br='M10 -89 q12 7 24 9', bo=1, pup=(0, 1, 3), sm='M-9 -39 q4.5 -7 9 0 q4.5 7 9 0 q4.5 -7 9 0', fill='none', lid=0),
+    'dizzy':     dict(bl='M-24 -80 q12 -2 24 -8', br='M10 -88 q12 6 24 8', bo=1, pup=(0, 0, 2.2), sm='M-9 -40 q4.5 -6 9 0 q4.5 6 9 0 q4.5 -6 9 0', fill='none', lid=5),   # miya 2026-10-26: woozy face while circling a black hole ring: tiny pupils, wavy mouth, half lids
     'squint':    dict(bl='M-24 -78 q12 -6 24 -2', br='M10 -80 q12 4 24 8', bo=1, pup=(0, 0, 4), sm='M-10 -47 q16 24 32 0z', fill='#7a2f2f', lid=11),
     'sleepy':    dict(bl='M-24 -80 q12 2 24 -2', br='M10 -82 q12 -2 24 2', bo=1, pup=(0, 3, 4.5), sm='M-6 -42 q8 3 16 0', fill='none', lid=14),
+    'dizzy':     dict(bl='M-24 -78 q12 4 24 -4', br='M10 -80 q12 -4 24 4', bo=1, pup=(0, 0, 0.1), sm='M-10 -44 q4 -7 8 0 q4 7 8 0 q4 -7 8 0 q4 7 8 0', fill='none', lid=0),   # swirl eyes (the _sp spirals cover the pupils), wobbly mouth (2026-10-26 miya: overheated frog)
     'excited':   dict(bl='M-24 -90 q12 -8 24 0', br='M10 -90 q12 -8 24 0', bo=1, pup=(0, -1, 5.6), sm='M-10 -47 q16 24 32 0z', fill='#7a2f2f', lid=0),
 }
 
@@ -89,13 +101,19 @@ def markup(tag, d):
             f'<g clip-path="url(#{t}_cl)"><rect id="{t}_ll" x="-24" y="-80" width="28" height="0" fill="{GREEN}" stroke="none"/></g>'
             f'<g clip-path="url(#{t}_cr)"><rect id="{t}_lr" x="8" y="-80" width="28" height="0" fill="{GREEN}" stroke="none"/></g>'
             f'<circle cx="-10" cy="-66" r="13" fill="none" stroke-width="3.2"/><circle cx="22" cy="-66" r="13" fill="none" stroke-width="3.2"/>'
+            f'<g id="{t}_spl" opacity="0"><circle cx="-10" cy="-66" r="12" fill="#e3e5d6" stroke="none"/><path d="M-10.0 -66.0 L-9.8 -65.9 L-9.6 -65.7 L-9.6 -65.4 L-9.8 -65.0 L-10.2 -64.8 L-10.7 -64.7 L-11.3 -64.8 L-11.9 -65.3 L-12.2 -65.9 L-12.4 -66.8 L-12.2 -67.7 L-11.6 -68.5 L-10.7 -69.2 L-9.6 -69.5 L-8.3 -69.3 L-7.1 -68.7 L-6.1 -67.7 L-5.5 -66.3 L-5.4 -64.7 L-6.0 -63.1 L-7.0 -61.7 L-8.6 -60.7 L-10.5 -60.3 L-12.6 -60.6 L-14.4 -61.6 L-15.9 -63.2 L-16.7 -65.4 L-16.8 -67.7 L-16.0 -70.1 L-14.4 -72.1 L-12.2 -73.4 L-9.5 -74.0 L-6.7 -73.6 L-4.2 -72.2 L-2.2 -70.0 L-1.1 -67.1 L-1.0 -64.0 L-2.0 -60.9 L-4.0 -58.3 L-6.9 -56.5" fill="none" stroke-width="2.4"/></g>'
+            f'<g id="{t}_spr" opacity="0"><circle cx="22" cy="-66" r="12" fill="#e3e5d6" stroke="none"/><path d="M22.0 -66.0 L22.2 -65.9 L22.4 -65.7 L22.4 -65.4 L22.2 -65.0 L21.8 -64.8 L21.3 -64.7 L20.7 -64.8 L20.1 -65.3 L19.8 -65.9 L19.6 -66.8 L19.8 -67.7 L20.4 -68.5 L21.3 -69.2 L22.4 -69.5 L23.7 -69.3 L24.9 -68.7 L25.9 -67.7 L26.5 -66.3 L26.6 -64.7 L26.0 -63.1 L25.0 -61.7 L23.4 -60.7 L21.5 -60.3 L19.4 -60.6 L17.6 -61.6 L16.1 -63.2 L15.3 -65.4 L15.2 -67.7 L16.0 -70.1 L17.6 -72.1 L19.8 -73.4 L22.5 -74.0 L25.3 -73.6 L27.8 -72.2 L29.8 -70.0 L30.9 -67.1 L31.0 -64.0 L30.0 -60.9 L28.0 -58.3 L25.1 -56.5" fill="none" stroke-width="2.4"/></g>'
+            f'<ellipse id="{t}_fl1" cx="-20" cy="-48" rx="9" ry="5.5" fill="#e8605a" stroke="none" opacity="0"/><ellipse id="{t}_fl2" cx="34" cy="-48" rx="9" ry="5.5" fill="#e8605a" stroke="none" opacity="0"/>'
             f'<path id="{t}_al" d="M-20 -64 q10 7 20 0" fill="none" stroke-width="3" opacity="0"/><path id="{t}_ar" d="M12 -64 q10 7 20 0" fill="none" stroke-width="3" opacity="0"/>'
             f'<path id="{t}_bl" d="M-24 -84 q12 -6 24 0" fill="none" stroke-width="3.4" opacity="0"/><path id="{t}_br" d="M10 -84 q12 -6 24 0" fill="none" stroke-width="3.4" opacity="0"/>'
             f'<path id="{t}_sm" d="M-8 -44 q14 12 28 0" fill="none" stroke-width="3.4"/>'
             f'<ellipse id="{t}_mo" cx="6" cy="-44" rx="13" ry="0" fill="#7a2f2f" stroke-width="2.8"/>'
             f'<ellipse id="{t}_tg" cx="6" cy="-44" rx="8" ry="0" fill="#e8847a" stroke="none"/>'
             f'<path d="M-34 -22 q-14 6 -16 22" fill="none" stroke-width="7.5"/><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/>'
-            f'<g id="{t}_ra"><path d="M34 -22 q14 6 16 22" fill="none" stroke-width="7.5"/><path d="M34 -22 q14 6 16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/></g>'
+            f'<g id="{t}_ra"><path d="M34 -22 q14 6 16 22" fill="none" stroke-width="7.5"/><path d="M34 -22 q14 6 16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/>'
+            f'<g id="{t}_pc" opacity="0" transform="translate(50 0) rotate(-35)"><rect x="-3.4" y="-40" width="6.8" height="36" rx="1.4" fill="#f2c94c" stroke-width="2.4"/><rect x="-3.4" y="-45" width="6.8" height="6" rx="2" fill="#e8847a" stroke-width="2.2"/><path d="M-3.4 -4 L0 6 L3.4 -4z" fill="#e8c9a0" stroke-width="2"/><path d="M-1.2 2 L0 6 L1.2 2z" fill="#3a3a3a" stroke="none"/></g></g>'
+            f'<g id="{t}_dd" opacity="0" fill="none" stroke="#4a4a52" stroke-width="3" stroke-linecap="round"><path id="{t}_dd1" pathLength="1" d="M58 0 q8 -16 16 0 t16 0 t16 0 t16 0 q10 -14 -2 -16 q-12 0 -6 14"/><path id="{t}_dd2" pathLength="1" d="M60 -26 l4 12 l-12 -8 l16 0 l-12 8z"/><path id="{t}_dd3" pathLength="1" d="M118 -34 q8 -12 16 0 q6 12 -16 24 q-22 -12 -16 -24 q8 -12 16 0"/></g>'
+            f'<g id="{t}_sw" opacity="0" fill="#7fc4f0" stroke="#2f6f9a" stroke-width="2"><path id="{t}_sw0" d="M-34 -98 q-6 12 0 14 q6 -2 0 -14z"/><path id="{t}_sw1" d="M44 -96 q-6 12 0 14 q6 -2 0 -14z"/><path id="{t}_sw2" d="M6 -112 q-6 12 0 14 q6 -2 0 -14z"/></g>'
             f'{outfit_markup(t, d.get("outfit") or [])}'
             f'<g transform="translate(32 -22)"><g id="{t}_arm">'
             f'<path d="M0 0 L58 0" stroke-width="11"/><circle cx="60" cy="0" r="9" fill="{INK}" stroke="none"/>'
@@ -133,7 +151,7 @@ def lint(d, vert=False):
     if d.get('point') or d.get('points'): w.append('points in a picture scene (the explainer is chalkboard only)')
     if d.get('ride'):
         if not RIDEABLE.match(d['ride']): w.append(f'rides {d["ride"]}, a motion that flips/fades/fills/clips (pick a core swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble, path, slide or swing group)')
-    elif not d.get('roam') and d['y'] < (1920 - 200 if vert else 1080 - 100): w.append('stands mid-picture (use "ride" or a bottom corner: python3 tools/frog_place.py <slug>)')
+    elif not d.get('roam') and not (isinstance(d.get('act'), dict) and d['act'].get('type') == 'orbit') and d['y'] < (1920 - 200 if vert else 1080 - 100): w.append('stands mid-picture (use "ride" or a bottom corner: python3 tools/frog_place.py <slug>)')
     return w
 
 
@@ -211,7 +229,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         tm = find_word(mo.get('word'), wt, a0, t1) if mo.get('word') else None
         timeline.append((a0 if tm is None else tm, 'mood', mo.get('mood', 'happy')))
     timeline.sort(key=lambda x: (x[0], {'move': 0, 'mood': 1, 'point': 2}[x[1]]))
-    out.append(f'tl.set("#{t}_arm",{{rotation:{REST},{org}}},0);')
+    out.append(f'tl.set("#{t}_arm",{{rotation:{REST},{org}}},0);tl.set("#{t}_spl,#{t}_spr,#{t}_fl1,#{t}_fl2,#{t}_sw,#{t}_dd,#{t}_pc",{{opacity:0}},0);')
     if not pts: out.append(f'tl.set("#{t}_arm",{{opacity:0}},0);')   # no pointing in this unit (rides / sits in the background): the long arm stick is hidden and a short resting right arm shows instead
     else: out.append(f'tl.set("#{t}_ra",{{opacity:0}},0);')   # pointing frog (chalkboard): the long pointing arm is the right arm
     cur_tgt = None; tracked = False; last_ang = REST
@@ -244,11 +262,13 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             M = MOODS.get(pl, MOODS['happy'])
             out.append(f'tl.set("#{t}_bl",{{attr:{{d:"{M["bl"]}"}},opacity:{M["bo"]}}},{tm:.3f});tl.set("#{t}_br",{{attr:{{d:"{M["br"]}"}},opacity:{M["bo"]}}},{tm:.3f});'
                        f'tl.set("#{t}_pl",{{attr:{{cx:{-8 + M["pup"][0]},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});tl.set("#{t}_pr",{{attr:{{cx:{24 + M["pup"][0]},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});'
-                       f'tl.set("#{t}_sm",{{attr:{{d:"{M["sm"]}",fill:"{M["fill"]}"}}}},{tm:.3f});tl.set("#{t}_ll,#{t}_lr",{{attr:{{height:{M["lid"]}}}}},{tm:.3f});')
+                       f'tl.set("#{t}_sm",{{attr:{{d:"{M["sm"]}",fill:"{M["fill"]}"}}}},{tm:.3f});tl.set("#{t}_ll,#{t}_lr",{{attr:{{height:{M["lid"]}}}}},{tm:.3f});'
+                       f'tl.set("#{t}_spl,#{t}_spr",{{opacity:{1 if pl == "dizzy" else 0}}},{tm:.3f});')
     # ---- body act (2026-10-25, miya: expression + motion that fits the situation); all tweens on #<t>_ac, absolute times so seeking works ----
     act = d.get('act'); at = (act.get('type') if isinstance(act, dict) else act) or None
     if at:
         ac = f'"#{t}_ac"'; a1 = a0 + .5; T = t1 - .05; org2 = 'svgOrigin:"0 0"'
+        if isinstance(act, dict) and act.get('from') is not None: a1 = t0 + float(act['from'])   # start the act this many seconds into the unit
         tg = (act.get('to') if isinstance(act, dict) else None) or [d['x'] + 300 * d['flip'], d['y']]
         dirn = 1 if (tg[0] - d['x']) * d['flip'] >= 0 else -1   # +1 = the hole/thing lies in front of the frog (its facing side), -1 = behind
         k = 0; tm = a1
@@ -260,7 +280,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             vz = isinstance(act, dict) and act.get('vanish')   # miya 2026-10-26: sucked in like the star: spirals toward the hole, shrinks and disappears
             if vz:
                 vd = float(vz) if not isinstance(vz, bool) else 2.2; tv = max(T - vd, a1 + .5)
-                gx = (tg[0] - d['x']) / d['s']; gy = (tg[1] - d['y']) / d['s']
+                gx = d['flip'] * (tg[0] - d['x']) / d['s']; gy = (tg[1] - d['y']) / d['s']   # local x is mirrored by the frog's flip
                 out.append(f'tl.to("#{t}_tr",{{x:{gx:.1f},y:{gy:.1f},duration:{T - tv:.3f},ease:"power2.in"}},{tv:.3f});')
                 out.append(f'tl.to("#{t}_rm",{{rotation:{dirn * 360},scaleX:.04,scaleY:.04,duration:{T - tv:.3f},ease:"power2.in",svgOrigin:"0 -30"}},{tv:.3f});')
                 out.append(f'tl.to("#{t}_in",{{opacity:0,duration:.35,ease:"none"}},{T - .35:.3f});')
@@ -272,6 +292,17 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
                     out.append(f'tl.to({ac},{{x:{dirn * 14},rotation:{dirn * 2},duration:{dd:.2f},ease:"sine.inOut",{org2}}},{tm:.3f});')   # no head-tilt (miya 2026-10-26): stays upright, only slides and trembles
                     out.append(f'tl.to({ac},{{x:{-dirn * 3},rotation:0,duration:{dd:.2f},ease:"sine.inOut",{org2}}},{tm + dd:.3f});')
                     tm += 2 * dd
+        elif at == 'orbit':   # circles a black hole ring like a particle on its line, woozy (miya 2026-10-26): ellipse about act.c with radii act.rx/ry, frog start = its angle act.th0
+            import math
+            c = act.get('c', [d['x'], d['y']]); rx = float(act.get('rx', 160)); ry = float(act.get('ry', 50)); th0 = math.radians(float(act.get('th0', 90))); per = float(act.get('per', 3.4)); sd = 1
+            x0_ = rx * math.cos(th0); y0_ = ry * math.sin(th0); stp = .12; tt = a1
+            while tt < T - .02:
+                th = th0 + sd * 2 * math.pi * (tt + stp - a1) / per
+                gx = d['flip'] * (rx * math.cos(th) - x0_) / d['s']; gy = (ry * math.sin(th) - y0_) / d['s']; sc = 1 + .14 * math.sin(th)   # nearer (front of the ring) = a little bigger
+                out.append(f'tl.to("#{t}_tr",{{x:{gx:.1f},y:{gy:.1f},scaleX:{sc:.3f},scaleY:{sc:.3f},duration:{stp},ease:"none",svgOrigin:"0 0"}},{tt:.3f});'); tt += stp
+            out.append(f'tl.to({ac},{{rotation:9,duration:.45,yoyo:true,repeat:{max(int((T - a1) / .45), 1)},ease:"sine.inOut",{org2}}},{a1:.3f});')   # head-rolling wobble
+        elif at == 'dizzy':   # riding something that goes round and round (a particle on its line): head-rolling wobble, woozy face (miya 2026-10-26)
+            out.append(f'tl.to({ac},{{rotation:10,y:-3,duration:.5,yoyo:true,repeat:{max(int((T - a1) / .5), 1)},ease:"sine.inOut",{org2}}},{a1:.3f});')
         elif at == 'float':   # weightless drift
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{y:-9,rotation:{3 if k % 2 == 0 else -3},duration:1.4,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{y:3,rotation:{-3 if k % 2 == 0 else 3},duration:1.4,ease:"sine.inOut",{org2}}},{tm + 1.4:.3f});'); tm += 2.8; k += 1
@@ -285,6 +316,27 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             out.append(f'tl.to({ac},{{rotation:-7,y:-3,duration:1.2,ease:"power1.out",{org2}}},{a1:.3f});tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-71}},duration:.3}},{a1:.3f});')
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{y:-8,duration:1.1,ease:"sine.inOut"}},{tm + 1.2:.3f});tl.to({ac},{{y:-2,duration:1.1,ease:"sine.inOut"}},{tm + 2.3:.3f});'); tm += 2.2
+        elif at == 'dizzy':   # overheated (miya 2026-10-26): swirl eyes, flushed cheeks, wobbly sway, sweat drops fall, sticks the tongue out of its wobbly mouth
+            out.append(f'tl.to("#{t}_fl1,#{t}_fl2",{{opacity:.75,duration:.6}},{a1:.3f});tl.set("#{t}_sw",{{opacity:1}},{a1:.3f});')
+            out.append(f'tl.fromTo("#{t}_spl",{{rotation:0}},{{rotation:1440,duration:{max(T - a1, .5):.3f},ease:"none",svgOrigin:"-10 -66",immediateRender:false}},{a1:.3f});tl.fromTo("#{t}_spr",{{rotation:0}},{{rotation:-1440,duration:{max(T - a1, .5):.3f},ease:"none",svgOrigin:"22 -66",immediateRender:false}},{a1:.3f});')
+            n2 = 0
+            while tm < T - .3:
+                sgn = 1 if n2 % 2 == 0 else -1
+                out.append(f'tl.to({ac},{{rotation:{sgn * 13},x:{sgn * 7},y:{-3 if n2 % 2 else 0},duration:.8,ease:"sine.inOut",{org2}}},{tm:.3f});'); tm += .8; n2 += 1
+            for i2 in range(3):
+                tw = a1 + .2 + i2 * .5
+                while tw < T - .4:
+                    out.append(f'tl.fromTo("#{t}_sw{i2}",{{y:0,opacity:1}},{{y:46,opacity:0,duration:1.0,ease:"power1.in",immediateRender:false}},{tw:.3f});'); tw += 1.5
+        elif at == 'doodle':  # scribbles on the page with a pencil in its right hand: arm raised forward, quick small strokes, the doodle draws itself in front
+            out.append(f'tl.set("#{t}_pc",{{opacity:1}},{a1 - .3:.3f});tl.to("#{t}_ra",{{rotation:-62,duration:.4,ease:"power2.out",svgOrigin:"34 -22"}},{a1 - .3:.3f});')
+            span = max(T - a1, 1.0)
+            out.append(f'tl.set("#{t}_dd",{{opacity:1}},{a1:.3f});')
+            for i2, (dd0, dd1) in enumerate(((0, .45), (.45, .72), (.72, 1.0))):
+                out.append(f'tl.fromTo("#{t}_dd{i2 + 1}",{{attr:{{"stroke-dasharray":1,"stroke-dashoffset":1}}}},{{attr:{{"stroke-dashoffset":0}},duration:{span * (dd1 - dd0):.3f},ease:"none",immediateRender:false}},{a1 + span * dd0:.3f});')
+            n2 = 0; tw = a1
+            while tw < T - .1:   # pencil hand scribbles (small seek-safe back-and-forth)
+                out.append(f'tl.to("#{t}_ra",{{rotation:{-62 + (7 if n2 % 2 == 0 else -7)},duration:.11,ease:"none",svgOrigin:"34 -22"}},{tw:.3f});'); tw += .11; n2 += 1
+            out.append(f'tl.to({ac},{{rotation:-4,duration:.5,ease:"sine.inOut",{org2}}},{a1:.3f});')
         elif at == 'cheer':   # happy hops with a little arm-free wiggle
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{y:-26,rotation:{6 if k % 2 == 0 else -6},duration:.28,ease:"power2.out",{org2}}},{tm:.3f});tl.to({ac},{{y:0,rotation:0,duration:.3,ease:"bounce.out",{org2}}},{tm + .28:.3f});'); tm += 1.1; k += 1

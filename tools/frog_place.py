@@ -36,8 +36,8 @@ def free_band(pg, W, H, vert, n):
         band = e[max(0, (yc - 80) // 8):(yc + 80) // 8, 10:-10].mean() + .002 * abs(yc - (lo + hi) / 2) * (n % 2)   # mild variety between units
         if best is None or band < best[0]: best = (band, yc)
     return best[1]
-SAYS = {'pull': 'AAAAAH!', 'wind': 'Whooosh!', 'waves': 'Whoa-oa!', 'shiver': 'Brrrr...', 'awe': 'Woooow!', 'sleepy': 'Zzz...', 'cheer': 'Yay!', 'float': 'Wheee!'}
-STRONG = ('pull', 'shiver', 'awe', 'wind')   # always get a sound word; the other acts every second unit (miya 2026-10-26: speech bubble with emotion / sound words)
+SAYS = {'orbit': 'Whoa-oa-oa...', 'dizzy': 'Wooo-ooo...', 'pull': 'AAAAAH!', 'wind': 'Whooosh!', 'waves': 'Whoa-oa!', 'shiver': 'Brrrr...', 'awe': 'Woooow!', 'sleepy': 'Zzz...', 'cheer': 'Yay!', 'float': 'Wheee!'}
+STRONG = ('pull', 'shiver', 'awe', 'wind', 'orbit', 'dizzy')   # always get a sound word; the other acts every second unit (miya 2026-10-26: speech bubble with emotion / sound words)
 def says_for(act, keep, text, cnt):
     nm = act.get('type') if isinstance(act, dict) else act
     rm = (keep.get('roam') or {}).get('kind')
@@ -54,6 +54,8 @@ PLAT = re.compile(r'belt|treadmill|tread\b|slats|ground|ledge|platform|bridge|sh
 ACTIVE = re.compile(r'\b(run\w*|walk\w*|jump\w*|hop\w*|step\w*|treadmill|pump\w*|race|racing|sprint\w*)\b', re.I)
 VEH = re.compile(r'\b(rocket|spaceship|spacecraft|ship|probe|warp drive|shuttle|lander)\b', re.I)
 ROLL = re.compile(r'\b(drag\w*|spiral\w*|tumbl\w*|roll\w*|carried|swept|backward|whirl\w*|swirl\w*|knock\w*)\b', re.I)
+PARTICLE = re.compile(r'mv-path-(particle|orbit|ring|loop|electron|photon)', re.I)
+ORBIT = re.compile(r'\b(particles?|orbit\w*|circl\w*|revolv\w*|accretion|ring|rings|disk|laser|radio wave)\b', re.I)
 HOLE = re.compile(r'hole|bh|singular|well|horizon', re.I)
 JS = '''()=>{const o=[];for(const g of document.querySelectorAll('g[id^="mv-"]')){const b=g.getBBox();if(b.width<8)continue;o.push([g.id,b.x,b.y,b.width,b.height])}return o}'''
 def mood_of(s):
@@ -131,7 +133,19 @@ with sync_playwright() as p:
                 else: x0 = max(170, min(W - 170, x0))
                 keep.update(x=x0, y=y0, s=round(s0, 2), flip=fl, kind='bg', roam=dict(kind=kind, dist=dist))
                 if act in ('float', 'cheer') or kind in ('swim', 'lie', 'tumble', 'roll'): keep['act'] = None   # the roaming motion replaces the in-place bob/hops; a drifting swimmer gets no lean/wind lines (miya 2026-10-26)
-            if act == 'pull':   # the hole the frog is dragged toward: a picture group named like a hole/well, else the picture centre
+            pp = [g for g in gs.values() if PARTICLE.match(g[0])]
+            if pp and ORBIT.search(text) and not ROLL.search(text):   # a particle / orbiting dot on a line in the picture: the frog rides it round and round, dizzy (miya 2026-10-26)
+                _, x, y, w, h = pp[0]; s0 = round(min(1.1, max(.8, w / 220)), 2); cx = x + w / 2
+                keep.update(kind='ride', ride=pp[0][0], x=round(cx), y=round(max(y + 8 * s0, 82 * s0 + 40)), s=s0, flip=1 if cx < W / 2 else -1, act='dizzy', moods=[{'mood': 'dizzy'}]); keep.pop('roam', None); keep.pop('cling', None)
+            hg0 = [g for g in gs.values() if HOLE.search(g[0])]
+            if not hg0 and re.search(r'black holes?|horizon', text, re.I): hg0 = [g for g in gs.values() if g[0].startswith('mv-core-')]   # the hole is the centre object
+            if keep.get('act') != 'dizzy' and ORBIT.search(text) and hg0 and not ROLL.search(text):   # a black hole ring / particles in the text: the frog circles the ring like a particle on its line, woozy (miya 2026-10-26)
+                _, hx, hy, hw, hh = hg0[0]; hcx, hcy = hx + hw / 2, hy + hh / 2; rx = max(110, min(hw * .62, W * .3)); ry = rx * .3; th0 = -90 if not vert else -90
+                s0 = round((.9 if vert else .75) * [1.0, .9, 1.1][n % 3], 2)
+                keep.update(kind='bg', ride=None, x=round(hcx), y=round(hcy - ry), s=s0, flip=1 if hcx < W / 2 else -1, act={'type': 'orbit', 'c': [round(hcx), round(hcy)], 'rx': round(rx), 'ry': round(ry), 'th0': th0})
+                keep.pop('roam', None); keep.pop('cling', None); keep['moods'] = [{'mood': 'dizzy'}]; keep['outfit'] = ['helmet'] if SPACE.search(text) else keep.get('outfit', [])
+                n += 1
+            if act == 'pull' and not isinstance(keep.get('act'), dict):   # the hole the frog is dragged toward: a picture group named like a hole/well, else the picture centre
                 hg = [g for g in gs.values() if HOLE.search(g[0])]
                 keep['act'] = {'type': 'pull', 'to': [round(hg[0][1] + hg[0][3] / 2), round(hg[0][2] + hg[0][4] / 2)] if hg else [W // 2, H // 2]}
                 if hg and keep.get('kind') == 'ride': keep['act']['vanish'] = True   # riding a star into the hole: pulled in, shrinking, gone (miya 2026-10-26)
