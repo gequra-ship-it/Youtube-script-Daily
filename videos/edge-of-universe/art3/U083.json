@@ -20,31 +20,26 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "angry"
    }
   ],
-  "act": {
-   "type": "slide",
-   "to": [
-    1590,
-    554
-   ]
-  },
+  "act": "look",
   "outfit": [
    "helmet"
   ],
-  "kind": "bg",
-  "ride": null,
-  "x": 1770,
-  "y": 338,
-  "s": 0.9,
-  "flip": -1,
+  "ride": "mv-core-tremble",
+  "kind": "ride",
+  "x": 1382,
+  "y": 690,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Wheee!",
-    "shout": true
+    "text": "Ooh!",
+    "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

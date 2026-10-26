@@ -21,19 +21,20 @@
     "mood": "happy"
    }
   ],
-  "act": "breathe",
+  "act": "startle",
   "ride": "mv-core-drop-ball-u123",
-  "x": 960,
-  "y": 420,
-  "s": 1.04,
-  "flip": -1,
   "kind": "ride",
+  "x": 1086,
+  "y": 588,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Ahh...",
-    "shout": false
+    "text": "Yikes!",
+    "shout": true
    }
-  ],
-  "bside": -1
+  ]
  }
 }

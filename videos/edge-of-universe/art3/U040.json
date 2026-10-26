@@ -17,23 +17,24 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "curious"
    }
   ],
-  "act": null,
+  "act": "scope",
   "outfit": [
    "helmet"
   ],
-  "x": 1750,
-  "y": 170,
+  "x": 1660,
+  "y": 780,
   "s": 0.77,
   "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "lie",
-   "dist": 461
-  },
-  "says": [],
+  "says": [
+   {
+    "text": "There!",
+    "shout": false
+   }
+  ],
   "bside": -1
  }
 }

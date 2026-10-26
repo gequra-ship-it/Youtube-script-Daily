@@ -65,6 +65,16 @@ def outfit_markup(t, names):
               '<ellipse cx="-2" cy="-100" rx="5" ry="15" transform="rotate(-18 -2 -100)" fill="#e8b838" stroke-width="2.6"/>'
               '<ellipse cx="10" cy="-104" rx="5" ry="16" fill="#c2452d" stroke-width="2.6"/>'
               '<ellipse cx="22" cy="-100" rx="5" ry="15" transform="rotate(18 22 -100)" fill="#2f8f5a" stroke-width="2.6"/></g>')
+    if 'lab' in names:       # (round 3) white lab coat with a pocket and safety goggles on the forehead: laboratory / experiment scenes
+        o += ('<path d="M-36 -18 q-2 -26 10 -34 l26 -2 l26 2 q12 8 10 34 q-36 8 -72 0z" fill="#f4f4f0" stroke-width="3.4"/><path d="M0 -52 v34" fill="none" stroke="#b9bcc4" stroke-width="2.2"/>'
+              '<rect x="10" y="-36" width="14" height="10" rx="2" fill="none" stroke="#b9bcc4" stroke-width="2"/><path d="M-26 -84 q32 -14 64 0" fill="none" stroke="#5a6b8a" stroke-width="4"/>'
+              '<rect x="-24" y="-96" width="22" height="12" rx="5" fill="#9fd8ff" fill-opacity=".5" stroke-width="3"/><rect x="14" y="-96" width="22" height="12" rx="5" fill="#9fd8ff" fill-opacity=".5" stroke-width="3"/>')
+    if 'explorer' in names:  # (round 3) wide-brim explorer hat: expedition / jungle / desert / cave scenes
+        o += ('<path d="M-44 -82 q50 -10 100 0 q-6 8 -50 8 q-44 0 -50 -8z" fill="#c9a060" stroke-width="3.2"/><path d="M-26 -84 q0 -26 32 -26 q32 0 32 26z" fill="#c9a060" stroke-width="3.2"/><path d="M-24 -90 h60" fill="none" stroke="#6b4a2a" stroke-width="5"/>')
+    if 'scarf' in names:     # (round 3) red knitted scarf: cold / ice / freezing scenes
+        o += ('<path d="M-30 -40 q36 14 70 0 q2 8 -2 10 q-34 10 -66 0 q-4 -4 -2 -10z" fill="#d9534f" stroke-width="3.2"/><path d="M26 -34 q10 14 4 34 q-8 2 -10 -2 q4 -16 -2 -28z" fill="#d9534f" stroke-width="3"/><path d="M-26 -36 h62 M-24 -31 h58" fill="none" stroke="#a83a36" stroke-width="1.6"/>')
+    if 'nightcap' in names:  # (round 3) striped nightcap with a pompom: sleep / dream / night scenes
+        o += ('<path d="M-26 -84 q10 -34 50 -26 q14 20 26 44 q-50 -10 -100 0 q6 -12 24 -18z" fill="#7a9ad9" stroke-width="3.2"/><path d="M-14 -96 q30 -8 44 12 M-6 -104 q26 -4 40 14" fill="none" stroke="#e8edf8" stroke-width="3"/><circle cx="52" cy="-62" r="8" fill="#e8edf8" stroke-width="2.6"/>')
     if 'helmet' in names:    # bubble helmet like the thumbnails
         o += (f'<circle cx="6" cy="-58" r="46" fill="#cfe9ff" fill-opacity=".14" stroke="#e6f1fb" stroke-width="3.4"/><path d="M-26 -84 q10 -16 28 -20" fill="none" stroke="#fff" stroke-width="4" stroke-opacity=".7"/>'
               f'<ellipse cx="6" cy="-14" rx="42" ry="9" fill="#e6f1fb" fill-opacity=".55" stroke="#e6f1fb" stroke-width="3"/>')
@@ -79,11 +89,15 @@ MOODS = {   # brows (left d, right d, opacity), pupil offset (dx, dy, r), mouth 
     'proud':     dict(bl='M-24 -84 q12 -6 24 0', br='M10 -84 q12 -6 24 0', bo=0, pup=(0, 1, 5), sm='M-10 -47 q16 20 32 0', fill='none', lid=9),
     'sad':       dict(bl='M-24 -76 q12 -4 24 -12', br='M10 -88 q12 8 24 12', bo=1, pup=(0, 3, 6), sm='M-8 -36 q14 -10 28 0', fill='none', lid=0),   # miya 2026-10-26: sad / pleading face (caged, lonely): brows slanting up in the middle, mouth turned down, pupils looking down
     'scared':    dict(bl='M-24 -80 q12 -2 24 -9', br='M10 -89 q12 7 24 9', bo=1, pup=(0, 1, 3), sm='M-9 -39 q4.5 -7 9 0 q4.5 7 9 0 q4.5 -7 9 0', fill='none', lid=0),
-    'dizzy':     dict(bl='M-24 -80 q12 -2 24 -8', br='M10 -88 q12 6 24 8', bo=1, pup=(0, 0, 2.2), sm='M-9 -40 q4.5 -6 9 0 q4.5 6 9 0 q4.5 -6 9 0', fill='none', lid=5),   # miya 2026-10-26: woozy face while circling a black hole ring: tiny pupils, wavy mouth, half lids
+    'dizzy_old': dict(bl='M-24 -80 q12 -2 24 -8', br='M10 -88 q12 6 24 8', bo=1, pup=(0, 0, 2.2), sm='M-9 -40 q4.5 -6 9 0 q4.5 6 9 0 q4.5 -6 9 0', fill='none', lid=5),   # miya 2026-10-26: woozy face while circling a black hole ring: tiny pupils, wavy mouth, half lids
     'squint':    dict(bl='M-24 -78 q12 -6 24 -2', br='M10 -80 q12 4 24 8', bo=1, pup=(0, 0, 4), sm='M-10 -47 q16 24 32 0z', fill='#7a2f2f', lid=11),
     'sleepy':    dict(bl='M-24 -80 q12 2 24 -2', br='M10 -82 q12 -2 24 2', bo=1, pup=(0, 3, 4.5), sm='M-6 -42 q8 3 16 0', fill='none', lid=14),
     'dizzy':     dict(bl='M-24 -78 q12 4 24 -4', br='M10 -80 q12 -4 24 4', bo=1, pup=(0, 0, 0.1), sm='M-10 -44 q4 -7 8 0 q4 7 8 0 q4 -7 8 0 q4 7 8 0', fill='none', lid=0),   # swirl eyes (the _sp spirals cover the pupils), wobbly mouth (2026-10-26 miya: overheated frog)
     'excited':   dict(bl='M-24 -90 q12 -8 24 0', br='M10 -90 q12 -8 24 0', bo=1, pup=(0, -1, 5.6), sm='M-10 -47 q16 24 32 0z', fill='#7a2f2f', lid=0),
+    # 2026-10-26 round 3 (guideline 7-2 F): love = soft brows, big pupils, wide smile (beautiful / favourite); shock = brows high, tiny pupils, round open mouth (suddenly / unbelievable); angry = brows down toward the middle, flat mouth (war / cruel / unfair)
+    'love':      dict(bl='M-24 -86 q12 -8 24 -2', br='M10 -88 q12 -6 24 2', bo=1, pup=(0, 0, 6.2), sm='M-10 -46 q16 18 32 0', fill='none', lid=4),
+    'shock':     dict(bl='M-24 -94 q12 -8 24 0', br='M10 -94 q12 -8 24 0', bo=1, pup=(0, 0, 2.6), sm='M-2 -48 q8 -8 16 0 q4 14 -8 14 q-12 0 -8 -14z', fill='#7a2f2f', lid=0),
+    'angry':     dict(bl='M-24 -90 q12 4 24 10', br='M10 -80 q12 -6 24 -10', bo=1, pup=(0, 0, 4.4), sm='M-8 -42 h28', fill='none', lid=6),
 }
 
 
@@ -111,10 +125,12 @@ def markup(tag, d):
             f'<path id="{t}_sm" d="M-8 -44 q14 12 28 0" fill="none" stroke-width="3.4"/>'
             f'<ellipse id="{t}_mo" cx="6" cy="-44" rx="13" ry="0" fill="#7a2f2f" stroke-width="2.8"/>'
             f'<ellipse id="{t}_tg" cx="6" cy="-44" rx="8" ry="0" fill="#e8847a" stroke="none"/>'
-            f'<path d="M-34 -22 q-14 6 -16 22" fill="none" stroke-width="7.5"/><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/>'
+            f'<g id="{t}_la"><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke-width="7.5"/><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/></g>'
             f'<g id="{t}_ra"><path d="M34 -22 q14 6 16 22" fill="none" stroke-width="7.5"/><path d="M34 -22 q14 6 16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/>'
+            f'<g id="{t}_sc" opacity="0" transform="translate(50 0) rotate(-55)"><rect x="-5" y="-54" width="10" height="40" rx="3" fill="#3b4a6b" stroke-width="2.4"/><rect x="-7" y="-62" width="14" height="10" rx="3" fill="#8a9bbf" stroke-width="2.4"/><rect x="-4" y="-14" width="8" height="12" rx="2" fill="#8a9bbf" stroke-width="2.2"/></g>'
             f'<g id="{t}_pc" opacity="0" transform="translate(50 0) rotate(-35)"><rect x="-3.4" y="-40" width="6.8" height="36" rx="1.4" fill="#f2c94c" stroke-width="2.4"/><rect x="-3.4" y="-45" width="6.8" height="6" rx="2" fill="#e8847a" stroke-width="2.2"/><path d="M-3.4 -4 L0 6 L3.4 -4z" fill="#e8c9a0" stroke-width="2"/><path d="M-1.2 2 L0 6 L1.2 2z" fill="#3a3a3a" stroke="none"/></g></g>'
             f'<g id="{t}_dd" opacity="0" fill="none" stroke="#4a4a52" stroke-width="3" stroke-linecap="round"><path id="{t}_dd1" pathLength="1" d="M58 0 q8 -16 16 0 t16 0 t16 0 t16 0 q10 -14 -2 -16 q-12 0 -6 14"/><path id="{t}_dd2" pathLength="1" d="M60 -26 l4 12 l-12 -8 l16 0 l-12 8z"/><path id="{t}_dd3" pathLength="1" d="M118 -34 q8 -12 16 0 q6 12 -16 24 q-22 -12 -16 -24 q8 -12 16 0"/></g>'
+            f'<circle id="{t}_tp" cx="58" cy="-4" r="10" fill="none" stroke="#fff" stroke-width="3" opacity="0"/>'
             f'<g id="{t}_sw" opacity="0" fill="#7fc4f0" stroke="#2f6f9a" stroke-width="2"><path id="{t}_sw0" d="M-34 -98 q-6 12 0 14 q6 -2 0 -14z"/><path id="{t}_sw1" d="M44 -96 q-6 12 0 14 q6 -2 0 -14z"/><path id="{t}_sw2" d="M6 -112 q-6 12 0 14 q6 -2 0 -14z"/></g>'
             f'{outfit_markup(t, d.get("outfit") or [])}'
             f'<g transform="translate(32 -22)"><g id="{t}_arm">'
@@ -153,13 +169,17 @@ def lint(d, vert=False):
     if d.get('point') or d.get('points'): w.append('points in a picture scene (the explainer is chalkboard only)')
     if d.get('ride'):
         if not RIDEABLE.match(d['ride']): w.append(f'rides {d["ride"]}, a motion that flips/fades/fills/clips (pick a core swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble, path, slide or swing group)')
-    elif not d.get('roam') and not (isinstance(d.get('act'), dict) and d['act'].get('type') in ('orbit', 'slide')) and d['y'] < (1920 - 200 if vert else 1080 - 100): w.append('stands mid-picture (use "ride" or a bottom corner: python3 tools/frog_place.py <slug>)')
+    elif not d.get('roam') and not d.get('act') and not d.get('says') and not d.get('behind'): w.append('a background frog with no act, no bubble and no roam (guideline 7-2 B-1: only a meaningful frog): python3 tools/frog_place.py <slug>')
     return w
 
 
 
-def inject(svg_text, mk, ride=None):
-    """ride = id of a picture group (a spaceship, probe, boat ...): the frog goes INSIDE that group, so it moves, turns and swings with it"""
+def inject(svg_text, mk, ride=None, behind=None):
+    """ride = id of a picture group (a spaceship, probe, boat ...): the frog goes INSIDE that group, so it moves, turns and swings with it.
+    behind = id of a group: the frog goes right BEFORE that group (the object covers it: peeking out from behind, round 3)"""
+    if behind:
+        m = re.search(r'<g\b[^>]*(?:\bid="%s"|\bclass="[^"]*\b%s\b[^"]*")[^>]*>' % (re.escape(behind), re.escape(behind)), svg_text)
+        if m: return svg_text[:m.start()] + mk + svg_text[m.start():]
     if ride:
         m = re.search(r'<g\b[^>]*(?:\bid="%s"|\bclass="[^"]*\b%s\b[^"]*")[^>]*>' % (re.escape(ride), re.escape(ride)), svg_text)
         if m:
@@ -237,7 +257,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         tm = find_word(mo.get('word'), wt, a0, t1) if mo.get('word') else None
         timeline.append((a0 if tm is None else tm, 'mood', mo.get('mood', 'happy')))
     timeline.sort(key=lambda x: (x[0], {'move': 0, 'mood': 1, 'point': 2}[x[1]]))
-    out.append(f'tl.set("#{t}_arm",{{rotation:{REST},{org}}},0);tl.set("#{t}_spl,#{t}_spr,#{t}_fl1,#{t}_fl2,#{t}_sw,#{t}_dd,#{t}_pc",{{opacity:0}},0);')
+    out.append(f'tl.set("#{t}_arm",{{rotation:{REST},{org}}},0);tl.set("#{t}_spl,#{t}_spr,#{t}_fl1,#{t}_fl2,#{t}_sw,#{t}_dd,#{t}_pc,#{t}_sc",{{opacity:0}},0);')
     if not pts: out.append(f'tl.set("#{t}_arm",{{opacity:0}},0);')   # no pointing in this unit (rides / sits in the background): the long arm stick is hidden and a short resting right arm shows instead
     else: out.append(f'tl.set("#{t}_ra",{{opacity:0}},0);')   # pointing frog (chalkboard): the long pointing arm is the right arm
     cur_tgt = None; tracked = False; last_ang = REST
@@ -268,8 +288,9 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
                 out.append(f'tl.to("#{t}_arm",{{rotation:{a1:.1f},duration:.35,ease:"power2.out"}},{tm:.3f});'); last_ang = a1
         else:
             M = MOODS.get(pl, MOODS['happy'])
+            gz = 3 * float(d.get('gaze') or 0)   # round 3: a frog standing beside / looking at an object keeps its pupils toward it (its facing side = local +x)
             out.append(f'tl.set("#{t}_bl",{{attr:{{d:"{M["bl"]}"}},opacity:{M["bo"]}}},{tm:.3f});tl.set("#{t}_br",{{attr:{{d:"{M["br"]}"}},opacity:{M["bo"]}}},{tm:.3f});'
-                       f'tl.set("#{t}_pl",{{attr:{{cx:{-8 + M["pup"][0]},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});tl.set("#{t}_pr",{{attr:{{cx:{24 + M["pup"][0]},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});'
+                       f'tl.set("#{t}_pl",{{attr:{{cx:{-8 + M["pup"][0] + gz:.1f},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});tl.set("#{t}_pr",{{attr:{{cx:{24 + M["pup"][0] + gz:.1f},cy:{-66 + M["pup"][1]},r:{M["pup"][2]}}}}},{tm:.3f});'
                        f'tl.set("#{t}_sm",{{attr:{{d:"{M["sm"]}",fill:"{M["fill"]}"}}}},{tm:.3f});tl.set("#{t}_ll,#{t}_lr",{{attr:{{height:{M["lid"]}}}}},{tm:.3f});'
                        f'tl.set("#{t}_spl,#{t}_spr",{{opacity:{1 if pl == "dizzy" else 0}}},{tm:.3f});')
     # ---- body act (2026-10-25, miya: expression + motion that fits the situation); all tweens on #<t>_ac, absolute times so seeking works ----
@@ -393,7 +414,57 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
                 te = ti + hd + .05 + .25 + float(h.get('stay', .5))
                 out.append(f'tl.to("#{t}{wear[h["wear"]]}",{{opacity:1,duration:.01}},{te:.3f});tl.to({RM},{{scaleX:1,scaleY:1,opacity:1,duration:.3,ease:"back.out(2)",svgOrigin:"0 0"}},{te:.3f});')
                 out.append(f'tl.to({ac},{{y:-22,duration:.18,ease:"power2.out"}},{te + .3:.3f});tl.to({ac},{{y:0,duration:.3,ease:"bounce.out"}},{te + .48:.3f});')
-        elif at == 'cheer':   # happy hops with a little arm-free wiggle
+        # ---- round 3 (2026-10-26, guideline 7-2 D): acts that relate the frog to a person / an object in the picture ----
+        elif at == 'wave':    # waves at a person in the picture: right arm up, three quick waves, down; again after a pause; small happy lean toward them
+            while tm < T - 1.6:
+                out.append(f'tl.to("#{t}_ra",{{rotation:-150,duration:.35,ease:"power2.out",svgOrigin:"34 -22"}},{tm:.3f});')
+                for j in range(4): out.append(f'tl.to("#{t}_ra",{{rotation:{-150 + (18 if j % 2 == 0 else -18)},duration:.18,ease:"sine.inOut",svgOrigin:"34 -22"}},{tm + .35 + j * .18:.3f});')
+                out.append(f'tl.to("#{t}_ra",{{rotation:0,duration:.4,ease:"power2.inOut",svgOrigin:"34 -22"}},{tm + 1.15:.3f});tl.to({ac},{{rotation:4,duration:.5,yoyo:true,repeat:1,ease:"sine.inOut",{org2}}},{tm:.3f});'); tm += 4.2
+        elif at == 'peek':    # hidden behind an object (sidecar behind=<group>): slides out sideways to peek, looks around, slides back; the pupils follow
+            dx = 34 * (1 if dirn >= 0 else -1)
+            while tm < T - 2.2:
+                out.append(f'tl.to({ac},{{x:{-dx},duration:.6,ease:"power2.out",{org2}}},{tm:.3f});tl.to("#{t}_pl,#{t}_pr",{{attr:{{cx:"-=5"}},duration:.3}},{tm + .6:.3f});'
+                           f'tl.to("#{t}_pl,#{t}_pr",{{attr:{{cx:"+=10"}},duration:.4}},{tm + 1.2:.3f});tl.to("#{t}_pl,#{t}_pr",{{attr:{{cx:"-=5"}},duration:.3}},{tm + 1.8:.3f});tl.to({ac},{{x:0,duration:.5,ease:"power2.in",{org2}}},{tm + 2.3:.3f});'); tm += 4.6
+        elif at == 'hang':    # hangs under an object by both hands (feet dangling): arms straight up, slow pendulum sway, little leg kicks
+            out.append(f'tl.to("#{t}_ra",{{rotation:-170,duration:.3,svgOrigin:"34 -22"}},{a1 - .3:.3f});tl.to("#{t}_la",{{rotation:170,duration:.3,svgOrigin:"-34 -22"}},{a1 - .3:.3f});')
+            out.append(f'tl.to({ac},{{rotation:7,duration:1.3,yoyo:true,repeat:{max(int((T - a1) / 1.3), 1)},ease:"sine.inOut",svgOrigin:"0 -34"}},{a1:.3f});')
+            while tm < T - .6:
+                out.append(f'tl.to({ac},{{y:4,duration:.25,yoyo:true,repeat:3,ease:"sine.inOut"}},{tm + 1.0:.3f});'); tm += 3.9
+        elif at == 'tap':     # taps / knocks on the object beside it: leans in, right arm pokes forward three times, leans back and looks (curious)
+            while tm < T - 1.4:
+                out.append(f'tl.to({ac},{{rotation:{dirn * 8},x:{dirn * 6},duration:.4,ease:"power2.out",{org2}}},{tm:.3f});')
+                for j in range(3):
+                    out.append(f'tl.to("#{t}_ra",{{rotation:-60,duration:.14,yoyo:true,repeat:1,ease:"power2.in",svgOrigin:"34 -22"}},{tm + .4 + j * .36:.3f});')
+                    out.append(f'tl.fromTo("#{t}_tp",{{scale:.3,opacity:.9,svgOrigin:"58 -4"}},{{scale:1.6,opacity:0,duration:.35,ease:"power2.out",immediateRender:false}},{tm + .54 + j * .36:.3f});')   # little impact ring where the hand knocks
+                out.append(f'tl.to({ac},{{rotation:0,x:0,duration:.5,ease:"power2.inOut",{org2}}},{tm + 1.6:.3f});'); tm += 4.0
+        elif at == 'hide':    # covers its eyes with both hands (too scary to watch), peeks between the fingers now and then
+            out.append(f'tl.to("#{t}_ra",{{rotation:-118,duration:.3,ease:"power2.out",svgOrigin:"34 -22"}},{a1:.3f});tl.to("#{t}_la",{{rotation:118,duration:.3,ease:"power2.out",svgOrigin:"-34 -22"}},{a1:.3f});')
+            out.append(f'tl.to({ac},{{x:1.6,duration:.07,yoyo:true,repeat:{int(max(T - a1, .5) / .07)},ease:"none"}},{a1:.3f});')
+            tm = a1 + 2.0
+            while tm < T - 1.0:
+                out.append(f'tl.to("#{t}_ra",{{rotation:-95,duration:.3,svgOrigin:"34 -22"}},{tm:.3f});tl.to("#{t}_ra",{{rotation:-118,duration:.3,svgOrigin:"34 -22"}},{tm + .8:.3f});'); tm += 3.6
+        elif at == 'rest':    # leans back against the object (safe / calm / finally), arms down, slow breathing, now and then a contented head tilt
+            out.append(f'tl.to({ac},{{rotation:{-dirn * 10},x:{dirn * 5},duration:.7,ease:"power2.out",{org2}}},{a1:.3f});')
+            out.append(f'tl.to({ac},{{scaleY:1.03,duration:1.9,yoyo:true,repeat:{max(int((T - a1) / 1.9), 1)},ease:"sine.inOut",svgOrigin:"0 0"}},{a1 + .7:.3f});')
+        elif at == 'scope':   # looks through a small telescope held in the right hand: arm up, head tilted back, slow pan; the pupils drift upward
+            out.append(f'tl.set("#{t}_sc",{{opacity:1}},{a1 - .2:.3f});tl.to("#{t}_ra",{{rotation:-128,duration:.4,ease:"power2.out",svgOrigin:"34 -22"}},{a1 - .2:.3f});')
+            out.append(f'tl.to({ac},{{rotation:{-dirn * 9},duration:.5,ease:"power2.out",{org2}}},{a1:.3f});tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-70}},duration:.3}},{a1:.3f});')
+            out.append(f'tl.to({ac},{{rotation:{-dirn * 14},duration:2.6,yoyo:true,repeat:{max(int((T - a1) / 2.6), 1)},ease:"sine.inOut",{org2}}},{a1 + .5:.3f});')
+        elif at == 'startle': # the object it rides pops / pings / stamps at the start: the frog jolts up with both arms thrown up, round mouth, then settles
+            out.append(f'tl.to({ac},{{y:-22,duration:.16,ease:"power3.out"}},{a1:.3f});tl.to({ac},{{y:0,duration:.5,ease:"bounce.out"}},{a1 + .16:.3f});')
+            out.append(f'tl.to("#{t}_ra",{{rotation:-150,duration:.15,svgOrigin:"34 -22"}},{a1:.3f});tl.to("#{t}_la",{{rotation:150,duration:.15,svgOrigin:"-34 -22"}},{a1:.3f});')
+            out.append(f'tl.to("#{t}_ra",{{rotation:0,duration:.6,ease:"power2.inOut",svgOrigin:"34 -22"}},{a1 + 1.2:.3f});tl.to("#{t}_la",{{rotation:0,duration:.6,ease:"power2.inOut",svgOrigin:"-34 -22"}},{a1 + 1.2:.3f});')
+            M = MOODS['shock']
+            out.append(f'tl.set("#{t}_sm",{{attr:{{d:"{M["sm"]}",fill:"{M["fill"]}"}}}},{a1:.3f});tl.set("#{t}_pl,#{t}_pr",{{attr:{{r:{M["pup"][2]}}}}},{a1:.3f});')
+            M2 = MOODS.get((d.get('moods') or [{}])[0].get('mood', 'happy'), MOODS['happy'])
+            out.append(f'tl.set("#{t}_sm",{{attr:{{d:"{M2["sm"]}",fill:"{M2["fill"]}"}}}},{a1 + 1.4:.3f});tl.set("#{t}_pl,#{t}_pr",{{attr:{{r:{M2["pup"][2]}}}}},{a1 + 1.4:.3f});')
+        elif at == 'bounce':  # riding something that pulses / swells / wobbles: the frog bobs with it (knees soft), a little late like a passenger
+            out.append(f'tl.to({ac},{{y:-6,scaleY:.97,duration:.5,yoyo:true,repeat:{max(int((T - a1) / .5), 1)},ease:"sine.inOut",svgOrigin:"0 0"}},{a1 + .15:.3f});')
+        elif at == 'lean':    # riding something that glides / approaches / travels along a path: leans back a little against the motion, hands down, hair-in-the-wind feel without streaks
+            out.append(f'tl.to({ac},{{rotation:{-dirn * 7},x:{-dirn * 3},duration:.6,ease:"power2.out",{org2}}},{a1:.3f});')
+            out.append(f'tl.to({ac},{{rotation:{-dirn * 10},y:-2,duration:1.1,yoyo:true,repeat:{max(int((T - a1 - .6) / 1.1), 1)},ease:"sine.inOut",{org2}}},{a1 + .6:.3f});')
+        elif at == 'cheer':   # happy hops with both arms up
+            out.append(f'tl.to("#{t}_ra",{{rotation:-150,duration:.3,svgOrigin:"34 -22"}},{a1:.3f});tl.to("#{t}_la",{{rotation:150,duration:.3,svgOrigin:"-34 -22"}},{a1:.3f});')
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{y:-16,rotation:{5 if k % 2 == 0 else -5},duration:.3,ease:"power2.out",{org2}}},{tm:.3f});tl.to({ac},{{y:0,rotation:0,duration:.35,ease:"bounce.out",{org2}}},{tm + .3:.3f});'); tm += 2.4; k += 1   # fewer, lower hops: only for a real cheer
         elif at == 'sleepy':  # slow time: heavy slow sway, drooping

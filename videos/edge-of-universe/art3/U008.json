@@ -28,25 +28,27 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "look",
+  "act": "peek",
   "outfit": [
    "helmet"
   ],
-  "ride": "mv-core-ping-u008",
-  "x": 1100,
-  "y": 362,
-  "s": 1.5,
+  "ride": null,
+  "kind": "bg",
+  "x": 960,
+  "y": 650,
+  "s": 1.0,
   "flip": -1,
-  "kind": "ride",
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-ping-u008",
   "says": [
    {
-    "text": "Ooh!",
-    "shout": false
+    "text": "Peek-a-boo!",
+    "shout": true
    }
-  ],
-  "bside": -1
+  ]
  }
 }

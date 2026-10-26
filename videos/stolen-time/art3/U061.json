@@ -25,17 +25,26 @@
  "frog": {
   "moods": [
    {
-    "mood": "sleepy"
+    "mood": "curious"
    }
   ],
-  "act": "sleepy",
+  "act": "scope",
   "ride": "mv-core-approach-u061",
-  "x": 960,
-  "y": 329,
-  "s": 1.5,
-  "flip": -1,
   "kind": "ride",
-  "says": [],
-  "bside": -1
+  "x": 1181,
+  "y": 683,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "I see it!",
+    "shout": false
+   }
+  ]
  }
 }

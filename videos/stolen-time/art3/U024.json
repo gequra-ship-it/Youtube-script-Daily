@@ -33,19 +33,20 @@
     "mood": "happy"
    }
   ],
-  "act": "sway",
+  "act": "startle",
   "ride": "mv-core-ping-u024",
-  "x": 960,
-  "y": 399,
-  "s": 1.32,
-  "flip": -1,
   "kind": "ride",
+  "x": 1110,
+  "y": 612,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Hum hum...",
-    "shout": false
+    "text": "Eek!",
+    "shout": true
    }
-  ],
-  "bside": -1
+  ]
  }
 }

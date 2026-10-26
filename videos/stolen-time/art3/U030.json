@@ -20,22 +20,29 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "scared"
    }
   ],
-  "act": "look",
-  "ride": "mv-core-swell-u030",
-  "x": 960,
-  "y": 304,
-  "s": 1.5,
-  "flip": -1,
-  "kind": "ride",
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    430
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 538,
+  "y": 444,
+  "s": 0.9,
+  "flip": 1,
   "says": [
    {
-    "text": "Ooh!",
-    "shout": false
+    "text": "Heeelp!",
+    "shout": true
    }
   ],
-  "bside": -1
+  "bside": 1
  }
 }

@@ -5,23 +5,24 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "happy"
    }
   ],
-  "act": "look",
+  "act": "rest",
   "ride": "mv-slide-shutter",
-  "x": 880,
-  "y": 387,
-  "s": 0.9,
-  "flip": 1,
   "kind": "ride",
+  "x": 950,
+  "y": 625,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Ooh!",
+    "text": "Ahh...",
     "shout": false
    }
-  ],
-  "bside": 1
+  ]
  },
  "sfx": [],
  "labels": [

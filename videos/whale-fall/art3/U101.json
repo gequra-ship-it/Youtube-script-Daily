@@ -18,20 +18,32 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "scared"
    }
   ],
-  "act": "waves",
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    460
+   ],
+   "vanish": true
+  },
   "outfit": [
-   "goggles"
+   "diver"
   ],
-  "ride": "mv-core-swell-sun-U101",
-  "x": 960,
-  "y": 163,
-  "s": 1.5,
-  "flip": -1,
-  "kind": "ride",
-  "says": [],
-  "bside": -1
+  "ride": null,
+  "kind": "bg",
+  "x": 465,
+  "y": 493,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
  }
 }

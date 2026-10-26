@@ -30,28 +30,23 @@
     "mood": "surprised"
    }
   ],
-  "act": {
-   "type": "slide",
-   "to": [
-    1380,
-    411
-   ]
-  },
+  "act": "lean",
   "outfit": [
    "helmet"
   ],
-  "kind": "bg",
-  "ride": null,
-  "x": 804,
-  "y": 210,
-  "s": 0.9,
-  "flip": 1,
+  "ride": "mv-core-approach-u026",
+  "kind": "ride",
+  "x": 1572,
+  "y": 534,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Wheee!",
-    "shout": true
+    "text": "Tick tock...",
+    "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

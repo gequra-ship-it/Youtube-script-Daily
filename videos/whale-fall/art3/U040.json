@@ -13,23 +13,26 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "happy"
    }
   ],
-  "act": null,
+  "act": "wave",
   "outfit": [
    "diver"
   ],
-  "x": 1750,
-  "y": 170,
-  "s": 0.81,
-  "flip": -1,
+  "x": 1678,
+  "y": 720,
+  "s": 0.95,
+  "flip": 1,
   "kind": "bg",
-  "roam": {
-   "kind": "swim",
-   "dist": 461
-  },
-  "says": [],
-  "bside": -1
+  "ride": null,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Let me see...",
+    "shout": false
+   }
+  ]
  }
 }
