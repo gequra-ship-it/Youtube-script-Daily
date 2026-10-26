@@ -60,3 +60,4 @@
 - 2026-10-26: `tools/frog_place.py` `pull` 규칙에서 sink·crush 제외(가라앉는 고래·수압은 빨려드는 상황이 아님, crush는 shiver로), `tools/clip_prep.py`(어느 구간이든 20초 샘플 렌더: `python3 tools/clip_prep.py <slug> <시작초> <길이>` 후 `npx hyperframes@0.8.141 render`, 오디오는 ffmpeg -ss로 합침).
 
 - 2026-10-26: 개구리 `fore` 복장, `dizzy` 표정·동작, `doodle` 동작(연필 낙서) 추가(`tools/frog.py`, 지침서 7-2).
+- 2026-10-26: 개구리 등장 비율을 약 26%→50%로 늘림(`build3.py` FROG_HINT: 2단위마다, 처음 4초 이후), ride 개구리가 화면 위로 잘리지 않게 위치 하한(`frog_place.py`). 지침서 7-2.

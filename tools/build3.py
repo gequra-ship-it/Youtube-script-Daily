@@ -372,12 +372,12 @@ CHALK_FROG = dict(x=190, y=H - 32, s=2.6, flip=1, point=None, delay=0.3)   # bot
 # which units should carry the explainer frog (suggestion for the picture agents): explanation scenes, every other unit, at most ~22 % of all units
 FROG_HINT = {}
 if FROG_ON:
-    # 2026-10-25 (miya: the frog should appear more and more varied): about every 4th picture unit (cap 26 %), any scene kind, never two in a row, not in the first 12 s
-    _gap = 9; _cap = max(1, int(.26 * len([x for x in units if x['kind'] != 'chalk'])))
+    # 2026-10-25 (miya: the frog should appear more and more varied): 2026-10-26 (miya: still too few): about every 2nd picture unit (cap 50 %), any scene kind, not in the first 4 s
+    _gap = 9; _cap = max(1, int(.5 * len([x for x in units if x['kind'] != 'chalk'])))
     for u_ in units:
         if u_['kind'] == 'chalk' or SCENES[u_['scene'] - 1][0] == 'OUTRO': _gap = 9; continue
         _gap += 1
-        if len(FROG_HINT) < _cap and _gap >= 4 and u_['t0'] > 12: FROG_HINT[u_['uid']] = True; _gap = 0
+        if len(FROG_HINT) < _cap and _gap >= 2 and u_['t0'] > 4: FROG_HINT[u_['uid']] = True; _gap = 0
 
 if FROG_ON and os.environ.get('PLAN') != '1':   # frog sidecar lint (guideline 7-2)
     for u_ in units:

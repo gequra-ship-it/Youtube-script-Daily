@@ -73,6 +73,7 @@ with sync_playwright() as p:
             fn = f'{REPO}/videos/{slug}/art3/{uid}.json'; svg = fn[:-5] + '.svg'
             d = json.load(open(fn)) if os.path.exists(fn) else {}
             if not (u.get('frog_hint') or d.get('frog')) or u.get('kind') == 'chalk' or not os.path.exists(svg): continue
+            if (d.get('frog') or {}).get('lock'): continue   # hand-made sidecar (miya 2026-10-26, e.g. the caged frog in edge-of-universe U010): never overwritten
             f = d.get('frog') if isinstance(d.get('frog'), dict) else {}
             text = u['text']; sents = [x for x in re.findall(r'[^.!?]+[.!?]?', text) if x.strip()]
             moods = []; prev = None
@@ -102,7 +103,7 @@ with sync_playwright() as p:
                 if core: pick = core[0][0]; keep['cling'] = True
             if pick:
                 _, x, y, w, h = gs[pick]; s = round(min(1.5, max(.9, w / 170)), 2); cx = x + w / 2
-                keep.update(ride=pick, x=round(cx), y=round(y + 8 * s), s=s, flip=1 if cx < W / 2 else -1, kind='ride')
+                keep.update(ride=pick, x=round(cx), y=round(max(y + 8 * s, 82 * s + 40)), s=s, flip=1 if cx < W / 2 else -1, kind='ride')
                 if keep.pop('cling', False): keep.update(x=round(x + w * .95), y=round(y + h - 12), s=round(min(1.2, max(.9, h / 200)), 2), flip=-1, act='wind')
             else:
                 n += 1   # roaming (miya 2026-10-26: the frog stayed in one bottom spot): small, travelling through the free part of the background
