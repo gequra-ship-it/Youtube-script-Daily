@@ -4,8 +4,8 @@
 #   CHALKBOARD scenes: the explainer. It stands bottom-left, talks (mouth follows the real word times), blinks and points at the row being
 #     spoken (js(..., targets=...)); the arm turns only when the pointed row changes.
 #   PICTURE scenes (plan.json frog_hint units): NO explainer standing beside the picture. A companion: it rides a moving object (drawn INSIDE
-#     that picture group via inject(..., ride=id), so it moves and turns with it) or sits small in a bottom corner of the background; the arm is
-#     hidden unless the sidecar has points. tools/frog_place.py writes these sidecars (moods per sentence, helmet / goggles, ride or corner).
+#     that picture group via inject(..., ride=id), so it moves and turns with it) or roams / acts in the background; the arm is
+#     hidden unless the sidecar has points. tools/frog_place.py writes these sidecars (guideline 7-2).
 # markup()  -> SVG group string to put INTO a picture svg (ids fg<tag>_*), or into an overlay svg for chalkboard scenes
 # js()      -> GSAP lines (absolute timeline seconds) for that frog
 # Sidecar key in art3/<uid>.json: "frog": {"x": 220, "y": 1040, "s": 2.4, "flip": 1, "delay": 0.35, ...}
@@ -209,9 +209,15 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
     (default: sidecar "points"/"point"; none = arm rests), wt = [(text, start, end)] to resolve the "word" keys of points/moods/moves."""
     t = f'fg{tag}'; out = []; a0 = t0 + d['delay']; wt = wt or []
     org = 'svgOrigin:"0 0"'   # the arm's own coordinate space starts at the shoulder (parent group translate(32 -22))
-    enter = d.get('enter', 'hop')
-    out.append(f'tl.set("#{t}_in",{{opacity:0,y:{300 if enter == "hop" else 40}}},0);tl.set("#{t}",{{opacity:0}},0);tl.set("#{t}",{{opacity:1}},{a0 - .01:.3f});tl.set("#{t}",{{opacity:0}},{t1:.3f});')
-    out.append(f'tl.fromTo("#{t}_in",{{y:{300 if enter == "hop" else 40},opacity:0}},{{y:0,opacity:1,duration:{.45 if enter == "hop" else .3},ease:"back.out(1.6)",immediateRender:false}},{a0:.3f});')
+    # entrance / exit by kind (2026-10-26 frog review): only the chalkboard explainer hops up from below; a picture frog fades in where it is
+    # (rides: peeks up from its object, roams: drifts in) and fades out shortly before the cut instead of vanishing in one frame
+    enter = d.get('enter') or ('hop' if not (d.get('ride') or d.get('kind') in ('ride', 'bg')) else ('peek' if d.get('ride') else 'fade'))
+    oy = {'hop': 300, 'peek': 26, 'fade': 0}.get(enter, 40)
+    out.append(f'tl.set("#{t}_in",{{opacity:0,y:{oy}}},0);tl.set("#{t}",{{opacity:0}},0);tl.set("#{t}",{{opacity:1}},{a0 - .01:.3f});tl.set("#{t}",{{opacity:0}},{t1:.3f});')
+    if enter == 'hop': out.append(f'tl.fromTo("#{t}_in",{{y:300,opacity:0}},{{y:0,opacity:1,duration:.45,ease:"back.out(1.6)",immediateRender:false}},{a0:.3f});')
+    else:
+        out.append(f'tl.fromTo("#{t}_in",{{y:{oy},opacity:0,scale:.85,svgOrigin:"0 0"}},{{y:0,opacity:1,scale:1,duration:.5,ease:"power2.out",immediateRender:false}},{a0:.3f});')
+        if t1 - a0 > 1.4: out.append(f'tl.to("#{t}_in",{{opacity:0,duration:.3,ease:"power1.in"}},{t1 - .32:.3f});')
     # ---- moves (hops to a new place while explaining) ----
     st = dict(ox=d['x'], y=d['y'], sx=d['flip'] * d['s'], s=d['s']); base = dict(st); timeline = []   # (time, kind, payload)
     for m in d.get('moves') or []:
@@ -303,7 +309,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
                 gx = d['flip'] * (rx * math.cos(th) - x0_) / d['s']; gy = (ry * math.sin(th) - y0_) / d['s']; sc = 1 + float(act.get('depth', .14)) * math.sin(th)   # nearer (front of the ring) = a little bigger
                 out.append(f'tl.to("#{t}_tr",{{x:{gx:.1f},y:{gy:.1f},scaleX:{sc:.3f},scaleY:{sc:.3f},duration:{stp},ease:"none",svgOrigin:"0 0"}},{tt:.3f});'); tt += stp
             out.append(f'tl.to({ac},{{rotation:9,duration:.45,yoyo:true,repeat:{max(int((T - a1) / .45), 1)},ease:"sine.inOut",{org2}}},{a1:.3f});')   # head-rolling wobble
-        elif at == 'dizzy':   # riding something that goes round and round (a particle on its line): head-rolling wobble, woozy face (miya 2026-10-26)
+        elif at == 'dizzy' and not isinstance(act, dict):   # (string act) riding something that goes round and round (a particle on its line): head-rolling wobble, woozy face (miya 2026-10-26)
             out.append(f'tl.to({ac},{{rotation:10,y:-3,duration:.5,yoyo:true,repeat:{max(int((T - a1) / .5), 1)},ease:"sine.inOut",{org2}}},{a1:.3f});')
         elif at == 'fly':     # Superman pose (miya 2026-10-26): body turned prone toward its facing side, one arm stretched ahead, gentle bob; for a frog that carries / pulls something through the picture (the footboard under a flying figure)
             out.append(f'tl.to({ac},{{rotation:90,duration:.5,ease:"power2.out",svgOrigin:"0 -40"}},{a1:.3f});tl.to("#{t}_ra",{{rotation:-165,duration:.4,ease:"power2.out",svgOrigin:"34 -22"}},{a1:.3f});')
@@ -455,11 +461,11 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         r = (10, 7, 12, 8)[k % 4]; e = max(ws + .08, we - .03)
         out.append(f'tl.set("#{t}_sm",{{opacity:0}},{ws:.3f});tl.set("#{t}_mo",{{attr:{{ry:{r},cy:{-44 + r}}}}},{ws:.3f});tl.set("#{t}_tg",{{attr:{{ry:{r * .42:.1f},cy:{-44 + r * 1.58:.1f}}}}},{ws:.3f});'
                    f'tl.set("#{t}_mo",{{attr:{{ry:0,cy:-44}}}},{e:.3f});tl.set("#{t}_tg",{{attr:{{ry:0,cy:-44}}}},{e:.3f});tl.set("#{t}_sm",{{opacity:1}},{e:.3f});')
-    # blink every ~2.7 s (back to the mood's eye height afterwards)
+    # blinks at irregular intervals (back to the mood's eye height afterwards)
     lid = MOODS.get((d.get('moods') or [{}])[0].get('mood', 'happy'), MOODS['happy'])['lid']
-    tb = a0 + 1.1
+    tb = a0 + 1.1; kb = 0
     while tb < t1 - .2:
         out.append(f'tl.to("#{t}_ll,#{t}_lr",{{attr:{{height:27}},duration:.06,ease:"none"}},{tb:.3f});tl.set("#{t}_al,#{t}_ar",{{opacity:1}},{tb + .06:.3f});'
                    f'tl.set("#{t}_al,#{t}_ar",{{opacity:0}},{tb + .1:.3f});tl.to("#{t}_ll,#{t}_lr",{{attr:{{height:{lid}}},duration:.08,ease:"none"}},{tb + .1:.3f});')
-        tb += 2.7
+        tb += (2.3, 3.6, .32, 2.9, 4.1)[kb % 5]; kb += 1   # irregular blinks with an occasional double blink (a fixed 2.7 s looked mechanical)
     return out
