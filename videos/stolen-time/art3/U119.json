@@ -39,10 +39,10 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "curious"
    }
   ],
-  "act": null,
+  "act": "listen",
   "outfit": [
    "diver"
   ],
@@ -51,11 +51,12 @@
   "s": 0.81,
   "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "lie",
-   "dist": 461
-  },
-  "says": [],
+  "says": [
+   {
+    "text": "Shh... listen.",
+    "shout": false
+   }
+  ],
   "bside": -1
  }
 }

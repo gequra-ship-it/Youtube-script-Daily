@@ -20,35 +20,30 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "happy"
    },
    {
     "word": "When light",
-    "mood": "scared"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "slide",
-   "to": [
-    540,
-    1190
-   ]
-  },
+  "act": "rest",
   "outfit": [
    "helmet"
   ],
-  "kind": "bg",
-  "ride": null,
-  "x": 918,
-  "y": 998,
-  "s": 1.15,
-  "flip": -1,
+  "ride": "mv-path-photon-u007",
+  "kind": "ride",
+  "x": 534,
+  "y": 1254,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Wheee!",
-    "shout": true
+    "text": "Ahh...",
+    "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

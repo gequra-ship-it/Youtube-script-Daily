@@ -8,14 +8,14 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "sad"
    },
    {
     "word": "Stars would",
     "mood": "curious"
    }
   ],
-  "act": null,
+  "act": "cry",
   "outfit": [
    "helmet"
   ],
@@ -24,11 +24,12 @@
   "s": 0.81,
   "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "swim",
-   "dist": 461
-  },
-  "says": [],
+  "says": [
+   {
+    "text": "Sniff...",
+    "shout": false
+   }
+  ],
   "bside": -1
  }
 }

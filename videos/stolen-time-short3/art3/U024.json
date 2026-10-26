@@ -26,29 +26,30 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "squint"
    },
    {
     "word": "And that",
-    "mood": "curious"
+    "mood": "confused"
    }
   ],
-  "act": "look",
+  "act": "balance",
   "outfit": [
    "helmet"
   ],
   "ride": "mv-core-wobble-u024",
-  "x": 549,
-  "y": 750,
-  "s": 1.5,
-  "flip": -1,
   "kind": "ride",
+  "x": 724,
+  "y": 990,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Ooh!",
+    "text": "Whoa, careful!",
     "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

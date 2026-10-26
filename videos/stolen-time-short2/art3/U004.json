@@ -28,28 +28,23 @@
     "mood": "surprised"
    }
   ],
-  "act": {
-   "type": "slide",
-   "to": [
-    546,
-    911
-   ]
-  },
+  "act": "bounce",
   "outfit": [
    "helmet"
   ],
-  "kind": "bg",
-  "ride": null,
-  "x": 924,
-  "y": 719,
-  "s": 1.15,
+  "ride": "mv-core-wobble-u004",
+  "kind": "ride",
+  "x": 844,
+  "y": 1021,
+  "s": 1.09,
   "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Wheee!",
-    "shout": true
+    "text": "Boing boing.",
+    "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

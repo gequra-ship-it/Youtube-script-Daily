@@ -29,22 +29,26 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "sleepy"
    }
   ],
-  "act": "nod",
+  "act": "stretch",
   "ride": "mv-slide-doorL-u011",
-  "x": 475,
-  "y": 477,
-  "s": 0.9,
-  "flip": 1,
   "kind": "ride",
+  "x": 584,
+  "y": 730,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "explorer"
+  ],
   "says": [
    {
-    "text": "Mm-hm!",
+    "text": "Good morning!",
     "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

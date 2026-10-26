@@ -35,22 +35,29 @@
  "frog": {
   "moods": [
    {
-    "mood": "sleepy"
+    "mood": "scared"
    }
   ],
-  "act": "sleepy",
-  "ride": "mv-core-swell-e",
-  "x": 569,
-  "y": 760,
-  "s": 1.5,
-  "flip": -1,
-  "kind": "ride",
+  "act": {
+   "type": "pull",
+   "to": [
+    569,
+    889
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 331,
+  "y": 903,
+  "s": 0.9,
+  "flip": 1,
   "says": [
    {
-    "text": "Zzz...",
-    "shout": false
+    "text": "AAAAAH!",
+    "shout": true
    }
   ],
-  "bside": -1
+  "bside": 1
  }
 }
