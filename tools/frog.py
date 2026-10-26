@@ -253,15 +253,24 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         k = 0; tm = a1
         if at == 'wind':      # leaning back into the wind, bracing, squinting; air streaks fly past
             out.append(f'tl.to({ac},{{rotation:-10,x:-4,duration:.4,ease:"power2.out",{org2}}},{a1:.3f});')
-            n = 0
-            while tm < T - .1:
-                out.append(f'tl.to({ac},{{x:{-4 + (n % 3 - 1) * 2.2:.1f},y:{((n * 7) % 5 - 2) * 1.4:.1f},rotation:{-10 + (n % 2) * 2.4:.1f},duration:.09,ease:"none",{org2}}},{tm:.3f});'); tm += .09; n += 1
+            nn = max(int((T - a1 - .4) / .8), 1)   # smooth lean sway (miya 2026-10-26: the old 0.09 s jitter looked unnatural); one yoyo tween, seek-safe
+            out.append(f'tl.to({ac},{{rotation:-13,y:-3,x:-5,duration:.8,yoyo:true,repeat:{nn},ease:"sine.inOut",{org2}}},{a1 + .4:.3f});')
         elif at == 'pull':    # dragged toward the hole: slides and leans, digs in, gets dragged again (never quite escapes)
-            while tm < T - .2:
-                out.append(f'tl.to({ac},{{x:{dirn * 26},rotation:{dirn * 16},scaleX:1.06,duration:1.15,ease:"power2.in",{org2}}},{tm:.3f});')
-                out.append(f'tl.to({ac},{{x:{-dirn * 5},rotation:{-dirn * 7},scaleX:1,duration:.35,ease:"back.out(2.2)",{org2}}},{tm + 1.15:.3f});')
-                out.append(f'tl.to({ac},{{y:-4,duration:.07,yoyo:true,repeat:5,ease:"none"}},{tm + 1.2:.3f});')   # straining shake
-                tm += 1.9
+            vz = isinstance(act, dict) and act.get('vanish')   # miya 2026-10-26: sucked in like the star: spirals toward the hole, shrinks and disappears
+            if vz:
+                vd = float(vz) if not isinstance(vz, bool) else 2.2; tv = max(T - vd, a1 + .5)
+                gx = (tg[0] - d['x']) / d['s']; gy = (tg[1] - d['y']) / d['s']
+                out.append(f'tl.to("#{t}_tr",{{x:{gx:.1f},y:{gy:.1f},duration:{T - tv:.3f},ease:"power2.in"}},{tv:.3f});')
+                out.append(f'tl.to("#{t}_rm",{{rotation:{dirn * 360},scaleX:.04,scaleY:.04,duration:{T - tv:.3f},ease:"power2.in",svgOrigin:"0 -30"}},{tv:.3f});')
+                out.append(f'tl.to("#{t}_in",{{opacity:0,duration:.35,ease:"none"}},{T - .35:.3f});')
+            te = (tv if vz else T) - .1
+            if te > a1 + .4:   # soft lean in and out (no snapping) with a continuous fine tremble (miya 2026-10-26: trembling good, the stutter not)
+                out.append(f'tl.to({ac},{{y:-2.2,duration:.1,yoyo:true,repeat:{int((te - a1) / .1)},ease:"sine.inOut"}},{a1:.3f});')
+                while tm < te - .3:
+                    dd = min(1.0, (te - tm) / 2)
+                    out.append(f'tl.to({ac},{{x:{dirn * 14},rotation:{dirn * 2},duration:{dd:.2f},ease:"sine.inOut",{org2}}},{tm:.3f});')   # no head-tilt (miya 2026-10-26): stays upright, only slides and trembles
+                    out.append(f'tl.to({ac},{{x:{-dirn * 3},rotation:0,duration:{dd:.2f},ease:"sine.inOut",{org2}}},{tm + dd:.3f});')
+                    tm += 2 * dd
         elif at == 'float':   # weightless drift
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{y:-9,rotation:{3 if k % 2 == 0 else -3},duration:1.4,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{y:3,rotation:{-3 if k % 2 == 0 else 3},duration:1.4,ease:"sine.inOut",{org2}}},{tm + 1.4:.3f});'); tm += 2.8; k += 1
