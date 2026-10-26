@@ -23,17 +23,22 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "happy"
    }
   ],
-  "act": "cheer",
+  "act": "breathe",
   "ride": "mv-core-heartbeat",
   "x": 960,
   "y": 254,
   "s": 1.5,
   "flip": -1,
   "kind": "ride",
-  "says": [],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ],
   "bside": -1
  }
 }

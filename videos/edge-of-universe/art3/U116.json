@@ -29,26 +29,32 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "surprised"
    },
    {
     "word": "In 1994",
-    "mood": "surprised"
+    "mood": "scared"
    }
   ],
-  "act": "cheer",
-  "ride": "mv-path-warpship",
-  "x": 406,
-  "y": 352,
-  "s": 1.5,
-  "flip": 1,
-  "kind": "ride",
+  "act": {
+   "type": "slide",
+   "to": [
+    960,
+    670
+   ]
+  },
+  "kind": "bg",
+  "ride": null,
+  "x": 1536,
+  "y": 454,
+  "s": 0.9,
+  "flip": -1,
   "says": [
    {
-    "text": "Yay!",
-    "shout": false
+    "text": "Wheee!",
+    "shout": true
    }
   ],
-  "bside": 1
+  "bside": -1
  }
 }

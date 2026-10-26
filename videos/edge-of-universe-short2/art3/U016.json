@@ -17,20 +17,26 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "surprised"
    }
   ],
-  "act": "cheer",
-  "ride": "mv-core-tremble-node",
-  "x": 540,
-  "y": 803,
-  "s": 0.9,
+  "act": {
+   "type": "slide",
+   "to": [
+    540,
+    873
+   ]
+  },
+  "kind": "bg",
+  "ride": null,
+  "x": 918,
+  "y": 681,
+  "s": 1.15,
   "flip": -1,
-  "kind": "ride",
   "says": [
    {
-    "text": "Yay!",
-    "shout": false
+    "text": "Wheee!",
+    "shout": true
    }
   ],
   "bside": -1
