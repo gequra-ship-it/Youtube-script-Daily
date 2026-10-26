@@ -64,4 +64,5 @@
 
 - 2026-10-26: 개구리 `push`·`huts` 동작, `fore_steps` 복장(부분 켜기), `says.t`(`tools/frog.py`, 지침서 7-2).
 - 2026-10-26: 개구리 `dizzy`(입자 그룹을 타고 돌며 어지러워함)·`orbit`(블랙홀 고리를 입자처럼 돎) 동작과 `dizzy` 표정 추가, `pull`/`orbit`의 좌우 반전 위치 오류 수정(`tools/frog.py`, `frog_place.py`, 지침서 7-2).
+- 2026-10-26: frog_place 자동 상황 규칙(dizzy·doodle·push·huts·fore)과 `FROG_TONE='serious'` 추가, 그림 규칙: 오두막 문은 `id="doorN"`(`tools/art_spec.md` 12, 지침서 7-2).
 - 2026-10-26: 사건의 지평선 고리를 도는 개구리(`orbit`, `mv-edge-horizon` 장면은 힌트 없이도 등장), stolen-time U060의 우주인을 우주복 개구리로 교체(손으로 쓴 `lock` 사이드카). `frog.py`·`frog_place.py`, 지침서 7-2.

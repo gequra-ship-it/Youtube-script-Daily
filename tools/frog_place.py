@@ -50,6 +50,13 @@ def says_for(act, keep, text, cnt):
     if word is None: return []
     if nm not in STRONG and cnt % 2: return []
     return [{'text': word, 'shout': word.endswith('!') and nm in STRONG}]
+HEAT = re.compile(r'\b(heat\w*|hot|furnace|kiln|fire|flames?|burn\w*|boil\w*|scorch\w*|molten|lava|magma|sizzl\w*|celsius|oven|sun)\b', re.I)   # miya 2026-10-26: overheated = woozy swirl eyes
+FORE = re.compile(r'\b(fore people|papua|highlands?|villag\w*|tribe|tribal|clan|huts?|funeral\w*|mourn\w*|indigenous)\b', re.I)   # people-of-the-place scenes: native outfit
+BOOK = re.compile(r'book|notebook|page|paper|diary|desk|chart|board|card', re.I)
+NOTE = re.compile(r'\b(notebook|book|pages?|writ\w*|wrote|draw\w*|sketch\w*|pencil|notes?|records?|report|paper|diary|study|studies|research\w*)\b', re.I)
+PUSHG = re.compile(r'lens|magnif|cart|crate|box|rock|stone|boulder|sled|wheel|barrow|wagon|anvil|weight', re.I)   # a movable object the frog can heave (holds the handle of a lens)
+VILL = re.compile(r'\b(villag\w*|huts?|houses?|homes?|funeral\w*|rituals?|feast\w*)\b', re.I)
+SERIOUS_OUT = ('Yay!', 'Tada!', 'Wheee!', 'Hop hop!', 'Boing!')
 PLAT = re.compile(r'belt|treadmill|tread\b|slats|ground|ledge|platform|bridge|shelf|deck|road|planet|moon|surface|floor|stage|track', re.I)
 ACTIVE = re.compile(r'\b(run\w*|walk\w*|jump\w*|hop\w*|step\w*|treadmill|pump\w*|race|racing|sprint\w*)\b', re.I)
 VEH = re.compile(r'\b(rocket|spaceship|spacecraft|ship|probe|warp drive|shuttle|lander)\b', re.I)
@@ -58,6 +65,7 @@ PARTICLE = re.compile(r'mv-path-(particle|orbit|ring|loop|electron|photon)', re.
 ORBIT = re.compile(r'\b(particles?|orbit\w*|circl\w*|revolv\w*|accretion|ring|rings|disk|laser|radio wave)\b', re.I)
 HOLE = re.compile(r'hole|bh|singular|well|horizon', re.I)
 JS = '''()=>{const o=[];for(const g of document.querySelectorAll('g[id^="mv-"]')){const b=g.getBBox();if(b.width<8)continue;o.push([g.id,b.x,b.y,b.width,b.height])}return o}'''
+JSD = '''()=>{const o=[];for(const g of document.querySelectorAll('[id^="door"]')){const b=g.getBBox();if(b.width<4)continue;o.push([b.x+b.width/2,b.y+b.height])}o.sort((a,c)=>a[0]-c[0]);return o}'''
 def mood_of(s):
     if s.rstrip().endswith('?'): return 'curious'
     if s.rstrip().endswith('!'): return 'excited'
@@ -70,6 +78,8 @@ with sync_playwright() as p:
     b = p.chromium.launch(executable_path=chrome(), args=['--no-sandbox']); pg = b.new_page()
     for slug in sys.argv[1:]:
         vert = 'short' in slug; W, H = (1080, 1920) if vert else (1920, 1080)
+        try: SERIOUS = getattr(load_config(slug), 'FROG_TONE', '') == 'serious'   # config.py FROG_TONE = 'serious' for grim topics (disease, death, war): no cheering, no Yay/Tada (miya 2026-10-26)
+        except Exception: SERIOUS = False
         plan = {u['uid']: u for u in json.load(open(f'{REPO}/videos/{slug}/plan.json'))}
         for uid, u in sorted(plan.items()):
             fn = f'{REPO}/videos/{slug}/art3/{uid}.json'; svg = fn[:-5] + '.svg'
@@ -134,6 +144,25 @@ with sync_playwright() as p:
                 else: x0 = max(170, min(W - 170, x0))
                 keep.update(x=x0, y=y0, s=round(s0, 2), flip=fl, kind='bg', roam=dict(kind=kind, dist=dist))
                 if act in ('float', 'cheer') or kind in ('swim', 'lie', 'tumble', 'roll'): keep['act'] = None   # the roaming motion replaces the in-place bob/hops; a drifting swimmer gets no lean/wind lines (miya 2026-10-26)
+            # ---- miya 2026-10-26 situation acts: heat -> dizzy, notebook/page -> doodle, hut doors -> huts + outfit steps, movable object (lens/crate) -> push by its handle ----
+            doors = pg.evaluate(JSD)
+            if keep.get('act') not in ('pull',) and HEAT.search(text) and not ROLL.search(text):
+                keep['act'] = {'type': 'dizzy'}; keep['moods'] = [{'mood': 'dizzy'}]; keep.pop('outfit', None) if keep.get('outfit') == ['diver'] else None
+            bk = [g for g in gs.values() if BOOK.search(g[0]) and g[3] >= 200]
+            if NOTE.search(text) and bk and keep.get('act') != 'dizzy' and not (isinstance(keep.get('act'), dict) and keep['act'].get('type') == 'pull'):
+                bk.sort(key=lambda g: -g[3] * g[4]); _, bx, by, bw, bh = bk[0]
+                keep.update(kind='bg', x=round(bx + bw * .86), y=round(by + bh - 24), s=round(1.4 if vert else 1.5, 2), flip=-1, act={'type': 'doodle', 'from': 0.9}, moods=[{'mood': 'curious'}]); keep.pop('ride', None); keep.pop('roam', None)
+            pg_ = [g for g in gs.values() if keep.get('ride') == g[0] and PUSHG.search(g[0]) and re.match(r'mv-(path|slide|glide)', g[0])]
+            if pg_:
+                _, gx, gy, gw, gh = pg_[0]; s1 = round(min(1.4, max(1.0, gw / 190)), 2)
+                hx, hy = gx + gw * .9, gy + gh * .92   # the handle end of a lens-like object (lower right of its box)
+                keep.update(x=round(hx + 56 * s1), y=round(hy + 36 * s1), s=s1, flip=-1, kind='ride', act={'type': 'push', 'from': 0.6}, moods=[{'mood': 'squint'}])
+            if len(doors) >= 2 and VILL.search(text) and not vert:
+                ts = [0.6 + i * 1.9 for i in range(min(3, len(doors)))]
+                keep.update(kind='bg', x=round(max(100, doors[0][0] - 190)), y=round(doors[0][1] + 20), s=1.25, flip=1, outfit=['fore_steps'], moods=[{'mood': 'curious'}, {'word': 'in', 'mood': 'excited'}], ride=None,
+                            act={'type': 'huts', 'huts': [{'t': t_, 'x': round(d_[0]), 'y': round(d_[1] + 4), 'wear': w_, 'stay': 0.3} for t_, d_, w_ in zip(ts, doors, ('bottom', 'top', 'head'))]})
+                keep.pop('ride', None); keep.pop('roam', None); keep['_huts'] = [(t_ + 1.35, w_) for t_, w_ in zip(ts, ('Woo-hoo!', 'Look at me!', 'Ta-da!'))]
+            elif FORE.search(text) and not SEA.search(text) and not SPACE.search(text) and 'outfit' not in keep: keep['outfit'] = ['fore']
             pp = [g for g in gs.values() if PARTICLE.match(g[0])]
             if pp and ORBIT.search(text) and not ROLL.search(text):   # a particle / orbiting dot on a line in the picture: the frog rides it round and round, dizzy (miya 2026-10-26)
                 _, x, y, w, h = pp[0]; s0 = round(min(1.1, max(.8, w / 220)), 2); cx = x + w / 2
@@ -157,6 +186,15 @@ with sync_playwright() as p:
                 if hg and keep.get('kind') == 'ride': keep['act']['vanish'] = True   # riding a star into the hole: pulled in, shrinking, gone (miya 2026-10-26)
             cnt_say = globals().setdefault('cnt_say', 0); globals()['cnt_say'] = cnt_say + 1
             keep['says'] = says_for(keep['act'], keep, text, cnt_say); keep['bside'] = 1 if keep['x'] < W / 2 else -1
+            if isinstance(keep['act'], dict) and keep['act'].get('type') == 'push': keep['says'] = [{'text': 'Heave-ho!', 't': 1.0, 'dur': 1.6, 'shout': True}]
+            if keep.get('_huts'): keep['says'] = [{'text': w_, 't': round(t_, 2), 'dur': 1.0, 'shout': True} for t_, w_ in keep.pop('_huts')]
+            if SERIOUS:   # grim topics (config FROG_TONE='serious'): curious / worried faces, no cheering or happy sound words
+                for m_ in keep['moods']:
+                    if m_['mood'] in ('excited', 'happy'): m_['mood'] = 'curious'
+                    if m_['mood'] == 'sleepy' and not re.search(r'wait|incubation|years|decades', text, re.I): m_['mood'] = 'worried'
+                if keep['act'] in ('cheer',) or (keep['act'] == 'sleepy' and not re.search(r'wait|incubation|years|decades', text, re.I)): keep['act'] = None
+                keep['says'] = [x_ for x_ in keep['says'] if x_['text'] not in SERIOUS_OUT and not (x_['text'] == 'Zzz...' and keep['act'] != 'sleepy')]
+                if (keep.get('roam') or {}).get('kind') in ('run', 'moonhop'): keep['roam']['kind'] = 'walk'
             d['frog'] = keep
             json.dump(d, open(fn, 'w'), ensure_ascii=False, indent=1)
             print(slug, uid, keep['kind'], pick, keep['x'], keep['y'], keep['s'])
