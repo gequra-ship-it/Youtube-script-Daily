@@ -128,6 +128,7 @@ with sync_playwright() as p:
             if act == 'pull':   # the hole the frog is dragged toward: a picture group named like a hole/well, else the picture centre
                 hg = [g for g in gs.values() if HOLE.search(g[0])]
                 keep['act'] = {'type': 'pull', 'to': [round(hg[0][1] + hg[0][3] / 2), round(hg[0][2] + hg[0][4] / 2)] if hg else [W // 2, H // 2]}
+                if hg and keep.get('kind') == 'ride': keep['act']['vanish'] = True   # riding a star into the hole: pulled in, shrinking, gone (miya 2026-10-26)
             cnt_say = globals().setdefault('cnt_say', 0); globals()['cnt_say'] = cnt_say + 1
             keep['says'] = says_for(keep['act'], keep, text, cnt_say); keep['bside'] = 1 if keep['x'] < W / 2 else -1
             d['frog'] = keep
