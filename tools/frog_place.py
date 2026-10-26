@@ -73,6 +73,7 @@ with sync_playwright() as p:
             fn = f'{REPO}/videos/{slug}/art3/{uid}.json'; svg = fn[:-5] + '.svg'
             d = json.load(open(fn)) if os.path.exists(fn) else {}
             if not (u.get('frog_hint') or d.get('frog')) or u.get('kind') == 'chalk' or not os.path.exists(svg): continue
+            if (d.get('frog') or {}).get('lock'): continue   # hand-made sidecar (miya 2026-10-26, e.g. the caged frog in edge-of-universe U010): never overwritten
             f = d.get('frog') if isinstance(d.get('frog'), dict) else {}
             text = u['text']; sents = [x for x in re.findall(r'[^.!?]+[.!?]?', text) if x.strip()]
             moods = []; prev = None
