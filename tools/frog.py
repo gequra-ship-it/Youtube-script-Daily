@@ -305,6 +305,9 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             out.append(f'tl.to({ac},{{rotation:9,duration:.45,yoyo:true,repeat:{max(int((T - a1) / .45), 1)},ease:"sine.inOut",{org2}}},{a1:.3f});')   # head-rolling wobble
         elif at == 'dizzy':   # riding something that goes round and round (a particle on its line): head-rolling wobble, woozy face (miya 2026-10-26)
             out.append(f'tl.to({ac},{{rotation:10,y:-3,duration:.5,yoyo:true,repeat:{max(int((T - a1) / .5), 1)},ease:"sine.inOut",{org2}}},{a1:.3f});')
+        elif at == 'fly':     # Superman pose (miya 2026-10-26): body turned prone toward its facing side, one arm stretched ahead, gentle bob; for a frog that carries / pulls something through the picture (the footboard under a flying figure)
+            out.append(f'tl.to({ac},{{rotation:90,duration:.5,ease:"power2.out",svgOrigin:"0 -40"}},{a1:.3f});tl.to("#{t}_ra",{{rotation:-165,duration:.4,ease:"power2.out",svgOrigin:"34 -22"}},{a1:.3f});')
+            out.append(f'tl.to({ac},{{y:-7,duration:1.1,yoyo:true,repeat:{max(int((T - a1) / 1.1), 1)},ease:"sine.inOut"}},{a1 + .5:.3f});')
         elif at == 'float':   # weightless drift
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{y:-9,rotation:{3 if k % 2 == 0 else -3},duration:1.4,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{y:3,rotation:{-3 if k % 2 == 0 else 3},duration:1.4,ease:"sine.inOut",{org2}}},{tm + 1.4:.3f});'); tm += 2.8; k += 1
