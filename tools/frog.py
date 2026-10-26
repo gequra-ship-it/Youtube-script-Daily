@@ -14,7 +14,7 @@
 #   "ride": "<id of a picture group>"  the frog is injected into that group. Only use groups whose motion does not flip/fade/clip
 #     (core swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble, path, slide, swing). Never flip, flicker, reveal, fade, fill, grow, edge.
 #   "moods": [{"word": "...", "mood": "happy|surprised|curious|worried|proud|excited"}] (first entry without "word" = at the start),
-#   "outfit": ["helmet"] | ["goggles"] | ["diver"] (bubble space helmet / diving mask + snorkel / full diving suit with tank: use it in deep-water scenes),
+#   "outfit": one of helmet goggles diver fore lab explorer scarf nightcap crown wizard pirate chef hardhat headphones knight doctor gradcap strawhat umbrella sunglasses partyhat detective (round 4) — ["helmet"] | ["goggles"] | ["diver"] (bubble space helmet / diving mask + snorkel / full diving suit with tank: use it in deep-water scenes),
 #   "talk": true|false  mouth follows the spoken words. Default: chalkboard explainer yes, picture companion (ride / bg) NO (miya 2026-10-25: no lip-sync needed; the mouth opens only when the scene calls for it, e.g. a surprised / excited mood),
 #   "enter": "hop" (default, jumps up from below) | "pop" (appears in place),
 #   optional pointing (chalkboard, or a deliberate exception): "point": [tx, ty] or "points": [{"word": "Voyager", "to": [x, y], "obj": "<group class>"}];
@@ -75,10 +75,106 @@ def outfit_markup(t, names):
         o += ('<path d="M-30 -40 q36 14 70 0 q2 8 -2 10 q-34 10 -66 0 q-4 -4 -2 -10z" fill="#d9534f" stroke-width="3.2"/><path d="M26 -34 q10 14 4 34 q-8 2 -10 -2 q4 -16 -2 -28z" fill="#d9534f" stroke-width="3"/><path d="M-26 -36 h62 M-24 -31 h58" fill="none" stroke="#a83a36" stroke-width="1.6"/>')
     if 'nightcap' in names:  # (round 3) striped nightcap with a pompom: sleep / dream / night scenes
         o += ('<path d="M-26 -84 q10 -34 50 -26 q14 20 26 44 q-50 -10 -100 0 q6 -12 24 -18z" fill="#7a9ad9" stroke-width="3.2"/><path d="M-14 -96 q30 -8 44 12 M-6 -104 q26 -4 40 14" fill="none" stroke="#e8edf8" stroke-width="3"/><circle cx="52" cy="-62" r="8" fill="#e8edf8" stroke-width="2.6"/>')
+    # ---- round 4 (2026-10-26, miya: more costumes ready for any script) — each sits on the head (top ≈ y -90, centre x 6) or on the body; one per unit ----
+    if 'crown' in names:     # gold crown: kings / queens / empires / pharaohs
+        o += '<path d="M-24 -86 l0 -26 l14 12 l16 -22 l16 22 l14 -12 l0 26z" fill="#f2c94c" stroke-width="3.2"/><circle cx="6" cy="-122" r="4" fill="#e8605a" stroke-width="2"/><circle cx="-10" cy="-104" r="3" fill="#5fa8e8" stroke-width="1.8"/><circle cx="22" cy="-104" r="3" fill="#5fa8e8" stroke-width="1.8"/>'
+    if 'wizard' in names:    # tall pointed hat with a star: magic / myths / legends
+        o += '<path d="M-40 -84 q46 -10 92 0 q-6 8 -46 8 q-40 0 -46 -8z" fill="#5b4a9a" stroke-width="3.2"/><path d="M-22 -86 q14 -40 34 -74 q10 36 24 74z" fill="#5b4a9a" stroke-width="3.2"/><path d="M4 -118 l3 7 l7 1 l-5 5 l1 7 l-6 -4 l-6 4 l1 -7 l-5 -5 l7 -1z" fill="#f2c94c" stroke="none"/>'
+    if 'pirate' in names:    # tricorn hat + eye patch: pirates / treasure / sailing
+        o += '<path d="M-44 -86 q50 -28 100 0 q-10 -4 -50 -4 q-40 0 -50 4z" fill="#1f2430" stroke-width="3.2"/><path d="M-26 -88 q10 -22 32 -22 q22 0 32 22z" fill="#1f2430" stroke-width="3.2"/><path d="M-2 -100 q8 -6 16 0 M2 -96 l4 -4 l4 4" fill="none" stroke="#fff" stroke-width="2.4"/><path d="M-30 -74 q28 -14 64 -4" fill="none" stroke-width="3"/><circle cx="22" cy="-66" r="13" fill="#1f2430" stroke-width="3.2"/>'
+    if 'chef' in names:      # white toque: cooking / recipes / food
+        o += '<path d="M-26 -84 q-14 -40 22 -36 q6 -14 24 -10 q20 -8 24 12 q24 -8 12 34z" fill="#f7f7f2" stroke-width="3.2"/><rect x="-26" y="-90" width="76" height="10" rx="4" fill="#f7f7f2" stroke-width="3"/>'
+    if 'hardhat' in names:   # yellow hard hat: building / engineering / machines
+        o += '<path d="M-28 -86 q0 -30 34 -30 q34 0 34 30z" fill="#f2c94c" stroke-width="3.2"/><rect x="-40" y="-90" width="92" height="9" rx="4" fill="#f2c94c" stroke-width="3"/><path d="M0 -112 h12" stroke="#c99a1a" stroke-width="3"/>'
+    if 'headphones' in names:   # headphones: music / sound / signals
+        o += '<path d="M-26 -74 q-2 -40 32 -42 q34 2 32 42" fill="none" stroke="#2b2f3a" stroke-width="6"/><rect x="-36" y="-80" width="14" height="24" rx="6" fill="#e8605a" stroke="#2b2f3a" stroke-width="3"/><rect x="34" y="-80" width="14" height="24" rx="6" fill="#e8605a" stroke="#2b2f3a" stroke-width="3"/>'
+    if 'knight' in names:    # knight helmet with a plume: battles / castles / medieval
+        o += '<path d="M-28 -84 q0 -34 34 -34 q34 0 34 34z" fill="#9aa3ad" stroke-width="3.2"/><path d="M-26 -84 h64 l-4 16 q-28 6 -56 0z" fill="#9aa3ad" stroke-width="3"/><path d="M-18 -78 h48" stroke="#2b2f3a" stroke-width="2.4"/><path d="M6 -118 q-22 -18 -36 -4 q14 -2 20 8" fill="#e8605a" stroke-width="2.6"/>'
+    if 'doctor' in names:    # white coat + head mirror + stethoscope: medicine / disease / hospitals
+        o += ('<path d="M-36 -18 q-2 -26 10 -34 l26 -2 l26 2 q12 8 10 34 q-36 8 -72 0z" fill="#f4f4f0" stroke-width="3.4"/><path d="M-6 -52 q-12 14 -6 30 q12 10 24 0 q6 -16 -6 -30" fill="none" stroke="#2b2f3a" stroke-width="3"/><circle cx="18" cy="-18" r="6" fill="#9aa3ad" stroke-width="2.4"/>'
+              '<path d="M-26 -86 q32 -12 64 0" fill="none" stroke="#6a7a9a" stroke-width="4"/><circle cx="6" cy="-98" r="9" fill="#e8f3ff" stroke-width="2.6"/><circle cx="6" cy="-98" r="4" fill="#6a7a9a" stroke="none"/>')
+    if 'gradcap' in names:   # mortarboard with a tassel: school / learning / exams
+        o += '<path d="M-30 -84 q36 -8 72 0 q-6 8 -36 8 q-30 0 -36 -8z" fill="#2b2f3a" stroke-width="3"/><path d="M-50 -96 l56 -16 l56 16 l-56 14z" fill="#2b2f3a" stroke-width="3.2"/><path d="M50 -94 v22" stroke="#f2c94c" stroke-width="3"/><circle cx="50" cy="-70" r="4" fill="#f2c94c" stroke="none"/>'
+    if 'strawhat' in names:  # straw hat with a ribbon: farms / harvests / summer fields
+        o += '<path d="M-54 -84 q60 -14 120 0 q-8 10 -60 10 q-52 0 -60 -10z" fill="#e8c97a" stroke-width="3.2"/><path d="M-26 -86 q4 -26 32 -26 q28 0 32 26z" fill="#e8c97a" stroke-width="3.2"/><path d="M-24 -92 h60" stroke="#c2452d" stroke-width="5"/>'
+    if 'umbrella' in names:  # small umbrella held over the head in the left hand: rain / storms
+        o += f'<g id="{t}_um"><path d="M-38 -22 l-10 -96" stroke-width="4"/><path d="M-110 -112 q62 -44 124 0 q-15 -8 -31 0 q-15 -8 -31 0 q-15 -8 -31 0 q-15 -8 -31 0z" fill="#e8605a" stroke-width="3.2"/></g>'
+    if 'sunglasses' in names:   # dark shades: sun / heat / beaches / cool moments
+        o += '<path d="M-30 -70 h70" stroke-width="3"/><rect x="-26" y="-78" width="30" height="20" rx="8" fill="#1f2430" stroke-width="3"/><rect x="8" y="-78" width="30" height="20" rx="8" fill="#1f2430" stroke-width="3"/><path d="M-20 -74 h10 M14 -74 h10" stroke="#fff" stroke-width="2" opacity=".6"/>'
+    if 'partyhat' in names:  # striped cone hat with a pompom: parties / celebrations / anniversaries
+        o += '<path d="M-14 -86 l20 -56 l20 56z" fill="#5fa8e8" stroke-width="3.2"/><path d="M-6 -108 h24 M-10 -96 h32" stroke="#f2c94c" stroke-width="4"/><circle cx="6" cy="-144" r="6" fill="#e8605a" stroke-width="2.4"/>'
+    if 'detective' in names:   # deerstalker cap (the magnifier is the "magnify" act): clues / investigations / evidence
+        o += '<path d="M-44 -86 q50 -8 100 0 q-6 6 -50 6 q-44 0 -50 -6z" fill="#a67c52" stroke-width="3"/><path d="M-26 -86 q4 -28 32 -28 q28 0 32 28z" fill="#a67c52" stroke-width="3.2"/><path d="M-16 -92 l12 -14 l12 14 M10 -92 l12 -14 l12 14" fill="none" stroke="#6b4a2a" stroke-width="2"/>'
+    for nm_ in names:        # round 4b (2026-10-26, miya: 50 costumes): the data-driven ones
+        if nm_ in OUTFITS2: o += OUTFITS2[nm_].replace('{t}', t)
     if 'helmet' in names:    # bubble helmet like the thumbnails
         o += (f'<circle cx="6" cy="-58" r="46" fill="#cfe9ff" fill-opacity=".14" stroke="#e6f1fb" stroke-width="3.4"/><path d="M-26 -84 q10 -16 28 -20" fill="none" stroke="#fff" stroke-width="4" stroke-opacity=".7"/>'
               f'<ellipse cx="6" cy="-14" rx="42" ry="9" fill="#e6f1fb" fill-opacity=".55" stroke="#e6f1fb" stroke-width="3"/>')
     return o
+
+
+# ---- round 4b (2026-10-26, miya: 50 costumes ready for any script). Head top ≈ y -90, head centre x 6, body y -60..0, hands at (±50, 0). ----
+OUTFITS2 = {
+ 'tophat': '<rect x="-30" y="-88" width="72" height="8" rx="3" fill="#1f2430" stroke-width="3"/><rect x="-18" y="-134" width="48" height="48" rx="4" fill="#1f2430" stroke-width="3"/><rect x="-18" y="-100" width="48" height="8" fill="#c2452d" stroke="none"/>',
+ 'beret': '<path d="M-34 -84 q-6 -28 40 -32 q42 0 36 30 q-36 -10 -76 2z" fill="#c2452d" stroke-width="3.2"/><path d="M2 -116 v-8" stroke-width="3"/>',
+ 'cowboy': '<path d="M-56 -84 q10 -16 24 -10 q38 -6 76 0 q14 -6 24 10 q-20 10 -62 8 q-42 2 -62 -8z" fill="#a67c52" stroke-width="3.2"/><path d="M-22 -88 q6 -30 28 -30 q22 0 28 30z" fill="#a67c52" stroke-width="3.2"/><path d="M-20 -92 h52" stroke="#6b4a2a" stroke-width="4"/>',
+ 'bandana': '<path d="M-30 -84 q36 -14 72 0 l-4 10 q-32 -8 -64 0z" fill="#c2452d" stroke-width="3"/><path d="M40 -80 l20 10 l-6 8 l-14 -10" fill="#c2452d" stroke-width="2.6"/><path d="M-20 -82 h8 M0 -84 h8 M20 -82 h8" stroke="#fff" stroke-width="2" opacity=".7"/>',
+ 'flowercrown': '<path d="M-30 -86 q36 -10 72 0" fill="none" stroke="#5f8a3c" stroke-width="5"/>' + ''.join(f'<circle cx="{-24 + k * 16}" cy="{-92 - (k % 2) * 4}" r="6" fill="{["#e8605a", "#f2c94c", "#5fa8e8", "#e88ac4"][k % 4]}" stroke-width="2"/><circle cx="{-24 + k * 16}" cy="{-92 - (k % 2) * 4}" r="2" fill="#fff" stroke="none"/>' for k in range(5)),
+ 'alien': '<path d="M-12 -88 q-10 -26 -20 -40 M24 -88 q10 -26 20 -40" fill="none" stroke-width="4"/><circle cx="-32" cy="-130" r="7" fill="#7be07b" stroke-width="2.6"/><circle cx="44" cy="-130" r="7" fill="#7be07b" stroke-width="2.6"/>',
+ 'bunny': '<path d="M-20 -86 q-12 -50 4 -70 q14 20 8 70z" fill="#f4f4f0" stroke-width="3"/><path d="M-12 -92 q-6 -34 2 -50 q6 16 4 50z" fill="#f4b6c2" stroke="none"/><path d="M20 -86 q-4 -50 12 -70 q14 20 2 70z" fill="#f4f4f0" stroke-width="3"/><path d="M26 -92 q0 -34 8 -50 q6 16 -2 50z" fill="#f4b6c2" stroke="none"/>',
+ 'santa': '<path d="M-28 -84 q10 -40 54 -30 q18 18 30 40 q-50 -8 -100 0 q4 -8 16 -10z" fill="#d9302c" stroke-width="3.2"/><rect x="-32" y="-92" width="80" height="12" rx="6" fill="#fff" stroke-width="2.8"/><circle cx="58" cy="-72" r="9" fill="#fff" stroke-width="2.6"/>',
+ 'bowtie': '<path d="M-8 -30 l-16 -8 v16z M20 -30 l16 -8 v16z" fill="#c2452d" stroke-width="2.6"/><circle cx="6" cy="-30" r="4" fill="#c2452d" stroke-width="2"/>',
+ 'cape': '<path d="M-36 -34 q-24 30 -26 46 q36 -2 36 -2 l-4 -40z M48 -34 q24 30 26 46 q-36 -2 -36 -2 l4 -40z" fill="#c2452d" stroke-width="3"/><path d="M-30 -36 q36 10 72 0" fill="none" stroke="#f2c94c" stroke-width="4"/>',
+ 'backpack': '<rect x="-58" y="-56" width="22" height="40" rx="8" fill="#5fa8e8" stroke-width="3"/><rect x="-54" y="-50" width="14" height="12" rx="3" fill="#2f6f9a" stroke-width="2"/><path d="M-36 -50 q14 -4 20 -2 M-36 -26 q14 -4 20 -2" fill="none" stroke="#2f6f9a" stroke-width="3"/>',
+ 'lifevest': '<path d="M-32 -46 q0 -8 10 -10 l10 -2 v40 l-16 2 q-6 -2 -6 -10z M44 -46 q0 -8 -10 -10 l-10 -2 v40 l16 2 q6 -2 6 -10z" fill="#ff8c42" stroke-width="3"/><path d="M-26 -36 h18 M20 -36 h18" stroke="#fff" stroke-width="3"/>',
+ 'raincoat': '<path d="M-28 -84 q10 -22 34 -22 q24 0 34 22 l6 10 q-40 -6 -80 0z" fill="#f2c94c" stroke-width="3.2"/><path d="M-34 -18 q-1 -22 6 -28 q36 8 72 0 q6 8 4 30 q-40 6 -82 -2z" fill="#f2c94c" stroke-width="3.4"/><path d="M6 -46 v30" stroke="#c99a1a" stroke-width="2.2"/>',
+ 'beanie': '<path d="M-28 -84 q4 -36 34 -36 q30 0 34 36z" fill="#5fa8e8" stroke-width="3.2"/><rect x="-30" y="-90" width="76" height="12" rx="4" fill="#2f6f9a" stroke-width="2.8"/><circle cx="6" cy="-122" r="7" fill="#f4f4f0" stroke-width="2.6"/>',
+ 'halo': '<ellipse cx="6" cy="-120" rx="30" ry="8" fill="none" stroke="#f2c94c" stroke-width="5"/>',
+ 'ghost': '<path d="M-44 -96 q0 -46 50 -46 q50 0 50 46 v70 q-10 -8 -20 0 q-10 8 -20 0 q-10 8 -20 0 q-10 8 -20 0 q-10 8 -20 0z" fill="#f4f4f0" fill-opacity=".92" stroke-width="3.2"/><circle cx="-8" cy="-72" r="6" fill="#1d2b1c" stroke="none"/><circle cx="22" cy="-72" r="6" fill="#1d2b1c" stroke="none"/><ellipse cx="7" cy="-50" rx="6" ry="9" fill="#1d2b1c" stroke="none"/>',
+ 'viking': '<path d="M-28 -84 q0 -32 34 -32 q34 0 34 32z" fill="#9aa3ad" stroke-width="3.2"/><rect x="-30" y="-90" width="76" height="9" rx="3" fill="#6b4a2a" stroke-width="2.6"/><path d="M-26 -94 q-24 -10 -22 -40 q14 14 26 24z M38 -94 q24 -10 22 -40 q-14 14 -26 24z" fill="#f4e6c8" stroke-width="3"/>',
+ 'roman': '<path d="M-28 -84 q0 -32 34 -32 q34 0 34 32z" fill="#f2c94c" stroke-width="3.2"/><path d="M-26 -84 h64 l-4 10 h-56z" fill="#f2c94c" stroke-width="2.8"/><path d="M-20 -112 q26 -30 52 0 l-6 6 q-20 -22 -40 0z" fill="#c2452d" stroke-width="2.8"/>',
+ 'samurai': '<path d="M-30 -84 q4 -30 36 -30 q32 0 36 30z" fill="#2b2f3a" stroke-width="3.2"/><path d="M-36 -82 h84 l-8 14 h-68z" fill="#2b2f3a" stroke-width="2.8"/><path d="M6 -114 l-20 -22 M6 -114 l20 -22 M-8 -114 h28" fill="none" stroke="#f2c94c" stroke-width="4"/>',
+ 'headlamp': '<path d="M-28 -84 q0 -30 34 -30 q34 0 34 30z" fill="#f2c94c" stroke-width="3.2"/><rect x="-30" y="-90" width="76" height="9" rx="3" fill="#2b2f3a" stroke-width="2.6"/><circle cx="6" cy="-100" r="9" fill="#fff8c4" stroke-width="2.6"/><path d="M14 -104 l40 -14 M14 -96 l44 4 M12 -100 l44 -5" stroke="#fff8c4" stroke-width="3" opacity=".6"/>',
+ 'firefighter': '<path d="M-30 -84 q0 -32 36 -32 q36 0 36 32z" fill="#d9302c" stroke-width="3.2"/><path d="M-44 -84 q50 -8 100 0 q-6 8 -50 8 q-44 0 -50 -8z" fill="#d9302c" stroke-width="3"/><rect x="-6" y="-106" width="24" height="14" rx="3" fill="#f2c94c" stroke-width="2.4"/>',
+ 'police': '<path d="M-26 -86 q0 -24 32 -24 q32 0 32 24z" fill="#2b3a6b" stroke-width="3.2"/><rect x="-30" y="-90" width="72" height="9" rx="3" fill="#1f2430" stroke-width="2.6"/><path d="M-30 -82 q36 4 72 0 l2 8 q-38 4 -76 0z" fill="#1f2430" stroke-width="2.4"/><circle cx="6" cy="-100" r="6" fill="#f2c94c" stroke-width="2"/>',
+ 'aviator': '<path d="M-28 -84 q0 -30 34 -30 q34 0 34 30z" fill="#6b4a2a" stroke-width="3.2"/><path d="M-28 -84 q-6 10 -2 20 M40 -84 q6 10 2 20" fill="none" stroke="#6b4a2a" stroke-width="7"/><rect x="-28" y="-98" width="30" height="16" rx="7" fill="#9fd8ff" fill-opacity=".6" stroke-width="3"/><rect x="10" y="-98" width="30" height="16" rx="7" fill="#9fd8ff" fill-opacity=".6" stroke-width="3"/>',
+ 'monocle': '<circle cx="22" cy="-66" r="17" fill="#9fd8ff" fill-opacity=".3" stroke="#f2c94c" stroke-width="4"/><path d="M36 -54 q10 20 4 40" fill="none" stroke="#f2c94c" stroke-width="2.4"/>',
+ 'glasses': '<rect x="-27" y="-78" width="32" height="24" rx="8" fill="#9fd8ff" fill-opacity=".25" stroke-width="3.2"/><rect x="7" y="-78" width="32" height="24" rx="8" fill="#9fd8ff" fill-opacity=".25" stroke-width="3.2"/><path d="M5 -68 h2 M-27 -70 q-8 2 -10 6 M39 -70 q8 2 10 6" stroke-width="3"/>',
+ 'medal': '<path d="M-10 -56 l12 26 l14 -26" fill="none" stroke="#c2452d" stroke-width="5"/><circle cx="3" cy="-24" r="11" fill="#f2c94c" stroke-width="3"/><path d="M3 -30 l2 5 l5 0 l-4 3 l2 5 l-5 -3 l-5 3 l2 -5 l-4 -3 l5 0z" fill="#c99a1a" stroke="none"/>',
+ 'laurel': '<path d="M-30 -84 q36 -10 72 0" fill="none" stroke="#5f8a3c" stroke-width="4"/>' + ''.join(f'<ellipse cx="{-26 + k * 10}" cy="{-92 - abs(k - 3) * -1.5}" rx="4" ry="8" transform="rotate({-50 + k * 16} {-26 + k * 10} {-92})" fill="#6f9a44" stroke-width="1.6"/>' for k in range(8)),
+ 'propcap': '<path d="M-28 -84 q0 -30 34 -30 q34 0 34 30z" fill="#5fa8e8" stroke-width="3.2"/><path d="M-10 -84 q16 -30 16 -30 q0 0 16 30" fill="#e8605a" stroke="none"/><path d="M6 -114 v-10" stroke-width="3"/><g id="{t}_pp"><path d="M-18 -126 h48" stroke="#f2c94c" stroke-width="5"/></g>',
+ 'headband': '<path d="M-30 -84 q36 -10 72 0 l0 10 q-36 -8 -72 0z" fill="#c2452d" stroke-width="3"/><path d="M-20 -80 h52" stroke="#fff" stroke-width="2.4"/>',
+ 'vr': '<rect x="-34" y="-84" width="80" height="34" rx="10" fill="#2b2f3a" stroke-width="3.2"/><rect x="-26" y="-78" width="64" height="20" rx="6" fill="#5fa8e8" fill-opacity=".8" stroke="none"/><path d="M-34 -70 q-8 0 -8 8 M46 -70 q8 0 8 8" fill="none" stroke-width="4"/>',
+ 'tinfoil': '<path d="M-26 -86 l10 -30 l12 12 l10 -36 l10 36 l12 -12 l10 30z" fill="#c9ced6" stroke-width="3"/>',
+ 'bandage': '<path d="M-30 -74 q36 -10 72 0 l0 12 q-36 -8 -72 0z" fill="#f4f4f0" stroke-width="2.8"/><path d="M-22 -70 l8 6 M-6 -72 l8 6 M12 -72 l8 6 M30 -70 l6 4" stroke="#c9ced6" stroke-width="2"/>',
+ 'dino': '<path d="M-34 -86 q-2 -40 40 -40 q42 0 40 40 q-40 -10 -80 0z" fill="#5f8a3c" stroke-width="3.2"/><path d="M-22 -100 l8 -16 l8 16 M-4 -108 l10 -18 l10 18 M18 -102 l8 -14 l8 14" fill="#f2c94c" stroke-width="2.4"/><path d="M-32 -88 l6 10 l6 -10 M34 -88 l6 10 l6 -10" fill="#fff" stroke-width="2.2"/>',
+ 'shark': '<path d="M-30 -86 q36 -8 72 0 l-6 8 q-30 -6 -60 0z" fill="#6a7a9a" stroke-width="3"/><path d="M-6 -90 q10 -50 36 -40 q-10 20 -8 40z" fill="#6a7a9a" stroke-width="3.2"/>',
+ 'bee': '<path d="M-8 -88 q-10 -20 -18 -28 M20 -88 q10 -20 18 -28" fill="none" stroke-width="3.6"/><circle cx="-26" cy="-118" r="6" fill="#1f2430" stroke="none"/><circle cx="38" cy="-118" r="6" fill="#1f2430" stroke="none"/><path d="M-32 -44 h74 M-33 -30 h76" stroke="#1f2430" stroke-width="7" opacity=".8"/><path d="M-32 -44 h74 M-33 -30 h76" stroke="#f2c94c" stroke-width="3"/>',
+ 'clown': '<circle cx="6" cy="-52" r="10" fill="#e8605a" stroke-width="3"/><path d="M-34 -84 q-20 -4 -22 10 q14 12 26 0z M46 -84 q20 -4 22 10 q-14 12 -26 0z" fill="#ff8c42" stroke-width="2.6"/>',
+ 'mustache': '<path d="M6 -48 q-8 -10 -18 -6 q-8 4 -10 10 q12 2 28 -4 q16 6 28 4 q-2 -6 -10 -10 q-10 -4 -18 6z" fill="#1d2b1c" stroke="none"/>',
+ 'earmuffs': '<path d="M-26 -74 q-2 -36 32 -38 q34 2 32 38" fill="none" stroke="#c2452d" stroke-width="5"/><circle cx="-30" cy="-66" r="12" fill="#e8605a" stroke-width="3"/><circle cx="42" cy="-66" r="12" fill="#e8605a" stroke-width="3"/>',
+ 'turtle': '<path d="M-68 -52 q4 -30 34 -26 q12 10 6 44 q-26 6 -38 -4 q-6 -6 -2 -14z" fill="#5f8a3c" stroke-width="3.2"/><path d="M-62 -42 h22 M-60 -32 h22 M-52 -58 v34" fill="none" stroke="#3f6a2c" stroke-width="2.4"/><path d="M-36 -46 q10 -2 10 6 M-36 -26 q10 -2 10 6" fill="none" stroke="#3f6a2c" stroke-width="3"/>',
+ 'wings': '<path d="M-38 -44 q-50 -30 -60 -4 q22 2 30 14 q-26 4 -30 20 q30 -4 46 -6 q-16 6 -18 18 q26 -6 36 -18z" fill="#fff" fill-opacity=".9" stroke-width="2.8"/><path d="M50 -44 q50 -30 60 -4 q-22 2 -30 14 q26 4 30 20 q-30 -4 -46 -6 q16 6 18 18 q-26 -6 -36 -18z" fill="#fff" fill-opacity=".9" stroke-width="2.8"/>',
+ 'crownleaf': '<path d="M-30 -86 q36 -12 72 0" fill="none" stroke="#a67c52" stroke-width="4"/>' + ''.join(f'<path d="M{-22 + k * 12} -90 q4 -14 8 -2 q-4 6 -8 2z" fill="#c2452d" stroke-width="1.6"/>' for k in range(5)),
+}
+
+
+# ---- round 4b (2026-10-26): 12 data-driven acts. body = (from, to, period) tween on #<t>_ac (yoyo); ra / la = arm angles (deg); prop = part id to show; mood; pup = pupil cy;
+# mouth = open-mouth ry; mirror = flip rotation/x with the facing side; sweat / spiral = extra loops. Words that choose them: tools/frog_place.py ACT_WORDS2. ----
+SIMPLE_ACTS = {
+ 'stretch':  dict(body=({'scaleY': 1.0, 'y': 0}, {'scaleY': 1.07, 'y': -4}, 1.6), ra=-165, la=165, mood='sleepy', mouth=9),          # morning / waking / a new day: arms up, long stretch
+ 'shrug':    dict(body=({'rotation': -3, 'y': 0}, {'rotation': 3, 'y': -3}, 1.4), ra=-70, la=70, mood='worried', mirror=True),            # nobody knows / uncertain: palms up, shoulders lift
+ 'bow':      dict(body=({'rotation': 0}, {'rotation': 22}, 2.2), ra=-30, la=30, mood='proud', mirror=True),                              # thanks / respect / honour: bends forward and back
+ 'nervous':  dict(body=({'x': -2}, {'x': 2}, .12), ra=-162, mood='worried', sweat=True),                                                 # pressure / danger ahead / deadline: wipes the brow, sweat drops
+ 'flex':     dict(body=({'scaleX': 1.0, 'y': 0}, {'scaleX': 1.05, 'y': -3}, .8), ra=-130, la=130, mood='proud'),                         # strength / power / muscle: both arms bent up
+ 'balance':  dict(body=({'rotation': -9}, {'rotation': 9}, 1.8), ra=-90, la=90, mood='squint'),                                          # tightrope / careful / on the edge: arms out, slow tilt
+ 'listen':   dict(body=({'rotation': 0}, {'rotation': 7}, 2.0), ra=-136, mood='curious', pup=-64, mirror=True),                          # hear / whisper / signal: hand cupped at the ear, leans toward it
+ 'search':   dict(body=({'rotation': -6, 'x': -4}, {'rotation': 6, 'x': 4}, 1.6), ra=-166, mood='squint', pup=-70),                      # lost / missing / where: hand shading the eyes, turns left and right
+ 'yawn':     dict(body=({'scaleY': 1.0}, {'scaleY': 1.04}, 2.4), ra=160, mood='sleepy', mouth=11, pup=-64),                             # tired / long night: big open mouth, hand toward it
+ 'write':    dict(body=({'rotation': 2, 'y': 0}, {'rotation': 4, 'y': 1}, .5), ra=-40, prop='pc', mood='curious', pup=-62, mirror=True),  # notes / calculations / writing: pencil scribbles
+ 'wish':     dict(body=({'rotation': -2}, {'rotation': 2}, 2.6), ra=142, la=-137, mood='love', pup=-70, mirror=True),                      # hope / wish / dream: hands together, eyes up
+ 'faint':    dict(body=({'rotation': 0, 'y': 0}, {'rotation': -70, 'y': 6}, 3.0), ra=-20, la=20, mood='dizzy', spiral=True, mirror=True),  # shock / overwhelmed / exhausted: keels over slowly, swirl eyes
+}
 
 
 MOODS = {   # brows (left d, right d, opacity), pupil offset (dx, dy, r), mouth path + fill, lid height (eyes squint)
@@ -128,9 +224,16 @@ def markup(tag, d):
             f'<g id="{t}_la"><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke-width="7.5"/><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/></g>'
             f'<g id="{t}_ra"><path d="M34 -22 q14 6 16 22" fill="none" stroke-width="7.5"/><path d="M34 -22 q14 6 16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/>'
             f'<g id="{t}_sc" opacity="0" transform="translate(50 0) rotate(-55)"><rect x="-5" y="-54" width="10" height="40" rx="3" fill="#3b4a6b" stroke-width="2.4"/><rect x="-7" y="-62" width="14" height="10" rx="3" fill="#8a9bbf" stroke-width="2.4"/><rect x="-4" y="-14" width="8" height="12" rx="2" fill="#8a9bbf" stroke-width="2.2"/></g>'
+            f'<g id="{t}_sv" opacity="0" transform="translate(50 0) rotate(28)"><rect x="-3" y="-70" width="6" height="64" rx="2" fill="#a67c52" stroke-width="2.4"/><path d="M-12 -6 h24 l-4 22 q-8 6 -16 0z" fill="#9aa3ad" stroke-width="2.6"/><rect x="-8" y="-78" width="16" height="9" rx="3" fill="#a67c52" stroke-width="2.4"/></g>'
+            f'<g id="{t}_bk" opacity="0" transform="translate(46 -8) rotate(-12)"><path d="M-30 -24 q30 -8 60 0 v30 q-30 -8 -60 0z" fill="#f4e6c8" stroke-width="2.8"/><path d="M0 -28 v32" stroke-width="2.4"/><path d="M-22 -16 h16 M-22 -8 h16 M6 -16 h16 M6 -8 h16" stroke="#8a8f96" stroke-width="1.8"/></g>'
+            f'<g id="{t}_cm" opacity="0" transform="translate(50 -6)"><rect x="-22" y="-16" width="44" height="30" rx="5" fill="#2b2f3a" stroke-width="2.6"/><circle cx="0" cy="-1" r="9" fill="#6a7a9a" stroke-width="2.4"/><circle cx="0" cy="-1" r="4" fill="#9fd8ff" stroke="none"/><rect x="-16" y="-22" width="12" height="7" rx="2" fill="#2b2f3a" stroke-width="2"/><circle id="{t}_fs" cx="14" cy="-22" r="6" fill="#fff8c4" stroke="none" opacity="0"/></g>'
+            f'<g id="{t}_mg" opacity="0" transform="translate(50 -4) rotate(-40)"><rect x="-3.5" y="0" width="7" height="34" rx="2" fill="#a67c52" stroke-width="2.4"/><circle cx="0" cy="-16" r="17" fill="#9fd8ff" fill-opacity=".35" stroke-width="3.2"/><path d="M-8 -24 q6 -6 12 -2" fill="none" stroke="#fff" stroke-width="2.4" opacity=".7"/></g>'
             f'<g id="{t}_pc" opacity="0" transform="translate(50 0) rotate(-35)"><rect x="-3.4" y="-40" width="6.8" height="36" rx="1.4" fill="#f2c94c" stroke-width="2.4"/><rect x="-3.4" y="-45" width="6.8" height="6" rx="2" fill="#e8847a" stroke-width="2.2"/><path d="M-3.4 -4 L0 6 L3.4 -4z" fill="#e8c9a0" stroke-width="2"/><path d="M-1.2 2 L0 6 L1.2 2z" fill="#3a3a3a" stroke="none"/></g></g>'
             f'<g id="{t}_dd" opacity="0" fill="none" stroke="#4a4a52" stroke-width="3" stroke-linecap="round"><path id="{t}_dd1" pathLength="1" d="M58 0 q8 -16 16 0 t16 0 t16 0 t16 0 q10 -14 -2 -16 q-12 0 -6 14"/><path id="{t}_dd2" pathLength="1" d="M60 -26 l4 12 l-12 -8 l16 0 l-12 8z"/><path id="{t}_dd3" pathLength="1" d="M118 -34 q8 -12 16 0 q6 12 -16 24 q-22 -12 -16 -24 q8 -12 16 0"/></g>'
             f'<circle id="{t}_tp" cx="58" cy="-4" r="10" fill="none" stroke="#fff" stroke-width="3" opacity="0"/>'
+            f'<g id="{t}_lb" opacity="0" transform="translate(6 -128)"><path d="M-14 -6 q0 -22 14 -22 q14 0 14 22 q0 10 -7 16 h-14 q-7 -6 -7 -16z" fill="#fff3a8" stroke-width="2.8"/><rect x="-7" y="10" width="14" height="8" rx="2" fill="#9aa3ad" stroke-width="2.4"/><path d="M-26 -22 l-8 -6 M26 -22 l8 -6 M0 -36 v-10 M-20 -2 h-10 M20 -2 h10" stroke="#f2c94c" stroke-width="3"/></g>'
+            f'<g id="{t}_te" opacity="0"><path id="{t}_te1" d="M-14 -52 q-4 8 0 12 q4 -4 0 -12z" fill="#7fc4f0" stroke="#2f6f9a" stroke-width="1.8"/><path id="{t}_te2" d="M26 -52 q-4 8 0 12 q4 -4 0 -12z" fill="#7fc4f0" stroke="#2f6f9a" stroke-width="1.8"/></g>'
+            f'<g id="{t}_zz" opacity="0" fill="none" stroke="#e8f3ff" stroke-width="3" stroke-linecap="round"><path d="M44 -100 h12 l-12 12 h12"/><path d="M62 -124 h9 l-9 9 h9"/></g>'
             f'<g id="{t}_sw" opacity="0" fill="#7fc4f0" stroke="#2f6f9a" stroke-width="2"><path id="{t}_sw0" d="M-34 -98 q-6 12 0 14 q6 -2 0 -14z"/><path id="{t}_sw1" d="M44 -96 q-6 12 0 14 q6 -2 0 -14z"/><path id="{t}_sw2" d="M6 -112 q-6 12 0 14 q6 -2 0 -14z"/></g>'
             f'{outfit_markup(t, d.get("outfit") or [])}'
             f'<g transform="translate(32 -22)"><g id="{t}_arm">'
@@ -221,6 +324,9 @@ def angle_to(d, target, st=None):
     return math.degrees(math.atan2(v + 22, u - 32))
 
 
+# ARM AXES (2026-10-26 axis check): #_ra turns about the right shoulder (34,-22), #_la about the left shoulder (-34,-22); the resting arm points down-outward,
+# so NEGATIVE rotation lifts the right arm outward/up (wave, salute, hide ~ -118..-165) and POSITIVE turns it across the body (eat/yawn +160, clap +100..124, wish +142);
+# mirrored signs for the left arm. The body (#_ac) turns about the feet (svgOrigin 0 0).
 REST = 75   # arm hangs down along the body (deg, local); it only moves when the pointed object changes
 
 
@@ -257,7 +363,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         tm = find_word(mo.get('word'), wt, a0, t1) if mo.get('word') else None
         timeline.append((a0 if tm is None else tm, 'mood', mo.get('mood', 'happy')))
     timeline.sort(key=lambda x: (x[0], {'move': 0, 'mood': 1, 'point': 2}[x[1]]))
-    out.append(f'tl.set("#{t}_arm",{{rotation:{REST},{org}}},0);tl.set("#{t}_spl,#{t}_spr,#{t}_fl1,#{t}_fl2,#{t}_sw,#{t}_dd,#{t}_pc,#{t}_sc",{{opacity:0}},0);')
+    out.append(f'tl.set("#{t}_arm",{{rotation:{REST},{org}}},0);tl.set("#{t}_spl,#{t}_spr,#{t}_fl1,#{t}_fl2,#{t}_sw,#{t}_dd,#{t}_pc,#{t}_sc,#{t}_sv,#{t}_bk,#{t}_cm,#{t}_mg,#{t}_lb,#{t}_te,#{t}_zz",{{opacity:0}},0);')
     if not pts: out.append(f'tl.set("#{t}_arm",{{opacity:0}},0);')   # no pointing in this unit (rides / sits in the background): the long arm stick is hidden and a short resting right arm shows instead
     else: out.append(f'tl.set("#{t}_ra",{{opacity:0}},0);')   # pointing frog (chalkboard): the long pointing arm is the right arm
     cur_tgt = None; tracked = False; last_ang = REST
@@ -463,6 +569,85 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         elif at == 'lean':    # riding something that glides / approaches / travels along a path: leans back a little against the motion, hands down, hair-in-the-wind feel without streaks
             out.append(f'tl.to({ac},{{rotation:{-dirn * 7},x:{-dirn * 3},duration:.6,ease:"power2.out",{org2}}},{a1:.3f});')
             out.append(f'tl.to({ac},{{rotation:{-dirn * 10},y:-2,duration:1.1,yoyo:true,repeat:{max(int((T - a1 - .6) / 1.1), 1)},ease:"sine.inOut",{org2}}},{a1 + .6:.3f});')
+        # ---- round 4 (2026-10-26, miya: more frog motions for any script); chosen by frog_place.py regexes, guideline 7-2 D ----
+        elif at == 'dance':   # sways to a beat, arms alternate up and down (music / song / celebration)
+            nb = max(int((T - a1) / .45), 2)
+            out.append(f'tl.fromTo({ac},{{rotation:-7,x:-3}},{{rotation:7,x:3,duration:.45,yoyo:true,repeat:{nb},ease:"sine.inOut",{org2}}},{a1:.3f});')
+            out.append(f'tl.fromTo("#{t}_ra",{{rotation:-20,svgOrigin:"34 -22"}},{{rotation:-140,duration:.9,yoyo:true,repeat:{max(nb // 2, 1)},ease:"sine.inOut",svgOrigin:"34 -22"}},{a1:.3f});')
+            out.append(f'tl.fromTo("#{t}_la",{{rotation:140,svgOrigin:"-34 -22"}},{{rotation:20,duration:.9,yoyo:true,repeat:{max(nb // 2, 1)},ease:"sine.inOut",svgOrigin:"-34 -22"}},{a1:.3f});')
+        elif at == 'salute':  # straightens up and salutes with the right hand (missions / captains / crews)
+            out.append(f'tl.to({ac},{{scaleY:1.04,duration:.3,ease:"power2.out",svgOrigin:"0 0"}},{a1:.3f});tl.to("#{t}_ra",{{rotation:-160,duration:.35,ease:"back.out(1.6)",svgOrigin:"34 -22"}},{a1:.3f});')
+            out.append(f'tl.to("#{t}_ra",{{rotation:0,duration:.5,ease:"power2.inOut",svgOrigin:"34 -22"}},{min(a1 + 3.2, T - .3):.3f});tl.to({ac},{{scaleY:1,duration:.4,svgOrigin:"0 0"}},{min(a1 + 3.2, T - .3):.3f});')
+        elif at == 'think':   # hand on the chin, head tilted, eyes up (questions / puzzles / theories)
+            out.append(f'tl.to("#{t}_la",{{rotation:-152,duration:.4,ease:"power2.out",svgOrigin:"-34 -22"}},{a1:.3f});tl.to({ac},{{rotation:{dirn * 6},duration:.5,ease:"power2.out",{org2}}},{a1:.3f});')
+            out.append(f'tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-70}},duration:.3}},{a1:.3f});')
+            out.append(f'tl.to({ac},{{rotation:{-dirn * 4},duration:2.4,yoyo:true,repeat:{max(int((T - a1 - .5) / 2.4), 1)},ease:"sine.inOut",{org2}}},{a1 + .5:.3f});')
+        elif at == 'facepalm':   # right hand over the face, head down, slow shake (mistakes / failures / oops)
+            out.append(f'tl.to("#{t}_ra",{{rotation:-160,duration:.3,ease:"power2.in",svgOrigin:"34 -22"}},{a1:.3f});tl.to({ac},{{rotation:{dirn * 8},y:4,duration:.35,ease:"power2.out",{org2}}},{a1:.3f});')
+            out.append(f'tl.to({ac},{{x:-3,duration:.6,yoyo:true,repeat:{max(int((T - a1 - .4) / .6), 1)},ease:"sine.inOut",{org2}}},{a1 + .4:.3f});')
+        elif at == 'idea':    # a light bulb pops above the head, both arms up for a moment (ideas / realisations / inventions)
+            out.append(f'tl.to({ac},{{y:-6,duration:.2,ease:"power2.out"}},{a1:.3f});tl.to({ac},{{y:0,duration:.4,ease:"bounce.out"}},{a1 + .2:.3f});')
+            out.append(f'tl.fromTo("#{t}_lb",{{opacity:0,scale:.3,svgOrigin:"6 -128"}},{{opacity:1,scale:1,duration:.35,ease:"back.out(2.4)",immediateRender:false}},{a1 + .1:.3f});tl.to("#{t}_lb",{{opacity:0,duration:.3}},{min(a1 + 2.8, T - .2):.3f});')
+            out.append(f'tl.to("#{t}_ra",{{rotation:-150,duration:.25,svgOrigin:"34 -22"}},{a1:.3f});tl.to("#{t}_la",{{rotation:150,duration:.25,svgOrigin:"-34 -22"}},{a1:.3f});')
+            out.append(f'tl.to("#{t}_ra",{{rotation:0,duration:.5,svgOrigin:"34 -22"}},{min(a1 + 2.6, T - .3):.3f});tl.to("#{t}_la",{{rotation:0,duration:.5,svgOrigin:"-34 -22"}},{min(a1 + 2.6, T - .3):.3f});')
+        elif at == 'dig':     # digs with a small shovel: bends, pushes down, lifts, again (fossils / excavations / buried things)
+            out.append(f'tl.set("#{t}_sv",{{opacity:1}},{a1 - .1:.3f});tl.to("#{t}_ra",{{rotation:-40,duration:.3,svgOrigin:"34 -22"}},{a1 - .1:.3f});')
+            while tm < T - 1.3:
+                out.append(f'tl.to({ac},{{rotation:{dirn * 9},y:4,duration:.4,ease:"power2.in",{org2}}},{tm:.3f});tl.to("#{t}_ra",{{rotation:-10,duration:.4,ease:"power2.in",svgOrigin:"34 -22"}},{tm:.3f});')
+                out.append(f'tl.to({ac},{{rotation:{-dirn * 4},y:-2,duration:.5,ease:"power2.out",{org2}}},{tm + .45:.3f});tl.to("#{t}_ra",{{rotation:-70,duration:.5,ease:"power2.out",svgOrigin:"34 -22"}},{tm + .45:.3f});'); tm += 1.3
+        elif at == 'read':    # holds a book in front, head nods along the lines, turns a page now and then (books / records / letters)
+            out.append(f'tl.set("#{t}_bk",{{opacity:1}},{a1 - .1:.3f});tl.to("#{t}_ra",{{rotation:-60,duration:.35,svgOrigin:"34 -22"}},{a1 - .1:.3f});tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-62}},duration:.3}},{a1:.3f});')
+            out.append(f'tl.fromTo({ac},{{rotation:{dirn * 2}}},{{rotation:{dirn * 5},duration:1.6,yoyo:true,repeat:{max(int((T - a1) / 1.6), 1)},ease:"sine.inOut",{org2}}},{a1:.3f});')
+            tm = a1 + 2.6
+            while tm < T - 1:
+                out.append(f'tl.to("#{t}_bk",{{scaleX:.2,duration:.14,yoyo:true,repeat:1,svgOrigin:"46 -8"}},{tm:.3f});'); tm += 3.1
+        elif at == 'eat':     # munches: hand to the mouth, cheeks blush, little chews (food / meals / hunger)
+            out.append(f'tl.to("#{t}_ra",{{rotation:160,duration:.35,ease:"power2.out",svgOrigin:"34 -22"}},{a1:.3f});')
+            nb = max(int((T - a1 - .4) / .32), 2)
+            out.append(f'tl.fromTo({ac},{{scaleY:1}},{{scaleY:.97,duration:.16,yoyo:true,repeat:{nb},ease:"sine.inOut",svgOrigin:"0 0"}},{a1 + .4:.3f});')
+            out.append(f'tl.fromTo("#{t}_fl1,#{t}_fl2",{{opacity:0}},{{opacity:.7,duration:.3,immediateRender:false}},{a1 + .4:.3f});')
+        elif at == 'cry':     # sad face, tears drop again and again, shoulders tremble (deaths / extinctions / goodbyes)
+            M = MOODS['sad']
+            out.append(f'tl.set("#{t}_bl",{{attr:{{d:"{M["bl"]}"}},opacity:1}},{a1:.3f});tl.set("#{t}_br",{{attr:{{d:"{M["br"]}"}},opacity:1}},{a1:.3f});tl.set("#{t}_sm",{{attr:{{d:"{M["sm"]}",fill:"none"}}}},{a1:.3f});')
+            out.append(f'tl.set("#{t}_te",{{opacity:1}},{a1 + .2:.3f});tl.to({ac},{{x:1.4,duration:.09,yoyo:true,repeat:{int(max(T - a1, .5) / .09)},ease:"none"}},{a1:.3f});')
+            for j, te in enumerate(('te1', 'te2')):
+                out.append(f'tl.fromTo("#{t}_{te}",{{y:0,opacity:1}},{{y:46,opacity:0,duration:1.1,ease:"power1.in",repeat:{max(int((T - a1 - .2) / 1.1) - 1, 0)},immediateRender:false}},{a1 + .2 + j * .5:.3f});')
+        elif at == 'photo':   # lifts a camera, the flash pops, smiles (photographs / images / footage)
+            out.append(f'tl.set("#{t}_cm",{{opacity:1}},{a1 - .1:.3f});tl.to("#{t}_ra",{{rotation:-95,duration:.4,ease:"power2.out",svgOrigin:"34 -22"}},{a1 - .1:.3f});')
+            tm = a1 + .8
+            while tm < T - .8:
+                out.append(f'tl.fromTo("#{t}_fs",{{opacity:1,scale:.4,svgOrigin:"14 -22"}},{{opacity:0,scale:4,duration:.3,ease:"power2.out",immediateRender:false}},{tm:.3f});tl.to({ac},{{y:-3,duration:.08,yoyo:true,repeat:1}},{tm:.3f});'); tm += 3.4
+        elif at == 'sneeze':  # leans back slowly, then a quick forward sneeze (dust / pollen / spores)
+            while tm < T - 1.6:
+                out.append(f'tl.to({ac},{{rotation:{-dirn * 12},y:-3,duration:1.1,ease:"power1.in",{org2}}},{tm:.3f});tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-70}},duration:.6}},{tm:.3f});')
+                out.append(f'tl.to({ac},{{rotation:{dirn * 14},y:4,duration:.12,ease:"power3.in",{org2}}},{tm + 1.1:.3f});tl.to({ac},{{rotation:0,y:0,duration:.5,ease:"power2.out",{org2}}},{tm + 1.25:.3f});tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-66}},duration:.2}},{tm + 1.1:.3f});'); tm += 4.2
+        elif at == 'clap':    # claps with both hands in front (applause / success / congratulations)
+            nb = max(int((T - a1) / .3), 2)
+            out.append(f'tl.fromTo("#{t}_ra",{{rotation:100,svgOrigin:"34 -22"}},{{rotation:124,duration:.15,yoyo:true,repeat:{nb},ease:"power1.inOut",svgOrigin:"34 -22"}},{a1:.3f});')   # hands meet in front of the chest (axis check 2026-10-26: + turns the right arm toward the body)
+            out.append(f'tl.fromTo("#{t}_la",{{rotation:-100,svgOrigin:"-34 -22"}},{{rotation:-124,duration:.15,yoyo:true,repeat:{nb},ease:"power1.inOut",svgOrigin:"-34 -22"}},{a1:.3f});')
+            out.append(f'tl.fromTo({ac},{{y:0}},{{y:-3,duration:.3,yoyo:true,repeat:{nb // 2},ease:"sine.inOut"}},{a1:.3f});')
+        elif at == 'magnify': # inspects with a magnifying glass, leaning in and out (clues / evidence / tiny things)
+            out.append(f'tl.set("#{t}_mg",{{opacity:1}},{a1 - .1:.3f});tl.to("#{t}_ra",{{rotation:-80,duration:.4,ease:"power2.out",svgOrigin:"34 -22"}},{a1 - .1:.3f});')
+            out.append(f'tl.to({ac},{{rotation:{dirn * 8},x:{dirn * 6},duration:1.4,yoyo:true,repeat:{max(int((T - a1) / 1.4), 1)},ease:"sine.inOut",{org2}}},{a1:.3f});')
+        elif at == 'snooze':  # dozes off: eyes shut, slow nod, Zz floating up (slow / waiting stretches)
+            out.append(f'tl.to("#{t}_ll,#{t}_lr",{{attr:{{height:22}},duration:.6}},{a1:.3f});tl.to({ac},{{rotation:{dirn * 10},duration:.9,ease:"power2.out",{org2}}},{a1:.3f});')
+            out.append(f'tl.to({ac},{{rotation:{dirn * 14},y:2,duration:2.6,yoyo:true,repeat:{max(int((T - a1 - .9) / 2.6), 1)},ease:"sine.inOut",{org2}}},{a1 + .9:.3f});')
+            out.append(f'tl.fromTo("#{t}_zz",{{opacity:0,y:0}},{{opacity:1,y:-18,duration:1.6,ease:"power1.out",repeat:{max(int((T - a1 - 1) / 1.9) - 1, 0)},repeatDelay:.3,immediateRender:false}},{a1 + 1:.3f});')
+        elif at in SIMPLE_ACTS:   # round 4b data-driven acts (12): a held pose + one looping body motion, optional prop / mood
+            A = SIMPLE_ACTS[at]
+            if A.get('ra') is not None: out.append(f'tl.to("#{t}_ra",{{rotation:{A["ra"]},duration:.35,ease:"power2.out",svgOrigin:"34 -22"}},{a1:.3f});')
+            if A.get('la') is not None: out.append(f'tl.to("#{t}_la",{{rotation:{A["la"]},duration:.35,ease:"power2.out",svgOrigin:"-34 -22"}},{a1:.3f});')
+            if A.get('prop'): out.append(f'tl.set("#{t}_{A["prop"]}",{{opacity:1}},{a1 - .05:.3f});')
+            if A.get('pup') is not None: out.append(f'tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:{A["pup"]}}},duration:.3}},{a1:.3f});')
+            if A.get('mood'):
+                M = MOODS[A['mood']]
+                out.append(f'tl.set("#{t}_bl",{{attr:{{d:"{M["bl"]}"}},opacity:{M["bo"]}}},{a1:.3f});tl.set("#{t}_br",{{attr:{{d:"{M["br"]}"}},opacity:{M["bo"]}}},{a1:.3f});tl.set("#{t}_sm",{{attr:{{d:"{M["sm"]}",fill:"{M["fill"]}"}}}},{a1:.3f});tl.set("#{t}_ll,#{t}_lr",{{attr:{{height:{M["lid"]}}}}},{a1:.3f});')
+            if A.get('mouth'): out.append(f'tl.set("#{t}_sm",{{opacity:0}},{a1:.3f});tl.set("#{t}_mo",{{attr:{{ry:{A["mouth"]},cy:{-44 + A["mouth"]}}}}},{a1:.3f});')
+            fr, to, per = A['body']; fr = {k: (v * dirn if k in ('rotation', 'x') and A.get('mirror') else v) for k, v in fr.items()}; to = {k: (v * dirn if k in ('rotation', 'x') and A.get('mirror') else v) for k, v in to.items()}
+            jsd = lambda d_: ','.join(f'{k}:{v}' for k, v in d_.items())
+            out.append(f'tl.fromTo({ac},{{{jsd(fr)},{org2}}},{{{jsd(to)},duration:{per},yoyo:true,repeat:{max(int((T - a1 - .3) / per), 1)},ease:"sine.inOut",{org2}}},{a1 + .3:.3f});')
+            if A.get('sweat'): out.append(f'tl.set("#{t}_sw",{{opacity:1}},{a1 + .4:.3f});tl.fromTo("#{t}_sw0,#{t}_sw1,#{t}_sw2",{{y:0,opacity:1}},{{y:26,opacity:0,duration:1.1,stagger:.35,repeat:{max(int((T - a1) / 1.6), 1)},ease:"power1.in",immediateRender:false}},{a1 + .4:.3f});')
+            if A.get('spiral'): out.append(f'tl.set("#{t}_spl,#{t}_spr",{{opacity:1}},{a1 + .4:.3f});tl.to("#{t}_spl,#{t}_spr",{{rotation:360,duration:1.6,repeat:{max(int((T - a1) / 1.6), 1)},ease:"none",svgOrigin:"-10 -66"}},{a1 + .4:.3f});')
         elif at == 'cheer':   # happy hops with both arms up
             out.append(f'tl.to("#{t}_ra",{{rotation:-150,duration:.3,svgOrigin:"34 -22"}},{a1:.3f});tl.to("#{t}_la",{{rotation:150,duration:.3,svgOrigin:"-34 -22"}},{a1:.3f});')
             while tm < T - .2:
