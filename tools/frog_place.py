@@ -52,6 +52,7 @@ def says_for(act, keep, text, cnt):
     return [{'text': word, 'shout': word.endswith('!') and nm in STRONG}]
 PLAT = re.compile(r'belt|treadmill|tread\b|slats|ground|ledge|platform|bridge|shelf|deck|road|planet|moon|surface|floor|stage|track', re.I)
 ACTIVE = re.compile(r'\b(run\w*|walk\w*|jump\w*|hop\w*|step\w*|treadmill|pump\w*|race|racing|sprint\w*)\b', re.I)
+VEH = re.compile(r'\b(rocket|spaceship|spacecraft|ship|probe|warp drive|shuttle|lander)\b', re.I)
 ROLL = re.compile(r'\b(drag\w*|spiral\w*|tumbl\w*|roll\w*|carried|swept|backward|whirl\w*|swirl\w*|knock\w*)\b', re.I)
 HOLE = re.compile(r'hole|bh|singular|well|horizon', re.I)
 JS = '''()=>{const o=[];for(const g of document.querySelectorAll('g[id^="mv-"]')){const b=g.getBBox();if(b.width<8)continue;o.push([g.id,b.x,b.y,b.width,b.height])}return o}'''
@@ -96,9 +97,13 @@ with sync_playwright() as p:
             elif not pick:
                 cand = [g for g in gs.values() if OK.match(g[0]) and 60 <= g[3] <= W * .8 and g[4] >= 40]
                 cand.sort(key=lambda g: -g[3] * g[4]); pick = cand[0][0] if cand else None
+            if VEH.search(text) and not ROLL.search(text):   # a vehicle in the text: the frog clings beside the fin of the centre object (miya 2026-10-26)
+                core = [g for g in gs.values() if g[0].startswith('mv-core-') and OK.match(g[0])]
+                if core: pick = core[0][0]; keep['cling'] = True
             if pick:
                 _, x, y, w, h = gs[pick]; s = round(min(1.5, max(.9, w / 170)), 2); cx = x + w / 2
                 keep.update(ride=pick, x=round(cx), y=round(y + 8 * s), s=s, flip=1 if cx < W / 2 else -1, kind='ride')
+                if keep.pop('cling', False): keep.update(x=round(x + w * .95), y=round(y + h - 12), s=round(min(1.2, max(.9, h / 200)), 2), flip=-1, act='wind')
             else:
                 n += 1   # roaming (miya 2026-10-26: the frog stayed in one bottom spot): small, travelling through the free part of the background
                 plat = [g for g in gs.values() if PLAT.search(g[0]) and g[3] >= 220 and g[4] <= H * .25 and g[2] > H * .25]
