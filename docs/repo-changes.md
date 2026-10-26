@@ -57,3 +57,4 @@
 - 2026-10-26: 개구리가 배경을 돌아다니고(`frog.roam`: swim·lie·tumble·roll·run·moonhop·walk, 상황별 선택, 러닝머신 등 발판 위에서 점프) 머리 위 말풍선·소리 단어를 붙임(`frog.says`). `tools/frog.py`·`frog_place.py`, 지침서 7-2. 바람 줄 표현 삭제.
 
 - 2026-10-26: 개구리 상황별 규칙 추가 — 블랙홀로 끌려가는 물체에 탄 개구리는 작아져 사라짐(`vanish`), 로켓·우주선 말이 나오면 날개 옆에 붙음(`VEH`), `pull`·`wind` 모션 부드럽게(지침서 7-2).
+- 2026-10-26: `tools/frog_place.py` `pull` 규칙에서 sink·crush 제외(가라앉는 고래·수압은 빨려드는 상황이 아님, crush는 shiver로), `tools/clip_prep.py`(어느 구간이든 20초 샘플 렌더: `python3 tools/clip_prep.py <slug> <시작초> <길이>` 후 `npx hyperframes@0.8.141 render`, 오디오는 ffmpeg -ss로 합침).
