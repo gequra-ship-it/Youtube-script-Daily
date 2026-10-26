@@ -79,7 +79,7 @@ def markup(tag, d):
             f'<defs><clipPath id="{t}_cl"><circle cx="-10" cy="-66" r="13"/></clipPath><clipPath id="{t}_cr"><circle cx="22" cy="-66" r="13"/></clipPath></defs>'
             f'<ellipse cx="0" cy="8" rx="52" ry="8" fill="#000" opacity=".18" stroke="none"/>'
             f'<g id="{t}_wd" opacity="0" fill="none" stroke="#e8f3ff" stroke-width="3.4" stroke-linecap="round"><path d="M70 -70 h46"/><path d="M82 -44 h56"/><path d="M70 -18 h40"/><path d="M96 -88 h34"/></g>'
-            f'<g id="{t}_in"><g id="{t}_ac">'
+            f'<g id="{t}_in"><g id="{t}_tr"><g id="{t}_rm"><g id="{t}_ac">'
             f'<ellipse cx="-22" cy="4" rx="16" ry="9" fill="#4d8a4a" stroke-width="3.2"/><ellipse cx="22" cy="4" rx="16" ry="9" fill="#4d8a4a" stroke-width="3.2"/>'
             f'<path d="M-34 0 q-6 -64 34 -70 q40 -2 42 62 q0 10 -6 12 q-36 6 -70 -4z" fill="{GREEN}" stroke-width="4"/>'
             f'<ellipse cx="2" cy="-12" rx="22" ry="20" fill="#9cc98a" stroke="none" opacity=".7"/>'
@@ -99,18 +99,40 @@ def markup(tag, d):
             f'<g transform="translate(32 -22)"><g id="{t}_arm">'
             f'<path d="M0 0 L58 0" stroke-width="11"/><circle cx="60" cy="0" r="9" fill="{INK}" stroke="none"/>'
             f'<path d="M0 0 L58 0" stroke="{GREEN}" stroke-width="6"/><circle cx="60" cy="0" r="6" fill="{GREEN}" stroke="none"/>'
-            f'</g></g></g></g></g>')
+            f'</g></g></g></g>{bubble_markup(t, d)}</g></g></g>')
+
+def bubble_geom(sy, d):
+    tx = sy['text'][:24]; wd = 26 * len(tx) * .5 + 44; hh = 34
+    side = d.get('bside', 1)   # +1: the bubble body leans to the right of the frog (screen), -1: to the left
+    bx = side * max(0, wd / 2 - 30); x1 = bx - wd / 2; x2 = bx + wd / 2; r = 14; top = -(hh * 2 + 8); bot = -14
+    path = (f'M{x1 + r:.0f} {top} H{x2 - r:.0f} a{r} {r} 0 0 1 {r} {r} V{bot - r} a{r} {r} 0 0 1 -{r} {r} H12 L0 0 L-12 {bot} H{x1 + r:.0f} '
+            f'a{r} {r} 0 0 1 -{r} -{r} V{top + r} a{r} {r} 0 0 1 {r} -{r}z')
+    return tx, path, bx, (top + bot) / 2 + 15
+
+
+def bubble_markup(t, d):
+    """speech bubbles with a sound word / short reaction (miya 2026-10-26); drawn at screen size above the head, they follow the frog (rides, roams).
+    Each bubble group is counter-scaled so the text is never mirrored or shrunk by the frog's flip/scale."""
+    out = ''
+    s, fl = d['s'], d['flip']
+    for k, sy in enumerate(d.get('says') or []):
+        tx, path, bx, ty = bubble_geom(sy, d)
+        out += (f'<g id="{t}_bub{k}" opacity="0" transform="translate(0 -96) scale({fl / s:.4f} {1 / s:.4f})">'
+                f'<g id="{t}_bx{k}"><path d="{path}" fill="#fff" stroke="#14122b" stroke-width="3.2" stroke-linejoin="round"/>'
+                f'<text x="{bx:.0f}" y="{ty:.0f}" text-anchor="middle" font-family="Patrick,sans-serif" font-size="44" fill="#14122b" stroke="none">{tx}</text></g></g>')
+    return out
+
 
 RIDEABLE = re.compile(r'^mv-(core-(swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble)|path|slide|swing)')
 
 
 def lint(d, vert=False):
-    """warnings for a PICTURE-scene frog sidecar (guideline 7-2, 2026-10-25): it must ride a moving object or sit in a bottom corner, never stand mid-picture or point"""
+    """warnings for a PICTURE-scene frog sidecar (guideline 7-2, 2026-10-25): it must ride a moving object , sit in a bottom corner or roam through the background (sidecar roam), never stand mid-picture or point"""
     w = []
     if d.get('point') or d.get('points'): w.append('points in a picture scene (the explainer is chalkboard only)')
     if d.get('ride'):
         if not RIDEABLE.match(d['ride']): w.append(f'rides {d["ride"]}, a motion that flips/fades/fills/clips (pick a core swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble, path, slide or swing group)')
-    elif d['y'] < (1920 - 200 if vert else 1080 - 100): w.append('stands mid-picture (use "ride" or a bottom corner: python3 tools/frog_place.py <slug>)')
+    elif not d.get('roam') and d['y'] < (1920 - 200 if vert else 1080 - 100): w.append('stands mid-picture (use "ride" or a bottom corner: python3 tools/frog_place.py <slug>)')
     return w
 
 
@@ -234,9 +256,6 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             n = 0
             while tm < T - .1:
                 out.append(f'tl.to({ac},{{x:{-4 + (n % 3 - 1) * 2.2:.1f},y:{((n * 7) % 5 - 2) * 1.4:.1f},rotation:{-10 + (n % 2) * 2.4:.1f},duration:.09,ease:"none",{org2}}},{tm:.3f});'); tm += .09; n += 1
-            m2 = a1; j = 0
-            while m2 < T - .3:
-                out.append(f'tl.fromTo("#{t}_wd",{{x:50,opacity:0}},{{x:-30,opacity:.85,duration:.35,ease:"none",immediateRender:false}},{m2:.3f});tl.to("#{t}_wd",{{opacity:0,duration:.12}},{m2 + .35:.3f});'); m2 += .55; j += 1
         elif at == 'pull':    # dragged toward the hole: slides and leans, digs in, gets dragged again (never quite escapes)
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{x:{dirn * 26},rotation:{dirn * 16},scaleX:1.06,duration:1.15,ease:"power2.in",{org2}}},{tm:.3f});')
@@ -262,6 +281,60 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         elif at == 'sleepy':  # slow time: heavy slow sway, drooping
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{rotation:5,y:3,duration:2.2,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{rotation:-4,y:0,duration:2.2,ease:"sine.inOut",{org2}}},{tm + 2.2:.3f});'); tm += 4.4
+    # ---- speech bubble / sound word (2026-10-26): says = [{text, word?, dur?, shout?}]; pops in at the word, shakes when shouted, fades after dur ----
+    for k, sy in enumerate(d.get('says') or []):
+        tm = find_word(sy.get('word'), wt, a0, t1) if sy.get('word') else None
+        if tm is None: tm = a0 + .7 + k * 2.4
+        dur = min(sy.get('dur', 2.0), max(t1 - tm - .05, .6)); B = f'"#{t}_bub{k}"'; X = f'"#{t}_bx{k}"'
+        out.append(f'tl.fromTo({B},{{opacity:0}},{{opacity:1,duration:.1,immediateRender:false}},{tm:.3f});')
+        out.append(f'tl.fromTo({X},{{scale:.3,svgOrigin:"0 0"}},{{scale:1,duration:.28,ease:"back.out(2.4)",immediateRender:false}},{tm:.3f});')
+        if sy.get('shout', True):
+            n2 = 0; tt = tm + .3
+            while tt < tm + dur - .1:
+                out.append(f'tl.to({X},{{x:{2.5 if n2 % 2 == 0 else -2.5},rotation:{2 if n2 % 2 == 0 else -2},duration:.05,ease:"none",svgOrigin:"0 0"}},{tt:.3f});'); tt += .05; n2 += 1
+            out.append(f'tl.to({X},{{x:0,rotation:0,duration:.05}},{tt:.3f});')
+        out.append(f'tl.to({B},{{opacity:0,duration:.18}},{tm + dur:.3f});')
+    # ---- roaming (2026-10-26, miya: the frog stayed in place at the bottom; let it move through the background): travels along its facing side on #<t>_rm ----
+    rm = d.get('roam')
+    if rm and not d.get('ride'):
+        R = f'"#{t}_tr"'; RR = f'"#{t}_rm"'; kind = rm.get('kind', 'swim'); L = rm.get('dist', 500) / d['s']; ta = a0 + .45; T2 = t1 - .05; dur = max(T2 - ta, 1.0)
+        out.append(f'tl.fromTo({R},{{x:0}},{{x:{L:.1f},duration:{dur:.3f},ease:"none",immediateRender:false}},{ta:.3f});')
+        tm = ta; k = 0
+        if kind == 'swim':    # weightless drift (miya 2026-10-26: floating, not paddling): slow eased travel, a long lazy up-down curve and a slow tumble
+            out[-1] = out[-1].replace('ease:"none"', 'ease:"sine.inOut"')
+            ys = (-18, 12, -10, 16, -14, 8); rs = (9, -11, 7, -9, 10, -6); k = 0; tm = ta; ty = 0
+            while tm < T2 - .1:
+                dd = 1.7 + (k % 3) * .5
+                out.append(f'tl.to({R},{{y:{ys[k % 6]},duration:{dd:.2f},ease:"sine.inOut"}},{tm:.3f});'); tm += dd; k += 1
+            tm = ta + .3; k = 0
+            while tm < T2 - .1:
+                dd = 2.3 + (k % 2) * .6
+                out.append(f'tl.to({RR},{{rotation:{rs[k % 6]},duration:{dd:.2f},ease:"sine.inOut",svgOrigin:"0 -30"}},{tm:.3f});'); tm += dd; k += 1
+        elif kind == 'lie':   # floating on its back: lies flat (head toward the drift), slowly bobbing and rocking
+            out.append(f'tl.to({RR},{{rotation:78,duration:.9,ease:"sine.inOut",svgOrigin:"0 -30"}},{ta:.3f});')
+            ys = (-16, 10, -12, 14, -9, 11); rs = (72, 84, 70, 86, 74, 82); tm = ta + .9; k = 0
+            while tm < T2 - .1:
+                dd = 2.0 + (k % 2) * .6
+                out.append(f'tl.to({R},{{y:{ys[k % 6]},duration:{dd:.2f},ease:"sine.inOut"}},{tm:.3f});tl.to({RR},{{rotation:{rs[k % 6]},duration:{dd:.2f},ease:"sine.inOut",svgOrigin:"0 -30"}},{tm:.3f});'); tm += dd; k += 1
+        elif kind == 'tumble':   # slow weightless somersault while drifting
+            out.append(f'tl.fromTo({RR},{{rotation:0}},{{rotation:{360 * rm.get("turns", 1)},duration:{dur:.3f},ease:"none",svgOrigin:"0 -30",immediateRender:false}},{ta:.3f});')
+            ys = (-14, 10, -10, 12); tm = ta; k = 0
+            while tm < T2 - .1:
+                dd = 2.0
+                out.append(f'tl.to({R},{{y:{ys[k % 4]},duration:{dd:.2f},ease:"sine.inOut"}},{tm:.3f});'); tm += dd; k += 1
+        elif kind == 'moonhop':   # low gravity: slow, very high hops, turning a little in the air
+            per = 1.5; k = 0; tm = ta
+            while tm < T2 - .2:
+                out.append(f'tl.to({R},{{y:-70,duration:{per / 2:.2f},ease:"power1.out"}},{tm:.3f});tl.to({R},{{y:0,duration:{per / 2:.2f},ease:"power1.in"}},{tm + per / 2:.3f});tl.to({RR},{{rotation:{10 if k % 2 == 0 else -10},duration:{per / 2:.2f},ease:"power1.out",svgOrigin:"0 -30"}},{tm:.3f});tl.to({RR},{{rotation:0,duration:{per / 2:.2f},ease:"power1.in",svgOrigin:"0 -30"}},{tm + per / 2:.3f});'); tm += per; k += 1
+        elif kind == 'roll':   # tumbling / rolling along (dragged, swept away): accelerates, the body turns exactly with the distance travelled
+            deg = 360 * L / 283.0
+            out[-1] = out[-1].replace('ease:"none"', 'ease:"power1.in"')
+            out.append(f'tl.fromTo({RR},{{rotation:0}},{{rotation:{deg:.0f},duration:{dur:.3f},ease:"power1.in",svgOrigin:"0 -34",immediateRender:false}},{ta:.3f});')
+        elif kind in ('run', 'walk'):   # hops along the ground: run = big quick hops leaning forward, walk = small steps
+            hh, per = (24, .46) if kind == 'run' else (9, .62)
+            out.append(f'tl.to({RR},{{rotation:{6 if kind == "run" else 0},duration:.3,svgOrigin:"0 0"}},{ta:.3f});')
+            while tm < T2 - .1:
+                out.append(f'tl.to({R},{{y:{-hh},duration:{per / 2:.2f},ease:"power2.out"}},{tm:.3f});tl.to({R},{{y:0,duration:{per / 2:.2f},ease:"power2.in"}},{tm + per / 2:.3f});'); tm += per
     # mouth follows the spoken words: closed = the mood's mouth; open = a big round "ahh" of the same width that hangs from the smile line, with a tongue
     talk = d.get('talk', not (d.get('ride') or d.get('kind') in ('ride', 'bg')))
     for k, (ws, we) in enumerate(words if talk else []):

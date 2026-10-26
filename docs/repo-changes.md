@@ -54,3 +54,4 @@
 - 2026-10-25: 개구리 상황별 행동(`act`)·표정 추가 — `tools/frog.py`(`_ac` 그룹, 모션 8종, 표정 scared·squint·sleepy), `tools/frog_place.py`(단어로 act 선택), 지침서 7-2. stolen-time 6편에 적용(miya 요청).
 
 - 2026-10-25: 그림 속 개구리 오른팔이 안 보이던 문제 수정 — `tools/frog.py`에 짧은 오른팔 `_ra` 추가(가리키지 않을 때 표시), 지침서 7-2. 다른 영상은 `frog_place.py` 없이 `build3.py`만 다시 돌리면 적용된다.
+- 2026-10-26: 개구리가 배경을 돌아다니고(`frog.roam`: swim·lie·tumble·roll·run·moonhop·walk, 상황별 선택, 러닝머신 등 발판 위에서 점프) 머리 위 말풍선·소리 단어를 붙임(`frog.says`). `tools/frog.py`·`frog_place.py`, 지침서 7-2. 바람 줄 표현 삭제.
