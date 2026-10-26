@@ -23,6 +23,36 @@ ACTS = [   # (act, regex on the unit text, first mood)  -- first match wins (miy
     ('sleepy', re.compile(r'\b(years|decades|waiting|slow\w*|frozen|amber|steady|steadily|patient\w*|ticking|ticks?|clocks?)\b', re.I), 'sleepy'),
     ('cheer',  re.compile(r'\b(solved|breakthrough|discover\w*|works?|yes|answer|possible|allows?|proved?|proof)\b', re.I), 'excited'),
 ]
+GROUND = re.compile(r'\b(planet|moon|mars|surface|ground|land|desert|shore|beach|island|terrain|crater|road|path|walk\w*|run\w*|city|field|hill|mountain)\b', re.I)
+def free_band(pg, W, H, vert, n):
+    """vertical centre of the emptiest horizontal band of the picture (lowest edge density), outside the caption zone"""
+    import io, numpy as np
+    from PIL import Image
+    pg.set_viewport_size({'width': W, 'height': H})
+    im = np.asarray(Image.open(io.BytesIO(pg.screenshot())).convert('L').resize((W // 8, H // 8)), dtype=np.float32)
+    gy, gx = np.gradient(im); e = np.hypot(gx, gy)
+    lo, hi = (420, 1380) if vert else (170, 800); best = None
+    for yc in range(lo, hi + 1, 40):
+        band = e[max(0, (yc - 80) // 8):(yc + 80) // 8, 10:-10].mean() + .002 * abs(yc - (lo + hi) / 2) * (n % 2)   # mild variety between units
+        if best is None or band < best[0]: best = (band, yc)
+    return best[1]
+SAYS = {'pull': 'AAAAAH!', 'wind': 'Whooosh!', 'waves': 'Whoa-oa!', 'shiver': 'Brrrr...', 'awe': 'Woooow!', 'sleepy': 'Zzz...', 'cheer': 'Yay!', 'float': 'Wheee!'}
+STRONG = ('pull', 'shiver', 'awe', 'wind')   # always get a sound word; the other acts every second unit (miya 2026-10-26: speech bubble with emotion / sound words)
+def says_for(act, keep, text, cnt):
+    nm = act.get('type') if isinstance(act, dict) else act
+    rm = (keep.get('roam') or {}).get('kind')
+    word = SAYS.get(nm)
+    if rm == 'roll': word = 'Waaaah!'
+    elif rm in ('swim', 'lie', 'tumble'): word = 'Blub blub!' if keep.get('outfit') in (['diver'], ['goggles']) else 'Wheee!'
+    elif rm == 'run': word = 'Hop hop!'
+    elif rm == 'moonhop': word = 'Boing!'
+    elif rm == 'walk' and word is None: word = 'Hmm?' if keep['moods'][0]['mood'] == 'curious' else 'Tada!'
+    if word is None: return []
+    if nm not in STRONG and cnt % 2: return []
+    return [{'text': word, 'shout': word.endswith('!') and nm in STRONG}]
+PLAT = re.compile(r'belt|treadmill|tread\b|slats|ground|ledge|platform|bridge|shelf|deck|road|planet|moon|surface|floor|stage|track', re.I)
+ACTIVE = re.compile(r'\b(run\w*|walk\w*|jump\w*|hop\w*|step\w*|treadmill|pump\w*|race|racing|sprint\w*)\b', re.I)
+ROLL = re.compile(r'\b(drag\w*|spiral\w*|tumbl\w*|roll\w*|carried|swept|backward|whirl\w*|swirl\w*|knock\w*)\b', re.I)
 HOLE = re.compile(r'hole|bh|singular|well|horizon', re.I)
 JS = '''()=>{const o=[];for(const g of document.querySelectorAll('g[id^="mv-"]')){const b=g.getBBox();if(b.width<8)continue;o.push([g.id,b.x,b.y,b.width,b.height])}return o}'''
 def mood_of(s):
@@ -59,22 +89,47 @@ with sync_playwright() as p:
             keep = {'moods': moods, 'act': act}
             if SEA.search(text): keep['outfit'] = ['diver'] if DEEP.search(text) else ['goggles']   # diving suit + tank in deep/dark water, mask + snorkel near the surface (miya 2026-10-25)
             elif SPACE.search(text): keep['outfit'] = ['helmet']
-            pg.set_content('<body style="margin:0">' + open(svg).read() + '</body>')
+            pg.set_content('<style>body{margin:0}svg{display:block;width:100vw;height:100vh}</style><body>' + open(svg).read() + '</body>')
             gs = {g[0]: g for g in pg.evaluate(JS)}
             pick = f.get('ride') if f.get('ride') in gs else None
-            if not pick:
+            if ROLL.search(text) and not ACTIVE.search(text): pick = None   # dragged / swept / spiralling: the frog rolls along instead of riding (miya 2026-10-26)
+            elif not pick:
                 cand = [g for g in gs.values() if OK.match(g[0]) and 60 <= g[3] <= W * .8 and g[4] >= 40]
                 cand.sort(key=lambda g: -g[3] * g[4]); pick = cand[0][0] if cand else None
             if pick:
                 _, x, y, w, h = gs[pick]; s = round(min(1.5, max(.9, w / 170)), 2); cx = x + w / 2
                 keep.update(ride=pick, x=round(cx), y=round(y + 8 * s), s=s, flip=1 if cx < W / 2 else -1, kind='ride')
             else:
-                n += 1   # corners vary (miya 2026-10-25): far left, far right, left-third, right-third, each with its own size
-                xs = [150, W - 150, round(W * .3), round(W * .72)]; x0 = xs[(n - 1) % 4]; sz = [1.0, 1.15, .9, 1.05][(n - 1) % 4]
-                keep.update(x=x0, y=(H - 150) if vert else (H - 40), s=round((1.7 if vert else 1.35) * sz, 2), flip=1 if x0 < W / 2 else -1, kind='bg')
+                n += 1   # roaming (miya 2026-10-26: the frog stayed in one bottom spot): small, travelling through the free part of the background
+                plat = [g for g in gs.values() if PLAT.search(g[0]) and g[3] >= 220 and g[4] <= H * .25 and g[2] > H * .25]
+                plat.sort(key=lambda g: -g[3]); plat = plat[0] if plat else None
+                on_plat = None
+                if plat and ACTIVE.search(text): kind = 'moonhop' if (SPACE.search(text) or 'tread' in text.lower() or 'tread' in plat[0]) else 'run'; on_plat = plat   # situation: the frog does it ON the platform of the picture (treadmill belt, ground, bridge...)
+                elif ROLL.search(text): kind = 'roll'   # dragged / swept / spiralling: it rolls along
+                elif SEA.search(text) or (SPACE.search(text) and not GROUND.search(text)):   # diver / space-suit drifting: upright float, lying on its back, somersault (space only)
+                    kind = ('swim', 'lie', 'tumble' if not SEA.search(text) else 'swim')[(n - 1) % 3]
+                elif GROUND.search(text): kind = ('run', 'moonhop' if SPACE.search(text) else 'run')[(n - 1) % 2]
+                else: kind = 'walk'
+                sz = [1.0, .9, 1.1, .95][(n - 1) % 4]
+                if kind in ('swim', 'lie', 'tumble'): y0 = free_band(pg, W, H, vert, n); s0 = (1.1 if vert else .85) * sz
+                elif kind == 'roll': y0 = free_band(pg, W, H, vert, n); s0 = (1.1 if vert else .85) * sz
+                else: y0 = (H - 110) if vert else (H - 50); s0 = (1.05 if vert else .8) * sz
+                if on_plat: y0 = round(on_plat[2] + 6)
+                right = (n % 2 == 1); dist = round(W * ((.28 if vert else .24) if kind in ('swim', 'lie', 'tumble', 'roll') else (.5 if vert else .15)))
+                x0 = (130 if right else W - 130); fl = 1 if right else -1
+                if on_plat:   # stays on the platform, on the side away from the figure that runs on it
+                    figs = [g for g in gs.values() if re.search(r'run|astro|breathe|legs|walker|person|man\b|woman|kid|child', g[0], re.I) and g[0] != on_plat[0]]
+                    pcx = on_plat[1] + on_plat[3] / 2; fcx = (sum(g[1] + g[3] / 2 for g in figs) / len(figs)) if figs else pcx
+                    right = fcx > pcx   # figure on the right -> frog starts on the left part and walks toward the facing side (right)
+                    x0 = round(on_plat[1] + on_plat[3] * (.15 if right else .85)); fl = 1 if right else -1; dist = round(min(dist, on_plat[3] * .3))
+                else: x0 = max(170, min(W - 170, x0))
+                keep.update(x=x0, y=y0, s=round(s0, 2), flip=fl, kind='bg', roam=dict(kind=kind, dist=dist))
+                if act in ('float', 'cheer') or kind in ('swim', 'lie', 'tumble', 'roll'): keep['act'] = None   # the roaming motion replaces the in-place bob/hops; a drifting swimmer gets no lean/wind lines (miya 2026-10-26)
             if act == 'pull':   # the hole the frog is dragged toward: a picture group named like a hole/well, else the picture centre
                 hg = [g for g in gs.values() if HOLE.search(g[0])]
                 keep['act'] = {'type': 'pull', 'to': [round(hg[0][1] + hg[0][3] / 2), round(hg[0][2] + hg[0][4] / 2)] if hg else [W // 2, H // 2]}
+            cnt_say = globals().setdefault('cnt_say', 0); globals()['cnt_say'] = cnt_say + 1
+            keep['says'] = says_for(keep['act'], keep, text, cnt_say); keep['bside'] = 1 if keep['x'] < W / 2 else -1
             d['frog'] = keep
             json.dump(d, open(fn, 'w'), ensure_ascii=False, indent=1)
             print(slug, uid, keep['kind'], pick, keep['x'], keep['y'], keep['s'])
