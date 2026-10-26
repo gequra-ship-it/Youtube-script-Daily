@@ -36,11 +36,22 @@
     "mood": "curious"
    }
   ],
-  "act": "cheer",
-  "x": 1382,
-  "y": 1040,
-  "s": 1.42,
+  "act": null,
+  "x": 1750,
+  "y": 1030,
+  "s": 0.76,
   "flip": -1,
-  "kind": "bg"
+  "kind": "bg",
+  "roam": {
+   "kind": "run",
+   "dist": 288
+  },
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": false
+   }
+  ],
+  "bside": -1
  }
 }

@@ -20,14 +20,25 @@
     "mood": "excited"
    }
   ],
-  "act": "cheer",
+  "act": null,
   "outfit": [
    "diver"
   ],
-  "x": 150,
-  "y": 1040,
-  "s": 1.35,
+  "x": 170,
+  "y": 250,
+  "s": 0.85,
   "flip": 1,
-  "kind": "bg"
+  "kind": "bg",
+  "roam": {
+   "kind": "swim",
+   "dist": 461
+  },
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": false
+   }
+  ],
+  "bside": 1
  }
 }

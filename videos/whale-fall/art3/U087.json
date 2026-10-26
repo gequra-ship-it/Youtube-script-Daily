@@ -26,14 +26,25 @@
     "mood": "curious"
    }
   ],
-  "act": "sleepy",
+  "act": null,
   "outfit": [
    "goggles"
   ],
-  "x": 1770,
-  "y": 1040,
-  "s": 1.55,
+  "x": 1750,
+  "y": 210,
+  "s": 0.77,
   "flip": -1,
-  "kind": "bg"
+  "kind": "bg",
+  "roam": {
+   "kind": "lie",
+   "dist": 461
+  },
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": false
+   }
+  ],
+  "bside": -1
  }
 }
