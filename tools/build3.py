@@ -8,7 +8,7 @@ import os, re, sys, json, html, shutil, subprocess, math, random
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 import numpy as np
-import palettes, labels_lib, caption_hl, frog
+import palettes, labels_lib, caption_hl, frog, motions
 SCENES = load_scenes()
 CFG = load_config()
 B = wdir() + '/build'
