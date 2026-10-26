@@ -31,25 +31,31 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "surprised"
    }
   ],
-  "act": "wind",
+  "act": {
+   "type": "slide",
+   "to": [
+    540,
+    1190
+   ]
+  },
   "outfit": [
    "helmet"
   ],
-  "ride": "mv-path-dock-u010",
-  "x": 400,
-  "y": 966,
-  "s": 0.9,
-  "flip": 1,
-  "kind": "ride",
+  "kind": "bg",
+  "ride": null,
+  "x": 918,
+  "y": 998,
+  "s": 1.15,
+  "flip": -1,
   "says": [
    {
-    "text": "Whooosh!",
+    "text": "Wheee!",
     "shout": true
    }
   ],
-  "bside": 1
+  "bside": -1
  }
 }

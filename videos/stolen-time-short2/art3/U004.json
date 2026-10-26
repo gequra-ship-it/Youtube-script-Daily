@@ -25,22 +25,28 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "surprised"
    }
   ],
-  "act": "wind",
+  "act": {
+   "type": "slide",
+   "to": [
+    546,
+    911
+   ]
+  },
   "outfit": [
    "helmet"
   ],
-  "ride": "mv-core-wobble-u004",
-  "x": 546,
-  "y": 758,
-  "s": 1.5,
+  "kind": "bg",
+  "ride": null,
+  "x": 924,
+  "y": 719,
+  "s": 1.15,
   "flip": -1,
-  "kind": "ride",
   "says": [
    {
-    "text": "Whooosh!",
+    "text": "Wheee!",
     "shout": true
    }
   ],

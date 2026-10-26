@@ -23,20 +23,28 @@
     "mood": "surprised"
    }
   ],
-  "act": null,
+  "act": {
+   "type": "slide",
+   "to": [
+    540,
+    1190
+   ]
+  },
   "outfit": [
    "helmet"
   ],
-  "x": 910,
-  "y": 780,
-  "s": 0.99,
-  "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "lie",
-   "dist": 302
-  },
-  "says": [],
+  "ride": null,
+  "x": 918,
+  "y": 998,
+  "s": 1.15,
+  "flip": -1,
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
   "bside": -1
  }
 }

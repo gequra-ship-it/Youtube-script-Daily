@@ -30,17 +30,28 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "surprised"
    }
   ],
-  "act": "cheer",
-  "ride": "mv-core-heartbeat-heavy",
-  "x": 620,
-  "y": 822,
-  "s": 1.47,
+  "act": {
+   "type": "slide",
+   "to": [
+    620,
+    960
+   ]
+  },
+  "kind": "bg",
+  "ride": null,
+  "x": 930,
+  "y": 768,
+  "s": 1.15,
   "flip": -1,
-  "kind": "ride",
-  "says": [],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
   "bside": -1
  }
 }

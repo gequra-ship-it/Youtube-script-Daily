@@ -18,29 +18,29 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "surprised"
    },
    {
     "word": "In 2010",
-    "mood": "surprised"
+    "mood": "scared"
    }
   ],
   "act": {
-   "type": "pull",
+   "type": "slide",
    "to": [
     960,
-    540
+    638
    ]
   },
-  "ride": "mv-core-ping-u042",
-  "x": 960,
-  "y": 540,
-  "s": 1.03,
+  "kind": "bg",
+  "ride": null,
+  "x": 1536,
+  "y": 422,
+  "s": 0.9,
   "flip": -1,
-  "kind": "ride",
   "says": [
    {
-    "text": "AAAAAH!",
+    "text": "Wheee!",
     "shout": true
    }
   ],
