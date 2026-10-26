@@ -13,5 +13,33 @@
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "Anchored to",
+    "mood": "curious"
+   }
+  ],
+  "act": "shiver",
+  "x": 910,
+  "y": 1810,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

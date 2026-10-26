@@ -22,5 +22,29 @@
    "word": "deep seafloor"
   }
  ],
- "motion": "path (sinking carcass)"
+ "motion": "path (sinking carcass)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": "sleepy",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-sink-U016",
+  "x": 1303,
+  "y": 260,
+  "s": 1.49,
+  "flip": -1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "Zzz...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

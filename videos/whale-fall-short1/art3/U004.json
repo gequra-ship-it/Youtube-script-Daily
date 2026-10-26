@@ -10,5 +10,26 @@
   }
  ],
  "labels": [],
- "motion": "fill (gauge) + cells + tail chain"
+ "motion": "fill (gauge) + cells + tail chain",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-path-sink",
+  "x": 1152,
+  "y": 344,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

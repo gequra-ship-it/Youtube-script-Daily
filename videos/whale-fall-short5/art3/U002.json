@@ -25,5 +25,32 @@
    ]
   }
  ],
- "motion": "fade (mats), joint (worm)"
+ "motion": "fade (mats), joint (worm)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   },
+   {
+    "word": "Eventually the",
+    "mood": "curious"
+   },
+   {
+    "word": "The bacteria",
+    "mood": "happy"
+   }
+  ],
+  "act": "sleepy",
+  "x": 910,
+  "y": 1810,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "run",
+   "dist": 540
+  },
+  "says": [],
+  "bside": -1
+ }
 }

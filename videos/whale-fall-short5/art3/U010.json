@@ -26,5 +26,32 @@
    ]
   }
  ],
- "motion": "dash (lanes), chain, joint"
+ "motion": "dash (lanes), chain, joint",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": null,
+  "outfit": [
+   "goggles"
+  ],
+  "x": 170,
+  "y": 1340,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "lie",
+   "dist": 302
+  },
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

@@ -3,5 +3,33 @@
  "focus": null,
  "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "Food is",
+    "mood": "happy"
+   }
+  ],
+  "act": "shiver",
+  "x": 170,
+  "y": 1810,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }
