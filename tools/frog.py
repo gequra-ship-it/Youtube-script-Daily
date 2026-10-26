@@ -77,6 +77,7 @@ MOODS = {   # brows (left d, right d, opacity), pupil offset (dx, dy, r), mouth 
     'proud':     dict(bl='M-24 -84 q12 -6 24 0', br='M10 -84 q12 -6 24 0', bo=0, pup=(0, 1, 5), sm='M-10 -47 q16 20 32 0', fill='none', lid=9),
     'sad':       dict(bl='M-24 -76 q12 -4 24 -12', br='M10 -88 q12 8 24 12', bo=1, pup=(0, 3, 6), sm='M-8 -36 q14 -10 28 0', fill='none', lid=0),   # miya 2026-10-26: sad / pleading face (caged, lonely): brows slanting up in the middle, mouth turned down, pupils looking down
     'scared':    dict(bl='M-24 -80 q12 -2 24 -9', br='M10 -89 q12 7 24 9', bo=1, pup=(0, 1, 3), sm='M-9 -39 q4.5 -7 9 0 q4.5 7 9 0 q4.5 -7 9 0', fill='none', lid=0),
+    'dizzy':     dict(bl='M-24 -80 q12 -2 24 -8', br='M10 -88 q12 6 24 8', bo=1, pup=(0, 0, 2.2), sm='M-9 -40 q4.5 -6 9 0 q4.5 6 9 0 q4.5 -6 9 0', fill='none', lid=5),   # miya 2026-10-26: woozy face while circling a black hole ring: tiny pupils, wavy mouth, half lids
     'squint':    dict(bl='M-24 -78 q12 -6 24 -2', br='M10 -80 q12 4 24 8', bo=1, pup=(0, 0, 4), sm='M-10 -47 q16 24 32 0z', fill='#7a2f2f', lid=11),
     'sleepy':    dict(bl='M-24 -80 q12 2 24 -2', br='M10 -82 q12 -2 24 2', bo=1, pup=(0, 3, 4.5), sm='M-6 -42 q8 3 16 0', fill='none', lid=14),
     'dizzy':     dict(bl='M-24 -78 q12 4 24 -4', br='M10 -80 q12 -4 24 4', bo=1, pup=(0, 0, 0.1), sm='M-10 -44 q4 -7 8 0 q4 7 8 0 q4 -7 8 0 q4 7 8 0', fill='none', lid=0),   # swirl eyes (the _sp spirals cover the pupils), wobbly mouth (2026-10-26 miya: overheated frog)
@@ -150,7 +151,7 @@ def lint(d, vert=False):
     if d.get('point') or d.get('points'): w.append('points in a picture scene (the explainer is chalkboard only)')
     if d.get('ride'):
         if not RIDEABLE.match(d['ride']): w.append(f'rides {d["ride"]}, a motion that flips/fades/fills/clips (pick a core swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble, path, slide or swing group)')
-    elif not d.get('roam') and d['y'] < (1920 - 200 if vert else 1080 - 100): w.append('stands mid-picture (use "ride" or a bottom corner: python3 tools/frog_place.py <slug>)')
+    elif not d.get('roam') and not (isinstance(d.get('act'), dict) and d['act'].get('type') == 'orbit') and d['y'] < (1920 - 200 if vert else 1080 - 100): w.append('stands mid-picture (use "ride" or a bottom corner: python3 tools/frog_place.py <slug>)')
     return w
 
 
@@ -279,7 +280,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             vz = isinstance(act, dict) and act.get('vanish')   # miya 2026-10-26: sucked in like the star: spirals toward the hole, shrinks and disappears
             if vz:
                 vd = float(vz) if not isinstance(vz, bool) else 2.2; tv = max(T - vd, a1 + .5)
-                gx = (tg[0] - d['x']) / d['s']; gy = (tg[1] - d['y']) / d['s']
+                gx = d['flip'] * (tg[0] - d['x']) / d['s']; gy = (tg[1] - d['y']) / d['s']   # local x is mirrored by the frog's flip
                 out.append(f'tl.to("#{t}_tr",{{x:{gx:.1f},y:{gy:.1f},duration:{T - tv:.3f},ease:"power2.in"}},{tv:.3f});')
                 out.append(f'tl.to("#{t}_rm",{{rotation:{dirn * 360},scaleX:.04,scaleY:.04,duration:{T - tv:.3f},ease:"power2.in",svgOrigin:"0 -30"}},{tv:.3f});')
                 out.append(f'tl.to("#{t}_in",{{opacity:0,duration:.35,ease:"none"}},{T - .35:.3f});')
@@ -291,6 +292,17 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
                     out.append(f'tl.to({ac},{{x:{dirn * 14},rotation:{dirn * 2},duration:{dd:.2f},ease:"sine.inOut",{org2}}},{tm:.3f});')   # no head-tilt (miya 2026-10-26): stays upright, only slides and trembles
                     out.append(f'tl.to({ac},{{x:{-dirn * 3},rotation:0,duration:{dd:.2f},ease:"sine.inOut",{org2}}},{tm + dd:.3f});')
                     tm += 2 * dd
+        elif at == 'orbit':   # circles a black hole ring like a particle on its line, woozy (miya 2026-10-26): ellipse about act.c with radii act.rx/ry, frog start = its angle act.th0
+            import math
+            c = act.get('c', [d['x'], d['y']]); rx = float(act.get('rx', 160)); ry = float(act.get('ry', 50)); th0 = math.radians(float(act.get('th0', 90))); per = float(act.get('per', 3.4)); sd = 1
+            x0_ = rx * math.cos(th0); y0_ = ry * math.sin(th0); stp = .12; tt = a1
+            while tt < T - .02:
+                th = th0 + sd * 2 * math.pi * (tt + stp - a1) / per
+                gx = d['flip'] * (rx * math.cos(th) - x0_) / d['s']; gy = (ry * math.sin(th) - y0_) / d['s']; sc = 1 + .14 * math.sin(th)   # nearer (front of the ring) = a little bigger
+                out.append(f'tl.to("#{t}_tr",{{x:{gx:.1f},y:{gy:.1f},scaleX:{sc:.3f},scaleY:{sc:.3f},duration:{stp},ease:"none",svgOrigin:"0 0"}},{tt:.3f});'); tt += stp
+            out.append(f'tl.to({ac},{{rotation:9,duration:.45,yoyo:true,repeat:{max(int((T - a1) / .45), 1)},ease:"sine.inOut",{org2}}},{a1:.3f});')   # head-rolling wobble
+        elif at == 'dizzy':   # riding something that goes round and round (a particle on its line): head-rolling wobble, woozy face (miya 2026-10-26)
+            out.append(f'tl.to({ac},{{rotation:10,y:-3,duration:.5,yoyo:true,repeat:{max(int((T - a1) / .5), 1)},ease:"sine.inOut",{org2}}},{a1:.3f});')
         elif at == 'float':   # weightless drift
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{y:-9,rotation:{3 if k % 2 == 0 else -3},duration:1.4,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{y:3,rotation:{-3 if k % 2 == 0 else 3},duration:1.4,ease:"sine.inOut",{org2}}},{tm + 1.4:.3f});'); tm += 2.8; k += 1
