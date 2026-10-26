@@ -95,9 +95,9 @@ with sync_playwright() as p:
                 if m == prev and i: m = 'happy' if m != 'happy' else 'curious'
                 w = ' '.join(re.sub(r"[^\w']", '', t) for t in s.split()[:2]).strip()
                 moods.append({'mood': m} if i == 0 else {'word': w, 'mood': m}); prev = m
-            act = None; first = None
+            act = None; first = None; matched = False
             for nm, rx, md in ACTS:
-                if rx.search(text): act, first = nm, md; break
+                if rx.search(text): act, first = nm, md; matched = True; break
             if act is None: act, first = ('float' if SPACE.search(text) else 'cheer'), ('happy' if SPACE.search(text) else 'excited')
             if first: moods[0] = {'mood': first}
             if len(moods) > 1 and moods[1]['mood'] == first: moods[1]['mood'] = 'curious'
@@ -118,6 +118,10 @@ with sync_playwright() as p:
                 _, x, y, w, h = gs[pick]; s = round(min(1.5, max(.9, w / 170)), 2); cx = x + w / 2
                 keep.update(ride=pick, x=round(cx), y=round(max(y + 8 * s, 82 * s + 40)), s=s, flip=1 if cx < W / 2 else -1, kind='ride')
                 if keep.pop('cling', False): keep.update(x=round(x + w * .95), y=round(y + h - 12), s=round(min(1.2, max(.9, h / 200)), 2), flip=-1, act='wind')
+            elif not (act in STRONG or ACTIVE.search(text) or ROLL.search(text)):   # (a background frog needs a strong situation: pulled / wind / shivering / awe / running / rolled; waves, sleepy, cheer alone are not enough)
+                # meaning gate (miya 2026-10-26: "frogs that appear at the bottom for no reason"): a frog that rides nothing and has no situation to react to is left out
+                if 'frog' in d: d.pop('frog'); json.dump(d, open(fn, 'w'), ensure_ascii=False, indent=1)
+                print(slug, uid, 'skip (no situation)'); continue
             else:
                 n += 1   # roaming (miya 2026-10-26: the frog stayed in one bottom spot): small, travelling through the free part of the background
                 plat = [g for g in gs.values() if PLAT.search(g[0]) and g[3] >= 220 and g[4] <= H * .25 and g[2] > H * .25]
