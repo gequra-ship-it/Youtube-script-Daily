@@ -8,5 +8,29 @@
  "focus_word": "more slowly",
  "sfx": [],
  "labels": [],
- "motion": "rotor clock hands: plateau clock turns fast (3 s), valley clock crawls (60 s); both figures breathe"
+ "motion": "rotor clock hands: plateau clock turns fast (3 s), valley clock crawls (60 s); both figures breathe",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "x": 170,
+  "y": 1030,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

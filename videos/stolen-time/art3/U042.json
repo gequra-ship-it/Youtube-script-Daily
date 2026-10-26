@@ -14,5 +14,36 @@
   }
  ],
  "labels": [],
- "motion": "upper clock hands race, lower dim clock crawls; lower clock heartbeats"
+ "motion": "upper clock hands race, lower dim clock crawls; lower clock heartbeats",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "In 2010",
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    540
+   ]
+  },
+  "ride": "mv-core-ping-u042",
+  "x": 960,
+  "y": 540,
+  "s": 1.03,
+  "flip": -1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

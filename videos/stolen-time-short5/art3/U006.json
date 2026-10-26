@@ -26,5 +26,29 @@
    "word": "two-way street"
   }
  ],
- "motion": "flip on the sign, lane dashes march"
+ "motion": "flip on the sign, lane dashes march",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "x": 170,
+  "y": 1810,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

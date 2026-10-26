@@ -4,5 +4,32 @@
  "focus_word": null,
  "sfx": [],
  "labels": [],
- "motion": "fade: the 'moved past grief' and 'someone new' panels fade in in turn + candle flame"
+ "motion": "fade: the 'moved past grief' and 'someone new' panels fade in in turn + candle flame",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shiver",
+  "x": 910,
+  "y": 1810,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "outfit": [
+   "fore"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

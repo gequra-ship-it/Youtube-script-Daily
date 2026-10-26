@@ -22,5 +22,32 @@
    "word": "surroundings"
   }
  ],
- "spot": true
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    960
+   ]
+  },
+  "ride": "mv-core-glide-u022",
+  "x": 540,
+  "y": 648,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

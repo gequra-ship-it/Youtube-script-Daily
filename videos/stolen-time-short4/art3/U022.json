@@ -16,5 +16,32 @@
    "word": "heart"
   }
  ],
- "motion": "heart beats (core heartbeat) + thought sparks rise quickly (bubble) + pulse trace draws on (edge) + breathe"
+ "motion": "heart beats (core heartbeat) + thought sparks rise quickly (bubble) + pulse trace draws on (edge) + breathe",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    960
+   ]
+  },
+  "ride": "mv-core-heartbeat-u022",
+  "x": 540,
+  "y": 699,
+  "s": 1.18,
+  "flip": -1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

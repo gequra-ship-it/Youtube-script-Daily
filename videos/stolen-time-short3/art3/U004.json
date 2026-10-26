@@ -26,24 +26,34 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "dizzy"
    }
   ],
   "act": {
-   "type": "pull",
-   "to": [
-    540,
-    960
-   ]
+   "type": "orbit",
+   "c": [
+    549,
+    864
+   ],
+   "rx": 162,
+   "ry": 49,
+   "th0": -90
   },
   "outfit": [
    "helmet"
   ],
-  "ride": "mv-core-wobble-u004",
+  "ride": null,
   "x": 549,
-  "y": 750,
-  "s": 1.5,
+  "y": 815,
+  "s": 0.9,
   "flip": -1,
-  "kind": "ride"
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Whoa-oa-oa...",
+    "shout": false
+   }
+  ],
+  "bside": -1
  }
 }

@@ -32,5 +32,29 @@
   }
  ],
  "motion": "mv-rotor: satellite clock hands turn quickly, the ground clock turns slower (clocks race apart)",
- "track": false
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "x": 1750,
+  "y": 1030,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "run",
+   "dist": 288
+  },
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

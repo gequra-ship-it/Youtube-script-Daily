@@ -21,5 +21,40 @@
   }
  ],
  "motion": "mv-edge: the horizon line draws itself on; mv-beacon: the probe's light pulses",
- "track": false
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "orbit",
+   "c": [
+    1195,
+    500
+   ],
+   "rx": 250,
+   "ry": 250,
+   "th0": -90,
+   "depth": 0,
+   "per": 3.6
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "x": 1195,
+  "y": 258,
+  "s": 0.85,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "says": [
+   {
+    "text": "Whoa-oa-oa...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

@@ -16,5 +16,40 @@
    "word": "gently"
   }
  ],
- "spot": true
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "The tidal",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    569,
+    864
+   ],
+   "vanish": true
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-core-swell-u018",
+  "x": 569,
+  "y": 750,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

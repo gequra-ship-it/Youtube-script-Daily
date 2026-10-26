@@ -22,5 +22,33 @@
    "word": "black hole"
   }
  ],
- "motion": "swell on the slowed clock, slow hour/minute rotors vs fast rotor on the small clock, black hole flicker"
+ "motion": "swell on the slowed clock, slow hour/minute rotors vs fast rotor on the small clock, black hole flicker",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    1293
+   ],
+   "vanish": true
+  },
+  "ride": "mv-core-swell-a",
+  "x": 540,
+  "y": 721,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

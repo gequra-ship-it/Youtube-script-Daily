@@ -26,28 +26,34 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
-   },
-   {
-    "word": "Your slowed",
-    "mood": "curious"
+    "mood": "dizzy"
    }
   ],
   "act": {
-   "type": "pull",
-   "to": [
+   "type": "orbit",
+   "c": [
     540,
-    960
-   ]
+    860
+   ],
+   "rx": 310,
+   "ry": 93,
+   "th0": -90
   },
   "outfit": [
    "helmet"
   ],
-  "ride": "mv-path-planet-u003",
-  "x": 144,
-  "y": 811,
+  "ride": null,
+  "x": 540,
+  "y": 767,
   "s": 0.9,
   "flip": 1,
-  "kind": "ride"
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Whoa-oa-oa...",
+    "shout": false
+   }
+  ],
+  "bside": -1
  }
 }

@@ -32,5 +32,34 @@
    "word": "Sun"
   }
  ],
- "motion": "mv-liquid: the sea rises a little up the tide pole (only a few meters)"
+ "motion": "mv-liquid: the sea rises a little up the tide pole (only a few meters)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "x": 1750,
+  "y": 370,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "lie",
+   "dist": 461
+  },
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

@@ -25,5 +25,33 @@
    ]
   }
  ],
- "motion": "breathe (seated astronaut) + steam rising from the opened ration pack"
+ "motion": "breathe (seated astronaut) + steam rising from the opened ration pack",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "Suppose you",
+    "mood": "curious"
+   }
+  ],
+  "act": "wind",
+  "x": 1750,
+  "y": 1030,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

@@ -34,18 +34,34 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "dizzy"
    }
   ],
-  "act": "wind",
+  "act": {
+   "type": "orbit",
+   "c": [
+    960,
+    500
+   ],
+   "rx": 186,
+   "ry": 56,
+   "th0": -90
+  },
   "outfit": [
    "helmet"
   ],
-  "ride": "mv-core-swell-hatch-u115",
+  "ride": null,
   "x": 960,
-  "y": 362,
-  "s": 1.5,
+  "y": 444,
+  "s": 0.83,
   "flip": -1,
-  "kind": "ride"
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Whoa-oa-oa...",
+    "shout": false
+   }
+  ],
+  "bside": -1
  }
 }

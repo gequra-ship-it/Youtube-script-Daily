@@ -20,5 +20,37 @@
    "word": "hundred million Suns"
   }
  ],
- "motion": "swell on the black hole, suns drift up"
+ "motion": "swell on the black hole, suns drift up",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "It takes",
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    860
+   ],
+   "vanish": true
+  },
+  "ride": "mv-core-swell-bh",
+  "x": 540,
+  "y": 620,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

@@ -20,5 +20,36 @@
    "word": "ISCO"
   }
  ],
- "motion": "mv-swing: the balance pole sways like a damped pendulum about the planet"
+ "motion": "mv-swing: the balance pole sways like a damped pendulum about the planet",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "The planet",
+    "mood": "happy"
+   }
+  ],
+  "act": "wind",
+  "outfit": [
+   "helmet"
+  ],
+  "x": 1750,
+  "y": 1030,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "moonhop",
+   "dist": 288
+  },
+  "says": [
+   {
+    "text": "Boing!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

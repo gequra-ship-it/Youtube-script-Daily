@@ -22,5 +22,36 @@
    "word": "supermassive black hole"
   }
  ],
- "motion": "path (lander descends toward the black hole) + fade (year leaves appear along the route)"
+ "motion": "path (lander descends toward the black hole) + fade (year leaves appear along the route)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "You could",
+    "mood": "worried"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    540
+   ]
+  },
+  "ride": "mv-path-descend-u113",
+  "x": 260,
+  "y": 131,
+  "s": 0.99,
+  "flip": 1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

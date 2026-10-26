@@ -22,5 +22,36 @@
    "word": "supermassive black hole"
   }
  ],
- "motion": "path (sink): lander descends along the route into the black hole + year pages drift up"
+ "motion": "path (sink): lander descends along the route into the black hole + year pages drift up",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "You could",
+    "mood": "worried"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    960
+   ]
+  },
+  "ride": "mv-path-sink-lander-u008",
+  "x": 300,
+  "y": 374,
+  "s": 0.92,
+  "flip": 1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

@@ -34,5 +34,32 @@
    "word": "climb"
   }
  ],
- "spot": true
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": null,
+  "outfit": [
+   "helmet"
+  ],
+  "x": 170,
+  "y": 1380,
+  "s": 1.21,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "tumble",
+   "dist": 302
+  },
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

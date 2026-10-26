@@ -9,5 +9,29 @@
   700
  ],
  "track": false,
- "motion": "path (lander climbs along the dotted route to the mothership)"
+ "motion": "path (lander climbs along the dotted route to the mothership)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-path-lander-u002",
+  "x": 610,
+  "y": 632,
+  "s": 1.2,
+  "flip": 1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

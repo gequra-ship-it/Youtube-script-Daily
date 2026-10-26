@@ -23,5 +23,29 @@
   }
  ],
  "motion": "path (apple falls to the grass) + rotor (second hand keeps sweeping)",
- "track": false
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": "awe",
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-core-approach-u026",
+  "x": 1380,
+  "y": 238,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "Woooow!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

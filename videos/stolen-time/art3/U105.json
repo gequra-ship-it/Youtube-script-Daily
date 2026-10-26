@@ -22,5 +22,32 @@
    "word": "time machine"
   }
  ],
- "motion": "rotor (slow clock vs racing clock), scroll (stream of stars sweeps away), breathe astronaut"
+ "motion": "rotor (slow clock vs racing clock), scroll (stream of stars sweeps away), breathe astronaut",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": null,
+  "outfit": [
+   "helmet"
+  ],
+  "x": 170,
+  "y": 170,
+  "s": 0.85,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "swim",
+   "dist": 461
+  },
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

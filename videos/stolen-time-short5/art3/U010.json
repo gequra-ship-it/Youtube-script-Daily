@@ -27,5 +27,29 @@
    "word": "time-warp zone"
   }
  ],
- "motion": "path: lander flies up to the docking port (camera tracks)"
+ "motion": "path: lander flies up to the docking port (camera tracks)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-path-dock-u010",
+  "x": 400,
+  "y": 966,
+  "s": 0.9,
+  "flip": 1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

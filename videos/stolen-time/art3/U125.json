@@ -14,5 +14,37 @@
    "word": "hundred million Suns"
   }
  ],
- "motion": "approach (the giant looms closer) + fade (the swarm of suns fills in)"
+ "motion": "approach (the giant looms closer) + fade (the swarm of suns fills in)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "It takes",
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    1330,
+    520
+   ],
+   "vanish": true
+  },
+  "ride": "mv-core-approach-bh-u125",
+  "x": 1330,
+  "y": 163,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "ride",
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

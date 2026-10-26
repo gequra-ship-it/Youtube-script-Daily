@@ -22,10 +22,21 @@
    }
   ],
   "act": "shiver",
-  "x": 150,
-  "y": 1770,
-  "s": 1.7,
+  "x": 170,
+  "y": 1810,
+  "s": 1.16,
   "flip": 1,
-  "kind": "bg"
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "bside": 1
  }
 }

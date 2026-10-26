@@ -16,5 +16,29 @@
    "word": "sixty-seven thousand times"
   }
  ],
- "motion": "ticks (data tiles pile onto the screen), scroll side screen, rotor clock"
+ "motion": "ticks (data tiles pile onto the screen), scroll side screen, rotor clock",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "x": 170,
+  "y": 1030,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

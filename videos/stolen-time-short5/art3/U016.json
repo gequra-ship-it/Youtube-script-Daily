@@ -26,5 +26,29 @@
    "word": "faint signal"
   }
  ],
- "motion": "dash: the faint signal wave flows toward the lander + beacon pulse on the blip + breathe/nod"
+ "motion": "dash: the faint signal wave flows toward the lander + beacon pulse on the blip + breathe/nod",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "x": 910,
+  "y": 1810,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

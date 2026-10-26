@@ -14,5 +14,24 @@
   }
  ],
  "labels": [],
- "motion": "rotor (second hand) + joint (pendulum swings steadily) + steam (tea)"
+ "motion": "rotor (second hand) + joint (pendulum swings steadily) + steam (tea)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": "sleepy",
+  "x": 170,
+  "y": 1030,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "says": [],
+  "bside": 1
+ }
 }
