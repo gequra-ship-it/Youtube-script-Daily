@@ -30,14 +30,14 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "happy"
    },
    {
     "word": "But on",
     "mood": "curious"
    }
   ],
-  "act": "cheer",
+  "act": "look",
   "outfit": [
    "diver"
   ],
@@ -47,7 +47,12 @@
   "s": 1.5,
   "flip": -1,
   "kind": "ride",
-  "says": [],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": false
+   }
+  ],
   "bside": -1
  }
 }

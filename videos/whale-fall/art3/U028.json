@@ -23,21 +23,26 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "happy"
    },
    {
     "word": "Hagfish can",
     "mood": "curious"
    }
   ],
-  "act": "cheer",
+  "act": "look",
   "ride": "mv-core-heartbeat-lens",
   "x": 1220,
   "y": 322,
   "s": 1.5,
   "flip": -1,
   "kind": "ride",
-  "says": [],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": false
+   }
+  ],
   "bside": -1
  }
 }

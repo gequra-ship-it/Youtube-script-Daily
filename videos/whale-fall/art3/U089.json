@@ -29,23 +29,28 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "happy"
    }
   ],
   "act": null,
   "outfit": [
    "goggles"
   ],
-  "x": 1750,
-  "y": 290,
-  "s": 0.81,
-  "flip": -1,
+  "x": 170,
+  "y": 610,
+  "s": 0.85,
+  "flip": 1,
   "kind": "bg",
   "roam": {
-   "kind": "lie",
+   "kind": "swim",
    "dist": 461
   },
-  "says": [],
-  "bside": -1
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": false
+   }
+  ],
+  "bside": 1
  }
 }

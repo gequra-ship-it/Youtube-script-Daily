@@ -25,5 +25,39 @@
    ]
   }
  ],
- "motion": "bubble (gas escaping)"
+ "motion": "bubble (gas escaping)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "Once those",
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "slide",
+   "to": [
+    960,
+    670
+   ]
+  },
+  "outfit": [
+   "diver"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "x": 384,
+  "y": 454,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

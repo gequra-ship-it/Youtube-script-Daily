@@ -25,20 +25,31 @@
    },
    {
     "word": "Marine biologists",
-    "mood": "happy"
+    "mood": "scared"
    }
   ],
-  "act": "waves",
+  "act": {
+   "type": "slide",
+   "to": [
+    540,
+    1190
+   ]
+  },
   "outfit": [
    "diver"
   ],
-  "ride": "mv-path-sink",
-  "x": 1112,
-  "y": 237,
-  "s": 1.5,
+  "kind": "bg",
+  "ride": null,
+  "x": 918,
+  "y": 998,
+  "s": 1.15,
   "flip": -1,
-  "kind": "ride",
-  "says": [],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
   "bside": -1
  }
 }
