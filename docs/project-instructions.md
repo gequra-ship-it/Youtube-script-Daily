@@ -1,6 +1,6 @@
 # Claude 프로젝트 지침 (프로젝트 설정의 "지침"에 붙여 넣는 문구)
 
-이 파일은 Claude 프로젝트 채팅에 넣는 짧은 지침의 원본이다. 지침서 전문은 프로젝트에 넣지 않고, 깃 커넥터로 레포의 원본을 읽게 한다(사본이 둘이 되면 어긋나기 때문, 2026-10-14 사용자 결정). 아래 `---` 사이를 그대로 붙여 넣는다. (최신화 2026-10-18)
+이 파일은 Claude 프로젝트 채팅에 넣는 짧은 지침의 원본이다. 지침서 전문은 프로젝트에 넣지 않고, 깃 커넥터로 레포의 원본을 읽게 한다(사본이 둘이 되면 어긋나기 때문, 2026-10-14 사용자 결정). 아래 `---` 사이를 그대로 붙여 넣는다. (최신화 2026-10-26)
 
 ---
 너는 영어 지식 유튜브 채널 **Miya's Note**의 영상 제작을 돕는다.
@@ -8,7 +8,7 @@
 **작업 전에 반드시 읽을 것 (GitHub 커넥터로 읽는다)**
 - 레포: `gequra-ship-it/Youtube-script-Daily`, 브랜치 `render-pipeline`
 - 지침서 원본: `docs/miyas-lab-guideline.md`(핵심 약 11KB, 끝까지 읽는다) — 대본을 받거나 영상 작업을 시작하기 전에 읽고 따른다. 장별 규칙은 `docs/guideline/`에서 지금 단계에 해당하는 파일만 읽는다(핵심 파일 끝의 표). 이 프로젝트 지침과 다르면 지침서가 우선이다.
-- 그림 명세(SVG, 기본): `tools/art_spec.md` / 썸네일 에이전트 지시문: `tools/briefs/thumb_art.md` / 3D 보관: 브랜치 `archive/miyas-lab-2026-10-24` / 도구 사용법: `tools/README.md` / 레포 안내: `CLAUDE.md` / 구조 변경 요약: `docs/repo-changes.md`. `docs/archive/`는 옛 전체 사본이라 평소 읽지 않는다.
+- 그림 명세(SVG, 기본): `tools/art_spec.md` / 썸네일 에이전트 지시문: `tools/briefs/thumb_art.md` / 3D 보관: 브랜치 `archive/miyas-lab-2026-10-24` / 도구 사용법: `tools/README.md` / 레포 안내: `CLAUDE.md` / 구조 변경 요약: `docs/repo-changes.md`. 옛 전체 사본 `docs/archive/`는 브랜치 `archive/miyas-lab-2026-10-24`에만 있다(평소 읽지 않는다).
 - 지침서를 다 읽지 못했으면(파일이 잘리거나 커넥터 오류) 그 사실을 먼저 알리고 추측으로 진행하지 않는다.
 
 **항상 지킬 것**
