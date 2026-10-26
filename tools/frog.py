@@ -261,15 +261,15 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
                 vd = float(vz) if not isinstance(vz, bool) else 2.2; tv = max(T - vd, a1 + .5)
                 gx = (tg[0] - d['x']) / d['s']; gy = (tg[1] - d['y']) / d['s']
                 out.append(f'tl.to("#{t}_tr",{{x:{gx:.1f},y:{gy:.1f},duration:{T - tv:.3f},ease:"power2.in"}},{tv:.3f});')
-                out.append(f'tl.to("#{t}_rm",{{rotation:{dirn * 540},scaleX:.04,scaleY:.04,duration:{T - tv:.3f},ease:"power2.in",svgOrigin:"0 -30"}},{tv:.3f});')
+                out.append(f'tl.to("#{t}_rm",{{rotation:{dirn * 360},scaleX:.04,scaleY:.04,duration:{T - tv:.3f},ease:"power2.in",svgOrigin:"0 -30"}},{tv:.3f});')
                 out.append(f'tl.to("#{t}_in",{{opacity:0,duration:.35,ease:"none"}},{T - .35:.3f});')
             te = (tv if vz else T) - .1
             if te > a1 + .4:   # soft lean in and out (no snapping) with a continuous fine tremble (miya 2026-10-26: trembling good, the stutter not)
                 out.append(f'tl.to({ac},{{y:-2.2,duration:.1,yoyo:true,repeat:{int((te - a1) / .1)},ease:"sine.inOut"}},{a1:.3f});')
                 while tm < te - .3:
                     dd = min(1.0, (te - tm) / 2)
-                    out.append(f'tl.to({ac},{{x:{dirn * 22},rotation:{dirn * 14},scaleX:1.05,duration:{dd:.2f},ease:"sine.inOut",{org2}}},{tm:.3f});')
-                    out.append(f'tl.to({ac},{{x:{-dirn * 4},rotation:{-dirn * 5},scaleX:1,duration:{dd:.2f},ease:"sine.inOut",{org2}}},{tm + dd:.3f});')
+                    out.append(f'tl.to({ac},{{x:{dirn * 14},rotation:{dirn * 2},duration:{dd:.2f},ease:"sine.inOut",{org2}}},{tm:.3f});')   # no head-tilt (miya 2026-10-26): stays upright, only slides and trembles
+                    out.append(f'tl.to({ac},{{x:{-dirn * 3},rotation:0,duration:{dd:.2f},ease:"sine.inOut",{org2}}},{tm + dd:.3f});')
                     tm += 2 * dd
         elif at == 'float':   # weightless drift
             while tm < T - .2:
