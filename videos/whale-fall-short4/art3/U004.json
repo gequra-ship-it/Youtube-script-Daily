@@ -11,22 +11,27 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "look",
-  "ride": "mv-core-heartbeat-fat",
-  "x": 960,
-  "y": 322,
-  "s": 1.5,
+  "act": "peek",
+  "outfit": [
+   "diver"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 780,
+  "y": 710,
+  "s": 1.2,
   "flip": -1,
-  "kind": "ride",
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-heartbeat-fat",
   "says": [
    {
-    "text": "Ooh!",
-    "shout": false
+    "text": "Peek-a-boo!",
+    "shout": true
    }
-  ],
-  "bside": -1
+  ]
  }
 }

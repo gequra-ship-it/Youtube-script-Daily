@@ -26,31 +26,25 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "sad"
    }
   ],
-  "act": {
-   "type": "slide",
-   "to": [
-    540,
-    1190
-   ]
-  },
+  "act": "cry",
   "outfit": [
    "diver"
   ],
-  "kind": "bg",
-  "ride": null,
-  "x": 162,
-  "y": 998,
-  "s": 1.15,
-  "flip": 1,
+  "ride": "mv-path-sink-U016",
+  "kind": "ride",
+  "x": 1303,
+  "y": 256,
+  "s": 1.0,
+  "flip": -1,
   "says": [
    {
-    "text": "Wheee!",
-    "shout": true
+    "text": "Let me see...",
+    "shout": false
    }
   ],
-  "bside": 1
+  "bside": -1
  }
 }

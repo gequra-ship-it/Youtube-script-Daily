@@ -19,22 +19,26 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "excited"
    }
   ],
-  "act": "nod",
+  "act": "dance",
+  "outfit": [
+   "diver"
+  ],
   "ride": "mv-core-approach-isopod",
-  "x": 904,
-  "y": 542,
-  "s": 1.5,
-  "flip": -1,
   "kind": "ride",
+  "x": 539,
+  "y": 776,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Mm-hm!",
+    "text": "La la la~",
     "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

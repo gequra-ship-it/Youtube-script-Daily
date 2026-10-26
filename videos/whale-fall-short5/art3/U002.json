@@ -29,7 +29,7 @@
  "frog": {
   "moods": [
    {
-    "mood": "sleepy"
+    "mood": "sad"
    },
    {
     "word": "Eventually the",
@@ -40,19 +40,18 @@
     "mood": "happy"
    }
   ],
-  "act": "sleepy",
-  "x": 910,
-  "y": 1810,
-  "s": 0.95,
+  "act": "cry",
+  "outfit": [
+   "diver"
+  ],
+  "x": 820,
+  "y": 1560,
+  "s": 1.0,
   "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "run",
-   "dist": 540
-  },
   "says": [
    {
-    "text": "Hop hop!",
+    "text": "Bones!",
     "shout": false
    }
   ],

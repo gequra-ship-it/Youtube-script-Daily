@@ -7,20 +7,32 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "scared"
    }
   ],
-  "act": "waves",
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    500
+   ],
+   "vanish": true
+  },
   "outfit": [
    "diver"
   ],
-  "ride": "mv-core-swell-oasis",
-  "x": 960,
-  "y": 303,
-  "s": 1.5,
-  "flip": -1,
-  "kind": "ride",
-  "says": [],
-  "bside": -1
+  "ride": null,
+  "kind": "bg",
+  "x": 418,
+  "y": 521,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "Nooo!",
+    "shout": true
+   }
+  ],
+  "bside": 1
  }
 }
