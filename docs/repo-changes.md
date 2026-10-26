@@ -77,3 +77,4 @@
 - 2026-10-26 (4차 추가, miya): 표정 20종 추가(`tools/frog.py` `MOODS` 34종, `face_js`, 별 눈 `_st`·이 `_th` 부품), 선택 규칙 `tools/frog_place.py` `MOODW`·`RIDE_MOOD`·`PAL_MOOD`·`PLAYFUL`. 지침서 7-2 F-0.
 - 2026-10-26 (miya): 내레이션 목소리를 `af_heart` → `am_michael`(원래 남성)로 되돌림: `tools/tts.sh`, `gen_text.py`, `tools/README.md`, 지침서 9·14장, `tools/assets/outro.wav` 재생성. 10-24~26에 만든 4편은 af_heart 그대로. 아웃트로 음성 약 6.4초(전 5.9초, `build3.py` 주석 갱신). 레포 전체 점검: `tools/README.md`에 빠진 도구 6개(tts_text·svgshot·mvcheck·motion_preview·hookscore·pivots) 추가, `docs/project-instructions.md`의 `docs/archive/` 안내 갱신. 지운 파일 없음.
 - 2026-10-26: `tools/build3.py`가 `motions`를 쓰기 전에 import하지 않아(4차 보강의 배경 효과 `motions.fx_for`) 빌드가 NameError로 멈추던 것을 맨 위 import로 고침.
+- 2026-10-27: `frog_place.py` 크래시 수정(dict act를 `ACT_MOOD2`에 `in`으로 비교하면 unhashable, 문자열일 때만 비교).

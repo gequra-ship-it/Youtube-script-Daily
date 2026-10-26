@@ -435,7 +435,7 @@ with sync_playwright() as p:
             elif weak and rk and POPG.search(rk): keep['act'] = 'startle'
             elif weak and rk and PULSEG.search(rk) and cur in CALM: keep['act'] = 'bounce'
             elif weak and rk and TRAVELG.search(rk) and cur in CALM and n % 2 == 0: keep['act'] = 'lean'   # every other ride on a traveller leans back; the others keep their calm act (variety)
-            if keep.get('act') in ('scope', 'hide', 'tap', 'rest', 'wave', 'peek', 'hang', 'cry', 'facepalm', 'idea', 'dig', 'magnify', 'read', 'photo', 'eat', 'dance', 'clap', 'salute', 'think', 'sneeze', 'snooze') or keep.get('act') in ACT_MOOD2: keep.pop('roam', None)   # these are done in place, not while roaming
+            if keep.get('act') in ('scope', 'hide', 'tap', 'rest', 'wave', 'peek', 'hang', 'cry', 'facepalm', 'idea', 'dig', 'magnify', 'read', 'photo', 'eat', 'dance', 'clap', 'salute', 'think', 'sneeze', 'snooze') or (isinstance(keep.get('act'), str) and keep.get('act') in ACT_MOOD2): keep.pop('roam', None)   # these are done in place, not while roaming
             # outfits by scene words (not over diving gear / helmet / fore)
             if not keep.get('outfit'):
                 if LABW.search(text): keep['outfit'] = ['lab']
