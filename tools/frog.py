@@ -308,9 +308,26 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         elif at == 'fly':     # Superman pose (miya 2026-10-26): body turned prone toward its facing side, one arm stretched ahead, gentle bob; for a frog that carries / pulls something through the picture (the footboard under a flying figure)
             out.append(f'tl.to({ac},{{rotation:90,duration:.5,ease:"power2.out",svgOrigin:"0 -40"}},{a1:.3f});tl.to("#{t}_ra",{{rotation:-165,duration:.4,ease:"power2.out",svgOrigin:"34 -22"}},{a1:.3f});')
             out.append(f'tl.to({ac},{{y:-7,duration:1.1,yoyo:true,repeat:{max(int((T - a1) / 1.1), 1)},ease:"sine.inOut"}},{a1 + .5:.3f});')
+        elif at == 'tilt':    # curious head tilt, held, then back (miya 2026-10-26: not hopping on every object)
+            while tm < T - .3:
+                sg = 1 if k % 2 == 0 else -1
+                out.append(f'tl.to({ac},{{rotation:{9 * sg},x:{2 * sg},duration:.9,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{rotation:{9 * sg},duration:1.2}},{tm + .9:.3f});tl.to({ac},{{rotation:0,x:0,duration:.9,ease:"sine.inOut",{org2}}},{tm + 2.1:.3f});'); tm += 3.4; k += 1
+        elif at == 'sway':    # calm side-to-side lean, like listening to a tune
+            while tm < T - .2:
+                out.append(f'tl.to({ac},{{rotation:{3 if k % 2 == 0 else -3},x:{3 if k % 2 == 0 else -3},duration:1.5,ease:"sine.inOut",{org2}}},{tm:.3f});'); tm += 1.5; k += 1
+        elif at == 'look':    # glances around: pupils slide left and right, head turns a little
+            while tm < T - .3:
+                for dx, rot, dt in ((-4, -4, 0), (4, 4, 1.1), (0, 0, 2.2)):
+                    out.append(f'tl.to("#{t}_pl",{{attr:{{cx:{-8 + dx}}},duration:.25}},{tm + dt:.3f});tl.to("#{t}_pr",{{attr:{{cx:{24 + dx}}},duration:.25}},{tm + dt:.3f});tl.to({ac},{{rotation:{rot},duration:.5,ease:"sine.inOut",{org2}}},{tm + dt:.3f});')
+                tm += 3.0
+        elif at == 'nod':     # agreeing / explaining: two soft nods, then rest
+            while tm < T - .3:
+                out.append(f'tl.to({ac},{{y:4,rotation:2,duration:.35,yoyo:true,repeat:3,ease:"sine.inOut",{org2}}},{tm:.3f});'); tm += 3.2
+        elif at == 'breathe': # calm, slow breathing, no travel
+            out.append(f'tl.to({ac},{{scaleY:1.035,duration:1.8,yoyo:true,repeat:{max(int((T - a1) / 1.8), 1)},ease:"sine.inOut",svgOrigin:"0 0"}},{a1:.3f});')
         elif at == 'float':   # weightless drift
             while tm < T - .2:
-                out.append(f'tl.to({ac},{{y:-9,rotation:{3 if k % 2 == 0 else -3},duration:1.4,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{y:3,rotation:{-3 if k % 2 == 0 else 3},duration:1.4,ease:"sine.inOut",{org2}}},{tm + 1.4:.3f});'); tm += 2.8; k += 1
+                out.append(f'tl.to({ac},{{y:-5,rotation:{2 if k % 2 == 0 else -2},duration:2.0,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{y:2,rotation:{-2 if k % 2 == 0 else 2},duration:2.0,ease:"sine.inOut",{org2}}},{tm + 2.0:.3f});'); tm += 4.0; k += 1   # slow soft drift (miya 2026-10-26: the 1.4 s bobbing looked like meaningless jumping)
         elif at == 'waves':   # riding / bracing against the swell
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{y:-14,rotation:{dirn * 7},duration:1.0,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{y:4,rotation:{-dirn * 6},duration:1.0,ease:"sine.inOut",{org2}}},{tm + 1.0:.3f});'); tm += 2.0
@@ -367,7 +384,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
                 out.append(f'tl.to({ac},{{y:-22,duration:.18,ease:"power2.out"}},{te + .3:.3f});tl.to({ac},{{y:0,duration:.3,ease:"bounce.out"}},{te + .48:.3f});')
         elif at == 'cheer':   # happy hops with a little arm-free wiggle
             while tm < T - .2:
-                out.append(f'tl.to({ac},{{y:-26,rotation:{6 if k % 2 == 0 else -6},duration:.28,ease:"power2.out",{org2}}},{tm:.3f});tl.to({ac},{{y:0,rotation:0,duration:.3,ease:"bounce.out",{org2}}},{tm + .28:.3f});'); tm += 1.1; k += 1
+                out.append(f'tl.to({ac},{{y:-16,rotation:{5 if k % 2 == 0 else -5},duration:.3,ease:"power2.out",{org2}}},{tm:.3f});tl.to({ac},{{y:0,rotation:0,duration:.35,ease:"bounce.out",{org2}}},{tm + .3:.3f});'); tm += 2.4; k += 1   # fewer, lower hops: only for a real cheer
         elif at == 'sleepy':  # slow time: heavy slow sway, drooping
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{rotation:5,y:3,duration:2.2,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{rotation:-4,y:0,duration:2.2,ease:"sine.inOut",{org2}}},{tm + 2.2:.3f});'); tm += 4.4

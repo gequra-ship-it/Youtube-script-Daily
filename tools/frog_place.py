@@ -36,7 +36,7 @@ def free_band(pg, W, H, vert, n):
         band = e[max(0, (yc - 80) // 8):(yc + 80) // 8, 10:-10].mean() + .002 * abs(yc - (lo + hi) / 2) * (n % 2)   # mild variety between units
         if best is None or band < best[0]: best = (band, yc)
     return best[1]
-SAYS = {'orbit': 'Whoa-oa-oa...', 'dizzy': 'Wooo-ooo...', 'pull': 'AAAAAH!', 'wind': 'Whooosh!', 'waves': 'Whoa-oa!', 'shiver': 'Brrrr...', 'awe': 'Woooow!', 'sleepy': 'Zzz...', 'cheer': 'Yay!', 'float': 'Wheee!'}
+SAYS = {'orbit': 'Whoa-oa-oa...', 'dizzy': 'Wooo-ooo...', 'pull': 'AAAAAH!', 'wind': 'Whooosh!', 'waves': 'Whoa-oa!', 'shiver': 'Brrrr...', 'awe': 'Woooow!', 'sleepy': 'Zzz...', 'cheer': 'Yay!', 'nod': None, 'tilt': 'Hmm?', 'look': None, 'sway': None, 'breathe': None, 'float': 'Wheee!'}
 STRONG = ('pull', 'shiver', 'awe', 'wind', 'orbit', 'dizzy')   # always get a sound word; the other acts every second unit (miya 2026-10-26: speech bubble with emotion / sound words)
 def says_for(act, keep, text, cnt):
     nm = act.get('type') if isinstance(act, dict) else act
@@ -98,7 +98,15 @@ with sync_playwright() as p:
             act = None; first = None; matched = False
             for nm, rx, md in ACTS:
                 if rx.search(text): act, first = nm, md; matched = True; break
-            if act is None: act, first = ('float' if SPACE.search(text) else 'cheer'), ('happy' if SPACE.search(text) else 'excited')
+            if act is None:   # no situation word: a calm, varied reaction picked from the first sentence's mood, never a hop on every object (miya 2026-10-26)
+                m0 = moods[0]['mood']; cyc = ('sway', 'nod', 'look', 'tilt', 'breathe'); cnt_calm = globals().setdefault('cnt_calm', 0); globals()['cnt_calm'] = cnt_calm + 1
+                act = {'curious': 'tilt', 'surprised': 'look', 'worried': 'sway'}.get(m0) or cyc[cnt_calm % len(cyc)]
+                if SPACE.search(text) and cnt_calm % 3 == 0: act = 'float'
+                first = None if act != 'float' else 'happy'
+            elif act == 'cheer':   # a real cheer word: only every second one hops, the others nod
+                cnt_ch = globals().setdefault('cnt_cheer', 0); globals()['cnt_cheer'] = cnt_ch + 1
+                if cnt_ch % 2: act = 'nod'
+
             if first: moods[0] = {'mood': first}
             if len(moods) > 1 and moods[1]['mood'] == first: moods[1]['mood'] = 'curious'
             keep = {'moods': moods, 'act': act}
