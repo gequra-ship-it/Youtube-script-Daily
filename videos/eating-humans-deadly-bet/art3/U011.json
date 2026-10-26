@@ -41,17 +41,22 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "surprised"
    }
   ],
-  "act": null,
+  "act": "look",
   "ride": "mv-path-report",
   "x": 748,
   "y": 464,
   "s": 0.9,
   "flip": 1,
   "kind": "ride",
-  "says": [],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": false
+   }
+  ],
   "bside": 1
  }
 }
