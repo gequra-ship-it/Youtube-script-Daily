@@ -153,7 +153,7 @@ def lint(d, vert=False):
     if d.get('point') or d.get('points'): w.append('points in a picture scene (the explainer is chalkboard only)')
     if d.get('ride'):
         if not RIDEABLE.match(d['ride']): w.append(f'rides {d["ride"]}, a motion that flips/fades/fills/clips (pick a core swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble, path, slide or swing group)')
-    elif not d.get('roam') and not (isinstance(d.get('act'), dict) and d['act'].get('type') == 'orbit') and d['y'] < (1920 - 200 if vert else 1080 - 100): w.append('stands mid-picture (use "ride" or a bottom corner: python3 tools/frog_place.py <slug>)')
+    elif not d.get('roam') and not (isinstance(d.get('act'), dict) and d['act'].get('type') in ('orbit', 'slide')) and d['y'] < (1920 - 200 if vert else 1080 - 100): w.append('stands mid-picture (use "ride" or a bottom corner: python3 tools/frog_place.py <slug>)')
     return w
 
 
@@ -325,6 +325,11 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
                 out.append(f'tl.to({ac},{{y:4,rotation:2,duration:.35,yoyo:true,repeat:3,ease:"sine.inOut",{org2}}},{tm:.3f});'); tm += 3.2
         elif at == 'breathe': # calm, slow breathing, no travel
             out.append(f'tl.to({ac},{{scaleY:1.035,duration:1.8,yoyo:true,repeat:{max(int((T - a1) / 1.8), 1)},ease:"sine.inOut",svgOrigin:"0 0"}},{a1:.3f});')
+        elif at == 'slide':   # gravity pit (miya 2026-10-26): slides down the slope of a warped sheet / well to the bottom, leaning into it, then settles with a small dizzy wobble
+            gx = d['flip'] * (tg[0] - d['x']) / d['s']; gy = (tg[1] - d['y']) / d['s']; D = max(min(T - a1 - .8, 3.4), .8)
+            out.append(f'tl.to("#{t}_tr",{{x:{gx:.1f},duration:{D:.2f},ease:"power1.in"}},{a1:.3f});tl.to("#{t}_tr",{{y:{gy:.1f},duration:{D:.2f},ease:"sine.inOut"}},{a1:.3f});')
+            out.append(f'tl.to({ac},{{rotation:{-dirn * 14},duration:{D:.2f},ease:"power1.in",{org2}}},{a1:.3f});tl.to({ac},{{rotation:0,duration:.5,ease:"back.out(2)",{org2}}},{a1 + D:.3f});')
+            out.append(f'tl.to({ac},{{rotation:5,duration:.45,yoyo:true,repeat:{max(int((T - a1 - D) / .45), 1)},ease:"sine.inOut",{org2}}},{a1 + D + .5:.3f});')
         elif at == 'float':   # weightless drift
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{y:-5,rotation:{2 if k % 2 == 0 else -2},duration:2.0,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{y:2,rotation:{-2 if k % 2 == 0 else 2},duration:2.0,ease:"sine.inOut",{org2}}},{tm + 2.0:.3f});'); tm += 4.0; k += 1   # slow soft drift (miya 2026-10-26: the 1.4 s bobbing looked like meaningless jumping)
