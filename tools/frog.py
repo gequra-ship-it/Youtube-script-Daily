@@ -53,16 +53,18 @@ def outfit_markup(t, names):
               '<path d="M-35 -16 q-1 -20 6 -26 q36 8 72 0 q4 8 4 28 q0 10 -6 12 q-36 6 -70 -4z" fill="#24465e" stroke-width="3.6"/><path d="M-33 -22 q35 7 72 0" fill="none" stroke="#e8b838" stroke-width="3.2"/>'
               '<path d="M40 -66 q12 -12 8 -46" fill="none" stroke="#e0b84a" stroke-width="6"/>'
               '<rect x="-27" y="-84" width="68" height="34" rx="14" fill="#9fd8ff" fill-opacity=".35" stroke-width="4.2"/><path d="M-27 -66 q-14 0 -16 8 M41 -66 q10 0 12 8" fill="none" stroke="#e0b84a" stroke-width="5"/>')
-    if 'fore' in names:      # (miya 2026-10-26) Fore highlands outfit, simple and respectful: woven leaf waist-wrap, red-and-orange string bag (bilum) on a shoulder strap, feather headband
-        o += ('<path d="M-36 -22 q36 14 74 0 l-3 4 q-34 12 -68 0z" fill="#7a5a30" stroke-width="3"/>'
+    if 'fore' in names or 'fore_steps' in names:   # (miya 2026-10-26) Fore highlands outfit, simple and respectful, three parts so a scene can add them one by one (fore_steps: all hidden, act 'huts' shows them)
+        op = ' opacity="0"' if 'fore_steps' in names else ''
+        o += (f'<g id="{t}_ob"{op}><path d="M-36 -22 q36 14 74 0 l-3 4 q-34 12 -68 0z" fill="#7a5a30" stroke-width="3"/>'
               + ''.join(f'<path d="M{-33 + k * 7.6:.1f} -14 q-1 14 {-1 + (k % 3)} 18" fill="none" stroke="{["#5f8a3c", "#8a6a3c", "#6f9a44"][k % 3]}" stroke-width="5"/>' for k in range(9))
-              + '<path d="M-30 -56 q28 22 60 44" fill="none" stroke="#b5442a" stroke-width="4"/>'
+              + '</g>'
+              f'<g id="{t}_ot"{op}><path d="M-30 -56 q28 22 60 44" fill="none" stroke="#b5442a" stroke-width="4"/>'
               '<path d="M-44 -22 q-4 -16 12 -20 q16 4 14 20 q-12 12 -26 0z" fill="#d9703a" stroke-width="3"/>'
-              '<path d="M-42 -30 h22 M-41 -24 h22 M-34 -40 v22 M-27 -40 v24" fill="none" stroke="#7a2f20" stroke-width="1.6"/>'
-              '<path d="M-26 -86 q32 -16 64 0" fill="none" stroke="#b5442a" stroke-width="5"/>'
+              '<path d="M-42 -30 h22 M-41 -24 h22 M-34 -40 v22 M-27 -40 v24" fill="none" stroke="#7a2f20" stroke-width="1.6"/></g>'
+              f'<g id="{t}_oh"{op}><path d="M-26 -86 q32 -16 64 0" fill="none" stroke="#b5442a" stroke-width="5"/>'
               '<ellipse cx="-2" cy="-100" rx="5" ry="15" transform="rotate(-18 -2 -100)" fill="#e8b838" stroke-width="2.6"/>'
               '<ellipse cx="10" cy="-104" rx="5" ry="16" fill="#c2452d" stroke-width="2.6"/>'
-              '<ellipse cx="22" cy="-100" rx="5" ry="15" transform="rotate(18 22 -100)" fill="#2f8f5a" stroke-width="2.6"/>')
+              '<ellipse cx="22" cy="-100" rx="5" ry="15" transform="rotate(18 22 -100)" fill="#2f8f5a" stroke-width="2.6"/></g>')
     if 'helmet' in names:    # bubble helmet like the thumbnails
         o += (f'<circle cx="6" cy="-58" r="46" fill="#cfe9ff" fill-opacity=".14" stroke="#e6f1fb" stroke-width="3.4"/><path d="M-26 -84 q10 -16 28 -20" fill="none" stroke="#fff" stroke-width="4" stroke-opacity=".7"/>'
               f'<ellipse cx="6" cy="-14" rx="42" ry="9" fill="#e6f1fb" fill-opacity=".55" stroke="#e6f1fb" stroke-width="3"/>')
@@ -325,6 +327,29 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             while tw < T - .1:   # pencil hand scribbles (small seek-safe back-and-forth)
                 out.append(f'tl.to("#{t}_ra",{{rotation:{-62 + (7 if n2 % 2 == 0 else -7)},duration:.11,ease:"none",svgOrigin:"34 -22"}},{tw:.3f});'); tw += .11; n2 += 1
             out.append(f'tl.to({ac},{{rotation:-4,duration:.5,ease:"sine.inOut",{org2}}},{a1:.3f});')
+        elif at == 'push':    # heaving a heavy thing (miya 2026-10-26): leans into it, strains, small forward shoves, sweat drops fall; the frog stands beside the object (use "ride" so it travels with it)
+            out.append(f'tl.set("#{t}_sw",{{opacity:1}},{a1:.3f});tl.to("#{t}_ra",{{rotation:-80,duration:.3,svgOrigin:"34 -22"}},{a1:.3f});tl.to({ac},{{rotation:16,x:6,duration:.5,ease:"power2.out",{org2}}},{a1:.3f});')
+            n2 = 0
+            while tm < T - .3:
+                out.append(f'tl.to({ac},{{x:{12 if n2 % 2 == 0 else 5},rotation:{18 if n2 % 2 == 0 else 14},duration:.55,ease:"sine.inOut",{org2}}},{tm + .5:.3f});'); tm += .55; n2 += 1
+            for i2 in range(3):
+                tw = a1 + .2 + i2 * .45
+                while tw < T - .4:
+                    out.append(f'tl.fromTo("#{t}_sw{i2}",{{y:0,opacity:1}},{{y:46,opacity:0,duration:.9,ease:"power1.in",immediateRender:false}},{tw:.3f});'); tw += 1.3
+        elif at == 'huts':    # runs to each hut, goes in, comes out wearing one more piece of the outfit (bottom, top, headband) and shouts a happy sound word
+            hs = (act.get('huts') if isinstance(act, dict) else None) or []
+            wear = {'bottom': '_ob', 'top': '_ot', 'head': '_oh'}
+            R = f'"#{t}_tr"'; RM = f'"#{t}_rm"'
+            cx, cy = d['x'], d['y']
+            for h in hs:
+                ti = t0 + float(h['t']); lx = (h['x'] - d['x']) / (d['flip'] * d['s']); ly = (h['y'] - d['y']) / d['s']
+                hd = .7
+                out.append(f'tl.to({R},{{x:{lx:.1f},y:{ly:.1f},duration:{hd},ease:"power1.inOut"}},{ti:.3f});')
+                out.append(f'tl.to({R},{{y:{ly - 40:.1f},duration:{hd / 2},ease:"power2.out",overwrite:false}},{ti:.3f});tl.to({R},{{y:{ly:.1f},duration:{hd / 2},ease:"power2.in",overwrite:false}},{ti + hd / 2:.3f});')
+                out.append(f'tl.to({RM},{{scaleX:.12,scaleY:.12,opacity:0,duration:.25,ease:"power2.in",svgOrigin:"0 0"}},{ti + hd + .05:.3f});')
+                te = ti + hd + .05 + .25 + float(h.get('stay', .5))
+                out.append(f'tl.to("#{t}{wear[h["wear"]]}",{{opacity:1,duration:.01}},{te:.3f});tl.to({RM},{{scaleX:1,scaleY:1,opacity:1,duration:.3,ease:"back.out(2)",svgOrigin:"0 0"}},{te:.3f});')
+                out.append(f'tl.to({ac},{{y:-22,duration:.18,ease:"power2.out"}},{te + .3:.3f});tl.to({ac},{{y:0,duration:.3,ease:"bounce.out"}},{te + .48:.3f});')
         elif at == 'cheer':   # happy hops with a little arm-free wiggle
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{y:-26,rotation:{6 if k % 2 == 0 else -6},duration:.28,ease:"power2.out",{org2}}},{tm:.3f});tl.to({ac},{{y:0,rotation:0,duration:.3,ease:"bounce.out",{org2}}},{tm + .28:.3f});'); tm += 1.1; k += 1
@@ -334,6 +359,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
     # ---- speech bubble / sound word (2026-10-26): says = [{text, word?, dur?, shout?}]; pops in at the word, shakes when shouted, fades after dur ----
     for k, sy in enumerate(d.get('says') or []):
         tm = find_word(sy.get('word'), wt, a0, t1) if sy.get('word') else None
+        if tm is None and sy.get('t') is not None: tm = t0 + float(sy['t'])   # seconds into the unit
         if tm is None: tm = a0 + .7 + k * 2.4
         dur = min(sy.get('dur', 2.0), max(t1 - tm - .05, .6)); B = f'"#{t}_bub{k}"'; X = f'"#{t}_bx{k}"'
         out.append(f'tl.fromTo({B},{{opacity:0}},{{opacity:1,duration:.1,immediateRender:false}},{tm:.3f});')

@@ -61,3 +61,5 @@
 
 - 2026-10-26: 개구리 `fore` 복장, `dizzy` 표정·동작, `doodle` 동작(연필 낙서) 추가(`tools/frog.py`, 지침서 7-2).
 - 2026-10-26: 개구리 등장 비율을 약 26%→50%로 늘림(`build3.py` FROG_HINT: 2단위마다, 처음 4초 이후), ride 개구리가 화면 위로 잘리지 않게 위치 하한(`frog_place.py`). 지침서 7-2.
+
+- 2026-10-26: 개구리 `push`·`huts` 동작, `fore_steps` 복장(부분 켜기), `says.t`(`tools/frog.py`, 지침서 7-2).
