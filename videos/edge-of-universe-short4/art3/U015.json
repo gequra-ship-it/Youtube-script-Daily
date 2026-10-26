@@ -12,15 +12,26 @@
     "mood": "happy"
    }
   ],
-  "act": "float",
+  "act": null,
   "outfit": [
    "helmet"
   ],
-  "x": 778,
-  "y": 1770,
-  "s": 1.78,
-  "flip": -1,
-  "kind": "bg"
+  "x": 170,
+  "y": 1380,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "swim",
+   "dist": 302
+  },
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": false
+   }
+  ],
+  "bside": 1
  },
  "sfx": [],
  "labels": []

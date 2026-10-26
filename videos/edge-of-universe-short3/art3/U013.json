@@ -27,10 +27,21 @@
    }
   ],
   "act": "wind",
-  "x": 150,
-  "y": 1770,
-  "s": 1.7,
-  "flip": 1,
-  "kind": "bg"
+  "x": 780,
+  "y": 1086,
+  "s": 1.05,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "moonhop",
+   "dist": 219
+  },
+  "says": [
+   {
+    "text": "Boing!",
+    "shout": true
+   }
+  ],
+  "bside": -1
  }
 }
