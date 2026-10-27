@@ -696,10 +696,10 @@ def fx_for(text, palname, bgmode, k, dur, cosmic=False, prev=()):
     return [(kind, {})]
 
 
-def _shape(sh, x, y, r, col, op, pid):
+def _shape(sh, x, y, r, col, op, pid, flipx=1):
     """one particle element of size r, placed by an outer <g translate> that is never tweened (GSAP x/y replace, not add, a transform
     attribute, so the position must live on a parent); the inner element carries the id that JS addresses"""
-    return f'<g transform="translate({x:.0f} {y:.0f})">{_shape0(sh, r, col, op, pid)}</g>'
+    return f'<g transform="translate({x:.0f} {y:.0f}){" scale(-1 1)" if flipx < 0 else ""}">{_shape0(sh, r, col, op, pid)}</g>'
 
 
 def _shape0(sh, r, col, op, pid):
@@ -732,20 +732,30 @@ def _shape0(sh, r, col, op, pid):
     return f'<circle {a} cx="{x:.0f}" cy="{y:.0f}" r="{r:.1f}"/>'
 
 
-def fx_markup(nn, kind, W, H, bgmode='night'):
+CREATURE_ROWS = ('fish', 'birds', 'bats')   # go with the picture's travel (schooling); other drifting rows go with the wind
+
+
+def dir_sign(kind, wind=1, travel=0):
+    """horizontal sign for a particle row / overlay in this picture (2026-10-27, miya: wind and pull are directions too)"""
+    if kind in CREATURE_ROWS: return travel or 1
+    if kind in ('pollen', 'spores', 'plankton', 'fireflies', 'germs'): return 1   # these alternate per piece anyway
+    return wind or 1
+
+
+def fx_markup(nn, kind, W, H, bgmode='night', wind=1, travel=0):
     """one <svg class="ss" id="fx{nn}"> overlay (same class as the shooting star: full frame, pointer-events none, opacity 0 until its tween)"""
-    g = []; ci = 1 if bgmode == 'night' else 0; I = f'fx{nn}'
+    g = []; ci = 1 if bgmode == 'night' else 0; I = f'fx{nn}'; ds = dir_sign(kind, wind, travel)
     if kind in PARTICLES:
         P = PARTICLES[kind]; col = P['col'][ci]
         for i in range(P['n']):   # positions by golden-ratio sequences: spread, never random, same every build
             x = W * (.04 + ((i * .618 + nn * .13) % 1) * .92); y = H * (P['y0'] + ((i * .382) % 1) * (.3 if P['dy'] else .6))
             r = (P['size'][0] + (i * 7 % 10) / 10 * P['size'][1]) * 2.2   # sizes are for a 1920 x 1080 frame
-            shp = f"streak:{P['dx'] * 1920:.0f}:{P['dy'] * 1080:.0f}" if P['shape'] == 'streak' else P['shape']   # streak tails trail behind the travel (2026-10-27)
-            g.append(_shape(shp, x, y, r, col, P['op'], f'{I}p{i}'))
+            shp = f"streak:{P['dx'] * ds * 1920:.0f}:{P['dy'] * 1080:.0f}" if P['shape'] == 'streak' else P['shape']   # streak tails trail behind the travel (2026-10-27)
+            g.append(_shape(shp, x, y, r, col, P['op'], f'{I}p{i}', flipx=ds if kind in CREATURE_ROWS else 1))
     elif kind == 'rain':
         for i in range(26):
             x = W * (((i * .618) % 1)); y = H * (((i * .382) % 1)); L = 26 + (i * 5) % 18
-            g.append(f'<line id="{I}p{i}" x1="{x:.0f}" y1="{y:.0f}" x2="{x - L * .35:.0f}" y2="{y + L:.0f}" stroke="{"#cfe6ff" if ci else "#7fa6c9"}" stroke-width="2.2" stroke-linecap="round" opacity=".55"/>')
+            g.append(f'<line id="{I}p{i}" x1="{x:.0f}" y1="{y:.0f}" x2="{x + ds * L * .35:.0f}" y2="{y + L:.0f}" stroke="{"#cfe6ff" if ci else "#7fa6c9"}" stroke-width="2.2" stroke-linecap="round" opacity=".55"/>')   # slants with the wind
     elif kind in ('flash', 'tint', 'pulsevig', 'vignette', 'frost'):
         if kind == 'flash': g.append(f'<rect id="{I}a" x="0" y="0" width="{W}" height="{H}" fill="#fff" opacity="0"/>')
         elif kind == 'tint': g.append(f'<rect id="{I}a" x="0" y="0" width="{W}" height="{H}" fill="#b0102a" opacity="0"/>')
@@ -779,9 +789,11 @@ def fx_markup(nn, kind, W, H, bgmode='night'):
                 g.append(f'<polygon id="{I}p{i}" points="{cx:.0f},{cy:.0f} {cx + W * .05:.0f},{cy + H * 2.2:.0f} {cx - W * .05:.0f},{cy + H * 2.2:.0f}" fill="{col}" opacity="{(.08 if ci else .14) if kind != "searchlight" else (.16 if ci else .28)}" transform="rotate({i * (360 / n) if kind == "starburst" else 6 + i * 6 if kind == "rays" else 0:.1f} {cx:.0f} {cy:.0f})"/>')
             g.append('</g>')
     elif kind == 'windlines':
+        if ds < 0: g.append(f'<g transform="translate({W} 0) scale(-1 1)">')   # wind blowing left: the whole overlay mirrored (the tween still adds +x)
         for i in range(12):
             y = H * (((i * .382) % 1)); L = W * (.12 + (i % 4) * .05)
             g.append(f'<line id="{I}p{i}" x1="{-L:.0f}" y1="{y:.0f}" x2="0" y2="{y:.0f}" stroke="{"#fff" if ci else "#7a8a9a"}" stroke-width="2.5" stroke-linecap="round" opacity=".4"/>')
+        if ds < 0: g.append('</g>')
     elif kind == 'shockwave':
         g.append(f'<circle id="{I}a" cx="{W / 2:.0f}" cy="{H / 2:.0f}" r="40" fill="none" stroke="#fff" stroke-width="10" opacity="0"/>')
     elif kind == 'letterbox':
@@ -818,10 +830,10 @@ def fx_markup(nn, kind, W, H, bgmode='night'):
     return f'<svg class="ss" id="{I}" viewBox="0 0 {W} {H}">{"".join(g)}</svg>'
 
 
-def fx_js(nn, kind, v0, t1, H, flash_t=None, W=1920):
+def fx_js(nn, kind, v0, t1, H, flash_t=None, W=1920, wind=1, travel=0):
     """tweens for one overlay; all finite, absolute times, seek-safe. One-shot kinds (flash, bolt, shockwave, glitch, starburst, letterbox)
     land at flash_t (the trigger word) or 1 s in; ambient kinds run from the cut to the end."""
-    sp = t1 - v0; I = f'fx{nn}'; Q = f'"#{I}"'; one = kind in ('flash', 'bolt', 'shockwave', 'glitch', 'starburst', 'letterbox')
+    sp = t1 - v0; I = f'fx{nn}'; Q = f'"#{I}"'; one = kind in ('flash', 'bolt', 'shockwave', 'glitch', 'starburst', 'letterbox'); ds = dir_sign(kind, wind, travel)
     js = [] if one else [f'tl.fromTo({Q},{{opacity:0}},{{opacity:1,duration:.6,immediateRender:false}},{v0 + .2:.3f});tl.to({Q},{{opacity:0,duration:.4}},{t1 - .45:.3f});']
     if one: js.append(f'tl.set({Q},{{opacity:1}},{v0:.3f});')
     ft = max(flash_t if flash_t is not None else v0 + 1.0, v0 + .4)
@@ -830,8 +842,8 @@ def fx_js(nn, kind, v0, t1, H, flash_t=None, W=1920):
         P = PARTICLES[kind]
         for i in range(P['n']):
             per = P['per'][0] + (i * .7) % P['per'][1]; fr = (i * .618) % 1; S = f'"#{I}p{i}"'
-            dy = P['dy'] * H; dx = P['dx'] * W * ((-1) ** i if kind in ('pollen', 'spores', 'plankton', 'fireflies', 'germs') else 1)
-            x0 = -W * .5 if abs(P['dx']) >= 1 else 0   # cross-frame travellers start half a frame to the left
+            dy = P['dy'] * H; dx = P['dx'] * W * ((-1) ** i if kind in ('pollen', 'spores', 'plankton', 'fireflies', 'germs') else ds)
+            x0 = -W * .5 * ds if abs(P['dx']) >= 1 else 0   # cross-frame travellers start half a frame behind
             if P['dy'] or P['dx']:   # each piece is already fr of the way along at the cut (no empty sky), then repeats full passes until the cut ends
                 op1 = f',opacity:{P["op"] * (1 - fr):.2f}' if P['fade'] else ''; opE = ',opacity:0' if P['fade'] else ''
                 rot1 = f',rotation:{P["spin"] * (-1 if i % 2 else 1) * fr:.0f}' if P['spin'] else ''; rotE = f',rotation:{P["spin"] * (-1 if i % 2 else 1)}' if P['spin'] else ''
@@ -856,7 +868,7 @@ def fx_js(nn, kind, v0, t1, H, flash_t=None, W=1920):
                 js.append(f'tl.fromTo({S},{{scaleX:1}},{{scaleX:.15,duration:.35,ease:"sine.inOut",yoyo:true,repeat:{R(.35, co)},immediateRender:false}},{v0 + co:.3f});')
     elif kind == 'rain':
         per = .55
-        js.append(f'tl.fromTo("#{I} line",{{y:{-H * .25:.0f},x:{H * .09:.0f}}},{{y:{H * .25:.0f},x:{-H * .09:.0f},duration:{per},ease:"none",stagger:{{each:.021,repeat:{R(per, .6)}}},immediateRender:false}},{v0:.3f});')
+        js.append(f'tl.fromTo("#{I} line",{{y:{-H * .25:.0f},x:{-ds * H * .09:.0f}}},{{y:{H * .25:.0f},x:{ds * H * .09:.0f},duration:{per},ease:"none",stagger:{{each:.021,repeat:{R(per, .6)}}},immediateRender:false}},{v0:.3f});')   # drifts with the wind
     elif kind == 'flash':   # one white flash at the word (or 1 s in): fast up, soft down; never over the first 0.4 s
         js.append(f'tl.fromTo("#{I}a",{{opacity:0}},{{opacity:.75,duration:.08,ease:"power1.in",immediateRender:false}},{ft:.3f});tl.to("#{I}a",{{opacity:0,duration:.6,ease:"power2.out"}},{ft + .08:.3f});')
     elif kind == 'bolt':    # the bolt shows twice (0.12 s, gap 0.1 s) with a pale sky flash
@@ -870,7 +882,7 @@ def fx_js(nn, kind, v0, t1, H, flash_t=None, W=1920):
             js.append(f'tl.fromTo("#{I}a",{{scale:1,transformOrigin:"50% 50%"}},{{scale:.93,duration:.5,ease:"sine.inOut",yoyo:true,repeat:{R(1)},immediateRender:false}},{v0 + 1.5:.3f});')
     elif kind in ('fog', 'clouds'):   # drift sideways slowly (fog also breathes)
         for i in range(7):
-            js.append(f'tl.fromTo("#{I}p{i}",{{x:{-W * .2:.0f}}},{{x:{W * .2:.0f},duration:{sp + .5:.2f},ease:"none",immediateRender:false}},{v0:.3f});')
+            js.append(f'tl.fromTo("#{I}p{i}",{{x:{-ds * W * .2:.0f}}},{{x:{ds * W * .2:.0f},duration:{sp + .5:.2f},ease:"none",immediateRender:false}},{v0:.3f});')   # fog and clouds drift with the wind
             if kind == 'fog': js.append(f'tl.fromTo("#{I}p{i}",{{opacity:.1}},{{opacity:.22,duration:{2.4 + i * .3:.2f},yoyo:true,repeat:{R(2.8)},ease:"sine.inOut",immediateRender:false}},{v0:.3f});')
     elif kind in ('smoke', 'steam'):  # puffs rise, grow and thin out (AXIS: y up, scale about own centre)
         for i in range(9):

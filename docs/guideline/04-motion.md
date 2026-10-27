@@ -67,5 +67,26 @@ keep art style and line art consistent, no morphing, no text
 - **자동 선택(`TR_WORDS`)**: 단위 대본에 위 단어가 있고 제 몫(전체의 1/16)의 1.3배 이하이면 항상(2026-10-27, 전에는 50% 확률) 그 전환, 아니면 많이 쓴 전환일수록 덜 뽑힘. 장면이 바뀔 때는 줌·워시·눈 뜨기를 더 자주. 느린 장면은 차분한 전환만(20-2). 칠판 앞뒤는 하드컷.
 - 효과음: 줌·슬라이드(낮게)·wipe·push·whip=swish, match·iris·eye=hush, 워시=rustle, tilt=pop, 페이드 무음. 우주 모드 wipe·push·whip=warp, iris·eye=glimmer.
 - 전환은 앞 장면 빈 간격(0.8초) 안에서 시작해 내레이션과 겹치지 않는다. 추가 전환의 Actions MP4 모습은 확인하지 못함.
+### 4-4. 방향 규칙 표 (2026-10-27, miya: "눈이 없는 것들, 바람·빨려 들어가는 것도 방향성이다 … 다양하게 생각해")
+
+방향이 걸리는 모든 것은 **대본 단어·그룹 이름·그림 안 위치**로 코드가 맞춘다. 모델이 그림마다 따로 판단하지 않는다. 그림 한 장의 방향 문맥은 `facing.context()`가 세 값으로 정한다: **travel**(주인공 이동 방향, 옆으로 이동하는 그룹의 경로·dist 부호), **wind**(사이드카 `wind: "left"|"right"`, 없으면 이동의 반대 = 맞바람, 이동이 없으면 +1 오른쪽), **attractor**(사이드카 `attractor: [x, y]`, 없으면 이름에 hole·vortex·whirl·drain·magnet·gravity·funnel·mouth·maw·sun·star가 든 가장 넓은 그룹의 중심).
+
+| 가족 | 무엇이 | 어떻게 맞추나 | 코드 |
+|---|---|---|---|
+| 이동 ↔ 머리 | path·swim·rollby·creep·magnet·slide 그룹 | 머리 = 어두운 동공(≤4개) 위치 > `data-face` > 눈이 없으면 **뾰족한 쪽**(rocket·arrow·probe·plane·comet·ship·boat·sub·sled·train·car… 탈것·뾰족한 물건 이름일 때 좌우 20% 띠의 윤곽 높이 비 < .6). 이동과 다르면 그림을 몸통 중심으로 거울상 | `facing.facing_sign`·`apply` |
+| 중력 | 이름에 sink·fall·drop·descend·plunge·dive·settle(내려감) / rise·ascend·climb·launch·lift·soar·bubble·float·balloon·escape(올라감)가 든 `mv-path` | 경로가 반대로 가면 경로를 뒤집음(끝→시작). 탈것 이름(lander·carcass)은 판단하지 않음(스톨른타임 U115 우주선은 위로 날아가는 그림) | `facing._path_rules`, `reverse_path` |
+| 빨림 | attractor가 있는 그림의 `mv-magnet`, 이름·태그에 pull·suck·spiral·drain·inward·toward·into·capture·plunge가 든 `mv-path` | magnet은 `data-dx/dy`를 attractor 쪽으로 다시 계산, path는 끝점이 attractor에서 멀어지면 뒤집음(A·S·T 명령 경로는 로그만) | 같은 함수 |
+| 바람 흔적 | 배경 입자 수평 이동, 비 기울기(`x + ds·L·.35`), 바람선(`windlines`) 좌우, 안개·구름 흐름 | 전부 `dir_sign(kind, wind, travel)`: 생물 줄(fish·birds·bats)은 travel 쪽으로(머리도 뒤집음), 나머지는 wind 쪽으로 | `motions.fx_markup`·`fx_js` |
+| 유성·줄무늬 | `streak` 꼬리 | 이동의 반대쪽 | `motions._shape0` |
+| 카메라 | 이동 그림의 드리프트 팬(mv 1·2) | 세계가 이동의 반대로 밀림(= 카메라가 따라감), 역방향 팬 금지 | `build3` `dx = -travel·W·.025` |
+| 개구리 타기 | 탄 개구리 | 이동 방향을 봄(`flip = travel_sign`) | `frog_place` |
+| 개구리 밀기 | 밀 수 있는 물건(lens·cart·crate·rock·sled…)이 오른쪽으로 이동 | 개구리는 물건 **뒤**(왼쪽)에서 밀며 오른쪽을 봄; 왼쪽 이동이면 원래 자리(오른쪽·손잡이) | `frog_place` PUSHG |
+| 슬라이드 | `mv-slide` 패널 | 들어올 때 `data-dx` 반대로, 나갈 때(`data-dir="out"`) `data-dx` 쪽으로 이동하는 것으로 셈 | `facing.travel_sign` |
+
+- 자동으로 **안 하는 것**(그림 에이전트가 맞춰 그린다): 톱니끼리 맞물린 회전 방향, 그려진 사람·동물의 시선, 빛·그림자 방향, 소용돌이 회전 방향과 개구리 궤도의 일치, 깃발·연기·머리카락의 나부낌(바람 방향 사이드카 `wind`를 적으면 입자는 따라간다).
+- 점검: `python3 tools/facing.py <슬러그>`가 그림별 문맥·경로 규칙·그룹 판정을 출력하고 파일은 바꾸지 않는다. 빌드 로그 `direction sanity`에 뒤집은 수·맞바람 그림 수·attractor 수가 나온다.
+- 2026-10-27 4편 점검: 뒤집힌 그룹 고래 낙하 U002 하나, 경로 뒤집음 0, 눈·뾰족함으로 판단 못 한 그룹은 로그에 `unknown facing`으로 남음(그림 에이전트가 `data-face`를 적으면 해결).
+
 개정: 2026-10-27 (miya, 고래 영상 물고기 역주행) 방향 점검: 배경 입자 `fish` 머리 방향·유성 꼬리 방향을 이동 방향에 맞춤(`motions._shape0`), 옆으로 이동하는 오브젝트(path·swim·rollby·creep·magnet)는 `tools/facing.py`가 눈(어두운 동공) 위치로 머리 방향을 알아내 이동 방향과 다르면 그림을 몸통 중심으로 거울상으로 뒤집음(`build3` 로그 `direction sanity`, 그룹 `data-face="left|right"`로 지정 가능, 그룹에 transform·text가 있으면 뒤집지 않고 로그만), 탄 개구리는 이동 방향을 봄(`frog_place`). 4편 점검: 고래 낙하 U002(가라앉는 고래)만 뒤집힘, 나머지는 눈이 없어 판단 안 함.
 개정: 2026-10-27 (miya) 전환·배경 효과의 '연속 금지' 고정 규칙 제거: 단어가 맞으면 연속 허용, 채움 선택만 직전과 다르게(코드 `build3` 전환, `motions.fx_for`).
+개정: 2026-10-27 (miya, "바람·빨림도 방향성") 4-4 방향 규칙 표 신설: 이동↔머리(눈 없으면 뾰족한 쪽), 중력·빨림 경로 뒤집기, 바람 흔적(입자·비·바람선·안개), 카메라 팬, 개구리 타기·밀기를 코드 규칙으로(`facing.context`·`_path_rules`, `motions.dir_sign`, `build3` DIRC).
