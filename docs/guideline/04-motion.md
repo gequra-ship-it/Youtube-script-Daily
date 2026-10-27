@@ -83,10 +83,23 @@ keep art style and line art consistent, no morphing, no text
 | 개구리 밀기 | 밀 수 있는 물건(lens·cart·crate·rock·sled…)이 오른쪽으로 이동 | 개구리는 물건 **뒤**(왼쪽)에서 밀며 오른쪽을 봄; 왼쪽 이동이면 원래 자리(오른쪽·손잡이) | `frog_place` PUSHG |
 | 슬라이드 | `mv-slide` 패널 | 들어올 때 `data-dx` 반대로, 나갈 때(`data-dir="out"`) `data-dx` 쪽으로 이동하는 것으로 셈 | `facing.travel_sign` |
 
-- 자동으로 **안 하는 것**(그림 에이전트가 맞춰 그린다): 톱니끼리 맞물린 회전 방향, 그려진 사람·동물의 시선, 빛·그림자 방향, 소용돌이 회전 방향과 개구리 궤도의 일치, 깃발·연기·머리카락의 나부낌(바람 방향 사이드카 `wind`를 적으면 입자는 따라간다).
+- **B. 2차(2026-10-27, miya "자동 아닌 것도 규격화", `facing._dir_rules2`)** — 위에서 '자동 아님'이던 것들도 코드 규칙으로 바꿨다. 빌드 때 자동, 로그 `direction sanity`에 같이 나온다.
+
+| 가족 | 무엇이 | 규칙 | 비고 |
+|---|---|---|---|
+| 톱니 맞물림 | 이름에 gear·cog·sprocket이 든 `mv-spin`·`mv-rotor`·`mv-core-spin/turn` 그룹 | 서로 닿는(중심 거리 ≈ 반지름 합) 톱니는 반대 방향: `mv-core` 톱니가 기준(+1), 나머지 `data-dir`를 2색 칠하기로 고침 | 홀수 고리(세 톱니가 서로 다 닿음)는 고칠 수 없어 로그만 |
+| 깃발 | 이름에 flag·banner·pennant·windsock·sail·streamer | 깃대 = 그룹 안 가장 키 큰 가느다란 도형; 천이 바람 반대쪽에 있으면 깃대를 축으로 거울상 | 깃대가 없으면 왼쪽 가장자리가 깃대(flagwave 규칙과 같음) |
+| 기울어진 것 | smoke·steam·plume·exhaust·hair·scarf·cape·spray·mane·mist·grass·reed·wheat·kelp·flame·fire·candle | 윤곽의 위 30%와 아래 30% 평균 x 차이(기울기)가 높이의 8% 넘고 바람과 반대면 가운데 축으로 거울상 | 깃발·기울기 둘 다 **바람을 아는 그림에서만**(사이드카 `wind` 또는 이동 오브젝트가 있을 때); 멈춘 그림은 그린 대로 |
+| 시선 | 이름에 person·man·woman·kid·scientist·astronaut·owl·cat·dog·bear·deer·cow·bird·fish… (사람·동물) 그룹, 부품(`mv-chain/joint/limb`)·이동 그룹 제외 | **초점**(이동 오브젝트의 경로 중간 > attractor > 가장 넓은 `mv-core`)이 150px 넘게 옆에 있는데 눈이 반대를 보면 몸 중심으로 거울상 | 눈이 없으면 판단 안 함(`data-face`로 지정 가능) |
+| 빛·그림자 | 광원 = 사이드카 `light: "left"|"right"` 또는 이름에 sun·lamp·lantern·candle·torch·moon·bulb·fire·flame·window가 든 가장 넓은 그룹. 대상 = 오브젝트 그룹 **안**의 id/class에 shadow·shade(그림자)·highlight·glint·shine·specular·rimlight(하이라이트)가 든 도형 | 그림자는 광원 반대쪽, 하이라이트는 광원 쪽에 있어야 하고(그룹 중심 기준 폭의 8% 넘게 치우친 것만) 아니면 그룹 중심 축으로 거울상 | 광원이 없는 그림은 점검 안 함. 바닥 전체를 덮는 그림자(폭 90% 이상)는 제외. id 없는 도형은 로그만 |
+| 소용돌이 ↔ 개구리 궤도 | 블랙홀·소용돌이를 도는 개구리(`orbit` 동작) | 고리 그룹의 `data-dir`(`mv-spin`·`mv-rotor`), 없으면 그림의 첫 `mv-circle`/`mv-spin`/`mv-rotor`의 `data-dir`, 없으면 시계방향 → 개구리도 같은 방향 | `facing.spin_dir`, `frog_place`가 `act.dir`에 적음 |
+
+- 그림 에이전트가 여전히 직접 맞춰야 하는 것: 그려진 두 사람끼리의 시선 교환(초점이 하나뿐이므로), 그룹 밖에 따로 그린 그림자, 톱니 셋이 서로 다 닿는 배치(안 그린다).
+- 예시: `/mnt/project-files/frog-rules/direction/rules2-before-after.png`(합성 그림: 톱니·깃발·연기·시선·그림자가 한 번에 고쳐짐).
 - 점검: `python3 tools/facing.py <슬러그>`가 그림별 문맥·경로 규칙·그룹 판정을 출력하고 파일은 바꾸지 않는다. 빌드 로그 `direction sanity`에 뒤집은 수·맞바람 그림 수·attractor 수가 나온다.
 - 2026-10-27 4편 점검: 뒤집힌 그룹 고래 낙하 U002 하나, 경로 뒤집음 0, 눈·뾰족함으로 판단 못 한 그룹은 로그에 `unknown facing`으로 남음(그림 에이전트가 `data-face`를 적으면 해결).
 
 개정: 2026-10-27 (miya, 고래 영상 물고기 역주행) 방향 점검: 배경 입자 `fish` 머리 방향·유성 꼬리 방향을 이동 방향에 맞춤(`motions._shape0`), 옆으로 이동하는 오브젝트(path·swim·rollby·creep·magnet)는 `tools/facing.py`가 눈(어두운 동공) 위치로 머리 방향을 알아내 이동 방향과 다르면 그림을 몸통 중심으로 거울상으로 뒤집음(`build3` 로그 `direction sanity`, 그룹 `data-face="left|right"`로 지정 가능, 그룹에 transform·text가 있으면 뒤집지 않고 로그만), 탄 개구리는 이동 방향을 봄(`frog_place`). 4편 점검: 고래 낙하 U002(가라앉는 고래)만 뒤집힘, 나머지는 눈이 없어 판단 안 함.
 개정: 2026-10-27 (miya) 전환·배경 효과의 '연속 금지' 고정 규칙 제거: 단어가 맞으면 연속 허용, 채움 선택만 직전과 다르게(코드 `build3` 전환, `motions.fx_for`).
 개정: 2026-10-27 (miya, "바람·빨림도 방향성") 4-4 방향 규칙 표 신설: 이동↔머리(눈 없으면 뾰족한 쪽), 중력·빨림 경로 뒤집기, 바람 흔적(입자·비·바람선·안개), 카메라 팬, 개구리 타기·밀기를 코드 규칙으로(`facing.context`·`_path_rules`, `motions.dir_sign`, `build3` DIRC).
+개정: 2026-10-27 (miya, "자동 아닌 것도 규격화") 4-4 B 신설: 톱니 맞물림·깃발/기울어진 것의 바람 방향·사람/동물 시선·그림자/하이라이트의 빛 방향·개구리 궤도 방향을 코드 규칙으로(`facing._dir_rules2`·`spin_dir`, 사이드카 `light`).

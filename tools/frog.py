@@ -465,7 +465,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
                     tm += 2 * dd
         elif at == 'orbit':   # circles a black hole ring like a particle on its line, woozy (miya 2026-10-26): ellipse about act.c with radii act.rx/ry, frog start = its angle act.th0
             import math
-            c = act.get('c', [d['x'], d['y']]); rx = float(act.get('rx', 160)); ry = float(act.get('ry', 50)); th0 = math.radians(float(act.get('th0', 90))); per = float(act.get('per', 3.4)); sd = 1
+            c = act.get('c', [d['x'], d['y']]); rx = float(act.get('rx', 160)); ry = float(act.get('ry', 50)); th0 = math.radians(float(act.get('th0', 90))); per = float(act.get('per', 3.4)); sd = -1 if str(act.get('dir', 1)).startswith('-') else 1   # same way as the whirl / ring spins (facing.spin_dir, 4-4 B)
             x0_ = rx * math.cos(th0); y0_ = ry * math.sin(th0); stp = .12; tt = a1
             while tt < T - .02:
                 th = th0 + sd * 2 * math.pi * (tt + stp - a1) / per
