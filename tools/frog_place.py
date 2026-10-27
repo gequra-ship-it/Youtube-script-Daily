@@ -504,6 +504,11 @@ with sync_playwright() as p:
                 if (keep.get('roam') or {}).get('kind') in ('run', 'moonhop'): keep['roam']['kind'] = 'walk'
                 if not keep['act'] and not keep['says'] and not keep.get('roam'):   # (2026-10-26 review) the serious filter left a frog with nothing to do: a quiet worried look instead
                     keep['act'] = 'look'; keep['says'] = [{'text': 'Hmm...', 'shout': False}]; keep['moods'][0] = {'mood': 'worried'}
+            if keep.get('kind') == 'ride' and keep.get('ride'):   # (2026-10-27, miya: interactions must match) the rider faces the way the object travels
+                import facing
+                mt = re.search(rf'<g [^>]*\bid="{re.escape(keep["ride"])}"[^>]*>', open(svg, encoding='utf-8').read())
+                ts = facing.travel_sign(mt.group(0)) if mt else 0
+                if ts: keep['flip'] = ts
             d['frog'] = keep
             json.dump(d, open(fn, 'w'), ensure_ascii=False, indent=1)
             print(slug, uid, keep['kind'], pick, keep['x'], keep['y'], keep['s'])

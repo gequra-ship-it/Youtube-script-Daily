@@ -402,7 +402,7 @@ if os.environ.get('PLAN') == '1':
 os.makedirs(OUT, exist_ok=True)
 for name in ['gsap.min.js', 'Fredoka-700.woff2', 'PatrickHand-400.woff2', 'logo.png', 'grain.png']:
     shutil.copy(f'{ASSETS}/{name}', f'{OUT}/{name}')
-import sfx_lib, sfx_pick, bgm_lib
+import sfx_lib, sfx_pick, bgm_lib, facing
 sfx_lib.make_all(OUT)
 # music style for the whole video (2026-10-27, guideline 9-4): config STYLE, else palette + script words (bgm_lib.style_for); 'cosmic' also switches
 # the transition sounds, speed streaks and the sfx word table to the space family
@@ -453,9 +453,12 @@ assert max(len(c['text']) for c in caps) <= CHARMAX, max(caps, key=lambda c: len
 
 
 # ---------- SVG inlining ----------
+FACE = {}; FACEFIX = []   # direction sanity (2026-10-27, miya: fish swam backwards): travelling creatures must move the way they face (tools/facing.py)
 def load_svg(n, path, world=None):
     s = open(path, encoding='utf-8').read()
     s = re.sub(r'<\?xml[^>]*\?>', '', s).strip()
+    if path in FACE:
+        s, fx_ = facing.apply(s, FACE[path]); FACEFIX.extend((os.path.basename(path), g, w) for g, w in fx_)
     pre = f'u{n}_'
     ids = set(re.findall(r'\bid="([^"]+)"', s))
     def mv(m):
@@ -590,6 +593,7 @@ def is_speed(u, sc0):
     if 'speed' in sc0: return bool(sc0['speed'])
     return COSMIC and bool(SPEED_RE.search(u['text']))
 DRIFT = getattr(CFG, 'DRIFT', True)   # slow continuous camera move on every picture without a focus target (guideline 20-1)
+FACE = facing.compute(sorted({art_path(u)[0] for u in units if u['kind'] != 'chalk'}), W, H, cache=f'{B}/facing.json')
 fallback_used = []; label_errors = []; label_items = {}; BADGES = []; FXU = {}; FXPREV = []
 for k, u in enumerate(units):   # k = unit index (round 4 effects are keyed on it)
     nn = u['n']
@@ -685,6 +689,7 @@ for u in units:
         te = min(max(te + e.get('offset', 0.0), u['t0'] + 0.3), u['t1'] - 0.6)
         cues.append(dict(name=e['name'], t=te, vol=e.get('vol', 0.8), pri=3, unit=u['uid'], auto=e.get('auto', 'agent')))
         SFXPREV.append(sfx_lib.ALIAS.get(e['name'], e['name'])); SFXAUTO[e.get('auto', 'agent')] = SFXAUTO.get(e.get('auto', 'agent'), 0) + 1
+print('direction sanity:', sum(len(v) for v in FACE.values()), 'travelling groups,', len(FACEFIX), 'turned round', FACEFIX if FACEFIX else '')
 cues.sort(key=lambda c: c['t'])
 kept = []
 for c in sorted(cues, key=lambda c: -c['pri']):

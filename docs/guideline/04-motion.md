@@ -67,4 +67,5 @@ keep art style and line art consistent, no morphing, no text
 - **자동 선택(`TR_WORDS`)**: 단위 대본에 위 단어가 있고 제 몫(전체의 1/16)의 1.3배 이하이면 항상(2026-10-27, 전에는 50% 확률) 그 전환, 아니면 많이 쓴 전환일수록 덜 뽑힘. 장면이 바뀔 때는 줌·워시·눈 뜨기를 더 자주. 느린 장면은 차분한 전환만(20-2). 칠판 앞뒤는 하드컷.
 - 효과음: 줌·슬라이드(낮게)·wipe·push·whip=swish, match·iris·eye=hush, 워시=rustle, tilt=pop, 페이드 무음. 우주 모드 wipe·push·whip=warp, iris·eye=glimmer.
 - 전환은 앞 장면 빈 간격(0.8초) 안에서 시작해 내레이션과 겹치지 않는다. 추가 전환의 Actions MP4 모습은 확인하지 못함.
+개정: 2026-10-27 (miya, 고래 영상 물고기 역주행) 방향 점검: 배경 입자 `fish` 머리 방향·유성 꼬리 방향을 이동 방향에 맞춤(`motions._shape0`), 옆으로 이동하는 오브젝트(path·swim·rollby·creep·magnet)는 `tools/facing.py`가 눈(어두운 동공) 위치로 머리 방향을 알아내 이동 방향과 다르면 그림을 몸통 중심으로 거울상으로 뒤집음(`build3` 로그 `direction sanity`, 그룹 `data-face="left|right"`로 지정 가능, 그룹에 transform·text가 있으면 뒤집지 않고 로그만), 탄 개구리는 이동 방향을 봄(`frog_place`). 4편 점검: 고래 낙하 U002(가라앉는 고래)만 뒤집힘, 나머지는 눈이 없어 판단 안 함.
 개정: 2026-10-27 (miya) 전환·배경 효과의 '연속 금지' 고정 규칙 제거: 단어가 맞으면 연속 허용, 채움 선택만 직전과 다르게(코드 `build3` 전환, `motions.fx_for`).
