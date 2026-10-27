@@ -121,7 +121,7 @@ Background effects (rain, snow, bubbles, fog, rays … 57 kinds) and on-screen t
   - `num` (max 26 chars, UPPER CASE): number/date/size/share SAID ("four meters" -> "4 M" ok, "nine meters" -> "10 M" not). Fixed top-left (x 80, y 64; keep free). First number counts up from 0 (years 1000-2100 do not).
   - `say` (max 4 words/24 chars, no digits): reaction of an animal, generic person or thing, `to` = mouth; no fact/number/claim, no real named person, not mocking; ~1 unit in 3 (2026-10-22, owner wants them more often); objects (key, hourglass, rocket, flask) may speak too; up to 2 per unit when two things talk; do not repeat the same line in neighbouring units.
   - `word` (optional): exact words; pops in when spoken (else ~0.4 s after the cut).
-  - Safe area x 120-1800, y 80-860, not x > 1660 and y < 190 (logo). With a focus labels follow the zoom (size fixed): keep near it. ~Half the units get labels; chalkboard units none.
+  - Safe area x 120-1800, y 80-860, not x > 1660 and y < 190 (logo). With a focus labels follow the zoom (size fixed): keep near it. **A label on a MOVING object follows it (2026-10-27):** when `to` (else x,y) lies on a travelling group (mv-path/swim/rollby/slide/sink/rise/magnet/creep/hop/float/circle/scroll, or a glide/orbit/drop core) the builder moves the pill, its line and the bubble tail with that group, so place such labels relative to where the object is when the unit starts, and do not try to offset them by hand for the motion. ~Half the units get labels; chalkboard units none.
 - Validate the JSON (python `json`).
 
 ## 9. Check and work method

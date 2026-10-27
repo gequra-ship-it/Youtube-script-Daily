@@ -453,7 +453,7 @@ assert max(len(c['text']) for c in caps) <= CHARMAX, max(caps, key=lambda c: len
 
 
 # ---------- SVG inlining ----------
-FACE = {}; FACEFIX = []; DIRC = {}; PIC = {}   # direction sanity (2026-10-27, miya: fish swam backwards): travelling creatures must move the way they face (tools/facing.py)
+FACE = {}; FACEFIX = []; DIRC = {}; PIC = {}; PICPATH = {}   # direction sanity (2026-10-27, miya: fish swam backwards): travelling creatures must move the way they face (tools/facing.py)
 def load_svg(n, path, world=None):
     s = open(path, encoding='utf-8').read()
     s = re.sub(r'<\?xml[^>]*\?>', '', s).strip()
@@ -602,6 +602,7 @@ for k, u in enumerate(units):   # k = unit index (round 4 effects are keyed on i
     else:
         p, fb = art_path(u)
         if fb: fallback_used.append(u['uid'])
+        PICPATH[nn] = p
         PIC[nn] = picev.evidence(FACE.get(p, {}).get('boxes', {}) if isinstance(FACE.get(p), dict) else {}, W, H)   # picture evidence tags (2026-10-27): what the picture shows, for fx / sfx / text effects
         sc0 = side(u); th = SCENES[u['scene'] - 1][3]
         lerr = labels_lib.check(sc0, u['text'], W, H, VERT)
@@ -1013,10 +1014,35 @@ for (nn, ty, lid, gid, tt) in label_t:          # on-screen text pops in when it
     if nn in focus_cam:       # keep the text the same size while the camera zooms in (it still follows its subject)
         a, (fx, fy, s) = focus_cam[nn]
         js.append(f'tl.fromTo("#{lid}",{{scale:1,transformOrigin:"0px 0px"}},{{scale:{1 / s:.4f},duration:1.4,ease:"power2.inOut",immediateRender:false}},{a:.3f});')
+# ---- labels follow moving objects (miya 2026-10-27): a name label / speech bubble whose target point (`to`, else its own x,y) lies on a group
+# that translates (path, swim, rollby, slide, sink, rise, magnet ... or a glide/orbit/drop centre) is moved with it by miyaFollow (modifier tween, seek-safe)
+MOVING = {'path', 'scroll', 'rise', 'slide', 'bob', 'hover', 'rollby', 'float', 'swim', 'hop', 'drip', 'circle', 'bouncing', 'creep', 'sink', 'ascend', 'magnet'}
+MOVING_CORE = {'glide', 'orbit', 'drop', 'pop'}
+FOLLOWED = []; UID_OF = {u['n']: u['uid'] for u in units}
+for (nn, ty, lid, gid, tt) in label_t:
+    if ty == 'num': continue
+    _l = next((l for (_n, _ty, _l_, _g, _tt, l) in label_full if _l_ == lid), None)
+    if not _l: continue
+    _pt = _l.get('to') or (_l.get('x'), _l.get('y'))
+    try: px_, py_ = float(_pt[0]), float(_pt[1])
+    except Exception: continue
+    _fe = FACE.get(PICPATH.get(nn)); _boxes = _fe.get('boxes', {}) if isinstance(_fe, dict) else {}
+    best = None
+    for g_, b_ in _boxes.items():
+        parts = g_.split('-')
+        if parts[0] != 'mv' or len(parts) < 2: continue
+        kd = parts[1]; ct = parts[2] if kd == 'core' and len(parts) > 2 else ''
+        if not (kd in MOVING or (kd == 'core' and ct in MOVING_CORE)): continue
+        if b_[0] - 12 <= px_ <= b_[1] + 12 and b_[2] - 12 <= py_ <= b_[3] + 12:
+            area = (b_[1] - b_[0]) * (b_[3] - b_[2])
+            if best is None or area < best[0]: best = (area, g_)
+    if best:
+        js.append(f'miyaFollow(tl,"#w{nn} .{best[1]}",{json.dumps(["#" + lid] + (["#" + gid] if gid else []))},{px_:.0f},{py_:.0f},{tt:.3f},{UEND[nn]:.3f});'); FOLLOWED.append((UID_OF.get(nn, nn), lid, best[1]))
+print('labels follow moving objects:', len(FOLLOWED), FOLLOWED[:10])
 for k, c in enumerate(caps):
     js.append(f'tl.set("#c{k}",{{opacity:1}},{c["t0"]:.3f});tl.set("#c{k}",{{opacity:0}},{c["t1"]:.3f});')
     js.append(caption_hl.highlight_js(k, c['text'], c['t0'], c['sp1']))   # spoken word turns yellow (guideline 5)
-js.append('window.__timelines=window.__timelines||{};window.__timelines["main"]=tl;</script>')
+js.append('miyaFollowInit(tl);window.__timelines=window.__timelines||{};window.__timelines["main"]=tl;</script>')
 h.append('\n'.join(js)); h.append('</div></body></html>')
 open(f'{OUT}/index.html', 'w', encoding='utf-8').write('\n'.join(h))
 
