@@ -14,6 +14,21 @@ from playwright.sync_api import sync_playwright
 OK = re.compile(r'^mv-(core-(swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble)|path|slide|swing)')
 SPACE = re.compile(r'\b(space|star|stars|galax\w*|cosmic|universe|horizon|probe|voyager|light|planet|orbit|dark|expan\w*)\b', re.I)
 SEA = re.compile(r'\b(ocean|oceans|sea|seas|seafloor|underwater|dive|diving|water|whales?|reef|coral|fish|vents?|abyss\w*|deep|depths?|plankton|marine)\b', re.I)
+SEA_RIDE = re.compile(r'shark|whale|fish|dolphin|squid|octopus|jelly|turtle|seal\b|ray\b|eel\b|crab|lobster|plankton|krill|sub\b|submarine|submersible|rov\b|diver', re.I)   # riding one of these = the frog is in the water
+WATER_G = re.compile(r'water|sea\b|ocean|wave|lake|river|pool|pond|aquarium|tank|current|abyss|seafloor', re.I)
+
+
+def underwater(text, palname, gs, ride, W, H):
+    """'deep' / 'shallow' / None: is the frog in the water, judged from the PICTURE as well as the sentence (miya 2026-10-27: the frog rode a shark in the
+    human video with no diving gear because the narration spoke of mercury). deep = diving suit + tank, shallow = mask + snorkel."""
+    surf = re.search(r'surface|shallow|beach|shore|wave|boat|raft|deck', text, re.I)
+    if ride and SEA_RIDE.search(ride): return 'shallow' if surf and not DEEP.search(text) else 'deep'
+    if palname == 'ocean': return 'shallow' if surf and not DEEP.search(text) else 'deep'
+    big = [g for g in gs.values() if WATER_G.search(g[0]) and g[3] * g[4] >= .25 * W * H]   # a drawn body of water covering a quarter of the frame
+    if big or SEA.search(text): return 'deep' if DEEP.search(text) else 'shallow'
+    return None
+
+
 DEEP = re.compile(r'\b(deep|depths?|abyss\w*|dark|darkness|seafloor|sinks?|sinking|descen\w*|vents?|bones?|carcass|silt|thousands of meters)\b', re.I)
 ACTS = [   # (act, regex on the unit text, first mood)  -- first match wins (miya 2026-10-25: expression + motion that fits the situation, not only examples)
     ('slide',  re.compile(r'\b(gravity|gravitational|spacetime|space-time|warp\w*|dents?|dented|curves?|curved|curving|funnel|bowl)\b', re.I), 'surprised'),   # (2026-10-26 review: 'sinks/deeper/heavier/slope' gave a dead whale a "Wheee!" slide; ocean videos never slide)   # gravity pit: the frog slides down into it (miya 2026-10-26)
@@ -490,6 +505,8 @@ with sync_playwright() as p:
                 keep['act'] = {'type': 'pull', 'to': [round(hg[0][1] + hg[0][3] / 2), round(hg[0][2] + hg[0][4] / 2)] if hg else [W // 2, H // 2]}
                 if hg and (keep.get('kind') == 'ride' or not keep.get('roam')): keep['act']['vanish'] = True   # riding a star into the hole: pulled in, shrinking, gone (miya 2026-10-26)
             cnt_say = globals().setdefault('cnt_say', 0); globals()['cnt_say'] = cnt_say + 1
+            uw = underwater(text, palname, gs, keep.get('ride'), W, H)   # diving gear by the picture, not only the words (miya 2026-10-27); worn instead of a word costume
+            if uw and keep.get('outfit') not in (['diver'], ['goggles'], ['helmet']) and not (isinstance(keep.get('act'), dict) and keep['act'].get('type') == 'huts'): keep['outfit'] = ['diver'] if uw == 'deep' else ['goggles']
             keep['says'] = says_for(keep['act'], keep, text, cnt_say); keep['bside'] = keep.get('bside') or (1 if keep['x'] < W / 2 else -1)
             if isinstance(keep['act'], dict) and keep['act'].get('type') == 'push': keep['says'] = [{'text': 'Heave-ho!', 't': 1.0, 'dur': 1.6, 'shout': True}]
             if keep.get('_huts'): keep['says'] = [{'text': w_, 't': round(t_, 2), 'dur': 1.0, 'shout': True} for t_, w_ in keep.pop('_huts')]
