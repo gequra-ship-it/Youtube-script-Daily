@@ -25,10 +25,10 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "float",
+  "act": "listen",
   "outfit": [
    "helmet"
   ],
@@ -40,6 +40,11 @@
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "says": []
+  "says": [
+   {
+    "text": "Did you hear that?",
+    "shout": false
+   }
+  ]
  }
 }

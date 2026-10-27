@@ -10,5 +10,36 @@
   }
  ],
  "centre": "speedometer-like dial with golden hub, needle at the red end",
- "motion": "dial ticks light one by one, needle trembles at the top, streaks of light drift past"
+ "motion": "dial ticks light one by one, needle trembles at the top, streaks of light drift past",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    860
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 302,
+  "y": 866,
+  "s": 0.9,
+  "flip": 1,
+  "outfit": [
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Whoaaa!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

@@ -43,5 +43,35 @@
    ],
    "word": "matter"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-path-rocket",
+  "kind": "ride",
+  "x": 633,
+  "y": 1394,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
 }

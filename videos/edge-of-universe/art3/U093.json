@@ -19,5 +19,38 @@
    ],
    "word": "event horizon"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    540
+   ]
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.77,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "tumble",
+   "dist": 461
+  },
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

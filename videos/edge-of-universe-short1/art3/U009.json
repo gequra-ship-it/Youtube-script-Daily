@@ -9,26 +9,33 @@
  "frog": {
   "moods": [
    {
-    "mood": "sleepy"
+    "mood": "scared"
    }
   ],
-  "act": "sleepy",
+  "act": {
+   "type": "pull",
+   "to": [
+    700,
+    600
+   ],
+   "vanish": true
+  },
   "outfit": [
    "helmet"
   ],
-  "ride": "mv-core-swell-proxima",
-  "x": 700,
-  "y": 484,
-  "s": 1.5,
-  "flip": -1,
-  "kind": "ride",
+  "ride": null,
+  "kind": "bg",
+  "x": 462,
+  "y": 613,
+  "s": 0.9,
+  "flip": 1,
   "says": [
    {
-    "text": "Zzz...",
-    "shout": false
+    "text": "Nooo!",
+    "shout": true
    }
   ],
-  "bside": -1
+  "bside": 1
  },
  "sfx": [],
  "labels": [

@@ -7,5 +7,37 @@
  ],
  "focus_word": "the horizon",
  "sfx": [],
- "labels": []
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    910
+   ],
+   "vanish": true
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-core-approach",
+  "kind": "ride",
+  "x": 640,
+  "y": 1100,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ]
+ }
 }

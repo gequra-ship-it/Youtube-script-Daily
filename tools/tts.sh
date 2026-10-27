@@ -2,6 +2,7 @@
 # usage: SLUG=<slug> MIYA_WORK=<dir> HYPERFRAMES_PYTHON=<venv python with kokoro-onnx, soundfile> tools/tts.sh
 # Makes one wav per scene (tts/p01.wav ...) from videos/$SLUG/script.py with Kokoro (voice am_michael, miya 2026-10-26: back to the original male voice; af_heart was used 2026-10-24~26).
 set -e
+# optional TTS_SPEED (default 1.0): e.g. 1.08 to bring a long form that runs past 15 min back under the cap (miya 2026-10-27)
 HERE="$(cd "$(dirname "$0")/.." && pwd)"; W="${MIYA_WORK:-/tmp/miya-work}/$SLUG/tts"; mkdir -p "$W"
 python3 - "$HERE" "$W" <<'PY'
 import sys, shutil
@@ -11,5 +12,5 @@ for i, s in enumerate(load_scenes(), 1):
     if s[0] == 'OUTRO': shutil.copy(f'{sys.argv[1]}/tools/assets/outro.wav', f'{sys.argv[2]}/p{i:02d}.wav')   # the outro narration is one fixed file (2026-10-24)
 PY
 cd "$W"
-for f in p*.txt; do n=${f%.txt}; [ -s $n.wav ] && continue; npx --yes hyperframes@0.8.141 tts "$f" -v am_michael -o $n.wav >/dev/null 2>&1 || echo "FAIL $n"; done
+for f in p*.txt; do n=${f%.txt}; [ -s $n.wav ] && continue; npx --yes hyperframes@0.8.141 tts "$f" -v am_michael -s "${TTS_SPEED:-1.0}" -o $n.wav >/dev/null 2>&1 || echo "FAIL $n"; done
 ls p*.wav | wc -l

@@ -21,5 +21,27 @@
   }
  ],
  "centre": "golden padlock on two iron-barred doors that slam shut",
- "motion": "two barred doors slide together and shake as the padlock stamps on"
+ "motion": "two barred doors slide together and shake as the padlock stamps on",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 530,
+  "y": 1330,
+  "s": 1.2,
+  "flip": 1,
+  "bside": 1,
+  "behind": "mv-slide-left",
+  "says": [
+   {
+    "text": "Psst...",
+    "shout": false
+   }
+  ]
+ }
 }
