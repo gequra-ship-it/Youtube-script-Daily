@@ -18,6 +18,65 @@ SEA_RIDE = re.compile(r'shark|whale|fish|dolphin|squid|octopus|jelly|turtle|seal
 WATER_G = re.compile(r'water|sea\b|ocean|wave|lake|river|pool|pond|aquarium|tank|current|abyss|seafloor', re.I)
 
 
+SPACE_PAL = ('space', 'deepfield', 'solar', 'cosmic')
+SPACE_RIDE = re.compile(r'rocket|probe|voyager|pioneer|satellite|lander|shuttle|capsule|spaceship|starship|comet|asteroid|meteor', re.I)
+GROUND_G = re.compile(r'ground|floor|desk|table|room|street|city|village|hut|house|field|lab\b|dome|cabin|cockpit', re.I)
+
+
+SPACE_G = re.compile(r'planet|moon|galaxy|comet|asteroid|probe|rocket|satellite|orbit|\bsun\b|earth|mars|jupiter|saturn|blackhole|hole', re.I)   # a nebula wash is a background, not evidence
+
+
+BG_LAYER = re.compile(r'^mv-(drift|cells|glint|twinkle|scroll|fade|tint|rack)-|\bbg\b|background|backdrop|sky\b|haze|wash', re.I)   # background layers are not objects
+
+
+def has_group(gs, rx, frac, W, H):
+    """an OBJECT group (not a background layer) whose NAME matches rx and whose box covers at least frac of the frame (picture evidence, 2026-10-27)"""
+    return any(rx.search(g[0]) and not BG_LAYER.search(g[0]) and g[3] * g[4] >= frac * W * H for g in gs.values())
+
+
+def in_space(text, palname, gs, ride, W, H, bg='night'):
+    """the frog is out in space (helmet): a ridden spacecraft / comet, or a space palette WITH either space words or a big drawn space object
+    (planet, probe, sun…) — a starry background alone is not enough (clocks, scales and families are drawn on it too). Never on paper,
+    never when a big ground / indoor group (room, desk, street, dome…) is drawn."""
+    if ride and SPACE_RIDE.search(ride): return True
+    if bg == 'paper' or has_group(gs, GROUND_G, .25, W, H): return False
+    if palname not in SPACE_PAL: return bool(SPACE.search(text) and not GROUND.search(text) and has_group(gs, SPACE_G, .04, W, H))
+    return bool((SPACE.search(text) and not GROUND.search(text)) or has_group(gs, SPACE_G, .06, W, H))
+
+
+# picture-evidence outfits (miya 2026-10-27 "대본 규칙이랑 그림 규칙을 다른 것들에도 모두"): (outfit, group-name regex, min frame fraction | 'ride' | 'pal:<name>')
+# in priority order. Physical states (PIC_PHYS) beat a word costume; the rest fill in only when the words gave nothing.
+PIC_OUTFIT = [('scarf', re.compile(r'snow|\bice\b|iceberg|glacier|igloo|frost|blizzard|icicle|penguin|polar|tundra', re.I), .06),
+              ('scarf', None, 'pal:ice'),
+              ('umbrella', re.compile(r'\brain|storm|thundercloud|downpour|drizzle', re.I), .08),
+              ('umbrella', None, 'pal:storm'),
+              ('lifevest', re.compile(r'boat|raft|canoe|kayak|ship\b|deck|ferry|dinghy', re.I), 'ride'),
+              ('lab', re.compile(r'microscope|beaker|flask|petri|pipette|test-?tube|centrifuge|labbench', re.I), .02),
+              ('lab', None, 'pal:lab'),
+              ('headlamp', re.compile(r'cave|mine\b|tunnel|shaft', re.I), .25),
+              ('explorer', re.compile(r'jungle|desert|dune|tent|canyon|ruins|temple|pyramid|liana|vine', re.I), .2),
+              ('nightcap', re.compile(r'\bbed\b|pillow|blanket|cradle|crib', re.I), .06),
+              ('hardhat', re.compile(r'crane|excavator|scaffold|girder|bulldozer|construction|drill', re.I), .08),
+              ('chef', re.compile(r'\bpot\b|\bpan\b|stove|kitchen|oven|cauldron|wok', re.I), .05),
+              ('doctor', re.compile(r'hospital|stethoscope|syringe|ambulance|x-?ray|wardbed', re.I), .05),
+              ('strawhat', re.compile(r'barn|tractor|wheat|haystack|scarecrow|farm|paddy', re.I), .15),
+              ('sunglasses', re.compile(r'beach|palm|parasol', re.I), .2)]
+PIC_PHYS = ('scarf', 'umbrella', 'lifevest')
+HOLE_G = re.compile(r'hole|\bbh\b|singular|vortex|whirlpool|(?<!s)well\b', re.I)   # a drawn hole (not 'swell', not the horizon ring)
+ICE_G = PIC_OUTFIT[0][1]; FIRE_G = re.compile(r'fire|flame|lava|magma|furnace|kiln|volcano|ember|blaze|\bsun\b', re.I)
+
+
+def pic_outfit(gs, palname, ride, W, H, phys_only=False):
+    for nm, rx, cond in PIC_OUTFIT:
+        if phys_only and nm not in PIC_PHYS: continue
+        if cond == 'ride':
+            if ride and rx.search(ride): return nm
+        elif isinstance(cond, str) and cond.startswith('pal:'):
+            if palname == cond[4:]: return nm
+        elif has_group(gs, rx, cond, W, H) and not (nm == 'scarf' and palname == 'ocean'): return nm
+    return None
+
+
 def underwater(text, palname, gs, ride, W, H):
     """'deep' / 'shallow' / None: is the frog in the water, judged from the PICTURE as well as the sentence (miya 2026-10-27: the frog rode a shark in the
     human video with no diving gear because the narration spoke of mercury). deep = diving suit + tank, shallow = mask + snorkel."""
@@ -448,6 +507,14 @@ with sync_playwright() as p:
             elif weak and rk and POPG.search(rk): keep['act'] = 'startle'
             elif weak and rk and PULSEG.search(rk) and cur in CALM: keep['act'] = 'bounce'
             elif weak and rk and TRAVELG.search(rk) and cur in CALM and n % 2 == 0: keep['act'] = 'lean'   # every other ride on a traveller leans back; the others keep their calm act (variety)
+            # ---- picture-evidence acts (miya 2026-10-27: script rule + picture rule everywhere): what the picture shows when the words gave nothing ----
+            elif weak and ((has_group(gs, ICE_G, .06, W, H) and palname != 'ocean') or palname == 'ice') and not SERIOUS: keep['act'] = 'shiver'; keep['moods'][0] = {'mood': 'chilly'}   # (marine 'snow' in the ocean is not ice)
+            elif weak and has_group(gs, HOLE_G, .06, W, H) and not keep.get('ride') and not isinstance(keep.get('act'), dict):   # a drawn black hole / well: pulled toward it (miya 2026-10-26 black hole = pulled in)
+                hg_ = sorted([g for g in gs.values() if HOLE_G.search(g[0])], key=lambda g: -g[3] * g[4])[0]
+                keep['act'] = {'type': 'pull', 'to': [round(hg_[1] + hg_[3] / 2), round(hg_[2] + hg_[4] / 2)]}; keep['moods'][0] = {'mood': 'scared'}
+            elif weak and has_group(gs, FIRE_G, .08, W, H) and not keep.get('ride'): keep['act'] = {'type': 'dizzy'}; keep['moods'][0] = {'mood': 'dizzy'}   # a big fire / sun: overheated (same as the HEAT words)
+            elif weak and has_group(gs, WATER_G, .25, W, H) and not keep.get('ride') and cur in CALM: keep['act'] = 'waves'; keep['moods'][0] = {'mood': 'surprised'}
+            elif weak and rk and (SPACE_RIDE.search(rk) or re.search(r'plane|jet|train|car\b|sled|bike|motor', rk, re.I)) and cur in CALM: keep['act'] = 'wind'; keep['moods'][0] = {'mood': 'squint'}
             if keep.get('act') in ('scope', 'hide', 'tap', 'rest', 'wave', 'peek', 'hang', 'cry', 'facepalm', 'idea', 'dig', 'magnify', 'read', 'photo', 'eat', 'dance', 'clap', 'salute', 'think', 'sneeze', 'snooze') or (isinstance(keep.get('act'), str) and keep.get('act') in ACT_MOOD2): keep.pop('roam', None)   # these are done in place, not while roaming
             # outfits by scene words (not over diving gear / helmet / fore)
             if not keep.get('outfit'):
@@ -458,6 +525,8 @@ with sync_playwright() as p:
                 else:   # round 4: 14 more costumes by narration words, first match in the list order (crown, knight, pirate, doctor, chef, hardhat, headphones, gradcap, strawhat, umbrella, sunglasses, partyhat, wizard, detective)
                     for nm_, rx_ in OUTFIT_WORDS:
                         if rx_.search(text) and not (nm_ == 'pirate' and SPACE.search(text)) and not (nm_ == 'sunglasses' and (SPACE.search(text) or SEA.search(text))): keep['outfit'] = [nm_]; break
+            po_ = pic_outfit(gs, palname, keep.get('ride'), W, H, phys_only=bool(keep.get('outfit')))   # picture evidence: fills in when the words gave nothing; cold / rain / boat beat a word costume
+            if po_ and (not keep.get('outfit') or (keep['outfit'][0] not in ('helmet', 'diver', 'goggles', 'fore', 'fore_steps', 'lab', 'explorer', 'scarf', 'nightcap', 'umbrella', 'lifevest'))): keep['outfit'] = [po_]
             # extra faces on the first sentence when no strong act fixed it
             if keep.get('act') not in STRONG and not isinstance(keep.get('act'), dict):
                 if ANGRYW.search(text): keep['moods'][0] = {'mood': 'angry'}
@@ -505,6 +574,7 @@ with sync_playwright() as p:
                 keep['act'] = {'type': 'pull', 'to': [round(hg[0][1] + hg[0][3] / 2), round(hg[0][2] + hg[0][4] / 2)] if hg else [W // 2, H // 2]}
                 if hg and (keep.get('kind') == 'ride' or not keep.get('roam')): keep['act']['vanish'] = True   # riding a star into the hole: pulled in, shrinking, gone (miya 2026-10-26)
             cnt_say = globals().setdefault('cnt_say', 0); globals()['cnt_say'] = cnt_say + 1
+            if keep.get('outfit') not in (['helmet'], ['diver'], ['goggles'], ['fore'], ['fore_steps']) and in_space(text, palname, gs, keep.get('ride'), W, H, u.get('bg', 'night')) and not underwater(text, palname, gs, keep.get('ride'), W, H): keep['outfit'] = ['helmet']   # space helmet by the picture too (miya 2026-10-27: script rule + picture rule together)
             uw = underwater(text, palname, gs, keep.get('ride'), W, H)   # diving gear by the picture, not only the words (miya 2026-10-27); worn instead of a word costume
             if uw and keep.get('outfit') not in (['diver'], ['goggles'], ['helmet']) and not (isinstance(keep.get('act'), dict) and keep['act'].get('type') == 'huts'): keep['outfit'] = ['diver'] if uw == 'deep' else ['goggles']
             keep['says'] = says_for(keep['act'], keep, text, cnt_say); keep['bside'] = keep.get('bside') or (1 if keep['x'] < W / 2 else -1)
