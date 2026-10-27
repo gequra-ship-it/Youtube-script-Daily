@@ -207,7 +207,16 @@ def letters(tx):
     return ''.join(f'<i>{c}</i>' for c in _re.findall(r'&[a-z]+;|.', tx))
 
 
-def name_fx(nn, k):
+PIC_FX = [('fire', 'glow'), ('candle', 'glow'), ('water', 'wave'), ('bubble', 'wave'), ('ice', 'squeeze'), ('rain', 'drop'), ('wind', 'slideleft'),
+          ('space', 'zoom'), ('clock', 'flip'), ('gear', 'spin'), ('typing', 'typewriter'), ('book', 'typewriter'), ('crowd', 'scatter'), ('bird', 'fan'),
+          ('smoke', 'blur'), ('cave', 'blur'), ('coin', 'bounceletters'), ('chain', 'swing'), ('heart', 'elastic')]   # picture evidence -> name-label entrance (miya 2026-10-27)
+
+
+def name_fx(nn, k, pic=None):
+    """name-label entrance: the picture decides when it shows something (fire -> glow, water -> wave, a clock -> flip...), else the unit/label rotation"""
+    if pic:
+        for tag, f in PIC_FX:
+            if tag in pic: return f
     return NAME_FX[(nn * 7 + k) % len(NAME_FX)]
 
 
@@ -219,7 +228,7 @@ def say_fx(tx):
     return 'pop'
 
 
-def label_js(ty, lid, tt, nn, k, text, utext, te=None):
+def label_js(ty, lid, tt, nn, k, text, utext, te=None, pic=None):
     """entrance (+ reaction) tweens for one name / say label at absolute time tt (seek-safe, finite). te = leave time for bubbles (bob until then)."""
     S = f'"#{lid}s"'; L = f'"#{lid}s i"'; js = []; A = f'{tt:.3f}'
     if ty == 'say':
@@ -233,7 +242,7 @@ def label_js(ty, lid, tt, nn, k, text, utext, te=None):
             js.append(f'tl.fromTo({S},{{y:0}},{{y:-6,duration:1.4,yoyo:true,repeat:{max(int((te - tt - 1) / 1.4), 1)},ease:"sine.inOut",immediateRender:false}},{tt + 1:.3f});')
         if DANGERW.search(utext): js.append(f'tl.fromTo({S},{{x:0}},{{x:-4,duration:.05,yoyo:true,repeat:7,immediateRender:false}},{tt + 1.6:.3f});')
         return js
-    f = name_fx(nn, k); n = len(_re.findall(r'&[a-z]+;|.', text)); st = max(.02, min(.07, .5 / max(n, 1)))
+    f = name_fx(nn, k, pic); n = len(_re.findall(r'&[a-z]+;|.', text)); st = max(.02, min(.07, .5 / max(n, 1)))
     V = lambda a, b, d, e='power2.out': f'tl.fromTo({S},{{{a}}},{{{b},duration:{d},ease:"{e}",immediateRender:false}},{A});'
     LV = lambda a, b, d, e='power2.out', s=st: f'tl.set({S},{{opacity:1}},{A});tl.fromTo({L},{{{a}}},{{{b},duration:{d},stagger:{s},ease:"{e}",immediateRender:false}},{A});'
     if f == 'pop': js.append(V('opacity:0,scale:.6', 'opacity:1,scale:1', .25, 'back.out(2)'))

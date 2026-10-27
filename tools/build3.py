@@ -402,7 +402,7 @@ if os.environ.get('PLAN') == '1':
 os.makedirs(OUT, exist_ok=True)
 for name in ['gsap.min.js', 'Fredoka-700.woff2', 'PatrickHand-400.woff2', 'logo.png', 'grain.png']:
     shutil.copy(f'{ASSETS}/{name}', f'{OUT}/{name}')
-import sfx_lib, sfx_pick, bgm_lib, facing
+import sfx_lib, sfx_pick, bgm_lib, facing, picev
 sfx_lib.make_all(OUT)
 # music style for the whole video (2026-10-27, guideline 9-4): config STYLE, else palette + script words (bgm_lib.style_for); 'cosmic' also switches
 # the transition sounds, speed streaks and the sfx word table to the space family
@@ -453,7 +453,7 @@ assert max(len(c['text']) for c in caps) <= CHARMAX, max(caps, key=lambda c: len
 
 
 # ---------- SVG inlining ----------
-FACE = {}; FACEFIX = []; DIRC = {}   # direction sanity (2026-10-27, miya: fish swam backwards): travelling creatures must move the way they face (tools/facing.py)
+FACE = {}; FACEFIX = []; DIRC = {}; PIC = {}   # direction sanity (2026-10-27, miya: fish swam backwards): travelling creatures must move the way they face (tools/facing.py)
 def load_svg(n, path, world=None):
     s = open(path, encoding='utf-8').read()
     s = re.sub(r'<\?xml[^>]*\?>', '', s).strip()
@@ -602,6 +602,7 @@ for k, u in enumerate(units):   # k = unit index (round 4 effects are keyed on i
     else:
         p, fb = art_path(u)
         if fb: fallback_used.append(u['uid'])
+        PIC[nn] = picev.evidence(FACE.get(p, {}).get('boxes', {}) if isinstance(FACE.get(p), dict) else {}, W, H)   # picture evidence tags (2026-10-27): what the picture shows, for fx / sfx / text effects
         sc0 = side(u); th = SCENES[u['scene'] - 1][3]
         lerr = labels_lib.check(sc0, u['text'], W, H, VERT)
         if lerr: label_errors.append(f'{u["uid"]}: ' + '; '.join(lerr))
@@ -619,7 +620,7 @@ for k, u in enumerate(units):   # k = unit index (round 4 effects are keyed on i
             spd = (f'<div class="spd" id="spd{nn}"><div style="position:absolute;left:{ox:.0f}px;top:{oy:.0f}px">'
                    + ''.join(f'<i style="transform:rotate({(k * 137.508) % 360:.1f}deg)"><b></b></i>' for k in range(NSPD)) + '</div></div>')
         ss = (f'<svg class="ss" id="ss{nn}" viewBox="0 0 {W} {H}"><g id="ssl{nn}"><line x1="0" y1="0" x2="230" y2="108" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".22"/><line x1="0" y1="0" x2="230" y2="108" stroke="#fff" stroke-width="3.5" stroke-linecap="round" opacity=".95"/><circle cx="230" cy="108" r="5" fill="#fff"/></g></svg>') if is_cosmic(u) else ''
-        _fx = motions.fx_for(u['text'], (u.get('pal') or {}).get('palette') if isinstance(u.get('pal'), dict) else palettes.for_theme(CFG, SCENES[u['scene'] - 1][3]), BGMODE.get(SCENES[u['scene'] - 1][3], 'paper'), k, u['t1'] - u['t0'], cosmic=is_cosmic(u), prev=FXPREV)
+        _fx = motions.fx_for(u['text'], (u.get('pal') or {}).get('palette') if isinstance(u.get('pal'), dict) else palettes.for_theme(CFG, SCENES[u['scene'] - 1][3]), BGMODE.get(SCENES[u['scene'] - 1][3], 'paper'), k, u['t1'] - u['t0'], cosmic=is_cosmic(u), prev=FXPREV, pic=PIC.get(nn))
         FXPREV.append(_fx[0][0] if _fx else None)
         DIRC[nn] = facing.context(FACE.get(p, {}), open(p, encoding='utf-8').read(), sc0) if p in FACE else dict(travel=0, wind=1, attractor=None)   # picture direction context (2026-10-27)
         FXU[nn] = _fx; fxm = ''.join(motions.fx_markup(nn, kd, W, H, BGMODE.get(SCENES[u['scene'] - 1][3], 'paper'), wind=DIRC[nn]['wind'], travel=DIRC[nn]['travel']) for kd, _ in _fx)   # round 4 background effects (rain / snow / embers / flash / bubbles)
@@ -684,7 +685,7 @@ for u in units:
     # scene-event sounds (2026-10-27, guideline 9-3): sfx_pick chooses from the narration words (anchored to the matched word), else the picture
     # agent's sidecar `sfx`, else a quiet palette ambient on every third unit; sidecar `sfx_lock: true` keeps the agent's cue as is
     upal = (u.get('pal') or {}).get('palette') if isinstance(u.get('pal'), dict) else palettes.for_theme(CFG, SCENES[u['scene'] - 1][3])
-    for e in sfx_pick.sfx_for(u['text'], upal, UIDX[nn], u['t1'] - u['t0'], cosmic=COSMIC, prev=SFXPREV, side=sc.get('sfx'), lock=bool(sc.get('sfx_lock'))):
+    for e in sfx_pick.sfx_for(u['text'], upal, UIDX[nn], u['t1'] - u['t0'], cosmic=COSMIC, prev=SFXPREV, side=sc.get('sfx'), lock=bool(sc.get('sfx_lock')), pic=PIC.get(nn)):
         te = tword(e.get('word'))
         if te is None: te = u['t0'] + e.get('at', 1.0)
         te = min(max(te + e.get('offset', 0.0), u['t0'] + 0.3), u['t1'] - 0.6)
@@ -1007,7 +1008,7 @@ for (nn, ty, lid, gid, tt) in label_t:          # on-screen text pops in when it
         js.extend(motions.badge_bounce_js(lid, tt))   # round 4: lands with a small bounce
         continue
     _lab = next((l for (_n, _ty, _l, _g, _tt, l) in label_full if _l == lid), {}); _u = UTXT.get(nn, '')
-    js.extend(labels_lib.label_js(ty, lid, tt, nn, int(lid.rsplit('_', 1)[1]), str(_lab.get('text', '')), _u, te=UEND[nn]))   # round 4 text effects (style by unit number / punctuation / unit words)
+    js.extend(labels_lib.label_js(ty, lid, tt, nn, int(lid.rsplit('_', 1)[1]), str(_lab.get('text', '')), _u, te=UEND[nn], pic=PIC.get(nn)))   # round 4 text effects (style by unit number / punctuation / unit words)
     if gid: js.append(f'tl.set("#{gid}",{{opacity:1}},{tt:.3f});')
     if nn in focus_cam:       # keep the text the same size while the camera zooms in (it still follows its subject)
         a, (fx, fy, s) = focus_cam[nn]
