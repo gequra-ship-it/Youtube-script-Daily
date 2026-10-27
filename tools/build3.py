@@ -402,8 +402,13 @@ if os.environ.get('PLAN') == '1':
 os.makedirs(OUT, exist_ok=True)
 for name in ['gsap.min.js', 'Fredoka-700.woff2', 'PatrickHand-400.woff2', 'logo.png', 'grain.png']:
     shutil.copy(f'{ASSETS}/{name}', f'{OUT}/{name}')
-import sfx_lib
+import sfx_lib, sfx_pick, bgm_lib
 sfx_lib.make_all(OUT)
+# music style for the whole video (2026-10-27, guideline 9-4): config STYLE, else palette + script words (bgm_lib.style_for); 'cosmic' also switches
+# the transition sounds, speed streaks and the sfx word table to the space family
+BGM_STYLE = bgm_lib.style_for(CFG, [sc[4] for sc in SCENES], getattr(CFG, 'PAL_DEFAULT', None) or palettes.DEFAULT)
+COSMIC = BGM_STYLE == 'cosmic'
+print('music style', BGM_STYLE, '(config)' if getattr(CFG, 'STYLE', None) else '(auto)')
 sfx_lib.make_chalk(f'{OUT}/chalk.wav') if hasattr(sfx_lib, 'make_chalk') else None
 
 # ---------- caption lines ----------
@@ -583,7 +588,7 @@ def is_cosmic(u):
     return u['kind'] != 'chalk' and u.get('bg') == 'night' and (u.get('pal') or {}).get('palette') in ('space', 'deepfield')
 def is_speed(u, sc0):
     if 'speed' in sc0: return bool(sc0['speed'])
-    return getattr(CFG, 'STYLE', 'default') == 'cosmic' and bool(SPEED_RE.search(u['text']))
+    return COSMIC and bool(SPEED_RE.search(u['text']))
 DRIFT = getattr(CFG, 'DRIFT', True)   # slow continuous camera move on every picture without a focus target (guideline 20-1)
 fallback_used = []; label_errors = []; label_items = {}; BADGES = []; FXU = {}; FXPREV = []
 for k, u in enumerate(units):   # k = unit index (round 4 effects are keyed on it)
@@ -634,13 +639,13 @@ TRSND = {'zoom': ('swish', -0.85, 0.9), 'slide': ('swish', -0.6, 0.6), 'match': 
          'push': ('swish', -0.6, 0.6), 'whip': ('swish', -0.4, 0.8), 'tilt': ('pop', -0.7, 0.6),
          'seam': ('swish', -0.7, 0.6), 'diamond': ('hush', -0.8, 0.7), 'page': ('rustle', -0.6, 0.6), 'zigzag': ('swish', -0.6, 0.6), 'wave': ('hush', -0.8, 0.7),
          'dip': ('hush', -0.5, 0.55), 'flash': ('hush', -0.4, 0.7), 'zoom': ('swish', -0.85, 0.9)}
-if getattr(CFG, 'STYLE', 'default') == 'cosmic':   # cosmic videos: no swish/hush (guideline 3-7)
+if COSMIC:   # cosmic videos: no swish/hush (guideline 3-7)
     TRSND = {'zoom': ('warp', -0.45, 0.8), 'slide': ('warp', -0.35, 0.5), 'match': ('glimmer', -0.5, 0.7), 'wash': ('sparkle', -0.4, 0.6),
              'wipe': ('warp', -0.6, 0.5), 'iris': ('glimmer', -0.8, 0.6), 'eye': ('glimmer', -0.6, 0.6), 'blinds': ('sparkle', -0.5, 0.5),
              'push': ('warp', -0.5, 0.5), 'whip': ('warp', -0.35, 0.7), 'tilt': ('pop', -0.7, 0.5),
              'seam': ('warp', -0.5, 0.5), 'diamond': ('glimmer', -0.8, 0.6), 'page': ('sparkle', -0.5, 0.5), 'zigzag': ('warp', -0.5, 0.5), 'wave': ('glimmer', -0.7, 0.6),
              'dip': ('glimmer', -0.45, 0.55), 'flash': ('bloom', -0.35, 0.7), 'zoom': ('warp', -0.45, 0.8)}
-focus_cam = {}; label_t = []; label_full = []; UTXT = {}
+focus_cam = {}; label_t = []; label_full = []; UTXT = {}; SFXPREV = []; SFXAUTO = {}
 UIDX = {u['n']: i for i, u in enumerate(units)}
 for u in units:
     nn = u['n']
@@ -671,15 +676,21 @@ for u in units:
         need = max(1.5, .45 * len(str(l.get('text', '')).split()) + .7)
         label_t.append((nn, ty, lid, gid, max(min(max(tl_ - 0.1, u['t0'] + 0.15), u['t1'] - nt - need), u['t0'] + 0.1)))
         label_full.append(label_t[-1] + (l,)); UTXT[nn] = u['text']
-    for e in sc.get('sfx', []):
+    # scene-event sounds (2026-10-27, guideline 9-3): sfx_pick chooses from the narration words (anchored to the matched word), else the picture
+    # agent's sidecar `sfx`, else a quiet palette ambient on every third unit; sidecar `sfx_lock: true` keeps the agent's cue as is
+    upal = (u.get('pal') or {}).get('palette') if isinstance(u.get('pal'), dict) else palettes.for_theme(CFG, SCENES[u['scene'] - 1][3])
+    for e in sfx_pick.sfx_for(u['text'], upal, UIDX[nn], u['t1'] - u['t0'], cosmic=COSMIC, prev=SFXPREV, side=sc.get('sfx'), lock=bool(sc.get('sfx_lock'))):
         te = tword(e.get('word'))
-        if te is None: te = u['t0'] + 1.0
-        cues.append(dict(name=e['name'], t=te + e.get('offset', 0.0), vol=e.get('vol', 0.8), pri=3, unit=u['uid']))
+        if te is None: te = u['t0'] + e.get('at', 1.0)
+        te = min(max(te + e.get('offset', 0.0), u['t0'] + 0.3), u['t1'] - 0.6)
+        cues.append(dict(name=e['name'], t=te, vol=e.get('vol', 0.8), pri=3, unit=u['uid'], auto=e.get('auto', 'agent')))
+        SFXPREV.append(sfx_lib.ALIAS.get(e['name'], e['name'])); SFXAUTO[e.get('auto', 'agent')] = SFXAUTO.get(e.get('auto', 'agent'), 0) + 1
 cues.sort(key=lambda c: c['t'])
 kept = []
 for c in sorted(cues, key=lambda c: -c['pri']):
     if all(abs(c['t'] - k['t']) >= 0.9 for k in kept): kept.append(c)
 cues = sorted(kept, key=lambda c: c['t'])
+print('sfx auto', SFXAUTO, '| kept events', sum(1 for c in cues if c['pri'] == 3), 'kinds', len({c['name'] for c in cues}))
 SFXLEN = {}
 vcount = {}
 for c in cues:      # alias old names, cycle the 3 recorded variants of each sound
@@ -712,9 +723,10 @@ for c in cues:
 # ---------- background music (synthesised, ducked under the narration; SFX bgm off with NOBGM=1) ----------
 BGM_REPORT = None
 if os.environ.get('NOBGM') != '1':
-    import bgm_lib
     ACC = rhythm.accent_times(units, TIN) if os.environ.get('NOACCENT') != '1' else []   # chord-tone accents on the big picture changes (guideline 9-5)
-    BGM_REPORT = bgm_lib.make_bgm(f'{B}/bgm.wav', TOTAL, [(f'{B}/n{i:02d}.wav', starts[i]) for i in SEL], below_db=float(os.environ.get('BGM_BELOW', '13')), style=getattr(CFG, 'STYLE', 'default'), accents=ACC)
+    MOODS = bgm_lib.scene_moods([SCENES[i - 1][4] for i in SEL], [starts[i] for i in SEL])   # per-scene mood -> progression pool + pluck density (guideline 9-4)
+    print('bgm moods', [(round(t), m) for t, m in MOODS if m != 'calm'] or 'all calm')
+    BGM_REPORT = bgm_lib.make_bgm(f'{B}/bgm.wav', TOTAL, [(f'{B}/n{i:02d}.wav', starts[i]) for i in SEL], below_db=float(os.environ.get('BGM_BELOW', '13')), style=BGM_STYLE, accents=ACC, moods=MOODS)
     run('ffmpeg', '-y', '-v', 'error', '-i', f'{B}/bgm.wav', '-c:a', 'aac', '-b:a', '96k', f'{OUT}/bgm.m4a')
     audio.append(('bgm.m4a', 0.0, TOTAL, 20, 1))
     print('bgm', {k: round(v, 1) for k, v in BGM_REPORT.items()})
