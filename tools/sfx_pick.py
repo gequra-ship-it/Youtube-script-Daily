@@ -5,7 +5,9 @@
 #   sfx_for(text, palname, k, dur, cosmic, prev, side) -> list of 0-1 cue dicts {name, word|at, vol, auto}
 #     text    unit narration text (exact substring of the scene text; the matched word is used by build3 for the timing)
 #     palname palette of the unit ('ocean', 'history', ...), k unit index, dur unit length (s), cosmic = cosmic style video
-#     prev    names of the last cues (no same name twice in a row), side = the picture agent's sidecar `sfx` list (fallback, or forced with sfx_lock)
+#     prev    names of the cues so far (density count; the ambient filler avoids repeating the last one), side = the picture agent's sidecar `sfx` list
+#             (fallback, or forced with sfx_lock). miya 2026-10-27: no blanket 'never twice in a row' -- a word rule that matches again gives the
+#             same sound again (the situation continues); only filler picks vary.
 import re
 
 # (regex, sound, vol). First match wins; order = priority (events before textures). Word boundaries, case-insensitive.
@@ -140,17 +142,16 @@ def sfx_for(text, palname, k, dur, cosmic=False, prev=(), side=None, lock=False,
         m = re.search(rx, text, re.I)
         if not m: continue
         if cosmic: name = COSMIC_SWAP.get(name, name)
-        if name == last: continue                                   # same sound twice in a row: skip this rule, try the next
         if name in LONG and dur < 4: continue
         return [dict(name=name, word=m.group(0), vol=vol, auto='word')]
-    if side and side[0]['name'] != last and not full:                           # the picture agent saw something in the picture the words do not say
+    if side and not full:                           # the picture agent saw something in the picture the words do not say
         return [dict(side[0], auto='agent')]
     if k % 3 == 1 and dur >= 6 and not full:
         pool = AMBIENT.get(palname) or []
         if cosmic: pool = [COSMIC_SWAP.get(n, n) for n in pool]
         for j in range(len(pool)):
             name = pool[(k // 3 + j) % len(pool)]
-            if name != last: return [dict(name=name, word=None, at=1.2, vol=AMBIENT_VOL, auto='ambient')]
+            if name != last or len(set(pool)) == 1: return [dict(name=name, word=None, at=1.2, vol=AMBIENT_VOL, auto='ambient')]
     return []
 
 

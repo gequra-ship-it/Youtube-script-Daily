@@ -293,15 +293,15 @@ for k, u in enumerate(units):
     # 'blinds' (colour bars dropping down) removed for all videos, user decision 2026-10-16
     if u['scene'] in SLOW_SC:   # slow scene: calm transitions only
         pool = [x for x in pool if x in ('fade', 'match', 'eye', 'iris', 'slide', 'zoom')] or ['fade']
-    pool = [x for x in pool if x not in last2[-1:]]
-    if len(last2) >= 2:
-        pool = [x for x in pool if x not in last2[-2:]] or pool
-    # balance: a type already used a lot is picked less (so 13 types spread out); a matching word wins half the time
-    # unless that type is already above its fair share
+    # (miya 2026-10-27) no blanket 'not the same as the last two': a transition whose word is in the narration is used whenever it is under
+    # its fair share, even on consecutive cuts (the situation repeats); cuts without a word spread over the types by count (least used first,
+    # ties by unit index) and only those avoid the previous cut's type
     fair = (sum(TR_COUNT.values()) + 1) / 16
     kw = [t for t, rx in TR_WORDS if t in pool and TR_COUNT.get(t, 0) <= fair * 1.3 and re.search(rx, u['text'], re.I)]
-    if kw and rng.random() < .5: u['tr'] = kw[0]
-    else: u['tr'] = rng.choices(pool, weights=[1 / (1 + TR_COUNT.get(x, 0)) ** 1.5 for x in pool])[0]
+    if kw: u['tr'] = kw[0]
+    else:
+        rest = [x for x in pool if x not in last2[-1:]] or pool
+        u['tr'] = sorted(rest, key=lambda x: (TR_COUNT.get(x, 0), (pool.index(x) + k) % len(pool)))[0]
     last2.append(u['tr']); TR_COUNT[u['tr']] = TR_COUNT.get(u['tr'], 0) + 1
 TIN = {'hard': 0.0, 'zoom': 0.5, 'fade': 0.6, 'slide': 0.7, 'match': 0.9, 'wash': 0.0,
        'wipe': 0.8, 'iris': 0.9, 'eye': 0.8, 'blinds': 0.65, 'push': 0.7, 'whip': 0.45, 'tilt': 0.8,

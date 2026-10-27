@@ -103,19 +103,19 @@ def _env(n, a, r):
 
 
 def _order(rng, pools, moods, nchord, cs):
-    """progression per chord slot: pool by the mood active at the slot start (a mood must hold >= 2 slots), never the same progression
-    twice in a row inside one pool; returns [(mood, prog, k)]"""
-    out = []; last = None; prog = None; k = 4; cur = 'calm'; held = 0
+    """progression per chord slot: pool by the mood active at the slot start (a mood must hold >= 2 slots). The progression changes with the
+    situation: a new one when the mood changes, otherwise the same one for two cycles and then the pool's next (miya 2026-10-27: repetition
+    follows the script, no blanket ban); returns [(mood, prog, k)]"""
+    out = []; prog = None; k = 4; cur = 'calm'; held = 0; cyc = 0; base = int(rng.integers(8))
     for ci in range(nchord):
         t = ci * cs; m = 'calm'
         for st, mm in moods:
             if st <= t + 1e-6: m = mm
-        if m != cur and held >= 2: cur = m; held = 0; k = 4          # mood change -> new progression from the new pool at this slot
+        if m != cur and held >= 2: cur = m; held = 0; k = 4; cyc = 0; base += 1   # mood change -> new progression from the new pool at this slot
         held += 1
         if k >= 4:
-            pool = pools.get(cur) or pools['calm']; pi = int(rng.integers(len(pool)))
-            if len(pool) > 1 and last == (cur, pi): pi = (pi + 1) % len(pool)
-            last = (cur, pi); prog = pool[pi]; k = 0
+            pool = pools.get(cur) or pools['calm']; pi = (base + cyc // 2) % len(pool)
+            prog = pool[pi]; k = 0; cyc += 1
         out.append((cur, prog, k)); k += 1
     return out
 
