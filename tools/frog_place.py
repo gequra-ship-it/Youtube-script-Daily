@@ -463,6 +463,7 @@ with sync_playwright() as p:
                 if act in ('float', 'cheer') or kind in ('swim', 'lie', 'tumble', 'roll'): keep['act'] = None   # the roaming motion replaces the in-place bob/hops; a drifting swimmer gets no lean/wind lines (miya 2026-10-26)
             # ---- round 3 relation acts (2026-10-26, guideline 7-2 D): applied only on a weak act; each one keyed on words + group ids ----
             cur = keep.get('act'); weak = (cur in CALM or cur in WEAK) and not isinstance(cur, dict) and not slid and not keep.get('cling')
+            dood = bool(NOTE.search(text) and any(BOOK.search(g[0]) and g[3] >= 200 for g in gs.values()))   # this picture will get the doodle act below (was an undefined name, found 2026-10-27 whole-repo check)
             SOFT = re.compile(r'glow|halo|ring|bg\b|background|sky|grid|star|nebula|circle|field|beam|light|aura|dust|particle|fog|mist|cloud|haze|wave|line|path|track|orbit|trail|edge|shadow|glint|lamp', re.I)
             big = sorted([g for g in gs.values() if 200 <= g[3] <= W * .6 and g[4] >= 120 and not PLAT.search(g[0]) and not SOFT.search(g[0])], key=lambda g: -g[3] * g[4])   # a solid object to hide behind (no glows / rings / backgrounds)
             rk = keep.get('ride') or ''

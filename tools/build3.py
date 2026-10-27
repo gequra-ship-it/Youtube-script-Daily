@@ -260,7 +260,7 @@ if MINU:
 for u in units:
     assert u['t1'] - u['t0'] > 1.5, ('unit too short', u)
 
-# ---------- transitions (no same type twice in a row; hard around chalk; match only inside a scene) ----------
+# ---------- transitions (word rule may repeat, word-less cuts avoid only the previous type; hard around chalk; match only inside a scene) ----------
 TR_WORDS = [   # a word in the unit text picks a transition that shows the same idea (70 % of the time, if allowed here)
     ('push', r'\b(fall\w*|fell|drop\w*|sink\w*|sank|plung\w*|descend\w*|rising|climb\w*|ascend\w*)\b'),
     ('whip', r'\b(speed\w*|race\w*|racing|rush\w*|sudden\w*|instant\w*|flash\w*)\b'),

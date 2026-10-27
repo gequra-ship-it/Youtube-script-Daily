@@ -13,7 +13,7 @@ Do NOT run git. Work only on the units you are given. Keep your scratch files in
 4. Edit the SVG surgically: wrap the EXISTING shapes of the moving thing in `<g id="mv-<kind>-<name>" data-...>` (ids `mv-*` become classes, duplicates are fine;
    other ids must stay unique). Never delete the picture's current `mv-` groups or the centre object; keep the style (thin sketch lines, palette colours, no text in the SVG,
    no filters). `data-pivot="x y"` is in picture coordinates (1920x1080). `data-delay` (s after the picture starts, default 0.3) orders events inside the picture; the picture
-   is 3.5-6 s long, so finish motions within about 4 s. Do not stack the same motion kind in neighbouring pictures.
+   is 3.5-6 s long, so finish motions within about 4 s. Repeat a motion kind in neighbouring pictures only when the narration repeats the situation (2026-10-27 principle), not as a default filler.
 5. Camera tracking (same rule, from the narration): if the text describes a long continuous movement, journey or survey (a creature crossing the scene, an arm reaching along a
    rock, a drifting current, scanning along a series), add an empty group `<g id="mv-track-<name>" data-path="M x y C ..." data-delay=".3" data-dur="3" data-scale="1.3"/>`
    whose path is where the camera centre goes (a picture with `mv-path-*` or 3+ `mv-topple-*` tracks automatically; `"track": false` in the sidecar turns it off).
