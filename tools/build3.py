@@ -453,12 +453,12 @@ assert max(len(c['text']) for c in caps) <= CHARMAX, max(caps, key=lambda c: len
 
 
 # ---------- SVG inlining ----------
-FACE = {}; FACEFIX = []   # direction sanity (2026-10-27, miya: fish swam backwards): travelling creatures must move the way they face (tools/facing.py)
+FACE = {}; FACEFIX = []; DIRC = {}   # direction sanity (2026-10-27, miya: fish swam backwards): travelling creatures must move the way they face (tools/facing.py)
 def load_svg(n, path, world=None):
     s = open(path, encoding='utf-8').read()
     s = re.sub(r'<\?xml[^>]*\?>', '', s).strip()
     if path in FACE:
-        s, fx_ = facing.apply(s, FACE[path]); FACEFIX.extend((os.path.basename(path), g, w) for g, w in fx_)
+        s, fx_ = facing.apply(s, FACE[path], ctx=DIRC.get(n)); FACEFIX.extend((os.path.basename(path), g, w) for g, w in fx_)
     pre = f'u{n}_'
     ids = set(re.findall(r'\bid="([^"]+)"', s))
     def mv(m):
@@ -621,7 +621,8 @@ for k, u in enumerate(units):   # k = unit index (round 4 effects are keyed on i
         ss = (f'<svg class="ss" id="ss{nn}" viewBox="0 0 {W} {H}"><g id="ssl{nn}"><line x1="0" y1="0" x2="230" y2="108" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".22"/><line x1="0" y1="0" x2="230" y2="108" stroke="#fff" stroke-width="3.5" stroke-linecap="round" opacity=".95"/><circle cx="230" cy="108" r="5" fill="#fff"/></g></svg>') if is_cosmic(u) else ''
         _fx = motions.fx_for(u['text'], (u.get('pal') or {}).get('palette') if isinstance(u.get('pal'), dict) else palettes.for_theme(CFG, SCENES[u['scene'] - 1][3]), BGMODE.get(SCENES[u['scene'] - 1][3], 'paper'), k, u['t1'] - u['t0'], cosmic=is_cosmic(u), prev=FXPREV)
         FXPREV.append(_fx[0][0] if _fx else None)
-        FXU[nn] = _fx; fxm = ''.join(motions.fx_markup(nn, kd, W, H, BGMODE.get(SCENES[u['scene'] - 1][3], 'paper')) for kd, _ in _fx)   # round 4 background effects (rain / snow / embers / flash / bubbles)
+        DIRC[nn] = facing.context(FACE.get(p, {}), open(p, encoding='utf-8').read(), sc0) if p in FACE else dict(travel=0, wind=1, attractor=None)   # picture direction context (2026-10-27)
+        FXU[nn] = _fx; fxm = ''.join(motions.fx_markup(nn, kd, W, H, BGMODE.get(SCENES[u['scene'] - 1][3], 'paper'), wind=DIRC[nn]['wind'], travel=DIRC[nn]['travel']) for kd, _ in _fx)   # round 4 background effects (rain / snow / embers / flash / bubbles)
         h.append(f'<div class="t" id="t{nn}" style="z-index:{nn}"><div class="w" id="w{nn}">{frog_inject(load_svg(nn, p, sc0.get('world')), u)}{spot}{lin}</div>{spd}{ss}{fxm}</div>')
         BADGES.append(lout)   # number badges live on their own layer so they do not vanish with the cut (user 2026-10-16)
 if label_errors: raise SystemExit('on-screen text (labels) problems, fix the sidecars:\n  ' + '\n  '.join(label_errors))
@@ -689,7 +690,7 @@ for u in units:
         te = min(max(te + e.get('offset', 0.0), u['t0'] + 0.3), u['t1'] - 0.6)
         cues.append(dict(name=e['name'], t=te, vol=e.get('vol', 0.8), pri=3, unit=u['uid'], auto=e.get('auto', 'agent')))
         SFXPREV.append(sfx_lib.ALIAS.get(e['name'], e['name'])); SFXAUTO[e.get('auto', 'agent')] = SFXAUTO.get(e.get('auto', 'agent'), 0) + 1
-print('direction sanity:', sum(len(v) for v in FACE.values()), 'travelling groups,', len(FACEFIX), 'turned round', FACEFIX if FACEFIX else '')
+print('direction sanity:', sum(len(facing.groups(v)) for v in FACE.values()), 'travelling groups,', len(FACEFIX), 'changed', FACEFIX if FACEFIX else '', '| wind left on', sum(1 for c in DIRC.values() if c['wind'] < 0), 'pictures, attractor on', sum(1 for c in DIRC.values() if c['attractor']))
 cues.sort(key=lambda c: c['t'])
 kept = []
 for c in sorted(cues, key=lambda c: -c['pri']):
@@ -882,6 +883,7 @@ for k, u in enumerate(units):
     elif DRIFT and u['kind'] != 'chalk':   # --- drift camera: one smooth eased move per picture (push / pan / pull), never a jump ---
         mv = k % 4; d = t1 - v0; s0, s1 = (1.0, 1.06) if mv != 3 else (1.06, 1.0)
         dx = {0: 0, 1: -W * .025, 2: W * .025, 3: 0}[mv]
+        if DIRC.get(nn, {}).get('travel') and mv in (1, 2): dx = -DIRC[nn]['travel'] * W * .025   # the pan follows the travelling object (its world slides the other way), never against it (2026-10-27)
         js.append(f'tl.fromTo("{Wq}",{{scale:{s0},x:0,y:0,transformOrigin:"{ORG}"}},{{scale:{s1},x:{dx:.1f},y:0,duration:{d:.3f},ease:"sine.inOut",immediateRender:false}},{v0:.3f});')
     if u['kind'] != 'chalk' and is_speed(u, side(u)):   # --- speed streaks: each line accelerates outward (power3.in) and respawns ---
         R = (W * W + H * H) ** .5; d = t1 - v0
@@ -894,7 +896,7 @@ for k, u in enumerate(units):
         ft = None
         if kd == 'flash':
             mfl = motions.FLASHW.search(u['text']); ft = frog.find_word(mfl.group(0), unit_wordlist(u), t0, t1) if mfl else None
-        js.extend(motions.fx_js(nn, kd, v0, t1, H, flash_t=ft, W=W))
+        js.extend(motions.fx_js(nn, kd, v0, t1, H, flash_t=ft, W=W, wind=DIRC.get(nn, {}).get('wind', 1), travel=DIRC.get(nn, {}).get('travel', 0)))
     if is_cosmic(u) and (t1 - v0) > 6 and k % 3 == 1:   # --- shooting star (round 3 fun rule): one streak across the upper sky, once, at a unit-indexed moment; never over the first 1.5 s or the last 1.5 s ---
         d = t1 - v0; sx = W * (.12 + .55 * ((k * .618) % 1)); sy = H * (.06 + .22 * ((k * .382) % 1)); ts = v0 + 1.5 + ((k * .73) % 1) * max(d - 3.2, .1)
         js.append(f'tl.set("#ss{nn}",{{opacity:1}},{ts:.3f});tl.fromTo("#ssl{nn}",{{x:{sx:.0f},y:{sy:.0f},opacity:0,scaleX:.2,svgOrigin:"0 0"}},{{x:{sx + 520:.0f},y:{sy + 245:.0f},opacity:.9,scaleX:1,duration:.55,ease:"power2.in",immediateRender:false}},{ts:.3f});'

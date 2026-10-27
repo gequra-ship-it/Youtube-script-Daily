@@ -459,8 +459,13 @@ with sync_playwright() as p:
             pg_ = [g for g in gs.values() if keep.get('ride') == g[0] and PUSHG.search(g[0]) and re.match(r'mv-(path|slide|glide)', g[0])]
             if pg_:
                 _, gx, gy, gw, gh = pg_[0]; s1 = round(min(1.4, max(1.0, gw / 190)), 2)
-                hx, hy = gx + gw * .9, gy + gh * .92   # the handle end of a lens-like object (lower right of its box)
-                keep.update(x=round(hx + 56 * s1), y=round(hy + 36 * s1), s=s1, flip=-1, kind='ride', act={'type': 'push', 'from': 0.6}, moods=[{'mood': 'squint'}])
+                import facing
+                mt_ = re.search(rf'<g [^>]*\bid="{re.escape(pg_[0][0])}"[^>]*>', open(svg, encoding='utf-8').read()); tsg = facing.travel_sign(mt_.group(0)) if mt_ else 0
+                if tsg > 0:   # travels right: the frog heaves from the LEFT (back) side, facing right (2026-10-27, miya: interactions must match the direction)
+                    keep.update(x=round(gx - 56 * s1), y=round(gy + gh * .92 + 36 * s1), s=s1, flip=1, kind='ride', act={'type': 'push', 'from': 0.6}, moods=[{'mood': 'squint'}])
+                else:
+                    hx, hy = gx + gw * .9, gy + gh * .92   # the handle end of a lens-like object (lower right of its box); travel left or unknown: push from the right
+                    keep.update(x=round(hx + 56 * s1), y=round(hy + 36 * s1), s=s1, flip=-1, kind='ride', act={'type': 'push', 'from': 0.6}, moods=[{'mood': 'squint'}])
             if len(doors) >= 2 and VILL.search(text) and not vert:
                 ts = [0.6 + i * 1.9 for i in range(min(3, len(doors)))]
                 keep.update(kind='bg', x=round(max(100, doors[0][0] - 190)), y=round(doors[0][1] + 20), s=1.25, flip=1, outfit=['fore_steps'], moods=[{'mood': 'curious'}, {'word': 'in', 'mood': 'excited'}], ride=None,
