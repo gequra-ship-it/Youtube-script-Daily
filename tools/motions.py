@@ -671,7 +671,14 @@ FLASHW = FX_WORDS[0][1]
 HEAVY_FX = {'vignette', 'pulsevig', 'tint', 'spotlight', 'letterbox', 'scanlines', 'flash', 'glitch', 'shockwave', 'bolt', 'starburst', 'frost'}
 
 
-def fx_for(text, palname, bgmode, k, dur, cosmic=False, prev=()):
+FX_PIC = [   # picture evidence (tools/picev.py tags) -> background effect, in priority order; used when no word rule matched (miya 2026-10-27)
+    ('fire', 'embers'), ('smoke', 'smoke'), ('steam', 'steam'), ('rain', 'rain'), ('ice', 'frost'), ('candle', 'lightleak'), ('bubble', 'bubbles'),
+    ('water', 'bubbles'), ('flower', 'petals'), ('forest', 'pollen'), ('desert', 'heat'), ('sun', 'rays'), ('insect', 'fireflies'), ('bird', 'feathers'),
+    ('wind', 'windlines'), ('cloud', 'clouds'), ('space', 'twinkle'), ('cave', 'fog'), ('bone', 'plankton')]
+FX_PIC_DAY = {'bubbles': 'ripples', 'fireflies': 'pollen', 'twinkle': 'rays', 'embers': 'sparks'}   # paper-background stand-ins for night-only kinds
+
+
+def fx_for(text, palname, bgmode, k, dur, cosmic=False, prev=(), pic=None):
     """Which background effect a picture gets (at most ONE), deterministic: word rules in FX_WORDS order, else the palette's ambient
     rotation on every second picture. Cosmic pictures keep the shooting star on k % 3 == 1 and get an ambient kind only on k % 3 == 0.
     Pictures under 3 s get none. Night-only kinds never land on a paper background. prev = the kinds of the previous pictures (in order):
@@ -684,6 +691,12 @@ def fx_for(text, palname, bgmode, k, dur, cosmic=False, prev=()):
     for kd, rx, bg in FX_WORDS:
         if bg and bgmode != bg: continue
         if rx.search(text): kind = kd; break
+    if kind is None and pic:   # the picture shows it (chimney -> smoke, drawn fire -> embers, a lake -> ripples): situational like a word rule, may repeat
+        for tag, kd in FX_PIC:
+            if tag in pic:
+                kind = kd
+                if kind in NIGHT_ONLY and bgmode != 'night': kind = FX_PIC_DAY.get(kind)
+                if kind: break
     if kind is None:
         amb = FX_AMBIENT.get(palname, [])
         if amb and dur > 5 and ((cosmic and k % 3 == 0) or (not cosmic and k % 2 == 0)):

@@ -128,7 +128,14 @@ def _valid(name):
     return sfx_lib.ALIAS.get(name, name) in sfx_lib.LIB
 
 
-def sfx_for(text, palname, k, dur, cosmic=False, prev=(), side=None, lock=False, count=None):
+SFX_PIC = [   # picture evidence (tools/picev.py tags) -> sound, in priority order; after the word rules, before the agent sidecar (miya 2026-10-27)
+    ('fire', 'crackle', .45), ('candle', 'candle', .35), ('steam', 'steam', .4), ('bubble', 'bubble', .4), ('rain', 'rain', .4), ('bell', 'bell', .5),
+    ('clock', 'clock', .4), ('gear', 'gear', .4), ('typing', 'typing', .35), ('coin', 'coins', .45), ('chain', 'chain', .45), ('heart', 'heartbeat', .4),
+    ('door', 'creak', .4), ('book', 'page', .4), ('bird', 'wingbeat', .4), ('insect', 'buzz', .35), ('crowd', 'march', .35), ('wind', 'gust', .4),
+    ('ice', 'icecrack', .4), ('water', 'waves', .35), ('smoke', 'hiss', .3), ('cave', 'drip', .4), ('bone', 'stone', .35), ('forest', 'leaves', .3)]
+
+
+def sfx_for(text, palname, k, dur, cosmic=False, prev=(), side=None, lock=False, count=None, pic=None):
     """returns [] or [cue]; cue = {name, word, vol, auto: 'word'|'ambient'|'agent'} (word None + 'at' seconds for ambients).
     count = cues placed so far (default len(prev)): once the density cap is reached only strong events and ambients on the 3rd units pass."""
     if count is None: count = len(prev)
@@ -144,6 +151,12 @@ def sfx_for(text, palname, k, dur, cosmic=False, prev=(), side=None, lock=False,
         if cosmic: name = COSMIC_SWAP.get(name, name)
         if name in LONG and dur < 4: continue
         return [dict(name=name, word=m.group(0), vol=vol, auto='word')]
+    if pic and not full:                            # the picture shows it (a drawn clock -> ticking, a bell, a fire): situational, may repeat
+        for tag, name, vol in SFX_PIC:
+            if tag in pic:
+                if cosmic: name = COSMIC_SWAP.get(name, name)
+                if name in LONG and dur < 4: continue
+                return [dict(name=name, word=None, at=1.0, vol=vol, auto='picture')]
     if side and not full:                           # the picture agent saw something in the picture the words do not say
         return [dict(side[0], auto='agent')]
     if k % 3 == 1 and dur >= 6 and not full:
@@ -157,5 +170,5 @@ def sfx_for(text, palname, k, dur, cosmic=False, prev=(), side=None, lock=False,
 
 if __name__ == '__main__':      # quick self-check: every rule's sound exists
     import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    bad = [n for _, n, _ in SFX_WORDS + COSMIC_WORDS if not _valid(n)] + [n for n in set(COSMIC_SWAP.values()) if not _valid(n)] + [n for v in AMBIENT.values() for n in v if not _valid(n)]
+    bad = [n for _, n, _ in SFX_WORDS + COSMIC_WORDS if not _valid(n)] + [n for _, n, _ in SFX_PIC if not _valid(n)] + [n for n in set(COSMIC_SWAP.values()) if not _valid(n)] + [n for v in AMBIENT.values() for n in v if not _valid(n)]
     print('rules', len(SFX_WORDS), 'cosmic', len(COSMIC_WORDS), 'ambient palettes', len(AMBIENT), 'bad names', bad)
