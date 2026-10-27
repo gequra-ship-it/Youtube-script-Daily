@@ -20,5 +20,32 @@
     570
    ]
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shiver",
+  "x": 260,
+  "y": 340,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "outfit": [
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Gulp.",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

@@ -1,1 +1,65 @@
-{"centre": "tough coral misfolded protein clump that cleaning enzymes cannot bite", "sfx": [{"name": "stone", "word": "stopped", "vol": 0.55}], "labels": [{"type": "name", "text": "Enzyme", "x": 840, "y": 520, "to": [840, 600], "word": "enzymes"}, {"type": "say", "text": "Too tough!", "x": 270, "y": 480, "to": [255, 580]}]}
+{
+ "centre": "tough coral misfolded protein clump that cleaning enzymes cannot bite",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "stopped",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Enzyme",
+   "x": 840,
+   "y": 520,
+   "to": [
+    840,
+    600
+   ],
+   "word": "enzymes"
+  },
+  {
+   "type": "say",
+   "text": "Too tough!",
+   "x": 270,
+   "y": 480,
+   "to": [
+    255,
+    580
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "That is",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    860
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 302,
+  "y": 873,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

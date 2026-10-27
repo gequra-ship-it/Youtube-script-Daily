@@ -1,1 +1,45 @@
-{"centre": "a man stumbling on a slope, leaning on a stick, small shake marks", "focus": null, "focus_word": null, "sfx": [{"name": "step", "word": "stumbled", "vol": 0.5}], "labels": [{"type": "say", "text": "My legs...", "x": 1220, "y": 260, "to": [990, 330]}], "frog": {"moods": [{"mood": "worried"}], "act": null, "x": 1195, "y": 770, "s": 1.45, "flip": -1, "kind": "bg", "outfit": ["fore"], "says": [], "delay": 1.6, "enter": "hop", "bside": -1, "lock": true}}
+{
+ "centre": "a man stumbling on a slope, leaning on a stick, small shake marks",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "step",
+   "word": "stumbled",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "My legs...",
+   "x": 1220,
+   "y": 260,
+   "to": [
+    990,
+    330
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "tilt",
+  "x": 1195,
+  "y": 770,
+  "s": 1.45,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "fore"
+  ],
+  "says": [],
+  "delay": 1.6,
+  "enter": "hop",
+  "bside": -1,
+  "lock": true
+ }
+}

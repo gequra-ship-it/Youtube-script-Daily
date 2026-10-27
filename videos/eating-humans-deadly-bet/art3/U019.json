@@ -35,14 +35,14 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "worried"
    },
    {
     "word": "And the",
     "mood": "curious"
    }
   ],
-  "act": "startle",
+  "act": "nervous",
   "ride": "mv-core-ping",
   "kind": "ride",
   "x": 1346,
@@ -51,10 +51,13 @@
   "flip": -1,
   "bside": 1,
   "gaze": 1,
+  "outfit": [
+   "propcap"
+  ],
   "says": [
    {
-    "text": "Eek!",
-    "shout": true
+    "text": "Uh-oh...",
+    "shout": false
    }
   ]
  }

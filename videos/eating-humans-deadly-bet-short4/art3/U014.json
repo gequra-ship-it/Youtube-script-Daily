@@ -13,5 +13,36 @@
   }
  ],
  "labels": [],
- "centre": "clay pot uncovered in soil layers"
+ "centre": "clay pot uncovered in soil layers",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "It means",
+    "mood": "worried"
+   }
+  ],
+  "act": "shiver",
+  "x": 820,
+  "y": 680,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "outfit": [
+   "laurel"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

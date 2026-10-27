@@ -19,5 +19,40 @@
    ],
    "word": "spongiform change"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "Doctors now",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    460
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1382,
+  "y": 479,
+  "s": 0.9,
+  "flip": -1,
+  "outfit": [
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Nooo!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

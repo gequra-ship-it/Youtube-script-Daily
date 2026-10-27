@@ -17,22 +17,32 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "scared"
    }
   ],
-  "act": "nod",
-  "ride": "mv-core-swell-mask",
-  "x": 540,
-  "y": 769,
-  "s": 1.18,
-  "flip": -1,
-  "kind": "ride",
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    860
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 302,
+  "y": 870,
+  "s": 0.9,
+  "flip": 1,
+  "outfit": [
+   "clown"
+  ],
   "says": [
    {
-    "text": "Mm-hm!",
-    "shout": false
+    "text": "AAAAAH!",
+    "shout": true
    }
   ],
-  "bside": -1
+  "bside": 1
  }
 }

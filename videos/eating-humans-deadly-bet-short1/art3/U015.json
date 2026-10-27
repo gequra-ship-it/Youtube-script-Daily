@@ -25,7 +25,7 @@
  "frog": {
   "moods": [
    {
-    "mood": "sleepy"
+    "mood": "shock"
    },
    {
     "word": "After a",
@@ -36,19 +36,18 @@
     "mood": "curious"
    }
   ],
-  "act": "sleepy",
+  "act": "snooze",
   "ride": "mv-core-approach-clock",
-  "x": 540,
-  "y": 773,
-  "s": 1.13,
-  "flip": -1,
   "kind": "ride",
-  "says": [
-   {
-    "text": "Zzz...",
-    "shout": false
-   }
+  "x": 680,
+  "y": 956,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "doctor"
   ],
-  "bside": -1
+  "says": []
  }
 }

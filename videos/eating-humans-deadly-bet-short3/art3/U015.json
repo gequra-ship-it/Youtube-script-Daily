@@ -7,26 +7,29 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "worried"
    },
    {
     "word": "The risk",
     "mood": "curious"
    }
   ],
-  "act": "breathe",
+  "act": "nervous",
   "ride": "mv-slide-risk",
-  "x": 540,
-  "y": 892,
-  "s": 1.5,
-  "flip": -1,
   "kind": "ride",
+  "x": 294,
+  "y": 885,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "doctor"
+  ],
   "says": [
    {
-    "text": "Ahh...",
+    "text": "Uh-oh...",
     "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

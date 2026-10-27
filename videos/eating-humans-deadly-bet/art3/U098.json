@@ -24,5 +24,36 @@
    ],
    "word": "PRNP"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    500
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 538,
+  "y": 512,
+  "s": 0.9,
+  "flip": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

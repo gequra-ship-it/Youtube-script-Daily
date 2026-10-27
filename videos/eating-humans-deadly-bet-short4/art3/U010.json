@@ -20,5 +20,33 @@
    "word": "red deer"
   }
  ],
- "centre": "no round centre; two bars: long for rhino, short for red deer"
+ "centre": "no round centre; two bars: long for rhino, short for red deer",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "Even a",
+    "mood": "curious"
+   }
+  ],
+  "act": "awe",
+  "x": 260,
+  "y": 880,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "says": [
+   {
+    "text": "Woooow!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

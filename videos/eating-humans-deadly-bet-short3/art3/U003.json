@@ -21,19 +21,24 @@
     "mood": "curious"
    }
   ],
-  "act": "nod",
-  "ride": "mv-core-approach",
-  "x": 740,
-  "y": 832,
-  "s": 1.5,
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 530,
+  "y": 1160,
+  "s": 1.2,
   "flip": -1,
-  "kind": "ride",
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-approach",
+  "outfit": [
+   "doctor"
+  ],
   "says": [
    {
-    "text": "Mm-hm!",
-    "shout": false
+    "text": "Peek-a-boo!",
+    "shout": true
    }
-  ],
-  "bside": -1
+  ]
  }
 }

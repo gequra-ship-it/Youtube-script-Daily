@@ -57,19 +57,23 @@
     "mood": "curious"
    }
   ],
-  "act": "look",
+  "act": "startle",
   "ride": "mv-core-ping",
-  "x": 540,
-  "y": 732,
-  "s": 0.9,
-  "flip": -1,
   "kind": "ride",
+  "x": 636,
+  "y": 995,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
   "says": [
    {
-    "text": "Ooh!",
-    "shout": false
+    "text": "Eek!",
+    "shout": true
    }
-  ],
-  "bside": -1
+  ]
  }
 }

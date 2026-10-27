@@ -25,5 +25,36 @@
     640
    ]
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    960
+   ]
+  },
+  "ride": "mv-path-signal",
+  "kind": "ride",
+  "x": 497,
+  "y": 1114,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Nooo!",
+    "shout": true
+   }
+  ]
+ }
 }
