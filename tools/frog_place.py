@@ -59,11 +59,10 @@ LAST = {'word': None, 'k': {}}
 def pick_word(nm, text):
     if nm in CALM:
         for rx, w in CONTEXT:
-            if rx.search(text) and LAST['word'] != w: LAST['word'] = w; return w
+            if rx.search(text): LAST['word'] = w; return w   # the same context word again is fine (miya 2026-10-27)
     pool = POOL.get(nm)
     if not pool: return None
-    k = LAST['k'].get(nm, 0); w = pool[k % len(pool)]
-    if w == LAST['word'] and len(pool) > 1: k += 1; w = pool[k % len(pool)]
+    k = LAST['k'].get(nm, 0); w = pool[k % len(pool)]            # per-act rotation: the act's pool advances every time that act is used
     LAST['k'][nm] = k + 1; LAST['word'] = w; return w
 CALM = ('tilt', 'look', 'sway', 'nod', 'breathe', 'tap', 'rest', 'scope', 'wave', 'bounce', 'lean', 'dance', 'salute', 'think', 'facepalm', 'idea', 'dig', 'read', 'eat', 'cry', 'photo', 'sneeze', 'clap', 'magnify', 'snooze', 'stretch', 'shrug', 'bow', 'nervous', 'flex', 'balance', 'listen', 'search', 'yawn', 'write', 'wish', 'faint')   # calm acts always get a bubble (guideline 7-2 B-1)
 # ---- round 3 (2026-10-26, guideline 7-2 D "relation acts"): the frog relates to a person / an object in the picture. Keyed on unit words + group ids only,
@@ -300,8 +299,7 @@ with sync_playwright() as p:
             text = u['text']; palname = (u.get('pal') or {}).get('palette', ''); sents = [x for x in re.findall(r'[^.!?]+[.!?]?', text) if x.strip()]
             moods = []; prev = None
             for i, s in enumerate(sents):
-                m = mood_of(s)
-                if m == prev and i: m = 'happy' if m != 'happy' else 'curious'
+                m = mood_of(s)                                      # (2026-10-27) the same mood on two sentences stays (the situation continues)
                 w = ' '.join(re.sub(r"[^\w']", '', t) for t in s.split()[:2]).strip()
                 moods.append({'mood': m} if i == 0 else {'word': w, 'mood': m}); prev = m
             act = None; first = None; matched = False

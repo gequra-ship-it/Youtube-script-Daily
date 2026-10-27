@@ -79,3 +79,4 @@
 - 2026-10-26: `tools/build3.py`가 `motions`를 쓰기 전에 import하지 않아(4차 보강의 배경 효과 `motions.fx_for`) 빌드가 NameError로 멈추던 것을 맨 위 import로 고침.
 - 2026-10-27: `frog_place.py` 크래시 수정(dict act를 `ACT_MOOD2`에 `in`으로 비교하면 unhashable, 문자열일 때만 비교).
 - 2026-10-27 (miya): 소리 자동화. `tools/sfx_lib.py` v3(+61종 = 92종), 새 `tools/sfx_pick.py`(단어 규칙 81 + 우주 6, 팔레트 앰비언트, 밀도 상한, `COSMIC_SWAP`), `tools/bgm_lib.py` 재작성(스타일 9 `STYLES`·분위기 풀 `POOLS` 80진행, `style_for`·`scene_moods`, 코드 기호 파서 `chord()`; `synth_cosmic`은 `synth(style='cosmic')`로), `tools/build3.py`에 `BGM_STYLE`·`COSMIC`·`SFXPREV` 연결. 지침서 9-3·9-4, art_spec 8·11, README, CLAUDE.md. 데모 `/mnt/project-files/frog-rules/audio/`.
+- 2026-10-27 (miya): '연속 사용 금지' 고정 규칙 제거(`motions.fx_for`, `sfx_pick.sfx_for`, `bgm_lib._order`, `build3` 전환 `last2`, `frog_place.pick_word`·문장 표정). 상황이 이어지면 반복, 채움 선택만 직전과 다르게. CLAUDE.md '반복 원칙', 지침서 4·7·9장.

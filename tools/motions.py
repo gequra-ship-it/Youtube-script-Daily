@@ -675,8 +675,9 @@ def fx_for(text, palname, bgmode, k, dur, cosmic=False, prev=()):
     """Which background effect a picture gets (at most ONE), deterministic: word rules in FX_WORDS order, else the palette's ambient
     rotation on every second picture. Cosmic pictures keep the shooting star on k % 3 == 1 and get an ambient kind only on k % 3 == 0.
     Pictures under 3 s get none. Night-only kinds never land on a paper background. prev = the kinds of the previous pictures (in order):
-    the same kind never repeats on two pictures in a row, and a heavy full-frame kind (vignette, flash, letterbox ...) needs two pictures
-    without any heavy kind before it."""
+    a word-matched kind may repeat on the next picture when the words repeat (miya 2026-10-27: no blanket 'never twice in a row'; the situation
+    decides), the ambient filler rotates away from the last kind, and a heavy full-frame kind (vignette, flash, letterbox ...) needs two pictures
+    without any heavy kind before it (eye comfort, not a repeat ban)."""
     if dur < 3: return []
     prev = [x for x in prev]; last = prev[-1] if prev else None; heavy_recent = any(x in HEAVY_FX for x in prev[-2:])
     kind = None
@@ -687,8 +688,9 @@ def fx_for(text, palname, bgmode, k, dur, cosmic=False, prev=()):
         amb = FX_AMBIENT.get(palname, [])
         if amb and dur > 5 and ((cosmic and k % 3 == 0) or (not cosmic and k % 2 == 0)):
             kind = amb[(k // 2) % len(amb)]
+            if kind == last and len(amb) > 1: kind = amb[(k // 2 + 1) % len(amb)]   # filler only: a different ambient than the last picture
     if kind is None: return []
-    if kind == last or (kind in HEAVY_FX and heavy_recent): return []
+    if kind in HEAVY_FX and heavy_recent: return []
     if kind in NIGHT_ONLY and bgmode != 'night': return []
     if cosmic and kind in ('flash',) and k % 3 == 1: return []   # never flash and shooting star on the same cosmic picture
     return [(kind, {})]
