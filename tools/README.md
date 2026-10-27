@@ -24,8 +24,8 @@ Steps (run from the repo root):
    - A slug folder containing an empty file `.deliver_only` skips the render and only uploads `deliver/` (use to re-upload thumbnails/text).
 
 ## 2026-10-10 additions
-- `sfx_lib.py` v2: 25 quiet unpitched sounds x 3 variants (peak -24 dBFS). Old name `shimmer` is an alias of `hush`. Sidecar `sfx.name` list is in `art_spec.md` section 8.
-- `bgm_lib.py`: synthesised background music (own composition, no samples/vocals), highpass 250 Hz, ducked under the real narration (`n##.wav`), 13 dB below narration RMS (`BGM_BELOW`). `build3.py` writes `bgm.m4a` and adds it as audio track 20. `NOBGM=1` disables it.
+- `sfx_lib.py` v2: 25 quiet unpitched sounds x 3 variants (peak -24 dBFS). Old name `shimmer` is an alias of `hush`. Sidecar `sfx.name` list is in `art_spec.md` section 8. **v3 (2026-10-27): 92 kinds**; `sfx_pick.py` picks the cue per unit (word rules `SFX_WORDS` 81 + `COSMIC_WORDS`, palette `AMBIENT`, density cap 45 %, agent sidecar as fallback, `sfx_lock`); `python3 tools/sfx_pick.py` checks that every rule names an existing sound; build3 logs `sfx auto {...}`.
+- `bgm_lib.py`: synthesised background music (own composition, no samples/vocals), highpass 250 Hz, ducked under the real narration (`n##.wav`), 13 dB below narration RMS (`BGM_BELOW`). `build3.py` writes `bgm.m4a` and adds it as audio track 20. `NOBGM=1` disables it. **2026-10-27**: 9 `STYLES` x 4 mood `POOLS` (80 progressions); `style_for(cfg, texts, pal)` (config `STYLE` > palette > whole-script mood), `scene_moods(texts, starts)` (per-scene calm/bright/dark/tense by `MOODW`), `synth(..., moods=)`; build3 logs `music style` and `bgm moods`. Guideline 9-4.
 - Five Shorts per video (2026-10-24): slugs `<slug>-short1` ... `<slug>-short5`; each has its own `.dest` (`<long .dest>/short`). Put all six slugs in `render/.slug` (or split commits, 15-5).
 
 ## 2026-10-10 (epomis-frog-hunter-v2)
