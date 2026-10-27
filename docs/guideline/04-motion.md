@@ -73,7 +73,7 @@ keep art style and line art consistent, no morphing, no text
 
 | 가족 | 무엇이 | 어떻게 맞추나 | 코드 |
 |---|---|---|---|
-| 이동 ↔ 머리 | path·swim·rollby·creep·magnet·slide 그룹 | 머리 = 어두운 동공(≤4개) 위치 > `data-face` > 눈이 없으면 **뾰족한 쪽**(fish·shark·rocket·ship·arrow·plane·bird… 이름일 때 좌우 20% 띠의 윤곽 높이 비 < .6). 이동과 다르면 그림을 몸통 중심으로 거울상 | `facing.facing_sign`·`apply` |
+| 이동 ↔ 머리 | path·swim·rollby·creep·magnet·slide 그룹 | 머리 = 어두운 동공(≤4개) 위치 > `data-face` > 눈이 없으면 **뾰족한 쪽**(rocket·arrow·probe·plane·comet·ship·boat·sub·sled·train·car… 탈것·뾰족한 물건 이름일 때 좌우 20% 띠의 윤곽 높이 비 < .6). 이동과 다르면 그림을 몸통 중심으로 거울상 | `facing.facing_sign`·`apply` |
 | 중력 | 이름에 sink·fall·drop·descend·plunge·dive·settle(내려감) / rise·ascend·climb·launch·lift·soar·bubble·float·balloon·escape(올라감)가 든 `mv-path` | 경로가 반대로 가면 경로를 뒤집음(끝→시작). 탈것 이름(lander·carcass)은 판단하지 않음(스톨른타임 U115 우주선은 위로 날아가는 그림) | `facing._path_rules`, `reverse_path` |
 | 빨림 | attractor가 있는 그림의 `mv-magnet`, 이름·태그에 pull·suck·spiral·drain·inward·toward·into·capture·plunge가 든 `mv-path` | magnet은 `data-dx/dy`를 attractor 쪽으로 다시 계산, path는 끝점이 attractor에서 멀어지면 뒤집음(A·S·T 명령 경로는 로그만) | 같은 함수 |
 | 바람 흔적 | 배경 입자 수평 이동, 비 기울기(`x + ds·L·.35`), 바람선(`windlines`) 좌우, 안개·구름 흐름 | 전부 `dir_sign(kind, wind, travel)`: 생물 줄(fish·birds·bats)은 travel 쪽으로(머리도 뒤집음), 나머지는 wind 쪽으로 | `motions.fx_markup`·`fx_js` |
