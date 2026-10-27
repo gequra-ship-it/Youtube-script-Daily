@@ -707,7 +707,11 @@ def _shape0(sh, r, col, op, pid):
     a = f'id="{pid}" fill="{col}" opacity="{op}"'
     if sh == 'dot': return f'<circle {a} cx="{x:.0f}" cy="{y:.0f}" r="{r:.1f}"/>'
     if sh == 'ring': return f'<circle {a} cx="{x:.0f}" cy="{y:.0f}" r="{r:.1f}" fill="none" stroke="{col}" stroke-width="2"/>'
-    if sh == 'streak': return f'<line {a} x1="{x:.0f}" y1="{y:.0f}" x2="{x - r * .55:.0f}" y2="{y + r:.0f}" stroke="{col}" stroke-width="2.4" stroke-linecap="round"/>'
+    if sh == 'streak' or sh.startswith('streak:'):   # tail trails BEHIND the travel: 'streak:dx:dy' (fractions, + = right/down) sets the direction; plain = tail up-left
+        tx, ty = (-.55, 1.0)
+        if ':' in sh:
+            ddx, ddy = float(sh.split(':')[1]), float(sh.split(':')[2]); L = (ddx * ddx + ddy * ddy) ** .5 or 1; tx, ty = -ddx / L * 1.1, -ddy / L * 1.1
+        return f'<line {a} x1="{x:.0f}" y1="{y:.0f}" x2="{x + r * tx:.0f}" y2="{y + r * ty:.0f}" stroke="{col}" stroke-width="2.4" stroke-linecap="round"/>'
     if sh == 'star': return f'<circle {a} cx="{x:.0f}" cy="{y:.0f}" r="{r:.1f}"/>'
     if sh == 'leaf': return f'<path {a} d="M0 {-r:.0f} C{r * .9:.0f} {-r * .4:.0f} {r * .9:.0f} {r * .5:.0f} 0 {r:.0f} C{-r * .9:.0f} {r * .5:.0f} {-r * .9:.0f} {-r * .4:.0f} 0 {-r:.0f}Z"/>'
     if sh == 'petal': return f'<ellipse {a} cx="0" cy="0" rx="{r * .55:.1f}" ry="{r:.1f}"/>'
@@ -719,7 +723,7 @@ def _shape0(sh, r, col, op, pid):
     if sh == 'seed': return f'<g {a} stroke="{col}" stroke-width="1"><circle cy="{r:.0f}" r="1.6" fill="{col}"/><line x1="0" y1="{r:.0f}" x2="0" y2="{-r * .3:.0f}"/><line x1="0" y1="{-r * .3:.0f}" x2="{-r * .7:.0f}" y2="{-r:.0f}"/><line x1="0" y1="{-r * .3:.0f}" x2="{r * .7:.0f}" y2="{-r:.0f}"/><line x1="0" y1="{-r * .3:.0f}" x2="0" y2="{-r * 1.1:.0f}"/></g>'
     if sh == 'bat': return f'<path {a} d="M{-r:.0f} 0 Q{-r * .5:.0f} {-r * .7:.0f} 0 0 Q{r * .5:.0f} {-r * .7:.0f} {r:.0f} 0 Q{r * .5:.0f} {r * .25:.0f} 0 {r * .15:.0f} Q{-r * .5:.0f} {r * .25:.0f} {-r:.0f} 0Z"/>'
     if sh == 'bird': return f'<path {a} d="M{-r:.0f} 0 Q{-r * .5:.0f} {-r * .6:.0f} 0 0 Q{r * .5:.0f} {-r * .6:.0f} {r:.0f} 0" fill="none" stroke="{col}" stroke-width="2" stroke-linecap="round"/>'
-    if sh == 'fish': return f'<path {a} d="M{-r:.0f} 0 Q{-r * .4:.0f} {-r * .5:.0f} {r * .4:.0f} 0 Q{-r * .4:.0f} {r * .5:.0f} {-r:.0f} 0Z M{r * .4:.0f} 0 L{r:.0f} {-r * .35:.0f} L{r:.0f} {r * .35:.0f}Z"/>'
+    if sh == 'fish': return f'<path {a} d="M{r:.0f} 0 Q{r * .4:.0f} {-r * .5:.0f} {-r * .4:.0f} 0 Q{r * .4:.0f} {r * .5:.0f} {r:.0f} 0Z M{-r * .4:.0f} 0 L{-r:.0f} {-r * .35:.0f} L{-r:.0f} {r * .35:.0f}Z"/>'   # head at +x: the fish row travels right (2026-10-27, miya: fish swam backwards)
     if sh == 'jelly': return f'<g {a} stroke="{col}" stroke-width="1.2"><path d="M{-r:.0f} 0 A{r:.0f} {r:.0f} 0 0 1 {r:.0f} 0Z"/><line x1="{-r * .5:.0f}" y1="0" x2="{-r * .6:.0f}" y2="{r * 1.3:.0f}"/><line x1="0" y1="0" x2="{r * .1:.0f}" y2="{r * 1.5:.0f}"/><line x1="{r * .5:.0f}" y1="0" x2="{r * .6:.0f}" y2="{r * 1.3:.0f}"/></g>'
     if sh == 'germ': return f'<g {a} stroke="{col}" stroke-width="1.4"><ellipse rx="{r:.0f}" ry="{r * .65:.0f}"/>' + ''.join(f'<line x1="{r * _m.cos(t) * .9:.0f}" y1="{r * _m.sin(t) * .6:.0f}" x2="{r * _m.cos(t) * 1.5:.0f}" y2="{r * _m.sin(t) * 1.1:.0f}"/>' for t in (0, 1, 2, 3, 4, 5)) + '</g>'
     if sh == 'lantern': return f'<g {a}><rect x="{-r * .5:.0f}" y="{-r:.0f}" width="{r:.0f}" height="{r * 1.6:.0f}" rx="{r * .3:.0f}"/><rect x="{-r * .2:.0f}" y="{-r * 1.25:.0f}" width="{r * .4:.0f}" height="{r * .3:.0f}" fill="#7a4a10"/></g>'
@@ -736,7 +740,8 @@ def fx_markup(nn, kind, W, H, bgmode='night'):
         for i in range(P['n']):   # positions by golden-ratio sequences: spread, never random, same every build
             x = W * (.04 + ((i * .618 + nn * .13) % 1) * .92); y = H * (P['y0'] + ((i * .382) % 1) * (.3 if P['dy'] else .6))
             r = (P['size'][0] + (i * 7 % 10) / 10 * P['size'][1]) * 2.2   # sizes are for a 1920 x 1080 frame
-            g.append(_shape(P['shape'], x, y, r, col, P['op'], f'{I}p{i}'))
+            shp = f"streak:{P['dx'] * 1920:.0f}:{P['dy'] * 1080:.0f}" if P['shape'] == 'streak' else P['shape']   # streak tails trail behind the travel (2026-10-27)
+            g.append(_shape(shp, x, y, r, col, P['op'], f'{I}p{i}'))
     elif kind == 'rain':
         for i in range(26):
             x = W * (((i * .618) % 1)); y = H * (((i * .382) % 1)); L = 26 + (i * 5) % 18
