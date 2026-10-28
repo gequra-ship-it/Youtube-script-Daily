@@ -645,13 +645,13 @@ TRSND = {'zoom': ('swish', -0.85, 0.9), 'slide': ('swish', -0.6, 0.6), 'match': 
          'wipe': ('swish', -0.7, 0.6), 'iris': ('hush', -0.9, 0.7), 'eye': ('hush', -0.7, 0.6), 'blinds': ('rustle', -0.6, 0.6),
          'push': ('swish', -0.6, 0.6), 'whip': ('swish', -0.4, 0.8), 'tilt': ('pop', -0.7, 0.6),
          'seam': ('swish', -0.7, 0.6), 'diamond': ('hush', -0.8, 0.7), 'page': ('rustle', -0.6, 0.6), 'zigzag': ('swish', -0.6, 0.6), 'wave': ('hush', -0.8, 0.7),
-         'dip': ('hush', -0.5, 0.55), 'flash': ('hush', -0.4, 0.7), 'zoom': ('swish', -0.85, 0.9)}
+         'dip': ('hush', -0.5, 0.55), 'flash': ('hush', -0.4, 0.7)}
 if COSMIC:   # cosmic videos: no swish/hush (guideline 3-7)
     TRSND = {'zoom': ('warp', -0.45, 0.8), 'slide': ('warp', -0.35, 0.5), 'match': ('glimmer', -0.5, 0.7), 'wash': ('sparkle', -0.4, 0.6),
              'wipe': ('warp', -0.6, 0.5), 'iris': ('glimmer', -0.8, 0.6), 'eye': ('glimmer', -0.6, 0.6), 'blinds': ('sparkle', -0.5, 0.5),
              'push': ('warp', -0.5, 0.5), 'whip': ('warp', -0.35, 0.7), 'tilt': ('pop', -0.7, 0.5),
              'seam': ('warp', -0.5, 0.5), 'diamond': ('glimmer', -0.8, 0.6), 'page': ('sparkle', -0.5, 0.5), 'zigzag': ('warp', -0.5, 0.5), 'wave': ('glimmer', -0.7, 0.6),
-             'dip': ('glimmer', -0.45, 0.55), 'flash': ('bloom', -0.35, 0.7), 'zoom': ('warp', -0.45, 0.8)}
+             'dip': ('glimmer', -0.45, 0.55), 'flash': ('bloom', -0.35, 0.7)}
 focus_cam = {}; label_t = []; label_full = []; UTXT = {}; SFXPREV = []; SFXAUTO = {}
 UIDX = {u['n']: i for i, u in enumerate(units)}
 for u in units:
