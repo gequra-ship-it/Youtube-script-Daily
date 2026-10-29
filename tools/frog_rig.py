@@ -1,5 +1,5 @@
 # frog_rig.py -- the note-frog's joints and its CONTACT acts (2026-10-29, miya: "the frog itself is too static; the whole frog moves,
-# its body does not"; example: standing under an apple tree, the apple drops on it and it keels over).
+# its body does not"; example: something small drops from above on to its head and it keels over (any mv-core-drop prop, not an apple in particular).
 #
 # Rig (tools/frog.py markup): #<t>_lf (life layer: breathing, weight shift) > #<t>_ac (acts) > legs #<t>_lgl / #<t>_lgr (hip pivots),
 # arms #<t>_la / #<t>_ra (shoulder pivots), head #<t>_hd (+ #<t>_of outfits, #<t>_te tears; neck pivot). Pivots are svgOrigin values
