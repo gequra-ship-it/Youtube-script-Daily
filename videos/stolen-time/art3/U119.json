@@ -39,22 +39,27 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
-  "act": "listen",
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
   "outfit": [
    "diver"
   ],
   "x": 1660,
-  "y": 580,
-  "s": 0.81,
+  "y": 890,
+  "s": 0.8,
   "flip": -1,
   "kind": "bg",
+  "ride": null,
+  "behind": null,
   "says": [
    {
-    "text": "Shh... listen.",
-    "shout": false
+    "text": "Blub blub!",
+    "shout": true
    }
   ],
   "bside": -1

@@ -32,15 +32,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "happy"
    }
   ],
   "act": {
-   "type": "pull",
-   "to": [
-    960,
-    540
-   ]
+   "type": "logroll",
+   "dist": 461
   },
   "outfit": [
    "helmet"
@@ -50,13 +47,9 @@
   "s": 0.81,
   "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "roll",
-   "dist": 461
-  },
   "says": [
    {
-    "text": "Waaaah!",
+    "text": "Waaah!",
     "shout": true
    }
   ],
