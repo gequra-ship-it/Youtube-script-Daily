@@ -106,7 +106,7 @@ per video at least 10 types, none above 20 %. `draw` traces stroked outlines (gi
   - `mv-regroup-<name>`: 2+ direct children re-arrange from where you drew them into `data-shape` `ring` | `line` | `grid` ("they gathered", "lined up", "formed a circle"); `data-dur` (1.2).
   - You do NOT add: speed ramps (SlowMo on `mv-path` when the sentence says fast/rush), camera shake (RoughEase on earthquake sentences), spring entrances (playful sentences), bursts / grid ripples (background), scrambled / typed labels, lucide pictograms beside labels — the builder picks those from the words. `data-ease="<gsap ease>"` on an `mv-path` overrides the builder's choice.
 
-Background effects (rain, snow, bubbles, fog, rays … 59 kinds, 2026-10-29: + `burst`, `gridripple`) and on-screen text effects are added by the builder from the narration words and the palette; do NOT draw rain/snow/particles into the picture (guideline 4-1 "4차 보강").
+Background effects (rain, snow, bubbles, fog, rays … 57 kinds, 2026-10-29: + `burst`) and on-screen text effects are added by the builder from the narration words and the palette; do NOT draw rain/snow/particles into the picture (guideline 4-1 "4차 보강").
 
 ## 7A. Attachment rules — MANDATORY (2026-10-29, miya: windmill, net, frog legs, tails, bird neck, clock hand, gears, tree, grass, sign post all turned about the wrong point)
 Every moving part must be attached to its body (guideline 4-7):

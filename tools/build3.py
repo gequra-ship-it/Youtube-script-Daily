@@ -1069,7 +1069,7 @@ for (nn, ty, lid, gid, tt) in label_t:
     if best:
         js.append(f'miyaFollow(tl,"#w{nn} .{best[1]}",{json.dumps(["#" + lid] + (["#" + gid] if gid else []))},{px_:.0f},{py_:.0f},{tt:.3f},{UEND[nn]:.3f},{UST0[nn]:.3f});'); FOLLOWED.append((UID_OF.get(nn, nn), lid, best[1]))
 print('labels follow moving objects:', len(FOLLOWED), FOLLOWED[:10])
-print('library fx (2026-10-29):', dict(fxlib.LOG) or 'none', '| bg burst/gridripple', sum(1 for v in FXU.values() for kd, _ in v if kd in ('burst', 'gridripple')))
+print('library fx (2026-10-29):', dict(fxlib.LOG) or 'none', '| bg burst', sum(1 for v in FXU.values() for kd, _ in v if kd == 'burst'))
 for k, c in enumerate(caps):
     js.append(f'tl.set("#c{k}",{{opacity:1}},{c["t0"]:.3f});tl.set("#c{k}",{{opacity:0}},{c["t1"]:.3f});')
     js.append(caption_hl.highlight_js(k, c['text'], c['t0'], c['sp1']))   # spoken word turns yellow (guideline 5)
