@@ -16,7 +16,7 @@ JS = r'''([t]) => { Object.values(window.__timelines).forEach(tl => { tl.pause()
    let M = null; try { M = g.transform.baseVal.consolidate(); M = M && M.matrix; } catch (e) {}
    if (!M) return;
    const want = miyaPv(g, p[0], p[1]).split(' ').map(Number);
-   out.push({i: idx, vis: [...document.querySelectorAll('.t')].filter(e => getComputedStyle(e).display !== 'none').length, cls: (g.getAttribute('class') || '').replace('mv ', ''), M: [M.a, M.b, M.c, M.d, M.e, M.f], want});
+   out.push({raw: p, i: idx, vis: [...document.querySelectorAll('.t')].filter(e => getComputedStyle(e).display !== 'none').length, cls: (g.getAttribute('class') || '').replace('mv ', ''), M: [M.a, M.b, M.c, M.d, M.e, M.f], want});
  });
  return out; }'''
 def fixed(M):
@@ -27,7 +27,7 @@ bad = 0; seen = {}; measured = 0; stuck = 0; total_pivots = open(f'{REPO}/render
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path=chrome(), args=['--no-sandbox']); pg = b.new_page(viewport={'width': W, 'height': H})
     errs = []; pg.on('pageerror', lambda e: errs.append(str(e)[:200]))
-    pg.goto(f'file://{REPO}/render/{SLUG}/index.html'); pg.wait_for_timeout(1500)
+    pg.goto(f'file://{REPO}/render/{SLUG}/index.html', timeout=180000); pg.wait_for_timeout(1500)
     nf = pg.evaluate('() => (window.MIYA_FOLLOW || []).length'); want_f = open(f'{REPO}/render/{SLUG}/index.html', encoding='utf-8').read().count('miyaFollow(tl,"')
     if errs: print(SLUG, 'pivotlive: JS ERRORS on page load:', errs[:3]); bad += 1
     if nf != want_f: print(SLUG, f'pivotlive: {want_f} labels should follow objects but only {nf} are registered (label follow broken)'); bad += 1
@@ -46,6 +46,7 @@ with sync_playwright() as p:
                 measured += 1
                 fp = fixed(r['M'])
                 wx, wy = r['want']; dx = a * wx + c_ * wy + e - wx; dy = b_ * wx + d * wy + f - wy; err = math.hypot(dx, dy)   # how far the pivot point itself is carried: a part that hinges at its pivot leaves it where it is
+                rx, ry = r['raw']; err = min(err, math.hypot(a * rx + c_ * ry + e - rx, b_ * rx + d * ry + f - ry))   # the pivot as written (picture or inner coordinates): under a scrolling / scaling parent the re-read pivot drifts although the tween turns about the written point
                 if best is None or err > best[0]: best = (err, fp or (0, 0), r['want'], ang, r['cls'])
             if best and best[0] > 10 and (c['id'], best[4]) not in seen:
                 seen[(c['id'], best[4])] = 1; bad += 1
