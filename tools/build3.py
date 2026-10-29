@@ -910,7 +910,7 @@ for k, u in enumerate(units):
         mv = k % 4; d = t1 - v0; s0, s1 = (1.0, 1.06) if mv != 3 else (1.06, 1.0)
         dx = {0: 0, 1: -W * .025, 2: W * .025, 3: 0}[mv]
         if DIRC.get(nn, {}).get('travel') and mv in (1, 2): dx = -DIRC[nn]['travel'] * W * .025   # the pan follows the travelling object (its world slides the other way), never against it (2026-10-27)
-        _rz = 'rough({strength:.6,points:30,template:"sine.inOut",taper:"both",randomize:false,clamp:true})' if fxlib.ROUGH_W.search(u['text']) else 'sine.inOut'   # 2026-10-29 RoughEase: the camera itself shakes on earthquake / rough sentences (randomize off: chunks must agree)
+        _rz = 'rough({strength:.6,points:30,template:sine.inOut,taper:both,randomize:false,clamp:true})' if fxlib.ROUGH_W.search(u['text']) else 'sine.inOut'   # 2026-10-29 RoughEase: the camera itself shakes on earthquake / rough sentences (randomize off: chunks must agree)
         if _rz != 'sine.inOut': fxlib.LOG['rough'] += 1
         js.append(f'tl.fromTo("{Wq}",{{scale:{s0},x:0,y:0,transformOrigin:"{ORG}"}},{{scale:{s1},x:{dx:.1f},y:0,duration:{d:.3f},ease:"{_rz}",immediateRender:false}},{v0:.3f});')
     if u['kind'] != 'chalk' and is_speed(u, side(u)):   # --- speed streaks: each line accelerates outward (power3.in) and respawns ---
