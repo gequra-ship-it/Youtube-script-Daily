@@ -5,7 +5,7 @@
 ### 7-1. 배경과 프레임
 바탕 짙은 초록 `#2D4F40`(`#2A4E42`~`#2A4E36`) + 미세한 얼룩 질감, 맨 아래 나무 틀(높이 약 20~30px) `#9E7246`, 아래 왼쪽 분필 4개(흰/노랑/코랄/하늘)·아래 오른쪽 지우개 2개. 로고·자막은 일반 컷과 같음.
 
-### 7-2. 노트 개구리 (2026-10-24 도입, 2026-10-25~26 miya 개정, 2026-10-26 정리본)
+### 7-2. 노트 개구리 (2026-10-24 도입, 2026-10-25~26 miya 개정, 2026-10-26 정리본, 2026-10-29 관절 리그 I절)
 채널 캐릭터 노트 개구리(`tools/assets/frog.svg`, 코드 `tools/frog.py`, 자동 배치 `tools/frog_place.py`). 아래는 지금 유효한 규칙만 모은 것이다. 예시는 전부가 아니다: **모든 영상에서 대본·그림의 상황마다 그때그때 판단해 동작·표정·의상·말풍선을 고른다(miya 2026-10-25·26).**
 
 **A. 역할**
@@ -76,6 +76,32 @@
 3. 확인: `SLUG=<slug> python3 tools/frogshot.py out.png 초,초,...`로 개구리 단위 프레임을 보고, 글자·자막·초점을 가리는 컷을 고친다.
 4. 예전 영상에 새 규칙만 적용: 최신 `render-pipeline`을 받고 `frog_place.py <slug>` → `build3.py`만 다시 돈다.
 
+**I. 관절 리그와 접촉 동작 (2026-10-29, miya "개구리 자체가 너무 정적이다 · 사과 맞고 쓰러지기 · 달리기·점프·매달리기·수영·의상 동작 추가")** — 코드 `tools/frog_rig.py`(규칙은 `tools/frog_place.py`), 테스트 `tools/assets/ease_miyaBnc.json`(CustomBounce 샘플, 떨어지는 물체의 첫 착지 시각 계산용).
+1. **리그**: 개구리 SVG가 관절 그룹으로 나뉜다 — 다리 `_lgl`/`_lgr`(엉덩이 축), 팔 `_la`/`_ra`(어깨 축), 머리 `_hd`(목 축, 의상·눈물 포함), 발 축 `"0 6"`. 그룹 순서 `_tr`(이동) > `_rm`(구르기) > `_lf`(생기) > `_ac`(동작). 모든 축은 부모 좌표 `svgOrigin`, 모든 트윈은 메인 타임라인 절대 시각(탐색·구간 렌더 안전, 난수 없음).
+2. **생기 층 `_lf`(`life_js`)**: 모든 개구리가 숨 쉬고(스케일), 무게를 옮기고, 머리를 조금 돌리고, 눈을 흘끗 보고, 발을 끌어 움직인다. 멈춰 있는 개구리는 없다. 동작이 그 부위를 쓰면 그 부분만 끈다(`nohead`·`nolegs`·`noscale`·`noeyes`), 표정이 바뀌는 시각·단어 시작 시각은 피한다(`avoid`).
+3. **팔다리가 붙은 기존 동작**: 달리기·걷기 = 다리 주기 + 팔 흔들기 + 발걸음마다 눌림, `moonhop`·`cheer` = 공중에서 다리 접기, `swim`·`float`·`hang` = 발차기, `wind`·`pull`·`push` = 버티는 자세, `dance` = 다리 스텝.
+4. **접촉 동작 12종(`CONTACT`) — 그림의 움직이는 오브젝트와 그 오브젝트의 시각에 맞춰 만난다**(`build3.obj_timing` → `frog_rig.obj_span`; 떨어짐 `.15/.9`, 넘어짐 `.55`, 굴러감 `.3/3`, 미끄러짐 `.3/.7`, 떠오름 `.3/.5`, 튀는 공은 CustomBounce 착지마다). `frog_place.contact_pick`이 **오브젝트 종류(`mv-` 이름) + 크기 + 문장 단어**로 첫 번째 맞는 것을 고른다(큰 오브젝트부터, 탈것·`ride` 그룹은 건너뜀, 우주 장면은 땅 개그 없음, 무거운 주제 `SERIOUS`는 bonk·squish·dodge·somersault 없음):
+| 오브젝트(`mv-`) + 조건 | 동작 | 내용 | 말풍선 |
+|---|---|---|---|
+| `core-drop` 작은 것(≤260×220) + catch·grab·save 단어 | `catch` | 아래에서 두 팔 들고 받아 두 걸음 물러나 자랑 | Got it! |
+| `core-drop` + 물(바다 팔레트·물 그룹 ≥20%) | `splash` | 옆에 서 있다가 물보라 6방울(`_sp0..5`) 맞고 몸 털기·닦기 | Splash! |
+| `core-drop` 그 밖(진지하지 않을 때) | `bonk` | 사과나무 아래 → 머리에 맞고(머리 눌림, 별 `_spk`) 뒤로 넘어짐, 물체는 옆으로 굴러 떨어짐, 앉아서 머리 문지름 | Bonk! / Ouch... |
+| `topple`(높이 120~600, 양수 각도) | `squish` | 넘어지는 쪽 끝에 서 있다가 납작해졌다가(`scaleY .2`) 기어 나와 탄성 복원 | Oof! / Ow ow ow. |
+| `rollby`·`slide` + chase·follow·escape 단어 또는 큰 것(h>240) | `chase` | 출발점 뒤에서 달려 쫓아가며 손 뻗고 헐떡임 | Wait! |
+| `rollby`·`slide` 그 밖 | `dodge` | 경로 62% 지점에 서 있다가 지나가는 순간(`pass`) 높이만큼 뛰어넘고 뒤돌아봄 | Whoa! |
+| `swing`·`pendulum`(h ≥ 80) | `swingride` | 아래에 두 손으로 매달려 같은 위상으로 흔들림(다리·몸은 살짝 늦게) | Wheee! |
+| `bouncing`(≤400) | `bumped` | 옆에 서서 착지마다 움찔 | Boing! |
+| `rise`(≤320×300) + heavy·lift·carry 단어 | `lift` | 아래에서 두 팔로 받쳐 들고 무릎 떨림·땀 | Hnnng... |
+| rope·chain·cable… 그룹(폭 ≥150) + pull·tug·haul 단어 | `tug` | 밧줄 옆에서 세 번 당기다 놓쳐 넘어짐 | Hnnng... / Oof! |
+| wind·gust·storm 단어(탑승·우주 아님) | `blown` | 바람 반대로 버티다(`_wd` 바람 줄) 밀려 구르고 앉음 | Whoaaa! |
+| 배경 `run`/`walk` 경로 위 낮은 그룹(rock·root·log·puddle… ≤80 높이) | `trip` | 달리다 걸려 넘어지고(별) 일어나 절뚝임 | Oof! |
+5. **이동 동작 10종(`LOCO`, `loco_pick`, 단어 + 필요한 그룹)**: swim·paddle + 물 → `swimstroke`(평영, 잠수 의상이면 둥둥 떠 있는 단위마다 번갈아) · climb + rope·pole·tree·ladder·cliff 그룹(높이 ≥200) → `climb`(그 옆을 기어오름) · leap·jump over·gap → `leap`(우주 아님) · slip·let go·cling + 매달릴 그룹 → `dangle`(매달렸다 떨어짐, "Uh-oh... / Oof!") · skate·glide·slippery·sled → `skate`(목도리) · somersault·flip·acrobat·trick → `somersault` · sneak·tiptoe·quietly → `tiptoe` · crawl·tunnel·squeeze → `crawl` · 배경 `roll` → `logroll`(통나무 구르기) · tightrope·balance·narrow beam + 가로 긴 그룹(≥300×≤80) → `tightrope`(그 위를 건넘).
+6. **의상 동작 38종(`COSTUME_ACTS`, `OUTFIT_ACT`, `costume_pick`)**: 다른 규칙이 약한 동작만 남겼을 때 입은 의상이 동작을 정한다 — wizard→castspell, knight·viking·roman·samurai→charge, chef→stir, firefighter→hose, cowboy→lasso, wings·bee·aviator→flap, bunny→bunnyhop, headphones→groove, hardhat→hammer, strawhat→sow, sunglasses→cool, santa→hohoho, ghost→floatghost, shark→chomp, dino→stomp, headband→jog, police→halt, medal·laurel→victory, vr→vrgrab, backpack·explorer→hike, lifevest→paddle, raincoat→puddlejump, scarf·beanie→rubhands, crown·tophat·monocle·bowtie→regal, alien→alienwave, mustache→mustache, earmuffs→coverears, bandage→limp, flowercrown·crownleaf→sniff, beret→paint, umbrella→windbrella, clown·partyhat→juggle, turtle→hideshell, halo→pray, gradcap→tosscap, headlamp→dig2, propcap→stretchlegs, diver·goggles→swimstroke; 기존 동작으로 가는 의상: pirate→scope, detective·doctor·lab→magnify, glasses→think, nightcap→snooze, helmet→float, cape→fly, tinfoil→look. 말풍선은 `OUTFIT_SAYS`(Abracadabra! / Chaaarge! / Yeehaw! …).
+7. **우선순위**: D의 단어 규칙(강한 동작) → 접촉(`contact_pick`) → 이동(`loco_pick`) → 배경 이동 변형(trip·logroll) → 의상(`costume_pick`) → 차분한 기본 동작. 접촉 개구리는 오브젝트가 움직이기 전에 그 자리에 있어야 하므로 `enter: cut`(단위 시작 0.02초)으로 바로 나타난다.
+8. **사이드카**: `frog.act = {"type": "bonk", "obj": "<그룹 id>"}` 처럼 `type`과 `obj`(접촉 대상), `pass`(dodge 통과 시각), `dist`(이동 거리), `frac`(trip 위치), `drop`(dangle 낙하), `h`(dodge 높이)를 손으로 고칠 수 있고 `lock: true`로 고정한다.
+9. **그림 에이전트가 할 일(art_spec 7·12)**: 개그가 생기려면 그림에 작은 소품이 **움직여야** 한다 — 떨어지는 사과·열매·돌(`mv-core-drop`), 넘어지는 기둥·표지판(`mv-topple`), 굴러가는 바퀴·공(`mv-rollby`), 튀는 공(`mv-bouncing`), 흔들리는 그네·추(`mv-swing`), 떠오르는 상자(`mv-rise`), 밧줄·장대·사다리·나무·줄(rope·pole·ladder·tree·wire 이름). 이름 없는 그룹은 아무 규칙에도 안 걸린다. 개구리는 그리지 않는다.
+10. **확인한 것 / 못한 것**: 합성 페이지 32장면(접촉 12·이동 10·의상 38) 전체 탐색 JS 오류 0, whale-fall-short1 전체 빌드 오류 0(`frog-rules/rig-2026-10-29/` 시트·mp4). Actions 렌더와 실제 영상의 접촉 장면은 아직 확인하지 않았다(기존 4편에는 drop·topple·rollby 소품이 거의 없어 접촉 동작은 새 영상에서 주로 나온다).
+
 개정: 2026-10-26 2차 검토(4편 122장면): 안전 구역(자막·말풍선 머리 위·로고), 이동 오브젝트는 중앙 쪽, 작은 오브젝트는 옆에, 구멍 위 금지, slide는 구덩이가 그려진 그림에서만(사과나무 옆 시계로 미끄러지던 것 제거), 강한 반응 배경 개구리는 자막 구역이 아닌 빈 띠에.
 개정: 2026-10-26 7-2 정리(누적 규칙 통합, 충돌 제거: 구석 앉기·모든 그림 개구리 폴짝 등장·바람 줄 삭제) + 검토 반영(중앙 위 걸터앉기 금지·옆에 서기, 글자 겹침 회피, 말풍선 반복 방지, 바다 영상 헬멧·slide 금지, 부드러운 등장·퇴장, 불규칙 깜빡임, 열 dizzy 버그 수정).
 개정: 2026-10-26 3차(miya: 모션·표정·의상 더 넣고 오브젝트도 규칙화): 관계 동작 10종(hide·peek·hang·tap·rest·scope·wave·startle·bounce·lean)·의상 4종(lab·explorer·scarf·nightcap)·표정 3종(love·shock·angry)·시선(gaze)·두드림 파장 추가, D-2 결정 순서 명시(정규식+그룹 이름+단위 번호, 난수·모델 판단 없음). 오브젝트 쪽 규칙은 4-1 끝 '3차 보강'.
@@ -85,3 +111,4 @@
 개정: 2026-10-27 (miya, 인간 영상 상어 장면) 잠수 장비는 그림(탑승 생물·물 그룹·팔레트)으로도 판정, 단어 의상보다 우선(`frog_place.underwater`).
 개정: 2026-10-27 (miya, "대본 규칙이랑 그림 규칙을 다른 것들에도 모두") 의상·동작을 단어 + 그림 증거로: `in_space`·`PIC_OUTFIT`·`has_group`·그림 증거 동작 5종(`frog_place.py`).
 개정: 2026-10-29 (miya, 오픈소스 통합) 개구리 `shiver`를 CustomWiggle 이징 한 트윈으로(0.05초 yoyo 수백 개 → 트윈 1개, 같은 보임새), 4-6.
+개정: 2026-10-29 I절 추가(관절 리그·생기 층·접촉 12·이동 10·의상 38 동작, 선택 우선순위·사이드카 키, miya "개구리가 너무 정적 · 사과 맞고 쓰러지기 · 달리기·점프·매달리기·수영·의상 동작").

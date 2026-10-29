@@ -12,6 +12,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 from playwright.sync_api import sync_playwright
 import facing
+import frog_rig, motions   # 2026-10-29: contact / locomotion / costume acts (guideline 7-2 G)
 OK = re.compile(r'^mv-(core-(swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble)|path|slide|swing)')
 SPACE = re.compile(r'\b(space|star|stars|galax\w*|cosmic|universe|horizon|probe|voyager|light|planet|orbit|dark|expan\w*)\b', re.I)
 SEA = re.compile(r'\b(ocean|oceans|sea|seas|seafloor|underwater|dive|diving|water|whales?|reef|coral|fish|vents?|abyss\w*|deep|depths?|plankton|marine)\b', re.I)
@@ -313,6 +314,165 @@ def perch(pg, g, W, H, vert, tb, n):
         if sc == 0: break
     if best is None: return None
     return dict(x=best[1], y=best[2], s=s, flip=1 if best[1] < W / 2 else -1, bside=best[3])
+# ---- 2026-10-29 (miya: "the frog itself is too static; let it meet the objects: an apple drops on it and it keels over"): contact acts keyed on the
+# motion name + size of a picture group, locomotion acts keyed on words (+ a group when they need one), costume acts keyed on the outfit. frog_rig.py
+# has the motions; the times come from frog_rig.obj_span so the bubble and the impact agree. Guideline 7-2 G. ----
+CATCHW = re.compile(r'\b(catch\w*|caught|grab\w*|hold(s|ing)? (it|on to)|sav(e|ed|ing)|rescu\w*|keep\w* (it|them) safe)\b', re.I)
+CHASEW = re.compile(r'\b(chas\w*|follow\w*|after (it|them|him|her)|escap\w*|fle[ed]\w*|run(s|ning)? away|runaway|pursu\w*|hunt(s|ed|ing)?\b|catch up|got away|slipp\w* away)\b', re.I)
+BLOWW = re.compile(r'\b(wind\w*|gust\w*|storm\w*|blast\w*|hurricane\w*|typhoon\w*|gale\w*|breez\w*|blow(s|n|ing)?\b|tornado\w*|blizzard\w*)\b', re.I)
+TUGW = re.compile(r'\b(pull\w*|tug\w*|haul\w*|tow(ed|ing)?\b|anchor\w*|rope\w*|reel\w*|leash\w*|drag\w*|yank\w*)\b', re.I)
+LIFTW = re.compile(r'\b(heav(y|ier|iest)|lift\w*|carr(y|ied|ying)|rais\w*|weight\w*|load\w*|hoist\w*|tons?\b|kilogram\w*|pounds)\b', re.I)
+ROPEG = re.compile(r'rope|chain|cable|leash|tether|lasso|line\b|cord|string|vine|anchor', re.I)
+LOWG = re.compile(r'rock|stone|pebble|root|log\b|stick|branch|wire|cable|crack|hole|puddle|bump|brick|shell|bone|skull|coin|book', re.I)
+SWIMW = re.compile(r'\b(swim\w*|swam|swum|strokes?\b|paddl\w*|breaststroke|laps?\b|wad(e|ed|ing)|cross(ed|ing)? the (river|lake|channel|sea))\b', re.I)
+CLIMBW = re.compile(r'\b(climb\w*|clamber\w*|scal(e|ed|ing) (the|a|up)|ascend\w*|up the (rope|pole|tree|ladder|cliff|wall|mast|tower)|summit\w*|mountaineer\w*)\b', re.I)
+CLIMBG = re.compile(r'rope|pole|tree|trunk|ladder|cliff|wall|tower|mast|vine|column|pillar|post|stalk|beanstalk|chain|rock', re.I)
+LEAPW = re.compile(r'\b(leap\w*|jump\w*|hop\w* (over|across)|bound(ed|ing)? (over|across)|vault\w*|across the (gap|river|stream|chasm|canyon|crack)|gap\b|chasm|ravine|canyon)\b', re.I)
+DANGLEW = re.compile(r'\b(slip\w*|lost (his|her|their|its) grip|let go|dangl\w*|cling\w*|hold(s|ing)? on|hanging (by|on|from)|hung (by|on|from)|grip\w*)\b', re.I)
+SKATEW = re.compile(r'\b(skat\w*|glid\w*|slid(e|es|ing) (on|across|over)|slippery|frozen (lake|pond|river|sea)|ice rink|on the ice|sled\w*|ski\w*)\b', re.I)
+SOMERW = re.compile(r'\b(somersault\w*|back ?flip\w*|front ?flip\w*|acrobat\w*|cartwheel\w*|gymnast\w*|stunt\w*|show(s|ed|ing)? off|trick\w*|circus)\b', re.I)
+SNEAKW = re.compile(r'\b(sneak\w*|tiptoe\w*|creep\w*|crept|quietly|silently|stealth\w*|spy\w*|spied|prowl\w*|in secret|unnoticed|undetected)\b', re.I)
+CRAWLW = re.compile(r'\b(crawl\w*|tunnel\w*|burrow\w*|squeez\w* (through|under|into)|narrow (passage|gap|crack|tunnel)|on all fours|wriggl\w*|through the (pipe|vent|hole|gap))\b', re.I)
+TIGHTW = re.compile(r'\b(tightrope|high ?wire|balanc\w* (on|along|across)|narrow (beam|ledge|bridge|plank)|careful steps|one wrong step|inch(ed|ing)? (along|across))\b', re.I)
+TIGHTG = re.compile(r'rope|wire|beam|ledge|plank|bridge|line\b|rail|branch|cable', re.I)
+CONTACT_SAYS = {'bonk': ['Bonk!', 'Ouch...'], 'squish': ['Oof!', 'Ow ow ow.'], 'dodge': ['Whoa!'], 'chase': ['Wait!'], 'splash': ['Splash!'], 'swingride': ['Wheee!'], 'bumped': ['Boing!'],
+                'blown': ['Whoaaa!'], 'tug': ['Hnnng...', 'Oof!'], 'lift': ['Hnnng!'], 'catch': ['Got it!'], 'trip': ['Oof!']}
+CONTACT_MOOD = {'bonk': 'curious', 'squish': 'happy', 'dodge': 'happy', 'chase': 'determined', 'splash': 'curious', 'swingride': 'excited', 'bumped': 'surprised', 'blown': 'squint', 'tug': 'determined', 'lift': 'determined', 'catch': 'determined', 'trip': 'happy'}
+
+
+def gattrs(svgtxt, gid):
+    m = re.search(rf'<g\b[^>]*\bid="{re.escape(gid)}"[^>]*>', svgtxt)
+    return dict(re.findall(r'(data-[a-z]+)="([^"]*)"', m.group(0))) if m else {}
+
+
+def gkind(gid, at):
+    """motion kind of a picture group after the round-4 sanity (the same the build applies)"""
+    if gid.startswith('mv-core-'): return 'core-' + motions.core_sanitize(gid[8:].split('-')[0], gid, keep=at.get('data-keep') == '1')
+    if gid.count('-') >= 2 and gid.split('-')[1] in motions.OBJ_KINDS: return motions.obj_sanitize(gid.split('-')[1], gid, keep=at.get('data-keep') == '1')
+    return ''
+
+
+def set_act(keep, ty, says=None, mood=None, **kw):
+    keep['act'] = dict(type=ty, **kw)
+    words = says if says is not None else CONTACT_SAYS.get(ty) or ([frog_rig.OUTFIT_SAYS[ty]] if ty in frog_rig.OUTFIT_SAYS else [])
+    keep['_says'] = [{'text': w, 'shout': w.endswith('!')} for w in words]
+    keep['moods'][0] = {'mood': mood or CONTACT_MOOD.get(ty, frog_rig.COSTUME_ACTS.get(ty, {}).get('mood', 'happy'))}; keep.pop('roam', None); keep.pop('cling', None)
+
+
+def contact_pick(keep, text, gs, svgtxt, palname, W, H, vert, tb):
+    """a moving object the frog can meet: returns True and fills keep (kind / x / y / s / flip / act / _says). Deterministic: first rule that fits."""
+    cap = H - (460 if vert else 290); s0 = round(.95 * (1.15 if vert else 1), 2); water = palname == 'ocean' or has_group(gs, WATER_G, .2, W, H)
+    objs = []
+    for g in gs.values():
+        at = gattrs(svgtxt, g[0]); kd = gkind(g[0], at)
+        if kd: objs.append((g, kd, at))
+    objs.sort(key=lambda o: -o[0][3] * o[0][4])
+    space = bool(SPACE.search(text)) or palname in SPACE_PAL   # nothing lands, rolls or topples in space: no ground gags there
+    for g, kd, at in objs:
+        gid, x, y, w, h = g; cx = x + w / 2; side = 1 if cx < W / 2 else -1   # side: +1 = the frog stands to the right of the object (nearer the centre)
+        if gid == keep.get('ride') or SPACE_RIDE.search(gid) or VEH.search(gid): continue   # a vehicle the frog rides (or could ride) is better ridden than dodged (edge-of-universe U007: Voyager)
+        if space and kd in ('core-drop', 'topple', 'rollby', 'slide', 'bouncing'): continue
+        if kd == 'core-drop' and w <= 260 and h <= 220:
+            if CATCHW.search(text) and y + h + 42 * s0 <= cap:
+                keep.update(kind='bg', ride=None, behind=None, x=round(cx), y=round(y + h + 42 * s0), s=s0, flip=side, enter='cut', delay=.02); set_act(keep, 'catch', obj=gid); return True
+            if water and .1 * W < cx + side * (w / 2 + 62 * s0) < .9 * W and y + h <= cap:
+                keep.update(kind='bg', ride=None, behind=None, x=round(cx + side * (w / 2 + 62 * s0)), y=round(y + h), s=s0, flip=-side, enter='cut', delay=.02); set_act(keep, 'splash', obj=gid); return True
+            if not SERIOUS and y + h + 80 * s0 <= cap:
+                keep.update(kind='bg', ride=None, behind=None, x=round(cx), y=round(y + h + 80 * s0), s=s0, flip=side, enter='cut', delay=.02); set_act(keep, 'bonk', obj=gid); return True
+        elif kd == 'topple' and 120 <= h <= 600 and w <= 400 and not SERIOUS and float(at.get('data-deg', 72)) > 0:
+            fx = x + w + h * .5
+            if .08 * W < fx < .92 * W and y + h <= cap + 20:
+                keep.update(kind='bg', ride=None, behind=gid, x=round(fx), y=round(min(y + h, cap)), s=s0, flip=-1, enter='cut', delay=.02); set_act(keep, 'squish', obj=gid); return True
+        elif kd in ('rollby', 'slide') and y + h <= cap + 30 and h >= 40:
+            a, b = frog_rig.travel(kd, at, (x, y, w, h))
+            if abs(b - a) < 150: continue
+            dirx = 1 if b > a else -1; lane = round(min(y + h, cap))
+            if CHASEW.search(text) or h > 240:
+                fx = a - dirx * (w / 2 + 60 * s0)
+                if not (.06 * W < fx < .94 * W): continue
+                dist = min(abs(b - a) * .8, (W * .94 - fx) if dirx > 0 else (fx - W * .06))
+                keep.update(kind='bg', ride=None, behind=None, x=round(fx), y=lane, s=s0, flip=dirx, enter='cut', delay=.02); set_act(keep, 'chase', obj=gid, dist=round(dist)); return True
+            if not SERIOUS:
+                P = a + .62 * (b - a)
+                if not (.1 * W < P < .9 * W): continue
+                keep.update(kind='bg', ride=None, behind=None, x=round(P), y=lane, s=s0, flip=-dirx, enter='cut', delay=.02)
+                set_act(keep, 'dodge', obj=gid, h=round(h), **{'pass': round(frog_rig.pass_time(kd, at, (x, y, w, h), P, 0) or 1.2, 3)}); return True
+        elif kd in ('swing', 'pendulum') and h >= 80 and y + h + 56 * s0 + 60 <= cap and w <= W * .5:
+            keep.update(kind='ride', ride=gid, behind=None, x=round(cx), y=round(y + h + 56 * s0), s=s0, flip=1 if cx < W / 2 else -1); set_act(keep, 'swingride', obj=gid); return True
+        elif kd == 'bouncing' and w <= 400:
+            pos = beside(g, W, H, vert, tb)
+            if pos: keep.update(kind='bg', ride=None, behind=None, **pos); set_act(keep, 'bumped', obj=gid, serious=SERIOUS); return True
+        elif kd == 'rise' and w <= 320 and h <= 300 and LIFTW.search(text):
+            keep.update(kind='ride', ride=gid, behind=None, x=round(cx), y=round(y + h + 50 * s0), s=s0, flip=1 if cx < W / 2 else -1); set_act(keep, 'lift', obj=gid); return True
+    if TUGW.search(text):
+        rp = sorted([g for g in gs.values() if ROPEG.search(g[0]) and g[3] >= 150], key=lambda g: -g[3])
+        if rp:
+            pos = beside(rp[0], W, H, vert, tb)
+            if pos: keep.update(kind='bg', ride=None, behind=None, **pos); set_act(keep, 'tug'); return True
+    if BLOWW.search(text) and not keep.get('ride') and not SPACE.search(text):
+        ctx = facing.context({'groups': []}, svgtxt, {})
+        wind = ctx.get('wind', 1) or 1; fx = W * (.62 if wind > 0 else .38)   # pushed along the wind: start on the upwind side of the centre
+        keep.update(kind='bg', ride=None, behind=None, x=round(fx), y=(H - 360) if vert else (H - 190), s=s0, flip=-wind); set_act(keep, 'blown'); return True
+    return False
+
+
+def loco_pick(keep, text, gs, palname, W, H, vert, n, pg):
+    """locomotion acts by words (+ a group when they need one). Returns True when applied."""
+    if keep.get('ride') or keep.get('cling'): return False
+    cap = H - (460 if vert else 290); s0 = round((1.05 if vert else .8) * [1.0, .9, 1.1, .95][n % 4], 2); y0 = (H - 360) if vert else (H - 190)
+    right = (n % 2 == 1); x0 = max(260, min(W - 260, 260 if right else W - 260)); fl = 1 if right else -1; dist = round(W * (.34 if vert else .3))
+    water = palname == 'ocean' or has_group(gs, WATER_G, .2, W, H)
+    def lane(ty, **kw):
+        keep.update(kind='bg', ride=None, behind=None, x=x0, y=y0, s=s0, flip=fl); set_act(keep, ty, dist=dist, **kw)
+    if SWIMW.search(text) and (water or SEA.search(text)):
+        yb = free_band(pg, W, H, vert, n); keep.update(kind='bg', ride=None, behind=None, x=x0, y=yb, s=s0, flip=fl); set_act(keep, 'swimstroke', dist=dist)
+        if keep.get('outfit') not in (['diver'], ['goggles']): keep['outfit'] = ['goggles']
+        return True
+    if CLIMBW.search(text):
+        cg = sorted([g for g in gs.values() if CLIMBG.search(g[0]) and g[4] >= 200 and g[3] <= W * .5], key=lambda g: -g[4])
+        if cg:
+            _, gx, gy, gw, gh = cg[0]; side = 1 if gx + gw / 2 < W / 2 else -1; fx = gx + gw / 2 + side * (gw / 2 + 26 * s0); base = min(gy + gh, cap)
+            if .06 * W < fx < .94 * W:
+                keep.update(kind='bg', ride=None, behind=None, x=round(fx), y=round(base), s=s0, flip=-side); set_act(keep, 'climb', dist=round(min(gh * .7, base - 160))); return True
+    if DANGLEW.search(text):
+        hg = sorted([g for g in gs.values() if HANGG.search(g[0]) and g[3] >= 80 and g[2] + g[4] < cap - 160], key=lambda g: -g[3])
+        if hg:
+            _, hx, hy, hw, hh = hg[0]; fx = hx + hw * (.35 if hx + hw / 2 > W / 2 else .65); fy = hy + hh + 56 * s0
+            keep.update(kind='ride' if OK.match(hg[0][0]) else 'bg', ride=hg[0][0] if OK.match(hg[0][0]) else None, behind=None, x=round(fx), y=round(fy), s=s0, flip=1 if fx < W / 2 else -1)
+            set_act(keep, 'dangle', drop=round(max(60, min(cap - fy, 420)))); keep['_says'] = [{'text': 'Uh-oh...', 'shout': False}, {'text': 'Oof!', 'shout': True}]; return True
+    if TIGHTW.search(text):
+        tg = sorted([g for g in gs.values() if TIGHTG.search(g[0]) and g[3] >= 300 and g[4] <= 80], key=lambda g: -g[3])
+        if tg:
+            _, gx, gy, gw, gh = tg[0]; fl2 = 1 if gx + gw / 2 >= W / 2 else -1; fx = gx + gw * (.12 if fl2 > 0 else .88)
+            keep.update(kind='bg', ride=None, behind=None, x=round(fx), y=round(gy + 4), s=s0, flip=fl2); set_act(keep, 'tightrope', dist=round(gw * .7)); return True
+    if LEAPW.search(text) and not SPACE.search(text): lane('leap'); return True
+    if SKATEW.search(text) and not water: lane('skate'); keep['outfit'] = keep.get('outfit') or ['scarf']; return True
+    if SOMERW.search(text) and not SERIOUS: lane('somersault'); return True
+    if SNEAKW.search(text): lane('tiptoe'); return True
+    if CRAWLW.search(text): lane('crawl'); return True
+    return False
+
+
+def costume_pick(keep, text, gs, W, H, vert, n):
+    """the outfit decides what the frog does when nothing else did (frog_rig.OUTFIT_ACT); travel acts need a lane (a roam, or a free bottom band)"""
+    for o in keep.get('outfit') or []:
+        ty = frog_rig.OUTFIT_ACT.get(o)
+        if not ty: continue
+        if ty not in frog_rig.MOVES:   # an existing act (scope / magnify / think / snooze / float / fly / look)
+            if keep.get('ride') and ty in ('fly', 'float'): return False
+            keep['act'] = ty; keep.pop('roam', None); return True
+        if ty in frog_rig.TRAVEL_ACTS:
+            if keep.get('ride') or keep.get('cling'): return False
+            rm = keep.get('roam')
+            if rm: set_act(keep, ty, dist=rm.get('dist', 300))
+            else:
+                s0 = round((1.05 if vert else .8), 2); right = (n % 2 == 1)
+                keep.update(kind='bg', ride=None, behind=None, x=max(260, min(W - 260, 260 if right else W - 260)), y=(H - 360) if vert else (H - 190), s=s0, flip=1 if right else -1); set_act(keep, ty, dist=round(W * (.3 if vert else .22)))
+            return True
+        set_act(keep, ty); return True
+    return False
+
+
 # round 4c (2026-10-26, miya: more expressions, picked per script + picture): sentence words -> one of the 20 new faces, first match wins,
 # checked BEFORE the old punctuation / number rules. Playful faces (laugh, grin, cheeky, mischief, smug, wink) are dropped on serious topics.
 MOODW = [
@@ -474,6 +634,8 @@ with sync_playwright() as p:
                 keep['act'] = 'cry'; keep['moods'][0] = {'mood': 'sad'}
             elif weak and FACEW.search(text):
                 keep['act'] = 'facepalm'; keep['moods'][0] = {'mood': 'worried'}
+            elif weak and contact_pick(keep, text, gs, open(svg, encoding='utf-8').read(), palname, W, H, vert, tb): pass   # 2026-10-29: meets a moving object (apple on the head, toppling pole, rolling boulder ...)
+            elif weak and loco_pick(keep, text, gs, palname, W, H, vert, n, pg): n += 1   # 2026-10-29: swims / climbs / leaps / dangles / skates / somersaults / sneaks / crawls / walks a line
             elif weak and IDEAW.search(text) and not SERIOUS:
                 keep['act'] = 'idea'; keep['moods'][0] = {'mood': 'excited'}
             elif weak and PEEKW.search(text) and big:   # hidden behind the biggest object, peeking out on the side toward the screen centre
@@ -518,6 +680,16 @@ with sync_playwright() as p:
             elif weak and has_group(gs, WATER_G, .25, W, H) and not keep.get('ride') and cur in CALM: keep['act'] = 'waves'; keep['moods'][0] = {'mood': 'surprised'}
             elif weak and rk and (SPACE_RIDE.search(rk) or re.search(r'plane|jet|train|car\b|sled|bike|motor', rk, re.I)) and cur in CALM: keep['act'] = 'wind'; keep['moods'][0] = {'mood': 'squint'}
             if keep.get('act') in ('scope', 'hide', 'tap', 'rest', 'wave', 'peek', 'hang', 'cry', 'facepalm', 'idea', 'dig', 'magnify', 'read', 'photo', 'eat', 'dance', 'clap', 'salute', 'think', 'sneeze', 'snooze') or (isinstance(keep.get('act'), str) and keep.get('act') in ACT_MOOD2): keep.pop('roam', None)   # these are done in place, not while roaming
+            # ---- 2026-10-29 (frog_rig): a run / walk over a low thing on its lane trips it; a roll becomes a log-roll; the costume decides a weak act ----
+            rm_ = keep.get('roam') or {}; weak2 = (keep.get('act') in CALM or keep.get('act') in WEAK) and not isinstance(keep.get('act'), dict) and not slid
+            if rm_.get('kind') in ('run', 'walk') and not SERIOUS and weak2:
+                lx0, lx1 = sorted((keep['x'], keep['x'] + keep['flip'] * rm_.get('dist', 300)))
+                low = [g for g in gs.values() if LOWG.search(g[0]) and g[4] <= 80 and 40 <= g[3] <= 260 and abs(g[2] + g[4] - keep['y']) <= 50 and lx0 + 60 < g[1] + g[3] / 2 < lx1 - 40]
+                if low:
+                    g_ = low[0]; fr = (abs(g_[1] + g_[3] / 2 - keep['x']) - 30 * keep['s']) / max(rm_.get('dist', 300), 1)
+                    set_act(keep, 'trip', dist=rm_.get('dist', 300), frac=round(min(max(fr, .2), .8), 3))
+            elif rm_.get('kind') == 'roll': set_act(keep, 'logroll', dist=rm_.get('dist', 300))
+            elif weak2 and not keep.get('_says') and rm_.get('kind') not in ('swim', 'lie', 'tumble', 'moonhop'): costume_pick(keep, text, gs, W, H, vert, n)
             # outfits by scene words (not over diving gear / helmet / fore)
             if not keep.get('outfit'):
                 if LABW.search(text): keep['outfit'] = ['lab']
@@ -579,7 +751,9 @@ with sync_playwright() as p:
             if keep.get('outfit') not in (['helmet'], ['diver'], ['goggles'], ['fore'], ['fore_steps']) and in_space(text, palname, gs, keep.get('ride'), W, H, u.get('bg', 'night')) and not underwater(text, palname, gs, keep.get('ride'), W, H): keep['outfit'] = ['helmet']   # space helmet by the picture too (miya 2026-10-27: script rule + picture rule together)
             uw = underwater(text, palname, gs, keep.get('ride'), W, H)   # diving gear by the picture, not only the words (miya 2026-10-27); worn instead of a word costume
             if uw and keep.get('outfit') not in (['diver'], ['goggles'], ['helmet']) and not (isinstance(keep.get('act'), dict) and keep['act'].get('type') == 'huts'): keep['outfit'] = ['diver'] if uw == 'deep' else ['goggles']
+            if uw and (keep.get('roam') or {}).get('kind') in ('swim', 'lie') and n % 2 == 0 and keep.get('_says') is None: set_act(keep, 'swimstroke', dist=keep['roam'].get('dist', 300))   # every other drifting diver really swims (2026-10-29)
             keep['says'] = says_for(keep['act'], keep, text, cnt_say); keep['bside'] = keep.get('bside') or (1 if keep['x'] < W / 2 else -1)
+            if keep.get('_says') is not None: keep['says'] = keep.pop('_says')   # contact / locomotion / costume acts bring their own sound words (timed by the act)
             if isinstance(keep['act'], dict) and keep['act'].get('type') == 'push': keep['says'] = [{'text': 'Heave-ho!', 't': 1.0, 'dur': 1.6, 'shout': True}]
             if keep.get('_huts'): keep['says'] = [{'text': w_, 't': round(t_, 2), 'dur': 1.0, 'shout': True} for t_, w_ in keep.pop('_huts')]
             # round 4c: picture / palette faces when the first sentence gave only a default face and no strong act fixed one

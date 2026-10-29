@@ -14,6 +14,7 @@
 > - **10-26 (개구리 정리)**: 7-2를 현재 규칙만 남겨 정리(표 형식). 검토 반영: 주인공 오브젝트 한가운데 위 금지(끝에 타거나 옆에 서기), 글자 겹침 회피, 말풍선 단어 돌려쓰기, 바다 영상 헬멧·slide 금지, 부드러운 등장·퇴장, 불규칙 깜빡임.
 > - **10-27 (miya)**: '연속 사용 금지' 고정 규칙 전부 제거 → 상황이 이어지면 반복, 채움 선택만 다르게(4-1·4-3·7-2·9-3·9-4, CLAUDE.md 반복 원칙)
 > - **10-27 (miya)**: 효과음 92종·배경음악 9스타일×4분위기, 둘 다 대본 단어·팔레트로 자동 선택(9-3·9-4, `tools/sfx_pick.py`·`bgm_lib.py`); 그림 에이전트의 `sfx`는 보조
+> - **10-29 (miya, 개구리 관절)**: 개구리를 관절 리그로 바꾸고(다리·팔·머리 축, 생기 층: 모든 개구리가 숨 쉬고 무게를 옮김), 그림의 움직이는 오브젝트와 그 시각에 맞춰 만나는 접촉 동작 12종(사과 맞고 쓰러지기 bonk·squish·dodge·chase·splash·swingride·bumped·blown·tug·lift·catch·trip) + 이동 동작 10종(swimstroke·climb·leap·dangle·skate·somersault·tiptoe·crawl·logroll·tightrope) + 의상 동작 38종을 더함(7-2 I, `tools/frog_rig.py`, 규칙은 `frog_place.py`). 그림 에이전트는 작은 소품을 `mv-core-drop`·`mv-topple`·`mv-rollby`·`mv-bouncing`·`mv-swing`으로 움직이게 그려야 개그가 생긴다(art_spec 12)
 > - **10-29 (miya)**: 오픈소스 라이브러리 통합(4-6 표): GSAP 플러그인 14개(DrawSVG·MorphSVG·MotionPath·SplitText·ScrambleText·Physics2D·PhysicsProps·Inertia·CustomEase·Wiggle·Bounce·EasePack·Flip·Text)·anime.js(스프링·격자 물결)·lucide 픽토그램·svgo를 빌드에 넣고, 대본 단어·그림 증거·단위 번호 규칙으로 자동 적용(`tools/fxlib.py`). 오브젝트 62종·배경 59종·텍스트 39종. 2026-10-28 판정: three/lottie/rive/remotion/theatre/penpot은 안 씀.
 > - **10-27 (miya)**: 방향은 전부 코드 규칙(4-4 표): 머리↔이동(눈·뾰족한 쪽·`data-face`), 중력·빨림 경로, 바람 흔적, 카메라 팬, 개구리 타기·밀기; 사이드카 `wind`·`attractor`
 > - **10-27 (miya)**: 자동 아니던 방향도 규격화(4-4 B): 톱니 맞물림, 깃발·연기 바람, 사람·동물 시선, 그림자·하이라이트 빛 방향(사이드카 `light`), 개구리 궤도 회전 방향
