@@ -9,7 +9,7 @@ Do NOT run git. Work only on the units you are given. Keep your scratch files in
 2. Write ONE sentence: what the narration says happens here (an event, a movement, a change, a relation, a feeling). If nothing moves in the text
    (plain explanation, a still fact), do not force a motion: leave the picture alone except for a speech bubble if one fits.
 3. Pick the motion that shows exactly that. Combine kinds (`path` + `dash`, `flip` + `fill` + `shake`, `topple` row, `popin` + `edge`) or, if none of the 17 fits,
-   say so in your report with the motion you want (do not edit `tools/motions.py` yourself; the lead will add it). Typical mapping examples are only examples.
+   say so in your report with the motion you want (do not edit `tools/motions.py` yourself; the lead will add it). Typical mapping examples are only examples. **Frog gags (2026-10-29):** if the narration has a word from the script-word -> gag-prop table in `tools/art_spec.md` section 12 (fall/drop, topple, roll, bounce, swing, slam, magnet, hop, drip, wheel, pop up, unroll, rise, sink, lift, rope), give a small prop that motion and a plain name; the frog's reaction is added automatically by `tools/frog_place.py`.
 4. Edit the SVG surgically: wrap the EXISTING shapes of the moving thing in `<g id="mv-<kind>-<name>" data-...>` (ids `mv-*` become classes, duplicates are fine;
    other ids must stay unique). Never delete the picture's current `mv-` groups or the centre object; keep the style (thin sketch lines, palette colours, no text in the SVG,
    no filters). `data-pivot="x y"` is in picture coordinates (1920x1080). `data-delay` (s after the picture starts, default 0.3) orders events inside the picture; the picture
