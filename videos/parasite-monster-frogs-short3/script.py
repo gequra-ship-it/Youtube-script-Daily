@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# parasite-monster-frogs-short3 (Miya's Note). Script from miya 2026-10-09 (reworked 2026-10-24 spec; fact-checked and rewritten 2026-10-29, see /mnt/project-files/parasite-monster-frogs/script-check.md).
+SCENES = [
+ ('S01', 'Part 1', 'ill', 'sh3_1', 'Meet the strangest traveler in the pond. It is a flatworm, it has no brain, and it needs three different kinds of animals to finish its life.'),
+ ('S02', 'Part 2', 'ill', 'sh3_2', 'Think about how strange that is. A single brainless worm needs a snail, an amphibian, and a bird, all in the right place at the right time, just to finish one lap of its life.'),
+ ('S03', 'Part 3', 'ill', 'sh3_3', "Step one is the ramshorn snail. A microscopic swimming larva called a miracidium burrows into the snail's soft tissue. Once inside, it behaves like an invading army. It feeds on the snail's reproductive tissue and sterilizes the snail, diverting the snail's energy into feeding the parasite. Inside this living factory, the flatworm multiplies into huge numbers of clones."),
+ ('S04', 'Part 4', 'ill', 'sh3_4', 'Step two begins after some weeks, when the clones mature into a free-swimming stage called cercariae. A single infected snail can release large numbers of these fork-tailed swimmers into the water. They have no mouths, and their energy reserves are limited. They are generally thought to survive only a day or two, so they have one desperate mission: find the second host.'),
+ ('S05', 'Part 5', 'ill', 'sh3_5', 'That host is a developing tadpole. At this delicate stage, small clusters of cells called limb buds are forming near the base of its tail. They hold the instructions for growing two matched hind legs. And the cercariae head straight for that spot.'),
+ ('S06', 'Part 6', 'ill', 'sh3_6', 'On contact, the parasite attacks the skin. It sheds its swimming tail, pushes its small body through the tissue, and burrows toward the limb bud.'),
+ ('S07', 'Part 7', 'ill', 'sh3_7', 'Once settled deep inside the limb-forming area, it builds a thick wall around itself. It becomes an immobile, armored cyst called a metacercaria. These cysts disturb the growing tissue, and the chemical signals that guide limb growth, including a vitamin A derivative called retinoic acid, are thrown off. Scientists are still working out exactly how.'),
+ ('S08', 'Part 8', 'ill', 'sh3_8', 'The result can be a scrambled building plan. Instead of making one leg on each side, the tissue can start the process more than once, and extra, fully formed legs may emerge from the same hip.'),
+ ('S09', 'Part 9', 'ill', 'sh3_9', 'But where is the third host? To find out, look up at the sky.'),
+]
