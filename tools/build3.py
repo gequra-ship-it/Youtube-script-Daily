@@ -319,9 +319,10 @@ def side(u):
     return json.load(open(f)) if os.path.exists(f) else {}
 
 
+OPT = {}   # original art path -> svgo-optimized copy (filled before the facing pass, tools/svg_opt.py, 2026-10-29)
 def art_path(u):
     f = f'{ART3}/{u["uid"]}.svg'
-    if os.path.exists(f): return f, False
+    if os.path.exists(f): return OPT.get(f, f), False
     assert os.environ.get('FALLBACK') == '1', ('missing art', u['uid'])
     return f'{vdir()}/art/{SCENES[u["scene"] - 1][3]}.svg', True
 
@@ -400,9 +401,10 @@ if os.environ.get('PLAN') == '1':
     sys.exit(0)
 
 os.makedirs(OUT, exist_ok=True)
-for name in ['gsap.min.js', 'Fredoka-700.woff2', 'PatrickHand-400.woff2', 'logo.png', 'grain.png']:
+import sfx_lib, sfx_pick, bgm_lib, facing, picev, fxlib, svg_opt
+os.makedirs(f'{OUT}/gsap', exist_ok=True)
+for name in ['Fredoka-700.woff2', 'PatrickHand-400.woff2', 'logo.png', 'grain.png'] + fxlib.COPY:   # 2026-10-29: gsap 3.15 + 14 plugins + anime.js
     shutil.copy(f'{ASSETS}/{name}', f'{OUT}/{name}')
-import sfx_lib, sfx_pick, bgm_lib, facing, picev
 sfx_lib.make_all(OUT)
 # music style for the whole video (2026-10-27, guideline 9-4): config STYLE, else palette + script words (bgm_lib.style_for); 'cosmic' also switches
 # the transition sounds, speed streaks and the sfx word table to the space family
@@ -536,7 +538,7 @@ def scene_tones(u, n):
         out.append('#%02x%02x%02x' % tuple(int(round(v * 255)) for v in (r, g, bl)))
     return out
 h = ['<!doctype html><html lang="en"><head><meta charset="UTF-8">', f'<meta name="viewport" content="width={W}, height={H}">']
-h.append('<script src="gsap.min.js"></script><style>')
+h.append(fxlib.script_tags() + '<style>')
 capcss = (".cap{position:absolute;left:0;width:%dpx;bottom:%dpx;display:flex;justify-content:center;opacity:0;z-index:1002}"
           ".cap span{font-family:Fredoka,sans-serif;font-weight:700;font-size:%dpx;line-height:%dpx;color:#fff;background:rgba(0,0,0,.62);border-radius:12px;padding:20px;%s}"
           % ((W, 360, 60, 68, 'white-space:normal;max-width:900px;text-align:center') if VERT else (W, 60, 58, 54, 'white-space:nowrap'))
@@ -593,6 +595,8 @@ def is_speed(u, sc0):
     if 'speed' in sc0: return bool(sc0['speed'])
     return COSMIC and bool(SPEED_RE.search(u['text']))
 DRIFT = getattr(CFG, 'DRIFT', True)   # slow continuous camera move on every picture without a focus target (guideline 20-1)
+OPT, SVGO_STAT = svg_opt.optimize_dir(ART3, B, names=[f'{u["uid"]}.svg' for u in units if u['kind'] != 'chalk' and os.path.exists(f'{ART3}/{u["uid"]}.svg')])
+print('svgo', f"{SVGO_STAT['files']} files {SVGO_STAT['before'] // 1024} -> {SVGO_STAT['after'] // 1024} KB" if SVGO_STAT['files'] else 'skipped', SVGO_STAT.get('reason', ''))
 FACE = facing.compute(sorted({art_path(u)[0] for u in units if u['kind'] != 'chalk'}), W, H, cache=f'{B}/facing.json')
 fallback_used = []; label_errors = []; label_items = {}; BADGES = []; FXU = {}; FXPREV = []
 for k, u in enumerate(units):   # k = unit index (round 4 effects are keyed on it)
@@ -770,7 +774,7 @@ else:
     print('audio premix', len(audio), 'pieces -> mix.m4a, peak', round(20 * math.log10(max(peak, 1e-9)), 1), 'dBFS')
 # ---------- timeline ----------
 import motions  # centre-object motions (guideline 4-1)
-js = ['<script>' + motions.WRAP_JS + motions.MOTION_JS + motions.CHALK_FIT_JS + f'miyaWrapCores({CX},{CY});const tl=gsap.timeline({{paused:true}});']
+js = ['<script>' + fxlib.REGISTER_JS + motions.WRAP_JS + motions.MOTION_JS + motions.CHALK_FIT_JS + f'miyaWrapCores({CX},{CY});const tl=gsap.timeline({{paused:true}});']
 ORG = f'{CX}px {CY}px'
 MV = {'flame': ('pulse', .30), 'lamp': ('glow', 1.2), 'lantern': ('glow', 1.3), 'beacon': ('glow', 1.5), 'glint': ('glow', 1.4),
       'spark': ('pulse', .25), 'smoke': ('drift', 1.6), 'steam': ('drift', 1.3), 'stink': ('drift', 1.1), 'cells': ('drift', 1.8),
@@ -880,13 +884,17 @@ for k, u in enumerate(units):
     elif nn in focus_cam:
         a, (fx, fy, s) = focus_cam[nn]
         cxm = min(max(fx, W / 2 / s), W - W / 2 / s); cym = min(max(fy, H / 2 / s), H - H / 2 / s)
-        js.append(f'tl.to("{Wq}",{{scale:{s},x:{W / 2 - cxm * s:.1f},y:{H / 2 - cym * s:.1f},duration:1.4,ease:"power2.inOut"}},{a:.3f});')
+        _ez = f'expoScale(1,{s})' if fxlib.ZOOM_W.search(u['text']) else 'power2.inOut'   # 2026-10-29: a zoom sentence gets the exponential-scale ease (steady visual speed)
+        if _ez != 'power2.inOut': fxlib.LOG['expoScale'] += 1
+        js.append(f'tl.to("{Wq}",{{scale:{s},x:{W / 2 - cxm * s:.1f},y:{H / 2 - cym * s:.1f},duration:1.4,ease:"{_ez}"}},{a:.3f});')
         js.append(f'if(document.getElementById("sp{nn}"))tl.fromTo("#sp{nn}",{{opacity:0}},{{opacity:1,duration:1.4,ease:"power2.inOut",immediateRender:false}},{a:.3f});')
     elif DRIFT and u['kind'] != 'chalk':   # --- drift camera: one smooth eased move per picture (push / pan / pull), never a jump ---
         mv = k % 4; d = t1 - v0; s0, s1 = (1.0, 1.06) if mv != 3 else (1.06, 1.0)
         dx = {0: 0, 1: -W * .025, 2: W * .025, 3: 0}[mv]
         if DIRC.get(nn, {}).get('travel') and mv in (1, 2): dx = -DIRC[nn]['travel'] * W * .025   # the pan follows the travelling object (its world slides the other way), never against it (2026-10-27)
-        js.append(f'tl.fromTo("{Wq}",{{scale:{s0},x:0,y:0,transformOrigin:"{ORG}"}},{{scale:{s1},x:{dx:.1f},y:0,duration:{d:.3f},ease:"sine.inOut",immediateRender:false}},{v0:.3f});')
+        _rz = 'rough({strength:.6,points:30,template:"sine.inOut",taper:"both",randomize:false,clamp:true})' if fxlib.ROUGH_W.search(u['text']) else 'sine.inOut'   # 2026-10-29 RoughEase: the camera itself shakes on earthquake / rough sentences (randomize off: chunks must agree)
+        if _rz != 'sine.inOut': fxlib.LOG['rough'] += 1
+        js.append(f'tl.fromTo("{Wq}",{{scale:{s0},x:0,y:0,transformOrigin:"{ORG}"}},{{scale:{s1},x:{dx:.1f},y:0,duration:{d:.3f},ease:"{_rz}",immediateRender:false}},{v0:.3f});')
     if u['kind'] != 'chalk' and is_speed(u, side(u)):   # --- speed streaks: each line accelerates outward (power3.in) and respawns ---
         R = (W * W + H * H) ** .5; d = t1 - v0
         js.append(f'tl.fromTo("#spd{nn}",{{opacity:0}},{{opacity:1,duration:.5,immediateRender:false}},{v0:.3f});')
@@ -927,7 +935,9 @@ for k, u in enumerate(units):
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
             ok = nm.split('-')[1]; ok2 = motions.obj_sanitize(ok, nm, keep=at.get('data-keep') == '1')   # round 4 axis sanity (no spinning trees / rolling whales)
             if ok2 != ok: PIVFIX.append((u['uid'], nm, f'{ok}->{ok2}'))
-            js.extend(motions.obj_js(ok2, g, at, t0, v0, sp, name=nm))
+            if ok2 == 'path' and 'data-ease' not in at and fxlib.path_ease(u['text']): at = dict(at, **{'data-ease': fxlib.path_ease(u['text'])}); fxlib.LOG['slowmo'] += 1   # 2026-10-29 SlowMo ramp on fast sentences
+            js.extend(motions.obj_js(ok2, g, at, t0, v0, sp, name=nm, spring=fxlib.spring_params(u['text'], k)))
+            if ok2 in ('draw', 'morph', 'toss', 'skid', 'coast', 'regroup'): fxlib.LOG[ok2] += 1
             js.extend(motions.settle_js(ok2, g, at, t0, v0, sp))   # round 3: a one-shot motion that ends early is followed by a soft breathe, never a frozen object
             continue
         if nm.startswith('mv-rotor-'):  # (2026-10-19) a part that turns round and round about data-pivot (clock hand, turbine blades, fan, wheel); data-per = seconds per turn, data-dir = 1 / -1
@@ -1003,7 +1013,8 @@ for (nn, ty, lid, gid, tt) in label_t:          # on-screen text pops in when it
         # stays at least 4.5 s and 2.5 s past its own picture, but leaves before the next badge and at the end of its scene
         nb = next((x for x in NUMT if x > tt + 0.01), 1e9)
         te = min(max(UEND[nn] + 2.5, tt + 4.5), nb - 0.25, SCEND[USC[nn]] - 0.1, TOTAL)
-        js.extend(labels_lib.badge_js(lid, tt, NUMT.index(tt)))   # round 4: entrance style rotates by badge order
+        _lab = next((l for (_n, _ty, _l, _g, _tt, l) in label_full if _l == lid), {})
+        js.extend(labels_lib.badge_js(lid, tt, NUMT.index(tt), UTXT.get(nn, ''), str(_lab.get('text', ''))))   # round 4: entrance style rotates by badge order; pictogram draws in (2026-10-29)
         js.append(f'tl.to("#{lid}",{{opacity:0,x:-20,duration:.35,ease:"power1.in"}},{max(te - .35, tt + .4):.3f});')
         js.append(labels_lib.count_js(lid, tt))      # the number counts up from 0 as the badge comes in (guideline 3-6)
         js.extend(motions.badge_bounce_js(lid, tt))   # round 4: lands with a small bounce
@@ -1039,6 +1050,7 @@ for (nn, ty, lid, gid, tt) in label_t:
     if best:
         js.append(f'miyaFollow(tl,"#w{nn} .{best[1]}",{json.dumps(["#" + lid] + (["#" + gid] if gid else []))},{px_:.0f},{py_:.0f},{tt:.3f},{UEND[nn]:.3f});'); FOLLOWED.append((UID_OF.get(nn, nn), lid, best[1]))
 print('labels follow moving objects:', len(FOLLOWED), FOLLOWED[:10])
+print('library fx (2026-10-29):', dict(fxlib.LOG) or 'none', '| bg burst/gridripple', sum(1 for v in FXU.values() for kd, _ in v if kd in ('burst', 'gridripple')))
 for k, c in enumerate(caps):
     js.append(f'tl.set("#c{k}",{{opacity:1}},{c["t0"]:.3f});tl.set("#c{k}",{{opacity:0}},{c["t1"]:.3f});')
     js.append(caption_hl.highlight_js(k, c['text'], c['t0'], c['sp1']))   # spoken word turns yellow (guideline 5)

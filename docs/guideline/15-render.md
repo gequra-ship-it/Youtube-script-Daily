@@ -53,7 +53,7 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 1. 음성: `tools/tts.sh` → `tools/audio_prep.py` → `tools/align.py`(21-5). **그다음 썸네일 3장을 만들어 사용자 확인(통과/수정)을 받는다(16-6, 12-1). 통과 전에는 3번 그림을 시작하지 않는다.**
 2. `SLUG=x PLAN=1 python3 tools/build3.py` → `videos/x/plan.json`(uid, 대본, 배경 종류, 전환, 앞뒤 대본, `pal`).
 3. 그림: `tools/art_spec.md`(세로 10절, 우주 11절) + `art_brief.md`(등장인물 시트, 에이전트별 스크래치 폴더)로 하위 에이전트가 `videos/x/art3/<uid>.svg`·`.json`을 그린다(에이전트당 10~20장, 장면 단위, 21-3). 사이드카 키 `centre`, `focus`, `focus_word`, `sfx`, `labels`, `iris`, `spot`, `speed`. 확인 `tools/svgshot.py`, `tools/labelshot.py`.
-4. `SLUG=x python3 tools/build3.py` → `render/x/`(세로 `VERT=1`, 일부 시험 `SEL=1,2,3`, 그림 없을 때 시험용 `FALLBACK=1`). 로그 `fallback art 0` 확인.
+4. `SLUG=x python3 tools/build3.py` → `render/x/` (2026-10-29: 먼저 `tools/svg_opt.py`가 그림을 `build/art_opt/`로 svgo 정리해 쓰고, `render/x/gsap/`에 GSAP 플러그인·`anime.min.js`를 복사한다; `npx`가 없으면 svgo는 건너뛰고 로그 `svgo: skipped`)(세로 `VERT=1`, 일부 시험 `SEL=1,2,3`, 그림 없을 때 시험용 `FALLBACK=1`). 로그 `fallback art 0` 확인.
 5. `tools/motion_check.py`(20-4)·시험 렌더로 확인 후 푸시.
 
 **구조**
@@ -66,3 +66,4 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 - **시작 순서**: ① `list_repos` → `add_repo`(access: push) ② `git clone --depth 1 -b render-pipeline …` ③ `tools/README.md` 순서대로 ④ 대본을 받으면 `videos/<슬러그>/`(`script.py`는 12-1 사실 확인 뒤의 영어 내레이션, `art3/`는 하위 에이전트, `config.py`·`thumb/`는 예시를 따라).
 - 렌더 시작 파일(`render/.chunked` 또는 `render/.slug`)은 내가 적는다(사용자 일이 아님).
 - **이미 만든 영상의 모션만 바꾸기**: `python3 tools/restyle_motion.py render/<슬러그>`가 `index.html`을 현재 모션 규칙(19종, 빛 맥동, 이웃 도형 묶기, 칠판 글자 맞춤, 배지 카운트업, 스포트라이트, 자막 단어 강조)으로 바꾼다. `mix.m4a`·그림·자막·전환·카메라는 그대로(음성 `p01.wav…`은 저장소에 없어 전체 재빌드는 TTS부터). **빌드 원본(이 도구를 안 거친 파일)에만 쓴다**: 이미 패치된 파일은 건너뛰므로 규칙이 바뀌면 git에서 원본을 꺼내 다시 적용. 푸시하면 같은 Drive MP4를 덮어쓴다. 롱폼 동작은 미확인. 단위·그림 수를 바꾸는 다시 만들기는 21장.
+개정: 2026-10-29 (miya, 오픈소스 통합) build3 단계에 svgo 사본·플러그인 복사 설명 추가(4-6).

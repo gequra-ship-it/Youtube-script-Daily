@@ -505,9 +505,9 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         elif at == 'waves':   # riding / bracing against the swell
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{y:-14,rotation:{dirn * 7},duration:1.0,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{y:4,rotation:{-dirn * 6},duration:1.0,ease:"sine.inOut",{org2}}},{tm + 1.0:.3f});'); tm += 2.0
-        elif at == 'shiver':  # shaking with fear / cold / loneliness
-            while tm < T - .1:
-                out.append(f'tl.to({ac},{{x:{2.4 if k % 2 == 0 else -2.4},duration:.05,ease:"none"}},{tm:.3f});'); tm += .05; k += 1
+        elif at == 'shiver':  # shaking with fear / cold / loneliness: one CustomWiggle tween (uniform) over the whole stay (2026-10-29, was a 0.05 s yoyo loop)
+            if T - tm > .3:
+                out.append(f'tl.fromTo({ac},{{x:0}},{{x:2.4,duration:{T - .1 - tm:.3f},ease:"wiggle({{wiggles:{max(int((T - tm) / .1), 4)},type:{chr(39)}uniform{chr(39)}}})",immediateRender:false}},{tm:.3f});'); tm = T
         elif at == 'awe':     # looks up at something huge, slowly leans back, little step back
             out.append(f'tl.to({ac},{{rotation:-7,y:-3,duration:1.2,ease:"power1.out",{org2}}},{a1:.3f});tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-71}},duration:.3}},{a1:.3f});')
             while tm < T - .2:
