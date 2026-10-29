@@ -29,3 +29,5 @@ Do NOT run git. Work only on the units you are given. Keep your scratch files in
 - `python3 tools/labelshot.py <slug> <scratch>/lab <uid> ...` for the units with new bubbles; it prints problems (fix them).
 - XML valid (python `xml.dom.minidom`), JSON valid.
 Report: units changed / left alone, motion kinds used (counts), bubbles added, tracking pictures, wanted-but-missing motions, known flaws.
+
+**Attachment check (2026-10-29, mandatory):** every part you move or redraw must be attached to its body (`tools/art_spec.md` 7A). Before reporting run `python3 tools/attachcheck.py <slug> <your uids>` (0 problems) and look at `tools/motionaudit.py` strips for pictures with creatures, machines or hinged things; the lead re-checks the built page with `tools/final_check.py`.

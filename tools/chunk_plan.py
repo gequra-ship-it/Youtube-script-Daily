@@ -11,3 +11,10 @@ est = dur * 3.9 / 60
 n = max(1, math.ceil(est / tgt))
 print(f'{d}: {dur:.1f} s video -> about {est:.0f} min render in one job; suggested chunks: {n} (~{est / n:.0f} min each). '
       f'Put "<slug> {n}" in render/.chunked.')
+# 2026-10-29 gate (miya): the main session must have run tools/final_check.py on THIS build; it writes render/<slug>/.checked with the sha1 of index.html
+import hashlib, os
+_ck = d.rstrip('/') + '/.checked'; _sha = hashlib.sha1(html.encode('utf-8')).hexdigest()
+if not os.path.exists(_ck) or open(_ck).read().split()[:1] != [_sha]:
+    print('WARNING: render/%s/index.html has NOT passed tools/final_check.py (missing or out of date .checked). Run `SLUG=%s python3 tools/final_check.py` and fix every problem BEFORE pushing the render.' % (os.path.basename(d.rstrip('/')), os.path.basename(d.rstrip('/'))))
+    sys.exit(2)
+print('final_check passed for this build (.checked matches).')

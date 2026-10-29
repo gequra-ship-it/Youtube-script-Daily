@@ -802,6 +802,7 @@ MV = {'flame': ('pulse', .30), 'lamp': ('glow', 1.2), 'lantern': ('glow', 1.3), 
       'drift-nebula': ('nebula', 10.0), 'orbit': ('orbit', 24.0), 'pulse': ('glow', 1.6)}
 import pivots   # shoulder/wrist pivots for arm and hand groups (arms used to swing off the body)
 PIV = pivots.compute(sorted({art_path(u)[0] for u in units if u['kind'] != 'chalk'}), W, H, cache=f'{B}/pivots.json')
+UST0 = {u['n']: u['t0'] for u in units}   # picture start: where moving objects still stand as drawn (label follow measures its offset from there)
 TRACKED = []   # pictures with a tracking camera
 CORE_UIDS = []   # unit number per CORE_USED entry (for the repeat warning)
 CORE_USED = []   # centre-motion type per picture, in order (checked after the loop)
@@ -947,7 +948,7 @@ for k, u in enumerate(units):
             ct = nm[8:].split('-')[0] if nm.startswith('mv-core-') else motions.legacy_core_type(len(CORE_USED))
             _at = (JT.get(nm) or [{}])[0]; ct2 = motions.core_sanitize(ct, nm, keep=_at.get('data-keep') == '1')   # round 4: name-based sanity (tree sways from the base, no spinning clocks, no bouncing whales)
             if ct2 != ct: PIVFIX.append((u['uid'], nm, f'{ct}->{ct2}')); ct = ct2
-            js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]', pivot=motions.pivot_of(nm))); CORE_USED.append(ct); CORE_UIDS.append(nn)
+            js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]', pivot=motions.pivot_of(nm), pv=_at.get('data-pivot', '').replace(',', ' ').split())); CORE_USED.append(ct); CORE_UIDS.append(nn)
             continue
         if nm.split('-')[1] in motions.OBJ_KINDS and nm.count('-') >= 2:   # (2026-10-22) object motions anywhere in the picture (guideline 4-1)
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
@@ -961,14 +962,14 @@ for k, u in enumerate(units):
         if nm.startswith('mv-rotor-'):  # (2026-10-19) a part that turns round and round about data-pivot (clock hand, turbine blades, fan, wheel); data-per = seconds per turn, data-dir = 1 / -1
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
             pv = at.get('data-pivot', '').replace(',', ' ').split()
-            org = f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]})' if len(pv) == 2 else 'transformOrigin:"50% 50%"'
+            org = f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]}),smoothOrigin:false' if len(pv) == 2 else 'transformOrigin:"50% 50%"'
             pr = max(float(at.get('data-per', 8)), 0.5); dr = -1 if at.get('data-dir', '1').startswith('-') else 1
             js.append(f'tl.fromTo({g},{{rotation:0,{org}}},{{rotation:{dr * 360 * sp / pr:.1f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});')
             continue
         if nm.startswith('mv-limb-'):   # human arm/leg links from tools/body.py (2026-10-17): small, IN STEP, no growth toward the tip
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
             pv = at.get('data-pivot', '').replace(',', ' ').split()
-            org = f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]})' if len(pv) == 2 else 'transformOrigin:"50% 0%"'
+            org = f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]}),smoothOrigin:false' if len(pv) == 2 else 'transformOrigin:"50% 0%"'
             dep = at.get('_dep', 0)
             amp = min(float(at.get('data-amp', 2.5 if dep == 0 else 2.0)), 6.0)
             pj = float(at.get('data-per', 2.4)); lag = float(at.get('data-phase', 0.12 * dep)) * pj / math.pi
@@ -978,7 +979,7 @@ for k, u in enumerate(units):
         if nm.startswith('mv-chain-') or nm.startswith('mv-joint-'):   # creature joints (guideline 20-6): hinge rotation about data-pivot
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]; chain = nm.startswith('mv-chain-')
             pv = at.get('data-pivot', '').replace(',', ' ').split()
-            org = f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]})' if len(pv) == 2 else 'transformOrigin:"0% 50%"'
+            org = f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]}),smoothOrigin:false' if len(pv) == 2 else 'transformOrigin:"0% 50%"'
             dep = at.get('_dep', kk) if chain else 0
             amp = float(at.get('data-amp', 7 if chain else 12)) * (1 + 0.35 * dep)   # the tip of a chain bends more
             pj = float(at.get('data-per', 1.5 if chain else 1.1))
@@ -1066,13 +1067,18 @@ for (nn, ty, lid, gid, tt) in label_t:
             area = (b_[1] - b_[0]) * (b_[3] - b_[2])
             if best is None or area < best[0]: best = (area, g_)
     if best:
-        js.append(f'miyaFollow(tl,"#w{nn} .{best[1]}",{json.dumps(["#" + lid] + (["#" + gid] if gid else []))},{px_:.0f},{py_:.0f},{tt:.3f},{UEND[nn]:.3f});'); FOLLOWED.append((UID_OF.get(nn, nn), lid, best[1]))
+        js.append(f'miyaFollow(tl,"#w{nn} .{best[1]}",{json.dumps(["#" + lid] + (["#" + gid] if gid else []))},{px_:.0f},{py_:.0f},{tt:.3f},{UEND[nn]:.3f},{UST0[nn]:.3f});'); FOLLOWED.append((UID_OF.get(nn, nn), lid, best[1]))
 print('labels follow moving objects:', len(FOLLOWED), FOLLOWED[:10])
 print('library fx (2026-10-29):', dict(fxlib.LOG) or 'none', '| bg burst/gridripple', sum(1 for v in FXU.values() for kd, _ in v if kd in ('burst', 'gridripple')))
 for k, c in enumerate(caps):
     js.append(f'tl.set("#c{k}",{{opacity:1}},{c["t0"]:.3f});tl.set("#c{k}",{{opacity:0}},{c["t1"]:.3f});')
     js.append(caption_hl.highlight_js(k, c['text'], c['t0'], c['sp1']))   # spoken word turns yellow (guideline 5)
-js.append('miyaFollowInit(tl);window.__timelines=window.__timelines||{};window.__timelines["main"]=tl;</script>')
+# 2026-10-29: tweens that turn about a data-pivot (svgOrigin:miyaPv) are added AFTER miyaFollowInit. Its measuring seeks render the whole timeline once while every picture is display:none:
+# GSAP initialises a tween at its first render and, for a hidden picture, froze the bbox corner as the svgOrigin (windmill, gears, frog legs, tails, neck, clock hand all turned about the wrong point).
+# Tweens created after the measuring are first rendered during real playback, when the picture is shown. tools/pivotlive.py proves it on the built page.
+HINGE_JS = [l for l in js if l.startswith('tl.') and 'miyaPv(' in l]; _hid = {id(l) for l in HINGE_JS}; js = [l for l in js if id(l) not in _hid]
+js.append('miyaFollowInit(tl);'); js.extend(HINGE_JS); print('hinge tweens added after the follow measuring:', len(HINGE_JS))
+js.append('window.__timelines=window.__timelines||{};window.__timelines["main"]=tl;</script>')
 h.append('\n'.join(js)); h.append('</div></body></html>')
 open(f'{OUT}/index.html', 'w', encoding='utf-8').write('\n'.join(h))
 
@@ -1086,3 +1092,11 @@ dd = [u['t1'] - u['t0'] for u in units]
 from collections import Counter
 print('slow scenes', sorted(SLOW_SC), '| cuts moved for min time', retimed, f'(min {MINU}/{MINU_SLOW} s) |', 'labels', len(label_t), 'total', TOTAL, 'units', len(units), 'avg', round(sum(dd) / len(dd), 2), 'min', round(min(dd), 2), 'max', round(max(dd), 2), 'caps', len(caps), 'sfx cues', len(cues), 'fallback art', len(fallback_used))
 print('transitions', dict(Counter(u['tr'] for u in units)), 'focus cams', len(focus_cam), 'tracking cams', len(TRACKED))
+
+# 2026-10-29 (miya): every build ends with the static attachment check, so a detached tail / floating hinge / unmeshed gear is printed right here (not found by the owner in the MP4).
+# Skip with NOCHECK=1 (partial SEL= builds do). The main session's final gate is tools/final_check.py (adds the live pivot check on this page).
+if not os.environ.get('NOCHECK') and not os.environ.get('SEL'):
+    import subprocess
+    _r = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'attachcheck.py'), SLUG], capture_output=True, text=True)
+    print('attachcheck:', _r.stdout.strip().splitlines()[-1] if _r.stdout.strip() else _r.stderr[-200:])
+    for _l in _r.stdout.strip().splitlines()[:-1][:30]: print('   ATTACH PROBLEM', _l)
