@@ -156,5 +156,6 @@ GSAP 3.15(2025년부터 플러그인 전부 무료) 14개 플러그인 + anime.j
 | `tools/attachcheck.py <slug> [uid..]` (`--fix`) | 그림 SVG 정적 점검: 위 1~7 | 그림 에이전트가 **그림을 낼 때마다**(보고 전 필수), `build3`이 끝날 때 자동 |
 | `tools/motionaudit.py <dir> <uid..>` | 만든 페이지를 3시각에서 찍어 피벗마다 빨간 점을 그린 띠 이미지 | 에이전트가 사람·동물·기계 그림을 **눈으로** 확인(점이 몸 위인지) |
 | `tools/pivotlive.py` | 만든 페이지에서 힌지의 실제 회전 중심을 재서, 피벗이 10 px 이상 끌려가면 실패 | 메인 최종 점검 |
+| `tools/originlive.py` | 만든 페이지에서 data-pivot 없는 회전 그룹(spin·turn·roll·wobble)이 자기 중심에서 10 px 넘게 끌려가면 실패 (2026-10-29 숏츠3 블랙홀이 화면을 돌아다닌 원인: 퍼센트 축 `transformOrigin:"50% 50%"`이 숨은 그림에서 굳어 bbox 모서리가 축이 됨. `build3`가 퍼센트 축 트윈을 힌지 트윈처럼 측정 뒤에 붙여 해결) | 메인 최종 점검 (`final_check.py`가 자동 실행) |
 | `tools/final_check.py` | 위 둘 + 그림 누락 점검, 통과하면 `render/<slug>/.checked`(index.html sha1) | **메인이 렌더 푸시 직전 반드시**. `chunk_plan.py`는 `.checked`가 없거나 낡으면 렌더 사양을 내놓지 않는다 |
 보조: `tools/grpinfo.py <slug> <uid..>`(mv 그룹 상자·피벗·부모 목록), `tools/setbase.py`, `tools/splitclumps.py`, `tools/joinpart.py`, `tools/gearmesh.py`.
