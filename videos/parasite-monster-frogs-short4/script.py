@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# parasite-monster-frogs-short4 (Miya's Note). Script from miya 2026-10-09 (reworked 2026-10-24 spec; fact-checked and rewritten 2026-10-29, see /mnt/project-files/parasite-monster-frogs/script-check.md).
+SCENES = [
+ ('S01', 'Part 1', 'ill', 'sh4_1', 'Here is a puzzle. Parasites usually do best when their hosts stay alive and healthy. So why would Ribeiroia cripple its frog?'),
+ ('S02', 'Part 2', 'ill', 'sh4_2', 'When the tadpole finishes its metamorphosis and crawls onto land, it is badly damaged. A normal frog relies on powerful hind legs to leap away from danger, dive into water, and catch fast insects. A frog with tangled legs cannot jump properly. Every attempt ends in clumsy flailing, and even moving a few inches takes huge effort.'),
+ ('S03', 'Part 3', 'ill', 'sh4_3', 'This is the part that makes biologists shiver. The deformity may not be a side effect that happens to hurt the frog. Researchers argue that it is part of what makes the whole plan work. Remember, the worm has no eyes and no brain. It plans nothing. Evolution did the planning over a very long time.'),
+ ('S04', 'Part 4', 'ill', 'sh4_4', "Now look at the sky. A heron, an egret, or a hunting duck glides above the reeds. Waterbirds like these are final hosts for the parasite. Only inside a bird's gut can the adult worm mature and reproduce. But a microscopic worm in a pond cannot simply fly up and infect a bird."),
+ ('S05', 'Part 5', 'ill', 'sh4_5', 'Here is the sinister genius. The parasite builds a bridge, and the bridge is predation. A healthy, agile frog spots the heron, leaps into deep water, and escapes. A crippled frog is a sitting duck on the shoreline. Scientists call this parasite-induced trophic transmission.'),
+ ('S06', 'Part 6', 'ill', 'sh4_6', "When a heron spots a deformed frog thrashing in the shallows, its spear-like beak strikes downward and the bird swallows the frog whole. The frog's life ends. But for the parasites encysted in its distorted legs, the plan has worked."),
+ ('S07', 'Part 7', 'ill', 'sh4_7', "In the bird's stomach, the cyst walls dissolve. The flatworms attach to the intestinal wall, mature into adults, and produce eggs. The eggs leave the bird in its droppings."),
+ ('S08', 'Part 8', 'ill', 'sh4_8', 'The bird then flies on, perhaps for many miles, and drops them into new ponds and wetlands. The eggs hatch into miracidia, which begin hunting for ramshorn snails. The circle is complete.'),
+ ('S09', 'Part 9', 'ill', 'sh4_9', 'Through evolution alone, a brainless flatworm has manipulated the body of a vertebrate to steer its own journey across the sky.'),
+]

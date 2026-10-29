@@ -11,25 +11,26 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "happy"
    }
   ],
-  "act": "awe",
+  "act": {
+   "type": "tiptoe",
+   "dist": 576
+  },
   "outfit": [
    "diver"
   ],
   "x": 1660,
-  "y": 500,
-  "s": 0.72,
+  "y": 890,
+  "s": 0.88,
   "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 288
-  },
+  "ride": null,
+  "behind": null,
   "says": [
    {
-    "text": "Whoa...",
+    "text": "Shh...",
     "shout": false
    }
   ],

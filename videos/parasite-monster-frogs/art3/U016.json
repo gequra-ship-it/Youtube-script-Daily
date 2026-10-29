@@ -1,0 +1,42 @@
+{
+ "centre": "newspapers about the many-legged frogs flying from Minnesota to distant towns",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Minnesota",
+   "x": 640,
+   "y": 800,
+   "to": [
+    470,
+    760
+   ],
+   "word": "Minnesota"
+  }
+ ],
+ "wind": "right",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tilt",
+  "ride": "mv-path-newspaper",
+  "kind": "ride",
+  "x": 517,
+  "y": 447,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
+}

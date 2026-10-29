@@ -1,0 +1,50 @@
+{
+ "centre": "close-up of a frog with tangled extra legs flailing on mud above a plain ruler",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Oof!",
+   "x": 830,
+   "y": 560,
+   "to": [
+    600,
+    870
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Every attempt",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-sweat",
+   "serious": true
+  },
+  "x": 770,
+  "y": 857,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

@@ -17,28 +17,33 @@
  "frog": {
   "moods": [
    {
-    "mood": "proud"
+    "mood": "happy"
    },
    {
     "word": "Whale bones",
     "mood": "suspicious"
    }
   ],
-  "act": "clap",
+  "act": {
+   "type": "swimstroke",
+   "dist": 324
+  },
   "outfit": [
    "diver"
   ],
-  "x": 820,
-  "y": 1280,
-  "s": 0.99,
-  "flip": -1,
+  "x": 260,
+  "y": 1560,
+  "s": 1.05,
+  "flip": 1,
   "kind": "bg",
+  "ride": null,
+  "behind": null,
   "says": [
    {
-    "text": "Bones!",
-    "shout": false
+    "text": "Blub blub!",
+    "shout": true
    }
   ],
-  "bside": -1
+  "bside": 1
  }
 }

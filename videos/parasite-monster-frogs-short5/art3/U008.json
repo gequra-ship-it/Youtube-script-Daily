@@ -1,0 +1,55 @@
+{
+ "centre": "snail in a lab tank releasing cercariae",
+ "focus": [
+  540,
+  880,
+  1.6
+ ],
+ "focus_word": "released more infectious parasites",
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "nutrient",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "2007",
+   "word": "2007"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-fertilizer",
+   "serious": true
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 250,
+  "y": 753,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
+}

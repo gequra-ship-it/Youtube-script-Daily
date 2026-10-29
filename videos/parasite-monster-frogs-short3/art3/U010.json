@@ -1,0 +1,45 @@
+{
+ "centre": "a lone cercaria swimming toward a far tadpole while the sun crosses the sky",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "A DAY OR TWO",
+   "word": "a day or two"
+  },
+  {
+   "type": "say",
+   "text": "Must find a host!",
+   "x": 480,
+   "y": 800,
+   "to": [
+    500,
+    940
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "salute",
+  "ride": "mv-path-sun",
+  "kind": "ride",
+  "x": 284,
+  "y": 670,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Tick tock...",
+    "shout": false
+   }
+  ]
+ }
+}

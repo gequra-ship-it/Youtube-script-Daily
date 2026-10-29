@@ -8,3 +8,5 @@
 - Write the final files to the repo art3 (your own uids only). Keep sidecars valid (labels/focus that pointed at moved hands).
 - Checks: XML valid, your pose check or mvcheck, labelshot if labels moved, ONE build into your scratch dir (fallback 0), ONE
   before/after contact sheet that you look at. No extra preview rounds unless something is broken.
+
+**Attachment check (2026-10-29, mandatory):** every part you move or redraw must be attached to its body (`tools/art_spec.md` 7A). Before reporting run `python3 tools/attachcheck.py <slug> <your uids>` (0 problems) and look at `tools/motionaudit.py` strips for pictures with creatures, machines or hinged things; the lead re-checks the built page with `tools/final_check.py`.

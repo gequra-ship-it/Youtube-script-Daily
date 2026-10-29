@@ -1,0 +1,69 @@
+{
+ "centre": "a grey heron gliding across the sky above the reeds, with an egret and a duck further off",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "heron",
+   "x": 520,
+   "y": 470,
+   "to": [
+    520,
+    340
+   ],
+   "word": "heron"
+  },
+  {
+   "type": "name",
+   "text": "egret",
+   "x": 1440,
+   "y": 680,
+   "to": [
+    1420,
+    570
+   ],
+   "word": "egret"
+  },
+  {
+   "type": "name",
+   "text": "duck",
+   "x": 640,
+   "y": 780,
+   "to": [
+    640,
+    650
+   ],
+   "word": "duck"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "Above the",
+    "mood": "curious"
+   }
+  ],
+  "act": "waves",
+  "outfit": [
+   "goggles"
+  ],
+  "ride": "mv-path-glide-heron",
+  "kind": "ride",
+  "x": 628,
+  "y": 317,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Splash!",
+    "shout": false
+   }
+  ]
+ }
+}

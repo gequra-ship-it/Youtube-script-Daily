@@ -1,0 +1,54 @@
+{
+ "centre": "round fertilizer sack with a plain green sprout symbol",
+ "focus": [
+  960,
+  520,
+  1.7
+ ],
+ "focus_word": "fertilizer",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Fertilizer",
+   "x": 690,
+   "y": 360,
+   "to": [
+    900,
+    480
+   ],
+   "word": "fertilizer"
+  }
+ ],
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "fertilizer",
+   "vol": 0.5
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-sack",
+  "kind": "ride",
+  "x": 1076,
+  "y": 611,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

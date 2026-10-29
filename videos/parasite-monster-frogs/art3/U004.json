@@ -1,0 +1,47 @@
+{
+ "centre": "magnifying lens showing a tiny pale pink flatworm",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "A tiny organism",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "tiny organism",
+   "x": 1230,
+   "y": 340,
+   "to": [
+    1010,
+    470
+   ],
+   "word": "tiny organism"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shiver",
+  "x": 1660,
+  "y": 340,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

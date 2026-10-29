@@ -67,3 +67,6 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 - 렌더 시작 파일(`render/.chunked` 또는 `render/.slug`)은 내가 적는다(사용자 일이 아님).
 - **이미 만든 영상의 모션만 바꾸기**: `python3 tools/restyle_motion.py render/<슬러그>`가 `index.html`을 현재 모션 규칙(19종, 빛 맥동, 이웃 도형 묶기, 칠판 글자 맞춤, 배지 카운트업, 스포트라이트, 자막 단어 강조)으로 바꾼다. `mix.m4a`·그림·자막·전환·카메라는 그대로(음성 `p01.wav…`은 저장소에 없어 전체 재빌드는 TTS부터). **빌드 원본(이 도구를 안 거친 파일)에만 쓴다**: 이미 패치된 파일은 건너뛰므로 규칙이 바뀌면 git에서 원본을 꺼내 다시 적용. 푸시하면 같은 Drive MP4를 덮어쓴다. 롱폼 동작은 미확인. 단위·그림 수를 바꾸는 다시 만들기는 21장.
 개정: 2026-10-29 (miya, 오픈소스 통합) build3 단계에 svgo 사본·플러그인 복사 설명 추가(4-6).
+
+### 15-8. 렌더 전 최종 점검 게이트 (2026-10-29, miya: "마지막에 메인이 다시 한번 확인")
+그림 에이전트는 자기 그림을 `attachcheck.py`로 점검하고 보고한다(4-7). 그래도 메인(이 세션)이 **마지막에 한 번 더** 만든 페이지에서 확인한다. 순서: `build3.py`(끝에 attachcheck 자동) → `SLUG=<slug> python3 tools/final_check.py`(attachcheck + pivotlive + 그림 누락) → 사용자가 짚은 장면은 `tools/motionaudit.py`로 띠 이미지를 **눈으로** 본다 → 문제가 있으면 고치고 다시 빌드·점검. 통과해야 `render/<slug>/.checked`가 생기고, `chunk_plan.py render/<slug>`가 사양을 내놓는다(없으면 경고하고 종료코드 2). `.checked`는 렌더를 시작시키는 파일이 아니다(`.slug`/`.chunked`만 시작시킨다).

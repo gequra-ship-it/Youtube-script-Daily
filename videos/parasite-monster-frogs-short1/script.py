@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# parasite-monster-frogs-short1 (Miya's Note). Script from miya 2026-10-09 (reworked 2026-10-24 spec; fact-checked and rewritten 2026-10-29, see /mnt/project-files/parasite-monster-frogs/script-check.md).
+SCENES = [
+ ('S01', 'Part 1', 'ill', 'sh1_1', 'Imagine a school field trip on a warm summer day. Students dip their nets into a shallow marsh and pull out something that should not exist.'),
+ ('S02', 'Part 2', 'ill', 'sh1_2', 'This happened in the summer of 1995 in rural Minnesota. A group of students on a biology field trip was catching northern leopard frogs. But the frogs in their nets had twisted bodies, missing limbs, and, in the most terrifying cases, extra legs growing out of their abdomens.'),
+ ('S03', 'Part 3', 'ill', 'sh1_3', 'Some of these frogs had several extra legs sprouting from the pelvic region. Others had no hind legs at all and had to crawl painfully on tiny front arms. A few were found with legs growing backwards, or jutting straight out of the chest. It looked as though nature had suffered a glitch and spawned real monsters.'),
+ ('S04', 'Part 4', 'ill', 'sh1_4', 'News of the multi-legged frogs spread far beyond Minnesota within weeks. Alarm grew among wildlife biologists, local communities, and health agencies. If frogs in local water were mutating this badly, what might be waiting for the people who drank from the same sources?'),
+ ('S05', 'Part 5', 'ill', 'sh1_5', 'To a scientist, the multi-legged frogs were not just strange. They were an alarm. Frogs are famous for being the first to show that something is wrong with the environment, and many people assumed that modern society had poisoned the swamps with artificial chemicals.'),
+ ('S06', 'Part 6', 'ill', 'sh1_6', 'The first suspect was human pollution. Frogs have thin, permeable skin that absorbs water and air directly from their surroundings, which makes them famous warning signs of environmental trouble. The suspect list included agricultural pesticides, radioactive waste, heavy metals, and thinning ozone letting in more ultraviolet radiation.'),
+ ('S07', 'Part 7', 'ill', 'sh1_7', 'Funding poured in. Scientists exposed healthy tadpoles to high concentrations of various pesticides and intense ultraviolet radiation. Some chemicals did cause deformities, stunted growth, or sudden death. But none of them reproduced the hyper-specific, multi-legged pattern seen in nature.'),
+ ('S08', 'Part 8', 'ill', 'sh1_8', 'The chemical hypothesis had hit a dead end, and researchers were baffled.'),
+ ('S09', 'Part 9', 'ill', 'sh1_9', 'So what was really happening in those ponds? The answer would not come from a sterile laboratory. It would come from the mud.'),
+]

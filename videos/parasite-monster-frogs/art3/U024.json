@@ -1,0 +1,44 @@
+{
+ "centre": "a lab bench: a coin dropping into a funding jar, a bubbling round flask, a tank of swimming tadpoles",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Funding",
+   "x": 230,
+   "y": 400,
+   "to": [
+    410,
+    480
+   ],
+   "word": "Funding"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-drop-coin",
+  "kind": "ride",
+  "x": 352,
+  "y": 500,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

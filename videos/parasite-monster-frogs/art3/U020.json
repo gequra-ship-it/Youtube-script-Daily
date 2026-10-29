@@ -1,0 +1,54 @@
+{
+ "centre": "close-up of a leopard frog with a magnifier lens showing its thin skin letting water drops and air through",
+ "focus": [
+  1300,
+  400,
+  1.5
+ ],
+ "focus_word": "thin, permeable skin",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Permeable skin",
+   "x": 1300,
+   "y": 170,
+   "to": [
+    1300,
+    380
+   ],
+   "word": "permeable skin"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    1298,
+    416
+   ],
+   "vanish": true
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 876,
+  "y": 438,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

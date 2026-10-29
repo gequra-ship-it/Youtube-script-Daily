@@ -1,0 +1,58 @@
+{
+ "centre": "amber retinoic acid molecule (ring and chain) with signal beads flying off, a puzzled scientist below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "retinoic acid",
+   "x": 660,
+   "y": 610,
+   "to": [
+    600,
+    790
+   ],
+   "word": "retinoic acid"
+  },
+  {
+   "type": "say",
+   "text": "Hmm, how exactly?",
+   "x": 330,
+   "y": 920,
+   "to": [
+    240,
+    1070
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Scientists are",
+    "mood": "curious"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-wobble-molecule",
+  "kind": "ride",
+  "x": 356,
+  "y": 1000,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

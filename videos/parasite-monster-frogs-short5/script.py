@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# parasite-monster-frogs-short5 (Miya's Note). Script from miya 2026-10-09 (reworked 2026-10-24 spec; fact-checked and rewritten 2026-10-29, see /mnt/project-files/parasite-monster-frogs/script-check.md).
+SCENES = [
+ ('S01', 'Part 1', 'ill', 'sh5_1', 'If this parasite is old, why did the 1990s bring such a startling wave of deformed frogs? This is where humans re-enter the story.'),
+ ('S02', 'Part 2', 'ill', 'sh5_2', 'Pieter Johnson and his colleagues found a link between nutrient pollution and the severity of these infections. Farmers use large amounts of fertilizer containing nitrogen and phosphorus to boost crop yields. When heavy rain washes the surplus into nearby wetlands, it sets off a chain reaction.'),
+ ('S03', 'Part 3', 'ill', 'sh5_3', 'First, the nutrients feed blooms of green algae that blanket the pond in thick green sludge. For ramshorn snails, that algae is an all-you-can-eat buffet. Snail populations in nutrient-rich ponds can grow sharply.'),
+ ('S04', 'Part 4', 'ill', 'sh5_4', 'More snails means more homes for Ribeiroia. Ordinary ponds can turn into parasite-breeding superfactories. A study published in 2007 found that nutrient enrichment raised snail numbers, and those snails then released more infectious parasites into the water.'),
+ ('S05', 'Part 5', 'ill', 'sh5_5', 'In a balanced pond, a tadpole might meet only a few cercariae, and the effects may be minor. In a nutrient-rich pond, a tadpole can be attacked by many parasites at once. Its developing body is overwhelmed by the sheer number of invaders. What was once a rare curiosity can become an epidemic of monsters.'),
+ ('S06', 'Part 6', 'ill', 'sh5_6', 'It is worth being honest about the limits of this story. Ribeiroia explains the multi-legged frogs, but it is not the only threat amphibians face. Habitat loss, disease, and other factors also harm frogs around the world, and not every deformity in every pond has the same cause. Nature rarely offers a single villain.'),
+ ('S07', 'Part 7', 'ill', 'sh5_7', 'Think of how many links had to line up: rain, fertilizer, algae, snails, parasites, tadpoles, birds. Push too hard on one link and the whole pond can tip over. It also shows why the first answer, a toxic spill, felt so natural. People look for a single villain.'),
+ ('S08', 'Part 8', 'ill', 'sh5_8', 'What looked like a simple story of toxic dumping turned out to be an intricate chain linking farmers, fertilizer, algae, snails, flatworms, tadpoles, and birds. Every small change we introduce ripples outward in ways we cannot predict.'),
+ ('S09', 'Part 9', 'ill', 'sh5_9', 'Next time you stand beside a quiet pond, remember that its glassy surface hides an invisible battlefield.'),
+]

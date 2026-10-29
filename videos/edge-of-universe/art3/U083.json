@@ -20,25 +20,32 @@
  "frog": {
   "moods": [
    {
-    "mood": "angry"
+    "mood": "determined"
    }
   ],
-  "act": "look",
+  "act": {
+   "type": "tug"
+  },
   "outfit": [
    "helmet"
   ],
-  "ride": "mv-core-tremble",
-  "kind": "ride",
-  "x": 1382,
-  "y": 690,
+  "ride": null,
+  "kind": "bg",
+  "x": 432,
+  "y": 520,
   "s": 0.95,
   "flip": 1,
   "bside": -1,
   "gaze": 1,
+  "behind": null,
   "says": [
    {
-    "text": "Ooh!",
+    "text": "Hnnng...",
     "shout": false
+   },
+   {
+    "text": "Oof!",
+    "shout": true
    }
   ]
  }
