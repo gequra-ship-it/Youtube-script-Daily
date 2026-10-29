@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 from playwright.sync_api import sync_playwright
 import facing
-import frog_rig, motions   # 2026-10-29: contact / locomotion / costume acts (guideline 7-2 G)
+import math, frog_rig, motions   # 2026-10-29: contact / locomotion / costume acts (guideline 7-2 G)
 OK = re.compile(r'^mv-(core-(swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble)|path|slide|swing)')
 SPACE = re.compile(r'\b(space|star|stars|galax\w*|cosmic|universe|horizon|probe|voyager|light|planet|orbit|dark|expan\w*)\b', re.I)
 SEA = re.compile(r'\b(ocean|oceans|sea|seas|seafloor|underwater|dive|diving|water|whales?|reef|coral|fish|vents?|abyss\w*|deep|depths?|plankton|marine)\b', re.I)
@@ -336,8 +336,16 @@ CRAWLW = re.compile(r'\b(crawl\w*|tunnel\w*|burrow\w*|squeez\w* (through|under|i
 TIGHTW = re.compile(r'\b(tightrope|high ?wire|balanc\w* (on|along|across)|narrow (beam|ledge|bridge|plank)|careful steps|one wrong step|inch(ed|ing)? (along|across))\b', re.I)
 TIGHTG = re.compile(r'rope|wire|beam|ledge|plank|bridge|line\b|rail|branch|cable', re.I)
 CONTACT_SAYS = {'bonk': ['Bonk!', 'Ouch...'], 'squish': ['Oof!', 'Ow ow ow.'], 'dodge': ['Whoa!'], 'chase': ['Wait!'], 'splash': ['Splash!'], 'swingride': ['Wheee!'], 'bumped': ['Boing!'],
-                'blown': ['Whoaaa!'], 'tug': ['Hnnng...', 'Oof!'], 'lift': ['Hnnng!'], 'catch': ['Got it!'], 'trip': ['Oof!']}
-CONTACT_MOOD = {'bonk': 'curious', 'squish': 'happy', 'dodge': 'happy', 'chase': 'determined', 'splash': 'curious', 'swingride': 'excited', 'bumped': 'surprised', 'blown': 'squint', 'tug': 'determined', 'lift': 'determined', 'catch': 'determined', 'trip': 'happy'}
+                'blown': ['Whoaaa!'], 'tug': ['Hnnng...', 'Oof!'], 'lift': ['Hnnng!'], 'catch': ['Got it!'], 'trip': ['Oof!'],
+                'sidestep': ['Phew!'], 'flattened': ['Oof!', 'Ow ow ow.'], 'trampoline': ['Boing!'], 'knocked': ['Bonk!'], 'shockwave': ['Yikes!'], 'magnetized': ['Whoa-oa!'], 'hopalong': ['Hop hop!'],
+                'dripped': ['Drip...'], 'rimride': [], 'launched': ['Whoa!'], 'unrolled': ['Whoa!'], 'balloonride': ['Up, up!'], 'sinkride': ['Help!']}
+CONTACT_MOOD = {'bonk': 'curious', 'squish': 'happy', 'dodge': 'happy', 'chase': 'determined', 'splash': 'curious', 'swingride': 'excited', 'bumped': 'surprised', 'blown': 'squint', 'tug': 'determined', 'lift': 'determined', 'catch': 'determined', 'trip': 'happy',
+                'sidestep': 'curious', 'flattened': 'curious', 'trampoline': 'excited', 'knocked': 'curious', 'shockwave': 'curious', 'magnetized': 'curious', 'hopalong': 'happy', 'dripped': 'curious',
+                'rimride': 'excited', 'launched': 'curious', 'unrolled': 'curious', 'balloonride': 'excited', 'sinkride': 'worried'}
+SIDESTEPW = re.compile(r'\b(avoid\w*|miss(ed|es)?\b|dodg\w*|escap\w*|narrow\w*|close call|just in time|in time|safe\w*|luck\w*|survived?)\b', re.I)   # 2026-10-29 b: the frog steps aside instead of taking the hit
+BOUNCEW = re.compile(r'\b(bounc\w*|jump\w*|spring\w*|trampolin\w*|boing|hop\w*|leap\w*)\b', re.I)
+HEAVYG = re.compile(r'anvil|boulder|rock|stone|crate|weight|piano|safe\b|block|meteor|meteorite|asteroid|barrel|box|chest|log\b|trunk|elephant|whale|hippo', re.I)
+WHEELG = re.compile(r'wheel|gear|cog|fan\b|windmill|ferris|turntable|disc|disk|record|carousel|propeller|rotor|tire|tyre|roulette|millstone|waterwheel', re.I)
 
 
 def gattrs(svgtxt, gid):
@@ -378,7 +386,10 @@ def contact_pick(keep, text, gs, svgtxt, palname, W, H, vert, tb):
             if water and .1 * W < cx + side * (w / 2 + 62 * s0) < .9 * W and y + h <= cap:
                 keep.update(kind='bg', ride=None, behind=None, x=round(cx + side * (w / 2 + 62 * s0)), y=round(y + h), s=s0, flip=-side, enter='cut', delay=.02); set_act(keep, 'splash', obj=gid); return True
             if not SERIOUS and y + h + 80 * s0 <= cap:
-                keep.update(kind='bg', ride=None, behind=None, x=round(cx), y=round(y + h + 80 * s0), s=s0, flip=side, enter='cut', delay=.02); set_act(keep, 'bonk', obj=gid); return True
+                ty_ = 'sidestep' if SIDESTEPW.search(text) else 'bonk'
+                keep.update(kind='bg', ride=None, behind=None, x=round(cx), y=round(y + h + 80 * s0), s=s0, flip=side, enter='cut', delay=.02); set_act(keep, ty_, obj=gid); return True
+        elif kd == 'core-drop' and (w > 260 or h > 220) and w <= 700 and h <= 600 and not SERIOUS and HEAVYG.search(gid) and y + h + 80 * s0 <= cap:   # a big heavy thing: pancaked under it
+            keep.update(kind='bg', ride=None, behind=gid, x=round(cx), y=round(y + h + 80 * s0), s=s0, flip=side, enter='cut', delay=.02); set_act(keep, 'flattened', obj=gid, out=round(w / 2 + 70 * s0)); return True
         elif kd == 'topple' and 120 <= h <= 600 and w <= 400 and not SERIOUS and float(at.get('data-deg', 72)) > 0:
             fx = x + w + h * .5
             if .08 * W < fx < .92 * W and y + h <= cap + 20:
@@ -397,11 +408,43 @@ def contact_pick(keep, text, gs, svgtxt, palname, W, H, vert, tb):
                 if not (.1 * W < P < .9 * W): continue
                 keep.update(kind='bg', ride=None, behind=None, x=round(P), y=lane, s=s0, flip=-dirx, enter='cut', delay=.02)
                 set_act(keep, 'dodge', obj=gid, h=round(h), **{'pass': round(frog_rig.pass_time(kd, at, (x, y, w, h), P, 0) or 1.2, 3)}); return True
-        elif kd in ('swing', 'pendulum') and h >= 80 and y + h + 56 * s0 + 60 <= cap and w <= W * .5:
-            keep.update(kind='ride', ride=gid, behind=None, x=round(cx), y=round(y + h + 56 * s0), s=s0, flip=1 if cx < W / 2 else -1); set_act(keep, 'swingride', obj=gid); return True
+        elif kd in ('swing', 'pendulum') and h >= 80 and w <= W * .5:
+            amp = float(at.get('data-amp', 28 if kd == 'swing' else 18)); px = cx; py = y
+            kx = px + math.sin(math.radians(amp)) * h + 36 * s0; ky = py + math.cos(math.radians(amp)) * h + 60 * s0   # where the tip is at its first extreme (clockwise = +x side)
+            if h >= 250 and not SERIOUS and not HANGW.search(text) and .1 * W < kx < .9 * W and 82 * s0 + 150 <= ky <= cap:
+                keep.update(kind='bg', ride=None, behind=None, x=round(kx), y=round(ky), s=s0, flip=-1, enter='cut', delay=.02); set_act(keep, 'knocked', obj=gid); return True
+            if y + h + 56 * s0 + 60 <= cap:
+                keep.update(kind='ride', ride=gid, behind=None, x=round(cx), y=round(y + h + 56 * s0), s=s0, flip=1 if cx < W / 2 else -1); set_act(keep, 'swingride', obj=gid); return True
         elif kd == 'bouncing' and w <= 400:
+            if w >= 120 and (BOUNCEW.search(text) or float(at.get('data-h', 60)) >= 80) and y - 160 * s0 >= 82 * s0 + 150:   # big enough to ride: bounces on top of it
+                keep.update(kind='ride', ride=gid, behind=None, x=round(x + w * (.2 if cx > W / 2 else .8)), y=round(y + 4), s=s0, flip=1 if cx < W / 2 else -1); set_act(keep, 'trampoline', obj=gid, serious=SERIOUS); return True
             pos = beside(g, W, H, vert, tb)
             if pos: keep.update(kind='bg', ride=None, behind=None, **pos); set_act(keep, 'bumped', obj=gid, serious=SERIOUS); return True
+        elif kd in ('slam', 'squash') and w <= 500 and h <= 500:   # a thud beside it throws it up
+            pos = beside(g, W, H, vert, tb)
+            if pos: keep.update(kind='bg', ride=None, behind=None, enter='cut', delay=.02, **pos); set_act(keep, 'shockwave', obj=gid); return True
+        elif kd == 'magnet' and w <= 400 and h <= 400 and abs(float(at.get('data-dx', -200))) >= 120 and y + h <= cap + 30:   # holds it and gets yanked along
+            ddx = float(at.get('data-dx', -200)); sg = 1 if ddx > 0 else -1; fx = cx - sg * (w / 2 + 40 * s0)
+            if .08 * W < fx < .92 * W and .06 * W < fx + ddx * .85 < .94 * W:
+                keep.update(kind='bg', ride=None, behind=None, x=round(fx), y=round(min(y + h, cap)), s=s0, flip=sg, enter='cut', delay=.02); set_act(keep, 'magnetized', obj=gid); return True
+        elif kd == 'hop' and w <= 260 and h <= 260:   # hops along with a hopping creature
+            pos = beside(g, W, H, vert, tb)
+            if pos: keep.update(kind='bg', ride=None, behind=None, **pos); set_act(keep, 'hopalong', obj=gid); return True
+        elif kd == 'drip' and float(at.get('data-fall', 140)) >= 80 and w <= 300:   # stands under the drip
+            fall = float(at.get('data-fall', 140)); fy = y + fall + 80 * s0
+            if 82 * s0 + 150 <= fy <= cap and .1 * W < cx < .9 * W:
+                keep.update(kind='bg', ride=None, behind=None, x=round(cx), y=round(fy), s=s0, flip=1 if cx < W / 2 else -1, enter='cut', delay=.02); set_act(keep, 'dripped', obj=gid, serious=SERIOUS); return True
+        elif kd == 'spin' and 160 <= w <= 600 and WHEELG.search(gid) and not SERIOUS and y - 100 * s0 >= 82 * s0 + 150:   # clings to the rim and goes round
+            keep.update(kind='bg', ride=None, behind=None, x=round(cx), y=round(y + 6), s=round(min(s0, w / 300), 2), flip=1 if cx < W / 2 else -1, enter='cut', delay=.02); set_act(keep, 'rimride', obj=gid, r=round(h / 2 - 6)); return True
+        elif kd == 'popin' and w <= 320 and h <= 320 and y + h <= cap + 20 and y - 80 * s0 >= 82 * s0 + 150:   # stands where it pops in: lifted on top
+            keep.update(kind='bg', ride=None, behind=None, x=round(cx), y=round(min(y + h, cap)), s=s0, flip=1 if cx < W / 2 else -1, enter='cut', delay=.02); set_act(keep, 'launched', obj=gid, h=round(h)); return True
+        elif kd == 'unroll' and w >= 400 and h <= 200 and y + h <= cap + 30:   # on the lane of the unrolling carpet
+            fr = .7 if x + w * .7 < .9 * W else .5
+            keep.update(kind='bg', ride=None, behind=None, x=round(x + w * fr), y=round(min(y + h, cap)), s=s0, flip=1, enter='cut', delay=.02); set_act(keep, 'unrolled', obj=gid, frac=fr); return True
+        elif kd == 'ascend' and w <= 320 and h <= 400 and y + h + 56 * s0 + 60 <= cap:   # hangs under the rising thing
+            keep.update(kind='ride', ride=gid, behind=None, x=round(cx), y=round(y + h + 56 * s0), s=s0, flip=1 if cx < W / 2 else -1); set_act(keep, 'balloonride', obj=gid); return True
+        elif kd == 'sink' and 120 <= w <= 500 and y - 100 * s0 >= 82 * s0 + 150:   # stands on the end of the sinking thing, waving
+            keep.update(kind='ride', ride=gid, behind=None, x=round(x + w * (.2 if cx > W / 2 else .8)), y=round(y + 4), s=s0, flip=1 if cx < W / 2 else -1); set_act(keep, 'sinkride', obj=gid); return True
         elif kd == 'rise' and w <= 320 and h <= 300 and LIFTW.search(text):
             keep.update(kind='ride', ride=gid, behind=None, x=round(cx), y=round(y + h + 50 * s0), s=s0, flip=1 if cx < W / 2 else -1); set_act(keep, 'lift', obj=gid); return True
     if TUGW.search(text):

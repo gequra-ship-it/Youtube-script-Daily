@@ -787,4 +787,4 @@ def js(tag, d, t0, t1, words, targets=None, wt=None, objt=None, k=0):
     BODY_ACTS = ('breathe', 'rest', 'eat', 'bounce', 'flex', 'stretch', 'salute')
     out += frog_rig.life_js(t, a0, t1 - .05, k, nohead=info['nohead'] or at in ('fly', 'orbit', 'doodle'), nolegs=info['nolegs'] or at in ('fly', 'huts'),
                             noscale=info['noscale'] or at in BODY_ACTS, noeyes=info['noeyes'] or at in PUPIL_ACTS or bool(pts) or bool(d.get('gaze')), avoid=mood_t + [ws for ws, _ in words if talk])
-    return out
+    return frog_rig.arm_bend_pass(out, t)   # 2026-10-29 (miya): a raised arm bends away from the head, never ") O ("
