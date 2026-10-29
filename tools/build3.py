@@ -1076,7 +1076,9 @@ for k, c in enumerate(caps):
 # 2026-10-29: tweens that turn about a data-pivot (svgOrigin:miyaPv) are added AFTER miyaFollowInit. Its measuring seeks render the whole timeline once while every picture is display:none:
 # GSAP initialises a tween at its first render and, for a hidden picture, froze the bbox corner as the svgOrigin (windmill, gears, frog legs, tails, neck, clock hand all turned about the wrong point).
 # Tweens created after the measuring are first rendered during real playback, when the picture is shown. tools/pivotlive.py proves it on the built page.
-HINGE_JS = [l for l in js if l.startswith('tl.') and 'miyaPv(' in l]; _hid = {id(l) for l in HINGE_JS}; js = [l for l in js if id(l) not in _hid]
+# 2026-10-29 (2): the same freeze hit every tween that turns about a PERCENT origin (transformOrigin:"50% 50%", core spin/turn/roll, obj spin/coast/flip): short3 U009 black hole turned about the bbox corner and swung across the frame. They are deferred too.
+_PCT_ORG = re.compile(r'transformOrigin:"-?[\d.]+% -?[\d.]+%"')
+HINGE_JS = [l for l in js if l.startswith('tl.') and ('miyaPv(' in l or _PCT_ORG.search(l))]; _hid = {id(l) for l in HINGE_JS}; js = [l for l in js if id(l) not in _hid]
 js.append('miyaFollowInit(tl);'); js.extend(HINGE_JS); print('hinge tweens added after the follow measuring:', len(HINGE_JS))
 js.append('window.__timelines=window.__timelines||{};window.__timelines["main"]=tl;</script>')
 h.append('\n'.join(js)); h.append('</div></body></html>')

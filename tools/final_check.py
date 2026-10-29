@@ -3,6 +3,7 @@
 # session re-runs everything on the BUILT page and only then lets the render go:
 #   1. attachcheck   every picture: hinges on the body, rotors on their centre, gears mesh, tails travel with the body, standing things have their foot as pivot, labels follow
 #   2. pivotlive     the real page: every data-pivot group really turns about its pivot (a part that leaves its body is carried > 10 px at its pivot)
+#   2b. originlive   groups without data-pivot (spin/turn/roll/wobble) really turn about their own centre
 #   3. stuck pages   no moment of the timeline shows more than 3 pictures at once (a picture left on top)
 #   4. coverage      every unit has its picture, no fallback art
 # Exit 0 + writes render/<slug>/.checked (sha1 of index.html) only when everything is clean. tools/chunk_plan.py refuses to print the render spec without a matching .checked.
@@ -20,6 +21,7 @@ def run(name, cmd):
     if r.returncode: bad += 1
 run('attachcheck', [sys.executable, f'{T}/attachcheck.py', SLUG])
 run('pivotlive', [sys.executable, f'{T}/pivotlive.py'])
+run('originlive', [sys.executable, f'{T}/originlive.py'])   # 2026-10-29: groups without data-pivot turn about their own centre (short3 black hole)
 bd = json.load(open(f'{wdir()}/build/build_data.json')); n = len(bd['cuts'])
 miss = [c['id'] for c in bd['cuts'] if c.get('kind') != 'chalk' and not os.path.exists(f'{vdir(SLUG)}/art3/{c["id"]}.svg')]
 print(f'--- coverage: {"OK" if not miss else "MISSING " + str(miss)} ({n} units)'); bad += bool(miss)
