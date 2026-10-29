@@ -272,7 +272,6 @@ PLAT = re.compile(r'belt|treadmill|tread\b|slats|ground|ledge|platform|bridge|sh
 ACTIVE = re.compile(r'\b(run\w*|walk\w*|jump\w*|hop\w*|step\w*|treadmill|pump\w*|race|racing|sprint\w*)\b', re.I)
 VEH = re.compile(r'\b(rocket|spaceship|spacecraft|ship|probe|warp drive|shuttle|lander)\b', re.I)
 ROLL = re.compile(r'\b(drag\w*|spiral\w*|tumbl\w*|roll\w*|carried|swept|backward|whirl\w*|swirl\w*|knock\w*)\b', re.I)
-PARTICLE = re.compile(r'mv-path-(particle|orbit|ring|loop|electron|photon)', re.I)
 ORBIT = re.compile(r'\b(particles?|orbit\w*|circl\w*|revolv\w*|accretion|ring|rings|disk|laser|radio wave)\b', re.I)
 HOLE = re.compile(r'hole|bh|singular|well|horizon', re.I)
 JS = '''()=>{const o=[];for(const g of document.querySelectorAll('g[id^="mv-"]')){const b=g.getBBox();if(b.width<8)continue;o.push([g.id,b.x,b.y,b.width,b.height])}return o}'''
@@ -344,7 +343,7 @@ CONTACT_MOOD = {'bonk': 'curious', 'squish': 'happy', 'dodge': 'happy', 'chase':
                 'rimride': 'excited', 'launched': 'curious', 'unrolled': 'curious', 'balloonride': 'excited', 'sinkride': 'worried'}
 SIDESTEPW = re.compile(r'\b(avoid\w*|miss(ed|es)?\b|dodg\w*|escap\w*|narrow\w*|close call|just in time|in time|safe\w*|luck\w*|survived?)\b', re.I)   # 2026-10-29 b: the frog steps aside instead of taking the hit
 BOUNCEW = re.compile(r'\b(bounc\w*|jump\w*|spring\w*|trampolin\w*|boing|hop\w*|leap\w*)\b', re.I)
-HEAVYG = re.compile(r'anvil|boulder|rock|stone|crate|weight|piano|safe\b|block|meteor|meteorite|asteroid|barrel|box|chest|log\b|trunk|elephant|whale|hippo', re.I)
+HEAVYG = re.compile(r'anvil|boulder|rock|stone|crate|weight|piano|safe\b|block|meteor|meteorite|asteroid|barrel|box|chest|log\b|trunk', re.I)   # (whale/elephant/tree names never reach core-drop: motions.core_sanitize turns their drop into swell)
 WHEELG = re.compile(r'wheel|gear|cog|fan\b|windmill|ferris|turntable|disc|disk|record|carousel|propeller|rotor|tire|tyre|roulette|millstone|waterwheel', re.I)
 
 

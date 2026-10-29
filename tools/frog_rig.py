@@ -26,15 +26,6 @@ P_TD = .305   # progress of the first touchdown of miyaBnc (from the samples)
 FEET = 'svgOrigin:"0 6"'; HIPL = 'svgOrigin:"-16 -10"'; HIPR = 'svgOrigin:"28 -10"'; SHL = 'svgOrigin:"-34 -22"'; SHR = 'svgOrigin:"34 -22"'; NECK = 'svgOrigin:"4 -40"'
 CONTACT = ('bonk', 'squish', 'dodge', 'chase', 'splash', 'swingride', 'bumped', 'blown', 'tug', 'lift', 'catch', 'trip',
            'sidestep', 'flattened', 'trampoline', 'knocked', 'shockwave', 'magnetized', 'hopalong', 'dripped', 'rimride', 'launched', 'unrolled', 'balloonride', 'sinkride')   # 2026-10-29 b: 13 more (miya: contact is the fun part)
-STARS = {'bonk', 'squish', 'trip', 'flattened', 'knocked', 'unrolled'}
-
-
-def bnc_inv(e):
-    """progress p at which miyaBnc first reaches value e (0..1) -- where a dropping object's bottom crosses a height"""
-    if not BNC: return min(max(e, 0), 1) * P_TD
-    for i, v in enumerate(BNC):
-        if v >= e: return i / (len(BNC) - 1)
-    return P_TD
 
 
 def ease_inv(name, e):
