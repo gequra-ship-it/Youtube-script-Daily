@@ -410,9 +410,9 @@ def contact_pick(keep, text, gs, svgtxt, palname, W, H, vert, tb):
                 set_act(keep, 'dodge', obj=gid, h=round(h), **{'pass': round(frog_rig.pass_time(kd, at, (x, y, w, h), P, 0) or 1.2, 3)}); return True
         elif kd in ('swing', 'pendulum') and h >= 80 and w <= W * .5:
             amp = float(at.get('data-amp', 28 if kd == 'swing' else 18)); px = cx; py = y
-            kx = px + math.sin(math.radians(amp)) * h + 36 * s0; ky = py + math.cos(math.radians(amp)) * h + 60 * s0   # where the tip is at its first extreme (clockwise = +x side)
+            kx = px - math.sin(math.radians(amp)) * h - 36 * s0; ky = py + math.cos(math.radians(amp)) * h + 60 * s0   # where the tip is at its first +amp extreme: SVG rotation is clockwise, so a point below the pivot swings to the LEFT (checked on the synthetic page 2026-10-29)
             if h >= 250 and not SERIOUS and not HANGW.search(text) and .1 * W < kx < .9 * W and 82 * s0 + 150 <= ky <= cap:
-                keep.update(kind='bg', ride=None, behind=None, x=round(kx), y=round(ky), s=s0, flip=-1, enter='cut', delay=.02); set_act(keep, 'knocked', obj=gid); return True
+                keep.update(kind='bg', ride=None, behind=None, x=round(kx), y=round(ky), s=s0, flip=1, enter='cut', delay=.02); set_act(keep, 'knocked', obj=gid); return True
             if y + h + 56 * s0 + 60 <= cap:
                 keep.update(kind='ride', ride=gid, behind=None, x=round(cx), y=round(y + h + 56 * s0), s=s0, flip=1 if cx < W / 2 else -1); set_act(keep, 'swingride', obj=gid); return True
         elif kd == 'bouncing' and w <= 400:
