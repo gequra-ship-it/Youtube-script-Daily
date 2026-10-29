@@ -379,6 +379,8 @@ def js(tag, d, t0, t1, words, targets=None, wt=None, objt=None, k=0):
     org = 'svgOrigin:"0 0"'   # the arm's own coordinate space starts at the shoulder (parent group translate(32 -22))
     # entrance / exit by kind (2026-10-26 frog review): only the chalkboard explainer hops up from below; a picture frog fades in where it is
     # (rides: peeks up from its object, roams: drifts in) and fades out shortly before the cut instead of vanishing in one frame
+    _a = d.get('act'); _a = (_a.get('type') if isinstance(_a, dict) else _a) or None
+    if _a in frog_rig.CONTACT: d['enter'] = 'cut'   # 2026-10-29 b: a frog that meets a moving object is already there when the picture starts (a fade-in missed the first bounce)
     enter = d.get('enter') or ('hop' if not (d.get('ride') or d.get('kind') in ('ride', 'bg')) else ('peek' if d.get('ride') else 'fade'))
     oy = {'hop': 300, 'peek': 26, 'fade': 0, 'cut': 0}.get(enter, 40)
     out.append(f'tl.set("#{t}_in",{{opacity:0,y:{oy}}},0);tl.set("#{t}",{{opacity:0}},0);tl.set("#{t}",{{opacity:1}},{a0 - .01:.3f});tl.set("#{t}",{{opacity:0}},{t1:.3f});')
@@ -445,6 +447,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None, objt=None, k=0):
     if at in frog_rig.CONTACT or at in frog_rig.MOVES:   # 2026-10-29 contact acts (the frog meets a moving object at the object's own time) and locomotion / costume acts (guideline 7-2 G)
         T = t1 - .05; ad = act if isinstance(act, dict) else {'type': at}
         ln_, info = frog_rig.contact_js(t, d, ad, t0, a0, T, k, objt, face=lambda m, tm: face_js(t, MOODS.get(m, MOODS['happy']), tm))
+        frog_rig.HITS[t] = info['says'].get(0)   # the act's key moment (synthetic timing checks)
         out.extend(ln_); mood_t += list(info['says'].values())
     elif at:
         ac = f'"#{t}_ac"'; a1 = a0 + .5; T = t1 - .05; org2 = 'svgOrigin:"0 0"'
@@ -787,4 +790,4 @@ def js(tag, d, t0, t1, words, targets=None, wt=None, objt=None, k=0):
     BODY_ACTS = ('breathe', 'rest', 'eat', 'bounce', 'flex', 'stretch', 'salute')
     out += frog_rig.life_js(t, a0, t1 - .05, k, nohead=info['nohead'] or at in ('fly', 'orbit', 'doodle'), nolegs=info['nolegs'] or at in ('fly', 'huts'),
                             noscale=info['noscale'] or at in BODY_ACTS, noeyes=info['noeyes'] or at in PUPIL_ACTS or bool(pts) or bool(d.get('gaze')), avoid=mood_t + [ws for ws, _ in words if talk])
-    return frog_rig.arm_bend_pass(out, t)   # 2026-10-29 (miya): a raised arm bends away from the head, never ") O ("
+    return frog_rig.shadow_follow_pass(frog_rig.arm_bend_pass(out, t), t)   # 2026-10-29 (miya): a raised arm bends away from the head, never ") O ("; the ground shadow follows the frog

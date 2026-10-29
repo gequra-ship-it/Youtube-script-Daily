@@ -43,6 +43,8 @@ def ease_inv(name, e):
     if name == 'power1.inOut': return math.sqrt(e / 2) if e < .5 else 1 - math.sqrt((1 - e) / 2)
     if name == 'power2.inOut': return (e / 4) ** (1 / 3) if e < .5 else 1 - ((1 - e) / 4) ** (1 / 3)
     if name == 'power3.out': return 1 - (1 - e) ** (1 / 3)
+    if name == 'power2.out': return 1 - math.sqrt(1 - e)
+    if name == 'power2.in': return math.sqrt(e)
     return e
 
 
@@ -56,6 +58,14 @@ def obj_span(kind, at):
     if kind == 'rollby': return f('delay', .3), f('dur', 3)
     if kind == 'slide': return f('delay', .3), f('dur', .7)
     if kind == 'rise': return f('delay', .3), f('dur', .5)
+    # 2026-10-29 b (miya: "some gags are out of sync"): the kinds of the second round, same numbers as motions.obj_js
+    if kind == 'slam': return f('delay', .3), .28
+    if kind == 'squash': return f('delay', .3), .1
+    if kind == 'popin': return f('delay', .3), .45
+    if kind in ('unroll', 'unfold'): return f('delay', .3), f('dur', .8)
+    if kind == 'magnet': return f('delay', .3), f('dur', .9)
+    if kind == 'hop': return f('delay', .3), f('per', 1.4)
+    if kind == 'drip': return f('delay', .3), f('per', 1.8)
     return None
 
 
@@ -300,10 +310,11 @@ def contact_js(t, d, act, t0, a0, T, k, objt=None, face=None, moods=None):
         info['says'][0] = tg
     elif ty == 'sidestep':   # under the dropping thing: looks up, hops aside at the last moment, the thing thuds beside it, wipes its brow
         if st is None: st, du = t0 + .15, .9
-        th = st + P_TD * du; tj = th - .34; info['nohead'] = True
+        th = st + P_TD * du; tj = th - .3; info['nohead'] = True
         o.append(f'tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-72}},duration:.3}},{a0:.3f});' + F('curious', a0) + F('shock', max(a0, tj - .25)))
         o += squash(t, tj - .12, .84, 1.1, .1, .1)
-        o.append(f'tl.to({TR},{{x:{-120 / s * 1.0:.1f},y:-46,duration:.22,ease:"power2.out"}},{tj:.3f});tl.to({TR},{{y:0,duration:.14,ease:"power2.in"}},{tj + .22:.3f});')   # hop backward (local -x), landing just before the thud
+        o.append(f'tl.to({TR},{{x:{-150 / s:.1f},y:-46,duration:.22,ease:"power2.out"}},{tj:.3f});tl.to({TR},{{y:0,duration:.14,ease:"power2.in"}},{tj + .22:.3f});')   # hop backward (local -x), landing just before the thud
+        if g: o.append(f'tl.to({g},{{y:{80 * s:.0f},duration:.45,ease:"bounce.out",immediateRender:false}},{st + du + .02:.3f});')   # the drop ends where the head was: once its own tween is over it falls the rest of the way to the ground
         o += tuck(t, tj, .15, 0, .2, 50) + squash(t, tj + .36, .88, 1.08, .08, .3)
         o.append(f'tl.to("#{t}_hd,#{t}_of,#{t}_te",{{rotation:0,duration:.2,{NECK}}},{th:.3f});tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-64,cx:"+=4"}},duration:.25}},{th + .1:.3f});')   # looks at the thing on the ground
         o.append(f'tl.to("#{t}_ra",{{rotation:-165,duration:.3,ease:"power2.out",{SHR}}},{th + .5:.3f});tl.fromTo("#{t}_ra",{{rotation:-165,{SHR}}},{{rotation:-140,duration:.3,yoyo:true,repeat:3,ease:"sine.inOut",{SHR},immediateRender:false}},{th + .8:.3f});tl.to("#{t}_ra",{{rotation:0,duration:.4,{SHR}}},{th + 2.1:.3f});')   # wipes its brow
@@ -357,7 +368,7 @@ def contact_js(t, d, act, t0, a0, T, k, objt=None, face=None, moods=None):
         if T - ts > 2.8: o.append(F('surprised', ts + 2.4))
     elif ty == 'magnetized':   # holding the thing that gets yanked away: dragged along on its heels with it (same ease), lets go dizzy
         if st is None: st, du = t0 + .3, 1.5
-        dx = abs(float(at.get('data-dx', -200))); dd = float(at.get('data-dur', .9)); info['nohead'] = True
+        dx = abs(float(at.get('data-dx', -200))); dd = du if du else float(at.get('data-dur', .9)); info['nohead'] = True
         o.append(F('curious', a0) + f'tl.to("#{t}_ra",{{rotation:-85,duration:.3,{SHR}}},{a0:.3f});tl.to("#{t}_la",{{rotation:-100,duration:.3,{SHL}}},{a0:.3f});')   # both hands on it (it is on the facing side)
         o.append(F('shock', st) + f'tl.to({TR},{{x:{dx * .85 / s:.1f},duration:{dd:.3f},ease:"elastic.out(1,.6)"}},{st:.3f});tl.to({ac},{{rotation:-26,duration:.15,ease:"power2.out",{FEET}}},{st:.3f});')
         o += brace(t, st, -30, 26, .15)
@@ -791,5 +802,35 @@ def arm_bend_pass(lines, t):
                     if d0 == d1 and 'yoyo' not in keep: continue
                     extra.append(f'tl.fromTo({dsel},{{attr:{{d:"{d0}"}}}},{{attr:{{d:"{d1}"}},{keep + "," if keep else ""}immediateRender:false}},{tm});')
                 else: extra.append(f'tl.to({dsel},{{attr:{{d:"{d1}"}},{keep + "," if keep else ""}immediateRender:false}},{tm});')
+        out.append(ln + ''.join(extra))
+    return out
+
+
+HITS = {}   # tag -> the act's key moment (filled by frog.js for tests)
+
+
+def shadow_follow_pass(lines, t):
+    """2026-10-29 b (miya: the shadow stayed where the frog started): every x move of #<t>_tr (the roam / contact travel layer) is mirrored
+    on the ground shadow #<t>_sh (x only, same duration / ease / yoyo / repeat), so the shadow travels with the frog but stays on the ground
+    while it jumps (y is not copied)."""
+    import re
+    rx = re.compile(r'tl\.(to|set|fromTo)\("#' + re.escape(t) + r'_tr"\s*,')
+    xr = re.compile(r'(?<![\w"])x:("[^"]*"|-?\d+(?:\.\d+)?)(?![\d.])')
+    out = []
+    for ln in lines:
+        extra = []
+        for m in rx.finditer(ln):
+            i = ln.find('{', m.end()); j = _obj_end(ln, i); o1 = ln[i:j]; o2 = None
+            if m.group(1) == 'fromTo':
+                i2 = ln.find('{', j); j2 = _obj_end(ln, i2); o2 = ln[i2:j2]; j = j2
+            mt = re.match(r'\s*,\s*(-?\d+(?:\.\d+)?)\s*\)', ln[j:])
+            if not mt: continue
+            tm = mt.group(1); tgt = o2 if o2 else o1; x1 = xr.search(tgt)
+            if not x1 or 'keyframes' in tgt: continue
+            keep = ','.join(_KEEP.findall(tgt)); sh = f'"#{t}_sh"'
+            if m.group(1) == 'set': extra.append(f'tl.set({sh},{{x:{x1.group(1)}}},{tm});')
+            elif m.group(1) == 'fromTo':
+                x0 = xr.search(o1); extra.append(f'tl.fromTo({sh},{{x:{x0.group(1) if x0 else 0}}},{{x:{x1.group(1)},{keep + "," if keep else ""}immediateRender:false}},{tm});')
+            else: extra.append(f'tl.to({sh},{{x:{x1.group(1)},{keep + "," if keep else ""}immediateRender:false}},{tm});')
         out.append(ln + ''.join(extra))
     return out
