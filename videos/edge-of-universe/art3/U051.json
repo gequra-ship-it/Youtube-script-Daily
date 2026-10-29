@@ -16,21 +16,29 @@
     "mood": "curious"
    }
   ],
-  "act": "scope",
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-c0",
+   "h": 108
+  },
   "outfit": [
    "helmet"
   ],
-  "x": 1660,
-  "y": 780,
-  "s": 0.77,
-  "flip": -1,
+  "x": 534,
+  "y": 630,
+  "s": 0.95,
+  "flip": 1,
   "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "says": [
    {
-    "text": "Ooh, far away.",
-    "shout": false
+    "text": "Whoa!",
+    "shout": true
    }
   ],
-  "bside": -1
+  "bside": 1
  }
 }
