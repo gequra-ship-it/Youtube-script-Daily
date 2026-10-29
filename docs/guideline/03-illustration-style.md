@@ -68,4 +68,7 @@ one bright focal object (position per guideline 3-2; a round object at the centr
 - **배경음악**: `bgm_lib.synth_cosmic`(코드 변경 12초, 3중 디튠 패드, 느린 고음 아르페지오, 지연 에코, 250Hz 고역통과·6.5kHz 저역통과). 덕킹·음량은 9-4.
 - **길이 (2026-10-24 개정: 우주 모드도 일반 영상과 같은 15분 이내·2,000~2,300단어, 12-1·9-2; 2026-10-12의 "20분 제한 없어"는 폐기)**: 아래 옛 설명은 참고만(대본을 그대로 쓰지 않는다). 옛 문구: 단어 수 제한 없이 대본 길이 그대로(줄이거나 늘리지 않고, 분당 약 163단어로 계산해 알림). 사실 확인은 그대로. 렌더는 영상 길이의 약 3.75~3.9배라 한 작업(300분)이면 약 60분 영상까지(병렬 20-7). 그림 분당 약 13장(에이전트로 나눔), 챕터는 약 1.5~2분당 하나, 숏츠 3편은 그대로.
 - 확인하지 못한 것: 우주 모드 그림의 실제 모습, 성운 그라데이션 렌더 속도.
+6. **픽토그램·단어 효과(2026-10-29, 4-6)**: 이름표·숫자 배지의 단어가 lucide 아이콘과 맞으면(whale→fish, years→calendar, brain, virus→biohazard… `fxlib.OVERRIDE` 또는 아이콘 이름과 같은 단어) 글자 앞에 작은 선 아이콘이 붙어 DrawSVG로 그려지며 나타난다(말풍선 제외, 라벨당 하나). 단위 문장에 secret·code·signal·mystery… 가 있으면 이름표는 ScrambleText로, typed·wrote·diary·letter… 면 타자기(TextPlugin)로 등장하고, 3단어 이상 말풍선은 단어가 하나씩 내려앉는다(SplitText). playful 문장(bounce·hop·excited…, grim 단어 없음)의 `pop` 이름표는 anime 스프링으로 튄다.
+
 개정: 2026-10-27 (miya) 3-6 5번: 움직이는 오브젝트의 라벨·말풍선은 오브젝트를 따라감(`motions.miyaFollow`·`miyaFollowInit`, build3 `MOVING`).
+개정: 2026-10-29 (miya, 오픈소스 통합) 3-6 6번: 라벨 픽토그램(lucide)·ScrambleText·TextPlugin·SplitText·스프링 등장을 단어 규칙으로 추가(4-6 표, `tools/fxlib.py`·`labels_lib.py`).

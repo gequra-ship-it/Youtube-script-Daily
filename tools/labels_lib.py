@@ -15,6 +15,7 @@
 #       "to" = the speaker's mouth; the bubble tail points there.
 #   "word" (optional, all types) = exact words from the unit text; the label pops in when they are spoken (else ~0.4 s after the cut).
 import re, html
+import fxlib   # 2026-10-29: ScrambleText / TextPlugin / SplitText rules + lucide pictograms
 
 LIMITS = dict(name=28, num=26, say=24)
 SMALL = {w: i for i, w in enumerate('zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen '
@@ -134,6 +135,8 @@ CSS = '''.lab{position:absolute;width:0;height:0;z-index:5}
 .lab.name.hl b{background-image:linear-gradient(#ffe66d,#ffe66d)}
 .lab.dark.name.hl b{background-image:linear-gradient(rgba(255,230,109,.55),rgba(255,230,109,.55))}
 .lab b u{position:absolute;left:14px;right:14px;bottom:4px;height:3px;background:currentColor;transform:scaleX(0);transform-origin:0 50%}
+.lab b svg.pict{display:inline-block;width:1.05em;height:1.05em;vertical-align:-.2em;margin-right:.3em}
+.badge svg.pict{display:inline-block;width:1em;height:1em;vertical-align:-.16em;margin-right:.3em}
 .badge{transform-origin:0% 50%}
 '''
 
@@ -150,7 +153,9 @@ def html_for(n, sc, bgmode, pal, W, H, vert):
         ty = l['type']; tx = html.escape(str(l['text']).strip(), quote=False); lid = f'L{n}_{k}'
         if ty == 'num':
             pos = 'left:100px;top:330px' if vert else 'left:80px;top:64px'
-            outer.append(f'<div class="badge {cls}" id="{lid}" style="{pos};--ink:{ink};--acc:{acc}">{count_span(tx)}</div>')
+            ic = fxlib.icon_for(str(l['text']))   # 2026-10-29: lucide pictogram beside the badge when a word has one (fxlib.OVERRIDE / exact icon name)
+            if ic: fxlib.LOG['pictogram'] += 1
+            outer.append(f'<div class="badge {cls}" id="{lid}" style="{pos};--ink:{ink};--acc:{acc}">{fxlib.icon_svg(ic, 44, "currentColor", 2.2, "pict", lid + "i") if ic else ""}{count_span(tx)}</div>')
             items.append(('num', lid, None, l)); continue
         x, y = float(l['x']), float(l['y']); to = l.get('to')
         g = ''
@@ -165,6 +170,9 @@ def html_for(n, sc, bgmode, pal, W, H, vert):
                 g = (f'<g id="{lid}g"><path d="M{x + px:.0f},{y + py:.0f} L{ex:.0f},{ey:.0f} L{x - px:.0f},{y - py:.0f} Z" fill="#fffdf7" stroke="#1f1d1a" stroke-width="3" stroke-linejoin="round"/></g>')
         if g: ov.append(g)
         body = letters(tx) + '<u></u>' if ty == 'name' else tx   # round 4: one <i> per letter so letter effects can address them
+        if ty == 'name':
+            ic = fxlib.icon_for(str(l['text']))   # 2026-10-29: pictogram (drawn in by DrawSVG at the label time)
+            if ic: body = fxlib.icon_svg(ic, 40, 'currentColor', 2.2, 'pict', lid + 'i') + body; fxlib.LOG['pictogram'] += 1
         inner.append(f'<div class="lab {ty} {cls}{" hl" if ty == "name" else ""}" id="{lid}" style="left:{x:.0f}px;top:{y:.0f}px;--ink:{ink}"><span><b id="{lid}s" style="position:relative">{body}</b></span></div>')
         items.append((ty, lid, f'{lid}g' if g else None, l))
     if ov: inner.insert(0, f'<svg class="labov" width="{W}" height="{H}" viewBox="0 0 {W} {H}">{"".join(ov)}</svg>')
@@ -199,7 +207,7 @@ SAY_FX = {'!': 'slam', '?': 'tilt', '...': 'slowfade', '~': 'jiggle'}   # else '
 NUM_FX = ['slide', 'drop', 'flip', 'zoom', 'stamp', 'flashbg']
 DANGERW = _re.compile(r'\b(danger\w*|deadly|lethal|kill\w*|attack\w*|poison\w*|terror\w*|panic\w*|crash\w*|explo\w*|collaps\w*)\b', _re.I)
 KEYW = _re.compile(r'\b(the (key|secret|answer|reason)|most important|in fact|actually|turns out|the truth)\b', _re.I)
-TEXT_FX_KINDS = NAME_FX + list(SAY_FX.values()) + ['pop', 'bob', 'shake'] + NUM_FX
+TEXT_FX_KINDS = NAME_FX + ['scramble', 'type'] + list(SAY_FX.values()) + ['pop', 'splitwords', 'bob', 'shake'] + NUM_FX   # 2026-10-29: +scramble, type, splitwords (word rules)
 
 
 def letters(tx):
@@ -212,8 +220,11 @@ PIC_FX = [('fire', 'glow'), ('candle', 'glow'), ('water', 'wave'), ('bubble', 'w
           ('smoke', 'blur'), ('cave', 'blur'), ('coin', 'bounceletters'), ('chain', 'swing'), ('heart', 'elastic')]   # picture evidence -> name-label entrance (miya 2026-10-27)
 
 
-def name_fx(nn, k, pic=None):
-    """name-label entrance: the picture decides when it shows something (fire -> glow, water -> wave, a clock -> flip...), else the unit/label rotation"""
+def name_fx(nn, k, pic=None, utext=''):
+    """name-label entrance: script words first (secret / code / signal -> ScrambleText, typed / wrote / diary -> TextPlugin typewriter, 2026-10-29),
+    then the picture (fire -> glow, water -> wave, a clock -> flip...), else the unit/label rotation"""
+    if utext and fxlib.SCRAMBLE_W.search(utext): fxlib.LOG['scramble'] += 1; return 'scramble'
+    if utext and fxlib.TYPE_W.search(utext): fxlib.LOG['type'] += 1; return 'type'
     if pic:
         for tag, f in PIC_FX:
             if tag in pic: return f
@@ -237,15 +248,27 @@ def label_js(ty, lid, tt, nn, k, text, utext, te=None, pic=None):
         elif f == 'tilt': js.append(f'tl.fromTo({S},{{opacity:0,scale:.6,rotation:-12,transformOrigin:"50% 100%"}},{{opacity:1,scale:1,rotation:0,duration:.4,ease:"back.out(2.5)",immediateRender:false}},{A});tl.fromTo({S},{{rotation:0}},{{rotation:5,duration:.5,yoyo:true,repeat:3,ease:"sine.inOut",immediateRender:false}},{tt + .45:.3f});')
         elif f == 'slowfade': js.append(f'tl.fromTo({S},{{opacity:0,y:10}},{{opacity:1,y:0,duration:1.1,ease:"sine.out",immediateRender:false}},{A});')
         elif f == 'jiggle': js.append(f'tl.fromTo({S},{{opacity:0,scale:.6}},{{opacity:1,scale:1,duration:.25,ease:"back.out(2)",immediateRender:false}},{A});tl.fromTo({S},{{skewX:-6}},{{skewX:6,duration:.18,yoyo:true,repeat:5,ease:"sine.inOut",immediateRender:false}},{tt + .25:.3f});')
+        elif len(text.split()) >= 3:   # 2026-10-29 SplitText: the words of a longer bubble land one after another
+            fxlib.LOG['splitwords'] += 1
+            js.append(f'(function(){{var sp=SplitText.create("#{lid}s",{{type:"words"}});tl.set({S},{{opacity:1}},{A});tl.fromTo(sp.words,{{opacity:0,y:14,rotation:-6}},{{opacity:1,y:0,rotation:0,duration:.35,stagger:.07,ease:"back.out(2)",immediateRender:false}},{A});}})();')
         else: js.append(f'tl.fromTo({S},{{opacity:0,scale:.6}},{{opacity:1,scale:1,duration:.25,ease:"back.out(2)",immediateRender:false}},{A});')
         if te and te - tt > 2.2:   # the bubble floats gently while it stays (never jumps)
             js.append(f'tl.fromTo({S},{{y:0}},{{y:-6,duration:1.4,yoyo:true,repeat:{max(int((te - tt - 1) / 1.4), 1)},ease:"sine.inOut",immediateRender:false}},{tt + 1:.3f});')
         if DANGERW.search(utext): js.append(f'tl.fromTo({S},{{x:0}},{{x:-4,duration:.05,yoyo:true,repeat:7,immediateRender:false}},{tt + 1.6:.3f});')
         return js
-    f = name_fx(nn, k, pic); n = len(_re.findall(r'&[a-z]+;|.', text)); st = max(.02, min(.07, .5 / max(n, 1)))
+    f = name_fx(nn, k, pic, utext); n = len(_re.findall(r'&[a-z]+;|.', text)); st = max(.02, min(.07, .5 / max(n, 1)))
+    icon = [f'miyaIconDraw(tl,"#{lid}i",{A});'] if fxlib.icon_for(text) else []
     V = lambda a, b, d, e='power2.out': f'tl.fromTo({S},{{{a}}},{{{b},duration:{d},ease:"{e}",immediateRender:false}},{A});'
     LV = lambda a, b, d, e='power2.out', s=st: f'tl.set({S},{{opacity:1}},{A});tl.fromTo({L},{{{a}}},{{{b},duration:{d},stagger:{s},ease:"{e}",immediateRender:false}},{A});'
-    if f == 'pop': js.append(V('opacity:0,scale:.6', 'opacity:1,scale:1', .25, 'back.out(2)'))
+    if f == 'scramble':   # ScrambleTextPlugin: letters settle out of noise (replaces the per-letter <i> markup of this label)
+        chars = '0123456789' if _re.search(r'\d', text) else 'upperCase'
+        js.append(f'tl.set({S},{{opacity:1}},{A});tl.to({S},{{duration:{min(1.4, .45 + n * .05):.2f},scrambleText:{{text:"{text}",chars:"{chars}",speed:.5,revealDelay:.25,tweenLength:false}},immediateRender:false}},{A});')
+    elif f == 'type':     # TextPlugin typewriter with the caret feel (character by character)
+        js.append(f'tl.set({S},{{opacity:1,text:""}},{A});tl.to({S},{{duration:{min(1.6, n * .06):.2f},text:{{value:"{text}",delimiter:""}},ease:"none",immediateRender:false}},{tt + .02:.3f});')
+    elif f == 'pop' and fxlib.spring_params(utext, nn):   # playful sentence: anime spring instead of back.out
+        kk, dd = fxlib.spring_params(utext, nn); fxlib.LOG['spring'] += 1
+        js.append(f'miyaSpringTo(tl,{S},{{opacity:0,scale:.5}},{{opacity:1,scale:1}},{kk},{dd},{A});')
+    elif f == 'pop': js.append(V('opacity:0,scale:.6', 'opacity:1,scale:1', .25, 'back.out(2)'))
     elif f == 'typewriter': js.append(LV('opacity:0', 'opacity:1', .02, 'none'))
     elif f == 'slideleft': js.append(V('opacity:0,x:-40', 'opacity:1,x:0', .35))
     elif f == 'slideright': js.append(V('opacity:0,x:40', 'opacity:1,x:0', .35))
@@ -272,12 +295,17 @@ def label_js(ty, lid, tt, nn, k, text, utext, te=None, pic=None):
     elif f == 'fan': js.append(LV('opacity:0,rotation:-40,y:10,transformOrigin:"0% 100%"', 'opacity:1,rotation:0,y:0', .3, 'back.out(1.5)'))
     if KEYW.search(utext) and f not in ('highlight', 'glow'):   # key sentence: the name gets a quick emphasis pulse 1 s after it lands
         js.append(f'tl.fromTo({S},{{scale:1}},{{scale:1.1,duration:.16,yoyo:true,repeat:1,ease:"power2.out",immediateRender:false}},{tt + 1.1:.3f});')
-    return js
+    return icon + js
 
 
-def badge_js(lid, tt, idx):
-    """entrance for the number badge: style by its order among all badges (NUM_FX rotation)"""
+def badge_js(lid, tt, idx, utext='', text=''):
+    """entrance for the number badge: style by its order among all badges (NUM_FX rotation); its pictogram (if any) draws itself in (2026-10-29)"""
     f = NUM_FX[idx % len(NUM_FX)]; Q = f'"#{lid}"'; A = f'{tt:.3f}'
+    pre = [f'miyaIconDraw(tl,"#{lid}i",{tt + .15:.3f});'] if text and fxlib.icon_for(text) else []
+    return pre + _badge_js(f, Q, A, tt)
+
+
+def _badge_js(f, Q, A, tt):
     if f == 'slide': return [f'tl.fromTo({Q},{{opacity:0,x:-30}},{{opacity:1,x:0,duration:.3,ease:"power2.out",immediateRender:false}},{A});']
     if f == 'drop': return [f'tl.fromTo({Q},{{opacity:0,y:-60}},{{opacity:1,y:0,duration:.5,ease:"bounce.out",immediateRender:false}},{A});']
     if f == 'flip': return [f'tl.fromTo({Q},{{opacity:0,rotationX:90,transformPerspective:600,transformOrigin:"50% 0%"}},{{opacity:1,rotationX:0,duration:.45,ease:"power2.out",immediateRender:false}},{A});']

@@ -2,6 +2,7 @@
 # `mv-core-<type>`; each type below moves it differently, so the object is not always the same
 # up-and-down squash. Every tween is finite (repeat count, never -1) so the timeline stays seekable,
 # and nothing uses an SVG filter.
+import fxlib   # open-source library glue (2026-10-29)
 import math, json
 
 # 19 types (13 + 6 taken from a motion-graphics reference on 2026-10-13: pop, ping, stamp, flip, draw, drop).
@@ -55,7 +56,7 @@ def core_sanitize(ctype, name, keep=False):
     return ctype
 
 
-OBJ_TURNING = ('spin', 'rollby', 'flip', 'circle')
+OBJ_TURNING = ('spin', 'rollby', 'flip', 'circle', 'coast')
 
 
 def obj_sanitize(kind, name, keep=False):
@@ -102,8 +103,7 @@ def core_js(ctype, g, t0, v0, sp, ring=None, pivot=None):
     if ctype == 'swell':       # even growth in all directions
         return [f'tl.fromTo({g},{{scale:1,{C}}},{{scale:1.2,duration:2.2,{yo(2.2)}}},{v0:.3f});']
     if ctype == 'tremble':     # tension: tiny fast shake
-        per = 0.07; rep = min(int(math.ceil(sp / per)) - 1, 400)
-        return [f'tl.fromTo({g},{{x:-5,rotation:-1.5,{C}}},{{x:5,rotation:1.5,duration:{per},ease:"none",yoyo:true,repeat:{rep},immediateRender:false}},{v0:.3f});']
+        return [f'tl.fromTo({g},{{x:0,rotation:0,{C}}},{{x:5,rotation:1.5,duration:{sp:.3f},ease:"wiggle({{wiggles:{max(int(sp / .14), 4)},type:{chr(39)}random{chr(39)}}})",immediateRender:false}},{v0:.3f});']   # 2026-10-29: CustomWiggle random (nervous jitter)
     if ctype == 'approach':    # slow push toward the viewer, one way
         return [f'tl.fromTo({g},{{scale:1,{C}}},{{scale:1.3,duration:{sp:.3f},ease:"power1.out",immediateRender:false}},{v0:.3f});']
     if ctype == 'reveal':      # appears: fades up and grows into place when the picture starts
@@ -137,7 +137,8 @@ def core_js(ctype, g, t0, v0, sp, ring=None, pivot=None):
                 f'tl.to(miyaFilled({g}),{{opacity:(i,e)=>e.__op,duration:.6,ease:"power1.out",stagger:.03,immediateRender:false}},{t0 + .9:.3f});']
     if ctype == 'drop':        # falls in tilted and bounces to rest (tokens dropping into place)
         return [f'tl.set({g},{{y:-160,rotation:-18,opacity:0,{C}}},{v0:.3f});',
-                f'tl.to({g},{{y:0,rotation:0,opacity:1,duration:.9,ease:"bounce.out",immediateRender:false}},{t0 + .15:.3f});']
+                f'tl.to({g},{{y:0,rotation:0,opacity:1,duration:.9,ease:"miyaBnc",immediateRender:false}},{t0 + .15:.3f});',   # 2026-10-29: CustomBounce + squash
+                f'tl.fromTo({g},{{scaleX:1,scaleY:1,transformOrigin:"50% 100%"}},{{scaleX:1.2,scaleY:.8,duration:.9,ease:"miyaBnc-squash",immediateRender:false}},{t0 + .15:.3f});']
     raise ValueError(ctype)
 
 
@@ -258,11 +259,19 @@ def tr_js(tr, T, v0, W, H):
 #   rack     rack focus: the group is soft (data-r px, 14) and sharpens to 0 (data-dir="in", default), or the reverse ("out"); data-delay, data-dur (1.2).
 #            Made from 6 offset ghost copies, no SVG filter. Put the near object in one rack group and the far one in another with the opposite dir.
 # `popin` takes data-axis="y" or "x": it grows along that axis only (a pull-tab slat flipping up).
+# 2026-10-29 library kinds (miya: wire the open-source plugins in, guideline 4-6):
+#   draw     the group's strokes draw themselves on with DrawSVGPlugin (stagger .08), fills fade in after; data-delay, data-dur (1.4). Like a pen sketching the object.
+#   morph    the group's FIRST path turns into the d of its LAST path (draw that target with opacity="0"); MorphSVGPlugin, shapeIndex auto; data-back="1" morphs back; data-delay, data-dur (1.0)
+#   toss     thrown: Physics2DPlugin arc with data-v px/s (520), data-angle degrees (-60 = up-right, -120 = up-left), data-g (1400), data-friction (.02), turning data-deg (240); data-delay, data-dur (1.6)
+#   skid     slides and stops: InertiaPlugin, data-v px/s (900) sideways, snaps to data-dist px (420), data-res resistance (800); data-delay
+#   coast    a wheel / top / coin that spins down: PhysicsPropsPlugin rotation velocity data-v deg/s (720), data-friction (.12), about the CENTRE or data-pivot; data-delay, data-dur (3)
+#   regroup  the group's direct children re-arrange from where they were drawn into data-shape ring | line | grid (Flip plugin, stagger .05); data-delay, data-dur (1.2)
 OBJ_KINDS = ['path', 'flip', 'fill', 'grow', 'swing', 'topple', 'liquid', 'bubble', 'edge', 'keyturn', 'shackle', 'popin',
              'shake', 'dash', 'scroll', 'slam', 'rise', 'slide', 'fade', 'ticks', 'rack',
              'bob', 'hover', 'pendulum', 'wiggle', 'tilt', 'crumble', 'emph',   # round 4 (2026-10-26): 7 more, guideline 4-1
              'spin', 'rollby', 'float', 'flap', 'swim', 'hop', 'drip', 'unfold', 'unroll', 'flagwave', 'ripple', 'sparkle', 'circle', 'squash',
-             'neon', 'shiver', 'beat', 'settle', 'magnet', 'bouncing', 'creep', 'sink', 'ascend', 'tick', 'flicker', 'breathe', 'nodding', 'sway']   # round 4b: 28 more (axis noted per kind)
+             'neon', 'shiver', 'beat', 'settle', 'magnet', 'bouncing', 'creep', 'sink', 'ascend', 'tick', 'flicker', 'breathe', 'nodding', 'sway',   # round 4b: 28 more (axis noted per kind)
+             'draw', 'morph', 'toss', 'skid', 'coast', 'regroup']   # 2026-10-29 library kinds (guideline 4-6): DrawSVG, MorphSVG, Physics2D, Inertia, PhysicsProps, Flip
 
 
 def path_timing(at, t0, sp):
@@ -303,7 +312,7 @@ def track_js(spec, wsel, t0, sp, W, H, WW=None, WH=None):
     return f'miyaTrack(tl,"{wsel}","{d}",{st:.3f},{du:.3f},{scale},{W},{H},"{ease}",{WW or W},{WH or H});'
 
 
-def obj_js(kind, g, at, t0, v0, sp, name=''):
+def obj_js(kind, g, at, t0, v0, sp, name='', spring=None):
     """GSAP lines for one object motion. at: the group's data-* attributes, g: JS expression for the element,
     t0: picture start, v0: transition-in start, sp: seconds the picture stays (plus margin)."""
     f = lambda k, d: float(at.get('data-' + k, d))
@@ -313,7 +322,24 @@ def obj_js(kind, g, at, t0, v0, sp, name=''):
     if kind == 'path':
         d = at.get('data-path', '').replace('"', '')
         pst, pdu = path_timing(at, t0, sp)
-        return [f'miyaPath(tl,{g},"{d}",{pst:.3f},{pdu:.3f},{0 if at.get("data-rot") == "0" else 1},{f("rot0", 0)});']
+        ez = at.get('data-ease', '')   # 2026-10-29: build3 puts a SlowMo ramp here when the sentence says fast / rush / race (fxlib.path_ease)
+        return [f'miyaPath(tl,{g},"{d}",{pst:.3f},{pdu:.3f},{0 if at.get("data-rot") == "0" else 1},{f("rot0", 0)}{"," + chr(34) + ez + chr(34) if ez else ""});']
+    if kind == 'draw':      # DrawSVGPlugin
+        du = f('dur', 1.4)
+        SH = f'{g}.querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect")'   # fills hide (fill-opacity, strokes stay) while DrawSVG draws the outlines, then come back
+        return [f'tl.set({SH},{{fillOpacity:0}},{v0:.3f});',
+                f'tl.fromTo({SH},{{drawSVG:"0%"}},{{drawSVG:"100%",duration:{du},ease:"power1.inOut",stagger:.08,immediateRender:false}},{st:.3f});',
+                f'tl.to({SH},{{fillOpacity:(i,e)=>parseFloat(e.getAttribute("fill-opacity")||1),duration:.6,ease:"power1.out",stagger:.03,immediateRender:false}},{st + du * .6:.3f});']
+    if kind == 'morph':     # MorphSVGPlugin
+        return [f'miyaMorph(tl,{g},{st:.3f},{f("dur", 1.0)},{1 if at.get("data-back") == "1" else 0});']
+    if kind == 'toss':      # Physics2DPlugin
+        return [f'tl.fromTo({g},{{x:0,y:0,rotation:0,{org("50% 50%")}}},{{duration:{f("dur", 1.6)},physics2D:{{velocity:{f("v", 520)},angle:{f("angle", -60)},gravity:{f("g", 1400)},friction:{f("friction", .02)}}},rotation:{f("deg", 240)},ease:"none",immediateRender:false}},{st:.3f});']
+    if kind == 'skid':      # InertiaPlugin (duration comes from velocity + resistance)
+        return [f'tl.fromTo({g},{{x:0}},{{inertia:{{x:{{velocity:{f("v", 900)},end:[{f("dist", 420)}]}},resistance:{f("res", 800)}}},immediateRender:false}},{st:.3f});']
+    if kind == 'coast':     # PhysicsPropsPlugin
+        return [f'tl.fromTo({g},{{rotation:0,{org("50% 50%")}}},{{duration:{f("dur", 3)},physicsProps:{{rotation:{{velocity:{f("v", 720)},friction:{f("friction", .12)}}}}},immediateRender:false}},{st:.3f});']
+    if kind == 'regroup':   # Flip
+        return [f'miyaRegroup(tl,{g},"{at.get("data-shape", "ring")}",{st:.3f},{f("dur", 1.2)},.05);']
     if kind == 'flip':
         return [f'tl.set({g},{{rotation:0,{org("50% 50%")}}},{v0:.3f});',
                 f'tl.to({g},{{rotation:{f("deg", 180)},duration:{du},ease:"power2.inOut",immediateRender:false}},{st:.3f});']
@@ -352,6 +378,7 @@ def obj_js(kind, g, at, t0, v0, sp, name=''):
     if kind == 'popin':
         ax = at.get('data-axis')
         pr = {'y': 'scaleY', 'x': 'scaleX'}.get(ax, 'scale')
+        if spring: fxlib.LOG['spring'] += 1; return [f'tl.set({g},{{{pr}:0,opacity:0,{org("50% 50%")}}},{v0:.3f});', f'miyaSpringTo(tl,{g},{{{pr}:0,opacity:0}},{{{pr}:1,opacity:1}},{spring[0]},{spring[1]},{st:.3f});']
         return [f'tl.set({g},{{{pr}:0,opacity:0,{org("50% 50%")}}},{v0:.3f});',
                 f'tl.to({g},{{{pr}:1,opacity:1,duration:.45,ease:"back.out(2)",immediateRender:false}},{st:.3f});']
     if kind == 'slide':
@@ -368,9 +395,8 @@ def obj_js(kind, g, at, t0, v0, sp, name=''):
     if kind == 'rack':
         return [f'miyaRack(tl,{g},{v0:.3f},{st:.3f},{f("dur", 1.2)},{f("r", 14)},{1 if at.get("data-dir", "in") == "in" else 0});']
     if kind == 'shake':
-        amp = f('amp', 3); dd = f('dur', .25); per = .03
-        return [f'tl.fromTo({g},{{x:{-amp}}},{{x:{amp},duration:{per},ease:"none",yoyo:true,repeat:{max(int(dd / per) - 1, 1)},immediateRender:false}},{st:.3f});',
-                f'tl.set({g},{{x:0}},{st + dd + per:.3f});']
+        amp = f('amp', 3); dd = f('dur', .25)   # 2026-10-29: CustomWiggle (a hit that calms down) instead of a flat yoyo
+        return [f'tl.fromTo({g},{{x:0}},{{x:{amp},duration:{max(dd, .2):.2f},ease:"wiggle({{wiggles:{max(int(dd / .04), 4)},type:{chr(39)}easeOut{chr(39)}}})",immediateRender:false}},{st:.3f});']
     if kind == 'dash':
         sel = f'Array.prototype.slice.call({g}.querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"))'
         return [f'tl.fromTo({sel},{{strokeDashoffset:0}},{{strokeDashoffset:{-f("speed", 40) * sp:.0f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});']
@@ -380,6 +406,7 @@ def obj_js(kind, g, at, t0, v0, sp, name=''):
         return [f'tl.set({g},{{scale:2.4,opacity:0,rotation:{f("rot", -4)},{org("50% 50%")}}},{v0:.3f});',
                 f'tl.to({g},{{scale:1,opacity:1,rotation:0,duration:.28,ease:"power4.in",immediateRender:false}},{st:.3f});']
     if kind == 'rise':
+        if spring: fxlib.LOG['spring'] += 1; return [f'tl.set({g},{{y:{f("from", 60):.0f},opacity:0}},{v0:.3f});', f'miyaSpringTo(tl,{g},{{y:{f("from", 60):.0f},opacity:0}},{{y:0,opacity:1}},{spring[0]},{spring[1]},{st:.3f});']
         return [f'tl.set({g},{{y:{f("from", 60):.0f},opacity:0}},{v0:.3f});',
                 f'tl.to({g},{{y:0,opacity:1,duration:{f("dur", .5)},ease:"power2.out",immediateRender:false}},{st:.3f});']
     # ---- round 4 (2026-10-26, miya: richer object motion). All continuous ones are finite yoyo tweens from v0 (seek-safe). ----
@@ -456,8 +483,8 @@ def obj_js(kind, g, at, t0, v0, sp, name=''):
     if kind == 'neon':     # switches on with a flicker (neon signs, old lamps, screens): opacity 0, 1, .2, 1, .4, 1 over .9 s at data-delay
         return [f'tl.set({g},{{opacity:0}},{v0:.3f});', f'tl.to({g},{{keyframes:[{{opacity:1,duration:.08}},{{opacity:.2,duration:.1}},{{opacity:1,duration:.08}},{{opacity:.4,duration:.14}},{{opacity:1,duration:.1}}],ease:"none",immediateRender:false}},{st:.3f});']
     if kind == 'shiver':   # fine continuous tremble about the CENTRE, ±data-amp 1.5 px at .06 s (cold, fear, strain, an engine idling)
-        amp = f('amp', 1.5); rep = max(int(sp / .06) - 1, 1)
-        return [f'tl.fromTo({g},{{x:{-amp}}},{{x:{amp},duration:.06,ease:"none",yoyo:true,repeat:{rep},immediateRender:false}},{v0:.3f});']
+        amp = f('amp', 1.5)   # 2026-10-29: one CustomWiggle tween (uniform) over the whole stay instead of hundreds of yoyo repeats
+        return [f'tl.fromTo({g},{{x:0}},{{x:{amp},duration:{sp:.3f},ease:"wiggle({{wiggles:{max(int(sp / .12), 4)},type:{chr(39)}uniform{chr(39)}}})",immediateRender:false}},{v0:.3f});']
     if kind == 'beat':     # heart beat for any object about its CENTRE: 1 -> 1.12 -> 1 -> 1.06 -> 1 then rest, every data-per 1.0 s
         per = f('per', 1.0); rep = max(int(math.ceil(sp / per)) - 1, 0)
         return [f'tl.fromTo({g},{{scale:1,{org("50% 50%")}}},{{keyframes:[{{scale:1.12,duration:.12}},{{scale:1,duration:.14}},{{scale:1.06,duration:.1}},{{scale:1,duration:.14}},{{scale:1,duration:{max(per - .5, .1):.2f}}}],ease:"power1.out",repeat:{rep},immediateRender:false}},{v0:.3f});']
@@ -467,10 +494,10 @@ def obj_js(kind, g, at, t0, v0, sp, name=''):
         return [f'tl.set({g},{{rotation:0,{org("50% 100%")}}},{v0:.3f});', f'tl.to({g},{{keyframes:[{kf}],immediateRender:false}},{st:.3f});']
     if kind == 'magnet':   # pulled to a point once with an elastic snap: data-dx / data-dy px, data-dur .9 (magnets, gravity capture, a key to a lock)
         return [f'tl.fromTo({g},{{x:0,y:0}},{{x:{f("dx", -200):.0f},y:{f("dy", 0):.0f},duration:{f("dur", .9)},ease:"elastic.out(1,.6)",immediateRender:false}},{st:.3f});']
-    if kind == 'bouncing': # keeps bouncing on the spot about the FEET: up data-h 60 px and back with a squash on landing, data-per .9 (balls, springs, excited things)
+    if kind == 'bouncing': # keeps bouncing on the spot about the FEET: drops data-h 60 px with a real bounce (CustomBounce, 2026-10-29) and a squash on each landing, every data-per .9 (balls, springs, excited things)
         hgt, per = f('h', 60), f('per', .9); rep = max(int(math.ceil(sp / per)) - 1, 0)
-        return [f'tl.fromTo({g},{{y:0,{org("50% 100%")}}},{{y:{-hgt:.0f},duration:{per / 2:.3f},ease:"power2.out",yoyo:true,repeat:{rep * 2 + 1},immediateRender:false}},{v0:.3f});',
-                f'tl.fromTo({g},{{scaleY:1,scaleX:1,{org("50% 100%")}}},{{keyframes:[{{scaleY:.86,scaleX:1.1,duration:.08}},{{scaleY:1,scaleX:1,duration:.12}},{{scaleY:1,duration:{per - .2:.2f}}}],repeat:{rep},immediateRender:false}},{v0 + per - .04:.3f});']
+        return [f'tl.fromTo({g},{{y:{-hgt:.0f},{org("50% 100%")}}},{{y:0,duration:{per:.3f},ease:"miyaBnc",repeat:{rep},immediateRender:false}},{v0:.3f});',
+                f'tl.fromTo({g},{{scaleX:1,scaleY:1,{org("50% 100%")}}},{{scaleX:1.25,scaleY:.75,duration:{per:.3f},ease:"miyaBnc-squash",repeat:{rep},immediateRender:false}},{v0:.3f});']
     if kind == 'creep':    # very slow sideways travel over the whole picture, data-dist 60 px (glaciers, continents, shadows, the hour hand of time)
         return [f'tl.fromTo({g},{{x:0}},{{x:{f("dist", 60):.0f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});']
     if kind == 'sink':     # slow descent data-dist (160) with a gentle sway about the CENTRE and a fade to data-to (.35): sinking, settling dust, a sunset
@@ -501,7 +528,7 @@ def obj_js(kind, g, at, t0, v0, sp, name=''):
     raise ValueError(kind)
 
 
-SETTLE_KINDS = ('path', 'slide', 'slam', 'popin', 'rise', 'topple', 'flip', 'rollby', 'unfold', 'unroll', 'magnet')
+SETTLE_KINDS = ('path', 'slide', 'slam', 'popin', 'rise', 'topple', 'flip', 'rollby', 'unfold', 'unroll', 'magnet', 'draw', 'morph', 'toss', 'skid', 'coast', 'regroup')
 
 
 def settle_js(kind, g, at, t0, v0, sp):
@@ -518,6 +545,12 @@ def settle_js(kind, g, at, t0, v0, sp):
     elif kind == 'rollby': st, du = t0 + f('delay', 0.3), f('dur', 3)
     elif kind in ('unfold', 'unroll'): st, du = t0 + f('delay', 0.3), f('dur', .8)
     elif kind == 'magnet': st, du = t0 + f('delay', 0.3), f('dur', .9) + .6
+    elif kind == 'draw': st, du = t0 + f('delay', 0.3), f('dur', 1.4) + .6
+    elif kind == 'morph': st, du = t0 + f('delay', 0.3), f('dur', 1.0) * (2 if at.get('data-back') == '1' else 1) + (.6 if at.get('data-back') == '1' else 0)
+    elif kind == 'toss': st, du = t0 + f('delay', 0.3), f('dur', 1.6)
+    elif kind == 'skid': st, du = t0 + f('delay', 0.3), 1.6
+    elif kind == 'coast': st, du = t0 + f('delay', 0.3), f('dur', 3)
+    elif kind == 'regroup': st, du = t0 + f('delay', 0.3), f('dur', 1.2) + .4
     else: st, du = t0 + f('delay', 0.3), f('dur', 1.0)
     end = st + du + .15; left = (v0 + sp - .2) - end
     if left < 2.5: return []
@@ -591,12 +624,15 @@ PARTICLES = {
 }
 PARTICLES.pop('bones')
 # overlay kinds: one-off or ambient full-frame effects (no particles)
-OVERLAYS = ['rain', 'flash', 'bolt', 'fog', 'heat', 'rays', 'searchlight', 'vignette', 'pulsevig', 'tint', 'clouds', 'windlines', 'smoke', 'steam',
+OVERLAYS = ['burst', 'gridripple',   # 2026-10-29: Physics2D burst, anime.js grid ripple (guideline 4-6)
+            'rain', 'flash', 'bolt', 'fog', 'heat', 'rays', 'searchlight', 'vignette', 'pulsevig', 'tint', 'clouds', 'windlines', 'smoke', 'steam',
             'shockwave', 'letterbox', 'scanlines', 'glitch', 'lightleak', 'flare', 'aurora', 'ripples', 'waves', 'rainbow', 'spotlight', 'frost', 'starburst']
 FX_KINDS = list(PARTICLES) + OVERLAYS
 
 # word rules in priority order (first match wins). A rule may be limited to a bg mode ('night'/'paper') or min duration.
 FX_WORDS = [
+    ('burst', r'\b(confetti|fireworks?|shatter\w*|scatter\w*|splash\w*|spray\w*|debris|shrapnel|erupt\w*|burst\w*|explo(d|s)\w*|detonat\w*|sneez\w*|spew\w*|eject\w*|pop(s|ped|ping)? (open|out)|blow\w* (up|apart))\b', None),
+    ('gridripple', r'\b(spread\w* (out|across|through|from)|chain reaction\w*|domino\w*|contagio\w*|epidemic\w*|pandemic\w*|outbreak\w*|broadcast\w*|echo\w*|propagat\w*|cascad\w*|went viral|rippl\w* (out|across|through)|shock ?waves? spread|wave of)\b', None),
     ('flash', r'\b(lightning|explo(d|s)\w*|flash\w*|boom|blast\w*|burst\w*|supernova\w*|big bang|detonat\w*|erupt\w*)\b', None),
     ('bolt', r'\b(thunder\w*|lightning)\b', None),
     ('shockwave', r'\b(earthquake\w*|impact\w*|shock\s?wave\w*|collid\w*|collision\w*|crash\w*|slam\w*|tremor\w*)\b', None),
@@ -668,7 +704,7 @@ NIGHT_ONLY = {'twinkle', 'fireflies', 'bats', 'meteors', 'aurora', 'lanterns', '
 FLASHW = FX_WORDS[0][1]
 
 
-HEAVY_FX = {'vignette', 'pulsevig', 'tint', 'spotlight', 'letterbox', 'scanlines', 'flash', 'glitch', 'shockwave', 'bolt', 'starburst', 'frost'}
+HEAVY_FX = {'burst', 'vignette', 'pulsevig', 'tint', 'spotlight', 'letterbox', 'scanlines', 'flash', 'glitch', 'shockwave', 'bolt', 'starburst', 'frost'}
 
 
 FX_PIC = [   # picture evidence (tools/picev.py tags) -> background effect, in priority order; used when no word rule matched (miya 2026-10-27)
@@ -765,6 +801,17 @@ def fx_markup(nn, kind, W, H, bgmode='night', wind=1, travel=0):
             r = (P['size'][0] + (i * 7 % 10) / 10 * P['size'][1]) * 2.2   # sizes are for a 1920 x 1080 frame
             shp = f"streak:{P['dx'] * ds * 1920:.0f}:{P['dy'] * 1080:.0f}" if P['shape'] == 'streak' else P['shape']   # streak tails trail behind the travel (2026-10-27)
             g.append(_shape(shp, x, y, r, col, P['op'], f'{I}p{i}', flipx=ds if kind in CREATURE_ROWS else 1))
+    elif kind == 'burst':   # 2026-10-29: 72 pieces at the frame centre, thrown by Physics2DPlugin at the word (velocity / angle / gravity by golden-ratio sequences, never random)
+        cols = ['#ff5c7a', '#ffd166', '#5fbfa0', '#6f8fe8', '#b58fe0'] if bgmode != 'night' else ['#ffd166', '#ffffff', '#8fc3e8', '#ff9a8c', '#c9b3ff']
+        for i in range(72):
+            r = 5 + (i * 7 % 9); sh = f'<circle id="{I}p{i}" r="{r * .5:.1f}" fill="{cols[i % 5]}"/>' if i % 3 else f'<rect id="{I}p{i}" x="{-r:.0f}" y="{-r * .35:.0f}" width="{r * 2:.0f}" height="{r * .7:.0f}" rx="2" fill="{cols[i % 5]}"/>'
+            g.append(f'<g transform="translate({W / 2:.0f} {H * .5:.0f})">{sh}</g>')
+        g.append(f'<circle id="{I}a" cx="{W / 2:.0f}" cy="{H * .5:.0f}" r="30" fill="none" stroke="#fff" stroke-width="8" opacity="0"/>')
+    elif kind == 'gridripple':   # 2026-10-29: a grid of dots; anime.stagger({grid, from}) ripples them from the centre, then across
+        cols, rows = (19, 9) if W > H else (9, 15); ci2 = '#ffffff' if bgmode == 'night' else '#2b2a4a'
+        for r_ in range(rows):
+            for c_ in range(cols):
+                g.append(f'<circle class="gr" cx="{W * (c_ + .5) / cols:.0f}" cy="{H * (r_ + .5) / rows:.0f}" r="5" fill="{ci2}" opacity=".18"/>')
     elif kind == 'rain':
         for i in range(26):
             x = W * (((i * .618) % 1)); y = H * (((i * .382) % 1)); L = 26 + (i * 5) % 18
@@ -846,7 +893,7 @@ def fx_markup(nn, kind, W, H, bgmode='night', wind=1, travel=0):
 def fx_js(nn, kind, v0, t1, H, flash_t=None, W=1920, wind=1, travel=0):
     """tweens for one overlay; all finite, absolute times, seek-safe. One-shot kinds (flash, bolt, shockwave, glitch, starburst, letterbox)
     land at flash_t (the trigger word) or 1 s in; ambient kinds run from the cut to the end."""
-    sp = t1 - v0; I = f'fx{nn}'; Q = f'"#{I}"'; one = kind in ('flash', 'bolt', 'shockwave', 'glitch', 'starburst', 'letterbox'); ds = dir_sign(kind, wind, travel)
+    sp = t1 - v0; I = f'fx{nn}'; Q = f'"#{I}"'; one = kind in ('flash', 'bolt', 'shockwave', 'glitch', 'starburst', 'letterbox', 'burst'); ds = dir_sign(kind, wind, travel)
     js = [] if one else [f'tl.fromTo({Q},{{opacity:0}},{{opacity:1,duration:.6,immediateRender:false}},{v0 + .2:.3f});tl.to({Q},{{opacity:0,duration:.4}},{t1 - .45:.3f});']
     if one: js.append(f'tl.set({Q},{{opacity:1}},{v0:.3f});')
     ft = max(flash_t if flash_t is not None else v0 + 1.0, v0 + .4)
@@ -920,6 +967,20 @@ def fx_js(nn, kind, v0, t1, H, flash_t=None, W=1920, wind=1, travel=0):
     elif kind == 'shockwave':   # one ring expands from the centre at the word (AXIS: frame centre)
         js.append(f'tl.fromTo("#{I}a",{{scale:.2,opacity:.8,svgOrigin:"{W * .5:.0f} {H * .5:.0f}"}},{{scale:{W / 60:.1f},opacity:0,duration:.9,ease:"power2.out",immediateRender:false}},{ft:.3f});')
         js.append(f'tl.fromTo("#t{nn}",{{x:0}},{{x:8,duration:.05,yoyo:true,repeat:7,immediateRender:false}},{ft:.3f});')
+    elif kind == 'burst':   # pieces fly out with gravity (Physics2DPlugin) at the word; a quick ring marks the moment
+        js.append(f'tl.fromTo("#{I}a",{{scale:.3,opacity:.9,svgOrigin:"{W * .5:.0f} {H * .5:.0f}"}},{{scale:9,opacity:0,duration:.7,ease:"power2.out",immediateRender:false}},{ft:.3f});')
+        for i in range(72):
+            v = 380 + ((i * .618) % 1) * 820; ang = -150 + ((i * .382) % 1) * 120; rot = ((i * 137) % 720) - 360
+            dl = ((i * .236) % 1) * .28   # staggered launch: a cloud, not one ring
+            js.append(f'tl.set("#{I}p{i}",{{opacity:0}},{v0:.3f});tl.fromTo("#{I}p{i}",{{x:0,y:0,rotation:0,opacity:1}},{{duration:2.6,physics2D:{{velocity:{v:.0f},angle:{ang:.0f},gravity:1500,friction:.03}},rotation:{rot},ease:"none",immediateRender:false}},{ft + dl:.3f});'
+                      f'tl.to("#{I}p{i}",{{opacity:0,duration:.9,ease:"power1.in",immediateRender:false}},{ft + dl + 1.7:.3f});')   # pieces stay bright while they fly, fade as they fall out
+    elif kind == 'gridripple':   # anime.js timeline (grid stagger from the centre, then a sweep from the left), seeked by the GSAP timeline
+        cols, rows = (19, 9) if W > H else (9, 15); hi = '#ffd166'
+        waves = []; t = .3
+        while t + 1.6 < sp - .4:
+            frm = "'center'" if len(waves) % 2 == 0 else "'first',axis:'x'"
+            waves.append(f"a.add(els,{{r:[5,16,5],opacity:[.18,.9,.18],fill:[c0,'{hi}',c0],ease:'inOutQuad',duration:900,delay:anime.stagger({45 if len(waves) % 2 == 0 else 28},{{grid:[{cols},{rows}],from:{frm}}})}},{t * 1000:.0f});"); t += 3.1
+        js.append(f'(function(){{var els=gsap.utils.toArray("#{I} .gr");if(!els.length)return;var c0=els[0].getAttribute("fill");var a=anime.createTimeline({{autoplay:false}});{"".join(waves)}miyaAnime(tl,a,{v0:.3f},{sp:.3f});}})();')
     elif kind == 'letterbox':   # black bars slide in from top and bottom over 0.6 s and stay
         js.append(f'tl.fromTo("#{I}a",{{y:0}},{{y:{H * .11:.0f},duration:.6,ease:"power2.out",immediateRender:false}},{v0 + .2:.3f});tl.fromTo("#{I}b",{{y:0}},{{y:{-H * .11:.0f},duration:.6,ease:"power2.out",immediateRender:false}},{v0 + .2:.3f});')
     elif kind == 'scanlines':   # a faint line pattern that rolls down slowly
@@ -1056,7 +1117,7 @@ function miyaPv(g,x,y){var m=miyaM(g);if(!m)return x+' '+y;var cx=m.a*x+m.c*y+m.
  if(b&&b.width+b.height>0){function dd(u,v){return Math.hypot(Math.max(b.x-u,0,u-b.x-b.width),Math.max(b.y-v,0,v-b.y-b.height));}if(dd(x,y)+4<dd(cx,cy))return x+' '+y;}
  return cx+' '+cy;}
 // object follows an SVG path, turning with it (paper plane, rocket)
-function miyaPath(tl,g,d,t0,dur,rot,rot0){
+function miyaPath(tl,g,d,t0,dur,rot,rot0,ez){
  var t=g.closest('.t'),pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';
  var NS='http://www.w3.org/2000/svg',svg=g.ownerSVGElement,p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('visibility','hidden');svg.appendChild(p);
  var L=p.getTotalLength(),P0=p.getPointAtLength(0),o={k:0};
@@ -1064,7 +1125,7 @@ function miyaPath(tl,g,d,t0,dur,rot,rot0){
  var a0=ang(0);t.style.display=pd;t.style.visibility=pv;
  var M=miyaM(g),O=miyaPv(g,P0.x,P0.y);if(O==P0.x+' '+P0.y)M=null;gsap.set(g,{svgOrigin:O});   // origin set once: re-setting it every frame made turning objects drift
  function ap(k){var q=p.getPointAtLength(L*k),dx=q.x-P0.x,dy=q.y-P0.y;if(M){var ex=M.a*dx+M.c*dy,ey=M.b*dx+M.d*dy;dx=ex;dy=ey;}gsap.set(g,{x:dx,y:dy,rotation:rot?ang(k)-a0+(rot0||0):0});}
- tl.to(o,{k:1,duration:dur,ease:miyaCruise,immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
+ tl.to(o,{k:1,duration:dur,ease:ez||miyaCruise,immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
 }
 // camera tracking: the camera centre follows an SVG path (same window and ease as the object), zooming in at the start and out at the end
 function miyaTrack(tl,wsel,d,t0,dur,sc,W,H,ease,WW,WH){
@@ -1085,4 +1146,4 @@ function miyaDraw(tl,g,v0,st,dur){
  tl.set(els,{strokeDasharray:function(i,e){return e.__len;},strokeDashoffset:function(i,e){return e.__len;}},v0);
  tl.to(els,{strokeDashoffset:0,duration:dur,ease:'power1.inOut',stagger:.05,immediateRender:false},st);
 }
-"""
+""" + fxlib.LIB_JS

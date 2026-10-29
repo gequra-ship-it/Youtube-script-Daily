@@ -32,7 +32,7 @@
 | 속도·로켓·발사·상승 | `wind`(느린 사인 기울임 한 번, 바람 줄 없음) / 탈것이면 날개 옆 `cling` | squint | Whooosh! / Zoooom! |
 | 인물이 탈것으로 날아감 | 발판 개구리 `fly`(슈퍼맨 자세, 인물은 그대로, 손으로 쓴 사이드카 `lock`) | excited | |
 | 파도·바다 | `waves` | surprised | Whoa-oa! / Splash! |
-| 외로움·공포·추위 | `shiver`(떨기, 기울임 없음) | scared | Brrrr... / Eek... |
+| 외로움·공포·추위 | `shiver`(떨기, 기울임 없음; 2026-10-29부터 CustomWiggle uniform 이징 한 트윈) | scared | Brrrr... / Eek... |
 | 거대한 것 | `awe`(올려다보며 뒤로 젖힘) | surprised | Woooow! / So big! |
 | 느린 시간·기다림 | `sleepy` | sleepy | Zzz... |
 | 더위·열 | `{"type":"dizzy"}`(소용돌이 눈·붉은 뺨·땀) | dizzy | So dizzy... |
@@ -84,3 +84,4 @@
 개정: 2026-10-27 (miya) 말풍선 '연달아 금지'·문장 표정 강제 변경 제거: 상황이 이어지면 같은 말·표정 유지(`frog_place.pick_word`).
 개정: 2026-10-27 (miya, 인간 영상 상어 장면) 잠수 장비는 그림(탑승 생물·물 그룹·팔레트)으로도 판정, 단어 의상보다 우선(`frog_place.underwater`).
 개정: 2026-10-27 (miya, "대본 규칙이랑 그림 규칙을 다른 것들에도 모두") 의상·동작을 단어 + 그림 증거로: `in_space`·`PIC_OUTFIT`·`has_group`·그림 증거 동작 5종(`frog_place.py`).
+개정: 2026-10-29 (miya, 오픈소스 통합) 개구리 `shiver`를 CustomWiggle 이징 한 트윈으로(0.05초 yoyo 수백 개 → 트윈 1개, 같은 보임새), 4-6.
