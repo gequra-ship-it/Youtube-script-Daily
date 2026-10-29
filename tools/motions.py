@@ -624,15 +624,14 @@ PARTICLES = {
 }
 PARTICLES.pop('bones')
 # overlay kinds: one-off or ambient full-frame effects (no particles)
-OVERLAYS = ['burst', 'gridripple',   # 2026-10-29: Physics2D burst, anime.js grid ripple (guideline 4-6)
-            'rain', 'flash', 'bolt', 'fog', 'heat', 'rays', 'searchlight', 'vignette', 'pulsevig', 'tint', 'clouds', 'windlines', 'smoke', 'steam',
+OVERLAYS = ['burst',   # 2026-10-29: Physics2D burst (guideline 4-6)
+            'rain', 'flash', 'bolt', 'fog', 'heat', 'rays', 'searchlight', 'vignette', 'tint', 'clouds', 'windlines', 'smoke', 'steam',
             'shockwave', 'letterbox', 'scanlines', 'glitch', 'lightleak', 'flare', 'aurora', 'ripples', 'waves', 'rainbow', 'spotlight', 'frost', 'starburst']
 FX_KINDS = list(PARTICLES) + OVERLAYS
 
 # word rules in priority order (first match wins). A rule may be limited to a bg mode ('night'/'paper') or min duration.
 FX_WORDS = [
     ('burst', r'\b(confetti|fireworks?|shatter\w*|scatter\w*|splash\w*|spray\w*|debris|shrapnel|erupt\w*|burst\w*|explo(d|s)\w*|detonat\w*|sneez\w*|spew\w*|eject\w*|pop(s|ped|ping)? (open|out)|blow\w* (up|apart))\b', None),
-    ('gridripple', r'\b(spread\w* (out|across|through|from)|chain reaction\w*|domino\w*|contagio\w*|epidemic\w*|pandemic\w*|outbreak\w*|broadcast\w*|echo\w*|propagat\w*|cascad\w*|went viral|rippl\w* (out|across|through)|shock ?waves? spread|wave of)\b', None),
     ('flash', r'\b(lightning|explo(d|s)\w*|flash\w*|boom|blast\w*|burst\w*|supernova\w*|big bang|detonat\w*|erupt\w*)\b', None),
     ('bolt', r'\b(thunder\w*|lightning)\b', None),
     ('shockwave', r'\b(earthquake\w*|impact\w*|shock\s?wave\w*|collid\w*|collision\w*|crash\w*|slam\w*|tremor\w*)\b', None),
@@ -684,7 +683,6 @@ FX_WORDS = [
     ('scanlines', r'\b(television|\btv\b|broadcast\w*|footage|camera\w*|recording\w*|screen\w*|monitor\w*)\b', None),
     ('letterbox', r'\b(cinema\w*|movie\w*|film\w*|hollywood|director\w*)\b', None),
     ('lightleak', r'\b(dream\w*|memor\w*|nostalg\w*|childhood|remember\w*|long ago)\b', None),
-    ('pulsevig', r'\b(terror\w*|horror\w*|panic\w*|dread\w*|nightmare\w*|heartbeat\w*|danger\w*|deadly|lethal)\b', None),
     ('vignette', r'\b(death\w*|died|dying|dead|grave\w*|funeral\w*|mourn\w*|extinct\w*|doom\w*|tragic\w*|tragedy)\b', None),
     ('starburst', r'\b(discover\w*|eureka|breakthrough\w*|invent\w*|genius|brilliant)\b', None),
     ('spotlight', r'\b(famous|celebrity|on stage|theat(re|er)|performance\w*|audience\w*|spotlight\w*)\b', None),
@@ -704,7 +702,7 @@ NIGHT_ONLY = {'twinkle', 'fireflies', 'bats', 'meteors', 'aurora', 'lanterns', '
 FLASHW = FX_WORDS[0][1]
 
 
-HEAVY_FX = {'burst', 'vignette', 'pulsevig', 'tint', 'spotlight', 'letterbox', 'scanlines', 'flash', 'glitch', 'shockwave', 'bolt', 'starburst', 'frost'}
+HEAVY_FX = {'burst', 'vignette', 'tint', 'spotlight', 'letterbox', 'scanlines', 'flash', 'glitch', 'shockwave', 'bolt', 'starburst', 'frost'}
 
 
 FX_PIC = [   # picture evidence (tools/picev.py tags) -> background effect, in priority order; used when no word rule matched (miya 2026-10-27)
@@ -807,16 +805,11 @@ def fx_markup(nn, kind, W, H, bgmode='night', wind=1, travel=0):
             r = 5 + (i * 7 % 9); sh = f'<circle id="{I}p{i}" r="{r * .5:.1f}" fill="{cols[i % 5]}"/>' if i % 3 else f'<rect id="{I}p{i}" x="{-r:.0f}" y="{-r * .35:.0f}" width="{r * 2:.0f}" height="{r * .7:.0f}" rx="2" fill="{cols[i % 5]}"/>'
             g.append(f'<g transform="translate({W / 2:.0f} {H * .5:.0f})">{sh}</g>')
         g.append(f'<circle id="{I}a" cx="{W / 2:.0f}" cy="{H * .5:.0f}" r="30" fill="none" stroke="#fff" stroke-width="8" opacity="0"/>')
-    elif kind == 'gridripple':   # 2026-10-29: a grid of dots; anime.stagger({grid, from}) ripples them from the centre, then across
-        cols, rows = (19, 9) if W > H else (9, 15); ci2 = '#ffffff' if bgmode == 'night' else '#2b2a4a'
-        for r_ in range(rows):
-            for c_ in range(cols):
-                g.append(f'<circle class="gr" cx="{W * (c_ + .5) / cols:.0f}" cy="{H * (r_ + .5) / rows:.0f}" r="5" fill="{ci2}" opacity=".18"/>')
     elif kind == 'rain':
         for i in range(26):
             x = W * (((i * .618) % 1)); y = H * (((i * .382) % 1)); L = 26 + (i * 5) % 18
             g.append(f'<line id="{I}p{i}" x1="{x:.0f}" y1="{y:.0f}" x2="{x + ds * L * .35:.0f}" y2="{y + L:.0f}" stroke="{"#cfe6ff" if ci else "#7fa6c9"}" stroke-width="2.2" stroke-linecap="round" opacity=".55"/>')   # slants with the wind
-    elif kind in ('flash', 'tint', 'pulsevig', 'vignette', 'frost'):
+    elif kind in ('flash', 'tint', 'vignette', 'frost'):
         if kind == 'flash': g.append(f'<rect id="{I}a" x="0" y="0" width="{W}" height="{H}" fill="#fff" opacity="0"/>')
         elif kind == 'tint': g.append(f'<rect id="{I}a" x="0" y="0" width="{W}" height="{H}" fill="#b0102a" opacity="0"/>')
         else:
@@ -935,11 +928,9 @@ def fx_js(nn, kind, v0, t1, H, flash_t=None, W=1920, wind=1, travel=0):
         for d in (0, .22):
             js.append(f'tl.fromTo("#{I}a",{{opacity:0}},{{opacity:1,duration:.04,immediateRender:false}},{ft + d:.3f});tl.to("#{I}a",{{opacity:0,duration:.12}},{ft + d + .08:.3f});')
         js.append(f'tl.fromTo("#{I}b",{{opacity:0}},{{opacity:.45,duration:.05,immediateRender:false}},{ft:.3f});tl.to("#{I}b",{{opacity:0,duration:.5}},{ft + .1:.3f});')
-    elif kind in ('tint', 'vignette', 'pulsevig', 'frost'):
-        top = {'tint': .22, 'vignette': .7, 'pulsevig': .7, 'frost': .8}[kind]
+    elif kind in ('tint', 'vignette', 'frost'):
+        top = {'tint': .22, 'vignette': .7, 'frost': .8}[kind]
         js.append(f'tl.fromTo("#{I}a",{{opacity:0}},{{opacity:{top},duration:1.2,ease:"sine.out",immediateRender:false}},{v0 + .3:.3f});')
-        if kind == 'pulsevig':   # heartbeat: the edge darkens in a 1 s pulse
-            js.append(f'tl.fromTo("#{I}a",{{scale:1,transformOrigin:"50% 50%"}},{{scale:.93,duration:.5,ease:"sine.inOut",yoyo:true,repeat:{R(1)},immediateRender:false}},{v0 + 1.5:.3f});')
     elif kind in ('fog', 'clouds'):   # drift sideways slowly (fog also breathes)
         for i in range(7):
             js.append(f'tl.fromTo("#{I}p{i}",{{x:{-ds * W * .2:.0f}}},{{x:{ds * W * .2:.0f},duration:{sp + .5:.2f},ease:"none",immediateRender:false}},{v0:.3f});')   # fog and clouds drift with the wind
@@ -974,13 +965,6 @@ def fx_js(nn, kind, v0, t1, H, flash_t=None, W=1920, wind=1, travel=0):
             dl = ((i * .236) % 1) * .28   # staggered launch: a cloud, not one ring
             js.append(f'tl.set("#{I}p{i}",{{opacity:0}},{v0:.3f});tl.fromTo("#{I}p{i}",{{x:0,y:0,rotation:0,opacity:1}},{{duration:2.6,physics2D:{{velocity:{v:.0f},angle:{ang:.0f},gravity:1500,friction:.03}},rotation:{rot},ease:"none",immediateRender:false}},{ft + dl:.3f});'
                       f'tl.to("#{I}p{i}",{{opacity:0,duration:.9,ease:"power1.in",immediateRender:false}},{ft + dl + 1.7:.3f});')   # pieces stay bright while they fly, fade as they fall out
-    elif kind == 'gridripple':   # anime.js timeline (grid stagger from the centre, then a sweep from the left), seeked by the GSAP timeline
-        cols, rows = (19, 9) if W > H else (9, 15); hi = '#ffd166'
-        waves = []; t = .3
-        while t + 1.6 < sp - .4:
-            frm = "'center'" if len(waves) % 2 == 0 else "'first',axis:'x'"
-            waves.append(f"a.add(els,{{r:[5,16,5],opacity:[.18,.9,.18],fill:[c0,'{hi}',c0],ease:'inOutQuad',duration:900,delay:anime.stagger({45 if len(waves) % 2 == 0 else 28},{{grid:[{cols},{rows}],from:{frm}}})}},{t * 1000:.0f});"); t += 3.1
-        js.append(f'(function(){{var els=gsap.utils.toArray("#{I} .gr");if(!els.length)return;var c0=els[0].getAttribute("fill");var a=anime.createTimeline({{autoplay:false}});{"".join(waves)}miyaAnime(tl,a,{v0:.3f},{sp:.3f});}})();')
     elif kind == 'letterbox':   # black bars slide in from top and bottom over 0.6 s and stay
         js.append(f'tl.fromTo("#{I}a",{{y:0}},{{y:{H * .11:.0f},duration:.6,ease:"power2.out",immediateRender:false}},{v0 + .2:.3f});tl.fromTo("#{I}b",{{y:0}},{{y:{-H * .11:.0f},duration:.6,ease:"power2.out",immediateRender:false}},{v0 + .2:.3f});')
     elif kind == 'scanlines':   # a faint line pattern that rolls down slowly
