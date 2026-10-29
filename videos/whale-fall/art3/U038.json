@@ -25,23 +25,31 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "happy"
    }
   ],
-  "act": "awe",
+  "act": {
+   "type": "dodge",
+   "obj": "mv-slide-right",
+   "h": 186,
+   "pass": 0.986
+  },
   "outfit": [
    "diver"
   ],
-  "ride": "mv-slide-left",
-  "kind": "ride",
-  "x": 714,
-  "y": 607,
-  "s": 1.25,
+  "ride": null,
+  "kind": "bg",
+  "x": 1610,
+  "y": 777,
+  "s": 0.95,
   "flip": 1,
   "bside": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "says": [
    {
-    "text": "So big!",
+    "text": "Whoa!",
     "shout": true
    }
   ]

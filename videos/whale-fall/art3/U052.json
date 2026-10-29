@@ -24,19 +24,24 @@
     "mood": "happy"
    }
   ],
-  "act": "eat",
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
   "outfit": [
    "goggles"
   ],
   "x": 1660,
   "y": 890,
-  "s": 0.76,
+  "s": 0.8,
   "flip": -1,
   "kind": "bg",
+  "ride": null,
+  "behind": null,
   "says": [
    {
-    "text": "Munch munch.",
-    "shout": false
+    "text": "Blub blub!",
+    "shout": true
    }
   ],
   "bside": -1

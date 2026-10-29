@@ -29,7 +29,7 @@
  "frog": {
   "moods": [
    {
-    "mood": "sad"
+    "mood": "happy"
    },
    {
     "word": "Eventually the",
@@ -40,21 +40,26 @@
     "mood": "happy"
    }
   ],
-  "act": "cry",
+  "act": {
+   "type": "swimstroke",
+   "dist": 324
+  },
   "outfit": [
    "diver"
   ],
-  "x": 820,
+  "x": 260,
   "y": 1560,
-  "s": 1.0,
-  "flip": -1,
+  "s": 1.05,
+  "flip": 1,
   "kind": "bg",
+  "ride": null,
+  "behind": null,
   "says": [
    {
-    "text": "Bones!",
-    "shout": false
+    "text": "Blub blub!",
+    "shout": true
    }
   ],
-  "bside": -1
+  "bside": 1
  }
 }

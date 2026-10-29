@@ -16,22 +16,26 @@
     "mood": "happy"
    }
   ],
-  "act": "wave",
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
   "outfit": [
    "diver"
   ],
-  "x": 1678,
-  "y": 720,
-  "s": 0.95,
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
   "flip": 1,
   "kind": "bg",
   "ride": null,
   "bside": -1,
   "gaze": 1,
+  "behind": null,
   "says": [
    {
-    "text": "Let me see...",
-    "shout": false
+    "text": "Blub blub!",
+    "shout": true
    }
   ]
  }

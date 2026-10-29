@@ -33,25 +33,24 @@
     "mood": "happy"
    }
   ],
-  "act": null,
+  "act": {
+   "type": "swimstroke",
+   "dist": 302
+  },
   "outfit": [
    "diver"
   ],
-  "x": 260,
-  "y": 960,
-  "s": 1.1,
-  "flip": 1,
+  "x": 820,
+  "y": 560,
+  "s": 0.99,
+  "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "lie",
-   "dist": 302
-  },
   "says": [
    {
     "text": "Blub blub!",
-    "shout": false
+    "shout": true
    }
   ],
-  "bside": 1
+  "bside": -1
  }
 }
