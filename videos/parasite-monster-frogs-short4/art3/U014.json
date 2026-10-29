@@ -1,0 +1,49 @@
+{
+ "centre": "soft cutaway of a distorted frog leg with glowing amber cysts",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "encysted",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "distorted legs",
+   "x": 300,
+   "y": 1080,
+   "to": [
+    430,
+    990
+   ],
+   "word": "distorted legs"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "But for",
+    "mood": "curious"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-cysts",
+  "kind": "ride",
+  "x": 748,
+  "y": 994,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

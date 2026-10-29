@@ -1,0 +1,40 @@
+{
+ "centre": "a clipboard food chain from ramshorn snail to frog to heron with the parasite climbing it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "trophic transmission",
+   "x": 540,
+   "y": 470,
+   "word": "trophic transmission"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "breathe",
+  "ride": "mv-path-climb-parasite",
+  "kind": "ride",
+  "x": 494,
+  "y": 1280,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

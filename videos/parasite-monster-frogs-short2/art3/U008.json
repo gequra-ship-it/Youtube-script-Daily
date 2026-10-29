@@ -1,0 +1,52 @@
+{
+ "centre": "a magnifying lens over the hip of a deformed frog, showing a cluster of amber cysts",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "clusters of tiny cysts",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "cysts",
+   "x": 700,
+   "y": 730,
+   "to": [
+    590,
+    830
+   ],
+   "word": "tiny cysts"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Around the",
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-core-approach-lens",
+  "kind": "ride",
+  "x": 804,
+  "y": 1110,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ]
+ }
+}

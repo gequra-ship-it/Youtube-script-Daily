@@ -1,0 +1,46 @@
+{
+ "centre": "exhausted crippled frog flailing its tangled legs, only a tiny drag mark behind it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Huff... puff...",
+   "x": 1460,
+   "y": 330,
+   "to": [
+    1185,
+    620
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-sweat-drop",
+   "serious": true
+  },
+  "x": 1060,
+  "y": 556,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

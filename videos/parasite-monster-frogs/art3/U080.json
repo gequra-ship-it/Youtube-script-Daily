@@ -1,0 +1,45 @@
+{
+ "centre": "tiny cercaria under the water surface, magnified, while a heron flies far above out of reach",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Wait up!",
+   "x": 1400,
+   "y": 600,
+   "to": [
+    1110,
+    625
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "x": 1660,
+  "y": 890,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "outfit": [
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Zoooom!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "centre": "a round amber parasite cyst waiting on a stone bridge between the tadpole pond and a heron",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "bridge",
+   "x": 960,
+   "y": 790,
+   "to": [
+    960,
+    660
+   ],
+   "word": "bridge"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-core-approach-parasite-cyst",
+  "kind": "ride",
+  "x": 1106,
+  "y": 608,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "centre": "glowing nutrient droplet riding a runoff stream",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "rain",
+   "word": "heavy rain",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Wetland",
+   "x": 880,
+   "y": 1190,
+   "to": [
+    800,
+    1330
+   ],
+   "word": "wetlands"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "ride": "mv-core-glide-nutrient-drop",
+  "kind": "ride",
+  "x": 644,
+  "y": 945,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "umbrella"
+  ],
+  "says": [
+   {
+    "text": "So strong!",
+    "shout": false
+   }
+  ]
+ }
+}

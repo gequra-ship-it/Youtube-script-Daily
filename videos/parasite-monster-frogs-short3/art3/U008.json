@@ -1,0 +1,47 @@
+{
+ "centre": "a fork-tailed cercaria swimming across a lit microscope field, a calendar filling in",
+ "focus": [
+  540,
+  870,
+  1.6
+ ],
+ "focus_word": "cercariae",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "cercariae",
+   "x": 520,
+   "y": 1060,
+   "to": [
+    600,
+    900
+   ],
+   "word": "cercariae"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "breathe",
+  "x": 260,
+  "y": 1560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

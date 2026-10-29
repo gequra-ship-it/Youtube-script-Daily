@@ -1,0 +1,40 @@
+{
+ "centre": "antique brass pocket watch lying in old sediment layers, a Ribeiroia flatworm resting beside it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Been here ages!",
+   "x": 1540,
+   "y": 400,
+   "to": [
+    1500,
+    545
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "sway",
+  "ride": "mv-core-approach-watch",
+  "kind": "ride",
+  "x": 1120,
+  "y": 622,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hum hum...",
+    "shout": false
+   }
+  ]
+ }
+}

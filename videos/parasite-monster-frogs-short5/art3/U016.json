@@ -1,0 +1,53 @@
+{
+ "centre": "leaking hazard barrel under a spotlight",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "a toxic spill",
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "spill",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Not me!",
+   "x": 740,
+   "y": 720,
+   "to": [
+    600,
+    860
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "angry"
+   },
+   {
+    "word": "People look",
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-swing-spotlight",
+  "kind": "ride",
+  "x": 648,
+  "y": 791,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

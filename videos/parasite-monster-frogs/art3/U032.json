@@ -1,0 +1,48 @@
+{
+ "centre": "notebook diagram of three ponds: two with ramshorn snails and many-legged frogs, one without snails and with a healthy frog",
+ "focus": [
+  960,
+  600,
+  1.6
+ ],
+ "focus_word": "a certain kind of snail",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who, me?",
+   "x": 780,
+   "y": 420,
+   "to": [
+    1040,
+    640
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Deformed amphibians",
+    "mood": "curious"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-wobble-snail",
+  "kind": "ride",
+  "x": 1112,
+  "y": 694,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

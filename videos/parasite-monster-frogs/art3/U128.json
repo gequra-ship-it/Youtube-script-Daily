@@ -1,0 +1,43 @@
+{
+ "centre": "tadpole with softly glowing limb buds, chased by a swarm of glassy forked-tail cercariae under the pond surface",
+ "focus": [
+  900,
+  540,
+  1.5
+ ],
+ "focus_word": "hidden battlefield",
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "Beneath the surface",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 1102,
+  "y": 652,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-swim-cercariae",
+  "outfit": [
+   "knight"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

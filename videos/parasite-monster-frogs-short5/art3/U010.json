@@ -1,0 +1,51 @@
+{
+ "centre": "tadpole swarmed by many cercariae",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "many parasites at once",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Too many!",
+   "x": 330,
+   "y": 700,
+   "to": [
+    520,
+    850
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "angry"
+   },
+   {
+    "word": "Its developing",
+    "mood": "curious"
+   }
+  ],
+  "act": "faint",
+  "ride": "mv-core-tremble-tadpole",
+  "kind": "ride",
+  "x": 246,
+  "y": 938,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "monocle"
+  ],
+  "says": [
+   {
+    "text": "Let me see...",
+    "shout": false
+   }
+  ]
+ }
+}

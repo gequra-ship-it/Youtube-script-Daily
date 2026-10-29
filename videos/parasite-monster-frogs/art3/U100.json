@@ -1,0 +1,40 @@
+{
+ "centre": "row of nine old museum jars with gently many-legged frog silhouettes, one jar in front",
+ "focus": [
+  1000,
+  620,
+  1.6
+ ],
+ "focus_word": "forty extra hind limbs",
+ "labels": [
+  {
+   "type": "num",
+   "text": "40 EXTRA LIMBS",
+   "word": "forty extra hind limbs"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "logroll",
+   "dist": 461
+  },
+  "x": 1660,
+  "y": 540,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Waaah!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "centre": "fragile glass bubble holding a limb bud above one narrow window on a time ruler; a cercaria drawn toward it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Careful!",
+   "x": 1320,
+   "y": 330,
+   "to": [
+    1050,
+    420
+   ]
+  }
+ ],
+ "attractor": [
+  960,
+  500
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "magnetized",
+   "obj": "mv-magnet-cercaria"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 276,
+  "y": 527,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa-oa!",
+    "shout": true
+   }
+  ]
+ }
+}
