@@ -108,6 +108,15 @@ per video at least 10 types, none above 20 %. `draw` traces stroked outlines (gi
 
 Background effects (rain, snow, bubbles, fog, rays … 59 kinds, 2026-10-29: + `burst`, `gridripple`) and on-screen text effects are added by the builder from the narration words and the palette; do NOT draw rain/snow/particles into the picture (guideline 4-1 "4차 보강").
 
+## 7A. Attachment rules — MANDATORY (2026-10-29, miya: windmill, net, frog legs, tails, bird neck, clock hand, gears, tree, grass, sign post all turned about the wrong point)
+Every moving part must be attached to its body (guideline 4-7):
+- `data-pivot` of mv-joint / chain / swing / rotor / pendulum = the point where the part TOUCHES the body (on the part AND on the body or parent link within 12 px), never empty space. A hinge pin (small circle) inside the group counts as the support.
+- Net / flag / banner on a pole: the swing pivot is the junction of pole end and rim, or put pole + bag in ONE group. Tail / leg / neck / head of a creature that moves (mv-path, glide, swim, creep ...): the part goes INSIDE that moving group. A bird's head belongs to the neck chain.
+- Clock hand / wheel: pivot = centre of the round face. Gears: pivot = gear centre, neighbours mesh (centre distance = sum of pitch radii), opposite directions, period proportional to tooth count, inside the circle/shell they sit in (`python3 tools/gearmesh.py`).
+- Standing things (tree, reed, grass, sign post, pole, tower): the group holds the thing ITSELF (a sign = post + boards), no ground/shadow/water inside; one group per clump (`tools/splitclumps.py`); the pivot is the FOOT (`python3 tools/setbase.py <slug> <uid>` writes it).
+- Label `to` points INSIDE the moving object it names.
+- **Before you report:** run `python3 tools/attachcheck.py <slug> <your uids>` (fix everything it prints; `--fix` moves label pointers), and for every picture with people, animals, machines or a swinging thing run a partial build and look at `tools/motionaudit.py` strips (red dot on every pivot must sit on the body). The lead repeats the check on the built page (`tools/final_check.py`) — it will find what you skip.
+
 ## 8. Sidecar JSON (exact keys)
 ```
 {"centre": "short English description of the centre object",
@@ -137,6 +146,7 @@ Background effects (rain, snow, bubbles, fog, rays … 59 kinds, 2026-10-29: + `
 - `python3 tools/svgshot.py <your_preview_dir> f1.svg ...` and LOOK at each (bright centre, no stray shapes, nothing cut off, this style, no thick outlines).
 - `python3 tools/labelshot.py <slug> <your_preview_dir> <uid> ...` prints problems (build stops on any) and writes `<uid>_lab.png`; fix overlaps.
 - In order: read text (+ prev/next), decide, write svg + json; preview in batches of 3-4, fix at most once.
+- `python3 tools/attachcheck.py <slug> <uids>` must print 0 problems for your units (section 7A) before you report.
 - Final answer: one line per uid `uid | centre | focus_word or - | sfx or -`, plus any problem.
 
 ## 10. Shorts (vertical) — overrides

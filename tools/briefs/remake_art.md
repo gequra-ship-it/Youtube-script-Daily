@@ -16,3 +16,5 @@ Sidecar json: keep valid; labels/focus/sfx words must be in THAT unit's text (dr
 Checks: XML valid; tools/mvcheck.py (it only sees the top 1080 px of a vertical frame); tools/labelshot.py if labels moved; ONE build
 (`SLUG=<slug> [VERT=1] python3 tools/build3.py <scratch>/b`, fallback art must be 0); ONE contact sheet you look at. Delete your build dir afterwards (disk allowance is small).
 Report: counts reused / adapted / new, sheet path, known flaws.
+
+**Attachment check (2026-10-29, mandatory):** every part you move or redraw must be attached to its body (`tools/art_spec.md` 7A). Before reporting run `python3 tools/attachcheck.py <slug> <your uids>` (0 problems) and look at `tools/motionaudit.py` strips for pictures with creatures, machines or hinged things; the lead re-checks the built page with `tools/final_check.py`.

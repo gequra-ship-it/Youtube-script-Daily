@@ -72,7 +72,7 @@ def obj_sanitize(kind, name, keep=False):
     return kind
 
 
-def core_js(ctype, g, t0, v0, sp, ring=None, pivot=None):
+def core_js(ctype, g, t0, v0, sp, ring=None, pivot=None, pv=None):
     """GSAP lines for one centre object.
     g: JS expression for the element, t0: picture start (s), v0: transition-in start (s),
     sp: seconds the picture stays on screen (plus margin), ring: JS expression for the ring that
@@ -84,6 +84,8 @@ def core_js(ctype, g, t0, v0, sp, ring=None, pivot=None):
     if ctype == 'turn':        # (2026-10-19) turns ONLY this group (wind-turbine rotor, fan, propeller); neighbours are not wrapped in, so the tower/body stays still
         return [f'tl.fromTo({g},{{rotation:0,{C}}},{{rotation:{90 * sp:.1f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});']
     if ctype == 'sway':        # pendulum around the top (lamp, bell, key, hanging things); round 4: things that stand on the ground sway from the base (pivot='bottom': tree, pole, sign post, figure)
+        if pv and len(pv) == 2:   # 2026-10-29: an explicit data-pivot (tools/setbase.py writes the foot of the stem/trunk/post) beats the bbox percent, which sat beside a leaning trunk or inside a wide group
+            return [f'tl.fromTo({g},{{rotation:-5,svgOrigin:miyaPv({g},{pv[0]},{pv[1]}),smoothOrigin:false}},{{rotation:5,duration:2.2,{yo(2.2)}}},{v0:.3f});']
         if pivot == 'bottom': return [f'tl.fromTo({g},{{rotation:-5,transformOrigin:"50% 100%"}},{{rotation:5,duration:2.2,{yo(2.2)}}},{v0:.3f});']
         if pivot == 'center': return [f'tl.fromTo({g},{{rotation:-6,{C}}},{{rotation:6,duration:2.0,{yo(2.0)}}},{v0:.3f});']
         return [f'tl.fromTo({g},{{rotation:-14,transformOrigin:"50% 0%"}},{{rotation:14,duration:1.4,{yo(1.4)}}},{v0:.3f});']
@@ -317,7 +319,7 @@ def obj_js(kind, g, at, t0, v0, sp, name='', spring=None):
     t0: picture start, v0: transition-in start, sp: seconds the picture stays (plus margin)."""
     f = lambda k, d: float(at.get('data-' + k, d))
     pv = at.get('data-pivot', '').replace(',', ' ').split()
-    org = (lambda dflt: f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]})') if len(pv) == 2 else (lambda dflt: f'transformOrigin:"{dflt}"')
+    org = (lambda dflt: f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]}),smoothOrigin:false') if len(pv) == 2 else (lambda dflt: f'transformOrigin:"{dflt}"')
     st = t0 + f('delay', 0.3); du = f('dur', 1.0)
     if kind == 'path':
         d = at.get('data-path', '').replace('"', '')
@@ -556,7 +558,7 @@ def settle_js(kind, g, at, t0, v0, sp):
     if left < 2.5: return []
     per = 2.6; rep = max(int(math.ceil(left / per)) - 1, 0)
     pv = at.get('data-pivot', '').replace(',', ' ').split()
-    org = f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]})' if len(pv) == 2 and kind in ('topple', 'flip') else 'transformOrigin:"50% 60%"'
+    org = f'svgOrigin:miyaPv({g},{pv[0]},{pv[1]}),smoothOrigin:false' if len(pv) == 2 and kind in ('topple', 'flip') else 'transformOrigin:"50% 60%"'
     return [f'tl.fromTo({g},{{scale:1,{org}}},{{scale:1.03,duration:{per},ease:"sine.inOut",yoyo:true,repeat:{rep},immediateRender:false}},{end:.3f});']
 
 
@@ -1097,15 +1099,15 @@ function miyaTrAnim(tl,sel,tr,t0,dur,W,H){
 // a name label / speech bubble whose target point sits on a MOVING group follows that group (miya 2026-10-27: labels stayed at the pre-motion spot).
 // Seek-safe: a modifier tween reads the group's current matrix on every render (callbacks are skipped by seek, modifiers are not); the reference
 // matrix is read once at page init, before any motion is applied (units are hidden then, so the unit is shown invisibly for the read).
-function miyaFollow(tl,gsel,els,px,py,t0,t1){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
+function miyaFollow(tl,gsel,els,px,py,t0,t1,tm){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
  var tg=els.map(function(s){return document.querySelector(s);}).filter(Boolean);if(!tg.length)return;
- var rec={g:g,p:p,q0:null,t:t0,last:[0,0],tg:tg};window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
+ var rec={g:g,p:p,q0:null,t:t0,tm:(tm==null?t0:tm),last:[0,0],tg:tg};/* tm = when the object still stands where it was DRAWN (picture start): the label's pointer was authored against that spot, so the offset is measured from there */window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
  function d(){if(!rec.q0)return[0,0];var m=miyaCtm(g);if(!m)return rec.last;var q=p.matrixTransform(m);rec.last=[q.x-rec.q0.x,q.y-rec.q0.y];return rec.last;}
  tl.fromTo(tg,{x:0.001,y:0.001},{x:0,y:0,duration:Math.max(t1-t0,.1),ease:'none',immediateRender:false,modifiers:{x:function(){return d()[0]+'px';},y:function(){return d()[1]+'px';}}},t0);}
 function miyaCtm(g){var t=g.closest('.t'),m=null;if(t&&t.style.display==='none'){var pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';try{m=g.getCTM();}catch(e){}t.style.display=pd;t.style.visibility=pv;}else{try{m=g.getCTM();}catch(e){}}return m;}
 // after the whole timeline exists: the tracked point (the group's centre) and its position are read AT THE LABEL'S START TIME (GSAP replaces a group's own transform
 // attribute, so the matrix at page init is not the one the label was placed against); then the timeline goes back to 0
-function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;L.forEach(function(r){void tl.seek(r.t+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m)r.q0=r.p.matrixTransform(m);});void tl.seek(0,false);
+function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;L.slice().sort(function(a,b){return a.tm-b.tm;}).forEach(function(r){void tl.seek(r.tm+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m)r.q0=r.p.matrixTransform(m);});void tl.seek(0,false);   // 2026-10-29: the measuring seeks must go FORWARD in time only. A seek backwards renders the children in reverse order, so a picture's `display:none` (its end) was applied before its tweens had initialised: GSAP then read the empty bbox of the hidden picture and froze the wrong svgOrigin (bbox corner) of every hinge/rotor that had not been initialised yet (windmill, gears, frog legs, tails, neck, clock hand). tools/pivotlive.py checks it
  // render order inside one seek can leave the follower one step behind its object: after every seek (the renderer steps frame by frame with seek) the followers are set again from the objects' final matrices
  function fix(){L.forEach(function(r){if(!r.q0||!r.tg)return;var m=miyaCtm(r.g);if(!m)return;var q=r.p.matrixTransform(m);gsap.set(r.tg,{x:q.x-r.q0.x,y:q.y-r.q0.y});});}
  var seek0=tl.seek;tl.seek=function(a,b){var out=seek0.call(tl,a,b);fix();return out;};var time0=tl.time;tl.time=function(a,b){var out=time0.call(tl,a,b);if(arguments.length)fix();return out;};gsap.ticker.add(function(){if(tl.isActive())fix();});}   // the tracked point = the group's own centre (local bbox), so a turning object does not swing the label about a far pivot
