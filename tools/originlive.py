@@ -13,7 +13,7 @@ JS = r'''([t]) => { Object.values(window.__timelines).forEach(tl => { tl.pause()
  const out = [];
  document.querySelectorAll('svg .mv').forEach((g, idx) => {
    const tt = g.closest('.t'); if (!tt || getComputedStyle(tt).display === 'none') return;
-   if (g.hasAttribute('data-pivot')) return;
+   if (g.hasAttribute('data-pivot') || g.querySelector(':scope > [data-pivot]')) return;   // the build wraps a pivoted core group: the pivot sits on the wrapper's child
    let M = null; try { M = g.transform.baseVal.consolidate(); M = M && M.matrix; } catch (e) {}
    if (!M) return;
    const gx = +gsap.getProperty(g, 'x') || 0, gy = +gsap.getProperty(g, 'y') || 0;
