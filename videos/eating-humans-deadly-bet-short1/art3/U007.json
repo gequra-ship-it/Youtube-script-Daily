@@ -48,21 +48,28 @@
     "mood": "confused"
    }
   ],
-  "act": "startle",
-  "ride": "mv-core-ping-view",
-  "kind": "ride",
-  "x": 696,
-  "y": 972,
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-x0",
+   "h": 32
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 732,
+  "y": 466,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "outfit": [
    "doctor"
   ],
   "says": [
    {
-    "text": "Eek!",
+    "text": "Whoa!",
     "shout": true
    }
   ]
