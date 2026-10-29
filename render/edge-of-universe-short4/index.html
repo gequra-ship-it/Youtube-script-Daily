@@ -298,15 +298,15 @@ function miyaTrAnim(tl,sel,tr,t0,dur,W,H){
 // a name label / speech bubble whose target point sits on a MOVING group follows that group (miya 2026-10-27: labels stayed at the pre-motion spot).
 // Seek-safe: a modifier tween reads the group's current matrix on every render (callbacks are skipped by seek, modifiers are not); the reference
 // matrix is read once at page init, before any motion is applied (units are hidden then, so the unit is shown invisibly for the read).
-function miyaFollow(tl,gsel,els,px,py,t0,t1){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
+function miyaFollow(tl,gsel,els,px,py,t0,t1,tm){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
  var tg=els.map(function(s){return document.querySelector(s);}).filter(Boolean);if(!tg.length)return;
- var rec={g:g,p:p,q0:null,t:t0,last:[0,0],tg:tg};window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
+ var rec={g:g,p:p,q0:null,t:t0,tm:(tm==null?t0:tm),last:[0,0],tg:tg};/* tm = when the object still stands where it was DRAWN (picture start): the label's pointer was authored against that spot, so the offset is measured from there */window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
  function d(){if(!rec.q0)return[0,0];var m=miyaCtm(g);if(!m)return rec.last;var q=p.matrixTransform(m);rec.last=[q.x-rec.q0.x,q.y-rec.q0.y];return rec.last;}
  tl.fromTo(tg,{x:0.001,y:0.001},{x:0,y:0,duration:Math.max(t1-t0,.1),ease:'none',immediateRender:false,modifiers:{x:function(){return d()[0]+'px';},y:function(){return d()[1]+'px';}}},t0);}
 function miyaCtm(g){var t=g.closest('.t'),m=null;if(t&&t.style.display==='none'){var pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';try{m=g.getCTM();}catch(e){}t.style.display=pd;t.style.visibility=pv;}else{try{m=g.getCTM();}catch(e){}}return m;}
 // after the whole timeline exists: the tracked point (the group's centre) and its position are read AT THE LABEL'S START TIME (GSAP replaces a group's own transform
 // attribute, so the matrix at page init is not the one the label was placed against); then the timeline goes back to 0
-function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;L.forEach(function(r){void tl.seek(r.t+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m)r.q0=r.p.matrixTransform(m);});void tl.seek(0,false);
+function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;L.slice().sort(function(a,b){return a.tm-b.tm;}).forEach(function(r){void tl.seek(r.tm+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m)r.q0=r.p.matrixTransform(m);});void tl.seek(0,false);   // 2026-10-29: the measuring seeks must go FORWARD in time only. A seek backwards renders the children in reverse order, so a picture's `display:none` (its end) was applied before its tweens had initialised: GSAP then read the empty bbox of the hidden picture and froze the wrong svgOrigin (bbox corner) of every hinge/rotor that had not been initialised yet (windmill, gears, frog legs, tails, neck, clock hand). tools/pivotlive.py checks it
  // render order inside one seek can leave the follower one step behind its object: after every seek (the renderer steps frame by frame with seek) the followers are set again from the objects' final matrices
  function fix(){L.forEach(function(r){if(!r.q0||!r.tg)return;var m=miyaCtm(r.g);if(!m)return;var q=r.p.matrixTransform(m);gsap.set(r.tg,{x:q.x-r.q0.x,y:q.y-r.q0.y});});}
  var seek0=tl.seek;tl.seek=function(a,b){var out=seek0.call(tl,a,b);fix();return out;};var time0=tl.time;tl.time=function(a,b){var out=time0.call(tl,a,b);if(arguments.length)fix();return out;};gsap.ticker.add(function(){if(tl.isActive())fix();});}   // the tracked point = the group's own centre (local bbox), so a turning object does not swing the label about a far pivot
@@ -521,7 +521,6 @@ tl.fromTo(gsap.utils.toArray("#w4 .mv-drift-nebula-U004")[0],{scaleY:1,scaleX:1,
 tl.fromTo(gsap.utils.toArray("#w4 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},20.054);
 tl.fromTo(gsap.utils.toArray("#w4 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},20.054);
 tl.fromTo(gsap.utils.toArray("#w4 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},20.054);
-tl.fromTo(gsap.utils.toArray("#w4 .mv-joint-needle")[0],{rotation:-18.00,svgOrigin:miyaPv(gsap.utils.toArray("#w4 .mv-joint-needle")[0],540,980)},{rotation:18.00,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},20.054);
 miyaTicks(tl,gsap.utils.toArray("#w4 .mv-ticks-gaps")[0],20.054,21.254,0.35,"",9999);
 tl.set(gsap.utils.toArray("#w4 .mv-fade-brake")[0],{opacity:0.1},20.054);
 tl.to(gsap.utils.toArray("#w4 .mv-fade-brake")[0],{opacity:0.55,duration:1.0,ease:"power1.inOut",immediateRender:false},21.154);
@@ -596,8 +595,6 @@ tl.fromTo(gsap.utils.toArray("#w6 .mv-glint-sn200")[0],{scale:1,opacity:.85,tran
 tl.fromTo(gsap.utils.toArray("#w6 .mv-glint-sn880")[0],{scale:1,opacity:.85,transformOrigin:"50% 50%"},{scale:1.06,opacity:1,duration:1.400,ease:"sine.inOut",yoyo:true,repeat:5,immediateRender:false},31.973);
 tl.fromTo(gsap.utils.toArray("#w6 .mv-glint-sn700")[0],{scale:1,opacity:.85,transformOrigin:"50% 50%"},{scale:1.06,opacity:1,duration:1.400,ease:"sine.inOut",yoyo:true,repeat:5,immediateRender:false},31.973);
 tl.fromTo(gsap.utils.toArray("#w6 .mv-ring")[0],{scale:.85,opacity:.95,transformOrigin:"50% 50%"},{scale:1.8,opacity:0,duration:1.3,ease:"power2.out",repeat:5,immediateRender:false},31.973);
-tl.fromTo(gsap.utils.toArray("#w6 .mv-joint-scopeL")[0],{rotation:-3.00,svgOrigin:miyaPv(gsap.utils.toArray("#w6 .mv-joint-scopeL")[0],250,1330)},{rotation:3.00,duration:1.800,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},31.973);
-tl.fromTo(gsap.utils.toArray("#w6 .mv-joint-scopeR")[0],{rotation:-3.00,svgOrigin:miyaPv(gsap.utils.toArray("#w6 .mv-joint-scopeR")[0],830,1330)},{rotation:3.00,duration:1.800,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},31.973);
 tl.set("#t7",{display:"block"},38.232);tl.set("#t7",{display:"none"},45.091);
 tl.set("#t7",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},38.232);
 tl.set("#w7",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},38.232);
@@ -679,7 +676,6 @@ tl.fromTo(gsap.utils.toArray("#w8 .mv-glint-s3")[0],{opacity:1},{opacity:.35,dur
 miyaRack(tl,gsap.utils.toArray("#w8 .mv-rack-hint")[0],44.091,45.391,1.6,14.0,1);
 tl.set(gsap.utils.toArray("#w8 .mv-core-flicker-void")[0],{opacity:1},44.091);
 tl.to(gsap.utils.toArray("#w8 .mv-core-flicker-void")[0],{keyframes:[{opacity:.45,duration:.12},{opacity:1,duration:.18},{opacity:.62,duration:.14},{opacity:.95,duration:.2},{opacity:.35,duration:.1},{opacity:1,duration:.26}],repeat:6,immediateRender:false},44.091);
-tl.fromTo(gsap.utils.toArray("#w8 .mv-joint-lens")[0],{rotation:-6.00,svgOrigin:miyaPv(gsap.utils.toArray("#w8 .mv-joint-lens")[0],230,1270)},{rotation:6.00,duration:1.400,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},44.091);
 tl.set("#t9",{display:"block"},49.975);tl.set("#t9",{display:"none"},56.259);
 tl.set("#t9",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},49.975);
 tl.set("#w9",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},49.975);
@@ -782,7 +778,6 @@ tl.set(gsap.utils.toArray("#w10 .mv-bubble-b1")[0],{opacity:0},55.809);
 tl.fromTo(gsap.utils.toArray("#w10 .mv-bubble-b1")[0],{y:0,opacity:.8},{y:-120,opacity:0,duration:2.4,ease:"none",repeat:2,immediateRender:false},56.559);
 tl.set(gsap.utils.toArray("#w10 .mv-bubble-b2")[0],{opacity:0},55.809);
 tl.fromTo(gsap.utils.toArray("#w10 .mv-bubble-b2")[0],{y:0,opacity:.8},{y:-120,opacity:0,duration:3.0,ease:"none",repeat:2,immediateRender:false},56.559);
-tl.set(gsap.utils.toArray("#w10 .mv-swing-tag")[0],{rotation:0,svgOrigin:miyaPv(gsap.utils.toArray("#w10 .mv-swing-tag")[0],640,735)},55.809);
 tl.to(gsap.utils.toArray("#w10 .mv-swing-tag")[0],{keyframes:[{rotation:10.00,duration:1.300,ease:"sine.inOut"},{rotation:-7.80,duration:1.300,ease:"sine.inOut"},{rotation:6.08,duration:1.300,ease:"sine.inOut"},{rotation:-4.75,duration:1.300,ease:"sine.inOut"},{rotation:3.70,duration:1.300,ease:"sine.inOut"}],immediateRender:false},55.809);
 tl.set("#t11",{display:"block"},60.942);tl.set("#t11",{display:"none"},67.426);
 tl.set("#t11",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},60.942);
@@ -1298,7 +1293,6 @@ tl.fromTo(gsap.utils.toArray("#w21 .mv-drift-nebula")[0],{x:-25},{x:25,duration:
 tl.fromTo(gsap.utils.toArray("#w21 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},123.200);
 tl.fromTo(gsap.utils.toArray("#w21 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},123.200);
 tl.fromTo(gsap.utils.toArray("#w21 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},123.200);
-tl.fromTo(gsap.utils.toArray("#w21 .mv-rotor-swarm")[0],{rotation:0,svgOrigin:miyaPv(gsap.utils.toArray("#w21 .mv-rotor-swarm")[0],540,860)},{rotation:145.2,duration:6.455,ease:"none",immediateRender:false},123.200);
 tl.fromTo(gsap.utils.toArray("#w21 .mv-core-swell-sun")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.2,duration:2.2,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},123.200);
 miyaTicks(tl,gsap.utils.toArray("#w21 .mv-ticks-years")[0],123.200,124.500,0.2,"",9999);
 tl.set("#t22",{display:"block"},129.004);tl.set("#t22",{display:"none"},134.709);
@@ -1519,9 +1513,9 @@ tl.fromTo("#L24_0s",{opacity:0,scale:1.8},{opacity:1,scale:1,duration:.22,ease:"
 tl.fromTo("#L24_0s",{y:0},{y:-6,duration:1.4,yoyo:true,repeat:2,ease:"sine.inOut",immediateRender:false},141.264);
 tl.set("#L24_0g",{opacity:1},140.264);
 tl.fromTo("#L24_0",{scale:1,transformOrigin:"0px 0px"},{scale:0.6250,duration:1.4,ease:"power2.inOut",immediateRender:false},143.518);
-miyaFollow(tl,"#w14 .mv-core-glide-knot",["#L14_0", "#L14_0g"],470,846,78.894,84.177);
-miyaFollow(tl,"#w22 .mv-slide-rocket",["#L22_0", "#L22_0g"],610,960,129.754,134.709);
-miyaFollow(tl,"#w24 .mv-slide-hand",["#L24_0", "#L24_0g"],620,1000,140.264,145.218);
+miyaFollow(tl,"#w14 .mv-core-glide-knot",["#L14_0", "#L14_0g"],470,846,78.894,84.177,78.594);
+miyaFollow(tl,"#w22 .mv-slide-rocket",["#L22_0", "#L22_0g"],610,960,129.754,134.709,129.454);
+miyaFollow(tl,"#w24 .mv-slide-hand",["#L24_0", "#L24_0g"],620,1000,140.264,145.218,139.964);
 tl.set("#c0",{opacity:1},0.300);tl.set("#c0",{opacity:0},2.620);
 tl.set("#c0w0",{color:"#ffd54a"},0.300);tl.set("#c0w0",{color:"#fff"},0.631);tl.set("#c0w1",{color:"#ffd54a"},0.631);tl.set("#c0w1",{color:"#fff"},1.294);tl.set("#c0w2",{color:"#ffd54a"},1.294);
 tl.set("#c1",{opacity:1},2.620);tl.set("#c1",{opacity:0},4.080);
@@ -1736,5 +1730,12 @@ tl.set("#c105",{opacity:1},155.453);tl.set("#c105",{opacity:0},156.573);
 tl.set("#c105w0",{color:"#ffd54a"},155.453);tl.set("#c105w0",{color:"#fff"},155.688);tl.set("#c105w1",{color:"#ffd54a"},155.688);tl.set("#c105w1",{color:"#fff"},155.924);tl.set("#c105w2",{color:"#ffd54a"},155.924);tl.set("#c105w2",{color:"#fff"},156.278);tl.set("#c105w3",{color:"#ffd54a"},156.278);
 tl.set("#c106",{opacity:1},156.573);tl.set("#c106",{opacity:0},157.976);
 tl.set("#c106w0",{color:"#ffd54a"},156.573);tl.set("#c106w0",{color:"#fff"},156.737);tl.set("#c106w1",{color:"#ffd54a"},156.737);tl.set("#c106w1",{color:"#fff"},157.065);tl.set("#c106w2",{color:"#ffd54a"},157.065);
-miyaFollowInit(tl);window.__timelines=window.__timelines||{};window.__timelines["main"]=tl;</script>
+miyaFollowInit(tl);
+tl.fromTo(gsap.utils.toArray("#w4 .mv-joint-needle")[0],{rotation:-18.00,svgOrigin:miyaPv(gsap.utils.toArray("#w4 .mv-joint-needle")[0],540,980),smoothOrigin:false},{rotation:18.00,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},20.054);
+tl.fromTo(gsap.utils.toArray("#w6 .mv-joint-scopeL")[0],{rotation:-3.00,svgOrigin:miyaPv(gsap.utils.toArray("#w6 .mv-joint-scopeL")[0],250,1330),smoothOrigin:false},{rotation:3.00,duration:1.800,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},31.973);
+tl.fromTo(gsap.utils.toArray("#w6 .mv-joint-scopeR")[0],{rotation:-3.00,svgOrigin:miyaPv(gsap.utils.toArray("#w6 .mv-joint-scopeR")[0],830,1330),smoothOrigin:false},{rotation:3.00,duration:1.800,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},31.973);
+tl.fromTo(gsap.utils.toArray("#w8 .mv-joint-lens")[0],{rotation:-6.00,svgOrigin:miyaPv(gsap.utils.toArray("#w8 .mv-joint-lens")[0],230,1270),smoothOrigin:false},{rotation:6.00,duration:1.400,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},44.091);
+tl.set(gsap.utils.toArray("#w10 .mv-swing-tag")[0],{rotation:0,svgOrigin:miyaPv(gsap.utils.toArray("#w10 .mv-swing-tag")[0],640,735),smoothOrigin:false},55.809);
+tl.fromTo(gsap.utils.toArray("#w21 .mv-rotor-swarm")[0],{rotation:0,svgOrigin:miyaPv(gsap.utils.toArray("#w21 .mv-rotor-swarm")[0],540,860),smoothOrigin:false},{rotation:145.2,duration:6.455,ease:"none",immediateRender:false},123.200);
+window.__timelines=window.__timelines||{};window.__timelines["main"]=tl;</script>
 </div></body></html>
