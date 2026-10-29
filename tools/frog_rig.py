@@ -24,8 +24,9 @@ except Exception: BNC = None
 P_TD = .305   # progress of the first touchdown of miyaBnc (from the samples)
 
 FEET = 'svgOrigin:"0 6"'; HIPL = 'svgOrigin:"-16 -10"'; HIPR = 'svgOrigin:"28 -10"'; SHL = 'svgOrigin:"-34 -22"'; SHR = 'svgOrigin:"34 -22"'; NECK = 'svgOrigin:"4 -40"'
-CONTACT = ('bonk', 'squish', 'dodge', 'chase', 'splash', 'swingride', 'bumped', 'blown', 'tug', 'lift', 'catch', 'trip')
-STARS = {'bonk', 'squish', 'trip'}
+CONTACT = ('bonk', 'squish', 'dodge', 'chase', 'splash', 'swingride', 'bumped', 'blown', 'tug', 'lift', 'catch', 'trip',
+           'sidestep', 'flattened', 'trampoline', 'knocked', 'shockwave', 'magnetized', 'hopalong', 'dripped', 'rimride', 'launched', 'unrolled', 'balloonride', 'sinkride')   # 2026-10-29 b: 13 more (miya: contact is the fun part)
+STARS = {'bonk', 'squish', 'trip', 'flattened', 'knocked', 'unrolled'}
 
 
 def bnc_inv(e):
@@ -297,6 +298,137 @@ def contact_js(t, d, act, t0, a0, T, k, objt=None, face=None, moods=None):
         o.append(F('dizzy', tg + .8) + stars_js(t, tg + .8, 1.8))
         if T - tg > 3.4: o.append(f'tl.to({ac},{{rotation:0,duration:.6,ease:"back.out(1.3)",{FEET}}},{tg + 2.5:.3f});' + F('pout', tg + 2.5))
         info['says'][0] = tg
+    elif ty == 'sidestep':   # under the dropping thing: looks up, hops aside at the last moment, the thing thuds beside it, wipes its brow
+        if st is None: st, du = t0 + .15, .9
+        th = st + P_TD * du; tj = th - .34; info['nohead'] = True
+        o.append(f'tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-72}},duration:.3}},{a0:.3f});' + F('curious', a0) + F('shock', max(a0, tj - .25)))
+        o += squash(t, tj - .12, .84, 1.1, .1, .1)
+        o.append(f'tl.to({TR},{{x:{-120 / s * 1.0:.1f},y:-46,duration:.22,ease:"power2.out"}},{tj:.3f});tl.to({TR},{{y:0,duration:.14,ease:"power2.in"}},{tj + .22:.3f});')   # hop backward (local -x), landing just before the thud
+        o += tuck(t, tj, .15, 0, .2, 50) + squash(t, tj + .36, .88, 1.08, .08, .3)
+        o.append(f'tl.to("#{t}_hd,#{t}_of,#{t}_te",{{rotation:0,duration:.2,{NECK}}},{th:.3f});tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-64,cx:"+=4"}},duration:.25}},{th + .1:.3f});')   # looks at the thing on the ground
+        o.append(f'tl.to("#{t}_ra",{{rotation:-165,duration:.3,ease:"power2.out",{SHR}}},{th + .5:.3f});tl.fromTo("#{t}_ra",{{rotation:-165,{SHR}}},{{rotation:-140,duration:.3,yoyo:true,repeat:3,ease:"sine.inOut",{SHR},immediateRender:false}},{th + .8:.3f});tl.to("#{t}_ra",{{rotation:0,duration:.4,{SHR}}},{th + 2.1:.3f});')   # wipes its brow
+        o.append(F('happy', th + .6)); info['says'][0] = th + .4
+    elif ty == 'flattened':   # a BIG thing drops on it: pancaked under it, stars; crawls out from under, pops back, dizzy
+        if st is None: st, du = t0 + .15, .9
+        th = st + P_TD * du; info['nohead'] = True; info['noeyes'] = True
+        o.append(f'tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-72}},duration:.3}},{a0:.3f});' + F('curious', a0) + F('shock', max(a0, th - .35)))
+        o.append(f'tl.to("#{t}_ra",{{rotation:-150,duration:.2,{SHR}}},{max(a0, th - .3):.3f});tl.to("#{t}_la",{{rotation:150,duration:.2,{SHL}}},{max(a0, th - .3):.3f});')
+        o.append(f'tl.to({ac},{{scaleY:.16,scaleX:1.7,duration:.08,ease:"power3.in",{FEET}}},{th:.3f});' + stars_js(t, th + .05, 2.2))
+        info['says'][0] = th + .1; t2 = th + 1.5
+        if T - t2 > 2.0:
+            L = float(act.get('out', 150)) / s
+            o.append(f'tl.to({TR},{{x:{L:.1f},duration:.9,ease:"power2.inOut"}},{t2:.3f});')   # crawls out forward (local +x)
+            o.append(f'tl.to({ac},{{scaleY:1,scaleX:1,duration:.5,ease:"elastic.out(1,.45)",{FEET}}},{t2 + .6:.3f});tl.to("#{t}_ra,#{t}_la",{{rotation:0,duration:.4}},{t2 + .6:.3f});')
+            o.append(f'tl.set("#{t}_st,#{t}_spl,#{t}_spr",{{opacity:0}},{t2 + 1.3:.3f});' + F('dizzy', t2 + .6))
+            o.append(f'tl.fromTo({ac},{{rotation:-8,{FEET}}},{{rotation:8,duration:.5,yoyo:true,repeat:3,ease:"sine.inOut",{FEET},immediateRender:false}},{t2 + 1.1:.3f});' + F('pout', min(t2 + 3.2, T - .3)))
+            if len(d.get('says') or []) > 1: info['says'][1] = t2 + 1.4
+    elif ty == 'trampoline':   # rides ON a bouncing thing: at every landing it squashes and is thrown higher than the thing, legs tucked, arms up
+        per = float(at.get('data-per', .9)); hgt = float(at.get('data-h', 60)); ta = (v0 if v0 is not None else a0) + P_TD * per
+        o.append(f'tl.set("#{t}_sh",{{opacity:0}},0);' + F('excited', a0)); j = 0; tm = ta; up = min(per * .42, .5); hop = min(max(hgt * .7, 40), 160) / s
+        while tm < T - .6:
+            if tm >= a0:
+                o += squash(t, tm, .78, 1.18, .08, .12)
+                o.append(f'tl.to({TR},{{y:{-hop:.1f},duration:{up:.3f},ease:"power2.out"}},{tm + .08:.3f});tl.to({TR},{{y:0,duration:{min(per - up - .1, up):.3f},ease:"power2.in"}},{tm + .08 + up:.3f});')
+                o += tuck(t, tm + .1, .15, up - .2, .22, 55)
+                o.append(f'tl.to("#{t}_ra",{{rotation:-150,duration:.2,{SHR}}},{tm + .08:.3f});tl.to("#{t}_la",{{rotation:150,duration:.2,{SHL}}},{tm + .08:.3f});tl.to("#{t}_ra,#{t}_la",{{rotation:0,duration:.25}},{tm + per - .3:.3f});')
+                if j == 2: o.append(F('laugh' if not act.get('serious') else 'happy', tm))
+                j += 1
+            tm += per
+        info['says'][0] = ta + .2; info['nohead'] = True
+    elif ty == 'knocked':   # stands where a big swinging thing reaches: it comes round and bowls the frog over backward (local -x), stars, sits up
+        per = float(at.get('data-per', 2.4 if kind == 'swing' else 1.2)); ta = v0 if v0 is not None else a0
+        tk = ta + (per / 2 if kind == 'swing' else per) - .06; info['nohead'] = True
+        if tk < a0 + .3: tk += per if kind == 'pendulum' else per   # the next time it comes round
+        o.append(F('curious', a0) + f'tl.to("#{t}_hd,#{t}_of,#{t}_te",{{rotation:-8,duration:.4,{NECK}}},{a0:.3f});')   # watches it come
+        o.append(F('shock', tk) + f'tl.to({TR},{{x:{-170 / s:.1f},duration:.6,ease:"power2.out"}},{tk:.3f});tl.to({RM},{{rotation:-300,duration:.6,ease:"power1.out",svgOrigin:"0 -34"}},{tk:.3f});')
+        o.append(f'tl.to({ac},{{rotation:-64,duration:.01,{FEET}}},{tk + .6:.3f});tl.to({ac},{{rotation:-58,duration:.3,ease:"bounce.out",{FEET}}},{tk + .61:.3f});tl.to("#{t}_hd,#{t}_of,#{t}_te",{{rotation:0,duration:.2,{NECK}}},{tk:.3f});')
+        o.append(f'tl.to("#{t}_ra",{{rotation:-150,duration:.2,{SHR}}},{tk:.3f});tl.to("#{t}_la",{{rotation:150,duration:.2,{SHL}}},{tk:.3f});tl.to("#{t}_ra,#{t}_la",{{rotation:0,duration:.3}},{tk + .7:.3f});')
+        o += kicks(t, tk + .2, 4, .3, 22); o.append(stars_js(t, tk + .65, 2.0) + F('dizzy', tk + .7))
+        info['says'][0] = tk + .05
+        if T - tk > 3.4: o.append(f'tl.to({ac},{{rotation:0,duration:.6,ease:"back.out(1.3)",{FEET}}},{tk + 2.6:.3f});tl.set("#{t}_st,#{t}_spl,#{t}_spr",{{opacity:0}},{tk + 2.6:.3f});' + F('pout', tk + 2.6))
+    elif ty == 'shockwave':   # beside a thing that slams down: the thud throws it up, arms and legs flailing, lands with a squash
+        if st is None: st, du = t0 + .3, .28
+        ts = st + (du if kind == 'slam' else .1); info['nohead'] = True
+        o.append(F('curious', a0) + F('shock', ts) + f'tl.to({TR},{{y:{-95 / s:.1f},duration:.3,ease:"power2.out"}},{ts:.3f});tl.to({TR},{{y:0,duration:.3,ease:"power2.in"}},{ts + .3:.3f});')
+        o.append(f'tl.to({ac},{{rotation:-12,duration:.3,ease:"power2.out",{FEET}}},{ts:.3f});tl.to({ac},{{rotation:0,duration:.3,{FEET}}},{ts + .3:.3f});')
+        o.append(f'tl.to("#{t}_ra",{{rotation:-160,duration:.15,{SHR}}},{ts:.3f});tl.to("#{t}_la",{{rotation:160,duration:.15,{SHL}}},{ts:.3f});tl.fromTo("#{t}_lgl",{{rotation:40,{HIPL}}},{{rotation:-30,duration:.12,yoyo:true,repeat:4,ease:"sine.inOut",{HIPL},immediateRender:false}},{ts:.3f});tl.fromTo("#{t}_lgr",{{rotation:-40,{HIPR}}},{{rotation:30,duration:.12,yoyo:true,repeat:4,ease:"sine.inOut",{HIPR},immediateRender:false}},{ts:.3f});')
+        o += squash(t, ts + .6, .8, 1.16, .1, .35); o.append(f'tl.to("#{t}_ra,#{t}_la",{{rotation:0,duration:.3}},{ts + .65:.3f});tl.to("#{t}_lgl,#{t}_lgr",{{rotation:0,duration:.1}},{ts + .6:.3f});' + F('pout', ts + .9))
+        info['says'][0] = ts + .1
+        if T - ts > 2.8: o.append(F('surprised', ts + 2.4))
+    elif ty == 'magnetized':   # holding the thing that gets yanked away: dragged along on its heels with it (same ease), lets go dizzy
+        if st is None: st, du = t0 + .3, 1.5
+        dx = abs(float(at.get('data-dx', -200))); dd = float(at.get('data-dur', .9)); info['nohead'] = True
+        o.append(F('curious', a0) + f'tl.to("#{t}_ra",{{rotation:-85,duration:.3,{SHR}}},{a0:.3f});tl.to("#{t}_la",{{rotation:-100,duration:.3,{SHL}}},{a0:.3f});')   # both hands on it (it is on the facing side)
+        o.append(F('shock', st) + f'tl.to({TR},{{x:{dx * .85 / s:.1f},duration:{dd:.3f},ease:"elastic.out(1,.6)"}},{st:.3f});tl.to({ac},{{rotation:-26,duration:.15,ease:"power2.out",{FEET}}},{st:.3f});')
+        o += brace(t, st, -30, 26, .15)
+        o.append(f'tl.set("#{t}_wd",{{opacity:1,scaleX:-1,svgOrigin:"0 0"}},{st:.3f});tl.fromTo("#{t}_wd",{{x:0,opacity:0}},{{x:60,opacity:.8,duration:.3,repeat:2,ease:"none",immediateRender:false}},{st:.3f});tl.set("#{t}_wd",{{opacity:0}},{st + .95:.3f});')   # heel streaks behind
+        o.append(f'tl.to({ac},{{rotation:0,duration:.5,ease:"back.out(1.4)",{FEET}}},{st + dd * .6:.3f});' + ''.join(unbrace(t, st + dd * .6, .3)) + f'tl.to("#{t}_ra,#{t}_la",{{rotation:0,duration:.4}},{st + dd * .6 + .2:.3f});' + F('dizzy', st + dd * .6))
+        info['says'][0] = st + .1
+        if T - st > 3.2: o.append(F('surprised', st + 2.8))
+    elif ty == 'hopalong':   # beside a hopping creature: hops in time with it
+        per = float(at.get('data-per', 1.4)); hgt = min(max(float(at.get('data-h', 40)) * .8, 28), 90) / s
+        if st is None: st = t0 + .3
+        tm = st; o.append(F('happy', a0)); j = 0
+        while tm < T - .9:
+            if tm >= a0:
+                o += squash(t, tm, .9, 1.06, .12, .1)
+                o.append(f'tl.to({TR},{{y:{-hgt:.1f},duration:.26,ease:"power2.out"}},{tm + .12:.3f});tl.to({TR},{{y:0,duration:.26,ease:"power2.in"}},{tm + .38:.3f});')
+                o += tuck(t, tm + .12, .14, .1, .2, 45) + squash(t, tm + .64, .9, 1.06, .08, .25)
+                if j == 1: o.append(F('excited', tm))
+                j += 1
+            tm += per
+        info['says'][0] = st + .2; info['nohead'] = False
+    elif ty == 'dripped':   # under a dripping thing: every drop lands on its head, it flinches, pouts, finally looks up
+        per = float(at.get('data-per', 1.8)); cyc = .4 + per * .5
+        if st is None: st = t0 + .3
+        th = st + .3 + per * .5; j = 0; info['nohead'] = True
+        o.append(F('curious', a0))
+        while th < T - .4:
+            if th >= a0:
+                o.append(f'tl.to("#{t}_hd,#{t}_of,#{t}_te",{{scaleY:.9,duration:.06,ease:"power2.out",{NECK}}},{th:.3f});tl.to("#{t}_hd,#{t}_of,#{t}_te",{{scaleY:1,duration:.3,ease:"back.out(2)",{NECK}}},{th + .06:.3f});')
+                o.append(f'tl.to({ac},{{rotation:-5,duration:.08,{FEET}}},{th:.3f});tl.to({ac},{{rotation:0,duration:.3,{FEET}}},{th + .08:.3f});tl.set("#{t}_spk",{{opacity:1}},{th:.3f});tl.set("#{t}_spk",{{opacity:0}},{th + .5:.3f});')
+                o.append(F('pout' if j % 2 == 0 else 'squint', th + .05))
+                if j == 1: o.append(f'tl.to("#{t}_ra",{{rotation:-125,duration:.25,{SHR}}},{th + .15:.3f});tl.to("#{t}_ra",{{rotation:0,duration:.4,{SHR}}},{th + .9:.3f});')   # hand over its head
+                if j == 2: o.append(f'tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:-72}},duration:.3}},{th + .4:.3f});tl.to("#{t}_hd,#{t}_of,#{t}_te",{{rotation:-10,duration:.4,{NECK}}},{th + .4:.3f});' + F('angry' if not act.get('serious') else 'worried', th + .5))   # looks up at the culprit
+                j += 1
+            th += cyc
+        info['says'][0] = st + .3 + per * .5 + .1
+    elif ty == 'rimride':   # clings to the rim of a spinning wheel and goes round with it: the frog stays OUTSIDE the group (an injected frog would shift the wheel's bbox centre) and orbits the wheel centre itself, dizzy after a turn
+        per = max(float(at.get('data-per', 6)), .4); ta = v0 if v0 is not None else a0; dr = -1 if str(at.get('data-dir', '1')).startswith('-') else 1
+        r = float(act.get('r', 200)) / s; turns = (T - ta) / per
+        o.append(f'tl.set("#{t}_sh",{{opacity:0}},0);tl.set("#{t}_ra",{{rotation:-70,{SHR}}},0);tl.set("#{t}_la",{{rotation:70,{SHL}}},0);' + F('excited', a0))
+        o.append(f'tl.fromTo("#{t}_in",{{rotation:0,svgOrigin:"0 {r:.1f}"}},{{rotation:{dr * d["flip"] * 360 * turns:.1f},duration:{T - ta:.3f},ease:"none",svgOrigin:"0 {r:.1f}",immediateRender:false}},{ta:.3f});')
+        o.append(f'tl.fromTo("#{t}_lgl",{{rotation:30,{HIPL}}},{{rotation:40,duration:.3,yoyo:true,repeat:{max(int((T - a0) / .3), 1)},ease:"sine.inOut",{HIPL},immediateRender:false}},{a0:.3f});tl.set("#{t}_lgr",{{rotation:-35,{HIPR}}},0);')
+        t1_ = max(a0 + .4, ta + per); info['nohead'] = True; info['noeyes'] = True
+        if T - t1_ > .8: o.append(F('dizzy', t1_))
+        if T - (ta + 2 * per) > .8: o.append(stars_js(t, ta + 2 * per, T - (ta + 2 * per) - .3))
+    elif ty == 'launched':   # standing where a thing pops in: lifted up on top of it, arms flailing, sits on it swinging its legs
+        if st is None: st, du = t0 + .3, .45
+        hgt = float(act.get('h', 160)) / s; info['nohead'] = True; info['nolegs'] = True
+        o.append(F('curious', a0) + F('shock', st) + f'tl.to({TR},{{y:{-hgt:.1f},duration:{du:.3f},ease:"back.out(1.4)"}},{st:.3f});')
+        o.append(f'tl.to("#{t}_ra",{{rotation:-155,duration:.15,{SHR}}},{st:.3f});tl.to("#{t}_la",{{rotation:155,duration:.15,{SHL}}},{st:.3f});tl.fromTo("#{t}_ra",{{rotation:-155,{SHR}}},{{rotation:-125,duration:.12,yoyo:true,repeat:5,ease:"sine.inOut",{SHR},immediateRender:false}},{st + .15:.3f});')
+        o += tuck(t, st, .2, .2, .3, 45)
+        o.append(f'tl.to("#{t}_ra,#{t}_la",{{rotation:0,duration:.4}},{st + du + .5:.3f});' + F('surprised', st + du + .3) + f'tl.set("#{t}_sh",{{opacity:0}},{st + .1:.3f});')
+        o += kicks(t, st + du + .6, 7, .5, 18); o.append(F('happy', st + du + 1.4)); info['says'][0] = st + .25
+    elif ty == 'unrolled':   # on the lane of a carpet / scroll unrolling toward it: swept off its feet when the edge arrives, lands on its back
+        if st is None: st, du = t0 + .3, .8
+        tr_ = st + ease_inv('power2.out', float(act.get('frac', .7))) * du; info['nohead'] = True
+        o.append(F('curious', a0) + f'tl.to("#{t}_pl,#{t}_pr",{{attr:{{cx:"+=4"}},duration:.3}},{a0:.3f});')
+        o.append(F('shock', tr_) + f'tl.to({TR},{{x:{90 / s:.1f},y:-30,duration:.25,ease:"power2.out"}},{tr_:.3f});tl.to({TR},{{y:0,duration:.2,ease:"power2.in"}},{tr_ + .25:.3f});')   # carried a little along the unroll (local +x)
+        o.append(f'tl.to({ac},{{rotation:-80,duration:.4,ease:"power2.in",{FEET}}},{tr_:.3f});tl.to({ac},{{rotation:-72,duration:.25,ease:"bounce.out",{FEET}}},{tr_ + .4:.3f});')
+        o.append(f'tl.to("#{t}_ra",{{rotation:-150,duration:.2,{SHR}}},{tr_:.3f});tl.to("#{t}_la",{{rotation:150,duration:.2,{SHL}}},{tr_:.3f});tl.to("#{t}_ra,#{t}_la",{{rotation:0,duration:.3}},{tr_ + .7:.3f});')
+        o += kicks(t, tr_ + .2, 4, .3, 22); o.append(stars_js(t, tr_ + .5, 1.8) + F('dizzy', tr_ + .5)); info['says'][0] = tr_ + .05
+        if T - tr_ > 3.2: o.append(f'tl.to({ac},{{rotation:0,duration:.6,ease:"back.out(1.3)",{FEET}}},{tr_ + 2.4:.3f});tl.set("#{t}_st,#{t}_spl,#{t}_spr",{{opacity:0}},{tr_ + 2.4:.3f});' + F('pout', tr_ + 2.4))
+    elif ty in ('balloonride', 'sinkride'):   # hangs under a rising thing with its legs kicking / stands on a sinking thing waving for help
+        o.append(f'tl.set("#{t}_sh",{{opacity:0}},0);')
+        if ty == 'balloonride':
+            o.append(f'tl.set("#{t}_ra",{{rotation:-170,{SHR}}},0);tl.set("#{t}_la",{{rotation:170,{SHL}}},0);' + F('excited', a0))
+            o += kicks(t, a0 + .3, max(int((T - a0) / .45), 2), .9, 16); info['nohead'] = False
+        else:
+            o.append(F('worried', a0) + f'tl.to("#{t}_ra",{{rotation:-165,duration:.3,{SHR}}},{a0 + .3:.3f});tl.fromTo("#{t}_ra",{{rotation:-165,{SHR}}},{{rotation:-135,duration:.3,yoyo:true,repeat:{max(int((T - a0 - 1) / .3), 2)},ease:"sine.inOut",{SHR},immediateRender:false}},{a0 + .6:.3f});')
+            o.append(f'tl.to("#{t}_la",{{rotation:150,duration:.3,{SHL}}},{a0 + .4:.3f});tl.fromTo("#{t}_la",{{rotation:150,{SHL}}},{{rotation:120,duration:.3,yoyo:true,repeat:{max(int((T - a0 - 1) / .3), 2)},ease:"sine.inOut",{SHL},immediateRender:false}},{a0 + .7:.3f});')
+            o.append(f'tl.to("#{t}_hd,#{t}_of,#{t}_te",{{rotation:-10,duration:.5,{NECK}}},{a0 + .3:.3f});'); info['nohead'] = True
+        info['says'][0] = a0 + .6
     elif ty == 'tug':   # both hands on a rope on its facing side: leans back and heaves three times, slips, lands on its bottom, gets up
         a1 = a0 + .4; info['nohead'] = True
         o.append(f'tl.to("#{t}_ra",{{rotation:-75,duration:.3,{SHR}}},{a1:.3f});tl.to("#{t}_la",{{rotation:-105,duration:.3,{SHL}}},{a1:.3f});' + F('determined', a1))
@@ -600,3 +732,64 @@ def loco_js(t, d, act, a0, T, k, F):
             o.append(F('shock', tm) + f'tl.to({ac},{{rotation:{14 * sg},duration:.35,ease:"power2.out",{FEET}}},{tm:.3f});tl.fromTo("#{t}_ra",{{rotation:-90,{SHR}}},{{rotation:-130,duration:.12,yoyo:true,repeat:5,{SHR},immediateRender:false}},{tm:.3f});tl.fromTo("#{t}_la",{{rotation:90,{SHL}}},{{rotation:130,duration:.12,yoyo:true,repeat:5,{SHL},immediateRender:false}},{tm:.3f});')
             o.append(f'tl.to({ac},{{rotation:0,duration:.6,ease:"elastic.out(1,.5)",{FEET}}},{tm + .5:.3f});' + F('squint', tm + 1.0)); tm += 3.2; j += 1
     return o, info
+
+
+# ---------------------------------------------------------------- arm bend (2026-10-29, miya) ----------------------------------------------------------------
+# The resting arm curves outward "( O )". Turned about the shoulder toward the head, that same curve ends up bulging toward the head
+# ") O (" = a broken-looking elbow. So the bend follows the arm angle: every rotation tween on #<t>_la / #<t>_ra gets a companion tween of the
+# path "d" (both strokes of the arm) that morphs the control point from bent-out (|angle| <= 55) to bent-in (|angle| >= 125), with the same
+# duration / ease / yoyo / repeat, so a raised arm always curves away from the head like "\ o /". Pure post-processing of the generated lines.
+ARM_OUT = (14.0, 6.0); ARM_IN = (1.4, 15.2)   # quadratic control point (right arm; the left one is mirrored in x), end point (16, 22) stays
+
+
+def arm_d(side, rot):
+    b = min(max((abs(rot) - 55) / 70, 0), 1); cx = ARM_OUT[0] + (ARM_IN[0] - ARM_OUT[0]) * b; cy = ARM_OUT[1] + (ARM_IN[1] - ARM_OUT[1]) * b
+    return f'M34 -22 q{cx:.1f} {cy:.1f} 16 22' if side == 'ra' else f'M-34 -22 q{-cx:.1f} {cy:.1f} -16 22'
+
+
+def _obj_end(s_, i):
+    """index just past the balanced {...} that starts at s_[i] == '{'"""
+    d = 0
+    for j in range(i, len(s_)):
+        if s_[j] == '{': d += 1
+        elif s_[j] == '}':
+            d -= 1
+            if d == 0: return j + 1
+    return -1
+
+
+_ROT = __import__('re').compile(r'(?<![\w"])rotation:(-?\d+(?:\.\d+)?)(?![\d.])')
+_KEEP = __import__('re').compile(r'(?:duration|ease|yoyo|repeat|repeatDelay):(?:"[^"]*"|[^,}]+)')
+
+
+def arm_bend_pass(lines, t):
+    """add the bend tweens for every arm rotation tween in lines (strings of ';'-separated tl.* calls)"""
+    import re
+    rx = re.compile(r'tl\.(to|set|fromTo)\(("[^"]*")\s*,')
+    out = []
+    for ln in lines:
+        extra = []
+        for m in rx.finditer(ln):
+            sel = m.group(2).strip('"'); sides = [x.split('_')[-1] for x in sel.split(',') if x.strip().startswith('#' + t + '_') and x.strip().split('_')[-1] in ('la', 'ra')]
+            if not sides: continue
+            i = ln.find('{', m.end())
+            if i < 0: continue
+            j = _obj_end(ln, i); o1 = ln[i:j]; o2 = None
+            if m.group(1) == 'fromTo':
+                i2 = ln.find('{', j); j2 = _obj_end(ln, i2); o2 = ln[i2:j2]; j = j2
+            mt = re.match(r'\s*,\s*(-?\d+(?:\.\d+)?)\s*\)', ln[j:])
+            if not mt: continue
+            tm = mt.group(1); tgt = o2 if o2 else o1
+            r1 = _ROT.search(tgt)
+            if not r1 or 'keyframes' in tgt: continue
+            keep = ','.join(_KEEP.findall(tgt))
+            for side in sides:
+                dsel = f'"#{t}_{side}>path"'; d1 = arm_d(side, float(r1.group(1)))
+                if m.group(1) == 'set': extra.append(f'tl.set({dsel},{{attr:{{d:"{d1}"}}}},{tm});')
+                elif m.group(1) == 'fromTo':
+                    r0 = _ROT.search(o1); d0 = arm_d(side, float(r0.group(1))) if r0 else d1
+                    if d0 == d1 and 'yoyo' not in keep: continue
+                    extra.append(f'tl.fromTo({dsel},{{attr:{{d:"{d0}"}}}},{{attr:{{d:"{d1}"}},{keep + "," if keep else ""}immediateRender:false}},{tm});')
+                else: extra.append(f'tl.to({dsel},{{attr:{{d:"{d1}"}},{keep + "," if keep else ""}immediateRender:false}},{tm});')
+        out.append(ln + ''.join(extra))
+    return out
