@@ -22,6 +22,7 @@
 #     The arm turns ONLY when the pointed object changes; no waving or nodding. A unit without points hides the arm.
 #   "moves": [{"word": "...", "x": .., "y": .., "flip": 1|-1, "s": ..}]  the frog hops to a new place (not used with "ride").
 import math, re
+import frog_rig   # 2026-10-29: joints (legs / head / life layer), contact acts, costume acts
 
 INK = '#1d2b1c'; GREEN = '#6aa55a'
 
@@ -239,13 +240,24 @@ def markup(tag, d):
     x, y, s, fl = d['x'], d['y'], d['s'], d['flip']
     return (f'<g id="{t}" transform="translate({x:.1f} {y:.1f}) scale({fl * s:.3f} {s:.3f})" stroke="{INK}" stroke-linejoin="round" stroke-linecap="round">'
             f'<defs><clipPath id="{t}_cl"><circle cx="-10" cy="-66" r="13"/></clipPath><clipPath id="{t}_cr"><circle cx="22" cy="-66" r="13"/></clipPath></defs>'
-            f'<ellipse cx="0" cy="8" rx="52" ry="8" fill="#000" opacity=".18" stroke="none"/>'
+            f'<ellipse id="{t}_sh" cx="0" cy="8" rx="52" ry="8" fill="#000" opacity=".18" stroke="none"/>'
             f'<g id="{t}_wd" opacity="0" fill="none" stroke="#e8f3ff" stroke-width="3.4" stroke-linecap="round"><path d="M70 -70 h46"/><path d="M82 -44 h56"/><path d="M70 -18 h40"/><path d="M96 -88 h34"/></g>'
-            f'<g id="{t}_in"><g id="{t}_tr"><g id="{t}_rm"><g id="{t}_ac">'
-            f'<ellipse cx="-22" cy="4" rx="16" ry="9" fill="#4d8a4a" stroke-width="3.2"/><ellipse cx="22" cy="4" rx="16" ry="9" fill="#4d8a4a" stroke-width="3.2"/>'
+            f'<g id="{t}_in"><g id="{t}_tr"><g id="{t}_rm"><g id="{t}_lf"><g id="{t}_ac">'
+            f'<g id="{t}_lgl"><path d="M-16 -10 q-10 6 -10 14" fill="none" stroke-width="8"/><path d="M-16 -10 q-10 6 -10 14" fill="none" stroke="{GREEN}" stroke-width="4.4"/><ellipse cx="-22" cy="4" rx="16" ry="9" fill="#4d8a4a" stroke-width="3.2"/></g>'
+            f'<g id="{t}_lgr"><path d="M28 -10 q10 6 10 14" fill="none" stroke-width="8"/><path d="M28 -10 q10 6 10 14" fill="none" stroke="{GREEN}" stroke-width="4.4"/><ellipse cx="22" cy="4" rx="16" ry="9" fill="#4d8a4a" stroke-width="3.2"/></g>'
             f'<path d="M-34 0 q-6 -64 34 -70 q40 -2 42 62 q0 10 -6 12 q-36 6 -70 -4z" fill="{GREEN}" stroke-width="4"/>'
             f'<ellipse cx="2" cy="-12" rx="22" ry="20" fill="#9cc98a" stroke="none" opacity=".7"/>'
-            f'<circle cx="-10" cy="-66" r="13" fill="#e3e5d6" stroke-width="3.2"/><circle id="{t}_pl" cx="-8" cy="-66" r="5" fill="{INK}" stroke="none"/>'
+            f'<g id="{t}_la"><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke-width="7.5"/><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/></g>'
+            f'<g id="{t}_ra"><path d="M34 -22 q14 6 16 22" fill="none" stroke-width="7.5"/><path d="M34 -22 q14 6 16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/>'
+            f'<g id="{t}_sc" opacity="0" transform="translate(50 0) rotate(-55)"><rect x="-5" y="-54" width="10" height="40" rx="3" fill="#3b4a6b" stroke-width="2.4"/><rect x="-7" y="-62" width="14" height="10" rx="3" fill="#8a9bbf" stroke-width="2.4"/><rect x="-4" y="-14" width="8" height="12" rx="2" fill="#8a9bbf" stroke-width="2.2"/></g>'
+            f'<g id="{t}_sv" opacity="0" transform="translate(50 0) rotate(28)"><rect x="-3" y="-70" width="6" height="64" rx="2" fill="#a67c52" stroke-width="2.4"/><path d="M-12 -6 h24 l-4 22 q-8 6 -16 0z" fill="#9aa3ad" stroke-width="2.6"/><rect x="-8" y="-78" width="16" height="9" rx="3" fill="#a67c52" stroke-width="2.4"/></g>'
+            f'<g id="{t}_bk" opacity="0" transform="translate(46 -8) rotate(-12)"><path d="M-30 -24 q30 -8 60 0 v30 q-30 -8 -60 0z" fill="#f4e6c8" stroke-width="2.8"/><path d="M0 -28 v32" stroke-width="2.4"/><path d="M-22 -16 h16 M-22 -8 h16 M6 -16 h16 M6 -8 h16" stroke="#8a8f96" stroke-width="1.8"/></g>'
+            f'<g id="{t}_cm" opacity="0" transform="translate(50 -6)"><rect x="-22" y="-16" width="44" height="30" rx="5" fill="#2b2f3a" stroke-width="2.6"/><circle cx="0" cy="-1" r="9" fill="#6a7a9a" stroke-width="2.4"/><circle cx="0" cy="-1" r="4" fill="#9fd8ff" stroke="none"/><rect x="-16" y="-22" width="12" height="7" rx="2" fill="#2b2f3a" stroke-width="2"/><circle id="{t}_fs" cx="14" cy="-22" r="6" fill="#fff8c4" stroke="none" opacity="0"/></g>'
+            f'<g id="{t}_mg" opacity="0" transform="translate(50 -4) rotate(-40)"><rect x="-3.5" y="0" width="7" height="34" rx="2" fill="#a67c52" stroke-width="2.4"/><circle cx="0" cy="-16" r="17" fill="#9fd8ff" fill-opacity=".35" stroke-width="3.2"/><path d="M-8 -24 q6 -6 12 -2" fill="none" stroke="#fff" stroke-width="2.4" opacity=".7"/></g>'
+            f'<g id="{t}_pc" opacity="0" transform="translate(50 0) rotate(-35)"><rect x="-3.4" y="-40" width="6.8" height="36" rx="1.4" fill="#f2c94c" stroke-width="2.4"/><rect x="-3.4" y="-45" width="6.8" height="6" rx="2" fill="#e8847a" stroke-width="2.2"/><path d="M-3.4 -4 L0 6 L3.4 -4z" fill="#e8c9a0" stroke-width="2"/><path d="M-1.2 2 L0 6 L1.2 2z" fill="#3a3a3a" stroke="none"/></g></g>'
+            f'<g id="{t}_dd" opacity="0" fill="none" stroke="#4a4a52" stroke-width="3" stroke-linecap="round"><path id="{t}_dd1" pathLength="1" d="M58 0 q8 -16 16 0 t16 0 t16 0 t16 0 q10 -14 -2 -16 q-12 0 -6 14"/><path id="{t}_dd2" pathLength="1" d="M60 -26 l4 12 l-12 -8 l16 0 l-12 8z"/><path id="{t}_dd3" pathLength="1" d="M118 -34 q8 -12 16 0 q6 12 -16 24 q-22 -12 -16 -24 q8 -12 16 0"/></g>'
+            f'<circle id="{t}_tp" cx="58" cy="-4" r="10" fill="none" stroke="#fff" stroke-width="3" opacity="0"/>'
+            f'<g id="{t}_hd"><circle cx="-10" cy="-66" r="13" fill="#e3e5d6" stroke-width="3.2"/><circle id="{t}_pl" cx="-8" cy="-66" r="5" fill="{INK}" stroke="none"/>'
             f'<circle cx="22" cy="-66" r="13" fill="#e3e5d6" stroke-width="3.2"/><circle id="{t}_pr" cx="24" cy="-66" r="5" fill="{INK}" stroke="none"/>'
             f'<g clip-path="url(#{t}_cl)"><rect id="{t}_ll" x="-24" y="-80" width="28" height="0" fill="{GREEN}" stroke="none"/></g>'
             f'<g clip-path="url(#{t}_cr)"><rect id="{t}_lr" x="8" y="-80" width="28" height="0" fill="{GREEN}" stroke="none"/></g>'
@@ -259,26 +271,17 @@ def markup(tag, d):
             f'<path id="{t}_sm" d="M-8 -44 q14 12 28 0" fill="none" stroke-width="3.4"/>'
             f'<path id="{t}_th" d="M-9 -45 h30 v5 q-15 3 -30 0z" fill="#fff" stroke="none" opacity="0"/>'
             f'<ellipse id="{t}_mo" cx="6" cy="-44" rx="13" ry="0" fill="#7a2f2f" stroke-width="2.8"/>'
-            f'<ellipse id="{t}_tg" cx="6" cy="-44" rx="8" ry="0" fill="#e8847a" stroke="none"/>'
-            f'<g id="{t}_la"><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke-width="7.5"/><path d="M-34 -22 q-14 6 -16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/></g>'
-            f'<g id="{t}_ra"><path d="M34 -22 q14 6 16 22" fill="none" stroke-width="7.5"/><path d="M34 -22 q14 6 16 22" fill="none" stroke="{GREEN}" stroke-width="3.4"/>'
-            f'<g id="{t}_sc" opacity="0" transform="translate(50 0) rotate(-55)"><rect x="-5" y="-54" width="10" height="40" rx="3" fill="#3b4a6b" stroke-width="2.4"/><rect x="-7" y="-62" width="14" height="10" rx="3" fill="#8a9bbf" stroke-width="2.4"/><rect x="-4" y="-14" width="8" height="12" rx="2" fill="#8a9bbf" stroke-width="2.2"/></g>'
-            f'<g id="{t}_sv" opacity="0" transform="translate(50 0) rotate(28)"><rect x="-3" y="-70" width="6" height="64" rx="2" fill="#a67c52" stroke-width="2.4"/><path d="M-12 -6 h24 l-4 22 q-8 6 -16 0z" fill="#9aa3ad" stroke-width="2.6"/><rect x="-8" y="-78" width="16" height="9" rx="3" fill="#a67c52" stroke-width="2.4"/></g>'
-            f'<g id="{t}_bk" opacity="0" transform="translate(46 -8) rotate(-12)"><path d="M-30 -24 q30 -8 60 0 v30 q-30 -8 -60 0z" fill="#f4e6c8" stroke-width="2.8"/><path d="M0 -28 v32" stroke-width="2.4"/><path d="M-22 -16 h16 M-22 -8 h16 M6 -16 h16 M6 -8 h16" stroke="#8a8f96" stroke-width="1.8"/></g>'
-            f'<g id="{t}_cm" opacity="0" transform="translate(50 -6)"><rect x="-22" y="-16" width="44" height="30" rx="5" fill="#2b2f3a" stroke-width="2.6"/><circle cx="0" cy="-1" r="9" fill="#6a7a9a" stroke-width="2.4"/><circle cx="0" cy="-1" r="4" fill="#9fd8ff" stroke="none"/><rect x="-16" y="-22" width="12" height="7" rx="2" fill="#2b2f3a" stroke-width="2"/><circle id="{t}_fs" cx="14" cy="-22" r="6" fill="#fff8c4" stroke="none" opacity="0"/></g>'
-            f'<g id="{t}_mg" opacity="0" transform="translate(50 -4) rotate(-40)"><rect x="-3.5" y="0" width="7" height="34" rx="2" fill="#a67c52" stroke-width="2.4"/><circle cx="0" cy="-16" r="17" fill="#9fd8ff" fill-opacity=".35" stroke-width="3.2"/><path d="M-8 -24 q6 -6 12 -2" fill="none" stroke="#fff" stroke-width="2.4" opacity=".7"/></g>'
-            f'<g id="{t}_pc" opacity="0" transform="translate(50 0) rotate(-35)"><rect x="-3.4" y="-40" width="6.8" height="36" rx="1.4" fill="#f2c94c" stroke-width="2.4"/><rect x="-3.4" y="-45" width="6.8" height="6" rx="2" fill="#e8847a" stroke-width="2.2"/><path d="M-3.4 -4 L0 6 L3.4 -4z" fill="#e8c9a0" stroke-width="2"/><path d="M-1.2 2 L0 6 L1.2 2z" fill="#3a3a3a" stroke="none"/></g></g>'
-            f'<g id="{t}_dd" opacity="0" fill="none" stroke="#4a4a52" stroke-width="3" stroke-linecap="round"><path id="{t}_dd1" pathLength="1" d="M58 0 q8 -16 16 0 t16 0 t16 0 t16 0 q10 -14 -2 -16 q-12 0 -6 14"/><path id="{t}_dd2" pathLength="1" d="M60 -26 l4 12 l-12 -8 l16 0 l-12 8z"/><path id="{t}_dd3" pathLength="1" d="M118 -34 q8 -12 16 0 q6 12 -16 24 q-22 -12 -16 -24 q8 -12 16 0"/></g>'
-            f'<circle id="{t}_tp" cx="58" cy="-4" r="10" fill="none" stroke="#fff" stroke-width="3" opacity="0"/>'
+            f'<ellipse id="{t}_tg" cx="6" cy="-44" rx="8" ry="0" fill="#e8847a" stroke="none"/></g>'
             f'<g id="{t}_lb" opacity="0" transform="translate(6 -128)"><path d="M-14 -6 q0 -22 14 -22 q14 0 14 22 q0 10 -7 16 h-14 q-7 -6 -7 -16z" fill="#fff3a8" stroke-width="2.8"/><rect x="-7" y="10" width="14" height="8" rx="2" fill="#9aa3ad" stroke-width="2.4"/><path d="M-26 -22 l-8 -6 M26 -22 l8 -6 M0 -36 v-10 M-20 -2 h-10 M20 -2 h10" stroke="#f2c94c" stroke-width="3"/></g>'
             f'<g id="{t}_te" opacity="0"><path id="{t}_te1" d="M-14 -52 q-4 8 0 12 q4 -4 0 -12z" fill="#7fc4f0" stroke="#2f6f9a" stroke-width="1.8"/><path id="{t}_te2" d="M26 -52 q-4 8 0 12 q4 -4 0 -12z" fill="#7fc4f0" stroke="#2f6f9a" stroke-width="1.8"/></g>'
             f'<g id="{t}_zz" opacity="0" fill="none" stroke="#e8f3ff" stroke-width="3" stroke-linecap="round"><path d="M44 -100 h12 l-12 12 h12"/><path d="M62 -124 h9 l-9 9 h9"/></g>'
+            f'<g id="{t}_spk" opacity="0" fill="#7fc4f0" stroke="#2f6f9a" stroke-width="1.8">' + ''.join(f'<path id="{t}_sp{i}" d="M{70 + i * 7} {-8 - (i % 3) * 6} q-5 10 0 12 q5 -2 0 -12z"/>' for i in range(6)) + '</g>'
             f'<g id="{t}_sw" opacity="0" fill="#7fc4f0" stroke="#2f6f9a" stroke-width="2"><path id="{t}_sw0" d="M-34 -98 q-6 12 0 14 q6 -2 0 -14z"/><path id="{t}_sw1" d="M44 -96 q-6 12 0 14 q6 -2 0 -14z"/><path id="{t}_sw2" d="M6 -112 q-6 12 0 14 q6 -2 0 -14z"/></g>'
-            f'{outfit_markup(t, d.get("outfit") or [])}'
+            f'<g id="{t}_of">{outfit_markup(t, d.get("outfit") or [])}</g>'
             f'<g transform="translate(32 -22)"><g id="{t}_arm">'
             f'<path d="M0 0 L58 0" stroke-width="11"/><circle cx="60" cy="0" r="9" fill="{INK}" stroke="none"/>'
             f'<path d="M0 0 L58 0" stroke="{GREEN}" stroke-width="6"/><circle cx="60" cy="0" r="6" fill="{GREEN}" stroke="none"/>'
-            f'</g></g></g></g>{bubble_markup(t, d)}</g></g></g>')
+            f'</g></g></g></g></g>{bubble_markup(t, d)}</g></g></g>')
 
 def bubble_geom(sy, d):
     tx = sy['text'][:24]; wd = 26 * len(tx) * .5 + 44; hh = 34
@@ -369,7 +372,7 @@ def angle_to(d, target, st=None):
 REST = 75   # arm hangs down along the body (deg, local); it only moves when the pointed object changes
 
 
-def js(tag, d, t0, t1, words, targets=None, wt=None):
+def js(tag, d, t0, t1, words, targets=None, wt=None, objt=None, k=0):
     """GSAP lines. words = [(start, end)] absolute seconds of the unit's words (mouth), targets = [(time, (x, y))] arm pointing
     (default: sidecar "points"/"point"; none = arm rests), wt = [(text, start, end)] to resolve the "word" keys of points/moods/moves."""
     t = f'fg{tag}'; out = []; a0 = t0 + d['delay']; wt = wt or []
@@ -377,9 +380,10 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
     # entrance / exit by kind (2026-10-26 frog review): only the chalkboard explainer hops up from below; a picture frog fades in where it is
     # (rides: peeks up from its object, roams: drifts in) and fades out shortly before the cut instead of vanishing in one frame
     enter = d.get('enter') or ('hop' if not (d.get('ride') or d.get('kind') in ('ride', 'bg')) else ('peek' if d.get('ride') else 'fade'))
-    oy = {'hop': 300, 'peek': 26, 'fade': 0}.get(enter, 40)
+    oy = {'hop': 300, 'peek': 26, 'fade': 0, 'cut': 0}.get(enter, 40)
     out.append(f'tl.set("#{t}_in",{{opacity:0,y:{oy}}},0);tl.set("#{t}",{{opacity:0}},0);tl.set("#{t}",{{opacity:1}},{a0 - .01:.3f});tl.set("#{t}",{{opacity:0}},{t1:.3f});')
-    if enter == 'hop': out.append(f'tl.fromTo("#{t}_in",{{y:300,opacity:0}},{{y:0,opacity:1,duration:.45,ease:"back.out(1.6)",immediateRender:false}},{a0:.3f});')
+    if enter == 'cut': out.append(f'tl.set("#{t}_in",{{opacity:1,y:0}},{a0:.3f});')   # already there when the picture starts (contact acts: the object is on its way)
+    elif enter == 'hop': out.append(f'tl.fromTo("#{t}_in",{{y:300,opacity:0}},{{y:0,opacity:1,duration:.45,ease:"back.out(1.6)",immediateRender:false}},{a0:.3f});')
     else:
         out.append(f'tl.fromTo("#{t}_in",{{y:{oy},opacity:0,scale:.85,svgOrigin:"0 0"}},{{y:0,opacity:1,scale:1,duration:.5,ease:"power2.out",immediateRender:false}},{a0:.3f});')
         if t1 - a0 > 1.4: out.append(f'tl.to("#{t}_in",{{opacity:0,duration:.3,ease:"power1.in"}},{t1 - .32:.3f});')
@@ -405,7 +409,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
     out.append(f'tl.set("#{t}_arm",{{rotation:{REST},{org}}},0);tl.set("#{t}_spl,#{t}_spr,#{t}_fl1,#{t}_fl2,#{t}_sw,#{t}_dd,#{t}_pc,#{t}_sc,#{t}_sv,#{t}_bk,#{t}_cm,#{t}_mg,#{t}_lb,#{t}_te,#{t}_zz,#{t}_st,#{t}_th",{{opacity:0}},0);')
     if not pts: out.append(f'tl.set("#{t}_arm",{{opacity:0}},0);')   # no pointing in this unit (rides / sits in the background): the long arm stick is hidden and a short resting right arm shows instead
     else: out.append(f'tl.set("#{t}_ra",{{opacity:0}},0);')   # pointing frog (chalkboard): the long pointing arm is the right arm
-    cur_tgt = None; tracked = False; last_ang = REST
+    cur_tgt = None; tracked = False; last_ang = REST; mood_t = [x[0] for x in timeline if x[1] == 'mood']
     for tm, kind, pl in timeline:
         if kind == 'move':
             nx = pl.get('x', st['ox']); ny = pl.get('y', d['y']); nfl = pl.get('flip', d['flip']); ns = pl.get('s', d['s'])
@@ -437,14 +441,19 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             out.append(face_js(t, M, tm, gz=gz, swirl=(pl == 'dizzy')))
     # ---- body act (2026-10-25, miya: expression + motion that fits the situation); all tweens on #<t>_ac, absolute times so seeking works ----
     act = d.get('act'); at = (act.get('type') if isinstance(act, dict) else act) or None
-    if at:
+    info = dict(nohead=False, nolegs=False, noscale=False, noeyes=False, says={})   # which life layers an act switches off (frog_rig.life_js)
+    if at in frog_rig.CONTACT or at in frog_rig.MOVES:   # 2026-10-29 contact acts (the frog meets a moving object at the object's own time) and locomotion / costume acts (guideline 7-2 G)
+        T = t1 - .05; ad = act if isinstance(act, dict) else {'type': at}
+        ln_, info = frog_rig.contact_js(t, d, ad, t0, a0, T, k, objt, face=lambda m, tm: face_js(t, MOODS.get(m, MOODS['happy']), tm))
+        out.extend(ln_); mood_t += list(info['says'].values())
+    elif at:
         ac = f'"#{t}_ac"'; a1 = a0 + .5; T = t1 - .05; org2 = 'svgOrigin:"0 0"'
         if isinstance(act, dict) and act.get('from') is not None: a1 = t0 + float(act['from'])   # start the act this many seconds into the unit
         tg = (act.get('to') if isinstance(act, dict) else None) or [d['x'] + 300 * d['flip'], d['y']]
         dirn = 1 if (tg[0] - d['x']) * d['flip'] >= 0 else -1   # +1 = the hole/thing lies in front of the frog (its facing side), -1 = behind
         k = 0; tm = a1
         if at == 'wind':      # leaning back into the wind, bracing, squinting; air streaks fly past
-            out.append(f'tl.to({ac},{{rotation:-10,x:-4,duration:.4,ease:"power2.out",{org2}}},{a1:.3f});')
+            out.append(f'tl.to({ac},{{rotation:-10,x:-4,duration:.4,ease:"power2.out",{org2}}},{a1:.3f});'); out += frog_rig.brace(t, a1, -24, 20); info['nolegs'] = True   # 2026-10-29: one leg forward, one back
             nn = max(int((T - a1 - .4) / .8), 1)   # smooth lean sway (miya 2026-10-26: the old 0.09 s jitter looked unnatural); one yoyo tween, seek-safe
             out.append(f'tl.to({ac},{{rotation:-13,y:-3,x:-5,duration:.8,yoyo:true,repeat:{nn},ease:"sine.inOut",{org2}}},{a1 + .4:.3f});')
         elif at == 'pull':    # dragged toward the hole: slides and leans, digs in, gets dragged again (never quite escapes)
@@ -456,6 +465,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
                 out.append(f'tl.to("#{t}_rm",{{rotation:{dirn * 360},scaleX:.04,scaleY:.04,duration:{T - tv:.3f},ease:"power2.in",svgOrigin:"0 -30"}},{tv:.3f});')
                 out.append(f'tl.to("#{t}_in",{{opacity:0,duration:.35,ease:"none"}},{T - .35:.3f});')
             te = (tv if vz else T) - .1
+            out += frog_rig.brace(t, a1, -30, 24); info['nolegs'] = True   # 2026-10-29: heels dug in
             if te > a1 + .4:   # soft lean in and out (no snapping) with a continuous fine tremble (miya 2026-10-26: trembling good, the stutter not)
                 out.append(f'tl.to({ac},{{y:-2.2,duration:.1,yoyo:true,repeat:{int((te - a1) / .1)},ease:"sine.inOut"}},{a1:.3f});')
                 while tm < te - .3:
@@ -500,6 +510,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             out.append(f'tl.to({ac},{{rotation:{-dirn * 14},duration:{D:.2f},ease:"power1.in",{org2}}},{a1:.3f});tl.to({ac},{{rotation:0,duration:.5,ease:"back.out(2)",{org2}}},{a1 + D:.3f});')
             out.append(f'tl.to({ac},{{rotation:5,duration:.45,yoyo:true,repeat:{max(int((T - a1 - D) / .45), 1)},ease:"sine.inOut",{org2}}},{a1 + D + .5:.3f});')
         elif at == 'float':   # weightless drift
+            out += frog_rig.kicks(t, a1, max(int((T - a1) / .65), 2), 1.3, 14); info['nolegs'] = True   # 2026-10-29: slow paddling
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{y:-5,rotation:{2 if k % 2 == 0 else -2},duration:2.0,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{y:2,rotation:{-2 if k % 2 == 0 else 2},duration:2.0,ease:"sine.inOut",{org2}}},{tm + 2.0:.3f});'); tm += 4.0; k += 1   # slow soft drift (miya 2026-10-26: the 1.4 s bobbing looked like meaningless jumping)
         elif at == 'waves':   # riding / bracing against the swell
@@ -534,6 +545,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
                 out.append(f'tl.to("#{t}_ra",{{rotation:{-62 + (7 if n2 % 2 == 0 else -7)},duration:.11,ease:"none",svgOrigin:"34 -22"}},{tw:.3f});'); tw += .11; n2 += 1
             out.append(f'tl.to({ac},{{rotation:-4,duration:.5,ease:"sine.inOut",{org2}}},{a1:.3f});')
         elif at == 'push':    # heaving a heavy thing (miya 2026-10-26): leans into it, strains, small forward shoves, sweat drops fall; the frog stands beside the object (use "ride" so it travels with it)
+            out += frog_rig.brace(t, a1, -10, 34) + [f'tl.fromTo("#{t}_lgr",{{rotation:-10,svgOrigin:"28 -10"}},{{rotation:-22,duration:.55,yoyo:true,repeat:{max(int((T - a1) / .55), 1)},ease:"sine.inOut",svgOrigin:"28 -10",immediateRender:false}},{a1 + .5:.3f});']; info['nolegs'] = True   # 2026-10-29: back leg stretched, front foot scrapes with each shove
             out.append(f'tl.set("#{t}_sw",{{opacity:1}},{a1:.3f});tl.to("#{t}_ra",{{rotation:-80,duration:.3,svgOrigin:"34 -22"}},{a1:.3f});tl.to({ac},{{rotation:16,x:6,duration:.5,ease:"power2.out",{org2}}},{a1:.3f});')
             n2 = 0
             while tm < T - .3:
@@ -571,7 +583,8 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             out.append(f'tl.to("#{t}_ra",{{rotation:-170,duration:.3,svgOrigin:"34 -22"}},{a1 - .3:.3f});tl.to("#{t}_la",{{rotation:170,duration:.3,svgOrigin:"-34 -22"}},{a1 - .3:.3f});')
             out.append(f'tl.to({ac},{{rotation:7,duration:1.3,yoyo:true,repeat:{max(int((T - a1) / 1.3), 1)},ease:"sine.inOut",svgOrigin:"0 -34"}},{a1:.3f});')
             while tm < T - .6:
-                out.append(f'tl.to({ac},{{y:4,duration:.25,yoyo:true,repeat:3,ease:"sine.inOut"}},{tm + 1.0:.3f});'); tm += 3.9
+                out += frog_rig.kicks(t, tm + 1.0, 5, .32, 22); tm += 3.9   # 2026-10-29: little leg kicks (was a body wiggle)
+            info['nolegs'] = True
         elif at == 'tap':     # taps / knocks on the object beside it: leans in, right arm pokes forward three times, leans back and looks (curious)
             while tm < T - 1.4:
                 out.append(f'tl.to({ac},{{rotation:{dirn * 8},x:{dirn * 6},duration:.4,ease:"power2.out",{org2}}},{tm:.3f});')
@@ -607,7 +620,7 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
             out.append(f'tl.to({ac},{{rotation:{-dirn * 10},y:-2,duration:1.1,yoyo:true,repeat:{max(int((T - a1 - .6) / 1.1), 1)},ease:"sine.inOut",{org2}}},{a1 + .6:.3f});')
         # ---- round 4 (2026-10-26, miya: more frog motions for any script); chosen by frog_place.py regexes, guideline 7-2 D ----
         elif at == 'dance':   # sways to a beat, arms alternate up and down (music / song / celebration)
-            nb = max(int((T - a1) / .45), 2)
+            nb = max(int((T - a1) / .45), 2); out += frog_rig.legs_cycle(t, a1, T - .3, .9, 18); info['nolegs'] = True   # 2026-10-29: feet step with the sway
             out.append(f'tl.fromTo({ac},{{rotation:-7,x:-3}},{{rotation:7,x:3,duration:.45,yoyo:true,repeat:{nb},ease:"sine.inOut",{org2}}},{a1:.3f});')
             out.append(f'tl.fromTo("#{t}_ra",{{rotation:-20,svgOrigin:"34 -22"}},{{rotation:-140,duration:.9,yoyo:true,repeat:{max(nb // 2, 1)},ease:"sine.inOut",svgOrigin:"34 -22"}},{a1:.3f});')
             out.append(f'tl.fromTo("#{t}_la",{{rotation:140,svgOrigin:"-34 -22"}},{{rotation:20,duration:.9,yoyo:true,repeat:{max(nb // 2, 1)},ease:"sine.inOut",svgOrigin:"-34 -22"}},{a1:.3f});')
@@ -687,13 +700,15 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         elif at == 'cheer':   # happy hops with both arms up
             out.append(f'tl.to("#{t}_ra",{{rotation:-150,duration:.3,svgOrigin:"34 -22"}},{a1:.3f});tl.to("#{t}_la",{{rotation:150,duration:.3,svgOrigin:"-34 -22"}},{a1:.3f});')
             while tm < T - .2:
-                out.append(f'tl.to({ac},{{y:-16,rotation:{5 if k % 2 == 0 else -5},duration:.3,ease:"power2.out",{org2}}},{tm:.3f});tl.to({ac},{{y:0,rotation:0,duration:.35,ease:"bounce.out",{org2}}},{tm + .3:.3f});'); tm += 2.4; k += 1   # fewer, lower hops: only for a real cheer
+                out.append(f'tl.to({ac},{{y:-16,rotation:{5 if k % 2 == 0 else -5},duration:.3,ease:"power2.out",{org2}}},{tm:.3f});tl.to({ac},{{y:0,rotation:0,duration:.35,ease:"bounce.out",{org2}}},{tm + .3:.3f});'); out += frog_rig.tuck(t, tm, .2, .05, .3, 45); tm += 2.4; k += 1   # fewer, lower hops: only for a real cheer; legs tucked in the air (2026-10-29)
+            info['nolegs'] = True
         elif at == 'sleepy':  # slow time: heavy slow sway, drooping
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{rotation:5,y:3,duration:2.2,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{rotation:-4,y:0,duration:2.2,ease:"sine.inOut",{org2}}},{tm + 2.2:.3f});'); tm += 4.4
     # ---- speech bubble / sound word (2026-10-26): says = [{text, word?, dur?, shout?}]; pops in at the word, shakes when shouted, fades after dur ----
     for k, sy in enumerate(d.get('says') or []):
         tm = find_word(sy.get('word'), wt, a0, t1) if sy.get('word') else None
+        if k in info['says']: tm = info['says'][k]   # a contact / locomotion act times its own sound word (the impact, the slip ...)
         if tm is None and sy.get('t') is not None: tm = t0 + float(sy['t'])   # seconds into the unit
         if tm is None: tm = a0 + .7 + k * 2.4
         dur = min(sy.get('dur', 2.0), max(t1 - tm - .05, .6)); B = f'"#{t}_bub{k}"'; X = f'"#{t}_bx{k}"'
@@ -707,12 +722,13 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         out.append(f'tl.to({B},{{opacity:0,duration:.18}},{tm + dur:.3f});')
     # ---- roaming (2026-10-26, miya: the frog stayed in place at the bottom; let it move through the background): travels along its facing side on #<t>_rm ----
     rm = d.get('roam')
-    if rm and not d.get('ride'):
+    if rm and not d.get('ride') and at not in frog_rig.MOVES and at != 'trip':
         R = f'"#{t}_tr"'; RR = f'"#{t}_rm"'; kind = rm.get('kind', 'swim'); L = rm.get('dist', 500) / d['s']; ta = a0 + .45; T2 = t1 - .05; dur = max(T2 - ta, 1.0)
         out.append(f'tl.fromTo({R},{{x:0}},{{x:{L:.1f},duration:{dur:.3f},ease:"none",immediateRender:false}},{ta:.3f});')
         tm = ta; k = 0
         if kind == 'swim':    # weightless drift (miya 2026-10-26: floating, not paddling): slow eased travel, a long lazy up-down curve and a slow tumble
             out[-1] = out[-1].replace('ease:"none"', 'ease:"sine.inOut"')
+            out += frog_rig.kicks(t, ta, max(int((T2 - ta) / .7), 2), 1.4, 12); info['nolegs'] = True   # 2026-10-29: lazy slow leg paddles
             ys = (-18, 12, -10, 16, -14, 8); rs = (9, -11, 7, -9, 10, -6); k = 0; tm = ta; ty = 0
             while tm < T2 - .1:
                 dd = 1.7 + (k % 3) * .5
@@ -734,8 +750,9 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
                 dd = 2.0
                 out.append(f'tl.to({R},{{y:{ys[k % 4]},duration:{dd:.2f},ease:"sine.inOut"}},{tm:.3f});'); tm += dd; k += 1
         elif kind == 'moonhop':   # low gravity: slow, very high hops, turning a little in the air
-            per = 1.5; k = 0; tm = ta
+            per = 1.5; k = 0; tm = ta; info['nolegs'] = True
             while tm < T2 - .2:
+                out += frog_rig.tuck(t, tm + .1, .35, per / 2 - .5, .3, 50)   # 2026-10-29: legs tucked in the long air time
                 out.append(f'tl.to({R},{{y:-70,duration:{per / 2:.2f},ease:"power1.out"}},{tm:.3f});tl.to({R},{{y:0,duration:{per / 2:.2f},ease:"power1.in"}},{tm + per / 2:.3f});tl.to({RR},{{rotation:{10 if k % 2 == 0 else -10},duration:{per / 2:.2f},ease:"power1.out",svgOrigin:"0 -30"}},{tm:.3f});tl.to({RR},{{rotation:0,duration:{per / 2:.2f},ease:"power1.in",svgOrigin:"0 -30"}},{tm + per / 2:.3f});'); tm += per; k += 1
         elif kind == 'roll':   # tumbling / rolling along (dragged, swept away): accelerates, the body turns exactly with the distance travelled
             deg = 360 * L / 283.0
@@ -744,6 +761,11 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         elif kind in ('run', 'walk'):   # hops along the ground: run = big quick hops leaning forward, walk = small steps
             hh, per = (24, .46) if kind == 'run' else (9, .62)
             out.append(f'tl.to({RR},{{rotation:{6 if kind == "run" else 0},duration:.3,svgOrigin:"0 0"}},{ta:.3f});')
+            out += frog_rig.legs_cycle(t, ta, T2 - .1, per, 30 if kind == 'run' else 20); info['nolegs'] = True; info['noscale'] = True   # 2026-10-29: legs alternate, arms swing (when no act owns the arms), body squashes on each landing
+            if not at: out += frog_rig.arms_swing(t, ta, T2 - .1, per, 24 if kind == 'run' else 14)
+            tq = ta + per / 2
+            while tq < T2 - .3:
+                out += frog_rig.squash(t, tq, .9 if kind == 'run' else .95, 1.07, per * .18, per * .3); tq += per
             while tm < T2 - .1:
                 out.append(f'tl.to({R},{{y:{-hh},duration:{per / 2:.2f},ease:"power2.out"}},{tm:.3f});tl.to({R},{{y:0,duration:{per / 2:.2f},ease:"power2.in"}},{tm + per / 2:.3f});'); tm += per
     # mouth follows the spoken words: closed = the mood's mouth; open = a big round "ahh" of the same width that hangs from the smile line, with a tongue
@@ -760,4 +782,9 @@ def js(tag, d, t0, t1, words, targets=None, wt=None):
         out.append(f'tl.to("#{t}_ll,#{t}_lr",{{attr:{{height:27}},duration:.06,ease:"none"}},{tb:.3f});tl.set("#{t}_al,#{t}_ar",{{opacity:1}},{tb + .06:.3f});'
                    f'tl.set("#{t}_al,#{t}_ar",{{opacity:0}},{tb + .1:.3f});tl.to("#{t}_ll",{{attr:{{height:{lidl}}},duration:.08,ease:"none"}},{tb + .1:.3f});tl.to("#{t}_lr",{{attr:{{height:{lidr}}},duration:.08,ease:"none"}},{tb + .1:.3f});')
         tb += (2.3, 3.6, .32, 2.9, 4.1)[kb % 5]; kb += 1   # irregular blinks with an occasional double blink (a fixed 2.7 s looked mechanical)
+    # ---- life layer (2026-10-29, miya: the frog itself was too static): breathing, weight shift, head micro-turns, glances, a foot shuffle on every frog ----
+    PUPIL_ACTS = ('look', 'peek', 'awe', 'think', 'read', 'scope', 'search', 'listen', 'sneeze', 'dizzy', 'orbit', 'snooze')
+    BODY_ACTS = ('breathe', 'rest', 'eat', 'bounce', 'flex', 'stretch', 'salute')
+    out += frog_rig.life_js(t, a0, t1 - .05, k, nohead=info['nohead'] or at in ('fly', 'orbit', 'doodle'), nolegs=info['nolegs'] or at in ('fly', 'huts'),
+                            noscale=info['noscale'] or at in BODY_ACTS, noeyes=info['noeyes'] or at in PUPIL_ACTS or bool(pts) or bool(d.get('gaze')), avoid=mood_t + [ws for ws, _ in words if talk])
     return out

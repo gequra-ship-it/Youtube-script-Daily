@@ -8,7 +8,7 @@ import os, re, sys, json, html, shutil, subprocess, math, random
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 import numpy as np
-import palettes, labels_lib, caption_hl, frog, motions
+import palettes, labels_lib, caption_hl, frog, frog_rig, motions
 SCENES = load_scenes()
 CFG = load_config()
 B = wdir() + '/build'
@@ -486,6 +486,24 @@ CHALK = CFG.CHALK
 ROW_Y = [294, 459, 630]
 
 
+def obj_timing(nn, u, t0, v0):
+    """(2026-10-29, frog_rig contact acts) {group id: {kind, at, g, st, du, v0}} for every motion group of the unit's picture: the JS expression
+    build3 tweens (same class + index as the motion loop) and the start / duration of its one-shot motion (frog_rig.obj_span, the numbers of
+    motions.core_js / obj_js after the round-4 sanity), so a frog can be hit / splashed / bumped exactly when the object lands."""
+    p, fb = art_path(u); svg = open(p, encoding='utf-8').read(); cnt = {}; out = {}
+    for m in re.finditer(r'<g\b[^>]*\bid="(mv-[A-Za-z0-9-]+)"[^>]*>', svg):
+        gid = m.group(1); kk = cnt.get(gid, 0); cnt[gid] = kk + 1
+        at = dict(re.findall(r'(data-[a-z]+)="([^"]*)"', m.group(0)))
+        if gid.startswith('mv-core-'):
+            kind = 'core-' + motions.core_sanitize(gid[8:].split('-')[0], gid, keep=at.get('data-keep') == '1')
+        elif gid.count('-') >= 2 and gid.split('-')[1] in motions.OBJ_KINDS:
+            kind = motions.obj_sanitize(gid.split('-')[1], gid, keep=at.get('data-keep') == '1')
+        else: continue
+        sp_ = frog_rig.obj_span(kind, at)
+        out[gid] = dict(kind=kind, at=at, g=f'gsap.utils.toArray("#w{nn} .{gid}")[{kk}]', st=(t0 + sp_[0]) if sp_ else None, du=sp_[1] if sp_ else None, v0=v0)
+    return out
+
+
 def frog_inject(svgtxt, u):
     d = frog_of(u)
     return frog.inject(svgtxt, frog.markup(f'u{u["n"]}', d), d.get('ride'), d.get('behind')) if d else svgtxt
@@ -875,7 +893,7 @@ for k, u in enumerate(units):
         elif nxt['tr'] == 'whip':
             st = t1 - .45; js.append(f'tl.to("{T}",{{x:{-W},duration:.45,ease:"expo.out"}},{st:.3f});')
     _fd = frog_of(u)
-    if _fd: js.extend(frog.js(f'u{nn}', _fd, t0, t1, unit_words(u), wt=unit_wordlist(u)))
+    if _fd: js.extend(frog.js(f'u{nn}', _fd, t0, t1, unit_words(u), wt=unit_wordlist(u), objt=obj_timing(nn, u, t0, v0), k=k))   # 2026-10-29: object timings for the contact acts (frog_rig), unit index for the life layer phases
     # --- tracking camera (2026-10-22): a long travelling motion (path object, dominoes) is followed; it replaces focus and drift ---
     trk = motions.track_spec(open(art_path(u)[0], encoding='utf-8').read(), side(u))
     if trk:
