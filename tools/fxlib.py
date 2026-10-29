@@ -73,7 +73,7 @@ def path_ease(text):
 
 def cam_ease(text):
     """drift / focus camera ease: an earthquake / rough word -> RoughEase jitter on top of the move; a zoom word -> ExpoScaleEase"""
-    if ROUGH_W.search(text): return 'rough({strength:1,points:24,template:"sine.inOut",taper:"both",randomize:true,clamp:true})'
+    if ROUGH_W.search(text): return 'rough({strength:1,points:24,template:sine.inOut,taper:both,randomize:true,clamp:true})'
     return None
 
 
