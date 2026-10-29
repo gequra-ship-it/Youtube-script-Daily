@@ -613,6 +613,8 @@ def is_speed(u, sc0):
     if 'speed' in sc0: return bool(sc0['speed'])
     return COSMIC and bool(SPEED_RE.search(u['text']))
 DRIFT = getattr(CFG, 'DRIFT', True)   # slow continuous camera move on every picture without a focus target (guideline 20-1)
+_ax = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'axisfix.py'), SLUG], capture_output=True, text=True)   # axis catalogue (2026-10-29): missing data-pivot written from the thing's name before anything reads the art
+print('axisfix:', (_ax.stdout.strip().splitlines() or [_ax.stderr.strip()[-200:]])[-1], '| problems:', [l for l in _ax.stdout.splitlines() if 'PROBLEM' in l][:6] if 'PROBLEM' in _ax.stdout else 'none')
 OPT, SVGO_STAT = svg_opt.optimize_dir(ART3, B, names=[f'{u["uid"]}.svg' for u in units if u['kind'] != 'chalk' and os.path.exists(f'{ART3}/{u["uid"]}.svg')])
 print('svgo', f"{SVGO_STAT['files']} files {SVGO_STAT['before'] // 1024} -> {SVGO_STAT['after'] // 1024} KB" if SVGO_STAT['files'] else 'skipped', SVGO_STAT.get('reason', ''))
 FACE = facing.compute(sorted({art_path(u)[0] for u in units if u['kind'] != 'chalk'}), W, H, cache=f'{B}/facing.json')

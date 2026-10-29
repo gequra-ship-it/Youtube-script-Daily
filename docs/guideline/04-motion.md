@@ -159,3 +159,24 @@ GSAP 3.15(2025년부터 플러그인 전부 무료) 14개 플러그인 + anime.j
 | `tools/originlive.py` | 만든 페이지에서 data-pivot 없는 회전 그룹(spin·turn·roll·wobble)이 자기 중심에서 10 px 넘게 끌려가면 실패 (2026-10-29 숏츠3 블랙홀이 화면을 돌아다닌 원인: 퍼센트 축 `transformOrigin:"50% 50%"`이 숨은 그림에서 굳어 bbox 모서리가 축이 됨. `build3`가 퍼센트 축 트윈을 힌지 트윈처럼 측정 뒤에 붙여 해결) | 메인 최종 점검 (`final_check.py`가 자동 실행) |
 | `tools/final_check.py` | 위 둘 + 그림 누락 점검, 통과하면 `render/<slug>/.checked`(index.html sha1) | **메인이 렌더 푸시 직전 반드시**. `chunk_plan.py`는 `.checked`가 없거나 낡으면 렌더 사양을 내놓지 않는다 |
 보조: `tools/grpinfo.py <slug> <uid..>`(mv 그룹 상자·피벗·부모 목록), `tools/setbase.py`, `tools/splitclumps.py`, `tools/joinpart.py`, `tools/gearmesh.py`.
+
+### 4-8. 축 카탈로그 — 미리 만든 축 규칙을 에이전트가 가져다 쓴다 (2026-10-29, miya: "다른 모델로 하니 축이 망가져 영상이 이상하다 … 축에 대한 것을 자세하고 다양하게 미리 다 만들어 규칙화해 두고 에이전트들이 그저 가져다 쓰게; 메인이 렌더 전에 무조건 다시 확인해 안 맞으면 다시 하게")
+
+**원칙.** 축은 에이전트가 생각해서 찍는 값이 아니라 **그 물건의 이름이 정하는 값**이다. `tools/axis_lib.py`의 카탈로그(사람이 읽는 표: `tools/axis_catalog.md`, `python3 tools/axis_lib.py --doc`로 생성)가 물건 이름 약 380개를 7가지 축 규칙에 묶어 둔다. 에이전트는 **그룹 이름에 물건을 적기만 한다**(`mv-<종류>-<물건>`, 머리 명사를 마지막에: `net-bag`, `bird-neck`, `windmill-blades`, `gear-1`). 축 좌표는 코드가 그림에서 잰다.
+
+| 축 규칙 | 뜻 | 물건(예) | 맞는 종류 | 틀린 종류 |
+|---|---|---|---|---|
+| **base** 발(밑동) | 바닥에 닿는 가는 모양의 x 중심, y = 그룹 바닥 | 나무·풀·갈대·팻말·기둥·탑·촛불·병·사람·동물(몸통) | sway tilt topple core-sway | spin wobble roll orbit |
+| **top** 매단 점 | 꼭대기에 닿는 가는 모양(끈)의 x 중심, y = 그룹 꼭대기 | 랜턴·종·추·밧줄·덩굴·고드름·자루·주머니·꼭두각시 | swing pendulum sway | spin roll topple |
+| **contact** 몸에 닿는 점 | 부분과 몸이 겹치는 영역 중 자유 끝(꼬리 끝·발끝·머리 쪽)에서 가장 먼 1/4의 중심; 그룹 안 힌지 핀(작은 원)이 있으면 그 핀 | 꼬리·다리·팔·목·날개·턱·지느러미·문·뚜껑·손에 든 도구 | joint chain swing flap | sway spin rotor topple |
+| **round** 둥근 면 중심 | 그룹 자신의 원(허브)·정사각형에 가까운 그룹은 상자 중심·길쭉한 바늘은 한 끝에 닿는 둥근 면(문자판)의 중심 | 바퀴·톱니·팬·프로펠러·풍차 날개·시곗바늘·다이얼 | rotor spin turn | sway topple wobble |
+| **edge** 깃대 쪽 가장자리 | 옆에 닿는 길고 가는 몸 모양(깃대) 쪽 변의 중점 | 깃발·페넌트·돛·바람자루 | flagwave swing sway | spin rotor topple |
+| **center** 중심 | 그룹 상자 중심(받침 핀을 따로 그렸으면 `data-pivot`으로 그 핀) | 시소·저울·배·풍선·행성·공·상자·수레·떼·올챙이·벌레 | tilt bob float spin wiggle … | (물건마다 다름) |
+| **none** 축 없음 | 회전 금지 | 물·파도·비·연기·안개·불·빛·그림자·땅·하늘 | ripple flicker drift fade | joint rotor sway swing spin topple |
+
+**도구와 순서.**
+1. 그림 에이전트: 이름을 붙여 그리고 `python3 tools/axisfix.py <slug> <uid..>`(빠진 `data-pivot`을 카탈로그 축으로 써 줌) → `python3 tools/attachcheck.py <slug> <uid..>`가 0이어야 보고. attachcheck는 이제 카탈로그 줄(`catalogue …`)도 낸다: 물건에 안 맞는 종류(물을 sway, 나무를 spin), 축 없는 것의 회전, 빠진 피벗, 발·매단 점·허브·깃대 변에서 12 px(매단 점은 32 px) 넘게 벗어난 피벗.
+2. 메인: `build3.py`가 시작할 때 `axisfix`를 자동으로 돌리고(로그 `axisfix:`), 끝에 attachcheck, 그리고 **렌더 푸시 전 `final_check.py`**(15-8)가 같은 점검을 다시 한다. 문제가 하나라도 있으면 `.checked`가 안 나오고 `chunk_plan.py`가 렌더 사양을 내놓지 않는다 → 해당 그림을 에이전트에게 돌려보내 고치고 다시 빌드·점검.
+3. 에이전트가 찍은 피벗이 카탈로그와 다를 때: 발·매단 점·허브·깃대 변은 카탈로그가 맞다(`axisfix.py --force`로 덮어씀). **contact(팔다리·꼬리·목)와 center는 거리로 걸지 않는다**: 배 위에 길게 겹쳐 그린 다리의 고관절은 코드가 정확히 못 짚으므로, 빠졌을 때만 써 주고 맞는지는 attachcheck(부분 위 + 몸 위)와 motionaudit 띠 이미지로 본다.
+
+**검증(2026-10-29).** 합성 그림 13종(나무·풀·팻말·랜턴·추·풍차 탑/날개·톱니(원 없는 다각형)·시곗바늘·깃대/깃발·시소·개 꼬리·물)에서 전부 기대 축과 일치. 기존 영상 30편(롱폼 5·숏츠 25, 약 1,000장)을 리포트 모드로 돌려 빠진 피벗 43개(풀·갈대·올챙이·벌레·틀어진 개구리·타일 등, 빌드 때 자동 기입), 물건에 안 맞는 종류 0, 진짜 문제 1(`parasite-monster-frogs` U006 그물 주머니 피벗이 테두리 왼끝, 카탈로그는 테두리 중심 — 그 영상 스레드가 `axisfix.py --force` 또는 손으로 고친다). 오탐을 없애려고 뺀 것: contact·center·시곗바늘의 거리 비교(위 3), 생물·기계 이름의 joint/chain은 부분으로 간주(`mv-chain-ant-1`, `mv-joint-valve`). Actions 렌더는 아직 안 돌렸다.

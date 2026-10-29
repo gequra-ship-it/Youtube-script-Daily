@@ -26,7 +26,7 @@
 - 이미 만든 영상에 새 모션 규칙만 적용할 때는 `tools/restyle_motion.py`를 빌드 원본에만 쓴다(지침서 15-7).
 
 ## 항상 지킬 것 (자세한 내용은 지침서)
-- **붙임 규칙·최종 점검(2026-10-29, miya, 지침서 4-7·15-8)**: 움직이는 부분(꼬리·다리·목·그물·시곗바늘·톱니·나무·풀·팻말)은 몸에 붙어 있고 `data-pivot`이 닿는 점이어야 한다. 그림 에이전트는 낼 때마다 `python3 tools/attachcheck.py <slug> <uid..>`가 0이어야 보고하고, **메인은 렌더 푸시 전에 `SLUG=<slug> python3 tools/final_check.py`(통과하면 `render/<slug>/.checked`)를 돌리고 사용자가 짚은 장면은 `tools/motionaudit.py` 띠 이미지를 눈으로 본다.** `chunk_plan.py`는 `.checked`가 없으면 렌더 사양을 내놓지 않는다.
+- **붙임 규칙·최종 점검(2026-10-29, miya, 지침서 4-7·15-8)**: 움직이는 부분(꼬리·다리·목·그물·시곗바늘·톱니·나무·풀·팻말)은 몸에 붙어 있고 `data-pivot`이 닿는 점이어야 한다. 그림 에이전트는 낼 때마다 `python3 tools/attachcheck.py <slug> <uid..>`가 0이어야 보고하고, **메인은 렌더 푸시 전에 `SLUG=<slug> python3 tools/final_check.py`(통과하면 `render/<slug>/.checked`)를 돌리고 사용자가 짚은 장면은 `tools/motionaudit.py` 띠 이미지를 눈으로 본다.** `chunk_plan.py`는 `.checked`가 없으면 렌더 사양을 내놓지 않는다. **축 카탈로그(2026-10-29, miya, 지침서 4-8)**: 축은 에이전트가 찍지 않고 그룹 이름의 물건(`tools/axis_catalog.md`, 머리 명사 마지막)으로 `tools/axisfix.py`가 그림에서 재서 써 준다. 에이전트는 `axisfix` → `attachcheck` 순, `build3`가 시작할 때 자동 실행, attachcheck·final_check가 카탈로그 불일치(물건에 안 맞는 종류·축 없는 것의 회전·빠진 피벗·발/매단 점/허브/깃대 변에서 벗어난 피벗)를 걸면 렌더 전에 돌려보내 다시 한다.
 - 영상에 들리고 보이는 것(내레이션, 자막, 화면 텍스트, 칠판)은 영어만. 채널명은 "Miya's Note".
 - 사실 확인은 A~D 등급(지침서 12-1). 존재하지 않는 사례·연구·숫자·인용·인물을 지어내지 않는다.
 - 확인하지 않은 것을 확인했다고 쓰지 않는다. 지침서의 "확인한 것 / 확인하지 못한 것" 구분을 유지한다.

@@ -11,10 +11,11 @@
 #   LABELS : a name/say label whose `to` point is within 45 px of a moving group but not inside it (+-12 px) would stay behind when the object moves
 # --fix : labels pointing just beside a moving group (<= 45 px) get their pointer moved inside it (the .json is rewritten).
 # Prints one line per problem: <slug> <uid> <group> <problem>.
-import os, sys, re, json, glob
+import os, sys, json, glob
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 from playwright.sync_api import sync_playwright
+import axis_lib
 
 JS = r'''
 ([W, H, uid]) => {
@@ -105,6 +106,8 @@ def main():
             uid = os.path.basename(f)[:-4]; svg = open(f).read()
             pg.set_content(f'<body style="margin:0">{svg}</body>')
             for gid, msg in pg.evaluate(JS, [W, H, uid]): print(slug, uid, gid, msg); bad += 1
+            # the axis catalogue (tools/axis_lib.py, 2026-10-29): the thing named in the group decides where its axis is and which kinds fit; a written pivot off that axis / a rotating water / a missing pivot is a problem
+            for msg in axis_lib.problems_of(axis_lib.resolve(pg, svg, W, H)): print(slug, uid, 'catalogue', msg); bad += 1
             # labels that sit near a moving group but outside it
             try: sc = json.load(open(f[:-4] + '.json'))
             except Exception: sc = {}
