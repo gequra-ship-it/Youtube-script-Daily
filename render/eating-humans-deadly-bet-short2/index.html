@@ -184,7 +184,7 @@
 <div class="cap" id="c94"><span><i id="c94w0">The</i> <i id="c94w1">full</i> <i id="c94w2">video</i> <i id="c94w3">tells</i></span></div>
 <div class="cap" id="c95"><span><i id="c95w0">the</i> <i id="c95w1">whole</i> <i id="c95w2">story.</i></span></div>
 <audio src="mix.m4a" data-start="0" data-duration="154.011" data-track-index="0" data-volume="1"></audio>
-<script>gsap.registerPlugin(DrawSVGPlugin,MorphSVGPlugin,MotionPathPlugin,SplitText,ScrambleTextPlugin,Physics2DPlugin,PhysicsPropsPlugin,InertiaPlugin,CustomEase,CustomWiggle,CustomBounce,EasePack,Flip,TextPlugin);CustomWiggle.create("miyaWig",{wiggles:8,type:"easeOut"});CustomWiggle.create("miyaWigU",{wiggles:10,type:"uniform"});CustomWiggle.create("miyaWigA",{wiggles:5,type:"anticipate"});CustomWiggle.create("miyaWigR",{wiggles:12,type:"random"});CustomBounce.create("miyaBnc",{strength:.6,squash:3});CustomBounce.create("miyaBncS",{strength:.4,squash:2});
+<script>gsap.registerPlugin(DrawSVGPlugin,MorphSVGPlugin,MotionPathPlugin,SplitText,ScrambleTextPlugin,Physics2DPlugin,PhysicsPropsPlugin,InertiaPlugin,CustomEase,CustomWiggle,CustomBounce,EasePack,Flip,TextPlugin);CustomWiggle.create("miyaWig",{wiggles:8,type:"easeOut"});CustomWiggle.create("miyaWigU",{wiggles:10,type:"uniform"});CustomWiggle.create("miyaWigA",{wiggles:5,type:"anticipate"});function miyaJit(n,seed){var v=[0],s=(seed>>>0)||1,k;for(k=1;k<n;k++){s=(s*1664525+1013904223)>>>0;v.push(s/4294967296);}v.push(0);return function(p){var x=Math.max(0,Math.min(1,p))*n,i=Math.min(Math.floor(x),n-1),f=x-i;f=f*f*(3-2*f);return v[i]+(v[i+1]-v[i])*f;};}gsap.registerEase("miyaWigR",miyaJit(12,7));CustomBounce.create("miyaBnc",{strength:.6,squash:3});CustomBounce.create("miyaBncS",{strength:.4,squash:2});
 function miyaWrapCores(cx,cy){
  document.querySelectorAll('.t').forEach(function(t){
   var cores=t.querySelectorAll('.mv-glint-core,[class*="mv-core-"]'); if(!cores.length) return;
@@ -1023,7 +1023,7 @@ tl.fromTo("#fx1p7",{y:-250,x:21,opacity:0.57,rotation:-8,transformOrigin:"50% 50
 tl.fromTo(gsap.utils.toArray("#w1 .mv-core-swell")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.2,duration:2.2,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},0.000);
 tl.fromTo(gsap.utils.toArray("#w2 .mv-lamp-bench")[0],{scale:1,opacity:.85,transformOrigin:"50% 50%"},{scale:1.06,opacity:1,duration:1.200,ease:"sine.inOut",yoyo:true,repeat:9,immediateRender:false},10.135);
 tl.set(gsap.utils.toArray("#w2 .mv-core-reveal")[0],{opacity:.15,scale:.6,transformOrigin:"50% 50%"},10.135);
-tl.fromTo(gsap.utils.toArray("#w3 .mv-core-tremble")[0],{x:0,rotation:0,transformOrigin:"50% 50%"},{x:5,rotation:1.5,duration:9.600,ease:"wiggle({wiggles:68,type:'random'})",immediateRender:false},19.889);
+tl.fromTo(gsap.utils.toArray("#w3 .mv-core-tremble")[0],{x:0,rotation:0,transformOrigin:"50% 50%"},{x:5,rotation:1.5,duration:9.600,ease:miyaJit(68,9600),immediateRender:false},19.889);
 tl.fromTo(gsap.utils.toArray("#w4 .mv-breathe-sheep")[0],{scaleY:1,transformOrigin:"50% 100%"},{scaleY:1.030,duration:2.200,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},28.689);
 tl.fromTo(gsap.utils.toArray("#w4 .mv-core-approach")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.3,duration:7.900,ease:"power1.out",immediateRender:false},28.689);
 tl.fromTo("#fx5p0",{y:-0,x:0,rotation:0,transformOrigin:"50% 50%"},{y:-230,x:108,rotation:90,duration:8.00,ease:"none",immediateRender:false},35.489);
