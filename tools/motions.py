@@ -105,7 +105,7 @@ def core_js(ctype, g, t0, v0, sp, ring=None, pivot=None, pv=None):
     if ctype == 'swell':       # even growth in all directions
         return [f'tl.fromTo({g},{{scale:1,{C}}},{{scale:1.2,duration:2.2,{yo(2.2)}}},{v0:.3f});']
     if ctype == 'tremble':     # tension: tiny fast shake
-        return [f'tl.fromTo({g},{{x:0,rotation:0,{C}}},{{x:5,rotation:1.5,duration:{sp:.3f},ease:"wiggle({{wiggles:{max(int(sp / .14), 4)},type:{chr(39)}random{chr(39)}}})",immediateRender:false}},{v0:.3f});']   # 2026-10-29: CustomWiggle random (nervous jitter)
+        return [f'tl.fromTo({g},{{x:0,rotation:0,{C}}},{{x:5,rotation:1.5,duration:{sp:.3f},ease:miyaJit({max(int(sp / .14), 4)},{int(sp * 1000)}),immediateRender:false}},{v0:.3f});']   # 2026-10-29: CustomWiggle random (nervous jitter)
     if ctype == 'approach':    # slow push toward the viewer, one way
         return [f'tl.fromTo({g},{{scale:1,{C}}},{{scale:1.3,duration:{sp:.3f},ease:"power1.out",immediateRender:false}},{v0:.3f});']
     if ctype == 'reveal':      # appears: fades up and grows into place when the picture starts
