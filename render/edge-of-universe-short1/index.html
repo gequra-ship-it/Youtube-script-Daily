@@ -211,7 +211,7 @@
 <div class="cap" id="c111"><span><i id="c111w0">out</i> <i id="c111w1">of</i> <i id="c111w2">reach</i> <i id="c111w3">is</i></span></div>
 <div class="cap" id="c112"><span><i id="c112w0">in</i> <i id="c112w1">the</i> <i id="c112w2">long</i> <i id="c112w3">video.</i></span></div>
 <audio src="mix.m4a" data-start="0" data-duration="168.419" data-track-index="0" data-volume="1"></audio>
-<script>gsap.registerPlugin(DrawSVGPlugin,MorphSVGPlugin,MotionPathPlugin,SplitText,ScrambleTextPlugin,Physics2DPlugin,PhysicsPropsPlugin,InertiaPlugin,CustomEase,CustomWiggle,CustomBounce,EasePack,Flip,TextPlugin);CustomWiggle.create("miyaWig",{wiggles:8,type:"easeOut"});CustomWiggle.create("miyaWigU",{wiggles:10,type:"uniform"});CustomWiggle.create("miyaWigA",{wiggles:5,type:"anticipate"});function miyaJit(n,seed){var v=[0],s=(seed>>>0)||1,k;for(k=1;k<n;k++){s=(s*1664525+1013904223)>>>0;v.push(s/4294967296);}v.push(0);return function(p){var x=Math.max(0,Math.min(1,p))*n,i=Math.min(Math.floor(x),n-1),f=x-i;f=f*f*(3-2*f);return v[i]+(v[i+1]-v[i])*f;};}gsap.registerEase("miyaWigR",miyaJit(12,7));CustomBounce.create("miyaBnc",{strength:.6,squash:3});CustomBounce.create("miyaBncS",{strength:.4,squash:2});
+<script>gsap.registerPlugin(DrawSVGPlugin,MorphSVGPlugin,MotionPathPlugin,SplitText,ScrambleTextPlugin,Physics2DPlugin,PhysicsPropsPlugin,InertiaPlugin,CustomEase,CustomWiggle,CustomBounce,EasePack,Flip,TextPlugin);function miyaW(n,t){return function(p){p=Math.max(0,Math.min(1,p));var w=Math.sin(p*n*Math.PI*2);return t=="uniform"?w:t=="anticipate"?-w*Math.sin(p*Math.PI):w*(1-p);};}gsap.registerEase("miyaWig",miyaW(8,"easeOut"));gsap.registerEase("miyaWigU",miyaW(10,"uniform"));gsap.registerEase("miyaWigA",miyaW(5,"anticipate"));function miyaJit(n,seed){var v=[0],s=(seed>>>0)||1,k;for(k=1;k<n;k++){s=(s*1664525+1013904223)>>>0;v.push(s/4294967296);}v.push(0);return function(p){var x=Math.max(0,Math.min(1,p))*n,i=Math.min(Math.floor(x),n-1),f=x-i;f=f*f*(3-2*f);return v[i]+(v[i+1]-v[i])*f;};}gsap.registerEase("miyaWigR",miyaJit(12,7));CustomBounce.create("miyaBnc",{strength:.6,squash:3});CustomBounce.create("miyaBncS",{strength:.4,squash:2});
 function miyaWrapCores(cx,cy){
  document.querySelectorAll('.t').forEach(function(t){
   var cores=t.querySelectorAll('.mv-glint-core,[class*="mv-core-"]'); if(!cores.length) return;
@@ -317,7 +317,7 @@ function miyaCtm(g){var t=g.closest('.t'),m=null;if(t&&t.style.display==='none')
 function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;L.slice().sort(function(a,b){return a.tm-b.tm;}).forEach(function(r){void tl.seek(r.tm+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m)r.q0=r.p.matrixTransform(m);});void tl.seek(0,false);   // 2026-10-29: the measuring seeks must go FORWARD in time only. A seek backwards renders the children in reverse order, so a picture's `display:none` (its end) was applied before its tweens had initialised: GSAP then read the empty bbox of the hidden picture and froze the wrong svgOrigin (bbox corner) of every hinge/rotor that had not been initialised yet (windmill, gears, frog legs, tails, neck, clock hand). tools/pivotlive.py checks it
  // render order inside one seek can leave the follower one step behind its object: after every seek (the renderer steps frame by frame with seek) the followers are set again from the objects' final matrices
  function fix(){L.forEach(function(r){if(!r.q0||!r.tg)return;var m=miyaCtm(r.g);if(!m)return;var q=r.p.matrixTransform(m);gsap.set(r.tg,{x:q.x-r.q0.x,y:q.y-r.q0.y});});}
- var seek0=tl.seek;tl.seek=function(a,b){var out=seek0.call(tl,a,b);fix();return out;};var time0=tl.time;tl.time=function(a,b){var out=time0.call(tl,a,b);if(arguments.length)fix();return out;};gsap.ticker.add(function(){if(tl.isActive())fix();});}   // the tracked point = the group's own centre (local bbox), so a turning object does not swing the label about a far pivot
+ var seek0=tl.seek;tl.seek=function(a,b){if(!arguments.length)return seek0.call(tl);var out=seek0.call(tl,a,b);fix();return out;};var time0=tl.time;tl.time=function(a,b){if(!arguments.length)return time0.call(tl);var out=time0.call(tl,a,b);fix();return out;};gsap.ticker.add(function(){if(tl.isActive())fix();});}   // the tracked point = the group's own centre (local bbox), so a turning object does not swing the label about a far pivot
 function miyaM(g){var pa=g.parentNode,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',m=null;if(t){t.style.display='block';t.style.visibility='hidden';}
  try{m=pa.getCTM();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}return m?m.inverse():null;}
 // data-pivot is meant in picture coordinates, but agents often wrote it in the coordinates the part was drawn in (inside a translated/scaled wrapper): use whichever reading lands nearer the part itself
@@ -503,7 +503,7 @@ tl.fromTo(gsap.utils.toArray("#w2 .mv-glint-s1")[0],{opacity:1},{opacity:.35,dur
 tl.fromTo(gsap.utils.toArray("#w2 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},7.852);
 tl.fromTo(gsap.utils.toArray("#w2 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},7.852);
 tl.to(gsap.utils.toArray("#w2 .mv-core-heartbeat-earth")[0],{keyframes:[{scale:1.14,duration:.12},{scale:1,duration:.18},{scale:1.09,duration:.12},{scale:1,duration:.48}],repeat:7,immediateRender:false},7.852);
-tl.fromTo(gsap.utils.toArray("#w2 .mv-shake-cage")[0],{x:0},{x:3.0,duration:0.30,ease:"wiggle({wiggles:7,type:'easeOut'})",immediateRender:false},10.052);
+tl.fromTo(gsap.utils.toArray("#w2 .mv-shake-cage")[0],{x:0},{x:3.0,duration:0.30,ease:miyaW(7,'easeOut'),immediateRender:false},10.052);
 miyaDraw(tl,gsap.utils.toArray("#w2 .mv-edge-cage")[0],7.852,8.652,1.2);
 tl.set("#t3",{display:"block"},13.444);tl.set("#t3",{display:"none"},20.337);
 tl.set("#t3",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},13.444);
@@ -1122,7 +1122,7 @@ tl.fromTo(gsap.utils.toArray("#w14 .mv-glint-s2")[0],{opacity:1},{opacity:.35,du
 tl.fromTo(gsap.utils.toArray("#w14 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},79.458);
 tl.set(gsap.utils.toArray("#w14 .mv-fade-ghost")[0],{opacity:0.1},79.458);
 tl.to(gsap.utils.toArray("#w14 .mv-fade-ghost")[0],{opacity:0.6,duration:0.8,ease:"power1.inOut",immediateRender:false},81.458);
-tl.fromTo(gsap.utils.toArray("#w14 .mv-shake-rocket")[0],{x:0},{x:3.0,duration:1.60,ease:"wiggle({wiggles:40,type:'easeOut'})",immediateRender:false},80.758);
+tl.fromTo(gsap.utils.toArray("#w14 .mv-shake-rocket")[0],{x:0},{x:3.0,duration:1.60,ease:miyaW(40,'easeOut'),immediateRender:false},80.758);
 tl.set("#t15",{display:"block"},85.337);tl.set("#t15",{display:"none"},91.316);
 tl.set("#t15",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},85.337);
 tl.set("#w15",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},85.337);
@@ -1742,7 +1742,7 @@ tl.fromTo("#t26",{x:0},{x:8,duration:.05,yoyo:true,repeat:7,immediateRender:fals
 tl.fromTo(gsap.utils.toArray("#w26 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},148.616);
 tl.fromTo(gsap.utils.toArray("#w26 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},148.616);
 tl.fromTo(gsap.utils.toArray("#w26 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},148.616);
-tl.fromTo(gsap.utils.toArray("#w26 .mv-shake-doors")[0],{x:0},{x:3.0,duration:0.30,ease:"wiggle({wiggles:7,type:'easeOut'})",immediateRender:false},150.416);
+tl.fromTo(gsap.utils.toArray("#w26 .mv-shake-doors")[0],{x:0},{x:3.0,duration:0.30,ease:miyaW(7,'easeOut'),immediateRender:false},150.416);
 tl.set(gsap.utils.toArray("#w26 .mv-slide-left")[0],{x:-330,y:0},148.616);
 tl.to(gsap.utils.toArray("#w26 .mv-slide-left")[0],{x:0,y:0,duration:0.7,ease:"power3.out",immediateRender:false},149.716);
 tl.set(gsap.utils.toArray("#w26 .mv-slide-right")[0],{x:330,y:0},148.616);
