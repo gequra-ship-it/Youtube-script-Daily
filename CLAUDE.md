@@ -27,6 +27,7 @@
 
 ## 항상 지킬 것 (자세한 내용은 지침서)
 - **붙임 규칙·최종 점검(2026-10-29, miya, 지침서 4-7·15-8)**: 움직이는 부분(꼬리·다리·목·그물·시곗바늘·톱니·나무·풀·팻말)은 몸에 붙어 있고 `data-pivot`이 닿는 점이어야 한다. 그림 에이전트는 낼 때마다 `python3 tools/attachcheck.py <slug> <uid..>`가 0이어야 보고하고, **메인은 렌더 푸시 전에 `SLUG=<slug> python3 tools/final_check.py`(통과하면 `render/<slug>/.checked`)를 돌리고 사용자가 짚은 장면은 `tools/motionaudit.py` 띠 이미지를 눈으로 본다.** `chunk_plan.py`는 `.checked`가 없으면 렌더 사양을 내놓지 않는다. **축 카탈로그(2026-10-29, miya, 지침서 4-8)**: 축은 에이전트가 찍지 않고 그룹 이름의 물건(`tools/axis_catalog.md`, 머리 명사 마지막)으로 `tools/axisfix.py`가 그림에서 재서 써 준다. 에이전트는 `axisfix` → `attachcheck` 순, `build3`가 시작할 때 자동 실행, attachcheck·final_check가 카탈로그 불일치(물건에 안 맞는 종류·축 없는 것의 회전·빠진 피벗·발/매단 점/허브/깃대 변에서 벗어난 피벗)를 걸면 렌더 전에 돌려보내 다시 한다.
+- **렌더 멈춤 금지(2026-10-30, miya, 지침서 15-8)**: CustomWiggle·문자열 `wiggle({...})` ease는 Actions 캡처를 멈추게 한다(그림은 멈추고 소리만 남음). 떨림은 `fxlib.miyaW`/`miyaJit` 함수 ease만, `final_check.py`가 남은 것을 막는다. 렌더가 끝나면 청크 MP4를 받아 `python3 tools/freezecheck.py`로 멈춤 구간이 없는지 확인한 뒤에 완료로 알린다. 새 ease·플러그인은 로컬 렌더 + freezecheck로 먼저 검증.
 - 영상에 들리고 보이는 것(내레이션, 자막, 화면 텍스트, 칠판)은 영어만. 채널명은 "Miya's Note".
 - 사실 확인은 A~D 등급(지침서 12-1). 존재하지 않는 사례·연구·숫자·인용·인물을 지어내지 않는다.
 - 확인하지 않은 것을 확인했다고 쓰지 않는다. 지침서의 "확인한 것 / 확인하지 못한 것" 구분을 유지한다.
