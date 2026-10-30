@@ -17,29 +17,24 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    540,
-    860
-   ],
-   "vanish": true
-  },
+  "act": "peek",
   "ride": null,
   "kind": "bg",
-  "x": 302,
-  "y": 875,
-  "s": 0.9,
-  "flip": 1,
+  "x": 400,
+  "y": 1010,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-swell-hub",
   "says": [
    {
-    "text": "AAAAAH!",
+    "text": "Peek-a-boo!",
     "shout": true
    }
-  ],
-  "bside": 1
+  ]
  }
 }

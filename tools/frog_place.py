@@ -93,7 +93,7 @@ def underwater(text, palname, gs, ride, W, H):
 DEEP = re.compile(r'\b(deep|depths?|abyss\w*|dark|darkness|seafloor|sinks?|sinking|descen\w*|vents?|bones?|carcass|silt|thousands of meters)\b', re.I)
 ACTS = [   # (act, regex on the unit text, first mood)  -- first match wins (miya 2026-10-25: expression + motion that fits the situation, not only examples)
     ('slide',  re.compile(r'\b(gravity|gravitational|spacetime|space-time|warp\w*|dents?|dented|curves?|curved|curving|funnel|bowl)\b', re.I), 'surprised'),   # (2026-10-26 review: 'sinks/deeper/heavier/slope' gave a dead whale a "Wheee!" slide; ocean videos never slide)   # gravity pit: the frog slides down into it (miya 2026-10-26)
-    ('pull',   re.compile(r'\b(black holes?|event horizon|horizon|plunge\w*|spiral\w*|drag\w*|gravity trap|falls? in|pulled|inward|swallow\w*|devour\w*|doom\w*|well)\b', re.I), 'scared'),
+    ('pull',   re.compile(r'\b(black holes?|event horizon|plunge\w*|gravity trap|falls? in(to)?|pulled (in|into|toward\w*))\b', re.I), 'scared'),   # (2026-10-30 miya: too many pulled-in frogs) only real fall-in words; 'spiral/drag/swallow/well/horizon' no longer pull
     ('wind',   re.compile(r'\b(speed\w*|rac(e|es|ing)|fast\w*|rocket|shuttle|lifts?|orbit\w*|fl(y|ies|ying)|hurtl\w*|streak\w*|whirl\w*|zip\w*|climb\w*|lander|route|dock\w*|launch\w*|race|travel\w*)\b', re.I), 'squint'),
     ('waves',  re.compile(r'\b(waves?|tides?|tidal|ocean|sea|water|splash\w*|wading|knee-deep|shallow|brine)\b', re.I), 'surprised'),
     ('shiver', re.compile(r'\b(crush\w*|freezing|alone|lonely|isolation|cold|terrif\w*|deadly|horror|fear|haunting|exhaustion|grief|mourn\w*|tragic\w*|brutal\w*)\b', re.I), 'scared'),
@@ -273,7 +273,7 @@ ACTIVE = re.compile(r'\b(run\w*|walk\w*|jump\w*|hop\w*|step\w*|treadmill|pump\w*
 VEH = re.compile(r'\b(rocket|spaceship|spacecraft|ship|probe|warp drive|shuttle|lander)\b', re.I)
 ROLL = re.compile(r'\b(drag\w*|spiral\w*|tumbl\w*|roll\w*|carried|swept|backward|whirl\w*|swirl\w*|knock\w*)\b', re.I)
 ORBIT = re.compile(r'\b(particles?|orbit\w*|circl\w*|revolv\w*|accretion|ring|rings|disk|laser|radio wave)\b', re.I)
-HOLE = re.compile(r'hole|bh|singular|well|horizon', re.I)
+HOLE = re.compile(r'hole|\bbh\b|singular|(?<!s)well\b|horizon', re.I)   # (2026-10-30) 'swell' (mv-core-swell-*) and 'bh' inside words are not holes: every swelling object used to pull the frog in
 JS = '''()=>{const o=[];for(const g of document.querySelectorAll('g[id^="mv-"]')){const b=g.getBBox();if(b.width<8)continue;o.push([g.id,b.x,b.y,b.width,b.height])}return o}'''
 JSD = '''()=>{const o=[];for(const g of document.querySelectorAll('[id^="door"]')){const b=g.getBBox();if(b.width<4)continue;o.push([b.x+b.width/2,b.y+b.height])}o.sort((a,c)=>a[0]-c[0]);return o}'''
 JST = '''()=>[...document.querySelectorAll('text')].map(t=>{const r=t.getBoundingClientRect();return [r.left,r.top,r.width,r.height]}).filter(r=>r[2]>4)'''
@@ -558,7 +558,7 @@ def mood_of(s):
     if re.search(r'\d|\b(billion|million|thousand|trillion|faster|fastest)\b', s, re.I): return 'surprised'
     if re.search(r'\b(but|however|yet|actually|here)\b', s, re.I): return 'curious'
     return 'happy'
-n = 0; SERIOUS = False
+n = 0; SERIOUS = False; PULL_STATE = {}
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path=chrome(), args=['--no-sandbox']); pg = b.new_page()
     for slug in sys.argv[1:]:
@@ -819,6 +819,14 @@ with sync_playwright() as p:
                 mt = re.search(rf'<g [^>]*\bid="{re.escape(keep["ride"])}"[^>]*>', open(svg, encoding='utf-8').read())
                 ts = facing.travel_sign(mt.group(0)) if mt else 0
                 if ts: keep['flip'] = ts
+            # (2026-10-30 miya: the frog is pulled in far too often) a pull-in is a rare event: at most PULL_MAX per video (long 3, short 1) and PULL_GAP units apart; the rest become a surprised look
+            _a = keep.get('act'); _isp = _a == 'pull' or (isinstance(_a, dict) and _a.get('type') == 'pull')
+            _ui = int(re.sub(r'\D', '', uid) or 0)
+            if _isp:
+                _ok = PULL_STATE.setdefault(slug, []); _mx = 1 if vert else 3
+                if len(_ok) < _mx and all(abs(_ui - q) >= (0 if vert else 25) for q in _ok): _ok.append(_ui)
+                else:
+                    keep['act'] = 'look'; keep['moods'][0] = {'mood': 'surprised'}; keep['says'] = [{'text': 'Whoa...', 'shout': False}]; keep.pop('_says', None)
             d['frog'] = keep
             json.dump(d, open(fn, 'w'), ensure_ascii=False, indent=1)
             print(slug, uid, keep['kind'], pick, keep['x'], keep['y'], keep['s'])

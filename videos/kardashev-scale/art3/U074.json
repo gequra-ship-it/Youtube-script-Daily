@@ -22,36 +22,30 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "awe"
    },
    {
     "word": "We feel",
     "mood": "happy"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    1400,
-    450
-   ],
-   "vanish": true
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 697,
-  "y": 485,
-  "s": 0.9,
+  "act": "bounce",
+  "ride": "mv-core-swell-galaxy",
+  "kind": "ride",
+  "x": 893,
+  "y": 790,
+  "s": 0.95,
   "flip": 1,
+  "bside": -1,
+  "gaze": 1,
   "outfit": [
    "helmet"
   ],
   "says": [
    {
-    "text": "Whoaaa!",
-    "shout": true
+    "text": "Boing boing.",
+    "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

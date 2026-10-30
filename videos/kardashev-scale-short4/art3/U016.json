@@ -23,16 +23,10 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "excited"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    540,
-    960
-   ]
-  },
+  "act": "startle",
   "ride": "mv-core-ping-gap",
   "kind": "ride",
   "x": 674,
@@ -42,7 +36,7 @@
   "bside": -1,
   "says": [
    {
-    "text": "AAAAAH!",
+    "text": "Eek!",
     "shout": true
    }
   ]

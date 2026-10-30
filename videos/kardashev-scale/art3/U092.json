@@ -7,32 +7,25 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "squint"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    780,
-    470
-   ],
-   "vanish": true
-  },
+  "act": "wind",
   "outfit": [
    "helmet"
   ],
-  "ride": null,
-  "kind": "bg",
-  "x": 1395,
-  "y": 511,
-  "s": 0.9,
-  "flip": -1,
+  "ride": "mv-core-swell-star",
+  "kind": "ride",
+  "x": 534,
+  "y": 252,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
   "says": [
    {
-    "text": "Heeelp!",
+    "text": "Hold on!",
     "shout": true
    }
-  ],
-  "bside": -1
+  ]
  }
 }

@@ -11,32 +11,21 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "excited"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    540,
-    860
-   ],
-   "vanish": true
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 302,
-  "y": 872,
-  "s": 0.9,
-  "flip": 1,
+  "act": "cheer",
+  "ride": "mv-core-swell-bead",
+  "kind": "ride",
+  "x": 704,
+  "y": 980,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
    "helmet"
   ],
-  "says": [
-   {
-    "text": "Whoaaa!",
-    "shout": true
-   }
-  ],
-  "bside": 1
+  "says": []
  }
 }

@@ -11,29 +11,23 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "hot"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    545,
-    810
-   ],
-   "vanish": true
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 307,
-  "y": 816,
-  "s": 0.9,
-  "flip": 1,
+  "act": "think",
+  "ride": "mv-core-swell-star",
+  "kind": "ride",
+  "x": 651,
+  "y": 872,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "AAAAAH!",
-    "shout": true
+    "text": "Let me think.",
+    "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

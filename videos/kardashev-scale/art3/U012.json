@@ -18,32 +18,26 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "determined"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    400,
-    300
-   ],
-   "vanish": true
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 822,
-  "y": 314,
-  "s": 0.9,
-  "flip": -1,
+  "act": "bounce",
+  "ride": "mv-core-swell-alien-planet",
+  "kind": "ride",
+  "x": 224,
+  "y": 438,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
   "outfit": [
    "helmet"
   ],
   "says": [
    {
-    "text": "Nooo!",
-    "shout": true
+    "text": "Boing boing.",
+    "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }
