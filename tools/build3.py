@@ -1050,6 +1050,7 @@ for (nn, ty, lid, gid, tt) in label_t:          # on-screen text pops in when it
 # that translates (path, swim, rollby, slide, sink, rise, magnet ... or a glide/orbit/drop centre) is moved with it by miyaFollow (modifier tween, seek-safe)
 MOVING = {'path', 'scroll', 'rise', 'slide', 'bob', 'hover', 'rollby', 'float', 'swim', 'hop', 'drip', 'circle', 'bouncing', 'creep', 'sink', 'ascend', 'magnet'}
 MOVING_CORE = {'glide', 'orbit', 'drop', 'pop'}
+# 2026-10-30: a rise ENTERS from below and ends at the drawn pose, so the label's point is the final pose: reference = the label's pop time, not the unit start (stolen-time U087 label was lifted 140 px and cut off at the top)
 FOLLOWED = []; UID_OF = {u['n']: u['uid'] for u in units}
 for (nn, ty, lid, gid, tt) in label_t:
     if ty == 'num': continue
@@ -1069,7 +1070,7 @@ for (nn, ty, lid, gid, tt) in label_t:
             area = (b_[1] - b_[0]) * (b_[3] - b_[2])
             if best is None or area < best[0]: best = (area, g_)
     if best:
-        js.append(f'miyaFollow(tl,"#w{nn} .{best[1]}",{json.dumps(["#" + lid] + (["#" + gid] if gid else []))},{px_:.0f},{py_:.0f},{tt:.3f},{UEND[nn]:.3f},{UST0[nn]:.3f});'); FOLLOWED.append((UID_OF.get(nn, nn), lid, best[1]))
+        js.append(f'miyaFollow(tl,"#w{nn} .{best[1]}",{json.dumps(["#" + lid] + (["#" + gid] if gid else []))},{px_:.0f},{py_:.0f},{tt:.3f},{UEND[nn]:.3f},{(tt if best[1].split('-')[1] == 'rise' else UST0[nn]):.3f});'); FOLLOWED.append((UID_OF.get(nn, nn), lid, best[1]))
 print('labels follow moving objects:', len(FOLLOWED), FOLLOWED[:10])
 print('library fx (2026-10-29):', dict(fxlib.LOG) or 'none', '| bg burst', sum(1 for v in FXU.values() for kd, _ in v if kd == 'burst'))
 for k, c in enumerate(caps):
