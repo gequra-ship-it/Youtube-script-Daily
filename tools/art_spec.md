@@ -214,3 +214,5 @@ Script-word -> gag-prop table (2026-10-29, miya "대본 규칙과 그림 규칙�
 No matching word -> no prop for the frog's sake; the frog then roams or does a calm act. Never draw the frog.
 
 Frog automation hooks (2026-10-26): draw hut/house doors as separate elements with `id="door1"`, `door2`, … (enables the `huts` act); name book/notebook/page/paper/desk/card/chart/board groups with that word in the id (enables `doodle`); ride objects that get pushed (lens, crate) should have the grip point at the lower right of their group. For heavy topics set `FROG_TONE = 'serious'` in config.py.
+
+Balance scale / tilted galaxy (2026-10-30): scale = `mv-tilt-balance-scale` (data-pivot at hub) holding the beam plus `<g data-hang="x y">` groups for each pan with strings and load; never rock the whole scale. A tilted (elliptical) galaxy is converted by `tools/galaxyfix.py` to an in-plane `mv-disc-galaxy` spin; draw it as an ellipse, do not rotate the picture.

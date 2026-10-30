@@ -103,3 +103,4 @@
 - 2026-10-30 (miya, 멈춤 2차): 문자열 `wiggle({...})`·`CustomWiggle.create` ease도 캡처를 멈춤(스톨렌타임 숏츠1 72.6초, `wiggle` ease만 바꾸면 해소). `fxlib.miyaW`(순수 함수 ease)·`plain_wiggles()`(build3 출력 치환), `final_check.py`가 CustomWiggle/문자열 wiggle 차단, 지침서 15-8. 모든 영상 build3 재빌드(숏츠는 `VERT=1`)·재렌더 필요.
 - 2026-10-30 (miya, 잘린 글자): `rise`(아래에서 솟아 올라 그림 위치에 서는 것)에 붙은 이름표의 따라가기 기준 시각을 단위 시작이 아니라 이름표가 뜨는 시각으로 바꿈(build3 miyaFollow 호출). 이전에는 이름표가 솟은 높이(약 140px)만큼 위로 밀려 화면 위에서 잘렸다(stolen-time U087 9:43). 영향 영상은 build3 재빌드.
 - 2026-10-29 (miya, 숏츠3 끝 영상 멈춤): 새 `tools/freezecheck.py`(렌더 MP4의 멈춘 구간 검출)와 지침서 15-8 '렌더 뒤 확인'. 원인: 렌더러(Actions) 캡처가 117.5초부터 멈춰 같은 화면만 찍힘, 페이지 자체는 정상(로컬 프레임 단위 재생 오류 0). 숏츠3만 재렌더.
+- 2026-10-30 (miya, kardashev 점검): 새 `tools/galaxyfix.py`(기울어진 은하 원반 면내 자전, `mv-disc`), `motions.py` tilt+`data-hang`(천칭 접시 매달림), `frog_place.py` 빨려듦 횟수 제한(롱 3/숏츠 1). 지침서 4-9, 7-2 J, art_spec.
