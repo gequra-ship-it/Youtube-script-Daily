@@ -196,7 +196,7 @@
 <div class="cap" id="c98"><span><i id="c98w0">See</i> <i id="c98w1">the</i> <i id="c98w2">full</i> <i id="c98w3">video</i></span></div>
 <div class="cap" id="c99"><span><i id="c99w0">for</i> <i id="c99w1">where</i> <i id="c99w2">this</i> <i id="c99w3">leads.</i></span></div>
 <audio src="mix.m4a" data-start="0" data-duration="155.449" data-track-index="0" data-volume="1"></audio>
-<script>gsap.registerPlugin(DrawSVGPlugin,MorphSVGPlugin,MotionPathPlugin,SplitText,ScrambleTextPlugin,Physics2DPlugin,PhysicsPropsPlugin,InertiaPlugin,CustomEase,CustomWiggle,CustomBounce,EasePack,Flip,TextPlugin);CustomWiggle.create("miyaWig",{wiggles:8,type:"easeOut"});CustomWiggle.create("miyaWigU",{wiggles:10,type:"uniform"});CustomWiggle.create("miyaWigA",{wiggles:5,type:"anticipate"});CustomWiggle.create("miyaWigR",{wiggles:12,type:"random"});CustomBounce.create("miyaBnc",{strength:.6,squash:3});CustomBounce.create("miyaBncS",{strength:.4,squash:2});
+<script>gsap.registerPlugin(DrawSVGPlugin,MorphSVGPlugin,MotionPathPlugin,SplitText,ScrambleTextPlugin,Physics2DPlugin,PhysicsPropsPlugin,InertiaPlugin,CustomEase,CustomWiggle,CustomBounce,EasePack,Flip,TextPlugin);CustomWiggle.create("miyaWig",{wiggles:8,type:"easeOut"});CustomWiggle.create("miyaWigU",{wiggles:10,type:"uniform"});CustomWiggle.create("miyaWigA",{wiggles:5,type:"anticipate"});function miyaJit(n,seed){var v=[0],s=(seed>>>0)||1,k;for(k=1;k<n;k++){s=(s*1664525+1013904223)>>>0;v.push(s/4294967296);}v.push(0);return function(p){var x=Math.max(0,Math.min(1,p))*n,i=Math.min(Math.floor(x),n-1),f=x-i;f=f*f*(3-2*f);return v[i]+(v[i+1]-v[i])*f;};}gsap.registerEase("miyaWigR",miyaJit(12,7));CustomBounce.create("miyaBnc",{strength:.6,squash:3});CustomBounce.create("miyaBncS",{strength:.4,squash:2});
 function miyaWrapCores(cx,cy){
  document.querySelectorAll('.t').forEach(function(t){
   var cores=t.querySelectorAll('.mv-glint-core,[class*="mv-core-"]'); if(!cores.length) return;
@@ -1743,7 +1743,7 @@ tl.set(gsap.utils.toArray("#w15 .mv-popin-cross")[0],{scale:0,opacity:0,transfor
 tl.fromTo(gsap.utils.toArray("#w15 .mv-popin-cross")[0],{scale:1,transformOrigin:"50% 60%"},{scale:1.03,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},89.204);
 tl.fromTo(gsap.utils.toArray("#w15 .mv-core-swell-gal")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.2,duration:2.2,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},86.304);
 tl.set(gsap.utils.toArray("#w16 .mv-grow-sheet")[0],{scaleY:0.82,transformOrigin:"50% 100%"},92.082);
-tl.fromTo(gsap.utils.toArray("#w16 .mv-core-tremble-node")[0],{x:0,rotation:0,transformOrigin:"50% 50%"},{x:5,rotation:1.5,duration:6.878,ease:"wiggle({wiggles:49,type:'random'})",immediateRender:false},92.082);
+tl.fromTo(gsap.utils.toArray("#w16 .mv-core-tremble-node")[0],{x:0,rotation:0,transformOrigin:"50% 50%"},{x:5,rotation:1.5,duration:6.878,ease:miyaJit(49,6878),immediateRender:false},92.082);
 tl.fromTo(gsap.utils.toArray("#w16 .mv-slide-top")[0],{scale:1,transformOrigin:"50% 60%"},{scale:1.03,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},95.632);
 tl.fromTo(gsap.utils.toArray("#w16 .mv-slide-bottom")[0],{scale:1,transformOrigin:"50% 60%"},{scale:1.03,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},95.632);
 tl.set(gsap.utils.toArray("#w18 .mv-core-reveal-cube")[0],{opacity:.15,scale:.6,transformOrigin:"50% 50%"},103.739);
