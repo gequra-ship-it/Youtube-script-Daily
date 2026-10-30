@@ -24,7 +24,8 @@ REGISTER_JS = (
     'CustomWiggle.create("miyaWig",{wiggles:8,type:"easeOut"});'          # a hit that calms down (shake / tremble / rattle)
     'CustomWiggle.create("miyaWigU",{wiggles:10,type:"uniform"});'        # steady shiver (cold, fear)
     'CustomWiggle.create("miyaWigA",{wiggles:5,type:"anticipate"});'      # winds up then lets go (a stamp, a slam)
-    'CustomWiggle.create("miyaWigR",{wiggles:12,type:"random"});'         # nervous jitter (earthquake, engine)
+    'function miyaJit(n,seed){var v=[0],s=(seed>>>0)||1,k;for(k=1;k<n;k++){s=(s*1664525+1013904223)>>>0;v.push(s/4294967296);}v.push(0);return function(p){var x=Math.max(0,Math.min(1,p))*n,i=Math.min(Math.floor(x),n-1),f=x-i;f=f*f*(3-2*f);return v[i]+(v[i+1]-v[i])*f;};}'   # 2026-10-30: seeded random jitter ease (0 at both ends); CustomWiggle type "random" froze the Actions capture near the end of the tween (guideline 15-8)
+    'gsap.registerEase("miyaWigR",miyaJit(12,7));'                          # nervous jitter (earthquake, engine)
     'CustomBounce.create("miyaBnc",{strength:.6,squash:3});'              # real bounce + "miyaBnc-squash" for scaleX/scaleY
     'CustomBounce.create("miyaBncS",{strength:.4,squash:2});'             # softer landing
 )
