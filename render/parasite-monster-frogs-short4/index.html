@@ -183,7 +183,7 @@
 <div class="cap" id="c92"><span><i id="c92w0">its</i> <i id="c92w1">own</i> <i id="c92w2">journey</i> <i id="c92w3">across</i></span></div>
 <div class="cap" id="c93"><span><i id="c93w0">the</i> <i id="c93w1">sky.</i></span></div>
 <audio src="mix.m4a" data-start="0" data-duration="144.529" data-track-index="0" data-volume="1"></audio>
-<script>gsap.registerPlugin(DrawSVGPlugin,MorphSVGPlugin,MotionPathPlugin,SplitText,ScrambleTextPlugin,Physics2DPlugin,PhysicsPropsPlugin,InertiaPlugin,CustomEase,CustomWiggle,CustomBounce,EasePack,Flip,TextPlugin);CustomWiggle.create("miyaWig",{wiggles:8,type:"easeOut"});CustomWiggle.create("miyaWigU",{wiggles:10,type:"uniform"});CustomWiggle.create("miyaWigA",{wiggles:5,type:"anticipate"});function miyaJit(n,seed){var v=[0],s=(seed>>>0)||1,k;for(k=1;k<n;k++){s=(s*1664525+1013904223)>>>0;v.push(s/4294967296);}v.push(0);return function(p){var x=Math.max(0,Math.min(1,p))*n,i=Math.min(Math.floor(x),n-1),f=x-i;f=f*f*(3-2*f);return v[i]+(v[i+1]-v[i])*f;};}gsap.registerEase("miyaWigR",miyaJit(12,7));CustomBounce.create("miyaBnc",{strength:.6,squash:3});CustomBounce.create("miyaBncS",{strength:.4,squash:2});
+<script>gsap.registerPlugin(DrawSVGPlugin,MorphSVGPlugin,MotionPathPlugin,SplitText,ScrambleTextPlugin,Physics2DPlugin,PhysicsPropsPlugin,InertiaPlugin,CustomEase,CustomWiggle,CustomBounce,EasePack,Flip,TextPlugin);function miyaW(n,t){return function(p){p=Math.max(0,Math.min(1,p));var w=Math.sin(p*n*Math.PI*2);return t=="uniform"?w:t=="anticipate"?-w*Math.sin(p*Math.PI):w*(1-p);};}gsap.registerEase("miyaWig",miyaW(8,"easeOut"));gsap.registerEase("miyaWigU",miyaW(10,"uniform"));gsap.registerEase("miyaWigA",miyaW(5,"anticipate"));function miyaJit(n,seed){var v=[0],s=(seed>>>0)||1,k;for(k=1;k<n;k++){s=(s*1664525+1013904223)>>>0;v.push(s/4294967296);}v.push(0);return function(p){var x=Math.max(0,Math.min(1,p))*n,i=Math.min(Math.floor(x),n-1),f=x-i;f=f*f*(3-2*f);return v[i]+(v[i+1]-v[i])*f;};}gsap.registerEase("miyaWigR",miyaJit(12,7));CustomBounce.create("miyaBnc",{strength:.6,squash:3});CustomBounce.create("miyaBncS",{strength:.4,squash:2});
 function miyaWrapCores(cx,cy){
  document.querySelectorAll('.t').forEach(function(t){
   var cores=t.querySelectorAll('.mv-glint-core,[class*="mv-core-"]'); if(!cores.length) return;
@@ -289,7 +289,7 @@ function miyaCtm(g){var t=g.closest('.t'),m=null;if(t&&t.style.display==='none')
 function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;L.slice().sort(function(a,b){return a.tm-b.tm;}).forEach(function(r){void tl.seek(r.tm+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m)r.q0=r.p.matrixTransform(m);});void tl.seek(0,false);   // 2026-10-29: the measuring seeks must go FORWARD in time only. A seek backwards renders the children in reverse order, so a picture's `display:none` (its end) was applied before its tweens had initialised: GSAP then read the empty bbox of the hidden picture and froze the wrong svgOrigin (bbox corner) of every hinge/rotor that had not been initialised yet (windmill, gears, frog legs, tails, neck, clock hand). tools/pivotlive.py checks it
  // render order inside one seek can leave the follower one step behind its object: after every seek (the renderer steps frame by frame with seek) the followers are set again from the objects' final matrices
  function fix(){L.forEach(function(r){if(!r.q0||!r.tg)return;var m=miyaCtm(r.g);if(!m)return;var q=r.p.matrixTransform(m);gsap.set(r.tg,{x:q.x-r.q0.x,y:q.y-r.q0.y});});}
- var seek0=tl.seek;tl.seek=function(a,b){var out=seek0.call(tl,a,b);fix();return out;};var time0=tl.time;tl.time=function(a,b){var out=time0.call(tl,a,b);if(arguments.length)fix();return out;};gsap.ticker.add(function(){if(tl.isActive())fix();});}   // the tracked point = the group's own centre (local bbox), so a turning object does not swing the label about a far pivot
+ var seek0=tl.seek;tl.seek=function(a,b){if(!arguments.length)return seek0.call(tl);var out=seek0.call(tl,a,b);fix();return out;};var time0=tl.time;tl.time=function(a,b){if(!arguments.length)return time0.call(tl);var out=time0.call(tl,a,b);fix();return out;};gsap.ticker.add(function(){if(tl.isActive())fix();});}   // the tracked point = the group's own centre (local bbox), so a turning object does not swing the label about a far pivot
 function miyaM(g){var pa=g.parentNode,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',m=null;if(t){t.style.display='block';t.style.visibility='hidden';}
  try{m=pa.getCTM();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}return m?m.inverse():null;}
 // data-pivot is meant in picture coordinates, but agents often wrote it in the coordinates the part was drawn in (inside a translated/scaled wrapper): use whichever reading lands nearer the part itself
@@ -488,7 +488,7 @@ tl.fromTo("#fx5p6",{x:"-=24"},{x:"+=48",duration:2.00,ease:"sine.inOut",yoyo:tru
 tl.fromTo("#fx5p7",{x:"-=24"},{x:"+=48",duration:2.40,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},32.208);
 tl.fromTo("#fx5p8",{y:0,x:0,opacity:0.85,rotation:0},{y:-360,x:284,rotation:30,duration:7.21,ease:"none",immediateRender:false},32.746);
 tl.fromTo("#fx5p8",{x:"-=24"},{x:"+=48",duration:1.20,ease:"sine.inOut",yoyo:true,repeat:5,immediateRender:false},32.208);
-tl.fromTo(gsap.utils.toArray("#w5 .mv-shiver-chill-lines")[0],{x:0},{x:1.5,duration:7.944,ease:"wiggle({wiggles:66,type:'uniform'})",immediateRender:false},32.208);
+tl.fromTo(gsap.utils.toArray("#w5 .mv-shiver-chill-lines")[0],{x:0},{x:1.5,duration:7.944,ease:miyaW(66,'uniform'),immediateRender:false},32.208);
 tl.set("#t6",{display:"block"},38.952);tl.set("#t6",{display:"none"},46.796);
 tl.set("#t6",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},38.952);
 tl.set("#w6",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},38.952);
@@ -645,7 +645,7 @@ tl.fromTo("#fx13p4",{y:0,x:-540,opacity:0.8,rotation:0},{y:-47,x:154,duration:4.
 tl.fromTo("#fx13p4",{x:"-=20"},{x:"+=40",duration:1.20,ease:"sine.inOut",yoyo:true,repeat:6,immediateRender:false},92.304);
 tl.fromTo("#fx13p5",{y:0,x:-540,opacity:0.8,rotation:0},{y:-46,x:126,duration:3.08,ease:"none",immediateRender:false},98.219);
 tl.fromTo("#fx13p5",{x:"-=20"},{x:"+=40",duration:1.60,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},92.304);
-tl.fromTo(gsap.utils.toArray("#w13 .mv-shiver-frog-legs")[0],{x:0},{x:3.0,duration:9.197,ease:"wiggle({wiggles:76,type:'uniform'})",immediateRender:false},92.304);
+tl.fromTo(gsap.utils.toArray("#w13 .mv-shiver-frog-legs")[0],{x:0},{x:3.0,duration:9.197,ease:miyaW(76,'uniform'),immediateRender:false},92.304);
 tl.set("#t14",{display:"block"},100.601);tl.set("#t14",{display:"none"},109.497);
 tl.set("#t14",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},100.601);
 tl.set("#w14",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},100.601);
