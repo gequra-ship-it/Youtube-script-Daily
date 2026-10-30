@@ -613,7 +613,7 @@
 <div class="cap" id="c405"><span><i id="c405w0">me</i> <i id="c405w1">make</i> <i id="c405w2">these</i> <i id="c405w3">videos.</i></span></div>
 <div class="cap" id="c406"><span><i id="c406w0">See</i> <i id="c406w1">you</i> <i id="c406w2">in</i> <i id="c406w3">the</i> <i id="c406w4">next</i> <i id="c406w5">one.</i></span></div>
 <audio src="mix.m4a" data-start="0" data-duration="869.335" data-track-index="0" data-volume="1"></audio>
-<script>gsap.registerPlugin(DrawSVGPlugin,MorphSVGPlugin,MotionPathPlugin,SplitText,ScrambleTextPlugin,Physics2DPlugin,PhysicsPropsPlugin,InertiaPlugin,CustomEase,CustomWiggle,CustomBounce,EasePack,Flip,TextPlugin);CustomWiggle.create("miyaWig",{wiggles:8,type:"easeOut"});CustomWiggle.create("miyaWigU",{wiggles:10,type:"uniform"});CustomWiggle.create("miyaWigA",{wiggles:5,type:"anticipate"});function miyaJit(n,seed){var v=[0],s=(seed>>>0)||1,k;for(k=1;k<n;k++){s=(s*1664525+1013904223)>>>0;v.push(s/4294967296);}v.push(0);return function(p){var x=Math.max(0,Math.min(1,p))*n,i=Math.min(Math.floor(x),n-1),f=x-i;f=f*f*(3-2*f);return v[i]+(v[i+1]-v[i])*f;};}gsap.registerEase("miyaWigR",miyaJit(12,7));CustomBounce.create("miyaBnc",{strength:.6,squash:3});CustomBounce.create("miyaBncS",{strength:.4,squash:2});
+<script>gsap.registerPlugin(DrawSVGPlugin,MorphSVGPlugin,MotionPathPlugin,SplitText,ScrambleTextPlugin,Physics2DPlugin,PhysicsPropsPlugin,InertiaPlugin,CustomEase,CustomWiggle,CustomBounce,EasePack,Flip,TextPlugin);function miyaW(n,t){return function(p){p=Math.max(0,Math.min(1,p));var w=Math.sin(p*n*Math.PI*2);return t=="uniform"?w:t=="anticipate"?-w*Math.sin(p*Math.PI):w*(1-p);};}gsap.registerEase("miyaWig",miyaW(8,"easeOut"));gsap.registerEase("miyaWigU",miyaW(10,"uniform"));gsap.registerEase("miyaWigA",miyaW(5,"anticipate"));function miyaJit(n,seed){var v=[0],s=(seed>>>0)||1,k;for(k=1;k<n;k++){s=(s*1664525+1013904223)>>>0;v.push(s/4294967296);}v.push(0);return function(p){var x=Math.max(0,Math.min(1,p))*n,i=Math.min(Math.floor(x),n-1),f=x-i;f=f*f*(3-2*f);return v[i]+(v[i+1]-v[i])*f;};}gsap.registerEase("miyaWigR",miyaJit(12,7));CustomBounce.create("miyaBnc",{strength:.6,squash:3});CustomBounce.create("miyaBncS",{strength:.4,squash:2});
 function miyaWrapCores(cx,cy){
  document.querySelectorAll('.t').forEach(function(t){
   var cores=t.querySelectorAll('.mv-glint-core,[class*="mv-core-"]'); if(!cores.length) return;
@@ -719,7 +719,7 @@ function miyaCtm(g){var t=g.closest('.t'),m=null;if(t&&t.style.display==='none')
 function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;L.slice().sort(function(a,b){return a.tm-b.tm;}).forEach(function(r){void tl.seek(r.tm+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m)r.q0=r.p.matrixTransform(m);});void tl.seek(0,false);   // 2026-10-29: the measuring seeks must go FORWARD in time only. A seek backwards renders the children in reverse order, so a picture's `display:none` (its end) was applied before its tweens had initialised: GSAP then read the empty bbox of the hidden picture and froze the wrong svgOrigin (bbox corner) of every hinge/rotor that had not been initialised yet (windmill, gears, frog legs, tails, neck, clock hand). tools/pivotlive.py checks it
  // render order inside one seek can leave the follower one step behind its object: after every seek (the renderer steps frame by frame with seek) the followers are set again from the objects' final matrices
  function fix(){L.forEach(function(r){if(!r.q0||!r.tg)return;var m=miyaCtm(r.g);if(!m)return;var q=r.p.matrixTransform(m);gsap.set(r.tg,{x:q.x-r.q0.x,y:q.y-r.q0.y});});}
- var seek0=tl.seek;tl.seek=function(a,b){var out=seek0.call(tl,a,b);fix();return out;};var time0=tl.time;tl.time=function(a,b){var out=time0.call(tl,a,b);if(arguments.length)fix();return out;};gsap.ticker.add(function(){if(tl.isActive())fix();});}   // the tracked point = the group's own centre (local bbox), so a turning object does not swing the label about a far pivot
+ var seek0=tl.seek;tl.seek=function(a,b){if(!arguments.length)return seek0.call(tl);var out=seek0.call(tl,a,b);fix();return out;};var time0=tl.time;tl.time=function(a,b){if(!arguments.length)return time0.call(tl);var out=time0.call(tl,a,b);fix();return out;};gsap.ticker.add(function(){if(tl.isActive())fix();});}   // the tracked point = the group's own centre (local bbox), so a turning object does not swing the label about a far pivot
 function miyaM(g){var pa=g.parentNode,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',m=null;if(t){t.style.display='block';t.style.visibility='hidden';}
  try{m=pa.getCTM();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}return m?m.inverse():null;}
 // data-pivot is meant in picture coordinates, but agents often wrote it in the coordinates the part was drawn in (inside a translated/scaled wrapper): use whichever reading lands nearer the part itself
@@ -1517,7 +1517,7 @@ tl.fromTo("#fx25p8",{y:0,x:0,opacity:0.55,rotation:0},{y:-469,x:0,opacity:0.17,d
 tl.fromTo("#fx25p8",{x:"-=10"},{x:"+=20",duration:1.20,ease:"sine.inOut",yoyo:true,repeat:5,immediateRender:false},198.389);
 tl.fromTo(gsap.utils.toArray("#w25 .mv-cells-bite")[0],{y:0,x:0},{y:-14,x:6,duration:1.800,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},198.389);
 tl.fromTo(gsap.utils.toArray("#w25 .mv-cells-chunks")[0],{y:0,x:0},{y:-14,x:6,duration:1.800,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},198.389);
-tl.fromTo(gsap.utils.toArray("#w25 .mv-shake-bite")[0],{x:0},{x:4.0,duration:1.20,ease:"wiggle({wiggles:30,type:'easeOut'})",immediateRender:false},199.789);
+tl.fromTo(gsap.utils.toArray("#w25 .mv-shake-bite")[0],{x:0},{x:4.0,duration:1.20,ease:miyaW(30,'easeOut'),immediateRender:false},199.789);
 tl.set("#t26",{display:"block"},205.666);tl.set("#t26",{display:"none"},213.943);
 tl.set("#t26",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"960px 500px"},205.666);
 tl.set("#w26",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},205.666);
@@ -1529,7 +1529,7 @@ tl.to("#fgu26_in",{opacity:0,duration:.3,ease:"power1.in"},213.623);
 tl.set("#fgu26_arm",{rotation:75,svgOrigin:"0 0"},0);tl.set("#fgu26_spl,#fgu26_spr,#fgu26_fl1,#fgu26_fl2,#fgu26_sw,#fgu26_dd,#fgu26_pc,#fgu26_sc,#fgu26_sv,#fgu26_bk,#fgu26_cm,#fgu26_mg,#fgu26_lb,#fgu26_te,#fgu26_zz,#fgu26_st,#fgu26_th",{opacity:0},0);
 tl.set("#fgu26_arm",{opacity:0},0);
 tl.set("#fgu26_bl",{attr:{d:"M-24 -80 q12 -2 24 -9"},opacity:1},206.816);tl.set("#fgu26_br",{attr:{d:"M10 -89 q12 7 24 9"},opacity:1},206.816);tl.set("#fgu26_pl",{attr:{cx:-8.0,cy:-65,r:3}},206.816);tl.set("#fgu26_pr",{attr:{cx:24.0,cy:-65,r:3}},206.816);tl.set("#fgu26_sm",{attr:{d:"M-9 -39 q4.5 -7 9 0 q4.5 7 9 0 q4.5 -7 9 0",fill:"none"}},206.816);tl.set("#fgu26_ll",{attr:{height:0}},206.816);tl.set("#fgu26_lr",{attr:{height:0}},206.816);tl.set("#fgu26_spl,#fgu26_spr",{opacity:0},206.816);tl.set("#fgu26_fl1,#fgu26_fl2",{opacity:0},206.816);tl.set("#fgu26_st",{opacity:0},206.816);tl.set("#fgu26_th",{opacity:0},206.816);tl.set("#fgu26_te",{opacity:0},206.816);tl.set("#fgu26_sw",{opacity:0},206.816);tl.set("#fgu26_tg",{attr:{ry:0.0,cy:-44.0}},206.816);tl.set("#fgu26_al",{opacity:0},206.816);tl.set("#fgu26_ar",{opacity:0},206.816);
-tl.fromTo("#fgu26_ac",{x:0},{x:2.4,duration:6.477,ease:"wiggle({wiggles:65,type:'uniform'})",immediateRender:false},207.316);
+tl.fromTo("#fgu26_ac",{x:0},{x:2.4,duration:6.477,ease:miyaW(65,'uniform'),immediateRender:false},207.316);
 tl.fromTo("#fgu26_bub0",{opacity:0},{opacity:1,duration:.1,immediateRender:false},207.516);
 tl.fromTo("#fgu26_bx0",{scale:.3,svgOrigin:"0 0"},{scale:1,duration:.28,ease:"back.out(2.4)",immediateRender:false},207.516);
 tl.to("#fgu26_bub0",{opacity:0,duration:.18},209.516);
@@ -2313,7 +2313,7 @@ tl.fromTo("#fx43p19",{y:0,x:0,opacity:0.7,rotation:0},{y:-84,x:-120,duration:7.2
 tl.fromTo("#fx43p19",{x:"-=12"},{x:"+=24",duration:2.40,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},365.119);
 tl.fromTo("#fx43p19",{opacity:0.10},{opacity:0.7,duration:2.25,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},366.149);
 tl.to(gsap.utils.toArray("#w43 .mv-core-heartbeat-fat")[0],{keyframes:[{scale:1.14,duration:.12},{scale:1,duration:.18},{scale:1.09,duration:.12},{scale:1,duration:.48}],repeat:10,immediateRender:false},365.119);
-tl.fromTo(gsap.utils.toArray("#w43 .mv-shake-isopod")[0],{x:0},{x:4.0,duration:0.60,ease:"wiggle({wiggles:15,type:'easeOut'})",immediateRender:false},367.019);
+tl.fromTo(gsap.utils.toArray("#w43 .mv-shake-isopod")[0],{x:0},{x:4.0,duration:0.60,ease:miyaW(15,'easeOut'),immediateRender:false},367.019);
 tl.fromTo(gsap.utils.toArray("#w43 .mv-cells-snow")[0],{y:0,x:0},{y:-14,x:6,duration:1.800,ease:"sine.inOut",yoyo:true,repeat:5,immediateRender:false},365.119);
 tl.set("#t44",{display:"block"},373.775);tl.set("#t44",{display:"none"},381.797);
 tl.set("#t44",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"960px 500px"},373.775);
@@ -4538,8 +4538,8 @@ miyaFollow(tl,"#w24 .mv-core-glide-shark",["#L24_0", "#L24_0g"],900,470,194.491,
 miyaFollow(tl,"#w38 .mv-slide-left",["#L38_0", "#L38_0g"],680,700,325.673,329.473,320.973);
 miyaFollow(tl,"#w48 .mv-slide-fuel",["#L48_1", "#L48_1g"],1440,590,406.989,409.589,402.861);
 miyaFollow(tl,"#w69 .mv-core-drop-mussels-U069",["#L69_0", "#L69_0g"],1060,500,567.921,575.721,565.421);
-miyaFollow(tl,"#w80 .mv-rise-U0801",["#L80_0", "#L80_0g"],780,440,657.711,663.572,655.142);
-miyaFollow(tl,"#w80 .mv-rise-U0803",["#L80_1", "#L80_1g"],1450,330,655.942,663.572,655.142);
+miyaFollow(tl,"#w80 .mv-rise-U0801",["#L80_0", "#L80_0g"],780,440,657.711,663.572,657.711);
+miyaFollow(tl,"#w80 .mv-rise-U0803",["#L80_1", "#L80_1g"],1450,330,655.942,663.572,655.942);
 miyaFollow(tl,"#w83 .mv-slide-U083fish",["#L83_0", "#L83_0g"],1050,500,678.598,684.594,678.298);
 tl.set("#c0",{opacity:1},1.000);tl.set("#c0",{opacity:0},3.960);
 tl.set("#c0w0",{color:"#ffd54a"},1.000);tl.set("#c0w0",{color:"#fff"},1.269);tl.set("#c0w1",{color:"#ffd54a"},1.269);tl.set("#c0w1",{color:"#fff"},1.700);tl.set("#c0w2",{color:"#ffd54a"},1.700);tl.set("#c0w2",{color:"#fff"},1.862);tl.set("#c0w3",{color:"#ffd54a"},1.862);tl.set("#c0w3",{color:"#fff"},1.969);tl.set("#c0w4",{color:"#ffd54a"},1.969);tl.set("#c0w4",{color:"#fff"},2.292);tl.set("#c0w5",{color:"#ffd54a"},2.292);tl.set("#c0w5",{color:"#fff"},2.615);tl.set("#c0w6",{color:"#ffd54a"},2.615);tl.set("#c0w6",{color:"#fff"},2.777);tl.set("#c0w7",{color:"#ffd54a"},2.777);
