@@ -196,7 +196,7 @@
 <div class="cap" id="c100"><span><i id="c100w0">the</i> <i id="c100w1">beginning</i> <i id="c100w2">of</i> <i id="c100w3">its</i></span></div>
 <div class="cap" id="c101"><span><i id="c101w0">strange</i> <i id="c101w1">story.</i></span></div>
 <audio src="mix.m4a" data-start="0" data-duration="152.201" data-track-index="0" data-volume="1"></audio>
-<script>gsap.registerPlugin(DrawSVGPlugin,MorphSVGPlugin,MotionPathPlugin,SplitText,ScrambleTextPlugin,Physics2DPlugin,PhysicsPropsPlugin,InertiaPlugin,CustomEase,CustomWiggle,CustomBounce,EasePack,Flip,TextPlugin);CustomWiggle.create("miyaWig",{wiggles:8,type:"easeOut"});CustomWiggle.create("miyaWigU",{wiggles:10,type:"uniform"});CustomWiggle.create("miyaWigA",{wiggles:5,type:"anticipate"});CustomWiggle.create("miyaWigR",{wiggles:12,type:"random"});CustomBounce.create("miyaBnc",{strength:.6,squash:3});CustomBounce.create("miyaBncS",{strength:.4,squash:2});
+<script>gsap.registerPlugin(DrawSVGPlugin,MorphSVGPlugin,MotionPathPlugin,SplitText,ScrambleTextPlugin,Physics2DPlugin,PhysicsPropsPlugin,InertiaPlugin,CustomEase,CustomWiggle,CustomBounce,EasePack,Flip,TextPlugin);CustomWiggle.create("miyaWig",{wiggles:8,type:"easeOut"});CustomWiggle.create("miyaWigU",{wiggles:10,type:"uniform"});CustomWiggle.create("miyaWigA",{wiggles:5,type:"anticipate"});function miyaJit(n,seed){var v=[0],s=(seed>>>0)||1,k;for(k=1;k<n;k++){s=(s*1664525+1013904223)>>>0;v.push(s/4294967296);}v.push(0);return function(p){var x=Math.max(0,Math.min(1,p))*n,i=Math.min(Math.floor(x),n-1),f=x-i;f=f*f*(3-2*f);return v[i]+(v[i+1]-v[i])*f;};}gsap.registerEase("miyaWigR",miyaJit(12,7));CustomBounce.create("miyaBnc",{strength:.6,squash:3});CustomBounce.create("miyaBncS",{strength:.4,squash:2});
 function miyaWrapCores(cx,cy){
  document.querySelectorAll('.t').forEach(function(t){
   var cores=t.querySelectorAll('.mv-glint-core,[class*="mv-core-"]'); if(!cores.length) return;
@@ -1642,7 +1642,7 @@ tl.fromTo(gsap.utils.toArray("#w5 .mv-ring")[0],{scale:.85,opacity:.95,transform
 tl.fromTo(gsap.utils.toArray("#w5 .mv-rotor-hr-u005")[0],{rotation:0,svgOrigin:miyaPv(gsap.utils.toArray("#w5 .mv-rotor-hr-u005")[0],540,860),smoothOrigin:false},{rotation:1.7,duration:8.422,ease:"none",immediateRender:false},25.438);
 tl.fromTo(gsap.utils.toArray("#w5 .mv-rotor-mn-u005")[0],{rotation:0,svgOrigin:miyaPv(gsap.utils.toArray("#w5 .mv-rotor-mn-u005")[0],540,860),smoothOrigin:false},{rotation:12.6,duration:8.422,ease:"none",immediateRender:false},25.438);
 tl.fromTo(gsap.utils.toArray("#w6 .mv-drift-nebula-u006")[0],{scaleY:1,scaleX:1,transformOrigin:"50% 100%"},{scaleY:1.14,scaleX:.92,duration:0.500,ease:"sine.inOut",yoyo:true,repeat:10,immediateRender:false},32.660);
-tl.fromTo(gsap.utils.toArray("#w6 .mv-core-tremble-u006")[0],{x:0,rotation:0,transformOrigin:"50% 50%"},{x:5,rotation:1.5,duration:5.263,ease:"wiggle({wiggles:37,type:'random'})",immediateRender:false},32.660);
+tl.fromTo(gsap.utils.toArray("#w6 .mv-core-tremble-u006")[0],{x:0,rotation:0,transformOrigin:"50% 50%"},{x:5,rotation:1.5,duration:5.263,ease:miyaJit(37,5262),immediateRender:false},32.660);
 tl.set(gsap.utils.toArray("#w6 .mv-slam-cross-u006")[0],{scale:2.4,opacity:0,rotation:-4.0,transformOrigin:"50% 50%"},32.660);
 tl.fromTo(gsap.utils.toArray("#w7 .mv-drift-nebula-u007")[0],{scaleY:1,scaleX:1,transformOrigin:"50% 100%"},{scaleY:1.14,scaleX:.92,duration:0.500,ease:"sine.inOut",yoyo:true,repeat:14,immediateRender:false},36.823);
 tl.set(gsap.utils.toArray("#w7 .mv-core-reveal-u007")[0],{opacity:.15,scale:.6,transformOrigin:"50% 50%"},36.823);
@@ -1701,7 +1701,7 @@ tl.fromTo(gsap.utils.toArray("#w19 .mv-drift-nebula-u019")[0],{scaleY:1,scaleX:1
 tl.fromTo(gsap.utils.toArray("#w20 .mv-drift-nebula-u020")[0],{scaleY:1,scaleX:1,transformOrigin:"50% 100%"},{scaleY:1.14,scaleX:.92,duration:0.500,ease:"sine.inOut",yoyo:true,repeat:14,immediateRender:false},118.271);
 tl.set(gsap.utils.toArray("#w20 .mv-core-heartbeat-u020")[0],{scale:1,transformOrigin:"50% 50%"},118.271);
 tl.fromTo(gsap.utils.toArray("#w21 .mv-drift-nebula-u021")[0],{scaleY:1,scaleX:1,transformOrigin:"50% 100%"},{scaleY:1.14,scaleX:.92,duration:0.500,ease:"sine.inOut",yoyo:true,repeat:14,immediateRender:false},124.340);
-tl.fromTo(gsap.utils.toArray("#w21 .mv-core-tremble-u021")[0],{x:0,rotation:0,transformOrigin:"50% 50%"},{x:5,rotation:1.5,duration:7.268,ease:"wiggle({wiggles:51,type:'random'})",immediateRender:false},124.340);
+tl.fromTo(gsap.utils.toArray("#w21 .mv-core-tremble-u021")[0],{x:0,rotation:0,transformOrigin:"50% 50%"},{x:5,rotation:1.5,duration:7.268,ease:miyaJit(51,7268),immediateRender:false},124.340);
 tl.fromTo(gsap.utils.toArray("#w22 .mv-drift-nebula-u022")[0],{scaleY:1,scaleX:1,transformOrigin:"50% 100%"},{scaleY:1.14,scaleX:.92,duration:0.500,ease:"sine.inOut",yoyo:true,repeat:14,immediateRender:false},130.808);
 tl.fromTo("#t23",{rotation:-8,scale:1.25,opacity:0,transformOrigin:"50% 120%"},{rotation:0,scale:1,opacity:1,duration:.8,ease:"back.out(1.4)",immediateRender:false},137.141);
 tl.fromTo("#fx23p0",{y:0,x:0,opacity:0.90,transformOrigin:"50% 50%"},{y:960,x:648,opacity:0,duration:1.20,ease:"none",immediateRender:false},137.141);
