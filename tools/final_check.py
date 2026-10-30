@@ -27,7 +27,7 @@ miss = [c['id'] for c in bd['cuts'] if c.get('kind') != 'chalk' and not os.path.
 print(f'--- coverage: {"OK" if not miss else "MISSING " + str(miss)} ({n} units)'); bad += bool(miss)
 html = open(f'{REPO}/render/{SLUG}/index.html', encoding='utf-8').read()
 import re as _re   # 2026-10-30: CustomWiggle type "random" froze the Actions capture near the end of its tween (miya: video stops, audio goes on); tremble uses miyaJit now. Never ship it again.
-_rw = _re.findall(r'wiggle\(\{[^)]*random', html)
-if _rw: print(f'--- frozen-capture guard: {len(_rw)} CustomWiggle "random" ease(s) on the page (use miyaJit)'); bad += 1
+_rw = _re.findall(r'ease:"wiggle\(|CustomWiggle\.create|wiggle\(\{[^)]*random', html)   # any string wiggle ease froze the capture too (2nd cause)
+if _rw: print(f'--- frozen-capture guard: {len(_rw)} CustomWiggle/string wiggle ease(s) on the page (use miyaW / miyaJit)'); bad += 1
 if bad: print(f'FINAL CHECK FAILED ({bad} part(s)): fix, rebuild, run again. No .checked written.'); sys.exit(1)
 open(f'{REPO}/render/{SLUG}/.checked', 'w').write(hashlib.sha1(html.encode('utf-8')).hexdigest() + '\n'); print('FINAL CHECK PASSED: .checked written for this build.')
