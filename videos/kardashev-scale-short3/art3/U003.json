@@ -1,0 +1,46 @@
+{
+ "centre": "star whose light streams curve down into a dark collector bowl",
+ "focus": [
+  540,
+  1280,
+  1.8
+ ],
+ "focus_word": "swallow the light",
+ "sfx": [
+  {
+   "name": "warp",
+   "word": "swallow",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    960
+   ]
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "x": 260,
+  "y": 560,
+  "s": 1.21,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

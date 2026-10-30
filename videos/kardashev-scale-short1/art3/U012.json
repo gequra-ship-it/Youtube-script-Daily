@@ -1,0 +1,50 @@
+{
+ "centre": "glowing marker bead sliding on a long ruler that stretches from Earth to a far galaxy",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "measure",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Light-years",
+   "x": 860,
+   "y": 330,
+   "to": [
+    820,
+    480
+   ],
+   "word": "light-years"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-core-ping-marker",
+  "kind": "ride",
+  "x": 646,
+  "y": 922,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

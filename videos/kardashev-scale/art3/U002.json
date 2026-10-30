@@ -1,0 +1,39 @@
+{
+ "centre": "glowing city hub where a wire from a wall switch fans into a web of gold power lines across a dark continent",
+ "focus": [
+  1200,
+  520,
+  1.6
+ ],
+ "focus_word": "invisible web",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "power",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "ride": "mv-core-heartbeat-city-hub",
+  "kind": "ride",
+  "x": 1062,
+  "y": 564,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "So strong!",
+    "shout": false
+   }
+  ]
+ }
+}

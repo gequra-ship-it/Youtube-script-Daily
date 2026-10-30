@@ -1,0 +1,49 @@
+{
+ "centre": "big dark solar panel catching star light at its middle",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "each catching a share",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "My share!",
+   "x": 1010,
+   "y": 260,
+   "to": [
+    975,
+    440
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-core-wobble-panel",
+  "kind": "ride",
+  "x": 1119,
+  "y": 593,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ]
+ }
+}

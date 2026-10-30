@@ -1,0 +1,45 @@
+{
+ "centre": "round gauge dial with needle at about seventy percent, a stargazer silhouette at a telescope",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "zero point seven",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "TYPE 0.7",
+   "word": "zero point seven"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    860
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 302,
+  "y": 864,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "Nooo!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

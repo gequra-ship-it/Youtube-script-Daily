@@ -1,0 +1,45 @@
+{
+ "centre": "a tall glowing energy cell filling with gold light",
+ "focus": [
+  960,
+  520,
+  1.6
+ ],
+ "focus_word": "pure energy consumption",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "energy",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    513
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 538,
+  "y": 535,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "Heeelp!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

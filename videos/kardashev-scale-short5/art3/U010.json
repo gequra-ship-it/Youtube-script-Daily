@@ -1,0 +1,39 @@
+{
+ "centre": "glowing golden bud on a sprout growing from a cracked stone foundation",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "foundation",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    860
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 285,
+  "y": 877,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "Heeelp!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "centre": "a huge tilted spiral galaxy with a gold core, a tiny Earth in the lower left corner for scale",
+ "focus": [
+  330,
+  760,
+  1.8
+ ],
+ "focus_word": "we",
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "cosmos",
+   "vol": 0.55
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shiver",
+  "x": 260,
+  "y": 780,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

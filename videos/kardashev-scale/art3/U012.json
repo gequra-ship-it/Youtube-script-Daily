@@ -1,0 +1,49 @@
+{
+ "centre": "night-side Earth with golden city lights, watched by a dish on an imagined far planet",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who lives there?",
+   "x": 360,
+   "y": 470,
+   "to": [
+    470,
+    400
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    400,
+    300
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 822,
+  "y": 314,
+  "s": 0.9,
+  "flip": -1,
+  "outfit": [
+   "helmet"
+  ],
+  "says": [
+   {
+    "text": "Nooo!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

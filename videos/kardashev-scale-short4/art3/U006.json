@@ -1,0 +1,44 @@
+{
+ "centre": "glowing gold power orb strung between two pylons, two separate people below with an unfinished dashed link",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Technology",
+   "x": 790,
+   "y": 790,
+   "to": [
+    620,
+    850
+   ],
+   "word": "technology"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-orb",
+  "kind": "ride",
+  "x": 904,
+  "y": 1180,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "gradcap"
+  ],
+  "says": [
+   {
+    "text": "Which way?",
+    "shout": false
+   }
+  ]
+ }
+}

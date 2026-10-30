@@ -1,0 +1,45 @@
+{
+ "centre": "a golden glow in the opening of a door left ajar in the night, light spilling on the floor",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "not closed",
+ "sfx": [
+  {
+   "name": "creak",
+   "word": "not closed",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    860
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 302,
+  "y": 875,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "Heeelp!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

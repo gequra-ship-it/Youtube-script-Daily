@@ -1,0 +1,40 @@
+{
+ "centre": "golden energy orb standing over a ruler that measures a planet, a star and a galaxy alike",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Ruler",
+   "x": 540,
+   "y": 1280,
+   "to": [
+    540,
+    1160
+   ],
+   "word": "ruler"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-heartbeat-orb",
+  "kind": "ride",
+  "x": 637,
+  "y": 739,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Tap tap.",
+    "shout": false
+   }
+  ]
+ }
+}

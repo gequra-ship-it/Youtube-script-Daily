@@ -1,0 +1,53 @@
+{
+ "centre": "glowing gold stepping stone floating over a dark crack between a dim night-side planet below and a bright planet above",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "dangerous step",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "dangerous",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Dangerous step",
+   "x": 330,
+   "y": 740,
+   "to": [
+    470,
+    830
+   ],
+   "word": "dangerous step"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   },
+   {
+    "word": "The suggestion",
+    "mood": "suspicious"
+   }
+  ],
+  "act": "nervous",
+  "x": 260,
+  "y": 1560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Uh-oh...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

@@ -7,9 +7,10 @@ CHALK = {13: {'concl': ('Energy is the ruler', 'entire galaxy'),
       'src': 'Source: Kardashev (1964)',
       'sub': 'Three tiers of civilization',
       'title': 'The Kardashev Scale'},
- 30: {'concl': ('A young civilization', 'point seven'),
+ 30: {'concl': ('A young civilization', 'seven'),
       'rows': [('Estimate by', 'Carl Sagan', 'astronomer', 'y', 'Carl Sagan'),
-               ('Humanity today', 'about Type 0.7', 'not yet Type One', 'c', 'Type zero point seven')],
+               ('Humanity today', 'about Type 0.7', 'not yet Type One', 'y', 'humanity'),
+               ('Next rung', 'Type One', "a whole planet's energy", 'c', 'zero point seven')],
       'src': 'Source: Carl Sagan (1973), estimate',
       'sub': 'Where humanity stands',
       'title': 'Humanity: Type 0.7'}}
@@ -23,6 +24,6 @@ SOURCES = ["Kardashev (1964), Transmission of Information by Extraterrestrial Ci
            "Penrose (1969), Gravitational collapse: the role of general relativity (rotational energy of black holes, theoretical)"]
 HASHTAGS = "#MiyasNote #Space #Kardashev #Astronomy #Science"
 BG = {'p01a': 'night', 'p01b': 'night', 'p01c': 'night', 'p02a': 'night', 'p02b': 'night', 'p03a': 'night', 'p03b': 'night', 'p03c': 'night', 'p04a': 'night', 'p04b': 'night', 'p04c': 'night', 'p05a': 'night', 'p05b': 'night', 'p05c': 'night', 'p06a': 'night', 'p06b': 'night', 'p07a': 'night', 'p07b': 'night', 'p08a': 'night', 'p08b': 'night', 'p09a': 'night', 'p09b': 'night', 'p09c': 'night', 'p10a': 'night', 'p10b': 'night', 'p11a': 'night', 'p11b': 'night', 'p11c': 'night', 'p12a': 'night', 'p12b': 'night', 'p12c': 'night', 'p12d': 'night', 'p13a': 'night', 'p13b': 'night', 'p13c': 'night', 'p14a': 'night', 'p14b': 'night', 'p15a': 'night', 'p15b': 'night', 'p15c': 'night', 'p16a': 'night', 'p16b': 'night', 'p17a': 'night', 'p17b': 'night', 'p18a': 'night', 'p18b': 'night', 'p18c': 'night', 'p19a': 'night', 'p19b': 'night', 'p20a': 'night', 'p20b': 'night', 'p21a': 'night', 'p21b': 'night', 'p22a': 'night', 'p22b': 'night', 'p22c': 'night', 'p23a': 'night', 'p24a': 'night', 'p24b': 'night', 'p24c': 'night', 'p25a': 'night', 'p25b': 'night', 'p26a': 'night', 'p26b': 'night', 'p27a': 'night', 'p27b': 'night'}
-PAL_DEFAULT = 'solar'
-PAL = dict()
+PAL_DEFAULT = 'deepfield'
+PAL = {a: 'solar' for a in ['p15a','p15b','p15c','p16a','p16b','p17a','p17b','p17c']}
 HOOK = dict(until=300, maxu=4.5)

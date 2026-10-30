@@ -1,0 +1,45 @@
+{
+ "centre": "narrow golden gap between dark cliffs, cracked stepping stones lead up to it, a lone traveller on a ledge",
+ "focus": [
+  540,
+  820,
+  1.6
+ ],
+ "focus_word": "lethal filter",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Type One",
+   "x": 760,
+   "y": 440,
+   "to": [
+    590,
+    460
+   ],
+   "word": "Type One"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-gate",
+  "kind": "ride",
+  "x": 794,
+  "y": 1000,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "centre": "sparking snapped power wire between two pylons, a small climber walking up stairs below",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "break our networks",
+ "sfx": [
+  {
+   "name": "crackle",
+   "word": "bad turn",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "x": 820,
+  "y": 1560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

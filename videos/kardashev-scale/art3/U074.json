@@ -1,0 +1,57 @@
+{
+ "centre": "small person holding up a glowing gadget, a huge golden ghost of pride behind, a vast galaxy beside",
+ "focus": [
+  500,
+  640,
+  1.6
+ ],
+ "focus_word": "technology",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Look at this!",
+   "x": 760,
+   "y": 460,
+   "to": [
+    520,
+    580
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "We feel",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    1400,
+    450
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 697,
+  "y": 485,
+  "s": 0.9,
+  "flip": 1,
+  "outfit": [
+   "helmet"
+  ],
+  "says": [
+   {
+    "text": "Whoaaa!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

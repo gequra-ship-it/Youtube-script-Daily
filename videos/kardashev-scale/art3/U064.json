@@ -1,0 +1,33 @@
+{
+ "centre": "glowing gold orb waiting at the top of a stair of slabs",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "what would be needed",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-ping-orb",
+  "kind": "ride",
+  "x": 1188,
+  "y": 690,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

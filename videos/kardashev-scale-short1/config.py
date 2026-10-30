@@ -19,6 +19,6 @@ DESC = ['Kardashev proposed measuring civilizations by the energy they use: a pl
 HASHTAGS = '#MiyasNote #Space #Kardashev'
 SOURCES = []
 CHAPTERS = []
-PAL_DEFAULT = 'solar'
+PAL_DEFAULT = 'deepfield'
 PAL = dict()
 HOOK = dict(until=999, maxu=4.8)
