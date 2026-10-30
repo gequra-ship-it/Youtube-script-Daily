@@ -21,9 +21,11 @@ def script_tags():
 # registered once at the top of the timeline script: plugins + the named eases every rule below refers to
 REGISTER_JS = (
     'gsap.registerPlugin(' + ','.join(PLUGINS) + ');'
-    'CustomWiggle.create("miyaWig",{wiggles:8,type:"easeOut"});'          # a hit that calms down (shake / tremble / rattle)
-    'CustomWiggle.create("miyaWigU",{wiggles:10,type:"uniform"});'        # steady shiver (cold, fear)
-    'CustomWiggle.create("miyaWigA",{wiggles:5,type:"anticipate"});'      # winds up then lets go (a stamp, a slam)
+    # 2026-10-30: wiggle eases are plain JS functions (no CustomEase); string eases "wiggle({...})" / CustomWiggle froze the Actions capture mid-video (guideline 15-8)
+    'function miyaW(n,t){return function(p){p=Math.max(0,Math.min(1,p));var w=Math.sin(p*n*Math.PI*2);return t=="uniform"?w:t=="anticipate"?-w*Math.sin(p*Math.PI):w*(1-p);};}'
+    'gsap.registerEase("miyaWig",miyaW(8,"easeOut"));'          # a hit that calms down (shake / tremble / rattle)
+    'gsap.registerEase("miyaWigU",miyaW(10,"uniform"));'        # steady shiver (cold, fear)
+    'gsap.registerEase("miyaWigA",miyaW(5,"anticipate"));'      # winds up then lets go (a stamp, a slam)
     'function miyaJit(n,seed){var v=[0],s=(seed>>>0)||1,k;for(k=1;k<n;k++){s=(s*1664525+1013904223)>>>0;v.push(s/4294967296);}v.push(0);return function(p){var x=Math.max(0,Math.min(1,p))*n,i=Math.min(Math.floor(x),n-1),f=x-i;f=f*f*(3-2*f);return v[i]+(v[i+1]-v[i])*f;};}'   # 2026-10-30: seeded random jitter ease (0 at both ends); CustomWiggle type "random" froze the Actions capture near the end of the tween (guideline 15-8)
     'gsap.registerEase("miyaWigR",miyaJit(12,7));'                          # nervous jitter (earthquake, engine)
     'CustomBounce.create("miyaBnc",{strength:.6,squash:3});'              # real bounce + "miyaBnc-squash" for scaleX/scaleY
@@ -248,3 +250,9 @@ if __name__ == '__main__':
     for t in sys.argv[1:] or ['Marine snow', 'Whale fall', '3,800 m deep', 'Stolen time', 'Voyager 1', 'The Fore people', 'Kuru', 'Big Bang', 'Black hole']:
         print(f'{t!r:28} -> {icon_for(t)}')
     print('icons', icon_count())
+
+
+_WIG = re.compile(r"ease:\"wiggle\(\{wiggles:(\d+),type:'(\w+)'\}\)\"")
+def plain_wiggles(html):
+    """string eases wiggle({...}) -> miyaW(n,type) (a plain function ease)"""
+    return _WIG.sub(lambda m: f"ease:miyaW({m.group(1)},'{m.group(2)}')", html)

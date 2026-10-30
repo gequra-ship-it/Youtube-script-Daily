@@ -1084,7 +1084,7 @@ HINGE_JS = [l for l in js if l.startswith('tl.') and ('miyaPv(' in l or _PCT_ORG
 js.append('miyaFollowInit(tl);'); js.extend(HINGE_JS); print('hinge tweens added after the follow measuring:', len(HINGE_JS))
 js.append('window.__timelines=window.__timelines||{};window.__timelines["main"]=tl;</script>')
 h.append('\n'.join(js)); h.append('</div></body></html>')
-open(f'{OUT}/index.html', 'w', encoding='utf-8').write('\n'.join(h))
+open(f'{OUT}/index.html', 'w', encoding='utf-8').write(fxlib.plain_wiggles('\n'.join(h)))
 
 for f in os.listdir(OUT):          # drop sfx files that no cue uses (keep the repo small)
     if f.startswith('sfx_') and f not in SFXLEN and os.path.exists(f'{OUT}/{f}'): os.remove(f'{OUT}/{f}')
