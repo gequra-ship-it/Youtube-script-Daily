@@ -13,6 +13,7 @@ from paths import *
 from playwright.sync_api import sync_playwright
 import facing
 import math, frog_rig, motions   # 2026-10-29: contact / locomotion / costume acts (guideline 7-2 G)
+import concepts   # 2026-10-31: concept rules + theme packs, least-used picking (guideline 7-2 J)
 OK = re.compile(r'^mv-(core-(swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble)|path|slide|swing)')
 SPACE = re.compile(r'\b(space|star|stars|galax\w*|cosmic|universe|horizon|probe|voyager|light|planet|orbit|dark|expan\w*)\b', re.I)
 SEA = re.compile(r'\b(ocean|oceans|sea|seas|seafloor|underwater|dive|diving|water|whales?|reef|coral|fish|vents?|abyss\w*|deep|depths?|plankton|marine)\b', re.I)
@@ -549,6 +550,66 @@ RIDE_MOOD = [(m, re.compile(r, re.I)) for m, r in RIDE_MOOD]
 PAL_MOOD = {'ice': 'chilly', 'desert': 'hot'}   # palette default for a calm first face
 
 
+HATS = ('helmet', 'crown', 'wizard', 'pirate', 'chef', 'hardhat', 'knight', 'gradcap', 'strawhat', 'partyhat', 'detective', 'explorer', 'nightcap', 'tophat', 'beret', 'cowboy', 'bandana', 'santa', 'beanie', 'viking', 'roman',
+        'samurai', 'headlamp', 'firefighter', 'police', 'aviator', 'propcap', 'headband', 'tinfoil', 'dino', 'shark', 'bee', 'clown', 'earmuffs', 'crownleaf', 'flowercrown', 'laurel', 'alien', 'bunny', 'ghost',
+        'sailorhat', 'captainhat', 'shellhat', 'turban', 'feathercap', 'leafhat', 'clockhat', 'cap', 'bowler', 'goldvisor', 'antenna', 'vr', 'glasses', 'sunglasses', 'monocle', 'goggles', 'facemask')
+SUITS = ('diver', 'lab', 'doctor', 'toga', 'raincoat', 'lifevest', 'cape', 'fore', 'fore_steps')
+TALLY = concepts.Tally(); VDOM = 'generic'
+VARIANTS = {   # strong word acts that recur in one topic (space: wind; cold: shiver; big numbers: awe) -> pool, least-used wins (2026-10-31)
+    'wind':   [('wind', 'squint'), ('leanback', 'squint'), ('pointfar', 'excited'), ('helmetwipe', 'squint'), ('binocs', 'curious')],
+    'pull':   [('pull', 'scared'), ('pull', 'scared'), ('leanback', 'scared'), ('pushaway', 'scared'), ('duck', 'scared')],   # the hole still wins twice as often: it is the point of the scene
+    'shiver': [('shiver', 'scared'), ('hug', 'chilly'), ('rubhands', 'chilly'), ('duck', 'scared')],
+    'awe':    [('awe', 'surprised'), ('gasp', 'shock'), ('shrinkdown', 'surprised'), ('measure', 'curious'), ('leanback', 'surprised')],
+}
+
+
+def concept_apply(keep, text, dom, W, H, vert, n):
+    """2026-10-31 (guideline 7-2 J): the unit's leading idea class (tools/concepts.CONCEPTS) and theme pack give a pool of acts; the least-used one in this video so far is taken
+    (ties -> unit index). Runs after every word / contact / locomotion rule, on a frog that still has only a calm default. Travel acts need a lane; riders get a standing act."""
+    c, pool = concepts.act_pool(text, dom)
+    riding = bool(keep.get('ride') or keep.get('cling'))
+    pool = [e for e in pool if not (riding and (e[0] in frog_rig.TRAVEL_ACTS or e[0] in ('fly', 'float', 'hide', 'peek', 'dig', 'tiptoe', 'swimstroke'))) and not (SERIOUS and e[0] in ('dance', 'cheer', 'clap', 'victory', 'tosscap', 'wavebig', 'moonbounce', 'spinaround'))]
+    if not pool: return False
+    act, mood, say = TALLY.pick('act', pool, n)
+    if act in frog_rig.MOVES:
+        if act in frog_rig.TRAVEL_ACTS:
+            rm = keep.get('roam')
+            if rm: set_act(keep, act, says=[say] if say else None, mood=mood, dist=rm.get('dist', 300))
+            else:
+                s0 = round((1.05 if vert else .8), 2); right = (n % 2 == 1)
+                keep.update(kind='bg', ride=None, behind=None, x=max(260, min(W - 260, 260 if right else W - 260)), y=(H - 360) if vert else (H - 190), s=s0, flip=1 if right else -1)
+                set_act(keep, act, says=[say] if say else None, mood=mood, dist=round(W * (.3 if vert else .22)))
+        else: set_act(keep, act, says=[say] if say else None, mood=mood)
+    else:
+        keep['act'] = act; keep['moods'][0] = {'mood': mood}; keep.pop('cling', None)
+        if act not in ('swimstroke', 'tiptoe'): keep.pop('roam', None) if act in ('hide', 'peek', 'dig') else None
+        if say: keep['_says'] = [{'text': say, 'shout': say.endswith('!')}]
+    keep['_concept'] = c or 'filler'
+    return True
+
+
+def pack_accessory(keep, dom, n):
+    """theme-pack outfit accessory (tools/concepts.PACK_OUTFITS), least-used first: on top of a helmet / diving suit when it fits, else a hat when the words gave no costume"""
+    pk = concepts.PACK_OUTFITS.get(dom) or concepts.PACK_OUTFITS['generic']; cur = list(keep.get('outfit') or [])
+    if dom == 'space' and 'helmet' not in cur: pk = concepts.PACK_OUTFITS['generic']   # space gear (jetpack, visor, antenna, boots) only on a suited frog; a space sentence over a ground picture gets the plain pack
+    has_hat = any(o in HATS for o in cur); has_suit = any(o in SUITS for o in cur)
+    ok = []
+    for x in pk['extra']:
+        if x is None: ok.append(None); continue
+        if x in cur: continue
+        if x in HATS and has_hat and not (x in ('goldvisor', 'antenna') and cur == ['helmet']): continue
+        if x in SUITS and has_suit: continue
+        if 'diver' in cur and x not in ('flippers', 'patch'): continue   # a life ring floats: not on a diver
+        if cur and dom == 'space' and x in ('backpack',) : continue   # the jetpack is the space backpack
+        ok.append(x)
+    a_ = keep.get('act'); a_ = a_.get('type') if isinstance(a_, dict) else a_
+    if a_ == 'jetpack' and 'helmet' in cur and 'jetpack' not in cur: keep['outfit'] = cur + ['jetpack']; return   # the jetpack act shows its pack
+    if not ok: return
+    x = TALLY.pick('outfit', ok, n, key=lambda e: e or '-')
+    if x: keep['outfit'] = cur + [x]
+    elif not cur: keep.pop('outfit', None)
+
+
 def mood_of(s):
     for m, rx in MOODW:
         if rx.search(s) and not (SERIOUS and m in PLAYFUL): return m
@@ -566,6 +627,7 @@ with sync_playwright() as p:
         try: SERIOUS = getattr(load_config(slug), 'FROG_TONE', '') == 'serious'   # config.py FROG_TONE = 'serious' for grim topics (disease, death, war): no cheering, no Yay/Tada (miya 2026-10-26)
         except Exception: SERIOUS = False
         plan = {u['uid']: u for u in json.load(open(f'{REPO}/videos/{slug}/plan.json'))}
+        TALLY = concepts.Tally(); VDOM = concepts.video_domain([u['text'] for u in plan.values()], [(u.get('pal') or {}).get('palette', '') for u in plan.values()]); print(slug, 'theme pack:', VDOM)
         for uid, u in sorted(plan.items()):
             fn = f'{REPO}/videos/{slug}/art3/{uid}.json'; svg = fn[:-5] + '.svg'
             d = json.load(open(fn)) if os.path.exists(fn) else {}
@@ -665,7 +727,16 @@ with sync_playwright() as p:
                 keep.update(x=x0, y=y0, s=round(s0, 2), flip=fl, kind='bg', roam=dict(kind=kind, dist=dist))
                 if act in ('float', 'cheer') or kind in ('swim', 'lie', 'tumble', 'roll'): keep['act'] = None   # the roaming motion replaces the in-place bob/hops; a drifting swimmer gets no lean/wind lines (miya 2026-10-26)
             # ---- round 3 relation acts (2026-10-26, guideline 7-2 D): applied only on a weak act; each one keyed on words + group ids ----
-            cur = keep.get('act'); weak = (cur in CALM or cur in WEAK) and not isinstance(cur, dict) and not slid and not keep.get('cling')
+            cur = keep.get('act')
+            # ---- 2026-10-31 (guideline 7-2 J): a strong word act that repeats across a video (wind / shiver / awe) takes the least-used variant of its pool ----
+            if isinstance(cur, str) and cur in VARIANTS and not slid and not keep.get('cling'):
+                pool_ = [(a_, m_) for a_, m_ in VARIANTS[cur] if not (a_ == 'helmetwipe' and not (SPACE.search(text) or palname in SPACE_PAL))]
+                a_, m_ = TALLY.pick('act', pool_, n)
+                if a_ != cur:
+                    if a_ in frog_rig.MOVES: set_act(keep, a_, mood=m_, says=[])
+                    else: keep['act'] = a_; keep['moods'][0] = {'mood': m_}
+                    cur = keep.get('act')
+            weak = (cur in CALM or cur in WEAK) and not isinstance(cur, dict) and not slid and not keep.get('cling')
             dood = bool(NOTE.search(text) and any(BOOK.search(g[0]) and g[3] >= 200 for g in gs.values()))   # this picture will get the doodle act below (was an undefined name, found 2026-10-27 whole-repo check)
             SOFT = re.compile(r'glow|halo|ring|bg\b|background|sky|grid|star|nebula|circle|field|beam|light|aura|dust|particle|fog|mist|cloud|haze|wave|line|path|track|orbit|trail|edge|shadow|glint|lamp', re.I)
             big = sorted([g for g in gs.values() if 200 <= g[3] <= W * .6 and g[4] >= 120 and not PLAT.search(g[0]) and not SOFT.search(g[0])], key=lambda g: -g[3] * g[4])   # a solid object to hide behind (no glows / rings / backgrounds)
@@ -720,10 +791,15 @@ with sync_playwright() as p:
                 keep['act'] = {'type': 'pull', 'to': [round(hg_[1] + hg_[3] / 2), round(hg_[2] + hg_[4] / 2)]}; keep['moods'][0] = {'mood': 'scared'}
             elif weak and has_group(gs, FIRE_G, .08, W, H) and not keep.get('ride'): keep['act'] = {'type': 'dizzy'}; keep['moods'][0] = {'mood': 'dizzy'}   # a big fire / sun: overheated (same as the HEAT words)
             elif weak and has_group(gs, WATER_G, .25, W, H) and not keep.get('ride') and cur in CALM: keep['act'] = 'waves'; keep['moods'][0] = {'mood': 'surprised'}
-            elif weak and rk and (SPACE_RIDE.search(rk) or re.search(r'plane|jet|train|car\b|sled|bike|motor', rk, re.I)) and cur in CALM: keep['act'] = 'wind'; keep['moods'][0] = {'mood': 'squint'}
+            elif weak and rk and (SPACE_RIDE.search(rk) or re.search(r'plane|jet|train|car\b|sled|bike|motor', rk, re.I)) and cur in CALM:   # riding a vehicle: wind in the face, or one of the rider poses (2026-10-31: least-used, not always wind)
+                a_, m_ = TALLY.pick('act', [('wind', 'squint'), ('pointfar', 'excited'), ('salute', 'proud'), ('binocs', 'curious'), ('leanback', 'squint'), ('wavebig', 'happy')], n)
+                if a_ in frog_rig.MOVES: set_act(keep, a_, mood=m_)
+                else: keep['act'] = a_; keep['moods'][0] = {'mood': m_}
+            # ---- 2026-10-31 concept rules + theme pack (guideline 7-2 J): everything the word rules left on a calm default gets an act from the unit's idea class / domain pool, least-used first ----
+            elif weak and concept_apply(keep, text, concepts.unit_domain(text, palname, video=VDOM), W, H, vert, n): pass
             if keep.get('act') in ('scope', 'hide', 'tap', 'rest', 'wave', 'peek', 'hang', 'cry', 'facepalm', 'idea', 'dig', 'magnify', 'read', 'photo', 'eat', 'dance', 'clap', 'salute', 'think', 'sneeze', 'snooze') or (isinstance(keep.get('act'), str) and keep.get('act') in ACT_MOOD2): keep.pop('roam', None)   # these are done in place, not while roaming
             # ---- 2026-10-29 (frog_rig): a run / walk over a low thing on its lane trips it; a roll becomes a log-roll; the costume decides a weak act ----
-            rm_ = keep.get('roam') or {}; weak2 = (keep.get('act') in CALM or keep.get('act') in WEAK) and not isinstance(keep.get('act'), dict) and not slid
+            rm_ = keep.get('roam') or {}; weak2 = (keep.get('act') in CALM or keep.get('act') in WEAK) and not isinstance(keep.get('act'), dict) and not slid and not keep.get('_concept')
             if rm_.get('kind') in ('run', 'walk') and not SERIOUS and weak2:
                 lx0, lx1 = sorted((keep['x'], keep['x'] + keep['flip'] * rm_.get('dist', 300)))
                 low = [g for g in gs.values() if LOWG.search(g[0]) and g[4] <= 80 and 40 <= g[3] <= 260 and abs(g[2] + g[4] - keep['y']) <= 50 and lx0 + 60 < g[1] + g[3] / 2 < lx1 - 40]
@@ -794,6 +870,7 @@ with sync_playwright() as p:
             uw = underwater(text, palname, gs, keep.get('ride'), W, H)   # diving gear by the picture, not only the words (miya 2026-10-27); worn instead of a word costume
             if uw and keep.get('outfit') not in (['diver'], ['goggles'], ['helmet']) and not (isinstance(keep.get('act'), dict) and keep['act'].get('type') == 'huts'): keep['outfit'] = ['diver'] if uw == 'deep' else ['goggles']
             if uw and (keep.get('roam') or {}).get('kind') in ('swim', 'lie') and n % 2 == 0 and keep.get('_says') is None: set_act(keep, 'swimstroke', dist=keep['roam'].get('dist', 300))   # every other drifting diver really swims (2026-10-29)
+            if not (isinstance(keep.get('act'), dict) and keep['act'].get('type') == 'huts') and keep.get('outfit') not in (['fore'], ['fore_steps']): pack_accessory(keep, concepts.unit_domain(text, palname, video=VDOM), n)   # 2026-10-31 theme-pack accessory
             keep['says'] = says_for(keep['act'], keep, text, cnt_say); keep['bside'] = keep.get('bside') or (1 if keep['x'] < W / 2 else -1)
             if keep.get('_says') is not None: keep['says'] = keep.pop('_says')   # contact / locomotion / costume acts bring their own sound words (timed by the act)
             if isinstance(keep['act'], dict) and keep['act'].get('type') == 'push': keep['says'] = [{'text': 'Heave-ho!', 't': 1.0, 'dur': 1.6, 'shout': True}]
@@ -819,9 +896,11 @@ with sync_playwright() as p:
                 mt = re.search(rf'<g [^>]*\bid="{re.escape(keep["ride"])}"[^>]*>', open(svg, encoding='utf-8').read())
                 ts = facing.travel_sign(mt.group(0)) if mt else 0
                 if ts: keep['flip'] = ts
-            d['frog'] = keep
+            keep.pop('_concept', None); d['frog'] = keep
             json.dump(d, open(fn, 'w'), ensure_ascii=False, indent=1)
             print(slug, uid, keep['kind'], pick, keep['x'], keep['y'], keep['s'])
         nf = sum(1 for uu in plan if os.path.exists(f'{REPO}/videos/{slug}/art3/{uu}.json') and isinstance(json.load(open(f'{REPO}/videos/{slug}/art3/{uu}.json')).get('frog'), dict))
+        for fam in ('act', 'outfit'):   # 2026-10-31 variety summary (tools/variety_check.py reads the sidecars for the real gate)
+            cnt = TALLY.c.get(fam, {}); print(slug, f'concept {fam}s:', ', '.join(f'{k} {v}' for k, v in sorted(cnt.items(), key=lambda kv: -kv[1])[:14]))
         if nf < .3 * len(plan): print(f'WARNING {slug}: frog in {nf}/{len(plan)} units (<30 %); add frog_hint to units with a situation (guideline 7-2: about 35-50 %)')
     b.close()

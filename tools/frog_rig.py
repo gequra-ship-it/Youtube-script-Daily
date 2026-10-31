@@ -540,6 +540,45 @@ COSTUME_ACTS = {
  'stretchlegs': dict(legs=('cycle', 40, 1.6), ra=(-150, -165, 1.6), la=(150, 165, 1.6), body=({'scaleY': 1}, {'scaleY': 1.06}, 1.6), mood='sleepy', mouth=9),           # propcap / toy: big slow stretches
  'bob':        dict(ra=-100, la=100, body=({'y': -5, 'rotation': -5}, {'y': 5, 'rotation': 5}, 1.6), legs=('kicks', 14, 1.6), mood='happy'),                            # lifevest in water: bobs with arms out
 }
+# ---- CONCEPT ACTS (2026-10-31, miya: variety / fun across every topic, tools/concepts.py picks them by idea class + theme pack, least-used first) ----
+# same data schema as COSTUME_ACTS (generic_js). New keys: spin=(deg, per) whole-body turn on #_rm about the belly; puffs=per jet puffs under the feet.
+CONCEPT_ACTS = {
+ 'zerogroll':   dict(spin=(360, 5.0), legs=('tuck', 35, 0), ra=-100, la=100, rise=-70, body=({'y': -6}, {'y': 6}, 2.2), mood='happy', mouth=6),                     # weightless slow somersault
+ 'jetpack':     dict(rise=-70, puffs=.5, legs=('tuck', 25, 0), ra=-60, la=60, body=({'rotation': -6, 'x': -2}, {'rotation': 6, 'x': 2}, .5), mood='excited', mouth=7),   # lifts off on puffs
+ 'moonbounce':  dict(legs=('tuck', 40, 0), hop=(44, 1.5), travel=.5, ra=-120, la=120, body=({'rotation': -4}, {'rotation': 4}, 1.5), mood='happy'),                   # slow high moon hops along
+ 'plantflag':   dict(prop='fg', ra=(-70, -95, .5), la=-30, legs=('brace', -12, 10), body=({'rotation': 4, 'y': 0}, {'rotation': 8, 'y': 2}, .5), head=(-4, 1.0), mood='proud'),   # rams a flag in
+ 'starcatch':   dict(ra=(-110, -168, .6), la=-40, hop=(12, 1.2), legs=('tuck', 20, 0), stars=True, body=({'rotation': -3}, {'rotation': 3}, 1.2), mood='happy', mouth=6),   # snatches at sparkles
+ 'pushoff':     dict(legs=('brace', -30, 24), travel=.7, ra=-110, la=110, body=({'rotation': -10, 'y': 0}, {'rotation': -14, 'y': -6}, 1.2), rise=-20, mood='determined'),   # kicks off a wall and glides
+ 'helmetwipe':  dict(ra=(-150, -125, .35), la=20, body=({'rotation': -2}, {'rotation': 2}, 1.4), head=(3, 1.4), mood='squint'),                                        # wipes the fogged visor
+ 'countstars':  dict(ra=(-150, -172, .7), la=20, head=(-8, 1.4), body=({'rotation': -3}, {'rotation': 3}, 1.4), mood='curious', pup=-72),                             # finger counts the sky
+ 'magnetwalk':  dict(legs=('cycle', 10, 1.6), travel=.3, ra=-110, la=110, body=({'rotation': 2, 'y': 0}, {'rotation': -2, 'y': 1}, 1.6), mood='determined'),           # heavy magnet-boot steps
+ 'sunshade':    dict(ra=-162, la=20, body=({'rotation': -8, 'y': 0}, {'rotation': -10, 'y': 1}, 1.8), head=(-6, 1.8), mood='squint', pup=-70),                         # shades its eyes from a glare
+ 'measure':     dict(ra=(-80, -100, 1.2), la=(80, 100, 1.2), body=({'scaleX': 1.0}, {'scaleX': 1.04}, 1.2), head=(5, 2.4), mood='curious'),                            # arms spread "this big"
+ 'shrinkdown':  dict(body=({'scaleX': 1, 'scaleY': 1}, {'scaleX': .62, 'scaleY': .62}, 1.8), ra=-30, la=30, mood='surprised', mouth=7),                                # shrinks next to something huge
+ 'growtall':    dict(body=({'scaleX': 1, 'scaleY': 1}, {'scaleX': 1.18, 'scaleY': 1.22}, 1.8), ra=-150, la=150, mood='proud', mouth=6),                                # puffs itself up
+ 'stretchwide': dict(body=({'scaleX': 1}, {'scaleX': 1.3}, 1.6), ra=-95, la=95, legs=('brace', -10, 10), mood='surprised', mouth=8),                                    # stretched sideways (expansion)
+ 'speedrun':    dict(legs=('cycle', 36, .22), travel=.95, ra=(-30, -80, .22), la=(30, 80, .22), hop=(8, .22), body=({'rotation': 18}, {'rotation': 22}, .22), mood='determined', mouth=6),   # flat-out sprint
+ 'slowwalk':    dict(legs=('cycle', 18, 2.4), travel=.25, ra=(-15, -35, 2.4), la=(15, 35, 2.4), hop=(3, 2.4), body=({'rotation': 2}, {'rotation': 5}, 2.4), mood='sleepy'),   # slow-motion plod
+ 'peer':        dict(body=({'rotation': 8, 'x': 2}, {'rotation': 14, 'x': 6}, 2.0), head=(8, 2.0), ra=-40, la=20, mood='squint', pup=-62),                             # leans in to look closer
+ 'binocs':      dict(ra=-142, la=142, body=({'rotation': -3}, {'rotation': 3}, 2.2), head=(4, 2.2), mood='curious'),                                                   # both hands as binoculars
+ 'present':     dict(ra=(-40, -100, 1.4), la=20, body=({'rotation': -3}, {'rotation': 3}, 1.4), head=(-5, 1.4), mood='proud', mouth=5),                                 # "ta-da" arm sweep
+ 'countfingers': dict(ra=(-115, -130, .3), la=100, head=(5, 1.2), body=({'rotation': 0}, {'rotation': 2}, 1.2), mood='curious', pup=-66),                              # counts on its fingers
+ 'hug':         dict(ra=118, la=-118, body=({'scaleX': 1, 'x': -1}, {'scaleX': .97, 'x': 1}, .5), head=(4, 1.0), mood='love'),                                         # hugs itself (cold / cozy / sad)
+ 'gasp':        dict(ra=-138, la=138, body=({'scaleY': 1, 'y': 0}, {'scaleY': 1.05, 'y': -3}, .4), hop=(10, 1.6), mood='surprised', mouth=10),                         # hands to the cheeks, gasp
+ 'chinrub':     dict(ra=(150, 140, .9), la=100, body=({'rotation': -3}, {'rotation': 3}, 2.4), head=(-6, 2.4), mood='curious'),                                         # strokes its chin
+ 'pacing':      dict(legs=('cycle', 16, 1.0), travel=.35, ra=150, la=100, body=({'rotation': 3}, {'rotation': 5}, 1.0), head=(-5, 2.0), mood='curious'),               # paces, hands behind
+ 'oldman':      dict(legs=('limp', 14, 1.6), travel=.2, ra=(-20, -30, 1.6), la=30, body=({'rotation': 12, 'y': 2}, {'rotation': 15, 'y': 3}, 1.6), mood='sleepy'),     # bent, shuffling (ages pass)
+ 'leanback':    dict(body=({'rotation': -14, 'x': -4}, {'rotation': -18, 'x': -6}, .8), legs=('brace', -26, 22), ra=-70, la=-50, mood='squint', mouth=6),              # dragged, digging in its heels
+ 'pushaway':    dict(ra=-85, la=-85, legs=('brace', -22, 18), body=({'rotation': 14, 'x': 4}, {'rotation': 18, 'x': 8}, .6), mood='determined', mouth=7),               # shoves with both hands
+ 'pointfar':    dict(ra=-105, la=20, body=({'rotation': -4}, {'rotation': -6}, 1.6), head=(-4, 1.6), hop=(6, 1.6), mood='excited', mouth=6),                            # points at the horizon
+ 'spinaround':  dict(body=({'scaleX': 1, 'y': 0}, {'scaleX': -1, 'y': -3}, .5), ra=-100, la=100, head=(6, .8), mood='dizzy', mouth=6),                                    # twirls on the spot (turns its back and round again)                                                           # whirls round and round
+ 'duck':        dict(body=({'scaleY': 1, 'y': 0}, {'scaleY': .78, 'y': 0}, .5), ra=-150, la=150, legs=('brace', -20, 16), mood='scared', mouth=8),                      # ducks, hands over the head
+ 'cupshout':    dict(ra=-128, la=-120, body=({'rotation': -4}, {'rotation': 4}, 1.2), mouthcycle=(10, 1.2), head=(-4, 2.4), mood='excited'),                            # hands cupped, shouting
+ 'wavebig':     dict(ra=(-150, -175, .3), la=20, hop=(10, .9), body=({'rotation': -2}, {'rotation': 2}, .9), mood='happy', mouth=6),                                    # big overhead wave + hops
+ 'fan':         dict(ra=(-120, -150, .25), la=20, body=({'scaleY': 1}, {'scaleY': .98}, .5), head=(4, 1.0), mood='squint', mouth=5),                                    # fans its face (heat)
+ 'rubbelly':    dict(ra=(60, 80, .6), la=20, body=({'rotation': -2}, {'rotation': 2}, 1.2), head=(5, 1.2), mood='happy', mouth=5),                                      # rubs its belly (food)
+}
+COSTUME_ACTS.update(CONCEPT_ACTS)
 # hand-written locomotion acts (frog_rig.contact_js handles them): real swimming, climbing, a running leap, hanging by one hand and slipping,
 # skating, a somersault, sneaking, crawling, log-rolling, tightrope walking
 LOCO = ('swimstroke', 'climb', 'leap', 'dangle', 'skate', 'somersault', 'tiptoe', 'crawl', 'logroll', 'tightrope')
@@ -559,7 +598,11 @@ OUTFIT_SAYS = {'castspell': 'Abracadabra!', 'charge': 'Chaaarge!', 'stir': 'Mmm!
                'victory': 'Yes!', 'vrgrab': 'Whoa...', 'hike': 'Onward!', 'paddle': 'Row, row!', 'puddlejump': 'Splash!', 'rubhands': 'Brrr!', 'regal': 'Hm-hm.', 'alienwave': 'Bleep!', 'mustache': 'Indeed.',
                'coverears': 'Too loud!', 'limp': 'Ow, ow.', 'sniff': 'Ahh~', 'paint': 'Hmm, hmm.', 'windbrella': 'Whoa-oa!', 'juggle': 'Ta-da!', 'hideshell': 'Eep.', 'pray': '...', 'tosscap': 'Hooray!',
                'dig2': 'Dig, dig!', 'stretchlegs': 'Ahh...', 'bob': 'Blub!', 'swimstroke': 'Blub blub!', 'climb': 'Up we go!', 'leap': 'Wheee!', 'dangle': 'Uh-oh...', 'skate': 'Wheee!',
-               'somersault': 'Ta-da!', 'tiptoe': 'Shh...', 'crawl': 'Hup...', 'logroll': 'Waaah!', 'tightrope': 'Steady...'}
+               'somersault': 'Ta-da!', 'tiptoe': 'Shh...', 'crawl': 'Hup...', 'logroll': 'Waaah!', 'tightrope': 'Steady...',
+               'zerogroll': 'Wheee...', 'jetpack': 'Whoosh!', 'moonbounce': 'Boing!', 'plantflag': 'Mine!', 'starcatch': 'Gotcha!', 'pushoff': 'Hup!', 'helmetwipe': 'Phew.', 'countstars': 'So many...',
+               'magnetwalk': 'Clunk, clunk.', 'sunshade': 'Bright!', 'measure': 'This big!', 'shrinkdown': 'Tiny...', 'growtall': 'Huge!', 'stretchwide': 'Whoa!', 'speedrun': 'Zoom!', 'slowwalk': 'Sooo slow...',
+               'peer': 'Hmm?', 'binocs': 'Ooh!', 'present': 'Ta-da!', 'countfingers': 'One, two...', 'hug': 'Mm.', 'gasp': 'Oh!', 'chinrub': 'Hmm...', 'pacing': 'Hmm, hmm.', 'oldman': 'Creak...', 'leanback': 'Whoa!',
+               'pushaway': 'Hnng!', 'pointfar': 'There!', 'spinaround': 'Whee-ee!', 'duck': 'Eek!', 'cupshout': 'Hellooo!', 'wavebig': 'Hi!', 'fan': 'Phew...', 'rubbelly': 'Yum!'}
 
 
 def generic_js(t, d, A, a0, T, k, F, act):
@@ -609,6 +652,14 @@ def generic_js(t, d, A, a0, T, k, F, act):
         L = float(act.get('dist', 300)) / d['s'] * A['travel']
         o.append(f'tl.to({TR},{{x:{L:.1f},duration:{span - .2:.3f},ease:"none"}},{a1:.3f});')
     if A.get('rise'): o.append(f'tl.to({TR},{{y:{A["rise"]},duration:1.4,ease:"power1.out"}},{a1:.3f});')
+    if A.get('spin'):   # 2026-10-31 concept acts: the whole body turns about the belly on the roam layer (free: a concept act never roams)
+        deg, per = A['spin']; n = max(int((span - .3) / per), 1)
+        o.append(f'tl.fromTo("#{t}_rm",{{rotation:0,svgOrigin:"0 -30"}},{{rotation:{deg},duration:{per},repeat:{n - 1},ease:"none",svgOrigin:"0 -30",immediateRender:false}},{a1:.3f});tl.to("#{t}_rm",{{rotation:0,duration:.01}},{a1 + n * per:.3f});')
+    if A.get('puffs'):   # jet puffs: the splash drops, recoloured flame-orange, fly DOWN from under the feet again and again
+        tm = a1 + .2; o.append(f'tl.set("#{t}_spk",{{fill:"#f2a33c",stroke:"#c2452d"}},{a0:.3f});')
+        while tm < T - .5:
+            for i in range(6): o.append(f'tl.fromTo("#{t}_sp{i}",{{x:{-30 + i * 12 - 50},y:0,opacity:1}},{{x:{-50 + i * 20 - 50},y:{14 + (i % 3) * 6},duration:.35,ease:"power1.out",immediateRender:false}},{tm:.3f});tl.to("#{t}_sp{i}",{{opacity:0,duration:.15}},{tm + .3:.3f});')
+            o.append(f'tl.set("#{t}_spk",{{opacity:1}},{tm:.3f});tl.set("#{t}_spk",{{opacity:0}},{tm + .5:.3f});'); tm += A['puffs']
     if A.get('mouth'): o.append(f'tl.set("#{t}_sm",{{opacity:0}},{a1:.3f});tl.set("#{t}_mo",{{attr:{{ry:{A["mouth"]},cy:{-44 + A["mouth"]}}}}},{a1:.3f});')
     if A.get('mouthcycle'):
         ry, per = A['mouthcycle']; n = max(int(span / per), 1)
