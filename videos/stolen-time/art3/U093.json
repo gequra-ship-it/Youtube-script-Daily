@@ -24,32 +24,26 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "excited"
    },
    {
     "word": "The planet",
     "mood": "determined"
    }
   ],
-  "act": "wind",
+  "act": {
+   "type": "pointfar"
+  },
   "outfit": [
-   "helmet"
+   "helmet",
+   "goldvisor"
   ],
   "x": 1660,
   "y": 890,
   "s": 0.72,
   "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "moonhop",
-   "dist": 288
-  },
-  "says": [
-   {
-    "text": "Boing!",
-    "shout": true
-   }
-  ],
+  "says": [],
   "bside": -1
  }
 }

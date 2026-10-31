@@ -15,12 +15,15 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "excited"
    }
   ],
-  "act": "wind",
+  "act": {
+   "type": "pointfar"
+  },
   "outfit": [
-   "helmet"
+   "helmet",
+   "antenna"
   ],
   "ride": "mv-path-page-u019",
   "kind": "ride",
@@ -30,11 +33,6 @@
   "flip": 1,
   "bside": -1,
   "gaze": 1,
-  "says": [
-   {
-    "text": "Zoooom!",
-    "shout": true
-   }
-  ]
+  "says": []
  }
 }

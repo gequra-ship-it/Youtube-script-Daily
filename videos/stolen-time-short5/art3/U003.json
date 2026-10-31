@@ -35,29 +35,28 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "pull",
-   "to": [
-    569,
-    889
-   ],
-   "vanish": true
+   "type": "countstars"
   },
-  "ride": null,
-  "kind": "bg",
-  "x": 331,
-  "y": 903,
-  "s": 0.9,
-  "flip": 1,
+  "ride": "mv-core-swell-e",
+  "kind": "ride",
+  "x": 754,
+  "y": 1030,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bowtie"
+  ],
   "says": [
    {
-    "text": "AAAAAH!",
-    "shout": true
+    "text": "So many...",
+    "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

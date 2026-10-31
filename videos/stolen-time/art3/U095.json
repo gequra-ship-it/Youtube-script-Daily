@@ -23,12 +23,15 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "curious"
    }
   ],
-  "act": "startle",
+  "act": {
+   "type": "measure"
+  },
   "outfit": [
-   "helmet"
+   "helmet",
+   "patch"
   ],
   "ride": "mv-core-ping-u095",
   "kind": "ride",
@@ -38,11 +41,6 @@
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "says": [
-   {
-    "text": "Eek!",
-    "shout": true
-   }
-  ]
+  "says": []
  }
 }

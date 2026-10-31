@@ -18,16 +18,10 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    540,
-    960
-   ]
-  },
+  "act": "startle",
   "ride": "mv-core-drop-p",
   "kind": "ride",
   "x": 704,
@@ -37,11 +31,12 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "umbrella"
+   "umbrella",
+   "bowtie"
   ],
   "says": [
    {
-    "text": "Nooo!",
+    "text": "Eek!",
     "shout": true
    }
   ]

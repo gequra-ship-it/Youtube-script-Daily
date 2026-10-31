@@ -30,32 +30,27 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    963,
-    612
-   ],
-   "vanish": true
-  },
+  "act": "magnify",
   "outfit": [
-   "helmet"
+   "helmet",
+   "patch"
   ],
-  "ride": null,
-  "kind": "bg",
-  "x": 540,
-  "y": 620,
-  "s": 0.9,
-  "flip": 1,
+  "ride": "mv-core-swell-earth-u052",
+  "kind": "ride",
+  "x": 1081,
+  "y": 690,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Whoaaa!",
-    "shout": true
+    "text": "Tick tock...",
+    "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

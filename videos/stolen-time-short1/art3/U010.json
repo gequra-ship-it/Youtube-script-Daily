@@ -21,23 +21,22 @@
     "mood": "squint"
    }
   ],
-  "act": null,
+  "act": {
+   "type": "sunshade"
+  },
   "outfit": [
-   "helmet"
+   "helmet",
+   "goldvisor"
   ],
   "x": 260,
   "y": 640,
   "s": 1.1,
   "flip": 1,
   "kind": "bg",
-  "roam": {
-   "kind": "swim",
-   "dist": 302
-  },
   "says": [
    {
-    "text": "Wheee!",
-    "shout": false
+    "text": "So bright!",
+    "shout": true
    }
   ],
   "bside": 1

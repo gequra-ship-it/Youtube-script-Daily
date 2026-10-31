@@ -19,27 +19,17 @@
    }
   ],
   "act": {
-   "type": "pull",
-   "to": [
-    540,
-    960
-   ]
+   "type": "pushaway"
   },
   "x": 820,
   "y": 1280,
   "s": 0.95,
   "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 540
-  },
-  "says": [
-   {
-    "text": "Heeelp!",
-    "shout": true
-   }
+  "outfit": [
+   "glasses"
   ],
+  "says": [],
   "bside": -1
  }
 }

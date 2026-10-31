@@ -31,31 +31,29 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "curious"
    },
    {
     "word": "Your heart",
     "mood": "happy"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    960,
-    540
-   ]
-  },
+  "act": "tap",
   "ride": "mv-core-heartbeat-u107",
   "kind": "ride",
-  "x": 1402,
-  "y": 401,
-  "s": 1.13,
+  "x": 1648,
+  "y": 630,
+  "s": 0.95,
   "flip": -1,
-  "bside": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "tophat"
+  ],
   "says": [
    {
-    "text": "Whoaaa!",
-    "shout": true
+    "text": "Tick tock...",
+    "shout": false
    }
   ]
  }

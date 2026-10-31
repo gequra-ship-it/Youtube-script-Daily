@@ -24,14 +24,16 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "chilly"
    },
    {
     "word": "The brutality",
     "mood": "happy"
    }
   ],
-  "act": "shiver",
+  "act": {
+   "type": "hug"
+  },
   "ride": "mv-core-approach-c",
   "kind": "ride",
   "x": 331,
@@ -41,13 +43,9 @@
   "bside": -1,
   "gaze": 1,
   "outfit": [
-   "umbrella"
+   "umbrella",
+   "pocketwatch"
   ],
-  "says": [
-   {
-    "text": "Gulp.",
-    "shout": false
-   }
-  ]
+  "says": []
  }
 }

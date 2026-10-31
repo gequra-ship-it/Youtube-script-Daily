@@ -15,25 +15,19 @@
     "mood": "squint"
    }
   ],
-  "act": "wind",
+  "act": {
+   "type": "leanback"
+  },
   "x": 1660,
   "y": 890,
   "s": 0.76,
   "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 288
-  },
   "outfit": [
-   "backpack"
+   "backpack",
+   "cap"
   ],
-  "says": [
-   {
-    "text": "Zoooom!",
-    "shout": true
-   }
-  ],
+  "says": [],
   "bside": -1
  }
 }

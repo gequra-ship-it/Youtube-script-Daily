@@ -14,12 +14,15 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "happy"
    }
   ],
-  "act": "awe",
+  "act": {
+   "type": "zerogroll"
+  },
   "outfit": [
-   "helmet"
+   "helmet",
+   "moonboots"
   ],
   "ride": "mv-core-glide-u022",
   "kind": "ride",
@@ -31,8 +34,8 @@
   "gaze": 1,
   "says": [
    {
-    "text": "Woooow!",
-    "shout": true
+    "text": "Wheee...",
+    "shout": false
    }
   ]
  }

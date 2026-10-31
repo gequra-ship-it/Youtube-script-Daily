@@ -34,11 +34,7 @@
    }
   ],
   "act": {
-   "type": "pull",
-   "to": [
-    540,
-    960
-   ]
+   "type": "duck"
   },
   "ride": "mv-path-sink-lander-u008",
   "kind": "ride",
@@ -49,13 +45,9 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "helmet"
+   "helmet",
+   "antenna"
   ],
-  "says": [
-   {
-    "text": "Nooo!",
-    "shout": true
-   }
-  ]
+  "says": []
  }
 }

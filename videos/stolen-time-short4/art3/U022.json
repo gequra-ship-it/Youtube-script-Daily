@@ -20,16 +20,10 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    540,
-    960
-   ]
-  },
+  "act": "listen",
   "ride": "mv-core-heartbeat-u022",
   "kind": "ride",
   "x": 684,
@@ -38,10 +32,13 @@
   "flip": -1,
   "bside": 1,
   "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
   "says": [
    {
-    "text": "Heeelp!",
-    "shout": true
+    "text": "Shh... listen.",
+    "shout": false
    }
   ]
  }

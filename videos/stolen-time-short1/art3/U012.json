@@ -35,7 +35,9 @@
     "mood": "squint"
    }
   ],
-  "act": "wind",
+  "act": {
+   "type": "leanback"
+  },
   "ride": "mv-path-shipup-u012",
   "kind": "ride",
   "x": 401,
@@ -44,11 +46,9 @@
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "says": [
-   {
-    "text": "Whooosh!",
-    "shout": true
-   }
-  ]
+  "outfit": [
+   "beanie"
+  ],
+  "says": []
  }
 }

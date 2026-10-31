@@ -18,10 +18,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "shock"
+    "mood": "curious"
    }
   ],
-  "act": "look",
+  "act": {
+   "type": "countstars"
+  },
   "ride": "mv-swing-watch-u032",
   "kind": "ride",
   "x": 1633,
@@ -32,7 +34,7 @@
   "gaze": 1,
   "says": [
    {
-    "text": "Ooh!",
+    "text": "So many...",
     "shout": false
    }
   ]
