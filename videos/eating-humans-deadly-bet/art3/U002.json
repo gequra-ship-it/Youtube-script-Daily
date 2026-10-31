@@ -28,20 +28,22 @@
     "mood": "curious"
    }
   ],
-  "act": "tilt",
+  "act": "think",
   "x": 260,
   "y": 890,
   "s": 0.8,
   "flip": 1,
   "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 288
-  },
   "outfit": [
-   "lab"
+   "lab",
+   "explorer"
   ],
-  "says": [],
+  "says": [
+   {
+    "text": "Tick tock...",
+    "shout": false
+   }
+  ],
   "bside": 1
  }
 }

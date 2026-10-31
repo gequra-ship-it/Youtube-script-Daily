@@ -28,32 +28,27 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "surprised"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    960,
-    500
-   ],
-   "vanish": true
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 538,
-  "y": 512,
-  "s": 0.9,
-  "flip": 1,
+  "act": "bounce",
+  "ride": "mv-core-swell-gene",
+  "kind": "ride",
+  "x": 1116,
+  "y": 618,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "lab"
+   "lab",
+   "facemask"
   ],
   "says": [
    {
-    "text": "AAAAAH!",
-    "shout": true
+    "text": "Bumpy!",
+    "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

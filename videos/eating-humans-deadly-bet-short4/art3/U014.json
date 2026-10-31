@@ -17,32 +17,26 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "chilly"
    },
    {
     "word": "It means",
     "mood": "worried"
    }
   ],
-  "act": "shiver",
+  "act": {
+   "type": "rubhands"
+  },
   "x": 820,
   "y": 680,
   "s": 0.95,
   "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 540
-  },
   "outfit": [
-   "laurel"
+   "laurel",
+   "lab"
   ],
-  "says": [
-   {
-    "text": "Brrrr...",
-    "shout": false
-   }
-  ],
+  "says": [],
   "bside": -1
  }
 }

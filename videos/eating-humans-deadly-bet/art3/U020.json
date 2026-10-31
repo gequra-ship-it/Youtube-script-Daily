@@ -19,10 +19,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "curious"
    }
   ],
-  "act": "wind",
+  "act": {
+   "type": "pointfar"
+  },
   "ride": "mv-path-spark",
   "kind": "ride",
   "x": 588,
@@ -32,13 +34,9 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "doctor"
+   "doctor",
+   "facemask"
   ],
-  "says": [
-   {
-    "text": "Whooosh!",
-    "shout": true
-   }
-  ]
+  "says": []
  }
 }

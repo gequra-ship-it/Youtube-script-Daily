@@ -30,10 +30,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "determined"
+    "mood": "scared"
    }
   ],
-  "act": "lean",
+  "act": {
+   "type": "paddle"
+  },
   "ride": "mv-path-shark",
   "kind": "ride",
   "x": 1068,
@@ -42,12 +44,13 @@
   "flip": -1,
   "bside": -1,
   "outfit": [
-   "diver"
+   "diver",
+   "flippers"
   ],
   "says": [
    {
-    "text": "Off we go!",
-    "shout": false
+    "text": "Shark?!",
+    "shout": true
    }
   ]
  }

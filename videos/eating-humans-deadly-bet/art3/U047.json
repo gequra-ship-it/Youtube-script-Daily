@@ -23,10 +23,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "queasy"
+    "mood": "proud"
    }
   ],
-  "act": "lean",
+  "act": {
+   "type": "present"
+  },
   "ride": "mv-core-glide-protein",
   "kind": "ride",
   "x": 1123,
@@ -35,10 +37,13 @@
   "flip": -1,
   "bside": 1,
   "gaze": 1,
+  "outfit": [
+   "facemask"
+  ],
   "says": [
    {
-    "text": "Steady...",
-    "shout": false
+    "text": "Ta-da!",
+    "shout": true
    }
   ]
  }

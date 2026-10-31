@@ -7,10 +7,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "chilly"
    }
   ],
-  "act": "shiver",
+  "act": {
+   "type": "rubhands"
+  },
   "ride": "mv-core-heartbeat-orb",
   "kind": "ride",
   "x": 676,
@@ -22,11 +24,6 @@
   "outfit": [
    "fore"
   ],
-  "says": [
-   {
-    "text": "Brrrr...",
-    "shout": false
-   }
-  ]
+  "says": []
  }
 }

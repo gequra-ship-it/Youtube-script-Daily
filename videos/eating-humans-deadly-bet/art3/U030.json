@@ -29,29 +29,25 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "chilly"
    },
    {
     "word": "He gave",
     "mood": "curious"
    }
   ],
-  "act": "shiver",
-  "x": 1660,
-  "y": 780,
-  "s": 0.76,
-  "flip": -1,
-  "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 288
+  "act": {
+   "type": "rubhands"
   },
-  "says": [
-   {
-    "text": "Eek...",
-    "shout": false
-   }
+  "x": 260,
+  "y": 780,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "doctor"
   ],
-  "bside": -1
+  "says": [],
+  "bside": 1
  }
 }

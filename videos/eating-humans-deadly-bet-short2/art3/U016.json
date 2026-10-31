@@ -33,33 +33,30 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "curious"
    },
    {
     "word": "That is",
     "mood": "curious"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    540,
-    860
-   ],
-   "vanish": true
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 302,
-  "y": 873,
-  "s": 0.9,
-  "flip": 1,
+  "act": "think",
+  "ride": "mv-core-swell",
+  "kind": "ride",
+  "x": 708,
+  "y": 987,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
   "says": [
    {
-    "text": "AAAAAH!",
-    "shout": true
+    "text": "Hmm...",
+    "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

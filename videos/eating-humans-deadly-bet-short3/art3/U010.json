@@ -29,16 +29,10 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "squint"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    540,
-    960
-   ]
-  },
+  "act": "wind",
   "ride": "mv-path-signal",
   "kind": "ride",
   "x": 497,
@@ -48,11 +42,12 @@
   "bside": -1,
   "gaze": 1,
   "outfit": [
-   "doctor"
+   "doctor",
+   "headlamp"
   ],
   "says": [
    {
-    "text": "Nooo!",
+    "text": "Whooosh!",
     "shout": true
    }
   ]

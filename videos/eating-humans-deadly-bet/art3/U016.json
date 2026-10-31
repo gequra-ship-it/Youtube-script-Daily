@@ -10,25 +10,18 @@
     "mood": "scared"
    }
   ],
-  "act": "shiver",
-  "x": 260,
-  "y": 420,
-  "s": 0.88,
-  "flip": 1,
-  "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 288
+  "act": {
+   "type": "duck"
   },
+  "x": 1660,
+  "y": 420,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
   "outfit": [
    "fore"
   ],
-  "says": [
-   {
-    "text": "Brrrr...",
-    "shout": false
-   }
-  ],
-  "bside": 1
+  "says": [],
+  "bside": -1
  }
 }

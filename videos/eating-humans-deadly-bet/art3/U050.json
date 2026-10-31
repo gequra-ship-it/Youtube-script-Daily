@@ -17,33 +17,30 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "shock"
    },
    {
     "word": "Kuru has",
     "mood": "curious"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    960,
-    500
-   ],
-   "vanish": true
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 538,
-  "y": 514,
-  "s": 0.9,
-  "flip": 1,
+  "act": "snooze",
+  "ride": "mv-core-swell-clock",
+  "kind": "ride",
+  "x": 1136,
+  "y": 638,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
   "says": [
    {
-    "text": "Heeelp!",
-    "shout": true
+    "text": "So slow...",
+    "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

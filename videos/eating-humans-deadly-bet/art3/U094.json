@@ -28,10 +28,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "awe"
+    "mood": "surprised"
    }
   ],
-  "act": "lean",
+  "act": {
+   "type": "gasp"
+  },
   "ride": "mv-core-glide-sun",
   "kind": "ride",
   "x": 1198,
@@ -41,12 +43,13 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "propcap"
+   "propcap",
+   "backpack"
   ],
   "says": [
    {
-    "text": "Steady...",
-    "shout": false
+    "text": "Hatching!",
+    "shout": true
    }
   ]
  }
