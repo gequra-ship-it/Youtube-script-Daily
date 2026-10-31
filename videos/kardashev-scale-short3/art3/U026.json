@@ -11,25 +11,21 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "scared"
    }
   ],
-  "act": "look",
+  "act": {
+   "type": "duck"
+  },
   "x": 260,
   "y": 560,
   "s": 1.05,
   "flip": 1,
   "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 540
-  },
-  "says": [
-   {
-    "text": "Whoa...",
-    "shout": false
-   }
+  "outfit": [
+   "bowtie"
   ],
+  "says": [],
   "bside": 1
  }
 }

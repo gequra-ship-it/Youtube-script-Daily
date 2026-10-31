@@ -17,16 +17,19 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "shock"
    },
    {
     "word": "We are",
     "mood": "curious"
    }
   ],
-  "act": "float",
+  "act": {
+   "type": "gasp"
+  },
   "outfit": [
-   "helmet"
+   "helmet",
+   "moonboots"
   ],
   "x": 260,
   "y": 600,

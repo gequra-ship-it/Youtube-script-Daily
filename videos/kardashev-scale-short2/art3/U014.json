@@ -7,10 +7,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "proud"
    }
   ],
-  "act": "nod",
+  "act": {
+   "type": "present"
+  },
   "ride": "mv-core-tremble-chain-link",
   "kind": "ride",
   "x": 654,
@@ -21,8 +23,8 @@
   "gaze": 1,
   "says": [
    {
-    "text": "Mm-hm!",
-    "shout": false
+    "text": "Look!",
+    "shout": true
    }
   ]
  }

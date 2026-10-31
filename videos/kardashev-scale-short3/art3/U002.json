@@ -17,24 +17,22 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "surprised"
    }
   ],
-  "act": "float",
+  "act": {
+   "type": "shrinkdown"
+  },
   "outfit": [
-   "helmet"
+   "helmet",
+   "goldvisor"
   ],
   "x": 820,
   "y": 560,
   "s": 0.95,
   "flip": -1,
   "kind": "bg",
-  "says": [
-   {
-    "text": "Wheee!",
-    "shout": false
-   }
-  ],
+  "says": [],
   "bside": -1
  }
 }

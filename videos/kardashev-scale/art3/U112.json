@@ -7,10 +7,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "curious"
    }
   ],
-  "act": "cheer",
+  "act": {
+   "type": "countstars"
+  },
   "ride": "mv-core-swell-bead-u112",
   "kind": "ride",
   "x": 1074,
@@ -18,9 +20,12 @@
   "s": 1.25,
   "flip": -1,
   "bside": -1,
+  "outfit": [
+   "bowler"
+  ],
   "says": [
    {
-    "text": "Yay!",
+    "text": "Countless...",
     "shout": false
    }
   ]

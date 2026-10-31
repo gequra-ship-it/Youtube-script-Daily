@@ -18,10 +18,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
-  "act": "tilt",
+  "act": {
+   "type": "zerogroll"
+  },
   "ride": "mv-swing-bulb-cord",
   "kind": "ride",
   "x": 1238,
@@ -30,9 +32,12 @@
   "flip": -1,
   "bside": 1,
   "gaze": 1,
+  "outfit": [
+   "bowler"
+  ],
   "says": [
    {
-    "text": "Hmm?",
+    "text": "Wheee...",
     "shout": false
    }
   ]

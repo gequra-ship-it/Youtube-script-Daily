@@ -11,23 +11,27 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "squint"
    }
   ],
-  "act": null,
+  "act": {
+   "type": "helmetwipe"
+  },
   "outfit": [
-   "helmet"
+   "helmet",
+   "goldvisor"
   ],
   "x": 820,
   "y": 680,
   "s": 0.99,
   "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "lie",
-   "dist": 302
-  },
-  "says": [],
+  "says": [
+   {
+    "text": "Phew.",
+    "shout": false
+   }
+  ],
   "bside": -1
  }
 }

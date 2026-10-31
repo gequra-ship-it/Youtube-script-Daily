@@ -11,10 +11,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "curious"
    }
   ],
-  "act": "wind",
+  "act": {
+   "type": "binocs"
+  },
   "ride": "mv-core-swell-star",
   "kind": "ride",
   "x": 1248,
@@ -22,11 +24,9 @@
   "s": 1.25,
   "flip": -1,
   "bside": -1,
-  "says": [
-   {
-    "text": "Whooosh!",
-    "shout": true
-   }
-  ]
+  "outfit": [
+   "headband"
+  ],
+  "says": []
  }
 }

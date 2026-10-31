@@ -11,10 +11,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "surprised"
    }
   ],
-  "act": "cheer",
+  "act": {
+   "type": "stretchwide"
+  },
   "ride": "mv-core-swell-bead",
   "kind": "ride",
   "x": 704,
@@ -24,8 +26,14 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "helmet"
+   "helmet",
+   "goldvisor"
   ],
-  "says": []
+  "says": [
+   {
+    "text": "Everything stretches!",
+    "shout": true
+   }
+  ]
  }
 }

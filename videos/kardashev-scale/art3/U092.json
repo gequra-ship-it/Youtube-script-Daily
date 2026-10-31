@@ -10,9 +10,12 @@
     "mood": "squint"
    }
   ],
-  "act": "wind",
+  "act": {
+   "type": "helmetwipe"
+  },
   "outfit": [
-   "helmet"
+   "helmet",
+   "patch"
   ],
   "ride": "mv-core-swell-star",
   "kind": "ride",
@@ -21,11 +24,6 @@
   "s": 1.25,
   "flip": 1,
   "bside": 1,
-  "says": [
-   {
-    "text": "Hold on!",
-    "shout": true
-   }
-  ]
+  "says": []
  }
 }

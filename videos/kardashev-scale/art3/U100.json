@@ -7,12 +7,15 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "excited"
    }
   ],
-  "act": "wind",
+  "act": {
+   "type": "pointfar"
+  },
   "outfit": [
-   "helmet"
+   "helmet",
+   "moonboots"
   ],
   "ride": "mv-path-star-train",
   "kind": "ride",
@@ -21,11 +24,6 @@
   "s": 1.25,
   "flip": 1,
   "bside": 1,
-  "says": [
-   {
-    "text": "Whooosh!",
-    "shout": true
-   }
-  ]
+  "says": []
  }
 }

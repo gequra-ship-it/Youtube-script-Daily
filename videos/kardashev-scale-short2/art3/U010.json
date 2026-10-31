@@ -33,22 +33,18 @@
     "mood": "squint"
    }
   ],
-  "act": "wind",
+  "act": {
+   "type": "leanback"
+  },
   "x": 260,
   "y": 1560,
   "s": 1.05,
   "flip": 1,
   "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 540
-  },
-  "says": [
-   {
-    "text": "Whooosh!",
-    "shout": true
-   }
+  "outfit": [
+   "beanie"
   ],
+  "says": [],
   "bside": 1
  }
 }

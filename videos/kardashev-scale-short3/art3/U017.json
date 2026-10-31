@@ -11,26 +11,26 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "happy"
    }
   ],
-  "act": null,
+  "act": {
+   "type": "moonbounce",
+   "dist": 302
+  },
   "outfit": [
-   "helmet"
+   "helmet",
+   "antenna"
   ],
   "x": 260,
   "y": 1080,
   "s": 1.21,
   "flip": 1,
   "kind": "bg",
-  "roam": {
-   "kind": "swim",
-   "dist": 302
-  },
   "says": [
    {
-    "text": "Wheee!",
-    "shout": false
+    "text": "Boing!",
+    "shout": true
    }
   ],
   "bside": 1

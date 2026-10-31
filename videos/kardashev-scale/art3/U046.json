@@ -30,27 +30,31 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "proud"
    },
    {
     "word": "The difference",
     "mood": "curious"
    }
   ],
-  "act": null,
+  "act": {
+   "type": "growtall"
+  },
   "outfit": [
-   "helmet"
+   "helmet",
+   "antenna"
   ],
   "x": 260,
   "y": 890,
   "s": 0.88,
   "flip": 1,
   "kind": "bg",
-  "roam": {
-   "kind": "run",
-   "dist": 288
-  },
-  "says": [],
+  "says": [
+   {
+    "text": "Big!",
+    "shout": true
+   }
+  ],
   "bside": 1
  }
 }
