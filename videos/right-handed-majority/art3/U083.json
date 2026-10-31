@@ -1,0 +1,49 @@
+{
+ "centre": "brain seen from above inside a head outline on a lab light box: meshing gears in the warm left hemisphere; a sound cloud (speech) travels in and nestles beside them; a dashed nerve line runs to the right hand",
+ "focus": [
+  860,
+  520,
+  1.6
+ ],
+ "focus_word": "left-hemisphere machinery",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "left-hemisphere machinery",
+   "x": 470,
+   "y": 300,
+   "to": [
+    842,
+    395
+   ],
+   "word": "left-hemisphere"
+  }
+ ],
+ "motion": "path (speech sound moves into the left hemisphere) + rotor pair (meshing gears) + dash (nerve to the right hand)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-speech-sound-into-brain",
+  "kind": "ride",
+  "x": 466,
+  "y": 705,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

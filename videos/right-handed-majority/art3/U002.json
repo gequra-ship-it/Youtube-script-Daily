@@ -1,0 +1,48 @@
+{
+ "centre": "a scroll timeline unrolls from a stone hand-axe to a pencil; at its end a left hand still glows gold",
+ "focus": [
+  1640,
+  450,
+  1.6
+ ],
+ "focus_word": "left hand",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "HALF A MILLION YEARS",
+   "word": "half a million years"
+  },
+  {
+   "type": "say",
+   "text": "Still here!",
+   "x": 1530,
+   "y": 220,
+   "to": [
+    1640,
+    360
+   ]
+  }
+ ],
+ "motion": "unroll: the timeline opens; rollby: a flint nodule rolls along the sand; hand: gold left hand wiggles",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "x": 260,
+  "y": 700,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "explorer"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

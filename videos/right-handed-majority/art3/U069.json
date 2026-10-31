@@ -1,0 +1,62 @@
+{
+ "centre": "a life strip on a ledger page: an ultrasound screen, a baby, a child and a teenager stand in a row while a magnifying glass travels along a dashed tracking line over all four",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "adolescence",
+   "x": 1560,
+   "y": 860,
+   "to": [
+    1600,
+    770
+   ],
+   "word": "adolescence"
+  },
+  {
+   "type": "name",
+   "text": "unborn babies",
+   "x": 330,
+   "y": 860,
+   "to": [
+    320,
+    640
+   ],
+   "word": "unborn babies"
+  }
+ ],
+ "motion": "path (a magnifying glass tracks along the years) + dash (the tracking line marches)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-magnifier-glass",
+  "kind": "ride",
+  "x": 198,
+  "y": 434,
+  "s": 1.0,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

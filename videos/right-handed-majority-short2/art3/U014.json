@@ -1,0 +1,55 @@
+{
+ "centre": "two identical DNA ladder models stand side by side on a lab bench while a magnifier glides down one, across and up the other; below them a card with a RIGHT hand and a gold-lit card with a LEFT hand",
+ "focus": [
+  540,
+  780,
+  1.5
+ ],
+ "focus_word": "identical DNA",
+ "sfx": [],
+ "track": false,
+ "labels": [
+  {
+   "type": "name",
+   "text": "identical DNA",
+   "x": 540,
+   "y": 340,
+   "to": [
+    540,
+    420
+   ],
+   "word": "identical DNA"
+  }
+ ],
+ "motion": "path (a magnifier compares the two identical DNA models, then rests over the twin who is left-handed)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-magnifier-lens",
+  "kind": "ride",
+  "x": 162,
+  "y": 737,
+  "s": 1.29,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

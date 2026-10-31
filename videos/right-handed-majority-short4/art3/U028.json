@@ -1,0 +1,43 @@
+{
+ "centre": "one gold stone among many plain pebbles in a wooden bowl, seen from above",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Only one of me!",
+   "x": 540,
+   "y": 400,
+   "to": [
+    540,
+    760
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-gem",
+  "kind": "ride",
+  "x": 664,
+  "y": 940,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

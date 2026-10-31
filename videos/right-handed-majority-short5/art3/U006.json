@@ -1,0 +1,54 @@
+{
+ "centre": "close-up: a right hand holds an upright stone-tipped spear while a second right hand slides in to take the same shaft",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "weapons",
+   "x": 780,
+   "y": 440,
+   "to": [
+    880,
+    700
+   ],
+   "word": "weapons"
+  },
+  {
+   "type": "say",
+   "text": "Here, take it.",
+   "x": 330,
+   "y": 1300,
+   "to": [
+    330,
+    1080
+   ]
+  }
+ ],
+ "motion": "slide: the receiving hand reaches in to the shared spear",
+ "frog": {
+  "moods": [
+   {
+    "mood": "smug"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-slide-reaching-hand",
+  "kind": "ride",
+  "x": 611,
+  "y": 676,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

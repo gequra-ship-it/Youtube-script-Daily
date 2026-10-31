@@ -1,0 +1,50 @@
+{
+ "centre": "a pair of narrowed eyes peering through half-open shutters at a gold-lit left hand on the sill",
+ "focus": [
+  540,
+  800,
+  1.7
+ ],
+ "focus_word": "suspicious",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hmm...",
+   "x": 760,
+   "y": 970,
+   "to": [
+    640,
+    820
+   ]
+  }
+ ],
+ "motion": "blink: the watching eyes; swing: a lantern on a bracket",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "ride": "mv-swing-lantern",
+  "kind": "ride",
+  "x": 854,
+  "y": 720,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
+}

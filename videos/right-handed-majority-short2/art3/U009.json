@@ -1,0 +1,42 @@
+{
+ "centre": "split frame: the same seed grows in two identical pots; nature on the left with a DNA strand, nurture on the right with a watering can",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "nurture",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "nature",
+   "x": 300,
+   "y": 600,
+   "to": [
+    160,
+    760
+   ],
+   "word": "nature"
+  },
+  {
+   "type": "name",
+   "text": "nurture",
+   "x": 760,
+   "y": 560,
+   "to": [
+    860,
+    740
+   ],
+   "word": "nurture"
+  }
+ ],
+ "spot": true,
+ "iris": [
+  860,
+  760
+ ],
+ "motion": "sway: the two identical seedlings; drip: water drops from the can on the nurture side"
+}

@@ -1,0 +1,49 @@
+{
+ "centre": "a packed-earth fighting circle seen from straight above, ringed by right-handed fighters (sticks on their RIGHT side) facing in; one gold left-hander (stick on the LEFT) cuts in along an unexpected curving route",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "left-handers",
+   "x": 380,
+   "y": 800,
+   "to": [
+    715,
+    716
+   ],
+   "word": "left-handers"
+  }
+ ],
+ "iris": [
+  715,
+  716
+ ],
+ "motion": "path (the gold left-hander curves into the circle; camera follows) + dash (its unexpected route marches)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "angry"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-gold-fighter-token",
+  "kind": "ride",
+  "x": 843,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,68 @@
+{
+ "centre": "nine calm fetus icons in womb bubbles suck their right thumb; one apart in warm gold light sucks its left thumb",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "90%",
+   "word": "ninety percent"
+  },
+  {
+   "type": "name",
+   "text": "Right thumb",
+   "x": 540,
+   "y": 470,
+   "to": [
+    540,
+    600
+   ],
+   "word": "right thumb"
+  },
+  {
+   "type": "name",
+   "text": "Left thumb",
+   "x": 815,
+   "y": 1250,
+   "to": [
+    560,
+    1300
+   ],
+   "word": "left thumb"
+  }
+ ],
+ "motion": "ticks (the bubbles appear one by one: most suck the right thumb) + core heartbeat (centre bubble) + popin (the one gold left-thumb bubble arrives last)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-gold-womb-bubble",
+   "h": 294
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 540,
+  "y": 1447,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

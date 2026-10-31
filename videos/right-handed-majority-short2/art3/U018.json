@@ -1,0 +1,55 @@
+{
+ "centre": "a big crowd of many different people at the bottom; a sample tube travels up a dashed route into a drawer of the UK Biobank storage cabinet while a large collection tube fills with DNA sample",
+ "focus": [
+  640,
+  720,
+  1.5
+ ],
+ "focus_word": "UK Biobank",
+ "sfx": [],
+ "track": false,
+ "labels": [
+  {
+   "type": "num",
+   "text": "400,000+ PEOPLE",
+   "word": "four hundred thousand"
+  },
+  {
+   "type": "name",
+   "text": "UK Biobank",
+   "x": 820,
+   "y": 430,
+   "to": [
+    820,
+    530
+   ],
+   "word": "UK Biobank"
+  }
+ ],
+ "motion": "fill (the collection tube fills), path + dash (a sample tube travels into the biobank), slide (the drawer opens), breathe (crowd)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-slide-drawer",
+  "kind": "ride",
+  "x": 453,
+  "y": 821,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

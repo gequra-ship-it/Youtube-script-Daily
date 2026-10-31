@@ -1,0 +1,56 @@
+{
+ "centre": "top-down close-up of a jigsaw puzzle on a table: its picture shows a right-hander facing a gold left-hander at dusk; one piece drops neatly into place (the pattern fits) while two slots stay empty and a loose piece and a magnifying glass lie beside it (not proven)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Fits... for now.",
+   "x": 1350,
+   "y": 120,
+   "to": [
+    1080,
+    400
+   ],
+   "word": "fits"
+  },
+  {
+   "type": "name",
+   "text": "fighting hypothesis",
+   "x": 960,
+   "y": 850,
+   "to": [
+    800,
+    700
+   ],
+   "word": "fighting hypothesis"
+  }
+ ],
+ "motion": "core-drop (a puzzle piece falls into its slot: the pattern fits; empty slots remain, so it is not proven)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "angry"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-core-drop-puzzle-piece",
+  "kind": "ride",
+  "x": 1438,
+  "y": 760,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

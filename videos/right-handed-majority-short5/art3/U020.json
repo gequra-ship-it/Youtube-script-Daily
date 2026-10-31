@@ -1,0 +1,46 @@
+{
+ "centre": "low view of a chess board: a row of tall dark pieces (the majority) casts long shadows toward us, and a small gold knight hops an L-shaped move inside those shadows (counter-strategy)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "light": "left",
+ "labels": [
+  {
+   "type": "name",
+   "text": "majority",
+   "x": 540,
+   "y": 560,
+   "to": [
+    540,
+    700
+   ],
+   "word": "majority"
+  }
+ ],
+ "motion": "path (gold knight's L move through the shadows; camera follows) + static majority",
+ "frog": {
+  "moods": [
+   {
+    "mood": "starry"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-gold-knight",
+  "kind": "ride",
+  "x": 591,
+  "y": 1217,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

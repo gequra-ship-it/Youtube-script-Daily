@@ -1,0 +1,23 @@
+{
+ "centre": "a researcher in a lab coat raises a magnifying glass in the right hand toward a photo of a red hand stencil; a tracing card beside it flips over to compare left vs right orientation",
+ "focus": [
+  640,
+  560,
+  1.5
+ ],
+ "focus_word": "orientation",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Which hand?",
+   "x": 600,
+   "y": 880,
+   "to": [
+    430,
+    1000
+   ]
+  }
+ ],
+ "motion": "flip (tracing card turns over = orientation) + breathe/blink researcher"
+}

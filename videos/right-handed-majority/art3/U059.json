@@ -1,0 +1,56 @@
+{
+ "centre": "a wooden marionette on a small stage, holding a pencil in its right hand, swinging from a control bar whose strings disappear behind the valance; a large shadow hand slowly appears on the back cloth",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who's pulling?",
+   "x": 1260,
+   "y": 300,
+   "to": [
+    920,
+    380
+   ]
+  },
+  {
+   "type": "name",
+   "text": "the strings",
+   "x": 640,
+   "y": 250,
+   "to": [
+    840,
+    235
+   ],
+   "word": "the strings"
+  }
+ ],
+ "motion": "swing (marionette sways on its strings) + fade (a hidden hand's shadow appears behind the scenes)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 1020,
+  "y": 719,
+  "s": 1.0,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": "mv-swing-marionette-puppet",
+  "outfit": [
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

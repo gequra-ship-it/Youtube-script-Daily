@@ -1,0 +1,31 @@
+{
+ "centre": "diagram on a stretched hide: a dashed mirror line; a right-hander's staff and familiar strike path on the left, the mirrored gold left-handed staff on the right drawing a strange curving path; a red vector arrow flips direction",
+ "focus": [
+  620,
+  900,
+  1.5
+ ],
+ "focus_word": "disorienting strike trajectories",
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "strike trajectories",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Backwards?!",
+   "x": 560,
+   "y": 1130,
+   "to": [
+    500,
+    1245
+   ],
+   "word": "inverted"
+  }
+ ],
+ "motion": "morph (vector arrow inverts) + draw (strange trajectory) + rollby (pebble prop on the frame ledge)",
+ "composition": "inset diagram (mirror)"
+}

@@ -1,0 +1,49 @@
+{
+ "centre": "a biobank freezer with a drawer of capped sample tubes sliding out, linked by a dashed line to a huge crowd of tiny people of many skin tones that fills in row by row (about one in ten gold)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "OVER 400,000 PEOPLE",
+   "word": "four hundred thousand"
+  },
+  {
+   "type": "name",
+   "text": "UK Biobank",
+   "x": 820,
+   "y": 200,
+   "to": [
+    520,
+    290
+   ],
+   "word": "UK Biobank"
+  }
+ ],
+ "motion": "slide (sample drawer comes out of the freezer) + ticks (the crowd appears row by row: four hundred thousand people) + dash (data link)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-slide-sample-tube-drawer",
+  "kind": "ride",
+  "x": 816,
+  "y": 412,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

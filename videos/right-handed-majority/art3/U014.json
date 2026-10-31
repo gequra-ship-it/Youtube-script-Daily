@@ -1,0 +1,36 @@
+{
+ "centre": "hand-drawn map of France and Spain; 26 red cave dots pop up one by one, a pin drops onto the Dordogne caves",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "500 HANDPRINTS",
+   "word": "five hundred handprints"
+  },
+  {
+   "type": "name",
+   "text": "France",
+   "x": 1360,
+   "y": 300,
+   "to": [
+    1150,
+    340
+   ],
+   "word": "France"
+  },
+  {
+   "type": "name",
+   "text": "Spain",
+   "x": 560,
+   "y": 860,
+   "to": [
+    800,
+    700
+   ],
+   "word": "Spain"
+  }
+ ],
+ "motion": "ticks (cave dots, counting) + core-drop map pin (small prop)"
+}

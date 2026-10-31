@@ -1,0 +1,55 @@
+{
+ "centre": "gallery wall of five anonymous portrait silhouettes (no faces) in gilt frames; the middle one hangs crooked and swings on its nail; below, a long list scroll unrolls with several entries struck through in red: famous-lefty lists are unreliable",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "lists of lefties",
+   "x": 960,
+   "y": 845,
+   "to": [
+    900,
+    700
+   ],
+   "word": "lists of lefties"
+  },
+  {
+   "type": "say",
+   "text": "Am I, though?",
+   "x": 1240,
+   "y": 520,
+   "to": [
+    965,
+    360
+   ]
+  }
+ ],
+ "motion": "unroll (the list of lefties rolls open); swing (a crooked portrait swings on its nail: the lists are shaky)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "photo",
+  "ride": "mv-swing-portrait-on-string",
+  "kind": "ride",
+  "x": 1099,
+  "y": 416,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Say cheese!",
+    "shout": false
+   }
+  ]
+ }
+}

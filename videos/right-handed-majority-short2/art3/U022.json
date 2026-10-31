@@ -1,0 +1,25 @@
+{
+ "centre": "a wall switch plate with a gold toggle on thick cables (a hardwired command) crossed out by a soft red X, a thin genome ladder strip below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "hardwired",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Nope!",
+   "x": 230,
+   "y": 400,
+   "to": [
+    520,
+    735
+   ]
+  }
+ ],
+ "motion": "popin (red cross) + joint (toggle arm)"
+}

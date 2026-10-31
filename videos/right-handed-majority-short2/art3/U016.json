@@ -1,0 +1,55 @@
+{
+ "centre": "an old university quad: a stone clock tower with a glowing round clock face (centre object), two researchers on the lawn carrying folders in their RIGHT hands, a lantern swinging at the gate",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "2019",
+   "word": "2019"
+  },
+  {
+   "type": "name",
+   "text": "University of Oxford",
+   "x": 790,
+   "y": 560,
+   "to": [
+    610,
+    640
+   ],
+   "word": "University of Oxford"
+  }
+ ],
+ "motion": "rotor (clock hand turns), core swell (clock face), swing (lantern at the gate: moving small prop), breathe/blink on the researchers",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "swingride",
+   "obj": "mv-swing-lantern"
+  },
+  "ride": "mv-swing-lantern",
+  "kind": "ride",
+  "x": 790,
+  "y": 1233,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "lab",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "centre": "a magnifier lens (gold rim, bright glass) over the one missing piece of a jigsaw puzzle on graph paper; the loose piece pops up at the side",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "scientific puzzle",
+   "x": 560,
+   "y": 200,
+   "to": [
+    700,
+    360
+   ],
+   "word": "scientific puzzle"
+  }
+ ],
+ "motion": "core swell (the lens) + popin (the loose puzzle piece)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-puzzle-piece",
+   "h": 180
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1530,
+  "y": 732,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "centre": "a spinning globe dotted with people, one dot in ten gold; a left-handed child writes with the left hand; a pie chart pops out its gold ten-percent slice",
+ "focus": [
+  400,
+  480,
+  1.6
+ ],
+ "focus_word": "Left-handed people",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "10 PERCENT",
+   "word": "ten percent"
+  },
+  {
+   "type": "name",
+   "text": "Left-handed people",
+   "x": 400,
+   "y": 300,
+   "to": [
+    400,
+    410
+   ],
+   "word": "Left-handed people"
+  }
+ ],
+ "motion": "core-spin: the globe turns; popin: the gold slice pops out of the pie; breathe on the child"
+}

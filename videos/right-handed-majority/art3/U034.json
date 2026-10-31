@@ -1,0 +1,72 @@
+{
+ "centre": "split frame: a clumsy left hand has let a cup fall, versus a right hand stamping a wax seal on a law page",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "gauche",
+   "x": 720,
+   "y": 310,
+   "to": [
+    540,
+    340
+   ],
+   "word": "gauche"
+  },
+  {
+   "type": "name",
+   "text": "droit",
+   "x": 1690,
+   "y": 360,
+   "to": [
+    1520,
+    440
+   ],
+   "word": "droit"
+  },
+  {
+   "type": "say",
+   "text": "Oops!",
+   "x": 250,
+   "y": 640,
+   "to": [
+    440,
+    640
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "shockwave",
+   "obj": "mv-slam-wax-seal"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1648,
+  "y": 685,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "beret",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Yikes!",
+    "shout": true
+   }
+  ]
+ }
+}

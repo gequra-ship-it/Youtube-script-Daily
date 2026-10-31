@@ -1,0 +1,54 @@
+{
+ "centre": "under a rock shelter a teacher (facing us) passes a hammerstone from the RIGHT hand into a learner's RIGHT hand (learner seen from behind); both hold a flint core the same way in the left hand",
+ "focus": [
+  980,
+  560,
+  1.5
+ ],
+ "focus_word": "borrow tools",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Same grip!",
+   "x": 790,
+   "y": 330,
+   "to": [
+    660,
+    420
+   ]
+  }
+ ],
+ "track": false,
+ "motion": "path (the borrowed hammerstone travels from one right hand to the other), breathe/nod/blink",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-hammerstone",
+  "kind": "ride",
+  "x": 1240,
+  "y": 621,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

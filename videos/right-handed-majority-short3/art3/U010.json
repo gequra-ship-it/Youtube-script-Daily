@@ -1,0 +1,61 @@
+{
+ "centre": "diagram of the fetal nervous system: the brain with its motor cortex strip, a loose cable with a plug swinging above the spinal cord's socket: not yet connected",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "8-12 WEEKS",
+   "word": "eight to twelve weeks"
+  },
+  {
+   "type": "name",
+   "text": "Motor cortex",
+   "x": 790,
+   "y": 380,
+   "to": [
+    530,
+    480
+   ],
+   "word": "motor cortex"
+  },
+  {
+   "type": "name",
+   "text": "Spinal cord",
+   "x": 300,
+   "y": 1250,
+   "to": [
+    600,
+    1240
+   ],
+   "word": "spinal cord"
+  }
+ ],
+ "motion": "swing (the brain's loose cable with its plug dangles, unplugged) + dash (the gap)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "listen",
+  "ride": "mv-swing-plug-cord",
+  "kind": "ride",
+  "x": 684,
+  "y": 944,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Shh... listen.",
+    "shout": false
+   }
+  ]
+ }
+}

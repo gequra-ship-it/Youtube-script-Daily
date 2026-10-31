@@ -1,0 +1,51 @@
+{
+ "centre": "a globe on a stand in a study; red pins pop up on several regions one by one; two researchers below compare notes, one pointing with the RIGHT hand",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "2005",
+   "word": "2005"
+  },
+  {
+   "type": "name",
+   "text": "French researchers",
+   "x": 540,
+   "y": 1240,
+   "to": [
+    830,
+    1090
+   ],
+   "word": "French researchers"
+  }
+ ],
+ "motion": "ticks (pins appear one by one = societies compared) + approach globe core",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-globe",
+  "kind": "ride",
+  "x": 696,
+  "y": 972,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

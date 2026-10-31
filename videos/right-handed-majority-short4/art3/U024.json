@@ -1,0 +1,74 @@
+{
+ "centre": "three stacked panels: hanging boxing gloves, MMA cage and gloves, fencing mask and foils",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "boxing",
+   "x": 330,
+   "y": 400,
+   "to": [
+    585,
+    505
+   ],
+   "word": "boxing"
+  },
+  {
+   "type": "name",
+   "text": "mixed martial arts",
+   "x": 540,
+   "y": 735,
+   "to": [
+    380,
+    952
+   ],
+   "word": "mixed martial arts"
+  },
+  {
+   "type": "name",
+   "text": "Olympic fencing",
+   "x": 560,
+   "y": 1110,
+   "to": [
+    330,
+    1170
+   ],
+   "word": "Olympic fencing"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-fencing-mask",
+   "h": 195
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 330,
+  "y": 1280,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "beret",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

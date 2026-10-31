@@ -1,0 +1,49 @@
+{
+ "centre": "one simple wall switch (right hand up, gold left hand down) fed by a DNA-ladder cable; its lever flips back and forth while a magnifying glass slides in and shows many tangled strands",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "genetic switch",
+   "x": 380,
+   "y": 230,
+   "to": [
+    610,
+    350
+   ],
+   "word": "genetic switch"
+  }
+ ],
+ "motion": "joint (the switch lever flips, undecided) + slide (magnifying glass comes in: evidence challenging it)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-slide-magnifying-glass",
+  "kind": "ride",
+  "x": 1691,
+  "y": 770,
+  "s": 1.4,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "detective"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

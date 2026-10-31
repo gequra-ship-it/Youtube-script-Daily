@@ -1,0 +1,49 @@
+{
+ "centre": "a wooden signpost whose arrow board points to a rack with two crossed wooden sparring sticks and a swinging hide shield (one hypothesis points to fighting)",
+ "focus": [
+  800,
+  880,
+  1.5
+ ],
+ "focus_word": "fighting",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Over here!",
+   "x": 800,
+   "y": 1140,
+   "to": [
+    800,
+    1000
+   ]
+  }
+ ],
+ "motion": "sway (signpost: 'points to') + swing (hanging shield prop)",
+ "composition": "close low view of a signpost and rack, outdoors",
+ "frog": {
+  "moods": [
+   {
+    "mood": "angry"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-swing-shield",
+  "kind": "ride",
+  "x": 940,
+  "y": 1034,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

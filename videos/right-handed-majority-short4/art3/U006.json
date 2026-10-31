@@ -1,0 +1,24 @@
+{
+ "centre": "seen from above: a fighter whose raised guard arm and hide shield turn to the right, three dashed strike arcs all sweeping in from the right; worn footprints on the sand",
+ "focus": [
+  700,
+  800,
+  1.5
+ ],
+ "focus_word": "attacks coming from the right",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Ready!",
+   "x": 560,
+   "y": 640,
+   "to": [
+    540,
+    820
+   ]
+  }
+ ],
+ "motion": "dash (strike arcs from the right) + joint (guard arm blocks) + breathe",
+ "composition": "diagram from above"
+}

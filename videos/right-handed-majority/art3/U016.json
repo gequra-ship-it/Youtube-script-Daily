@@ -1,0 +1,52 @@
+{
+ "centre": "an Ice Age artist seen from behind: left hand pressed flat on the cave wall, right hand holding the bone blowpipe at the mouth, ochre spray appearing round the hand",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Right hand",
+   "x": 1330,
+   "y": 200,
+   "to": [
+    1119,
+    322
+   ],
+   "word": "right hand"
+  },
+  {
+   "type": "name",
+   "text": "Left hand",
+   "x": 430,
+   "y": 640,
+   "to": [
+    771,
+    296
+   ],
+   "word": "left hand"
+  }
+ ],
+ "motion": "fade (ochre spray settles round the hand) + torch flame + breathe",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "rubhands"
+  },
+  "x": 1660,
+  "y": 780,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "flowercrown"
+  ],
+  "says": [],
+  "bside": -1
+ }
+}

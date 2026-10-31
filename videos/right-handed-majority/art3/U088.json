@@ -1,0 +1,29 @@
+{
+ "centre": "split frame: left panel, a gold-lit chimp fishes for termites with its LEFT hand; right panel, another chimp uses its RIGHT hand; tally cards above each count the same hand again and again",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Always this one!",
+   "x": 560,
+   "y": 400,
+   "to": [
+    315,
+    615
+   ]
+  },
+  {
+   "type": "say",
+   "text": "Mine too!",
+   "x": 1530,
+   "y": 400,
+   "to": [
+    1620,
+    615
+   ]
+  }
+ ],
+ "motion": "ticks (tally marks count each panel's repeated hand) + joint (each chimp dips its twig)"
+}

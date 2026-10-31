@@ -1,0 +1,55 @@
+{
+ "centre": "a quiet research study: a globe glows on the desk between two pinned drawings of traditional villages (thatched huts, stilt houses); one researcher points at the left drawing with the RIGHT hand, the other holds a notebook, comparing",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "iris": [
+  640,
+  480
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "2005",
+   "word": "2005"
+  },
+  {
+   "type": "name",
+   "text": "researchers",
+   "x": 960,
+   "y": 200,
+   "to": [
+    1290,
+    400
+   ],
+   "word": "researchers"
+  }
+ ],
+ "motion": "core-swell (the globe of societies glows gently); researchers breathe, nod, blink",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-swell-globe",
+  "kind": "ride",
+  "x": 1108,
+  "y": 600,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "flowercrown"
+  ],
+  "says": [
+   {
+    "text": "Bumpy!",
+    "shout": false
+   }
+  ]
+ }
+}

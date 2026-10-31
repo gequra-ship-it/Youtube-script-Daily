@@ -1,0 +1,25 @@
+{
+ "centre": "museum wall with four plaques in a 2x2 grid: three red-ochre LEFT-hand stencils pop in, the fourth plaque (a pale right-hand stencil) fades in faintly; a counting pebble drops onto a small pile",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "3 OUT OF 4",
+   "word": "three out of four"
+  },
+  {
+   "type": "name",
+   "text": "Left hands",
+   "x": 540,
+   "y": 815,
+   "to": [
+    320,
+    640
+   ],
+   "word": "left hands"
+  }
+ ],
+ "motion": "popin x3 (left-hand plaques) + fade (the one right hand) + core-drop (tally pebble)"
+}

@@ -1,0 +1,50 @@
+{
+ "centre": "a magnifying glass in a right hand scanning a DNA model on a lab bench; a wall calendar fills with crossed-off days",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Where is it?",
+   "x": 790,
+   "y": 610,
+   "to": [
+    640,
+    780
+   ]
+  }
+ ],
+ "spot": true,
+ "track": false,
+ "motion": "path: the magnifier sweeps up and down the DNA (searching); ticks: calendar days crossed off one by one (decades)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-magnifier-glass",
+  "kind": "ride",
+  "x": 1105,
+  "y": 1179,
+  "s": 1.4,
+  "flip": -1,
+  "bside": 1,
+  "outfit": [
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

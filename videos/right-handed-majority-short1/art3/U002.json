@@ -1,0 +1,45 @@
+{
+ "centre": "cross-section of the ground: modern town on top, layers going down, a cave with red hand stencils at the bottom; a lantern travels down the dashed route",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Prehistory",
+   "x": 540,
+   "y": 1385,
+   "to": [
+    540,
+    1220
+   ],
+   "word": "prehistory"
+  }
+ ],
+ "motion": "path (lantern descends deep into the layers) + dash (route)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-descend-lantern",
+  "kind": "ride",
+  "x": 426,
+  "y": 540,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ]
+ }
+}

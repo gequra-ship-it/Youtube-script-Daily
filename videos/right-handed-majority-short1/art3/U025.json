@@ -1,0 +1,37 @@
+{
+ "centre": "a word tile travelling from a Roman scroll to a modern open book along a dashed route",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "page",
+   "word": "Latin",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sinister",
+   "x": 810,
+   "y": 905,
+   "to": [
+    650,
+    1180
+   ],
+   "word": "sinister"
+  },
+  {
+   "type": "name",
+   "text": "Latin",
+   "x": 320,
+   "y": 345,
+   "to": [
+    380,
+    500
+   ],
+   "word": "Latin"
+  }
+ ],
+ "motion": "unroll: scroll; dash: route; path: word tile travels scroll to book"
+}

@@ -1,0 +1,61 @@
+{
+ "centre": "close-up of a right-handed boxer in cool colours with a puzzled face: his guard is up on the usual side but open on the other, where a gold left-hander's glove enters from the frame edge and a dashed punch path draws itself; the gym behind him is tilted, a wall clock swings out of time",
+ "focus": [
+  760,
+  430,
+  1.5
+ ],
+ "focus_word": "defense vulnerable",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "the right-hander",
+   "x": 560,
+   "y": 620,
+   "to": [
+    930,
+    600
+   ],
+   "word": "right-hander"
+  },
+  {
+   "type": "say",
+   "text": "Wait, what?",
+   "x": 560,
+   "y": 180,
+   "to": [
+    985,
+    360
+   ]
+  }
+ ],
+ "motion": "draw (the punch path arrives from the unfamiliar side); swing (wall clock knocked out of time = timing ruined); sparkle (dizzy, off-kilter vision); boxer breathes, nods, blinks",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": {
+   "type": "present"
+  },
+  "ride": "mv-swing-clock-on-cord",
+  "kind": "ride",
+  "x": 1618,
+  "y": 330,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Ta-da!",
+    "shout": true
+   }
+  ]
+ }
+}

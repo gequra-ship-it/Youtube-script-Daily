@@ -1,0 +1,49 @@
+{
+ "centre": "a gilded frame on a gallery wall holds a 'what if' landscape: a peaceful valley with huts and a circle of people holding hands; a white dove with an olive twig flies across; an olive sapling stands on a plinth beside it",
+ "focus": [
+  960,
+  430,
+  1.4
+ ],
+ "focus_word": "peaceful cooperation",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Coo!",
+   "x": 760,
+   "y": 210,
+   "to": [
+    640,
+    320
+   ]
+  }
+ ],
+ "track": false,
+ "motion": "path (the dove crosses the framed sky), sway (olive sapling)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-path-dove",
+  "kind": "ride",
+  "x": 716,
+  "y": 352,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

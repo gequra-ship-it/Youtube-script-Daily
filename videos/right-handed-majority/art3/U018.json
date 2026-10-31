@@ -1,0 +1,45 @@
+{
+ "centre": "cross-section of rock layers with fossils; a lantern on a rope is lowered down through the layers (deeper = older)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Deep time",
+   "x": 1480,
+   "y": 300,
+   "to": [
+    1400,
+    640
+   ],
+   "word": "deep time"
+  }
+ ],
+ "motion": "path (lantern descends through the strata) + dash (depth gauge)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-lantern-descend",
+  "kind": "ride",
+  "x": 802,
+  "y": 460,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "centre": "split frame: above, a fetus sucks its right thumb in the womb; below, the same person years later writes with the right hand; a dashed arrow links them",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Same hand!",
+   "x": 790,
+   "y": 1000,
+   "to": [
+    560,
+    980
+   ]
+  }
+ ],
+ "motion": "draw (the prediction arrow, then the handwriting) + limb (writing arm) + rollby (toy ball under the desk) + core swell (womb)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dodge",
+   "obj": "mv-rollby-ball",
+   "h": 68,
+   "pass": 2.692
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 615,
+  "y": 1390,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}
