@@ -13,12 +13,13 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "curious"
    }
   ],
-  "act": "waves",
+  "act": "look",
   "outfit": [
-   "goggles"
+   "goggles",
+   "backpack"
   ],
   "ride": "mv-core-glide-lens",
   "kind": "ride",
@@ -27,6 +28,11 @@
   "s": 1.25,
   "flip": -1,
   "bside": -1,
-  "says": []
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": false
+   }
+  ]
  }
 }

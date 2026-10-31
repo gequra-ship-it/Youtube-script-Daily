@@ -23,29 +23,26 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    960,
-    500
-   ],
-   "vanish": true
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 538,
-  "y": 513,
-  "s": 0.9,
-  "flip": 1,
+  "act": "magnify",
+  "ride": "mv-core-swell-cyst",
+  "kind": "ride",
+  "x": 1126,
+  "y": 628,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat"
+  ],
   "says": [
    {
-    "text": "Nooo!",
-    "shout": true
+    "text": "A clue!",
+    "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

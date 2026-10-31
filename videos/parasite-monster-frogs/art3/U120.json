@@ -13,36 +13,28 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
-   },
-   {
-    "word": "We cannot",
     "mood": "curious"
    }
   ],
-  "act": {
-   "type": "pull",
-   "to": [
-    967,
-    538
-   ],
-   "vanish": true
-  },
+  "act": "peek",
   "ride": null,
   "kind": "bg",
-  "x": 545,
-  "y": 548,
-  "s": 0.9,
-  "flip": 1,
+  "x": 777,
+  "y": 643,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-swell-frog",
   "outfit": [
-   "gradcap"
+   "gradcap",
+   "backpack"
   ],
   "says": [
    {
-    "text": "Whoaaa!",
+    "text": "Peek-a-boo!",
     "shout": true
    }
-  ],
-  "bside": 1
+  ]
  }
 }

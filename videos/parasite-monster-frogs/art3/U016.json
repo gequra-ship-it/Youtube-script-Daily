@@ -23,7 +23,9 @@
     "mood": "curious"
    }
   ],
-  "act": "tilt",
+  "act": {
+   "type": "binocs"
+  },
   "ride": "mv-path-newspaper",
   "kind": "ride",
   "x": 517,
@@ -32,10 +34,13 @@
   "flip": 1,
   "bside": 1,
   "gaze": 1,
+  "outfit": [
+   "leafhat"
+  ],
   "says": [
    {
-    "text": "Hmm?",
-    "shout": false
+    "text": "Ooh!",
+    "shout": true
    }
   ]
  }

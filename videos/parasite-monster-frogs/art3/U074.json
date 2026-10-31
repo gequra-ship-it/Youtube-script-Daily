@@ -18,29 +18,21 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "shock"
    }
   ],
   "act": {
-   "type": "dripped",
-   "obj": "mv-drip-sweat-drop",
-   "serious": true
+   "type": "gasp"
   },
-  "x": 1060,
-  "y": 556,
-  "s": 0.95,
-  "flip": -1,
+  "x": 260,
+  "y": 380,
+  "s": 0.8,
+  "flip": 1,
   "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
-  "says": [
-   {
-    "text": "Drip...",
-    "shout": false
-   }
+  "outfit": [
+   "leafhat"
   ],
-  "bside": -1
+  "says": [],
+  "bside": 1
  }
 }

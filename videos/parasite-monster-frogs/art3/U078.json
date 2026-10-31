@@ -41,14 +41,16 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "curious"
    },
    {
     "word": "Above the",
     "mood": "curious"
    }
   ],
-  "act": "waves",
+  "act": {
+   "type": "sniff"
+  },
   "outfit": [
    "goggles"
   ],
@@ -61,7 +63,7 @@
   "bside": 1,
   "says": [
    {
-    "text": "Splash!",
+    "text": "Ahh~",
     "shout": false
    }
   ]

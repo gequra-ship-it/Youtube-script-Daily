@@ -23,25 +23,21 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "chilly"
    }
   ],
-  "act": "shiver",
+  "act": {
+   "type": "rubhands"
+  },
   "x": 1660,
   "y": 340,
   "s": 0.72,
   "flip": -1,
   "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 288
-  },
-  "says": [
-   {
-    "text": "Brrrr...",
-    "shout": false
-   }
+  "outfit": [
+   "bee"
   ],
+  "says": [],
   "bside": -1
  }
 }

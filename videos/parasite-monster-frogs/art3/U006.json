@@ -22,10 +22,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "worried"
+    "mood": "curious"
    }
   ],
-  "act": "look",
+  "act": {
+   "type": "flap"
+  },
   "ride": "mv-swing-net-bag",
   "kind": "ride",
   "x": 1641,
@@ -35,12 +37,13 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "gradcap"
+   "gradcap",
+   "backpack"
   ],
   "says": [
    {
-    "text": "Hmm...",
-    "shout": false
+    "text": "Migrating!",
+    "shout": true
    }
   ]
  }

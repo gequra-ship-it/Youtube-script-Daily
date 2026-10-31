@@ -10,7 +10,9 @@
     "mood": "curious"
    }
   ],
-  "act": "sway",
+  "act": {
+   "type": "peer"
+  },
   "ride": "mv-core-tremble-frog",
   "kind": "ride",
   "x": 1108,
@@ -20,8 +22,14 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "doctor"
+   "doctor",
+   "strawhat"
   ],
-  "says": []
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
  }
 }

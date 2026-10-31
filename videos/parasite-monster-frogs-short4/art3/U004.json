@@ -18,7 +18,7 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "shock"
    },
    {
     "word": "Every attempt",
@@ -26,25 +26,17 @@
    }
   ],
   "act": {
-   "type": "dripped",
-   "obj": "mv-drip-sweat",
-   "serious": true
+   "type": "gasp"
   },
-  "x": 770,
-  "y": 857,
-  "s": 1.09,
-  "flip": -1,
+  "x": 260,
+  "y": 600,
+  "s": 1.05,
+  "flip": 1,
   "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
-  "says": [
-   {
-    "text": "Drip...",
-    "shout": false
-   }
+  "outfit": [
+   "explorer"
   ],
-  "bside": -1
+  "says": [],
+  "bside": 1
  }
 }

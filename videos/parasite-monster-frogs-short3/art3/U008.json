@@ -26,19 +26,20 @@
     "mood": "curious"
    }
   ],
-  "act": "breathe",
+  "act": {
+   "type": "peer"
+  },
   "x": 260,
   "y": 1560,
   "s": 1.05,
   "flip": 1,
   "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 540
-  },
+  "outfit": [
+   "bee"
+  ],
   "says": [
    {
-    "text": "Ahh...",
+    "text": "Hmm?",
     "shout": false
    }
   ],

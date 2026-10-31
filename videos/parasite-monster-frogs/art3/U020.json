@@ -23,32 +23,32 @@
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "pull",
-   "to": [
-    1298,
-    416
-   ],
-   "vanish": true
+   "type": "dripped",
+   "obj": "mv-drip-water",
+   "serious": true
   },
   "outfit": [
    "goggles"
   ],
   "ride": null,
   "kind": "bg",
-  "x": 876,
-  "y": 438,
-  "s": 0.9,
-  "flip": 1,
+  "x": 1260,
+  "y": 400,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "says": [
    {
-    "text": "AAAAAH!",
-    "shout": true
+    "text": "Drip...",
+    "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

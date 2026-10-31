@@ -23,32 +23,29 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "determined"
    }
   ],
   "act": {
-   "type": "dripped",
-   "obj": "mv-drip-fertilizer",
-   "serious": true
+   "type": "lift",
+   "obj": "mv-rise-cercaria-stream"
   },
   "outfit": [
-   "goggles"
+   "goggles",
+   "doctor"
   ],
-  "ride": null,
-  "kind": "bg",
-  "x": 250,
-  "y": 753,
+  "ride": "mv-rise-cercaria-stream",
+  "kind": "ride",
+  "x": 520,
+  "y": 837,
   "s": 1.09,
   "flip": 1,
   "bside": -1,
-  "gaze": 1,
   "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
   "says": [
    {
-    "text": "Drip...",
-    "shout": false
+    "text": "Hnnng!",
+    "shout": true
    }
   ]
  }

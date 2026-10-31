@@ -17,27 +17,23 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "surprised"
    }
   ],
-  "act": "peek",
-  "ride": null,
-  "kind": "bg",
-  "x": 1102,
-  "y": 652,
-  "s": 1.0,
-  "flip": -1,
+  "act": {
+   "type": "shrinkdown"
+  },
+  "ride": "mv-core-wobble-tadpole",
+  "kind": "ride",
+  "x": 651,
+  "y": 653,
+  "s": 0.95,
+  "flip": 1,
   "bside": -1,
   "gaze": 1,
-  "behind": "mv-swim-cercariae",
   "outfit": [
    "knight"
   ],
-  "says": [
-   {
-    "text": "Peek-a-boo!",
-    "shout": true
-   }
-  ]
+  "says": []
  }
 }
