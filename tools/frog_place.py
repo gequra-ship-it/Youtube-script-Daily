@@ -731,6 +731,7 @@ with sync_playwright() as p:
             # ---- 2026-10-31 (guideline 7-2 J): a strong word act that repeats across a video (wind / shiver / awe) takes the least-used variant of its pool ----
             if isinstance(cur, str) and cur in VARIANTS and not slid and not keep.get('cling'):
                 pool_ = [(a_, m_) for a_, m_ in VARIANTS[cur] if not (a_ == 'helmetwipe' and not (SPACE.search(text) or palname in SPACE_PAL))]
+                if cur == 'pull' and len(PULL_STATE.get(slug, [])) >= (1 if vert else 3): pool_ = [e for e in pool_ if e[0] != 'pull']   # the pull budget (7-2 J) is spent: take a variant instead of the budget's plain 'look'
                 a_, m_ = TALLY.pick('act', pool_, n)
                 if a_ != cur:
                     if a_ in frog_rig.MOVES: set_act(keep, a_, mood=m_, says=[])
