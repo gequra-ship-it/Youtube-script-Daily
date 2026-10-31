@@ -1,0 +1,43 @@
+{
+ "centre": "a commuter with a coffee cup on a station platform while a sleek star-train leaves along a glowing light rail toward a distant star",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Just my commute",
+   "x": 560,
+   "y": 900,
+   "to": [
+    366,
+    1021
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-path-train-starliner",
+  "kind": "ride",
+  "x": 372,
+  "y": 1116,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
+}

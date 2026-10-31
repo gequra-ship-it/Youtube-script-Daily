@@ -1,0 +1,52 @@
+{
+ "centre": "warm star surrounded by a loose swarm of small dark-blue solar panels with gold edges",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "swarm of solar collectors",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Solar collector",
+   "x": 790,
+   "y": 1150,
+   "to": [
+    760,
+    1015
+   ],
+   "word": "solar collectors"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "x": 820,
+  "y": 1280,
+  "s": 0.99,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "tumble",
+   "dist": 302
+  },
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

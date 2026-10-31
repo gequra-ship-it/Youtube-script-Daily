@@ -1,0 +1,39 @@
+{
+ "centre": "a tall glowing energy cell filling with gold light",
+ "focus": [
+  960,
+  520,
+  1.6
+ ],
+ "focus_word": "pure energy consumption",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "energy",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-swell-energy-cell",
+  "kind": "ride",
+  "x": 1128,
+  "y": 730,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Wobbly...",
+    "shout": false
+   }
+  ]
+ }
+}

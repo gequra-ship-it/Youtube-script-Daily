@@ -1,0 +1,51 @@
+{
+ "centre": "bright moon in a window above a desk silhouette with a small radio dish",
+ "focus": [
+  330,
+  1160,
+  1.7
+ ],
+ "focus_word": "Kardashev",
+ "sfx": [
+  {
+   "name": "radio",
+   "word": "Kardashev",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Nikolai Kardashev",
+   "x": 560,
+   "y": 1340,
+   "to": [
+    330,
+    1230
+   ],
+   "word": "Nikolai Kardashev"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-core-swell-moon",
+  "kind": "ride",
+  "x": 734,
+  "y": 1010,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

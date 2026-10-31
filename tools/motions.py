@@ -273,7 +273,7 @@ OBJ_KINDS = ['path', 'flip', 'fill', 'grow', 'swing', 'topple', 'liquid', 'bubbl
              'bob', 'hover', 'pendulum', 'wiggle', 'tilt', 'crumble', 'emph',   # round 4 (2026-10-26): 7 more, guideline 4-1
              'spin', 'rollby', 'float', 'flap', 'swim', 'hop', 'drip', 'unfold', 'unroll', 'flagwave', 'ripple', 'sparkle', 'circle', 'squash',
              'neon', 'shiver', 'beat', 'settle', 'magnet', 'bouncing', 'creep', 'sink', 'ascend', 'tick', 'flicker', 'breathe', 'nodding', 'sway',   # round 4b: 28 more (axis noted per kind)
-             'draw', 'morph', 'toss', 'skid', 'coast', 'regroup']   # 2026-10-29 library kinds (guideline 4-6): DrawSVG, MorphSVG, Physics2D, Inertia, PhysicsProps, Flip
+             'draw', 'morph', 'toss', 'skid', 'coast', 'regroup', 'disc']   # 2026-10-29 library kinds (guideline 4-6): DrawSVG, MorphSVG, Physics2D, Inertia, PhysicsProps, Flip
 
 
 def path_timing(at, t0, sp):
@@ -426,9 +426,17 @@ def obj_js(kind, g, at, t0, v0, sp, name='', spring=None):
     if kind == 'wiggle':   # quick jelly-like squash and stretch (data-amp .06, data-per .35): jellyfish bells, blobs, puddings, soft creatures
         amp, per = f('amp', .06), f('per', .35)
         return [f'tl.fromTo({g},{{scaleX:{1 + amp:.3f},scaleY:{1 - amp:.3f},{org("50% 100%")}}},{{scaleX:{1 - amp:.3f},scaleY:{1 + amp:.3f},duration:{per:.3f},{yo(per)}}},{v0:.3f});']
+    if kind == 'disc':     # (2026-10-30 miya: a tilted galaxy must spin about its own centre axis, not turn as a flat picture) a disc seen at an angle turns IN ITS OWN PLANE:
+        # the drawing is un-squashed along its minor axis, rotated, squashed back (data-tilt deg of the major axis, data-ratio minor/major, data-cx/data-cy centre, data-per s per turn, data-dir 1 = clockwise)
+        a, r, cx, cy, per, dr = f('tilt', 0), max(f('ratio', 1), .25), f('cx', 0), f('cy', 0), f('per', 24), f('dir', 1)
+        n = max(int(math.ceil(sp / per)), 1)
+        return [f'(function(P,e){{tl.fromTo(P,{{t:0}},{{t:{360 * dr:.0f},duration:{per:.3f},ease:"none",repeat:{n},onUpdate:function(){{e.setAttribute("transform","translate({cx:.1f} {cy:.1f}) rotate({a:.2f}) scale(1 {r:.4f}) rotate("+P.t.toFixed(3)+") scale(1 {1 / r:.4f}) rotate({-a:.2f}) translate({-cx:.1f} {-cy:.1f})");}}}},{v0:.3f});}})({{t:0}},{g});']
     if kind == 'tilt':     # see-saw: slow rock by data-deg (6) about data-pivot (default centre): balance scales, rafts, teeter boards, a tipping stone
         deg, per = f('deg', 6), f('per', 2.8)
-        return [f'tl.fromTo({g},{{rotation:{-deg:.1f},{org("50% 50%")}}},{{rotation:{deg:.1f},duration:{per:.3f},{yo(per)}}},{v0:.3f});']
+        out = [f'tl.fromTo({g},{{rotation:{-deg:.1f},{org("50% 50%")}}},{{rotation:{deg:.1f},duration:{per:.3f},{yo(per)}}},{v0:.3f});']
+        # (2026-10-30 miya: balance scale, only the beam moved) everything that hangs from the beam (a child with data-hang="x y" = its hanging point, drawing coords) rides the beam ends and turns the opposite way, so pans and strings stay upright while the beam tips
+        out.append(f'Array.prototype.slice.call({g}.querySelectorAll("[data-hang]")).forEach(function(e){{var h=e.getAttribute("data-hang").split(/[ ,]+/),b=e.getBBox();tl.fromTo(e,{{rotation:{deg:.1f},transformOrigin:(h[0]-b.x)+"px "+(h[1]-b.y)+"px"}},{{rotation:{-deg:.1f},duration:{per:.3f},{yo(per)}}},{v0:.3f});}});')
+        return out
     if kind == 'crumble':  # falls apart: each child drops (data-fall 120 px), turns a little and fades, one after another (collapse, erosion, extinction, a wall coming down)
         fall, step = f('fall', 120), f('step', .08)
         ch = f'Array.prototype.slice.call({g}.children)'

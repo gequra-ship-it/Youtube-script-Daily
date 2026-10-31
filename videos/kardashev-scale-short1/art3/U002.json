@@ -1,0 +1,40 @@
+{
+ "centre": "glowing light bulb at the hub of a golden power web over a dark continent, wall switch below",
+ "focus": [
+  540,
+  1245,
+  1.8
+ ],
+ "focus_word": "switch",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "switch",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 400,
+  "y": 1010,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-heartbeat-bulb",
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

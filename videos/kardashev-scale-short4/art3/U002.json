@@ -1,0 +1,51 @@
+{
+ "centre": "single pale glowing dot in an empty dark sky above a listening radio dish",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "silent",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "silent",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Cosmos",
+   "x": 720,
+   "y": 700,
+   "to": [
+    560,
+    850
+   ],
+   "word": "cosmos"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-core-ping-signal",
+  "kind": "ride",
+  "x": 814,
+  "y": 1090,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

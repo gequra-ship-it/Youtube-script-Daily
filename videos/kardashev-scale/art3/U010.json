@@ -1,0 +1,43 @@
+{
+ "centre": "night-side Earth with golden city lights under a long gold ruler",
+ "focus": [
+  960,
+  290,
+  1.6
+ ],
+ "focus_word": "a ruler",
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "ruler",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "To answer",
+    "mood": "happy"
+   }
+  ],
+  "act": "awe",
+  "ride": "mv-core-swell-night-earth",
+  "kind": "ride",
+  "x": 1170,
+  "y": 672,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Woooow!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+# kardashev-scale-short2 (Miya's Note). Script from miya 2026-10-30 (dated 2026-10-17); fact-checked per guideline 12-1.
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh2_1',
+  'What would life inside a Type One civilization actually look like? It means capturing every single photon of sunlight falling on the world, along with all wind, tidal, and '
+  'geothermal power.'),
+ ('S02',
+  'Part 2',
+  'ill',
+  'sh2_2',
+  "Can you imagine waking up in a world where extreme weather is simply scheduled? A Type One society wouldn't just survive on their planet; they would, in this speculative "
+  'picture, manage it like a living organism.'),
+ ('S03',
+  'Part 3',
+  'ill',
+  'sh2_3',
+  'In this imagined picture, earthquakes might be defused before they strike, hurricanes might be dissipated, and global climates might be kept in perpetual balance.'),
+ ('S04',
+  'Part 4',
+  'ill',
+  'sh2_4',
+  'So, where exactly do we stand on this monumental ladder? You might assume our glowing cities and orbital satellites place us comfortably near Type One, but the real number is '
+  'humbling.'),
+ ('S05',
+  'Part 5',
+  'ill',
+  'sh2_5',
+  'Astronomer Carl Sagan estimated that humanity sits somewhere around Type zero point seven. Could an asteroid or a sudden solar storm still knock out our digital networks '
+  'tomorrow?'),
+ ('S06',
+  'Part 6',
+  'ill',
+  'sh2_6',
+  'A severe one could. We still burn fuels made from ancient buried life, and an unexpected shift in our climate can still bring our supply chains to their knees.'),
+ ('S07', 'Part 7', 'ill', 'sh2_7', 'Notice the contrast between how we feel and where we stand. We feel advanced because our technology looks miraculous to us.'),
+ ('S08', 'Part 8', 'ill', 'sh2_8', 'We split atoms, dam great rivers, and beam data through space. Yet on the cosmic scale, we have only begun.'),
+ ('S09', 'Part 9', 'ill', 'sh2_9', 'This is not meant to be discouraging. A ladder with many steps ahead is also a ladder with a great deal of room to grow.'),
+ ('S10', 'Part 10', 'ill', 'sh2_10', 'A single bad turn of events could still break our networks, and our daily lives still rest on fuels made from ancient buried life.'),
+ ('S11',
+  'Part 11',
+  'ill',
+  'sh2_11',
+  'The number zero point seven is a polite way of saying we have a long way to go. Be clear, too, that the Type One picture of controlled weather is an exercise of imagination, '
+  'built on the idea of using all the energy that reaches a planet from its star, along with its wind, tides, and heat from within. Nobody has lived in such a world.')]

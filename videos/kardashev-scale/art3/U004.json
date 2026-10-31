@@ -1,0 +1,40 @@
+{
+ "centre": "glowing light bulb hanging on a cord in the night sky, power line to a far plant",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Where from?",
+   "x": 640,
+   "y": 300,
+   "to": [
+    455,
+    390
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tilt",
+  "ride": "mv-swing-bulb-cord",
+  "kind": "ride",
+  "x": 1238,
+  "y": 740,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
+}

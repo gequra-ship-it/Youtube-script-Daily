@@ -1,0 +1,40 @@
+{
+ "centre": "glowing city hub at the end of a wall switch wire, gold power lines fanning across a dark continent",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "invisible web",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "Flipping a switch",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 400,
+  "y": 1010,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-swell-hub",
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

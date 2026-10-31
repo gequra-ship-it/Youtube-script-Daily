@@ -1,0 +1,51 @@
+{
+ "centre": "glowing mystery power source at the end of a long gold cable running to a wall plug",
+ "focus": [
+  540,
+  720,
+  1.7
+ ],
+ "focus_word": "electricity",
+ "sfx": [
+  {
+   "name": "pulse",
+   "word": "electricity",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Electricity",
+   "x": 300,
+   "y": 520,
+   "to": [
+    540,
+    720
+   ],
+   "word": "electricity"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-ping-power-source",
+  "kind": "ride",
+  "x": 704,
+  "y": 840,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

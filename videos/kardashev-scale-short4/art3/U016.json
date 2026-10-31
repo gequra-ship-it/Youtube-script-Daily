@@ -1,0 +1,44 @@
+{
+ "centre": "coral glowing marker on a dashed bracket between a tall gold bar and a short teal bar",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "gap",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Gap",
+   "x": 700,
+   "y": 760,
+   "to": [
+    560,
+    860
+   ],
+   "word": "gap"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-ping-gap",
+  "kind": "ride",
+  "x": 674,
+  "y": 689,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

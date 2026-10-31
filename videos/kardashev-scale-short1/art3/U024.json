@@ -1,0 +1,47 @@
+{
+ "centre": "glowing signal orb on a golden wave between two planets that both speak with the same spark symbol",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "radio",
+   "word": "common language",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Physics",
+   "x": 300,
+   "y": 880,
+   "to": [
+    470,
+    860
+   ],
+   "word": "physics"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-ping-signal-orb",
+  "kind": "ride",
+  "x": 728,
+  "y": 1004,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm, hard.",
+    "shout": false
+   }
+  ]
+ }
+}

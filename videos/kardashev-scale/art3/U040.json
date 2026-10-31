@@ -1,0 +1,33 @@
+{
+ "centre": "glowing gold orb on the middle rung of a tall gold ladder rising into the stars",
+ "focus": [
+  960,
+  500,
+  1.5
+ ],
+ "focus_word": "ladder",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-ping-orb",
+  "kind": "ride",
+  "x": 1128,
+  "y": 630,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

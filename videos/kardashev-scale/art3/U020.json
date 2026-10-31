@@ -1,0 +1,42 @@
+{
+ "centre": "a lit star near the middle of a gold glow that spreads from Earth outward into the dark",
+ "focus": [
+  1300,
+  500,
+  1.4
+ ],
+ "focus_word": "expand into the darkness",
+ "sfx": [
+  {
+   "name": "bloom",
+   "word": "expand",
+   "vol": 0.55
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-core-heartbeat-home-earth",
+  "kind": "ride",
+  "x": 488,
+  "y": 660,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

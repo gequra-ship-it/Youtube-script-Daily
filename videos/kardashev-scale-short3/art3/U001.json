@@ -1,0 +1,44 @@
+{
+ "centre": "glowing star on the middle rung of a tall gold ladder between a small Earth below and a galaxy above",
+ "focus": [
+  540,
+  860,
+  1.8
+ ],
+ "focus_word": "Type Two",
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "divine",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "nod",
+  "x": 260,
+  "y": 1560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "outfit": [
+   "halo"
+  ],
+  "says": [
+   {
+    "text": "Mm-hm!",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}
