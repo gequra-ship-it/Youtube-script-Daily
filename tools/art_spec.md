@@ -108,7 +108,13 @@ per video at least 10 types, none above 20 %. `draw` traces stroked outlines (gi
 
 Background effects (rain, snow, bubbles, fog, rays … 57 kinds, 2026-10-29: + `burst`) and on-screen text effects are added by the builder from the narration words and the palette; do NOT draw rain/snow/particles into the picture (guideline 4-1 "4차 보강").
 
-## 7A. Attachment rules — MANDATORY (2026-10-29, miya: windmill, net, frog legs, tails, bird neck, clock hand, gears, tree, grass, sign post all turned about the wrong point)
+## 7B. Variety: theme packs and the moving-prop quota — MANDATORY (2026-10-31, miya: "우주 영상은 항상 비슷한 것만 나온다 … 다양성과 재미성이 중요")
+The builder measures every video (`python3 tools/variety_check.py <slug>`, run again by `final_check.py` before the render): it wants **>= 8 distinct object motion kinds per long-form** and **a moving small prop in at least 1 picture in 6** (the frog's contact gags in section 12 need them; the WARN line names the count). Space art fails this most: nebula + glint + one drifting probe in every picture. So, per video:
+- Read the video's theme pack in `tools/concepts_catalog.md` (space / sea / history / body / bio / time / earth / tech / generic; `python3 tools/concepts.py <slug>` prints the pack and each unit's idea class). Its **props** column lists small named props with their `mv-` kind, its **compositions** column 5-6 framings. Across your units use at least 4 different compositions and 5 different motion kinds from the pack, never the same framing twice in a row.
+- At least every 4th-6th picture gets one **moving, named small prop** from the pack (or the script-word table in section 12): `mv-core-drop`, `mv-topple`, `mv-rollby`, `mv-bouncing`, `mv-swing`, `mv-pendulum`, `mv-rise`, `mv-popin`, `mv-drip`, `mv-toss`, `mv-coast`, `mv-unroll`, `mv-magnet`, `mv-hop`. It sits off the subject (a corner of the ground, a shelf, the edge of the frame), 60-320 px, named after the thing (`mv-rollby-wrench`, `mv-core-drop-meteorite`). In space it still works: things drift, coast, tumble and get caught; a lander leg hinges, a tether swings, a flag waves on the Moon.
+- The idea class of the sentence (scale, timespan, expansion, speed, slowness, hidden, birth, death, danger, discovery, counting, change, signal, heat, food, build, celebrate, …) suggests the picture: a scale sentence gets a familiar object for comparison (`mv-popin` the ruler), a counting sentence a row that `mv-regroup`s, a hidden sentence a cover that `mv-slide`s away, a speed sentence an `mv-path` with a `mv-dash` streak. Do not repeat the one idea-picture the topic always gets (space: the ruler of planets, the expanding grid) more than twice per video.
+
+ — MANDATORY (2026-10-29, miya: windmill, net, frog legs, tails, bird neck, clock hand, gears, tree, grass, sign post all turned about the wrong point)
 Every moving part must be attached to its body (guideline 4-7):
 - `data-pivot` of mv-joint / chain / swing / rotor / pendulum = the point where the part TOUCHES the body (on the part AND on the body or parent link within 12 px), never empty space. A hinge pin (small circle) inside the group counts as the support.
 - Net / flag / banner on a pole: the swing pivot is the junction of pole end and rim, or put pole + bag in ONE group. Tail / leg / neck / head of a creature that moves (mv-path, glide, swim, creep ...): the part goes INSIDE that moving group. A bird's head belongs to the neck chain.
@@ -211,7 +217,7 @@ Script-word -> gag-prop table (2026-10-29, miya "대본 규칙과 그림 규칙�
 | lift, carry, heavy load | `mv-rise` box (<= 320 px) | lift |
 | wind, gust, storm (no vehicle) | nothing extra: the frog braces and is blown | blown |
 | rope, tug, haul, anchor | a `rope`/`chain`/`cable` group wider than 150 px | tug |
-No matching word -> no prop for the frog's sake; the frog then roams or does a calm act. Never draw the frog.
+No matching word -> no prop for the frog's sake; the frog then roams or does a calm act (2026-10-31: or one of 34 idea-class acts from `tools/concepts.py`, least-used first, with a theme-pack accessory — the more named moving props and the more varied group names you draw, the more varied the frog is). **Quota (2026-10-31, section 7B):** at least 1 picture in 6 has a moving small prop; `variety_check.py` prints the count. Never draw the frog.
 
 Frog automation hooks (2026-10-26): draw hut/house doors as separate elements with `id="door1"`, `door2`, … (enables the `huts` act); name book/notebook/page/paper/desk/card/chart/board groups with that word in the id (enables `doodle`); ride objects that get pushed (lens, crate) should have the grip point at the lower right of their group. For heavy topics set `FROG_TONE = 'serious'` in config.py.
 
