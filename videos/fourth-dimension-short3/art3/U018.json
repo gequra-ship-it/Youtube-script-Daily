@@ -1,0 +1,46 @@
+{
+ "centre": "one bright slab full of galaxies among faint dashed slabs of a bigger structure",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Universe",
+   "x": 300,
+   "y": 470,
+   "to": [
+    470,
+    700
+   ],
+   "word": "universe"
+  }
+ ],
+ "motion": "universe slab swells gently; the faint slabs of the grander structure fade in",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-core-swell-universe-slice",
+  "kind": "ride",
+  "x": 296,
+  "y": 1168,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "La la la~",
+    "shout": false
+   }
+  ]
+ }
+}

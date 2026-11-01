@@ -1,0 +1,50 @@
+{
+ "centre": "a gold wireframe cube held up in a hand, its shadow on the asphalt",
+ "focus": [
+  960,
+  420,
+  1.6
+ ],
+ "focus_word": "wireframe cube",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Wireframe cube",
+   "x": 520,
+   "y": 330,
+   "to": [
+    858,
+    380
+   ],
+   "word": "wireframe cube"
+  }
+ ],
+ "light": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-swell-cube",
+  "kind": "ride",
+  "x": 1179,
+  "y": 709,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Bumpy!",
+    "shout": false
+   }
+  ]
+ }
+}

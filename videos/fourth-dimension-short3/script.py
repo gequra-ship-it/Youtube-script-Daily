@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+# fourth-dimension-short3 (Miya's Note). Script from miya 2026-11-01 (dated 2026-10-30); fact-checked per guideline 12-1 (see script-check.md).
+SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'Did you know that every hospital scanner uses the exact trick you would need to understand a fourth dimension?'),
+ ('S02',
+  'Part 2',
+  'ill',
+  'sh3_2',
+  'When a patient lies down inside a magnetic resonance imaging scanner or a computed tomography machine, the medical technology does something truly remarkable.'),
+ ('S03',
+  'Part 3',
+  'ill',
+  'sh3_3',
+  'It does not simply snap a single photograph of the internal body all at once. Instead, the machine builds its picture from a stack of razor-thin two-dimensional digital '
+  'cross-sections, often hundreds of them.'),
+ ('S04', 'Part 4', 'ill', 'sh3_4', 'When a radiologist sits down at their computer screen, they scroll smoothly through these flat black-and-white images.'),
+ ('S05',
+  'Part 5',
+  'ill',
+  'sh3_5',
+  'On the monitor, vital organs appear out of empty darkness, expand into wide detailed cross-sections, shift their contours, and vanish as the scan moves deeper.'),
+ ('S06',
+  'Part 6',
+  'ill',
+  'sh3_6',
+  'A single flat image looks like an abstract puzzle of gray shapes. Yet by mentally stacking hundreds of these flat planes together in sequence, the physician reconstructs the '
+  'full three-dimensional reality of human flesh and bone.'),
+ ('S07', 'Part 7', 'ill', 'sh3_7', 'Doctors do this every day, scrolling through slice after slice of a single knee until a hidden injury appears somewhere in the stack.'),
+ ('S08',
+  'Part 8',
+  'ill',
+  'sh3_8',
+  'In that clinical moment, the doctor is acting exactly like a higher-dimensional observer. They are taking lower-dimensional fragments and integrating them into a higher '
+  'physical truth.'),
+ ('S09',
+  'Part 9',
+  'ill',
+  'sh3_9',
+  'Now pause and consider what this implies about our own cosmic surroundings. If human engineers can map a three-dimensional organ by studying flat two-dimensional slices, could '
+  'our entire universe be a single three-dimensional slice of a grander structure?'),
+ ('S10', 'Part 10', 'ill', 'sh3_10', 'Nothing proves that it is, but the idea shows how a hidden dimension could sit in plain sight.'),
+ ('S11', 'Part 11', 'ill', 'sh3_11', 'What feels like total reality to our senses might simply be the page of a book we have not learned how to turn.'),
+ ('S12', 'Part 12', 'ill', 'sh3_12', 'Every scan in every hospital is a small reminder that flat slices can reveal a hidden whole. The full video follows this idea even further.')]

@@ -1,0 +1,39 @@
+{
+ "centre": "two projection layers (flat sheet, 3D model sheet) peel away to show the glowing 4D tesseract",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "chase",
+   "obj": "mv-slide-flat-sheet",
+   "dist": 800
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1337,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "glasses",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Wait!",
+    "shout": true
+   }
+  ]
+ }
+}

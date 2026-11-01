@@ -1,0 +1,46 @@
+{
+ "centre": "wooden apple gliding down a smooth dotted line toward the edge-on paper sheet",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "smooth descent",
+   "x": 1330,
+   "y": 260,
+   "to": [
+    1040,
+    300
+   ],
+   "word": "smooth descent"
+  }
+ ],
+ "motion": "path (apple descends), static ghost trail",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "countstars"
+  },
+  "ride": "mv-path-descend-apple",
+  "kind": "ride",
+  "x": 858,
+  "y": 252,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "So many...",
+    "shout": false
+   }
+  ]
+ }
+}

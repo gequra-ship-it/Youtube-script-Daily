@@ -1,0 +1,49 @@
+{
+ "centre": "person walking down a night street past a lamp, faint dashed ghost doorways floating unseen beside them",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "step",
+   "word": "walking",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Nothing here?",
+   "x": 590,
+   "y": 330,
+   "to": [
+    760,
+    420
+   ],
+   "word": "stumble"
+  }
+ ],
+ "motion": "walk person + rollby ball + popin ghost doors + lamp",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "x": 1660,
+  "y": 890,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

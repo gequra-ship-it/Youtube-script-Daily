@@ -1,0 +1,48 @@
+{
+ "centre": "a glowing pink brain inside a dark head in profile, straining beside three neat axis arrows and a tangled fourth",
+ "focus": [
+  775,
+  400,
+  1.6
+ ],
+ "focus_word": "human brain",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Which way?!",
+   "x": 860,
+   "y": 150,
+   "to": [
+    800,
+    285
+   ]
+  }
+ ],
+ "motion": "brain trembles with strain (core tremble); the tangled fourth axis wiggles; eye blinks",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-core-tremble-brain",
+  "kind": "ride",
+  "x": 547,
+  "y": 590,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Boom-cha!",
+    "shout": false
+   }
+  ]
+ }
+}

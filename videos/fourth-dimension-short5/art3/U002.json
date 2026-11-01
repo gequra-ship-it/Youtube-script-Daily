@@ -1,0 +1,61 @@
+{
+ "centre": "worried cute brain skidding into a brick wall that shakes, a loose brick drops",
+ "focus": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Ouch!",
+   "x": 300,
+   "y": 600,
+   "to": [
+    380,
+    720
+   ]
+  },
+  {
+   "type": "name",
+   "text": "Brick wall",
+   "x": 820,
+   "y": 440,
+   "to": [
+    820,
+    560
+   ],
+   "word": "brick wall"
+  }
+ ],
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-impact-star",
+   "h": 108
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 690,
+  "y": 868,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

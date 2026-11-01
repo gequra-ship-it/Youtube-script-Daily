@@ -1,0 +1,45 @@
+{
+ "centre": "a wooden cube landing on a sheet; a lifted can and pyramid show their flat circle and triangle footprints",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Footprint",
+   "x": 330,
+   "y": 845,
+   "to": [
+    480,
+    765
+   ],
+   "word": "footprint"
+  }
+ ],
+ "motion": "wooden box drops onto the sheet (prop); footprints static",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-wooden-box",
+  "kind": "ride",
+  "x": 1183,
+  "y": 745,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

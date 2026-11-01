@@ -1,0 +1,49 @@
+{
+ "centre": "one bright gold slice lifted out of a long row of translucent time slices, a person inside",
+ "focus": [
+  960,
+  430,
+  1.6
+ ],
+ "focus_word": "a single static slice",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "slice",
+   "x": 1260,
+   "y": 230,
+   "to": [
+    1030,
+    330
+   ],
+   "word": "slice"
+  }
+ ],
+ "motion": "the slice slides up out of the row (slide)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-slide-history-slice",
+  "kind": "ride",
+  "x": 837,
+  "y": 585,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "La la la~",
+    "shout": false
+   }
+  ]
+ }
+}

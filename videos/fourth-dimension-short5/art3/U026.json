@@ -1,0 +1,49 @@
+{
+ "centre": "a glowing balloon carrying a small cube rising from a planet toward a large tesseract gate in the sky",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Higher realms",
+   "x": 330,
+   "y": 760,
+   "to": [
+    450,
+    560
+   ],
+   "word": "higher realms"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-balloon"
+  },
+  "ride": "mv-ascend-balloon",
+  "kind": "ride",
+  "x": 540,
+  "y": 1257,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "glasses",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ]
+ }
+}

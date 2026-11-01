@@ -1,0 +1,49 @@
+{
+ "centre": "flat citizen with four arrows on the sheet, up and down crossed out",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Up? What?",
+   "x": 300,
+   "y": 720,
+   "to": [
+    500,
+    850
+   ]
+  }
+ ],
+ "motion": "citizen wiggles; ball bounces beside the sheet",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "bumped",
+   "obj": "mv-bouncing-ball",
+   "serious": false
+  },
+  "x": 898,
+  "y": 1284,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Boing!",
+    "shout": true
+   }
+  ]
+ }
+}

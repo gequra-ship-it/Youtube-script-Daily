@@ -1,0 +1,39 @@
+{
+ "centre": "thought cloud with a portal and an explosion crossed out",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "explosion",
+   "vol": 0.55
+  }
+ ],
+ "labels": [],
+ "motion": "explosion shakes; shard drops",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-shard",
+  "kind": "ride",
+  "x": 456,
+  "y": 1060,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

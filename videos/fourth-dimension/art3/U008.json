@@ -1,0 +1,38 @@
+{
+ "centre": "a staircase: a flat sheet on the low step, a cube in the middle, a faint higher shape on top; the route goes down first, then up",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [],
+ "motion": "route arrow draws itself (down, then up); a rubber ball bounces on the middle step",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "bumped",
+   "obj": "mv-bouncing-rubber-ball",
+   "serious": false
+  },
+  "x": 1274,
+  "y": 530,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Boing!",
+    "shout": true
+   }
+  ]
+ }
+}

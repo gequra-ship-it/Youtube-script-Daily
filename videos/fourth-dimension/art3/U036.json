@@ -1,0 +1,42 @@
+{
+ "centre": "teal sphere hovering in a dark room facing a standing person",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who are you?",
+   "x": 1250,
+   "y": 240,
+   "to": [
+    1250,
+    325
+   ]
+  }
+ ],
+ "motion": "sphere swell, dust mote floats, person breathes",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-core-swell-sphere",
+  "kind": "ride",
+  "x": 1468,
+  "y": 600,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
+}

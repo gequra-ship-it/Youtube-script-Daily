@@ -1,0 +1,55 @@
+{
+ "centre": "big atomic nucleus cluster with a vastly smaller glowing loop dot at the far right",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "smaller",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Nucleus",
+   "x": 560,
+   "y": 300,
+   "to": [
+    560,
+    470
+   ],
+   "word": "atomic nucleus"
+  }
+ ],
+ "motion": "heartbeat nucleus + rotor electron + popin tiny loop",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-loop-marker",
+   "h": 14
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1450,
+  "y": 527,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

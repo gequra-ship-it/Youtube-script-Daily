@@ -1,0 +1,45 @@
+{
+ "centre": "a calm, perfectly straight tesseract wireframe above a spirit level with a centred bubble",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Still straight",
+   "x": 820,
+   "y": 1080,
+   "to": [
+    700,
+    1220
+   ],
+   "word": "nothing is bending"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-tesseract-wireframe",
+  "kind": "ride",
+  "x": 239,
+  "y": 1033,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

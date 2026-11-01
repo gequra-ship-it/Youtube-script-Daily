@@ -1,0 +1,56 @@
+{
+ "centre": "a stone tablet carved with three axes inside a box-shaped boundary of thin lines, an ancient sage watching",
+ "focus": [
+  1250,
+  560,
+  1.6
+ ],
+ "focus_word": "three axes",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "thousands of years",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Three axes",
+   "x": 1000,
+   "y": 300,
+   "to": [
+    1250,
+    460
+   ],
+   "word": "three axes"
+  }
+ ],
+ "motion": "swell stone tablet + creep beetle + breathe sage",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-core-swell-stone-tablet",
+  "kind": "ride",
+  "x": 1378,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Doo-doo-doo~",
+    "shout": false
+   }
+  ]
+ }
+}

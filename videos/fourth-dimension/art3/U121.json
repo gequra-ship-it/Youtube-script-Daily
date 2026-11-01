@@ -1,0 +1,60 @@
+{
+ "centre": "a head-shaped machine with meshing gears pushing a pink fourth-axis arrow into a huge brick wall, tip crumpled",
+ "focus": [
+  1180,
+  500,
+  1.6
+ ],
+ "focus_word": "impenetrable evolutionary wall",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Ouch!",
+   "x": 1080,
+   "y": 360,
+   "to": [
+    1170,
+    480
+   ]
+  },
+  {
+   "type": "name",
+   "text": "Perpendicular axis",
+   "x": 1010,
+   "y": 620,
+   "to": [
+    1030,
+    505
+   ],
+   "word": "perpendicular axis"
+  }
+ ],
+ "motion": "gears mesh and turn opposite ways, the arrow skids into the wall and stops, a brick drops off",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-core-drop-brick",
+  "kind": "ride",
+  "x": 1221,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "hardhat",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Let me think.",
+    "shout": false
+   }
+  ]
+ }
+}

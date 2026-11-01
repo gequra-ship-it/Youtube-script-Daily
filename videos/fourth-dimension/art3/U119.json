@@ -1,0 +1,46 @@
+{
+ "centre": "a large clear eye whose neural pathways carry quick signals to a brain; a wireframe cube with three axes feeds it light",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "sensory organs",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Neural pathways",
+   "x": 1230,
+   "y": 680,
+   "to": [
+    1230,
+    600
+   ],
+   "word": "neural pathways"
+  }
+ ],
+ "motion": "eye pings, signals race along the nerves (dash, fast), brain beats",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "ride": "mv-core-ping-eye",
+  "kind": "ride",
+  "x": 1038,
+  "y": 417,
+  "s": 1.13,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "beret",
+   "lab"
+  ],
+  "says": []
+ }
+}

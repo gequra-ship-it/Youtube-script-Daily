@@ -1,0 +1,54 @@
+{
+ "centre": "glowing room corner where two walls and the floor meet, three right-angle marks",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "ninety-degree angles",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Corner",
+   "x": 300,
+   "y": 470,
+   "to": [
+    520,
+    600
+   ],
+   "word": "corner"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "knocked",
+   "obj": "mv-swing-lamp"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 713,
+  "y": 637,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   }
+  ]
+ }
+}

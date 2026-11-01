@@ -1,0 +1,50 @@
+{
+ "centre": "a grey stone statue hopping from one clock block to the next across empty gaps (the picture the narration rejects)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hop, hop...",
+   "x": 520,
+   "y": 260,
+   "to": [
+    330,
+    370
+   ]
+  }
+ ],
+ "motion": "the statue jumps block to block along an arc path (moving prop)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-stone-figure",
+  "kind": "ride",
+  "x": 196,
+  "y": 641,
+  "s": 1.0,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bunny",
+   "pocketwatch"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

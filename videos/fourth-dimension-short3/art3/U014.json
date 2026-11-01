@@ -1,0 +1,45 @@
+{
+ "centre": "doctor standing above a flat sheet of flat-world shapes, looking down",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who is up there?",
+   "x": 300,
+   "y": 1010,
+   "to": [
+    300,
+    1225
+   ]
+  }
+ ],
+ "motion": "lamp swings; doctor breathes and nods; citizens blink",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "scope",
+  "ride": "mv-swing-hanging-lamp",
+  "kind": "ride",
+  "x": 954,
+  "y": 600,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "doctor",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "I see it!",
+    "shout": false
+   }
+  ]
+ }
+}

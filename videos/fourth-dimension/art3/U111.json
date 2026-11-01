@@ -1,0 +1,39 @@
+{
+ "centre": "glowing pearl sphere at the crossing of three coloured axes with a mote roaming freely along a curved path",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "freely",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "motion": "core heartbeat sphere + path mote",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-sphere",
+  "kind": "ride",
+  "x": 1088,
+  "y": 630,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

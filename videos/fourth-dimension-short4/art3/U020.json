@@ -1,0 +1,48 @@
+{
+ "centre": "a glowing bead (consciousness) sliding along a wire laid over the life ribbon",
+ "focus": [
+  540,
+  1000,
+  1.5
+ ],
+ "focus_word": "bead on a wire",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Wheee!",
+   "x": 400,
+   "y": 1100,
+   "to": [
+    283,
+    1193
+   ]
+  }
+ ],
+ "motion": "bead slides up the wire",
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-path-glowing-bead",
+  "kind": "ride",
+  "x": 397,
+  "y": 1293,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "vr"
+  ],
+  "says": [
+   {
+    "text": "La la la~",
+    "shout": false
+   }
+  ]
+ }
+}

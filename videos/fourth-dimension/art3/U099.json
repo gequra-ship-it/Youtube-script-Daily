@@ -1,0 +1,53 @@
+{
+ "centre": "a thin silver wire winding across space with a glowing bead sliding along it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "bead",
+   "x": 300,
+   "y": 470,
+   "to": [
+    185,
+    650
+   ],
+   "word": "bead"
+  },
+  {
+   "type": "say",
+   "text": "Next stop!",
+   "x": 420,
+   "y": 820,
+   "to": [
+    200,
+    690
+   ]
+  }
+ ],
+ "motion": "the bead slides along the wire (path, moving prop)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "ride": "mv-path-bead",
+  "kind": "ride",
+  "x": 278,
+  "y": 720,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "backpack",
+   "vr"
+  ],
+  "says": []
+ }
+}

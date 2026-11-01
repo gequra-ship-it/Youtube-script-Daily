@@ -1,0 +1,44 @@
+{
+ "centre": "the wooden apple simply resting on a sheet of paper, magic hat unused",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Just an apple.",
+   "x": 1300,
+   "y": 400,
+   "to": [
+    1050,
+    520
+   ]
+  }
+ ],
+ "motion": "topple (magic rod falls over unused), heartbeat apple",
+ "frog": {
+  "moods": [
+   {
+    "mood": "starry"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-apple",
+  "kind": "ride",
+  "x": 1198,
+  "y": 760,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "wizard"
+  ],
+  "says": [
+   {
+    "text": "Wobbly...",
+    "shout": false
+   }
+  ]
+ }
+}

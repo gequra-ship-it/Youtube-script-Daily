@@ -1,0 +1,44 @@
+{
+ "centre": "tiny ant on the green hose, with a round cross-section inset where a second ant circles the hose",
+ "focus": [
+  1500,
+  260,
+  1.7
+ ],
+ "focus_word": "circular dimension",
+ "sfx": [
+  {
+   "name": "step",
+   "word": "crawls",
+   "vol": 0.45
+  }
+ ],
+ "labels": [],
+ "motion": "creep ant on hose + path ant around the cross-section",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-path-ant-circler",
+  "kind": "ride",
+  "x": 1419,
+  "y": 228,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "firefighter",
+   "pocketwatch"
+  ],
+  "says": [
+   {
+    "text": "Tick tock...",
+    "shout": false
+   }
+  ]
+ }
+}

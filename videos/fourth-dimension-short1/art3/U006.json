@@ -1,0 +1,56 @@
+{
+ "centre": "solid teal cube floating under a lamp with its flat shadow on the floor",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Shadow",
+   "x": 300,
+   "y": 1380,
+   "to": [
+    470,
+    1300
+   ],
+   "word": "shadow"
+  },
+  {
+   "type": "name",
+   "text": "Three-dimensional body",
+   "x": 600,
+   "y": 560,
+   "to": [
+    580,
+    740
+   ],
+   "word": "three-dimensional body"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-wobble-cube",
+  "kind": "ride",
+  "x": 744,
+  "y": 990,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

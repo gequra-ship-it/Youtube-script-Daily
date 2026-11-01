@@ -1,0 +1,70 @@
+{
+ "centre": "the tesseract shadow model: small cube inside a big cube, corners joined by eight slanted struts",
+ "focus": [
+  960,
+  460,
+  1.4
+ ],
+ "focus_word": "smaller cube",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Smaller cube",
+   "x": 560,
+   "y": 300,
+   "to": [
+    920,
+    440
+   ],
+   "word": "smaller cube"
+  },
+  {
+   "type": "name",
+   "text": "Larger cube",
+   "x": 1360,
+   "y": 250,
+   "to": [
+    944,
+    210
+   ],
+   "word": "larger cube"
+  },
+  {
+   "type": "name",
+   "text": "Slanted struts",
+   "x": 1380,
+   "y": 640,
+   "to": [
+    995,
+    652
+   ],
+   "word": "slanted struts"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-tesseract",
+  "kind": "ride",
+  "x": 1250,
+  "y": 722,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Wobbly...",
+    "shout": false
+   }
+  ]
+ }
+}

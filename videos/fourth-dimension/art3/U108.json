@@ -1,0 +1,26 @@
+{
+ "centre": "glowing bead sliding back and forth along a single thin gold line, arrows at both ends",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "forward",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Length",
+   "x": 960,
+   "y": 250,
+   "to": [
+    960,
+    500
+   ],
+   "word": "length"
+  }
+ ],
+ "motion": "path bead forward then backward along the line"
+}

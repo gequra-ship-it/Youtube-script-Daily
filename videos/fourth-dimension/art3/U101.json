@@ -1,0 +1,44 @@
+{
+ "centre": "glowing gold cube wireframe with faint dashed ghost cubes hidden behind a dark veil",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "4 DIMENSIONS",
+   "word": "four dimensions"
+  }
+ ],
+ "motion": "core swell cube + slide veil out revealing popin ghost cubes",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "slide",
+   "to": [
+    986,
+    481
+   ]
+  },
+  "kind": "bg",
+  "ride": null,
+  "x": 410,
+  "y": 265,
+  "s": 0.9,
+  "flip": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}
