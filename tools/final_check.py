@@ -23,6 +23,7 @@ def run(name, cmd):
 run('attachcheck', [sys.executable, f'{T}/attachcheck.py', SLUG])
 run('pivotlive', [sys.executable, f'{T}/pivotlive.py'])
 run('originlive', [sys.executable, f'{T}/originlive.py'])   # 2026-10-29: groups without data-pivot turn about their own centre (short3 black hole)
+run('armfix', [sys.executable, f'{T}/armfix.py', SLUG, '--check'])   # 2026-11-01: a raised human arm never bulges up (elbow above the shoulder-wrist line)
 run('variety', [sys.executable, f'{T}/variety_check.py', SLUG])   # 2026-10-31: the variety gate (frog acts / outfits / object kinds; moving-prop quota is a WARN line) — read its lines even when OK
 bd = json.load(open(f'{wdir()}/build/build_data.json')); n = len(bd['cuts'])
 miss = [c['id'] for c in bd['cuts'] if c.get('kind') != 'chalk' and not os.path.exists(f'{vdir(SLUG)}/art3/{c["id"]}.svg')]

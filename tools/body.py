@@ -42,6 +42,7 @@ P = {
 #  - upper arm (shoulder->elbow) is LONGER than the forearm (elbow->wrist); forearm + hand is about as long as the upper arm + 0.5 H.
 #  - shoulders 2 H wide for adults; the shoulder joint sits inside the torso outline, not at the neck or outside the body.
 #  - elbows only fold (0-140 deg), never bend backwards, never a kink with two elbows; the elbow is a smooth round joint.
+#  - an arm raised above the shoulder (|upper| > 100) curves DOWN: elbow low and out, forearm folds up and in (bend_dir is forced toward straight up; tools/armfix.py repairs and checks finished pictures).
 #  - legs: hip joint at mid-height of the figure (adult 3.75 H from the top of the head); knee halfway between hip and ankle.
 
 
@@ -64,6 +65,8 @@ def arm(sx, sy, H, upper=0, bend=15, bend_dir=1, name='arm', side='R', view='pal
     the hand is a simple round shape like the original pictures. fingers=True draws a hands.py hand (pointing, gripping a visible
     object, a waving close-up, a hand that is the subject of the sentence)."""
     p = P[kind]; bend = max(0.0, min(140.0, float(bend))); hand_tilt = max(-25, min(25, hand_tilt))
+    if bend > 0 and abs(upper) > 100:   # 2026-11-01 (miya): an arm raised above the shoulder keeps the ELBOW LOW and out and folds the forearm up and in (two raised arms = ヽOﾉ), never an elbow arching upward
+        bend_dir = 1 if upper > 0 else -1; bend = min(bend, 195 - abs(upper))
     Lu, Lf = p['upper'] * H, p['fore'] * H; w0, w1, w2 = p['arm_w'] * H, p['arm_w'] * 0.85 * H, p['wrist_w'] * H
     def mkhand(x, y, ang):
         if fingers:

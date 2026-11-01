@@ -8,7 +8,7 @@ import os, re, sys, json, html, shutil, subprocess, math, random
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 import numpy as np
-import palettes, labels_lib, caption_hl, frog, frog_rig, motions
+import scalefix, palettes, labels_lib, caption_hl, frog, frog_rig, motions
 SCENES = load_scenes()
 CFG = load_config()
 B = wdir() + '/build'
@@ -613,6 +613,8 @@ def is_speed(u, sc0):
     if 'speed' in sc0: return bool(sc0['speed'])
     return COSMIC and bool(SPEED_RE.search(u['text']))
 DRIFT = getattr(CFG, 'DRIFT', True)   # slow continuous camera move on every picture without a focus target (guideline 20-1)
+_af = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'armfix.py'), SLUG], capture_output=True, text=True)   # (2026-11-01 miya) a raised arm curves down (elbow low), repaired before anything reads the art
+print('armfix:', (_af.stdout.strip().splitlines() or [_af.stderr.strip()[-200:]])[-1])
 _ax = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'axisfix.py'), SLUG], capture_output=True, text=True)   # axis catalogue (2026-10-29): missing data-pivot written from the thing's name before anything reads the art
 print('axisfix:', (_ax.stdout.strip().splitlines() or [_ax.stderr.strip()[-200:]])[-1], '| problems:', [l for l in _ax.stdout.splitlines() if 'PROBLEM' in l][:6] if 'PROBLEM' in _ax.stdout else 'none')
 _gf = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'galaxyfix.py'), SLUG], capture_output=True, text=True)   # (2026-10-30 miya) tilted galaxies spin in their own plane about the centre axis (galaxyfix.py -> mv-disc-galaxy, motions 'disc')
@@ -944,10 +946,26 @@ for k, u in enumerate(units):
             at = dict(re.findall(r'(data-[a-z]+)="([^"]*)"', mt.group(0)))
             base = re.sub(r'-\d+$', '', cm.group(1)); at['_dep'] = JDEP.get(base, 0); JDEP[base] = at['_dep'] + 1   # depth = order of the link in its chain (outer first)
             JT.setdefault(cm.group(1), []).append(at)
+    _scn = []; _sc_seen = {}
+    for nm in re.findall(r'class="[^"]*\bmv (mv-[A-Za-z0-9-]+)', svg):   # balance scales (2026-11-01): classify the picture once, beam-only motion below
+        _k2 = _sc_seen.get(nm, 0); _sc_seen[nm] = _k2 + 1
+        if scalefix.is_scale(nm): _scn.append((nm, _k2))
+    SCP = scalefix.plan(svg, W, H, _scn) if _scn else {}
     for nm in re.findall(r'class="[^"]*\bmv (mv-[A-Za-z0-9-]+)', svg):
         kind, per = MV.get(nm[3:], MV.get(nm[3:].split('-')[0], ('pulse', .5))); kk = cnt.get(nm, 0); cnt[nm] = kk + 1
         if re.match(r'mv-glint-s\d', nm): kind, per = 'twinkle', {'1': 1.6, '2': 2.1, '3': 2.7}.get(nm[10:11], 2.0)   # cosmic star tiers (3-7)
         g = f'gsap.utils.toArray("#w{nn} .{nm}")[{kk}]'
+        _sp = SCP.get((nm, kk))
+        if _sp:   # only the beam turns about the hub, pans hang upright from the beam ends, hook / stand stay (guideline 4-1 balance scale)
+            _at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
+            _P = json.dumps({k2: _sp[k2] for k2 in ('cx', 'cy', 'beam', 'L', 'R', 'rl', 'rr')}, separators=(',', ':'))
+            try: _amp = float(_at.get('data-amp') or 7)
+            except ValueError: _amp = 7.0
+            try: _per = float(_at.get('data-per') or 3.2)
+            except ValueError: _per = 3.2
+            js.append(f'tl.set({g},{{}},{v0:.3f});miyaScaleP(tl,{g},{_P},{v0:.3f},{sp:.3f},{min(_amp, 12):.1f},{_per:.2f},{(kk * .21) % 1:.2f}); /*miyaPv( scale*/')
+            fxlib.LOG['scale'] = fxlib.LOG.get('scale', 0) + 1
+            continue
         if nm == 'mv-glint-core' or nm.startswith('mv-core-'):    # the round centre object: one of 13 motions, never the same twice in a row
             ct = nm[8:].split('-')[0] if nm.startswith('mv-core-') else motions.legacy_core_type(len(CORE_USED))
             _at = (JT.get(nm) or [{}])[0]; ct2 = motions.core_sanitize(ct, nm, keep=_at.get('data-keep') == '1')   # round 4: name-based sanity (tree sways from the base, no spinning clocks, no bouncing whales)
