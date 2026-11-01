@@ -26,12 +26,15 @@ JS = r'''
    if (g2) { const e = num(g2.getAttribute('data-pivot')); if (e.length !== 2 || e.some(isNaN)) return; E = e; two = true;
      const c = lastCircle(g2); if (!c) return; W = toFrame(g, c, +c.getAttribute('cx'), +c.getAttribute('cy'));
      mean = E; }
-   else { const c = lastCircle(g); if (!c) return; W = toFrame(g, c, +c.getAttribute('cx'), +c.getAttribute('cy'));
+   else { const c = lastCircle(g); W = c ? toFrame(g, c, +c.getAttribute('cx'), +c.getAttribute('cy')) : null;
      const p = g.querySelector('path'); if (!p) return;
      // the true wrist = middle of the round end cap of the silhouette (the hand circle sits a little beyond it along the tangent)
      const m = (p.getAttribute('d') || '').match(/L\s*(-?[\d.]+),(-?[\d.]+)\s+A\s*[\d.]+,[\d.]+\s+0\s+0\s+0\s+(-?[\d.]+),(-?[\d.]+)/);
-     if (m) W = toFrame(g, p, (+m[1] + +m[3]) / 2, (+m[2] + +m[4]) / 2); const L = p.getTotalLength(); let sx = 0, sy = 0, n = 0;
-     for (let i = 0; i <= 40; i++) { const q = p.getPointAtLength(L * i / 40), f = toFrame(g, p, q.x, q.y); sx += f[0]; sy += f[1]; n++; } mean = [sx / n, sy / n]; }
+     if (m) W = toFrame(g, p, (+m[1] + +m[3]) / 2, (+m[2] + +m[4]) / 2); if (!W) return; const L = p.getTotalLength(); let sx = 0, sy = 0, n = 0;
+     const ch = [W[0] - S[0], W[1] - S[1]], cl = Math.hypot(ch[0], ch[1]) || 1; let best = null, bd = -1;
+     for (let i = 0; i <= 80; i++) { const q = p.getPointAtLength(L * i / 80), f = toFrame(g, p, q.x, q.y); sx += f[0]; sy += f[1]; n++;
+       const dv = Math.abs(((f[0] - S[0]) * ch[1] - (f[1] - S[1]) * ch[0]) / cl); if (dv > bd) { bd = dv; best = f; } }
+     mean = best || [sx / n, sy / n]; }
    // body centre of a lone arm: the nearest ancestor that holds drawn shapes which are not arms (torso, head ...), centre x of their union box, in the arm's parent frame
    let fx = null; for (let A = g.parentNode; A && A !== svg && fx === null; A = A.parentNode) {
      const ks = [...A.children].filter(k => k !== g && !k.matches('defs,style,title,desc') && !(k.matches('[class*="mv-limb-"],[id^="mv-limb-"]') || k.querySelector('[class*="mv-limb-"],[id^="mv-limb-"]')));
@@ -77,8 +80,33 @@ def centres(arms):
 TOK = re.compile(r'([MLAZCQmlazcqHVhvSsTt])|(-?\d*\.?\d+(?:e-?\d+)?)')
 
 
+def abs_path(d):
+    """rewrite relative m / l / h / v (and H / V) of a path as absolute M / L; None for other relative commands"""
+    if not re.search(r'[mlhvHV]', d): return d
+    if re.search(r'[czsqtaCZSQTA]', d) and re.search(r'[czsqta]', d): return None
+    toks = re.findall(r'[MLHVZmlhvz]|-?\d*\.?\d+(?:e-?\d+)?', d); out = []; i = 0; cur = (0.0, 0.0); start = cur; c = None
+    while i < len(toks):
+        if re.match(r'[A-Za-z]', toks[i]):
+            c = toks[i]; i += 1
+            if c in 'Zz': out.append('Z'); cur = start
+            continue
+        if c in ('M', 'L', 'm', 'l'):
+            x, y = float(toks[i]), float(toks[i + 1]); i += 2
+            if c in 'ml': x, y = cur[0] + x, cur[1] + y
+            out.append(('M' if c in 'Mm' else 'L') + f'{x:.3f},{y:.3f}'); cur = (x, y)
+            if c in 'Mm': start = cur; c = 'L'
+        elif c in ('H', 'h'):
+            x = float(toks[i]); i += 1; x = cur[0] + x if c == 'h' else x; out.append(f'L{x:.3f},{cur[1]:.3f}'); cur = (x, cur[1])
+        elif c in ('V', 'v'):
+            y = float(toks[i]); i += 1; y = cur[1] + y if c == 'v' else y; out.append(f'L{cur[0]:.3f},{y:.3f}'); cur = (cur[0], y)
+        else: return None
+    return ' '.join(out)
+
+
 def map_path(d, f):
     """apply the point map f to an absolute M/L/A/C/Q path (A: only the end point); None when the path uses commands this cannot map"""
+    d = abs_path(d)
+    if d is None: return None
     out = []; cmd = None; buf = []
     need = {'M': 2, 'L': 2, 'A': 7, 'C': 6, 'Q': 4, 'Z': 0}
     def flush():
@@ -159,6 +187,7 @@ def map_elements(inner, f):
         out = out.replace(f'@@H{i}@@', body)
     for i, m in enumerate(plain):
         c = re.search(r'<(?:circle|ellipse)\b[^>]*?\bcx="(-?[\d.]+)"[^>]*?\bcy="(-?[\d.]+)"', m.group(0))
+        if not c: c = re.search(r'\bd="M\s*(-?[\d.]+)[ ,]\s*(-?[\d.]+)', m.group(0))
         if not c: bad.append(1); continue
         ax, ay = float(c.group(1)), float(c.group(2)); x, y = f(ax, ay); r = f.rot(ax, ay) if hasattr(f, 'rot') else 0
         out = out.replace(f'@@P{i}@@', re.sub(r'^<g((?: id="[^"]*")?)>', lambda mm: f'<g{mm.group(1)} transform="translate({x:.2f} {y:.2f}) rotate({r:.2f}) translate({-ax:.2f} {-ay:.2f})">', m.group(0)))
@@ -204,6 +233,57 @@ def make_map(S, Wr, ox, side, L, mirror, target=0.08):
     return f, A
 
 
+def make_bend(S, E, Wr, ox, L, target=0.09):
+    """bend map for a one-shape arm with a sharp or inward elbow: the old centre line is the polyline S->E->W (E = the farthest outline point, pulled to the middle of the arm), the new one a smooth
+    arc that bulges OUTWARD by target*L; every outline point keeps its arc position and its side offset, the part beyond the wrist turns with the end tangent."""
+    cx, cy = Wr[0] - S[0], Wr[1] - S[1]; ux, uy = cx / L, cy / L; nx, ny = -uy, ux
+    if nx * ox < 0: nx, ny = -nx, -ny
+    mx, my = (S[0] + Wr[0]) / 2, (S[1] + Wr[1]) / 2
+    dev = (E[0] - mx) * nx + (E[1] - my) * ny
+    E2 = (E[0] - nx * math.copysign(0.04 * L, dev), E[1] - ny * math.copysign(0.04 * L, dev))   # outline -> centre line
+    pts = [tuple(S), E2, tuple(Wr)]
+    seg = [(pts[i], pts[i + 1], math.hypot(pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1])) for i in range(2)]
+    T = seg[0][2] + seg[1][2]
+    C = (mx + nx * 2 * target * L, my + ny * 2 * target * L)
+    N = 80; bz = []
+    for i in range(N + 1):
+        t = i / N; a, b, c = (1 - t) ** 2, 2 * t * (1 - t), t * t
+        bz.append((a * S[0] + b * C[0] + c * Wr[0], a * S[1] + b * C[1] + c * Wr[1]))
+    cum = [0.0]
+    for i in range(N): cum.append(cum[-1] + math.hypot(bz[i + 1][0] - bz[i][0], bz[i + 1][1] - bz[i][1]))
+    BL = cum[-1]
+    def on_new(sig):
+        sig = min(max(sig, 0.0), 1.0); d = sig * BL; k = 1
+        while k < N and cum[k] < d: k += 1
+        k0 = k - 1; w = (d - cum[k0]) / max(cum[k] - cum[k0], 1e-9)
+        q = (bz[k0][0] + (bz[k][0] - bz[k0][0]) * w, bz[k0][1] + (bz[k][1] - bz[k0][1]) * w)
+        tx, ty = bz[k][0] - bz[k0][0], bz[k][1] - bz[k0][1]; tl = math.hypot(tx, ty) or 1
+        return q, (tx / tl, ty / tl)
+    def locate(x, y):
+        best = None; acc = 0.0
+        for (a, b, l) in seg:
+            dx, dy = b[0] - a[0], b[1] - a[1]; u = ((x - a[0]) * dx + (y - a[1]) * dy) / (l * l) if l > 0 else 0.0
+            raw = u; u = min(max(u, 0.0), 1.0); px, py = a[0] + dx * u, a[1] + dy * u; dist = math.hypot(x - px, y - py)
+            sd = ((x - px) * (-dy / l) + (y - py) * (dx / l)) if l > 0 else 0.0
+            if best is None or dist < best[0] - 1e-6: best = (dist, (acc + u * l) / T, sd, raw, (dx / l, dy / l) if l else (ux, uy))
+            acc += l
+        return best
+    q_end, t_end = on_new(1.0); lastd = seg[1]; od = ((lastd[1][0] - lastd[0][0]) / lastd[2], (lastd[1][1] - lastd[0][1]) / lastd[2])
+    rot_end = math.atan2(od[0] * t_end[1] - od[1] * t_end[0], od[0] * t_end[0] + od[1] * t_end[1]); ca, sa = math.cos(rot_end), math.sin(rot_end)
+    def f(x, y):
+        dist, sig, sd, raw, dirv = locate(x, y)
+        if (x - S[0]) * ux + (y - S[1]) * uy <= 0 and sig <= 0.0001: return x, y
+        if sig >= 0.9999 and raw > 1.0:                           # beyond the wrist: rigid turn about W
+            dx, dy = x - Wr[0], y - Wr[1]; return Wr[0] + ca * dx - sa * dy, Wr[1] + sa * dx + ca * dy
+        q, t = on_new(sig); return q[0] + sd * (-t[1]), q[1] + sd * t[0]
+    def rot(x, y):
+        dist, sig, sd, raw, dirv = locate(x, y)
+        if sig >= 0.9999 and raw > 1.0: return math.degrees(rot_end)
+        q, t = on_new(sig); return math.degrees(math.atan2(dirv[0] * t[1] - dirv[1] * t[0], dirv[0] * t[0] + dirv[1] * t[1]))
+    f.rot = rot
+    return f, 1.0
+
+
 def refl(P, u):
     ux, uy = u; L = math.hypot(ux, uy); ux, uy = ux / L, uy / L
     a, b, c, d = 2 * ux * ux - 1, 2 * ux * uy, 2 * ux * uy, 2 * uy * uy - 1
@@ -228,13 +308,16 @@ def arms_of(pg, svg_text, W, H):
 
 
 def bulge(S, Wr, B, ox):
-    """outward bulge of an arm as a fraction of the shoulder->wrist length (None: wrist not above the shoulder, or the chord is nearly horizontal)"""
+    """outward bulge of an arm as a fraction of the shoulder->wrist length, and True when the arm hangs below the shoulder
+    (None: the wrist is level with the shoulder, or the chord is nearly horizontal: out / in is ambiguous). Raised AND lowered arms bend outward like the frog's "(O)" (miya 2026-11-01)."""
     cx, cy = Wr[0] - S[0], Wr[1] - S[1]; L = math.hypot(cx, cy)
-    if L < 1 or (S[1] - Wr[1]) < 0.2 * L: return None
+    if L < 1: return None, False
+    hang = cy > 0
+    if not hang and (S[1] - Wr[1]) < 0.2 * L: return None, False
     nx, ny = -cy / L, cx / L
     if nx * ox < 0: nx, ny = -nx, -ny
-    if nx * ox < 0.35: return None
-    return ((B[0] - (S[0] + Wr[0]) / 2) * nx + (B[1] - (S[1] + Wr[1]) / 2) * ny) / L
+    if nx * ox < 0.35: return None, False
+    return ((B[0] - (S[0] + Wr[0]) / 2) * nx + (B[1] - (S[1] + Wr[1]) / 2) * ny) / L, hang
 
 
 MIN_OUT = 0.05      # a raised arm must bulge outward by at least this fraction of its length (frog arm: ~0.14)
@@ -267,20 +350,20 @@ def fix_text(t, arms, report=False):
         if cx0 is None: continue                                    # unpaired arm with no figure: the body centre is unknown, leave it
         ox = 1 if S[0] >= cx0 else -1; L = math.hypot(Wr[0] - S[0], Wr[1] - S[1])
         if a['two']:
-            sd = bulge(S, Wr, a['E'], ox)
-            if sd is None or sd >= -4 / max(L, 1): continue
+            sd, hang = bulge(S, Wr, a['E'], ox)
+            if sd is None or sd >= (-0.03 if hang else -4 / max(L, 1)): continue
             if report: fixed.append(a['id']); continue
             E = a['E']; g2id = re.sub(r'-1$', '-2', a['id']); sp = inner_span(t, g2id)
             if not sp: continue
             tr = refl(E, (E[0] - S[0], E[1] - S[1]))
             t = t[:sp[0]] + f'<g {tr}>' + t[sp[0]:sp[1]] + '</g>' + t[sp[1]:]
             fixed.append(a['id']); continue
-        sd = bulge(S, Wr, a['mean'], ox)
-        if sd is None or sd >= MIN_OUT: continue
+        sd, hang = bulge(S, Wr, a['mean'], ox)
+        if sd is None or sd >= (-0.03 if hang else MIN_OUT): continue
         if report: fixed.append(a['id']); continue
         sp = inner_span(t, a['id'])
         if not sp: continue
-        f, A = make_map(S, Wr, ox, sd, L, mirror=sd < -0.15)
+        f, A = make_bend(S, a['mean'], Wr, ox, L)
         nt = map_elements(t[sp[0]:sp[1]], f)
         if nt is None: print(f'   armfix: {a["id"]} has content that cannot be re-bent (left alone)'); continue
         t = t[:sp[0]] + nt + t[sp[1]:]; fixed.append(a['id'])
@@ -303,7 +386,7 @@ def main(slugs, report=False, check=False):
                 arms = arms_of(pg, t, W, H)
                 # fix from the last arm to the first so earlier spans stay valid (each fix only grows the text after its own start)
                 t2, fx = fix_text(t, arms, report=report or check)
-                for a in fx: print(f'{slug} {fn[:-4]} {a}: raised arm does not bulge outward' + ('' if (report or check) else ' -> re-bent'))
+                for a in fx: print(f'{slug} {fn[:-4]} {a}: arm does not bulge outward' + ('' if (report or check) else ' -> re-bent'))
                 total += len(fx)
                 if fx and not (report or check): open(f'{d}/{fn}', 'w', encoding='utf-8').write(t2)
         b.close()
