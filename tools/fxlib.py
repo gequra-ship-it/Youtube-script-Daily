@@ -36,6 +36,13 @@ REGISTER_JS = (
 LIB_JS = r"""
 // anime.js timelines are never played: a GSAP proxy tween seeks them (modifiers run on tl.seek(t,false)), so chunked / seeked renders stay exact
 function miyaAnime(tl,a,t0,L){var p={v:0};tl.fromTo(p,{v:0},{v:L,duration:L,ease:'none',immediateRender:false,modifiers:{v:function(x){a.seek(x*1000,true);return x;}}},t0);}
+// balance scale (2026-11-01): ONLY the beam (and what sits on it) turns about the hub; the pans hang from the beam ends and stay upright; the hook / stand never move.
+// The group's children are wrapped once at run time; a GSAP proxy tween (modifiers, seek-safe) writes plain transform attributes, so no hidden-picture origin is measured.
+function miyaScaleP(tl,g,P,t0,L,amp,per,ph){if(!g)return;if(!g.__sc){g.__sc=1;var k=[].slice.call(g.children),w=function(i){var e=k[i];if(!e)return null;var q=document.createElementNS('http://www.w3.org/2000/svg','g');g.insertBefore(q,e);q.appendChild(e);return q;};
+ g.__B=P.beam.map(w).filter(Boolean);g.__L=P.L.map(w).filter(Boolean);g.__R=P.R.map(w).filter(Boolean);}
+ var p={v:0},f=function(x){var a=amp*Math.PI/180*Math.sin(2*Math.PI*(x/per+(ph||0))),c=Math.cos(a),s=Math.sin(a),dl='translate('+(P.rl*(c-1)).toFixed(2)+' '+(P.rl*s).toFixed(2)+')',dr='translate('+(P.rr*(c-1)).toFixed(2)+' '+(P.rr*s).toFixed(2)+')',rt='rotate('+(a*180/Math.PI).toFixed(3)+' '+P.cx+' '+P.cy+')';
+  g.__B.forEach(function(e){e.setAttribute('transform',rt);});g.__L.forEach(function(e){e.setAttribute('transform',dl);});g.__R.forEach(function(e){e.setAttribute('transform',dr);});};
+ tl.fromTo(p,{v:0},{v:L,duration:L,ease:'none',immediateRender:false,modifiers:{v:function(x){f(x);return x;}}},t0);}
 // anime spring as a GSAP ease: returns {ease, dur} (seconds) for the given stiffness / damping
 function miyaSpring(k,d){var s=anime.spring({mass:1,stiffness:k,damping:d});return {ease:s.ease,dur:Math.max(.35,Math.min(2.4,s.duration/1000))};}
 function miyaSpringTo(tl,el,from,to,k,d,at){var s=miyaSpring(k,d);to.duration=s.dur;to.ease=s.ease;to.immediateRender=false;tl.fromTo(el,from,to,at);}
