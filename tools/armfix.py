@@ -35,13 +35,23 @@ JS = r'''
      for (let i = 0; i <= 80; i++) { const q = p.getPointAtLength(L * i / 80), f = toFrame(g, p, q.x, q.y); sx += f[0]; sy += f[1]; n++;
        const dv = Math.abs(((f[0] - S[0]) * ch[1] - (f[1] - S[1]) * ch[0]) / cl); if (dv > bd) { bd = dv; best = f; } }
      mean = best || [sx / n, sy / n]; }
+   // local sharpness of the outline in the middle of the arm (the round caps at the shoulder and the hand are skipped): the largest direction change over a window of ~5 % of the outline
+   let kinkA = 0, elbow = null; if (!two) { const p2 = g.querySelector('path'); if (p2) { const Lp = p2.getTotalLength(), N = 160, Q = [];
+     for (let i = 0; i < N; i++) { const q = p2.getPointAtLength(Lp * i / N); Q.push(toFrame(g, p2, q.x, q.y)); }
+     const ch2 = [W[0] - S[0], W[1] - S[1]], cl2 = Math.hypot(ch2[0], ch2[1]) || 1, k = 4; let bp = 0, ip = null, bn = 0, inn = null;
+     for (let i = 0; i < N; i++) { const a = Q[(i - k + N) % N], b = Q[i], c = Q[(i + k) % N]; const pr = ((b[0] - S[0]) * ch2[0] + (b[1] - S[1]) * ch2[1]) / (cl2 * cl2);
+       if (pr < 0.15 || pr > 0.85) continue; const v1 = [b[0] - a[0], b[1] - a[1]], v2 = [c[0] - b[0], c[1] - b[1]];
+       const an = Math.atan2(v1[0] * v2[1] - v1[1] * v2[0], v1[0] * v2[0] + v1[1] * v2[1]) * 180 / Math.PI;
+       if (an > bp) { bp = an; ip = i; } if (-an > bn) { bn = -an; inn = i; } }
+     kinkA = Math.max(bp, bn);
+     if (ip !== null && inn !== null) elbow = [(Q[ip][0] + Q[inn][0]) / 2, (Q[ip][1] + Q[inn][1]) / 2]; else if (ip !== null) elbow = Q[ip]; else if (inn !== null) elbow = Q[inn]; } }
    // body centre of a lone arm: the nearest ancestor that holds drawn shapes which are not arms (torso, head ...), centre x of their union box, in the arm's parent frame
    let fx = null; for (let A = g.parentNode; A && A !== svg && fx === null; A = A.parentNode) {
      const ks = [...A.children].filter(k => k !== g && !k.matches('defs,style,title,desc') && !(k.matches('[class*="mv-limb-"],[id^="mv-limb-"]') || k.querySelector('[class*="mv-limb-"],[id^="mv-limb-"]')));
      let x0 = 1e9, x1 = -1e9; ks.forEach(k => { try { const b = k.getBBox(); if (!(b.width + b.height)) return; const M = g.parentNode.getCTM().inverse().multiply(k.getCTM());
        [[b.x, b.y], [b.x + b.width, b.y + b.height]].forEach(([x, y]) => { const q = new DOMPoint(x, y).matrixTransform(M); x0 = Math.min(x0, q.x); x1 = Math.max(x1, q.x); }); } catch (e) {} });
      if (x1 > x0) fx = (x0 + x1) / 2; }
-   out.push({id: gid, S, W, E, mean, two, fx});
+   out.push({id: gid, S, W, E, mean, two, fx, kinkA, elbow, done: g.getAttribute('data-armfixed') === '1'});
  });
  return out;
 }
@@ -159,6 +169,19 @@ def map_elements(inner, f):
             (a, b), (c, d2) = f(v[0], v[1]), f(v[2], v[3])
             for k, val in zip(('x1', 'y1', 'x2', 'y2'), (a, b, c, d2)): s = rep_attr(s, k, val)
             return s
+        if tag == 'rect':
+            v = [num(s, k) for k in ('x', 'y', 'width', 'height')]
+            if None in v: bad.append(1); return s
+            x, y, w_, h_ = v; pts = [f(x, y), f(x + w_, y), f(x + w_, y + h_), f(x, y + h_)]
+            rest = re.sub(r'\s(?:x|y|width|height|rx|ry)="[^"]*"', '', s[len('<rect'):]).rstrip('/>').rstrip()
+            return '<path d="M' + ' L'.join(f'{a:.2f},{b:.2f}' for a, b in pts) + 'Z"' + rest + '/>'
+        if tag in ('polygon', 'polyline'):
+            m2 = re.search(r'\bpoints="([^"]*)"', s)
+            if not m2: bad.append(1); return s
+            nums = [float(z) for z in re.findall(r'-?\d*\.?\d+', m2.group(1))]
+            if len(nums) % 2: bad.append(1); return s
+            pts = [f(nums[i], nums[i + 1]) for i in range(0, len(nums), 2)]
+            return s[:m2.start(1)] + ' '.join(f'{a:.2f},{b:.2f}' for a, b in pts) + s[m2.end(1):]
         bad.append(1); return s
     # held items / hand parts drawn in a <g transform="translate(x y) rotate(a)"> (flag, pencil, tool): rigid, moved with f and turned with the local tangent
     held = []; plain = []
@@ -174,7 +197,7 @@ def map_elements(inner, f):
             if k is None: break
             store.append(_Held(m, txt[m.start():k])); res.append(txt[pos:m.start()] + f'@@{tag}{len(store) - 1}@@'); pos = k
         return ''.join(res) + txt[pos:]
-    held_rx = re.compile(r'<g((?: id="[^"]*")?) transform="translate\((-?[\d.]+)[ ,](-?[\d.]+)\)(?: rotate\((-?[\d.]+)\))?(?: scale\(([-\d.]+)\))?">')
+    held_rx = re.compile(r'<g((?: id="[^"]*")?) transform="translate\((-?[\d.]+)[ ,](-?[\d.]+)\)(?: rotate\((-?[\d.]+)\))?(?: scale\(([-\d.]+)\))?( translate\(-?[\d.]+[ ,]-?[\d.]+\))?">')
     plain_rx = re.compile(r'<g(?: id="[^"]*")?>')
     inner2 = balanced(inner, held_rx, held, 'H')
     inner2 = balanced(inner2, plain_rx, plain, 'P')   # a plain group (glove, mitten, pencil): moved rigidly about its first round shape
@@ -182,7 +205,7 @@ def map_elements(inner, f):
     if '<g' in re.sub(r'^\s*<g transform="matrix\([^"]*\)">', '', inner2): bad.append(1)   # other nested groups
     for i, m in enumerate(held):
         x0, y0 = float(m.group(2)), float(m.group(3)); x, y = f(x0, y0); r = float(m.group(4) or 0) + (f.rot(x0, y0) if hasattr(f, 'rot') else 0)
-        sc = f' scale({m.group(5)})' if m.group(5) else ''
+        sc = (f' scale({m.group(5)})' if m.group(5) else '') + (m.group(6) or '')
         body = m.group(0); body = re.sub(r'^<g((?: id="[^"]*")?) transform="[^"]*">', lambda mm: f'<g{mm.group(1)} transform="translate({x:.2f} {y:.2f}) rotate({r:.2f}){sc}">', body)
         out = out.replace(f'@@H{i}@@', body)
     for i, m in enumerate(plain):
@@ -233,17 +256,32 @@ def make_map(S, Wr, ox, side, L, mirror, target=0.08):
     return f, A
 
 
-def make_bend(S, E, Wr, ox, L, target=0.09):
+def kink(S, E, Wr):
+    """turn angle (degrees) of the centre line S->E->W at the elbow estimate E; a smooth outward arc of 0.09 length is about 20, a sharp elbow 40 and more"""
+    v1 = (E[0] - S[0], E[1] - S[1]); v2 = (Wr[0] - E[0], Wr[1] - E[1])
+    return math.degrees(math.atan2(abs(v1[0] * v2[1] - v1[1] * v2[0]), v1[0] * v2[0] + v1[1] * v2[1]))
+
+
+KINK = 14.0      # a one-shape arm whose outline turns more than this degrees within ~5 % of its length (a sharp elbow) is redrawn as a smooth arc (frog arm / miya's "1번")
+
+
+def make_bend(S, E, Wr, ox, L, target=0.09, down=False, centred=False):
     """bend map for a one-shape arm with a sharp or inward elbow: the old centre line is the polyline S->E->W (E = the farthest outline point, pulled to the middle of the arm), the new one a smooth
     arc that bulges OUTWARD by target*L; every outline point keeps its arc position and its side offset, the part beyond the wrist turns with the end tangent."""
     cx, cy = Wr[0] - S[0], Wr[1] - S[1]; ux, uy = cx / L, cy / L; nx, ny = -uy, ux
-    if nx * ox < 0: nx, ny = -nx, -ny
+    if down:
+        if ny < 0: nx, ny = -nx, -ny                                   # a nearly horizontal arm: the elbow stays low
+    elif nx * ox < 0: nx, ny = -nx, -ny
     mx, my = (S[0] + Wr[0]) / 2, (S[1] + Wr[1]) / 2
     dev = (E[0] - mx) * nx + (E[1] - my) * ny
-    E2 = (E[0] - nx * math.copysign(0.04 * L, dev), E[1] - ny * math.copysign(0.04 * L, dev))   # outline -> centre line
-    pts = [tuple(S), E2, tuple(Wr)]
-    seg = [(pts[i], pts[i + 1], math.hypot(pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1])) for i in range(2)]
-    T = seg[0][2] + seg[1][2]
+    E2 = tuple(E) if centred else (E[0] - nx * math.copysign(0.04 * L, dev), E[1] - ny * math.copysign(0.04 * L, dev))   # outline -> centre line
+    C0 = (2 * E2[0] - (S[0] + Wr[0]) / 2, 2 * E2[1] - (S[1] + Wr[1]) / 2)           # the old centre line: a smooth curve through S, E, W (a polyline would keep the sharp corner)
+    pts = []
+    for i in range(49):
+        t = i / 48; a_, b_, c_ = (1 - t) ** 2, 2 * t * (1 - t), t * t
+        pts.append((a_ * S[0] + b_ * C0[0] + c_ * Wr[0], a_ * S[1] + b_ * C0[1] + c_ * Wr[1]))
+    seg = [(pts[i], pts[i + 1], max(math.hypot(pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1]), 1e-6)) for i in range(48)]
+    T = sum(sg[2] for sg in seg)
     C = (mx + nx * 2 * target * L, my + ny * 2 * target * L)
     N = 80; bz = []
     for i in range(N + 1):
@@ -268,7 +306,7 @@ def make_bend(S, E, Wr, ox, L, target=0.09):
             if best is None or dist < best[0] - 1e-6: best = (dist, (acc + u * l) / T, sd, raw, (dx / l, dy / l) if l else (ux, uy))
             acc += l
         return best
-    q_end, t_end = on_new(1.0); lastd = seg[1]; od = ((lastd[1][0] - lastd[0][0]) / lastd[2], (lastd[1][1] - lastd[0][1]) / lastd[2])
+    q_end, t_end = on_new(1.0); lastd = seg[-1]; od = ((lastd[1][0] - lastd[0][0]) / lastd[2], (lastd[1][1] - lastd[0][1]) / lastd[2])
     rot_end = math.atan2(od[0] * t_end[1] - od[1] * t_end[0], od[0] * t_end[0] + od[1] * t_end[1]); ca, sa = math.cos(rot_end), math.sin(rot_end)
     def f(x, y):
         dist, sig, sd, raw, dirv = locate(x, y)
@@ -280,8 +318,30 @@ def make_bend(S, E, Wr, ox, L, target=0.09):
         dist, sig, sd, raw, dirv = locate(x, y)
         if sig >= 0.9999 and raw > 1.0: return math.degrees(rot_end)
         q, t = on_new(sig); return math.degrees(math.atan2(dirv[0] * t[1] - dirv[1] * t[0], dirv[0] * t[0] + dirv[1] * t[1]))
-    f.rot = rot
+    f.rot = rot; f.on_new = on_new
     return f, 1.0
+
+
+def new_silhouette(d0, S, Wr, f):
+    """a smooth tapered silhouette along the new centre line (round caps like the old one): the outline of the old arm had its corner at the elbow, which no bend map removes.
+    d0 = the old silhouette path (M, L..., A r r 0 f f, L..., A r r 0 f f, Z); None when it does not look like that"""
+    caps = re.findall(r'A\s*([\d.]+)[ ,]([\d.]+)\s+(-?[\d.]+)\s+(\d)\s+(\d)\s+(-?[\d.]+)[ ,](-?[\d.]+)', d0)
+    m0 = re.match(r'\s*M\s*(-?[\d.]+)[ ,]\s*(-?[\d.]+)', d0)
+    if len(caps) != 2 or not m0 or not hasattr(f, 'on_new'): return None
+    rw, rs = float(caps[0][0]), float(caps[1][0]); P0 = (float(m0.group(1)), float(m0.group(2)))
+    ux, uy = Wr[0] - S[0], Wr[1] - S[1]; Lc = math.hypot(ux, uy) or 1.0; nl = (-uy / Lc, ux / Lc)
+    dt = (P0[0] - S[0]) * nl[0] + (P0[1] - S[1]) * nl[1]
+    if abs(dt) < 1e-6: return None
+    s1 = 1.0 if dt > 0 else -1.0; N = 28; e1 = []; e2 = []
+    for i in range(N + 1):
+        sg = i / N; q, t = f.on_new(sg); n = (-t[1], t[0]); w = rs + (rw - rs) * sg
+        e1.append((q[0] + s1 * w * n[0], q[1] + s1 * w * n[1])); e2.append((q[0] - s1 * w * n[0], q[1] - s1 * w * n[1]))
+    # the left normal of the old chord and of the new curve point the same way (the arc is shallow), so edge 1 stays on its side
+    fw, fs = caps[0][3:5], caps[1][3:5]
+    out = f'M{e1[0][0]:.2f},{e1[0][1]:.2f} ' + ' '.join(f'L{x:.2f},{y:.2f}' for x, y in e1[1:])
+    out += f' A{rw:.2f},{rw:.2f} 0 {fw[0]} {fw[1]} {e2[-1][0]:.2f},{e2[-1][1]:.2f} ' + ' '.join(f'L{x:.2f},{y:.2f}' for x, y in reversed(e2[:-1]))
+    out += f' A{rs:.2f},{rs:.2f} 0 {fs[0]} {fs[1]} {e1[0][0]:.2f},{e1[0][1]:.2f}Z'
+    return out
 
 
 def refl(P, u):
@@ -346,6 +406,7 @@ def fix_text(t, arms, report=False):
     fixed = []; cen = centres(arms)
     # work from the last arm to the first so earlier spans stay valid
     for a in reversed(arms):
+        if a.get('done'): continue
         S, Wr = a['S'], a['W']; cx0 = cen.get(a['id'])
         if cx0 is None: continue                                    # unpaired arm with no figure: the body centre is unknown, leave it
         ox = 1 if S[0] >= cx0 else -1; L = math.hypot(Wr[0] - S[0], Wr[1] - S[1])
@@ -359,14 +420,20 @@ def fix_text(t, arms, report=False):
             t = t[:sp[0]] + f'<g {tr}>' + t[sp[0]:sp[1]] + '</g>' + t[sp[1]:]
             fixed.append(a['id']); continue
         sd, hang = bulge(S, Wr, a['mean'], ox)
-        if sd is None or sd >= (-0.03 if hang else MIN_OUT): continue
+        kk = a.get('kinkA', 0.0) if L > 20 else 0.0
+        if not ((sd is not None and sd < (-0.03 if hang else MIN_OUT)) or kk > KINK): continue
         if report: fixed.append(a['id']); continue
         sp = inner_span(t, a['id'])
         if not sp: continue
-        f, A = make_bend(S, a['mean'], Wr, ox, L)
+        f, A = make_bend(S, (a.get('elbow') if kk > KINK and a.get('elbow') else a['mean']), Wr, ox, L, target=(min(max(sd, 0.07), 0.12) if (sd is not None and sd > 0) else 0.09), down=sd is None, centred=bool(kk > KINK and a.get('elbow')))
         nt = map_elements(t[sp[0]:sp[1]], f)
+        if nt is not None:
+            md = re.search(r'<path\b[^>]*?\bd="([^"]*)"', t[sp[0]:sp[1]]); mn = re.search(r'<path\b[^>]*?\bd="([^"]*)"', nt)
+            if md and mn:
+                sil = new_silhouette(md.group(1), S, Wr, f)
+                if sil: nt = nt[:mn.start(1)] + sil + nt[mn.end(1):]
         if nt is None: print(f'   armfix: {a["id"]} has content that cannot be re-bent (left alone)'); continue
-        t = t[:sp[0]] + nt + t[sp[1]:]; fixed.append(a['id'])
+        t = t[:sp[0] - 1] + ' data-armfixed="1"' + t[sp[0] - 1:sp[0]] + nt + t[sp[1]:]; fixed.append(a['id'])      # marked: a deliberate fold (hand to chin, held item) is not re-bent again and again
     fixed.reverse(); return t, fixed
 
 
