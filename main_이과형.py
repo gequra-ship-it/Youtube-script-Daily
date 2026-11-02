@@ -201,7 +201,7 @@ def log_word_count(script_text, low, high):
     elif high and words > high:
         print(f"⚠️ [1부] 영어 단어 수 {words}개: 목표 상한 {high}단어를 넘었습니다.", flush=True)
     else:
-        print(f"📊 [1부] 영어 단어 수 {words}개 (Kokoro 약 163단어/분 기준 약 {words/163:.1f}분)", flush=True)
+        print(f"📊 [1부] 영어 단어 수 {words}개 (Kokoro 남성 약 145단어/분 기준 약 {words/145:.1f}분)", flush=True)
 
 def create_ai_studio_script(youtube_title, transcript_text):
     print("🤖 제미나이 영어 내레이션 대본 기획 시작...", flush=True)
@@ -230,7 +230,7 @@ def create_ai_studio_script(youtube_title, transcript_text):
 
 [작성 규칙 - 지침서 기준, 절대 어기지 마!]:
 1. **언어**: 영상에 들리고 보이는 것은 전부 영어야. [1부]는 영어 내레이션만 쓰고 한글, 이모지, 괄호 연출 메모, 타임코드, 장면 번호를 절대 넣지 마(TTS에 그대로 붙여 넣을 글이야). 원본이 한국어·일본어여도 자연스러운 영어로 옮겨 써. 숫자·단위·날짜는 영어 표기(예: "2.461 billion years ago", "380,000 km").
-2. **분량**: [1부] 영어 단어 수는 **약 2,200단어(허용 2,000~2,300단어)**로 맞춰. (Kokoro TTS가 분당 약 163단어로 읽고 장면 간격·여백이 더해져 영상 약 13~15분 이내가 돼. 15분을 넘기면 안 돼.) 2,000단어에 못 미치면 구체적인 장면 묘사, 원리 설명, 일상 비유, **원본에 있는 사례**로 보강하고, 2,300단어를 넘으면 반복과 곁가지를 덜어내. 원본 자막이 있으면 원본의 디테일과 예시를 최대한 살려.
+2. **분량**: [1부] 영어 단어 수는 **약 2,050단어(허용 1,900~2,200단어)**로 맞춰. (Kokoro 남성 목소리가 분당 약 145단어로 읽고 장면 간격·여백이 더해져 영상 약 13~15분 이내가 돼. 15분을 넘기면 안 돼.) 1,900단어에 못 미치면 구체적인 장면 묘사, 원리 설명, 일상 비유, **원본에 있는 사례**로 보강하고, 2,200단어를 넘으면 반복과 곁가지를 덜어내. 원본 자막이 있으면 원본의 디테일과 예시를 최대한 살려.
 3. **문단 = 장면 하나**: [1부]는 문단마다 빈 줄로 구분해. 한 문단은 같은 장소·같은 생각을 다루는 장면 하나이고 **약 60~110단어(문장 4~7개, 약 25~40초)**로 써. 장면이 바뀔 때(장소·시대·예시·질문이 바뀔 때)만 문단을 나눠. 숫자 비교가 중심인 문단은 그 숫자들을 한 문단에 모아(영상에서 데이터 카드 한 장이 돼). 문장은 짧게(평균 15단어 안팎), 평서문과 의문문을 섞어.
 4. **말투**: 한 사람에게 이야기하듯 따뜻하고 공손한 대화체. 시청자를 "you"로 부르고 축약형(it's, don't)을 써도 돼. 수사 의문문은 영상 전체에서 8~18개.
 5. **구성**: ① 처음 60초 훅은 일상적인 감각("Take a look at your fingernails.") / 의외의 숫자나 사실 / 뒤집기 / 핵심 질문 / 출발 선언 중에서 골라 시작해. ② 본문은 구체적인 장면 묘사로 열고, 원리를 설명하고, 일상 비유를 들어. ③ 도입과 결말에 현대인의 일상 장면을 넣어. ④ 결말은 시청자의 현재로 돌아와 감성적으로 정리하고, 마지막은 주제의 여운을 남기는 한두 문장으로 끝내고, 구독·좋아요 요청은 쓰지 마(영상 끝에 고정 아웃트로가 따로 붙어서 중복돼). '서재(library)'라는 표현과 원본 채널 이름은 절대 쓰지 마.
@@ -298,14 +298,14 @@ def create_ai_studio_script(youtube_title, transcript_text):
             
             if status == 'SUCCESS':
                 print("✅ 대본 생성 성공!", flush=True)
-                log_word_count(text, 2000, 2300)
+                log_word_count(text, 1900, 2200)
                 log_hook_score(text)
                 words = count_narration_words(text) or 0
                 if best_text is None or abs(words - 2150) < abs(best_words - 2150):
                     best_text, best_words = text, words
-                if (words < 2000 or words > 2300) and short_tries < 3 and attempt < max_retries - 1:
+                if (words < 1900 or words > 2200) and short_tries < 3 and attempt < max_retries - 1:
                     short_tries += 1
-                    print(f"🔁 분량 범위(2,000~2,300) 밖({words}단어): 재생성합니다 ({short_tries}/3).", flush=True)
+                    print(f"🔁 분량 범위(1,900~2,200) 밖({words}단어): 재생성합니다 ({short_tries}/3).", flush=True)
                     continue
                 return best_text
             else:
