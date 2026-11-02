@@ -905,8 +905,9 @@ def fx_js(nn, kind, v0, t1, H, flash_t=None, W=1920, wind=1, travel=0):
         P = PARTICLES[kind]
         for i in range(P['n']):
             per = P['per'][0] + (i * .7) % P['per'][1]; fr = (i * .618) % 1; S = f'"#{I}p{i}"'
-            dy = P['dy'] * H; dx = P['dx'] * W * ((-1) ** i if kind in ('pollen', 'spores', 'plankton', 'fireflies', 'germs') else ds)
-            x0 = -W * .5 * ds if abs(P['dx']) >= 1 else 0   # cross-frame travellers start half a frame behind
+            dl = 1 if kind in CREATURE_ROWS else ds   # (2026-11-02 miya: background fish swam backwards) fish/birds/bats sit inside a mirrored <g> when the travel is left, so their x tween runs in the MIRRORED space: always +x there
+            dy = P['dy'] * H; dx = P['dx'] * W * ((-1) ** i if kind in ('pollen', 'spores', 'plankton', 'fireflies', 'germs') else dl)
+            x0 = -W * .5 * dl if abs(P['dx']) >= 1 else 0   # cross-frame travellers start half a frame behind
             if P['dy'] or P['dx']:   # each piece is already fr of the way along at the cut (no empty sky), then repeats full passes until the cut ends
                 op1 = f',opacity:{P["op"] * (1 - fr):.2f}' if P['fade'] else ''; opE = ',opacity:0' if P['fade'] else ''
                 rot1 = f',rotation:{P["spin"] * (-1 if i % 2 else 1) * fr:.0f}' if P['spin'] else ''; rotE = f',rotation:{P["spin"] * (-1 if i % 2 else 1)}' if P['spin'] else ''
