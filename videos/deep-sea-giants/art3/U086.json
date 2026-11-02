@@ -1,0 +1,47 @@
+{
+ "centre": "a swamp forest with an enormous dragonfly hovering and a giant millipede crawling over a log",
+ "focus": null,
+ "focus_word": "dragonflies",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Giant millipede",
+   "x": 900,
+   "y": 640,
+   "to": [
+    900,
+    730
+   ],
+   "word": "giant millipedes"
+  }
+ ],
+ "light": "left",
+ "motion": "dragonfly hovers with wing joints, millipede creeps, ferns sway",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 461
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 420,
+  "s": 0.85,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

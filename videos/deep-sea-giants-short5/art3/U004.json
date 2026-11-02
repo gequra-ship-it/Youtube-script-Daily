@@ -1,0 +1,47 @@
+{
+ "centre": "a cross-section of the ocean from turquoise to black: a yellow submersible descends toward a colossal squid, giant isopod and spider crab at the bottom",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Big is normal",
+   "x": 300,
+   "y": 1170,
+   "to": [
+    300,
+    1320
+   ],
+   "word": "gigantism"
+  }
+ ],
+ "motion": "submersible descends through the depth bands (camera follows), squid floats, crab and isopod idle",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-descend-submersible",
+  "kind": "ride",
+  "x": 594,
+  "y": 448,
+  "s": 1.44,
+  "flip": 1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "centre": "colossal squid hanging calmly with enormous round eyes while a small fish swims by",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Colossal squid",
+   "x": 800,
+   "y": 420,
+   "to": [
+    620,
+    560
+   ],
+   "word": "colossal squid"
+  }
+ ],
+ "spot": true,
+ "motion": "squid hovers (no chase); a tiny fish passes unbothered",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 820,
+  "y": 1280,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "says": [],
+  "bside": -1
+ }
+}

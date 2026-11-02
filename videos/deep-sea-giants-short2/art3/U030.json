@@ -1,0 +1,45 @@
+{
+ "centre": "a tiny ship at the surface lowers a small submersible on a long cable into the dark depths",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Too deep!",
+   "x": 800,
+   "y": 640,
+   "to": [
+    560,
+    700
+   ],
+   "word": "difficult"
+  }
+ ],
+ "motion": "the submersible sinks slowly down its tether (very deep, hard to study); the cable draws itself; ship bobs",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "write",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-sink-submersible",
+  "kind": "ride",
+  "x": 680,
+  "y": 763,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Noted!",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "centre": "split view: on the sunny coastal side a minnow swims at a speck-sized amphipod; on the dark abyssal side a giant amphipod lies as long as a trout",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Minnow",
+   "x": 330,
+   "y": 330,
+   "to": [
+    340,
+    465
+   ],
+   "word": "minnow"
+  },
+  {
+   "type": "name",
+   "text": "Trout",
+   "x": 1440,
+   "y": 200,
+   "to": [
+    1440,
+    320
+   ],
+   "word": "trout"
+  },
+  {
+   "type": "say",
+   "text": "Snack time!",
+   "x": 560,
+   "y": 600,
+   "to": [
+    372,
+    470
+   ],
+   "word": "swallowed"
+  }
+ ],
+ "motion": "minnow swims toward the tiny amphipod (swim); the giant amphipod wags beside the trout"
+}

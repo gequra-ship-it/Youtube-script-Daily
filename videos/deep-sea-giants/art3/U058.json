@@ -1,0 +1,54 @@
+{
+ "centre": "a cell on a microscope counting grid slowly pinching in two; a metabolic gauge needle drops toward the low end",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Cells",
+   "x": 1270,
+   "y": 230,
+   "to": [
+    1060,
+    380
+   ],
+   "word": "cells"
+  }
+ ],
+ "track": false,
+ "motion": "the cell morphs slowly into two lobes while the nuclei drift apart (leisurely division); the gauge needle hangs low and wavers; a new small cell pops in at the end",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-new-cell",
+   "h": 92
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1610,
+  "y": 686,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

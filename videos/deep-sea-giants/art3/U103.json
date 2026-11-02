@@ -1,0 +1,49 @@
+{
+ "centre": "a tiny snail on a pebble looking up at a huge giant isopod looming in the dark",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Why not me?",
+   "x": 900,
+   "y": 470,
+   "to": [
+    640,
+    715
+   ],
+   "word": "everyone"
+  }
+ ],
+ "motion": "snail nods looking up (the question), thought dots rise",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 1660,
+  "y": 890,
+  "s": 0.8,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

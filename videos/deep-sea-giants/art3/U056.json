@@ -1,0 +1,49 @@
+{
+ "centre": "a balance scale on the seafloor weighing several factors (cold, slow clock, oxygen, pressure) against one giant isopod",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "It's complicated!",
+   "x": 1480,
+   "y": 400,
+   "to": [
+    1365,
+    515
+   ],
+   "word": "no single one"
+  }
+ ],
+ "motion": "the beam rocks gently (tilt) while the pans stay upright: weighing several factors together",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 1660,
+  "y": 890,
+  "s": 0.8,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

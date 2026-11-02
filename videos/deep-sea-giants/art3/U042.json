@@ -1,0 +1,44 @@
+{
+ "centre": "isopod, amphipod, colossal squid and spider crab from all sides drift toward one dark glowing pit in the abyss: the same giant destiny",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Why us?",
+   "x": 1520,
+   "y": 170,
+   "to": [
+    1395,
+    315
+   ],
+   "word": "destiny"
+  }
+ ],
+ "motion": "four unrelated giants are pulled toward the same abyss pit (magnet x4)",
+ "attractor": [
+  960,
+  800
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 540,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
+}

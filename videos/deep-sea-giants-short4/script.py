@@ -1,0 +1,57 @@
+# -*- coding: utf-8 -*-
+# deep-sea-giants-short4 (Miya's Note). Script from miya 2026-11-02 (dated 2026-10-14); fact-checked per guideline 12-1 (see script-check.md).
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh4_1',
+  'Take a submarine without a thick hull down four thousand meters, and it would crumple like an empty soda can in an instant. So how do animals live down there without being '
+  'crushed?'),
+ ('S02',
+  'Part 2',
+  'ill',
+  'sh4_2',
+  'First, the numbers. At sea level, the air presses on your skin at one atmosphere. For every ten meters you travel down, the weight of the water adds another full atmosphere.'),
+ ('S03', 'Part 3', 'ill', 'sh4_3', 'At four thousand meters, the pressure is hundreds of times greater than at the surface.'),
+ ('S04',
+  'Part 4',
+  'ill',
+  'sh4_4',
+  'And yet the animals drifting through the deep do not feel crushed at all. The first reason is simple. Their bodies are filled with fluids at the same pressure as the water '
+  'around them.'),
+ ('S05', 'Part 5', 'ill', 'sh4_5', 'They do not fight the ocean. They exist in harmony with its weight.'),
+ ('S06',
+  'Part 6',
+  'ill',
+  'sh4_6',
+  'But there is a deeper problem, at the level of molecules. Under extreme pressure, water is squeezed into the folds of proteins, and essential proteins can be pushed out of '
+  'shape. Cell membranes can warp, too.'),
+ ('S07',
+  'Part 7',
+  'ill',
+  'sh4_7',
+  'Deep-sea animals solved this with chemistry. Their cells hold high concentrations of special protective molecules called piezolytes. One of the best known is trimethylamine '
+  'N-oxide, or TMAO.'),
+ ('S08', 'Part 8', 'ill', 'sh4_8', 'This molecule binds to water and helps keep protein structures stable, so they do not distort under the pressure.'),
+ ('S09', 'Part 9', 'ill', 'sh4_9', 'You can think of it as microscopic scaffolding inside every cell, preserving the delicate architecture of life.'),
+ ('S10',
+  'Part 10',
+  'ill',
+  'sh4_10',
+  'Here is a twist. This is also one reason scientists struggle to study these animals. When a deep-sea creature is brought to the warm, low-pressure surface, its delicate body '
+  'is often damaged beyond repair.'),
+ ('S11', 'Part 11', 'ill', 'sh4_11', 'It was built for the weight of an ocean, and the surface is the strange place.'),
+ ('S12', 'Part 12', 'ill', 'sh4_12', 'Pressure is only one piece of why the deep sea breeds giants.'),
+ ('S13',
+  'Part 13',
+  'ill',
+  'sh4_13',
+  'Cold temperatures, slow growth, efficient metabolism and oxygen-rich water may all play a part, and scientists describe these as hypotheses that may work together rather than '
+  'a single proven cause.'),
+ ('S14',
+  'Part 14',
+  'ill',
+  'sh4_14',
+  'But it is humbling to think about. A giant isopod, about forty centimeters long, crawls across the mud under a weight that would flatten a submarine, and it is perfectly at '
+  'home.'),
+ ('S15', 'Part 15', 'ill', 'sh4_15', 'Life on Earth does not merely endure the darkness and the pressure. It turns them into a quiet sanctuary.'),
+ ('S16', 'Part 16', 'ill', 'sh4_16', 'The full video follows this idea even further.')]

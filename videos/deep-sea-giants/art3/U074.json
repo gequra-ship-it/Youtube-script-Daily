@@ -1,0 +1,50 @@
+{
+ "centre": "a sea-floor chart with three whale-fall marks far apart joined by a dashed route, and a clock",
+ "focus": [
+  900,
+  450,
+  1.0
+ ],
+ "focus_word": "miles apart",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Whale fall",
+   "x": 380,
+   "y": 820,
+   "to": [
+    380,
+    720
+   ],
+   "word": "whale falls"
+  }
+ ],
+ "motion": "route draws, clock hand turns",
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "paddle"
+  },
+  "outfit": [
+   "lifevest"
+  ],
+  "x": 260,
+  "y": 500,
+  "s": 0.94,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Row, row!",
+    "shout": true
+   }
+  ],
+  "bside": 1,
+  "lock": true
+ }
+}

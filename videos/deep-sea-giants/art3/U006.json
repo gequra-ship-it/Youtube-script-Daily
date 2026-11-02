@@ -1,0 +1,45 @@
+{
+ "centre": "a round brass porthole inside a submersible; outside, a giant isopod face presses close in the dark",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hello in there!",
+   "x": 1420,
+   "y": 640,
+   "to": [
+    1080,
+    560
+   ],
+   "word": "deep sea"
+  }
+ ],
+ "motion": "isopod floats outside the window, eyes blink, antennae twitch; cabin lantern swings (moving prop)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-swing-hanging-lantern",
+  "kind": "ride",
+  "x": 1560,
+  "y": 410,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Let me think.",
+    "shout": false
+   }
+  ]
+ }
+}

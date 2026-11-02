@@ -1,0 +1,46 @@
+{
+ "centre": "the same huge squid eye alone in the dark, pupil widening",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Why so big?",
+   "x": 520,
+   "y": 160,
+   "to": [
+    340,
+    250
+   ],
+   "word": "Why"
+  }
+ ],
+ "motion": "core swell: the eye slowly widens (a question about the eye); swim: a tiny lanternfish passes and asks",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-swell-squid-eye",
+  "kind": "ride",
+  "x": 1123,
+  "y": 625,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "But why?",
+    "shout": false
+   }
+  ]
+ }
+}

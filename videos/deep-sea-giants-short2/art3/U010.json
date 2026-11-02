@@ -1,0 +1,46 @@
+{
+ "centre": "a softly glowing jellyfish in the black, with a lanternfish, an anglerfish lure and plankton making their own light",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Lights on!",
+   "x": 820,
+   "y": 640,
+   "to": [
+    640,
+    760
+   ],
+   "word": "glow"
+  }
+ ],
+ "motion": "jellyfish swells, lanternfish swims with photophores, the anglerfish lure flickers, plankton sparkles",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": "faint",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-swell-jellyfish",
+  "kind": "ride",
+  "x": 721,
+  "y": 960,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Too much...",
+    "shout": false
+   }
+  ]
+ }
+}

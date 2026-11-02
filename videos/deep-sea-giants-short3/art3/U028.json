@@ -1,0 +1,34 @@
+{
+ "centre": "split: in the bright upper water a fast hunting fish darts past; below in the dark a giant isopod rests beside a tiny steady lantern flame",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [],
+ "motion": "hunter fish dashes across fast (path with speed streaks); below only the small lantern flame pulses slowly (flame)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-path-hunter-fish",
+  "kind": "ride",
+  "x": 304,
+  "y": 605,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "diver"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ]
+ }
+}

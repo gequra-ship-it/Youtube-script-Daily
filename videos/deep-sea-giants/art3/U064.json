@@ -1,0 +1,24 @@
+{
+ "centre": "small amphipod with a full energy bar vs large isopod with a nearly empty bar per gram",
+ "focus": [
+  960,
+  500,
+  1.0
+ ],
+ "focus_word": "per gram",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hungry!",
+   "x": 380,
+   "y": 520,
+   "to": [
+    520,
+    600
+   ],
+   "word": "energy"
+  }
+ ],
+ "motion": "bars tick in; creatures breathe"
+}

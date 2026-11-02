@@ -1,0 +1,45 @@
+{
+ "centre": "a small yellow submersible rises away to the upper right while a red marker buoy with a blinking light is left on the seabed beside a giant isopod, to come back later",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "See you soon!",
+   "x": 520,
+   "y": 520,
+   "to": [
+    640,
+    720
+   ],
+   "word": "come back"
+  }
+ ],
+ "motion": "submersible ascends away (path), marker beacon pulses on the seabed, kelp sways",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "photo",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-ascend-submersible",
+  "kind": "ride",
+  "x": 1248,
+  "y": 352,
+  "s": 1.25,
+  "flip": 1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Say cheese!",
+    "shout": false
+   }
+  ]
+ }
+}

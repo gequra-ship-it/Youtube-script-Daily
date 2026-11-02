@@ -1,0 +1,46 @@
+{
+ "centre": "the huge golden-ringed eye of a giant squid, watching the distant shadow of a sperm whale in a shaft of light",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sperm whale",
+   "x": 1180,
+   "y": 150,
+   "to": [
+    1420,
+    260
+   ],
+   "word": "sperm whale"
+  }
+ ],
+ "motion": "whale shadow glides left across the light shaft (swim); squid eye blinks, arm chains curl",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 1660,
+  "y": 660,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Big!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "centre": "seesaw with a giant spider crab on one end and a tiny snail on the other",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who knows?",
+   "x": 780,
+   "y": 860,
+   "to": [
+    860,
+    1010
+   ],
+   "word": "not fully settled"
+  }
+ ],
+ "spot": true,
+ "motion": "unsettled: seesaw wobbles between giant and dwarf",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "splash",
+   "obj": "mv-core-drop-pebble"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 868,
+  "y": 624,
+  "s": 1.09,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Splash!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

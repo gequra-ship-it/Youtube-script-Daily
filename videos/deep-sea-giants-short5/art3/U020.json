@@ -1,0 +1,47 @@
+{
+ "centre": "stopwatch racing above a conveyor belt of boxes",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hurry, hurry!",
+   "x": 760,
+   "y": 560,
+   "to": [
+    640,
+    640
+   ],
+   "word": "quickly"
+  }
+ ],
+ "spot": true,
+ "motion": "speed/production: hand spins, belt scrolls, boxes rush by",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-heartbeat-stopwatch",
+  "kind": "ride",
+  "x": 754,
+  "y": 890,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

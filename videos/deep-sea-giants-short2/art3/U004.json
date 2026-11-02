@@ -1,0 +1,46 @@
+{
+ "centre": "huge colossal squid eye, gold-ringed, filling the centre; a small fish with a tiny eye swims past",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Whoa, big eye!",
+   "x": 360,
+   "y": 1350,
+   "to": [
+    330,
+    1410
+   ],
+   "word": "largest eyes"
+  }
+ ],
+ "motion": "the giant eye swells and blinks; a tiny fish swims by for scale",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-swell-colossal-squid-eye",
+  "kind": "ride",
+  "x": 702,
+  "y": 978,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

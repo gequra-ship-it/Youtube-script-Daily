@@ -1,0 +1,49 @@
+{
+ "centre": "close-up hero portrait of a giant isopod on the sediment in a cyan spotlight, a small snail shell rolling by",
+ "focus": [
+  960,
+  560,
+  1.4
+ ],
+ "focus_word": "giant isopod",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Giant isopod",
+   "x": 600,
+   "y": 300,
+   "to": [
+    900,
+    480
+   ],
+   "word": "giant isopod"
+  }
+ ],
+ "motion": "isopod breathes, blinks, antennae twitch; a snail shell rolls by on the floor (moving prop)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Start with",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 1660,
+  "y": 380,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "says": [],
+  "bside": -1
+ }
+}

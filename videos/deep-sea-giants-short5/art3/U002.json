@@ -1,0 +1,51 @@
+{
+ "centre": "close-up of a giant isopod in a cyan spotlight with a measuring ruler popping in under it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Giant isopod",
+   "x": 330,
+   "y": 1320,
+   "to": [
+    420,
+    1060
+   ],
+   "word": "giant isopods"
+  },
+  {
+   "type": "num",
+   "text": "40 CM",
+   "word": "forty centimeters"
+  }
+ ],
+ "motion": "ruler pops in when the length is said; isopod breathes, antenna and eye move",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 302
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 800,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

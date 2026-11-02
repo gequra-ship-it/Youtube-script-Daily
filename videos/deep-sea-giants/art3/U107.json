@@ -1,0 +1,48 @@
+{
+ "centre": "split view: sunny surface with a leaping flying fish, diving seabird and darting fish above; a still giant isopod in the dark below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "light": "left",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sunlit surface",
+   "x": 1000,
+   "y": 330,
+   "to": [
+    1000,
+    470
+   ],
+   "word": "sunlit surface"
+  }
+ ],
+ "motion": "flying fish leaps (toss), seabird dives, fish school darts (speed and activity) while the giant below only breathes",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "On our",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": "mv-path-diving-seabird",
+  "kind": "ride",
+  "x": 1461,
+  "y": 273,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": []
+ }
+}

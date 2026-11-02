@@ -1,0 +1,42 @@
+{
+ "centre": "a cinema screen showing a monster-movie silhouette of a giant bug over a city; red curtains close over it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [],
+ "motion": "curtains slide shut over the monster film (not a monster movie); popcorn bucket topples off the seat",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "squish",
+   "obj": "mv-topple-popcorn-bucket"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 939,
+  "y": 1052,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "behind": "mv-topple-popcorn-bucket",
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Oof!",
+    "shout": true
+   },
+   {
+    "text": "Ow ow ow.",
+    "shout": false
+   }
+  ]
+ }
+}

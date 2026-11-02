@@ -1,0 +1,62 @@
+{
+ "centre": "a folded protein coil on a glass slide being squashed by a heavy press plate, water pushing in from the sides",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Protein",
+   "x": 1430,
+   "y": 300,
+   "to": [
+    1040,
+    560
+   ],
+   "word": "proteins"
+  },
+  {
+   "type": "say",
+   "text": "Too tight!",
+   "x": 520,
+   "y": 330,
+   "to": [
+    880,
+    540
+   ],
+   "word": "squash"
+  }
+ ],
+ "motion": "press plate drops (core-drop) and the protein squashes on impact; pressure arrows march inward",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "shockwave",
+   "obj": "mv-squash-protein"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1148,
+  "y": 667,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Yikes!",
+    "shout": true
+   }
+  ]
+ }
+}

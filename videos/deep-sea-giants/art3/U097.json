@@ -1,0 +1,57 @@
+{
+ "centre": "a tiny amphipod inside a small dotted square of mud while a food scrap lands far away outside it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Tiny scavenger",
+   "x": 560,
+   "y": 520,
+   "to": [
+    552,
+    735
+   ],
+   "word": "tiny scavenger"
+  },
+  {
+   "type": "say",
+   "text": "So far away...",
+   "x": 1050,
+   "y": 600,
+   "to": [
+    585,
+    745
+   ],
+   "word": "chances"
+  }
+ ],
+ "motion": "food scrap drops outside the patch (no food falls near it); patch border marches",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-drop-food-morsel",
+  "kind": "ride",
+  "x": 1622,
+  "y": 777,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "centre": "the giant isopod crawling across the muddy seafloor above a measuring tape",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": {
+  "scale": 1.15
+ },
+ "labels": [
+  {
+   "type": "name",
+   "text": "giant isopod",
+   "x": 640,
+   "y": 470,
+   "to": [
+    880,
+    640
+   ],
+   "word": "giant isopod"
+  },
+  {
+   "type": "num",
+   "text": "40 CM",
+   "word": "forty centimeters"
+  }
+ ],
+ "motion": "path: isopod crawls right over the mud (camera follows gently), measuring tape draws itself under it, eyes blink",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-giant-isopod",
+  "kind": "ride",
+  "x": 1088,
+  "y": 648,
+  "s": 1.25,
+  "flip": 1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
+}

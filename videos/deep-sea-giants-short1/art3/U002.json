@@ -1,0 +1,52 @@
+{
+ "centre": "a pillbug on a leaf beside a fingertip and its nail, the bug curling into a ball when touched",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Eek!",
+   "x": 260,
+   "y": 1180,
+   "to": [
+    460,
+    1020
+   ],
+   "word": "curls"
+  }
+ ],
+ "motion": "fingertip slides in and touches the bug; the walking bug vanishes and the rolled ball pops in (curls into a ball)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-pillbug-ball",
+   "h": 148
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 520,
+  "y": 1049,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

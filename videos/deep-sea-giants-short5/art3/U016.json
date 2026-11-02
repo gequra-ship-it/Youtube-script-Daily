@@ -1,0 +1,34 @@
+{
+ "centre": "glowing riddle lock with a giant isopod path above and a tiny snail path below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [],
+ "spot": true,
+ "motion": "one riddle (lock), two routes leading opposite ways (dashes march up and down), big vs small animal",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-heartbeat-lock",
+  "kind": "ride",
+  "x": 680,
+  "y": 976,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

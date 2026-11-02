@@ -1,0 +1,56 @@
+{
+ "centre": "a long giant squid gliding above a city bus of about the same length",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Giant squid",
+   "x": 330,
+   "y": 430,
+   "to": [
+    560,
+    620
+   ],
+   "word": "giant squid"
+  },
+  {
+   "type": "name",
+   "text": "City bus",
+   "x": 560,
+   "y": 1390,
+   "to": [
+    560,
+    1180
+   ],
+   "word": "city bus"
+  }
+ ],
+ "motion": "the giant squid glides left (mv-path, arms first) while a city bus slides in underneath for the length comparison",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 920,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Small!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

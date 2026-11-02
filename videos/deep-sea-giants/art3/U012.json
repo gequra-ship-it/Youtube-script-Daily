@@ -1,0 +1,40 @@
+{
+ "centre": "a museum glass case with a giant isopod specimen on a plinth, a tiny pillbug relative on a small stand beside it",
+ "focus": [
+  960,
+  600,
+  1.4
+ ],
+ "focus_word": "deep-sea gigantism",
+ "sfx": [],
+ "labels": [],
+ "motion": "hanging museum lamp swings softly above the specimen (moving prop); specimen eyes blink",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "bob"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-swing-hanging-lamp",
+  "kind": "ride",
+  "x": 1058,
+  "y": 228,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Blub!",
+    "shout": true
+   }
+  ]
+ }
+}

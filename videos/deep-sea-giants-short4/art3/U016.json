@@ -1,0 +1,49 @@
+{
+ "centre": "glowing TMAO molecule hugged by water molecules between two protein ribbons",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "binds to water",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Molecule",
+   "x": 700,
+   "y": 520,
+   "to": [
+    760,
+    680
+   ],
+   "word": "water"
+  }
+ ],
+ "motion": "TMAO swells while water molecules float close: it binds water; ribbons breathe steady",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-swell-tmao-molecule",
+  "kind": "ride",
+  "x": 642,
+  "y": 731,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

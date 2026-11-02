@@ -1,0 +1,49 @@
+{
+ "centre": "a magnifying lens over a moonlit tide pool showing a tiny amphipod enlarged; the real one, a speck, hops beside it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Amphipod",
+   "x": 560,
+   "y": 420,
+   "to": [
+    655,
+    640
+   ],
+   "word": "amphipods"
+  }
+ ],
+ "motion": "lens approaches (core approach), the tiny amphipod hops (hop), seaweed sways",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hopalong",
+   "obj": "mv-hop-tiny-amphipod"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 581,
+  "y": 659,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "behind": null,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ]
+ }
+}
