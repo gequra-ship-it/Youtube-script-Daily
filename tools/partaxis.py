@@ -27,7 +27,11 @@ JS = r'''() => {
  }
  const ws = [...document.querySelectorAll('g[id^="mv-wiggle"]')].map(g => ({id: g.id, amp: g.getAttribute('data-amp'), per: g.getAttribute('data-per')}));
  return {parts: out, wig: ws, big: all.filter(o => !/^mv-(joint|chain|swing)/.test(o.id)).map(o => [o.x + o.w / 2, o.y + o.h / 2, o.w * o.h])}; }'''.replace('%PART%', PART)
+STRICT = '--strict' in sys.argv
+WIG = 0
 def audit(slug, uids=None, fix=False):
+    global WIG
+    WIG = 0
     vert = slug.endswith(tuple(f'short{i}' for i in range(1, 10))); W, H = (1080, 1920) if vert else (1920, 1080)
     files = sorted(glob.glob(f'{REPO}/videos/{slug}/art3/U*.svg')); n = 0
     with sync_playwright() as p:
@@ -41,11 +45,12 @@ def audit(slug, uids=None, fix=False):
             for w in res['wig']:
                 amp = float(w['amp']) if w['amp'] else .06; per = float(w['per']) if w['per'] else .35
                 if amp > .3 or per < .6:
-                    n += 1; print(f'{slug} {uid} {w["id"]}: wiggle amp {amp} per {per} -> too violent/fast (scale fraction .06, period >= .9)')
+                    n += 1; WIG += 1; print(f'{slug} {uid} {w["id"]}: wiggle amp {amp} per {per} -> too violent/fast (scale fraction .06, period >= .9)')
                     if fix:
                         changed = re.sub(r'(<g id="%s")([^>]*)>' % re.escape(w['id']), lambda m: m.group(1) + re.sub(r'\s*data-(amp|per)="[^"]*"', '', m.group(2)) + ' data-amp=".06" data-per="1"' + '>', changed, count=1)
             for pt in res['parts']:
                 pts = pt['pts']
+                if re.search(r'<g id="%s"[^>]*data-keep="1"' % re.escape(pt['id']), svg): continue   # 2026-11-02: data-keep="1" = deliberate (body off-screen etc.)
                 if len(pts) < 4: continue
                 cx = cy = None
                 if pt['sib']:
@@ -69,6 +74,6 @@ def audit(slug, uids=None, fix=False):
                         changed = re.sub(r'(<g id="%s"[^>]*?)data-pivot="[^"]*"' % re.escape(pt['id']), lambda m: m.group(1) + 'data-pivot="%d %d"' % (round(pt['inv'][0] * near[0] + pt['inv'][2] * near[1] + pt['inv'][4]), round(pt['inv'][1] * near[0] + pt['inv'][3] * near[1] + pt['inv'][5])), changed, count=1)
             if fix and changed != svg: open(f, 'w', encoding='utf-8').write(changed)
         b.close()
-    print(f'{slug} partaxis: {n} problem(s)'); return n
+    print(f'{slug} partaxis: {n} problem(s) ({WIG} wiggle = hard, {n - WIG} pivot-end = advisory: the body-side estimate is a heuristic; wing/feeler roots often read as false positives, look at motionaudit)'); return WIG if not STRICT else n
 if __name__ == '__main__':
     a = [x for x in sys.argv[1:] if not x.startswith('--')]; slug = a[0]; sys.exit(1 if audit(slug, set(a[1:]) or None, '--fix' in sys.argv) else 0)

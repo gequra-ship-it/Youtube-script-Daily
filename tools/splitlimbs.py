@@ -1,4 +1,4 @@
-# usage: python3 tools/splitlimbs.py <slug> [uid ...] [--dry]       (miya 2026-11-02: one data-pivot for a whole bundle of tentacles / arms / feelers swings the strands about the wrong point and they leave the body)
+# usage: python3 tools/splitlimbs.py <slug> [uid ...] [--dry|--check]       (miya 2026-11-02: one data-pivot for a whole bundle of tentacles / arms / feelers swings the strands about the wrong point and they leave the body)
 # Finds mv-joint groups whose name has a limb word (tentacle|arm|leg|feeler|antenna|whisker|filament|frond|claw|palp|tendril) and that hold SEVERAL separate strands (direct children)
 # whose body-side ends are > 25 px apart, and splits the group into one mv-joint group per strand, each hinged at ITS OWN body-side end (the strand end nearest the creature body:
 # centre of the sibling groups that share the name prefix, else the nearest bigger group). Amp/per are kept, the phase is staggered. Strands that share one root (<= 25 px) are left alone.
@@ -52,6 +52,7 @@ def run(slug, uids=None, dry=False):
             root = ET.fromstring(svg); parent = {c: p_ for p_ in root.iter() for c in p_}
             for r, pts, spread in todo:
                 g = next((e for e in root.iter() if e.get('id') == r['id']), None)
+                if g is not None and g.get('data-keep') == '1': continue   # deliberate single pivot (body off-screen etc.)
                 if g is None or g.get('transform'): print(f'{slug} {uid} {r["id"]}: skipped (has a transform)'); continue
                 total += 1; print(f'{slug} {uid} {r["id"]}: {len(g)} strands, root spread {spread:.0f}px -> split into {len(g)} hinges')
                 if dry: continue
@@ -68,4 +69,4 @@ def run(slug, uids=None, dry=False):
         b.close()
     print(f'{slug} splitlimbs: {total} group(s)'); return total
 if __name__ == '__main__':
-    a = [x for x in sys.argv[1:] if not x.startswith('--')]; run(a[0], set(a[1:]) or None, '--dry' in sys.argv)
+    a = [x for x in sys.argv[1:] if not x.startswith('--')]; sys.exit(1 if run(a[0], set(a[1:]) or None, '--dry' in sys.argv or '--check' in sys.argv) and '--check' in sys.argv else 0)

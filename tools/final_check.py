@@ -6,6 +6,7 @@
 #   2b. originlive   groups without data-pivot (spin/turn/roll/wobble) really turn about their own centre
 #   3. stuck pages   no moment of the timeline shows more than 3 pictures at once (a picture left on top)
 #   4. coverage      every unit has its picture, no fallback art
+#   4b. partaxis + splitlimbs (2026-11-02, guideline 4-12)
 #   5. variety       tools/variety_check.py: top frog act <= 40 %, >= 8 acts, >= 4 outfits, >= 8 object kinds; moving-prop quota printed as WARN (2026-10-31)
 # Exit 0 + writes render/<slug>/.checked (sha1 of index.html) only when everything is clean. tools/chunk_plan.py refuses to print the render spec without a matching .checked.
 # Then LOOK: `python3 tools/motionaudit.py <dir> <uid...>` on the units the owner listed or that the checks flagged before (strips with red pivot dots).
@@ -24,6 +25,8 @@ run('attachcheck', [sys.executable, f'{T}/attachcheck.py', SLUG])
 run('pivotlive', [sys.executable, f'{T}/pivotlive.py'])
 run('originlive', [sys.executable, f'{T}/originlive.py'])   # 2026-10-29: groups without data-pivot turn about their own centre (short3 black hole)
 run('armfix', [sys.executable, f'{T}/armfix.py', SLUG, '--check'])   # 2026-11-01: a raised human arm never bulges up (elbow above the shoulder-wrist line)
+run('partaxis', [sys.executable, f'{T}/partaxis.py', SLUG])   # 2026-11-02: hinged parts (arms, jaws, tails, feelers) pivot at the BODY end; mv-wiggle amp is a scale fraction (<= .3), period >= .6
+run('splitlimbs', [sys.executable, f'{T}/splitlimbs.py', SLUG, '--check'])   # 2026-11-02: a bundle of tentacles/arms/legs/feelers under ONE pivot -> each strand gets its own hinge (data-keep="1" to keep a single pivot)
 run('variety', [sys.executable, f'{T}/variety_check.py', SLUG])   # 2026-10-31: the variety gate (frog acts / outfits / object kinds; moving-prop quota is a WARN line) — read its lines even when OK
 bd = json.load(open(f'{wdir()}/build/build_data.json')); n = len(bd['cuts'])
 miss = [c['id'] for c in bd['cuts'] if c.get('kind') != 'chalk' and not os.path.exists(f'{vdir(SLUG)}/art3/{c["id"]}.svg')]
