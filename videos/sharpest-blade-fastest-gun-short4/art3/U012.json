@@ -1,0 +1,46 @@
+{
+ "centre": "the space station's module stack with solar wings; a layered shield slides in front of the astronauts' window",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "International Space Station",
+   "x": 540,
+   "y": 330,
+   "to": [
+    540,
+    500
+   ],
+   "word": "International Space Station"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "write",
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-slide-whipple-shield",
+  "kind": "ride",
+  "x": 514,
+  "y": 1180,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Noted!",
+    "shout": false
+   }
+  ]
+ }
+}

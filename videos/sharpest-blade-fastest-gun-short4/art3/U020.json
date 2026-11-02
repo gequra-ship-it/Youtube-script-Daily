@@ -1,0 +1,44 @@
+{
+ "centre": "a researcher walking toward a round submarine-style hatch into an engine room of pipes and valves",
+ "focus": [
+  540,
+  820,
+  1.5
+ ],
+ "focus_word": "engine room",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Impact laboratory",
+   "x": 540,
+   "y": 400,
+   "to": [
+    540,
+    560
+   ],
+   "word": "impact laboratory"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "x": 260,
+  "y": 1280,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "lab"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

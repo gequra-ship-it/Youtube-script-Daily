@@ -1,0 +1,45 @@
+{
+ "centre": "a steel wedge pushing down through layers of tissue and bending the rows of cells",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Tissue",
+   "x": 830,
+   "y": 560,
+   "to": [
+    800,
+    740
+   ],
+   "word": "tissue"
+  }
+ ],
+ "motion": "wedge forces its way down",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "ride": "mv-slide-metal-wedge",
+  "kind": "ride",
+  "x": 444,
+  "y": 335,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "lab",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "So strong!",
+    "shout": false
+   }
+  ]
+ }
+}

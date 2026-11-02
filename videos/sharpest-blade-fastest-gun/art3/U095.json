@@ -1,0 +1,59 @@
+{
+ "centre": "researcher thinking, with two thought clouds: an observatory dome with a telescope (left) and a giant microscope (right)",
+ "iris": [
+  1400,
+  330
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Observatory",
+   "x": 500,
+   "y": 600,
+   "to": [
+    500,
+    380
+   ],
+   "word": "observatory"
+  },
+  {
+   "type": "name",
+   "text": "Microscope",
+   "x": 1400,
+   "y": 600,
+   "to": [
+    1440,
+    400
+   ],
+   "word": "giant microscope"
+  }
+ ],
+ "motion": "float: the two thought clouds bob; researcher breathes and blinks",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "scope",
+  "x": 260,
+  "y": 660,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "lab",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "I see it!",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "centre": "a glossy black-green obsidian chunk above a neat atom grid crossed out and a random atom scatter",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Obsidian",
+   "x": 540,
+   "y": 520,
+   "to": [
+    540,
+    780
+   ],
+   "word": "obsidian"
+  }
+ ],
+ "motion": "obsidian swells; atoms jiggle",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-swell-obsidian",
+  "kind": "ride",
+  "x": 806,
+  "y": 1010,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

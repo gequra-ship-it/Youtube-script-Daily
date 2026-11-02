@@ -1,0 +1,42 @@
+{
+ "centre": "a round flask of glowing hot gas over a burner flame, a brass cartridge on the left and a thermometer whose column rises on the right, on graph paper",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Thermodynamics",
+   "x": 1240,
+   "y": 200,
+   "to": [
+    1488,
+    330
+   ],
+   "word": "thermodynamics"
+  }
+ ],
+ "motion": "heartbeat: the hot flask glows; flame flickers; fill: thermometer column rises",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-core-heartbeat-hot-flask",
+  "kind": "ride",
+  "x": 1050,
+  "y": 387,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "lab",
+   "facemask"
+  ],
+  "says": []
+ }
+}

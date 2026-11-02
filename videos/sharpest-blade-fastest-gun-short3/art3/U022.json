@@ -1,0 +1,58 @@
+{
+ "centre": "a heavy ion striking a lattice and knocking single atoms up and out",
+ "focus": [
+  540,
+  1100,
+  1.7
+ ],
+ "focus_word": "knock out",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sputtering",
+   "x": 356,
+   "y": 860,
+   "to": [
+    450,
+    1100
+   ],
+   "word": "sputtering"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "bonk",
+   "obj": "mv-core-drop-heavy-ion"
+  },
+  "x": 540,
+  "y": 1253,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   },
+   {
+    "text": "Ouch...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

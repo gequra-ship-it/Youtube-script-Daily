@@ -1,0 +1,59 @@
+{
+ "centre": "gun diagram on a blueprint: hydrogen bottle feeds protons into a barrel-like beam pipe ringed by magnet coils; the bunch flies to a target plate",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Barrel",
+   "x": 690,
+   "y": 330,
+   "to": [
+    700,
+    500
+   ],
+   "word": "barrel"
+  },
+  {
+   "type": "name",
+   "text": "Target",
+   "x": 1650,
+   "y": 300,
+   "to": [
+    1640,
+    420
+   ],
+   "word": "target"
+  }
+ ],
+ "motion": "path: proton bunch travels the barrel to the target (camera follows); dash: beam line marches",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "spinaround"
+  },
+  "ride": "mv-path-proton-bunch",
+  "kind": "ride",
+  "x": 492,
+  "y": 534,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat",
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Whee-ee!",
+    "shout": true
+   }
+  ]
+ }
+}

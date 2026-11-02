@@ -1,0 +1,53 @@
+{
+ "centre": "single glowing atom at the apex of a tapering tungsten tip",
+ "focus": [
+  960,
+  690,
+  2.0
+ ],
+ "focus_word": "single, solitary atom",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Solitary atom",
+   "x": 1298,
+   "y": 640,
+   "to": [
+    990,
+    700
+   ],
+   "word": "single, solitary atom"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Let that",
+    "mood": "happy"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-heartbeat-atom",
+  "kind": "ride",
+  "x": 1058,
+  "y": 760,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Tick tock...",
+    "shout": false
+   }
+  ]
+ }
+}

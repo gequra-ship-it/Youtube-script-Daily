@@ -1,0 +1,60 @@
+{
+ "centre": "a rare glowing Higgs boson displayed like a treasure under a glass bell jar on a museum pedestal; a researcher admires it",
+ "focus": [
+  1000,
+  470,
+  1.7
+ ],
+ "focus_word": "Higgs boson",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Higgs boson",
+   "x": 1380,
+   "y": 520,
+   "to": [
+    1030,
+    470
+   ],
+   "word": "Higgs boson"
+  },
+  {
+   "type": "say",
+   "text": "So rare!",
+   "x": 640,
+   "y": 300,
+   "to": [
+    445,
+    452
+   ]
+  }
+ ],
+ "motion": "heartbeat: the Higgs boson glows like a living treasure; researcher breathes",
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-higgs-boson",
+  "kind": "ride",
+  "x": 1123,
+  "y": 555,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Bumpy!",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "centre": "magnifying glass over a nearly invisible blade edge",
+ "focus": [
+  1000,
+  480,
+  1.9
+ ],
+ "focus_word": "high magnification",
+ "sfx": [],
+ "labels": [],
+ "iris": [
+  1000,
+  480
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 810,
+  "y": 790,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-approach-magnifying-glass",
+  "outfit": [
+   "lab",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

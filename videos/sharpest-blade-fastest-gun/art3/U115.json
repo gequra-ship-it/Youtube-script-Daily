@@ -1,0 +1,53 @@
+{
+ "centre": "a weathered, calloused hand gripping a chipped dark flint blade in a firelit cave",
+ "focus": [
+  600,
+  640,
+  1.6
+ ],
+ "focus_word": "dark flint",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "flint",
+   "x": 380,
+   "y": 470,
+   "to": [
+    470,
+    625
+   ],
+   "word": "flint"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   },
+   {
+    "word": "A chipped",
+    "mood": "worried"
+   }
+  ],
+  "act": {
+   "type": "present"
+  },
+  "outfit": [
+   "helmet",
+   "doctor"
+  ],
+  "x": 1660,
+  "y": 340,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Ta-da!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

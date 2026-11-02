@@ -1,0 +1,34 @@
+{
+ "centre": "a pressure gauge whose needle trembles at the red edge while a piston squeezes a glowing blob of matter; a dashed boundary marks the limit",
+ "focus": [
+  960,
+  470,
+  1.6
+ ],
+ "focus_word": "the very edge",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Almost there!",
+   "x": 1240,
+   "y": 250,
+   "to": [
+    1040,
+    430
+   ]
+  },
+  {
+   "type": "name",
+   "text": "matter",
+   "x": 560,
+   "y": 642,
+   "to": [
+    560,
+    640
+   ],
+   "word": "matter"
+  }
+ ],
+ "motion": "slide: the piston pushes in; joint: the gauge needle trembles near the red edge"
+}

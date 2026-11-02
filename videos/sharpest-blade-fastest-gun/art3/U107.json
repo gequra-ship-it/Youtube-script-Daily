@@ -1,0 +1,60 @@
+{
+ "centre": "a roaring steam locomotive on the left whose energy funnels along dashed lines into a pin-point smaller than a dust speck in a magnifier",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
+ "iris": [
+  1460,
+  420
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "locomotive",
+   "x": 470,
+   "y": 250,
+   "to": [
+    480,
+    520
+   ],
+   "word": "locomotive"
+  },
+  {
+   "type": "name",
+   "text": "speck of dust",
+   "x": 1180,
+   "y": 200,
+   "to": [
+    1420,
+    360
+   ],
+   "word": "speck of dust"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "sneeze",
+  "ride": "mv-path-locomotive",
+  "kind": "ride",
+  "x": 606,
+  "y": 476,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "earmuffs",
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Achoo!",
+    "shout": false
+   }
+  ]
+ }
+}

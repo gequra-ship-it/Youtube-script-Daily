@@ -1,0 +1,41 @@
+{
+ "centre": "a speed gauge with its needle swinging into the red zone, a microscope on the left (the small world) and a projectile streaking along a rail on the right",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Full speed!",
+   "x": 1290,
+   "y": 330,
+   "to": [
+    1050,
+    430
+   ],
+   "word": "extreme speed"
+  }
+ ],
+ "motion": "joint: gauge needle flicks near the red zone; dash: speed streak behind the projectile; rollby: a ball bearing rolls along the bench",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "ride": "mv-core-swell-speed-gauge",
+  "kind": "ride",
+  "x": 1050,
+  "y": 367,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "lab"
+  ],
+  "says": []
+ }
+}

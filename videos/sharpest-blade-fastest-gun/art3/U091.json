@@ -1,0 +1,56 @@
+{
+ "centre": "matter stripped down: metal block -> atom -> nucleus -> one proton held between two magnet coils",
+ "iris": [
+  1510,
+  520
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Fundamental ingredients",
+   "x": 1300,
+   "y": 210,
+   "to": [
+    1500,
+    500
+   ],
+   "word": "fundamental ingredients"
+  }
+ ],
+ "motion": "popin: the single proton appears at the end of the strip; lamp: atom glows",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-proton",
+   "h": 80
+  },
+  "outfit": [
+   "helmet",
+   "doctor"
+  ],
+  "x": 1510,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "centre": "blueprint of an ultimate gun above a tray of metal chunks and plastic pellets crossed out",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Plastic pellets",
+   "x": 720,
+   "y": 930,
+   "to": [
+    700,
+    1080
+   ],
+   "word": "plastic pellets"
+  }
+ ],
+ "motion": "rollby: a stray pellet rolls off across the table",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 1560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "hardhat",
+   "lab"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

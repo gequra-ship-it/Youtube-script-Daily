@@ -1,0 +1,57 @@
+{
+ "centre": "a hydrogen atom with its proton core below a curving chain of blue superconducting magnets steering the beam",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hydrogen",
+   "x": 820,
+   "y": 1000,
+   "to": [
+    600,
+    930
+   ],
+   "word": "hydrogen"
+  },
+  {
+   "type": "name",
+   "text": "Electromagnets",
+   "x": 480,
+   "y": 520,
+   "to": [
+    500,
+    400
+   ],
+   "word": "electromagnets"
+  }
+ ],
+ "motion": "heartbeat: hydrogen atom; dash: proton beam marches through the magnets",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-hydrogen-atom",
+  "kind": "ride",
+  "x": 709,
+  "y": 1045,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "centre": "the narrow launch tube runs diagonally up across the frame; rushing light gas pushes a tiny projectile along it from the burst cone",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Launch tube",
+   "x": 1180,
+   "y": 640,
+   "to": [
+    1150,
+    480
+   ],
+   "word": "launch tube"
+  }
+ ],
+ "motion": "path: the tiny projectile races up the tube (camera follows); dash: gas streaks rush behind it",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "outfit": [
+   "helmet",
+   "doctor"
+  ],
+  "ride": "mv-path-projectile",
+  "kind": "ride",
+  "x": 536,
+  "y": 710,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
+}

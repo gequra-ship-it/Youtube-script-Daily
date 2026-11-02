@@ -1,0 +1,56 @@
+{
+ "centre": "an obsidian rock cracking with a bright fracture line, next to a grid of mineral grains it lacks",
+ "focus": [
+  1010,
+  540,
+  1.7
+ ],
+ "focus_word": "grain boundaries",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Grain boundaries",
+   "x": 631,
+   "y": 702,
+   "to": [
+    420,
+    570
+   ],
+   "word": "grain boundaries"
+  }
+ ],
+ "motion": "rock trembles, fracture crack draws itself, hammerstone on a cord swings in",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "knocked",
+   "obj": "mv-swing-stone-bob"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1178,
+  "y": 610,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   }
+  ]
+ }
+}

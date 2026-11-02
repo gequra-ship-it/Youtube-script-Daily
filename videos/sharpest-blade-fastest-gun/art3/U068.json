@@ -1,0 +1,45 @@
+{
+ "centre": "microchip die with a narrow trench milled by a glowing beam spot",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "microchips",
+   "x": 540,
+   "y": 140,
+   "to": [
+    760,
+    300
+   ],
+   "word": "microchips"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-path-beam-spot",
+  "kind": "ride",
+  "x": 786,
+  "y": 578,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "vr",
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Look closer...",
+    "shout": false
+   }
+  ]
+ }
+}

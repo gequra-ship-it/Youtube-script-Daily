@@ -1,0 +1,44 @@
+{
+ "centre": "a vertical accelerator tube with copper magnet coils firing a proton up at a steel target plate",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Incoming!",
+   "x": 800,
+   "y": 470,
+   "to": [
+    690,
+    370
+   ]
+  }
+ ],
+ "motion": "path: proton flies up the tube to the target; dash: speed streak",
+ "frog": {
+  "moods": [
+   {
+    "mood": "queasy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-proton",
+  "kind": "ride",
+  "x": 445,
+  "y": 1371,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "centre": "Earth with a dotted orbit and fragments of shattered metal circling it",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "circling our planet",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Shattered metal",
+   "x": 330,
+   "y": 1120,
+   "to": [
+    201,
+    890
+   ],
+   "word": "shattered metal"
+  },
+  {
+   "type": "name",
+   "text": "Planet",
+   "x": 760,
+   "y": 640,
+   "to": [
+    600,
+    790
+   ],
+   "word": "planet"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 260,
+  "y": 1560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
+}

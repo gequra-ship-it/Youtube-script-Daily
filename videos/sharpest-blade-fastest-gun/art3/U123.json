@@ -1,0 +1,45 @@
+{
+ "centre": "glass dome on a plinth holding a small diamond knife and a model light-gas gun, three calm researchers standing beside it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Just curious.",
+   "x": 1600,
+   "y": 380,
+   "to": [
+    1385,
+    480
+   ]
+  }
+ ],
+ "motion": "swell: the glass dome glows softly; researchers breathe and blink",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-core-swell-glass-dome",
+  "kind": "ride",
+  "x": 1113,
+  "y": 652,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "hardhat",
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Doo-doo-doo~",
+    "shout": false
+   }
+  ]
+ }
+}

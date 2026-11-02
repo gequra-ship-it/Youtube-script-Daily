@@ -1,0 +1,59 @@
+{
+ "centre": "notebook diagram: a paint fleck with one speed arrow makes one energy block, with two arrows makes four",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Speed",
+   "x": 290,
+   "y": 900,
+   "to": [
+    400,
+    1060
+   ],
+   "word": "speed"
+  },
+  {
+   "type": "name",
+   "text": "Destructive power",
+   "x": 650,
+   "y": 1250,
+   "to": [
+    700,
+    1160
+   ],
+   "word": "destructive power"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "x": 820,
+  "y": 1560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

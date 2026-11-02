@@ -1,0 +1,55 @@
+{
+ "centre": "close-up inside the barrel: hot gas molecules race after the bullet's base but cannot catch up with it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Can't keep up!",
+   "x": 900,
+   "y": 160,
+   "to": [
+    1166,
+    530
+   ]
+  },
+  {
+   "type": "say",
+   "text": "Push harder!",
+   "x": 1530,
+   "y": 160,
+   "to": [
+    1560,
+    310
+   ]
+  }
+ ],
+ "motion": "skid: the bullet edges ahead; bouncing: the big gas molecule hops trying to keep pace",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "helmet",
+   "lab"
+  ],
+  "x": 260,
+  "y": 620,
+  "s": 0.94,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

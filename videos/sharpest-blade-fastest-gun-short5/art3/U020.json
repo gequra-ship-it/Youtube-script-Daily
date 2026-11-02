@@ -1,0 +1,53 @@
+{
+ "centre": "a proton halted just below a barrier on a highway, a single hair floating in the gap, a cosmic speed limit sign beside",
+ "focus": [
+  560,
+  930,
+  1.5
+ ],
+ "focus_word": "a hair",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Cosmic speed limit",
+   "x": 700,
+   "y": 760,
+   "to": [
+    800,
+    640
+   ],
+   "word": "cosmic speed limit"
+  },
+  {
+   "type": "say",
+   "text": "So close!",
+   "x": 330,
+   "y": 1060,
+   "to": [
+    520,
+    990
+   ]
+  }
+ ],
+ "motion": "float: the hair drifts in the tiny gap",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "lab"
+  ],
+  "x": 260,
+  "y": 1120,
+  "s": 1.21,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
+}

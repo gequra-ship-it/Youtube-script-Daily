@@ -1,0 +1,51 @@
+{
+ "centre": "a big steel vacuum test chamber fed by the launch tube; through its round porthole the projectile streaks toward a target plate",
+ "focus": [
+  960,
+  495,
+  1.8
+ ],
+ "focus_word": "strikes a target",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "7 KM/S",
+   "word": "seven kilometers per second"
+  },
+  {
+   "type": "name",
+   "text": "Vacuum test chamber",
+   "x": 1200,
+   "y": 650,
+   "to": [
+    1120,
+    610
+   ],
+   "word": "vacuum test chamber"
+  }
+ ],
+ "track": false,
+ "motion": "ping: the porthole glows; path: the projectile crosses the window to the target; joint: the vacuum gauge needle trembles at zero",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pushaway"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 538,
+  "y": 508,
+  "s": 0.9,
+  "flip": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

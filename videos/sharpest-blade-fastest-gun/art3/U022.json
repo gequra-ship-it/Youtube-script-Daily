@@ -1,0 +1,48 @@
+{
+ "centre": "a steel wedge pushing down into a sheet of tissue cells, pressing the cells aside",
+ "focus": [
+  960,
+  560,
+  1.7
+ ],
+ "focus_word": "forces its way through tissue",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Tissue",
+   "x": 522,
+   "y": 420,
+   "to": [
+    330,
+    560
+   ],
+   "word": "tissue"
+  }
+ ],
+ "motion": "the wedge slides down into the tissue; cells either side are squashed",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "ride": "mv-slide-steel-wedge",
+  "kind": "ride",
+  "x": 864,
+  "y": 252,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "diver"
+  ],
+  "says": [
+   {
+    "text": "So strong!",
+    "shout": false
+   }
+  ]
+ }
+}

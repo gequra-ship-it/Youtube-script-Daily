@@ -1,0 +1,61 @@
+{
+ "centre": "ultramicrotome close-up: resin block slides past a diamond knife, a ribbon of tissue sections floats on the water bath; inset of a living cell",
+ "focus": [
+  800,
+  600,
+  1.7
+ ],
+ "focus_word": "ribbon of tissue",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "ribbon of tissue",
+   "x": 700,
+   "y": 470,
+   "to": [
+    760,
+    603
+   ],
+   "word": "ribbon of tissue"
+  },
+  {
+   "type": "name",
+   "text": "living cell",
+   "x": 1209,
+   "y": 740,
+   "to": [
+    1530,
+    600
+   ],
+   "word": "living cell"
+  }
+ ],
+ "motion": "slide: resin block moves down past the edge; scroll: the section ribbon drifts on the water; breathe: the cell pulses",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-slide-resin-block",
+  "kind": "ride",
+  "x": 1002,
+  "y": 568,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Home sweet home.",
+    "shout": false
+   }
+  ]
+ }
+}

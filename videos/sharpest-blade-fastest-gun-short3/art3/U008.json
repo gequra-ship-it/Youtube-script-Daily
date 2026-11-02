@@ -1,0 +1,50 @@
+{
+ "centre": "a single-atom tip gliding over a row of atoms while a current trace is drawn below",
+ "focus": [
+  300,
+  900,
+  1.6
+ ],
+ "focus_word": "glides across",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Electrical trickle",
+   "x": 458,
+   "y": 1154,
+   "to": [
+    700,
+    1290
+   ],
+   "word": "electrical trickle"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-glide-scanning-tip",
+  "kind": "ride",
+  "x": 201,
+  "y": 996,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

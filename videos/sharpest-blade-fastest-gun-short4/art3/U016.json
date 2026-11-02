@@ -1,0 +1,41 @@
+{
+ "centre": "a snail carrying a bullet as its shell crawls along the ground while orbital debris zooms past above",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "So slow...",
+   "x": 800,
+   "y": 1000,
+   "to": [
+    600,
+    1200
+   ]
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-path-orbital-debris",
+  "kind": "ride",
+  "x": 840,
+  "y": 548,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "bandana"
+  ],
+  "says": []
+ }
+}

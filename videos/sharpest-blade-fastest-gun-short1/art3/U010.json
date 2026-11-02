@@ -1,0 +1,49 @@
+{
+ "centre": "a block of clay being cut with a knife and the two halves drawing apart",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Separation",
+   "x": 540,
+   "y": 430,
+   "to": [
+    400,
+    780
+   ],
+   "word": "separation"
+  }
+ ],
+ "motion": "two halves slide apart",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "At its",
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-slide-clay-left",
+  "kind": "ride",
+  "x": 462,
+  "y": 725,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "lab",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

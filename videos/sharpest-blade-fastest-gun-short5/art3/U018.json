@@ -1,0 +1,49 @@
+{
+ "centre": "a race to the finish line: a light beam from a lamp just ahead of a proton, almost tied",
+ "focus": [
+  880,
+  760,
+  1.6
+ ],
+ "focus_word": "speed of light",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "...NINE, NINE, ONE %",
+   "word": "one percent"
+  },
+  {
+   "type": "say",
+   "text": "Almost!",
+   "x": 560,
+   "y": 1020,
+   "to": [
+    700,
+    890
+   ]
+  }
+ ],
+ "motion": "path: proton closes in on the finish line beside the light beam",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-path-proton",
+  "kind": "ride",
+  "x": 647,
+  "y": 841,
+  "s": 1.44,
+  "flip": 1,
+  "bside": -1,
+  "says": []
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "centre": "round electron-microscope view of a knife edge, magnified: a steel band over a dark field",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "electron microscope",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Electron microscope",
+   "x": 1344,
+   "y": 309,
+   "to": [
+    1500,
+    380
+   ],
+   "word": "electron microscope"
+  }
+ ],
+ "motion": "the magnifying view swells gently",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-core-swell-lens",
+  "kind": "ride",
+  "x": 1242,
+  "y": 744,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ]
+ }
+}

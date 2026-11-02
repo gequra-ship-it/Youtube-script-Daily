@@ -1,0 +1,39 @@
+{
+ "centre": "a two-stage light-gas gun on concrete blocks fires a small projectile through its launch tube into a vacuum chamber, plasma flash inside",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Whoosh!",
+   "x": 960,
+   "y": 470,
+   "to": [
+    880,
+    640
+   ]
+  }
+ ],
+ "motion": "path: the projectile shoots along the launch tube into the chamber; dash: speed streak; flicker: plasma flash on impact",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 1660,
+  "y": 890,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "hardhat"
+  ],
+  "says": [],
+  "bside": -1
+ }
+}

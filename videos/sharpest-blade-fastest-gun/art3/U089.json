@@ -1,0 +1,24 @@
+{
+ "centre": "light-gas gun muzzle with a pellet that barely moves; a snail creeps along the barrel; bored researcher with a stopwatch",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "8 KM/S",
+   "word": "eight kilometers per second"
+  },
+  {
+   "type": "say",
+   "text": "Barely moving!",
+   "x": 1150,
+   "y": 330,
+   "to": [
+    1460,
+    405
+   ]
+  }
+ ],
+ "motion": "creep: snail crawls along the barrel (standing still); hover: pellet hangs at the muzzle"
+}

@@ -1,0 +1,58 @@
+{
+ "centre": "a cut-away barrel pointing up: burning powder, a swelling cloud of hot gas with a sound wave in it, pushing the bullet",
+ "focus": [
+  540,
+  900,
+  1.5
+ ],
+ "focus_word": "expanding gas",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hot gas",
+   "x": 760,
+   "y": 940,
+   "to": [
+    590,
+    960
+   ],
+   "word": "hot gas"
+  },
+  {
+   "type": "name",
+   "text": "Gunpowder",
+   "x": 760,
+   "y": 1180,
+   "to": [
+    590,
+    1240
+   ],
+   "word": "gunpowder"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "helmet",
+   "doctor"
+  ],
+  "ride": "mv-core-swell-hot-gas",
+  "kind": "ride",
+  "x": 679,
+  "y": 1155,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
+}
