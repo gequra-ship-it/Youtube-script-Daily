@@ -222,3 +222,8 @@ No matching word -> no prop for the frog's sake; the frog then roams or does a c
 Frog automation hooks (2026-10-26): draw hut/house doors as separate elements with `id="door1"`, `door2`, … (enables the `huts` act); name book/notebook/page/paper/desk/card/chart/board groups with that word in the id (enables `doodle`); ride objects that get pushed (lens, crate) should have the grip point at the lower right of their group. For heavy topics set `FROG_TONE = 'serious'` in config.py.
 
 Balance scale / tilted galaxy (2026-10-30): scale = `mv-tilt-balance-scale` (data-pivot at hub) holding the beam plus `<g data-hang="x y">` groups for each pan with strings and load; never rock the whole scale. A tilted (elliptical) galaxy is converted by `tools/galaxyfix.py` to an in-plane `mv-disc-galaxy` spin; draw it as an ellipse, do not rotate the picture.
+
+## 7C. Several limbs = several groups (2026-11-02, guideline 4-12)
+- Tentacles, arms, legs, feelers, whiskers: ONE `mv-joint-<singular-name>-<n>` group per strand (never one group for the bundle), each with its own `data-pivot` at the end that touches the body, `data-phase` staggered. Hinged parts (jaw, arm, tail, wing) pivot at the BODY end, never the free end.
+- `mv-wiggle`: `data-amp` is a scale fraction (default .06), `data-per` the seconds per swing (default .35 is very fast; use about 1 for jellyfish and tentacles).
+- Before reporting: `axisfix` -> `splitlimbs` -> `partaxis` -> `attachcheck`, then look at the `motionaudit` strip of every picture with creatures.

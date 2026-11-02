@@ -15,7 +15,7 @@ JS = r'''([t]) => { Object.values(window.__timelines).forEach(tl => { tl.pause()
    const p = (g.getAttribute('data-pivot') || '').trim().split(/[\s,]+/).map(Number); if (p.length !== 2 || p.some(isNaN)) return;
    let M = null; try { M = g.transform.baseVal.consolidate(); M = M && M.matrix; } catch (e) {}
    if (!M) return;
-   const want = miyaPv(g, p[0], p[1]).split(' ').map(Number);
+   let want; try { want = miyaPv(g, p[0], p[1]).split(' ').map(Number); } catch (e) { return; }   // a parent scaled to 0 at this instant (popin) has no inverse: skip this sample
    out.push({raw: p, i: idx, vis: [...document.querySelectorAll('.t')].filter(e => getComputedStyle(e).display !== 'none').length, cls: (g.getAttribute('class') || '').replace('mv ', ''), M: [M.a, M.b, M.c, M.d, M.e, M.f], want});
  });
  return out; }'''
