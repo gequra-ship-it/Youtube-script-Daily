@@ -1,0 +1,58 @@
+{
+ "centre": "towering heap of bananas next to a tiny person",
+ "focus": [
+  640,
+  960,
+  1.5
+ ],
+ "focus_word": "tens of millions of bananas",
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "bananas",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "TENS OF MILLIONS",
+   "word": "tens of millions"
+  },
+  {
+   "type": "say",
+   "text": "No way!",
+   "x": 760,
+   "y": 1120,
+   "to": [
+    865,
+    1235
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "eat",
+  "ride": "mv-core-drop-banana",
+  "kind": "ride",
+  "x": 822,
+  "y": 452,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Munch munch.",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "centre": "thick-skinned Gros Michel banana in a round inset with a cargo ship at sea",
+ "focus": [
+  950,
+  510,
+  1.6
+ ],
+ "focus_word": "thick, rugged skin",
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "ocean voyages",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "coverears"
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "ride": "mv-core-swell-gros-michel-banana",
+  "kind": "ride",
+  "x": 867,
+  "y": 539,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Too loud!",
+    "shout": true
+   }
+  ]
+ }
+}

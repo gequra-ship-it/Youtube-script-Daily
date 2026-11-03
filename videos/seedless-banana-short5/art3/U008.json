@@ -1,0 +1,59 @@
+{
+ "centre": "a botanical-plate drawing of a bulbous banana corm with roots, a bud on top and a cut face on one side",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Rhizome",
+   "x": 250,
+   "y": 640,
+   "to": [
+    360,
+    780
+   ],
+   "word": "rhizome"
+  },
+  {
+   "type": "name",
+   "text": "Corm",
+   "x": 800,
+   "y": 1220,
+   "to": [
+    700,
+    1000
+   ],
+   "word": "corm"
+  }
+ ],
+ "motion": "corm swells gently",
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "ride": "mv-core-swell-corm",
+  "kind": "ride",
+  "x": 256,
+  "y": 1080,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "headlamp",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Bug-sized!",
+    "shout": true
+   }
+  ]
+ }
+}

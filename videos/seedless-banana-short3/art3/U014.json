@@ -1,0 +1,52 @@
+{
+ "centre": "an old framed sepia portrait of a thick golden Gros Michel banana on a museum wall",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "Gros Michel",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Gros Michel",
+   "x": 540,
+   "y": 1000,
+   "to": [
+    540,
+    1100
+   ],
+   "word": "Gros Michel"
+  }
+ ],
+ "motion": "frame swings slightly; dust floats",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "ride": "mv-swing-portrait-frame",
+  "kind": "ride",
+  "x": 824,
+  "y": 1180,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "gradcap",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Big!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "centre": "Cavendish banana inside a cracked leaf shield, a bright TR4 clump breaking in at the right while the old gros michel lies tipped over above with a pale old fungus bouncing off",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Gros Michel",
+   "x": 330,
+   "y": 420,
+   "to": [
+    330,
+    540
+   ],
+   "word": "Gros Michel"
+  },
+  {
+   "type": "name",
+   "text": "TR4",
+   "x": 840,
+   "y": 1330,
+   "to": [
+    830,
+    1160
+   ],
+   "word": "TR4"
+  }
+ ],
+ "motion": "cavendish trembles as the TR4 clump swells against the cracked shield",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-swell-tr4-fungus-clump",
+  "kind": "ride",
+  "x": 599,
+  "y": 1318,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Bumpy!",
+    "shout": false
+   }
+  ]
+ }
+}

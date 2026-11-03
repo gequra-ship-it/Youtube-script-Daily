@@ -1,0 +1,64 @@
+{
+ "centre": "DNA helix with a golden resistance-gene segment sliding into place between a wild banana and a Cavendish",
+ "focus": [
+  400,
+  540,
+  1.8
+ ],
+ "focus_word": "wild banana",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "adding",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Wild banana",
+   "x": 400,
+   "y": 330,
+   "to": [
+    400,
+    500
+   ],
+   "word": "wild banana"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "bonk",
+   "obj": "mv-core-drop-seed"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1170,
+  "y": 752,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   },
+   {
+    "text": "Ouch...",
+    "shout": false
+   }
+  ]
+ }
+}

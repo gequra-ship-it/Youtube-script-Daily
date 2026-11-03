@@ -1,0 +1,45 @@
+{
+ "centre": "a banana on a breakfast plate with cereal and coffee in morning light",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Breakfast",
+   "x": 340,
+   "y": 960,
+   "to": [
+    480,
+    930
+   ],
+   "word": "breakfast"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "eat",
+  "ride": "mv-core-heartbeat-banana",
+  "kind": "ride",
+  "x": 763,
+  "y": 996,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bandage",
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Munch munch.",
+    "shout": false
+   }
+  ]
+ }
+}

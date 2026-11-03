@@ -1,0 +1,46 @@
+{
+ "centre": "brick wall with a gap where fungus threads and spores flow through, a small wilting banana plant beyond",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Peru",
+   "x": 840,
+   "y": 1300,
+   "to": [
+    840,
+    1420
+   ],
+   "word": "Peru"
+  }
+ ],
+ "motion": "a loose brick drops, fungus threads creep out through the breach",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-loose-brick",
+  "kind": "ride",
+  "x": 406,
+  "y": 776,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "doctor",
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

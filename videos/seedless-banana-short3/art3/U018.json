@@ -1,0 +1,46 @@
+{
+ "centre": "banana plant with a bright sickly TR4 fungus clump creeping through the soil toward its roots, a pale older fungus clump far left",
+ "focus": [
+  740,
+  1290,
+  1.7
+ ],
+ "focus_word": "Tropical Race 4",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Tropical Race 4",
+   "x": 740,
+   "y": 1110,
+   "to": [
+    740,
+    1270
+   ],
+   "word": "Tropical Race 4"
+  }
+ ],
+ "motion": "the new strain clump swells and sends threads toward the roots; spores drift",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "ride": "mv-core-swell-fungus-clump",
+  "kind": "ride",
+  "x": 875,
+  "y": 1118,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "sunglasses",
+   "backpack"
+  ],
+  "says": []
+ }
+}

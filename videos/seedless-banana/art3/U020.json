@@ -1,0 +1,45 @@
+{
+ "centre": "wooden bowl full of hard black wild-banana seeds",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Ptoo!",
+   "x": 760,
+   "y": 300,
+   "to": [
+    560,
+    506
+   ],
+   "word": "spitting"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-wobble-bowl",
+  "kind": "ride",
+  "x": 1138,
+  "y": 600,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Wobbly...",
+    "shout": false
+   }
+  ]
+ }
+}

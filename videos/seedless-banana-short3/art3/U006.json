@@ -1,0 +1,55 @@
+{
+ "centre": "a small sailing ship with a potted banana sprout crate, bright sails, sailing a dotted route between two islands",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "Mauritius",
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "way of Mauritius",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Mauritius",
+   "x": 790,
+   "y": 1020,
+   "to": [
+    800,
+    1230
+   ],
+   "word": "Mauritius"
+  }
+ ],
+ "motion": "ship follows the route; dashes march",
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-sail-ship",
+  "kind": "ride",
+  "x": 456,
+  "y": 905,
+  "s": 1.44,
+  "flip": -1,
+  "bside": 1,
+  "outfit": [
+   "lifevest",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

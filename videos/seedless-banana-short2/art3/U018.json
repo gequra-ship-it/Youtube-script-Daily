@@ -1,0 +1,56 @@
+{
+ "centre": "cut banana pseudostem with brown ring, the wilting plant around it",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "Panama Disease",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Panama Disease",
+   "x": 780,
+   "y": 560,
+   "to": [
+    600,
+    780
+   ],
+   "word": "Panama Disease"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-brown-drop",
+   "serious": false
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 800,
+  "y": 1357,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "doctor",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "centre": "honey-drenched banana slice glowing on a plate",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "sweeter",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-honey-drop",
+   "serious": false
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 540,
+  "y": 947,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "monocle",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
+}

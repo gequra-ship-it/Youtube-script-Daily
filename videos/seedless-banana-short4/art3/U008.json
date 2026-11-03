@@ -1,0 +1,51 @@
+{
+ "centre": "highlighted element tile with a small atom on a grid of tiles, banana and mineral crystals below",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "potassium",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Potassium",
+   "x": 540,
+   "y": 640,
+   "to": [
+    540,
+    780
+   ],
+   "word": "potassium"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "ride": "mv-core-heartbeat-element-tile",
+  "kind": "ride",
+  "x": 694,
+  "y": 970,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headlamp",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
+}

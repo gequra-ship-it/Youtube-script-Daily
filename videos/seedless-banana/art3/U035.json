@@ -1,0 +1,54 @@
+{
+ "centre": "soft yellow banana resting on a fluffy pillow, a bowl of rocks sliding away",
+ "focus": [
+  960,
+  520,
+  1.5
+ ],
+ "focus_word": "soft, pillowy, seedless fruit",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Seedless",
+   "x": 1480,
+   "y": 700,
+   "to": [
+    1100,
+    520
+   ],
+   "word": "seedless"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "bumped",
+   "obj": "mv-bouncing-cavendish-banana",
+   "serious": false
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1189,
+  "y": 559,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "behind": null,
+  "gaze": 1,
+  "outfit": [
+   "strawhat",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Boing!",
+    "shout": true
+   }
+  ]
+ }
+}

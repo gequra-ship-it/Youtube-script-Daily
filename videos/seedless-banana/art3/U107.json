@@ -1,0 +1,42 @@
+{
+ "centre": "glowing banana in a wooden bowl on the kitchen counter, tiny particles popping off it",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "banana",
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "burst",
+   "vol": 0.55
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-swell-banana",
+  "kind": "ride",
+  "x": 1228,
+  "y": 659,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

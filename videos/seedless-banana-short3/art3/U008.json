@@ -1,0 +1,55 @@
+{
+ "centre": "a yellow Cavendish banana inside a pale green shield glow while brown fungus threads bounce off",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "resisted",
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "resisted",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Race 1 fungus",
+   "x": 400,
+   "y": 560,
+   "to": [
+    200,
+    830
+   ],
+   "word": "Tropical Race 1"
+  }
+ ],
+ "motion": "shield swells, threads wiggle, sparks flick",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-core-swell-cavendish-banana",
+  "kind": "ride",
+  "x": 633,
+  "y": 823,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "sunglasses",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
+}

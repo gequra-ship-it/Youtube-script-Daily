@@ -1,0 +1,45 @@
+{
+ "centre": "a banana stalk with a heavy hanging bunch and yellowing drooping leaves, a fresh green sucker alive beside its base",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Stalk",
+   "x": 200,
+   "y": 1100,
+   "to": [
+    350,
+    1050
+   ],
+   "word": "stalk"
+  }
+ ],
+ "motion": "heavy bunch swings, a dry leaf drifts, sucker sways",
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "sad"
+   }
+  ],
+  "act": "cry",
+  "ride": "mv-swing-banana-bunch",
+  "kind": "ride",
+  "x": 833,
+  "y": 1249,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Sniff...",
+    "shout": false
+   }
+  ]
+ }
+}

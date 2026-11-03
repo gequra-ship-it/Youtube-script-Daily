@@ -1,0 +1,39 @@
+{
+ "centre": "Wall clock with a ticking minute hand, a shielded banana plant on the left and a toppling crate stack on the right",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "clock",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-core-drop-banana",
+  "kind": "ride",
+  "x": 1229,
+  "y": 732,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "hardhat",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
+}

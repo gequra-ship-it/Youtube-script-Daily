@@ -1,0 +1,42 @@
+{
+ "centre": "planted banana sucker sprouting leaves, roots below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "bonk",
+   "obj": "mv-core-drop-dew"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 640,
+  "y": 857,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   },
+   {
+    "text": "Ouch...",
+    "shout": false
+   }
+  ]
+ }
+}

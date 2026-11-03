@@ -1,0 +1,43 @@
+{
+ "centre": "an open cardboard box packed with yellow bananas below a frosty refrigerated container",
+ "focus": [
+  540,
+  1000,
+  1.5
+ ],
+ "focus_word": "refrigerated containers",
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "Shipping",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "motion": "box bunch swells; crate hook swings",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "balance",
+  "ride": "mv-swing-crate-hook",
+  "kind": "ride",
+  "x": 954,
+  "y": 1015,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "pirate"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "centre": "round gold name tag with a star on a big golden banana",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "Big Mike",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Big Mike",
+   "x": 300,
+   "y": 720,
+   "to": [
+    500,
+    800
+   ],
+   "word": "Big Mike"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "And",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-heart-220"
+  },
+  "ride": "mv-ascend-heart-220",
+  "kind": "ride",
+  "x": 220,
+  "y": 977,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ]
+ }
+}

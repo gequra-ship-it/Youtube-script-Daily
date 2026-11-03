@@ -1,0 +1,56 @@
+{
+ "centre": "small sailing ship carrying a banana plant along a dashed sea route from China past Mauritius to England on a stylised map",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Mauritius",
+   "x": 1300,
+   "y": 760,
+   "to": [
+    1150,
+    650
+   ],
+   "word": "Mauritius"
+  },
+  {
+   "type": "name",
+   "text": "England",
+   "x": 600,
+   "y": 210,
+   "to": [
+    410,
+    255
+   ],
+   "word": "England"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-sailing-ship",
+  "kind": "ride",
+  "x": 1272,
+  "y": 484,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "lifevest",
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

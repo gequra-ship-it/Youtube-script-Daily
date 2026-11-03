@@ -1,0 +1,47 @@
+{
+ "centre": "three chromosomes, the middle one left without a partner basket",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "three",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Where do I go?",
+   "x": 650,
+   "y": 700,
+   "to": [
+    560,
+    800
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-chromosome",
+  "kind": "ride",
+  "x": 635,
+  "y": 968,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Bumpy!",
+    "shout": false
+   }
+  ]
+ }
+}

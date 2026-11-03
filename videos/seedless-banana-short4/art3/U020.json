@@ -1,0 +1,49 @@
+{
+ "centre": "green shield with a check mark above a smiling person eating a banana",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "completely safe",
+ "sfx": [
+  {
+   "name": "chime",
+   "word": "safe",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-sparkle",
+   "h": 76
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 840,
+  "y": 1068,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

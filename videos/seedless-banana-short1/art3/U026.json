@@ -1,0 +1,58 @@
+{
+ "centre": "a banana shaped jar being filled with sweet starch and sugar",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "starch",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sugars",
+   "x": 780,
+   "y": 560,
+   "to": [
+    690,
+    640
+   ],
+   "word": "sugars"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "bonk",
+   "obj": "mv-core-drop-sugar-cube-2"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 660,
+  "y": 726,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   },
+   {
+    "text": "Ouch...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "centre": "glowing green ovary inside a flower cutaway",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "single ovary",
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "single ovary",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Ovary",
+   "x": 1260,
+   "y": 640,
+   "to": [
+    1040,
+    520
+   ],
+   "word": "ovary"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-core-swell-ovary",
+  "kind": "ride",
+  "x": 1102,
+  "y": 604,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "flowercrown"
+  ],
+  "says": [
+   {
+    "text": "Boom-cha!",
+    "shout": false
+   }
+  ]
+ }
+}

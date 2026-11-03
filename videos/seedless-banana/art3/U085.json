@@ -1,0 +1,55 @@
+{
+ "centre": "glowing detection pin on the north-west of a stylised South America with banana plants",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "Colombia",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Colombia",
+   "x": 1340,
+   "y": 330,
+   "to": [
+    965,
+    495
+   ],
+   "word": "Colombia"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-banana-crate",
+   "h": 232
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1625,
+  "y": 760,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

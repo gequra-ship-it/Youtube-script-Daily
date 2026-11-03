@@ -1,0 +1,54 @@
+{
+ "centre": "glowing alarm lamp on the radiation detector arch",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "radiation detectors",
+ "sfx": [
+  {
+   "name": "bell",
+   "word": "detectors",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Radiation detector",
+   "x": 300,
+   "y": 660,
+   "to": [
+    480,
+    830
+   ],
+   "word": "radiation detectors"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-swing-crane-hook",
+  "kind": "ride",
+  "x": 944,
+  "y": 780,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "pirate"
+  ],
+  "says": [
+   {
+    "text": "Look closer!",
+    "shout": true
+   }
+  ]
+ }
+}

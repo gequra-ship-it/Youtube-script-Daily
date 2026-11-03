@@ -1,0 +1,43 @@
+{
+ "centre": "a sealed cream envelope with a glowing wax seal between two green curtains parting",
+ "focus": [
+  540,
+  892,
+  1.6
+ ],
+ "focus_word": "secret",
+ "sfx": [
+  {
+   "name": "cloth",
+   "word": "secret of all",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "motion": "curtains slide apart; seal flickers; key drifts up",
+ "frog": {
+  "moods": [
+   {
+    "mood": "wink"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-slide-curtain-right",
+  "kind": "ride",
+  "x": 601,
+  "y": 1420,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Tick tock...",
+    "shout": false
+   }
+  ]
+ }
+}

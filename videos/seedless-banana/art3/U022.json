@@ -1,0 +1,55 @@
+{
+ "centre": "Cavendish banana where the lines from two wild plants meet",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Musa acuminata",
+   "x": 420,
+   "y": 240,
+   "to": [
+    420,
+    430
+   ],
+   "word": "Musa acuminata"
+  },
+  {
+   "type": "name",
+   "text": "Musa balbisiana",
+   "x": 1500,
+   "y": 250,
+   "to": [
+    1500,
+    480
+   ],
+   "word": "Musa balbisiana"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-cavendish-banana",
+  "kind": "ride",
+  "x": 234,
+  "y": 228,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

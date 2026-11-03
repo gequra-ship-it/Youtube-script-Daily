@@ -1,0 +1,44 @@
+{
+ "centre": "glowing nucleus emitting a gold wavy gamma ray up-right and a small beta particle down-left",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Gamma rays",
+   "x": 780,
+   "y": 470,
+   "to": [
+    740,
+    640
+   ],
+   "word": "gamma rays"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "queasy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-atom-nucleus",
+  "kind": "ride",
+  "x": 646,
+  "y": 916,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Bumpy!",
+    "shout": false
+   }
+  ]
+ }
+}

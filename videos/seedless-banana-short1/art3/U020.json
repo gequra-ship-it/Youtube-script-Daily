@@ -1,0 +1,48 @@
+{
+ "centre": "cross-section of a banana with tiny empty-looking seed chambers",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "functional seeds",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Seeds",
+   "x": 400,
+   "y": 640,
+   "to": [
+    480,
+    830
+   ],
+   "word": "seeds"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-swell-banana-slice",
+  "kind": "ride",
+  "x": 709,
+  "y": 985,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Wobbly...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "centre": "gap in a brick wall glowing yellow-green with fungus threads coming through",
+ "focus": [
+  960,
+  540,
+  1.7
+ ],
+ "focus_word": "breached",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Peru",
+   "x": 1250,
+   "y": 320,
+   "to": [
+    1010,
+    520
+   ],
+   "word": "Peru"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-loose-brick",
+  "kind": "ride",
+  "x": 1180,
+  "y": 704,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "doctor",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "centre": "cut-open banana root showing water tubes, clear above and clogged brown below where fungus threads creep in",
+ "focus": [
+  960,
+  640,
+  1.7
+ ],
+ "focus_word": "roots",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Vascular tissues",
+   "x": 1230,
+   "y": 420,
+   "to": [
+    1030,
+    380
+   ],
+   "word": "vascular tissues"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "hideshell"
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "ride": "mv-core-heartbeat-root-cut",
+  "kind": "ride",
+  "x": 1058,
+  "y": 506,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Eep.",
+    "shout": false
+   }
+  ]
+ }
+}

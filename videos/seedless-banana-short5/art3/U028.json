@@ -1,0 +1,52 @@
+{
+ "centre": "DNA double helix linking Africa, Asia and South America on a stylised map",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Africa",
+   "x": 330,
+   "y": 560,
+   "to": [
+    250,
+    700
+   ],
+   "word": "Africa"
+  },
+  {
+   "type": "name",
+   "text": "Asia",
+   "x": 800,
+   "y": 680,
+   "to": [
+    800,
+    560
+   ],
+   "word": "Asia"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-ping-dna-helix",
+  "kind": "ride",
+  "x": 644,
+  "y": 990,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

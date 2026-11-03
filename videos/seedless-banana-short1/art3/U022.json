@@ -1,0 +1,54 @@
+{
+ "centre": "a magician's top hat with a banana rising out of it",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "parthenocarpy",
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "trick",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Parthenocarpy",
+   "x": 700,
+   "y": 660,
+   "to": [
+    540,
+    780
+   ],
+   "word": "parthenocarpy"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "mischief"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-hat",
+  "kind": "ride",
+  "x": 759,
+  "y": 1034,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "flowercrown"
+  ],
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}
