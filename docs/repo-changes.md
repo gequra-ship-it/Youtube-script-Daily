@@ -109,3 +109,4 @@
 - 2026-11-02 (miya, deep-sea-giants 검수): 새 `tools/partaxis.py`(몸 쪽 끝 축·wiggle 값 점검), `tools/splitlimbs.py`(묶인 촉수·다리·더듬이 → 가닥마다 힌지), 둘 다 `final_check.py`에 연결(`data-keep="1"` 예외). `motions.py` 생물 행 왼쪽 이동 방향 버그 수정, `pivotlive.py` 비가역 행렬 건너뜀. 지침서 04-motion: 4-9를 제자리로 옮기고 4-12 추가, 4-7 표·art_spec 7C·README 보강. 점검: README에 빠졌던 `scalefix`·`armfix` 추가, 4-5는 번호 비어 있음(옛 항목 삭제 흔적, 참조 없음).
 - 2026-11-02 (miya, 점검): 남성 `am_michael` 말 속도 실측(2,086단어 = 861.8초 ≈ 분당 145단어)에 맞춰 9-2·12-1·12장·13-4·03장·00장·19-1의 단어 수 목표를 갱신(롱폼 약 2,000~2,100단어, 숏츠 상한 약 420단어). **매일 대본 생성기(`main*.py` 프롬프트·범위 2,000~2,300)는 main 전용이라 건드리지 않았다** — 바꿀지는 miya 결정. 핵심 지침서 4장 읽을 때 표에 4-7·4-8·4-12 추가.
 - 2026-11-03 (miya, hollow-skyscraper 점검): `fxlib.ROUGH_W`의 `engine\w*`가 "engineer(s)·engineering"에 걸려 줌인 카메라가 RoughEase로 흔들려(뚝뚝 끊김) `engines?`로 좁혔다. 이미 만든 영상은 build3 재빌드 후 재렌더해야 적용.
+- 2026-11-03 (miya, hollow-skyscraper): `tools/attachcheck.py`에 십자·날개 회전체 피벗 중심 검사 추가, 지침서 4-12 6·7(회전체 축, ROUGH_W 카메라 끊김) 추가.

@@ -60,6 +60,11 @@ JS = r'''
      if (kind === 'rotor' && dp <= 12 && !/gear|cog|sprocket/i.test(g.id)) { // round face: pivot must be its centre
        let best = null; for (const e of body) { const t = e.tagName; if (!(t === 'circle' || t === 'ellipse')) continue; if (!hit(e, pv[0], pv[1])) continue; const s = scr(e); if (s.w > 0.6 * W) continue; if (!best || s.w * s.h < best.a) best = {a: s.w * s.h, cx: s.x + s.w / 2, cy: s.y + s.h / 2, id: e.parentNode.id || e.id}; }
        if (best && Math.hypot(best.cx - pv[0], best.cy - pv[1]) > 12) out.push([g.id, `rotor pivot is ${Math.round(Math.hypot(best.cx - pv[0], best.cy - pv[1]))} px off the centre (${Math.round(best.cx)},${Math.round(best.cy)}) of the round face it turns on`]);
+       if (!best && /anemometer|vane|pinwheel|fan|propeller|blades|turbine|windmill|cups/i.test(g.id)) { // 2026-11-03: a cross / blade set turns about its own centre (anemometer pivot 40 px above the bar centre)
+         let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; for (const e of part) { const s = scr(e); x0 = Math.min(x0, s.x); y0 = Math.min(y0, s.y); x1 = Math.max(x1, s.x + s.w); y1 = Math.max(y1, s.y + s.h); }
+         const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, d = Math.hypot(cx - pv[0], cy - pv[1]), tol = Math.max(12, 0.08 * Math.max(x1 - x0, y1 - y0));
+         if (d > tol) out.push([g.id, `rotor pivot is ${Math.round(d)} px off the centre (${Math.round(cx)},${Math.round(cy)}) of its blades / cross`]);
+       }
      }
    }
    // tail / leg / neck whose body stays still while the part is inside a mover
