@@ -1,11 +1,9 @@
-# Thumbnails A-C for frog-hunting-beetle (guideline 16-6/16-8, brief tools/briefs/thumb_art.md). Run: python3 videos/frog-hunting-beetle/thumb/make.py
-# A  IT / DODGES / THE TONGUE     homage: The Matrix (1999) bullet-time dodge -> the larva arches back, the frog's tongue streaks past with
-#                                 ripple wakes (S25 "almost always dodges the strike", S80 "slips the tongue and bites on")
-# B  WORM / OR / TRAP?            intuitive: the mascot's flashlight finds a "worm" waving on the mud, its shadow on the rock shows hooked jaws
-#                                 (S16 "can look like a worm", S06 "it is a trap", S69 "a worm or a trap")
-# C  BUG WINS / NEARLY / 100%     homage: The Silence of the Lambs poster (pale face, moth over the mouth) -> pale frog face, larva over its mouth
-#                                 (S39 "success rate of close to one hundred percent" -> hedged NEARLY; S29 "the tongue ... is now useless")
-# Mascot: A peeks over a pebble with slipping sunglasses; B holds the flashlight; C covers its own mouth. No blood or wounds anywhere.
+# Thumbnails A-C for frog-hunting-beetle, v2 (owner 2026-11-03: "express it INTUITIVELY, with the feeling of a bug eating a frog"; v1 kept in ./v1).
+# Guideline 16-6/16-8, brief tools/briefs/thumb_art.md. Run: python3 videos/frog-hunting-beetle/thumb/make.py
+# A  IT BIT / BACK        larva clamped on a wild toad's lower lip, the toad thrashes (tiny pupils, sweat, tongue out)   (hypothesis "dodge a tongue and bite back", S26-S28)
+# B  WHO EATS / WHOM?     adult beetle riding a bucking frog's back, jaws in its back                                    (adult "jump onto the back of an amphibian", S10 role reversal)
+# C  FROG + BUG / = BONES frog skeleton on the mud, a fat larva asleep on it, the mascot's flashlight finds it            (S42 "all that remains ... is a pile of bones")
+# Mascot (separate cute character, bystander): A shocked with notebook, B hands up, C flashlight. No blood or wounds.
 import os, sys, math, random
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '../../../tools'))
@@ -231,260 +229,345 @@ def grass(x, y, h, lean, col, w=10):
     return f'<path d="M{x - w / 2:.1f},{y} Q{c[0]:.1f},{c[1]:.1f} {tip[0]:.1f},{tip[1]:.1f} Q{c[0] + w * 0.3:.1f},{c[1]:.1f} {x + w / 2:.1f},{y}Z" fill="{col}"/>'
 
 
+
+
+def sweat(x, y, s=1.0, rot=0):
+    return (f'<g transform="translate({x} {y}) rotate({rot}) scale({s})"><path d="M0,-30 C10,-12 18,0 18,10 C18,22 9,30 0,30 C-9,30 -18,22 -18,10 C-18,0 -10,-12 0,-30Z" '
+            f'fill="#bfe9ff" stroke="#0b1a24" stroke-width="4"/><ellipse cx="-6" cy="8" rx="4" ry="7" fill="#fff" opacity=".9"/></g>')
+
+
+def shake(x, y, s=1.0, flip=False, col='#fff3d0', op=.8):
+    k = -1 if flip else 1
+    return ''.join(f'<path d="M{x + k * i * 26 * s:.0f},{y - 60 * s + i * 8:.0f} Q{x + k * (i * 26 + 22) * s:.0f},{y:.0f} {x + k * i * 26 * s:.0f},{y + 60 * s - i * 8:.0f}" '
+                   f'fill="none" stroke="{col}" stroke-width="{9 - i * 2}" stroke-linecap="round" opacity="{op - i * .2:.2f}"/>' for i in range(3))
+
+
+def fingers(x, y, ang, L, col, ink, n=4, spread=70, w=16):
+    o = ''
+    for k in range(n):
+        a = math.radians(ang - spread / 2 + spread * k / (n - 1))
+        tx, ty = x + math.cos(a) * L, y + math.sin(a) * L
+        o += f'<path d="M{x:.0f},{y:.0f} L{tx:.0f},{ty:.0f}" stroke="{ink}" stroke-width="{w + 7}" stroke-linecap="round"/>'
+        o += f'<path d="M{x:.0f},{y:.0f} L{tx:.0f},{ty:.0f}" stroke="{col}" stroke-width="{w}" stroke-linecap="round"/>'
+        o += f'<circle cx="{tx:.0f}" cy="{ty:.0f}" r="{w * .75:.0f}" fill="{col}" stroke="{ink}" stroke-width="4"/>'
+    return o
+
+
+def limb(pts, w0, w1, fill, ink, sw=7):
+    return f'<path d="{taper(pts, w0, w1)}" fill="{fill}" stroke="{ink}" stroke-width="{sw}" stroke-linejoin="round"/>'
+
+
+def notebook_front():
+    return ('<g transform="rotate(-6)" stroke="#1d2b1c" stroke-width="2.6"><path d="M-24 -40 L2 -36 L2 -6 L-24 -10Z" fill="#f6efd8"/>'
+            '<path d="M2 -36 L30 -40 L30 -10 L2 -6Z" fill="#fffaf0"/><path d="M-19 -30 l16 2 M-19 -23 l16 2 M-19 -16 l12 2 M7 -31 l18 -2 M7 -24 l18 -2" stroke="#7b8bb0" stroke-width="1.6"/>'
+            '<path d="M34 -52 l-12 22" stroke="#1d2b1c" stroke-width="5"/><path d="M34 -52 l-12 22" stroke="#f2c14e" stroke-width="2.6"/></g>')
+
+
 # =====================================================================================
-# A  homage: The Matrix bullet-time dodge
+# A  intuitive: larva clamped on a toad's lip, the toad thrashing
 # =====================================================================================
 def make_A():
+    random.seed(21)
+    TINK = '#1a1208'
     D = FILTERS + LARVA_DEFS
-    D += lin('skyA', [(0, '#020c07'), (.55, '#06200f'), (1, '#0c3a1c')])
-    D += lin('mudA', [(0, '#0e2414'), (.35, '#08160c'), (1, '#030805')])
-    D += rad('glA', 1150, 640, 620, [(0, '#d6ffe0', .55), (.35, '#5cf08a', .22), (1, '#0a3018', 0)])
-    D += rad('eyeA', 1716, 318, 60, [(0, '#ffe9a0', 1), (.55, '#e6a72e', 1), (1, '#7a4a0c', 1)])
-    D += lin('skinA', [(0, '#a3ad5a'), (.35, '#6f7d36'), (1, '#27301a')], x2=1, y2=0.3)
-    D += lin('tng', [(0, '#ffb3bd'), (.5, '#e8708a'), (1, '#a83a58')], x2=0, y2=1)
-    D += '<clipPath id="headA"><path d="M1588,438 C1598,380 1648,330 1690,300 C1760,250 1860,262 1920,272 L1920,840 C1830,820 1700,730 1642,630 C1618,580 1604,548 1608,522 Z"/></clipPath>'
+    D += lin('skyA', [(0, '#03141a'), (.6, '#0a2a2c'), (1, '#0f3a33')])
+    D += lin('bankA', [(0, '#1b2416'), (.4, '#10170d'), (1, '#050804')])
+    D += rad('moonA', 1420, 330, 700, [(0, '#fff3cf', .95), (.18, '#ffe2a0', .55), (.5, '#7fbfa0', .16), (1, '#0a2a2c', 0)])
+    D += rad('toadA', -60, -200, 640, [(0, '#c9a865', 1), (.45, '#8d6c38', 1), (.8, '#5a4222', 1), (1, '#33250f', 1)])
+    D += rad('bellyA', 0, 120, 300, [(0, '#f7ecc8', 1), (.7, '#dcc48e', 1), (1, '#a88d58', 1)])
+    D += rad('irisA', -14, -14, 70, [(0, '#fff2a8', 1), (.5, '#e9b23a', 1), (1, '#8a5a12', 1)])
+    D += lin('tngA', [(0, '#ffb9c4'), (1, '#d8607a')])
     b = '<rect width="1920" height="1080" fill="url(#skyA)"/>'
-    # digital rain (letterless dashes), dense at the top, fading down
-    for col in range(0, 1920, 34):
-        if random.random() < 0.25:
+    b += '<rect width="1920" height="1080" fill="url(#moonA)"/>'
+    b += '<circle cx="1420" cy="300" r="150" fill="#fff6dc" opacity=".95" filter="url(#b8)"/>'
+    for _ in range(40):
+        b += f'<circle cx="{random.randint(900, 1900)}" cy="{random.randint(20, 520)}" r="{random.choice([1.5, 2.2, 3])}" fill="#fffbe8" opacity="{random.uniform(.2, .7):.2f}"/>'
+    # far reeds
+    for _ in range(110):
+        b += grass(random.randint(-20, 1940), 840, random.randint(80, 300), random.randint(-50, 50), random.choice(['#06201d', '#082622', '#0a2c26']), w=random.randint(6, 13))
+    b += '<path d="M0,820 C400,800 900,830 1920,810 L1920,1080 L0,1080Z" fill="url(#bankA)"/>'
+    b += '<ellipse cx="1300" cy="905" rx="520" ry="40" fill="#000" opacity=".55" filter="url(#b14)"/>'
+    # ---------- toad (front view, tilted by the thrash) ----------
+    T = '<g transform="translate(1330 560) rotate(-7)">'
+    # hind legs
+    for sg in (-1, 1):
+        T += f'<ellipse cx="{sg * 300}" cy="250" rx="140" ry="72" fill="#5f4724" stroke="{TINK}" stroke-width="8"/>'
+        T += fingers(sg * 380, 300, 90 - sg * 30, 70, '#6b5229', TINK, n=4, spread=60, w=14)
+    body = 'M-360,150 C-390,-70 -250,-262 0,-268 C250,-262 390,-70 360,150 C330,282 -330,282 -360,150Z'
+    T += f'<path d="{body}" fill="url(#toadA)" stroke="{TINK}" stroke-width="9"/>'
+    T += '<clipPath id="tbA"><path d="' + body + '"/></clipPath><g clip-path="url(#tbA)">'
+    T += '<ellipse cx="0" cy="170" rx="250" ry="120" fill="url(#bellyA)"/>'
+    for _ in range(85):  # warts
+        x, y = random.randint(-360, 360), random.randint(-260, 120)
+        if abs(x) < 240 and y > 30:
             continue
-        y = random.randint(-200, 300)
-        L = random.randint(4, 14)
-        for k in range(L):
-            yy = y + k * 30
-            if yy > 760:
-                break
-            op = (k + 1) / L * (0.32 if col > 900 else 0.16) * (1 - yy / 900)
-            if op <= 0.01:
-                continue
-            ln = random.choice([10, 14, 18])
-            b += f'<rect x="{col + random.randint(0, 6)}" y="{yy}" width="5" height="{ln}" rx="2" fill="{"#c8ffd8" if k == L - 1 else "#3cff86"}" opacity="{op:.2f}"/>'
-    # distant reeds along the pond edge
-    for i in range(140):
-        x = random.randint(-20, 1940)
-        b += grass(x, 790, random.randint(60, 230), random.randint(-40, 40), random.choice(['#04130a', '#061a0d', '#082110']), w=random.randint(6, 12))
-    b += '<rect x="0" y="770" width="1920" height="310" fill="url(#mudA)"/>'
-    b += '<ellipse cx="1150" cy="640" rx="760" ry="520" fill="url(#glA)"/>'
-    # wet mud shine + pebbles
-    b += '<ellipse cx="1180" cy="905" rx="420" ry="34" fill="#9dffc0" opacity=".14" filter="url(#b14)"/>'
-    for (px, py, r) in [(820, 930, 26), (900, 965, 14), (1560, 915, 22), (1500, 960, 12), (1010, 890, 10)]:
-        b += f'<ellipse cx="{px}" cy="{py}" rx="{r * 1.5}" ry="{r}" fill="#0d2214" stroke="#020603" stroke-width="3"/><ellipse cx="{px - r * .3}" cy="{py - r * .45}" rx="{r * .7}" ry="{r * .25}" fill="#7dd99a" opacity=".35"/>'
-    # ---- prey frog head (profile, mouth gaping), right edge
-    b += '<g>'
-    b += '<path d="M1588,438 C1598,380 1648,330 1690,300 C1760,250 1860,262 1920,272 L1920,520 L1790,500 Q1700,470 1588,438 Z" fill="url(#skinA)" stroke="#0b1006" stroke-width="7" stroke-linejoin="round"/>'
-    b += '<path d="M1608,522 Q1700,516 1790,506 L1920,524 L1920,840 C1830,820 1700,730 1642,630 C1618,580 1604,548 1608,522 Z" fill="url(#skinA)" stroke="#0b1006" stroke-width="7" stroke-linejoin="round"/>'
-    b += '<path d="M1588,438 Q1700,470 1790,500 Q1700,512 1608,522 Q1592,480 1588,438 Z" fill="#4a1220" stroke="#0b1006" stroke-width="6"/>'
-    b += '<path d="M1600,450 Q1700,480 1780,500" fill="none" stroke="#c75a72" stroke-width="6" opacity=".6"/>'
-    sp = ''
-    for i in range(40):
-        sx_, sy_ = random.randint(1620, 1920), random.randint(280, 830)
-        sp += f'<ellipse cx="{sx_}" cy="{sy_}" rx="{random.randint(8, 22)}" ry="{random.randint(6, 14)}" fill="#1f2a10" opacity="{random.uniform(.3, .6):.2f}"/>'
-    for i in range(50):
-        sp += f'<circle cx="{random.randint(1620, 1920)}" cy="{random.randint(280, 830)}" r="{random.randint(2, 5)}" fill="#c4cf7a" opacity=".35"/>'
-    b += f'<g clip-path="url(#headA)">{sp}<path d="M1920,560 C1830,600 1760,600 1700,640" fill="none" stroke="#d9e3a0" stroke-width="26" opacity=".25" filter="url(#b8)"/></g>'
-    b += '<circle cx="1838" cy="420" r="38" fill="#3e4a20" stroke="#0b1006" stroke-width="4" opacity=".9"/>'  # eardrum
-    b += '<circle cx="1622" cy="408" r="6" fill="#0b1006"/>'  # nostril
-    # rim light from the green glow on the front contour
-    b += '<path d="M1592,432 C1600,380 1648,332 1690,302" fill="none" stroke="#d6ffd0" stroke-width="7" opacity=".8" filter="url(#b2)"/>'
-    b += '<path d="M1610,530 C1608,560 1622,590 1645,630 C1690,710 1760,780 1850,815" fill="none" stroke="#d6ffd0" stroke-width="6" opacity=".55" filter="url(#b2)"/>'
-    # bulging eye
-    b += '<circle cx="1716" cy="318" r="64" fill="#2b3416" stroke="#0b1006" stroke-width="7"/>'
-    b += '<circle cx="1716" cy="318" r="52" fill="url(#eyeA)"/>'
-    b += '<ellipse cx="1712" cy="320" rx="32" ry="13" fill="#090a04"/>'
-    b += '<ellipse cx="1698" cy="300" rx="12" ry="7" fill="#fff" opacity=".9"/><circle cx="1736" cy="338" r="4" fill="#fff" opacity=".6"/>'
-    b += '<path d="M1650,300 Q1716,232 1784,296" fill="none" stroke="#0b1006" stroke-width="9" stroke-linecap="round"/>'
-    b += '</g>'
-    # ---- tongue (bullet-time): from the mouth (1612,488) to a sticky tip just past the arched larva
-    T0, T1, T2 = (1612, 488), (1300, 520), (960, 590)
-    tp = [qb(T0, T1, T2, k / 40) for k in range(41)]
-    b += f'<path d="{taper(tp, 50, 70)}" fill="#ff9fb4" opacity=".25" filter="url(#b14)"/>'
-    # wake rings (the Matrix bullet ripples)
-    for k, tt in enumerate([0.18, 0.34, 0.5, 0.64, 0.77, 0.88]):
-        p = qb(T0, T1, T2, tt); q = qb(T0, T1, T2, tt + 0.01)
-        ang = math.degrees(math.atan2(q[1] - p[1], q[0] - p[0]))
-        for j, r in enumerate((1.0, 1.45, 1.9)):
-            op = (0.55 - j * 0.15) * (0.4 + tt * 0.6)
-            b += (f'<ellipse cx="{p[0]:.1f}" cy="{p[1]:.1f}" rx="{10 * r:.1f}" ry="{48 * r:.1f}" transform="rotate({ang:.1f} {p[0]:.1f} {p[1]:.1f})" '
-                  f'fill="none" stroke="#dfffe8" stroke-width="{4 - j}" opacity="{op:.2f}"/>')
-    for dy in (-60, -34, 38, 64):   # speed lines
-        b += f'<path d="M{1520},{500 + dy * .6:.0f} Q1300,{530 + dy:.0f} 1080,{590 + dy * 1.1:.0f}" fill="none" stroke="#c8ffd8" stroke-width="3" opacity=".3" stroke-dasharray="80 40"/>'
-    b += f'<path d="{taper(tp, 44, 30, cap=False)}" fill="url(#tng)" stroke="#3a0c18" stroke-width="5"/>'
-    b += f'<path d="{poly(tp[2:38])}" fill="none" stroke="#ffd6de" stroke-width="7" stroke-linecap="round" opacity=".7" transform="translate(0 -9)"/>'
-    b += '<path d="M972,565 C920,545 890,580 902,615 C912,647 960,655 990,633 C1012,617 1006,580 972,565 Z" fill="url(#tng)" stroke="#3a0c18" stroke-width="5"/>'
-    b += '<ellipse cx="935" cy="587" rx="16" ry="9" fill="#fff" opacity=".7"/>'
-    for (dx, dy) in [(-30, 70), (10, 80), (-55, 40)]:   # sticky droplets flying off
-        b += f'<circle cx="{900 + dx}" cy="{540 + dy}" r="6" fill="#ffc2cf" opacity=".8"/>'
-    # ---- larva: tail planted on the right, front arched back away from the tongue, legs flailing (bullet-dodge pose)
-    b += '<ellipse cx="1260" cy="900" rx="280" ry="26" fill="#000" opacity=".5" filter="url(#b8)"/>'
-    b += larva(((1560, 905), (1330, 915), (1250, 700), (1090, 735)), W=46, opn=0.5, head_rot=-38,
-               ants=((-60, 4.2, -30), (-35, 4.6, -30)), legs='flail', vside=-1, light=(-0.2, -1), wave=True, rim='#e4ffd8')
-    b += spark(1090, 640, 22, '#e8ffe8') + spark(1460, 760, 16, '#e8ffe8') + spark(880, 700, 14, '#e8ffe8') + spark(1350, 650, 12, '#e8ffe8')
-    # ---- mascot: peeking over a pebble, sunglasses slipping down its nose
-    glasses = ('<g stroke="#000" stroke-width="2.5"><rect x="-24" y="-60" width="26" height="13" rx="6" fill="#0a0f0c"/>'
-               '<rect x="10" y="-60" width="26" height="13" rx="6" fill="#0a0f0c"/><path d="M2 -55 h8" fill="none" stroke-width="3"/>'
-               '<path d="M-20 -57 l8 0" stroke="#9fffc0" stroke-width="2" opacity=".8"/><path d="M14 -57 l8 0" stroke="#9fffc0" stroke-width="2" opacity=".8"/></g>')
-    b += frog(330, 1000, 3.3, mouth='o', look=(4, -1), arms=('M-34 -22 q-10 -6 -10 -20', 'M38 -22 q14 -6 18 -20'), front=glasses, rim='#b8ffc8')
-    b += '<path d="M150,1080 C160,990 240,960 330,962 C430,962 500,995 520,1080 Z" fill="#0c2213" stroke="#020603" stroke-width="6"/>'
-    b += '<path d="M200,1000 C240,975 300,972 350,976" fill="none" stroke="#8fe8a8" stroke-width="6" opacity=".4" stroke-linecap="round"/>'
-    for i in range(14):
-        b += grass(random.randint(120, 560), 1085, random.randint(60, 120), random.randint(-30, 30), '#04100a', w=9)
-    lines = [('IT', 118, 'w'), ('DODGES', 214, 'y'), ('THE TONGUE', 128, 'w')]
-    return page('#020c07', svg(D, b), lines)
+        r = random.randint(7, 17)
+        T += f'<circle cx="{x}" cy="{y}" r="{r}" fill="#4a3519" opacity=".75"/><circle cx="{x - r * .3:.0f}" cy="{y - r * .35:.0f}" r="{r * .35:.0f}" fill="#e6c98a" opacity=".55"/>'
+    T += '<path d="M150,-250 C300,-200 370,-60 360,120" fill="none" stroke="#fff0c0" stroke-width="22" opacity=".55" filter="url(#b8)"/>'
+    T += '</g>'
+    T += f'<path d="M150,-252 C300,-205 372,-60 362,120" fill="none" stroke="#fff4d2" stroke-width="6" opacity=".9" filter="url(#b2)"/>'
+    # parotoid glands
+    for sg in (-1, 1):
+        T += f'<ellipse cx="{sg * 285}" cy="-120" rx="48" ry="95" transform="rotate({sg * -28} {sg * 285} -120)" fill="#7a5a2c" stroke="{TINK}" stroke-width="6" opacity=".95"/>'
+        T += f'<ellipse cx="{sg * 275}" cy="-150" rx="16" ry="40" transform="rotate({sg * -28} {sg * 275} -150)" fill="#d6b678" opacity=".45"/>'
+    # mouth: wavy worried line, slightly open, tongue lolling out of the left corner
+    T += f'<path d="M-310,60 Q-160,10 0,36 Q160,10 310,60 Q160,58 0,78 Q-160,58 -310,60Z" fill="#3a0d14" stroke="{TINK}" stroke-width="8" stroke-linejoin="round"/>'
+    T += f'<path d="M-250,52 C-275,90 -300,160 -268,200 C-240,232 -200,205 -205,160 C-208,120 -210,85 -195,50Z" fill="url(#tngA)" stroke="{TINK}" stroke-width="7"/>'
+    T += '<path d="M-240,70 C-255,110 -262,150 -248,182" fill="none" stroke="#a83a58" stroke-width="5" stroke-linecap="round"/>'
+    T += '<ellipse cx="-262" cy="168" rx="10" ry="16" fill="#fff" opacity=".6"/>'
+    # nostrils
+    T += f'<ellipse cx="-50" cy="-90" rx="12" ry="8" fill="{TINK}"/><ellipse cx="50" cy="-90" rx="12" ry="8" fill="{TINK}"/>'
+    # eyes: bulging, tiny panicked pupils, worried brows
+    for sg in (-1, 1):
+        ex, ey = sg * 165, -222
+        T += f'<circle cx="{ex}" cy="{ey + 6}" r="98" fill="#6b5028" stroke="{TINK}" stroke-width="9"/>'
+        T += f'<circle cx="{ex}" cy="{ey}" r="80" fill="#fffdf2" stroke="{TINK}" stroke-width="6"/>'
+        T += f'<g transform="translate({ex + sg * 4} {ey + 10})"><circle r="52" fill="url(#irisA)" stroke="#5a3a0a" stroke-width="4"/>'
+        T += '<ellipse rx="17" ry="11" fill="#0a0703"/><ellipse cx="-20" cy="-22" rx="13" ry="9" fill="#fff" opacity=".95"/><circle cx="18" cy="20" r="5" fill="#fff" opacity=".7"/></g>'
+        T += f'<path d="M{ex - sg * 95},{ey - 50} Q{ex - sg * 30},{ey - 135} {ex + sg * 70},{ey - 95}" fill="none" stroke="{TINK}" stroke-width="16" stroke-linecap="round"/>'
+        T += f'<path d="M{ex - sg * 92},{ey - 56} Q{ex - sg * 30},{ey - 128} {ex + sg * 66},{ey - 100}" fill="none" stroke="#9a7840" stroke-width="6" stroke-linecap="round"/>'
+    # arms: left flails up and out, right claws at the larva
+    T += limb([(-315, 120), (-420, 110), (-470, 40)], 70, 46, '#7a5c2e', TINK)
+    T += fingers(-474, 30, -150, 62, '#8d6c38', TINK, n=4, spread=80)
+    T += limb([(300, 150), (250, 230), (150, 250)], 70, 46, '#7a5c2e', TINK)
+    T += fingers(140, 252, 180, 56, '#8d6c38', TINK, n=4, spread=70)
+    # the larva hanging from the lower lip, jaws clamped
+    T += '<path d="M30,170 C-10,270 150,330 210,430" stroke="#3a2410" stroke-width="120" stroke-linecap="round" fill="none" opacity=".35" filter="url(#b14)"/>'
+    T += larva(((240, 400), (170, 330), (-20, 290), (30, 185)), W=48, opn=-0.06, head_rot=-6,
+               ants=((-70, 3.6, -40), (70, 3.6, 40)), legs='flail', vside=1, light=(1, -0.6), rim='#fff1c4')
+    T += f'<path d="M-30,62 Q10,90 60,64" fill="none" stroke="{TINK}" stroke-width="6" stroke-linecap="round"/>'
+    for a in (-150, -110, -70, -30):  # pinch lines
+        r0, r1 = 60, 95
+        T += f'<path d="M{15 + math.cos(math.radians(a)) * r0:.0f},{70 + math.sin(math.radians(a)) * r0 * .5:.0f} L{15 + math.cos(math.radians(a)) * r1:.0f},{70 + math.sin(math.radians(a)) * r1 * .5:.0f}" stroke="#fff4c8" stroke-width="7" stroke-linecap="round"/>'
+    T += '</g>'
+    b += T
+    # thrash lines + sweat drops
+    b += shake(960, 300, 1.0, flip=True) + shake(1800, 300, 1.3)
+    b += sweat(940, 170, 1.4, -30) + sweat(880, 470, 1.1, -45) + sweat(1760, 160, 1.5, 30) + sweat(1830, 420, 1.1, 40)
+    b += spark(1530, 700, 20) + spark(1110, 760, 14) + spark(1650, 560, 16)
+    # mascot with notebook, shocked
+    b += '<ellipse cx="320" cy="1012" rx="150" ry="22" fill="#000" opacity=".5" filter="url(#b4)"/>'
+    b += frog(320, 1010, 3.0, mouth='o', look=(5, -2), arms=('M-34 -22 q-4 14 12 -10', 'M38 -22 q8 14 -10 -12'), front=notebook_front(), rim='#ffe9b0')
+    b += '<path d="M470,700 l-8,70" stroke="#fff3d0" stroke-width="14" stroke-linecap="round"/><circle cx="458" cy="800" r="9" fill="#fff3d0"/>'
+    for _ in range(16):
+        b += grass(random.randint(80, 620), 1090, random.randint(60, 130), random.randint(-30, 30), '#040a06', w=9)
+    return page('#03141a', svg(D, b), [('IT BIT', 200, 'w'), ('BACK', 300, 'y')], outline='#04100e')
 
 
 # =====================================================================================
-# B  intuitive: flashlight finds a "worm"; the shadow tells the truth
+# B  intuitive: adult beetle riding a frog's back, biting
 # =====================================================================================
+def beetle(x, y, ang, s):
+    INKB = '#120a04'; LEG = '#d39a35'
+    o = f'<g transform="translate({x} {y}) rotate({ang}) scale({s})">'
+    legs = [(70, [(30, 95), (-20, 160)]), (35, [(10, 105), (-70, 150)]), (0, [(-60, 95), (-150, 140)])]
+    for sg, dx, LEG in ((-1, -26, '#8a5f1c'), (-1, 0, '#d39a35')):   # both leg rows grip the frog's back (far row darker)
+        for cx_, ((kx, ky), (fx, fy)) in legs:
+            cx_ += dx
+            pts = [(cx_, 0), (cx_ + kx * .5, sg * ky * .5), (cx_ + kx, sg * ky), (cx_ + kx + (fx - kx) * .5, sg * (ky + (fy - ky) * .5)), (cx_ + fx, sg * fy)]
+            o += f'<path d="{poly(pts)}" fill="none" stroke="{INKB}" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>'
+            o += f'<path d="{poly(pts)}" fill="none" stroke="{LEG}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>'
+            o += f'<path d="M{cx_ + fx},{sg * fy} l-14,{sg * 10} M{cx_ + fx},{sg * fy} l-4,{sg * 16}" stroke="{INKB}" stroke-width="6" stroke-linecap="round"/>'
+    # antennae
+    for sg in (-1, 1):
+        ap = [qb((150, sg * 20), (200, sg * 150), (60, sg * 170 - 40), k / 20) for k in range(21)]
+        o += f'<path d="{poly(ap)}" fill="none" stroke="{INKB}" stroke-width="13" stroke-linecap="round"/><path d="{poly(ap)}" fill="none" stroke="#e9b44a" stroke-width="6" stroke-linecap="round"/>'
+        for k in range(2, 21, 3):
+            o += f'<circle cx="{ap[k][0]:.0f}" cy="{ap[k][1]:.0f}" r="5" fill="#f3c560" stroke="{INKB}" stroke-width="2"/>'
+    # mandibles (sickles biting down)
+    for sg in (-1, 1):
+        mp = [cb((150, sg * 22), (200, sg * 45), (235, sg * 25), (232, -sg * 6), k / 16) for k in range(17)]
+        o += f'<path d="{taper(mp, 26, 4)}" fill="#3a1d08" stroke="{INKB}" stroke-width="4"/>'
+        o += f'<path d="{poly(mp[2:12])}" fill="none" stroke="#d08a3a" stroke-width="3" opacity=".8"/>'
+    # elytra
+    el = 'M40,0 C42,-88 -70,-92 -160,-24 Q-176,0 -160,24 C-70,92 42,88 40,0Z'
+    o += f'<path d="{el}" fill="#e8b03a" stroke="{INKB}" stroke-width="7"/>'
+    o += '<path d="M30,0 C32,-74 -66,-78 -146,-20 Q-160,0 -146,20 C-66,78 32,74 30,0Z" fill="url(#elyB)"/>'
+    for k in range(1, 4):
+        o += f'<path d="M30,{-k * 17} C0,{-k * 19} -80,{-k * 16} -140,{-k * 5}" fill="none" stroke="#3d6b7a" stroke-width="2.5" opacity=".6"/>'
+        o += f'<path d="M30,{k * 17} C0,{k * 19} -80,{k * 16} -140,{k * 5}" fill="none" stroke="#3d6b7a" stroke-width="2.5" opacity=".6"/>'
+    o += f'<path d="M38,0 L-160,0" stroke="{INKB}" stroke-width="4"/>'
+    o += '<path d="M10,-56 C-30,-64 -90,-50 -130,-24" fill="none" stroke="#c9f6ff" stroke-width="9" stroke-linecap="round" opacity=".75"/>'
+    # pronotum + head
+    o += f'<path d="M36,-50 Q100,-58 108,-30 L108,30 Q100,58 36,50 Q48,0 36,-50Z" fill="#e8b03a" stroke="{INKB}" stroke-width="7"/>'
+    o += '<path d="M44,-42 Q96,-48 100,-26 L100,26 Q96,48 44,42 Q54,0 44,-42Z" fill="url(#elyB)"/>'
+    o += '<path d="M56,-34 Q88,-38 94,-20" fill="none" stroke="#c9f6ff" stroke-width="6" opacity=".7" stroke-linecap="round"/>'
+    o += f'<ellipse cx="135" cy="0" rx="34" ry="34" fill="#0f1a1e" stroke="{INKB}" stroke-width="7"/>'
+    o += f'<circle cx="138" cy="-30" r="11" fill="#2a1a0a" stroke="{INKB}" stroke-width="3"/><circle cx="138" cy="30" r="11" fill="#2a1a0a" stroke="{INKB}" stroke-width="3"/>'
+    o += '<circle cx="135" cy="-33" r="3.5" fill="#fff"/><circle cx="135" cy="27" r="3.5" fill="#fff"/>'
+    o += '<path d="M120,-14 Q140,-22 156,-10" fill="none" stroke="#9ad8e6" stroke-width="5" opacity=".7" stroke-linecap="round"/>'
+    return o + '</g>'
+
+
 def make_B():
-    D = FILTERS + LARVA_DEFS
-    D += lin('rockB', [(0, '#1b2b33'), (.6, '#13202a'), (1, '#0b141a')])
-    D += lin('mudB', [(0, '#2a2117'), (.4, '#17120c'), (1, '#080604')])
-    D += rad('spotB', 1480, 430, 560, [(0, '#ffe3a0', .75), (.55, '#f2b860', .42), (.85, '#c27a30', .12), (1, '#000', 0)])
-    D += lin('beamB', [(0, '#fff2c4'), (1, '#ffcf70')], x2=1, y2=-0.4)
-    D += rad('lampB', 790, 872, 150, [(0, '#fffbe8', 1), (.3, '#ffe9a8', .7), (1, '#ffcf70', 0)])
-    b = '<rect width="1920" height="1080" fill="url(#rockB)"/>'
-    # rock wall texture: big slabs and cracks
-    for i in range(26):
-        x, y = random.randint(-100, 1900), random.randint(-60, 700)
-        b += f'<ellipse cx="{x}" cy="{y}" rx="{random.randint(120, 300)}" ry="{random.randint(60, 140)}" fill="{random.choice(["#22343e", "#0f1a21", "#1a2a31"])}" opacity=".55" filter="url(#b14)"/>'
-    for i in range(9):
-        x = random.randint(950, 1900); y = random.randint(60, 600)
-        b += f'<path d="M{x},{y} l{random.randint(-60, 60)},{random.randint(40, 90)} l{random.randint(-50, 50)},{random.randint(40, 100)}" fill="none" stroke="#070d11" stroke-width="5" opacity=".7"/>'
-    # moss on top of the wall
-    b += '<path d="M0,0 L1920,0 L1920,70 C1700,120 1500,60 1300,110 C1100,150 900,80 700,120 C500,160 300,90 0,130 Z" fill="#14281c" opacity=".9"/>'
-    # spotlight on the rock and the beam cone
-    b += '<ellipse cx="1480" cy="430" rx="560" ry="420" fill="url(#spotB)"/>'
-    b += '<path d="M790,872 L1080,120 L1920,170 L1920,760 Z" fill="url(#beamB)" opacity=".13"/>'
-    b += '<path d="M790,872 L1180,250 L1920,330 L1920,640 Z" fill="#fff2c4" opacity=".08"/>'
-    # the GIANT SHADOW on the rock: hooked jaws open, antennae high
-    b += '<g opacity=".93" filter="url(#b4)">' + larva(((1930, 700), (1720, 720), (1520, 650), (1370, 500)), W=80, opn=0.7, head_rot=-4,
-                                                         ants=((-34, 5.0, -50), (22, 5.2, 50)), legs='walk', vside=-1, sil='#0a0806') + '</g>'
-    # ground
-    b += '<path d="M0,800 C400,780 900,790 1300,770 C1600,760 1800,780 1920,775 L1920,1080 L0,1080 Z" fill="url(#mudB)"/>'
-    b += '<path d="M0,800 C400,780 900,790 1300,770 C1600,760 1800,780 1920,775" fill="none" stroke="#3b2f22" stroke-width="5"/>'
-    b += '<ellipse cx="1140" cy="890" rx="520" ry="70" fill="#ffd88a" opacity=".22" filter="url(#b24)"/>'
-    # puddle reflecting the beam
-    b += '<ellipse cx="1500" cy="960" rx="190" ry="28" fill="#0c1820"/><ellipse cx="1470" cy="955" rx="120" ry="10" fill="#ffe2a0" opacity=".35" filter="url(#b4)"/>'
-    for (px, py, r) in [(1000, 930, 18), (1620, 880, 14), (930, 860, 10), (1720, 925, 9)]:
-        b += f'<ellipse cx="{px}" cy="{py}" rx="{r * 1.5}" ry="{r}" fill="#2a2016" stroke="#0a0705" stroke-width="3"/><ellipse cx="{px - r * .3}" cy="{py - r * .4}" rx="{r * .6}" ry="{r * .22}" fill="#ffd88a" opacity=".45"/>'
-    # left reeds framing
-    for i in range(30):
-        b += grass(random.randint(-20, 300), 1085, random.randint(200, 520), random.randint(-60, 80), random.choice(['#0a130f', '#0d1912', '#08100c']), w=14)
-    # the real larva on the mud, lit by the beam, antennae waving like a worm
-    b += '<ellipse cx="1300" cy="880" rx="240" ry="20" fill="#000" opacity=".55" filter="url(#b8)"/>'
-    b += larva(((1500, 872), (1400, 884), (1250, 880), (1170, 820)), W=32, opn=0.3, head_rot=-10,
-               ants=((-34, 4.6, -50), (20, 4.8, 45)), legs='walk', vside=-1, light=(-1, -0.3), wave=True, rim='#fff4cc')
-    b += spark(1060, 720, 20) + spark(1260, 700, 14) + spark(960, 820, 12)
-    # mascot holding the flashlight, leaning in, curious
-    torch = ('<g transform="rotate(-24 72 -38)"><rect x="56" y="-47" width="40" height="18" rx="5" fill="#d6b04a" stroke-width="3"/>'
-             '<rect x="92" y="-51" width="10" height="26" rx="3" fill="#8f7a3a" stroke-width="3"/><rect x="62" y="-44" width="24" height="4" rx="2" fill="#fff3c4" stroke="none" opacity=".8"/></g>')
-    b += f'<circle cx="790" cy="872" r="150" fill="url(#lampB)"/>'
-    b += frog(500, 1010, 3.1, mouth='o', look=(5, -1), arms=('M-34 -22 q-14 6 -16 22', 'M38 -22 q20 -2 30 -14'), front=torch, rim='#ffe9a8')
-    b += '<circle cx="790" cy="872" r="22" fill="#fffbe8" opacity=".95" filter="url(#b4)"/>'
-    lines = [('WORM', 206, 'w'), ('OR', 112, 'w'), ('TRAP?', 246, 'y')]
-    return page('#0b141a', svg(D, b), lines)
+    random.seed(32)
+    FI = '#170f06'
+    D = FILTERS
+    D += lin('skyB', [(0, '#2a0b1c'), (.45, '#7a2a2a'), (.75, '#d8752e'), (1, '#f1b252')])
+    D += lin('gndB', [(0, '#3a2412'), (.4, '#1e1209'), (1, '#090503')])
+    D += rad('sunB', 1250, 560, 760, [(0, '#fff2c0', 1), (.12, '#ffd77a', .9), (.4, '#f08a3a', .35), (1, '#7a2a2a', 0)])
+    D += lin('frogB', [(0, '#c9b45e'), (.45, '#8d7b3a'), (1, '#3e3418')], x2=0.3, y2=1)
+    D += rad('irisB', -10, -10, 50, [(0, '#fff3a8', 1), (.55, '#e0a42c', 1), (1, '#7a4a0a', 1)])
+    D += lin('elyB', [(0, '#0b1418'), (.5, '#16323a'), (1, '#0b1418')])
+    D += lin('tngB', [(0, '#ffb9c4'), (1, '#d8607a')])
+    b = '<rect width="1920" height="1080" fill="url(#skyB)"/><rect width="1920" height="1080" fill="url(#sunB)"/>'
+    b += '<circle cx="1250" cy="600" r="210" fill="#fff4cf" opacity=".9" filter="url(#b14)"/>'
+    for i in range(14):  # sun rays
+        a = math.radians(i * 360 / 14 + 5)
+        b += f'<path d="M1250,600 L{1250 + math.cos(a - .05) * 1400:.0f},{600 + math.sin(a - .05) * 1400:.0f} L{1250 + math.cos(a + .05) * 1400:.0f},{600 + math.sin(a + .05) * 1400:.0f}Z" fill="#ffe6a0" opacity=".08"/>'
+    for _ in range(120):
+        b += grass(random.randint(-20, 1940), 800, random.randint(70, 260), random.randint(-40, 40), random.choice(['#3a1a14', '#2a120e', '#4a2416']), w=random.randint(6, 13))
+    b += '<path d="M0,790 C500,770 1200,800 1920,780 L1920,1080 L0,1080Z" fill="url(#gndB)"/>'
+    b += '<ellipse cx="1150" cy="945" rx="560" ry="40" fill="#000" opacity=".6" filter="url(#b14)"/>'
+    # dust kicked up
+    for _ in range(14):
+        b += f'<circle cx="{random.randint(700, 1600)}" cy="{random.randint(880, 960)}" r="{random.randint(14, 40)}" fill="#c99a62" opacity="{random.uniform(.15, .35):.2f}" filter="url(#b4)"/>'
+    # ---------- frog (side view, facing left, front lifted: bucking) ----------
+    F = '<g transform="rotate(-9 1150 760)">'
+    F += limb([(1180, 820), (1240, 900), (1320, 930)], 80, 40, '#6d5c2a', FI)   # far hind foot hint
+    body = 'M690,690 C695,640 760,585 850,555 C960,515 1080,495 1200,500 C1340,503 1480,555 1540,635 C1580,695 1545,790 1470,812 C1350,848 1150,862 980,840 C880,826 790,790 740,752 C712,730 688,712 690,690Z'
+    F += f'<path d="{body}" fill="url(#frogB)" stroke="{FI}" stroke-width="9"/>'
+    F += '<clipPath id="fbB"><path d="' + body + '"/></clipPath><g clip-path="url(#fbB)">'
+    F += '<path d="M700,720 C800,800 1000,850 1300,845 L1500,840 L1500,900 L700,900Z" fill="#efe2b0" opacity=".9"/>'
+    for _ in range(26):
+        x, y = random.randint(780, 1520), random.randint(510, 760)
+        F += f'<ellipse cx="{x}" cy="{y}" rx="{random.randint(14, 34)}" ry="{random.randint(10, 22)}" transform="rotate({random.randint(-40, 40)} {x} {y})" fill="#3b3016" opacity=".7"/>'
+    F += '<path d="M860,560 C1000,520 1200,515 1350,545 C1440,565 1510,610 1540,660" fill="none" stroke="#fff0b8" stroke-width="30" opacity=".5" filter="url(#b8)"/>'
+    F += '</g>'
+    F += '<path d="M870,553 C1000,512 1200,500 1350,528 C1450,550 1520,600 1544,650" fill="none" stroke="#fff6d4" stroke-width="7" opacity=".95" filter="url(#b2)"/>'
+    F += f'<path d="M930,600 C1060,575 1250,575 1450,640" fill="none" stroke="#e8d48a" stroke-width="10" stroke-linecap="round" opacity=".55"/>'
+    # hind leg folded (thigh, shin, long webbed foot)
+    F += limb([(1480, 690), (1420, 790), (1330, 870)], 150, 80, 'url(#frogB)', FI)
+    F += limb([(1320, 875), (1450, 900), (1560, 880)], 78, 54, '#8d7b3a', FI)
+    for k in range(4):
+        F += f'<ellipse cx="{1440 - k * 20}" cy="{760 + k * 30}" rx="22" ry="12" fill="#3b3016" opacity=".7"/>'
+    F += f'<path d="M1560,880 L1380,935" stroke="{FI}" stroke-width="40" stroke-linecap="round"/><path d="M1560,880 L1380,935" stroke="#7d6c33" stroke-width="28" stroke-linecap="round"/>'
+    F += fingers(1385, 935, 175, 70, '#8d7b3a', FI, n=4, spread=50, w=12)
+    # front leg raised and pawing
+    F += limb([(880, 780), (830, 860), (760, 880)], 66, 40, '#8d7b3a', FI)
+    F += fingers(752, 882, 190, 48, '#a69250', FI, n=4, spread=70, w=12)
+    # tympanum, mouth, tongue
+    F += f'<circle cx="1000" cy="630" r="40" fill="#6d5226" stroke="{FI}" stroke-width="6"/><circle cx="990" cy="620" r="14" fill="#c9a865" opacity=".5"/>'
+    F += f'<path d="M698,700 C780,722 880,725 960,700" fill="none" stroke="{FI}" stroke-width="8" stroke-linecap="round"/>'
+    F += f'<path d="M712,708 C690,750 670,800 694,830 C716,856 750,834 744,800 C740,770 738,740 742,714Z" fill="url(#tngB)" stroke="{FI}" stroke-width="7"/>'
+    F += '<ellipse cx="702" cy="805" rx="7" ry="13" fill="#fff" opacity=".6"/>'
+    F += f'<ellipse cx="722" cy="640" rx="9" ry="6" fill="{FI}"/>'
+    # eye: bulging, looking back at the rider, panicked
+    F += f'<circle cx="868" cy="552" r="76" fill="#7d6c33" stroke="{FI}" stroke-width="9"/>'
+    F += f'<circle cx="872" cy="545" r="62" fill="#fffdf2" stroke="{FI}" stroke-width="6"/>'
+    F += '<g transform="translate(900 526)"><circle r="40" fill="url(#irisB)" stroke="#5a3a0a" stroke-width="4"/><ellipse cx="10" cy="-6" rx="13" ry="8" fill="#0a0703"/>'
+    F += '<ellipse cx="-14" cy="-16" rx="10" ry="7" fill="#fff"/><circle cx="14" cy="15" r="4" fill="#fff" opacity=".7"/></g>'
+    F += f'<path d="M790,500 Q850,445 950,470" fill="none" stroke="{FI}" stroke-width="16" stroke-linecap="round"/>'
+    F += '</g>'
+    b += F
+    # rider beetle, jaws into the back
+    b += '<ellipse cx="1200" cy="560" rx="200" ry="40" fill="#000" opacity=".35" filter="url(#b8)" transform="rotate(-12 1200 560)"/>'
+    b += beetle(1330, 478, 170, 1.2)
+    for a in (110, 150, 190, 230):
+        ax, ay = 1050 + math.cos(math.radians(a)) * 62, 525 + math.sin(math.radians(a)) * 62
+        bx, by = 1050 + math.cos(math.radians(a)) * 100, 525 + math.sin(math.radians(a)) * 100
+        b += f'<path d="M{ax:.0f},{ay:.0f} L{bx:.0f},{by:.0f}" stroke="#fff8d8" stroke-width="8" stroke-linecap="round"/>'
+    b += shake(610, 690, 1.2, flip=True, col='#fff3d0') + shake(1650, 560, 1.2, col='#fff3d0')
+    b += sweat(700, 500, 1.3, -30) + sweat(640, 590, 1.0, -50) + sweat(800, 440, 1.1, -10)
+    b += spark(1480, 360, 22) + spark(1580, 470, 14) + spark(1120, 330, 16)
+    # mascot: hands up, shocked, ankle-deep in the grass
+    b += '<ellipse cx="300" cy="1002" rx="150" ry="22" fill="#000" opacity=".5" filter="url(#b4)"/>'
+    b += frog(300, 1000, 3.0, mouth='o', look=(6, -3), arms=('M-34 -22 q-18 -10 -22 -38', 'M38 -22 q18 -10 22 -38'), rim='#ffd890')
+    b += '<path d="M430,720 l-6,64" stroke="#fff3d0" stroke-width="14" stroke-linecap="round"/><circle cx="420" cy="812" r="9" fill="#fff3d0"/>'
+    for _ in range(16):
+        b += grass(random.randint(80, 560), 1090, random.randint(50, 110), random.randint(-30, 30), '#120804', w=9)
+    return page('#2a0b1c', svg(D, b), [('WHO EATS', 175, 'w'), ('WHOM?', 270, 'y')], outline='#1a0610')
 
 
 # =====================================================================================
-# C  homage: The Silence of the Lambs poster (pale face, insect over the mouth)
+# C  intuitive: frog skeleton on the mud, a fat larva asleep on it (S42 "only a pile of bones")
 # =====================================================================================
-def larva_top(x, y0, y1, W):
-    """dorsal view, head at the top (y0), tail at y1: symmetric like the moth on the poster"""
-    o = []
-    N = len(PROF); seg = (y1 - y0) / N
-    cen = [(x, y1 - seg * (i + 0.5)) for i in range(N)]          # i=0 tail (bottom)
-    # legs, splayed sideways like wings (3 pairs on the thorax)
-    for k, (a1, a2) in enumerate([(-58, -95), (-95, -120), (-130, -150)]):   # degrees from straight up
-        cx_, cy_ = cen[N - 1 - k]
-        for sg in (-1, 1):
-            base = (cx_ + sg * W * PROF[N - 1 - k] * 0.8, cy_)
-            d1 = (sg * math.sin(math.radians(-a1)), -math.cos(math.radians(-a1)))
-            d2 = (sg * math.sin(math.radians(-a2)), -math.cos(math.radians(-a2)))
-            knee = add(base, d1, W * 1.5); foot = add(knee, d2, W * 1.6); claw = add(foot, d2, W * 0.3)
-            dd = poly([base, knee, foot, claw])
-            o.append(f'<path d="{dd}" fill="none" stroke="#24120a" stroke-width="{W * 0.27:.1f}" stroke-linecap="round" stroke-linejoin="round"/>'
-                     f'<path d="{dd}" fill="none" stroke="#b07a3c" stroke-width="{W * 0.15:.1f}" stroke-linecap="round" stroke-linejoin="round"/>')
-    for sg in (-1, 1):   # urogomphi
-        a = (x + sg * W * 0.2, y1 - seg * 0.2); bb = (x + sg * W * 0.7, y1 + W * 1.2)
-        o.append(f'<path d="{taper([a, ((a[0] + bb[0]) / 2, (a[1] + bb[1]) / 2 + 4), bb], W * 0.22, 2, cap=False)}" fill="#24120a"/>')
-    for i, (cx_, cy_) in enumerate(cen):
-        w = W * PROF[i]
-        o.append(f'<ellipse cx="{cx_:.1f}" cy="{cy_:.1f}" rx="{w:.1f}" ry="{seg * 0.74:.1f}" fill="url(#lvb)" stroke="#24120a" stroke-width="{W * 0.07:.1f}"/>')
-        o.append(f'<ellipse cx="{cx_:.1f}" cy="{cy_ - seg * 0.06:.1f}" rx="{w * 0.62:.1f}" ry="{seg * 0.5:.1f}" fill="#8a4f1e" opacity=".42"/>')
-        o.append(f'<path d="M{cx_ - w * 0.75:.1f},{cy_ + seg * 0.1:.1f} Q{cx_ - w * 0.8:.1f},{cy_ - seg * 0.5:.1f} {cx_ - w * 0.3:.1f},{cy_ - seg * 0.6:.1f}" fill="none" stroke="#fff6d8" stroke-width="{W * 0.1:.1f}" stroke-linecap="round" opacity=".8"/>')
-    o.append(f'<path d="M{x:.1f},{y1 - seg * 0.4:.1f} L{x:.1f},{y0 + seg * 0.4:.1f}" stroke="#5a3010" stroke-width="{W * 0.05:.1f}" opacity=".6"/>')
-    # head + mandibles + antennae
-    H = (x, y0 - W * 0.7)
-    Lm = W * 2.3
-    for sg in (-1, 1):
-        B = (x + sg * W * 0.45, H[1] - W * 0.65)
-        mp = [cb(B, (B[0] + sg * Lm * 0.55, B[1] - Lm * 0.4), (B[0] + sg * Lm * 0.35, B[1] - Lm * 1.0), (B[0] - sg * Lm * 0.05, B[1] - Lm * 0.95), k / 20) for k in range(21)]
-        o.append(f'<path d="{taper(mp, W * 0.46, W * 0.06)}" fill="#3b1a0b" stroke="#24120a" stroke-width="{W * 0.05:.1f}"/>')
-        o.append(f'<path d="{poly(mp[3:14])}" fill="none" stroke="#c9874a" stroke-width="{W * 0.07:.1f}" stroke-linecap="round" opacity=".8" transform="translate({-sg * 3} 2)"/>')
-        A0 = (x + sg * W * 0.7, H[1] - W * 0.4)
-        A1 = (A0[0] + sg * W * 2.6, A0[1] - W * 1.6); A2 = (A1[0] + sg * W * 1.4, A1[1] - W * 2.4)
-        ap = [qb(A0, A1, A2, j / 24) for j in range(25)]
-        o.append(f'<path d="{taper(ap, W * 0.2, W * 0.08)}" fill="#6b3b16" stroke="#24120a" stroke-width="{W * 0.04:.1f}"/>')
-        for j in range(3, 25, 3):
-            p = ap[j]
-            o.append(f'<circle cx="{p[0]:.1f}" cy="{p[1]:.1f}" r="{W * (0.12 - j * 0.002):.1f}" fill="#c98a45" stroke="#24120a" stroke-width="{W * 0.03:.1f}"/>')
-    o.append(f'<ellipse cx="{H[0]:.1f}" cy="{H[1]:.1f}" rx="{W * 0.92:.1f}" ry="{W * 1.0:.1f}" fill="url(#lvh)" stroke="#24120a" stroke-width="{W * 0.07:.1f}"/>')
-    for sg in (-1, 1):
-        for k in range(3):
-            o.append(f'<circle cx="{x + sg * W * (0.55 + k * 0.08):.1f}" cy="{H[1] - W * (0.35 - k * 0.15):.1f}" r="{W * 0.08:.1f}" fill="#120804"/>')
-    o.append(f'<ellipse cx="{x - W * 0.25:.1f}" cy="{H[1] - W * 0.4:.1f}" rx="{W * 0.3:.1f}" ry="{W * 0.18:.1f}" fill="#ffe2a6" opacity=".6"/>')
-    return ''.join(o)
+def bone(p, q, w, col='#efe6cf', ink='#2a2440'):
+    d = norm((q[0] - p[0], q[1] - p[1])); n = (-d[1], d[0]); o = ''
+    for layer, (c, ww, k) in enumerate(((ink, w + 9, 4.5), (col, w, 0))):
+        o += f'<path d="M{p[0]:.0f},{p[1]:.0f} L{q[0]:.0f},{q[1]:.0f}" stroke="{c}" stroke-width="{ww}" stroke-linecap="round"/>'
+        for e in (p, q):
+            for sg in (-1, 1):
+                cc = add(e, n, sg * w * .45)
+                o += f'<circle cx="{cc[0]:.0f}" cy="{cc[1]:.0f}" r="{w * .55 + k:.1f}" fill="{c}"/>'
+    o += f'<path d="M{add(p, n, -w * .15)[0]:.0f},{add(p, n, -w * .15)[1]:.0f} L{add(q, n, -w * .15)[0]:.0f},{add(q, n, -w * .15)[1]:.0f}" stroke="#fffdf4" stroke-width="{w * .25:.1f}" stroke-linecap="round" opacity=".8"/>'
+    return o
 
 
 def make_C():
-    cx = 1340
+    random.seed(43)
     D = FILTERS + LARVA_DEFS
-    D += rad('bgC', 1300, 480, 1300, [(0, '#efe9dc', 1), (.6, '#d8cfbd', 1), (1, '#a99f8c', 1)])
-    D += '<linearGradient id="skinC" x1="0" y1="0" x2="1" y2="0.2"><stop offset="0" stop-color="#f4f2e2"/><stop offset=".5" stop-color="#d9dcc0"/><stop offset="1" stop-color="#8e957a"/></linearGradient>'
-    D += lin('bodyC', [(0, '#bfc3a6'), (.55, '#d4ccb9'), (1, '#d8cfbd')])
-    for k, ex in enumerate((cx - 230, cx + 230)):
-        D += rad(f'irC{k}', ex - 12, 240, 100, [(0, '#f6c25a', 1), (.45, '#d2702a', 1), (.85, '#7a2410', 1), (1, '#3a0e06', 1)])
-    head = (f'M{cx - 400},560 C{cx - 415},420 {cx - 330},300 {cx - 190},290 Q{cx},265 {cx + 190},290 C{cx + 330},300 {cx + 415},420 {cx + 400},560 '
-            f'C{cx + 390},720 {cx + 250},830 {cx},845 C{cx - 250},830 {cx - 390},720 {cx - 400},560 Z')
-    D += f'<clipPath id="headC"><path d="{head}"/></clipPath>'
-    b = '<rect width="1920" height="1080" fill="url(#bgC)"/>'
-    b += f'<ellipse cx="{cx}" cy="460" rx="640" ry="470" fill="#fffaf0" opacity=".75" filter="url(#b60)"/>'
-    # throat / shoulders fading into the paper
-    b += f'<path d="M{cx - 300},700 C{cx - 360},880 {cx - 380},980 {cx - 400},1080 L{cx + 260},1080 C{cx + 280},980 {cx + 300},880 {cx + 260},700 Z" fill="url(#bodyC)" opacity=".85"/>'
-    b += f'<ellipse cx="{cx}" cy="1080" rx="560" ry="170" fill="#d8cfbd" filter="url(#b40)"/>'
-    b += f'<path d="{head}" fill="url(#skinC)" stroke="#2b2a20" stroke-width="6"/>'
-    sp = ''
-    for i in range(70):
-        sp += f'<ellipse cx="{random.randint(cx - 400, cx + 400)}" cy="{random.randint(290, 845)}" rx="{random.randint(6, 20)}" ry="{random.randint(5, 13)}" fill="#8f9878" opacity="{random.uniform(.12, .3):.2f}"/>'
-    sp += f'<ellipse cx="{cx + 330}" cy="620" rx="210" ry="320" fill="#5f6650" opacity=".4" filter="url(#b40)"/>'
-    sp += f'<ellipse cx="{cx - 170}" cy="470" rx="170" ry="80" fill="#ffffff" opacity=".5" filter="url(#b24)"/>'
-    sp += f'<path d="M{cx - 340},770 Q{cx},905 {cx + 340},770" fill="none" stroke="#7d8268" stroke-width="40" opacity=".35" filter="url(#b14)"/>'
-    b += f'<g clip-path="url(#headC)">{sp}</g>'
-    b += f'<ellipse cx="{cx - 50}" cy="455" rx="10" ry="6" fill="#3d3b2c"/><ellipse cx="{cx + 50}" cy="455" rx="10" ry="6" fill="#3d3b2c"/>'
-    b += f'<path d="M{cx - 370},610 C{cx - 230},690 {cx - 100},712 {cx},714 C{cx + 100},712 {cx + 230},690 {cx + 370},610" fill="none" stroke="#2b2a20" stroke-width="9" stroke-linecap="round"/>'
-    # staring eyes (no lids over the iris)
-    for k, ex in enumerate((cx - 230, cx + 230)):
-        b += f'<ellipse cx="{ex}" cy="262" rx="150" ry="132" fill="#c8cbb0" stroke="#2b2a20" stroke-width="6"/>'
-        b += f'<ellipse cx="{ex + 30}" cy="300" rx="110" ry="80" fill="#6f7560" opacity=".25" filter="url(#b14)"/>'
-        b += f'<circle cx="{ex}" cy="246" r="106" fill="url(#irC{k})" stroke="#1b1a14" stroke-width="5"/>'
-        for j in range(16):
-            a = j / 16 * 2 * math.pi
-            b += f'<path d="M{ex + math.cos(a) * 44:.1f},{246 + math.sin(a) * 30:.1f} L{ex + math.cos(a) * 94:.1f},{246 + math.sin(a) * 90:.1f}" stroke="#ffd98a" stroke-width="3" opacity=".25"/>'
-        b += f'<ellipse cx="{ex}" cy="248" rx="64" ry="25" fill="#0a0806"/>'
-        b += f'<ellipse cx="{ex - 38}" cy="206" rx="24" ry="14" fill="#fff" opacity=".92"/><circle cx="{ex + 44}" cy="286" r="7" fill="#fff" opacity=".55"/>'
-        b += f'<path d="M{ex - 140},215 Q{ex},90 {ex + 140},215" fill="none" stroke="#2b2a20" stroke-width="7" stroke-linecap="round" opacity=".6"/>'
-    # the larva over the mouth, seen from above, legs spread like the poster's moth wings
-    b += f'<ellipse cx="{cx + 14}" cy="720" rx="240" ry="150" fill="#3d3b2c" opacity=".3" filter="url(#b14)"/>'
-    b += larva_top(cx, 610, 900, 60)
-    b += spark(cx - 500, 560, 20, '#ffffff') + spark(cx + 470, 120, 16, '#ffffff')
-    # mascot: bottom-left, both hands (round frog pads) over its own mouth in shock
-    pads = '<circle cx="-2" cy="-42" r="8" fill="#6aa55a" stroke-width="3"/><circle cx="14" cy="-42" r="8" fill="#6aa55a" stroke-width="3"/>'
-    b += f'<ellipse cx="350" cy="1035" rx="130" ry="18" fill="#6c6452" opacity=".35" filter="url(#b8)"/>'
-    b += frog(350, 1030, 3.0, mouth='none', look=(6, -2), arms=('M-34 -22 q-6 -18 26 -20', 'M38 -22 q6 -18 -18 -20'), front=pads)
-    lines = [('BUG WINS', 158, 'w'), ('NEARLY', 104, 'w'), ('100%', 270, 'y')]
-    return page('#d8cfbd', svg(D, b), lines, outline='#1b1712')
+    D += lin('skyC', [(0, '#060a1e'), (.6, '#141c44'), (1, '#252a5a')])
+    D += lin('mudC', [(0, '#1a1c30'), (.5, '#0e0f1c'), (1, '#05060c')])
+    D += rad('moonC', 1500, 200, 600, [(0, '#e8f0ff', .7), (.3, '#9fb2ff', .25), (1, '#141c44', 0)])
+    D += rad('poolC', 1150, 740, 480, [(0, '#fff3c8', .75), (.4, '#f2d27a', .35), (1, '#f2d27a', 0)])
+    D += lin('beamC', [(0, '#fff6c8'), (1, '#fff6c8')], x2=1, y2=0)
+    b = '<rect width="1920" height="1080" fill="url(#skyC)"/><rect width="1920" height="1080" fill="url(#moonC)"/>'
+    b += '<circle cx="1560" cy="170" r="70" fill="#f4f7ff"/><circle cx="1540" cy="160" r="14" fill="#d6dcf0"/><circle cx="1585" cy="195" r="9" fill="#d6dcf0"/>'
+    b += '<circle cx="1560" cy="170" r="110" fill="#c8d4ff" opacity=".3" filter="url(#b24)"/>'
+    for _ in range(70):
+        b += f'<circle cx="{random.randint(900, 1900)}" cy="{random.randint(10, 480)}" r="{random.choice([1.4, 2, 2.8])}" fill="#eef2ff" opacity="{random.uniform(.2, .8):.2f}"/>'
+    for _ in range(100):
+        b += grass(random.randint(-20, 1940), 560, random.randint(60, 230), random.randint(-40, 40), random.choice(['#0a0e24', '#0d1230', '#101636']), w=random.randint(6, 12))
+    b += '<path d="M0,540 C500,520 1200,550 1920,530 L1920,1080 L0,1080Z" fill="url(#mudC)"/>'
+    for _ in range(30):
+        x, y = random.randint(0, 1900), random.randint(600, 1060)
+        b += f'<ellipse cx="{x}" cy="{y}" rx="{random.randint(20, 60)}" ry="{random.randint(4, 10)}" fill="#2a2e50" opacity=".5"/>'
+    # flashlight beam from the mascot onto the bones
+    b += '<path d="M470,872 L900,500 L1500,640 L1300,980 Z" fill="#fff3c0" opacity=".16" filter="url(#b14)"/>'
+    b += '<ellipse cx="1150" cy="740" rx="520" ry="240" fill="url(#poolC)"/>'
+    # ---------- frog skeleton (dorsal view, lying flat, perspective squash) ----------
+    S = '<g transform="translate(1110 760) scale(.8 .5) rotate(-6)">'
+    S += '<ellipse cx="0" cy="40" rx="430" ry="330" fill="#000" opacity=".25" filter="url(#b24)"/>'
+    # hind legs (Z-fold, splayed)
+    for sg in (-1, 1):
+        hip = (sg * 40, 170)
+        knee = (sg * 270, 130); ankle = (sg * 200, 300); foot = (sg * 340, 360)
+        S += bone(hip, knee, 30) + bone(knee, ankle, 26) + bone(ankle, foot, 18)
+        for k in range(5):
+            a = math.radians((-20 + k * 14) if sg > 0 else (200 - k * 14))
+            S += bone(foot, (foot[0] + math.cos(a) * 95, foot[1] + math.sin(a) * 95 + 30), 8)
+        # front legs
+        sh = (sg * 90, -150); el = (sg * 210, -100); wr = (sg * 250, -10)
+        S += bone(sh, el, 20) + bone(el, wr, 16)
+        for k in range(4):
+            a = math.radians((40 + k * 25) if sg > 0 else (140 - k * 25))
+            S += bone(wr, (wr[0] + math.cos(a) * 55, wr[1] + math.sin(a) * 55), 7)
+        # ilia (long hip bones)
+        S += bone((sg * 30, 180), (sg * 70, 20), 20)
+    # spine + urostyle
+    S += bone((0, 190), (0, 60), 16)
+    for k in range(8):
+        y = 50 - k * 28
+        S += bone((-60 + k * 3, y), (60 - k * 3, y), 10)
+        S += f'<ellipse cx="0" cy="{y}" rx="20" ry="14" fill="#efe6cf" stroke="#2a2440" stroke-width="5"/>'
+    # skull: wide U with two huge orbits
+    S += ('<path d="M-170,-210 C-200,-300 -120,-400 0,-405 C120,-400 200,-300 170,-210 C150,-180 -150,-180 -170,-210Z" '
+          'fill="#efe6cf" stroke="#2a2440" stroke-width="9"/>')
+    for sg in (-1, 1):
+        S += f'<ellipse cx="{sg * 82}" cy="-290" rx="62" ry="70" fill="#2a2440" stroke="#2a2440" stroke-width="4"/>'
+        S += f'<ellipse cx="{sg * 82}" cy="-280" rx="40" ry="44" fill="#141428"/>'
+    S += '<path d="M-18,-395 L0,-200 L18,-395" fill="#d6caa8" stroke="#2a2440" stroke-width="4" opacity=".9"/>'
+    S += '<path d="M-150,-260 C-150,-330 -100,-380 -30,-392" fill="none" stroke="#fffdf4" stroke-width="10" stroke-linecap="round" opacity=".8"/>'
+    S += '</g>'
+    b += S
+    # fat larva asleep across the skeleton
+    b += '<ellipse cx="1620" cy="830" rx="190" ry="30" fill="#000" opacity=".45" filter="url(#b8)"/>'
+    b += larva(((1800, 800), (1740, 650), (1540, 650), (1470, 770)), W=60, opn=0.0, head_rot=20,
+               ants=((-60, 2.4, -40), (-20, 2.4, -50)), legs='walk', vside=-1, light=(.6, -1), rim='#fff6d6')
+    b += '<g font-family="Fredoka" font-weight="700" fill="#fff6d6" stroke="#1a1838" stroke-width="7" paint-order="stroke">'
+    b += '<text x="1640" y="540" font-size="70">z</text><text x="1700" y="460" font-size="96">z</text><text x="1770" y="360" font-size="128">Z</text></g>'
+    b += spark(1640, 560, 22) + spark(960, 610, 16) + spark(1500, 900, 14) + spark(1060, 900, 12)
+    # mascot with flashlight, shocked
+    torch = ('<g><rect x="34" y="-42" width="34" height="16" rx="4" fill="#d9dde8" stroke="#1d2b1c" stroke-width="3"/>'
+             '<path d="M66 -46 L80 -50 L80 -18 L66 -22Z" fill="#f2d27a" stroke="#1d2b1c" stroke-width="3"/></g>')
+    b += '<ellipse cx="300" cy="1002" rx="150" ry="22" fill="#000" opacity=".55" filter="url(#b4)"/>'
+    b += frog(300, 1000, 3.1, mouth='o', look=(7, 0), arms=('M-34 -22 q-14 6 -16 22', 'M38 -22 q10 -4 4 -14'), front=torch, rim='#fff3c0')
+    b += '<circle cx="545" cy="855" r="40" fill="#fff6c8" opacity=".7" filter="url(#b8)"/>'
+    for _ in range(14):
+        b += grass(random.randint(80, 520), 1090, random.randint(50, 110), random.randint(-30, 30), '#05060f', w=9)
+    return page('#060a1e', svg(D, b), [('FROG + BUG', 165, 'w'), ('= BONES', 270, 'y')], outline='#070818')
 
 
 for name, fn in (('A', make_A), ('B', make_B), ('C', make_C)):
     open(os.path.join(HERE, f'{name}.html'), 'w').write(fn())
-    print('wrote', name)
