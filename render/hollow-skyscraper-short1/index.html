@@ -856,7 +856,7 @@ tl.fromTo("#t18",{clipPath:"inset(0px 0px 0px 100%)"},{clipPath:"inset(0px 0px 0
 tl.set("#t18",{clipPath:"none"},94.199);
 tl.set("#tredge",{display:"block"},93.389);tl.set("#tredge",{display:"none"},94.189);
 tl.fromTo("#treline",{attr:{x1:1080,y1:0,x2:1080,y2:1920}},{attr:{x1:0,y1:0,x2:0,y2:1920},duration:0.8,ease:"power2.inOut",immediateRender:false},93.389);
-tl.fromTo("#w18",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:-27.0,y:0,duration:5.350,ease:"rough({strength:.6,points:30,template:sine.inOut,taper:both,randomize:false,clamp:true})",immediateRender:false},93.389);
+tl.fromTo("#w18",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:-27.0,y:0,duration:5.350,ease:"sine.inOut",immediateRender:false},93.389);
 tl.set(gsap.utils.toArray("#w18 .mv-draw-blueprint-tower")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:0},93.389);
 tl.fromTo(gsap.utils.toArray("#w18 .mv-draw-blueprint-tower")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{drawSVG:"0%"},{drawSVG:"100%",duration:2.4,ease:"power1.inOut",stagger:.08,immediateRender:false},94.489);
 tl.to(gsap.utils.toArray("#w18 .mv-draw-blueprint-tower")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:(i,e)=>parseFloat(e.getAttribute("fill-opacity")||1),duration:.6,ease:"power1.out",stagger:.03,immediateRender:false},95.929);

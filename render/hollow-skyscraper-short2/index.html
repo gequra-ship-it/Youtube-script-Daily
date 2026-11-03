@@ -379,7 +379,7 @@ miyaWrapCores(540,860);const tl=gsap.timeline({paused:true});
 tl.set("#t1",{display:"block"},0.000);tl.set("#t1",{display:"none"},5.941);
 tl.set("#t1",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},0.000);
 tl.set("#w1",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},0.000);
-tl.fromTo("#w1",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:0.0,y:0,duration:5.941,ease:"rough({strength:.6,points:30,template:sine.inOut,taper:both,randomize:false,clamp:true})",immediateRender:false},0.000);
+tl.fromTo("#w1",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:0.0,y:0,duration:5.941,ease:"sine.inOut",immediateRender:false},0.000);
 tl.fromTo("#fx1",{opacity:0},{opacity:1,duration:.6,immediateRender:false},0.200);tl.to("#fx1",{opacity:0,duration:.4},5.491);
 tl.fromTo("#fx1p0",{y:0,x:-540,opacity:0.6,rotation:0},{y:-58,x:648,duration:1.40,ease:"none",repeat:2,immediateRender:false},1.400);
 tl.fromTo("#fx1p1",{y:0,x:-540,opacity:0.6,rotation:0},{y:-58,x:648,duration:2.10,ease:"none",repeat:1,immediateRender:false},0.802);
