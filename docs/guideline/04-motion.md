@@ -120,7 +120,7 @@ GSAP 3.15(2025년부터 플러그인 전부 무료) 14개 플러그인 + anime.j
 | CustomWiggle | 흔들림이 잦아듦/일정/불규칙 | 기존 `shake`(easeOut)·`shiver`(uniform)·중심 `tremble`(random)·개구리 `shiver`(uniform)가 자동으로 이 이징 | `wiggle({wiggles,type})` |
 | CustomEase | 등록(위 이징들의 바탕) | — | — |
 | EasePack SlowMo | 이동 오브젝트의 속도 램프(천천히→질주→천천히) | 단위 문장에 rush·dash·race·speed·fast·zoom·accelerate… (`SPEED_W`) → `mv-path`의 `data-ease`; 에이전트가 적은 `data-ease`가 우선 | `fxlib.path_ease` |
-| EasePack RoughEase | 카메라 자체가 덜컹거림 | 단위 문장에 earthquake·tremor·turbulence·bumpy·rough·storm·engine… (`ROUGH_W`), 드리프트 카메라만; `randomize:false`(구간 렌더 일치) | build3 드리프트 |
+| EasePack RoughEase | 카메라 자체가 덜컹거림 | 단위 문장에 earthquake·tremor·turbulence·bumpy·rough·storm·engine(s)… (`ROUGH_W`, 2026-11-03: `engineer(s)`·`engineering`은 제외 — 줌인이 뚝뚝 끊겼음. 새 단어를 넣을 땐 `\b`로 단어 전체만 맞는지 확인), 드리프트 카메라만; `randomize:false`(구간 렌더 일치) | build3 드리프트 |
 | EasePack ExpoScaleEase | 줌이 일정한 체감 속도로 | 포커스 카메라가 있고 문장에 zoom·closer·magnify·microscope·telescope·tiny·vast… (`ZOOM_W`) | build3 포커스 |
 | anime.js spring | 통통 튀는 등장 | 문장이 playful(bounce·hop·jump·spring·excited·cheer…)이고 grim 단어가 없을 때 `popin`·`rise` 오브젝트와 `pop` 이름표; 단위 번호로 soft/medium/stiff | `fxlib.spring_params`, `miyaSpringTo` |
 | lucide | 이름표·숫자 배지 앞의 작은 픽토그램(선 그리기로 등장) | 라벨 글자의 단어가 `fxlib.OVERRIDE`(whale→fish, years→calendar, brain, virus→biohazard…) 또는 아이콘 이름과 같을 때만; UI 아이콘·태그 매칭은 안 씀(2026-10-29 드라이런에서 hole→drill 같은 오매칭) ; 말풍선에는 안 붙임 | `fxlib.icon_for`, `labels_lib.html_for` |
@@ -206,4 +206,6 @@ GSAP 3.15(2025년부터 플러그인 전부 무료) 14개 플러그인 + anime.j
 3. **`mv-wiggle` 값.** `data-amp`는 **배율 비율**(기본 .06)이지 픽셀이 아니다(5를 쓰면 5배 늘었다 줄어든다), `data-per`는 한 번 오가는 초(기본 .35는 매우 빠름 → 해파리·촉수는 1 안팎). `partaxis.py`가 amp > .3 또는 per < .6을 막고 `--fix`가 .06 / 1로 고친다.
 4. **생물 행(물고기·새·박쥐) 방향.** 왼쪽으로 가는 행은 거울 그룹(`scale(-1 1)`) 안에 있어 x 트윈이 반대로 가던 코드 버그를 고쳤다(`motions.fx_js`: 생물 행은 로컬 +x). 같은 코드를 쓰는 옛 영상 중 왼쪽으로 헤엄치는 물고기가 있는 것은 다시 빌드해야 고쳐진다.
 5. **점검 순서(그림 에이전트·메인).** `axisfix` → `splitlimbs` → `partaxis` → `attachcheck`(그림을 낼 때마다) → 메인 `build3` → `final_check`(partaxis wiggle·splitlimbs 포함) → 사용자가 짚은 장면은 `motionaudit` 띠 이미지.
+6. **회전체(풍속계·바람개비·프로펠러·날개·터빈·컵)의 축은 날/십자의 중심.** 둥근 면이 없는 십자·날개 묶음의 `mv-rotor` `data-pivot`이 묶음 중심에서 `max(12px, 크기의 8%)` 넘게 벗어나면 `attachcheck`가 막는다(2026-11-03 풍속계 축이 막대 중심보다 40px 위여서 어색하게 돌았다). 돌리는 그림은 '그림 평면에서 중심축 회전'이 기본이고, 수평면(위에서 본 원) 회전은 사용자가 말할 때만.
+7. **카메라 흔들림(RoughEase)은 문장 단어 규칙이다.** `fxlib.ROUGH_W`가 맞는 문장의 드리프트 카메라만 흔든다. 단어가 다른 단어의 일부에 걸리면(`engine\w*`→engineers) 줌인이 뚝뚝 끊긴다. 사용자가 끊김을 말하면 `plan`의 단위 문장에 `ROUGH_W`가 맞는지 먼저 본다.
 개정: 2026-11-02 4-12 추가·4-9 제자리(제목 형식)로 이동, miya 해파리·오징어·아귀 축 지적.
