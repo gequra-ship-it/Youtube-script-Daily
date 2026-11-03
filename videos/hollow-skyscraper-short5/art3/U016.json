@@ -1,0 +1,56 @@
+{
+ "centre": "a paper map of the Great Lakes region with a red pin dropping on Guelph, Ontario, and a small lab icon",
+ "focus": [
+  600,
+  880,
+  1.6
+ ],
+ "focus_word": "Guelph, Ontario",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Guelph, Ontario",
+   "x": 600,
+   "y": 1040,
+   "to": [
+    600,
+    900
+   ],
+   "word": "Guelph, Ontario"
+  },
+  {
+   "type": "name",
+   "text": "Canada",
+   "x": 430,
+   "y": 760,
+   "word": "Canada"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-map-pin",
+  "kind": "ride",
+  "x": 674,
+  "y": 925,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

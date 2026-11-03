@@ -1,0 +1,48 @@
+{
+ "centre": "person at a high window watching a hanging lamp and a glass of water tremble",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Did that move?",
+   "x": 1560,
+   "y": 580,
+   "to": [
+    1630,
+    720
+   ]
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   },
+   {
+    "word": "That is",
+    "mood": "happy"
+   }
+  ],
+  "act": "faint",
+  "ride": "mv-swing-pendant-lamp",
+  "kind": "ride",
+  "x": 1098,
+  "y": 300,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "hardhat",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Too much...",
+    "shout": false
+   }
+  ]
+ }
+}

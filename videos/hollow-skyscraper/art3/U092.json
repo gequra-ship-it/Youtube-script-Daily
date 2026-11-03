@@ -1,0 +1,53 @@
+{
+ "centre": "full Burj-like tower tapering upward with a dashed spiral tracing its scalloped steps",
+ "focus": [
+  1000,
+  520,
+  1.6
+ ],
+ "focus_word": "scalloped steps",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Scalloped steps",
+   "x": 1380,
+   "y": 430,
+   "to": [
+    1050,
+    518
+   ],
+   "word": "scalloped steps"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   },
+   {
+    "word": "Its edges",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hike",
+   "dist": 461
+  },
+  "x": 260,
+  "y": 340,
+  "s": 0.85,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Onward!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

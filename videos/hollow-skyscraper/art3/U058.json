@@ -1,0 +1,45 @@
+{
+ "centre": "tower seen from above: hexagon core with three wings forming a Y",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hexagonal core",
+   "x": 1330,
+   "y": 420,
+   "to": [
+    1060,
+    480
+   ],
+   "word": "hexagonal core"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "read",
+  "ride": "mv-core-heartbeat-core-hexagon",
+  "kind": "ride",
+  "x": 820,
+  "y": 618,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "wings",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Interesting...",
+    "shout": false
+   }
+  ]
+ }
+}

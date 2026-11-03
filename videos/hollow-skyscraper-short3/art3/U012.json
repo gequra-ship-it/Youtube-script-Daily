@@ -1,0 +1,57 @@
+{
+ "centre": "concrete truck at the base pumping through a pipe climbing the tower",
+ "focus": [
+  470,
+  860,
+  1.7
+ ],
+ "focus_word": "pipes",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pipe",
+   "x": 300,
+   "y": 800,
+   "to": [
+    470,
+    800
+   ],
+   "word": "pipes"
+  },
+  {
+   "type": "num",
+   "text": "156TH FLOOR",
+   "word": "156th"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hopalong",
+   "obj": "mv-hop-pump-bucket"
+  },
+  "x": 644,
+  "y": 1380,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ]
+ }
+}

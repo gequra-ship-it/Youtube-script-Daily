@@ -1,0 +1,64 @@
+{
+ "centre": "tower split in two halves: windward side stretched with long springs, far side squeezed with tight springs",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Tension",
+   "x": 250,
+   "y": 450,
+   "to": [
+    420,
+    760
+   ],
+   "word": "tension"
+  },
+  {
+   "type": "name",
+   "text": "Compression",
+   "x": 810,
+   "y": 450,
+   "to": [
+    690,
+    760
+   ],
+   "word": "compression"
+  }
+ ],
+ "motion": "wind streak drifts",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    960
+   ]
+  },
+  "x": 260,
+  "y": 840,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "outfit": [
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

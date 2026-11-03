@@ -1,0 +1,56 @@
+{
+ "centre": "a paper sheet standing on its edge flops over; the same sheet curls into an upright paper tube",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Whoa!",
+   "x": 330,
+   "y": 330,
+   "to": [
+    470,
+    430
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "Now roll",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "squish",
+   "obj": "mv-topple-paper-sheet"
+  },
+  "x": 792,
+  "y": 720,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": "mv-topple-paper-sheet",
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Oof!",
+    "shout": true
+   },
+   {
+    "text": "Ow ow ow.",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

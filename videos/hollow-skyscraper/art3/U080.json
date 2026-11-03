@@ -1,0 +1,58 @@
+{
+ "centre": "tower swaying gently between alternating swirls, a pendulum keeping the steady rhythm",
+ "wind": "right",
+ "focus": [
+  860,
+  400,
+  1.5
+ ],
+ "focus_word": "small sideways push",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Vortex shedding",
+   "x": 380,
+   "y": 180,
+   "to": [
+    560,
+    320
+   ],
+   "word": "vortex shedding"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Each swirl",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "knocked",
+   "obj": "mv-pendulum-plumb-bob"
+  },
+  "x": 1399,
+  "y": 662,
+  "s": 0.95,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

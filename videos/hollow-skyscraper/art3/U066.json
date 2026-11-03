@@ -1,0 +1,43 @@
+{
+ "centre": "three separate wooden posts (core and two wings) on a workbench, a loose rope loop hanging above",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Team up?",
+   "x": 1180,
+   "y": 200,
+   "to": [
+    1000,
+    250
+   ]
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "ride": "mv-swing-rope",
+  "kind": "ride",
+  "x": 1129,
+  "y": 350,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Hnnng!",
+    "shout": false
+   }
+  ]
+ }
+}

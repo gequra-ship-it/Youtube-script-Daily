@@ -1,0 +1,45 @@
+{
+ "centre": "hexagonal concrete core seen from above with rebar dots",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Reinforced concrete",
+   "x": 430,
+   "y": 730,
+   "to": [
+    430,
+    640
+   ],
+   "word": "reinforced concrete"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "listen",
+  "ride": "mv-core-heartbeat-core-hexagon",
+  "kind": "ride",
+  "x": 1137,
+  "y": 660,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "hardhat",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Shh... listen.",
+    "shout": false
+   }
+  ]
+ }
+}

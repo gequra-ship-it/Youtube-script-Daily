@@ -1,0 +1,46 @@
+{
+ "centre": "a child on a playground swing, swinging higher",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Higher!",
+   "x": 760,
+   "y": 720,
+   "to": [
+    540,
+    905
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "sunshade"
+  },
+  "ride": "mv-swing-swing-seat",
+  "kind": "ride",
+  "x": 376,
+  "y": 1223,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "propcap",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Bright!",
+    "shout": true
+   }
+  ]
+ }
+}

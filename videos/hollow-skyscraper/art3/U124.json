@@ -1,0 +1,45 @@
+{
+ "centre": "rolled paper tube on a desk holding a heavy book on top",
+ "focus": [
+  960,
+  500,
+  2.0
+ ],
+ "focus_word": "paper tube",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "doodle",
+   "from": 0.9
+  },
+  "x": 1046,
+  "y": 340,
+  "s": 1.5,
+  "flip": -1,
+  "kind": "bg",
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "propcap",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   },
+   {
+    "text": "Ouch...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

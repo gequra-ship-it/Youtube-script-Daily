@@ -1,0 +1,59 @@
+{
+ "centre": "heavy concrete floor slab blocking sound, crane lifting a bucket of concrete",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Concrete",
+   "x": 560,
+   "y": 340,
+   "to": [
+    560,
+    440
+   ],
+   "word": "concrete"
+  },
+  {
+   "type": "say",
+   "text": "Heavy!",
+   "x": 1320,
+   "y": 520,
+   "to": [
+    1230,
+    460
+   ]
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   },
+   {
+    "word": "But lifting",
+    "mood": "curious"
+   }
+  ],
+  "act": "flex",
+  "ride": "mv-swing-concrete-bucket",
+  "kind": "ride",
+  "x": 1268,
+  "y": 518,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "hardhat",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "So strong!",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "centre": "hiker wading through knee-deep snow leaving sunken footprints",
+ "focus": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "So deep!",
+   "x": 900,
+   "y": 470,
+   "to": [
+    1250,
+    570
+   ]
+  }
+ ],
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

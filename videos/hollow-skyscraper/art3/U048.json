@@ -1,0 +1,62 @@
+{
+ "centre": "load block descending the straight core column from chair to foundation",
+ "focus": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Chair",
+   "x": 1000,
+   "y": 190,
+   "to": [
+    1300,
+    200
+   ],
+   "word": "chair"
+  },
+  {
+   "type": "name",
+   "text": "Marble",
+   "x": 1000,
+   "y": 440,
+   "to": [
+    1300,
+    470
+   ],
+   "word": "marble"
+  }
+ ],
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "Every kilogram",
+    "mood": "happy"
+   }
+  ],
+  "act": "wind",
+  "x": 1660,
+  "y": 890,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "run",
+   "dist": 288
+  },
+  "outfit": [
+   "hardhat",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

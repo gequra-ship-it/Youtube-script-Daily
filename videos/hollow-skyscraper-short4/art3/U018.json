@@ -1,0 +1,33 @@
+{
+ "centre": "a stone pillar with a heavy block coming down on its top, squeezed from above and below",
+ "focus": null,
+ "focus_word": "pillar",
+ "sfx": [],
+ "labels": [],
+ "motion": "stone block drops onto the pillar",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-stone-block",
+  "kind": "ride",
+  "x": 694,
+  "y": 608,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

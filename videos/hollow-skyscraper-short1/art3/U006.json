@@ -1,0 +1,48 @@
+{
+ "centre": "a sheet standing on its edge flops over on the left; the same sheet rolled into an upright tube on the right",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Whoa!",
+   "x": 330,
+   "y": 640,
+   "to": [
+    250,
+    780
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   },
+   {
+    "word": "Now roll",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hike",
+   "dist": 302
+  },
+  "x": 260,
+  "y": 640,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Onward!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

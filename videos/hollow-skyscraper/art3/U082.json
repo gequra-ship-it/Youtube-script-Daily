@@ -1,0 +1,47 @@
+{
+ "centre": "child pumping legs on a playground swing, beside a tower pushed by alternating swirls",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Higher!",
+   "x": 830,
+   "y": 300,
+   "to": [
+    612,
+    480
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "swingride",
+   "obj": "mv-pendulum-playground-rope"
+  },
+  "x": 600,
+  "y": 717,
+  "s": 0.95,
+  "flip": 1,
+  "kind": "ride",
+  "ride": "mv-pendulum-playground-rope",
+  "behind": null,
+  "outfit": [
+   "propcap",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

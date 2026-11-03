@@ -1,0 +1,60 @@
+# -*- coding: utf-8 -*-
+# hollow-skyscraper-short4 (Miya's Note). Rewritten for Burj Khalifa 2026-11-03 from miya's Lotte World Tower script.
+SCENES = [('S01',
+  'Ski Poles for a Tower',
+  'ill',
+  's4a',
+  'Imagine standing on a hill with a strong wind pushing at your back. Now imagine that wind pushing against a wall hundreds of meters tall.'),
+ ('S02',
+  'Ski Poles for a Tower',
+  'ill',
+  's4b',
+  'There is still a puzzle. When wind pushes against the side of the tower, the core wants to bend one way, while the outer parts of the wings stand independently. How do you '
+  'force these separate pieces to work as one team?'),
+ ('S03',
+  'Ski Poles for a Tower',
+  'ill',
+  's4c',
+  'Picture a skier racing down a snowy slope. With arms tucked in, a bump knocks them off balance. But spread the ski poles out and plant them in the snow, and the skier gets a '
+  'wide, steady base that keeps the body from tumbling.'),
+ ('S04',
+  'Ski Poles for a Tower',
+  'ill',
+  's4d',
+  'Tall buildings use the same idea, called outriggers. Burj Khalifa reportedly ties its vertical structure together at the mechanical floors with outrigger walls, which are '
+  'meant to make the whole building stiffer.'),
+ ('S05',
+  'Ski Poles for a Tower',
+  'ill',
+  's4e',
+  'When wind pushes on the tower, those walls help pass the push from the core out to the rest of the structure. The side facing the wind is pulled into tension, while the far '
+  'side is squeezed into compression. The building resists the storm with leverage, not with brute mass.'),
+ ('S06',
+  'Ski Poles for a Tower',
+  'ill',
+  's4f',
+  "Baker's team called this a buttressed core. Think of a Gothic cathedral. Its tall walls would lean outward if not for the stone buttresses pressed against them. Baker used "
+  'almost exactly that comparison himself.'),
+ ('S07',
+  'Ski Poles for a Tower',
+  'ill',
+  's4g',
+  'That tension and compression are simple ideas. Pull on a rope and it is in tension. Squeeze a pillar and it is in compression. A tower in the wind does both at once, one side '
+  'pulling and the other side squeezing.'),
+ ('S08',
+  'Ski Poles for a Tower',
+  'ill',
+  's4h',
+  'With the right structure, the tower can turn a sideways push into a pulling force on one side and a squeezing force on the other. Those are exactly the forces that concrete '
+  'and steel handle best.'),
+ ('S09',
+  'Ski Poles for a Tower',
+  'ill',
+  's4i',
+  'The skier and the tower share a lesson. Strength is not only about being strong. It is about where you place your support, and how far from the center you plant it.'),
+ ('S10',
+  'Ski Poles for a Tower',
+  'ill',
+  's4j',
+  'Next time you see a very tall tower, look at its shape. Behind the glass, its stability comes from the structure hidden inside. The full story, from the foundation to the '
+  'spire, is in our long video.')]

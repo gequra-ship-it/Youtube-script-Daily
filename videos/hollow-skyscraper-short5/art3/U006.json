@@ -1,0 +1,53 @@
+{
+ "centre": "plan view: behind a building section, swirls form alternately on the left and the right side, popping in one after another",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Your turn!",
+   "x": 860,
+   "y": 720,
+   "to": [
+    700,
+    880
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "A swirl",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-swirl-left-1",
+   "h": 212
+  },
+  "x": 434,
+  "y": 792,
+  "s": 1.09,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

@@ -1,0 +1,59 @@
+{
+ "centre": "Y-plan of the tower: hexagonal spine, three wings with outrigger walls, wind curls peeling off; cathedral buttress and spiral tower insets",
+ "focus": [
+  960,
+  520,
+  1.5
+ ],
+ "focus_word": "Three wings",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Outrigger walls",
+   "x": 470,
+   "y": 300,
+   "to": [
+    780,
+    430
+   ],
+   "word": "Outrigger walls"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "Outrigger walls",
+    "mood": "happy"
+   },
+   {
+    "word": "A tapering",
+    "mood": "confused"
+   }
+  ],
+  "act": {
+   "type": "blown"
+  },
+  "x": 1190,
+  "y": 890,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "outfit": [
+   "wings",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Whoaaa!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}
