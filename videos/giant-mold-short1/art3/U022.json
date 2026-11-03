@@ -1,0 +1,47 @@
+{
+ "centre": "the curtain opens on a skyline of Prototaxites pillars at dawn, standing like the first skyscrapers",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "First skyscrapers",
+   "x": 540,
+   "y": 420,
+   "to": [
+    540,
+    560
+   ],
+   "word": "first skyscrapers"
+  }
+ ],
+ "motion": "red curtains slide apart (mv-slide out) to uncover the pillar skyline",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 240,
+  "y": 1460,
+  "s": 1.2,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": "mv-slide-curtain-left",
+  "outfit": [
+   "hardhat",
+   "pocketwatch"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

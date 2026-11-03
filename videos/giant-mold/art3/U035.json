@@ -1,0 +1,49 @@
+{
+ "centre": "a soft mushroom squashed by a small stone on a bench",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Too heavy!",
+   "x": 1330,
+   "y": 330,
+   "to": [
+    1110,
+    450
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "shockwave",
+   "obj": "mv-squash-mushroom"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1179,
+  "y": 759,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Yikes!",
+    "shout": true
+   }
+  ]
+ }
+}

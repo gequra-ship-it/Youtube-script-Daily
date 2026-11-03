@@ -1,0 +1,44 @@
+{
+ "centre": "millipede climbing up a pale fibrous pillar wall that disappears into clouds",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pale tissue",
+   "x": 780,
+   "y": 1120,
+   "to": [
+    700,
+    1000
+   ],
+   "word": "pale tissue"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-climb-millipede",
+  "kind": "ride",
+  "x": 622,
+  "y": 1420,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

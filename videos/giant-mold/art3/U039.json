@@ -1,0 +1,49 @@
+{
+ "centre": "a forest ranger's desk with a field map, a plain ranger hat and a sample jar of honey mushrooms",
+ "focus": [
+  970,
+  615,
+  1.6
+ ],
+ "focus_word": "Forest Service",
+ "sfx": [
+  {
+   "name": "page",
+   "word": "according to",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "unrolled",
+   "obj": "mv-unroll-field-map",
+   "frac": 0.7
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1081,
+  "y": 712,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "flowercrown"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

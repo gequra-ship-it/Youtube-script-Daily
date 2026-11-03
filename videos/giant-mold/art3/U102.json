@@ -1,0 +1,57 @@
+{
+ "centre": "Archaeopteris canopy shading ground mats and crusts, pale Prototaxites pillars at right",
+ "focus": [
+  1050,
+  760,
+  1.6
+ ],
+ "focus_word": "surface crusts and mats",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Crusts and mats",
+   "x": 1040,
+   "y": 820,
+   "to": [
+    1000,
+    790
+   ],
+   "word": "crusts and mats"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "bonk",
+   "obj": "mv-core-drop-leaf"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 1059,
+  "y": 743,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   },
+   {
+    "text": "Ouch...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

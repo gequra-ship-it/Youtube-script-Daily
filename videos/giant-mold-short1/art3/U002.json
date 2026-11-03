@@ -1,0 +1,40 @@
+{
+ "centre": "a group of tall pale stone-coloured Prototaxites spires of different heights on a bare plain, the middle one rising",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Giant spires",
+   "x": 800,
+   "y": 560,
+   "to": [
+    560,
+    720
+   ],
+   "word": "giant spires"
+  }
+ ],
+ "motion": "the tallest spire rises into place (mv-rise); tiny plants sway",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "x": 260,
+  "y": 560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "explorer"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

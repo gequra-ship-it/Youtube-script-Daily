@@ -1,0 +1,43 @@
+{
+ "centre": "glowing chemistry flask",
+ "focus": [
+  960,
+  520,
+  1.6
+ ],
+ "focus_word": "chemistry",
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "chemistry",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-core-swell-flask",
+  "kind": "ride",
+  "x": 1108,
+  "y": 680,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "flowercrown"
+  ],
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ]
+ }
+}

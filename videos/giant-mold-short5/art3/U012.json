@@ -1,0 +1,42 @@
+{
+ "centre": "rock split open by a growing tree root",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "break up rock",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "break up rock",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-drop-pebble",
+  "kind": "ride",
+  "x": 359,
+  "y": 1062,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

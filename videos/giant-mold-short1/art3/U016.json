@@ -1,0 +1,40 @@
+{
+ "centre": "a Prototaxites pillar in the middle; a card with a tree slides away left and a card with a flowering plant slides away right",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [],
+ "motion": "tree card slides out (mv-slide out), then the plant card slides out: neither label fits",
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "chase",
+   "obj": "mv-slide-plant-card",
+   "dist": 351
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 665,
+  "y": 880,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Wait!",
+    "shout": true
+   }
+  ]
+ }
+}

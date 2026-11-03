@@ -1,0 +1,45 @@
+{
+ "centre": "glowing junction of a mycorrhizal network linking the roots of an oak, a spruce and a birch",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Mycorrhizal network",
+   "x": 1380,
+   "y": 820,
+   "to": [
+    1180,
+    700
+   ],
+   "word": "mycorrhizal network"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-swell-mycelium-junction",
+  "kind": "ride",
+  "x": 1113,
+  "y": 695,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headlamp",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Bumpy!",
+    "shout": false
+   }
+  ]
+ }
+}

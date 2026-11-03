@@ -1,0 +1,51 @@
+{
+ "centre": "on the curve of the Earth a tree and a mushroom joined by a glowing root-thread knot; many plants above, a shared network below; a faint old pillar at left",
+ "focus": [
+  960,
+  470,
+  1.7
+ ],
+ "focus_word": "alliance",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Partners now!",
+   "x": 1320,
+   "y": 200,
+   "to": [
+    1080,
+    330
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-spore"
+  },
+  "ride": "mv-ascend-spore",
+  "kind": "ride",
+  "x": 1150,
+  "y": 362,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ]
+ }
+}

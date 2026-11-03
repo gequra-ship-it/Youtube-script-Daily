@@ -1,0 +1,45 @@
+{
+ "centre": "split: above, two Prototaxites pillars tower over a stylised continent by the sea; below, a small modern mushroom hides quietly under a fern on a damp mossy floor",
+ "focus": [
+  430,
+  1360,
+  1.7
+ ],
+ "focus_word": "modern mushrooms",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Modern mushroom",
+   "x": 640,
+   "y": 1250,
+   "to": [
+    420,
+    1360
+   ],
+   "word": "modern mushrooms"
+  }
+ ],
+ "motion": "a leaf drops beside the hiding mushroom (mv-core-drop); fern sways",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "x": 820,
+  "y": 1200,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "hardhat",
+   "backpack"
+  ],
+  "says": [],
+  "bside": -1
+ }
+}

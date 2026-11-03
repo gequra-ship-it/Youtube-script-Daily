@@ -1,0 +1,47 @@
+{
+ "centre": "a hiker pressing a hand on the smooth, barkless surface of a giant pale pillar",
+ "focus": [
+  1000,
+  480,
+  1.7
+ ],
+ "focus_word": "reached out to touch",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "So smooth!",
+   "x": 820,
+   "y": 240,
+   "to": [
+    762,
+    408
+   ]
+  }
+ ],
+ "light": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   },
+   {
+    "word": "So what",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "x": 1660,
+  "y": 340,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [],
+  "bside": -1
+ }
+}

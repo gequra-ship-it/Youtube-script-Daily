@@ -1,0 +1,44 @@
+{
+ "centre": "red map pin dropping into a pine forest on Oregon hills",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Malheur National Forest",
+   "x": 560,
+   "y": 330,
+   "to": [
+    945,
+    480
+   ],
+   "word": "Malheur National Forest"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-map-pin",
+  "kind": "ride",
+  "x": 862,
+  "y": 610,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

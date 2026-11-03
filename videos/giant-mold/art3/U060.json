@@ -1,0 +1,49 @@
+{
+ "centre": "open field notebook with an unfinished pillar sketch drawing itself, pencil still working",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "never finished",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Not done yet!",
+   "x": 1500,
+   "y": 400,
+   "to": [
+    1400,
+    590
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-path-pencil",
+  "kind": "ride",
+  "x": 1224,
+  "y": 772,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Hmm, interesting.",
+    "shout": false
+   }
+  ]
+ }
+}
