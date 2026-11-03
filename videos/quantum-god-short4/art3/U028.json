@@ -1,0 +1,54 @@
+{
+ "centre": "two thinkers debating on a cliff edge with a detector, dreamlike ideas floating beyond",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Maybe so?",
+   "x": 200,
+   "y": 900,
+   "to": [
+    200,
+    1100
+   ]
+  },
+  {
+   "type": "say",
+   "text": "Not yet sure.",
+   "x": 420,
+   "y": 960,
+   "to": [
+    350,
+    1110
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "idea",
+  "ride": "mv-swing-lantern",
+  "kind": "ride",
+  "x": 854,
+  "y": 1200,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Aha!",
+    "shout": false
+   }
+  ]
+ }
+}

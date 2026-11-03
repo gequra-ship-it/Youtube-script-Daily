@@ -1,0 +1,57 @@
+{
+ "centre": "Wigner stands outside a sealed lab door; through its window two ghost copies of his friend overlap in superposition",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Wigner",
+   "x": 420,
+   "y": 240,
+   "to": [
+    620,
+    330
+   ],
+   "word": "Wigner"
+  },
+  {
+   "type": "name",
+   "text": "sealed laboratory",
+   "x": 1240,
+   "y": 180,
+   "to": [
+    1000,
+    340
+   ],
+   "word": "sealed laboratory"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "starcatch"
+  },
+  "ride": "mv-swing-tag-string-u098",
+  "kind": "ride",
+  "x": 1190,
+  "y": 692,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Gotcha!",
+    "shout": true
+   }
+  ]
+ }
+}

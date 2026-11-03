@@ -1,0 +1,45 @@
+{
+ "centre": "a glowing photon racing up a light lane seen from above, a small rocket left far behind",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "light",
+   "x": 720,
+   "y": 1200,
+   "to": [
+    552,
+    1320
+   ],
+   "word": "light"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-path-photon-light-u008",
+  "kind": "ride",
+  "x": 406,
+  "y": 1420,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
+}

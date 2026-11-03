@@ -1,0 +1,52 @@
+{
+ "centre": "a bright star where a teal thread and a magenta thread braid together, one leading to a gear and one to a star",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "hand in hand",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Determinism",
+   "x": 960,
+   "y": 300,
+   "to": [
+    960,
+    450
+   ],
+   "word": "determinism"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "rimride",
+   "obj": "mv-spin-gear",
+   "r": 89
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 330,
+  "y": 611,
+  "s": 0.63,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "bowtie"
+  ],
+  "says": []
+ }
+}

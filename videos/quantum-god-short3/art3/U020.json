@@ -1,0 +1,42 @@
+{
+ "centre": "a die tumbling at the centre with a faded atom cluster above",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "unsettling",
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "unsettling",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "queasy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-tumbling-dice",
+  "kind": "ride",
+  "x": 370,
+  "y": 986,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "centre": "a brass-and-teal clockwork of meshing gears with two planets on arms",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "clockwork",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": "startle",
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-core-drop-cog",
+  "kind": "ride",
+  "x": 358,
+  "y": 674,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

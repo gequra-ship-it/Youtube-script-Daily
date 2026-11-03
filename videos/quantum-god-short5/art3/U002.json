@@ -1,0 +1,46 @@
+{
+ "centre": "a brass stopwatch with three glowing idea orbs (box, foam, cube) above it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "3 MINUTES",
+   "word": "three minutes"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dodge",
+   "obj": "mv-rollby-marble",
+   "h": 97,
+   "pass": 1.992
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 632,
+  "y": 1344,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "clockhat"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

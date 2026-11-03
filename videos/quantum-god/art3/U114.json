@@ -1,0 +1,42 @@
+{
+ "centre": "sealed steel box with an atom, detector, hammer and poison flask in a chain",
+ "focus": [
+  1130,
+  480,
+  1.5
+ ],
+ "focus_word": "brutally simple",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "setup",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-swing-hammer",
+  "kind": "ride",
+  "x": 1210,
+  "y": 601,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ]
+ }
+}

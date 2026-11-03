@@ -1,0 +1,55 @@
+{
+ "centre": "a sealed steel box with a keyhole that a detector scans, finding nothing hidden",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "hidden variables",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "hidden",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hidden variables",
+   "x": 400,
+   "y": 520,
+   "to": [
+    450,
+    680
+   ],
+   "word": "hidden variables"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-swing-search-detector",
+  "kind": "ride",
+  "x": 884,
+  "y": 576,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

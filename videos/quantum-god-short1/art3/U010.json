@@ -1,0 +1,55 @@
+{
+ "centre": "one electron drawn as two ghosted copies passing through both slits and merging",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Its own ghost",
+   "x": 800,
+   "y": 600,
+   "to": [
+    740,
+    770
+   ],
+   "word": "its own ghost"
+  }
+ ],
+ "focus": [
+  540,
+  800,
+  1.5
+ ],
+ "focus_word": "both slits at once",
+ "sfx": [
+  {
+   "name": "shimmer",
+   "word": "ghost",
+   "vol": 0.5
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-path-ascend-electron-single",
+  "kind": "ride",
+  "x": 426,
+  "y": 1333,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "ghost",
+   "lifering"
+  ],
+  "says": [
+   {
+    "text": "La la la~",
+    "shout": false
+   }
+  ]
+ }
+}

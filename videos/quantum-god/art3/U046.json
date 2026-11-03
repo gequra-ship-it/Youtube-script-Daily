@@ -1,0 +1,50 @@
+{
+ "centre": "one atom flashing as it decays while its identical neighbour stays calm",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "decay",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Its neighbor",
+   "x": 1300,
+   "y": 380,
+   "to": [
+    1300,
+    540
+   ],
+   "word": "neighbor"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-path-decay-particle",
+  "kind": "ride",
+  "x": 844,
+  "y": 546,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Let me think.",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "centre": "a big glowing electron being hit by a stray photon (wavy light packet) from the upper left; a gas molecule tossed in from below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Stray photon",
+   "x": 470,
+   "y": 380,
+   "to": [
+    240,
+    460
+   ],
+   "word": "stray photon"
+  },
+  {
+   "type": "name",
+   "text": "Gas molecule",
+   "x": 760,
+   "y": 1400,
+   "to": [
+    830,
+    1300
+   ],
+   "word": "gas molecule"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "photo",
+  "ride": "mv-core-wobble-electron",
+  "kind": "ride",
+  "x": 815,
+  "y": 1131,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Say cheese!",
+    "shout": false
+   }
+  ]
+ }
+}

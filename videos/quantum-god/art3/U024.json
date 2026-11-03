@@ -1,0 +1,47 @@
+{
+ "centre": "an electron gun on a lab bench firing small glowing teal balls along a dashed beam toward a waiting slit plate",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "electrons",
+   "x": 720,
+   "y": 400,
+   "to": [
+    820,
+    516
+   ],
+   "word": "electrons"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": {
+   "type": "fan"
+  },
+  "ride": "mv-path-electron",
+  "kind": "ride",
+  "x": 576,
+  "y": 578,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Phew...",
+    "shout": false
+   }
+  ]
+ }
+}

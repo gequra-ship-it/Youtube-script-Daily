@@ -1,0 +1,61 @@
+{
+ "centre": "a glass bulb struck by a stray gold photon and a bumping gas molecule",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "photon",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Stray photon",
+   "x": 1480,
+   "y": 200,
+   "to": [
+    1500,
+    296
+   ],
+   "word": "stray photon"
+  },
+  {
+   "type": "name",
+   "text": "Gas molecule",
+   "x": 430,
+   "y": 800,
+   "to": [
+    420,
+    660
+   ],
+   "word": "gas molecule"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "photo",
+  "ride": "mv-core-tremble-glass-bulb",
+  "kind": "ride",
+  "x": 1298,
+  "y": 780,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Say cheese!",
+    "shout": false
+   }
+  ]
+ }
+}

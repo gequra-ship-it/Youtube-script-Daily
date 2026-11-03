@@ -1,0 +1,50 @@
+{
+ "centre": "a glowing lens focused on a tiny electron, with a question mark made of stars",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "question",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Quantum physics",
+   "x": 600,
+   "y": 780,
+   "to": [
+    880,
+    560
+   ],
+   "word": "quantum physics"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-core-swell-lens",
+  "kind": "ride",
+  "x": 1123,
+  "y": 625,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

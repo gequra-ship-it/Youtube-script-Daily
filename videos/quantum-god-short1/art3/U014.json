@@ -1,0 +1,50 @@
+{
+ "centre": "big gold detector eye looking down at fading stripes",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Observation",
+   "x": 780,
+   "y": 700,
+   "to": [
+    620,
+    830
+   ],
+   "word": "observation"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "observation",
+   "vol": 0.55
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "scope",
+  "ride": "mv-core-ping-detector-eye",
+  "kind": "ride",
+  "x": 692,
+  "y": 968,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "shellhat"
+  ],
+  "says": [
+   {
+    "text": "There!",
+    "shout": false
+   }
+  ]
+ }
+}

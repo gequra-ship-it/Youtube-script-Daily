@@ -1,0 +1,72 @@
+{
+ "centre": "three faceless silhouettes around a lamp-lit table with a shared manuscript, a page floating up",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "page",
+   "word": "Podolsky",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Albert Einstein",
+   "x": 560,
+   "y": 380,
+   "to": [
+    660,
+    480
+   ],
+   "word": "Albert Einstein"
+  },
+  {
+   "type": "name",
+   "text": "Boris Podolsky",
+   "x": 960,
+   "y": 330,
+   "to": [
+    960,
+    480
+   ],
+   "word": "Boris Podolsky"
+  },
+  {
+   "type": "name",
+   "text": "Nathan Rosen",
+   "x": 1380,
+   "y": 380,
+   "to": [
+    1260,
+    480
+   ],
+   "word": "Nathan Rosen"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "look",
+  "ride": "mv-swing-lamp-hanging",
+  "kind": "ride",
+  "x": 1148,
+  "y": 390,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": false
+   }
+  ]
+ }
+}

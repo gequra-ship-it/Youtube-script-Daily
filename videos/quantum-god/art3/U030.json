@@ -1,0 +1,54 @@
+{
+ "centre": "close-up of a two-slit plate with small gold eye-lens detectors at the slits, an electron approaching",
+ "focus": [
+  1120,
+  302,
+  1.8
+ ],
+ "focus_word": "microscopic detectors",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "placed",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "detector",
+   "x": 1360,
+   "y": 200,
+   "to": [
+    1120,
+    300
+   ],
+   "word": "detectors"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": "scope",
+  "ride": "mv-path-electron",
+  "kind": "ride",
+  "x": 311,
+  "y": 463,
+  "s": 1.15,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "lab",
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "I see it!",
+    "shout": false
+   }
+  ]
+ }
+}

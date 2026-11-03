@@ -1,0 +1,57 @@
+{
+ "centre": "a transparent glass chamber of empty space with tiny spark pairs popping inside",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "vacuum",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Empty space",
+   "x": 1390,
+   "y": 520,
+   "to": [
+    1140,
+    500
+   ],
+   "word": "empty space"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-pair",
+   "h": 52
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 467,
+  "y": 656,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "centre": "glowing electron between a position dial and a momentum dial",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Position",
+   "x": 420,
+   "y": 720,
+   "to": [
+    420,
+    600
+   ],
+   "word": "position"
+  },
+  {
+   "type": "name",
+   "text": "Momentum",
+   "x": 1500,
+   "y": 720,
+   "to": [
+    1500,
+    610
+   ],
+   "word": "momentum"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "ride": "mv-core-tremble-electron-ball",
+  "kind": "ride",
+  "x": 1100,
+  "y": 602,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Phew.",
+    "shout": false
+   }
+  ]
+ }
+}
