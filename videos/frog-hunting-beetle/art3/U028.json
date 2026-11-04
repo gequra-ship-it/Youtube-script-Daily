@@ -1,0 +1,47 @@
+{
+ "centre": "frog approaching along a measured ground strip toward the waving larva",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Come closer...",
+   "x": 1580,
+   "y": 360,
+   "to": [
+    1444,
+    681
+   ],
+   "word": "gets closer"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "A trap",
+    "mood": "smug"
+   }
+  ],
+  "act": "idea",
+  "ride": "mv-path-frog-approach",
+  "kind": "ride",
+  "x": 850,
+  "y": 588,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "flowercrown"
+  ],
+  "says": [
+   {
+    "text": "Aha!",
+    "shout": false
+   }
+  ]
+ }
+}

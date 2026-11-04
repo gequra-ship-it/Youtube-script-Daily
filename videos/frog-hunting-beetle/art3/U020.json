@@ -1,0 +1,59 @@
+{
+ "centre": "big gold reflex button with an eye, pressed by the larva",
+ "focus": [
+  960,
+  650,
+  1.5
+ ],
+ "focus_word": "push exactly that button",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Epomis",
+   "x": 1400,
+   "y": 470,
+   "to": [
+    1200,
+    690
+   ],
+   "word": "Epomis"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Epomis has",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "shockwave",
+   "obj": "mv-squash-button"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1128,
+  "y": 700,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "gradcap",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Yikes!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "centre": "stylised map scroll with a red pin dropping on Israel; small university building",
+ "focus": [
+  1150,
+  470,
+  1.5
+ ],
+ "focus_word": "Israel",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "2011",
+   "word": "2011"
+  },
+  {
+   "type": "name",
+   "text": "Israel",
+   "x": 920,
+   "y": 360,
+   "to": [
+    1150,
+    440
+   ],
+   "word": "Israel"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-map-pin",
+  "kind": "ride",
+  "x": 1232,
+  "y": 539,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

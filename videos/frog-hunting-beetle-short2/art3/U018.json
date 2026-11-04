@@ -1,0 +1,45 @@
+{
+ "centre": "thought bubble: the frog imagines gulping the larva",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Plan B?",
+   "x": 820,
+   "y": 1080,
+   "to": [
+    595,
+    1207
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "ride": "mv-core-swell-U018-thought-bubble",
+  "kind": "ride",
+  "x": 696,
+  "y": 972,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
+}

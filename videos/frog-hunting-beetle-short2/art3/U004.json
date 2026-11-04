@@ -1,0 +1,44 @@
+{
+ "centre": "the frog stepping closer from the right while the larva on a mossy log waves its antennae and hooked jaws",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Antennae",
+   "x": 300,
+   "y": 700,
+   "to": [
+    470.8,
+    883.2
+   ],
+   "word": "antennae"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-young-frog",
+  "kind": "ride",
+  "x": 713,
+  "y": 964,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "shark",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

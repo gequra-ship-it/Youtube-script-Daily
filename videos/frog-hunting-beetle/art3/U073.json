@@ -1,0 +1,45 @@
+{
+ "centre": "startled frog as an adult beetle leaps at it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Eek!",
+   "x": 1500,
+   "y": 250,
+   "to": [
+    770,
+    470
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "coverears"
+  },
+  "ride": "mv-core-tremble-frog",
+  "kind": "ride",
+  "x": 1331,
+  "y": 675,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Too loud!",
+    "shout": true
+   }
+  ]
+ }
+}

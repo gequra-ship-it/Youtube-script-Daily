@@ -1,0 +1,52 @@
+{
+ "centre": "one lit petri dish with only three beetles, among many empty dishes on lab shelves",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "small sample",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Only three?",
+   "x": 1260,
+   "y": 380,
+   "to": [
+    1060,
+    470
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "But three",
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-swell-petri-dish",
+  "kind": "ride",
+  "x": 1128,
+  "y": 630,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

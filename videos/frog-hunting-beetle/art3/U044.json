@@ -1,0 +1,48 @@
+{
+ "centre": "a frog in a clear test arena spitting a small larva out in an arc",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "7 TRIALS",
+   "word": "seven"
+  },
+  {
+   "type": "say",
+   "text": "Ta-da!",
+   "x": 1180,
+   "y": 500,
+   "to": [
+    1100,
+    636
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-path-drop-epomis-larva",
+  "kind": "ride",
+  "x": 949,
+  "y": 689,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ]
+ }
+}

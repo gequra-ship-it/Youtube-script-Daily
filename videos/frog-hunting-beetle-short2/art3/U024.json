@@ -1,0 +1,54 @@
+{
+ "centre": "frog hops blindly and lands right beside a larva hidden under a leaf",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Oops!",
+   "x": 380,
+   "y": 780,
+   "to": [
+    386,
+    938
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "bonk",
+   "obj": "mv-core-drop-U024-leaf"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 935,
+  "y": 1280,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "bandage",
+   "flowercrown"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   },
+   {
+    "text": "Ouch...",
+    "shout": false
+   }
+  ]
+ }
+}

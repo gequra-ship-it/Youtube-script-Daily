@@ -1,0 +1,63 @@
+{
+ "centre": "adult beetle with glossy shell and long legs running across the ground under the moon",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "hard shell",
+   "x": 300,
+   "y": 900,
+   "to": [
+    300,
+    1090
+   ],
+   "word": "hard shell"
+  },
+  {
+   "type": "name",
+   "text": "long legs",
+   "x": 260,
+   "y": 1400,
+   "to": [
+    300,
+    1250
+   ],
+   "word": "long legs"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dodge",
+   "obj": "mv-rollby-nut",
+   "h": 44,
+   "pass": 2.728
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 939,
+  "y": 1236,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "headband",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

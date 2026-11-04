@@ -1,0 +1,41 @@
+{
+ "centre": "a fast stopwatch above a frog whose lightning tongue snaps at a wiggly twig decoy",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Got it!",
+   "x": 400,
+   "y": 880,
+   "to": [
+    400,
+    1170
+   ]
+  }
+ ],
+ "light": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "ride": "mv-core-heartbeat-stopwatch",
+  "kind": "ride",
+  "x": 704,
+  "y": 680,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "explorer"
+  ],
+  "says": []
+ }
+}

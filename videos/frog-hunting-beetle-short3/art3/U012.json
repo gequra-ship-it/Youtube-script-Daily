@@ -1,0 +1,45 @@
+{
+ "centre": "a small clean frog skeleton resting on a lily leaf at dusk while a plump larva crawls away",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "pile of bones",
+   "x": 560,
+   "y": 940,
+   "to": [
+    600,
+    1130
+   ],
+   "word": "pile of bones"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-leaf",
+  "kind": "ride",
+  "x": 813,
+  "y": 1363,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

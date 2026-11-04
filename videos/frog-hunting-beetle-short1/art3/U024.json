@@ -1,0 +1,48 @@
+{
+ "centre": "a winding trail of footprints leads from a small happy frog down to a dark hollow under a flat stone, where the larva waits with jaws ready",
+ "focus": [
+  560,
+  1260,
+  1.7
+ ],
+ "focus_word": "waiting",
+ "sfx": [
+  {
+   "name": "step",
+   "word": "every step",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-u24-water-drop",
+   "serious": false
+  },
+  "x": 860,
+  "y": 1455,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

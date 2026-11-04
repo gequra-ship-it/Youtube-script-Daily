@@ -1,0 +1,47 @@
+{
+ "centre": "frog leaping away with long legs stretched, a dashed gold spot on its back; the adult beetle on the ground watches with feelers raised",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Legs",
+   "x": 200,
+   "y": 700,
+   "to": [
+    190,
+    880
+   ],
+   "word": "legs"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "The adult",
+    "mood": "hurt"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-frog-leap",
+  "kind": "ride",
+  "x": 433,
+  "y": 673,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

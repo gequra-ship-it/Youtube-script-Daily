@@ -1,0 +1,54 @@
+{
+ "centre": "a frog and a larva each running hard on a treadmill, one above the other, keeping pace",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "treadmill",
+   "x": 330,
+   "y": 1395,
+   "to": [
+    230,
+    1335
+   ],
+   "word": "treadmill"
+  },
+  {
+   "type": "say",
+   "text": "Keep up!",
+   "x": 280,
+   "y": 1120,
+   "to": [
+    400,
+    1250
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "x": 299,
+  "y": 854,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Grew!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

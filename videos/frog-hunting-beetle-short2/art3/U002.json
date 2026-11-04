@@ -1,0 +1,47 @@
+{
+ "centre": "close-up of a smug jade frog's eye watching a tiny larva on a leaf",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "So easy!",
+   "x": 840,
+   "y": 1130,
+   "to": [
+    662.0,
+    1056.8
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "Watch what",
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-leaf-falling",
+  "kind": "ride",
+  "x": 250,
+  "y": 605,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "centre": "frog flicks a pink ribbon tongue at a fly",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Uh-oh!",
+   "x": 1300,
+   "y": 200,
+   "to": [
+    1422,
+    312
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "bee"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

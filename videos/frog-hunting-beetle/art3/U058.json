@@ -1,0 +1,49 @@
+{
+ "centre": "a quiet evening scene: a tiny clean frog skeleton in front of a flat stone, a flower, the larva crawling away",
+ "focus": [
+  1000,
+  790,
+  1.7
+ ],
+ "focus_word": "pile of bones",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "pile of bones",
+   "x": 760,
+   "y": 560,
+   "to": [
+    1000,
+    800
+   ],
+   "word": "pile of bones"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-fall-leaf",
+  "kind": "ride",
+  "x": 690,
+  "y": 228,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "flowercrown"
+  ],
+  "says": [
+   {
+    "text": "Bones!",
+    "shout": false
+   }
+  ]
+ }
+}

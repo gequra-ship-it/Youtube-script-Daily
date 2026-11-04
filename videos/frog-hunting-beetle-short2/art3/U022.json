@@ -1,0 +1,50 @@
+{
+ "centre": "lab Petri dish with a larva; grid of dishes appears; row of five amphibians",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "420 LARVAE",
+   "word": "420"
+  },
+  {
+   "type": "name",
+   "text": "five kinds",
+   "x": 540,
+   "y": 1110,
+   "to": [
+    540,
+    1230
+   ],
+   "word": "five kinds"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-ping-U022-petri-dish",
+  "kind": "ride",
+  "x": 696,
+  "y": 972,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

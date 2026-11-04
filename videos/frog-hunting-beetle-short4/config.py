@@ -1,7 +1,7 @@
 # Short 4 (vertical, guideline 19).
 CHALK = {}
 WHOOSH = []
-TITLE = 'The Adult Beetle's Surgical Strike'
+TITLE = "The Adult Beetle's Surgical Strike"
 DESC = ["Adult Epomis beetles also attack amphibians, often from behind. What did researchers see?"]
 HASHTAGS = '#MiyasNote #Epomis #Beetles #Frogs'
 SOURCES = []

@@ -1,0 +1,43 @@
+{
+ "centre": "a wooden warning sign with a triangle mark swinging from a branch over a quiet reed bank",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Careful!",
+   "x": 260,
+   "y": 1060,
+   "to": [
+    380,
+    1120
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "balance",
+  "ride": "mv-swing-sign-rope",
+  "kind": "ride",
+  "x": 744,
+  "y": 930,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

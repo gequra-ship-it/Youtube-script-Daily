@@ -1,0 +1,51 @@
+{
+ "centre": "two stacked panels: lab arena with a beetle on a frog's back, and the wild toad with a beetle on its back, joined by a check mark",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Lab",
+   "x": 250,
+   "y": 380,
+   "to": [
+    300,
+    560
+   ],
+   "word": "lab"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-check-mark",
+   "h": 116
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 540,
+  "y": 924,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab",
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "centre": "frog seen from above on mud, an adult beetle sitting on the middle of its back where its arms cannot reach",
+ "focus": [
+  540,
+  900,
+  1.5
+ ],
+ "focus_word": "on its back",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Can't reach it!",
+   "x": 540,
+   "y": 520,
+   "to": [
+    540,
+    670
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "angry"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-adult-beetle",
+  "kind": "ride",
+  "x": 660,
+  "y": 998,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "flowercrown"
+  ],
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

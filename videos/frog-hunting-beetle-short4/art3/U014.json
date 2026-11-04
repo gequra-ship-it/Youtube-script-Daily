@@ -1,0 +1,53 @@
+{
+ "centre": "magnifier lens showing the adult beetle's hooked jaws, beside a jigsaw with one piece missing",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "the bite",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Where does it go?",
+   "x": 760,
+   "y": 1100,
+   "to": [
+    850,
+    700
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-puzzle-piece",
+   "h": 138
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 869,
+  "y": 720,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

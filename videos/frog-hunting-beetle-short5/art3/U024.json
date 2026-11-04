@@ -1,0 +1,57 @@
+{
+ "centre": "a magnifier scanning misty leaf litter; an adult beetle hides under a stone, only its legs and eyes showing",
+ "focus": [
+  770,
+  1150,
+  1.7
+ ],
+ "focus_word": "poorly known",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Shh...",
+   "x": 860,
+   "y": 960,
+   "to": [
+    730,
+    1176
+   ]
+  }
+ ],
+ "light": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "bonk",
+   "obj": "mv-core-drop-leaf"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 221,
+  "y": 1394,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "flowercrown"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   },
+   {
+    "text": "Ouch...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "centre": "glossy dark adult Epomis beetle leaps from a stone in an arc onto the back of a startled toad",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Adult",
+   "x": 330,
+   "y": 470,
+   "to": [
+    460,
+    610
+   ],
+   "word": "adult"
+  },
+  {
+   "type": "say",
+   "text": "Hey! Get off!",
+   "x": 1500,
+   "y": 330,
+   "to": [
+    1380,
+    520
+   ],
+   "word": "onto its back"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "spinaround"
+  },
+  "ride": "mv-path-U105-jump-adult-beetle",
+  "kind": "ride",
+  "x": 602,
+  "y": 562,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}
