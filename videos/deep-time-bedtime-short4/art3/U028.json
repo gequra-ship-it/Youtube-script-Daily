@@ -1,0 +1,50 @@
+{
+ "centre": "a silent grey wasteland crossed by a tiny handful of stocky, tusked survivors",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "survivors",
+   "x": 680,
+   "y": 820,
+   "to": [
+    700,
+    1080
+   ],
+   "word": "hardy survivors"
+  },
+  {
+   "type": "say",
+   "text": "Still here!",
+   "x": 400,
+   "y": 1020,
+   "to": [
+    500,
+    1180
+   ]
+  }
+ ],
+ "light": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 800,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "headlamp"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

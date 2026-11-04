@@ -1,0 +1,53 @@
+{
+ "centre": "a Dimetrodon with a tall skin sail walking across an arid plain",
+ "focus": [
+  560,
+  1060,
+  1.5
+ ],
+ "focus_word": "magnificent skin sail",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Dimetrodon",
+   "x": 300,
+   "y": 700,
+   "to": [
+    420,
+    950
+   ],
+   "word": "Dimetrodon"
+  }
+ ],
+ "light": "right",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "skate",
+   "dist": 367
+  },
+  "x": 260,
+  "y": 1560,
+  "s": 0.95,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}
