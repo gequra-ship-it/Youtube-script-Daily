@@ -1,0 +1,47 @@
+{
+ "centre": "small bright fireball wrapped in a thick cloud of air molecules that swallow the X-ray lines",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "air",
+   "x": 200,
+   "y": 1280,
+   "to": [
+    330,
+    1090
+   ],
+   "word": "air"
+  }
+ ],
+ "motion": "fireball swells; air specks sparkle; rays dash outward then stop",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-swell-fireball",
+  "kind": "ride",
+  "x": 788,
+  "y": 1064,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "earmuffs",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": false
+   }
+  ],
+  "lock": true
+ }
+}

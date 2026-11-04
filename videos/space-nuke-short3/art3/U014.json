@@ -1,0 +1,46 @@
+{
+ "centre": "metal skin plate dissolving into a big glowing orange gas cloud rising off the hull",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "gas",
+   "x": 860,
+   "y": 760,
+   "to": [
+    720,
+    900
+   ],
+   "word": "gas"
+  }
+ ],
+ "motion": "gas puffs rise and cloud swells",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-swell-gas-cloud",
+  "kind": "ride",
+  "x": 960,
+  "y": 1410,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "doctor",
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Tick tock...",
+    "shout": false
+   }
+  ]
+ }
+}

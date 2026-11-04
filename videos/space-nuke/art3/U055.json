@@ -1,0 +1,48 @@
+{
+ "centre": "a big translucent violet-gold bubble of plasma with a bright core and soft filaments",
+ "focus": [
+  960,
+  500,
+  1.3
+ ],
+ "focus_word": "superheated plasma",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "plasma",
+   "x": 1400,
+   "y": 260,
+   "to": [
+    1170,
+    400
+   ],
+   "word": "plasma"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-swell-plasma-bubble",
+  "kind": "ride",
+  "x": 1248,
+  "y": 750,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Bumpy!",
+    "shout": false
+   }
+  ]
+ }
+}

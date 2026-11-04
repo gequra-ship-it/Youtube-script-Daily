@@ -1,0 +1,50 @@
+{
+ "centre": "Earth: one lonely old satellite fades behind while a swarm of modern satellites slides in around it, a smartphone pops up",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Today",
+   "x": 300,
+   "y": 1250,
+   "to": [
+    440,
+    980
+   ],
+   "word": "Today"
+  }
+ ],
+ "sfx": [],
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-smartphone",
+   "h": 192
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 820,
+  "y": 1366,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

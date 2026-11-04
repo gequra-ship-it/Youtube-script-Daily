@@ -1,0 +1,52 @@
+{
+ "centre": "a small plasma sphere at the lower left shooting straight X-ray beams and wavy gamma rays diagonally up and away at the speed of light",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "X-rays",
+   "x": 250,
+   "y": 560,
+   "to": [
+    640,
+    760
+   ],
+   "word": "X-rays"
+  },
+  {
+   "type": "name",
+   "text": "gamma rays",
+   "x": 760,
+   "y": 1320,
+   "to": [
+    580,
+    1260
+   ],
+   "word": "gamma rays"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-core-swell-plasma-sphere",
+  "kind": "ride",
+  "x": 156,
+  "y": 1056,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": []
+ }
+}

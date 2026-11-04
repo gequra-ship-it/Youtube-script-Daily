@@ -1,0 +1,45 @@
+{
+ "centre": "a stylised mushroom-shaped fireball on Earth with side-on walls of compressed air and dust",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "nuclear blast",
+   "x": 770,
+   "y": 380,
+   "to": [
+    620,
+    720
+   ],
+   "word": "nuclear blast"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-swell-fireball-cloud",
+  "kind": "ride",
+  "x": 904,
+  "y": 1320,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "earmuffs",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

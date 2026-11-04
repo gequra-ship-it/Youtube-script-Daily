@@ -1,0 +1,58 @@
+{
+ "centre": "split frame: an electron piercing a circuit chip with a spark (top), solar panel cells darkening one by one (bottom)",
+ "track": false,
+ "labels": [
+  {
+   "type": "name",
+   "text": "electronic circuits",
+   "x": 300,
+   "y": 660,
+   "to": [
+    430,
+    560
+   ],
+   "word": "electronic circuits"
+  },
+  {
+   "type": "name",
+   "text": "solar panels",
+   "x": 540,
+   "y": 1330,
+   "to": [
+    540,
+    1220
+   ],
+   "word": "solar panels"
+  }
+ ],
+ "sfx": [],
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck"
+  },
+  "ride": "mv-path-electron-pierce",
+  "kind": "ride",
+  "x": 880,
+  "y": 376,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Incoming!",
+    "shout": true
+   }
+  ]
+ }
+}

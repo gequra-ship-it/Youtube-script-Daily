@@ -1,0 +1,62 @@
+{
+ "centre": "a stylised towering mushroom cloud on a far horizon, and the layer of air sliding away to the right",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "mushroom cloud",
+   "x": 420,
+   "y": 180,
+   "to": [
+    700,
+    260
+   ],
+   "word": "mushroom cloud"
+  },
+  {
+   "type": "name",
+   "text": "air",
+   "x": 1560,
+   "y": 420,
+   "to": [
+    1500,
+    520
+   ],
+   "word": "air"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   },
+   {
+    "word": "But what",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-core-swell-mushroom-cloud",
+  "kind": "ride",
+  "x": 431,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Big!",
+    "shout": true
+   }
+  ]
+ }
+}

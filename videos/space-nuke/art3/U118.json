@@ -1,0 +1,47 @@
+{
+ "centre": "a quiet dark room with a window onto starry sky above rooftops and a resident looking out",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "window",
+   "x": 1010,
+   "y": 130,
+   "to": [
+    1000,
+    300
+   ],
+   "word": "window"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "The black",
+    "mood": "happy"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "x": 260,
+  "y": 890,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Floaty...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

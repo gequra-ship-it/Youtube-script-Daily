@@ -1,0 +1,53 @@
+{
+ "centre": "rocket with a warhead climbing on a long curved trail high above the Pacific Ocean at night",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "1962",
+   "word": "1962"
+  },
+  {
+   "type": "name",
+   "text": "Pacific Ocean",
+   "x": 1500,
+   "y": 690,
+   "to": [
+    1450,
+    820
+   ],
+   "word": "Pacific Ocean"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "ride": "mv-path-rocket-climb",
+  "kind": "ride",
+  "x": 892,
+  "y": 425,
+  "s": 1.4,
+  "flip": 1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "centre": "a stack of treaty papers with a gold seal and a quill, above three crossed-out places: air, sea and space",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "banned",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Partial Test Ban Treaty",
+   "x": 520,
+   "y": 560,
+   "to": [
+    800,
+    620
+   ],
+   "word": "Partial Test Ban Treaty"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "outfit": [
+   "goggles",
+   "shield"
+  ],
+  "ride": "mv-core-swell-paper-stack",
+  "kind": "ride",
+  "x": 709,
+  "y": 778,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm, hard.",
+    "shout": false
+   }
+  ]
+ }
+}

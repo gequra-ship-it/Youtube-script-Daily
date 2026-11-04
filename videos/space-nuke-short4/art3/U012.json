@@ -1,0 +1,52 @@
+{
+ "centre": "a house wall with a red burglar alarm bell ringing (dotted sound arcs), a telephone pole with a snapped dangling cable",
+ "focus": [
+  440,
+  1080,
+  1.6
+ ],
+ "focus_word": "Burglar alarms",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "telephone link",
+   "x": 640,
+   "y": 900,
+   "to": [
+    862,
+    1000
+   ],
+   "word": "telephone link"
+  }
+ ],
+ "motion": "alarm bell rings (bell swing); snapped cable swings from the pole",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "swingride",
+   "obj": "mv-swing-telephone-cable"
+  },
+  "x": 922,
+  "y": 1079,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "ride",
+  "ride": "mv-swing-telephone-cable",
+  "behind": null,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

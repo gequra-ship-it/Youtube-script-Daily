@@ -1,0 +1,45 @@
+{
+ "centre": "a ghosted pale-blue electric arc spanning the dark ocean from a far glow to an island with small houses",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "ocean",
+   "x": 360,
+   "y": 1300,
+   "to": [
+    400,
+    1400
+   ],
+   "word": "ocean"
+  }
+ ],
+ "motion": "a spark travels along the arc across the ocean; dashes march (camera follows)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "search",
+  "outfit": [
+   "goggles"
+  ],
+  "ride": "mv-path-electric-spark",
+  "kind": "ride",
+  "x": 250,
+  "y": 1076,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Where is it?",
+    "shout": false
+   }
+  ]
+ }
+}

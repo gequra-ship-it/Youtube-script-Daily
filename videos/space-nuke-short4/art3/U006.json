@@ -1,0 +1,49 @@
+{
+ "centre": "a big translucent violet-gold plasma sphere glowing over the sea, its halo spreading across the sky",
+ "focus": [
+  540,
+  760,
+  1.5
+ ],
+ "focus_word": "brilliant flash",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Look at that!",
+   "x": 700,
+   "y": 900,
+   "to": [
+    860,
+    1160
+   ]
+  }
+ ],
+ "motion": "halo grows outward (grow) for 'glow spreading'; sphere approaches",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "idea",
+  "ride": "mv-core-approach-plasma-sphere",
+  "kind": "ride",
+  "x": 885,
+  "y": 1061,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "halo",
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Aha!",
+    "shout": false
+   }
+  ]
+ }
+}

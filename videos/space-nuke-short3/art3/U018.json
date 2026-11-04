@@ -1,0 +1,42 @@
+{
+ "centre": "cute faceless engineer in a hard hat pointing at a spacecraft model on a table in front of a blueprint board",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Engineers",
+   "x": 300,
+   "y": 520,
+   "to": [
+    285,
+    800
+   ],
+   "word": "Engineers"
+  }
+ ],
+ "motion": "engineer breathes; model wobbles",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "ride": "mv-core-wobble-spacecraft",
+  "kind": "ride",
+  "x": 873,
+  "y": 1004,
+  "s": 0.9,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "lifevest",
+   "beanie"
+  ],
+  "says": []
+ }
+}

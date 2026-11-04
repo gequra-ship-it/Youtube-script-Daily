@@ -1,0 +1,56 @@
+{
+ "centre": "a big blue air molecule shaken by straight gamma-ray lines, a teal electron flying off",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "gamma rays",
+   "x": 250,
+   "y": 470,
+   "to": [
+    400,
+    520
+   ],
+   "word": "gamma rays"
+  },
+  {
+   "type": "name",
+   "text": "electrons",
+   "x": 820,
+   "y": 640,
+   "to": [
+    650,
+    830
+   ],
+   "word": "electrons"
+  }
+ ],
+ "motion": "gamma-ray dashes stream down; molecule trembles; electron tossed away",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "countstars"
+  },
+  "x": 260,
+  "y": 1280,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "So many...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

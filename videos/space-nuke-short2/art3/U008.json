@@ -1,0 +1,54 @@
+{
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "atmosphere",
+   "x": 800,
+   "y": 500,
+   "to": [
+    620,
+    500
+   ],
+   "word": "atmosphere"
+  },
+  {
+   "type": "name",
+   "text": "buoyancy",
+   "x": 800,
+   "y": 1130,
+   "to": [
+    600,
+    1250
+   ],
+   "word": "buoyancy"
+  }
+ ],
+ "centre": "three crossed-out ghosts in black space: air puffs, a pressure gauge, a balloon",
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "x": 820,
+  "y": 680,
+  "s": 0.99,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

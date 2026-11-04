@@ -1,0 +1,46 @@
+{
+ "centre": "glowing satellites above a night city, dashed data lines tying every rooftop to orbit",
+ "focus": [
+  960,
+  300,
+  1.5
+ ],
+ "focus_word": "orbital technology",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "orbital technology",
+   "x": 1260,
+   "y": 150,
+   "to": [
+    990,
+    215
+   ],
+   "word": "orbital technology"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "ride": "mv-core-glide-satellite",
+  "kind": "ride",
+  "x": 1108,
+  "y": 320,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "says": []
+ }
+}

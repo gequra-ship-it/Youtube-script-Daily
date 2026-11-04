@@ -1,0 +1,47 @@
+{
+ "centre": "a rising stem of dust and smoke topped by a glowing fireball, beside a small red balloon",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "balloon",
+   "x": 620,
+   "y": 240,
+   "to": [
+    440,
+    260
+   ],
+   "word": "balloon"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-balloon"
+  },
+  "x": 420,
+  "y": 533,
+  "s": 0.95,
+  "flip": 1,
+  "kind": "ride",
+  "ride": "mv-ascend-balloon",
+  "behind": null,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

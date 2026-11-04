@@ -1,0 +1,43 @@
+{
+ "centre": "a close side view of a gold satellite hull shaking as a burst of orange-white vapour blows outward from its sunlit left face with shock zigzags running through it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "craft",
+   "x": 780,
+   "y": 1240,
+   "to": [
+    780,
+    1100
+   ],
+   "word": "craft"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-path-vapour-cloud",
+  "kind": "ride",
+  "x": 429,
+  "y": 426,
+  "s": 1.44,
+  "flip": -1,
+  "bside": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

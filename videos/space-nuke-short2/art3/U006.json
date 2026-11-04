@@ -1,0 +1,66 @@
+{
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "air",
+   "x": 220,
+   "y": 300,
+   "to": [
+    330,
+    490
+   ],
+   "word": "air"
+  },
+  {
+   "type": "name",
+   "text": "gravity",
+   "x": 220,
+   "y": 690,
+   "to": [
+    360,
+    800
+   ],
+   "word": "gravity"
+  },
+  {
+   "type": "name",
+   "text": "buoyancy",
+   "x": 240,
+   "y": 1090,
+   "to": [
+    660,
+    1250
+   ],
+   "word": "buoyancy"
+  }
+ ],
+ "centre": "three stacked panels: air puffs, a falling apple for gravity, a rising balloon for buoyancy",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-apple",
+  "kind": "ride",
+  "x": 261,
+  "y": 855,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

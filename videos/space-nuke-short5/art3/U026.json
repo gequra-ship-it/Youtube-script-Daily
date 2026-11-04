@@ -1,0 +1,41 @@
+{
+ "centre": "a vast starry emptiness, a tiny Earth in the corner and a lone wrench drifting away into the dark",
+ "focus": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Bye-bye!",
+   "x": 760,
+   "y": 820,
+   "to": [
+    640,
+    960
+   ]
+  }
+ ],
+ "sfx": [],
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-path-drift-wrench",
+  "kind": "ride",
+  "x": 490,
+  "y": 1052,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": []
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "centre": "the warhead on a pedestal under a spotlight, dashed branches leading to three blurry outcome glows of different sizes",
+ "focus": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "weapon",
+   "x": 820,
+   "y": 640,
+   "to": [
+    600,
+    760
+   ],
+   "word": "weapon"
+  },
+  {
+   "type": "say",
+   "text": "Which one?",
+   "x": 260,
+   "y": 1100,
+   "to": [
+    240,
+    1240
+   ]
+  }
+ ],
+ "sfx": [],
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "shrug",
+  "ride": "mv-core-tremble-warhead",
+  "kind": "ride",
+  "x": 632,
+  "y": 976,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Who knows?",
+    "shout": false
+   }
+  ]
+ }
+}

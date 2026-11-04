@@ -1,0 +1,73 @@
+{
+ "centre": "three factors side by side: the warhead on a plinth, an altitude gauge filling up, and a shielded station next to a sparking one",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "weapon",
+   "x": 380,
+   "y": 270,
+   "to": [
+    380,
+    540
+   ],
+   "word": "weapon"
+  },
+  {
+   "type": "name",
+   "text": "altitude",
+   "x": 760,
+   "y": 230,
+   "to": [
+    955,
+    300
+   ],
+   "word": "altitude"
+  },
+  {
+   "type": "name",
+   "text": "protected",
+   "x": 1390,
+   "y": 470,
+   "to": [
+    1380,
+    600
+   ],
+   "word": "protected"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-shield",
+   "h": 240
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1375,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

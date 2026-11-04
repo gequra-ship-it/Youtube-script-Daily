@@ -1,0 +1,51 @@
+{
+ "centre": "a gold satellite on the radiation belt, sparking red as electrons strike it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "static",
+   "word": "damaged",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "satellites",
+   "x": 1280,
+   "y": 720,
+   "to": [
+    1000,
+    560
+   ],
+   "word": "satellites"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "salute",
+  "ride": "mv-core-tremble-satellite",
+  "kind": "ride",
+  "x": 785,
+  "y": 584,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "says": [
+   {
+    "text": "Let me see...",
+    "shout": false
+   }
+  ]
+ }
+}

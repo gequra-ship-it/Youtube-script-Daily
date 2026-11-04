@@ -1,0 +1,47 @@
+{
+ "centre": "a gold bell swinging silently between a thundercloud and a drum, their sound arcs fading to nothing",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "thunder",
+   "x": 400,
+   "y": 290,
+   "to": [
+    400,
+    400
+   ],
+   "word": "thunder"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "zerogroll"
+  },
+  "ride": "mv-swing-bell",
+  "kind": "ride",
+  "x": 1122,
+  "y": 598,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "earmuffs",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Wheee...",
+    "shout": false
+   }
+  ]
+ }
+}

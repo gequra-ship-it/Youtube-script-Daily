@@ -1,0 +1,47 @@
+{
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "smoke",
+   "x": 790,
+   "y": 1000,
+   "to": [
+    560,
+    1000
+   ],
+   "word": "smoke"
+  }
+ ],
+ "centre": "a tall column of dirt and smoke dragged up behind a rising fireball",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-fireball-puff"
+  },
+  "x": 540,
+  "y": 761,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "ride",
+  "ride": "mv-ascend-fireball-puff",
+  "behind": null,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "centre": "Earth wrapped in a faint amber-teal radiation belt band, small satellites inside it, one sparking",
+ "focus": [
+  860,
+  930,
+  1.8
+ ],
+ "focus_word": "silently damaging machines",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Ouch!",
+   "x": 860,
+   "y": 1110,
+   "to": [
+    860,
+    960
+   ]
+  }
+ ],
+ "motion": "satellite circles the planet; a satellite sparks; wrench coasts; Earth swells softly",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 337,
+  "y": 1073,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-swell-earth",
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

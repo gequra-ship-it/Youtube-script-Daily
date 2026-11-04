@@ -1,0 +1,45 @@
+{
+ "centre": "a big glowing charged particle on one huge teal magnetic field line arc, small red/green particles sliding along it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "charged particles",
+   "x": 540,
+   "y": 1180,
+   "to": [
+    540,
+    900
+   ],
+   "word": "Charged particles"
+  }
+ ],
+ "motion": "three particles follow the field-line arc in turn (path); core particle pings",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-ping-charged-particle",
+  "kind": "ride",
+  "x": 694,
+  "y": 985,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

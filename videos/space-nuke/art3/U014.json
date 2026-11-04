@@ -1,0 +1,46 @@
+{
+ "centre": "the fireball heating the surrounding air: air molecules glow orange near it, a thermometer shoots up",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "TENS OF MILLIONS OF °",
+   "word": "tens of millions"
+  },
+  {
+   "type": "name",
+   "text": "air",
+   "x": 500,
+   "y": 200,
+   "to": [
+    700,
+    360
+   ],
+   "word": "air"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-core-heartbeat-fireball",
+  "kind": "ride",
+  "x": 1182,
+  "y": 684,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": []
+ }
+}

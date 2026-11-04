@@ -1,0 +1,65 @@
+{
+ "centre": "satellite above a map seen from orbit: a cargo ship on its route, a plane on its air route, a storm with a warning sign",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
+ "labels": [
+  {
+   "type": "name",
+   "text": "shipping routes",
+   "x": 330,
+   "y": 520,
+   "to": [
+    420,
+    690
+   ],
+   "word": "shipping routes"
+  },
+  {
+   "type": "name",
+   "text": "aircraft navigation",
+   "x": 640,
+   "y": 190,
+   "to": [
+    760,
+    340
+   ],
+   "word": "aircraft navigation"
+  },
+  {
+   "type": "name",
+   "text": "weather warnings",
+   "x": 1500,
+   "y": 690,
+   "to": [
+    1460,
+    560
+   ],
+   "word": "weather warnings"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "ride": "mv-core-ping-satellite",
+  "kind": "ride",
+  "x": 1088,
+  "y": 290,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "says": []
+ }
+}

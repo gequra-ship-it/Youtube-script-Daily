@@ -1,0 +1,52 @@
+{
+ "centre": "the Pacific side of the globe, almost all ocean, with a tiny green Hawaiian island cluster glowing in the middle",
+ "focus": [
+  535,
+  860,
+  1.8
+ ],
+ "focus_word": "remote Hawaii",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hawaii",
+   "x": 330,
+   "y": 1000,
+   "to": [
+    528,
+    858
+   ],
+   "word": "Hawaii"
+  }
+ ],
+ "motion": "tiny islands draw themselves; island light pulses; satellite drifts",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-path-satellite-small",
+  "kind": "ride",
+  "x": 767,
+  "y": 444,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "centre": "side-on: a dusty shockwave wall racing right across an empty city, a steel tower snapping over, glass flying",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "shockwave",
+   "x": 560,
+   "y": 160,
+   "to": [
+    420,
+    320
+   ],
+   "word": "shockwave"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "It travels",
+    "mood": "surprised"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-path-shockwave-wall",
+  "kind": "ride",
+  "x": 385,
+  "y": 280,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "hardhat",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
+}

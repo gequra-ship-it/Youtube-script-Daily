@@ -1,0 +1,49 @@
+{
+ "centre": "a gold spacecraft with blue panels while a ghostly dotted blast wave fades before reaching it",
+ "focus": [
+  1000,
+  500,
+  1.4
+ ],
+ "focus_word": "your ship",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "ship",
+   "x": 1300,
+   "y": 250,
+   "to": [
+    1030,
+    430
+   ],
+   "word": "ship"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "Surprisingly no",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "ride": "mv-core-wobble-spaceship",
+  "kind": "ride",
+  "x": 1378,
+  "y": 556,
+  "s": 1.12,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "says": []
+ }
+}
