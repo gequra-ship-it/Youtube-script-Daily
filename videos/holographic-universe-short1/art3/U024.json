@@ -1,0 +1,58 @@
+{
+ "centre": "black hole with a thick glowing lensed accretion disk, a little book spiralling toward it",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "black holes",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Black holes",
+   "x": 330,
+   "y": 1130,
+   "to": [
+    430,
+    920
+   ],
+   "word": "black holes"
+  }
+ ],
+ "attractor": [
+  540,
+  860
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    860
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 108,
+  "y": 880,
+  "s": 0.9,
+  "flip": 1,
+  "outfit": [
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

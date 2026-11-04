@@ -1,0 +1,43 @@
+{
+ "centre": "two glowing balls colliding in the middle of a row of three events (a falling ball, a bending beam), each tied by thread to a matching spark on a flat boundary below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "collides",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "bumped",
+   "obj": "mv-bouncing-ball",
+   "serious": false
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 134,
+  "y": 742,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Boing!",
+    "shout": true
+   }
+  ]
+ }
+}

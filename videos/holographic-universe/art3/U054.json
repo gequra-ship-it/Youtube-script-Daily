@@ -1,0 +1,67 @@
+{
+ "centre": "three panels: shuffled picture tiles, a cup lifting off a still-glowing cube, and a cube's bits spread into twinkling dots",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Scrambled",
+   "x": 420,
+   "y": 160,
+   "to": [
+    420,
+    300
+   ],
+   "word": "scrambled"
+  },
+  {
+   "type": "name",
+   "text": "Hidden",
+   "x": 960,
+   "y": 160,
+   "to": [
+    960,
+    560
+   ],
+   "word": "hidden"
+  },
+  {
+   "type": "name",
+   "text": "Spread out",
+   "x": 1500,
+   "y": 160,
+   "to": [
+    1500,
+    300
+   ],
+   "word": "spread out"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 1333,
+  "y": 671,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-sparkle-spread-bits",
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Psst...",
+    "shout": false
+   }
+  ]
+ }
+}

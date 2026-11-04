@@ -1,0 +1,43 @@
+{
+ "centre": "a glowing lantern hanging at a fork in the road; one path to a bright horizon, one into fog, both lit",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Still lights the way!",
+   "x": 1340,
+   "y": 420,
+   "to": [
+    1010,
+    500
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "facepalm",
+  "ride": "mv-swing-lantern",
+  "kind": "ride",
+  "x": 1198,
+  "y": 710,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Oh no...",
+    "shout": false
+   }
+  ]
+ }
+}

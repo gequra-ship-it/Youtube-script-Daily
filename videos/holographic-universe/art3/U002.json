@@ -1,0 +1,46 @@
+{
+ "centre": "a heavy solid stone cube landing on a table beside a book stack and a globe",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "heavy",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dodge",
+   "obj": "mv-rollby-marble",
+   "h": 44,
+   "pass": 1.992
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1612,
+  "y": 720,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

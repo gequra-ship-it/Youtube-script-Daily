@@ -1,0 +1,47 @@
+{
+ "centre": "a glowing golden information cube with a star, safe above the ash heap with smaller icon cubes rising",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Information",
+   "x": 700,
+   "y": 540,
+   "to": [
+    590,
+    780
+   ],
+   "word": "information"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-ascend-info-cube-4",
+  "kind": "ride",
+  "x": 830,
+  "y": 762,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ]
+ }
+}

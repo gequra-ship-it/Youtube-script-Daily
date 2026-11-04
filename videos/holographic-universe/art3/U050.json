@@ -1,0 +1,49 @@
+{
+ "centre": "a ghostly bookcase and loose books tumble along curved paths into a spinning whirlpool black hole and vanish",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Black hole",
+   "x": 1250,
+   "y": 260,
+   "to": [
+    1250,
+    470
+   ],
+   "word": "black hole"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    540
+   ]
+  },
+  "ride": "mv-path-drop-into-bookcase",
+  "kind": "ride",
+  "x": 520,
+  "y": 252,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ]
+ }
+}

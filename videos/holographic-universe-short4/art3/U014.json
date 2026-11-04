@@ -1,0 +1,49 @@
+{
+ "centre": "pink ball falling into a teal curved-grid gravity well",
+ "focus": [
+  540,
+  900,
+  1.5
+ ],
+ "focus_word": "gravity",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "gravity",
+   "x": 300,
+   "y": 540,
+   "to": [
+    535,
+    600
+   ],
+   "word": "gravity"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "read",
+  "ride": "mv-core-drop-ball",
+  "kind": "ride",
+  "x": 674,
+  "y": 680,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Interesting...",
+    "shout": false
+   }
+  ]
+ }
+}

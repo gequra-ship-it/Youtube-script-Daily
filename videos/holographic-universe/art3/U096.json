@@ -1,0 +1,49 @@
+{
+ "focus": [
+  960,
+  540,
+  1.7
+ ],
+ "focus_word": "single drop of water",
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "drop",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "centre": "single glowing teal water drop",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-droplet",
+   "serious": false
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1440,
+  "y": 538,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
+}

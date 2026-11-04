@@ -1,0 +1,44 @@
+{
+ "centre": "hollow cube drive with data lights only on its outer skin",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Outer skin",
+   "x": 780,
+   "y": 520,
+   "to": [
+    700,
+    820
+   ],
+   "word": "outer skin"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-swell-shell",
+  "kind": "ride",
+  "x": 929,
+  "y": 1225,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}

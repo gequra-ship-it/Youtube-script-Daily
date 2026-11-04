@@ -1,0 +1,48 @@
+{
+ "centre": "fire in a stone brazier at the centre; heat waves fill a thermometer while a glowing info cube passes through the flames intact",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Heat",
+   "x": 1500,
+   "y": 170,
+   "to": [
+    1500,
+    300
+   ],
+   "word": "heat"
+  }
+ ],
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-path-info-cube",
+  "kind": "ride",
+  "x": 496,
+  "y": 598,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ]
+ }
+}

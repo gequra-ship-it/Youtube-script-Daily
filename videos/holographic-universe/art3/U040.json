@@ -1,0 +1,73 @@
+{
+ "centre": "three things falling: a star, a puff of gas and a book",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "starfall",
+   "word": "falling star",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "star",
+   "x": 520,
+   "y": 210,
+   "to": [
+    520,
+    320
+   ],
+   "word": "star"
+  },
+  {
+   "type": "name",
+   "text": "gas",
+   "x": 960,
+   "y": 300,
+   "to": [
+    960,
+    430
+   ],
+   "word": "gas"
+  },
+  {
+   "type": "name",
+   "text": "book",
+   "x": 1400,
+   "y": 330,
+   "to": [
+    1400,
+    540
+   ],
+   "word": "book"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "read",
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-path-sink-star",
+  "kind": "ride",
+  "x": 668,
+  "y": 440,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Interesting...",
+    "shout": false
+   }
+  ]
+ }
+}

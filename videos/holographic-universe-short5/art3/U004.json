@@ -1,0 +1,47 @@
+{
+ "centre": "single water drop above a big smooth wave",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "single drop of water",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Perhaps depth",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-water-droplet",
+   "serious": false
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 850,
+  "y": 777,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
+}

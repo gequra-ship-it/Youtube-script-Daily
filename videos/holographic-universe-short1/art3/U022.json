@@ -1,0 +1,54 @@
+{
+ "centre": "a spiral galaxy inside a glowing cosmic screen, lit by a beam from a flat film strip of information bits",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Screen",
+   "x": 800,
+   "y": 1060,
+   "to": [
+    860,
+    980
+   ],
+   "word": "screen"
+  },
+  {
+   "type": "name",
+   "text": "Film",
+   "x": 220,
+   "y": 1150,
+   "to": [
+    260,
+    1260
+   ],
+   "word": "film"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "x": 260,
+  "y": 1120,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

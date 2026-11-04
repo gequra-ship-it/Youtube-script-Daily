@@ -1,0 +1,48 @@
+{
+ "centre": "a glowing cube with a shield an eraser cannot rub out, beside a forbidden sign",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Quantum physics",
+   "x": 540,
+   "y": 400,
+   "to": [
+    540,
+    720
+   ],
+   "word": "quantum physics"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "queasy"
+   },
+   {
+    "word": "The fundamental",
+    "mood": "pout"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-protected-cube",
+  "kind": "ride",
+  "x": 844,
+  "y": 1120,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Bumpy!",
+    "shout": false
+   }
+  ]
+ }
+}

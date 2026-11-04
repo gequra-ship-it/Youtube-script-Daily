@@ -1,0 +1,50 @@
+{
+ "centre": "ghosted house with furniture stuck only on its outer walls and an empty inside",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Furniture",
+   "x": 200,
+   "y": 430,
+   "to": [
+    230,
+    590
+   ],
+   "word": "furniture"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "If a",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "ride": "mv-swing-lamp",
+  "kind": "ride",
+  "x": 894,
+  "y": 820,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Phew.",
+    "shout": false
+   }
+  ]
+ }
+}

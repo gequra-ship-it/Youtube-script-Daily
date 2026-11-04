@@ -1,0 +1,51 @@
+{
+ "centre": "a credit card drawn as a thin cross-section slab, a dashed imagined thick block above it fading away, a magnifying lens sliding along the edge",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "notice",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Thick block",
+   "x": 1360,
+   "y": 300,
+   "to": [
+    1130,
+    330
+   ],
+   "word": "thick block"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "outfit": [
+   "diver"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1150,
+  "y": 560,
+  "s": 1.0,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": "mv-fade-thick-block",
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

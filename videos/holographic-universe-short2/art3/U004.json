@@ -1,0 +1,48 @@
+{
+ "centre": "a glowing cube carrying small icons of a star, a book and a gas puff",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Information",
+   "x": 540,
+   "y": 1260,
+   "to": [
+    540,
+    1010
+   ],
+   "word": "information"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "In physics",
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-heartbeat-information-cube",
+  "kind": "ride",
+  "x": 814,
+  "y": 1090,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Boing boing.",
+    "shout": false
+   }
+  ]
+ }
+}
