@@ -1,0 +1,54 @@
+{
+ "centre": "big shining oxygen bubble",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "free oxygen",
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "free oxygen",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "oxygen",
+   "x": 1290,
+   "y": 330,
+   "to": [
+    1040,
+    460
+   ],
+   "word": "oxygen"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "balance",
+  "ride": "mv-core-heartbeat-bubble",
+  "kind": "ride",
+  "x": 1113,
+  "y": 615,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

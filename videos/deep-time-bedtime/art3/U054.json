@@ -1,0 +1,60 @@
+{
+ "centre": "close-up of a trilobite head with a big compound eye of many lenses; a brachiopod shell opens at the left",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "compound eyes",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "compound eyes",
+   "x": 1240,
+   "y": 300,
+   "to": [
+    1020,
+    470
+   ],
+   "word": "compound eyes"
+  },
+  {
+   "type": "name",
+   "text": "shells",
+   "x": 1330,
+   "y": 470,
+   "to": [
+    1480,
+    600
+   ],
+   "word": "shells"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-swell-eye-lens",
+  "kind": "ride",
+  "x": 1123,
+  "y": 620,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headlamp",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "centre": "tall glowing lava fountain at the centre of a long glowing fissure in Siberian ground",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "num",
+   "text": "252 MILLION YEARS AGO",
+   "word": "252 million"
+  },
+  {
+   "type": "name",
+   "text": "Siberia",
+   "x": 420,
+   "y": 360,
+   "to": [
+    560,
+    720
+   ],
+   "word": "Siberia"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": {
+   "type": "slowwalk",
+   "dist": 288
+  },
+  "x": 1660,
+  "y": 380,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Sooo slow...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

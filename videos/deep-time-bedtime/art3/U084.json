@@ -1,0 +1,54 @@
+{
+ "centre": "big open flower face-on with a bee flying toward it among other petalled flowers and a butterfly",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Petals",
+   "x": 1220,
+   "y": 660,
+   "to": [
+    1040,
+    560
+   ],
+   "word": "petals"
+  },
+  {
+   "type": "say",
+   "text": "Hmm, sweet!",
+   "x": 560,
+   "y": 240,
+   "to": [
+    580,
+    320
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-core-swell-flower",
+  "kind": "ride",
+  "x": 1136,
+  "y": 638,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "flowercrown",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "La la la~",
+    "shout": false
+   }
+  ]
+ }
+}

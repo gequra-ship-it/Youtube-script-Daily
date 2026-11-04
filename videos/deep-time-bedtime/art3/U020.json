@@ -1,0 +1,52 @@
+{
+ "centre": "round gauge dial with a needle, boiling orange sea on the left cooling to teal sea on the right",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "4 BILLION YEARS AGO",
+   "word": "four billion years ago"
+  },
+  {
+   "type": "name",
+   "text": "Archean Eon",
+   "x": 1400,
+   "y": 420,
+   "to": [
+    1180,
+    560
+   ],
+   "word": "Archean Eon"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": "mv-core-swell-dial",
+  "kind": "ride",
+  "x": 1128,
+  "y": 570,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Land ho!",
+    "shout": true
+   }
+  ]
+ }
+}

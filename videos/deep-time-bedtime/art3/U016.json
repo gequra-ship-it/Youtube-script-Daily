@@ -1,0 +1,45 @@
+{
+ "centre": "heavy dark storm cloud over volcanic land, a faint ghost of a gentle spring shower on the left",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Spring shower",
+   "x": 260,
+   "y": 560,
+   "to": [
+    260,
+    450
+   ],
+   "word": "gentle spring shower"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-core-approach-storm-cloud",
+  "kind": "ride",
+  "x": 1545,
+  "y": 557,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

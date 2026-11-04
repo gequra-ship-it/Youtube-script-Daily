@@ -1,0 +1,70 @@
+{
+ "centre": "split view at the sea surface: a pterosaur glides through the dusk sky above, a long-necked marine reptile swims below; a faint bright streak high in the sky",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pterosaurs",
+   "x": 560,
+   "y": 360,
+   "to": [
+    575,
+    245
+   ],
+   "word": "pterosaurs"
+  },
+  {
+   "type": "name",
+   "text": "Marine reptiles",
+   "x": 600,
+   "y": 730,
+   "to": [
+    820,
+    790
+   ],
+   "word": "marine reptiles"
+  }
+ ],
+ "motion": "pterosaur flies right (path, wings flap), plesiosaur swims right with paddling flippers, a cycad cone drops onto the island sand ('about to fall')",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Did they",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "bonk",
+   "obj": "mv-core-drop-pinecone"
+  },
+  "outfit": [
+   "goggles",
+   "scarf"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 320,
+  "y": 596,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   },
+   {
+    "text": "Ouch...",
+    "shout": false
+   }
+  ]
+ }
+}

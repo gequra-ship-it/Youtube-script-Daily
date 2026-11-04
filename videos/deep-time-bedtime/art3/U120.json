@@ -1,0 +1,49 @@
+{
+ "centre": "glowing green microbe cell",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Archean microbes",
+   "x": 560,
+   "y": 820,
+   "to": [
+    520,
+    660
+   ],
+   "word": "Archean microbes"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-bubble-2"
+  },
+  "ride": "mv-ascend-bubble-2",
+  "kind": "ride",
+  "x": 1130,
+  "y": 513,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "gradcap",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ]
+ }
+}

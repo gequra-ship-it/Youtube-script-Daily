@@ -1,0 +1,35 @@
+{
+ "centre": "cross-section of a stagnant swamp where fallen trees pile up in layers, with a puzzled fungus on a stump",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "fallen trees stacked",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Too tough!",
+   "x": 560,
+   "y": 230,
+   "to": [
+    380,
+    300
+   ]
+  },
+  {
+   "type": "name",
+   "text": "Fallen trees",
+   "x": 1560,
+   "y": 650,
+   "to": [
+    1400,
+    720
+   ],
+   "word": "fallen trees"
+  }
+ ]
+}

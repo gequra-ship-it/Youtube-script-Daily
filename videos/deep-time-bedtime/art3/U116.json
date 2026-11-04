@@ -1,0 +1,63 @@
+{
+ "centre": "an open book with a pop-up city, a little library and a sailing boat",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "city",
+   "x": 700,
+   "y": 430,
+   "to": [
+    880,
+    520
+   ],
+   "word": "city"
+  },
+  {
+   "type": "name",
+   "text": "library",
+   "x": 560,
+   "y": 570,
+   "to": [
+    700,
+    680
+   ],
+   "word": "library"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-city-skyline",
+   "h": 274
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 978,
+  "y": 662,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "backpack",
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "centre": "Tiktaalik lifts its flat head out of the water and gulps the open air under a soft sun",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "iris": [
+  880,
+  470
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Ahh, fresh air!",
+   "x": 560,
+   "y": 300,
+   "to": [
+    700,
+    420
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
+  "outfit": [
+   "goggles",
+   "scarf"
+  ],
+  "x": 1660,
+  "y": 890,
+  "s": 0.8,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

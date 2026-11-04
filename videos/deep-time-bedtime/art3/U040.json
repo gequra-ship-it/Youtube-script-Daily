@@ -1,0 +1,56 @@
+{
+ "centre": "colony of single-celled organisms huddled under ice",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "single-celled organisms",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "single-celled",
+   "x": 1300,
+   "y": 560,
+   "to": [
+    1010,
+    520
+   ],
+   "word": "single-celled"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-meltdrop",
+   "serious": false
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1230,
+  "y": 598,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab",
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
+}

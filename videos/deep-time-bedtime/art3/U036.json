@@ -1,0 +1,51 @@
+{
+ "centre": "oxygen bubble studded with rust-orange iron specks",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "dissolved iron",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "iron",
+   "x": 500,
+   "y": 330,
+   "to": [
+    380,
+    440
+   ],
+   "word": "iron"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "outfit": [
+   "goggles",
+   "flippers"
+  ],
+  "ride": "mv-core-tremble-bubble",
+  "kind": "ride",
+  "x": 812,
+  "y": 609,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
+}
