@@ -1,0 +1,41 @@
+{
+ "centre": "a parent cell blossoming into a ring of colourful daughter cells",
+ "focus": null,
+ "focus_word": "blossomed",
+ "sfx": [],
+ "labels": [],
+ "motion": "daughter cells pop in one by one",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-daughter-cell-2",
+   "h": 80
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 673,
+  "y": 1148,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "flowercrown",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

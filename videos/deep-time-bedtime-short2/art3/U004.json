@@ -1,0 +1,49 @@
+{
+ "centre": "large oxygen bubble rising above a green cyanobacteria mat",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "free oxygen",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Oxygen",
+   "x": 790,
+   "y": 900,
+   "to": [
+    640,
+    860
+   ],
+   "word": "oxygen"
+  }
+ ],
+ "motion": "bubbles rise",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "balance",
+  "ride": "mv-core-swell-oxygen-bubble",
+  "kind": "ride",
+  "x": 784,
+  "y": 1060,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

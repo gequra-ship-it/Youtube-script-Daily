@@ -1,0 +1,45 @@
+{
+ "centre": "a methane molecule (grey carbon, four white hydrogens) with oxygen molecules rising to meet it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Methane",
+   "x": 820,
+   "y": 680,
+   "to": [
+    600,
+    820
+   ],
+   "word": "methane"
+  }
+ ],
+ "motion": "oxygen molecules rise toward methane",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "bounce",
+  "ride": "mv-core-swell-methane-molecule",
+  "kind": "ride",
+  "x": 814,
+  "y": 1090,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Wobbly...",
+    "shout": false
+   }
+  ]
+ }
+}
