@@ -111,3 +111,4 @@
 - 2026-11-02 (miya 승인 '바꿔'): main의 `main.py`·`main_owl.py`·`main_이과형.py` 분량 범위를 1,900~2,200단어(목표 약 2,050, 남성 분당 145단어)로 변경, 재생성 조건·로그도 같이. 지침서는 9-2 기준(약 2,000~2,100).
 - 2026-11-03 (miya, hollow-skyscraper 점검): `fxlib.ROUGH_W`의 `engine\w*`가 "engineer(s)·engineering"에 걸려 줌인 카메라가 RoughEase로 흔들려(뚝뚝 끊김) `engines?`로 좁혔다. 이미 만든 영상은 build3 재빌드 후 재렌더해야 적용.
 - 2026-11-03 (miya, hollow-skyscraper): `tools/attachcheck.py`에 십자·날개 회전체 피벗 중심 검사 추가, 지침서 4-12 6·7(회전체 축, ROUGH_W 카메라 끊김) 추가.
+- 2026-11-04 (miya, frog-hunting-beetle 점검): `motions.py` `wobble`이 컷 시작부터 얼어 있던 30°·1.3배 자세를 없애고 제자리→톡→복귀로 바꿨고, `partaxis.py`가 `foreleg·hindleg` 같은 접두어 이름도 검사하며, 지침서 4-12 8·9와 04장 모션 표(wobble)를 갱신했다.
