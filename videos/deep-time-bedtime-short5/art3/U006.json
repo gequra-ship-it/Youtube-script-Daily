@@ -1,0 +1,46 @@
+{
+ "centre": "rolling hills dotted with the first coloured flowers",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "petals",
+   "x": 820,
+   "y": 1180,
+   "to": [
+    760,
+    1300
+   ],
+   "word": "petals"
+  }
+ ],
+ "motion": "foreground flowers sway, a petal drops to the ground",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-petal",
+  "kind": "ride",
+  "x": 841,
+  "y": 1326,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "flowercrown",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

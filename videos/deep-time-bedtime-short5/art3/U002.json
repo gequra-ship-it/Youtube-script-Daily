@@ -1,0 +1,45 @@
+{
+ "centre": "a blue-green Earth with no white ice caps, set in a pot inside a glass greenhouse",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "No ice today!",
+   "x": 300,
+   "y": 600,
+   "to": [
+    470,
+    790
+   ]
+  }
+ ],
+ "motion": "globe swells gently, thermometer liquid rises (warm greenhouse)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "rest",
+  "outfit": [
+   "helmet",
+   "raincoat"
+  ],
+  "ride": "mv-core-swell-earth",
+  "kind": "ride",
+  "x": 774,
+  "y": 1050,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

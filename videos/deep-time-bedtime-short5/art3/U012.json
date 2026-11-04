@@ -1,0 +1,56 @@
+{
+ "centre": "a pterosaur gliding in the sky above, a mosasaur swimming in the sea below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "pterosaurs",
+   "x": 360,
+   "y": 380,
+   "to": [
+    300,
+    540
+   ],
+   "word": "pterosaurs"
+  },
+  {
+   "type": "name",
+   "text": "marine reptiles",
+   "x": 600,
+   "y": 1380,
+   "to": [
+    400,
+    1250
+   ],
+   "word": "marine reptiles"
+  }
+ ],
+ "motion": "pterosaur glides along a path with wing joints, mosasaur swims with tail chain and flippers",
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "goggles",
+   "raincoat"
+  ],
+  "ride": "mv-path-pterosaur",
+  "kind": "ride",
+  "x": 368,
+  "y": 517,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

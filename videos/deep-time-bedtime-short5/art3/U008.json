@@ -1,0 +1,44 @@
+{
+ "centre": "a huge long-necked titanosaur walking right across a meadow of flowers",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "legendary titans",
+   "x": 300,
+   "y": 600,
+   "to": [
+    420,
+    1050
+   ],
+   "word": "titans"
+  }
+ ],
+ "motion": "titanosaur walks along a path (camera follows), legs, neck and tail move",
+ "frog": {
+  "moods": [
+   {
+    "mood": "awe"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-dinosaur",
+  "kind": "ride",
+  "x": 575,
+  "y": 884,
+  "s": 1.44,
+  "flip": 1,
+  "bside": -1,
+  "outfit": [
+   "wizard"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}
