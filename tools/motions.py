@@ -114,8 +114,10 @@ def core_js(ctype, g, t0, v0, sp, ring=None, pivot=None, pv=None):
     if ctype == 'squeeze':     # horizontal squeeze (a cell, a drop, a bellows)
         return [f'tl.fromTo({g},{{scaleX:1,scaleY:1,{C}}},{{scaleX:.55,scaleY:1.2,duration:1.1,{yo(1.1)}}},{v0:.3f});']
     if ctype == 'wobble':      # springy settle after a hit, then still
-        return [f'tl.set({g},{{rotation:30,scale:1.3,{C}}},{v0:.3f});',
-                f'tl.to({g},{{rotation:0,scale:1,duration:2.2,ease:"elastic.out(1,.25)",immediateRender:false}},{t0 + .2:.3f});']
+        # 2026-11-04: no frozen 30deg/1.3x pose before the hit (plate "snapped" from a held pose): rest -> quick tap -> springy settle
+        return [f'tl.set({g},{{rotation:0,scale:1,{C}}},{v0:.3f});',
+                f'tl.to({g},{{rotation:14,scale:1.1,duration:.18,ease:"power2.out",immediateRender:false}},{t0 + .2:.3f});',
+                f'tl.to({g},{{rotation:0,scale:1,duration:2.0,ease:"elastic.out(1,.25)",immediateRender:false}},{t0 + .38:.3f});']
     if ctype == 'roll':        # rolls sideways while turning
         return [f'tl.fromTo({g},{{x:-110,rotation:-180,{C}}},{{x:110,rotation:180,duration:{sp:.3f},ease:"power1.inOut",immediateRender:false}},{v0:.3f});']
     if ctype == 'pop':         # pops into place with an overshoot, then still (chips/cards popping in)

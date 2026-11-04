@@ -6,7 +6,7 @@ import os, sys, re, json, glob, math
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import *
 from playwright.sync_api import sync_playwright
-PART = r'(arm|tentacle|leg|feeler|antenna|jaw|tail|fin|flipper|claw|limb|neck|wing|palp)s?'
+PART = r'((?:fore|hind|front|rear|back)?(?:arm|tentacle|leg|feeler|antenna|jaw|tail|fin|flipper|claw|limb|neck|wing|palp))s?'   # 2026-11-04: foreleg/hindleg/forelimb also count (a foreleg hinged at its foot was missed)
 JS = r'''() => {
  const out = [];
  const gs = [...document.querySelectorAll('g[id^="mv-"]')];
