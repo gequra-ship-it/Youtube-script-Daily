@@ -1,0 +1,37 @@
+{
+ "centre": "a planet-sized rocky body smashing into the top of glowing proto-Earth with a blinding flash and flying debris",
+ "focus": [
+  540,
+  880,
+  1.7
+ ],
+ "focus_word": "collided",
+ "sfx": [],
+ "labels": [],
+ "motion": "the impactor drops onto Earth, flash, debris tossed outward",
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-impact-theia",
+  "kind": "ride",
+  "x": 450,
+  "y": 525,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "backpack",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}
