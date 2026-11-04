@@ -1,0 +1,68 @@
+{
+ "centre": "three sea bands stacked like time: the Cambrian at top, the Ordovician slides in with corals, then the Silurian with weeds, while a straight-shelled nautiloid drifts down through them",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Ordovician",
+   "x": 760,
+   "y": 720,
+   "to": [
+    900,
+    760
+   ],
+   "word": "Ordovician"
+  },
+  {
+   "type": "name",
+   "text": "Silurian",
+   "x": 700,
+   "y": 1200,
+   "to": [
+    860,
+    1300
+   ],
+   "word": "Silurian"
+  },
+  {
+   "type": "name",
+   "text": "Cambrian",
+   "x": 600,
+   "y": 380,
+   "to": [
+    820,
+    560
+   ],
+   "word": "Cambrian"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "ride": "mv-path-nautiloid",
+  "kind": "ride",
+  "x": 318,
+  "y": 864,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "captainhat"
+  ],
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "centre": "a wide seafloor arena: an Anomalocaris hunter swoops down from above while trilobites hurry away across the mud and a worm hides in its burrow",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "hunters",
+   "x": 380,
+   "y": 380,
+   "to": [
+    560,
+    520
+   ],
+   "word": "hunters"
+  },
+  {
+   "type": "name",
+   "text": "prey",
+   "x": 300,
+   "y": 1370,
+   "to": [
+    600,
+    1250
+   ],
+   "word": "prey"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "ride": "mv-core-glide-anomalocaris",
+  "kind": "ride",
+  "x": 791,
+  "y": 501,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Grew!",
+    "shout": true
+   }
+  ]
+ }
+}

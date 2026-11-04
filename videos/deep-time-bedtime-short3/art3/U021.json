@@ -1,0 +1,47 @@
+{
+ "centre": "a barren grey rocky land under a harsh pale sun: no plants, only cracked stone; a small stack of rocks topples in the silence",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "gray rock",
+   "x": 300,
+   "y": 1390,
+   "to": [
+    560,
+    1320
+   ],
+   "word": "gray rock"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-core-swell-sun",
+  "kind": "ride",
+  "x": 800,
+  "y": 736,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ]
+ }
+}
