@@ -1,0 +1,45 @@
+{
+ "centre": "three trilobites seen from above: one nibbling beside an empty shell, one stalking a worm in its burrow, one plowing a furrow through silt",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "plowed through silt",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "motion": "hop scavenger, creep hunter, worm popin, plow path with furrow",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-worm",
+   "h": 14
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1155,
+  "y": 555,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

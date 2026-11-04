@@ -1,0 +1,41 @@
+{
+ "centre": "a trilobite drawn as an engineering blueprint: head shield, segmented thorax and tail shield with callouts, beside a stack of rock layers for deep time",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "armor",
+   "x": 400,
+   "y": 470,
+   "to": [
+    740,
+    560
+   ],
+   "word": "armor"
+  }
+ ],
+ "motion": "draw (blueprint callouts) + ticks (rock layers stack up = hundreds of millions of years)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "says": [],
+  "bside": -1
+ }
+}

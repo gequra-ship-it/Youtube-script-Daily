@@ -1,0 +1,37 @@
+{
+ "centre": "a dark purple dead-zone pool in which a fish, a shelled cephalopod and a trilobite sink slowly, limp and still",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "suffocated",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "motion": "three sink paths + ghost bubbles",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-sink-nautiloid",
+  "kind": "ride",
+  "x": 1071,
+  "y": 336,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": []
+ }
+}

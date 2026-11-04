@@ -1,0 +1,51 @@
+{
+ "centre": "two continents seen from above slide together and push up a mountain range while a trilobite crawls along the shallow shelf below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "continents",
+   "x": 540,
+   "y": 400,
+   "to": [
+    300,
+    600
+   ],
+   "word": "continents"
+  }
+ ],
+ "motion": "slide continents x2 + grow mountains + creep trilobite",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Trilobites lived",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-slide-continent-west",
+  "kind": "ride",
+  "x": 450,
+  "y": 554,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Land ho!",
+    "shout": true
+   }
+  ]
+ }
+}

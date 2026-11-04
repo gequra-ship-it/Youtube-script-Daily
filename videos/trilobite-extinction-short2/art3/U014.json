@@ -1,0 +1,52 @@
+{
+ "centre": "Isotelus rex, a giant smooth trilobite filling the frame next to a measuring rod; an ordinary trilobite at its feet for scale",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Isotelus rex",
+   "x": 300,
+   "y": 400,
+   "to": [
+    460,
+    620
+   ],
+   "word": "Isotelus rex"
+  },
+  {
+   "type": "num",
+   "text": "70 CM",
+   "word": "seventy centimeters"
+  }
+ ],
+ "motion": "core approach isotelus + popin ruler + sway seaweed",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-approach-isotelus",
+  "kind": "ride",
+  "x": 114,
+  "y": 1213,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Huge!",
+    "shout": true
+   }
+  ]
+ }
+}

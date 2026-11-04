@@ -1,0 +1,52 @@
+{
+ "centre": "cross-section of the seafloor: a trilobite in side view plows through the top of the mud with digging legs, leaving a furrow behind",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "sediment",
+   "x": 330,
+   "y": 800,
+   "to": [
+    250,
+    920
+   ],
+   "word": "sediment"
+  }
+ ],
+ "motion": "the trilobite plows to the right (camera follows), legs dig, silt puffs rise, the furrow lengthens behind it",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "unrolled",
+   "obj": "mv-unroll-furrow",
+   "frac": 0.7
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 554,
+  "y": 640,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

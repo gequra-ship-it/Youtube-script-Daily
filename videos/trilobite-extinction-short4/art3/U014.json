@@ -1,0 +1,51 @@
+{
+ "centre": "a spiny, heavily armoured trilobite filling the frame with a glint on its shell, while a dark oxygen-poor wedge of water slides in from the right",
+ "motion": "core approach (trilobite) + glint (armor) + slide (dead water)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "armor",
+   "x": 220,
+   "y": 480,
+   "to": [
+    400,
+    620
+   ],
+   "word": "armor"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "And there",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-slide-dead-water",
+  "kind": "ride",
+  "x": 696,
+  "y": 1039,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
+}

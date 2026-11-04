@@ -1,0 +1,39 @@
+{
+ "centre": "a lone trilobite on a dark seafloor heading toward a distant red volcanic glow, ghostly hunters overhead",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "What now?",
+   "x": 300,
+   "y": 1020,
+   "to": [
+    380,
+    1150
+   ]
+  }
+ ],
+ "motion": "trilobite creeps right, distant glow flickers",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 920,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
+}

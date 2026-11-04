@@ -1,0 +1,50 @@
+{
+ "centre": "a spiny trilobite bristling with long genal spines and rows of sharp spikes along every segment",
+ "focus": [
+  540,
+  840,
+  1.5
+ ],
+ "focus_word": "sharp spikes",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "spikes",
+   "x": 760,
+   "y": 560,
+   "to": [
+    700,
+    720
+   ],
+   "word": "spikes"
+  }
+ ],
+ "motion": "spiny trilobite approaches (core approach)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "Some trilobites",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-approach-trilobite-spiny",
+  "kind": "ride",
+  "x": 381,
+  "y": 343,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": []
+ }
+}

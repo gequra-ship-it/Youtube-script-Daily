@@ -1,0 +1,45 @@
+{
+ "centre": "dreamlike glow: one of the last trilobites walking across a warm murky Permian shallow floor under sun shafts",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "trilobites",
+   "x": 760,
+   "y": 480,
+   "to": [
+    720,
+    680
+   ],
+   "word": "trilobites"
+  }
+ ],
+ "motion": "path (trilobite walks right) + antenna joints + bubble",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "rest",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-walk-trilobite",
+  "kind": "ride",
+  "x": 876,
+  "y": 550,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "centre": "an empty dim seafloor with a dropped golden crown in a pool of light and one fading trilobite silhouette",
+ "motion": "core drop (crown) + fade (ghost trilobite) + float (jellyfish)",
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "disappear",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "starry"
+   }
+  ],
+  "act": "think",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-drop-crown",
+  "kind": "ride",
+  "x": 1158,
+  "y": 780,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

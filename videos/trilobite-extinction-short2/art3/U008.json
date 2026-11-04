@@ -1,0 +1,35 @@
+{
+ "centre": "looking down on a prehistoric seafloor: a trilobite crawls up the frame at the head of its long Cruziana track",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "270 MILLION YEARS",
+   "word": "two hundred and seventy million"
+  }
+ ],
+ "motion": "path trilobite (rot 0) + dash trail + creep crab",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-trilobite",
+  "kind": "ride",
+  "x": 625,
+  "y": 798,
+  "s": 1.44,
+  "flip": 1,
+  "bside": -1,
+  "says": []
+ }
+}

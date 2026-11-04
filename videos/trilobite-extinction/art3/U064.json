@@ -1,0 +1,57 @@
+{
+ "centre": "a dark purple dead zone spreading from the left across a muddy seafloor; grey motionless trilobites inside, living ones crawling away on the right",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "dead zones",
+   "x": 420,
+   "y": 420,
+   "to": [
+    380,
+    640
+   ],
+   "word": "dead zones"
+  },
+  {
+   "type": "name",
+   "text": "muddy habitats",
+   "x": 1500,
+   "y": 500,
+   "to": [
+    1500,
+    640
+   ],
+   "word": "muddy habitats"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 461
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 1660,
+  "y": 340,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

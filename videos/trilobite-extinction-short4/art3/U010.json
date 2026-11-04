@@ -1,0 +1,47 @@
+{
+ "centre": "carbon dioxide molecules sinking from the air into the sea, the water turning sour yellow-green and shells beginning to fizz",
+ "motion": "path sink (three CO2 molecules) + fade (acid tint) + ripple (surface) + bubble fizz x2",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "more acidic",
+   "x": 540,
+   "y": 1180,
+   "to": [
+    540,
+    1100
+   ],
+   "word": "acidic"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-sink-co2-molecule",
+  "kind": "ride",
+  "x": 697,
+  "y": 494,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Huge!",
+    "shout": true
+   }
+  ]
+ }
+}

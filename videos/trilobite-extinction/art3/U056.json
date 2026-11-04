@@ -1,0 +1,53 @@
+{
+ "centre": "close-up: the huge bony jaws of an armored fish open in front of a rolled-up trilobite ball; a crack starts in the shell",
+ "focus": [
+  1150,
+  520,
+  1.4
+ ],
+ "focus_word": "strong jaws",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "thin shell",
+   "x": 1560,
+   "y": 330,
+   "to": [
+    1260,
+    430
+   ],
+   "word": "thin shell"
+  }
+ ],
+ "motion": "the jaw hinges open and shut; the ball trembles; a crack draws itself on the shell",
+ "light": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

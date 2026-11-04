@@ -1,0 +1,50 @@
+{
+ "centre": "one small brown proetid lit by a single beam on a rock, while ghost silhouettes of the other trilobite orders fade in the dark",
+ "motion": "core swell (proetid) + fade (ghost orders)",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "the proetids",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "proetids",
+   "x": 700,
+   "y": 1060,
+   "to": [
+    590,
+    930
+   ],
+   "word": "proetids"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "salute",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-swell-proetid",
+  "kind": "ride",
+  "x": 658,
+  "y": 967,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Aye aye!",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "centre": "a swampy Carboniferous forest of tall scale trees above a rock cross-section holding black coal seams, a distant factory chimney smoking",
+ "focus": [
+  700,
+  900,
+  1.3
+ ],
+ "focus_word": "coal beds",
+ "sfx": [
+  {
+   "name": "rustle",
+   "word": "swampy forests",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Coal",
+   "x": 1000,
+   "y": 740,
+   "to": [
+    900,
+    810
+   ],
+   "word": "coal"
+  }
+ ],
+ "motion": "tree sway + dragonfly path + factory smoke",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-dragonfly-flight",
+  "kind": "ride",
+  "x": 1110,
+  "y": 385,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "So strong!",
+    "shout": false
+   }
+  ]
+ }
+}

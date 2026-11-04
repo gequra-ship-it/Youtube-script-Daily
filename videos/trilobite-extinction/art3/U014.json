@@ -1,0 +1,81 @@
+{
+ "centre": "a globe with continents and three pins carrying small trilobite fossil icons",
+ "motion": "core wobble (globe) + popin (pins one by one)",
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "Utah",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Utah",
+   "x": 560,
+   "y": 330,
+   "to": [
+    795,
+    380
+   ],
+   "word": "Utah"
+  },
+  {
+   "type": "name",
+   "text": "Morocco",
+   "x": 1360,
+   "y": 730,
+   "to": [
+    930,
+    500
+   ],
+   "word": "Morocco"
+  },
+  {
+   "type": "name",
+   "text": "China",
+   "x": 1480,
+   "y": 330,
+   "to": [
+    1130,
+    365
+   ],
+   "word": "China"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-pin-1",
+   "h": 92
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 795,
+  "y": 445,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

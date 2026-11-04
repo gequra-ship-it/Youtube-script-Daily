@@ -1,0 +1,45 @@
+{
+ "centre": "an enrolled trilobite ball resting on the seafloor under a faint golden shield glow while a sea scorpion's claws close in",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Too tough!",
+   "x": 560,
+   "y": 430,
+   "to": [
+    670,
+    580
+   ]
+  }
+ ],
+ "motion": "scorpion path + claw joints; ball shakes when hit",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-scorpion-approach",
+  "kind": "ride",
+  "x": 1245,
+  "y": 487,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
+}

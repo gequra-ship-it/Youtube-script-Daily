@@ -1,0 +1,51 @@
+{
+ "centre": "three rock columns from different places pop up side by side, each with the same dark boundary band over a fossil bed, a hand lens slides along the band",
+ "motion": "popin (three rock columns, staggered) + path (hand lens)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
+ "labels": [
+  {
+   "type": "name",
+   "text": "rocks",
+   "x": 540,
+   "y": 1360,
+   "to": [
+    540,
+    1200
+   ],
+   "word": "rocks"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-magnifier-lens",
+  "kind": "ride",
+  "x": 32,
+  "y": 1010,
+  "s": 1.0,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

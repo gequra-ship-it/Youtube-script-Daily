@@ -1,0 +1,46 @@
+{
+ "centre": "a trilobite lying sideways with its raised central lobe tinted and the two lobe furrows drawing on, a three-humped cross-section of its back above",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "three lobes",
+   "x": 540,
+   "y": 360,
+   "to": [
+    540,
+    450
+   ],
+   "word": "three lobes"
+  }
+ ],
+ "motion": "draw lobe furrows + antenna joints + bubble",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 820,
+  "y": 1560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

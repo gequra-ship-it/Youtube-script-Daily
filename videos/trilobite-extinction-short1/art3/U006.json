@@ -1,0 +1,50 @@
+{
+ "centre": "a clear calcite crystal (rhombohedron) glowing above a trilobite head whose eye is linked to it",
+ "focus": [
+  540,
+  640,
+  1.5
+ ],
+ "focus_word": "calcite crystals",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Calcite",
+   "x": 300,
+   "y": 420,
+   "to": [
+    470,
+    560
+   ],
+   "word": "calcite"
+  }
+ ],
+ "motion": "crystal pings; dashed link marches from the eye to the crystal",
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-ping-calcite-crystal",
+  "kind": "ride",
+  "x": 783,
+  "y": 850,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

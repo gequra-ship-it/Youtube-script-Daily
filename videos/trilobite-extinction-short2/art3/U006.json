@@ -1,0 +1,48 @@
+{
+ "centre": "the supercontinent seen from above with a dashed route and a small sauropod walking across it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "165 MILLION YEARS",
+   "word": "one hundred and sixty-five million"
+  },
+  {
+   "type": "name",
+   "text": "continents",
+   "x": 760,
+   "y": 1000,
+   "to": [
+    720,
+    1180
+   ],
+   "word": "continents"
+  }
+ ],
+ "motion": "path dinosaur (rot 0) + dash route",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-dinosaur",
+  "kind": "ride",
+  "x": 451,
+  "y": 1247,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
+}

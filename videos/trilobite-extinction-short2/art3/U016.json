@@ -1,0 +1,42 @@
+{
+ "centre": "the Earth seen from space with fossil trilobite markers popping up on every continent, a cold ice floe above and a warm reef below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "fossils",
+   "x": 820,
+   "y": 420,
+   "to": [
+    700,
+    660
+   ],
+   "word": "fossils"
+  }
+ ],
+ "motion": "core swell globe + ticks fossil markers",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-swell-globe",
+  "kind": "ride",
+  "x": 738,
+  "y": 601,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": []
+ }
+}
