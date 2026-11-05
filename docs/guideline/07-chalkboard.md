@@ -143,4 +143,19 @@
 - 확인한 것: 합성 54장면(새 동작 34 + 소품 의상 20) JS 오류 0, 깃발·제트팩·공중제비 프레임 눈으로 확인, 옛 영상 6편 frog_place 재실행 분포. 확인하지 못한 것: Actions 렌더, 실제 영상에서의 새 동작 보임새.
 
 개정: 2026-10-31 K절 추가(개념 규칙 25종·테마 팩 9종·최소 사용 선택·강한 동작 변형·새 동작 34종·다양성 검사), miya "우주 내용은 항상 비슷한 것만 나온다 … 전부 넣고 다른 것들에도 모두 적용, 다양성과 재미성이 중요".
+
+#### L. 맥동 오브젝트 옆에서 반응, 카메라·전환·배경 효과와 함께 움직이기 (2026-11-05, miya: "오브젝트 모션 중 빠르게 두근거리는 모션이 너무 자주 나오고 개구리가 그 오브젝트에 붙어서 같이 두근거리는 게 너무 많다 … 아무 의미 없이 옆에서 오브젝트 모션을 따라하는 게 너무 많다 … 카메라 워킹이나 오브젝트 모션, 화면 트랜지션에 따라 유동적으로 개구리 모션이 들어갔으면 … 오브젝트 모션·배경 모션·개구리 모션도 더 많이 추가 … 다른 모델이 써도 결과가 같게 대본·그림 규칙")
+- **L-1 맥동하는 것은 타지 않는다.** `frog_place.OK`(탑승 가능 그룹)는 `mv-core-sway|glide|approach|drop`·`mv-path`·`mv-slide`·`mv-swing`뿐이다. 개구리가 그룹 안에 들어가면 그 그룹의 배율·흔들림을 그대로 물려받아 '같이 두근거리는' 모습이 나왔다. 에이전트 사이드카의 `ride`도 같은 검사를 거친다(맥동 그룹이면 버림). 예전 `PULSEG → bounce`(탄 것과 같이 출렁) 규칙은 지웠다.
+- **L-2 반응 동작(`pulse_response`, `frog_rig.RESPONSE_ACTS`).** 단어 동작(STRONG·ACTIVE·ROLL)이 없고 그림에 맥동 센터(`mv-core-heartbeat|swell|tremble|wobble|ping|squeeze|pop|stamp`, 120×80 px 이상, corefix 뒤라 이유가 있는 것)가 있으면 가장 큰 것 **옆**(`beside`)에 서서 그 리듬에 맞춰 반응한다: heartbeat → `heartlisten`(귀에 손, 1.6초) · swell → `backstep`(커질 때 물러남, 2.2초) · tremble → `bracehold`(팔 벌려 버팀) · wobble → `steadyit`(두 손으로 잡아 줌) · ping → `listen` · squeeze/stamp → `duck` · pop → `startle`. 말풍선은 동작 고정('Thump... thump.', 'Whoa, it grows!', 'Steady...!').
+- **L-3 카메라·전환·배경 효과 연동(`frog.enter_js`·`frog.cam_js`, `build3`가 단위마다 `cam=`(이 컷 전환·다음 컷 전환·포커스 줌·배경 효과·추적 카메라·바람 방향)을 넘긴다).** 배경 개구리(탑승·접촉 동작 아님)에 전부 자동, 모델 판단 없음:
+  - 등장 = 이 컷의 전환: slide·whip → `skid`(옆에서 미끄러져 들어와 기울었다 섬) · push → `drop`(위에서 떨어져 스쿼시) · zoom·match·iris → `pop`(발에서 자라남) · eye → `blink`(세로로 열림) · tilt → `tiltin`(카드처럼 기울어 들어옴) · wipe·seam·diamond·zigzag·wave·page·blinds·fade·wash·hard → 부드러운 fade. 접촉 동작은 `cut`, 탑승은 `peek` 그대로. 사이드카 `enter`가 있으면 그것이 우선.
+  - 퇴장 = 다음 컷의 전환(2.2초 이상 머물고 고요 동작일 때): zoom → 움츠림(scaleY .9) · slide·whip → 그림이 나가는 쪽(왼쪽)으로 기울임 · push → 위를 올려다봄.
+  - 포커스 줌(`focus`)이 있으면 줌 시작 시각에 눈동자·머리가 포커스 쪽으로 향했다가 2초 뒤 돌아온다(가리키는 개구리·탑승 제외). 추적 카메라(`track_spec`)가 있는 그림의 약한 동작 개구리는 이동 방향으로 `jog`/`hike`(bio·history·earth)한다(`track_dir`).
+  - 배경 효과 반응(고요 동작일 때): flash·bolt·shockwave·burst·starburst → 그 시각에 움찔(`miyaWig`)하며 `shock` 표정, 1.5초 뒤 원래 표정 · rain·snow·hail·ash·leaves·petals·meteors·droplets·confetti·feathers → 올려다봄 · windlines·sand → 바람을 거슬러 기울임(`motions.dir_sign`).
+- **L-4 고요 동작 목록(`frog.CAM_CALM`).** 없음·breathe·sway·look·nod·rest·tilt·sleepy·think·read·listen·tapfoot·armsfold·squintfar·sniffair·lookup·float·awe일 때만 퇴장·포커스·효과 반응이 붙는다(강한 동작은 몸을 쓰고 있으니 겹치지 않음).
+- **L-5 새 동작 27종(generic_js 데이터).** 반응 12: heartlisten·backstep·bracehold·steadyit·lookup·holdhat·tapfoot·squintfar·kneel·sniffair·stepaside·armsfold. 카메라·개념 풀 15(`frog_rig.CAMERA_ACTS`): leanin·crouchlook·backaway·scratchhead·hugself·headshake·nodyes·stompfoot·wavebye·shrugbig·swingarms·bowhead·peekover·tiptoeback·rockheels. 개념 풀(K)의 danger·hidden·discovery·unknown·cold_empty·change·observe·home_safe·celebrate·slowness·signal·build·journey·counting·timespan 공통 풀에 하나씩 들어가 최소 사용으로 돌아간다.
+- **L-6 검사.** `variety_check.py`(15-8): '맥동 오브젝트 탑승' 0, 센터 모션 사건 종류 ≤ 15 %(4-13). 옛 영상은 `frog_place.py <slug>`(corefix 포함) → `build3.py` 재실행으로 적용된다.
+- 확인한 것: 합성 59장면 JS 오류 0(새 동작 27, 전환별 등장 9, 퇴장 3, 포커스, 효과 반응 3), kardashev-scale 재배치 뒤 탑승 맥동 0·heartlisten/backstep 배치, whale-fall 숏츠 전체 빌드 0 오류. 확인하지 못한 것: Actions 렌더.
+
+개정: 2026-11-05 L절 추가(맥동 탑승 금지·반응 동작·카메라/전환/배경 효과 연동·새 동작 27종), miya "두근거리는 모션이 너무 자주, 개구리가 붙어서 같이 두근거림 … 카메라·오브젝트·전환에 따라 유동적으로".
 **7-2 J. 개구리 '빨려듦(pull)' 횟수 제한 (2026-10-30, miya)**: 빨려드는 동작은 대본에 블랙홀·소용돌이·배수구 등 진짜 빨려드는 말이 있을 때만 쓴다(`swell`은 구멍이 아니다, `HOLE` 정규식 `(?<!s)well\b`). `frog_place.py`가 영상마다 롱폼 최대 3번(25단위 이상 간격), 숏츠 최대 1번으로 제한하고 넘는 것은 놀란 표정(`look`)으로 바꾼다.

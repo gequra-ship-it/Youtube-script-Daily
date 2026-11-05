@@ -397,7 +397,71 @@ def angle_to(d, target, st=None):
 REST = 75   # arm hangs down along the body (deg, local); it only moves when the pointed object changes
 
 
-def js(tag, d, t0, t1, words, targets=None, wt=None, objt=None, k=0):
+# ---------------------------------------------------------------- camera coupling (2026-11-05, guideline 7-2 L) ----------------------------------------------------------------
+TR_ENTER = {'slide': 'skid', 'whip': 'skid', 'push': 'drop', 'zoom': 'pop', 'match': 'pop', 'iris': 'pop', 'eye': 'blink', 'tilt': 'tiltin'}   # transition -> background-frog entrance (the rest fade)
+CAM_CALM = (None, 'breathe', 'sway', 'look', 'nod', 'rest', 'tilt', 'sleepy', 'think', 'read', 'listen', 'tapfoot', 'armsfold', 'squintfar', 'sniffair', 'lookup', 'float', 'awe')   # acts that leave room for a camera / effect reaction
+FX_JOLT = ('flash', 'bolt', 'shockwave', 'burst', 'starburst')   # one-shot effects: the frog flinches at the flash time
+FX_SKY = ('rain', 'snow', 'hail', 'ash', 'leaves', 'petals', 'meteors', 'droplets', 'confetti', 'feathers')   # things that fall from above: a look up
+FX_WIND = ('windlines', 'sand')   # the frog leans into the wind
+
+
+def enter_js(t, enter, a0, flip):
+    """background-frog entrances keyed on the cut's transition (TR_ENTER); all on #_in, seek-safe, no CustomEase"""
+    I = f'"#{t}_in"'; o = []
+    if enter == 'skid':     # slides in from behind itself with the sideways cut and settles with a small lean
+        o.append(f'tl.fromTo({I},{{x:{70 * -1:.0f},opacity:0,rotation:{-8 * flip},svgOrigin:"0 0"}},{{x:0,opacity:1,rotation:0,duration:.55,ease:"power3.out",immediateRender:false}},{a0:.3f});')
+    elif enter == 'drop':   # falls in from above with the vertical push, lands with a squash
+        o.append(f'tl.fromTo({I},{{y:-90,opacity:0}},{{y:0,opacity:1,duration:.5,ease:"bounce.out",immediateRender:false}},{a0:.3f});')
+        o += frog_rig.squash(t, a0 + .18, .88, 1.08, .1, .3)
+    elif enter == 'pop':    # grows up from its feet with the zoom / match / iris
+        o.append(f'tl.fromTo({I},{{scale:.2,opacity:0,svgOrigin:"0 0"}},{{scale:1,opacity:1,duration:.45,ease:"back.out(1.7)",immediateRender:false}},{a0:.3f});')
+    elif enter == 'blink':  # opens like the eye-shaped cut
+        o.append(f'tl.fromTo({I},{{scaleY:.05,opacity:0,svgOrigin:"0 -40"}},{{scaleY:1,opacity:1,duration:.4,ease:"power2.out",immediateRender:false}},{a0:.3f});')
+    elif enter == 'tiltin': # tips in like the card
+        o.append(f'tl.fromTo({I},{{rotation:{-22 * flip},opacity:0,svgOrigin:"0 0"}},{{rotation:0,opacity:1,duration:.6,ease:"back.out(1.4)",immediateRender:false}},{a0:.3f});')
+    return o
+
+
+def cam_js(t, d, cam, a0, t1, at, pts, mood_t, face):
+    """exit pose by the next cut, a glance toward the focus zoom, a reaction to the background effect. Returns (lines, info)."""
+    o = []; info = dict(nohead=False, noeyes=False, avoid=[]); I = f'"#{t}_in"'; flip = d['flip']; calm = at in CAM_CALM
+    # exit: the frog anticipates the next cut (only when it stays long enough and no act owns the body)
+    nx = cam.get('nxt')
+    if t1 - a0 > 2.2 and calm:
+        if nx == 'zoom':      o.append(f'tl.to({I},{{scaleY:.9,duration:.4,ease:"power2.inOut",svgOrigin:"0 0"}},{t1 - 1.05:.3f});')                      # crouches as the picture rushes at the camera
+        elif nx in ('slide', 'whip'): o.append(f'tl.to({I},{{rotation:{-8 * flip},x:-6,duration:.4,ease:"power2.in",svgOrigin:"0 0"}},{t1 - .62:.3f});')   # leans the way the picture leaves (screen left)
+        elif nx == 'push':
+            o.append(f'tl.to({I},{{y:-5,duration:.5,ease:"sine.inOut"}},{t1 - .8:.3f});tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:"-=5"}},duration:.25}},{t1 - .8:.3f});'); info['noeyes'] = True   # looks up where the picture goes
+    # focus zoom: the frog glances where the camera pushes in (never a pointing frog, never on a ride)
+    fc = cam.get('focus')
+    if fc and not pts and calm:
+        a, (fx, fy, s) = fc; sg = 1 if (fx - d['x']) * flip >= 0 else -1; up = -4 if fy < d['y'] - 80 else 0
+        o.append(f'tl.to("#{t}_pl,#{t}_pr",{{attr:{{cx:"+={3.6 * sg:.1f}",cy:"+={up}"}},duration:.3,ease:"power1.out"}},{a + .1:.3f});')
+        o.append(f'tl.to("#{t}_hd,#{t}_of,#{t}_te",{{rotation:{4 * sg},duration:.5,ease:"power2.out",{frog_rig.NECK}}},{a + .1:.3f});')
+        if t1 - a > 2.6:
+            o.append(f'tl.to("#{t}_pl,#{t}_pr",{{attr:{{cx:"-={3.6 * sg:.1f}",cy:"-={up}"}},duration:.3,ease:"power1.out"}},{a + 2.0:.3f});tl.to("#{t}_hd,#{t}_of,#{t}_te",{{rotation:0,duration:.5,ease:"power2.inOut",{frog_rig.NECK}}},{a + 2.0:.3f});')
+        info['nohead'] = True; info['noeyes'] = True; info['avoid'] += [a + .1, a + 2.0]
+    # background effect: a flinch at a flash / bolt / shockwave, a look up at things falling from the sky, a lean into the wind
+    for kd, ft in cam.get('fx') or []:
+        v0 = cam.get('v0', a0)
+        if kd in FX_JOLT and calm:
+            ft = max(ft if ft is not None else v0 + 1.0, v0 + .4, a0 + .3)
+            if ft < t1 - .6:
+                o.append(f'tl.fromTo({I},{{x:0}},{{x:{3 * flip},duration:.5,ease:"miyaWig",immediateRender:false}},{ft:.3f});tl.to({I},{{y:-4,duration:.08,yoyo:true,repeat:1,ease:"power2.out"}},{ft:.3f});')
+                o.append(face('shock', ft)); info['avoid'] += [ft]
+                if t1 - ft > 2.0: o.append(face((d.get('moods') or [{}])[0].get('mood', 'happy'), ft + 1.5)); info['avoid'] += [ft + 1.5]
+        elif kd in FX_SKY and calm and at not in ('lookup', 'awe') and t1 - a0 > 2.6:
+            tu = a0 + .9
+            o.append(f'tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:"-=5"}},duration:.3,ease:"power1.out"}},{tu:.3f});tl.to("#{t}_hd,#{t}_of,#{t}_te",{{rotation:{-6 * flip},duration:.5,ease:"power2.out",{frog_rig.NECK}}},{tu:.3f});')
+            o.append(f'tl.to("#{t}_pl,#{t}_pr",{{attr:{{cy:"+=5"}},duration:.3,ease:"power1.out"}},{tu + 1.6:.3f});tl.to("#{t}_hd,#{t}_of,#{t}_te",{{rotation:0,duration:.5,ease:"power2.inOut",{frog_rig.NECK}}},{tu + 1.6:.3f});')
+            info['nohead'] = True; info['noeyes'] = True; info['avoid'] += [tu, tu + 1.6]
+        elif kd in FX_WIND and calm and at not in ('wind', 'holdhat'):
+            ds = cam.get('wind', 1)   # +1 = the streaks travel right; the frog leans INTO the wind (against the travel)
+            o.append(f'tl.to({I},{{rotation:{-6 * ds * flip},x:{-3 * ds},duration:.7,ease:"power2.out",svgOrigin:"0 0"}},{a0 + .4:.3f});')
+    return o, info
+
+
+def js(tag, d, t0, t1, words, targets=None, wt=None, objt=None, k=0, cam=None):
     """GSAP lines. words = [(start, end)] absolute seconds of the unit's words (mouth), targets = [(time, (x, y))] arm pointing
     (default: sidecar "points"/"point"; none = arm rests), wt = [(text, start, end)] to resolve the "word" keys of points/moods/moves."""
     t = f'fg{tag}'; out = []; a0 = t0 + d['delay']; wt = wt or []
@@ -406,11 +470,18 @@ def js(tag, d, t0, t1, words, targets=None, wt=None, objt=None, k=0):
     # (rides: peeks up from its object, roams: drifts in) and fades out shortly before the cut instead of vanishing in one frame
     _a = d.get('act'); _a = (_a.get('type') if isinstance(_a, dict) else _a) or None
     if _a in frog_rig.CONTACT: d['enter'] = 'cut'   # 2026-10-29 b: a frog that meets a moving object is already there when the picture starts (a fade-in missed the first bounce)
-    enter = d.get('enter') or ('hop' if not (d.get('ride') or d.get('kind') in ('ride', 'bg')) else ('peek' if d.get('ride') else 'fade'))
-    oy = {'hop': 300, 'peek': 26, 'fade': 0, 'cut': 0}.get(enter, 40)
+    cam = cam or {}; bgfrog = bool(d.get('ride') or d.get('kind') in ('ride', 'bg'))
+    enter = d.get('enter') or ('hop' if not bgfrog else ('peek' if d.get('ride') else 'fade'))
+    # 2026-11-05 (miya, guideline 7-2 L): a background frog comes in the way the CUT comes in — it slides in with a slide / whip, drops in with a push,
+    # pops up with a zoom / match / iris, opens like an eye, tips in with a tilt; wipes and fades keep the soft fade. Deterministic: transition -> entrance.
+    if not d.get('enter') and bgfrog and not d.get('ride') and _a not in frog_rig.CONTACT: enter = TR_ENTER.get(cam.get('tr'), 'fade')
+    oy = {'hop': 300, 'peek': 26, 'fade': 0, 'cut': 0, 'drop': -90}.get(enter, 0)
     out.append(f'tl.set("#{t}_in",{{opacity:0,y:{oy}}},0);tl.set("#{t}",{{opacity:0}},0);tl.set("#{t}",{{opacity:1}},{a0 - .01:.3f});tl.set("#{t}",{{opacity:0}},{t1:.3f});')
     if enter == 'cut': out.append(f'tl.set("#{t}_in",{{opacity:1,y:0}},{a0:.3f});')   # already there when the picture starts (contact acts: the object is on its way)
     elif enter == 'hop': out.append(f'tl.fromTo("#{t}_in",{{y:300,opacity:0}},{{y:0,opacity:1,duration:.45,ease:"back.out(1.6)",immediateRender:false}},{a0:.3f});')
+    elif enter in TR_ENTER.values():
+        out += enter_js(t, enter, a0, d['flip'])
+        if t1 - a0 > 1.4: out.append(f'tl.to("#{t}_in",{{opacity:0,duration:.3,ease:"power1.in"}},{t1 - .32:.3f});')
     else:
         out.append(f'tl.fromTo("#{t}_in",{{y:{oy},opacity:0,scale:.85,svgOrigin:"0 0"}},{{y:0,opacity:1,scale:1,duration:.5,ease:"power2.out",immediateRender:false}},{a0:.3f});')
         if t1 - a0 > 1.4: out.append(f'tl.to("#{t}_in",{{opacity:0,duration:.3,ease:"power1.in"}},{t1 - .32:.3f});')
@@ -733,6 +804,12 @@ def js(tag, d, t0, t1, words, targets=None, wt=None, objt=None, k=0):
         elif at == 'sleepy':  # slow time: heavy slow sway, drooping
             while tm < T - .2:
                 out.append(f'tl.to({ac},{{rotation:5,y:3,duration:2.2,ease:"sine.inOut",{org2}}},{tm:.3f});tl.to({ac},{{rotation:-4,y:0,duration:2.2,ease:"sine.inOut",{org2}}},{tm + 2.2:.3f});'); tm += 4.4
+    # ---- camera coupling (2026-11-05, miya, guideline 7-2 L): exit pose by the NEXT cut, a glance toward the focus zoom, a reaction to the background effect ----
+    if bgfrog and not d.get('ride') and at not in frog_rig.CONTACT and not isinstance(act, dict):
+        ln_, info2 = cam_js(t, d, cam, a0, t1, at, pts, mood_t, lambda m, tm: face_js(t, MOODS.get(m, MOODS['happy']), tm))
+        out += ln_
+        for kk in ('nohead', 'noeyes'): info[kk] = info[kk] or info2.get(kk, False)
+        mood_t += info2.get('avoid', [])
     # ---- speech bubble / sound word (2026-10-26): says = [{text, word?, dur?, shout?}]; pops in at the word, shakes when shouted, fades after dur ----
     for k, sy in enumerate(d.get('says') or []):
         tm = find_word(sy.get('word'), wt, a0, t1) if sy.get('word') else None

@@ -619,6 +619,8 @@ _ax = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspa
 print('axisfix:', (_ax.stdout.strip().splitlines() or [_ax.stderr.strip()[-200:]])[-1], '| problems:', [l for l in _ax.stdout.splitlines() if 'PROBLEM' in l][:6] if 'PROBLEM' in _ax.stdout else 'none')
 _gf = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'galaxyfix.py'), SLUG], capture_output=True, text=True)   # (2026-10-30 miya) tilted galaxies spin in their own plane about the centre axis (galaxyfix.py -> mv-disc-galaxy, motions 'disc')
 print('galaxyfix:', (_gf.stdout.strip().splitlines() or [_gf.stderr.strip()[-200:]])[-1])
+_cf = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'corefix.py'), SLUG], capture_output=True, text=True)   # 2026-11-05 (miya) event centre motions (heartbeat / swell / tremble / ping ...) only with a word or name, <= 15 % of the units; else the least-used calm kind
+print('corefix:', (_cf.stdout.strip().splitlines() or [_cf.stderr.strip()[-200:]])[-1])
 OPT, SVGO_STAT = svg_opt.optimize_dir(ART3, B, names=[f'{u["uid"]}.svg' for u in units if u['kind'] != 'chalk' and os.path.exists(f'{ART3}/{u["uid"]}.svg')])
 print('svgo', f"{SVGO_STAT['files']} files {SVGO_STAT['before'] // 1024} -> {SVGO_STAT['after'] // 1024} KB" if SVGO_STAT['files'] else 'skipped', SVGO_STAT.get('reason', ''))
 FACE = facing.compute(sorted({art_path(u)[0] for u in units if u['kind'] != 'chalk'}), W, H, cache=f'{B}/facing.json')
@@ -899,10 +901,20 @@ for k, u in enumerate(units):
             st = t1 - .8; js.append(f'tl.to("{T}",{{scaleX:0,transformOrigin:"0% 50%",duration:.8,ease:"power2.inOut"}},{st:.3f});')
         elif nxt['tr'] == 'whip':
             st = t1 - .45; js.append(f'tl.to("{T}",{{x:{-W},duration:.45,ease:"expo.out"}},{st:.3f});')
-    _fd = frog_of(u)
-    if _fd: js.extend(frog.js(f'u{nn}', _fd, t0, t1, unit_words(u), wt=unit_wordlist(u), objt=obj_timing(nn, u, t0, v0), k=k))   # 2026-10-29: object timings for the contact acts (frog_rig), unit index for the life layer phases
-    # --- tracking camera (2026-10-22): a long travelling motion (path object, dominoes) is followed; it replaces focus and drift ---
     trk = motions.track_spec(open(art_path(u)[0], encoding='utf-8').read(), side(u))
+    _fd = frog_of(u)
+    if _fd:
+        # 2026-11-05 (miya: the frog should move WITH the camera work, the transitions and the background effects, not copy the object): the camera
+        # context goes to frog.js — entrance by this cut's transition, exit pose by the next one, a glance toward the focus zoom, a reaction to the
+        # background effect (flash / rain / wind), whether a tracking camera follows the picture (guideline 7-2 L)
+        _fxl = []
+        for kd, _ in FXU.get(nn, []):
+            _mf = motions.FLASHW.search(u['text']) if kd == 'flash' else None
+            _fxl.append((kd, frog.find_word(_mf.group(0), unit_wordlist(u), t0, t1) if _mf else None))
+        cam = dict(tr=u['tr'], nxt=(nxt['tr'] if nxt and nxt['kind'] != 'chalk' else None), focus=None if trk else focus_cam.get(nn), fx=_fxl, track=bool(trk), v0=v0,
+                   wind=motions.dir_sign('windlines', DIRC.get(nn, {}).get('wind', 1), DIRC.get(nn, {}).get('travel', 0)))
+        js.extend(frog.js(f'u{nn}', _fd, t0, t1, unit_words(u), wt=unit_wordlist(u), objt=obj_timing(nn, u, t0, v0), k=k, cam=cam))   # 2026-10-29: object timings for the contact acts (frog_rig), unit index for the life layer phases
+    # --- tracking camera (2026-10-22): a long travelling motion (path object, dominoes) is followed; it replaces focus and drift ---
     if trk:
         _wd = side(u).get('world') or (W, H); js.append(motions.track_js(trk, Wq, t0, t1 - v0 + 0.2, W, H, _wd[0], _wd[1])); TRACKED.append(u['uid'])
     # --- focus camera (only when the picture has a focus target) ---
@@ -970,7 +982,7 @@ for k, u in enumerate(units):
             ct = nm[8:].split('-')[0] if nm.startswith('mv-core-') else motions.legacy_core_type(len(CORE_USED))
             _at = (JT.get(nm) or [{}])[0]; ct2 = motions.core_sanitize(ct, nm, keep=_at.get('data-keep') == '1')   # round 4: name-based sanity (tree sways from the base, no spinning clocks, no bouncing whales)
             if ct2 != ct: PIVFIX.append((u['uid'], nm, f'{ct}->{ct2}')); ct = ct2
-            js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]', pivot=motions.pivot_of(nm), pv=_at.get('data-pivot', '').replace(',', ' ').split())); CORE_USED.append(ct); CORE_UIDS.append(nn)
+            js.extend(motions.core_js(ct, g, t0, v0, sp, ring=f'gsap.utils.toArray("#w{nn} .mv-ring")[{kk}]', pivot=motions.pivot_of(nm), pv=_at.get('data-pivot', '').replace(',', ' ').split(), at=_at)); CORE_USED.append(ct); CORE_UIDS.append(nn)
             continue
         if nm.split('-')[1] in motions.OBJ_KINDS and nm.count('-') >= 2:   # (2026-10-22) object motions anywhere in the picture (guideline 4-1)
             at = (JT.get(nm) or [{}])[min(kk, len(JT.get(nm) or [{}]) - 1)]
