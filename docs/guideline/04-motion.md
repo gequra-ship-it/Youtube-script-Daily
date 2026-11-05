@@ -244,3 +244,8 @@ GSAP 3.15(2025년부터 플러그인 전부 무료) 14개 플러그인 + anime.j
 2. **붙은 부품은 같은 그룹 안에**: 흔들리는 가로등 기둥·팻말·깃대 끝에 달린 램프·등·표지는 그 `mv-sway-*`/`mv-swing-*` 그룹의 자식으로 넣는다(따로 두면 기둥만 흔들림, U010).
 3. **나타나는 모션은 시작 전에 없어야 한다**: `converge`는 시작 전 흩어진 자리·투명 상태로 숨겨 두었다가 모션과 함께 모인다(`miyaScatter`가 time 0에 상태를 둠). 완성 배치가 먼저 보이다 흩어져 재배치되면 안 됨.
 4. **이름표·말풍선이 가리키는 곳이 움직이는 물체가 지나갈 자리면**: `to` 점이 그림 속 시작 상자에 없어도, 이름표 글자와 이어지는 이름(`racing-star` ↔ "outer stars")의 이동 그룹을 따라가게 build3가 짝짓는다(로그 `labels follow moving objects`).
+
+### 4-15. 완성 배치를 먼저 보여주지 않는다 (2026-11-05, miya: 2분 20초 converge 같은 것 전부 점검)
+1. 시작 전에 숨겨야 하는 모션(`converge`·`draw`·`drip`·`unfold`·`unroll`·`popin`·`hatch` 등)은 `tl.fromTo(..., immediateRender:false)`만 쓰면 시작 시각까지 그려진 완성 상태가 보인다. 반드시 **같은 속성을 숨긴 `tl.set(대상, {숨김}, v0)`를 먼저** 둔다. `converge`는 흩어진 자리·투명, `draw`는 `drawSVG:"0%"`+`fillOpacity:0`, `drip`은 `opacity:0`.
+2. `tools/entrycheck.py <slug>`가 빌드된 `render/<slug>/index.html`에서 `.mv-` 그룹의 숨김 시작 `fromTo`에 앞선 `tl.set`이 없으면 막는다(`final_check.py`가 호출). 새 모션 종류를 만들 때도 같은 규칙.
+3. 옛 영상은 `build3.py`를 다시 돌려야 고쳐진다.
