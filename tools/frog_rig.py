@@ -588,10 +588,10 @@ COSTUME_ACTS.update(CONCEPT_ACTS)
 # 2026-11-05 (miya: "개구리가 오브젝트 모션을 아무 의미 없이 따라한다"): RESPONSE acts — the frog stands BESIDE a pulsing / swelling / trembling / wobbling centre object
 # and reacts to it instead of riding it (frog_place.pulse_response, guideline 7-2 L). Periods match motions.core_js (heartbeat 1.6 s calm, swell 2.2 s, wobble 2.0 s).
 RESPONSE_ACTS = {
- 'heartlisten': dict(ra=-135, la=15, head=(6, 1.6), body=({'rotation': 4, 'x': 2}, {'rotation': 7, 'x': 4}, 1.6), mood='curious', mouth=3),                               # hand to its ear, leans in: "thump... thump"
- 'backstep':    dict(ra=-50, la=-30, legs=('brace', -14, 12), body=({'x': 0, 'rotation': 0}, {'x': -12, 'rotation': -8}, 2.2), head=(-4, 2.2), mood='surprised', mouth=6),  # steps back as it swells, forward as it shrinks
+ 'heartlisten': dict(ra=-158, la=15, head=(8, 1.6), body=({'rotation': 4, 'x': 2}, {'rotation': 7, 'x': 4}, 1.6), mood='curious', mouth=3),                               # hand to its ear (-158 = beside the head; -135 read as "arm toward the object", miya 2026-11-05 demo), leans in: "thump... thump"
+ 'backstep':    dict(ra=25, la=-25, legs=('brace', -14, 12), body=({'x': 0, 'rotation': 0}, {'x': -12, 'rotation': -8}, 2.2), head=(-4, 2.2), mood='surprised', mouth=6),    # arms back, steps back as it swells, forward as it shrinks (arms forward looked like steadyit)
  'bracehold':   dict(ra=-70, la=70, legs=('brace', -24, 20), body=({'rotation': -1.5, 'y': 0}, {'rotation': 1.5, 'y': 1}, .12), mood='worried', mouth=4),                   # arms out, knees bent, shaken with it
- 'steadyit':    dict(ra=(-85, -95, 1.0), la=(-60, -75, 1.0), legs=('brace', -12, 10), body=({'rotation': 6, 'x': 3}, {'rotation': 10, 'x': 5}, 2.0), head=(5, 2.0), mood='worried', mouth=5),   # both hands toward the wobbling thing
+ 'steadyit':    dict(ra=(-75, -85, 1.0), la=(-125, -135, 1.0), legs=('brace', -12, 10), body=({'rotation': 6, 'x': 3}, {'rotation': 10, 'x': 5}, 2.0), head=(5, 2.0), mood='worried', mouth=5),   # both hands toward the wobbling thing (far arm crosses the chest at -125..-135; -60..-75 hid behind the body)
  # ---- 8 more generic acts for the concept pools / camera rules ----
  'lookup':      dict(head=(-10, 2.6), ra=20, la=-20, body=({'rotation': -3}, {'rotation': -5}, 2.6), mood='curious', mouth=5),                                             # looks up (rain / snow / something above)
  'holdhat':     dict(ra=-150, la=20, legs=('brace', -10, 8), body=({'rotation': -6, 'x': -3}, {'rotation': -10, 'x': -5}, .5), mood='squint', mouth=3),                      # holds its hat on in a gust / a push
