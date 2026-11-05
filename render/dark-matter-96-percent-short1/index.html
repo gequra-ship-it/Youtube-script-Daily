@@ -329,6 +329,7 @@ function miyaScatter(tl,g,dist,st,du,conv){var t=g.closest('.t'),pd=t?t.style.di
  var bb=g.getBBox(),cx=bb.x+bb.width/2,cy=bb.y+bb.height/2;
  kids.forEach(function(e,i){var b=e.getBBox(),ex=b.x+b.width/2-cx,ey=b.y+b.height/2-cy,L=Math.sqrt(ex*ex+ey*ey);if(L<1){var a=i*2.39996;ex=Math.cos(a);ey=Math.sin(a);L=1;}
   var dx=dist*ex/L,dy=dist*ey/L;
+  if(conv)tl.set(e,{x:dx,y:dy,opacity:0},0);   // 2026-11-05 (miya 2:20): before the gathering starts the pieces must NOT stand in their final places (they jumped out and flew back): hidden until the motion brings them
   if(conv)tl.fromTo(e,{x:dx,y:dy,opacity:0},{x:0,y:0,opacity:1,duration:du,ease:'power2.out',immediateRender:false},st+i*.05);
   else tl.fromTo(e,{x:0,y:0},{x:dx,y:dy,opacity:.4,duration:du,ease:'power2.out',immediateRender:false},st+i*.05);});
  if(t){t.style.display=pd;t.style.visibility=pv;}
@@ -886,6 +887,7 @@ tl.fromTo(gsap.utils.toArray("#w11 .mv-glint-s1")[0],{opacity:1},{opacity:.35,du
 tl.fromTo(gsap.utils.toArray("#w11 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},51.414);
 tl.fromTo(gsap.utils.toArray("#w11 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},51.414);
 miyaSpiral(tl,gsap.utils.toArray("#w11 .mv-spiral-star-infall")[0],540,650,2.00,52.514,3.00,0.15);
+tl.fromTo(gsap.utils.toArray("#w11 .mv-drift-dust-cloud")[0],{y:0,x:0},{y:-14,x:6,duration:6.000,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},51.414);
 tl.set("#t12",{display:"block"},58.092);tl.set("#t12",{display:"none"},63.317);
 tl.set("#t12",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},58.092);
 tl.set("#w12",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},58.092);
@@ -1507,7 +1509,6 @@ tl.fromTo("#fx11p8",{y:-145,x:61,transformOrigin:"50% 50%"},{y:-154,x:65,duratio
 tl.fromTo("#fx11p9",{y:-86,x:-36,transformOrigin:"50% 50%"},{y:-154,x:-65,duration:2.76,ease:"none",immediateRender:false},51.414);
 tl.fromTo("#fx11p10",{y:-28,x:12,transformOrigin:"50% 50%"},{y:-154,x:65,duration:5.74,ease:"none",immediateRender:false},51.414);
 tl.fromTo("#fx11p11",{y:-123,x:-52,transformOrigin:"50% 50%"},{y:-154,x:-65,duration:1.56,ease:"none",immediateRender:false},51.414);
-tl.fromTo(gsap.utils.toArray("#w11 .mv-drift-dust-cloud")[0],{scaleY:1,scaleX:1,transformOrigin:"50% 100%"},{scaleY:1.14,scaleX:.92,duration:0.500,ease:"sine.inOut",yoyo:true,repeat:15,immediateRender:false},51.414);
 tl.fromTo(gsap.utils.toArray("#w13 .mv-converge-things")[0],{scale:1,transformOrigin:"50% 60%"},{scale:1.03,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},64.867);
 tl.fromTo(gsap.utils.toArray("#w13 .mv-sway-tree")[0],{rotation:-5.0,svgOrigin:miyaPv(gsap.utils.toArray("#w13 .mv-sway-tree")[0],545,1004),smoothOrigin:false},{rotation:5.0,duration:2.200,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},63.317);
 tl.fromTo(gsap.utils.toArray("#w13 .mv-rollby-moon-ball")[0],{x:0,rotation:0,transformOrigin:"50% 50%"},{x:360,rotation:300,duration:3.0,ease:"power1.inOut",immediateRender:false},63.617);

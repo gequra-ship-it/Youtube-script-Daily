@@ -807,7 +807,7 @@ MV = {'flame': ('pulse', .30), 'lamp': ('glow', 1.2), 'lantern': ('glow', 1.3), 
       'antenna': ('sway', .35), 'blink': ('blink', 3.1), 'breathe': ('breathe', 2.2), 'nod': ('nod', 1.8), 'lean': ('lean', 3.0), 'arm': ('arm', 1.4),
       'walk': ('walk', 3.5), 'hand': ('hand', 1.0), 'rain': ('drift', .9), 'bell': ('swing', .8), 'knot': ('swing', 1.2), 'key': ('drift', .8),
       # cosmic mode (guideline 3-7)
-      'drift-nebula': ('nebula', 10.0), 'orbit': ('orbit', 24.0), 'pulse': ('glow', 1.6)}
+      'drift-nebula': ('nebula', 10.0), 'orbit': ('orbit', 24.0), 'pulse': ('glow', 1.6), 'drift': ('drift', 6.0)}   # 2026-11-05: 'drift' (agents' slow drifting haze/web) = calm 6 s drift; an unknown name used to fall to a 0.5 s scaleY 1.14 throb (dark-matter U040+: miya 4:03) -> now a calm glow, `NEBULA` ids with a -uNNN suffix keep the nebula motion
 import pivots   # shoulder/wrist pivots for arm and hand groups (arms used to swing off the body)
 PIV = pivots.compute(sorted({art_path(u)[0] for u in units if u['kind'] != 'chalk'}), W, H, cache=f'{B}/pivots.json')
 UST0 = {u['n']: u['t0'] for u in units}   # picture start: where moving objects still stand as drawn (label follow measures its offset from there)
@@ -964,7 +964,8 @@ for k, u in enumerate(units):
         if scalefix.is_scale(nm): _scn.append((nm, _k2))
     SCP = scalefix.plan(svg, W, H, _scn) if _scn else {}
     for nm in re.findall(r'class="[^"]*\bmv (mv-[A-Za-z0-9-]+)', svg):
-        kind, per = MV.get(nm[3:], MV.get(nm[3:].split('-')[0], ('pulse', .5))); kk = cnt.get(nm, 0); cnt[nm] = kk + 1
+        kind, per = MV.get(nm[3:], MV.get(nm[3:].split('-')[0], ('glow', 1.6))); kk = cnt.get(nm, 0); cnt[nm] = kk + 1
+        if nm.startswith('mv-drift-nebula'): kind, per = 'nebula', 10.0
         if re.match(r'mv-glint-s\d', nm): kind, per = 'twinkle', {'1': 1.6, '2': 2.1, '3': 2.7}.get(nm[10:11], 2.0)   # cosmic star tiers (3-7)
         g = f'gsap.utils.toArray("#w{nn} .{nm}")[{kk}]'
         _sp = SCP.get((nm, kk))
@@ -1102,6 +1103,12 @@ for (nn, ty, lid, gid, tt) in label_t:
         if b_[0] - 12 <= px_ <= b_[1] + 12 and b_[2] - 12 <= py_ <= b_[3] + 12:
             area = (b_[1] - b_[0]) * (b_[3] - b_[2])
             if best is None or area < best[0]: best = (area, g_)
+    if not best:   # 2026-11-05 (dark-matter U032, miya 3:14): the label points where the object WILL be (mid-path), not where it is drawn: take the moving group whose name shares a word stem with the label text
+        _words = {w_.rstrip('s') for w_ in re.findall(r'[a-z]+', str(_l.get('text', '')).lower()) if len(w_) > 3}
+        for g_, b_ in _boxes.items():
+            parts = g_.split('-')
+            if parts[0] != 'mv' or len(parts) < 3 or not (parts[1] in MOVING or (parts[1] == 'core' and parts[2] in MOVING_CORE)): continue
+            if _words & {w_.rstrip('s') for w_ in parts[2:]}: best = (0, g_); break
     if best:
         js.append(f'miyaFollow(tl,"#w{nn} .{best[1]}",{json.dumps(["#" + lid] + (["#" + gid] if gid else []))},{px_:.0f},{py_:.0f},{tt:.3f},{UEND[nn]:.3f},{(tt if best[1].split('-')[1] in ('rise', 'slide') else UST0[nn]):.3f});'); FOLLOWED.append((UID_OF.get(nn, nn), lid, best[1]))
 print('labels follow moving objects:', len(FOLLOWED), FOLLOWED[:10])

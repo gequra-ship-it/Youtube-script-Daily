@@ -255,3 +255,5 @@ Balance scale / tilted galaxy (2026-10-30): scale = `mv-tilt-balance-scale` (dat
 - Tentacles, arms, legs, feelers, whiskers: ONE `mv-joint-<singular-name>-<n>` group per strand (never one group for the bundle), each with its own `data-pivot` at the end that touches the body, `data-phase` staggered. Hinged parts (jaw, arm, tail, wing) pivot at the BODY end, never the free end.
 - `mv-wiggle`: `data-amp` is a scale fraction (default .06), `data-per` the seconds per swing (default .35 is very fast; use about 1 for jellyfish and tentacles).
 - Before reporting: `axisfix` -> `splitlimbs` -> `partaxis` -> `attachcheck`, then look at the `motionaudit` strip of every picture with creatures.
+
+- **(2026-11-05, miya, 지침서 4-14)** 달린 부품(램프·팻말)은 흔들리는 기둥 그룹의 자식으로. `converge`는 시작 전 안 보여야 함(코드가 숨김). 안 알려진 `mv-` 이름은 이제 느린 glow(예전 빠른 박동 아님), 빠른 박동은 `flame`/`spark`·문장 단어일 때만(전체의 10 % 이하). 이름표 `to`는 움직이는 물체의 시작 위치나 같은 낱말 이름의 그룹 위로.

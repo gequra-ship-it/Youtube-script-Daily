@@ -51,6 +51,10 @@ def judge(slug, s):
         warn = s['props'] < u / 6   # a WARNING, not a failure: old videos drew no props; new art must meet it (art_spec 12 quota), the main session reads this line before the render
         cap = max(3, int(.15 * u)); over = [(k, c) for k, c in s['cores'].items() if k in PULSE and c > cap]   # 2026-11-05 (miya: "두근거림이 너무 자주"): event centre motions by word / name only, each <= 15 %
         if s['cores']: line('centre motion share', not over, ' '.join(f'{k}:{c}' for k, c in s['cores'].most_common(10)) + (f'  (over {cap}: ' + ' '.join(f'{k}:{c}' for k, c in over) + ' -> run tools/corefix.py)' if over else ''))
+        _ix = f'{REPO}/render/{slug}/index.html'   # 2026-11-05 (miya 4:03): fast throbbing (scaleY 1.14 every 0.5 s) must stay rare: <= 10 % of the units, never a whole stretch
+        if os.path.exists(_ix):
+            _t = open(_ix, encoding='utf-8').read(); _n = len(re.findall(r'scaleY:1\.14,scaleX:\.92', _t)); _cap = max(2, int(.10 * u))
+            line('fast throb tweens', _n <= _cap, f'{_n} (cap {_cap}: only flame/spark names or a sentence word; an unknown mv- name now glows calmly)')
         line('frog rides a pulsing centre object', not s['pulse_rides'], 'none' if not s['pulse_rides'] else ' '.join(s['pulse_rides']) + ' (rerun frog_place.py: the frog must stand beside and respond, 7-2 L)')
         L.append(f"  {'WARN' if warn else 'ok '} units with a moving small prop: {s['props']}/{u} (want >= {u // 6}; contact gags need them, art_spec 12)")
     print(f"{slug}: {s['units']} units, {f} frogs" + ('' if ok else '  <- VARIETY LOW'))

@@ -1259,6 +1259,7 @@ function miyaScatter(tl,g,dist,st,du,conv){var t=g.closest('.t'),pd=t?t.style.di
  var bb=g.getBBox(),cx=bb.x+bb.width/2,cy=bb.y+bb.height/2;
  kids.forEach(function(e,i){var b=e.getBBox(),ex=b.x+b.width/2-cx,ey=b.y+b.height/2-cy,L=Math.sqrt(ex*ex+ey*ey);if(L<1){var a=i*2.39996;ex=Math.cos(a);ey=Math.sin(a);L=1;}
   var dx=dist*ex/L,dy=dist*ey/L;
+  if(conv)tl.set(e,{x:dx,y:dy,opacity:0},0);   // 2026-11-05 (miya 2:20): before the gathering starts the pieces must NOT stand in their final places (they jumped out and flew back): hidden until the motion brings them
   if(conv)tl.fromTo(e,{x:dx,y:dy,opacity:0},{x:0,y:0,opacity:1,duration:du,ease:'power2.out',immediateRender:false},st+i*.05);
   else tl.fromTo(e,{x:0,y:0},{x:dx,y:dy,opacity:.4,duration:du,ease:'power2.out',immediateRender:false},st+i*.05);});
  if(t){t.style.display=pd;t.style.visibility=pv;}
