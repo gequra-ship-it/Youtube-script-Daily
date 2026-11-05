@@ -1,0 +1,38 @@
+{
+ "centre": "diamond glowing in a hidden vault niche behind a sliding cover",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "secret",
+   "vol": 0.55
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 550,
+  "y": 1300,
+  "s": 1.2,
+  "flip": 1,
+  "bside": 1,
+  "behind": "mv-slide-cover",
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "centre": "a Neptune globe ringed by five small compasses whose needles all point in different directions",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "globe",
+   "x": 1250,
+   "y": 560,
+   "to": [
+    1120,
+    520
+   ],
+   "word": "globe"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "wavebig"
+  },
+  "ride": "mv-core-approach-planet",
+  "kind": "ride",
+  "x": 1274,
+  "y": 776,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Hi!",
+    "shout": true
+   }
+  ]
+ }
+}

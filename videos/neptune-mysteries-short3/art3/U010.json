@@ -1,0 +1,48 @@
+{
+ "centre": "pale cyan Uranus with a nearly dim core, beside a thermometer whose amber level barely rises",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Uranus",
+   "x": 300,
+   "y": 700,
+   "to": [
+    460,
+    820
+   ],
+   "word": "Uranus"
+  }
+ ],
+ "motion": "thermometer rises a tiny bit and stops, Uranus drifts closer",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-core-approach-uranus",
+  "kind": "ride",
+  "x": 318,
+  "y": 1038,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ]
+ }
+}

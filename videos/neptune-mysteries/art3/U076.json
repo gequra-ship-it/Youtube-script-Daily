@@ -1,0 +1,62 @@
+{
+ "centre": "a dull grey metallic core crossed out with a coral X inside a ghosted Neptune slice whose thin outer shell glows teal",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "metallic core",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "at all",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "metallic core",
+   "x": 1420,
+   "y": 330,
+   "to": [
+    1040,
+    470
+   ],
+   "word": "metallic core"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-cross-mark",
+   "h": 180
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 960,
+  "y": 590,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab",
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

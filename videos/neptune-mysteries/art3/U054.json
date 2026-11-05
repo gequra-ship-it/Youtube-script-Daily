@@ -1,0 +1,47 @@
+{
+ "centre": "Uranus sealed inside a clear ice box, with a thermometer reading almost cold",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Uranus",
+   "x": 1230,
+   "y": 790,
+   "to": [
+    1050,
+    570
+   ],
+   "word": "Uranus"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": "mv-core-approach-ice-box",
+  "kind": "ride",
+  "x": 1248,
+  "y": 730,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "So dizzy...",
+    "shout": false
+   }
+  ]
+ }
+}

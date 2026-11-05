@@ -1,0 +1,47 @@
+{
+ "centre": "large frosty Triton with a dark geyser plume rising at the top",
+ "focus": null,
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "frozen",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Triton",
+   "x": 1480,
+   "y": 780,
+   "to": [
+    1180,
+    640
+   ],
+   "word": "Triton"
+  }
+ ],
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-core-approach-moon",
+  "kind": "ride",
+  "x": 1200,
+  "y": 252,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "scarf",
+   "glasses"
+  ],
+  "says": []
+ }
+}

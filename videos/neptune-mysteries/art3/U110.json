@@ -1,0 +1,61 @@
+{
+ "centre": "two meshed gears with Jupiter on a small one turning twice for every turn of Saturn's big one",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Jupiter",
+   "x": 720,
+   "y": 330,
+   "to": [
+    900,
+    450
+   ],
+   "word": "Jupiter"
+  },
+  {
+   "type": "name",
+   "text": "Saturn",
+   "x": 1450,
+   "y": 330,
+   "to": [
+    1280,
+    460
+   ],
+   "word": "Saturn"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "slide",
+   "to": [
+    960,
+    519
+   ]
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "x": 384,
+  "y": 303,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

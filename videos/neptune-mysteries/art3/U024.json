@@ -1,0 +1,50 @@
+{
+ "centre": "a methane molecule absorbing a red light wave while a blue wave bounces away",
+ "focus": [
+  960,
+  500,
+  1.9
+ ],
+ "focus_word": "Methane",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Methane",
+   "x": 960,
+   "y": 630,
+   "to": [
+    960,
+    570
+   ],
+   "word": "Methane"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-core-glide-u024-methane-molecule",
+  "kind": "ride",
+  "x": 1126,
+  "y": 622,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
+}

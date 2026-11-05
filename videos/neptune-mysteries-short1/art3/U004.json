@@ -1,0 +1,44 @@
+{
+ "centre": "Uranus tugged toward the upper right by a ghostly translucent hand",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Whoa, who pulls?",
+   "x": 330,
+   "y": 640,
+   "to": [
+    470,
+    800
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 587,
+  "y": 842,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-hand-ghost",
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

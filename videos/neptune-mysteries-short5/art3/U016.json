@@ -1,0 +1,56 @@
+{
+ "centre": "Triton, small cream-pink moon on a dashed orbit swinging backward around huge Neptune",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Neptune",
+   "x": 230,
+   "y": 1060,
+   "to": [
+    300,
+    1200
+   ],
+   "word": "Neptune"
+  },
+  {
+   "type": "name",
+   "text": "Triton",
+   "x": 760,
+   "y": 760,
+   "to": [
+    610,
+    840
+   ],
+   "word": "Triton"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hopalong",
+   "obj": "mv-hop-pebble"
+  },
+  "x": 210,
+  "y": 636,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ]
+ }
+}

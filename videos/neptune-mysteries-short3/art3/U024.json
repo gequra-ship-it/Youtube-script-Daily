@@ -1,0 +1,43 @@
+{
+ "centre": "dark heavy chunk sinking down through blue layers toward a glowing amber core",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "sinking",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-dust",
+   "serious": false
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 540,
+  "y": 982,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
+}

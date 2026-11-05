@@ -1,0 +1,56 @@
+{
+ "centre": "brass magnifying glass showing Triton, next to an empty dashed birthplace beside Neptune",
+ "focus": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "never born",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Triton",
+   "x": 1360,
+   "y": 520,
+   "to": [
+    1040,
+    500
+   ],
+   "word": "Triton"
+  }
+ ],
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   },
+   {
+    "word": "It suggests",
+    "mood": "worried"
+   }
+  ],
+  "act": {
+   "type": "magnetwalk",
+   "dist": 461
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.77,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Magnet boots!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

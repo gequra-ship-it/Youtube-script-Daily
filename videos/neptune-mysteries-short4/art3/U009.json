@@ -1,0 +1,69 @@
+{
+ "centre": "churning swirl of water, ammonia and methane molecules spiralling around a bright core",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "water",
+   "x": 150,
+   "y": 370,
+   "to": [
+    200,
+    460
+   ],
+   "word": "water"
+  },
+  {
+   "type": "name",
+   "text": "ammonia",
+   "x": 540,
+   "y": 370,
+   "to": [
+    540,
+    465
+   ],
+   "word": "ammonia"
+  },
+  {
+   "type": "name",
+   "text": "methane",
+   "x": 880,
+   "y": 370,
+   "to": [
+    870,
+    465
+   ],
+   "word": "methane"
+  }
+ ],
+ "motion": "slush swirl spins, bubbles rise",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "outfit": [
+   "goggles",
+   "scarf"
+  ],
+  "ride": "mv-core-glide-slush",
+  "kind": "ride",
+  "x": 630,
+  "y": 748,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "centre": "bright carbon atom ringed by six carbon atoms bonding into a hexagon while hydrogens drift away",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "hydrogen",
+   "x": 300,
+   "y": 380,
+   "to": [
+    160,
+    520
+   ],
+   "word": "hydrogen"
+  }
+ ],
+ "motion": "carbons converge and bond, hydrogens drift off",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-carbon",
+  "kind": "ride",
+  "x": 734,
+  "y": 1010,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

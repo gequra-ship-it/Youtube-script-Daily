@@ -1,0 +1,55 @@
+{
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Uranus",
+   "x": 780,
+   "y": 640,
+   "to": [
+    640,
+    760
+   ],
+   "word": "Uranus"
+  },
+  {
+   "type": "say",
+   "text": "Sluuuggish",
+   "x": 300,
+   "y": 1090,
+   "to": [
+    390,
+    1170
+   ]
+  }
+ ],
+ "centre": "pale cyan Uranus smothered by milky haze bands; a slow snail creeps on a cloud ledge below",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-core-glide-uranus-globe",
+  "kind": "ride",
+  "x": 641,
+  "y": 673,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
+}

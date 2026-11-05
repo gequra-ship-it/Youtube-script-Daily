@@ -1,0 +1,40 @@
+{
+ "centre": "round white pressure gauge with needle in the red-gold zone under stacked atmosphere layers",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [],
+ "motion": "needle climbs, balloon squashes under the layers",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    960
+   ]
+  },
+  "outfit": [
+   "goggles",
+   "raincoat"
+  ],
+  "ride": "mv-core-glide-gauge",
+  "kind": "ride",
+  "x": 702,
+  "y": 978,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ]
+ }
+}

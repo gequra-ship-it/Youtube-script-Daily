@@ -1,0 +1,46 @@
+{
+ "centre": "diamond pressed between two heavy slabs",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "pressures",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "pressures",
+   "vol": 0.6
+  }
+ ],
+ "iris": [
+  540,
+  860
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-slide-slab-top",
+  "kind": "ride",
+  "x": 318,
+  "y": 525,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

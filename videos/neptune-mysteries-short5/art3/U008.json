@@ -1,0 +1,52 @@
+{
+ "centre": "magnifying glass held over Triton with a ghost trail of the past rising",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "tell us",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Triton",
+   "x": 830,
+   "y": 760,
+   "to": [
+    640,
+    850
+   ],
+   "word": "Triton"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "magnetwalk",
+   "dist": 302
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 820,
+  "y": 1240,
+  "s": 0.99,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Magnet boots!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

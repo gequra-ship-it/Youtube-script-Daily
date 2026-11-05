@@ -1,0 +1,52 @@
+{
+ "centre": "a ripe cantaloupe melon floating above a dimpled pink-cream Triton surface",
+ "focus": [
+  960,
+  470,
+  1.8
+ ],
+ "focus_word": "cantaloupe",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "cantaloupe",
+   "x": 1330,
+   "y": 330,
+   "to": [
+    1070,
+    430
+   ],
+   "word": "cantaloupe"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hopalong",
+   "obj": "mv-hop-melon-seed"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1552,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ]
+ }
+}

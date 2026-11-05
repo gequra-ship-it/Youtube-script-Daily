@@ -1,0 +1,56 @@
+{
+ "centre": "small Triton wandering along a dotted trail through the pebble-strewn Kuiper Belt past Pluto",
+ "focus": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pluto",
+   "x": 330,
+   "y": 500,
+   "to": [
+    330,
+    410
+   ],
+   "word": "Pluto"
+  },
+  {
+   "type": "name",
+   "text": "Kuiper Belt",
+   "x": 1200,
+   "y": 800,
+   "to": [
+    1100,
+    690
+   ],
+   "word": "Kuiper Belt"
+  }
+ ],
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-wander-triton",
+  "kind": "ride",
+  "x": 717,
+  "y": 779,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "backpack",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

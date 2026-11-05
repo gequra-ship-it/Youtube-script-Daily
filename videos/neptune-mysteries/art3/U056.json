@@ -1,0 +1,39 @@
+{
+ "centre": "a small gold probe capsule diving down through pale methane cloud wisps into deep blue",
+ "focus": null,
+ "focus_word": "diving straight down",
+ "sfx": [
+  {
+   "name": "warp",
+   "word": "diving straight down",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "think",
+  "outfit": [
+   "goggles",
+   "flippers"
+  ],
+  "ride": "mv-path-sink-probe-capsule",
+  "kind": "ride",
+  "x": 872,
+  "y": 385,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Let me think.",
+    "shout": false
+   }
+  ]
+ }
+}

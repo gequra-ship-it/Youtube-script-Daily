@@ -1,0 +1,47 @@
+{
+ "centre": "Jupiter, Saturn, Uranus and Neptune huddled in a tight cluster near a big warm Sun",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Neptune",
+   "x": 640,
+   "y": 190,
+   "to": [
+    640,
+    255
+   ],
+   "word": "Neptune"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-core-glide-jupiter-planet",
+  "kind": "ride",
+  "x": 1187,
+  "y": 689,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "So dizzy...",
+    "shout": false
+   }
+  ]
+ }
+}
