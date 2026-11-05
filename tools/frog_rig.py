@@ -561,8 +561,8 @@ CONCEPT_ACTS = {
  'sunshade':    dict(ra=-162, la=20, body=({'rotation': -8, 'y': 0}, {'rotation': -10, 'y': 1}, 1.8), head=(-6, 1.8), mood='squint', pup=-70),                         # shades its eyes from a glare
  'measure':     dict(ra=(-80, -100, 1.2), la=(80, 100, 1.2), body=({'scaleX': 1.0}, {'scaleX': 1.04}, 1.2), head=(5, 2.4), mood='curious'),                            # arms spread "this big"
  'shrinkdown':  dict(body=({'scaleX': 1, 'scaleY': 1}, {'scaleX': .62, 'scaleY': .62}, 1.8), ra=-30, la=30, mood='surprised', mouth=7),                                # shrinks next to something huge
- 'growtall':    dict(body=({'scaleX': 1, 'scaleY': 1}, {'scaleX': 1.18, 'scaleY': 1.22}, 1.8), ra=-150, la=150, mood='proud', mouth=6),                                # puffs itself up
- 'stretchwide': dict(body=({'scaleX': 1}, {'scaleX': 1.3}, 1.6), ra=-95, la=95, legs=('brace', -10, 10), mood='surprised', mouth=8),                                    # stretched sideways (expansion)
+ 'growtall':    dict(body=({'scaleX': 1, 'scaleY': 1}, {'scaleX': 1.18, 'scaleY': 1.22}, 1.8), ra=-160, la=160, mood='proud', mouth=6),                                # puffs itself up
+ 'stretchwide': dict(body=({'scaleX': 1}, {'scaleX': 1.3}, 1.6), ra=-88, la=88, legs=('brace', -10, 10), mood='surprised', mouth=8),                                    # stretched sideways (expansion)
  'speedrun':    dict(legs=('cycle', 36, .22), travel=.95, ra=(-30, -80, .22), la=(30, 80, .22), hop=(8, .22), body=({'rotation': 18}, {'rotation': 22}, .22), mood='determined', mouth=6),   # flat-out sprint
  'slowwalk':    dict(legs=('cycle', 18, 2.4), travel=.25, ra=(-15, -35, 2.4), la=(15, 35, 2.4), hop=(3, 2.4), body=({'rotation': 2}, {'rotation': 5}, 2.4), mood='sleepy'),   # slow-motion plod
  'peer':        dict(body=({'rotation': 8, 'x': 2}, {'rotation': 14, 'x': 6}, 2.0), head=(8, 2.0), ra=-40, la=20, mood='squint', pup=-62),                             # leans in to look closer
@@ -923,3 +923,31 @@ def shadow_follow_pass(lines, t):
             else: extra.append(f'tl.to({sh},{{x:{x1.group(1)},{keep + "," if keep else ""}immediateRender:false}},{tm});')
         out.append(ln + ''.join(extra))
     return out
+
+
+def lookalikes(tol=15):
+    """2026-11-05 (miya: "같은 동작 반복된다", guideline 7-2 L-2-1): pairs of acts in one pool whose arm angles sit within `tol` degrees of each other and whose legs
+    and head tilt are the same — on screen they read as the same motion. Advisory: `python3 tools/frog_rig.py --check` prints them."""
+    def ang(v):
+        if isinstance(v, (tuple, list)): return (float(v[0]) + float(v[1])) / 2
+        return float(v) if v is not None else 0.0
+    out = []
+    for pname, pool in (('RESPONSE_ACTS', RESPONSE_ACTS), ('CAMERA_ACTS', CAMERA_ACTS), ('CONCEPT_ACTS', CONCEPT_ACTS)):
+        ks = list(pool)
+        for i, a in enumerate(ks):
+            for b in ks[i + 1:]:
+                A, B = pool[a], pool[b]
+                if abs(ang(A.get('ra')) - ang(B.get('ra'))) <= tol and abs(ang(A.get('la')) - ang(B.get('la'))) <= tol \
+                        and (A.get('legs') or ('', 0, 0))[0] == (B.get('legs') or ('', 0, 0))[0] and round(ang((A.get('head') or (0,))[0])) == round(ang((B.get('head') or (0,))[0])):
+                    out.append((pname, a, b))
+    return out
+
+
+if __name__ == '__main__':
+    import sys
+    if '--check' in sys.argv:
+        la = lookalikes()
+        for p, a, b in la: print(f'WARN {p}: {a} and {b} read as the same motion (arms within 15 deg, same legs and head)')
+        print(f'frog_rig lookalikes: {len(la)} pair(s)' + ('' if la else ' (OK)'))
+    else:
+        print('usage: python3 tools/frog_rig.py --check   (acts that look alike inside one pool)')
