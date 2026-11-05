@@ -386,7 +386,7 @@ def obj_js(kind, g, at, t0, v0, sp, name='', spring=None):
     if kind == 'draw':      # DrawSVGPlugin
         du = f('dur', 1.4)
         SH = f'{g}.querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect")'   # fills hide (fill-opacity, strokes stay) while DrawSVG draws the outlines, then come back
-        return [f'tl.set({SH},{{fillOpacity:0}},{v0:.3f});',
+        return [f'tl.set({SH},{{fillOpacity:0,drawSVG:"0%"}},{v0:.3f});',
                 f'tl.fromTo({SH},{{drawSVG:"0%"}},{{drawSVG:"100%",duration:{du},ease:"power1.inOut",stagger:.08,immediateRender:false}},{st:.3f});',
                 f'tl.to({SH},{{fillOpacity:(i,e)=>parseFloat(e.getAttribute("fill-opacity")||1),duration:.6,ease:"power1.out",stagger:.03,immediateRender:false}},{st + du * .6:.3f});']
     if kind == 'morph':     # MorphSVGPlugin
@@ -525,7 +525,8 @@ def obj_js(kind, g, at, t0, v0, sp, name='', spring=None):
         return outl
     if kind == 'drip':     # a drop forms at the TOP of the group and falls data-fall px (140), fading; repeats every data-per 1.8 s (taps, stalactites, melting ice)
         fall, per = f('fall', 140), f('per', 1.8); rep = max(int(math.ceil(sp / per)) - 1, 0)
-        return [f'tl.fromTo({g},{{y:0,opacity:0,scale:.3,{org("50% 0%")}}},{{keyframes:[{{opacity:1,scale:1,duration:.3}},{{y:{fall:.0f},duration:{per * .5:.2f},ease:"power2.in"}},{{opacity:0,duration:.1}}],repeat:{rep},immediateRender:false}},{v0 + .2:.3f});']
+        return [f'tl.set({g},{{y:0,opacity:0,scale:.3,{org("50% 0%")}}},{v0:.3f});',
+                f'tl.fromTo({g},{{y:0,opacity:0,scale:.3,{org("50% 0%")}}},{{keyframes:[{{opacity:1,scale:1,duration:.3}},{{y:{fall:.0f},duration:{per * .5:.2f},ease:"power2.in"}},{{opacity:0,duration:.1}}],repeat:{rep},immediateRender:false}},{v0 + .2:.3f});']
     if kind == 'unfold':   # unrolls DOWN from its top edge (maps, scrolls, banners dropping open): scaleY 0 -> 1 about the TOP, data-dur .8
         return [f'tl.set({g},{{scaleY:0,{org("50% 0%")}}},{v0:.3f});', f'tl.to({g},{{scaleY:1,duration:{f("dur", .8)},ease:"power2.out",immediateRender:false}},{st:.3f});']
     if kind == 'unroll':   # unrolls SIDEWAYS from its left edge (timelines, red carpets, tape measures): scaleX 0 -> 1 about the LEFT, data-dur .8

@@ -117,3 +117,5 @@
 
 ## 2026-11-05 (dark-matter-96-percent 검수)
 - `tools/build3.py`: MV 기본값 pulse .5 → glow 1.6, `drift` 키, `mv-drift-nebula*` 접두 매칭, 이름표 낱말 매칭 따라가기. `tools/motions.py` `miyaScatter` converge 시작 전 숨김. `tools/variety_check.py` `fast throb tweens`. 지침서 4-14, art_spec, CLAUDE.md.
+
+- 2026-11-05: `tools/entrycheck.py` 추가(final_check 호출), `motions.py` draw·drip 시작 전 숨김, 지침서 4-15.

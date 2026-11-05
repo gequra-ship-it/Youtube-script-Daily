@@ -1030,7 +1030,7 @@ tl.fromTo(gsap.utils.toArray("#w18 .mv-drift-nebula")[0],{x:-25},{x:25,duration:
 tl.fromTo(gsap.utils.toArray("#w18 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},90.199);
 tl.fromTo(gsap.utils.toArray("#w18 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},90.199);
 tl.fromTo(gsap.utils.toArray("#w18 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},90.199);
-tl.set(gsap.utils.toArray("#w18 .mv-draw-footprint-trail")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:0},90.199);
+tl.set(gsap.utils.toArray("#w18 .mv-draw-footprint-trail")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:0,drawSVG:"0%"},90.199);
 tl.fromTo(gsap.utils.toArray("#w18 .mv-draw-footprint-trail")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{drawSVG:"0%"},{drawSVG:"100%",duration:2.0,ease:"power1.inOut",stagger:.08,immediateRender:false},91.299);
 tl.to(gsap.utils.toArray("#w18 .mv-draw-footprint-trail")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:(i,e)=>parseFloat(e.getAttribute("fill-opacity")||1),duration:.6,ease:"power1.out",stagger:.03,immediateRender:false},92.499);
 tl.fromTo(gsap.utils.toArray("#w18 .mv-core-glide-magnifier")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},90.199);
@@ -1488,6 +1488,7 @@ tl.fromTo("#fx8p22",{y:-34,x:168,transformOrigin:"50% 50%"},{y:-58,x:648,duratio
 tl.fromTo("#fx8p23",{y:-12,x:-286,transformOrigin:"50% 50%"},{y:-58,x:648,duration:1.18,ease:"none",immediateRender:false},34.572);
 tl.fromTo("#fx8p24",{y:-48,x:448,transformOrigin:"50% 50%"},{y:-58,x:648,duration:0.37,ease:"none",immediateRender:false},34.572);
 tl.fromTo("#fx8p25",{y:-26,x:-5,transformOrigin:"50% 50%"},{y:-58,x:648,duration:1.05,ease:"none",immediateRender:false},34.572);
+tl.set(gsap.utils.toArray("#w8 .mv-drip-sand-grains")[0],{y:0,opacity:0,scale:.3,transformOrigin:"50% 0%"},34.572);
 tl.fromTo(gsap.utils.toArray("#w8 .mv-drip-sand-grains")[0],{y:0,opacity:0,scale:.3,transformOrigin:"50% 0%"},{keyframes:[{opacity:1,scale:1,duration:.3},{y:80,duration:0.90,ease:"power2.in"},{opacity:0,duration:.1}],repeat:3,immediateRender:false},34.772);
 tl.set(gsap.utils.toArray("#w8 .mv-core-drop-water-droplet")[0],{y:-160,rotation:-18,opacity:0,transformOrigin:"50% 50%"},34.572);
 tl.fromTo(gsap.utils.toArray("#w8 .mv-core-drop-water-droplet")[0],{scaleX:1,scaleY:1,transformOrigin:"50% 100%"},{scaleX:1.2,scaleY:.8,duration:.9,ease:"miyaBnc-squash",immediateRender:false},35.422);

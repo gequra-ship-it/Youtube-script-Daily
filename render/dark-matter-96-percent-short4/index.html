@@ -961,7 +961,7 @@ if(document.getElementById("sp15"))tl.fromTo("#sp15",{opacity:0},{opacity:1,dura
 tl.fromTo(gsap.utils.toArray("#w15 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},80.157);
 tl.fromTo(gsap.utils.toArray("#w15 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},80.157);
 tl.fromTo(gsap.utils.toArray("#w15 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},80.157);
-tl.set(gsap.utils.toArray("#w15 .mv-draw-weave")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:0},80.157);
+tl.set(gsap.utils.toArray("#w15 .mv-draw-weave")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:0,drawSVG:"0%"},80.157);
 tl.fromTo(gsap.utils.toArray("#w15 .mv-draw-weave")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{drawSVG:"0%"},{drawSVG:"100%",duration:2.4,ease:"power1.inOut",stagger:.08,immediateRender:false},81.357);
 tl.to(gsap.utils.toArray("#w15 .mv-draw-weave")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:(i,e)=>parseFloat(e.getAttribute("fill-opacity")||1),duration:.6,ease:"power1.out",stagger:.03,immediateRender:false},82.797);
 tl.set("#t16",{display:"block"},85.881);tl.set("#t16",{display:"none"},91.680);
@@ -1198,7 +1198,7 @@ if(document.getElementById("sp24"))tl.fromTo("#sp24",{opacity:0},{opacity:1,dura
 tl.fromTo(gsap.utils.toArray("#w24 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},129.491);
 tl.fromTo(gsap.utils.toArray("#w24 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},129.491);
 tl.fromTo(gsap.utils.toArray("#w24 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},129.491);
-tl.set(gsap.utils.toArray("#w24 .mv-draw-curve")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:0},129.491);
+tl.set(gsap.utils.toArray("#w24 .mv-draw-curve")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:0,drawSVG:"0%"},129.491);
 tl.fromTo(gsap.utils.toArray("#w24 .mv-draw-curve")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{drawSVG:"0%"},{drawSVG:"100%",duration:1.4,ease:"power1.inOut",stagger:.08,immediateRender:false},130.491);
 tl.to(gsap.utils.toArray("#w24 .mv-draw-curve")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:(i,e)=>parseFloat(e.getAttribute("fill-opacity")||1),duration:.6,ease:"power1.out",stagger:.03,immediateRender:false},131.331);
 tl.fromTo(gsap.utils.toArray("#w24 .mv-nudge-pencil")[0],{x:0,y:0},{x:-50,y:0,duration:.4,ease:"back.out(2.2)",immediateRender:false},130.491);

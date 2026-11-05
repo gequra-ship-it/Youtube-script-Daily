@@ -29,6 +29,7 @@ run('armfix', [sys.executable, f'{T}/armfix.py', SLUG, '--check'])   # 2026-11-0
 run('partaxis', [sys.executable, f'{T}/partaxis.py', SLUG])   # 2026-11-02: hinged parts (arms, jaws, tails, feelers) pivot at the BODY end; mv-wiggle amp is a scale fraction (<= .3), period >= .6
 run('splitlimbs', [sys.executable, f'{T}/splitlimbs.py', SLUG, '--check'])   # 2026-11-02: a bundle of tentacles/arms/legs/feelers under ONE pivot -> each strand gets its own hinge (data-keep="1" to keep a single pivot)
 run('figcheck', [sys.executable, f'{T}/figcheck.py', SLUG])   # 2026-11-05: hand groups not drawn with tools/figlib.py (WARN lines, exit 0: old videos were drawn by hand)
+run('entrycheck', [sys.executable, f'{T}/entrycheck.py', SLUG])   # 2026-11-05: entrance motions hidden before they start (guideline 4-15)
 run('variety', [sys.executable, f'{T}/variety_check.py', SLUG])   # 2026-10-31: the variety gate (frog acts / outfits / object kinds; moving-prop quota is a WARN line) — read its lines even when OK
 bd = json.load(open(f'{wdir()}/build/build_data.json')); n = len(bd['cuts'])
 miss = [c['id'] for c in bd['cuts'] if c.get('kind') != 'chalk' and not os.path.exists(f'{vdir(SLUG)}/art3/{c["id"]}.svg')]
