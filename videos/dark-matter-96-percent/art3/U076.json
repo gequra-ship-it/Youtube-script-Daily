@@ -1,0 +1,47 @@
+{
+ "centre": "a tall glass vial filled with glowing violet liquid, beside a sealed ghost chest",
+ "focus": [
+  960,
+  520,
+  1.6
+ ],
+ "focus_word": "how much",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "But what",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-spark",
+   "h": 108
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 420,
+  "y": 528,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

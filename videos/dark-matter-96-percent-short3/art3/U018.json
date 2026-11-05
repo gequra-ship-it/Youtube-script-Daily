@@ -1,0 +1,55 @@
+{
+ "centre": "a sailing ship gliding over water we cannot see: only its wake foam shows something is there",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
+ "wind": "right",
+ "labels": [
+  {
+   "type": "name",
+   "text": "the ship",
+   "x": 300,
+   "y": 520,
+   "to": [
+    470,
+    720
+   ],
+   "word": "the ship"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "But you",
+    "mood": "curious"
+   },
+   {
+    "word": "Remember what",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "ride": "mv-path-ship",
+  "kind": "ride",
+  "x": 455,
+  "y": 821,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
+}

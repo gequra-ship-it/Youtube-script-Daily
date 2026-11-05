@@ -1,0 +1,45 @@
+{
+ "centre": "a ball shooting upward faster and faster, nudged by a faint ghostly violet hand; a person below looks up",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who's pushing?",
+   "x": 820,
+   "y": 660,
+   "to": [
+    610,
+    850
+   ],
+   "word": "something unseen"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "suspicious"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-rise-ball",
+  "kind": "ride",
+  "x": 464,
+  "y": 878,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "detective",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

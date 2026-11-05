@@ -1,0 +1,53 @@
+{
+ "centre": "a tiny glowing boat with a person and a lantern on a vast dark sea with bright foam crests, a faint violet glow deep below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "the dark sea",
+   "x": 540,
+   "y": 1300,
+   "to": [
+    540,
+    1480
+   ],
+   "word": "the dark sea"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   },
+   {
+    "word": "So here",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "steadyit",
+   "obj": "mv-core-wobble-boat"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 784,
+  "y": 1140,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Careful!",
+    "shout": true
+   }
+  ]
+ }
+}

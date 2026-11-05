@@ -1,0 +1,60 @@
+{
+ "centre": "two large mystery orbs: a glowing filament web and a deep violet-black bubble with outward arrows",
+ "focus": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "dark matter",
+   "x": 560,
+   "y": 210,
+   "to": [
+    560,
+    330
+   ],
+   "word": "dark matter"
+  },
+  {
+   "type": "name",
+   "text": "dark energy",
+   "x": 1360,
+   "y": 210,
+   "to": [
+    1360,
+    330
+   ],
+   "word": "dark energy"
+  }
+ ],
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-dark-bubble"
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1648,
+  "y": 738,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
+}

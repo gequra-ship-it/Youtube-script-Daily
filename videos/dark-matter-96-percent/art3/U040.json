@@ -1,0 +1,49 @@
+{
+ "centre": "a small bright galaxy wrapped in a huge glowing violet web halo of invisible mass",
+ "focus": [
+  960,
+  490,
+  1.3
+ ],
+ "focus_word": "invisible halo",
+ "labels": [
+  {
+   "type": "name",
+   "text": "halo",
+   "x": 1560,
+   "y": 290,
+   "to": [
+    1420,
+    400
+   ],
+   "word": "halo"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "x": 775,
+  "y": 598,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": "mv-core-breathe-galaxy",
+  "bside": -1,
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "centre": "the Sun, a warm glowing star, in front of a dense diagonal band of galaxy stars",
+ "focus": [
+  640,
+  560,
+  1.6
+ ],
+ "focus_word": "our Sun",
+ "labels": [
+  {
+   "type": "name",
+   "text": "our Sun",
+   "x": 640,
+   "y": 330,
+   "to": [
+    640,
+    440
+   ],
+   "word": "Sun"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.77,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "lie",
+   "dist": 461
+  },
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

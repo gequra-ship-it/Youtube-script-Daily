@@ -1,0 +1,59 @@
+{
+ "centre": "a glowing tablet screen on a wooden desk, a resting hand, cool air drifting from the window, a steaming mug",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "glowing screen",
+ "labels": [
+  {
+   "type": "name",
+   "text": "desk",
+   "x": 1230,
+   "y": 660,
+   "to": [
+    1200,
+    750
+   ],
+   "word": "desk"
+  },
+  {
+   "type": "name",
+   "text": "air",
+   "x": 1180,
+   "y": 470,
+   "to": [
+    1150,
+    548
+   ],
+   "word": "cool air"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-approach-screen",
+  "kind": "ride",
+  "x": 1128,
+  "y": 600,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

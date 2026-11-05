@@ -1,0 +1,45 @@
+{
+ "centre": "top-down snow: deep long-stride footprints, a magnifier over one print, a compass needle pointing north",
+ "focus": [
+  1480,
+  380,
+  1.6
+ ],
+ "focus_word": "heading north",
+ "labels": [
+  {
+   "type": "name",
+   "text": "north",
+   "x": 1480,
+   "y": 200,
+   "to": [
+    1480,
+    296
+   ],
+   "word": "north"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-core-glide-magnifier",
+  "kind": "ride",
+  "x": 1096,
+  "y": 638,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "detective",
+   "bowtie"
+  ],
+  "says": []
+ }
+}

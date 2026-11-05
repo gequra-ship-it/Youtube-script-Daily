@@ -1,0 +1,44 @@
+{
+ "centre": "a dark mystery box with a name tag swinging on it",
+ "focus": [
+  900,
+  1060,
+  1.6
+ ],
+ "focus_word": "A name",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "A name",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swingride",
+   "obj": "mv-swing-tag"
+  },
+  "ride": "mv-swing-tag",
+  "kind": "ride",
+  "x": 905,
+  "y": 1191,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ]
+ }
+}

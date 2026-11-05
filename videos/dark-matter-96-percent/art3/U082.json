@@ -1,0 +1,45 @@
+{
+ "centre": "a blank name tag swinging from a hook above a sealed glowing crate",
+ "focus": [
+  960,
+  400,
+  1.6
+ ],
+ "focus_word": "name",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "A name",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "bumped",
+   "obj": "mv-bouncing-bead",
+   "serious": false
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 292,
+  "y": 770,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Boing!",
+    "shout": true
+   }
+  ]
+ }
+}
