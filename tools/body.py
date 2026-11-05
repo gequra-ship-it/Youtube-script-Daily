@@ -56,21 +56,25 @@ def _bez(p0, c, p2, t):
 
 def arm(sx, sy, H, upper=0, bend=15, bend_dir=1, name='arm', side='R', view='palm', pose='flat', hand_tilt=0,
         sleeve='#5f7a8a', skin='#d9a37a', line='#2a1c14', kind='cute', sleeve_len='long', lw=None, amp=None,
-        elbow_moves=False, fingers=False):
+        elbow_moves=False, fingers=False, hand_fn=None):
     """One clean arm (user 2026-10-17: "the detailed elbow joints look strange; use the elbow joint only when the elbow
     moves, the earlier pictures were cleaner"). By default the arm is ONE smooth tapered shape following a gentle curve
     through the elbow (no visible joint, no seam) and moves as ONE mv-limb link from the shoulder. elbow_moves=True splits
     it into upper arm + forearm links (only for a scene where the forearm really swings: waving, hammering, writing).
     fingers=False (default, user 2026-10-17: "use a hand with fingers only where the scene needs fingers, otherwise just round"):
     the hand is a simple round shape like the original pictures. fingers=True draws a hands.py hand (pointing, gripping a visible
-    object, a waving close-up, a hand that is the subject of the sentence)."""
+    object, a waving close-up, a hand that is the subject of the sentence). hand_fn=callable(x, y, angle) replaces the hand
+    entirely (figlib.person uses it for the 12 channel-style hand poses)."""
     p = P[kind]; bend = max(0.0, min(140.0, float(bend))); hand_tilt = max(-25, min(25, hand_tilt))
     if bend > 0 and abs(upper) > 100:   # 2026-11-01 (miya): an arm raised above the shoulder keeps the ELBOW LOW and out and folds the forearm up and in (two raised arms = ヽOﾉ), never an elbow arching upward
         bend_dir = 1 if upper > 0 else -1; bend = min(bend, 195 - abs(upper))
     Lu, Lf = p['upper'] * H, p['fore'] * H; w0, w1, w2 = p['arm_w'] * H, p['arm_w'] * 0.85 * H, p['wrist_w'] * H
     def mkhand(x, y, ang):
-        if fingers:
-            return hand(x, y, ang, p['palm'] * H, side, view, pose, skin=skin, line=line, lw=lw * 0.9)
+        if hand_fn:   # 2026-11-05: channel-style hand from tools/figlib.py (hand_fn(x, y, angle_deg) -> svg), see art_spec 6A
+            return hand_fn(x, y, ang)
+        if fingers:   # 2026-11-05 (miya, round 7B): fingered hands come from tools/figlib.py (12 poses; old hands.py names are aliases)
+            import figlib
+            return figlib.hand(pose, x, y, p['palm'] * H * 1.05, side=side, rot=ang, skin=skin, line=line, lw=lw)
         r = w2 * 0.78; a = math.radians(ang); cx, cy = x + math.sin(a) * r * 0.55, y - math.cos(a) * r * 0.55
         return f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" fill="{skin}" stroke="{line}" stroke-width="{lw:.2f}"/>'
     lw = lw if lw is not None else max(1.4, H * 0.045)

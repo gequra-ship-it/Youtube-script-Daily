@@ -3,7 +3,8 @@ Owner: reuse existing pictures, draw as little as possible, save tokens. Do NOT 
 Repo /home/user/rp (branch render-pipeline). `export MIYA_WORK=/home/user/miya-work`. Read only the sections of tools/art_spec.md you need
 (general SVG rules, 10 = vertical Shorts, 6A/6B = hands/people, 7 = motion groups).
 People: cute proportions (tools/body.py default kind='cute', children 'cute_child'), one smooth arm per arm (body.arm), elbow link only where
-the forearm really swings, ROUND hands unless fingers matter (pointing, gripping a visible object, waving close-up, hand is the subject, stencils/icons).
+the forearm really swings, ROUND hands unless fingers matter. Hands WITH fingers: ONLY `tools/figlib.py hand(...)` 12 poses (2026-11-05, art_spec 6A; also
+`body.arm(fingers=True)`); never free-hand, no hands holding complex objects (a stick goes through the `hold` fist). `python3 tools/figcheck.py <slug> <uids>` must list none of yours.
 Sources (copy, then adapt; never edit the originals): the video's old art3 copy (horizontal 1920x1080, texts in its old plan.json) and the old
 Shorts' art3 copies (vertical 1080x1920). Keep copies in your scratch folder before changing anything in the repo.
 - Long video, NEEDS VARIANT units (same picture as the unit before): make a variant: re-crop/zoom about a different point + one added element
