@@ -93,6 +93,14 @@ def core_fit(ctype, name, text, tally, keep=False, nunits=1):
     if fits and tally.get(ctype, 0) < cap:
         tally[ctype] = tally.get(ctype, 0) + 1; return ctype, None
     pool = [k for k in CORE_CALM if k != 'flicker' or LIGHT_NAMES.search(tail)]
+    try:   # 2026-11-05 review: the calm kind must also fit the axis catalogue (a sphere never gets core-sway: attachcheck would block the render)
+        import axis_lib; e = axis_lib.entry_for(name or '')
+        if e:
+            ok = [k for k in pool if not ((k in e['bad'] or 'core-' + k in e['bad']) and not (k in e['ok'] or 'core-' + k in e['ok']))]
+            pref = [k for k in ok if k in e['ok'] or 'core-' + k in e['ok']]   # a tree sways, a sphere orbits: the catalogue's own kinds first
+            pool = pref or ok or pool
+    except Exception:
+        pass
     lo = min(tally.get(k, 0) for k in pool); new = [k for k in pool if tally.get(k, 0) == lo][0]
     tally[new] = tally.get(new, 0) + 1
     return new, ('no word/name' if not fits else f'share > {cap}')
