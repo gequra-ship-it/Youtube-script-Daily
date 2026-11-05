@@ -211,3 +211,28 @@ GSAP 3.15(2025년부터 플러그인 전부 무료) 14개 플러그인 + anime.j
 8. **`wobble` 코어는 맞기 전까지 가만히 있는다(2026-11-04, miya hollow→frog-hunting-beetle 21초 접시).** 예전 `wobble`은 컷 시작부터 30°·1.3배 자세로 얼어 있다가 움직이면서 갑자기 바뀌었다. 지금은 제자리 → 14°·1.1배로 톡(0.18초) → 탄성 복귀(2초)다(`motions.py`). 비슷한 '정지 뒤 튐' 효과를 새로 만들 때 시작 자세를 바꿔 두지 않는다.
 9. **다리 이름의 앞·뒤 접두어도 점검한다(2026-11-04, miya 4분 12초 앞다리).** `partaxis.py`가 `foreleg·hindleg·forelimb`을 놓쳐 발에 축이 있는 앞다리가 통과했다. 이제 `fore|hind|front|rear|back`+부위 이름도 검사한다. 앞다리·팔 축은 어깨(몸에 붙은 끝), 뒷다리 축은 엉덩이다.
 개정: 2026-11-02 4-12 추가·4-9 제자리(제목 형식)로 이동, miya 해파리·오징어·아귀 축 지적. 2026-11-04 8·9 추가, miya 접시·앞다리 지적.
+
+### 4-13. 센터 모션 단어 규칙·상한, 오브젝트 모션 10종·배경 효과 6종 추가 (2026-11-05, miya: "오브젝트 모션 중 빠르게 두근거리는 모션이 너무 자주 나오고 개구리가 그 오브젝트에 붙어서 같이 두근거리는 게 너무 많다 … 아무 의미 없이 옆에서 오브젝트 모션을 따라하는 게 너무 많다 … 카메라 워킹이나 오브젝트 모션, 화면 트랜지션에 따라 유동적으로 개구리 모션이 들어갔으면 … 오브젝트 모션·배경 모션·개구리 모션도 더 많이 추가 … 다른 모델이 써도 결과가 같게 대본·그림 규칙")
+1. **센터 모션의 '사건' 종류는 이유가 있을 때만.** `mv-core-<종류>`의 heartbeat·swell·tremble·ping·wobble·squeeze·pop·stamp·drop은 **단위 문장에 그 단어가 있거나(`motions.CORE_WORDS`: heartbeat=heart·pulse·beat·throb·alive…, swell=grow·expand·inflate·balloon·breath…, tremble=shake·quake·fear·vibrate…, ping=signal·radar·echo·beacon…, wobble=wobble·unsteady·teeter·dizzy…, squeeze=squeeze·crush·press·shrink…, pop=pop·appear·sudden·emerge…, stamp=stamp·slam·seal·hit·strike…, drop=fall·drop·land·plummet…) 그룹 이름이 그 물건일 때만(`CORE_NAMES`: heart·pulsar·drum / sun·star·balloon·lung·bubble / radar·dish·antenna·satellite… / volcano·bomb·engine·reactor / top·jelly·tower·stack·plate·vase·egg·boat 등)** 남고, **영상당 종류별 15 %(최소 3장)** 를 넘으면 그 뒤부터는 고요 종류(glide·sway·approach·orbit, 빛 이름(lamp·star·sun·candle·screen·light·fire·neon…)이면 flicker)로 바뀐다. 고요 종류도 최소 사용으로 고른다(동률이면 순서). `data-keep="1"`만 예외. `tools/corefix.py <slug> [--report]`가 그림의 id를 직접 고쳐 쓰고 `build3.py`·`frog_place.py`가 시작할 때 자동 실행한다(로그 `corefix: N centre motions changed, M strong heartbeats`).
+2. **heartbeat는 기본이 느린 맥박.** 1.6초 주기의 작은 두 박(1.07→1→1.04→1)이고, 문장에 pounding·racing·panic·thump·frantic 같은 `HEART_STRONG` 단어가 있을 때만 `data-strong="1"`로 예전의 빠르고 큰 박동(0.9초)을 쓴다.
+3. **개구리는 맥동 오브젝트를 타지 않는다**(7-2 L). 탑승은 `mv-core-sway|glide|approach|drop`·`mv-path`·`mv-slide`·`mv-swing`만, 맥동하는 것 옆에 서서 반응한다.
+4. **오브젝트 모션 10종 추가(`mv-<종류>-<이름>`, `motions.obj_js`, 축은 종류별 고정, 전부 유한 fromTo·CustomEase 없음):**
+
+| 종류 | 뜻 | data-* (기본) | 축 |
+|---|---|---|---|
+| `teeter` | 밀린 화병·기둥이 발을 축으로 흔들리다 멈춤 | `deg` 9, `dur` 2.4, `delay` .3 | 발(바닥 중앙) |
+| `jiggle` | 젤리·푸딩·배·해파리 갓이 출렁 | `amp` .06, `per` .32, `dur` 1.6, `every` 0(반복 간격) | 발 |
+| `peek` | 뒤에 숨은 것이 옆으로 나와 보고 들어감 | `dx` -120, `dy` 0, `hold` 1.2 | 이동 |
+| `spiral` | 배수구·소용돌이·블랙홀로 나선을 그리며 빨려듦(작아짐) | `cx`/`cy`(그림 px, 기본 화면 중앙), `turns` 2, `dur` 3, `end` .15 | 자기 중심 |
+| `zigzag` | 잎·번개길·나방·가라앉는 동전의 지그재그 | `dx` 90, `dy` 320, `n` 4, `dur` 2.4 | 이동 |
+| `lift` | 크레인 짐·열기구·공중부양: 들려 올라가 떠 있음 | `dy` -160, `dur` 1.2 | 이동 |
+| `scatter` | 그룹의 직계 자식들이 중심에서 바깥으로 흩어짐(놀란 새 떼, 뿌린 씨) | `dist` 260, `dur` .9 | 자식마다 |
+| `converge` | 바깥에서 그린 자리로 모임(모여든 군중, 맞춰지는 조각) | `dist` 260, `dur` .9 | 자식마다 |
+| `nudge` | 한 번 툭 밀려 그 자리에 머묾(pushed·shoved·moved an inch) | `dx` 60, `dy` 0 | 이동 |
+| `hatch` | 알·싹·팝업처럼 단계로 나옴(0→1.12→.96→1) | `dur` .8 | 발 |
+
+`nudge`·`hatch`·`scatter`·`converge`는 멈춘 뒤 숨쉬기(`settle_js`)가 붙고, `frog_rig.obj_span`이 시각을 알아 개구리 접촉 동작과 맞출 수 있다. 다양성 검사의 '움직이는 소품'에 `nudge·hatch·lift·teeter·scatter·converge·zigzag`도 센다.
+5. **배경 효과 6종 추가(`motions.PARTICLES`/`OVERLAYS`, 단어 규칙 `FX_WORDS`, 63종):** `ink`(잉크 방울이 가라앉으며 옅어짐: ink·squid·octopus·quill·calligraphy) · `paperbits`(찢긴 종이가 팔랑: paper·parchment·manuscript·document·archive·shredded) · `bokeh`(밤 전용, 초점 나간 큰 불빛: city lights·streetlight·headlights·neon·downtown·skyline) · `crystals`(얼음·광물 결정이 떠다님: crystal·diamond·gem·quartz·mineral·icicle) · `eclipse`(위쪽 밝은 원을 어두운 원이 가로지름: eclipse·blot out the sun·transit of) · `horizonglow`(지평선 띠가 숨 쉼: horizon·sunset·afterglow·distant lights·dusk). 앰비언트: ice에 crystals, history에 paperbits, sunset에 horizonglow. 그림 에이전트는 여전히 입자를 그리지 않는다.
+6. **검사.** `variety_check.py`가 '센터 모션 비율' 줄(사건 종류별 ≤ 15 %, 넘으면 `corefix.py` 안내)과 '맥동 오브젝트 탑승' 줄(0이어야 통과)을 보탠다(15-8).
+7. 확인한 것: 합성 59장면(새 동작 27·전환별 등장 9·퇴장 3·포커스·배경 효과 반응 3·오브젝트 10·배경 효과 6) JS 오류 0, 프레임 눈으로 확인; whale-fall 숏츠 build3 전체 빌드 0 오류·페이지 seek JS 오류 0; kardashev-scale 135장 corefix 60개 교정(flicker 25·glide 17·approach 16·sway 16·orbit 16·spin 8·swell 5·heartbeat 3) 뒤 맥동 탑승 0. 확인하지 못한 것: Actions 렌더 MP4.
+개정: 2026-11-05 4-13 추가, miya "두근거리는 모션이 너무 자주 … 모션 더 많이 추가".

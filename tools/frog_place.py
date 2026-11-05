@@ -14,7 +14,9 @@ from playwright.sync_api import sync_playwright
 import facing
 import math, frog_rig, motions   # 2026-10-29: contact / locomotion / costume acts (guideline 7-2 G)
 import concepts   # 2026-10-31: concept rules + theme packs, least-used picking (guideline 7-2 J)
-OK = re.compile(r'^mv-(core-(swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble)|path|slide|swing)')
+OK = re.compile(r'^mv-(core-(sway|glide|approach|drop)|path|slide|swing)')   # 2026-11-05 (miya): the frog no longer rides a pulsing / swelling / trembling / wobbling / pinging thing (it scaled and shook with it) — it stands beside and RESPONDS (pulse_response)
+PULSE_CORE = re.compile(r'^mv-core-(heartbeat|swell|tremble|wobble|ping|squeeze|pop|stamp)')
+RESPONSE = {'heartbeat': ('heartlisten', 'curious'), 'swell': ('backstep', 'surprised'), 'tremble': ('bracehold', 'worried'), 'wobble': ('steadyit', 'worried'), 'ping': ('listen', 'curious'), 'squeeze': ('duck', 'scared'), 'pop': ('startle', 'surprised'), 'stamp': ('duck', 'scared')}
 SPACE = re.compile(r'\b(space|star|stars|galax\w*|cosmic|universe|horizon|probe|voyager|light|planet|orbit|dark|expan\w*)\b', re.I)
 SEA = re.compile(r'\b(ocean|oceans|sea|seas|seafloor|underwater|dive|diving|water|whales?|reef|coral|fish|vents?|abyss\w*|deep|depths?|plankton|marine)\b', re.I)
 SEA_RIDE = re.compile(r'shark|whale|fish|dolphin|squid|octopus|jelly|turtle|seal\b|ray\b|eel\b|crab|lobster|plankton|krill|sub\b|submarine|submersible|rov\b|diver', re.I)   # riding one of these = the frog is in the water
@@ -160,7 +162,6 @@ LOVEW = re.compile(r'\b(beautiful|lovely|favou?rite|ador\w*|love\w*|wonderful|de
 SHOCKW = re.compile(r'\b(shock\w*|unbelievabl\w*|suddenly|boom|explod\w*|burst\w*|what\?|wait\b|gasp\w*|stunn\w*|astonish\w*|incredibl\w*)\b', re.I)
 ANGRYW = re.compile(r'\b(war\b|wars\b|fight\w*|attack\w*|villain\w*|enem\w*|greed\w*|cruel\w*|unfair|cheat\w*|steal\w*|stolen|thie\w*|rob\w*|furious|rage)\b', re.I)
 POPG = re.compile(r'mv-(core-(pop|ping|stamp|drop|flicker)|popin)', re.I)
-PULSEG = re.compile(r'mv-(core-(heartbeat|swell|wobble)|liquid|bubble)', re.I)
 TRAVELG = re.compile(r'mv-(core-(glide|approach)|path|slide)', re.I)
 # ---- round 4 (2026-10-26, miya: more motions / costumes ready for any script). Acts by narration words; outfits by narration words. Guideline 7-2 D / E.
 DANCEW = re.compile(r'\b(music\w*|song\w*|sing\w*|danc\w*|rhythm\w*|melod\w*|drum\w*|beat\b|concert|orchestra|tune\b|hum\w*)\b', re.I)
@@ -610,6 +611,30 @@ def pack_accessory(keep, dom, n):
     elif not cur: keep.pop('outfit', None)
 
 
+def pulse_response(keep, gs, W, H, vert, tb, n):
+    """2026-11-05 (guideline 7-2 L): the biggest pulsing / swelling / trembling / wobbling / pinging centre object (after corefix: it has a reason to pulse) gets the frog
+    BESIDE it, reacting at the object's own rhythm (frog_rig.RESPONSE_ACTS), never inside it. Returns True when placed."""
+    cand = [g for g in gs.values() if PULSE_CORE.match(g[0]) and g[3] >= 120 and g[4] >= 80]
+    if not cand: return False
+    g = sorted(cand, key=lambda g: -g[3] * g[4])[0]; pos = beside(g, W, H, vert, tb)
+    if not pos: return False
+    kd = PULSE_CORE.match(g[0]).group(1); act, mood = RESPONSE[kd]
+    keep.update(kind='bg', ride=None, behind=None, **pos); keep.pop('roam', None); keep.pop('cling', None)
+    if act in frog_rig.MOVES: set_act(keep, act, mood=mood, obj=g[0])
+    else: keep['act'] = act; keep['moods'][0] = {'mood': mood}; keep['_says'] = [{'text': {'listen': 'Beep... beep.', 'startle': 'Oh!'}.get(act, 'Whoa!'), 'shout': act == 'startle'}]
+    keep['_resp'] = kd
+    return True
+
+
+def track_dir(svgtxt, sidecar):
+    """+1 / -1 when the picture has a tracking camera (motions.track_spec) that moves right / left, else 0"""
+    spec = motions.track_spec(svgtxt, sidecar)
+    if not spec: return 0
+    xs = [float(v) for v in re.findall(r'[-+]?\d*\.?\d+', spec[0])][0::2]
+    if len(xs) < 2 or abs(xs[-1] - xs[0]) < 60: return 0
+    return 1 if xs[-1] > xs[0] else -1
+
+
 def mood_of(s):
     for m, rx in MOODW:
         if rx.search(s) and not (SERIOUS and m in PLAYFUL): return m
@@ -627,6 +652,7 @@ with sync_playwright() as p:
         try: SERIOUS = getattr(load_config(slug), 'FROG_TONE', '') == 'serious'   # config.py FROG_TONE = 'serious' for grim topics (disease, death, war): no cheering, no Yay/Tada (miya 2026-10-26)
         except Exception: SERIOUS = False
         plan = {u['uid']: u for u in json.load(open(f'{REPO}/videos/{slug}/plan.json'))}
+        import subprocess; _cf = subprocess.run([sys.executable, f'{REPO}/tools/corefix.py', slug], capture_output=True, text=True); print((_cf.stdout.strip().splitlines() or ['corefix: ?'])[-1])   # 2026-11-05: event centre motions need a reason (same pass as build3)
         TALLY = concepts.Tally(); VDOM = concepts.video_domain([u['text'] for u in plan.values()], [(u.get('pal') or {}).get('palette', '') for u in plan.values()]); print(slug, 'theme pack:', VDOM)
         for uid, u in sorted(plan.items()):
             fn = f'{REPO}/videos/{slug}/art3/{uid}.json'; svg = fn[:-5] + '.svg'
@@ -662,7 +688,7 @@ with sync_playwright() as p:
             elif SPACE.search(text): keep['outfit'] = ['helmet']
             pg.set_content('<style>body{margin:0}svg{display:block;width:100vw;height:100vh}</style><body>' + open(svg).read() + '</body>')
             pg.set_viewport_size({'width': W, 'height': H}); gs = {g[0]: g for g in pg.evaluate(JS)}; tb = pg.evaluate(JST)
-            pick = f.get('ride') if f.get('ride') in gs else None
+            pick = f.get('ride') if f.get('ride') in gs and OK.match(f.get('ride')) else None   # 2026-11-05: an agent's ride on a pulsing centre object is dropped too (pulse_response takes over)
             if ROLL.search(text) and not ACTIVE.search(text): pick = None   # dragged / swept / spiralling: the frog rolls along instead of riding (miya 2026-10-26)
             elif not pick:
                 cand = [g for g in gs.values() if OK.match(g[0]) and 60 <= g[3] <= W * .8 and g[4] >= 40]
@@ -695,6 +721,7 @@ with sync_playwright() as p:
                 if pick: keep.update(ride=pick, kind='ride', **pos)
                 else: keep.update(ride=None, kind='bg', **pos)
                 if keep.pop('cling', False): keep.update(x=round(x + w * .95), y=round(y + h - 12), s=round(min(1.2, max(.9, h / 200)), 2), flip=-1, act='wind')
+            elif not (act in STRONG or ACTIVE.search(text) or ROLL.search(text)) and pulse_response(keep, gs, W, H, vert, tb, n): pass   # 2026-11-05: beside a pulsing centre object, reacting to it
             elif not (act in STRONG or ACTIVE.search(text) or ROLL.search(text)):   # (a background frog needs a strong situation: pulled / wind / shivering / awe / running / rolled; waves, sleepy, cheer alone are not enough)
                 # meaning gate (miya 2026-10-26: "frogs that appear at the bottom for no reason"): a frog that rides nothing and has no situation to react to is left out
                 if 'frog' in d: d.pop('frog'); json.dump(d, open(fn, 'w'), ensure_ascii=False, indent=1)
@@ -783,7 +810,6 @@ with sync_playwright() as p:
                 pg2 = sorted([g for g in gs.values() if PERSON.search(g[0])], key=lambda g: -g[4])[0]; pos2 = beside(pg2, W, H, vert, tb)
                 if pos2: keep.update(kind='bg', ride=None, act='wave', moods=[{'mood': 'happy'}], **pos2); keep.pop('roam', None)
             elif weak and rk and POPG.search(rk): keep['act'] = 'startle'
-            elif weak and rk and PULSEG.search(rk) and cur in CALM: keep['act'] = 'bounce'
             elif weak and rk and TRAVELG.search(rk) and cur in CALM and n % 2 == 0: keep['act'] = 'lean'   # every other ride on a traveller leans back; the others keep their calm act (variety)
             # ---- picture-evidence acts (miya 2026-10-27: script rule + picture rule everywhere): what the picture shows when the words gave nothing ----
             elif weak and ((has_group(gs, ICE_G, .06, W, H) and palname != 'ocean') or palname == 'ice') and not SERIOUS: keep['act'] = 'shiver'; keep['moods'][0] = {'mood': 'chilly'}   # (marine 'snow' in the ocean is not ice)
@@ -796,6 +822,10 @@ with sync_playwright() as p:
                 a_, m_ = TALLY.pick('act', [('wind', 'squint'), ('pointfar', 'excited'), ('salute', 'proud'), ('binocs', 'curious'), ('leanback', 'squint'), ('wavebig', 'happy')], n)
                 if a_ in frog_rig.MOVES: set_act(keep, a_, mood=m_)
                 else: keep['act'] = a_; keep['moods'][0] = {'mood': m_}
+            # ---- 2026-11-05 (guideline 7-2 L-3): a tracking camera (a long travelling motion the camera follows) takes the frog along: it jogs / hikes the same way ----
+            elif weak and not keep.get('ride') and not isinstance(keep.get('act'), dict) and track_dir(open(svg, encoding='utf-8').read(), d) and not SERIOUS:
+                td_ = track_dir(open(svg, encoding='utf-8').read(), d); a_ = 'hike' if VDOM in ('bio', 'history', 'earth') else 'jog'
+                keep.update(flip=td_); set_act(keep, a_, mood='determined', dist=round(W * (.3 if vert else .22)))
             # ---- 2026-10-31 concept rules + theme pack (guideline 7-2 J): everything the word rules left on a calm default gets an act from the unit's idea class / domain pool, least-used first ----
             elif weak and concept_apply(keep, text, concepts.unit_domain(text, palname, video=VDOM), W, H, vert, n): pass
             if keep.get('act') in ('scope', 'hide', 'tap', 'rest', 'wave', 'peek', 'hang', 'cry', 'facepalm', 'idea', 'dig', 'magnify', 'read', 'photo', 'eat', 'dance', 'clap', 'salute', 'think', 'sneeze', 'snooze') or (isinstance(keep.get('act'), str) and keep.get('act') in ACT_MOOD2): keep.pop('roam', None)   # these are done in place, not while roaming
@@ -905,7 +935,7 @@ with sync_playwright() as p:
                 if len(_ok) < _mx and all(abs(_ui - q) >= (0 if vert else 25) for q in _ok): _ok.append(_ui)
                 else:
                     keep['act'] = 'look'; keep['moods'][0] = {'mood': 'surprised'}; keep['says'] = [{'text': 'Whoa...', 'shout': False}]; keep.pop('_says', None)
-            keep.pop('_concept', None); d['frog'] = keep
+            keep.pop('_concept', None); keep.pop('_resp', None); d['frog'] = keep
             json.dump(d, open(fn, 'w'), ensure_ascii=False, indent=1)
             print(slug, uid, keep['kind'], pick, keep['x'], keep['y'], keep['s'])
         nf = sum(1 for uu in plan if os.path.exists(f'{REPO}/videos/{slug}/art3/{uu}.json') and isinstance(json.load(open(f'{REPO}/videos/{slug}/art3/{uu}.json')).get('frog'), dict))

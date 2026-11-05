@@ -56,6 +56,48 @@ def core_sanitize(ctype, name, keep=False):
     return ctype
 
 
+# ---- 2026-11-05 (miya: "빠르게 두근거리는 모션이 너무 자주 나온다"): the pulse family of centre motions needs a reason ----
+# heartbeat / swell / tremble / ping / wobble / squeeze / pop / stamp / drop are EVENT motions: they are kept only when the unit's sentence or the object's
+# name says so (CORE_WORDS / CORE_NAMES); otherwise, and beyond a per-video share (CORE_CAP of the units, at least 3), the least-used calm motion
+# (CORE_CALM, name-fitted by core_sanitize) replaces them. tools/corefix.py rewrites the group ids in the pictures with this before frog_place and build3,
+# so every later rule (frog ride / response, contact timing, variety check) sees the same kind. A group with data-keep="1" is never changed.
+CORE_WORDS = {
+    'heartbeat': r'\b(hearts?|heartbeat\w*|puls(e|es|ed|ing|ar)|beat(s|ing)?|throb\w*|pound\w*|alive|living|life)\b',
+    'swell':     r'\b(grow\w*|expand\w*|swell\w*|inflat\w*|bigger|larger|balloon\w*|bloat\w*|stretch\w*|breath\w*|fill(s|ed|ing)?|puff\w*|bulg\w*)\b',
+    'tremble':   r'\b(shak\w*|trembl\w*|quak\w*|quiver\w*|fear\w*|nervous\w*|unstable|tension|shiver\w*|rattl\w*|vibrat\w*|rumbl\w*|afraid|terrif\w*)\b',
+    'ping':      r'\b(signal\w*|detect\w*|ping\w*|blip\w*|radar|sonar|echo\w*|message\w*|beacon\w*|transmit\w*|broadcast\w*|alert\w*|sensor\w*|locat\w*|scan\w*)\b',
+    'wobble':    r'\b(wobbl\w*|unsteady|teeter\w*|unbalanc\w*|dizzy|stagger\w*|totter\w*|shaky|loose|precarious\w*|tipp\w*)\b',
+    'squeeze':   r'\b(squeez\w*|crush\w*|press\w*|compress\w*|shrink\w*|squash\w*|tight\w*|clench\w*)\b',
+    'pop':       r'\b(pop\w*|appear\w*|sudden\w*|surpris\w*|emerg\w*|spring\w*|out of nowhere)\b',
+    'stamp':     r'\b(stamp\w*|slam\w*|seal\w*|mark(s|ed|ing)?|hit\w*|strik\w*|struck|bang\w*|punch\w*)\b',
+    'drop':      r'\b(fall\w*|fell|drop\w*|land\w*|plummet\w*|tumbl\w*|crash\w*|plunge\w*)\b',
+}
+CORE_WORDS = {k: _re.compile(v, _re.I) for k, v in CORE_WORDS.items()}
+CORE_NAMES = {'heartbeat': r'heart|pulsar|drum', 'swell': r'\bsun\b|star|balloon|lung|bubble|blob|bloom|cloud|dough|belly', 'ping': r'radar|dish|antenna|beacon|satellite|signal|sonar|probe|lighthouse|phone|radio|transmitter',
+              'tremble': r'volcano|bomb|engine|reactor|cage|kettle', 'wobble': r'\btop\b|jelly|tower|stack|plate|vase|egg|boat|raft', 'pop': r'bubble|cork|toast', 'stamp': r'stamp|seal|hammer|gavel', 'squeeze': r'sponge|lemon|tube', 'drop': r'apple|coin|stone|meteor'}
+CORE_NAMES = {k: _re.compile(v, _re.I) for k, v in CORE_NAMES.items()}
+CORE_CALM = ['glide', 'sway', 'approach', 'orbit', 'flicker']   # replacement pool, least-used first (flicker only for lights)
+LIGHT_NAMES = _re.compile(r'lamp|star|sun|candle|screen|light|fire|neon|flame|torch|bulb|lantern|glow|beacon', _re.I)
+CORE_CAP = .15
+HEART_STRONG = _re.compile(r'\b(pound\w*|panic\w*|rac(e|es|ing)|terror\w*|thump\w*|faster|frantic\w*|adrenalin\w*)\b', _re.I)
+
+
+def core_fit(ctype, name, text, tally, keep=False, nunits=1):
+    """(kind, reason or None): the centre motion a unit really gets. tally = {kind: count so far in this video} (shared across the units, in order).
+    Event kinds need a word in the sentence or a telling name; any event kind beyond CORE_CAP of the units gives way to the least-used calm kind."""
+    if keep or ctype not in CORE_WORDS:
+        tally[ctype] = tally.get(ctype, 0) + 1; return ctype, None
+    tail = _tail(name) or ''
+    fits = bool(CORE_WORDS[ctype].search(text or '')) or bool(CORE_NAMES.get(ctype) and CORE_NAMES[ctype].search(tail))
+    cap = max(3, int(CORE_CAP * nunits))
+    if fits and tally.get(ctype, 0) < cap:
+        tally[ctype] = tally.get(ctype, 0) + 1; return ctype, None
+    pool = [k for k in CORE_CALM if k != 'flicker' or LIGHT_NAMES.search(tail)]
+    lo = min(tally.get(k, 0) for k in pool); new = [k for k in pool if tally.get(k, 0) == lo][0]
+    tally[new] = tally.get(new, 0) + 1
+    return new, ('no word/name' if not fits else f'share > {cap}')
+
+
 OBJ_TURNING = ('spin', 'rollby', 'flip', 'circle', 'coast')
 
 
@@ -72,7 +114,7 @@ def obj_sanitize(kind, name, keep=False):
     return kind
 
 
-def core_js(ctype, g, t0, v0, sp, ring=None, pivot=None, pv=None):
+def core_js(ctype, g, t0, v0, sp, ring=None, pivot=None, pv=None, at=None):
     """GSAP lines for one centre object.
     g: JS expression for the element, t0: picture start (s), v0: transition-in start (s),
     sp: seconds the picture stays on screen (plus margin), ring: JS expression for the ring that
@@ -94,10 +136,14 @@ def core_js(ctype, g, t0, v0, sp, ring=None, pivot=None, pv=None):
                 f'tl.fromTo({g},{{y:-26}},{{y:26,duration:3.1,{yo(3.1)}}},{v0:.3f});']
     if ctype == 'glide':       # sideways only
         return [f'tl.fromTo({g},{{x:-60}},{{x:60,duration:2.6,{yo(2.6)}}},{v0:.3f});']
-    if ctype == 'heartbeat':   # lub-dub, then rest
-        rep = max(int(math.ceil(sp / 0.9)) - 1, 0)
+    if ctype == 'heartbeat':   # lub-dub, then rest. 2026-11-05 (miya: too fast, too often): a calm 1.6 s beat by default; the hard 0.9 s beat only when data-strong="1" (corefix: pound / panic / racing words)
+        if at and at.get('data-strong') == '1':
+            rep = max(int(math.ceil(sp / 0.9)) - 1, 0)
+            return [f'tl.set({g},{{scale:1,{C}}},{v0:.3f});',
+                    f'tl.to({g},{{keyframes:[{{scale:1.14,duration:.12}},{{scale:1,duration:.18}},{{scale:1.09,duration:.12}},{{scale:1,duration:.48}}],repeat:{rep},immediateRender:false}},{v0:.3f});']
+        rep = max(int(math.ceil(sp / 1.6)) - 1, 0)
         return [f'tl.set({g},{{scale:1,{C}}},{v0:.3f});',
-                f'tl.to({g},{{keyframes:[{{scale:1.14,duration:.12}},{{scale:1,duration:.18}},{{scale:1.09,duration:.12}},{{scale:1,duration:.48}}],repeat:{rep},immediateRender:false}},{v0:.3f});']
+                f'tl.to({g},{{keyframes:[{{scale:1.07,duration:.18,ease:"sine.out"}},{{scale:1,duration:.26,ease:"sine.inOut"}},{{scale:1.04,duration:.16,ease:"sine.out"}},{{scale:1,duration:1.0,ease:"sine.inOut"}}],repeat:{rep},immediateRender:false}},{v0:.3f});']
     if ctype == 'flicker':     # candle-like uneven light, no movement
         rep = max(int(math.ceil(sp / 1.0)) - 1, 0)
         return [f'tl.set({g},{{opacity:1}},{v0:.3f});',
@@ -276,6 +322,7 @@ OBJ_KINDS = ['path', 'flip', 'fill', 'grow', 'swing', 'topple', 'liquid', 'bubbl
              'spin', 'rollby', 'float', 'flap', 'swim', 'hop', 'drip', 'unfold', 'unroll', 'flagwave', 'ripple', 'sparkle', 'circle', 'squash',
              'neon', 'shiver', 'beat', 'settle', 'magnet', 'bouncing', 'creep', 'sink', 'ascend', 'tick', 'flicker', 'breathe', 'nodding', 'sway',   # round 4b: 28 more (axis noted per kind)
              'draw', 'morph', 'toss', 'skid', 'coast', 'regroup', 'disc']   # 2026-10-29 library kinds (guideline 4-6): DrawSVG, MorphSVG, Physics2D, Inertia, PhysicsProps, Flip
+OBJ_KINDS += ['teeter', 'jiggle', 'peek', 'spiral', 'zigzag', 'lift', 'scatter', 'converge', 'nudge', 'hatch']   # 2026-11-05 (miya: more object motions, guideline 4-13): 10 more, axis per kind in obj_js
 
 
 def path_timing(at, t0, sp):
@@ -537,10 +584,49 @@ def obj_js(kind, g, at, t0, v0, sp, name='', spring=None):
     if kind == 'sway':     # sways about the BASE for standing things (trees, grass, poles, people), about the TOP for hanging ones (by name or data-pivot): ±data-deg 5, data-per 2.2
         deg, per = f('deg', 5), f('per', 2.2); o_ = '50% 0%' if pv_by_name == 'top' or at.get('data-hang') == '1' else '50% 100%'
         return [f'tl.fromTo({g},{{rotation:{-deg:.1f},{org(o_)}}},{{rotation:{deg:.1f},duration:{per:.3f},{yo(per)}}},{v0:.3f});']
+    # ---- 2026-11-05 (miya: "오브젝트 모션 … 더 많이 추가"), guideline 4-13: 10 more kinds. All finite fromTo tweens, no CustomEase (fxlib.miyaW* only), seek-safe.
+    if kind == 'teeter':   # rocks about its FOOT and settles (a pushed vase, a bollard, a standing stone): ±data-deg 9 dying out over data-dur 2.4, from data-delay
+        deg, dd = f('deg', 9), f('dur', 2.4)
+        return [f'tl.fromTo({g},{{rotation:0,{org("50% 100%")}}},{{rotation:{deg:.1f},duration:{dd:.2f},ease:"miyaWig",immediateRender:false}},{st:.3f});']
+    if kind == 'jiggle':   # a soft thing wobbles like jelly about its FOOT (pudding, belly, jellyfish bell, a blob): scale yoyo, data-amp .06, data-per .32 half-cycle, for data-dur 1.6 after data-delay, again every data-every (0 = once)
+        amp, per, dd, ev = f('amp', .06), f('per', .32), f('dur', 1.6), f('every', 0)
+        n = max(int(dd / per), 2); o = []; tt = st
+        while tt < t0 + sp - .4:
+            o.append(f'tl.fromTo({g},{{scaleX:{1 + amp:.3f},scaleY:{1 - amp:.3f},{org("50% 100%")}}},{{scaleX:{1 - amp * .6:.3f},scaleY:{1 + amp * .6:.3f},duration:{per:.3f},yoyo:true,repeat:{n},ease:"sine.inOut",immediateRender:false}},{tt:.3f});')
+            o.append(f'tl.to({g},{{scaleX:1,scaleY:1,duration:.3,ease:"sine.out"}},{tt + per * (n + 1):.3f});')
+            if ev <= 0: break
+            tt += ev
+        return o
+    if kind == 'peek':     # hidden behind something: slides out by data-dx (-120) / data-dy (0) after data-delay, waits data-hold 1.2 s, slides back (a face behind a rock, a periscope)
+        dx, dy, hold = f('dx', -120), f('dy', 0), f('hold', 1.2)
+        return [f'tl.fromTo({g},{{x:0,y:0}},{{x:{dx:.0f},y:{dy:.0f},duration:.5,ease:"power2.out",immediateRender:false}},{st:.3f});',
+                f'tl.to({g},{{x:0,y:0,duration:.4,ease:"power2.in"}},{st + .5 + hold:.3f});']
+    if kind == 'spiral':   # drawn into a centre on a shrinking spiral (a drain, a vortex, a black hole, a whirlpool): centre data-cx/data-cy (picture px, default the frame centre), data-turns 2, data-dur 3, shrinks to data-end .15
+        cx, cy, turns, dd, end = f('cx', 960), f('cy', 540), f('turns', 2), f('dur', 3.0), f('end', .15)
+        return [f'miyaSpiral(tl,{g},{cx:.0f},{cy:.0f},{turns:.2f},{st:.3f},{dd:.2f},{end:.2f});']
+    if kind == 'zigzag':   # falls / flies in a zigzag (a leaf, a lightning path, a moth, a sinking coin): data-dx 90 sideways swings, data-dy 320 total travel, data-n 4 legs, data-dur 2.4
+        dx, dy, n, dd = f('dx', 90), f('dy', 320), int(f('n', 4)), f('dur', 2.4)
+        kf = ','.join(f'{{x:{dx * (1 if i % 2 == 0 else -1):.0f},y:{dy * (i + 1) / n:.0f},duration:{dd / n:.3f},ease:"sine.inOut"}}' for i in range(n))
+        return [f'tl.fromTo({g},{{x:0,y:0}},{{keyframes:[{kf}],immediateRender:false}},{st:.3f});']
+    if kind == 'lift':     # lifted straight up by data-dy (-160) over data-dur 1.2 after data-delay, then hangs there with a slow 6 px hover (a crane load, a hot-air balloon, a levitating thing)
+        dy, dd = f('dy', -160), f('dur', 1.2); te = st + dd
+        o = [f'tl.fromTo({g},{{y:0}},{{y:{dy:.0f},duration:{dd:.2f},ease:"power2.inOut",immediateRender:false}},{st:.3f});']
+        if t0 + sp - te > 1.0: o.append(f'tl.fromTo({g},{{y:{dy:.0f}}},{{y:{dy - 6:.0f},duration:1.4,yoyo:true,repeat:{max(int((t0 + sp - te) / 1.4) - 1, 0)},ease:"sine.inOut",immediateRender:false}},{te:.3f});')
+        return o
+    if kind in ('scatter', 'converge'):   # the group's direct children fly apart from their drawn places (scatter) or come together into them (converge): data-dist 260 px, data-dur .9; a flock startled / a crowd gathering, seeds thrown, puzzle pieces meeting
+        dist, dd = f('dist', 260), f('dur', .9)
+        return [f'miyaScatter(tl,{g},{dist:.0f},{st:.3f},{dd:.2f},{1 if kind == "converge" else 0});']
+    if kind == 'nudge':    # one quick shove by data-dx 60 / data-dy 0 (pushed, shoved, bumped, "moved an inch") with a tiny overshoot, then stays there; from data-delay
+        dx, dy = f('dx', 60), f('dy', 0)
+        return [f'tl.fromTo({g},{{x:0,y:0}},{{x:{dx:.0f},y:{dy:.0f},duration:.4,ease:"back.out(2.2)",immediateRender:false}},{st:.3f});']
+    if kind == 'hatch':    # comes out in stages like a hatching / sprouting thing: 0 -> 1.12 -> .96 -> 1 about the FOOT over data-dur .8 after data-delay (an egg's chick, a sprout, a pop-up idea, an unfolding building)
+        dd = f('dur', .8)
+        return [f'tl.set({g},{{scale:0,{org("50% 100%")}}},{v0:.3f});',
+                f'tl.to({g},{{keyframes:[{{scale:1.12,duration:{dd * .5:.2f},ease:"power2.out"}},{{scale:.96,duration:{dd * .25:.2f},ease:"sine.inOut"}},{{scale:1,duration:{dd * .25:.2f},ease:"sine.out"}}],immediateRender:false}},{st:.3f});']
     raise ValueError(kind)
 
 
-SETTLE_KINDS = ('path', 'slide', 'slam', 'popin', 'rise', 'topple', 'flip', 'rollby', 'unfold', 'unroll', 'magnet', 'draw', 'morph', 'toss', 'skid', 'coast', 'regroup')
+SETTLE_KINDS = ('path', 'slide', 'slam', 'popin', 'rise', 'topple', 'flip', 'rollby', 'unfold', 'unroll', 'magnet', 'draw', 'morph', 'toss', 'skid', 'coast', 'regroup', 'nudge', 'hatch', 'scatter', 'converge')   # 2026-11-05: + nudge / hatch / scatter / converge
 
 
 def settle_js(kind, g, at, t0, v0, sp):
@@ -552,6 +638,9 @@ def settle_js(kind, g, at, t0, v0, sp):
     elif kind == 'slam': st, du = t0 + f('delay', 0.3), .28
     elif kind == 'popin': st, du = t0 + f('delay', 0.3), .45
     elif kind == 'slide': st, du = t0 + f('delay', 0.3), f('dur', .7)
+    elif kind == 'nudge': st, du = t0 + f('delay', 0.3), .4
+    elif kind == 'hatch': st, du = t0 + f('delay', 0.3), f('dur', .8)
+    elif kind in ('scatter', 'converge'): st, du = t0 + f('delay', 0.3), f('dur', .9)
     elif kind == 'rise': st, du = t0 + f('delay', 0.3), f('dur', .5)
     elif kind == 'topple': st, du = t0 + f('delay', 0.3), f('dur', .55)
     elif kind == 'rollby': st, du = t0 + f('delay', 0.3), f('dur', 3)
@@ -632,6 +721,11 @@ PARTICLES = {
     'lanterns':  _P(n=6, shape='lantern', col=('#ffb24a', '#ffcf7a'), size=(10, 5), dy=-.6, dx=.06, per=(10, 3), sway=18, y0=.9, blink=2.4, op=.95),
     'balloons':  _P(n=7, shape='balloon', col=('#ff6b6b', '#ff8c8c'), size=(10, 5), dy=-.8, dx=.08, per=(9, 3), sway=22, y0=.95, op=.9),
     'droplets':  _P(n=14, shape='drop', col=('#5f95b6', '#cfe9ff'), size=(4, 3), dy=1.1, dx=0, per=(1.6, .8), sway=0, y0=-.2, op=.7),
+    # 2026-11-05 (miya: more background motions, guideline 4-13): 4 more rows
+    'ink':       _P(n=9, col=('#2a2f4a', '#b8c6e0'), size=(5, 6), dy=.55, dx=.03, per=(4.5, 2.5), sway=16, y0=-.1, fade=1, op=.7),      # ink drops sinking and thinning (ink, squid, quills, writing)
+    'paperbits': _P(n=12, shape='flake', col=('#d8c9a4', '#f4ecd8'), size=(7, 5), dy=1.0, dx=.2, per=(5.5, 3), sway=44, y0=-.2, spin=300, op=.9),   # torn paper flutters down (letters, documents, shredded, archives)
+    'bokeh':     _P(n=10, col=('#f2c46a', '#ffe9b0'), size=(14, 16), dy=-.04, dx=.02, per=(9, 3), sway=10, y0=.3, blink=2.8, op=.22),    # soft big out-of-focus lights (city at night, streetlights, headlights) — night only
+    'crystals':  _P(n=11, shape='star', col=('#9fd0e8', '#e2f6ff'), size=(4, 4), dy=.25, dx=.05, per=(8, 3), sway=14, y0=-.1, spin=120, op=.8),    # ice / mineral crystals drifting (crystal, gem, diamond, quartz, icicle)
     'bones':     _P(n=0),   # placeholder so the name is reserved; never drawn (grim topics get 'vignette' instead)
 }
 PARTICLES.pop('bones')
@@ -639,6 +733,7 @@ PARTICLES.pop('bones')
 OVERLAYS = ['burst',   # 2026-10-29: Physics2D burst (guideline 4-6)
             'rain', 'flash', 'bolt', 'fog', 'heat', 'rays', 'searchlight', 'vignette', 'tint', 'clouds', 'windlines', 'smoke', 'steam',
             'shockwave', 'letterbox', 'scanlines', 'glitch', 'lightleak', 'flare', 'aurora', 'ripples', 'waves', 'rainbow', 'spotlight', 'frost', 'starburst']
+OVERLAYS += ['eclipse', 'horizonglow']   # 2026-11-05 (guideline 4-13): a dark disc crossing a bright one at the top; a glowing band on the horizon that breathes
 FX_KINDS = list(PARTICLES) + OVERLAYS
 
 # word rules in priority order (first match wins). A rule may be limited to a bg mode ('night'/'paper') or min duration.
@@ -669,7 +764,13 @@ FX_WORDS = [
     ('jellies', r'\b(jellyfish|jellies|medusa\w*)\b', None),
     ('aurora', r'\b(aurora\w*|northern lights|southern lights)\b', None),
     ('meteors', r'\b(meteor\w*|asteroid\w*|comet\w*|shooting stars?)\b', None),
+    ('eclipse', r'\b(eclips\w*|blot(s|ted)? out the sun|transit of|passes? in front of the (sun|star))\b', None),
+    ('crystals', r'\b(crystal\w*|diamond\w*|gemstone\w*|gems?|quartz|mineral\w*|icicle\w*)\b', None),
+    ('ink', r'\b(ink\w*|squid\w*|octopus\w*|quill\w*|calligraph\w*|fountain pen)\b', None),
+    ('paperbits', r'\b(paper\w*|parchment\w*|manuscript\w*|documents?|archives?|shredd\w*|torn (pages?|letters?)|letters? (flew|fly|scatter\w*))\b', None),
     ('rays', r'\b(dawn|sunrise|sunlight|sunbeam\w*|daybreak|morning sun|hope\w*|holy|sacred|revelation)\b', None),
+    ('horizonglow', r'\b(horizon\w*|sunset\w*|afterglow|distant (city|lights|shore|glow)|far(-| )off lights|dusk)\b', None),
+    ('bokeh', r'\b(city lights|streetlight\w*|street lights?|headlights?|neon\w*|downtown|skyline|night market\w*|traffic at night)\b', 'night'),
     ('flare', r'\b(glare|blinding|dazzl\w*|solar flare\w*|brightest|glint\w*)\b', None),
     ('rainbow', r'\b(rainbow\w*|prism\w*|spectrum)\b', None),
     ('searchlight', r'\b(searchlight\w*|spotlight\w*|radar|lighthouse\w*|patrol\w*)\b', None),
@@ -705,11 +806,11 @@ FX_WORDS = [(k, _re.compile(p, _re.I), bg) for k, p, bg in FX_WORDS]
 # ambient rotation per palette when no word applies: every second picture (k % 2 == 0) gets the next kind of its palette's list (by k // 2)
 FX_AMBIENT = {
     'ocean': ['bubbles', 'plankton', 'fish', 'ripples'], 'forest': ['pollen', 'leaves', 'seeds', 'spores'], 'desert': ['sand', 'heat', 'rays'],
-    'ice': ['snow', 'frost', 'fog'], 'storm': ['windlines', 'fog', 'rain', 'ash'], 'history': ['fog', 'rays', 'lightleak'], 'sunset': ['lightleak', 'petals', 'rays'],
+    'ice': ['snow', 'frost', 'fog', 'crystals'], 'storm': ['windlines', 'fog', 'rain', 'ash'], 'history': ['fog', 'rays', 'lightleak', 'paperbits'], 'sunset': ['lightleak', 'petals', 'rays', 'horizonglow'],
     'lab': ['scanlines', 'germs'], 'body': [], 'space': ['twinkle', 'meteors'], 'deepfield': ['twinkle', 'meteors'], 'nebula': ['twinkle', 'aurora'],
     'aurora': ['aurora', 'twinkle'], 'solar': ['flare', 'sparks'],
 }
-NIGHT_ONLY = {'twinkle', 'fireflies', 'bats', 'meteors', 'aurora', 'lanterns', 'searchlight', 'spotlight'}
+NIGHT_ONLY = {'twinkle', 'fireflies', 'bats', 'meteors', 'aurora', 'lanterns', 'searchlight', 'spotlight', 'bokeh'}
 # legacy names kept for build3 (flash word timing)
 FLASHW = FX_WORDS[0][1]
 
@@ -839,6 +940,13 @@ def fx_markup(nn, kind, W, H, bgmode='night', wind=1, travel=0):
             else:
                 x = W * (.3 + ((i * .618) % 1) * .4); r = 14 + (i * 3 % 5) * 5
                 g.append(f'<circle id="{I}p{i}" cx="{x:.0f}" cy="{H * .9:.0f}" r="{r}" fill="{col}" opacity=".35"/>')
+    elif kind == 'eclipse':   # a bright disc high in the frame and a dark disc that crosses it (2026-11-05, guideline 4-13)
+        r = H * .11; cx = W * .5 if nn % 2 == 0 else W * .62; cy = H * .2
+        g.append(f'<circle id="{I}s" cx="{cx:.0f}" cy="{cy:.0f}" r="{r:.0f}" fill="{"#fff3c4" if ci else "#f6c948"}" opacity="{.9 if ci else .55}"/>')
+        g.append(f'<circle id="{I}m" cx="{cx - 3 * r:.0f}" cy="{cy:.0f}" r="{r * .96:.0f}" fill="{"#0b0d16" if ci else "#4a4030"}" opacity=".96"/>')
+    elif kind == 'horizonglow':   # a glowing band on the horizon line (lower third) that breathes
+        g.append(f'<defs><linearGradient id="{I}g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="{"#ff9a5c" if ci else "#f2b84a"}" stop-opacity="0"/><stop offset="60%" stop-color="{"#ff9a5c" if ci else "#f2b84a"}" stop-opacity="{.42 if ci else .26}"/><stop offset="100%" stop-color="{"#ff9a5c" if ci else "#f2b84a"}" stop-opacity="0"/></linearGradient></defs>')
+        g.append(f'<rect id="{I}b" x="0" y="{H * .52:.0f}" width="{W}" height="{H * .22:.0f}" fill="url(#{I}g)"/>')
     elif kind == 'heat':
         for i in range(8):
             y = H * (.35 + i * .07); d = ' '.join(f'{"M" if j == 0 else "L"}{W * j / 16:.0f} {y + (6 if j % 2 else -6):.0f}' for j in range(17))
@@ -952,6 +1060,11 @@ def fx_js(nn, kind, v0, t1, H, flash_t=None, W=1920, wind=1, travel=0):
         for i in range(9):
             per = 3 + (i * .5) % 2; off = (i * .618) % 1 * per
             js.append(f'tl.fromTo("#{I}p{i}",{{y:0,scale:.6,opacity:.35,transformOrigin:"50% 50%"}},{{y:{-H * .7:.0f},scale:2.2,opacity:0,duration:{per:.2f},ease:"sine.out",repeat:{R(per, off)},immediateRender:false}},{v0 + off:.3f});')
+    elif kind == 'eclipse':   # the dark disc crosses the bright one over the whole stay (never past the cut)
+        js.append(f'tl.fromTo("#{I}m",{{x:0}},{{x:{H * .11 * 6:.0f},duration:{max(sp - .4, 1):.2f},ease:"none",immediateRender:false}},{v0 + .2:.3f});')
+        js.append(f'tl.fromTo("#{I}s",{{opacity:.9}},{{opacity:.35,duration:{max(sp - .4, 1) / 2:.2f},yoyo:true,repeat:1,ease:"sine.inOut",immediateRender:false}},{v0 + .2:.3f});')
+    elif kind == 'horizonglow':   # the band breathes slowly
+        js.append(f'tl.fromTo("#{I}b",{{scaleY:1,transformOrigin:"50% 50%"}},{{scaleY:1.25,duration:3.2,yoyo:true,repeat:{R(3.2)},ease:"sine.inOut",immediateRender:false}},{v0:.3f});')
     elif kind == 'heat':   # shimmer lines wobble sideways and drift up
         for i in range(8):
             js.append(f'tl.fromTo("#{I}p{i}",{{x:-8}},{{x:8,duration:{.5 + (i % 3) * .15:.2f},yoyo:true,repeat:{R(.5 + (i % 3) * .15)},ease:"sine.inOut",immediateRender:false}},{v0:.3f});')
@@ -1123,6 +1236,24 @@ function miyaPath(tl,g,d,t0,dur,rot,rot0,ez){
  var M=miyaM(g),O=miyaPv(g,P0.x,P0.y);if(O==P0.x+' '+P0.y)M=null;gsap.set(g,{svgOrigin:O});   // origin set once: re-setting it every frame made turning objects drift
  function ap(k){var q=p.getPointAtLength(L*k),dx=q.x-P0.x,dy=q.y-P0.y;if(M){var ex=M.a*dx+M.c*dy,ey=M.b*dx+M.d*dy;dx=ex;dy=ey;}gsap.set(g,{x:dx,y:dy,rotation:rot?ang(k)-a0+(rot0||0):0});}
  tl.to(o,{k:1,duration:dur,ease:ez||miyaCruise,immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},t0);
+}
+// 2026-11-05 (guideline 4-13) spiral: drawn into (cx,cy) on a shrinking spiral, turns full turns, scale -> end; proxy + modifier (seek-safe, like miyaPath)
+function miyaSpiral(tl,g,cx,cy,turns,st,du,end){var t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'';if(t){t.style.display='block';t.style.visibility='hidden';}
+ var bb=g.getBBox(),ox=bb.x+bb.width/2,oy=bb.y+bb.height/2,m=miyaM(g);if(t){t.style.display=pd;t.style.visibility=pv;}
+ if(m){var det=m.a*m.d-m.b*m.c||1,px=cx-m.e,py=cy-m.f;cx=(m.d*px-m.c*py)/det;cy=(-m.b*px+m.a*py)/det;}
+ var dx=ox-cx,dy=oy-cy,R=Math.sqrt(dx*dx+dy*dy),a0=Math.atan2(dy,dx),o={k:0};gsap.set(g,{svgOrigin:ox+' '+oy});
+ function ap(v){var k=Math.max(0,Math.min(1,v));k=k*k;var r=R*(1-k),a=a0+turns*2*Math.PI*k,s=1-(1-end)*k;gsap.set(g,{x:cx+r*Math.cos(a)-ox,y:cy+r*Math.sin(a)-oy,scale:s});}
+ tl.to(o,{k:1,duration:du,ease:'none',immediateRender:false,modifiers:{k:function(v){ap(v);return v;}}},st);
+}
+// 2026-11-05 scatter / converge: the direct children fly out from the group centre (conv=0) or come in to their drawn places (conv=1), stagger .05
+function miyaScatter(tl,g,dist,st,du,conv){var t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'';if(t){t.style.display='block';t.style.visibility='hidden';}
+ var kids=Array.prototype.filter.call(g.children,function(e){return e.tagName!=='defs';}),n=kids.length;if(!n){if(t){t.style.display=pd;t.style.visibility=pv;}return;}
+ var bb=g.getBBox(),cx=bb.x+bb.width/2,cy=bb.y+bb.height/2;
+ kids.forEach(function(e,i){var b=e.getBBox(),ex=b.x+b.width/2-cx,ey=b.y+b.height/2-cy,L=Math.sqrt(ex*ex+ey*ey);if(L<1){var a=i*2.39996;ex=Math.cos(a);ey=Math.sin(a);L=1;}
+  var dx=dist*ex/L,dy=dist*ey/L;
+  if(conv)tl.fromTo(e,{x:dx,y:dy,opacity:0},{x:0,y:0,opacity:1,duration:du,ease:'power2.out',immediateRender:false},st+i*.05);
+  else tl.fromTo(e,{x:0,y:0},{x:dx,y:dy,opacity:.4,duration:du,ease:'power2.out',immediateRender:false},st+i*.05);});
+ if(t){t.style.display=pd;t.style.visibility=pv;}
 }
 // camera tracking: the camera centre follows an SVG path (same window and ease as the object), zooming in at the start and out at the end
 function miyaTrack(tl,wsel,d,t0,dur,sc,W,H,ease,WW,WH){

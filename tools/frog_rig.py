@@ -57,6 +57,12 @@ def obj_span(kind, at):
     if kind == 'magnet': return f('delay', .3), f('dur', .9)
     if kind == 'hop': return f('delay', .3), f('per', 1.4)
     if kind == 'drip': return f('delay', .3), f('per', 1.8)
+    # 2026-11-05 (guideline 4-13): the new one-shot kinds
+    if kind == 'nudge': return f('delay', .3), .4
+    if kind == 'hatch': return f('delay', .3), f('dur', .8)
+    if kind == 'lift': return f('delay', .3), f('dur', 1.2)
+    if kind in ('scatter', 'converge'): return f('delay', .3), f('dur', .9)
+    if kind == 'teeter': return f('delay', .3), f('dur', 2.4)
     return None
 
 
@@ -579,6 +585,44 @@ CONCEPT_ACTS = {
  'rubbelly':    dict(ra=(60, 80, .6), la=20, body=({'rotation': -2}, {'rotation': 2}, 1.2), head=(5, 1.2), mood='happy', mouth=5),                                      # rubs its belly (food)
 }
 COSTUME_ACTS.update(CONCEPT_ACTS)
+# 2026-11-05 (miya: "개구리가 오브젝트 모션을 아무 의미 없이 따라한다"): RESPONSE acts — the frog stands BESIDE a pulsing / swelling / trembling / wobbling centre object
+# and reacts to it instead of riding it (frog_place.pulse_response, guideline 7-2 L). Periods match motions.core_js (heartbeat 1.6 s calm, swell 2.2 s, wobble 2.0 s).
+RESPONSE_ACTS = {
+ 'heartlisten': dict(ra=-135, la=15, head=(6, 1.6), body=({'rotation': 4, 'x': 2}, {'rotation': 7, 'x': 4}, 1.6), mood='curious', mouth=3),                               # hand to its ear, leans in: "thump... thump"
+ 'backstep':    dict(ra=-50, la=-30, legs=('brace', -14, 12), body=({'x': 0, 'rotation': 0}, {'x': -12, 'rotation': -8}, 2.2), head=(-4, 2.2), mood='surprised', mouth=6),  # steps back as it swells, forward as it shrinks
+ 'bracehold':   dict(ra=-70, la=70, legs=('brace', -24, 20), body=({'rotation': -1.5, 'y': 0}, {'rotation': 1.5, 'y': 1}, .12), mood='worried', mouth=4),                   # arms out, knees bent, shaken with it
+ 'steadyit':    dict(ra=(-85, -95, 1.0), la=(-60, -75, 1.0), legs=('brace', -12, 10), body=({'rotation': 6, 'x': 3}, {'rotation': 10, 'x': 5}, 2.0), head=(5, 2.0), mood='worried', mouth=5),   # both hands toward the wobbling thing
+ # ---- 8 more generic acts for the concept pools / camera rules ----
+ 'lookup':      dict(head=(-10, 2.6), ra=20, la=-20, body=({'rotation': -3}, {'rotation': -5}, 2.6), mood='curious', mouth=5),                                             # looks up (rain / snow / something above)
+ 'holdhat':     dict(ra=-150, la=20, legs=('brace', -10, 8), body=({'rotation': -6, 'x': -3}, {'rotation': -10, 'x': -5}, .5), mood='squint', mouth=3),                      # holds its hat on in a gust / a push
+ 'tapfoot':     dict(ra=100, la=-100, legs=('tap', 14, .5), head=(3, 1.0), body=({'rotation': 0}, {'rotation': 1}, 1.0), mood='bored', mouth=2),                            # arms folded, foot tapping (waiting)
+ 'squintfar':   dict(ra=-120, la=20, head=(-3, 2.0), body=({'rotation': -2, 'x': 0}, {'rotation': -4, 'x': 4}, 2.0), mood='squint', mouth=3),                               # hand over the eyes, peering far
+ 'kneel':       dict(legs=('tuck', 40, 0), body=({'y': 10, 'scaleY': .9}, {'y': 11, 'scaleY': .9}, 2.0), ra=-40, la=40, head=(8, 2.0), mood='curious', mouth=4),            # kneels to look at something small
+ 'sniffair':    dict(head=(-6, .6), ra=10, la=-10, body=({'rotation': -2}, {'rotation': 2}, .6), mood='suspicious', mouth=2),                                               # sniffs the air
+ 'stepaside':   dict(legs=('brace', -10, 8), body=({'x': 0}, {'x': -18, 'rotation': -4}, 1.2), ra=-30, la=30, head=(-4, 1.2), mood='worried', mouth=4),                    # makes room, steps to the side
+ 'armsfold':    dict(ra=100, la=-100, head=(4, 1.8), body=({'rotation': 1}, {'rotation': -1}, 1.8), mood='suspicious', mouth=2),                                            # arms folded, unconvinced
+}
+COSTUME_ACTS.update(RESPONSE_ACTS)
+# 2026-11-05 (miya: "개구리 모션들도 더 많이 추가"): 15 more generic acts for the concept pools, the camera rules and the response table (guideline 7-2 L-5)
+CAMERA_ACTS = {
+ 'leanin':     dict(ra=-40, la=20, legs=('brace', -8, 10), body=({'rotation': 6, 'x': 3}, {'rotation': 9, 'x': 5}, 2.4), head=(4, 2.4), mood='curious', mouth=4),               # leans in toward the thing
+ 'crouchlook': dict(legs=('tuck', 36, 0), body=({'y': 8, 'scaleY': .92, 'rotation': 5}, {'y': 9, 'scaleY': .92, 'rotation': 7}, 1.8), ra=-60, la=-20, mood='curious', mouth=3),  # crouches to look at something low
+ 'backaway':   dict(legs=('cycle', 14, .6), travel=-.35, hop=(3, .6), ra=-70, la=70, body=({'rotation': -8}, {'rotation': -11}, .6), mood='scared', mouth=7),                  # backs away step by step (arms up)
+ 'scratchhead': dict(ra=(-150, -165, .3), la=10, head=(5, 1.8), body=({'rotation': 3}, {'rotation': 4}, 1.8), mood='confused', mouth=3),                                      # scratches its head
+ 'hugself':    dict(ra=120, la=-120, body=({'scaleY': 1, 'x': -1}, {'scaleY': .97, 'x': 1}, .5), head=(-3, 1.0), mood='chilly', mouth=2),                                        # hugs itself (cold / lonely / empty)
+ 'headshake':  dict(head=(9, .35), ra=10, la=-10, body=({'rotation': 0}, {'rotation': -2}, 1.4), mood='worried', mouth=3),                                                     # shakes its head: no, no
+ 'nodyes':     dict(head=(7, .4), ra=-20, la=20, body=({'y': 0}, {'y': 2}, .8), mood='happy', mouth=4),                                                                        # nods along: yes, yes
+ 'stompfoot':  dict(legs=('tap', 26, .7), ra=-60, la=-60, body=({'rotation': 3, 'y': 0}, {'rotation': 5, 'y': 2}, .7), mood='determined', mouth=6),                             # stamps a foot (effort / building / insisting)
+ 'wavebye':    dict(ra=(-150, -175, .3), la=15, body=({'rotation': -3, 'x': -2}, {'rotation': 3, 'x': 2}, 1.2), head=(-4, 1.2), mood='happy', mouth=5),                         # waves goodbye after something that leaves
+ 'shrugbig':   dict(ra=(-80, -100, 1.0), la=(80, 100, 1.0), body=({'y': 0, 'scaleY': 1}, {'y': -3, 'scaleY': 1.02}, 1.0), head=(6, 2.0), mood='confused', mouth=4),            # a big slow shrug
+ 'swingarms':  dict(ra=(-20, -70, .5), la=(70, 20, .5), legs=('tap', 10, .5), body=({'rotation': -2}, {'rotation': 2}, .5), mood='happy', mouth=5),                             # swings its arms happily (a tune, a celebration)
+ 'bowhead':    dict(head=(14, 3.0), ra=20, la=-20, body=({'rotation': 4, 'y': 1}, {'rotation': 5, 'y': 2}, 3.0), mood='sleepy', mouth=2),                                       # head bows slowly (respect / tiredness / ages passing)
+ 'peekover':   dict(legs=('tuck', 10, 0), rise=-14, body=({'y': 0, 'rotation': -3}, {'y': -6, 'rotation': -3}, 1.6), ra=-100, la=100, head=(-5, 1.6), mood='curious', mouth=5),  # stretches up to peek over something
+ 'tiptoeback': dict(legs=('cycle', 10, .9), travel=-.3, hop=(2, .9), ra=-30, la=30, body=({'rotation': -4, 'scaleY': 1.02}, {'rotation': -6, 'scaleY': 1.03}, .9), mood='suspicious', mouth=2),   # tiptoes backwards (slow / sneaky retreat)
+ 'rockheels':  dict(ra=100, la=-100, body=({'rotation': -3, 'y': 0}, {'rotation': 3, 'y': -1}, 1.4), head=(3, 2.8), legs=('brace', -6, 6), mood='happy', mouth=3),              # rocks on its heels, content
+}
+COSTUME_ACTS.update(CAMERA_ACTS)
+
 # hand-written locomotion acts (frog_rig.contact_js handles them): real swimming, climbing, a running leap, hanging by one hand and slipping,
 # skating, a somersault, sneaking, crawling, log-rolling, tightrope walking
 LOCO = ('swimstroke', 'climb', 'leap', 'dangle', 'skate', 'somersault', 'tiptoe', 'crawl', 'logroll', 'tightrope')
@@ -599,9 +643,12 @@ OUTFIT_SAYS = {'castspell': 'Abracadabra!', 'charge': 'Chaaarge!', 'stir': 'Mmm!
                'coverears': 'Too loud!', 'limp': 'Ow, ow.', 'sniff': 'Ahh~', 'paint': 'Hmm, hmm.', 'windbrella': 'Whoa-oa!', 'juggle': 'Ta-da!', 'hideshell': 'Eep.', 'pray': '...', 'tosscap': 'Hooray!',
                'dig2': 'Dig, dig!', 'stretchlegs': 'Ahh...', 'bob': 'Blub!', 'swimstroke': 'Blub blub!', 'climb': 'Up we go!', 'leap': 'Wheee!', 'dangle': 'Uh-oh...', 'skate': 'Wheee!',
                'somersault': 'Ta-da!', 'tiptoe': 'Shh...', 'crawl': 'Hup...', 'logroll': 'Waaah!', 'tightrope': 'Steady...',
+               'leanin': 'Hm?', 'crouchlook': 'Ooh.', 'backaway': 'Back, back!', 'scratchhead': 'Huh?', 'hugself': 'Brr...', 'headshake': 'No way...', 'nodyes': 'Yes, yes!', 'stompfoot': 'Hup!',
+               'wavebye': 'Bye bye!', 'shrugbig': 'Who knows?', 'swingarms': 'La la~', 'bowhead': '...', 'peekover': 'Psst?', 'tiptoeback': 'Shh...', 'rockheels': 'Hm-hm~',
                'zerogroll': 'Wheee...', 'jetpack': 'Whoosh!', 'moonbounce': 'Boing!', 'plantflag': 'Mine!', 'starcatch': 'Gotcha!', 'pushoff': 'Hup!', 'helmetwipe': 'Phew.', 'countstars': 'So many...',
                'magnetwalk': 'Clunk, clunk.', 'sunshade': 'Bright!', 'measure': 'This big!', 'shrinkdown': 'Tiny...', 'growtall': 'Huge!', 'stretchwide': 'Whoa!', 'speedrun': 'Zoom!', 'slowwalk': 'Sooo slow...',
                'peer': 'Hmm?', 'binocs': 'Ooh!', 'present': 'Ta-da!', 'countfingers': 'One, two...', 'hug': 'Mm.', 'gasp': 'Oh!', 'chinrub': 'Hmm...', 'pacing': 'Hmm, hmm.', 'oldman': 'Creak...', 'leanback': 'Whoa!',
+               'heartlisten': 'Thump... thump.', 'backstep': 'Whoa, it grows!', 'bracehold': 'Steady...!', 'steadyit': 'Careful!', 'lookup': 'Hm?', 'holdhat': 'Whoa!', 'tapfoot': '...', 'squintfar': 'Hmm...', 'kneel': 'Tiny!', 'sniffair': 'Sniff.', 'stepaside': 'Oops.', 'armsfold': 'Really?',
                'pushaway': 'Hnng!', 'pointfar': 'There!', 'spinaround': 'Whee-ee!', 'duck': 'Eek!', 'cupshout': 'Hellooo!', 'wavebig': 'Hi!', 'fan': 'Phew...', 'rubbelly': 'Yum!'}
 
 
