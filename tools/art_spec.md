@@ -42,22 +42,32 @@ Abstract ideas: symbolic (sand drift, stacked layers, rain of dots), never rings
 - Consecutive units change viewpoint/subject (wide -> close -> diagram -> person): new shots, same world.
 - Important content in x 120..1800, y 80..880, not in the bottom 200 px; top-right 160x160 empty (logo). "slide": none in the far left/right 150 px.
 
-## 6A. Hands — MANDATORY (2026-10-17)
-Hands needing fingers (6B) only via `tools/hands.py`, never free-hand; other hands simple and round.
+## 6A. Hands — MANDATORY (2026-10-17; 2026-11-05 pre-drawn library, miya: "agents draw hands badly"; people stay as they are)
+Every visible hand comes from `tools/figlib.py` (`hand()`, 12 poses confirmed by miya as round 7B), never free-hand and no longer from
+`tools/hands.py` (kept only for old pictures and thumbnails that already use it).
 ```python
-import sys; sys.path.insert(0, 'tools')  # run from the repo root; from hands import hand
-svg += hand(x, y, angle, size, side='L'|'R', view='palm'|'back', pose='open'|'flat'|'wave'|'point'|'fist'|'hold', skin=..., line=...)
+import sys; sys.path.insert(0, 'tools')  # run from the repo root
+from figlib import hand, HAND_POSES
+svg += hand('point_up', x, y, size=36, side='R', rot=-15, skin=..., line=...)
 ```
-(x, y) wrist, `angle` finger direction (0 = up, clockwise), `size` palm length px. Built in: middle finger ~ palm; thumb low on the palm
-side, out 22-40 deg, tip ~ index knuckle, never hooked/bent back/longer than the index; side follows L/R and palm/back. `body.arm()` puts the hand in the forearm link. Stencils (cave art): `hand(...)` in stencil colour or as mask. Gloves/mittens
-may be free-hand. Missing pose: rotate/scale a module pose, never invent a thumb. Check every hand at 100 % zoom.
+(x, y) wrist, `size` palm height px (a figure's hand is about 0.3 H), `rot` finger direction (0 = up, clockwise), `side` = the figure's
+hand ('R' is on the VIEWER'S LEFT when the figure faces us; each pose is drawn for its natural side and mirrored for the other).
+Poses: `open` (palm to the viewer), `fist`, `point_up`, `peace`, `point_side` (index away from the body), `side_up` (raised palm,
+wave/stop), `hang` (relaxed, fingers down), `cup` (palm up, offering), `claw` (grab from above), `reach` (spread, back of the hand),
+`fist_side`, `hold` (grip; the thumb is hidden, draw the stick/handle yourself through the fist, behind the hand). Pick the pose
+from the sentence: pointing -> point_up/point_side, holding -> hold (object behind), giving/receiving -> cup, hello/stop -> side_up,
+grabbing -> claw, idle -> hang. Look: round palm, four short chubby fingers, ONE thick outer outline, only thin lines between
+fingers, no joint lines, short straight thumb. Hands holding complex objects (bottles, brushes) are NOT drawn (miya 2026-11-05):
+show the object beside the hand or use `hold` with a simple stick. Stencils (cave art): `hand('open', ...)` in the stencil colour.
+Check every hand at 100 % zoom; `python3 tools/figcheck.py <slug> <uid..>` lists hand groups that did not come from figlib.
 
 ## 6B. People: proportions and arms — MANDATORY (2026-10-17)
 Cute style (not realistic jointed elbows, not free-hand over-long arms).
 - `P` in `tools/body.py`: **adult `kind='cute'` 5.5 head heights, child `'cute_child'` 4.5** (big head, short limbs). Hanging arm: fingertips at top/middle of thigh, never knee. Realistic 'adult' (7.5) only if truly needed.
 - Every human arm via `body.arm(...)` (hand included): ONE smooth tapered curve, no elbow shown, one `mv-limb` link from the shoulder. `elbow_moves=True` (upper arm + forearm links) ONLY where the forearm swings (waving, hammering, writing). Elbows fold 0-140 deg one way, never backwards. Holding/pressing arms: `amp=(0, 0)`.
 - Shoulders inside the torso corners (`shoulders()`); facing us, the figure's right arm is on our left.
-- Hands **round by default** (`fingers=False`); `fingers=True` ONLY for pointing, gripping a visible object, waving close-up, hand as the subject, stencils/icons.
+- Hands **round by default** (`fingers=False`); `fingers=True` ONLY for pointing, gripping a visible object, waving close-up, hand as the subject, stencils/icons — since 2026-11-05 `fingers=True` draws a `figlib` hand (6A; `pose` = a figlib pose name or an old alias flat/wave/point/hold), or pass `hand_fn`.
+- Optional helper (NOT required, miya 2026-11-05: existing people are fine): `figlib.person(cx, base, H, pose=..., hair_style=..., face=..., skin=...)` draws a whole channel-style figure (14 poses) with `body.arm` arms and figlib hands; sheet `python3 tools/figlib.py /tmp/fig`.
 - No `mv-chain` on human arms (tails/tentacles only). Reference sheet: `python3 tools/body.py /tmp/b.svg`.
 
 ## 7. Motion groups

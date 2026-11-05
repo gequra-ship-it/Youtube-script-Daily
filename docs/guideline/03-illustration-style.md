@@ -6,7 +6,7 @@
 - **배경은 장면마다 하나**: 종이(`paper_base`, 가는 연필 선) / 밤(`night_top`→`night_bottom`, 은은한 비네팅) / 노을(`dusk_stops` 3색). 색은 영상 팔레트에서(3-5). 영상 전체에서 섞되 한쪽이 절반을 넘지 않게.
 - **선**: 얇은 손그림 선 2.5~4px(주인공만 6px까지), 곡선은 약간 흔들리게. 종이는 `paper_ink`, 밤은 `night_line`·`night_glow`.
 - **음영**: 큰 형태는 부드러운 그라데이션·글로우, 질감은 해칭. 팔레트 강조색 4개를 주로.
-- **인물**: 단순하고 품위 있는 실루엣, 점 눈, 절제된 표정, 다양한 피부색. **사람 비율·팔·손 (2026-10-17, `tools/art_spec.md` 6A·6B)**: 귀여운 비율(성인 5.5등신·아이 4.5등신, `tools/body.py`의 `kind='cute'` 기본), 팔은 관절이 보이지 않는 한 덩어리 곡선(`body.arm`), 팔꿈치는 아래팔이 실제로 움직일 때만(`elbow_moves=True`). 보이는 손은 모두 `tools/hands.py`(해부학 비율 6자세)로, 기본은 둥근 손이고 손가락은 필요한 장면(가리키기·쥐기·손 흔드는 클로즈업·손이 주제·손 자국)에서만. 사람 팔 움직임은 `mv-limb`(꼬리처럼 휘는 `mv-chain` 금지).
+- **인물**: 단순하고 품위 있는 실루엣, 점 눈, 절제된 표정, 다양한 피부색. **사람 비율·팔·손 (2026-10-17, `tools/art_spec.md` 6A·6B)**: 귀여운 비율(성인 5.5등신·아이 4.5등신, `tools/body.py`의 `kind='cute'` 기본), 팔은 관절이 보이지 않는 한 덩어리 곡선(`body.arm`), 팔꿈치는 아래팔이 실제로 움직일 때만(`elbow_moves=True`). **손가락이 보이는 손은 미리 그려 둔 `tools/figlib.py` `hand()` 12동작에서 가져온다(2026-11-05, miya 확정 7차B)**: 둥근 손바닥·짧은 손가락·굵은 바깥 윤곽 하나·관절선 없음·짧고 곧은 엄지, 옆주먹·쥐기는 엄지 숨김. `body.arm(fingers=True)`도 이 손을 쓴다. 에이전트는 손을 직접 그리지 않고 물건을 쥔 복잡한 손도 그리지 않는다(막대는 `hold` 주먹 뒤로 통과). 사람 몸 규칙은 기존대로(miya: 기존 사람 그림은 괜찮음; `figlib.person()`은 선택 도구). `tools/figcheck.py`가 라이브러리 밖에서 그린 손 그룹을 적어 준다(`final_check` WARN). 옛 `tools/hands.py`는 이미 쓴 그림·썸네일에만. 사람 팔 움직임은 `mv-limb`(꼬리처럼 휘는 `mv-chain` 금지).
 - 그림(SVG) 안에는 글자·숫자를 그리지 않는다(간판 포함). 글자는 3-6 화면 텍스트 층으로.
 
 ### 3-2. 물체 위치 규칙 (2026-10-22 사용자 결정: 가운데 원형 고정 해제)
@@ -72,3 +72,4 @@ one bright focal object (position per guideline 3-2; a round object at the centr
 
 개정: 2026-10-27 (miya) 3-6 5번: 움직이는 오브젝트의 라벨·말풍선은 오브젝트를 따라감(`motions.miyaFollow`·`miyaFollowInit`, build3 `MOVING`).
 개정: 2026-10-29 (miya, 오픈소스 통합) 3-6 6번: 라벨 픽토그램(lucide)·ScrambleText·TextPlugin·SplitText·스프링 등장을 단어 규칙으로 추가(4-6 표, `tools/fxlib.py`·`labels_lib.py`).
+개정: 2026-11-05 (miya, 손 미리 그리기) 3-1 인물: `tools/figlib.py` 손 12동작(7차B)을 필수로, 사람 규칙은 그대로(`figlib.person()`은 선택), art_spec 6A 개정, `tools/figcheck.py` 추가.

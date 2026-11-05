@@ -3,8 +3,9 @@
 - Proportions: cute (body.py default `kind='cute'` adult 5.5 H, `'cute_child'` 4.5 H). OLD pictures: start from your orig/ copies and keep
   the original heads and bodies (they are already cute); fix only clearly broken bodies. NEW pictures: switch your figure helper to cute.
 - Arms: `body.arm(...)` = one smooth path per arm, no visible elbow, one mv-limb link. `elbow_moves=True` only where the forearm really swings.
-- Hands: ROUND by default (`fingers=False`). `fingers=True` only where needed: pointing, gripping a visible object, waving close-up,
-  a hand that is the subject of the sentence, hand stencils/icons.
+- NEW (2026-11-05, miya): every hand with fingers comes from `tools/figlib.py` `hand(pose, x, y, size, side, rot)` (12 poses, art_spec 6A; `body.arm(fingers=True)`
+  uses it too). Never draw a hand free-hand, never a hand holding a complex object. People stay as they are (optional `figlib.person()`).
+  `python3 tools/figcheck.py <slug> <uids>` must list none of yours.
 - Write the final files to the repo art3 (your own uids only). Keep sidecars valid (labels/focus that pointed at moved hands).
 - Checks: XML valid, your pose check or mvcheck, labelshot if labels moved, ONE build into your scratch dir (fallback 0), ONE
   before/after contact sheet that you look at. No extra preview rounds unless something is broken.
