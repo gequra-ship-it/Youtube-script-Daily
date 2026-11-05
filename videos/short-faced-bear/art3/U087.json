@@ -1,0 +1,67 @@
+{
+ "centre": "an energy gauge dial in the middle with its needle stuck low, a huge Arctodus on the left, a tiny mouse and a berry bush on the right",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "iris": [
+  1420,
+  780
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "mice",
+   "x": 1240,
+   "y": 680,
+   "to": [
+    1310,
+    815
+   ],
+   "word": "mice"
+  },
+  {
+   "type": "name",
+   "text": "berries",
+   "x": 1560,
+   "y": 640,
+   "to": [
+    1500,
+    770
+   ],
+   "word": "berries"
+  }
+ ],
+ "motion": "hop: a tiny mouse hops (small prey); joint: the gauge needle twitches near empty (energy math)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "A bear",
+    "mood": "worried"
+   }
+  ],
+  "act": "shiver",
+  "x": 820,
+  "y": 560,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "outfit": [
+   "scarf",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Gulp.",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

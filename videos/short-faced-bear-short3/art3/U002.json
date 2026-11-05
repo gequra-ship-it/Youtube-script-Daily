@@ -1,0 +1,57 @@
+{
+ "centre": "glowing round-bottom chemistry flask on a lab bench, a fossil bone on a tray, a pipette dripping into test tubes, a framed Arctodus on the wall",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Arctodus",
+   "x": 840,
+   "y": 300,
+   "to": [
+    640,
+    450
+   ],
+   "word": "Arctodus"
+  }
+ ],
+ "motion": "flask approach (calm core), bubbles rise in the flask, pipette drips into a test tube (moving prop)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Scientists turned",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-pipette-drop",
+   "serious": false
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 850,
+  "y": 1045,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
+}

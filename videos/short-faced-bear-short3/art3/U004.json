@@ -1,0 +1,47 @@
+{
+ "centre": "a stacked food web (grass, mammoths, dire wolf and saber cat); an Arctodus token climbs the level scale on the left to near the top",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
+ "labels": [
+  {
+   "type": "name",
+   "text": "food web",
+   "x": 580,
+   "y": 560,
+   "to": [
+    580,
+    700
+   ],
+   "word": "food web"
+  }
+ ],
+ "motion": "Arctodus token rises up the scale (mv-path), food-web arrows march (dash)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "eat",
+  "ride": "mv-path-rise-arctodus-token",
+  "kind": "ride",
+  "x": 250,
+  "y": 1336,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Nom nom.",
+    "shout": false
+   }
+  ]
+ }
+}

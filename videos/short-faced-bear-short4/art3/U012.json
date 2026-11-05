@@ -1,0 +1,63 @@
+{
+ "centre": "a vertical line-up of the big plant-eaters: a giant ground sloth, a western camel and a mammoth, popping in one by one",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "ground sloths",
+   "x": 720,
+   "y": 420,
+   "to": [
+    360,
+    520
+   ],
+   "word": "ground sloths"
+  },
+  {
+   "type": "name",
+   "text": "western camels",
+   "x": 330,
+   "y": 800,
+   "to": [
+    650,
+    880
+   ],
+   "word": "western camels"
+  },
+  {
+   "type": "name",
+   "text": "mammoths",
+   "x": 830,
+   "y": 1140,
+   "to": [
+    560,
+    1230
+   ],
+   "word": "mammoths"
+  }
+ ],
+ "motion": "popin x3 timed to each animal name, joints on tails/arms/necks/trunk",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "x": 260,
+  "y": 840,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

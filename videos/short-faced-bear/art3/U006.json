@@ -1,0 +1,46 @@
+{
+ "centre": "a bear family tree drawing itself up from deep rock layers, small bear heads on the branch tips, the giant Arctodus head at the top",
+ "motion": "draw (family tree) + core glide (Arctodus head) + blink",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "bear family",
+   "x": 1300,
+   "y": 820,
+   "to": [
+    990,
+    860
+   ],
+   "word": "bear family"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "The bear",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "ride": "mv-core-glide-arctodus-head",
+  "kind": "ride",
+  "x": 1539,
+  "y": 210,
+  "s": 1.0,
+  "flip": -1,
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": -1
+ }
+}

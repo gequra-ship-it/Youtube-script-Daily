@@ -1,0 +1,45 @@
+{
+ "centre": "a lone Arctodus walking away across the dusk snow and slowly fading, a small human camp with smoke behind it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "iris": [
+  1400,
+  640
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "humans",
+   "x": 330,
+   "y": 420,
+   "to": [
+    300,
+    640
+   ],
+   "word": "humans"
+  }
+ ],
+ "motion": "fade: the Arctodus fades as it walks away (could not hold on); smoke and flicker: the human campfire",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

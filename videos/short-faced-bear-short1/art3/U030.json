@@ -1,0 +1,42 @@
+{
+ "centre": "dreamlike: a translucent Arctodus gallops across the open plain toward bison in the haze, speed streaks behind",
+ "motion": "path (running bear) + dash (speed streaks) + galloping leg joints",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pleistocene plains",
+   "x": 640,
+   "y": 640,
+   "to": [
+    925,
+    1080
+   ],
+   "word": "Pleistocene plains"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-path-arctodus-bear-run",
+  "kind": "ride",
+  "x": 639,
+  "y": 884,
+  "s": 1.44,
+  "flip": 1,
+  "bside": -1,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": []
+ }
+}

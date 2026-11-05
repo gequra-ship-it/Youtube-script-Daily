@@ -1,0 +1,31 @@
+{
+ "centre": "the same fossil leg bone, linked to a caliper above, a chemistry flask and a computer model below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "chemistry",
+   "x": 300,
+   "y": 980,
+   "to": [
+    300,
+    1180
+   ],
+   "word": "chemistry"
+  },
+  {
+   "type": "name",
+   "text": "computer models",
+   "x": 770,
+   "y": 960,
+   "to": [
+    770,
+    1100
+   ],
+   "word": "computer models"
+  }
+ ],
+ "motion": "match transition (same bone), mv-core-glide bone, mv-nudge caliper jaw, mv-bubble flask, mv-draw wireframe on the monitor"
+}

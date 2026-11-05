@@ -1,0 +1,52 @@
+{
+ "centre": "a dreamy dashed thought-cloud above two early paleontologists: a translucent Arctodus racing across open Pleistocene plains (hypothesis)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pleistocene plains",
+   "x": 1250,
+   "y": 830,
+   "to": [
+    1250,
+    720
+   ],
+   "word": "Pleistocene plains"
+  },
+  {
+   "type": "say",
+   "text": "Built to run?",
+   "x": 220,
+   "y": 520,
+   "to": [
+    210,
+    640
+   ]
+  }
+ ],
+ "motion": "path: ghost Arctodus runs right inside the dream (camera follows); dash: speed lines",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-path-run-arctodus-bear",
+  "kind": "ride",
+  "x": 737,
+  "y": 498,
+  "s": 1.44,
+  "flip": 1,
+  "bside": -1,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": []
+ }
+}

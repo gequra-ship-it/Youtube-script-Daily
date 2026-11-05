@@ -1,0 +1,44 @@
+{
+ "centre": "Arctodus on all fours fills a cabin doorway; its head is level with the parka hanging beside the door",
+ "motion": "swing (door on its hinge) + bear breathe/joints/blink",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Knock knock.",
+   "x": 560,
+   "y": 1000,
+   "to": [
+    430,
+    900
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-swing-door",
+  "kind": "ride",
+  "x": 134,
+  "y": 1400,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

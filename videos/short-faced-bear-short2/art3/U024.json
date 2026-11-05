@@ -1,0 +1,46 @@
+{
+ "centre": "close-up of heavy crushing molars on a jaw, with a ghosted dream cloud above showing a bear cracking a bone at old ribs",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "crushing teeth",
+   "x": 540,
+   "y": 1270,
+   "to": [
+    480,
+    1100
+   ],
+   "word": "crushing teeth"
+  }
+ ],
+ "motion": "mv-fade dream cloud in (ghosted, hedged 'imagined'), mv-shake dream bone, ghost bear head/leg joints, mv-core-glide teeth",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shrinkdown",
+  "ride": "mv-core-glide-crushing-teeth",
+  "kind": "ride",
+  "x": 283,
+  "y": 1091,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "lab",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "lock": true
+ }
+}

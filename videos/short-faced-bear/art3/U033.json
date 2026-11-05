@@ -1,0 +1,62 @@
+{
+ "centre": "a semi-translucent (claimed) chase: Arctodus galloping after wild horses and a young camel across the open plain, speed lines and dust",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "60 KM/H",
+   "word": "sixty kilometers"
+  },
+  {
+   "type": "name",
+   "text": "wild horses",
+   "x": 1430,
+   "y": 470,
+   "to": [
+    1400,
+    640
+   ],
+   "word": "wild horses"
+  },
+  {
+   "type": "name",
+   "text": "young camels",
+   "x": 900,
+   "y": 560,
+   "to": [
+    1090,
+    700
+   ],
+   "word": "young camels"
+  }
+ ],
+ "motion": "path: the prey and the bear run right (camera follows); dash: speed lines; rollby: tumbleweed",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-path-run-horse-herd",
+  "kind": "ride",
+  "x": 936,
+  "y": 858,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
+}

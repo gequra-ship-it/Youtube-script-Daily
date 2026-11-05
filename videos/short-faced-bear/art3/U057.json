@@ -1,0 +1,48 @@
+{
+ "centre": "a wide Ice Age landscape offering different foods (berry patch, river with leaping salmon, old bones, roots) while the Arctodus walks across it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": {
+  "scale": 1.2
+ },
+ "labels": [
+  {
+   "type": "name",
+   "text": "Varied diet",
+   "x": 760,
+   "y": 470,
+   "to": [
+    740,
+    610
+   ],
+   "word": "varied diet"
+  }
+ ],
+ "motion": "bear walks along a path (camera tracks), salmon leaps (toss, moving prop)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "eat",
+  "ride": "mv-path-bear-walk",
+  "kind": "ride",
+  "x": 419,
+  "y": 614,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "lab",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Nom nom.",
+    "shout": false
+   }
+  ]
+ }
+}

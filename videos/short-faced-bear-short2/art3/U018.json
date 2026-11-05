@@ -1,0 +1,53 @@
+{
+ "centre": "old sepia poster of a long-legged galloping bear on a shelf that topples over beside a tape measure and caliper",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "running bear",
+   "x": 420,
+   "y": 540,
+   "to": [
+    420,
+    700
+   ],
+   "word": "running bear"
+  }
+ ],
+ "motion": "mv-topple poster (after 'did not survive'), mv-swing hanging tape measure",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "It simply",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swingride",
+   "obj": "mv-swing-measuring-tape"
+  },
+  "x": 824,
+  "y": 1391,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "ride",
+  "ride": "mv-swing-measuring-tape",
+  "behind": null,
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

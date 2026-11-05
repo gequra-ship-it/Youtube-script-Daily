@@ -1,0 +1,50 @@
+{
+ "centre": "the Arctic Ocean seen from above with its white sea-ice cap shrinking, a rising thermometer and a small polar bear looking up",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Arctic",
+   "x": 540,
+   "y": 470,
+   "to": [
+    540,
+    560
+   ],
+   "word": "Arctic"
+  }
+ ],
+ "motion": "sea-ice cap squeezes (shrinks); thermometer liquid fills up; top-down map",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck",
+   "obj": "mv-core-squeeze-sea-ice"
+  },
+  "outfit": [
+   "goggles",
+   "raincoat"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 353,
+  "y": 986,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

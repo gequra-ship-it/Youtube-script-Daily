@@ -1,0 +1,60 @@
+{
+ "centre": "a dark skua swoops in and snatches the fish a puffin caught; the fish flies from the puffin's beak toward the skua",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "iris": [
+  1250,
+  470
+ ],
+ "track": false,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Kleptoparasite",
+   "x": 1300,
+   "y": 220,
+   "to": [
+    1260,
+    440
+   ],
+   "word": "kleptoparasite"
+  },
+  {
+   "type": "say",
+   "text": "Hey! My fish!",
+   "x": 330,
+   "y": 470,
+   "to": [
+    525,
+    575
+   ]
+  }
+ ],
+ "motion": "fish tossed from beak to thief (moving prop), skua swoops along a short path flapping its wings",
+ "frog": {
+  "moods": [
+   {
+    "mood": "angry"
+   }
+  ],
+  "act": "eat",
+  "ride": "mv-path-swoop-skua-bird",
+  "kind": "ride",
+  "x": 1272,
+  "y": 278,
+  "s": 1.0,
+  "flip": -1,
+  "outfit": [
+   "scarf",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Munch munch.",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

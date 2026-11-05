@@ -1,0 +1,50 @@
+{
+ "centre": "a towering ice sheet dome at the Last Glacial Maximum with a small Arctodus walking on the frozen steppe below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "20,000 YEARS AGO",
+   "word": "twenty thousand"
+  },
+  {
+   "type": "name",
+   "text": "Last Glacial Maximum",
+   "x": 560,
+   "y": 400,
+   "to": [
+    560,
+    620
+   ],
+   "word": "Last Glacial Maximum"
+  }
+ ],
+ "motion": "path: small bear walks right along the ice front (leg joints); scale = ice wall vs bear",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-path-arctodus-bear",
+  "kind": "ride",
+  "x": 430,
+  "y": 1064,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ]
+ }
+}

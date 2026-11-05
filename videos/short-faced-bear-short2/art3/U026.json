@@ -1,0 +1,40 @@
+{
+ "centre": "Arctodus standing in a meadow under an arc of foods (berries, root, salmon, meat, plants) gathering in; a smooth molar beside",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "omnivore",
+   "x": 720,
+   "y": 860,
+   "to": [
+    560,
+    1040
+   ],
+   "word": "omnivore"
+  }
+ ],
+ "motion": "mv-converge food items into the arc, bear head/leg joints (idle)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck"
+  },
+  "x": 260,
+  "y": 840,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

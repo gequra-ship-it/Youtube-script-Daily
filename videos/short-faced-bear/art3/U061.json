@@ -1,0 +1,54 @@
+{
+ "centre": "dreamlike scene: the giant short-faced bear steps out of a mist bank toward the wolves' kill; pebbles bounce as the ground trembles; the wolves stare",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Uh-oh...",
+   "x": 1560,
+   "y": 470,
+   "to": [
+    1500,
+    590
+   ]
+  }
+ ],
+ "motion": "bear fades in from the mist with walking legs, pebbles bounce (moving prop)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "It does",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "bumped",
+   "obj": "mv-bouncing-pebble-stone",
+   "serious": false
+  },
+  "x": 940,
+  "y": 863,
+  "s": 1.09,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Boing!",
+    "shout": true
+   }
+  ]
+ }
+}

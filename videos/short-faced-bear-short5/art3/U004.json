@@ -1,0 +1,63 @@
+{
+ "centre": "a map of South America with the Andes ridge; a dashed cloud-forest route draws from a pin in Venezuela down to a pin in Bolivia",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Venezuela",
+   "x": 640,
+   "y": 330,
+   "to": [
+    371,
+    339
+   ],
+   "word": "Venezuela"
+  },
+  {
+   "type": "name",
+   "text": "Bolivia",
+   "x": 760,
+   "y": 780,
+   "to": [
+    419,
+    704
+   ],
+   "word": "Bolivia"
+  },
+  {
+   "type": "name",
+   "text": "Andes",
+   "x": 230,
+   "y": 1180,
+   "to": [
+    366,
+    972
+   ],
+   "word": "Andes"
+  }
+ ],
+ "motion": "route draws itself (draw), two map pins pop in; map composition",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "x": 260,
+  "y": 1560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "explorer",
+   "scarf"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "centre": "a map of the warming Arctic: the brown bear range creeps north toward the shrinking polar bear range and a ghosted contact zone appears between them",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "contact",
+   "x": 760,
+   "y": 1060,
+   "to": [
+    600,
+    910
+   ],
+   "word": "contact"
+  }
+ ],
+ "track": false,
+ "motion": "brown bear walks north along a dashed route (path); contact zone fades in; map composition",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-path-brown-bear",
+  "kind": "ride",
+  "x": 415,
+  "y": 1274,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

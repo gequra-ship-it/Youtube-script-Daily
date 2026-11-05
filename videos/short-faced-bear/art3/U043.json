@@ -1,0 +1,67 @@
+{
+ "centre": "a fossil bone glowing on a plinth in a storage room, surrounded by calipers, a computer model and chemistry glassware",
+ "motion": "core approach on the bone, caliper jaw slides, wireframe draws, flask bubbles",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "chemistry",
+   "x": 1300,
+   "y": 860,
+   "to": [
+    1480,
+    700
+   ],
+   "word": "chemistry"
+  },
+  {
+   "type": "name",
+   "text": "computer models",
+   "x": 1060,
+   "y": 160,
+   "to": [
+    1300,
+    260
+   ],
+   "word": "computer models"
+  },
+  {
+   "type": "say",
+   "text": "Ask away!",
+   "x": 760,
+   "y": 330,
+   "to": [
+    840,
+    560
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "queasy"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-approach-bone",
+  "kind": "ride",
+  "x": 727,
+  "y": 649,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Bones!",
+    "shout": false
+   }
+  ]
+ }
+}

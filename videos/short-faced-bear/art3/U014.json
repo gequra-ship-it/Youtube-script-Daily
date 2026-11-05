@@ -1,0 +1,47 @@
+{
+ "centre": "the giant short-faced bear striding confidently through an Ice Age snowstorm between swaying spruces",
+ "motion": "core approach (bear) + leg/head joints + blink + sway (spruces) + rollby (snowball)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "wind": "left",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Arctodus simus",
+   "x": 760,
+   "y": 300,
+   "to": [
+    900,
+    470
+   ],
+   "word": "Arctodus simus"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-core-approach-arctodus-bear",
+  "kind": "ride",
+  "x": 700,
+  "y": 784,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ]
+ }
+}

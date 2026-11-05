@@ -1,0 +1,59 @@
+{
+ "centre": "ghosted scene: Arctodus approaches, two dire wolves back off from their kill (a hypothesis)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Grr... fine!",
+   "x": 560,
+   "y": 470,
+   "to": [
+    760,
+    680
+   ]
+  },
+  {
+   "type": "name",
+   "text": "Arctodus",
+   "x": 1500,
+   "y": 330,
+   "to": [
+    1500,
+    520
+   ],
+   "word": "Arctodus"
+  }
+ ],
+ "motion": "wolf pack nudges back (backing away), bear core approach, wolf tail joints; all ghosted (might)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "In this",
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-arctodus-bear",
+  "kind": "ride",
+  "x": 1407,
+  "y": 429,
+  "s": 1.0,
+  "flip": -1,
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Off we go!",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

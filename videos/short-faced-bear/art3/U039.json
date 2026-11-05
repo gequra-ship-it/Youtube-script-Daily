@@ -1,0 +1,47 @@
+{
+ "centre": "split: a grey sprinting-bear silhouette fades on the left; on the right a dreamlike, translucent Arctodus walks a long trail",
+ "motion": "fade of the sprinter, path walk of the ghosted bear with leg joints (hypothesis: may)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
+ "labels": [
+  {
+   "type": "name",
+   "text": "long-distance walker",
+   "x": 1400,
+   "y": 420,
+   "to": [
+    1150,
+    600
+   ],
+   "word": "long-distance walker"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-arctodus-bear",
+  "kind": "ride",
+  "x": 736,
+  "y": 940,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

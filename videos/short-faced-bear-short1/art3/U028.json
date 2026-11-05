@@ -1,0 +1,46 @@
+{
+ "centre": "an early paleontologist in a lamplit work tent points at a tall Arctodus leg bone standing next to a shorter modern-bear bone",
+ "motion": "swing (lantern) + glint (long bone) + person breathe",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Arctodus",
+   "x": 840,
+   "y": 520,
+   "to": [
+    660,
+    700
+   ],
+   "word": "Arctodus"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-swing-lantern",
+  "kind": "ride",
+  "x": 260,
+  "y": 532,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ]
+ }
+}

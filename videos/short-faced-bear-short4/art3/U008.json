@@ -1,0 +1,45 @@
+{
+ "centre": "Arctodus walking through a narrowing open meadow while forest walls slide in from both sides over its old paw-print trail",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "open landscapes",
+   "x": 540,
+   "y": 600,
+   "to": [
+    540,
+    860
+   ],
+   "word": "open landscapes"
+  }
+ ],
+ "motion": "slide forests in from left and right (shrinking), path bear walking with leg joints",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-slide-forest-trees-left",
+  "kind": "ride",
+  "x": 354,
+  "y": 843,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "scarf",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

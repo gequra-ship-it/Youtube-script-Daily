@@ -1,0 +1,51 @@
+{
+ "centre": "Arctodus walking from a snowy spruce valley (left) toward warm golden open plains (right)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "northern valleys",
+   "x": 330,
+   "y": 200,
+   "to": [
+    330,
+    470
+   ],
+   "word": "northern valleys"
+  },
+  {
+   "type": "name",
+   "text": "open country",
+   "x": 1560,
+   "y": 400,
+   "to": [
+    1560,
+    640
+   ],
+   "word": "open country"
+  }
+ ],
+ "motion": "creep: Arctodus walks right (legs jointed); spruces and grass sway",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "rubhands"
+  },
+  "x": 820,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf"
+  ],
+  "says": [],
+  "bside": -1
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "centre": "height line-up: a huge Arctodus beside a smaller brown bear and a polar bear, dashed shoulder-height lines",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Arctodus",
+   "x": 420,
+   "y": 320,
+   "to": [
+    560,
+    520
+   ],
+   "word": "Arctodus"
+  },
+  {
+   "type": "name",
+   "text": "largest bears",
+   "x": 1480,
+   "y": 360,
+   "to": [
+    1330,
+    640
+   ],
+   "word": "largest bears"
+  }
+ ],
+ "motion": "draw: shoulder-height lines; approach on Arctodus",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-arctodus-bear",
+  "kind": "ride",
+  "x": 953,
+  "y": 834,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

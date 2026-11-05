@@ -1,0 +1,71 @@
+{
+ "centre": "mounted Arctodus skeleton in a museum: bones and teeth survive, a faint ghost of the living bear's behaviour fades",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "bones",
+   "x": 700,
+   "y": 220,
+   "to": [
+    780,
+    410
+   ],
+   "word": "bones"
+  },
+  {
+   "type": "name",
+   "text": "teeth",
+   "x": 360,
+   "y": 560,
+   "to": [
+    362,
+    668
+   ],
+   "word": "teeth"
+  },
+  {
+   "type": "name",
+   "text": "not behavior",
+   "x": 1560,
+   "y": 380,
+   "to": [
+    1560,
+    560
+   ],
+   "word": "not behavior"
+  }
+ ],
+ "motion": "ghost of living behaviour fades; hanging lantern swings (prop); museum composition",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "Fossils preserve",
+    "mood": "happy"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-swing-hanging-lantern",
+  "kind": "ride",
+  "x": 1400,
+  "y": 122,
+  "s": 1.0,
+  "flip": -1,
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Eek...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

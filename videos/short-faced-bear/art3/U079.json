@@ -1,0 +1,67 @@
+{
+ "centre": "the cold dry Mammoth Steppe on the left tearing apart as spruce forest and wetland pools spread in from the right; saplings sprout into the grass",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Mammoth Steppe",
+   "x": 420,
+   "y": 470,
+   "to": [
+    380,
+    640
+   ],
+   "word": "Mammoth Steppe"
+  },
+  {
+   "type": "name",
+   "text": "forests",
+   "x": 1420,
+   "y": 250,
+   "to": [
+    1380,
+    380
+   ],
+   "word": "forests"
+  },
+  {
+   "type": "name",
+   "text": "wetlands",
+   "x": 1680,
+   "y": 690,
+   "to": [
+    1680,
+    775
+   ],
+   "word": "wetlands"
+  }
+ ],
+ "motion": "hatch: spruce saplings sprout into the steppe one after another (gave way to forests); sway: two big spruces",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "In many",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "x": 260,
+  "y": 560,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

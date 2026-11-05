@@ -1,0 +1,51 @@
+{
+ "centre": "a small spectacled bear resting quietly on a mossy branch in the mist while faint cloud ghosts of a mammoth, Arctodus and a ground sloth hover above",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Ice Age giants",
+   "x": 540,
+   "y": 330,
+   "to": [
+    520,
+    470
+   ],
+   "word": "Ice Age giants"
+  },
+  {
+   "type": "say",
+   "text": "Just me here.",
+   "x": 830,
+   "y": 780,
+   "to": [
+    748,
+    862
+   ]
+  }
+ ],
+ "motion": "ghost giants fade in, bear breathes, ferns sway; low-angle sky composition",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "x": 820,
+  "y": 720,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [],
+  "bside": -1
+ }
+}

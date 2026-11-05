@@ -1,0 +1,48 @@
+{
+ "centre": "a dark bear face with cream eye rings peeking out of the foliage, looking straight at us",
+ "focus": [
+  960,
+  450,
+  1.8
+ ],
+ "focus_word": "eyes",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hello there.",
+   "x": 1230,
+   "y": 600,
+   "to": [
+    990,
+    560
+   ]
+  }
+ ],
+ "motion": "core-approach face, ears + blink, ferns sway; close-up composition",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-core-approach-spectacled-bear",
+  "kind": "ride",
+  "x": 758,
+  "y": 600,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ]
+ }
+}

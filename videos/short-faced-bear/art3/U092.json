@@ -1,0 +1,30 @@
+{
+ "centre": "a sketch map of the North Pacific: a dashed route and a little brown bear travelling from Asia over the Beringia land bridge and south through North America",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Asia",
+   "x": 220,
+   "y": 160,
+   "to": [
+    280,
+    360
+   ],
+   "word": "Asia"
+  },
+  {
+   "type": "say",
+   "text": "Heading south!",
+   "x": 1500,
+   "y": 820,
+   "to": [
+    1280,
+    860
+   ]
+  }
+ ],
+ "motion": "draw: the migration route draws itself; path: the brown bear icon walks along it from Asia and south (camera tracks)"
+}

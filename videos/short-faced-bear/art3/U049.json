@@ -1,0 +1,55 @@
+{
+ "centre": "Arctodus skull side view on a museum table, jaw slightly opening, a magnifying lens gliding along the teeth, a researcher pointing",
+ "focus": [
+  1150,
+  610,
+  1.6
+ ],
+ "focus_word": "teeth",
+ "track": false,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Teeth",
+   "x": 1270,
+   "y": 470,
+   "to": [
+    1236,
+    640
+   ],
+   "word": "teeth"
+  }
+ ],
+ "motion": "lens path along the tooth row, jaw joint opens a little, researcher breathes",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-lens-magnifier",
+  "kind": "ride",
+  "x": 964,
+  "y": 819,
+  "s": 1.0,
+  "flip": 1,
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}
