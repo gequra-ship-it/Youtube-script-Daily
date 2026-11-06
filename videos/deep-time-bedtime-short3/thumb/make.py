@@ -1,4 +1,4 @@
-# Shorts thumbnail A for deep-time-bedtime-short3 (guideline 16-9, brief tools/briefs/thumb_art.md). Run: python3 videos/deep-time-bedtime-short3/thumb/make.py
+# Shorts thumbnail A for deep-time-bedtime-short3 (guideline 16-9, VERTICAL 1080x1920, text centred; brief tools/briefs/thumb_art.md). Run: python3 videos/deep-time-bedtime-short3/thumb/make.py
 # text   LEAVING / THE WATER
 # picture intuitive: Tiktaalik props itself on wrist-like fins and lifts its head out of a Devonian shallow; frog waves from the mud bank.
 # source short3: "creatures like Tiktaalik evolved sturdy fins with wrist-like bones ... lift their heads out of the water" / "Life was about to leave the water."

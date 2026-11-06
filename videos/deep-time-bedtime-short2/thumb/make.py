@@ -1,4 +1,4 @@
-# Shorts thumbnail A for deep-time-bedtime-short2 (guideline 16-9, brief tools/briefs/thumb_art.md). Run: python3 videos/deep-time-bedtime-short2/thumb/make.py
+# Shorts thumbnail A for deep-time-bedtime-short2 (guideline 16-9, VERTICAL 1080x1920, text centred; brief tools/briefs/thumb_art.md). Run: python3 videos/deep-time-bedtime-short2/thumb/make.py
 # text   SNOWBALL / EARTH?
 # picture intuitive/iconic object: the frozen Earth inside a snow globe, a small glowing volcanic hot spot; shivering frog in earmuffs + scarf.
 # source short2: "Scientists call this possibility Snowball Earth ... pockets of liquid water and around volcanic hot spots" (possibility -> question mark)

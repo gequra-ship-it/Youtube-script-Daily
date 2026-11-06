@@ -1,4 +1,4 @@
-# Shorts thumbnail A for deep-time-bedtime-short5 (guideline 16-9, brief tools/briefs/thumb_art.md). Run: python3 videos/deep-time-bedtime-short5/thumb/make.py
+# Shorts thumbnail A for deep-time-bedtime-short5 (guideline 16-9, VERTICAL 1080x1920, text centred; brief tools/briefs/thumb_art.md). Run: python3 videos/deep-time-bedtime-short5/thumb/make.py
 # text   THE SMALL / SURVIVED
 # picture intuitive cut-away: ash sky, burnt stumps and a big three-toed footprint above; below, a warm burrow with a small furry mammal and the frog.
 # source short5: "Scientists think small mammals endured by sheltering in burrows ... the mammals crawled out into a wide, empty kingdom"
