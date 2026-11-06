@@ -43,3 +43,19 @@ def spark(x, y, s, col='#fff6d6', op=.85):
 def blobs(n, x0, y0, x1, y1, col, o0, o1, rmin, rmax):
     return ''.join(f'<ellipse cx="{random.randint(x0, x1)}" cy="{random.randint(y0, y1)}" rx="{random.randint(rmin, rmax)}" ry="{random.randint(rmin // 2, rmax // 2)}" '
                    f'fill="{col}" opacity="{random.uniform(o0, o1):.2f}"/>' for _ in range(n))
+
+
+# --- Shorts thumbnails (miya 2026-11-06, guideline 16-9): VERTICAL 1080x1920, text CENTRED, no empty corner needed ---
+# usage in videos/<slug>-shortN/thumb/make.py: open('A.html','w').write(vpage(bg, vsvg(defs, body), [(text, size, 'w'|'y'), ...]))  (copy tools/assets/thumb_v/common.css next to it)
+def vpage(bg, svg, lines, outline='#050b18', top=700):
+    css = f'body{{background:{bg}}}.o{{-webkit-text-stroke:15px {outline};paint-order:stroke fill}}.g{{color:#F2D27A}}'
+    html = ''; y = top
+    for k, (t, sz, c) in enumerate(lines):
+        css += f'#t{k}{{left:0;width:1080px;text-align:center;top:{y}px;font-size:{sz}px;letter-spacing:3px;line-height:1}}'
+        html += f'<div class="txt o{" g" if c == "y" else ""}" id="t{k}">{t}</div>'
+        y += int(sz * 0.97)
+    return HEAD % css + svg + html + '</div></body></html>'
+
+
+def vsvg(defs, body):
+    return f'<svg class="art" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg"><defs>{defs}</defs>{body}</svg>'

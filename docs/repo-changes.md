@@ -121,3 +121,4 @@
 - 2026-11-05: `tools/entrycheck.py` 추가(final_check 호출), `motions.py` draw·drip 시작 전 숨김, 지침서 4-15.
 
 - 2026-11-06: shorts thumbnails (1 per short, 5 per video, no miya approval): guideline 16-9, CLAUDE.md, 18-drive, tools/README.md, tools/briefs/thumb_art.md. No code change (thumb_shot.py and render.yml already handle `-shortN` slugs).
+- 2026-11-06 (fix): shorts thumbnails are vertical 1080x1920 with centred text: tools/thumb_shot.py (size by slug), tools/thumb_lib.py (vpage/vsvg), tools/assets/thumb_v/, guideline 16-9.
