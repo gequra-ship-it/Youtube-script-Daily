@@ -17,11 +17,13 @@
  "frog": {
   "moods": [
    {
-    "mood": "queasy"
+    "mood": "surprised"
    }
   ],
-  "act": "startle",
-  "ride": "mv-core-drop-tumbling-dice",
+  "act": {
+   "type": "spinaround"
+  },
+  "ride": "mv-core-sway-tumbling-dice",
   "kind": "ride",
   "x": 370,
   "y": 986,
@@ -30,11 +32,11 @@
   "bside": -1,
   "gaze": 1,
   "outfit": [
-   "headband"
+   "glasses"
   ],
   "says": [
    {
-    "text": "Eek!",
+    "text": "Whoa!",
     "shout": true
    }
   ]

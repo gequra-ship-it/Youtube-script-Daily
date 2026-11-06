@@ -29,12 +29,16 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "surprised"
    }
   ],
-  "act": "bounce",
-  "ride": "mv-core-swell-blended-cloud",
-  "kind": "ride",
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-blended-cloud"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
   "x": 798,
   "y": 1058,
   "s": 1.09,
@@ -46,8 +50,8 @@
   ],
   "says": [
    {
-    "text": "Boing boing.",
-    "shout": false
+    "text": "Whoa, it grows!",
+    "shout": true
    }
   ]
  }

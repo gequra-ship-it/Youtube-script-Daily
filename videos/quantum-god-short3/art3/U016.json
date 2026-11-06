@@ -17,10 +17,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "sleepy"
    }
   ],
-  "act": "listen",
+  "act": {
+   "type": "zerogroll"
+  },
   "ride": "mv-path-energy-spark",
   "kind": "ride",
   "x": 384,
@@ -30,11 +32,11 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "glasses"
+   "beanie"
   ],
   "says": [
    {
-    "text": "Nothing...",
+    "text": "Wheee...",
     "shout": false
    }
   ]
