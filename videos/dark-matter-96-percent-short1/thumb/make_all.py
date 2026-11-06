@@ -9,7 +9,7 @@
 import os, sys, math, random
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools'))
-from thumb_lib import page, svg, lin, rad, spark
+from thumb_lib import page, svg, lin, rad, spark, vpage, vsvg
 
 INK = '#1d2b1c'; GREEN = '#6aa55a'; DARKG = '#4d8a4a'; BELLY = '#9cc98a'
 FILTERS = ''.join(f'<filter id="b{n}" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="{n}"/></filter>' for n in (2, 3, 6, 12, 24, 50))
@@ -155,6 +155,35 @@ def big_galaxy(GX, GY, Rr, ROT, TILT, rnd, cols=('#fff2c8', '#ffd6f0', '#c8d8ff'
     return g
 
 
+# ---- portrait (1080x1920) output, guideline 16-9 (owner correction 2026-11-06): each landscape scene is re-framed ----
+V = True          # True: shorts are vertical 1080x1920, text centred mid-frame
+CUR = {}
+# per scene: scale, tx, ty (landscape -> portrait), text top, text lines (sized for 1080 width), extra portrait-space art
+VCFG = {
+    1: dict(s=1.25, tx=-1025, ty=613, top=480, lines=[('ALL THIS', 150, 'w'), ('IS UNDER', 140, 'w'), ('5%', 250, 'y')]),
+    2: dict(s=1.0, tx=-500, ty=760, top=510, lines=[('WHO LEFT', 150, 'w'), ('THESE?', 200, 'y')]),
+    3: dict(s=1.15, tx=-897, ty=693, top=560, lines=[('NOT BLACK.', 125, 'w'), ('INVISIBLE', 160, 'y')]),
+    4: dict(s=1.0, tx=-330, ty=900, top=640, lines=[("IT'S", 150, 'w'), ('SPEEDING', 165, 'y'), ('UP!', 190, 'w')]),
+    5: dict(s=1.0, tx=-700, ty=650, top=560, lines=[('WE CAN READ', 120, 'w'), ('5 PAGES', 220, 'y')]),
+}
+
+
+def out(bg, d, b, lines, outline, top):
+    if not V:
+        return page(bg, svg(d, b), lines, outline=outline, top=top)
+    import re
+    c = VCFG[CUR['n']]
+    b = re.sub(r'<rect width="1920" height="1080" fill="url\(#vig\d\)"/>', '', b)
+    b = b.replace('<rect width="1920" height="1080"', '<rect x="-3000" y="-3000" width="8000" height="8000"')
+    rnd = random.Random(900 + CUR['n'])
+    top_stars = ''.join(f'<circle cx="{rnd.uniform(0, 1080):.0f}" cy="{rnd.uniform(0, c["ty"]):.0f}" r="{rnd.choice([1.2, 1.8, 2.5])}" fill="#eef0ff" opacity="{rnd.uniform(.2, .8):.2f}"/>' for _ in range(int(c['ty'] / 5)))
+    top_stars += spark(rnd.randint(80, 300), rnd.randint(120, 300), 22) + spark(rnd.randint(780, 1000), rnd.randint(150, 380), 18, '#e8f0ff')
+    d += rad('vigV', 540, 1100, 1250, [(0, '#000', 0), (.6, '#000', 0), (1, '#000', .6)])
+    body = (f'<rect width="1080" height="1920" fill="{bg}"/><g transform="translate({c["tx"]} {c["ty"]}) scale({c["s"]})">{b}</g>'
+            + CUR.get('extra', '') + top_stars + '<rect width="1080" height="1920" fill="url(#vigV)"/>')
+    return vpage(bg, vsvg(d, body), c['lines'], outline=outline, top=c['top'])
+
+
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))   # videos/
 GHOST = '#b9a6ff'
 
@@ -278,7 +307,7 @@ def make_1():
               legs=((-20, -6, -26, 4, -8), (20, -6, 28, 4, 8)))
     b += '<rect width="1920" height="1080" fill="url(#vig1)"/>'
     lines = [('ALL THIS', 160, 'w'), ('IS UNDER', 150, 'w'), ('5%', 290, 'y')]
-    return page('#05030d', svg(d, b), lines, outline='#07030f', top=40)
+    return out('#05030d', d, b, lines, '#07030f', 40)
 
 
 # =============================== 2: footprints in the snow, nobody there ===============================
@@ -288,21 +317,24 @@ def make_2():
     d = FILTERS
     d += lin('sky2', [(0, '#050a22'), (.55, '#13235a'), (1, '#3a4f8f')])
     d += lin('snow2', [(0, '#7f93c8'), (.35, '#a9bbe6'), (1, '#dfe8ff')])
-    d += rad('gal2', 1420, 250, 520, [(0, '#c8d8ff', .55), (.4, '#8aa0ff', .16), (1, '#5a70ff', 0)])
-    d += rad('lant2', 600, 930, 460, [(0, '#ffd68a', .75), (.4, '#ffaa55', .25), (1, '#ff9040', 0)])
+    GXg = 1200 if V else 1420
+    d += rad('gal2', GXg, 250, 520, [(0, '#c8d8ff', .55), (.4, '#8aa0ff', .16), (1, '#5a70ff', 0)])
+    LX, LY = (600, 1000) if V else (420, 1000)
+    FXo = 40 if V else 0
+    d += rad('lant2', LX + 180, 930, 460, [(0, '#ffd68a', .75), (.4, '#ffaa55', .25), (1, '#ff9040', 0)])
     d += rad('vig2', 1100, 560, 1250, [(0, '#000', 0), (.62, '#000', 0), (1, '#000', .62)])
     b = f'<rect width="1920" height="{HY + 40}" fill="url(#sky2)"/>'
     for _ in range(230):
         b += f'<circle cx="{rnd.uniform(0, 1920):.0f}" cy="{rnd.uniform(0, HY):.0f}" r="{rnd.choice([1.1, 1.6, 2.3])}" fill="#eef4ff" opacity="{rnd.uniform(.2, .85):.2f}"/>'
     b += '<rect width="1920" height="1080" fill="url(#gal2)"/>'
-    b += big_galaxy(1420, 250, 250, -16, .42, random.Random(7), n=360)
+    b += big_galaxy(GXg, 250, 250, -16, .42, random.Random(7), n=360)
     # fast outer stars with short trails
     for ang0 in (20, 150, 230, 320):
         a = math.radians(ang0); pts = []
         for i in range(12):
             aa = a - i * .03; x, y = 235 * math.cos(aa), 235 * .45 * math.sin(aa)
             c, s_ = math.cos(math.radians(-16)), math.sin(math.radians(-16))
-            pts.append((1420 + x * c - y * s_, 250 + x * s_ + y * c))
+            pts.append((GXg + x * c - y * s_, 250 + x * s_ + y * c))
         b += f'<path d="{path(pts)}" stroke="#fff2c8" stroke-width="5" fill="none" stroke-linecap="round" opacity=".6"/><circle cx="{pts[0][0]:.0f}" cy="{pts[0][1]:.0f}" r="5" fill="#fff"/>'
     # hills + snowy pines on the horizon
     b += f'<path d="M0 {HY - 30} Q300 {HY - 110} 640 {HY - 40} Q980 {HY - 120} 1340 {HY - 30} Q1640 {HY - 90} 1920 {HY - 40} L1920 {HY + 20} L0 {HY + 20}Z" fill="#5a6ea6" opacity=".9"/>'
@@ -312,7 +344,7 @@ def make_2():
         b += f'<path d="M{x} {y - h:.0f} L{x + h * .32:.0f} {y:.0f} L{x - h * .32:.0f} {y:.0f}Z" fill="#1c2a52"/>'
         b += f'<path d="M{x} {y - h:.0f} L{x + h * .14:.0f} {y - h * .55:.0f} L{x - h * .14:.0f} {y - h * .55:.0f}Z" fill="#e6eeff" opacity=".85"/>'
     # snowfield
-    b += f'<path d="M0 {HY} Q960 {HY - 30} 1920 {HY} L1920 1080 L0 1080Z" fill="url(#snow2)"/>'
+    b += f'<path d="M0 {HY} Q960 {HY - 30} 1920 {HY} L1920 {1500 if V else 1080} L0 {1500 if V else 1080}Z" fill="url(#snow2)"/>'
     for k in range(7):
         y = HY + 40 + k * k * 9
         b += f'<path d="M0 {y} Q600 {y - 20} 1200 {y + 6} T1920 {y - 4}" stroke="#ffffff" stroke-width="{2 + k * .6:.1f}" fill="none" opacity=".25"/>'
@@ -321,7 +353,7 @@ def make_2():
         b += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{rnd.uniform(.8, 2.2) * (y - HY + 80) / 300:.1f}" fill="#fff" opacity="{rnd.uniform(.4, .95):.2f}"/>'
     b += '<rect width="1920" height="1080" fill="url(#lant2)"/>'
     # ---- the footprints: from the far hills to the frog ----
-    P0, P1, P2 = (1560, HY + 40), (1560, 880), (1110, 990)
+    P0, P1, P2 = ((1450, HY + 40), (1480, 880), (1150, 990)) if V else ((1560, HY + 40), (1560, 880), (1110, 990))
     def bez(t):
         return ((1 - t) ** 2 * P0[0] + 2 * t * (1 - t) * P1[0] + t * t * P2[0], (1 - t) ** 2 * P0[1] + 2 * t * (1 - t) * P1[1] + t * t * P2[1])
     steps = []; acc = 0; px, py = bez(0); t = 0; nxt = 0
@@ -351,10 +383,9 @@ def make_2():
     # fresh snow puff where the next invisible step just landed
     for _ in range(22):
         a = rnd.uniform(math.pi * 1.05, math.pi * 1.95); r0 = rnd.uniform(30, 120)
-        b += f'<circle cx="{1010 + r0 * math.cos(a):.0f}" cy="{1000 + r0 * .5 * math.sin(a):.0f}" r="{rnd.uniform(3, 8):.1f}" fill="#fff" opacity="{rnd.uniform(.5, .95):.2f}"/>'
-    b += '<ellipse cx="1010" cy="1020" rx="120" ry="30" fill="#ffffff" opacity=".35" filter="url(#b6)"/>'
+        b += f'<circle cx="{1010 + FXo + r0 * math.cos(a):.0f}" cy="{1000 + r0 * .5 * math.sin(a):.0f}" r="{rnd.uniform(3, 8):.1f}" fill="#fff" opacity="{rnd.uniform(.5, .95):.2f}"/>'
+    b += f'<ellipse cx="{1010 + FXo}" cy="1020" rx="120" ry="30" fill="#ffffff" opacity=".35" filter="url(#b6)"/>'
     # ---- lantern on the snow ----
-    LX, LY = 420, 1000
     b += f'<circle cx="{LX}" cy="{LY - 60}" r="110" fill="#ffcf7a" opacity=".45" filter="url(#b24)"/>'
     b += (f'<g transform="translate({LX} {LY})" stroke="#2a1a0c" stroke-width="4" stroke-linejoin="round">'
           '<path d="M-22 -118 Q0 -150 22 -118" fill="none"/><rect x="-34" y="-116" width="68" height="14" rx="4" fill="#3a2a1a"/>'
@@ -370,14 +401,14 @@ def make_2():
     mag = ('<g transform="translate(86 -4) rotate(30)"><rect x="-6" y="-46" width="12" height="40" rx="5" fill="#6a3e1c" stroke-width="3"/>'
            '<circle cx="0" cy="-74" r="30" fill="#dff4ff" fill-opacity=".35" stroke="#c9a24a" stroke-width="7"/>'
            '<circle cx="0" cy="-74" r="30" fill="none" stroke-width="2.4"/><path d="M-16 -86 q8 -10 20 -10" fill="none" stroke="#fff" stroke-width="4"/></g>')
-    b += '<ellipse cx="760" cy="1010" rx="150" ry="22" fill="#2a3870" opacity=".35" filter="url(#b6)"/>'
-    b += frog(760, 1004, 2.75, rot=6, look=(9, 4), mouth='O', back=cape, hat=hat,
+    b += f'<ellipse cx="{760 + FXo}" cy="1010" rx="150" ry="22" fill="#2a3870" opacity=".35" filter="url(#b6)"/>'
+    b += frog(760 + FXo, 1004, 2.75, rot=6, look=(9, 4), mouth='O', back=cape, hat=hat,
               armR='M38 -22 q26 4 46 22', armL='M-34 -22 q-20 6 -22 24', front=mag,
               legs=((-20, -6, -34, 4, -10), (20, -6, 32, 4, 10)))
     b += spark(1190, 120, 24) + spark(1700, 470, 18) + spark(1000, 380, 14, '#e8f0ff')
     b += '<rect width="1920" height="1080" fill="url(#vig2)"/>'
     lines = [('WHO LEFT', 175, 'w'), ('THESE?', 230, 'y')]
-    return page('#050a22', svg(d, b), lines, outline='#050a1c', top=46)
+    return out('#050a22', d, b, lines, '#050a1c', 46)
 
 
 # =============================== 3: sailing an invisible ocean ===============================
@@ -465,13 +496,13 @@ def make_3():
     b += spark(1780, 200, 24) + spark(1350, 140, 18, '#e8fbff') + spark(1700, 700, 16, '#e8fbff')
     b += '<rect width="1920" height="1080" fill="url(#vig3)"/>'
     lines = [('NOT BLACK.', 150, 'w'), ('INVISIBLE', 175, 'y')]
-    return page('#030814', svg(d, b), lines, outline='#030814', top=48)
+    return out('#030814', d, b, lines, '#030814', 48)
 
 
 # =============================== 4: the ball that speeds up ===============================
 def make_4():
     rnd = random.Random(404)
-    CX, CY = 1250, 470
+    CX, CY = (870, 60) if V else (1250, 470)
     d = FILTERS
     d += rad('bg4', CX, CY, 1300, [(0, '#3a1c5c', 1), (.45, '#160c33', 1), (1, '#05030f', 1)])
     d += rad('ball4', 0, 0, 1, [(0, '#fff', 1), (1, '#fff', 1)])
@@ -482,12 +513,12 @@ def make_4():
     for _ in range(200):
         b += f'<circle cx="{rnd.uniform(0, 1920):.0f}" cy="{rnd.uniform(0, 1080):.0f}" r="{rnd.choice([1.1, 1.6, 2.2])}" fill="#efe6ff" opacity="{rnd.uniform(.15, .65):.2f}"/>'
     # galaxies racing apart: farther ones move faster (longer trails)
-    for _ in range(46):
-        a = rnd.uniform(0, 2 * math.pi); dist = rnd.uniform(140, 900)
-        x, y = CX + dist * math.cos(a), CY + dist * .75 * math.sin(a)
-        if (x < 980 and y < 640) or not (0 < x < 1920 and 0 < y < 1080) or (x > 1600 and y > 880):
+    for _ in range(80 if V else 46):
+        a = rnd.uniform(0, 2 * math.pi); dist = rnd.uniform(140, 1000)
+        x, y = CX + dist * (.75 if V else 1) * math.cos(a), CY + dist * (1 if V else .75) * math.sin(a)
+        if (V and (not (330 < x < 1410 and -900 < y < 1000) or math.hypot(x - 560, y - 700) < 230)) or (not V and ((x < 980 and y < 640) or not (0 < x < 1920 and 0 < y < 1080) or (x > 1600 and y > 880))):
             continue
-        L = dist * .22; ux, uy = math.cos(a), .75 * math.sin(a)
+        L = dist * .22; ux, uy = ((.75 * math.cos(a), math.sin(a)) if V else (math.cos(a), .75 * math.sin(a)))
         r0 = rnd.uniform(14, 30)
         col = rnd.choice(['#ffd6f0', '#c8d8ff', '#fff2c8', '#b8ffef'])
         b += f'<path d="M{x:.0f} {y:.0f} L{x - ux * L:.0f} {y - uy * L:.0f}" stroke="{col}" stroke-width="{r0 * .9:.1f}" stroke-linecap="round" opacity=".18" filter="url(#b3)"/>'
@@ -495,7 +526,7 @@ def make_4():
         b += mini_galaxy(x, y, r0, rnd.uniform(0, 180), col, n=18, rnd=rnd, op=.9)
     for k in range(5):
         r0 = 150 + k * 170
-        b += f'<ellipse cx="{CX}" cy="{CY}" rx="{r0}" ry="{r0 * .75:.0f}" fill="none" stroke="#b9a6ff" stroke-width="2" stroke-dasharray="6 18" opacity="{.28 - k * .04:.2f}"/>'
+        b += f'<ellipse cx="{CX}" cy="{CY}" rx="{r0 * (.75 if V else 1):.0f}" ry="{r0 * (1 if V else .75):.0f}" fill="none" stroke="#b9a6ff" stroke-width="2" stroke-dasharray="6 18" opacity="{.28 - k * .04:.2f}"/>'
     # ---- the little planet hill ----
     b += '<path d="M-40 840 Q520 700 1230 1100 L-40 1100Z" fill="url(#hill4)" stroke="#9fe08a" stroke-width="5"/>'
     b += '<path d="M-40 840 Q520 700 1230 1100" fill="none" stroke="#c8ffb0" stroke-width="16" opacity=".25" filter="url(#b6)"/>'
@@ -505,7 +536,7 @@ def make_4():
     for fx_, fy_ in ((150, 812), (330, 786), (1000, 975)):
         b += f'<circle cx="{fx_}" cy="{fy_}" r="7" fill="#ffd6f0" stroke="#1d2b1c" stroke-width="2"/><circle cx="{fx_}" cy="{fy_}" r="2.5" fill="#f2d27a"/>'
     # ---- ball path: spacing grows = speeding up ----
-    P0, P1, P2 = (760, 610), (1010, 480), (1500, 215)
+    P0, P1, P2 = ((760, 610), (1060, 320), (1130, -560)) if V else ((760, 610), (1010, 480), (1500, 215))
     def bez(t):
         return ((1 - t) ** 2 * P0[0] + 2 * t * (1 - t) * P1[0] + t * t * P2[0], (1 - t) ** 2 * P0[1] + 2 * t * (1 - t) * P1[1] + t * t * P2[1])
     trail = [bez(i / 60) for i in range(61)]
@@ -517,11 +548,13 @@ def make_4():
         b += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{r0}" fill="#fff0c0" opacity="{.16 + k * .07:.2f}" stroke="#fff6d8" stroke-width="3" stroke-opacity="{.25 + k * .08:.2f}"/>'
     BX, BY = bez(1.0)
     # speed lines + fire trail behind the final ball
+    qx, qy = bez(.96); ux, uy = BX - qx, BY - qy; L = math.hypot(ux, uy); ux, uy = ux / L, uy / L; nx, ny = -uy, ux
     for k in range(7):
         off = (k - 3) * 16
-        x0, y0 = BX - 260 + off * .6, BY + 170 + off
-        b += f'<path d="M{x0:.0f} {y0:.0f} L{BX - 70 + off * .4:.0f} {BY + 46 + off * .6:.0f}" stroke="#fff6d8" stroke-width="{6 - abs(k - 3):.0f}" stroke-linecap="round" opacity=".8"/>'
-    b += f'<path d="M{BX - 330} {BY + 230} Q{BX - 120} {BY + 110} {BX} {BY}" stroke="#ff9a4a" stroke-width="80" fill="none" opacity=".35" filter="url(#b24)" stroke-linecap="round"/>'
+        x0, y0 = BX - ux * 300 + nx * off, BY - uy * 300 + ny * off
+        x1, y1 = BX - ux * 82 + nx * off * .6, BY - uy * 82 + ny * off * .6
+        b += f'<path d="M{x0:.0f} {y0:.0f} L{x1:.0f} {y1:.0f}" stroke="#fff6d8" stroke-width="{6 - abs(k - 3):.0f}" stroke-linecap="round" opacity=".8"/>'
+    b += f'<path d="M{BX - ux * 390:.0f} {BY - uy * 390:.0f} L{BX} {BY}" stroke="#ff9a4a" stroke-width="80" fill="none" opacity=".35" filter="url(#b24)" stroke-linecap="round"/>'
     b += f'<circle cx="{BX}" cy="{BY}" r="190" fill="#ffd890" opacity=".45" filter="url(#b50)"/>'
     b += f'<circle cx="{BX}" cy="{BY}" r="70" fill="url(#bb4)" stroke="#7a4214" stroke-width="5"/>'
     b += f'<path d="M{BX - 52} {BY - 40} Q{BX - 10} {BY} {BX - 40} {BY + 52}" stroke="#d94a4a" stroke-width="5" fill="none" stroke-dasharray="7 6"/>'
@@ -529,9 +562,9 @@ def make_4():
     b += f'<path d="M{BX - 40} {BY - 30} q14 -20 40 -24" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".9"/>'
     # up-arrows ahead of it
     for k in range(3):
-        ax, ay = BX + 80 + k * 46, BY - 70 - k * 30
-        b += f'<path d="M{ax - 16} {ay + 14} L{ax} {ay - 4} L{ax + 20} {ay + 8}" stroke="#f2d27a" stroke-width="{8 - k * 2}" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="{.95 - k * .25:.2f}" transform="rotate(30 {ax} {ay})"/>'
-    b += spark(BX + 150, BY + 80, 26) + spark(BX - 160, BY - 60, 18) + spark(1700, 600, 16, '#e8dcff')
+        ax, ay = BX + ux * (100 + k * 50), BY + uy * (100 + k * 50); rr = math.degrees(math.atan2(uy, ux)) + 90
+        b += f'<path d="M{ax - 20:.0f} {ay + 14:.0f} L{ax:.0f} {ay - 4:.0f} L{ax + 20:.0f} {ay + 14:.0f}" stroke="#f2d27a" stroke-width="{9 - k * 2}" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="{.95 - k * .25:.2f}" transform="rotate({rr:.0f} {ax:.0f} {ay:.0f})"/>'
+    b += spark(BX + 150, BY + 80, 26) + spark(BX - 160, BY - 60, 18) + spark(1300, 600, 16, '#e8dcff')
     # ---- frog pitcher on the hill ----
     cap = ('<g transform="translate(6 -84) rotate(-8)" stroke-width="3.2"><path d="M-30 4 Q-28 -34 4 -36 Q36 -34 38 4Z" fill="#d94a4a"/>'
            '<path d="M32 2 Q60 -2 72 8 Q54 14 32 10Z" fill="#b83a3a"/><circle cx="4" cy="-35" r="4" fill="#b83a3a"/>'
@@ -543,7 +576,7 @@ def make_4():
               legs=((-20, -6, -30, 4, -12), (20, -6, 28, 2, 10)))
     b += '<rect width="1920" height="1080" fill="url(#vig4)"/>'
     lines = [("IT'S", 165, 'w'), ('SPEEDING', 175, 'y'), ('UP!', 200, 'w')]
-    return page('#05030f', svg(d, b), lines, outline='#07030f', top=36)
+    return out('#05030f', d, b, lines, '#07030f', 36)
 
 
 # =============================== 5: the library of invisible ink ===============================
@@ -562,7 +595,7 @@ def make_5():
     def P(W, Y, z):
         return VX + W / z, VY + Y / z
     ZF, ZB = 1.0, 4.6
-    TOP, FLOOR = -620, 420
+    TOP, FLOOR = (-1500, 420) if V else (-620, 420)
     # back wall + tall arched window
     bl, bt = P(-1250, TOP, ZB); br, bb = P(700, FLOOR, ZB)
     b += f'<rect x="{bl:.0f}" y="{bt:.0f}" width="{br - bl:.0f}" height="{bb - bt:.0f}" fill="#24182e"/>'
@@ -581,7 +614,7 @@ def make_5():
 
     def wall(W, dark):
         o = ''
-        rows = 7
+        rows = 15 if V else 7
         for k in range(rows + 1):          # shelf boards
             Y = TOP + (FLOOR - TOP) * k / rows
             (x0, y0), (x1, y1) = P(W, Y, ZB), P(W, Y, ZF)
@@ -608,12 +641,13 @@ def make_5():
         x = rnd.uniform(1300, 1900); y = rnd.uniform(60, 900)
         b += f'<path d="M{x:.0f} {y:.0f} q8 -8 16 0 t16 0" stroke="#c9b8ff" stroke-width="2" fill="none" opacity="{rnd.uniform(.12, .35):.2f}"/>'
     # ---- reading table ----
+    b += f'<g transform="translate({130 if V else 0} 0)">'
     b += '<path d="M640 860 L1560 860 L1600 930 L600 930Z" fill="url(#tab5)" stroke="#1a0c04" stroke-width="5" stroke-linejoin="round"/>'
     b += '<path d="M600 930 L1600 930 L1600 975 L600 975Z" fill="#3a2212" stroke="#1a0c04" stroke-width="5"/>'
     b += '<path d="M640 975 V1080 M1560 975 V1080" stroke="#2a1608" stroke-width="34"/>'
     b += '<rect width="1920" height="1080" fill="url(#cand5)"/>'
     # ---- the huge open book: thick blank page block ----
-    BX = 1110
+    BX = 1110 + (0 if not V else 0)
     b += f'<ellipse cx="{BX}" cy="905" rx="330" ry="26" fill="#000" opacity=".45" filter="url(#b6)"/>'
     b += f'<path d="M{BX - 300} 880 L{BX - 300} 840 Q{BX - 150} 820 {BX} 850 Q{BX + 150} 820 {BX + 300} 840 L{BX + 300} 880 Q{BX + 150} 862 {BX} 892 Q{BX - 150} 862 {BX - 300} 880Z" fill="#7a2a2a" stroke="#1a0c04" stroke-width="4"/>'
     for k in range(6):
@@ -657,13 +691,15 @@ def make_5():
     b += frog(745, 862, 2.5, rot=4, look=(9, -6), mouth='O', hat=glasses(),
               armR='M38 -22 q22 -10 34 -34', armL='M-34 -22 q-18 4 -22 22',
               legs=((-20, -6, -24, 4, 0), (20, -6, 26, 4, 0)))
+    b += '</g>'
     b += '<rect width="1920" height="1080" fill="url(#vig5)"/>'
     lines = [('WE CAN READ', 140, 'w'), ('5 PAGES', 250, 'y')]
-    return page('#06040a', svg(d, b), lines, outline='#07030c', top=48)
+    return out('#06040a', d, b, lines, '#07030c', 48)
 
 
 if __name__ == '__main__':
     for n in (sys.argv[1:] or ['1', '2', '3', '4', '5']):
         if f'make_{n}' in globals():
+            CUR.clear(); CUR['n'] = int(n)
             open(f'{ROOT}/dark-matter-96-percent-short{n}/thumb/A.html', 'w').write(globals()[f'make_{n}']())
     print('ok')
