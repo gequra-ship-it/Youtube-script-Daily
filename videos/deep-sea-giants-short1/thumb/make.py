@@ -1,20 +1,16 @@
-# Shorts thumbnails for deep-sea-giants (guideline 16-9, brief tools/briefs/thumb_art.md). ONE file writes all five:
-#   python3 videos/deep-sea-giants-short1/thumb/make.py  -> videos/deep-sea-giants-short{1..5}/thumb/A.html
+# Shorts thumbnails for deep-sea-giants, VERTICAL 1080x1920 (guideline 16-9 as corrected 2026-11-06: centred text in the middle, picture above and below).
+# ONE file writes all five:  python3 videos/deep-sea-giants-short1/thumb/make.py  -> videos/deep-sea-giants-short{1..5}/thumb/A.html
 # Helpers (frog, isopod, tentacle) copied from videos/deep-sea-giants/thumb/make.py (long-form, not edited).
-# 1  40 CM / PILLBUG      a giant isopod curled up in a cosy cat bed (cat bowl, frog with a feather toy). short1: "about forty centimeters long ... roughly the size of a house cat"
-# 2  EYES LIKE / PLATES   colossal squid eye laid out as a dinner plate between a fork and knife, a sperm whale shadow in the pupil.
-#                         short2: "a single eye ... about twenty-seven centimeters across ... roughly the size of a large dinner plate"; "distant shadow of a hunting sperm whale"
-# 3  MEALS / MONTHS / APART  a whale fall sinking in a shaft of light toward a lone isopod waiting on the mud; frog with an hourglass.
-#                         short3: "meals come months, or even years, apart"; "A whale dies, and its carcass sinks ... a whale fall"
-# 4  WHY NOT / CRUSHED?   a submarine crumpled like a soda can (ring pull on the hatch, gauge past red) beside a calm unharmed deep-sea fish.
-#                         short4: "it would crumple like an empty soda can"; "how do animals live down there without being crushed?"
-# 5  GIANT / OR / TINY?   a towering giant isopod (front view) next to a tiny abyssal snail under the frog's magnifying glass.
-#                         short5: "giant isopods" / "deep-sea dwarfism. Many abyssal snails ... smaller"; "Same dark. Same cold. Opposite answers."
+# 1  40 CM / PILLBUG       pendant lamp above; giant isopod curled in a cat bed below, frog dangling a feather toy. short1: "about forty centimeters long ... roughly the size of a house cat"
+# 2  EYES LIKE / PLATES    squid eye as a china dinner plate between fork and knife above; sperm whale shadow below, frog with bib. short2: "a large dinner plate"; "shadow of a hunting sperm whale"
+# 3  MEALS / MONTHS / APART  whale fall sinking above; lone isopod waiting on the mud, frog with hourglass below. short3: "meals come months, or even years, apart"; "a whale fall"
+# 4  WHY NOT / CRUSHED?    submarine crumpled like a soda can above; calm unharmed fish below. short4: "crumple like an empty soda can"; "without being crushed"
+# 5  TINY / OR / GIANT?    tiny abyssal snail under the frog's magnifier above; towering giant isopod below. short5: giant isopods vs "deep-sea dwarfism ... abyssal snails"
 import os, sys, math, random
 HERE = os.path.dirname(os.path.abspath(__file__))
 VID = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(VID, '..', 'tools'))
-from thumb_lib import page, svg, lin, rad, spark
+from thumb_lib import vpage, vsvg, lin, rad, spark
 
 INK = '#1d2b1c'; GREEN = '#6aa55a'; DARKG = '#4d8a4a'; BELLY = '#9cc98a'
 FILTERS = ''.join(f'<filter id="b{n}" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="{n}"/></filter>' for n in (3, 6, 12, 24, 50))
@@ -175,89 +171,11 @@ def seabed(rnd, y, c0, c1, id_):
 ISO_GRAD = lin('isoG', [(0, '#fbeef0'), (.3, '#e2c3cc'), (.7, '#a87f95'), (1, '#4e3049')])
 
 
-# ================= 1: a 40 cm pillbug in a cat bed =================
-def make_1():
-    rnd = random.Random(31)
-    d = FILTERS + ISO_GRAD
-    d += lin('w1', [(0, '#123a5c'), (.55, '#0a2440'), (1, '#040e1c')])
-    d += rad('lamp1', 1190, 640, 720, [(0, '#ffd890', .42), (.5, '#ff9e50', .12), (1, '#000', 0)])
-    d += lin('cone1', [(0, '#fff1c8'), (1, '#ffcf80')])
-    d += rad('vig1', 960, 540, 1150, [(0, '#000', 0), (.6, '#000', 0), (1, '#000', .65)])
-    d += ('<pattern id="plaid" width="60" height="60" patternUnits="userSpaceOnUse"><rect width="60" height="60" fill="#b8423a"/>'
-          '<rect x="0" y="22" width="60" height="16" fill="#8a2a26"/><rect x="22" y="0" width="16" height="60" fill="#8a2a26" opacity=".8"/>'
-          '<rect x="0" y="28" width="60" height="4" fill="#f2d27a" opacity=".8"/><rect x="28" y="0" width="4" height="60" fill="#f2d27a" opacity=".6"/></pattern>')
-    d += lin('rimShade', [(0, '#000', ), (1, '#000')])
-    b = '<rect width="1920" height="1080" fill="url(#w1)"/>'
-    b += snow(rnd, 170, 0, 1920, 0, 820, .08, .4)
-    sd, sb = seabed(rnd, 800, '#24404e', '#08141a', 'floor1')
-    d += sd; b += sb
-    # warm "living-room" spotlight cone from above onto the bed
-    b += '<path d="M1010 -20 L1370 -20 L1720 900 L660 900 Z" fill="url(#cone1)" opacity=".13" filter="url(#b24)"/>'
-    b += '<rect width="1920" height="1080" fill="url(#lamp1)"/>'
-    b += snow(rnd, 120, 800, 1600, 0, 820, .4, .95, '#fff4d8')
-    # far rocks
-    b += '<path d="M0 790 Q140 720 300 750 Q420 715 560 770 L560 810 L0 810Z" fill="#0a2030" opacity=".9"/>'
-    b += '<path d="M1580 790 Q1700 735 1830 750 Q1890 740 1920 760 L1920 810 L1580 810Z" fill="#0a2030" opacity=".9"/>'
-    # cat bed: back rim
-    cx = 1180
-    b += f'<ellipse cx="{cx}" cy="{870}" rx="510" ry="70" fill="#000" opacity=".5" filter="url(#b12)"/>'
-    b += f'<path d="M{cx - 480} 820 Q{cx - 480} 670 {cx} 660 Q{cx + 480} 670 {cx + 480} 820 Z" fill="url(#plaid)" stroke="#3a0e0c" stroke-width="7"/>'
-    b += f'<path d="M{cx - 470} 812 Q{cx - 470} 680 {cx} 670 Q{cx + 470} 680 {cx + 470} 812Z" fill="#000" opacity=".25"/>'
-    b += f'<path d="M{cx - 440} 700 Q{cx} 640 {cx + 440} 700" fill="none" stroke="#ffd6a0" stroke-width="10" opacity=".55" stroke-linecap="round"/>'
-    # cushion
-    b += f'<ellipse cx="{cx}" cy="805" rx="430" ry="70" fill="#e9d6b8" stroke="#5a3a24" stroke-width="5"/>'
-    b += f'<ellipse cx="{cx}" cy="800" rx="380" ry="50" fill="#f6e8cf" opacity=".8"/>'
-    # the isopod curled up in the bed
-    b += isopod(cx + 10, 760, 390, 270, rnd,
-                ants=((f'M{cx + 10 - 390 - 15} 765 C{cx - 470} 690 {cx - 470} 610 {cx - 430} 588', 13),
-                      (f'M{cx + 10 - 390 - 10} 785 C{cx - 450} 790 {cx - 480} 810 {cx - 500} 840', 11)), legs_near=False, shadow=False)
-    # front rim of the bed (covers the legs)
-    b += (f'<path d="M{cx - 500} 800 Q{cx - 505} 950 {cx} 952 Q{cx + 505} 950 {cx + 500} 800 Q{cx + 470} 870 {cx} 878 Q{cx - 470} 870 {cx - 500} 800Z" '
-          f'fill="url(#plaid)" stroke="#3a0e0c" stroke-width="7"/>')
-    b += f'<path d="M{cx - 480} 830 Q{cx - 440} 900 {cx} 905 Q{cx + 440} 900 {cx + 480} 830" fill="none" stroke="#ffd6a0" stroke-width="12" opacity=".5" stroke-linecap="round"/>'
-    b += f'<path d="M{cx - 500} 880 Q{cx - 480} 950 {cx} 952 Q{cx + 480} 950 {cx + 500} 880" fill="none" stroke="#2a0806" stroke-width="16" opacity=".5"/>'
-    # stitched seam
-    b += f'<path d="M{cx - 470} 846 Q{cx - 420} 920 {cx} 924 Q{cx + 420} 920 {cx + 470} 846" fill="none" stroke="#fff3d6" stroke-width="3.5" stroke-dasharray="14 10" opacity=".8"/>'
-    # pet bowl with a paw print, full of marine snow "kibble"
-    bx, by = 590, 952
-    b += f'<ellipse cx="{bx}" cy="{by + 18}" rx="120" ry="20" fill="#000" opacity=".45" filter="url(#b6)"/>'
-    b += f'<path d="M{bx - 110} {by - 40} L{bx - 84} {by + 10} Q{bx} {by + 26} {bx + 84} {by + 10} L{bx + 110} {by - 40} Z" fill="#3e8fc0" stroke="#0c2234" stroke-width="5"/>'
-    b += f'<ellipse cx="{bx}" cy="{by - 40}" rx="110" ry="22" fill="#5fb0dc" stroke="#0c2234" stroke-width="5"/>'
-    b += f'<ellipse cx="{bx}" cy="{by - 40}" rx="88" ry="14" fill="#efe6d0"/>'
-    for _ in range(30):
-        b += f'<circle cx="{bx + rnd.uniform(-80, 80):.0f}" cy="{by - 42 + rnd.uniform(-8, 6):.0f}" r="{rnd.uniform(2, 5):.1f}" fill="{rnd.choice(["#d9c9a6", "#fff8e6", "#b8a882"])}"/>'
-    b += f'<path d="M{bx - 96} {by - 24} Q{bx - 80} {by + 4} {bx - 60} {by + 10}" fill="none" stroke="#bfe6ff" stroke-width="6" opacity=".7" stroke-linecap="round"/>'
-    px, py = bx + 6, by - 8
-    b += f'<ellipse cx="{px}" cy="{py}" rx="14" ry="11" fill="#f6efe0"/>' + ''.join(f'<circle cx="{px + ox}" cy="{py + oy}" r="6" fill="#f6efe0"/>' for ox, oy in ((-18, -14), (-6, -22), (8, -22), (20, -14)))
-    # the frog in a diving helmet dangling a feather toy for the "cat"
-    arm = 'M38 -22 q22 -10 34 -44'
-    fx, fy, fs = 300, 995, 2.7
-    hx, hy = hand_at(fx, fy, fs, arm)
-    tip = (700, 545)
-    b += f'<path d="M{hx:.0f} {hy:.0f} Q{hx + 60:.0f} {hy - 220:.0f} {tip[0]} {tip[1]}" fill="none" stroke="#1d1208" stroke-width="13" stroke-linecap="round"/>'
-    b += f'<path d="M{hx:.0f} {hy:.0f} Q{hx + 60:.0f} {hy - 220:.0f} {tip[0]} {tip[1]}" fill="none" stroke="#c88a46" stroke-width="7" stroke-linecap="round"/>'
-    fe = (742, 610)
-    b += f'<path d="M{tip[0]} {tip[1]} Q{tip[0] + 30} {tip[1] + 20} {fe[0]} {fe[1]}" fill="none" stroke="#f4eedc" stroke-width="3"/>'
-    for ang, col in ((-30, '#ff6fa0'), (0, '#f2d27a'), (30, '#6fd6ff')):
-        b += (f'<g transform="translate({fe[0]} {fe[1]}) rotate({ang})"><path d="M0 0 Q-22 40 0 96 Q22 40 0 0Z" fill="{col}" stroke="#1d1208" stroke-width="3"/>'
-              f'<path d="M0 6 L0 90" stroke="#1d1208" stroke-width="2.5"/>' + ''.join(f'<path d="M0 {20 + k * 14} l{-12} 8 M0 {20 + k * 14} l12 8" stroke="#1d1208" stroke-width="1.6" opacity=".5"/>' for k in range(5)) + '</g>')
-    b += f'<circle cx="{fe[0]}" cy="{fe[1] + 30}" r="70" fill="#fff6d6" opacity=".25" filter="url(#b24)"/>'
-    b += frog(fx, fy, fs, look=(10, -7), mouth='O', helmet=True, shadow=True, armL='M-34 -22 q-18 4 -24 22', armR=arm)
-    for bx_, by_, r in ((330, 700, 10), (352, 650, 14), (334, 594, 9)):
-        b += f'<circle cx="{bx_}" cy="{by_}" r="{r}" fill="none" stroke="#e8fbff" stroke-width="3" opacity=".7"/>'
-    b += spark(760, 560, 20) + spark(1470, 470, 18) + spark(1010, 300, 14, '#fff6d6')
-    b += '<rect width="1920" height="1080" fill="url(#vig1)"/>'
-    lines = [('40 CM', 250, 'y'), ('PILLBUG', 172, 'w')]
-    return page('#0a2440', svg(d, b), lines, outline='#03101c', top=40)
-
-
-# ================= 2: eyes like dinner plates =================
 def fork(x, y0, y1, s=1):
     o = f'<g transform="translate({x} {y0}) scale({s})" stroke="#1c2430" stroke-width="5" stroke-linejoin="round">'
     o += '<path d="M-44 0 L-44 120 Q-44 180 -14 196 L-12 470 Q0 488 12 470 L14 196 Q44 180 44 120 L44 0 L32 0 L30 120 L16 120 L14 0 L6 0 L4 120 L-4 120 L-6 0 L-14 0 L-16 120 L-30 120 L-32 0 Z" fill="url(#steel)"/>'
     o += '<path d="M-36 130 Q-30 170 -8 186 L-6 440" fill="none" stroke="#ffffff" stroke-width="6" opacity=".7"/>'
     return o + '</g>'
-
 
 def knife(x, y0, s=1):
     o = f'<g transform="translate({x} {y0}) scale({s})" stroke="#1c2430" stroke-width="5" stroke-linejoin="round">'
@@ -270,7 +188,6 @@ def knife(x, y0, s=1):
     o += '<path d="M-12 300 L-10 490" fill="none" stroke="#8a6a52" stroke-width="5"/>'
     return o + '</g>'
 
-
 def sperm_whale(x, y, s, col, rim):
     return (f'<g transform="translate({x} {y}) scale({s})">'
             f'<path d="M-160 -40 Q-170 -60 -120 -62 L40 -58 Q120 -50 170 -10 Q200 10 230 14 L262 -14 Q256 14 266 40 L232 22 Q190 36 130 40 Q20 50 -110 40 Q-170 34 -168 0 Z" fill="{col}"/>'
@@ -278,76 +195,6 @@ def sperm_whale(x, y, s, col, rim):
             f'<path d="M-150 34 L-40 36" stroke="{rim}" stroke-width="4" opacity=".5"/><path d="M-40 34 q20 40 50 46 q-10 -30 -10 -44" fill="{col}"/>'
             f'<circle cx="-70" cy="10" r="5" fill="{rim}" opacity=".7"/></g>')
 
-
-def make_2():
-    rnd = random.Random(7)
-    d = FILTERS
-    d += rad('deep2', 600, 400, 1300, [(0, '#0a2846', 1), (.6, '#040f1e', 1), (1, '#01040a', 1)])
-    d += rad('skin2', 1250, 600, 760, [(0, '#c0443a', 1), (.5, '#7c1e1c', 1), (1, '#2c0608', 1)])
-    d += rad('china', 1200, 600, 300, [(0, '#ffffff', 1), (.8, '#e8f0f8', 1), (1, '#a8b8c8', 1)])
-    d += rad('iris2', 1200, 610, 205, [(0, '#3a1e06', 1), (.7, '#8a5418', 1), (.88, '#f0b850', 1), (1, '#6a3e10', 1)])
-    d += rad('pup2', 1180, 600, 150, [(0, '#0e2440', 1), (.75, '#030810', 1), (1, '#000', 1)])
-    d += lin('steel', [(0, '#f4f7fb'), (.5, '#b8c2d0'), (1, '#6c7888')], 1, 0)
-    d += rad('vig2', 960, 540, 1150, [(0, '#000', 0), (.62, '#000', 0), (1, '#000', .7)])
-    d += '<clipPath id="pupC"><circle cx="1185" cy="612" r="146"/></clipPath>'
-    b = '<rect width="1920" height="1080" fill="url(#deep2)"/>'
-    b += snow(rnd, 220, 0, 1920, 0, 1080, .06, .3, '#cfe6ff')
-    # bioluminescent flickers
-    for _ in range(26):
-        x, y = rnd.uniform(40, 760), rnd.uniform(480, 1060)
-        b += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{rnd.uniform(3, 6):.1f}" fill="#6ff6ff" opacity=".8"/><circle cx="{x:.0f}" cy="{y:.0f}" r="14" fill="#6ff6ff" opacity=".25" filter="url(#b6)"/>'
-    # squid head = the "tablecloth"
-    b += '<path d="M760 640 Q770 240 1180 150 Q1600 80 2000 160 L2000 1100 L860 1100 Q760 900 760 640Z" fill="url(#skin2)"/>'
-    for p, w0, w1, sd in [(((1640, 200), (1780, 40), (1900, 260), (2040, 120)), 60, 22, 1),
-                          (((1700, 420), (1860, 330), (1880, 560), (2040, 520)), 54, 22, -1)]:
-        b += tentacle(p, w0, w1, '#8c2622', '#2a0606', '#d1604a', suck='#e8b49a', side=sd)
-    for _ in range(240):
-        x = rnd.uniform(800, 1990); y = rnd.uniform(160, 1070)
-        if (x - 1200) ** 2 + (y - 610) ** 2 < 340 ** 2: continue
-        if 1340 < x < 1640 and 330 < y < 1000: continue
-        b += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{rnd.uniform(4, 15):.0f}" fill="{rnd.choice(["#d44a30", "#7a1414", "#e8704a", "#4a0a0c"])}" opacity="{rnd.uniform(.25, .7):.2f}"/>'
-    b += '<path d="M780 600 Q830 250 1180 170" fill="none" stroke="#ef8a6e" stroke-width="12" opacity=".55" stroke-linecap="round"/>'
-    b += '<circle cx="1200" cy="610" r="350" fill="#2a0608" opacity=".6" filter="url(#b24)"/>'
-    # the plate-eye: porcelain rim with gold bands and a blue china pattern
-    b += '<circle cx="1200" cy="610" r="318" fill="#200406"/>'
-    b += '<circle cx="1200" cy="610" r="300" fill="url(#china)" stroke="#5a6a7c" stroke-width="4"/>'
-    b += '<circle cx="1200" cy="610" r="288" fill="none" stroke="#e0b450" stroke-width="7"/>'
-    b += '<circle cx="1200" cy="610" r="238" fill="none" stroke="#e0b450" stroke-width="5"/>'
-    for k in range(28):
-        a = k / 28 * 2 * math.pi; r = 263
-        x, y = 1200 + r * math.cos(a), 610 + r * math.sin(a)
-        b += f'<g transform="translate({x:.0f} {y:.0f}) rotate({math.degrees(a) + 90:.0f})"><path d="M0 -14 Q10 -4 0 12 Q-10 -4 0 -14Z" fill="#3a6fb0"/><circle cx="12" cy="0" r="3" fill="#3a6fb0"/><circle cx="-12" cy="0" r="3" fill="#3a6fb0"/></g>'
-    # iris + pupil
-    b += '<circle cx="1200" cy="612" r="214" fill="#2a1404"/><circle cx="1200" cy="612" r="208" fill="url(#iris2)"/>'
-    for k in range(56):
-        a = k / 56 * 2 * math.pi
-        b += f'<line x1="{1200 + 156 * math.cos(a):.0f}" y1="{612 + 156 * math.sin(a):.0f}" x2="{1200 + 204 * math.cos(a):.0f}" y2="{612 + 204 * math.sin(a):.0f}" stroke="#f2d27a" stroke-width="3" opacity=".35"/>'
-    b += '<circle cx="1185" cy="612" r="148" fill="url(#pup2)"/>'
-    # the distant sperm whale shadow reflected in the pupil
-    b += f'<g clip-path="url(#pupC)"><circle cx="1210" cy="640" r="110" fill="#1a4870" opacity=".55" filter="url(#b24)"/>{sperm_whale(1196, 636, .62, "#04101c", "#7fe0ff")}</g>'
-    b += '<path d="M1080 520 Q1130 462 1220 468 Q1150 494 1110 556Z" fill="#ffffff" opacity=".85"/>'
-    b += '<path d="M1500 420 Q1560 520 1530 640" fill="none" stroke="#ffffff" stroke-width="14" opacity=".55" stroke-linecap="round"/>'
-    b += '<path d="M920 520 Q940 430 1000 380" fill="none" stroke="#ffffff" stroke-width="9" opacity=".45" stroke-linecap="round"/>'
-    b += '<path d="M910 760 Q1000 880 1180 910" fill="none" stroke="#2a0406" stroke-width="10" opacity=".35" stroke-linecap="round"/>'
-    # cutlery on either side = a place setting
-    b += '<ellipse cx="830" cy="700" rx="70" ry="300" fill="#bfe6ff" opacity=".12" filter="url(#b24)"/>'
-    b += fork(822, 420, 900, 1.0)
-    b += knife(1580, 360, 1.0)
-    # the frog with a napkin bib and a fork, in a helmet, bottom-left
-    bib = '<path d="M-22 -24 L30 -24 L20 4 L4 14 L-12 4 Z" fill="#ffffff" stroke-width="3"/><path d="M-22 -24 L30 -24" stroke="#c8423a" stroke-width="4"/>'
-    arm = 'M38 -22 q18 -12 24 -40'
-    fx, fy, fs = 360, 1000, 2.65
-    b += '<circle cx="380" cy="850" r="190" fill="#6ff6ff" opacity=".1" filter="url(#b50)"/>'
-    b += frog(fx, fy, fs, look=(11, -6), mouth='O', helmet=True, shadow=True, mid=bib, armL='M-34 -22 q-18 4 -24 22', armR=arm)
-    hx, hy = hand_at(fx, fy, fs, arm)
-    b += f'<g transform="translate({hx:.0f} {hy:.0f}) rotate(16)">{fork(0, -150, 0, .32)}</g>'
-    b += spark(1080, 470, 24, '#ffffff') + spark(1560, 330, 18) + spark(930, 300, 14, '#e8fbff')
-    b += '<rect width="1920" height="1080" fill="url(#vig2)"/>'
-    lines = [('EYES LIKE', 150, 'w'), ('PLATES', 214, 'y')]
-    return page('#040f1e', svg(d, b), lines, outline='#03070f', top=46)
-
-
-# ================= 3: a whale fall, months apart =================
 def whale(x, y, s, rot):
     o = f'<g transform="translate({x} {y}) rotate({rot}) scale({s})" stroke="#0c1a26" stroke-width="6" stroke-linejoin="round">'
     body = 'M0 0 Q-10 -70 80 -100 Q260 -150 470 -110 Q620 -80 720 -30 Q770 -10 800 -14 L810 6 Q760 20 700 40 Q560 100 380 110 Q160 120 60 80 Q0 56 0 0Z'
@@ -369,7 +216,6 @@ def whale(x, y, s, rot):
         o += f'<circle cx="{bx}" cy="{by}" r="9" fill="#d8dcd0" stroke-width="3"/>'
     return o + '</g>'
 
-
 def hourglass(x, y, s):
     o = f'<g transform="translate({x} {y}) scale({s})" stroke="#1c1208" stroke-width="5" stroke-linejoin="round">'
     o += '<rect x="-70" y="-180" width="140" height="22" rx="8" fill="#a8743a"/><rect x="-70" y="-6" width="140" height="22" rx="8" fill="#a8743a"/>'
@@ -382,7 +228,6 @@ def hourglass(x, y, s):
         o += f'<rect x="{xx - 6}" y="-160" width="12" height="156" rx="5" fill="#7a4e22"/>'
     return o + '</g>'
 
-
 def amphipod(x, y, s, rot):
     o = f'<g transform="translate({x} {y}) rotate({rot}) scale({s})" stroke="#3a1a10" stroke-width="2">'
     o += '<path d="M0 0 Q10 -14 30 -12 Q46 -8 50 6 Q36 2 26 6 Q12 10 0 0Z" fill="#f0a070"/>'
@@ -390,49 +235,6 @@ def amphipod(x, y, s, rot):
     o += '<path d="M14 4 l-2 8 M22 4 l-1 8 M30 4 l0 8" fill="none"/>'
     return o + '</g>'
 
-
-def make_3():
-    rnd = random.Random(41)
-    d = FILTERS + ISO_GRAD
-    d += lin('w3', [(0, '#1d5a78'), (.45, '#0b2c44'), (1, '#03101c')])
-    d += lin('whaleG', [(0, '#c8dcea'), (.35, '#7896ae'), (1, '#28405a')])
-    d += rad('halo3', 1400, 290, 560, [(0, '#e8fbff', .5), (.5, '#9fd8f0', .12), (1, '#000', 0)])
-    d += rad('vig3', 960, 540, 1150, [(0, '#000', 0), (.6, '#000', 0), (1, '#000', .7)])
-    b = '<rect width="1920" height="1080" fill="url(#w3)"/>'
-    # shaft of light from far above carrying the whale down
-    b += '<path d="M1150 -20 L1700 -20 L1560 860 L1040 860 Z" fill="#e8fbff" opacity=".13" filter="url(#b24)"/>'
-    b += '<path d="M1300 -20 L1540 -20 L1420 860 L1220 860 Z" fill="#ffffff" opacity=".08" filter="url(#b24)"/>'
-    b += '<rect width="1920" height="1080" fill="url(#halo3)"/>'
-    b += snow(rnd, 260, 0, 1920, 0, 860, .08, .45)
-    sd, sb = seabed(rnd, 840, '#2c4a54', '#07121a', 'floor3')
-    d += sd; b += sb
-    # empty, bare floor: a few pale rocks, an old bone, a sea pen
-    b += '<path d="M1500 880 q40 -30 90 -10 q30 14 50 0" fill="none" stroke="#5f8a86" stroke-width="5" opacity=".5"/>'
-    # the whale fall, sinking nose-down toward the isopod
-    b += '<ellipse cx="1400" cy="290" rx="460" ry="200" fill="#ffffff" opacity=".08" filter="url(#b50)"/>'
-    b += whale(1090, 250, .96, 12)
-    # marine snow and tiny amphipods streaming toward the feast
-    b += snow(rnd, 120, 1000, 1800, 60, 560, .4, .95, '#f8fffb')
-    for ax, ay, r in ((1060, 470, -20), (1120, 540, -40), (960, 420, -10), (1260, 520, -60), (900, 520, -30)):
-        b += amphipod(ax, ay, 1.3, r)
-    # the lone isopod on the bare mud, looking up
-    b += '<ellipse cx="1050" cy="900" rx="320" ry="40" fill="#bfe8ff" opacity=".1" filter="url(#b24)"/>'
-    b += isopod(1080, 840, 270, 180, rnd,
-                ants=(('M800 842 C760 760 790 680 860 610', 11), ('M806 858 C760 840 740 820 720 800', 9)))
-    # frog in a helmet sitting beside an hourglass that has almost run out
-    b += hourglass(600, 975, 1.05)
-    b += '<circle cx="380" cy="860" r="160" fill="#e8fbff" opacity=".08" filter="url(#b50)"/>'
-    b += frog(380, 995, 2.6, look=(10, -9), mouth='O', helmet=True, shadow=True,
-              armL='M-34 -22 q-20 -4 -26 -30', armR='M38 -22 q18 0 24 18')
-    for bx_, by_, r in ((410, 690, 10), (432, 640, 14), (414, 584, 9)):
-        b += f'<circle cx="{bx_}" cy="{by_}" r="{r}" fill="none" stroke="#e8fbff" stroke-width="3" opacity=".7"/>'
-    b += spark(1500, 140, 22, '#ffffff') + spark(1780, 360, 16) + spark(880, 610, 14, '#e8fbff') + spark(1180, 680, 12)
-    b += '<rect width="1920" height="1080" fill="url(#vig3)"/>'
-    lines = [('MEALS', 150, 'w'), ('MONTHS', 210, 'y'), ('APART', 150, 'w')]
-    return page('#0b2c44', svg(d, b), lines, outline='#03101c', top=36)
-
-
-# ================= 4: why not crushed? =================
 def crushed_sub(rnd):
     """yellow submarine (round nose left, tail fins right) crumpled in the middle like a soda can, centred ~ (1250, 600)"""
     cx, cy, L, R = 1250, 600, 400, 150
@@ -510,7 +312,6 @@ def crushed_sub(rnd):
         o += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{rnd.uniform(5, 15):.0f}" fill="none" stroke="#e8fbff" stroke-width="3" opacity=".75"/>'
     return o
 
-
 def gauge(x, y, r):
     o = f'<g transform="translate({x} {y})">'
     o += f'<circle r="{r + 60}" fill="#ff5a3a" opacity=".2" filter="url(#b24)"/>'
@@ -534,7 +335,6 @@ def gauge(x, y, r):
     o += f'<path d="M{r * .2:.0f} {-r * .9:.0f} L{r * .05:.0f} {-r * .4:.0f} L{r * .3:.0f} {-r * .1:.0f}" fill="none" stroke="#5a6470" stroke-width="3"/>'
     return o + '</g>'
 
-
 def calm_fish(x, y, s, rnd):
     o = f'<g transform="translate({x} {y}) scale({s})" stroke="#3a2030" stroke-width="5" stroke-linejoin="round">'
     o += '<ellipse cx="40" cy="70" rx="200" ry="22" fill="#000" opacity=".35" stroke="none" filter="url(#b12)"/>'
@@ -548,42 +348,6 @@ def calm_fish(x, y, s, rnd):
     o += '<path d="M-104 16 q14 12 30 4" fill="none" stroke-width="4"/>'   # relaxed little smile
     return o + '</g>'
 
-
-def make_4():
-    rnd = random.Random(57)
-    d = FILTERS
-    d += lin('w4', [(0, '#123c58'), (.5, '#081e32'), (1, '#020a12')])
-    d += lin('subG', [(0, '#ffd85a'), (.5, '#f2b632'), (1, '#9a6a12')])
-    d += lin('fishG', [(0, '#fbe4ec'), (.55, '#e0a8bc'), (1, '#8a5068')])
-    d += rad('lamp4', 1230, 520, 700, [(0, '#ffe8a0', .25), (.5, '#ffb060', .06), (1, '#000', 0)])
-    d += rad('vig4', 960, 540, 1150, [(0, '#000', 0), (.6, '#000', 0), (1, '#000', .7)])
-    b = '<rect width="1920" height="1080" fill="url(#w4)"/>'
-    b += '<path d="M980 -20 L1480 -20 L1640 860 L860 860 Z" fill="#e8fbff" opacity=".08" filter="url(#b24)"/>'
-    b += '<rect width="1920" height="1080" fill="url(#lamp4)"/>'
-    b += snow(rnd, 240, 0, 1920, 0, 860, .08, .45)
-    sd, sb = seabed(rnd, 860, '#2a4450', '#06101a', 'floor4')
-    d += sd; b += sb
-    # downward "weight" chevrons: the ocean pressing on everything
-    b += crushed_sub(rnd)
-    # pipe from the hull to the gauge
-    b += '<path d="M1560 530 Q1660 480 1670 390" fill="none" stroke="#141a22" stroke-width="22"/><path d="M1560 530 Q1660 480 1670 390" fill="none" stroke="#9aa4b0" stroke-width="12"/>'
-    b += gauge(1690, 250, 140)
-    # the calm, unharmed fish drifting by in front
-    b += '<circle cx="980" cy="900" r="160" fill="#ffd6e4" opacity=".12" filter="url(#b50)"/>'
-    b += calm_fish(1000, 905, .95, rnd)
-    # frog in a helmet on the mud, bottom-left, staring at the crushed sub
-    b += '<circle cx="380" cy="860" r="170" fill="#e8fbff" opacity=".07" filter="url(#b50)"/>'
-    b += frog(380, 1000, 2.6, look=(12, -7), mouth='O', helmet=True, shadow=True,
-              armL='M-34 -22 q-20 -6 -26 -32', armR='M38 -22 q22 -6 28 -38')
-    for bx_, by_, r in ((408, 690, 10), (430, 640, 14), (412, 584, 9)):
-        b += f'<circle cx="{bx_}" cy="{by_}" r="{r}" fill="none" stroke="#e8fbff" stroke-width="3" opacity=".7"/>'
-    b += spark(1530, 640, 18) + spark(960, 300, 14, '#e8fbff') + spark(780, 820, 16, '#fff6d6')
-    b += '<rect width="1920" height="1080" fill="url(#vig4)"/>'
-    lines = [('WHY NOT', 160, 'w'), ('CRUSHED?', 186, 'y')]
-    return page('#081e32', svg(d, b), lines, outline='#03101c', top=40)
-
-
-# ================= 5: giant or tiny? =================
 def isopod_front(cx, cy, W, H, rnd):
     """giant isopod seen from the front, towering: dome of plates, head with two big compound eyes, antennae, legs"""
     o = f'<ellipse cx="{cx}" cy="{cy + H * .62:.0f}" rx="{W * .62:.0f}" ry="60" fill="#020a10" opacity=".6" filter="url(#b24)"/>'
@@ -640,7 +404,6 @@ def isopod_front(cx, cy, W, H, rnd):
             o += f'<path d="{dpath}" fill="none" stroke="#c7aabb" stroke-width="{w - 6}" stroke-dasharray="18 4" stroke-linecap="round"/>'
     return o
 
-
 def snail(x, y, s):
     o = f'<g transform="translate({x} {y}) scale({s})" stroke="#2a1a10" stroke-width="3" stroke-linejoin="round">'
     o += '<path d="M-30 0 Q-34 -10 -20 -12 L30 -12 Q44 -14 46 -26 Q50 -36 44 -38 Q40 -30 36 -22 Q30 -4 24 0Z" fill="#e8d0b0"/>'
@@ -651,41 +414,280 @@ def snail(x, y, s):
     return o + '</g>'
 
 
+def vbed(y, c0, c1, id_, rnd):
+    d = lin(id_, [(0, c0), (1, c1)])
+    b = f'<path d="M0 {y} Q270 {y - 24} 540 {y - 4} Q810 {y + 14} 1080 {y - 10} L1080 1920 L0 1920Z" fill="url(#{id_})"/>'
+    for _ in range(70):
+        b += f'<ellipse cx="{rnd.uniform(0, 1080):.0f}" cy="{rnd.uniform(y + 10, 1920):.0f}" rx="{rnd.uniform(3, 14):.0f}" ry="{rnd.uniform(2, 6):.0f}" fill="#050f14" opacity="{rnd.uniform(.2, .5):.2f}"/>'
+    return d, b
+
+
+def bubbles(x, y):
+    return ''.join(f'<circle cx="{x + dx}" cy="{y - dy}" r="{r}" fill="none" stroke="#e8fbff" stroke-width="3" opacity=".7"/>' for dx, dy, r in ((0, 0, 10), (22, 50, 14), (4, 106, 9)))
+
+
+VIG = rad('vig', 540, 960, 1150, [(0, '#000', 0), (.6, '#000', 0), (1, '#000', .65)])
+
+
+# ================= 1: a 40 cm pillbug in a cat bed (vertical) =================
+def bed_group(rnd, feather):
+    """cat bed + curled isopod in landscape coords (bed centre x 1180, bottom y ~955); antennae reach toward `feather`"""
+    cx = 1180; fx, fy = feather
+    b = f'<ellipse cx="{cx}" cy="870" rx="510" ry="70" fill="#000" opacity=".5" filter="url(#b12)"/>'
+    b += f'<path d="M{cx - 480} 820 Q{cx - 480} 670 {cx} 660 Q{cx + 480} 670 {cx + 480} 820 Z" fill="url(#plaid)" stroke="#3a0e0c" stroke-width="7"/>'
+    b += f'<path d="M{cx - 470} 812 Q{cx - 470} 680 {cx} 670 Q{cx + 470} 680 {cx + 470} 812Z" fill="#000" opacity=".25"/>'
+    b += f'<path d="M{cx - 440} 700 Q{cx} 640 {cx + 440} 700" fill="none" stroke="#ffd6a0" stroke-width="10" opacity=".55" stroke-linecap="round"/>'
+    b += f'<ellipse cx="{cx}" cy="805" rx="430" ry="70" fill="#e9d6b8" stroke="#5a3a24" stroke-width="5"/>'
+    b += f'<ellipse cx="{cx}" cy="800" rx="380" ry="50" fill="#f6e8cf" opacity=".8"/>'
+    x0 = cx + 10 - 390
+    b += isopod(cx + 10, 760, 390, 270, rnd,
+                ants=((f'M{x0 - 15} 765 C{x0 - 80} 700 {fx - 40} {fy + 60} {fx + 10} {fy + 20}', 13),
+                      (f'M{x0 - 10} 785 C{x0 - 60} 790 {x0 - 90} 810 {x0 - 110} 840', 11)), legs_near=False, shadow=False)
+    b += (f'<path d="M{cx - 500} 800 Q{cx - 505} 950 {cx} 952 Q{cx + 505} 950 {cx + 500} 800 Q{cx + 470} 870 {cx} 878 Q{cx - 470} 870 {cx - 500} 800Z" '
+          f'fill="url(#plaid)" stroke="#3a0e0c" stroke-width="7"/>')
+    b += f'<path d="M{cx - 480} 830 Q{cx - 440} 900 {cx} 905 Q{cx + 440} 900 {cx + 480} 830" fill="none" stroke="#ffd6a0" stroke-width="12" opacity=".5" stroke-linecap="round"/>'
+    b += f'<path d="M{cx - 500} 880 Q{cx - 480} 950 {cx} 952 Q{cx + 480} 950 {cx + 500} 880" fill="none" stroke="#2a0806" stroke-width="16" opacity=".5"/>'
+    b += f'<path d="M{cx - 470} 846 Q{cx - 420} 920 {cx} 924 Q{cx + 420} 920 {cx + 470} 846" fill="none" stroke="#fff3d6" stroke-width="3.5" stroke-dasharray="14 10" opacity=".8"/>'
+    return b
+
+
+def pet_bowl(bx, by, rnd):
+    b = f'<ellipse cx="{bx}" cy="{by + 18}" rx="120" ry="20" fill="#000" opacity=".45" filter="url(#b6)"/>'
+    b += f'<path d="M{bx - 110} {by - 40} L{bx - 84} {by + 10} Q{bx} {by + 26} {bx + 84} {by + 10} L{bx + 110} {by - 40} Z" fill="#3e8fc0" stroke="#0c2234" stroke-width="5"/>'
+    b += f'<ellipse cx="{bx}" cy="{by - 40}" rx="110" ry="22" fill="#5fb0dc" stroke="#0c2234" stroke-width="5"/>'
+    b += f'<ellipse cx="{bx}" cy="{by - 40}" rx="88" ry="14" fill="#efe6d0"/>'
+    for _ in range(30):
+        b += f'<circle cx="{bx + rnd.uniform(-80, 80):.0f}" cy="{by - 42 + rnd.uniform(-8, 6):.0f}" r="{rnd.uniform(2, 5):.1f}" fill="{rnd.choice(["#d9c9a6", "#fff8e6", "#b8a882"])}"/>'
+    px, py = bx + 6, by - 8
+    b += f'<ellipse cx="{px}" cy="{py}" rx="14" ry="11" fill="#f6efe0"/>' + ''.join(f'<circle cx="{px + ox}" cy="{py + oy}" r="6" fill="#f6efe0"/>' for ox, oy in ((-18, -14), (-6, -22), (8, -22), (20, -14)))
+    return b
+
+
+def make_1():
+    rnd = random.Random(31)
+    d = FILTERS + ISO_GRAD + VIG
+    d += lin('w1', [(0, '#123a5c'), (.55, '#0a2440'), (1, '#040e1c')])
+    d += rad('lamp1', 560, 1420, 640, [(0, '#ffd890', .45), (.5, '#ff9e50', .12), (1, '#000', 0)])
+    d += rad('bulb1', 540, 330, 260, [(0, '#fff4c8', .9), (.4, '#ffcf80', .3), (1, '#000', 0)])
+    d += lin('shade1', [(0, '#e9b84a'), (1, '#9a6a1c')], 1, 0)
+    d += ('<pattern id="plaid" width="60" height="60" patternUnits="userSpaceOnUse"><rect width="60" height="60" fill="#b8423a"/>'
+          '<rect x="0" y="22" width="60" height="16" fill="#8a2a26"/><rect x="22" y="0" width="16" height="60" fill="#8a2a26" opacity=".8"/>'
+          '<rect x="0" y="28" width="60" height="4" fill="#f2d27a" opacity=".8"/><rect x="28" y="0" width="4" height="60" fill="#f2d27a" opacity=".6"/></pattern>')
+    b = '<rect width="1080" height="1920" fill="url(#w1)"/>'
+    b += snow(rnd, 220, 0, 1080, 0, 1500, .08, .4)
+    sd, sb = vbed(1500, '#24404e', '#08141a', 'floor1', rnd); d += sd; b += sb
+    # a cosy living-room pendant lamp hanging in the deep, lighting the bed below
+    b += '<path d="M400 330 L680 330 L1060 1700 L20 1700 Z" fill="#fff1c8" opacity=".12" filter="url(#b24)"/>'
+    b += '<rect width="1080" height="1920" fill="url(#lamp1)"/>'
+    b += '<rect width="1080" height="1920" fill="url(#bulb1)"/>'
+    b += '<path d="M540 0 L540 200" stroke="#1d1208" stroke-width="8"/>'
+    b += ('<path d="M470 200 L610 200 L700 320 Q540 346 380 320 Z" fill="url(#shade1)" stroke="#2a1c06" stroke-width="7" stroke-linejoin="round"/>'
+          '<path d="M480 212 L420 312" stroke="#fff0b8" stroke-width="10" opacity=".7" stroke-linecap="round"/>'
+          '<ellipse cx="540" cy="326" rx="150" ry="18" fill="#3a2808" stroke="#2a1c06" stroke-width="5"/>'
+          '<circle cx="540" cy="336" r="34" fill="#fffbe6"/><circle cx="540" cy="336" r="70" fill="#fff4c8" opacity=".5" filter="url(#b12)"/>')
+    b += '<rect x="490" y="186" width="100" height="18" rx="6" fill="#6a4a1a" stroke="#2a1c06" stroke-width="4"/>'
+    b += snow(rnd, 120, 120, 960, 360, 1500, .4, .95, '#fff4d8')
+    # far rocks
+    b += '<path d="M0 1490 Q120 1430 260 1460 L300 1510 L0 1510Z" fill="#0a2030" opacity=".9"/><path d="M820 1500 Q940 1440 1080 1460 L1080 1510 L820 1510Z" fill="#0a2030" opacity=".9"/>'
+    # bed + isopod (landscape coords scaled into the lower half)
+    s, cxv, bottom = .88, 590, 1665
+    tx, ty = cxv - 1185 * s, bottom - 955 * s
+    fe = (215, 1350)   # feather tip, page coords
+    feo = ((fe[0] - tx) / s, (fe[1] - ty) / s)
+    b += f'<g transform="translate({tx:.1f} {ty:.1f}) scale({s})">{bed_group(rnd, feo)}</g>'
+    b += f'<g transform="translate(900 1716) scale(.72)">{pet_bowl(0, 0, rnd)}</g>'
+    # frog dangling the feather toy
+    arm = 'M38 -22 q10 -20 4 -50'
+    fx, fy, fs = 150, 1735, 2.3
+    hx, hy = hand_at(fx, fy, fs, arm)
+    tip = (150, 1250)
+    b += f'<path d="M{hx:.0f} {hy:.0f} Q{hx + 40:.0f} {hy - 200:.0f} {tip[0]} {tip[1]}" fill="none" stroke="#1d1208" stroke-width="12" stroke-linecap="round"/>'
+    b += f'<path d="M{hx:.0f} {hy:.0f} Q{hx + 40:.0f} {hy - 200:.0f} {tip[0]} {tip[1]}" fill="none" stroke="#c88a46" stroke-width="6" stroke-linecap="round"/>'
+    b += f'<path d="M{tip[0]} {tip[1]} Q{tip[0] + 40} {tip[1] + 20} {fe[0]} {fe[1] - 80}" fill="none" stroke="#f4eedc" stroke-width="3"/>'
+    for ang, col in ((-30, '#ff6fa0'), (0, '#f2d27a'), (30, '#6fd6ff')):
+        b += (f'<g transform="translate({fe[0]} {fe[1] - 80}) rotate({ang}) scale(.8)"><path d="M0 0 Q-22 40 0 96 Q22 40 0 0Z" fill="{col}" stroke="#1d1208" stroke-width="3"/>'
+              f'<path d="M0 6 L0 90" stroke="#1d1208" stroke-width="2.5"/></g>')
+    b += f'<circle cx="{fe[0]}" cy="{fe[1] - 50}" r="60" fill="#fff6d6" opacity=".25" filter="url(#b24)"/>'
+    b += frog(fx, fy, fs, look=(10, -8), mouth='O', helmet=True, shadow=True, armL='M-34 -22 q-18 4 -24 22', armR=arm)
+    b += spark(300, 1300, 18) + spark(880, 1230, 18) + spark(780, 520, 14, '#fff6d6') + spark(240, 600, 12)
+    b += '<rect width="1080" height="1920" fill="url(#vig)"/>'
+    lines = [('40 CM', 250, 'y'), ('PILLBUG', 172, 'w')]
+    return vpage('#0a2440', vsvg(d, b), lines, outline='#03101c', top=700)
+
+
+# ================= 2: eyes like dinner plates (vertical) =================
+def plate_eye(rnd):
+    """landscape coords: plate-eye centre (1200, 610), fork at x 822, knife at x 1580"""
+    b = '<circle cx="1200" cy="610" r="350" fill="#2a0608" opacity=".6" filter="url(#b24)"/>'
+    b += '<circle cx="1200" cy="610" r="318" fill="#200406"/>'
+    b += '<circle cx="1200" cy="610" r="300" fill="url(#china)" stroke="#5a6a7c" stroke-width="4"/>'
+    b += '<circle cx="1200" cy="610" r="288" fill="none" stroke="#e0b450" stroke-width="7"/>'
+    b += '<circle cx="1200" cy="610" r="238" fill="none" stroke="#e0b450" stroke-width="5"/>'
+    for k in range(28):
+        a = k / 28 * 2 * math.pi; r = 263
+        x, y = 1200 + r * math.cos(a), 610 + r * math.sin(a)
+        b += f'<g transform="translate({x:.0f} {y:.0f}) rotate({math.degrees(a) + 90:.0f})"><path d="M0 -14 Q10 -4 0 12 Q-10 -4 0 -14Z" fill="#3a6fb0"/><circle cx="12" cy="0" r="3" fill="#3a6fb0"/><circle cx="-12" cy="0" r="3" fill="#3a6fb0"/></g>'
+    b += '<circle cx="1200" cy="612" r="214" fill="#2a1404"/><circle cx="1200" cy="612" r="208" fill="url(#iris2)"/>'
+    for k in range(56):
+        a = k / 56 * 2 * math.pi
+        b += f'<line x1="{1200 + 156 * math.cos(a):.0f}" y1="{612 + 156 * math.sin(a):.0f}" x2="{1200 + 204 * math.cos(a):.0f}" y2="{612 + 204 * math.sin(a):.0f}" stroke="#f2d27a" stroke-width="3" opacity=".35"/>'
+    b += '<circle cx="1185" cy="612" r="148" fill="url(#pup2)"/>'
+    b += f'<g clip-path="url(#pupC)"><circle cx="1210" cy="640" r="110" fill="#1a4870" opacity=".6" filter="url(#b24)"/>{sperm_whale(1196, 636, .62, "#04101c", "#7fe0ff")}</g>'
+    b += '<path d="M1080 520 Q1130 462 1220 468 Q1150 494 1110 556Z" fill="#ffffff" opacity=".85"/>'
+    b += '<path d="M1460 470 Q1500 560 1470 660" fill="none" stroke="#ffffff" stroke-width="12" opacity=".5" stroke-linecap="round"/>'
+    b += '<ellipse cx="830" cy="660" rx="70" ry="260" fill="#bfe6ff" opacity=".14" filter="url(#b24)"/>'
+    b += fork(822, 380, 900, 1.0)
+    b += knife(1580, 340, 1.0)
+    return b
+
+
+def make_2():
+    rnd = random.Random(7)
+    d = FILTERS + VIG
+    d += rad('deep2', 540, 1200, 1300, [(0, '#0a2846', 1), (.6, '#040f1e', 1), (1, '#01040a', 1)])
+    d += rad('skin2', 540, 420, 760, [(0, '#c0443a', 1), (.5, '#7c1e1c', 1), (1, '#2c0608', 1)])
+    d += rad('china', 1200, 600, 300, [(0, '#ffffff', 1), (.8, '#e8f0f8', 1), (1, '#a8b8c8', 1)])
+    d += rad('iris2', 1200, 610, 205, [(0, '#3a1e06', 1), (.7, '#8a5418', 1), (.88, '#f0b850', 1), (1, '#6a3e10', 1)])
+    d += rad('pup2', 1180, 600, 150, [(0, '#0e2440', 1), (.75, '#030810', 1), (1, '#000', 1)])
+    d += lin('steel', [(0, '#f4f7fb'), (.5, '#b8c2d0'), (1, '#6c7888')], 1, 0)
+    d += '<clipPath id="pupC"><circle cx="1185" cy="612" r="146"/></clipPath>'
+    b = '<rect width="1080" height="1920" fill="url(#deep2)"/>'
+    b += snow(rnd, 200, 0, 1080, 0, 1920, .06, .3, '#cfe6ff')
+    for _ in range(30):
+        x, y = rnd.uniform(40, 1040), rnd.uniform(1180, 1760)
+        b += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{rnd.uniform(3, 6):.1f}" fill="#6ff6ff" opacity=".8"/><circle cx="{x:.0f}" cy="{y:.0f}" r="14" fill="#6ff6ff" opacity=".25" filter="url(#b6)"/>'
+    # squid mantle filling the upper half = the red "tablecloth"; arms hang down both sides past the text
+    for p, w0, w1, sd in [(((90, 760), (20, 1100), (120, 1350), (40, 1640)), 50, 14, 1),
+                          (((990, 760), (1070, 1080), (940, 1330), (1040, 1620)), 50, 14, -1),
+]:
+        b += tentacle(p, w0, w1, '#8c2622', '#2a0606', '#d1604a', suck='#e8b49a', side=sd)
+    b += '<path d="M-40 -40 L1120 -40 L1120 640 Q1100 860 540 880 Q-20 860 -40 640Z" fill="url(#skin2)"/>'
+    for _ in range(220):
+        x = rnd.uniform(0, 1080); y = rnd.uniform(0, 860)
+        if (x - 540) ** 2 + (y - 480) ** 2 < 330 ** 2 or y > 820 - abs(x - 540) * .2: continue
+        if 130 < x < 230 or 860 < x < 960: continue
+        b += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{rnd.uniform(4, 14):.0f}" fill="{rnd.choice(["#d44a30", "#7a1414", "#e8704a", "#4a0a0c"])}" opacity="{rnd.uniform(.25, .7):.2f}"/>'
+    b += '<path d="M60 700 Q300 850 540 856 Q780 850 1020 700" fill="none" stroke="#2a0406" stroke-width="18" opacity=".55" stroke-linecap="round"/>'
+    b += '<path d="M60 120 Q300 40 540 40" fill="none" stroke="#ef8a6e" stroke-width="12" opacity=".4" stroke-linecap="round"/>'
+    s = .92
+    b += f'<g transform="translate({540 - 1200 * s:.1f} {480 - 610 * s:.1f}) scale({s})">{plate_eye(rnd)}</g>'
+    # the hunter: a sperm whale shadow far below, lit faintly by bioluminescence
+    b += '<ellipse cx="640" cy="1420" rx="300" ry="90" fill="#1a4870" opacity=".35" filter="url(#b50)"/>'
+    b += f'<g transform="translate(1290 0) scale(-1 1)">{sperm_whale(650, 1420, 1.25, "#0a1c2e", "#5fc8ee")}</g>'
+    # frog with bib and fork, bottom-left
+    bib = '<path d="M-22 -24 L30 -24 L20 4 L4 14 L-12 4 Z" fill="#ffffff" stroke-width="3"/><path d="M-22 -24 L30 -24" stroke="#c8423a" stroke-width="4"/>'
+    arm = 'M38 -22 q18 -12 24 -40'
+    fx, fy, fs = 330, 1730, 2.4
+    b += '<circle cx="330" cy="1600" r="170" fill="#6ff6ff" opacity=".1" filter="url(#b50)"/>'
+    b += frog(fx, fy, fs, look=(11, -6), mouth='O', helmet=True, shadow=True, mid=bib, armL='M-34 -22 q-18 4 -24 22', armR=arm)
+    hx, hy = hand_at(fx, fy, fs, arm)
+    b += f'<g transform="translate({hx:.0f} {hy:.0f}) rotate(16)">{fork(0, -150, 0, .32)}</g>'
+    b += bubbles(360, 1450)
+    b += spark(420, 330, 22, '#ffffff') + spark(860, 1240, 16) + spark(200, 1250, 14, '#e8fbff')
+    b += '<rect width="1080" height="1920" fill="url(#vig)"/>'
+    lines = [('EYES LIKE', 150, 'w'), ('PLATES', 220, 'y')]
+    return vpage('#040f1e', vsvg(d, b), lines, outline='#03070f', top=930)
+
+
+# ================= 3: a whale fall, months apart (vertical) =================
+def make_3():
+    rnd = random.Random(41)
+    d = FILTERS + ISO_GRAD + VIG
+    d += lin('w3', [(0, '#1d5a78'), (.45, '#0b2c44'), (1, '#03101c')])
+    d += lin('whaleG', [(0, '#c8dcea'), (.35, '#7896ae'), (1, '#28405a')])
+    d += rad('halo3', 560, 420, 560, [(0, '#e8fbff', .45), (.5, '#9fd8f0', .12), (1, '#000', 0)])
+    b = '<rect width="1080" height="1920" fill="url(#w3)"/>'
+    b += '<path d="M250 -20 L900 -20 L860 1560 L300 1560 Z" fill="#e8fbff" opacity=".12" filter="url(#b24)"/>'
+    b += '<path d="M440 -20 L700 -20 L660 1560 L460 1560 Z" fill="#ffffff" opacity=".07" filter="url(#b24)"/>'
+    b += '<rect width="1080" height="1920" fill="url(#halo3)"/>'
+    b += snow(rnd, 300, 0, 1080, 0, 1560, .08, .45)
+    sd, sb = vbed(1540, '#2c4a54', '#07121a', 'floor3', rnd); d += sd; b += sb
+    b += '<path d="M800 1600 q40 -30 90 -10 q30 14 50 0" fill="none" stroke="#5f8a86" stroke-width="5" opacity=".5"/>'
+    # the whale fall, sinking nose-down toward the mud
+    b += '<ellipse cx="560" cy="420" rx="460" ry="260" fill="#ffffff" opacity=".07" filter="url(#b50)"/>'
+    b += whale(150, 600, .9, -28)
+    b += snow(rnd, 120, 100, 1000, 120, 720, .4, .95, '#f8fffb')
+    for ax, ay, r in ((140, 700, 20), (230, 760, 40), (90, 600, 10), (330, 690, 60), (60, 760, 30)):
+        b += amphipod(ax, ay, 1.4, r)
+    # lone isopod waiting on the bare mud, antennae raised toward the light
+    b += '<ellipse cx="700" cy="1620" rx="320" ry="40" fill="#bfe8ff" opacity=".1" filter="url(#b24)"/>'
+    b += isopod(720, 1560, 250, 170, rnd, ants=(('M455 1562 C420 1490 440 1420 500 1360', 11), ('M460 1578 C420 1560 400 1540 380 1520', 9)))
+    b += hourglass(330, 1715, .95)
+    b += frog(150, 1735, 2.3, look=(10, -9), mouth='O', helmet=True, shadow=True,
+              armL='M-34 -22 q-20 -4 -26 -30', armR='M38 -22 q18 0 24 18')
+    b += bubbles(175, 1460)
+    b += spark(700, 160, 22, '#ffffff') + spark(960, 480, 16) + spark(860, 1300, 14, '#e8fbff')
+    b += '<rect width="1080" height="1920" fill="url(#vig)"/>'
+    lines = [('MEALS', 150, 'w'), ('MONTHS', 214, 'y'), ('APART', 150, 'w')]
+    return vpage('#0b2c44', vsvg(d, b), lines, outline='#03101c', top=800)
+
+
+# ================= 4: why not crushed? (vertical) =================
+def make_4():
+    rnd = random.Random(57)
+    d = FILTERS + VIG
+    d += lin('w4', [(0, '#123c58'), (.5, '#081e32'), (1, '#020a12')])
+    d += lin('subG', [(0, '#ffd85a'), (.5, '#f2b632'), (1, '#9a6a12')])
+    d += lin('fishG', [(0, '#fbe4ec'), (.55, '#e0a8bc'), (1, '#8a5068')])
+    d += rad('lamp4', 540, 500, 600, [(0, '#ffe8a0', .25), (.5, '#ffb060', .06), (1, '#000', 0)])
+    d += rad('lamp4b', 560, 1420, 420, [(0, '#ffd6e4', .16), (1, '#000', 0)])
+    b = '<rect width="1080" height="1920" fill="url(#w4)"/>'
+    b += '<path d="M260 -20 L820 -20 L960 1560 L120 1560 Z" fill="#e8fbff" opacity=".07" filter="url(#b24)"/>'
+    b += '<rect width="1080" height="1920" fill="url(#lamp4)"/><rect width="1080" height="1920" fill="url(#lamp4b)"/>'
+    b += snow(rnd, 280, 0, 1080, 0, 1560, .08, .45)
+    sd, sb = vbed(1560, '#2a4450', '#06101a', 'floor4', rnd); d += sd; b += sb
+    # crushed sub (landscape coords, centre 1250,600) scaled into the upper half
+    s = .98
+    b += f'<g transform="translate({540 - 1270 * s:.1f} {560 - 600 * s:.1f}) scale({s})">{crushed_sub(rnd)}</g>'
+    # gauge on a pipe from the hull, upper-left
+    b += '<path d="M200 470 Q170 400 210 330" fill="none" stroke="#141a22" stroke-width="22"/><path d="M200 470 Q170 400 210 330" fill="none" stroke="#9aa4b0" stroke-width="12"/>'
+    b += gauge(230, 250, 100)
+    # calm unharmed fish below the text
+    b += calm_fish(560, 1400, 1.25, rnd)
+    b += frog(170, 1735, 2.3, look=(12, -8), mouth='O', helmet=True, shadow=True,
+              armL='M-34 -22 q-20 -6 -26 -32', armR='M38 -22 q22 -6 28 -38')
+    b += bubbles(195, 1460)
+    b += spark(900, 300, 18) + spark(820, 1260, 14, '#e8fbff') + spark(330, 1240, 16, '#fff6d6')
+    b += '<rect width="1080" height="1920" fill="url(#vig)"/>'
+    lines = [('WHY NOT', 160, 'w'), ('CRUSHED?', 164, 'y')]
+    return vpage('#081e32', vsvg(d, b), lines, outline='#03101c', top=850)
+
+
+# ================= 5: tiny or giant? (vertical) =================
 def make_5():
     rnd = random.Random(73)
-    d = FILTERS
+    d = FILTERS + VIG
     d += lin('w5', [(0, '#0e3448'), (.5, '#07202e'), (1, '#020a10')])
     d += lin('isoF', [(0, '#fbeef0'), (.35, '#e2c3cc'), (.75, '#a87f95'), (1, '#4e3049')])
     d += rad('shellG', -6, -38, 30, [(0, '#fff4dc', 1), (.6, '#f0a868', 1), (1, '#a85a2a', 1)])
-    d += rad('halo5', 1340, 520, 640, [(0, '#8ff0e0', .26), (.6, '#3aa6a6', .06), (1, '#000', 0)])
-    d += rad('spot5', 820, 930, 170, [(0, '#fff1c0', .55), (.6, '#ffd890', .15), (1, '#000', 0)])
-    d += rad('vig5', 960, 540, 1150, [(0, '#000', 0), (.6, '#000', 0), (1, '#000', .7)])
-    b = '<rect width="1920" height="1080" fill="url(#w5)"/>'
-    b += '<rect width="1920" height="1080" fill="url(#halo5)"/>'
-    b += snow(rnd, 260, 0, 1920, 0, 860, .08, .5)
-    sd, sb = seabed(rnd, 860, '#2a4652', '#06101a', 'floor5')
-    d += sd; b += sb
-    # the giant (towering, front view)
-    b += isopod_front(1340, 460, 820, 700, rnd)
-    # spotlight on the tiny snail
-    b += '<path d="M760 -20 L880 -20 L960 960 L680 960 Z" fill="#fff1c0" opacity=".07" filter="url(#b24)"/>'
-    b += '<ellipse cx="820" cy="935" rx="170" ry="40" fill="url(#spot5)"/>'
-    b += snail(822, 940, 1.0)
-    # frog in a helmet holding a magnifying glass over the snail
+    d += rad('halo5', 540, 1420, 620, [(0, '#8ff0e0', .26), (.6, '#3aa6a6', .06), (1, '#000', 0)])
+    d += rad('spot5', 700, 600, 170, [(0, '#fff1c0', .6), (.6, '#ffd890', .15), (1, '#000', 0)])
+    d += lin('rock5', [(0, '#2e4a56'), (1, '#0a1a22')])
+    b = '<rect width="1080" height="1920" fill="url(#w5)"/>'
+    b += '<rect width="1080" height="1920" fill="url(#halo5)"/>'
+    b += snow(rnd, 280, 0, 1080, 0, 1600, .08, .5)
+    sd, sb = vbed(1640, '#2a4652', '#06101a', 'floor5', rnd); d += sd; b += sb
+    # TOP: a rock ledge with the tiny snail in a spotlight and the frog's magnifying glass
+    b += '<path d="M640 -20 L760 -20 L820 620 L590 620 Z" fill="#fff1c0" opacity=".1" filter="url(#b24)"/>'
+    b += '<path d="M-20 600 Q200 570 420 588 Q700 600 1100 578 L1100 680 Q700 700 400 690 Q150 700 -20 700Z" fill="url(#rock5)" stroke="#06121a" stroke-width="6"/>'
+    b += '<path d="M20 600 Q300 576 600 594 Q800 600 1060 584" fill="none" stroke="#6f98a4" stroke-width="7" opacity=".6" stroke-linecap="round"/>'
+    b += '<ellipse cx="700" cy="602" rx="150" ry="30" fill="url(#spot5)"/>'
+    b += snail(705, 608, 1.15)
     arm = 'M38 -22 q24 -2 40 -14'
-    fx, fy, fs = 470, 1000, 2.6
+    fx, fy, fs = 330, 612, 2.3
     hx, hy = hand_at(fx, fy, fs, arm)
-    lx, ly, lr = 780, 870, 82
-    b += f'<path d="M{hx:.0f} {hy:.0f} L{lx - lr * .72:.0f} {ly + lr * .5:.0f}" stroke="#1c1208" stroke-width="22" stroke-linecap="round"/><path d="M{hx:.0f} {hy:.0f} L{lx - lr * .72:.0f} {ly + lr * .5:.0f}" stroke="#a8743a" stroke-width="13" stroke-linecap="round"/>'
-    b += frog(fx, fy, fs, look=(12, -2), mouth='O', helmet=True, shadow=True, armL='M-34 -22 q-18 4 -24 22', armR=arm)
+    lx, ly, lr = 695, 548, 78
+    b += f'<path d="M{hx:.0f} {hy:.0f} L{lx - lr * .74:.0f} {ly + lr * .45:.0f}" stroke="#1c1208" stroke-width="22" stroke-linecap="round"/><path d="M{hx:.0f} {hy:.0f} L{lx - lr * .74:.0f} {ly + lr * .45:.0f}" stroke="#a8743a" stroke-width="13" stroke-linecap="round"/>'
+    b += frog(fx, fy, fs, look=(12, -1), mouth='O', helmet=True, shadow=True, armL='M-34 -22 q-18 4 -24 22', armR=arm)
     b += f'<circle cx="{lx}" cy="{ly}" r="{lr}" fill="#dff6ff" fill-opacity=".14" stroke="#141a22" stroke-width="14"/><circle cx="{lx}" cy="{ly}" r="{lr}" fill="none" stroke="#c8ced8" stroke-width="6"/>'
-    b += f'<path d="M{lx - 50} {ly - 30} Q{lx - 30} {ly - 60} {lx + 4} {ly - 62}" fill="none" stroke="#ffffff" stroke-width="8" opacity=".75" stroke-linecap="round"/>'
-    for bx_, by_, r in ((500, 700, 10), (522, 650, 14), (504, 594, 9)):
-        b += f'<circle cx="{bx_}" cy="{by_}" r="{r}" fill="none" stroke="#e8fbff" stroke-width="3" opacity=".7"/>'
-    b += spark(900, 880, 18, '#fff6d6') + spark(1700, 170, 16) + spark(1000, 220, 14, '#e8fbff')
-    b += '<rect width="1920" height="1080" fill="url(#vig5)"/>'
-    lines = [('GIANT', 214, 'w'), ('OR', 116, 'w'), ('TINY?', 214, 'y')]
-    return page('#07202e', svg(d, b), lines, outline='#03101c', top=36)
+    b += f'<path d="M{lx - 46} {ly - 28} Q{lx - 28} {ly - 56} {lx + 4} {ly - 58}" fill="none" stroke="#ffffff" stroke-width="8" opacity=".75" stroke-linecap="round"/>'
+    b += bubbles(360, 340)
+    # BOTTOM: the towering giant isopod
+    b += isopod_front(540, 1500, 800, 470, rnd)
+    b += spark(800, 560, 18, '#fff6d6') + spark(980, 1200, 16) + spark(110, 1240, 14, '#e8fbff')
+    b += '<rect width="1080" height="1920" fill="url(#vig)"/>'
+    lines = [('TINY', 200, 'w'), ('OR', 110, 'w'), ('GIANT?', 230, 'y')]
+    return vpage('#07202e', vsvg(d, b), lines, outline='#03101c', top=712)
 
 
 if __name__ == '__main__':
