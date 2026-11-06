@@ -119,3 +119,5 @@
 - `tools/build3.py`: MV 기본값 pulse .5 → glow 1.6, `drift` 키, `mv-drift-nebula*` 접두 매칭, 이름표 낱말 매칭 따라가기. `tools/motions.py` `miyaScatter` converge 시작 전 숨김. `tools/variety_check.py` `fast throb tweens`. 지침서 4-14, art_spec, CLAUDE.md.
 
 - 2026-11-05: `tools/entrycheck.py` 추가(final_check 호출), `motions.py` draw·drip 시작 전 숨김, 지침서 4-15.
+
+- 2026-11-06: shorts thumbnails (1 per short, 5 per video, no miya approval): guideline 16-9, CLAUDE.md, 18-drive, tools/README.md, tools/briefs/thumb_art.md. No code change (thumb_shot.py and render.yml already handle `-shortN` slugs).
