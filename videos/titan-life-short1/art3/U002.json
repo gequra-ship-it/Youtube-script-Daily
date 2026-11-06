@@ -1,0 +1,44 @@
+{
+ "centre": "a small pod under a striped parachute floating down through orange haze toward giant Titan",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Saturn",
+   "x": 800,
+   "y": 320,
+   "to": [
+    800,
+    430
+   ],
+   "word": "Saturn"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-path-descend-parachute-pod",
+  "kind": "ride",
+  "x": 401,
+  "y": 836,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

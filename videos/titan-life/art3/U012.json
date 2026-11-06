@@ -1,0 +1,55 @@
+{
+ "centre": "Titan as a glossy orange marble while Saturn's rings slide away",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "orange marble",
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "stripped",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Saturn",
+   "x": 1340,
+   "y": 520,
+   "to": [
+    1480,
+    330
+   ],
+   "word": "Saturn's"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "facepalm",
+  "ride": "mv-core-glide-orange-marble",
+  "kind": "ride",
+  "x": 1258,
+  "y": 760,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "says": [
+   {
+    "text": "Oh no...",
+    "shout": false
+   }
+  ]
+ }
+}

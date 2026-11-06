@@ -1,0 +1,50 @@
+{
+ "centre": "a round sphere of liquid blue water sitting in a frozen ice plain, a question mark beside it, a thermometer near the bottom",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Brrr!",
+   "x": 260,
+   "y": 470,
+   "to": [
+    220,
+    560
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-question-mark",
+   "h": 91
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 761,
+  "y": 802,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

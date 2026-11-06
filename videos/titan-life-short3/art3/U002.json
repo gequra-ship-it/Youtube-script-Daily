@@ -1,0 +1,50 @@
+{
+ "centre": "glowing blue water droplet inside a beaker with nutrient grains dissolving",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "liquid water",
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "liquid water",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-water-drop",
+   "serious": false
+  },
+  "outfit": [
+   "goggles",
+   "bowtie"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 540,
+  "y": 602,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
+}

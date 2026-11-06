@@ -1,0 +1,48 @@
+{
+ "centre": "a magnifying lens sweeping an empty dish of methane liquid where only a fading dashed outline is imagined",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Nothing here",
+   "x": 260,
+   "y": 560,
+   "to": [
+    260,
+    700
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-magnifier-lens",
+  "kind": "ride",
+  "x": 443,
+  "y": 884,
+  "s": 1.17,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

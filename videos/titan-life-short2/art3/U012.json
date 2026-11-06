@@ -1,0 +1,57 @@
+{
+ "centre": "sunlight and a fast particle striking a nitrogen and a methane molecule so their pieces fly apart",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Methane",
+   "x": 760,
+   "y": 1280,
+   "to": [
+    705,
+    1040
+   ],
+   "word": "methane"
+  },
+  {
+   "type": "name",
+   "text": "Nitrogen",
+   "x": 300,
+   "y": 1260,
+   "to": [
+    380,
+    1090
+   ],
+   "word": "nitrogen"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": {
+   "type": "fan"
+  },
+  "ride": "mv-path-energetic-particle",
+  "kind": "ride",
+  "x": 834,
+  "y": 422,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Phew...",
+    "shout": false
+   }
+  ]
+ }
+}

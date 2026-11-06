@@ -1,0 +1,44 @@
+{
+ "centre": "a pale, still, icy moon (dashed outline: what astronomers assumed) watched by a telescope in an observatory dome on Earth",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Shhh... all quiet",
+   "x": 1290,
+   "y": 330,
+   "to": [
+    1060,
+    410
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "Astronomers had",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "rubhands"
+  },
+  "ride": "mv-core-glide-icy-moon",
+  "kind": "ride",
+  "x": 880,
+  "y": 360,
+  "s": 1.15,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "scarf",
+   "beanie"
+  ],
+  "says": []
+ }
+}

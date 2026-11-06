@@ -1,0 +1,49 @@
+{
+ "centre": "a glowing orange haze bank standing between a telescope on the left and a faint Titan on the right",
+ "focus": [
+  480,
+  640,
+  1.7
+ ],
+ "focus_word": "ordinary telescope",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Telescope",
+   "x": 420,
+   "y": 440,
+   "to": [
+    430,
+    610
+   ],
+   "word": "telescope"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 645,
+  "y": 690,
+  "s": 1.0,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": "mv-tilt-telescope-tube",
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

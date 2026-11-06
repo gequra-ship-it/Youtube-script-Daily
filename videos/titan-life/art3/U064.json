@@ -1,0 +1,50 @@
+{
+ "centre": "a big blue water drop with nutrient crystals dissolving inside, Earth behind it",
+ "focus": [
+  960,
+  520,
+  1.5
+ ],
+ "focus_word": "liquid water",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Liquid water",
+   "x": 1370,
+   "y": 330,
+   "to": [
+    1060,
+    520
+   ],
+   "word": "liquid water"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "outfit": [
+   "goggles",
+   "bowtie"
+  ],
+  "ride": "mv-core-glide-water-drop",
+  "kind": "ride",
+  "x": 1116,
+  "y": 318,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Phew.",
+    "shout": false
+   }
+  ]
+ }
+}

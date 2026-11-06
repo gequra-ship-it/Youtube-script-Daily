@@ -1,0 +1,43 @@
+{
+ "centre": "cross-section of icy ground with an eroded valley and a methane stream under a drifting methane cloud",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Not so quiet!",
+   "x": 250,
+   "y": 720,
+   "to": [
+    270,
+    815
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "The surprise",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "x": 260,
+  "y": 1240,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "bowtie"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

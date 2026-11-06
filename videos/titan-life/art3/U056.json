@@ -1,0 +1,50 @@
+{
+ "centre": "a golden hammer made of sunlight striking a cluster of upper-air molecules above Titan's limb",
+ "focus": [
+  960,
+  560,
+  1.6
+ ],
+ "focus_word": "hammer",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Upper air",
+   "x": 1480,
+   "y": 620,
+   "to": [
+    1480,
+    740
+   ],
+   "word": "upper air"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "ride": "mv-path-energetic-particle",
+  "kind": "ride",
+  "x": 438,
+  "y": 270,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Tiny...",
+    "shout": false
+   }
+  ]
+ }
+}
