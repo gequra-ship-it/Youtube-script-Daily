@@ -1,3 +1,4 @@
+# STYLE B (guideline 16-9 B, 2026-11-07): dark scene + glowing level golden scale (nine vs one) + one-line hook.
 # Shorts thumbnail (VERTICAL 1080x1920, text centred) for right-handed-majority-short5 (guideline 16-9, brief tools/briefs/thumb_art.md 'Shorts thumbnails').
 # WHY 90 : 10?   intuitive: a big golden balance scale held LEVEL: nine right-handed toolmakers crowd one pan, ONE
 #                left-hander with a glowing hand axe stands alone on the other pan; the frog sits on top of the pivot like a
@@ -8,7 +9,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools'))
 _s = importlib.util.spec_from_file_location('rhm_thumb', os.path.join(HERE, '..', '..', 'right-handed-majority', 'thumb', 'make.py'))
 L = importlib.util.module_from_spec(_s); _s.loader.exec_module(L)
-from thumb_lib import vpage, vsvg, lin, rad, spark
+from thumb_lib import vpage, vsvg, lin, rad, spark, fireflies, halo, darkband
 from body import shoulders
 LINE, BODY = L.LINE, L.BODY
 GOLD = '#e8b84a'; GOLDL = '#ffe39a'; GOLDD = '#a8762a'
@@ -42,8 +43,9 @@ def worker(cx, top, H, skin, hair, shirt, look, mouth, lefty=False, glow=False):
 def make():
     rnd = random.Random(9)
     d = L.FILTERS
-    d += lin('bg5', [(0, '#0c2a33'), (.6, '#123a40'), (1, '#071a20')])
-    d += rad("spot5", 540, 1130, 900, [(0, '#ffe6a0', .55), (.4, '#e8a84a', .2), (1, '#000', 0)])
+    d += lin('bg5', [(0, '#030c10'), (.6, '#08202a'), (1, '#030c10')])
+    d += halo("spot5", 540, 460, 680, inner='#ffe6a0', outer='#e8a84a')
+    d += '<filter id="b6" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter><filter id="b50" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="50"/></filter>'
     d += rad('vig5', 540, 960, 1250, [(0, '#000', 0), (.6, '#000', 0), (1, '#000', .6)])
     d += lin('gold5', [(0, GOLDL), (.5, GOLD), (1, GOLDD)])
     d += lin('floor5', [(0, '#16323a'), (1, '#081418')])
@@ -54,7 +56,7 @@ def make():
     for _ in range(60):
         b += f'<circle cx="{rnd.randint(20, 1060)}" cy="{rnd.randint(60, 1700)}" r="{rnd.choice([2, 3, 4])}" fill="#ffe8b0" opacity="{rnd.uniform(.2, .7):.2f}"/>'
     b += spark(160, 260, 22, '#ffe8b0') + spark(900, 380, 18, '#ffe8b0') + spark(820, 170, 14, '#ffe8b0')
-    b += '<g transform="translate(-548 800) scale(.86)">'
+    b += '<g transform="translate(-548 25) scale(.86)">'
     # ---------- balance scale ----------
     PX, BY = 1300, 330
     b += f'<ellipse cx="{PX}" cy="{BY + 20}" rx="520" ry="160" fill="#ffd27a" opacity=".25" filter="url(#b32)"/>'
@@ -102,9 +104,11 @@ def make():
     robe = f'<g clip-path="url(#fbody)"><rect x="-50" y="-40" width="110" height="64" fill="#2a2a3a" stroke-width="3"/><path d="M-4 -40 L8 -20 L20 -40" fill="#f4f1e8" stroke-width="2.6"/></g><path d="{BODY}" fill="none" stroke-width="4"/>'
     b += L.frog(PX - 4, BY - 36, 2.05, look=(6, -2), mouth='O', armL='M-34 -24 q-18 -2 -26 -26', armR='M38 -22 q14 6 16 22', back=wig, mid=robe, shadow=False)
     b += '</g>'
+    b += fireflies(60, 80, 1850, col='#ffd27a', core='#fff3c0', seed=6)
+    b += darkband(860, 1240, .45)
     b += '<rect width="1080" height="1920" fill="url(#vig5)"/>'
-    lines = [('WHY', 170, 'w'), ('90 : 10?', 250, 'y')]
-    return vpage('#0c2a33', vsvg(d, b), lines, outline='#041216', top=380)
+    lines = [('WHY', 190, 'w'), ('90 : 10?', 260, 'y')]
+    return vpage('#030c10', vsvg(d, b), lines, outline='#041216', top=890)
 
 
 if __name__ == '__main__':

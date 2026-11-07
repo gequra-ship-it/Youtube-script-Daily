@@ -1,3 +1,4 @@
+# STYLE B (guideline 16-9 B, 2026-11-07): dark scene + glowing womb bubble + one-line hook.
 # Shorts thumbnail (VERTICAL 1080x1920, text centred) for right-handed-majority-short3 (guideline 16-9, brief tools/briefs/thumb_art.md 'Shorts thumbnails').
 # CHOSEN BEFORE BIRTH?   intuitive: a glowing womb bubble; inside, a curled cute fetus sucks its RIGHT thumb (gold glow on that
 #                        hand); the frog doctor (head mirror) listens with a stethoscope on the bubble. Script: by the 15th week
@@ -7,7 +8,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools'))
 _s = importlib.util.spec_from_file_location('rhm_thumb', os.path.join(HERE, '..', '..', 'right-handed-majority', 'thumb', 'make.py'))
 L = importlib.util.module_from_spec(_s); _s.loader.exec_module(L)
-from thumb_lib import vpage, vsvg, lin, rad, spark
+from thumb_lib import vpage, vsvg, lin, rad, spark, fireflies, halo, darkband
 LINE, BODY = L.LINE, L.BODY
 SK = '#f6bfa6'; SKD = '#e59a84'
 
@@ -16,18 +17,19 @@ def make():
     rnd = random.Random(4)
     WX, WY, WR = 1330, 560, 420
     d = L.FILTERS
-    d += lin('bg3', [(0, '#2a0c24'), (.6, '#40122e'), (1, '#1a0614')])
+    d += lin('bg3', [(0, '#0e0310'), (.6, '#240a1e'), (1, '#0e0310')])
     d += rad('womb3', WX - 80, WY - 120, WR * 1.15, [(0, '#ffd2b8', 1), (.45, '#f58a7a', 1), (.85, '#b8324a', 1), (1, '#7a1a34', 1)])
-    d += rad("halo3", 540, 1330, 900, [(0, '#ff9a8a', .55), (.5, '#c0405a', .2), (1, '#000', 0)])
+    d += halo('halo3', 540, 470, 640, inner='#ffd0c0', outer='#ff5a7a')
+    d += '<filter id="b6" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter><filter id="b50" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="50"/></filter>'
     d += rad('vig3', 540, 960, 1250, [(0, '#000', 0), (.6, '#000', 0), (1, '#000', .62)])
     d += f'<clipPath id="wclip"><circle cx="{WX}" cy="{WY}" r="{WR}"/></clipPath>'
     b = '<rect width="1080" height="1920" fill="url(#bg3)"/>'
     for _ in range(40):   # soft bokeh
         b += f'<circle cx="{rnd.randint(0, 1080)}" cy="{rnd.randint(0, 1920)}" r="{rnd.randint(10, 46)}" fill="#ff9aa8" opacity="{rnd.uniform(.05, .18):.2f}" filter="url(#b4)"/>'
     b += '<rect width="1080" height="1920" fill="url(#halo3)"/>'
-    pulse = 'M40 300 L330 300 L370 250 L410 350 L450 190 L500 400 L540 300 L1040 300'   # heartbeat trace (ultrasound room)
-    b += f'<path d="{pulse}" stroke="#ff7a9a" stroke-width="16" fill="none" opacity=".35" filter="url(#b8)"/><path d="{pulse}" stroke="#ffb0c4" stroke-width="6" fill="none" opacity=".7" stroke-linejoin="round"/>'
-    b += '<g transform="translate(-630 837) scale(.88)">'
+    pulse = 'M40 1480 L330 1480 L370 1430 L410 1530 L450 1370 L500 1580 L540 1480 L700 1480'   # heartbeat trace (ultrasound room)
+    b += f'<g transform="translate(320 0)"><path d="{pulse}" stroke="#ff7a9a" stroke-width="16" fill="none" opacity=".35" filter="url(#b8)"/><path d="{pulse}" stroke="#ffb0c4" stroke-width="6" fill="none" opacity=".7" stroke-linejoin="round"/></g>'
+    b += fireflies(50, 100, 1850, col='#ff9ab0', core='#ffe0e8', seed=5) + '<g transform="translate(-457 50) scale(.75)">'
     # womb bubble
     b += f'<circle cx="{WX}" cy="{WY}" r="{WR + 30}" fill="#ff8a8a" opacity=".45" filter="url(#b32)"/>'
     b += f'<circle cx="{WX}" cy="{WY}" r="{WR}" fill="url(#womb3)"/>'
@@ -85,20 +87,18 @@ def make():
     b += f'<path d="M{WX - 330} {WY - 170} A{WR - 40} {WR - 40} 0 0 1 {WX - 120} {WY - 360}" stroke="#fff" stroke-width="22" fill="none" opacity=".55" stroke-linecap="round"/>'
     b += f'<path d="M{WX + 300} {WY + 230} A{WR - 40} {WR - 40} 0 0 1 {WX + 180} {WY + 320}" stroke="#fff" stroke-width="12" fill="none" opacity=".35" stroke-linecap="round"/>'
     b += spark(mx - 110, my - 60, 26) + spark(mx - 160, my + 100, 16) + spark(1760, 220, 18, '#ffd8e0') + spark(980, 160, 14, '#ffd8e0')
+    b += '</g>'
     # frog doctor with a head mirror and stethoscope on the bubble
-    FRX, FRY, FS = 905, 1030, 2.45
+    FRX, FRY, FS = 230, 1700, 2.6
     mirror = ('<path d="M-30 -86 Q8 -104 46 -86" fill="none" stroke="#e8e8f0" stroke-width="8"/>'
               '<circle cx="6" cy="-104" r="17" fill="#dfe8f2" stroke-width="4"/><circle cx="6" cy="-104" r="7" fill="#fff" stroke="none"/>')
     coat = f'<g clip-path="url(#fbody)"><rect x="-50" y="-44" width="110" height="70" fill="#f4f6fb" stroke-width="3"/><path d="M-2 -44 L8 -10 L18 -44" fill="#7ac0b8" stroke-width="2.6"/></g><path d="{BODY}" fill="none" stroke-width="4"/>'
     steth = '<path d="M-20 -50 Q-10 -20 6 -18 Q22 -20 32 -50" fill="none" stroke="#3a3a4a" stroke-width="5"/>'
-    b += L.frog(FRX, FRY, FS, look=(6, -4), mouth='O', armL='M-34 -24 q-14 6 -16 22', armR='M38 -26 q24 -10 34 -34', top=mirror, mid=coat + steth, shadow=False)
-    hx, hy = FRX + FS * 72, FRY - FS * 60
-    b += f'<path d="M{FRX + FS * 6} {FRY - FS * 18} Q{FRX + 60} {FRY + 20} {hx - 20} {hy + 40} T{hx + 30} {hy - 6}" stroke="#3a3a4a" stroke-width="9" fill="none" stroke-linecap="round"/>'
-    b += f'<circle cx="{hx + 36}" cy="{hy - 10}" r="24" fill="#c8ccd8" stroke="{LINE}" stroke-width="7"/><circle cx="{hx + 36}" cy="{hy - 10}" r="11" fill="#9aa0b0"/>'
-    b += '</g>'
+    b += L.frog(FRX, FRY, FS, look=(6, -4), mouth='O', armL='M-34 -24 q-14 -14 -20 -34', armR='M38 -22 q14 -14 20 -34', top=mirror, mid=coat + steth, shadow=False)
+    b += darkband(860, 1240, .45)
     b += '<rect width="1080" height="1920" fill="url(#vig3)"/>'
-    lines = [('CHOSEN', 150, 'w'), ('BEFORE', 150, 'w'), ('BIRTH?', 210, 'y')]
-    return vpage('#2a0c24', vsvg(d, b), lines, outline='#14040e', top=420)
+    lines = [('CHOSEN BEFORE', 125, 'w'), ('BIRTH?', 250, 'y')]
+    return vpage('#0e0310', vsvg(d, b), lines, outline='#14040e', top=900)
 
 
 if __name__ == '__main__':

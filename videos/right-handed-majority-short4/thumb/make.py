@@ -1,3 +1,4 @@
+# STYLE B (guideline 16-9 B, 2026-11-07): dark scene + glowing sunset duel + one-line hook.
 # Shorts thumbnail (VERTICAL 1080x1920, text centred) for right-handed-majority-short4 (guideline 16-9, brief tools/briefs/thumb_art.md 'Shorts thumbnails').
 # SURPRISE FROM THE LEFT   intuitive: prehistoric one-on-one duel on a rock ledge in front of a huge setting sun; the
 #                          right-hander guards with his spear on his right side and sweats, the rare left-hander swings his
@@ -9,7 +10,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools'))
 _s = importlib.util.spec_from_file_location('rhm_thumb', os.path.join(HERE, '..', '..', 'right-handed-majority', 'thumb', 'make.py'))
 L = importlib.util.module_from_spec(_s); _s.loader.exec_module(L)
-from thumb_lib import vpage, vsvg, lin, rad, spark
+from thumb_lib import vpage, vsvg, lin, rad, spark, fireflies, halo, darkband
 from body import shoulders
 LINE, BODY = L.LINE, L.BODY
 
@@ -33,19 +34,19 @@ def spear(gx, gy, ang, Ln, w):
 def make():
     rnd = random.Random(21)
     d = L.FILTERS
-    d += lin('sky4', [(0, '#2a1240'), (.4, '#8a2a3a'), (.7, '#e2662e'), (1, '#f8b44a')])
-    d += rad('sun4', 540, 1160, 760, [(0, '#fff3c4', 1), (.5, '#ffc45a', .55), (1, '#ff7a2a', 0)])
+    d += lin('sky4', [(0, '#0a0414'), (.35, '#2a0f30'), (.6, '#5a1a34'), (1, '#1a0a1a')])
+    d += halo('sun4', 540, 470, 700, inner='#fff0b0', outer='#ff8a2a')
+    d += '<filter id="b6" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter><filter id="b50" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="50"/></filter>'
     d += rad('vig4', 540, 960, 1250, [(0, '#000', 0), (.6, '#000', 0), (1, '#000', .62)])
     b = '<rect width="1080" height="1920" fill="url(#sky4)"/>'
     b += '<rect width="1080" height="1920" fill="url(#sun4)"/>'
-    b += '<circle cx="540" cy="1170" r="340" fill="#ffe7a0"/><circle cx="540" cy="1170" r="340" fill="#fff6d0" opacity=".5" filter="url(#b16)"/>'
-    for y, o in ((1090, .22), (1170, .18), (1250, .14)):   # sun bands
+    b += '<circle cx="540" cy="470" r="330" fill="#ffe7a0"/><circle cx="540" cy="470" r="330" fill="#fff6d0" opacity=".5" filter="url(#b16)"/>'
+    for y, o in ((400, .22), (480, .18), (560, .14)):   # sun bands
         b += f'<rect x="200" y="{y}" width="680" height="10" fill="#e2662e" opacity="{o}"/>'
     for x, y, s_ in ((820, 300, 1), (900, 350, .7), (180, 260, .8)):
         b += f'<path d="M{x} {y} q{14 * s_:.0f} {-12 * s_:.0f} {28 * s_:.0f} 0 q{14 * s_:.0f} {-12 * s_:.0f} {28 * s_:.0f} 0" stroke="#3a1426" stroke-width="5" fill="none" stroke-linecap="round"/>'
-    b += '<path d="M0 1450 L140 1330 L270 1410 L420 1300 L560 1420 L720 1340 L860 1430 L1080 1320 L1080 1920 L0 1920Z" fill="#5a2034" opacity=".85"/>'
-    b += '<path d="M0 1560 Q400 1520 760 1550 L1080 1560 L1080 1920 L0 1920Z" fill="#3a1426"/>'
-    b += '<g transform="translate(-800 740)">'
+    b += fireflies(50, 100, 1850, col='#ffb060', core='#fff0c0', seed=4)
+    b += '<g transform="translate(-308 30) scale(.64)">'
     # rock ledge they fight on
     H = 160; kind = 'cute'; TOP = 330
     # ---------- the right-hander (left of frame): spear in his RIGHT hand (viewer left), braced the wrong way ----------
@@ -78,15 +79,17 @@ def make():
     b += spark(rx + 210, ry - 330, 26) + spark(DX + 240, TOP - 160, 18) + spark(rx - 40, ry - 300, 14)
     b += L.bang(DX + 150, TOP - 20, 100, rot=14)
     b += '</g>'
+    b += '<path d="M0 775 Q300 760 540 772 T1080 766 L1080 840 L0 840Z" fill="#1a0a1a" stroke="#ff9a5a" stroke-width="4" opacity=".9"/>'
     b += f'<path d="M-20 1920 L-10 1700 Q60 1660 300 1670 Q560 1640 820 1660 Q1000 1670 1100 1720 L1100 1920Z" fill="#2a0e1a" stroke="{LINE}" stroke-width="8"/>'
     b += '<path d="M60 1685 Q560 1650 1000 1685" stroke="#ff9a5a" stroke-width="8" fill="none" opacity=".6" stroke-linecap="round"/>'
     # frog peeking from behind a rock, fur headband with a feather
     band = ('<path d="M-30 -60 Q8 -72 44 -62" fill="none" stroke="#9a6a3a" stroke-width="10"/>'
             '<path d="M40 -64 Q70 -100 62 -126 Q44 -100 40 -64Z" fill="#e2563a" stroke-width="3"/>')
     b += L.frog(490, 1800, 1.9, look=(6, -4), mouth='O', armL='M-34 -24 q-10 10 -4 30', armR='M38 -24 q20 -2 34 -18', mid=band, shadow=False)
+    b += darkband(860, 1240, .45)
     b += '<rect width="1080" height="1920" fill="url(#vig4)"/>'
-    lines = [('SURPRISE', 160, 'w'), ('FROM THE', 120, 'w'), ('LEFT', 220, 'y')]
-    return vpage('#2a1240', vsvg(d, b), lines, outline='#14061a', top=320)
+    lines = [('SURPRISE FROM', 118, 'w'), ('THE LEFT', 200, 'y')]
+    return vpage('#0a0414', vsvg(d, b), lines, outline='#14061a', top=905)
 
 
 if __name__ == '__main__':
