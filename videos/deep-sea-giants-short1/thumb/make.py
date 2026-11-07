@@ -45,6 +45,10 @@ def frog(x, y, s, rot=0, flip=False, look=(0, 0), mouth='O', armL=None, armR=Non
     g.append(f'<ellipse cx="2" cy="-12" rx="22" ry="20" fill="{BELLY}" stroke="none" opacity=".7"/>')
     g.append('<path d="M-24 -50 q6 -14 18 -16" fill="none" stroke="#b6dea0" stroke-width="3" opacity=".8"/>')
     lx, ly = look
+    # pupil must stay fully inside the white (eye r 13.5, pupil r 4.4): clamp the offset (miya 2026-11-07, small Shorts screens)
+    _ox, _oy = 1 + lx, ly; _m = math.hypot(_ox, _oy)
+    if _m > 7.5: _ox, _oy = _ox * 7.5 / _m, _oy * 7.5 / _m
+    lx, ly = _ox - 1, _oy
     for ex in (-10, 22):
         g.append(f'<circle cx="{ex}" cy="-66" r="13.5" fill="#f4f5ea" stroke-width="3.2"/>')
         g.append(f'<circle cx="{ex + 1 + lx}" cy="{-66 + ly}" r="4.4" fill="{INK}" stroke="none"/>')
