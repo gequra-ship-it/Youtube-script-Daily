@@ -75,9 +75,9 @@ def make_1():
     # frog usher with a flashlight (lower left), beam up the right side
     vest = ('<path d="M-37 -2 Q-40 -30 -28 -44 Q6 -30 44 -44 Q50 -30 44 -2 Q6 6 -37 -2Z" fill="#7a2a8a" stroke-width="3.2"/>'
             '<circle cx="6" cy="-26" r="3.5" fill="#f2d27a" stroke="none"/><circle cx="6" cy="-14" r="3.5" fill="#f2d27a" stroke="none"/>')
-    torch = ('<g transform="translate(62 -78) rotate(-40)"><rect x="-9" y="-6" width="18" height="44" rx="5" fill="#3a3a48" stroke-width="3"/>'
+    torch = ('<g transform="translate(62 -78) rotate(50)"><rect x="-9" y="-6" width="18" height="44" rx="5" fill="#3a3a48" stroke-width="3"/>'
              '<path d="M-14 -6 L14 -6 L18 -22 L-18 -22Z" fill="#c8c8d8" stroke-width="3"/><ellipse cx="0" cy="-22" rx="18" ry="5" fill="#fff6c8" stroke-width="2.5"/></g>')
-    b += '<path d="M460 1420 L1000 1240 L1060 1380 Z" fill="url(#beam1)" opacity=".7"/>'
+    b += '<path d="M557 1364 L946 894 L1088 1062 Z" fill="url(#beam1)" opacity=".7"/><ellipse cx="557" cy="1364" rx="34" ry="34" fill="#fff6c8" opacity=".6" filter="url(#b12)"/>'
     b += '<ellipse cx="320" cy="1640" rx="150" ry="22" fill="#000" opacity=".5" filter="url(#b6)"/>'
     b += frog(320, 1640, 3.0, look=(9, -5), mouth='O', mid=vest, front=torch,
               armL='M-34 -22 q-20 4 -24 26', armR='M38 -22 q20 -14 26 -44',
