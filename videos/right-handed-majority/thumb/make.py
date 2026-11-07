@@ -47,9 +47,13 @@ def frog(x, y, s, flip=False, look=(0, 0), mouth='O', armL=None, armR=None, back
     g.append('<path d="M-24 -50 q6 -14 18 -16" fill="none" stroke="#b6dea0" stroke-width="3" opacity=".8"/>')
     g.append(mid)
     lx, ly = look
+    # pupil must stay fully inside the eye white (miya 2026-11-07, tools/eyecheck.py): clamp the pupil centre offset
+    ox, oy = 1 + lx, ly; dd = math.hypot(ox, oy); mx_ = 6.0
+    if dd > mx_: ox, oy = ox * mx_ / dd, oy * mx_ / dd
+    lx, ly = ox - 1, oy
     for ex in (-10, 22):
         g.append(f'<circle cx="{ex}" cy="-66" r="13.5" fill="#f4f5ea" stroke-width="3.2"/>')
-        g.append(f'<circle cx="{ex + 1 + lx}" cy="{-66 + ly}" r="4.4" fill="{INK}" stroke="none"/>')
+        g.append(f'<circle cx="{ex + 1 + lx}" cy="{-66 + ly}" r="5.0" fill="{INK}" stroke="none"/>')
         g.append(f'<circle cx="{ex + 2.4 + lx}" cy="{-67.6 + ly}" r="1.5" fill="#fff" stroke="none"/>')
     g.append('<path d="M-22 -88 q12 -9 24 -1 M10 -89 q12 -8 24 1" fill="none" stroke-width="3.4"/>')
     if mouth == 'O':
