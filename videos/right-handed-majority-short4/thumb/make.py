@@ -65,7 +65,7 @@ def make():
     (lx, ly), (rx, ry) = shoulders(AX, TOP, H, kind)
     swing = (f'<path d="M{rx + 150} {ry + 40} Q{rx + 120} {TOP - 260} {DX + 130} {TOP - 120}" stroke="#F2D27A" stroke-width="40" fill="none" stroke-linecap="round" opacity=".55" filter="url(#b8)"/>'
              f'<path d="M{rx + 150} {ry + 40} Q{rx + 120} {TOP - 260} {DX + 130} {TOP - 120}" stroke="#fff6c8" stroke-width="12" fill="none" stroke-linecap="round" stroke-dasharray="70 30"/>')
-    cl = club(rx + 70, ry - 120, -38, 300, 60)
+    cl = club(rx + 70 - 203, ry - 120 - 141, -38, 270, 60)   # grip = the hand (miya 2026-11-07: she must hold the handle end)
     up = L.limb_to((rx, ry), (rx + 70, ry - 110), H, kind, -1, 'aL', FURA, SKA, 'short')
     down = L.limb_to((lx, ly), (lx - 30, ly + 228), H, kind, 1, 'aR', FURA, SKA, 'short')
     tunic = f'<path d="M{AX - .7 * H} {TOP + 1.3 * H} L{AX + .7 * H} {TOP + 1.3 * H} L{AX + .78 * H} {TOP + 3.0 * H} L{AX + .3 * H} {TOP + 2.8 * H} L{AX} {TOP + 3.05 * H} L{AX - .35 * H} {TOP + 2.8 * H} L{AX - .78 * H} {TOP + 3.0 * H}Z" fill="{FURA}" stroke="{LINE}" stroke-width="6" stroke-linejoin="round"/>'
