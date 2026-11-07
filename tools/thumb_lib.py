@@ -59,3 +59,26 @@ def vpage(bg, svg, lines, outline='#050b18', top=700):
 
 def vsvg(defs, body):
     return f'<svg class="art" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg"><defs>{defs}</defs>{body}</svg>'
+
+
+# --- Shorts "glow" helpers (miya 2026-11-07, guideline 16-9 B): dark scene + glowing focal object + light particles ---
+# defs needs a blur filter id "b6" and "b50" (FILTERS in videos/*/thumb/make.py) for fireflies() and darkband().
+def fireflies(n, y0=260, y1=1850, w=1080, col='#fff3a8', core='#fffbd0', seed=None):
+    """n glowing light dots (fireflies / plankton / dust). Call random.seed() first for a repeatable layout."""
+    if seed is not None: random.seed(seed)
+    out = ''
+    for _ in range(n):
+        x, y, r = random.randint(0, w), random.randint(y0, y1), random.choice([3, 4, 6])
+        out += (f'<circle cx="{x}" cy="{y}" r="{r * 3}" fill="{col}" opacity=".18" filter="url(#b6)"/>'
+                f'<circle cx="{x}" cy="{y}" r="{r}" fill="{core}" opacity=".9"/>')
+    return out
+
+
+def halo(id, cx, cy, r, inner='#fff3a8', outer='#7ff5d8'):
+    """radial glow gradient def (use with <ellipse fill="url(#id)">) behind the focal object"""
+    return rad(id, cx, cy, r, [(0, inner, .95), (.35, outer, .45), (1, outer, 0)])
+
+
+def darkband(y0, y1, a=.4):
+    """soft dark band behind the centred text so it stays readable on a bright/glowing scene"""
+    return f'<rect x="-50" y="{y0}" width="1180" height="{y1 - y0}" fill="#000" opacity="{a}" filter="url(#b50)"/>'
