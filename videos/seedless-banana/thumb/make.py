@@ -42,6 +42,8 @@ def frog(x, y, s, rot=0, flip=False, look=(0, 0), mouth='O', armL=None, armR=Non
     g.append('<path d="M-24 -50 q6 -14 18 -16" fill="none" stroke="#b6dea0" stroke-width="3" opacity=".8"/>')
     g.append(mid)
     lx, ly = look
+    _d = math.hypot(1 + lx, ly)  # keep pupil inside the eye white (eyecheck, guideline 16-9)
+    if _d > 6.9: _k = 6.9 / _d; lx, ly = (1 + lx) * _k - 1, ly * _k
     for ex in (-10, 22):
         g.append(f'<circle cx="{ex}" cy="-66" r="13.5" fill="#f4f5ea" stroke-width="3.2"/>')
         g.append(f'<circle cx="{ex + 1 + lx}" cy="{-66 + ly}" r="4.4" fill="{INK}" stroke="none"/>')
