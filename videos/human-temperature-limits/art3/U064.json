@@ -1,0 +1,51 @@
+{
+ "centre": "sleepy Everyman in scarf and beanie with frost on his body, a sagging slurred speech trail drifting from his mouth",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Sooo... tiiired...",
+   "x": 1120,
+   "y": 300,
+   "to": [
+    828,
+    419
+   ],
+   "word": "slow and slurred"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "A strange",
+    "mood": "confused"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 1660,
+  "y": 890,
+  "s": 0.8,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

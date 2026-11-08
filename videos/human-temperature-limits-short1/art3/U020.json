@@ -1,0 +1,44 @@
+{
+ "centre": "round health badge with a cross between an older person and an adult",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "older people",
+   "x": 300,
+   "y": 560,
+   "to": [
+    300,
+    650
+   ],
+   "word": "older people"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-health-badge",
+  "kind": "ride",
+  "x": 679,
+  "y": 955,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

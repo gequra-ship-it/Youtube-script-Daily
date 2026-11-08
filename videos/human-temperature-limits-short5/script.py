@@ -1,0 +1,67 @@
+# -*- coding: utf-8 -*-
+# human-temperature-limits-short5 (Miya's Note). Script from miya 2026-11-08; fact-checked per guideline 12-1 (see ../human-temperature-limits/script-check.md).
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh5_1',
+  'Did you know that only about fourteen degrees Celsius separates a living body from the edge of death? The universe around us swings across '
+  'enormous extremes, from near absolute zero in deep space to millions of degrees inside stars.'),
+ ('S02',
+  'Part 2',
+  'ill',
+  'sh5_2',
+  'Even on Earth, the recorded lows reach about minus eighty-nine degrees in Antarctica, and the recorded highs pass fifty-six degrees in Death '
+  'Valley.'),
+ ('S03',
+  'Part 3',
+  'ill',
+  'sh5_3',
+  'Yet inside your chest, your core temperature must stay close to thirty-seven degrees Celsius. If it rises about five degrees, to forty-two, '
+  'essential proteins begin to fail and organs start to shut down.'),
+ ('S04',
+  'Part 4',
+  'ill',
+  'sh5_4',
+  'If it falls about nine degrees, to twenty-eight, the heart can slip into a deadly rhythm and the risk of cardiac arrest rises sharply.'),
+ ('S05',
+  'Part 5',
+  'ill',
+  'sh5_5',
+  'Add those two gaps together, and you get a narrow window of roughly fourteen degrees. There are rare survivors outside that window, but it shows '
+  'how little room your body really has.'),
+ ('S06',
+  'Part 6',
+  'ill',
+  'sh5_6',
+  'Your brain guards that margin around the clock. It sweats, shivers, widens and narrows blood vessels, and pushes you to seek shade or warmth, all '
+  'without you thinking about it.'),
+ ('S07',
+  'Part 7',
+  'ill',
+  'sh5_7',
+  'Think about what that means for an ordinary day. A fever of just a few degrees makes you shaky and miserable, and a few degrees of chill makes '
+  'you shiver uncontrollably.'),
+ ('S08',
+  'Part 8',
+  'ill',
+  'sh5_8',
+  'Those everyday feelings are warning signals from the same narrow margin. Because the margin is so narrow, humans had to build protection around '
+  'themselves.'),
+ ('S09',
+  'Part 9',
+  'ill',
+  'sh5_9',
+  'We tamed fire long ago, sewed clothing from animal hides, and built shelters. Later we invented heating and air conditioning. Every coat, heater, '
+  'and cooling system is a kind of extension of the body.'),
+ ('S10',
+  'Part 10',
+  'ill',
+  'sh5_10',
+  'Even a skyscraper in a desert or a house in a snowy town is partly a machine for holding your internal temperature steady.'),
+ ('S11',
+  'Part 11',
+  'ill',
+  'sh5_11',
+  'Think about the oddness of this. A species this sensitive now lives from polar ice to equatorial deserts. We are fragile, but that fragility '
+  'pushed us to invent.'),
+ ('S12', 'Part 12', 'ill', 'sh5_12', 'Watch our full episode to understand the breathtaking and fragile thermodynamics of being human.')]

@@ -1,0 +1,41 @@
+{
+ "centre": "bright desert sun above dunes between a thinking man and a tall thermometer with an open top",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "How hot?",
+   "x": 330,
+   "y": 330,
+   "to": [
+    470,
+    508
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "tilt"
+  },
+  "ride": "mv-core-glide-desert-sun",
+  "kind": "ride",
+  "x": 1116,
+  "y": 618,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "scarf"
+  ],
+  "lock": true
+ }
+}

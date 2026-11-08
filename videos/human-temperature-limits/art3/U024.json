@@ -1,0 +1,45 @@
+{
+ "centre": "a tall thermometer whose red column climbs past forty, beside a folded protein that unravels into a loose strand",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "40 °C",
+   "word": "forty degrees"
+  },
+  {
+   "type": "name",
+   "text": "folded structures",
+   "x": 1560,
+   "y": 250,
+   "to": [
+    1371,
+    356
+   ],
+   "word": "folded structures"
+  }
+ ],
+ "motion": "red column rises past the 40 tick, then the folded ribbon morphs into a loose strand (unravel)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 1660,
+  "y": 890,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "nightcap"
+  ],
+  "says": [],
+  "bside": -1
+ }
+}

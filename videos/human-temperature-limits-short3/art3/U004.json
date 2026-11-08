@@ -1,0 +1,57 @@
+{
+ "centre": "coral heart quivering above a jagged rhythm line",
+ "focus": [
+  560,
+  900,
+  1.5
+ ],
+ "focus_word": "the heart can quiver",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "BELOW 28 °C",
+   "word": "twenty-eight degrees"
+  },
+  {
+   "type": "name",
+   "text": "heart",
+   "x": 800,
+   "y": 640,
+   "to": [
+    640,
+    790
+   ],
+   "word": "heart"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 704,
+  "y": 938,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Steady...!",
+    "shout": true
+   }
+  ]
+ }
+}

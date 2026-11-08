@@ -1,0 +1,43 @@
+{
+ "centre": "round pressure gauge with the needle dropped low above a widened vessel",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Need air!",
+   "x": 1480,
+   "y": 220,
+   "to": [
+    1500,
+    410
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-glide-pressure-gauge",
+  "kind": "ride",
+  "x": 1123,
+  "y": 625,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

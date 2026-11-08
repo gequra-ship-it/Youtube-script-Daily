@@ -1,0 +1,34 @@
+{
+ "centre": "round temperature dial with needle entering the red zone",
+ "focus": [
+  540,
+  860,
+  1.8
+ ],
+ "focus_word": "forty degrees",
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "climbs",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "40 C",
+   "word": "forty"
+  },
+  {
+   "type": "name",
+   "text": "core temperature",
+   "x": 540,
+   "y": 1090,
+   "to": [
+    540,
+    975
+   ],
+   "word": "core temperature"
+  }
+ ]
+}

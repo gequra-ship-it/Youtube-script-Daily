@@ -1,0 +1,47 @@
+{
+ "centre": "a magnifying lens over the skin of a forearm, showing pink cells inside",
+ "focus": [
+  960,
+  470,
+  1.8
+ ],
+ "focus_word": "inside our cells",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "cells",
+   "x": 1300,
+   "y": 300,
+   "to": [
+    1000,
+    430
+   ],
+   "word": "cells"
+  }
+ ],
+ "motion": "lens approaches (calm core), skin cells drift up off the arm",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "listen"
+  },
+  "ride": "mv-core-approach-magnifying-lens",
+  "kind": "ride",
+  "x": 1253,
+  "y": 745,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "lab"
+  ],
+  "lock": true
+ }
+}

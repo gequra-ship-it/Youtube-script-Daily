@@ -1,0 +1,38 @@
+{
+ "centre": "glass thermometer whose red column sinks below a dashed 35 degree line while cold arrows reach the Everyman's core",
+ "focus": [
+  1250,
+  440,
+  1.6
+ ],
+ "focus_word": "thirty-five degrees Celsius",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "BELOW 35 °C",
+   "word": "thirty-five degrees"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "shiver"
+  },
+  "x": 260,
+  "y": 540,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "bside": 1,
+  "lock": true
+ }
+}

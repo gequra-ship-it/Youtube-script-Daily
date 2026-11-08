@@ -1,0 +1,47 @@
+{
+ "centre": "thought bubble with a tangled scribble (confusion), beside a wobbling man",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "Confusion",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Wh... what?",
+   "x": 700,
+   "y": 300,
+   "to": [
+    562,
+    486
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "confused"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-thought-bubble",
+  "kind": "ride",
+  "x": 1110,
+  "y": 612,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

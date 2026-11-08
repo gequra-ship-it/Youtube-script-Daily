@@ -1,0 +1,44 @@
+{
+ "centre": "round gauge dial in a cut-away chest, needle resting in the gold zone",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "your chest",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "37 C",
+   "word": "thirty-seven"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-core-approach-gauge-dial",
+  "kind": "ride",
+  "x": 809,
+  "y": 1085,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "goggles"
+  ],
+  "says": [
+   {
+    "text": "Phew...",
+    "shout": false
+   }
+  ]
+ }
+}

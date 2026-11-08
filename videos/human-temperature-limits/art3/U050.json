@@ -1,0 +1,53 @@
+{
+ "centre": "split view: a person in cold air vs. a person wading in icy water losing heat fast",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Air",
+   "x": 700,
+   "y": 300,
+   "to": [
+    640,
+    360
+   ],
+   "word": "air"
+  },
+  {
+   "type": "name",
+   "text": "Water",
+   "x": 1160,
+   "y": 420,
+   "to": [
+    1180,
+    760
+   ],
+   "word": "Water"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "startle"
+  },
+  "outfit": [
+   "goggles",
+   "scarf"
+  ],
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "bside": 1,
+  "lock": true
+ }
+}

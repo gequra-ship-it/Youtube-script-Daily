@@ -1,0 +1,45 @@
+{
+ "centre": "glowing hanging lantern inside a cut-away house",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "protection",
+   "x": 760,
+   "y": 470,
+   "to": [
+    700,
+    640
+   ],
+   "word": "protection"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-core-sway-hanging-lantern",
+  "kind": "ride",
+  "x": 640,
+  "y": 936,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "hardhat",
+   "headphones"
+  ],
+  "says": [
+   {
+    "text": "La la la~",
+    "shout": false
+   }
+  ]
+ }
+}

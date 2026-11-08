@@ -1,0 +1,45 @@
+{
+ "centre": "stage curtains slide open to uncover a human silhouette with a glowing furnace in the chest, ice on one side and a hot sun on the other",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Human",
+   "x": 540,
+   "y": 600,
+   "to": [
+    540,
+    760
+   ],
+   "word": "human"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 285,
+  "y": 1460,
+  "s": 1.2,
+  "flip": 1,
+  "bside": 1,
+  "behind": "mv-slide-curtain-left",
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "centre": "round clay water jug brimming with water between an oasis palm and a sweating man",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "plenty of water",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Ahh, cool!",
+   "x": 1330,
+   "y": 330,
+   "to": [
+    1400,
+    471
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "balance",
+  "outfit": [
+   "goggles"
+  ],
+  "ride": "mv-core-glide-water-jug",
+  "kind": "ride",
+  "x": 1044,
+  "y": 439,
+  "s": 1.22,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

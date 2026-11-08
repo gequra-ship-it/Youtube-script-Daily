@@ -1,0 +1,43 @@
+{
+ "centre": "an Everyman's blue coat lying open on the snow with a faint warm glow, scarf, beanie, mittens and boots scattered around",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "undressed in the snow",
+ "sfx": [
+  {
+   "name": "cloth",
+   "word": "undressed",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-coat",
+  "kind": "ride",
+  "x": 1188,
+  "y": 650,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Off we go!",
+    "shout": false
+   }
+  ]
+ }
+}

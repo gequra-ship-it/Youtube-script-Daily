@@ -1,0 +1,37 @@
+{
+ "centre": "Everyman balancing on a tightrope over a chasm between a campfire (burning up) and ice crystals (freezing over)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 1660,
+  "y": 780,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "So dizzy...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

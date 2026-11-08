@@ -1,0 +1,51 @@
+{
+ "centre": "glowing water droplet floating in humid air (moisture)",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "invisible moisture",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Moisture",
+   "x": 1230,
+   "y": 300,
+   "to": [
+    1020,
+    440
+   ],
+   "word": "moisture"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 770,
+  "y": 700,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-glide-water-droplet",
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "So dizzy...",
+    "shout": false
+   }
+  ]
+ }
+}

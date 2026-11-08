@@ -1,0 +1,56 @@
+{
+ "centre": "round glass water flask held on a cupped hand in dry desert air",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "water",
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "water",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "water",
+   "x": 760,
+   "y": 1000,
+   "to": [
+    620,
+    910
+   ],
+   "word": "water"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "crouchlook"
+  },
+  "outfit": [
+   "goggles",
+   "raincoat"
+  ],
+  "ride": "mv-core-approach-water-flask",
+  "kind": "ride",
+  "x": 630,
+  "y": 747,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Found it!",
+    "shout": true
+   }
+  ]
+ }
+}

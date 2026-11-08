@@ -1,0 +1,50 @@
+{
+ "centre": "pale numb hand with icy fingertips by a frosted window, a match slipping from the fingers",
+ "focus": [
+  870,
+  520,
+  1.7
+ ],
+ "focus_word": "fingers",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Oops!",
+   "x": 1230,
+   "y": 330,
+   "to": [
+    994,
+    478
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shiver",
+  "x": 1660,
+  "y": 340,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

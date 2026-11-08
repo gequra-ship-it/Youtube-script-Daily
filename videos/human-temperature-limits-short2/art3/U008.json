@@ -1,0 +1,55 @@
+{
+ "centre": "thermostat dial on the coral hypothalamus inside a brain, its needle swinging wildly (control failing)",
+ "focus": [
+  540,
+  820,
+  1.6
+ ],
+ "focus_word": "temperature control",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "failure",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "brain",
+   "x": 760,
+   "y": 470,
+   "to": [
+    700,
+    540
+   ],
+   "word": "brain's"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "facepalm",
+  "ride": "mv-core-approach-thermostat-dial",
+  "kind": "ride",
+  "x": 684,
+  "y": 960,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Oh no...",
+    "shout": false
+   }
+  ]
+ }
+}

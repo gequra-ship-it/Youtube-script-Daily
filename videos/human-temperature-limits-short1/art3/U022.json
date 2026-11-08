@@ -1,0 +1,55 @@
+{
+ "centre": "red warning badge on the line between steamy jungle (mild reading) and dry desert (hot reading)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "steamy climate",
+   "x": 800,
+   "y": 600,
+   "to": [
+    690,
+    580
+   ],
+   "word": "steamy climate"
+  },
+  {
+   "type": "name",
+   "text": "desert",
+   "x": 520,
+   "y": 1130,
+   "to": [
+    320,
+    1150
+   ],
+   "word": "desert"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "nervous",
+  "ride": "mv-core-glide-warning-badge",
+  "kind": "ride",
+  "x": 679,
+  "y": 955,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Uh-oh...",
+    "shout": false
+   }
+  ]
+ }
+}

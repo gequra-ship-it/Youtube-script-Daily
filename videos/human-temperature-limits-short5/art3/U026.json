@@ -1,0 +1,50 @@
+{
+ "centre": "red round play button above a waving person between a thermometer and a flame",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "Watch",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "human",
+   "x": 800,
+   "y": 1210,
+   "to": [
+    600,
+    1230
+   ],
+   "word": "human"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-core-approach-play-button",
+  "kind": "ride",
+  "x": 688,
+  "y": 964,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "nightcap"
+  ],
+  "says": [
+   {
+    "text": "Boom-cha!",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,66 @@
+# -*- coding: utf-8 -*-
+# human-temperature-limits-short3 (Miya's Note). Script from miya 2026-11-08; fact-checked per guideline 12-1 (see ../human-temperature-limits/script-check.md).
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh3_1',
+  'Can a person with no heartbeat, no breathing, and an ice-cold body still wake up alive? In emergency medicine, doctors live by a famous rule: a '
+  'hypothermia patient is not dead until they are warm and dead.'),
+ ('S02',
+  'Part 2',
+  'ill',
+  'sh3_2',
+  'When the human core temperature falls below twenty-eight degrees Celsius, the heart can quiver and stop. Breathing ceases, the pupils widen, and '
+  'the body feels ice-cold to the touch.'),
+ ('S03',
+  'Part 3',
+  'ill',
+  'sh3_3',
+  'In ordinary circumstances, the brain starts to suffer permanent damage within minutes after the heart stops. But profound cold changes the '
+  'biology of dying.'),
+ ('S04',
+  'Part 4',
+  'ill',
+  'sh3_4',
+  'Extremely low temperatures slow cellular metabolism dramatically, so cold brain cells need far less oxygen to stay alive. One famous case '
+  'happened in Norway in 1999.'),
+ ('S05',
+  'Part 5',
+  'ill',
+  'sh3_5',
+  'A young doctor and skier named Anna Bågenholm fell through the ice of a frozen stream and was trapped beneath it for about eighty minutes.'),
+ ('S06',
+  'Part 6',
+  'ill',
+  'sh3_6',
+  'When rescuers reached her, her heart had stopped, and her core temperature was about thirteen point seven degrees Celsius. Doctors warmed her '
+  'blood outside her body, her heart started again, and she eventually recovered.'),
+ ('S07',
+  'Part 7',
+  'ill',
+  'sh3_7',
+  'Cases like hers are rare, and each depends on many fortunate details, such as air to breathe under the ice and a team ready to treat her '
+  'quickly.'),
+ ('S08',
+  'Part 8',
+  'ill',
+  'sh3_8',
+  "But the principle behind it is real. Surgeons even use it on purpose. In some heart and brain operations, they cool a patient's body so that "
+  'blood flow can be paused safely for a limited time.'),
+ ('S09',
+  'Part 9',
+  'ill',
+  'sh3_9',
+  'Cold can kill, but it can also protect the brain in ways that seem miraculous. The key is that the cold must come first.'),
+ ('S10',
+  'Part 10',
+  'ill',
+  'sh3_10',
+  'A body that cools slowly while still alive is very different from a body that stops and then cools. Doctors also know that a very cold heart can '
+  'be hard to restart, so they warm the patient carefully before deciding anything.'),
+ ('S11',
+  'Part 11',
+  'ill',
+  'sh3_11',
+  'That is why emergency teams treat a cold patient with great care and do not give up too early. Watch our full episode to explore the absolute '
+  'limits of human survival in extreme cold.')]

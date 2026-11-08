@@ -1,0 +1,60 @@
+{
+ "centre": "blazing desert sun between a skyscraper and a snowy house",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "skyscraper",
+   "x": 560,
+   "y": 470,
+   "to": [
+    285,
+    600
+   ],
+   "word": "skyscraper"
+  },
+  {
+   "type": "name",
+   "text": "snowy town",
+   "x": 540,
+   "y": 1392,
+   "to": [
+    540,
+    1300
+   ],
+   "word": "snowy town"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-sun"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 676,
+  "y": 952,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "explorer",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
+}

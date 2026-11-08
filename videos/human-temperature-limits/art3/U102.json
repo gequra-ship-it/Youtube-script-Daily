@@ -1,0 +1,55 @@
+{
+ "centre": "a tall thermometer whose red column climbs from a frosty bulb (deep space) to a glowing top (star core)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "MILLIONS OF DEGREES",
+   "word": "millions of degrees"
+  },
+  {
+   "type": "name",
+   "text": "Deep space",
+   "x": 450,
+   "y": 800,
+   "to": [
+    450,
+    660
+   ],
+   "word": "Deep space"
+  },
+  {
+   "type": "name",
+   "text": "stars",
+   "x": 1450,
+   "y": 760,
+   "to": [
+    1450,
+    620
+   ],
+   "word": "stars"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "awe"
+  },
+  "x": 260,
+  "y": 380,
+  "s": 0.85,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "diver"
+  ],
+  "bside": 1,
+  "lock": true
+ }
+}

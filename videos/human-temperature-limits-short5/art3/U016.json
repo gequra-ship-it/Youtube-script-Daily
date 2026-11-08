@@ -1,0 +1,64 @@
+{
+ "centre": "round gauge dial, red fever half and blue chill half, needle between",
+ "focus": [
+  540,
+  1040,
+  1.6
+ ],
+ "focus_word": "shiver",
+ "labels": [
+  {
+   "type": "name",
+   "text": "fever",
+   "x": 330,
+   "y": 740,
+   "to": [
+    480,
+    810
+   ],
+   "word": "fever"
+  },
+  {
+   "type": "name",
+   "text": "chill",
+   "x": 760,
+   "y": 1010,
+   "to": [
+    590,
+    1140
+   ],
+   "word": "chill"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": {
+   "type": "bracehold",
+   "obj": "mv-core-tremble-gauge-dial"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 696,
+  "y": 972,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "tinfoil"
+  ],
+  "says": [
+   {
+    "text": "Steady...!",
+    "shout": true
+   }
+  ]
+ }
+}
