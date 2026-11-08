@@ -1,0 +1,61 @@
+{
+ "centre": "stone slab with an ammonite fossil above a DNA helix carrying viral fossil marks, a magnifier reading along it, a geneticist pointing",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "fossils",
+   "x": 820,
+   "y": 330,
+   "to": [
+    610,
+    470
+   ],
+   "word": "fossils"
+  },
+  {
+   "type": "name",
+   "text": "DNA",
+   "x": 820,
+   "y": 1090,
+   "to": [
+    800,
+    930
+   ],
+   "word": "DNA"
+  }
+ ],
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-magnifier",
+  "kind": "ride",
+  "x": 165,
+  "y": 1075,
+  "s": 1.24,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

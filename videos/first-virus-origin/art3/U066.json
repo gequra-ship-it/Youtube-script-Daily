@@ -1,0 +1,58 @@
+{
+ "centre": "a giant virus stealing gene pieces from a host cell, a stolen pile at its foot",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "attractor": [
+  600,
+  460
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Master thieves",
+   "x": 560,
+   "y": 200,
+   "to": [
+    560,
+    330
+   ],
+   "word": "master thieves"
+  },
+  {
+   "type": "say",
+   "text": "Hey, those are mine!",
+   "x": 1400,
+   "y": 180,
+   "to": [
+    1360,
+    270
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "Other genomic",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "says": [],
+  "bside": -1
+ }
+}

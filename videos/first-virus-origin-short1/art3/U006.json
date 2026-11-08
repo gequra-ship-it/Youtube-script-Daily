@@ -1,0 +1,59 @@
+{
+ "centre": "a checklist of rules being ticked, then a virus beside a row of rule dominoes that topple",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "rules",
+   "x": 850,
+   "y": 420,
+   "to": [
+    700,
+    470
+   ],
+   "word": "rules"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "But a",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "squish",
+   "obj": "mv-topple-rule-domino-1"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 592,
+  "y": 1330,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-topple-rule-domino-1",
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Oof!",
+    "shout": true
+   },
+   {
+    "text": "Ow ow ow.",
+    "shout": false
+   }
+  ]
+ }
+}

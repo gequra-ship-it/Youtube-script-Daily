@@ -1,0 +1,43 @@
+{
+ "centre": "a faint dashed virus capsid above the globe holding a puppet bar, strings to a fish, a plankton cell and a whale in the ocean",
+ "focus": [
+  960,
+  230,
+  1.5
+ ],
+ "focus_word": "puppet masters",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "knocked",
+   "obj": "mv-swing-fish-puppet"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 567,
+  "y": 736,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   }
+  ]
+ }
+}

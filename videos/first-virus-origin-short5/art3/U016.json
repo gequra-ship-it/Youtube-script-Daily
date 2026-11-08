@@ -1,0 +1,60 @@
+{
+ "centre": "a key whose bow is a teal virus capsid, glowing, in front of an aquarium wall; a scientist points at it",
+ "focus": [
+  600,
+  950,
+  1.4
+ ],
+ "focus_word": "as a key",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Viruses",
+   "x": 340,
+   "y": 690,
+   "to": [
+    480,
+    800
+   ],
+   "word": "viruses"
+  },
+  {
+   "type": "say",
+   "text": "A key!",
+   "x": 780,
+   "y": 960,
+   "to": [
+    830,
+    1090
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "bob"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-approach-virus-key",
+  "kind": "ride",
+  "x": 654,
+  "y": 694,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Blub!",
+    "shout": true
+   }
+  ]
+ }
+}

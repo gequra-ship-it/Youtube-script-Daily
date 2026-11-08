@@ -1,0 +1,52 @@
+{
+ "centre": "a bench of petri dishes from above; a magnifier sweeps over them and a giant virus turns up in one dish after another",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Found one!",
+   "x": 820,
+   "y": 1300,
+   "to": [
+    820,
+    1200
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dodge",
+   "obj": "mv-rollby-sample-vial",
+   "h": 44,
+   "pass": 2.692
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 485,
+  "y": 1344,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "centre": "wall clock ticking above a dusty grey virus while a host cell glides in",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Host cell",
+   "x": 860,
+   "y": 860,
+   "to": [
+    940,
+    1000
+   ],
+   "word": "host cell"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": "snooze",
+  "ride": "mv-path-host-cell",
+  "kind": "ride",
+  "x": 865,
+  "y": 959,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Zzz...",
+    "shout": false
+   }
+  ]
+ }
+}

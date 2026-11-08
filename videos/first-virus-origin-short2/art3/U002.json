@@ -1,0 +1,53 @@
+{
+ "centre": "a living coral host cell with a receptor lock; a virus docks and copies appear inside",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "living host cell",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Host cell",
+   "x": 720,
+   "y": 1090,
+   "to": [
+    640,
+    1020
+   ],
+   "word": "host cell"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "After all",
+    "mood": "happy"
+   }
+  ],
+  "act": "listen",
+  "ride": "mv-path-virus",
+  "kind": "ride",
+  "x": 360,
+  "y": 476,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "doctor",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Shh... listen.",
+    "shout": false
+   }
+  ]
+ }
+}

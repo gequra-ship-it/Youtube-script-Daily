@@ -1,0 +1,53 @@
+{
+ "centre": "an open door onto an ancient shoreline with a hydrothermal vent; the first virus floats in the doorway",
+ "focus": [
+  545,
+  880,
+  1.6
+ ],
+ "focus_word": "very first virus",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "first virus",
+   "x": 690,
+   "y": 740,
+   "to": [
+    590,
+    830
+   ],
+   "word": "first virus"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Discover where",
+    "mood": "happy"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-core-glide-first-virus",
+  "kind": "ride",
+  "x": 681,
+  "y": 986,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "explorer",
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

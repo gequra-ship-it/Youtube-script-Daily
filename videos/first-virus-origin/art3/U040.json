@@ -1,0 +1,55 @@
+{
+ "centre": "a single virus alone in a petri dish on a lab bench under a swinging lamp; a dashed ghost of the missing host cell beside it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who copies me?",
+   "x": 1180,
+   "y": 300,
+   "to": [
+    1010,
+    430
+   ]
+  }
+ ],
+ "motion": "lamp swings, virus approaches, an empty test tube teeters (no copier anywhere)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "If viruses",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "knocked",
+   "obj": "mv-swing-hanging-lamp"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 321,
+  "y": 426,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   }
+  ]
+ }
+}

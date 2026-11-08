@@ -1,0 +1,61 @@
+{
+ "centre": "a kitchen spoon whose bowl of water swarms with tiny viruses, above three small countries of people",
+ "focus": [
+  560,
+  720,
+  1.5
+ ],
+ "focus_word": "spoonful of water",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Spoonful of water",
+   "x": 640,
+   "y": 470,
+   "to": [
+    600,
+    640
+   ],
+   "word": "spoonful of water"
+  },
+  {
+   "type": "name",
+   "text": "People",
+   "x": 560,
+   "y": 935,
+   "to": [
+    560,
+    1150
+   ],
+   "word": "people"
+  }
+ ],
+ "motion": "spoon glides, people icons appear one by one across the countries (ticks)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "confused"
+   }
+  ],
+  "act": {
+   "type": "shrugbig"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-glide-spoon",
+  "kind": "ride",
+  "x": 269,
+  "y": 567,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Too many!",
+    "shout": true
+   }
+  ]
+ }
+}

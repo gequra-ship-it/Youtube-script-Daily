@@ -1,0 +1,58 @@
+{
+ "centre": "above, an old card where a virus with its gene approaches a cell; below, the same gene trail leads down to a mother holding her baby",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "virus",
+   "x": 260,
+   "y": 420,
+   "to": [
+    260,
+    520
+   ],
+   "word": "virus"
+  },
+  {
+   "type": "name",
+   "text": "mother",
+   "x": 820,
+   "y": 1240,
+   "to": [
+    575,
+    1280
+   ],
+   "word": "mother"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "mischief"
+   }
+  ],
+  "act": {
+   "type": "chomp"
+  },
+  "ride": "mv-path-virus",
+  "kind": "ride",
+  "x": 375,
+  "y": 631,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "doctor",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Chomp!",
+    "shout": true
+   }
+  ]
+ }
+}

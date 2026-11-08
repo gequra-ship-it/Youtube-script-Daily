@@ -1,0 +1,41 @@
+{
+ "centre": "a huge fuzzy giant virus (Mimivirus look) floating over a museum plinth in a spotlight, two ordinary tiny viruses on a side stand",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "giant viruses",
+   "x": 280,
+   "y": 560,
+   "to": [
+    440,
+    760
+   ],
+   "word": "giant viruses"
+  }
+ ],
+ "motion": "giant virus core reveal; right of the plinth kept free",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "x": 260,
+  "y": 560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "doctor",
+   "headlamp"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

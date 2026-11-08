@@ -1,0 +1,55 @@
+{
+ "centre": "cute early primate ancestor on an ancient branch while teal retroviruses drift toward it",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Ancestors",
+   "x": 250,
+   "y": 1180,
+   "to": [
+    460,
+    960
+   ],
+   "word": "distant ancestors"
+  },
+  {
+   "type": "say",
+   "text": "Achoo!",
+   "x": 300,
+   "y": 700,
+   "to": [
+    500,
+    830
+   ]
+  }
+ ],
+ "sfx": [],
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-retrovirus-drift",
+  "kind": "ride",
+  "x": 777,
+  "y": 479,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "doctor",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

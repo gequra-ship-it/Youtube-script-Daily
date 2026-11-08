@@ -1,0 +1,44 @@
+{
+ "centre": "a giant virus capsid cut open, its very long genome ribbon unrolling to the right",
+ "focus": [
+  1180,
+  500,
+  1.5
+ ],
+ "focus_word": "their genomes",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "unrolled",
+   "obj": "mv-unroll-genome-ribbon",
+   "frac": 0.7
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1404,
+  "y": 575,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

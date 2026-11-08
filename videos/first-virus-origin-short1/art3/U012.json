@@ -1,0 +1,42 @@
+{
+ "centre": "a still grey virus between a swimming fish, an ignored bacterium and an untouched bowl of food",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Busy day!",
+   "x": 600,
+   "y": 400,
+   "to": [
+    440,
+    480
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "It does",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "x": 260,
+  "y": 1080,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "doctor"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

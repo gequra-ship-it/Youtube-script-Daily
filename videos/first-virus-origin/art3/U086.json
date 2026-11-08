@@ -1,0 +1,42 @@
+{
+ "centre": "split screen: a bacteriophage landing its legs on a rod bacterium (left) and a round common-cold virus floating by a tissue box and mug (right)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Common cold",
+   "x": 1640,
+   "y": 860,
+   "to": [
+    1500,
+    780
+   ],
+   "word": "common cold"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck"
+  },
+  "ride": "mv-path-descend-phage",
+  "kind": "ride",
+  "x": 618,
+  "y": 551,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "doctor"
+  ],
+  "says": []
+ }
+}

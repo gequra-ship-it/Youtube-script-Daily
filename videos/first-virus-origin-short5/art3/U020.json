@@ -1,0 +1,47 @@
+{
+ "centre": "surface split: the sun crosses the sky over a small boat whose sailor looks up, while tiny microbes and viruses glow unseen in the sea below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Ocean",
+   "x": 200,
+   "y": 960,
+   "to": [
+    300,
+    1080
+   ],
+   "word": "ocean"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 530,
+  "y": 826,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-bob-boat",
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

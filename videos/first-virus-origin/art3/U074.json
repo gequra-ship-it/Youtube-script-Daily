@@ -1,0 +1,56 @@
+{
+ "centre": "a genome blueprint unrolls on a desk; an amber gene block is cut out and pasted into a new slot",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "New spot!",
+   "x": 700,
+   "y": 470,
+   "to": [
+    530,
+    395
+   ]
+  },
+  {
+   "type": "name",
+   "text": "Genome",
+   "x": 960,
+   "y": 740,
+   "to": [
+    1000,
+    650
+   ],
+   "word": "genome"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "They are",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "ride": "mv-path-jumping-gene",
+  "kind": "ride",
+  "x": 603,
+  "y": 408,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "backpack",
+   "lab"
+  ],
+  "says": []
+ }
+}

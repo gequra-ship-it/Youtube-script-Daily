@@ -1,0 +1,52 @@
+{
+ "centre": "cross-section of rock layers: a grey virus at today's surface travels down a dashed route to a glowing ancient pool deep below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "BILLIONS OF YEARS AGO",
+   "word": "billions of years ago"
+  },
+  {
+   "type": "name",
+   "text": "Today",
+   "x": 1380,
+   "y": 170,
+   "to": [
+    1010,
+    225
+   ],
+   "word": "today"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "confused"
+   }
+  ],
+  "act": {
+   "type": "shrugbig"
+  },
+  "ride": "mv-path-descend-virus",
+  "kind": "ride",
+  "x": 859,
+  "y": 302,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "doctor",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Too many!",
+    "shout": true
+   }
+  ]
+ }
+}

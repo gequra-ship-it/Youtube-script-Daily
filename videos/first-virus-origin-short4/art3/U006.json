@@ -1,0 +1,56 @@
+{
+ "centre": "grey X-shaped chromosome with a teal viral sequence being sewn into one arm",
+ "focus": [
+  690,
+  660,
+  1.6
+ ],
+ "focus_word": "stitch",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Chromosome",
+   "x": 820,
+   "y": 790,
+   "to": [
+    640,
+    840
+   ],
+   "word": "chromosomes"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-viral-sequence",
+   "h": 80
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 690,
+  "y": 682,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

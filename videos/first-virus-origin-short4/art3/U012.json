@@ -1,0 +1,45 @@
+{
+ "centre": "teal retrovirus landing on top of an egg cell while an ordinary grey virus fades away above",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Retrovirus",
+   "x": 800,
+   "y": 780,
+   "to": [
+    580,
+    850
+   ],
+   "word": "a retrovirus"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "startle",
+  "ride": "mv-core-drop-retrovirus",
+  "kind": "ride",
+  "x": 646,
+  "y": 912,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

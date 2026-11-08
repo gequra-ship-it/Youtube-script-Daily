@@ -1,0 +1,68 @@
+{
+ "centre": "a whale, a dolphin and a fish school swimming past tiny drifting viruses that ignore them",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Whales",
+   "x": 560,
+   "y": 1000,
+   "to": [
+    480,
+    1120
+   ],
+   "word": "whales"
+  },
+  {
+   "type": "name",
+   "text": "Dolphins",
+   "x": 250,
+   "y": 680,
+   "to": [
+    330,
+    790
+   ],
+   "word": "dolphins"
+  },
+  {
+   "type": "name",
+   "text": "Fish",
+   "x": 400,
+   "y": 400,
+   "to": [
+    600,
+    460
+   ],
+   "word": "fish"
+  }
+ ],
+ "motion": "fish school swims left, dolphin swims right, whale glides with its tail joint, viruses float",
+ "frog": {
+  "moods": [
+   {
+    "mood": "awe"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-glide-whale",
+  "kind": "ride",
+  "x": 116,
+  "y": 1352,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

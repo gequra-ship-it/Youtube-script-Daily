@@ -1,0 +1,46 @@
+{
+ "centre": "the teal virus drifts along a stream current from the faded parent cell to a green single-celled organism",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Different organism",
+   "x": 1500,
+   "y": 860,
+   "to": [
+    1590,
+    700
+   ],
+   "word": "different organism"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "ride": "mv-path-drift-virus",
+  "kind": "ride",
+  "x": 878,
+  "y": 441,
+  "s": 1.18,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "goggles",
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "There!",
+    "shout": true
+   }
+  ]
+ }
+}

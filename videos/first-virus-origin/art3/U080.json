@@ -1,0 +1,54 @@
+{
+ "centre": "a teal virus with a triangle key descends onto the matching triangle receptor of a host cell; a tailor's tape swings",
+ "focus": [
+  960,
+  600,
+  1.6
+ ],
+ "focus_word": "closely tailored",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Perfect fit!",
+   "x": 640,
+   "y": 330,
+   "to": [
+    870,
+    350
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "knocked",
+   "obj": "mv-swing-tape-measure"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1390,
+  "y": 640,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "doctor",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   }
+  ]
+ }
+}

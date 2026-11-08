@@ -1,0 +1,56 @@
+{
+ "centre": "a virus particle drifting onto the receptor locks of a living cell",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "living cell",
+   "x": 540,
+   "y": 1380,
+   "to": [
+    540,
+    1200
+   ],
+   "word": "living cell"
+  },
+  {
+   "type": "name",
+   "text": "particle",
+   "x": 560,
+   "y": 400,
+   "to": [
+    300,
+    480
+   ],
+   "word": "particle"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-path-virus-particle",
+  "kind": "ride",
+  "x": 417,
+  "y": 560,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Hmm, interesting.",
+    "shout": false
+   }
+  ]
+ }
+}

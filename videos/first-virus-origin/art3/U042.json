@@ -1,0 +1,57 @@
+{
+ "centre": "ribosome copier reading the genome ribbon, protein shells assembled on a conveyor belt",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "genome",
+   "x": 340,
+   "y": 300,
+   "to": [
+    380,
+    410
+   ],
+   "word": "genome"
+  },
+  {
+   "type": "name",
+   "text": "protein shell",
+   "x": 1390,
+   "y": 250,
+   "to": [
+    1390,
+    380
+   ],
+   "word": "protein shell"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "hammer"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-virus-capsid",
+  "kind": "ride",
+  "x": 917,
+  "y": 677,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Bang! Bang!",
+    "shout": true
+   }
+  ]
+ }
+}

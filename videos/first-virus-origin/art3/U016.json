@@ -1,0 +1,48 @@
+{
+ "centre": "virus capsid reaching the surface of a living cell",
+ "focus": [
+  900,
+  440,
+  1.7
+ ],
+ "focus_word": "living cell",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Living cell",
+   "x": 1200,
+   "y": 600,
+   "to": [
+    1130,
+    690
+   ],
+   "word": "living cell"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-virus-capsid",
+  "kind": "ride",
+  "x": 849,
+  "y": 457,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

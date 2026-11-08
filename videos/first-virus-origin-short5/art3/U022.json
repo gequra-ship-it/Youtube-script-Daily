@@ -1,0 +1,63 @@
+{
+ "centre": "a virus carrying a coral gene piece travels down from an amber bacterium host to a round plankton host, where the coral gene pops into its strip",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Genes",
+   "x": 870,
+   "y": 1060,
+   "to": [
+    600,
+    1236
+   ],
+   "word": "genes"
+  },
+  {
+   "type": "name",
+   "text": "Host",
+   "x": 200,
+   "y": 330,
+   "to": [
+    400,
+    470
+   ],
+   "word": "host"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-swapped-gene",
+   "h": 27
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 540,
+  "y": 1257,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "centre": "a living coral cell below, a giant virus above, and the sharp ink line between them crumbling",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "living cells",
+   "x": 300,
+   "y": 1370,
+   "to": [
+    420,
+    1250
+   ],
+   "word": "living cells"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "heartlisten",
+   "obj": "mv-core-heartbeat-living-cell"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 794,
+  "y": 1304,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Thump... thump.",
+    "shout": false
+   }
+  ]
+ }
+}

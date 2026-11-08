@@ -1,0 +1,61 @@
+{
+ "centre": "magnifying glass over a giant virus on a detective desk, case card with a shrinking cell, smoking petri dish",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Reduction hypothesis",
+   "x": 420,
+   "y": 230,
+   "to": [
+    410,
+    470
+   ],
+   "word": "reduction hypothesis"
+  },
+  {
+   "type": "say",
+   "text": "Is it the clue?",
+   "x": 1560,
+   "y": 250,
+   "to": [
+    1500,
+    440
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-petri-dish",
+   "h": 240
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1500,
+  "y": 680,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

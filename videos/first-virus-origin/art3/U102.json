@@ -1,0 +1,47 @@
+{
+ "centre": "egg cell holding a teal viral gene block, passed to a baby cell",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Offspring",
+   "x": 1500,
+   "y": 420,
+   "to": [
+    1500,
+    570
+   ],
+   "word": "offspring"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "ride": "mv-core-approach-egg-cell",
+  "kind": "ride",
+  "x": 1114,
+  "y": 616,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Huge!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "centre": "magnifying lens over an empty specimen tray with only a faint dashed virus outline",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "viral fossil record",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Viral fossil record",
+   "x": 1250,
+   "y": 330,
+   "to": [
+    1040,
+    440
+   ],
+   "word": "viral fossil record"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 820,
+  "y": 716,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-glide-magnifier-lens",
+  "outfit": [
+   "detective",
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

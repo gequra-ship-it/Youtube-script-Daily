@@ -1,0 +1,45 @@
+{
+ "centre": "a square of sea seen from above filling up with microbes while the virus slides out of it, a stalled grey recycling loop below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Microbes",
+   "x": 330,
+   "y": 410,
+   "to": [
+    300,
+    560
+   ],
+   "word": "microbes"
+  }
+ ],
+ "motion": "microbes appear one by one until the patch is crowded (ticks), the virus slides out of the frame",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-slide-virus-capsid",
+  "kind": "ride",
+  "x": 535,
+  "y": 852,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

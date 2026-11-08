@@ -1,0 +1,54 @@
+{
+ "centre": "light-microscope field: a fuzzy giant virus sitting right above a rod bacterium of the same size",
+ "focus": [
+  540,
+  900,
+  1.5
+ ],
+ "focus_word": "as large as a small bacterium",
+ "sfx": [],
+ "iris": [
+  540,
+  760
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "bacterium",
+   "x": 740,
+   "y": 1150,
+   "to": [
+    640,
+    1040
+   ],
+   "word": "bacterium"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 417,
+  "y": 893,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-glide-giant-virus",
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "centre": "round porthole window: snowy winter on the left half, crashing wave on rocks on the right half",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "winter cold",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    500
+   ],
+   "vanish": true
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 538,
+  "y": 512,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "centre": "a small amber single-celled organism swimming into a large coral cell in an ancient shallow sea",
+ "focus": [
+  880,
+  490,
+  1.4
+ ],
+ "focus_word": "began living inside a larger cell",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "larger cell",
+   "x": 1250,
+   "y": 240,
+   "to": [
+    1120,
+    320
+   ],
+   "word": "larger cell"
+  },
+  {
+   "type": "num",
+   "text": "BILLIONS OF YEARS AGO",
+   "word": "billions of years ago"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "ride": "mv-path-small-cell",
+  "kind": "ride",
+  "x": 508,
+  "y": 521,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "headlamp"
+  ],
+  "says": []
+ }
+}

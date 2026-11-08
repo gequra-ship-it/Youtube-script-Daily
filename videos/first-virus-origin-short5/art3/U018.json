@@ -1,0 +1,57 @@
+{
+ "centre": "a giant cooking pot on a stove filled with the sea (waves, a tiny virus and microbe), steam rising, a ladle swinging on the rail",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sea",
+   "x": 200,
+   "y": 760,
+   "to": [
+    330,
+    860
+   ],
+   "word": "sea"
+  },
+  {
+   "type": "name",
+   "text": "Kitchen",
+   "x": 300,
+   "y": 400,
+   "to": [
+    420,
+    520
+   ],
+   "word": "kitchen"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-swing-ladle",
+  "kind": "ride",
+  "x": 852,
+  "y": 676,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Big!",
+    "shout": true
+   }
+  ]
+ }
+}

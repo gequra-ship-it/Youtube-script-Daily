@@ -1,0 +1,52 @@
+{
+ "centre": "a magnified droplet of ancient seawater filling with organic molecules",
+ "focus": [
+  540,
+  900,
+  1.5
+ ],
+ "focus_word": "organic molecules",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Organic molecules",
+   "x": 540,
+   "y": 1165,
+   "to": [
+    560,
+    1060
+   ],
+   "word": "organic molecules"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-droplet"
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 799,
+  "y": 1115,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
+}
