@@ -1,0 +1,67 @@
+# -*- coding: utf-8 -*-
+# megalodon-extinction-short1 (Miya's Note). Script from miya 2026-10-29 (received 2026-11-09); fact-checked per guideline 12-1 (see script-check.md).
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh1_1',
+  'Imagine a shark as long as a city bus. In movies, Megalodon bites cruise ships in half. The real animal needs no exaggeration, because '
+  'the scale of this ancient giant is shocking enough.'),
+ ('S02',
+  'Part 2',
+  'ill',
+  'sh1_2',
+  'A modern great white shark rarely grows much longer than six meters, so beside Megalodon it would look small, reaching only about a '
+  'third of that length.'),
+ ('S03', 'Part 3', 'ill', 'sh1_3', 'Picture the two swimming side by side: one the size of a large car, the other the size of a bus.'),
+ ('S04',
+  'Part 4',
+  'ill',
+  'sh1_4',
+  'Scientists estimate that Megalodon reached fifteen meters or more, and may have weighed as much as fifty metric tons.'),
+ ('S05',
+  'Part 5',
+  'ill',
+  'sh1_5',
+  'A single tooth could be about as long as an adult human hand, shaped like a triangle, with fine serrations along both edges. Hundreds '
+  'of them lined its jaws. How do we know all this?'),
+ ('S06',
+  'Part 6',
+  'ill',
+  'sh1_6',
+  'Here is the strange part. Sharks have skeletons made of cartilage, not bone, and cartilage rots away after death. So there is no '
+  'complete Megalodon skeleton in any museum.'),
+ ('S07',
+  'Part 7',
+  'ill',
+  'sh1_7',
+  'Nearly everything we know comes from fossil teeth and a few rare fossilized vertebrae. Scientists measure those teeth, compare them '
+  'with the teeth of living sharks, and estimate the size of the animal that owned them.'),
+ ('S08',
+  'Part 8',
+  'ill',
+  'sh1_8',
+  'That is why you will always hear the word estimate. Studies of its jaws suggest a bite force among the strongest ever estimated for any '
+  'animal, enough to crush the bones of large prey.'),
+ ('S09',
+  'Part 9',
+  'ill',
+  'sh1_9',
+  'And it did not live in one small corner of the sea. Its teeth have been found in rocks on many continents, from warm coastal waters of '
+  'the Miocene epoch to the early Pliocene.'),
+ ('S10',
+  'Part 10',
+  'ill',
+  'sh1_10',
+  "Megalodon patrolled the world's oceans for more than fifteen million years. Now think about that. An animal this large, this powerful, "
+  'with this many millions of years of success, simply disappeared.'),
+ ('S11',
+  'Part 11',
+  'ill',
+  'sh1_11',
+  'If size and strength were enough to guarantee survival, Megalodon would still be out there. So what went wrong? The answer is not a '
+  'single catastrophe.'),
+ ('S12',
+  'Part 12',
+  'ill',
+  'sh1_12',
+  'It was a slow chain of changes across the whole planet, and it is the main story of the longer video.')]

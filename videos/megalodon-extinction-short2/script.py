@@ -1,0 +1,73 @@
+# -*- coding: utf-8 -*-
+# megalodon-extinction-short2 (Miya's Note). Script from miya 2026-10-29 (received 2026-11-09); fact-checked per guideline 12-1 (see script-check.md).
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh2_1',
+  'What would you do if your favorite meal suddenly moved to the coldest place on Earth? That may be exactly what happened to Megalodon.'),
+ ('S02',
+  'Part 2',
+  'ill',
+  'sh2_2',
+  'For millions of years, the oceans were warm, and Megalodon fed on primitive whales that lived along warm coastlines. Then, during the '
+  "Pliocene epoch, Earth's climate began to cool. Polar ice expanded."),
+ ('S03',
+  'Part 3',
+  'ill',
+  'sh2_3',
+  'And cold water holds more dissolved oxygen and nutrients, which fueled huge blooms of krill and plankton near the poles. Whales '
+  'responded to the change.'),
+ ('S04',
+  'Part 4',
+  'ill',
+  'sh2_4',
+  'Baleen whales, once smaller and spread across warm seas, evolved enormous bodies insulated by thick layers of blubber. Scientists think '
+  'the rich feast of the polar seas pulled them toward colder water.'),
+ ('S05',
+  'Part 5',
+  'ill',
+  'sh2_5',
+  'Many whales began making long seasonal journeys between polar feeding grounds and warmer breeding waters.'),
+ ('S06',
+  'Part 6',
+  'ill',
+  'sh2_6',
+  'The coastlines that once held whales all year were becoming less reliable, and a hunter that depended on them had to travel much '
+  'farther to find a meal. Megalodon had a problem.'),
+ ('S07',
+  'Part 7',
+  'ill',
+  'sh2_7',
+  'In 2023, scientists analyzing the chemistry of its fossil teeth reported that it was partly warm-blooded, keeping its body about seven '
+  'degrees Celsius warmer than the surrounding water.'),
+ ('S08',
+  'Part 8',
+  'ill',
+  'sh2_8',
+  'That warmth was a real advantage, but it has a cost. One estimate suggests a large Megalodon needed close to one hundred thousand '
+  'calories every day.'),
+ ('S09', 'Part 9', 'ill', 'sh2_9', 'Could a shark of that size comfortably hunt in freezing water for months at a time?'),
+ ('S10',
+  'Part 10',
+  'ill',
+  'sh2_10',
+  'Some researchers suspect that the cold limited its range, pushing the giant toward warmer zones while its favorite prey drifted toward '
+  'the icy poles.'),
+ ('S11',
+  'Part 11',
+  'ill',
+  'sh2_11',
+  'Megalodon had to search farther and wait longer for each meal, burning immense energy along the way. The balance between energy gained '
+  'and energy spent was tipping in the wrong direction.'),
+ ('S12',
+  'Part 12',
+  'ill',
+  'sh2_12',
+  'Scientists do not think the missing whales were the only cause. But when your body needs that much fuel, watching your dinner swim '
+  'beyond your reach is a serious threat.'),
+ ('S13',
+  'Part 13',
+  'ill',
+  'sh2_13',
+  'Climate change did not just cool the water. It rearranged the whole menu of the ocean, and Megalodon was left on the wrong side of it. '
+  'The full chain of events is in the longer video.')]

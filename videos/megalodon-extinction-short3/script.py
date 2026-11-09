@@ -1,0 +1,68 @@
+# -*- coding: utf-8 -*-
+# megalodon-extinction-short3 (Miya's Note). Script from miya 2026-10-29 (received 2026-11-09); fact-checked per guideline 12-1 (see script-check.md).
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh3_1',
+  'Could a shark much smaller than Megalodon have helped cause its extinction? It sounds impossible, but the answer may be yes. You might '
+  'picture a dramatic battle between a colossal giant and a smaller challenger.'),
+ ('S02',
+  'Part 2',
+  'ill',
+  'sh3_2',
+  'Nature is rarely that simple. During the Pliocene epoch, the ancestors of modern great white sharks were spreading across the oceans.'),
+ ('S03',
+  'Part 3',
+  'ill',
+  'sh3_3',
+  'They were much smaller than Megalodon, probably about the size of great whites today, around five or six meters. In a direct fight with '
+  'a fully grown Megalodon, they would have had no chance.'),
+ ('S04',
+  'Part 4',
+  'ill',
+  'sh3_4',
+  'But they did not need to win a fight. In 2022, researchers measured zinc isotopes in fossil shark teeth to learn what different sharks '
+  'ate.'),
+ ('S05',
+  'Part 5',
+  'ill',
+  'sh3_5',
+  'Early great whites and Megalodon turned out to occupy a similar level in the food chain. That suggests they may have competed for some '
+  'of the same prey, such as small whales, seals, and large fish.'),
+ ('S06',
+  'Part 6',
+  'ill',
+  'sh3_6',
+  'Here is where size becomes a problem. A giant, warm-bodied shark needs enormous amounts of food just to keep going. A smaller shark '
+  'needs only a fraction of those calories.'),
+ ('S07',
+  'Part 7',
+  'ill',
+  'sh3_7',
+  'Great whites were agile, fast, and able to live in both warm and cool water. When food became scarce, a smaller hunter could survive on '
+  'leaner meals that could never sustain a Megalodon.'),
+ ('S08', 'Part 8', 'ill', 'sh3_8', 'Young Megalodon may have felt this first.'),
+ ('S09',
+  'Part 9',
+  'ill',
+  'sh3_9',
+  'While adults were hard to challenge, the young may have been competing with great whites for the same prey, and in a hungry ocean, the '
+  'more efficient competitor has the advantage. Scientists are careful here.'),
+ ('S10',
+  'Part 10',
+  'ill',
+  'sh3_10',
+  'The study shows overlap, not proof, and it is only one piece of the puzzle. Climate and prey also mattered.'),
+ ('S11',
+  'Part 11',
+  'ill',
+  'sh3_11',
+  'So did the arrival of other fast, clever hunters, such as toothed whales, which today include killer whales that hunt in coordinated '
+  'pods.'),
+ ('S12',
+  'Part 12',
+  'ill',
+  'sh3_12',
+  'The ocean was getting more crowded, and every competitor wanted the same shrinking supply of food. In the game of survival, raw '
+  'strength can lose to efficiency.'),
+ ('S13', 'Part 13', 'ill', 'sh3_13', 'The rest of the story, including the whales and the nurseries, is in the longer video.')]
