@@ -1,0 +1,50 @@
+{
+ "centre": "Earth with its grey Moon orbiting it and tiny Pluto, each passing a green check",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Moon",
+   "x": 760,
+   "y": 330,
+   "to": [
+    990,
+    410
+   ],
+   "word": "Moons"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   },
+   {
+    "word": "Both Earth",
+    "mood": "smug"
+   }
+  ],
+  "act": {
+   "type": "magnetwalk",
+   "dist": 461
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.77,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Magnet boots!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

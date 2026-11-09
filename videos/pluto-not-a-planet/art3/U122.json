@@ -1,0 +1,63 @@
+{
+ "centre": "Person on a dark hill pointing up at Jupiter and Saturn glowing in the night sky",
+ "focus": [
+  1300,
+  340,
+  1.7
+ ],
+ "focus_word": "Jupiter or Saturn",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Jupiter",
+   "x": 1180,
+   "y": 190,
+   "to": [
+    1180,
+    270
+   ],
+   "word": "Jupiter"
+  },
+  {
+   "type": "name",
+   "text": "Saturn",
+   "x": 1500,
+   "y": 300,
+   "to": [
+    1500,
+    375
+   ],
+   "word": "Saturn"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 1660,
+  "y": 890,
+  "s": 0.8,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ]
+ }
+}

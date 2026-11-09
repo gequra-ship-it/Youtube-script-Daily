@@ -1,0 +1,44 @@
+{
+ "centre": "a stone tablet on which three golden rule bars draw themselves while a quill moves down",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "three golden rules",
+   "x": 540,
+   "y": 330,
+   "to": [
+    540,
+    440
+   ],
+   "word": "three golden rules"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-path-quill-pen",
+  "kind": "ride",
+  "x": 746,
+  "y": 590,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

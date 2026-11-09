@@ -1,0 +1,44 @@
+{
+ "centre": "a dashed ghost giant planet in the sky above a small observatory dome on a hill",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "a giant",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "1930",
+   "word": "1930"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "ride": "mv-core-glide-giant-planet",
+  "kind": "ride",
+  "x": 699,
+  "y": 975,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "toga"
+  ],
+  "says": [
+   {
+    "text": "Aha!",
+    "shout": true
+   }
+  ]
+ }
+}

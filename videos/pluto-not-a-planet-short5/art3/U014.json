@@ -1,0 +1,48 @@
+{
+ "centre": "Pluto with big grey Charon beside it and four tiny moons on dashed orbit arcs",
+ "focus": [
+  610,
+  860,
+  1.5
+ ],
+ "focus_word": "Charon",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Charon",
+   "x": 760,
+   "y": 690,
+   "to": [
+    760,
+    800
+   ],
+   "word": "Charon"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-pluto-planet",
+  "kind": "ride",
+  "x": 191,
+  "y": 1045,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

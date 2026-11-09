@@ -1,0 +1,51 @@
+{
+ "centre": "Pluto crowned above a vast belt of icy debris",
+ "focus": [
+  1260,
+  400,
+  1.6
+ ],
+ "focus_word": "dazzling king",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Kuiper Belt",
+   "x": 1040,
+   "y": 260,
+   "to": [
+    1240,
+    400
+   ],
+   "word": "Kuiper Belt"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "wavebig"
+  },
+  "ride": "mv-core-glide-pluto-planet",
+  "kind": "ride",
+  "x": 1481,
+  "y": 663,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "crown",
+   "shield"
+  ],
+  "says": [
+   {
+    "text": "Hi!",
+    "shout": true
+   }
+  ]
+ }
+}

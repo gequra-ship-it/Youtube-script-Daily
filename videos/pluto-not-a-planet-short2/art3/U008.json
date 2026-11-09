@@ -1,0 +1,66 @@
+{
+ "centre": "five moons of different sizes and colours in a zigzag, with a small dashed Pluto below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Europa",
+   "x": 250,
+   "y": 1020,
+   "to": [
+    250,
+    1085
+   ],
+   "word": "Europa"
+  },
+  {
+   "type": "name",
+   "text": "Titan",
+   "x": 540,
+   "y": 720,
+   "to": [
+    540,
+    780
+   ],
+   "word": "Titan"
+  },
+  {
+   "type": "name",
+   "text": "Triton",
+   "x": 800,
+   "y": 1120,
+   "to": [
+    800,
+    1180
+   ],
+   "word": "Triton"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-titan-moon",
+  "kind": "ride",
+  "x": 701,
+  "y": 978,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

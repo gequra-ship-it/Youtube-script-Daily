@@ -1,0 +1,59 @@
+{
+ "centre": "a pale grey-white far world with bright corner brackets marking its discovery, tiny Neptune far off left",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Eris",
+   "x": 1240,
+   "y": 290,
+   "to": [
+    1020,
+    440
+   ],
+   "word": "Eris"
+  },
+  {
+   "type": "name",
+   "text": "Neptune",
+   "x": 330,
+   "y": 790,
+   "to": [
+    330,
+    700
+   ],
+   "word": "Neptune"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   },
+   {
+    "word": "They named",
+    "mood": "happy"
+   }
+  ],
+  "act": "clap",
+  "ride": "mv-core-approach-eris-planet",
+  "kind": "ride",
+  "x": 1074,
+  "y": 350,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "sunglasses",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Bravo!",
+    "shout": false
+   }
+  ]
+ }
+}

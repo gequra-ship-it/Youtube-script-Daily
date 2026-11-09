@@ -1,0 +1,51 @@
+{
+ "centre": "enormous banded Jupiter and a tiny Pluto linked by a dashed line and an equals sign, as if asking whether they belong together",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who, me?",
+   "x": 480,
+   "y": 440,
+   "to": [
+    480,
+    600
+   ]
+  }
+ ],
+ "focus": [
+  900,
+  560,
+  1.3
+ ],
+ "focus_word": "same league",
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hopalong",
+   "obj": "mv-hop-tiny-pluto-planet"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 414,
+  "y": 648,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ]
+ }
+}

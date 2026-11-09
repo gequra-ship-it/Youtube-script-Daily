@@ -1,0 +1,56 @@
+{
+ "centre": "a dull grey cratered ball of ice, what scientists expected",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "dead, cratered chunk of ice",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Boring...",
+   "x": 700,
+   "y": 560,
+   "to": [
+    610,
+    700
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dodge",
+   "obj": "mv-rollby-ice-chunk",
+   "h": 67,
+   "pass": 2.305
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 572,
+  "y": 1372,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

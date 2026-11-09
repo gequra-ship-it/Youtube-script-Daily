@@ -1,0 +1,59 @@
+{
+ "centre": "Whole solar system stretched out: tiny planets near the Sun and a long line out to Pluto and the other dwarf worlds",
+ "focus": [
+  1300,
+  560,
+  1.4
+ ],
+ "focus_word": "vastly larger",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pluto",
+   "x": 1030,
+   "y": 380,
+   "to": [
+    1030,
+    470
+   ],
+   "word": "Pluto"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Instead it",
+    "mood": "confused"
+   }
+  ],
+  "act": {
+   "type": "unrolled",
+   "obj": "mv-unroll-distance-line",
+   "frac": 0.7
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1496,
+  "y": 656,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

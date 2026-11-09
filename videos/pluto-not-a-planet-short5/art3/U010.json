@@ -1,0 +1,48 @@
+{
+ "centre": "a young farm boy in plain clothes points at Pluto and its heart in the night sky",
+ "focus": [
+  700,
+  590,
+  1.6
+ ],
+ "focus_word": "Tombaugh Regio",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Tombaugh Regio",
+   "x": 480,
+   "y": 400,
+   "to": [
+    700,
+    590
+   ],
+   "word": "Tombaugh Regio"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "listen",
+  "ride": "mv-core-glide-sky-pluto-planet",
+  "kind": "ride",
+  "x": 898,
+  "y": 744,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Did you hear that?",
+    "shout": false
+   }
+  ]
+ }
+}

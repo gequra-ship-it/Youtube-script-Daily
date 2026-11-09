@@ -1,0 +1,55 @@
+{
+ "centre": "an envelope with drawings of Jupiter and Mars flying along a dashed route up to Lowell Observatory's dome on a pine hill",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Lowell Observatory",
+   "x": 650,
+   "y": 480,
+   "to": [
+    780,
+    640
+   ],
+   "word": "Lowell Observatory"
+  },
+  {
+   "type": "name",
+   "text": "Jupiter and Mars",
+   "x": 320,
+   "y": 1180,
+   "to": [
+    240,
+    1280
+   ],
+   "word": "Jupiter and Mars"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "scope",
+  "ride": "mv-path-envelope-letter",
+  "kind": "ride",
+  "x": 374,
+  "y": 1400,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "There!",
+    "shout": false
+   }
+  ]
+ }
+}

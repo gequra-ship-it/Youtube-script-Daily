@@ -1,0 +1,46 @@
+{
+ "centre": "Neptune's round blue orbit with Pluto's stretched oval cutting inside it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Neptune",
+   "x": 300,
+   "y": 380,
+   "to": [
+    340.8284447890657,
+    532.8752214814998
+   ],
+   "word": "Neptune's"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-core-glide-pluto-planet",
+  "kind": "ride",
+  "x": 814,
+  "y": 1420,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
+}

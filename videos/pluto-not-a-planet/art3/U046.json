@@ -1,0 +1,73 @@
+{
+ "centre": "a museum shelf with seven bigger moons in a row, all taller than a dashed line at Pluto's height, and little Pluto popping in at the end",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Ganymede",
+   "x": 284,
+   "y": 560,
+   "to": [
+    284,
+    616
+   ],
+   "word": "Ganymede"
+  },
+  {
+   "type": "name",
+   "text": "Titan",
+   "x": 512,
+   "y": 480,
+   "to": [
+    512,
+    620
+   ],
+   "word": "Titan"
+  },
+  {
+   "type": "name",
+   "text": "Europa",
+   "x": 1272,
+   "y": 560,
+   "to": [
+    1272,
+    684
+   ],
+   "word": "Europa"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-pluto-planet",
+   "h": 76
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1720,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

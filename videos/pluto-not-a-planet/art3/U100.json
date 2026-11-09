@@ -1,0 +1,41 @@
+{
+ "centre": "three test cards: orbits the Sun (check), round (check), crowded lane not cleared (cross)",
+ "focus": [
+  1530,
+  520,
+  1.6
+ ],
+ "focus_word": "has not cleared its neighborhood",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 1660,
+  "y": 890,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "moonhop",
+   "dist": 288
+  },
+  "says": [
+   {
+    "text": "Boing!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}
