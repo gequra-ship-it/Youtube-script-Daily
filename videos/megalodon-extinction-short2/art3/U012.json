@@ -1,0 +1,43 @@
+{
+ "centre": "Megalodon at the bottom facing a long winding route to one tiny whale far away at the top",
+ "motion": "dashes march along the route; Megalodon and the far whale swim",
+ "labels": [
+  {
+   "type": "say",
+   "text": "So far away...",
+   "x": 720,
+   "y": 1390,
+   "to": [
+    740,
+    1306
+   ]
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Megalodon had",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 1560,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
+}

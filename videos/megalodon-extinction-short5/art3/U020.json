@@ -1,0 +1,46 @@
+{
+ "centre": "a museum display case holding a dark fossil Megalodon tooth on a stand under a gently swinging lamp, a visitor looking on",
+ "focus": [
+  540,
+  960,
+  1.6
+ ],
+ "focus_word": "fossil teeth",
+ "labels": [
+  {
+   "type": "name",
+   "text": "fossil teeth",
+   "x": 720,
+   "y": 760,
+   "to": [
+    600,
+    900
+   ],
+   "word": "fossil teeth"
+  }
+ ],
+ "motion": "swing (museum lamp) + glint (tooth) + visitor breathes",
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-swing-museum-lamp",
+  "kind": "ride",
+  "x": 634,
+  "y": 486,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
+}

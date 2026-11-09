@@ -1,0 +1,43 @@
+{
+ "centre": "a Megalodon in the middle while two fast killer-whale-like predators dart past above and below, red arrows pressing in",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Too quick!",
+   "x": 1240,
+   "y": 470,
+   "to": [
+    1190,
+    520
+   ]
+  }
+ ],
+ "motion": "two path orcas with dashed speed streaks; megalodon glides",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-glide-u102-megalodon-shark",
+  "kind": "ride",
+  "x": 779,
+  "y": 535,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
+}

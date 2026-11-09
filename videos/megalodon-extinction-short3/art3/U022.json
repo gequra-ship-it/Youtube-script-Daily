@@ -1,0 +1,45 @@
+{
+ "centre": "a pod of four killer whales in tight formation glides together toward a glowing ball of fish",
+ "focus": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "killer whales",
+   "x": 700,
+   "y": 400,
+   "to": [
+    560,
+    600
+   ],
+   "word": "killer whales"
+  }
+ ],
+ "motion": "path (whole pod moves as one) + jiggle (fish ball)",
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "think",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-orca-pod",
+  "kind": "ride",
+  "x": 558,
+  "y": 619,
+  "s": 1.44,
+  "flip": 1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ],
+  "lock": true
+ }
+}

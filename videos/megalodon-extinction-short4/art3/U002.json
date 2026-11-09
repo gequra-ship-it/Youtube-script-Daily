@@ -1,0 +1,44 @@
+{
+ "centre": "a small fragile Megalodon pup in a warm glow, in front of the faint outline of the giant it will become",
+ "focus": [
+  560,
+  870,
+  1.6
+ ],
+ "focus_word": "fragile baby",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Baby",
+   "x": 540,
+   "y": 1130,
+   "to": [
+    560,
+    910
+   ],
+   "word": "baby"
+  }
+ ],
+ "motion": "pup swims inside the giant outline",
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
+}

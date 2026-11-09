@@ -1,0 +1,48 @@
+{
+ "centre": "a Megalodon with a cut-away glowing furnace engine inside its body, slowly sinking under the weight",
+ "focus": [
+  910,
+  470,
+  1.5
+ ],
+ "focus_word": "the very engine",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "So heavy...",
+   "x": 1240,
+   "y": 300,
+   "to": [
+    1300,
+    505
+   ]
+  }
+ ],
+ "motion": "whole shark sinks slowly (path-sink), engine gear turns, tail beats",
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": "snooze",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-sink-megalodon-shark",
+  "kind": "ride",
+  "x": 1197,
+  "y": 301,
+  "s": 1.25,
+  "flip": 1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Zzz...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "centre": "a round map disc, warm coral half and cool blue half, with current arrows re-routed away; coral heat blobs and cream nutrient dots drift apart",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Heat",
+   "x": 1380,
+   "y": 250,
+   "to": [
+    1380,
+    320
+   ],
+   "word": "heat"
+  },
+  {
+   "type": "name",
+   "text": "Nutrients",
+   "x": 520,
+   "y": 800,
+   "to": [
+    540,
+    725
+   ],
+   "word": "nutrients"
+  }
+ ],
+ "motion": "current arrows march along their new routes; the disc glides",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-core-glide-heat-disc",
+  "kind": "ride",
+  "x": 1098,
+  "y": 339,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "diver"
+  ],
+  "says": [
+   {
+    "text": "Phew...",
+    "shout": false
+   }
+  ]
+ }
+}

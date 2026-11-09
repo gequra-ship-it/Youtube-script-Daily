@@ -1,0 +1,41 @@
+{
+ "centre": "Megalodon with a warm glowing core dashing after a school of fast fish, speed streaks behind",
+ "motion": "path (shark and fish race) + dash streaks",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Fast-moving prey",
+   "x": 1520,
+   "y": 200,
+   "to": [
+    1560,
+    340
+   ],
+   "word": "fast-moving prey"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-swim-megalodon-shark",
+  "kind": "ride",
+  "x": 923,
+  "y": 391,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": []
+ }
+}

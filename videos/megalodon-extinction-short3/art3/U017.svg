@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+<defs><linearGradient id="U017bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e2b4"/><stop offset="0.4" stop-color="#9fd0d6"/><stop offset="1" stop-color="#4f8ea6"/></linearGradient><linearGradient id="U017beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6dc" stop-opacity=".42"/><stop offset="1" stop-color="#fff6dc" stop-opacity="0"/></linearGradient><linearGradient id="U017floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f7d8c"/><stop offset="1" stop-color="#1c3d52"/></linearGradient></defs>
+<rect id="bg-water" width="1080" height="1920" fill="url(#U017bg)"/>
+<g id="bg-sunbeams" opacity=".6"><path d="M120,0 L210,0 L450,1500 L270,1500 Z" fill="url(#U017beam)"/><path d="M480,0 L570,0 L810,1500 L630,1500 Z" fill="url(#U017beam)"/><path d="M820,0 L910,0 L1150,1500 L970,1500 Z" fill="url(#U017beam)"/></g>
+<g id="bg-surface-line" fill="none" stroke="#fff4dc" stroke-width="2.5" opacity=".6"><path d="M0,60 C40,53 79,67 120,60 C160,67 199,53 240,60 C280,53 319,67 360,60 C400,67 439,53 480,60 C520,53 559,67 600,60 C640,67 679,53 720,60 C760,53 799,67 840,60 C880,67 919,53 960,60 C1000,53 1039,67 1080,60"/><path d="M60,94 C110,89 159,99 210,94 C260,99 309,89 360,94 C410,89 459,99 510,94 C560,99 609,89 660,94 C710,89 759,99 810,94 C860,99 909,89 960,94 C1010,89 1059,99 1000,94" opacity=".5"/></g>
+<defs><linearGradient id="U017sand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8d9a0" stop-opacity="1"/><stop offset="1" stop-color="#c2a874" stop-opacity="1"/></linearGradient></defs>
+<path id="bg-shallow-sand" d="M0,1300 C200,1270 420,1320 620,1290 C820,1262 960,1300 1080,1280 L1080,1920 L0,1920 Z" fill="url(#U017sand)" stroke="#1a2b3a" stroke-width="2.5" stroke-opacity=".4"/>
+<g id="bg-sand-ripples" fill="none" stroke="#1a2b3a" stroke-width="2" opacity=".25"><path d="M120,1380 q20 -8 40 0 M360,1420 q20 -8 40 0 M640,1390 q20 -8 40 0 M860,1430 q20 -8 40 0"/></g>
+<g id="mv-sway-seagrass-0" fill="none" stroke-linecap="round"><path d="M140,1300 C158,1222.0 118,1144.0 148,1040" stroke="#4f9a7a" stroke-width="14"/><path d="M140,1300 C158,1222.0 118,1144.0 148,1040" stroke="#1a2b3a" stroke-width="2" opacity=".35"/></g>
+<g id="mv-sway-seagrass-1" fill="none" stroke-linecap="round"><path d="M200,1300 C182,1240.0 222,1180.0 192,1100" stroke="#3f8a6e" stroke-width="14"/><path d="M200,1300 C182,1240.0 222,1180.0 192,1100" stroke="#1a2b3a" stroke-width="2" opacity=".35"/></g>
+<g id="mv-sway-seagrass-2" fill="none" stroke-linecap="round"><path d="M880,1300 C862,1228.0 902,1156.0 872,1060" stroke="#4f9a7a" stroke-width="14"/><path d="M880,1300 C862,1228.0 902,1156.0 872,1060" stroke="#1a2b3a" stroke-width="2" opacity=".35"/></g>
+<g id="mv-sway-seagrass-3" fill="none" stroke-linecap="round"><path d="M940,1300 C958,1246.0 918,1192.0 948,1120" stroke="#3f8a6e" stroke-width="14"/><path d="M940,1300 C958,1246.0 918,1192.0 948,1120" stroke="#1a2b3a" stroke-width="2" opacity=".35"/></g>
+<g id="mv-swim-megalodon-pup" data-dist="40" data-deg="1.5" data-per="1.6">
+<g transform="translate(540.0 900.0) scale(0.820 0.820)" stroke-linejoin="round" stroke-linecap="round">
+<defs><linearGradient id="U017_p_skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4c6175"/><stop offset=".7" stop-color="#6e8699"/></linearGradient></defs>
+<g id="mv-joint-megalodon-tail-u017p" data-pivot="-258 0" data-amp="10" data-per="1.1"><path d="M-252,-18 C-290,-72 -330,-142 -376,-182 C-358,-114 -346,-52 -320,0 C-342,40 -358,82 -370,116 C-330,86 -294,48 -252,20 Z" fill="url(#U017_p_skin)" stroke="#1a2b3a" stroke-width="3.66"/></g>
+<path d="M70,-90 C50,-160 16,-204 -24,-218 C-22,-172 -36,-122 -62,-84 Z" fill="url(#U017_p_skin)" stroke="#1a2b3a" stroke-width="3.66"/>
+<path d="M-168,-48 C-176,-68 -190,-80 -206,-84 C-200,-66 -198,-52 -196,-40 Z" fill="url(#U017_p_skin)" stroke="#1a2b3a" stroke-width="3.05"/>
+<path d="M-118,50 C-128,70 -148,86 -172,92 C-160,74 -152,60 -148,44 Z" fill="url(#U017_p_skin)" stroke="#1a2b3a" stroke-width="3.05"/>
+<path d="M300,-2 C296,-52 220,-86 110,-92 C0,-96 -150,-72 -262,-20 C-268,-8 -268,8 -262,18 C-150,58 -10,84 120,78 C220,72 290,46 300,-2 Z" fill="url(#U017_p_skin)" stroke="#1a2b3a" stroke-width="4.27"/>
+<path d="M296,20 C250,58 160,78 60,80 C-60,80 -170,52 -262,16 C-160,36 -40,48 80,46 C180,44 252,34 296,20 Z" fill="#efe6cc" stroke="none" opacity="1"/>
+<g fill="none" stroke="#1a2b3a" stroke-width="2.20" opacity=".35"><path d="M40,-60 q-10 14 -20 22"/><path d="M10,-60 q-10 14 -20 22"/><path d="M-20,-60 q-10 14 -20 22"/><path d="M-50,-60 q-10 14 -20 22"/><path d="M-80,-60 q-10 14 -20 22"/></g>
+<g fill="none" stroke="#1a2b3a" stroke-width="2.44" opacity=".6"><path d="M160,-26 C152,-4 152,18 160,36"/><path d="M146,-26 C138,-4 138,18 146,36"/><path d="M132,-26 C124,-4 124,18 132,36"/><path d="M118,-26 C110,-4 110,18 118,36"/><path d="M104,-26 C96,-4 96,18 104,36"/></g>
+<path d="M298,16 C262,34 222,42 176,36" fill="none" stroke="#1a2b3a" stroke-width="3.66"/>
+<g fill="#fffaf0" stroke="#1a2b3a" stroke-width="1.46"><path d="M277,19 L284,32.5 L291,19 Z"/><path d="M259,27 L266,40.5 L273,27 Z"/><path d="M241,32 L248,45.5 L255,32 Z"/><path d="M223,35 L230,48.5 L237,35 Z"/><path d="M205,36 L212,49.5 L219,36 Z"/><path d="M187,35 L194,48.5 L201,35 Z"/></g>
+<g id="mv-blink-megalodon-eye-u017p"><circle cx="222" cy="-34" r="10" fill="#f6f1e2" stroke="#1a2b3a" stroke-width="2.44"/><circle cx="224" cy="-34" r="5.5" fill="#1a2b3a"/></g>
+<path d="M198,-56 C212,-50 230,-52 246,-62" fill="none" stroke="#1a2b3a" stroke-width="3.66"/>
+<g id="mv-joint-megalodon-fin-u017p" data-pivot="104 56" data-amp="6" data-per="1.4"><path d="M134,52 C112,108 74,150 32,172 C54,124 68,86 80,58 Z" fill="url(#U017_p_skin)" stroke="#1a2b3a" stroke-width="3.41"/></g>
+</g>
+</g>
+</svg>

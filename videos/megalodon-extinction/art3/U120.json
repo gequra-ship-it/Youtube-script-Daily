@@ -1,0 +1,51 @@
+{
+ "centre": "a pressure gauge with its needle deep in the red between a near-freezing thermometer on the left and a dark unlit lantern on the right, inside the walls of the trench",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "crushing pressure",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Mariana Trench",
+   "x": 960,
+   "y": 690,
+   "to": [
+    960,
+    610
+   ],
+   "word": "Mariana Trench"
+  }
+ ],
+ "motion": "joint (gauge needle) + swing (dark lantern)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shiver",
+  "outfit": [
+   "diver",
+   "scarf"
+  ],
+  "ride": "mv-swing-u120-lantern",
+  "kind": "ride",
+  "x": 1618,
+  "y": 640,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "lock": true
+ }
+}

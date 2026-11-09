@@ -1,0 +1,35 @@
+{
+ "centre": "Megalodon patrolling warm open ocean past a reef, a row of fifteen stone marks on the sand",
+ "motion": "path (shark patrols) + ticks (15 marks) + fish school",
+ "labels": [
+  {
+   "type": "num",
+   "text": "15 MILLION YEARS",
+   "word": "fifteen million"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-swim-megalodon-shark",
+  "kind": "ride",
+  "x": 1074,
+  "y": 371,
+  "s": 1.25,
+  "flip": 1,
+  "bside": -1,
+  "says": []
+ }
+}

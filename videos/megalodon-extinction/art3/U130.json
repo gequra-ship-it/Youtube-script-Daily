@@ -1,0 +1,42 @@
+{
+ "centre": "a small silhouette on a quiet beach looking out at waves, with the sea cut away below the surface to show the faint outline of a huge Megalodon in the world beneath",
+ "focus": [
+  1250,
+  700,
+  1.5
+ ],
+ "focus_word": "world beneath",
+ "sfx": [],
+ "labels": [],
+ "motion": "scroll (wave foam) + rollby (shell) + breathe (person)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ]
+ }
+}

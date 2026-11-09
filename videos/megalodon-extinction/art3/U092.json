@@ -1,0 +1,52 @@
+{
+ "centre": "an agile great white sweeping on an S-curve from warm golden water into cool icy water",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Warm and cool waters",
+   "x": 420,
+   "y": 220,
+   "to": [
+    420,
+    300
+   ],
+   "word": "warm"
+  },
+  {
+   "type": "name",
+   "text": "Cool waters",
+   "x": 1460,
+   "y": 220,
+   "to": [
+    1460,
+    300
+   ],
+   "word": "cool waters"
+  }
+ ],
+ "motion": "great white follows a fast S path across both waters (camera follows), speed streak dashes run",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-shark-great-white",
+  "kind": "ride",
+  "x": 387,
+  "y": 528,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": []
+ }
+}

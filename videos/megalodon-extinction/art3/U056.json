@@ -1,0 +1,49 @@
+{
+ "centre": "a huge adult Megalodon filling the top of the frame above a tiny pup swimming below it",
+ "focus": [
+  1330,
+  690,
+  1.8
+ ],
+ "focus_word": "vulnerable baby",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "I'm so small!",
+   "x": 1080,
+   "y": 610,
+   "to": [
+    1235,
+    690
+   ]
+  }
+ ],
+ "motion": "pup swims; adult still (scale contrast)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

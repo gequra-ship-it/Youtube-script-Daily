@@ -1,0 +1,52 @@
+{
+ "centre": "six pups below; five fade away and only one has an arrow up to the adult Megalodon (adulthood)",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Adulthood",
+   "x": 820,
+   "y": 330,
+   "to": [
+    640,
+    470
+   ],
+   "word": "adulthood"
+  },
+  {
+   "type": "name",
+   "text": "Pups",
+   "x": 540,
+   "y": 1390,
+   "to": [
+    540,
+    1300
+   ],
+   "word": "Fewer pups"
+  }
+ ],
+ "motion": "fade (lost pups, staggered)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 820,
+  "y": 720,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "says": [],
+  "bside": -1
+ }
+}

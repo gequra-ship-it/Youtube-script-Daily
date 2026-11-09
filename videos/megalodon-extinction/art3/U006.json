@@ -1,0 +1,34 @@
+{
+ "centre": "an old TV set showing a cartoon shark leaping out of the water at a small ship; a popcorn bucket beside it",
+ "track": false,
+ "motion": "path (cartoon shark leaps up toward the ship, camera not tracking) + tilt (ship rocks) + toss (popcorn kernel)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "hide",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-leap-shark",
+  "kind": "ride",
+  "x": 938,
+  "y": 425,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Can't look!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "centre": "two panels: a magnifying glass searches a living whale with no bite marks; a moonlit modern beach with only an empty dashed tooth outline",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Living whale",
+   "x": 480,
+   "y": 220,
+   "to": [
+    520,
+    480
+   ],
+   "word": "living whales"
+  },
+  {
+   "type": "name",
+   "text": "Modern beach",
+   "x": 1440,
+   "y": 470,
+   "to": [
+    1300,
+    700
+   ],
+   "word": "modern beaches"
+  }
+ ],
+ "motion": "path (magnifier searches) + slide (wave washes in)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": "mv-path-u124-magnifying-glass",
+  "kind": "ride",
+  "x": 262,
+  "y": 589,
+  "s": 1.0,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

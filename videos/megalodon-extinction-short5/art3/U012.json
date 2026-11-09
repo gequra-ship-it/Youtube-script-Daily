@@ -1,0 +1,39 @@
+{
+ "centre": "a worried Megalodon in dark water above a big empty plate with only one tiny amphipod hopping on it: no food, it would starve",
+ "labels": [
+  {
+   "type": "say",
+   "text": "So hungry...",
+   "x": 760,
+   "y": 470,
+   "to": [
+    780,
+    655
+   ]
+  }
+ ],
+ "motion": "swim (worried) + hop (tiny amphipod on the empty plate)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 920,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
+}

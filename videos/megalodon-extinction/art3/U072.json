@@ -1,0 +1,45 @@
+{
+ "centre": "a huge blubber-lined baleen whale gliding mouth-open toward a krill bloom under polar icebergs",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Plenty to eat!",
+   "x": 1560,
+   "y": 340,
+   "to": [
+    1380,
+    545
+   ]
+  }
+ ],
+ "motion": "whale glides (centre), ice chunk bobs on the surface",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "clap",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-glide-baleen-whale",
+  "kind": "ride",
+  "x": 294,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Bravo!",
+    "shout": false
+   }
+  ]
+ }
+}

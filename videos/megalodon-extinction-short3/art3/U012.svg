@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+<defs><linearGradient id="U012bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6d2a2"/><stop offset="0.4" stop-color="#78aac0"/><stop offset="1" stop-color="#24506e"/></linearGradient><linearGradient id="U012beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6dc" stop-opacity=".42"/><stop offset="1" stop-color="#fff6dc" stop-opacity="0"/></linearGradient><linearGradient id="U012floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f7d8c"/><stop offset="1" stop-color="#1c3d52"/></linearGradient></defs>
+<rect id="bg-water" width="1080" height="1920" fill="url(#U012bg)"/>
+<g id="bg-sunbeams" opacity=".6"><path d="M200,0 L290,0 L530,1500 L350,1500 Z" fill="url(#U012beam)"/><path d="M640,0 L730,0 L970,1500 L790,1500 Z" fill="url(#U012beam)"/></g>
+<g id="bg-surface-line" fill="none" stroke="#fff4dc" stroke-width="2.5" opacity=".6"><path d="M0,60 C40,53 79,67 120,60 C160,67 199,53 240,60 C280,53 319,67 360,60 C400,67 439,53 480,60 C520,53 559,67 600,60 C640,67 679,53 720,60 C760,53 799,67 840,60 C880,67 919,53 960,60 C1000,53 1039,67 1080,60"/><path d="M60,94 C110,89 159,99 210,94 C260,99 309,89 360,94 C410,89 459,99 510,94 C560,99 609,89 660,94 C710,89 759,99 810,94 C860,99 909,89 960,94 C1010,89 1059,99 1000,94" opacity=".5"/></g>
+<path id="bg-seafloor" d="M0,1500 C200,1474 420,1516 620,1492 C800,1474 960,1510 1080,1486 L1080,1920 L0,1920 Z" fill="url(#U012floor)"/>
+<g id="bg-sand-lines" fill="none" stroke="#e8d9a0" stroke-width="2" opacity=".32"><path d="M90,1570 C190,1562 290,1576 390,1568"/><path d="M600,1610 C700,1602 800,1616 900,1608"/></g>
+<defs><linearGradient id="U012rock" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f6f7e" stop-opacity="1"/><stop offset="1" stop-color="#2a4656" stop-opacity="1"/></linearGradient></defs>
+<path id="reef-arch" fill-rule="evenodd" d="M100,1500 C90,1200 120,900 200,780 C300,650 780,650 880,780 C960,900 990,1200 980,1500 Z M420,1060 C420,960 470,920 540,920 C610,920 660,960 660,1060 L660,1160 C620,1180 460,1180 420,1160 Z" fill="url(#U012rock)" stroke="#1a2b3a" stroke-width="4"/>
+<g id="reef-arch-hatch" fill="none" stroke="#9fc4cf" stroke-width="2" opacity=".35"><path d="M200,900 q30 20 60 0 M760,880 q30 20 60 0 M240,1300 q30 20 60 0 M800,1320 q30 20 60 0 M330,780 q30 20 60 0"/></g>
+<g id="mv-sway-seaweed-a" fill="none" stroke-linecap="round" data-pivot="302 760"><path d="M300,760 C318,715.0 278,670.0 308,610" stroke="#4f9a7a" stroke-width="14"/><path d="M300,760 C318,715.0 278,670.0 308,610" stroke="#1a2b3a" stroke-width="2" opacity=".35"/></g>
+<g id="mv-sway-seaweed-b" fill="none" stroke-linecap="round" data-pivot="758 750"><path d="M760,750 C742,714.0 782,678.0 752,630" stroke="#3f8a6e" stroke-width="14"/><path d="M760,750 C742,714.0 782,678.0 752,630" stroke="#1a2b3a" stroke-width="2" opacity=".35"/></g>
+<g id="mv-path-great-white-shark" data-path="M340,1040 C440,1040 640,1040 760,1040" data-rot="0" data-delay=".8" data-dur="2.4">
+<g transform="translate(340.0 1040.0) scale(0.260 0.260)" stroke-linejoin="round" stroke-linecap="round">
+<defs><linearGradient id="U012_w_skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6d8193"/><stop offset=".7" stop-color="#93a6b5"/></linearGradient></defs>
+<g id="mv-joint-shark-tail-u012w" data-pivot="-244 0" data-amp="10" data-per="1.1"><path d="M-238,-12 C-272,-62 -308,-124 -350,-160 C-334,-100 -324,-44 -300,0 C-320,36 -334,72 -348,102 C-310,76 -276,40 -238,14 Z" fill="url(#U012_w_skin)" stroke="#1a2b3a" stroke-width="11.54"/></g>
+<path d="M56,-70 C42,-132 14,-172 -18,-186 C-16,-144 -30,-102 -52,-66 Z" fill="url(#U012_w_skin)" stroke="#1a2b3a" stroke-width="11.54"/>
+<path d="M-160,-36 C-168,-52 -178,-62 -192,-66 C-186,-50 -186,-40 -184,-30 Z" fill="url(#U012_w_skin)" stroke="#1a2b3a" stroke-width="9.62"/>
+<path d="M-110,40 C-120,58 -138,70 -160,76 C-148,60 -142,48 -138,36 Z" fill="url(#U012_w_skin)" stroke="#1a2b3a" stroke-width="9.62"/>
+<path d="M286,6 C272,-30 200,-66 100,-72 C0,-76 -140,-56 -246,-14 C-252,-6 -252,6 -246,14 C-140,46 -10,64 110,60 C200,56 262,40 286,6 Z" fill="url(#U012_w_skin)" stroke="#1a2b3a" stroke-width="13.46"/>
+<path d="M282,14 C242,44 160,60 60,62 C-60,62 -160,40 -246,12 C-150,28 -40,38 80,36 C170,34 242,26 282,14 Z" fill="#fdfcf6" stroke="none" opacity="1"/>
+<g fill="none" stroke="#1a2b3a" stroke-width="6.92" opacity=".35"><path d="M40,-46 q-10 14 -20 22"/><path d="M10,-46 q-10 14 -20 22"/><path d="M-20,-46 q-10 14 -20 22"/><path d="M-50,-46 q-10 14 -20 22"/><path d="M-80,-46 q-10 14 -20 22"/></g>
+<g fill="none" stroke="#1a2b3a" stroke-width="7.69" opacity=".6"><path d="M150,-26 C142,-4 142,18 150,36"/><path d="M138,-26 C130,-4 130,18 138,36"/><path d="M126,-26 C118,-4 118,18 126,36"/><path d="M114,-26 C106,-4 106,18 114,36"/><path d="M102,-26 C94,-4 94,18 102,36"/></g>
+<path d="M282,16 C252,30 218,36 182,32" fill="none" stroke="#1a2b3a" stroke-width="11.54"/>
+<g fill="#fffaf0" stroke="#1a2b3a" stroke-width="4.62"><path d="M263,19 L268,29.5 L273,19 Z"/><path d="M247,24 L252,34.5 L257,24 Z"/><path d="M231,28 L236,38.5 L241,28 Z"/><path d="M215,30 L220,40.5 L225,30 Z"/></g>
+<g id="mv-blink-shark-eye-u012w"><circle cx="212" cy="-20" r="7.5" fill="#f6f1e2" stroke="#1a2b3a" stroke-width="6.15"/><circle cx="213.5" cy="-20" r="6" fill="#1a2b3a"/></g>
+<g id="mv-joint-shark-fin-u012w" data-pivot="98 44" data-amp="6" data-per="1.4"><path d="M124,40 C104,96 68,132 30,152 C50,108 62,72 74,46 Z" fill="url(#U012_w_skin)" stroke="#1a2b3a" stroke-width="10.77"/></g>
+</g>
+</g>
+<g id="megalodon-shark">
+<g transform="translate(520.0 470.0) scale(1.020 1.020)" stroke-linejoin="round" stroke-linecap="round">
+<defs><linearGradient id="U012_m_skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4c6175"/><stop offset=".7" stop-color="#6e8699"/></linearGradient></defs>
+<g id="mv-joint-megalodon-tail-u012m" data-pivot="-258 0" data-amp="10" data-per="1.1"><path d="M-252,-18 C-290,-72 -330,-142 -376,-182 C-358,-114 -346,-52 -320,0 C-342,40 -358,82 -370,116 C-330,86 -294,48 -252,20 Z" fill="url(#U012_m_skin)" stroke="#1a2b3a" stroke-width="2.94"/></g>
+<path d="M70,-90 C50,-160 16,-204 -24,-218 C-22,-172 -36,-122 -62,-84 Z" fill="url(#U012_m_skin)" stroke="#1a2b3a" stroke-width="2.94"/>
+<path d="M-168,-48 C-176,-68 -190,-80 -206,-84 C-200,-66 -198,-52 -196,-40 Z" fill="url(#U012_m_skin)" stroke="#1a2b3a" stroke-width="2.45"/>
+<path d="M-118,50 C-128,70 -148,86 -172,92 C-160,74 -152,60 -148,44 Z" fill="url(#U012_m_skin)" stroke="#1a2b3a" stroke-width="2.45"/>
+<path d="M300,-2 C296,-52 220,-86 110,-92 C0,-96 -150,-72 -262,-20 C-268,-8 -268,8 -262,18 C-150,58 -10,84 120,78 C220,72 290,46 300,-2 Z" fill="url(#U012_m_skin)" stroke="#1a2b3a" stroke-width="3.43"/>
+<path d="M296,20 C250,58 160,78 60,80 C-60,80 -170,52 -262,16 C-160,36 -40,48 80,46 C180,44 252,34 296,20 Z" fill="#efe6cc" stroke="none" opacity="1"/>
+<g fill="none" stroke="#1a2b3a" stroke-width="1.76" opacity=".35"><path d="M40,-60 q-10 14 -20 22"/><path d="M10,-60 q-10 14 -20 22"/><path d="M-20,-60 q-10 14 -20 22"/><path d="M-50,-60 q-10 14 -20 22"/><path d="M-80,-60 q-10 14 -20 22"/></g>
+<g fill="none" stroke="#1a2b3a" stroke-width="1.96" opacity=".6"><path d="M160,-26 C152,-4 152,18 160,36"/><path d="M146,-26 C138,-4 138,18 146,36"/><path d="M132,-26 C124,-4 124,18 132,36"/><path d="M118,-26 C110,-4 110,18 118,36"/><path d="M104,-26 C96,-4 96,18 104,36"/></g>
+<path d="M298,16 C262,34 222,42 176,36" fill="none" stroke="#1a2b3a" stroke-width="2.94"/>
+<g fill="#fffaf0" stroke="#1a2b3a" stroke-width="1.18"><path d="M277,19 L284,32.5 L291,19 Z"/><path d="M259,27 L266,40.5 L273,27 Z"/><path d="M241,32 L248,45.5 L255,32 Z"/><path d="M223,35 L230,48.5 L237,35 Z"/><path d="M205,36 L212,49.5 L219,36 Z"/><path d="M187,35 L194,48.5 L201,35 Z"/></g>
+<g id="mv-blink-megalodon-eye-u012m"><circle cx="222" cy="-34" r="10" fill="#f6f1e2" stroke="#1a2b3a" stroke-width="1.96"/><circle cx="224" cy="-34" r="5.5" fill="#1a2b3a"/></g>
+<path d="M198,-56 C212,-50 230,-52 246,-62" fill="none" stroke="#1a2b3a" stroke-width="2.94"/>
+<g id="mv-joint-megalodon-fin-u012m" data-pivot="104 56" data-amp="6" data-per="1.4"><path d="M134,52 C112,108 74,150 32,172 C54,124 68,86 80,58 Z" fill="url(#U012_m_skin)" stroke="#1a2b3a" stroke-width="2.75"/></g>
+</g>
+</g>
+</svg>

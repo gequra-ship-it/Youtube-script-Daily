@@ -1,0 +1,45 @@
+{
+ "centre": "a dark grey fossil Megalodon tooth embedded in old rock layers, a hand beside it for scale points at it",
+ "focus": [
+  540,
+  850,
+  1.6
+ ],
+ "focus_word": "fossils",
+ "labels": [
+  {
+   "type": "name",
+   "text": "fossils",
+   "x": 380,
+   "y": 1060,
+   "to": [
+    470,
+    960
+   ],
+   "word": "fossils"
+  }
+ ],
+ "motion": "glint (fossil tooth) + hand wiggle",
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 820,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "says": [],
+  "bside": -1
+ }
+}

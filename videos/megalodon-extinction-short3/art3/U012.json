@@ -1,0 +1,45 @@
+{
+ "centre": "a reef arch with a small gap: the little great white slips through while the giant Megalodon above is far too big for it",
+ "focus": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Too big!",
+   "x": 760,
+   "y": 330,
+   "to": [
+    760,
+    440
+   ]
+  }
+ ],
+ "motion": "path (great white through the gap) + seaweed sway; worried giant",
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-great-white-shark",
+  "kind": "ride",
+  "x": 458,
+  "y": 1080,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

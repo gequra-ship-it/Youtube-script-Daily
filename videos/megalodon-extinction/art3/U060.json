@@ -1,0 +1,44 @@
+{
+ "centre": "two young Megalodon pups chasing a small school of fish through a sunlit seagrass bay",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Small fish",
+   "x": 1330,
+   "y": 200,
+   "to": [
+    1300,
+    330
+   ],
+   "word": "small fish"
+  }
+ ],
+ "motion": "fish school travels right, pups swim after it",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "rest",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-small-fish-school",
+  "kind": "ride",
+  "x": 1369,
+  "y": 418,
+  "s": 1.17,
+  "flip": 1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

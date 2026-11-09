@@ -1,0 +1,45 @@
+{
+ "centre": "a pup sinks from a calm, warm sunlit bay ledge down into deeper, darker water beside a depth ruler",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Warm bay",
+   "x": 820,
+   "y": 330,
+   "to": [
+    860,
+    470
+   ],
+   "word": "calm, warm bay"
+  }
+ ],
+ "motion": "path (pup descends to deeper water); camera does not follow (descend)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "rest",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-descend-pup-shark",
+  "kind": "ride",
+  "x": 562,
+  "y": 605,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Safe at last.",
+    "shout": false
+   }
+  ]
+ }
+}

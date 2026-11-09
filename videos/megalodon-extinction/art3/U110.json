@@ -1,0 +1,41 @@
+{
+ "centre": "an afternoon sun sinking to the horizon of a calm sea while, below the surface, a Megalodon keeps swimming",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Still swimming",
+   "x": 1360,
+   "y": 560,
+   "to": [
+    1150,
+    660
+   ]
+  }
+ ],
+ "motion": "path (sun sets slowly) + megalodon swims on",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-u110-sun-setting",
+  "kind": "ride",
+  "x": 870,
+  "y": 252,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": []
+ }
+}

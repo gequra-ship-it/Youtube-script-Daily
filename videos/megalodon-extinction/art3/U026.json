@@ -1,0 +1,44 @@
+{
+ "centre": "giant Megalodon high above a cracked seafloor shelf, a rock pillar toppling beside it",
+ "motion": "topple (pillar) + rock drops + shark swims",
+ "labels": [],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "squish",
+   "obj": "mv-topple-rock-pillar"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1364,
+  "y": 750,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": "mv-topple-rock-pillar",
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Oof!",
+    "shout": true
+   },
+   {
+    "text": "Ow ow ow.",
+    "shout": false
+   }
+  ]
+ }
+}

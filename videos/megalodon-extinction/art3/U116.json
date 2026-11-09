@@ -1,0 +1,50 @@
+{
+ "centre": "a person sitting at the end of a dock at dusk while a giant dashed Megalodon outline (imagination) draws itself in the water below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Megalodon",
+   "x": 1260,
+   "y": 500,
+   "to": [
+    1180,
+    640
+   ],
+   "word": "Megalodon"
+  }
+ ],
+ "motion": "draw (the imagined giant sketches itself) + buoy bob + person breathe",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 1660,
+  "y": 890,
+  "s": 0.8,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ]
+ }
+}

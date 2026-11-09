@@ -1,0 +1,39 @@
+{
+ "centre": "a movie screen with a cartoon shark leaping at a cruise ship slides away and reveals the calm real Megalodon swimming",
+ "labels": [
+  {
+   "type": "say",
+   "text": "No tricks needed",
+   "x": 300,
+   "y": 1300,
+   "to": [
+    620,
+    920
+   ]
+  }
+ ],
+ "motion": "slide out (movie screen) reveals swim (real Megalodon)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 1120,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
+}

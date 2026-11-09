@@ -26,7 +26,7 @@ BG = {'p01a': 'dusk', 'p01b': 'dusk', 'p01c': 'dusk', 'p02a': 'dusk', 'p02b': 'd
 TITLE = 'Why the Greatest Ocean Giant Disappeared Forever'
 DESC = ['Megalodon ruled the seas for millions of years, then vanished. Cooling seas, lost nurseries, migrating whales and smaller rivals are the leading ideas, and we weigh each as a hypothesis.']
 HASHTAGS = '#MiyasNote #Megalodon #Shark #Extinction #Ocean'
-SOURCES = ['Boessenecker et al. (2019), The Early Pliocene extinction of the mega-toothed shark Otodus megalodon, PeerJ 7:e6088', 'Griffiths et al. (2023), Endothermic physiology of extinct megatooth sharks, PNAS 120(27)', 'McCormack et al. (2022), Trophic position of Otodus megalodon and great white sharks through time revealed by zinc isotopes, Nature Communications 13', 'Pimiento et al. (2010), Ancient nursery area for the extinct giant shark megalodon from the Miocene of Panama, PLoS ONE 5(5)', 'Cooper et al. (2022), Body dimensions of the extinct giant shark Otodus megalodon: a 2D reconstruction, Scientific Reports 12']
+SOURCES = ['Boessenecker et al. (2019), The Early Pliocene extinction of the mega-toothed shark Otodus megalodon, PeerJ 7:e6088', 'Griffiths et al. (2023), Endothermic physiology of extinct megatooth sharks, PNAS 120(27)', 'McCormack et al. (2022), Trophic position of Otodus megalodon and great white sharks through time revealed by zinc isotopes, Nature Communications 13', 'Pimiento et al. (2010), Ancient nursery area for the extinct giant shark megalodon from the Miocene of Panama, PLoS ONE 5(5)', 'Cooper et al. (2022), 3D body reconstruction and energy requirements of Otodus megalodon, Science Advances 8']
 CHAPTERS = [(1, 'The Tooth'),
  (4, 'Hollywood Monster'),
  (6, 'What Remains'),

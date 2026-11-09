@@ -1,0 +1,44 @@
+{
+ "centre": "a forked path through the sea: a blubbery whale heads up toward pale cold water on the upper branch while a Megalodon stays on the warm lower branch",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Marine mammals",
+   "x": 560,
+   "y": 430,
+   "to": [
+    640,
+    590
+   ],
+   "word": "Marine mammals"
+  }
+ ],
+ "motion": "whale swims up the cold branch; shark idles on the warm branch",
+ "frog": {
+  "moods": [
+   {
+    "mood": "awe"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-baleen-whale",
+  "kind": "ride",
+  "x": 728,
+  "y": 582,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

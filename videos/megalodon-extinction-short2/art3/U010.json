@@ -1,0 +1,56 @@
+{
+ "centre": "a long seasonal loop between icy polar feeding grounds (top) and warm breeding waters (bottom); one whale goes up, one comes down",
+ "motion": "two whales travel the loop in opposite directions",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Feeding grounds",
+   "x": 540,
+   "y": 530,
+   "to": [
+    620,
+    360
+   ],
+   "word": "polar feeding grounds"
+  },
+  {
+   "type": "name",
+   "text": "Breeding waters",
+   "x": 540,
+   "y": 1390,
+   "to": [
+    540,
+    1320
+   ],
+   "word": "warmer breeding waters"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "awe"
+   }
+  ],
+  "act": "rest",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-rise-whale-north",
+  "kind": "ride",
+  "x": 610,
+  "y": 1229,
+  "s": 1.44,
+  "flip": 1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

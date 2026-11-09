@@ -1,0 +1,41 @@
+{
+ "centre": "Megalodon cruising in sunbeams while two smaller rival sharks peek out from behind reef rocks on both sides",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Company?",
+   "x": 700,
+   "y": 230,
+   "to": [
+    700,
+    400
+   ]
+  }
+ ],
+ "motion": "rival sharks peek out from behind the rocks; Megalodon glides",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-glide-megalodon-shark",
+  "kind": "ride",
+  "x": 1177,
+  "y": 409,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "says": []
+ }
+}

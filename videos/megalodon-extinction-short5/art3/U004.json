@@ -1,0 +1,51 @@
+{
+ "centre": "cross-section depth chart of the Mariana Trench: a yellow submersible descends from the surface ship toward the bottom near 11,000 m",
+ "labels": [
+  {
+   "type": "num",
+   "text": "11,000 M",
+   "word": "eleven thousand meters"
+  },
+  {
+   "type": "name",
+   "text": "Mariana Trench",
+   "x": 800,
+   "y": 1240,
+   "to": [
+    600,
+    1420
+   ],
+   "word": "Mariana Trench"
+  }
+ ],
+ "motion": "path (submersible descends) + dash (depth line)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-descend-submersible",
+  "kind": "ride",
+  "x": 428,
+  "y": 604,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

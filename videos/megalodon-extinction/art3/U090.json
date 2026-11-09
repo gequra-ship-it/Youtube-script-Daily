@@ -1,0 +1,67 @@
+{
+ "centre": "the same prey in the middle (a small whale, a seal, a large fish) with Megalodon closing in from the left and a great white from the right",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Small whales",
+   "x": 940,
+   "y": 150,
+   "to": [
+    940,
+    320
+   ],
+   "word": "small whales"
+  },
+  {
+   "type": "name",
+   "text": "Seals",
+   "x": 700,
+   "y": 640,
+   "to": [
+    880,
+    560
+   ],
+   "word": "seals"
+  },
+  {
+   "type": "name",
+   "text": "Large fish",
+   "x": 1300,
+   "y": 800,
+   "to": [
+    1060,
+    700
+   ],
+   "word": "large fish"
+  }
+ ],
+ "motion": "both predators edge in toward the prey from opposite sides; prey swim",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-megalodon-shark",
+  "kind": "ride",
+  "x": 421,
+  "y": 476,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Off we go!",
+    "shout": false
+   }
+  ]
+ }
+}

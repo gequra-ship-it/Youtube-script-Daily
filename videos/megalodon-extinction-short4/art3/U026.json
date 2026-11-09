@@ -1,0 +1,46 @@
+{
+ "centre": "a young Megalodon swims up out of an open storybook toward the faint shape of the adult it will become",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Next generation",
+   "x": 300,
+   "y": 1100,
+   "to": [
+    520,
+    1210
+   ],
+   "word": "next generation"
+  }
+ ],
+ "motion": "path (pup rises from the book)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "sad"
+   }
+  ],
+  "act": "bow",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-rise-pup-shark",
+  "kind": "ride",
+  "x": 662,
+  "y": 1265,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "...",
+    "shout": false
+   }
+  ]
+ }
+}

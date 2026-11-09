@@ -1,0 +1,56 @@
+{
+ "centre": "close-up of the slim great white ancestor shark, with a faint dashed outline of the modern great white behind it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Great white sharks",
+   "x": 640,
+   "y": 300,
+   "to": [
+    820,
+    470
+   ],
+   "word": "ancestors"
+  },
+  {
+   "type": "name",
+   "text": "Modern great white",
+   "x": 1420,
+   "y": 160,
+   "to": [
+    1300,
+    300
+   ],
+   "word": "modern great white"
+  }
+ ],
+ "motion": "ancestor approaches the camera; tail and fin hinge; seaweed sways",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-approach-shark-ancestor",
+  "kind": "ride",
+  "x": 512,
+  "y": 692,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "centre": "a young Megalodon chasing a school of small fish in a sunlit seagrass bay",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Snack time!",
+   "x": 320,
+   "y": 760,
+   "to": [
+    420,
+    960
+   ]
+  },
+  {
+   "type": "name",
+   "text": "Small fish",
+   "x": 780,
+   "y": 1000,
+   "to": [
+    780,
+    840
+   ],
+   "word": "small fish"
+  }
+ ],
+ "motion": "pup path toward the fish school; fish swim away",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "rest",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-hunting-pup-shark",
+  "kind": "ride",
+  "x": 482,
+  "y": 1042,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "centre": "three small fast early great whites racing in from the right toward the last few fish while a huge, slower Megalodon hangs back at the left",
+ "focus": [
+  960,
+  510,
+  1.5
+ ],
+ "focus_word": "remaining food",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Early great whites",
+   "x": 1460,
+   "y": 260,
+   "to": [
+    1400,
+    420
+   ],
+   "word": "early great whites"
+  }
+ ],
+ "motion": "path (great whites race in) + fish flee + speed streaks",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-u106-great-white-group",
+  "kind": "ride",
+  "x": 1261,
+  "y": 459,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "says": []
+ }
+}

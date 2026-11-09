@@ -1,0 +1,47 @@
+{
+ "centre": "Megalodon swims a long way across empty water toward one small fish while its energy gauge drains",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Energy",
+   "x": 1150,
+   "y": 230,
+   "to": [
+    990,
+    260
+   ],
+   "word": "energy"
+  }
+ ],
+ "motion": "Megalodon path across the frame (camera follows); energy bar fill drains 1 -> .15",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-path-megalodon-shark",
+  "kind": "ride",
+  "x": 421,
+  "y": 516,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "goggles"
+  ],
+  "says": [
+   {
+    "text": "So dizzy...",
+    "shout": false
+   }
+  ],
+  "lock": true
+ }
+}

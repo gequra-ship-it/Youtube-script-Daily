@@ -1,0 +1,63 @@
+{
+ "centre": "a huge coral-pink krill bloom under polar ice; a big baleen whale rises toward it from below",
+ "motion": "krill bloom swells, whale swims",
+ "focus": [
+  560,
+  790,
+  1.6
+ ],
+ "focus_word": "krill and plankton",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Krill",
+   "x": 760,
+   "y": 620,
+   "to": [
+    680,
+    760
+   ],
+   "word": "krill"
+  },
+  {
+   "type": "say",
+   "text": "Dinner time!",
+   "x": 700,
+   "y": 1000,
+   "to": [
+    880,
+    1240
+   ]
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "Whales responded",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 960,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Small!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

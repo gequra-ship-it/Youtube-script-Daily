@@ -1,0 +1,43 @@
+{
+ "centre": "close-up of the trench floor in a lamp beam: a pale snailfish, hopping amphipods and a translucent sea cucumber, small animals adapted to cold and pressure",
+ "focus": [
+  520,
+  800,
+  1.5
+ ],
+ "focus_word": "small, specialized animals",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Cozy down here!",
+   "x": 360,
+   "y": 1050,
+   "to": [
+    320,
+    1280
+   ]
+  }
+ ],
+ "motion": "swim (snailfish) + hop (amphipod) + creep (sea cucumber)",
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 960,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
+}

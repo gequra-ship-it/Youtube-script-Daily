@@ -1,0 +1,48 @@
+{
+ "centre": "a world map chart: the warm band where Megalodon can live narrows between cold polar zones",
+ "motion": "the warm range band shrinks toward the equator (grow y from 1.6 to 1)",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Range",
+   "x": 760,
+   "y": 680,
+   "to": [
+    760,
+    820
+   ],
+   "word": "range"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shiver",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 820,
+  "y": 1160,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

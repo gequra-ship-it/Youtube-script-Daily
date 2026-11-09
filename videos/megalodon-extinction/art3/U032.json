@@ -1,0 +1,46 @@
+{
+ "centre": "a fossil tooth on a lab tray under a desk lamp, a bubbling flask beside it, two scientists at the bench",
+ "motion": "approach (tooth) + lamp pulse + flask bubbles + scientists breathe",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Fossilized teeth",
+   "x": 1190,
+   "y": 420,
+   "to": [
+    980,
+    620
+   ],
+   "word": "fossilized teeth"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-approach-fossil-tooth",
+  "kind": "ride",
+  "x": 1104,
+  "y": 727,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}
