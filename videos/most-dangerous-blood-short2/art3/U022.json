@@ -1,0 +1,44 @@
+{
+ "centre": "a patient resting in a hospital bed with a type O bag on the drip and a quiet warning sign",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Type O blood",
+   "x": 830,
+   "y": 520,
+   "to": [
+    560,
+    650
+   ],
+   "word": "type O blood"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "facepalm",
+  "ride": "mv-swing-iv-bag",
+  "kind": "ride",
+  "x": 679,
+  "y": 755,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Oh no...",
+    "shout": false
+   }
+  ]
+ }
+}

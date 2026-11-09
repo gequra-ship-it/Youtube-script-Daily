@@ -1,0 +1,81 @@
+{
+ "centre": "a bare red blood cell with dashed ghost outlines where the A and B flags would be",
+ "focus": [
+  960,
+  430,
+  1.5
+ ],
+ "focus_word": "no A flags",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "No A flags",
+   "x": 720,
+   "y": 250,
+   "to": [
+    915,
+    330
+   ],
+   "word": "no A flags"
+  },
+  {
+   "type": "name",
+   "text": "No B flags",
+   "x": 1200,
+   "y": 250,
+   "to": [
+    1012,
+    330
+   ],
+   "word": "no B flags"
+  },
+  {
+   "type": "say",
+   "text": "Type O, then.",
+   "x": 600,
+   "y": 330,
+   "to": [
+    430,
+    468
+   ]
+  }
+ ],
+ "iris": [
+  420,
+  500
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-cross-mark-1",
+   "h": 28
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1438,
+  "y": 524,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "doctor",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

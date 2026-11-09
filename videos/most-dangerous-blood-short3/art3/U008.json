@@ -1,0 +1,49 @@
+{
+ "centre": "big red cell with one green D flag under a red alarm beacon, a doctor pointing and a magnifier moving in",
+ "focus": [
+  540,
+  780,
+  1.6
+ ],
+ "focus_word": "check it so carefully",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Immune trigger",
+   "x": 780,
+   "y": 560,
+   "to": [
+    565,
+    690
+   ],
+   "word": "immune trigger"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-glide-red-cell",
+  "kind": "ride",
+  "x": 754,
+  "y": 998,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "doctor",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

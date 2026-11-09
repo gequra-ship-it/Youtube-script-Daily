@@ -1,0 +1,50 @@
+{
+ "centre": "chromosome with two neighbouring bands",
+ "focus": [
+  540,
+  720,
+  1.8
+ ],
+ "focus_word": "two neighboring genes",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Chromosome one",
+   "x": 720,
+   "y": 420,
+   "to": [
+    580,
+    640
+   ],
+   "word": "chromosome one"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "stompfoot"
+  },
+  "ride": "mv-core-sway-chromosome-pair",
+  "kind": "ride",
+  "x": 703,
+  "y": 1163,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Hup!",
+    "shout": true
+   }
+  ]
+ }
+}

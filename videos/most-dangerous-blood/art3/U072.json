@@ -1,0 +1,50 @@
+{
+ "centre": "a smooth golden-glowing red cell with no flags, antibodies drifting past it",
+ "focus": [
+  960,
+  520,
+  1.8
+ ],
+ "focus_word": "no Rh antigens",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Rh-null red cells",
+   "x": 960,
+   "y": 300,
+   "to": [
+    960,
+    420
+   ],
+   "word": "Rh-null red cells"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "ride": "mv-core-glide-rh-null-cell",
+  "kind": "ride",
+  "x": 1116,
+  "y": 638,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "There!",
+    "shout": true
+   }
+  ]
+ }
+}

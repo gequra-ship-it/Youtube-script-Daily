@@ -1,0 +1,52 @@
+{
+ "centre": "a magnifier showing antigen poles holding a red cell membrane together while a decorative flag falls away",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "the cell itself",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Antigens",
+   "x": 1180,
+   "y": 300,
+   "to": [
+    1100,
+    420
+   ],
+   "word": "Antigens"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Antigens are",
+    "mood": "happy"
+   }
+  ],
+  "act": "tilt",
+  "ride": "mv-core-approach-magnifier-lens",
+  "kind": "ride",
+  "x": 1368,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
+}

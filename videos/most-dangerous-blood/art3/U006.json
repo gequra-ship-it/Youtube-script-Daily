@@ -1,0 +1,55 @@
+{
+ "centre": "a glowing golden blood bag on a world map sending dashed routes to hospitals; one empty bag outline waits for a return that never comes",
+ "labels": [
+  {
+   "type": "name",
+   "text": "patients",
+   "x": 600,
+   "y": 160,
+   "to": [
+    880,
+    230
+   ],
+   "word": "patients"
+  },
+  {
+   "type": "say",
+   "text": "Anyone?",
+   "x": 1360,
+   "y": 760,
+   "to": [
+    1205,
+    600
+   ]
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": "yawn",
+  "ride": "mv-core-glide-golden-blood-bag",
+  "kind": "ride",
+  "x": 1168,
+  "y": 640,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "doctor",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Yaaawn...",
+    "shout": false
+   }
+  ]
+ }
+}

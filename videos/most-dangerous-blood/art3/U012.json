@@ -1,0 +1,56 @@
+{
+ "centre": "a lighthouse with a little round immune-cell guard scanning a row of red-cell ships and their flags",
+ "labels": [
+  {
+   "type": "name",
+   "text": "coastal patrol",
+   "x": 330,
+   "y": 140,
+   "to": [
+    325,
+    250
+   ],
+   "word": "coastal patrol"
+  },
+  {
+   "type": "say",
+   "text": "Flags, please!",
+   "x": 760,
+   "y": 330,
+   "to": [
+    478,
+    496
+   ]
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 217,
+  "y": 338,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "police",
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Beep... beep.",
+    "shout": false
+   }
+  ]
+ }
+}

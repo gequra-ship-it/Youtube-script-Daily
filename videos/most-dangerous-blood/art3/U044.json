@@ -1,0 +1,51 @@
+{
+ "centre": "smooth Bombay-donor red cell beside a hanging blood bag and a green tick",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Bombay donor",
+   "x": 960,
+   "y": 790,
+   "to": [
+    960,
+    600
+   ],
+   "word": "Bombay donor"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-check-badge",
+   "h": 112
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1280,
+  "y": 576,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

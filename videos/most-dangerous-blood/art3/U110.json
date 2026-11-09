@@ -1,0 +1,42 @@
+{
+ "centre": "one lone golden blood cell above an empty long road with a distant ambulance light",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Anyone there?",
+   "x": 1250,
+   "y": 300,
+   "to": [
+    1030,
+    410
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "nervous",
+  "ride": "mv-core-glide-golden-cell",
+  "kind": "ride",
+  "x": 1158,
+  "y": 590,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Gulp.",
+    "shout": false
+   }
+  ]
+ }
+}

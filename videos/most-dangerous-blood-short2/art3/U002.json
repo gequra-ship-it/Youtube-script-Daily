@@ -1,0 +1,56 @@
+{
+ "centre": "a clipboard with a red drop marked with a ring for type O and a puzzle piece popping in",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Bombay phenotype",
+   "x": 540,
+   "y": 1360,
+   "to": [
+    540,
+    900
+   ],
+   "word": "Bombay phenotype"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Consider a",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-puzzle-piece",
+   "h": 170
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 778,
+  "y": 1345,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "doctor",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "centre": "Earth globe with a handful of tiny glowing golden dots; a storm cloud and a daily calendar beside it",
+ "focus": [
+  960,
+  470,
+  1.6
+ ],
+ "focus_word": "handful of people",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 700,
+   "y": 330,
+   "to": [
+    820,
+    420
+   ],
+   "word": "Earth"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "hide",
+  "ride": "mv-core-glide-earth-globe",
+  "kind": "ride",
+  "x": 1228,
+  "y": 710,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headphones",
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Can't look!",
+    "shout": true
+   }
+  ]
+ }
+}

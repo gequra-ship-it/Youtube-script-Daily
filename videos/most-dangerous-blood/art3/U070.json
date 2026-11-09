@@ -1,0 +1,43 @@
+{
+ "centre": "a glittering gold vial wearing a small crown beside a plain grey rack of tubes",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Fancy, huh?",
+   "x": 1330,
+   "y": 420,
+   "to": [
+    1020,
+    520
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "starry"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-core-glide-gold-vial",
+  "kind": "ride",
+  "x": 1092,
+  "y": 696,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Let me think.",
+    "shout": false
+   }
+  ]
+ }
+}

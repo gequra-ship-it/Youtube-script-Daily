@@ -1,0 +1,44 @@
+{
+ "centre": "glowing golden blood vial studied by a magnifier, with a dashed empty copy that cannot be filled",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Blood type",
+   "x": 1480,
+   "y": 260,
+   "to": [
+    1480,
+    340
+   ],
+   "word": "blood type"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-swing-magnifier",
+  "kind": "ride",
+  "x": 382,
+  "y": 590,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Hmm, interesting.",
+    "shout": false
+   }
+  ]
+ }
+}

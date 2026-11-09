@@ -1,0 +1,47 @@
+{
+ "centre": "frozen cooler box with snowflake, plane flying between countries",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Frozen blood",
+   "x": 540,
+   "y": 1060,
+   "to": [
+    540,
+    930
+   ],
+   "word": "frozen blood"
+  }
+ ],
+ "sfx": [],
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "hugself"
+  },
+  "ride": "mv-path-plane",
+  "kind": "ride",
+  "x": 394,
+  "y": 640,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Brr...",
+    "shout": false
+   }
+  ]
+ }
+}

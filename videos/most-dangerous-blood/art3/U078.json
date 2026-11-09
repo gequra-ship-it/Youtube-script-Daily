@@ -1,0 +1,47 @@
+{
+ "centre": "freezer full of frozen blood bags; a plane carries a cold box along a dashed route to a hospital abroad",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "frozen blood",
+   "x": 395,
+   "y": 290,
+   "to": [
+    395,
+    470
+   ],
+   "word": "frozen blood"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "ride": "mv-path-plane",
+  "kind": "ride",
+  "x": 728,
+  "y": 486,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Brrr...",
+    "shout": false
+   }
+  ]
+ }
+}

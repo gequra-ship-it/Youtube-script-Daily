@@ -1,0 +1,48 @@
+{
+ "centre": "blood bag on an IV pole next to a covered floor pit in a hospital room (a hidden trap)",
+ "focus": [
+  1300,
+  880,
+  1.6
+ ],
+ "focus_word": "hidden trap",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Bombay phenotype",
+   "x": 1360,
+   "y": 720,
+   "to": [
+    1330,
+    850
+   ],
+   "word": "Bombay phenotype"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "nervous",
+  "ride": "mv-swing-blood-bag",
+  "kind": "ride",
+  "x": 1139,
+  "y": 700,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "doctor",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Uh-oh...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "centre": "cracked red cell leaking drops through its fragile membrane",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "leaky",
+ "labels": [
+  {
+   "type": "say",
+   "text": "I'm leaking!",
+   "x": 1330,
+   "y": 340,
+   "to": [
+    1062,
+    398
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-leak-drop-1",
+   "serious": false
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1060,
+  "y": 546,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
+}

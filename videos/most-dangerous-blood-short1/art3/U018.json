@@ -1,0 +1,46 @@
+{
+ "centre": "a surprised person shrugging, Y-shaped antibodies already floating around them, while the blood bag on the IV stand beside them has a no sign",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Already here?",
+   "x": 590,
+   "y": 880,
+   "to": [
+    395,
+    925
+   ]
+  }
+ ],
+ "motion": "the unused blood bag swings gently on its hook; the person's own antibodies float around them",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "nodyes"
+  },
+  "ride": "mv-swing-blood-bag",
+  "kind": "ride",
+  "x": 849,
+  "y": 826,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Got it!",
+    "shout": true
+   }
+  ]
+ }
+}

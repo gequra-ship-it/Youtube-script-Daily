@@ -1,0 +1,42 @@
+{
+ "centre": "safe-blood shield with a plus",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hidden rule",
+   "x": 760,
+   "y": 1000,
+   "to": [
+    620,
+    1180
+   ],
+   "word": "hidden rule"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 350,
+  "y": 1060,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-glide-shield",
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

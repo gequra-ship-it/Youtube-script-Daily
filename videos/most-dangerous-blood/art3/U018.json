@@ -1,0 +1,43 @@
+{
+ "centre": "red cell with only bare poles and no A or B flags, antibodies drifting past",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Nothing to grab!",
+   "x": 600,
+   "y": 260,
+   "to": [
+    430,
+    380
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "angry"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-red-cell",
+  "kind": "ride",
+  "x": 1158,
+  "y": 654,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

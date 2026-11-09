@@ -1,0 +1,45 @@
+{
+ "centre": "one big red blood cell with tiny antigen flags on its surface in a microscope field",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Red blood cell",
+   "x": 540,
+   "y": 560,
+   "to": [
+    540,
+    840
+   ],
+   "word": "red blood cell"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "ride": "mv-core-glide-red-cell",
+  "kind": "ride",
+  "x": 388,
+  "y": 674,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Hello!",
+    "shout": true
+   }
+  ]
+ }
+}

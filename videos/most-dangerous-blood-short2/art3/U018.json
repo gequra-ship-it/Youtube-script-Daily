@@ -1,0 +1,51 @@
+{
+ "centre": "two matching smooth red cells joined by a green check, a blood bag hanging above",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Bombay donor",
+   "x": 540,
+   "y": 1200,
+   "to": [
+    780,
+    990
+   ],
+   "word": "Bombay donor"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-check-badge",
+   "h": 140
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 540,
+  "y": 930,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

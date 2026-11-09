@@ -1,0 +1,47 @@
+{
+ "centre": "simple syringe icon glowing softly between a doctor offering it and a mother beside a crib with a mobile",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "For you two.",
+   "x": 260,
+   "y": 860,
+   "to": [
+    260,
+    985
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "swingride",
+   "obj": "mv-pendulum-mobile-string"
+  },
+  "ride": "mv-pendulum-mobile-string",
+  "kind": "ride",
+  "x": 815,
+  "y": 1169,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ]
+ }
+}
