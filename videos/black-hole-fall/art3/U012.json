@@ -1,0 +1,41 @@
+{
+ "centre": "you drifting calmly; a dashed explosion outline fades out and a speaker is crossed out (no loud blast)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "No boom?",
+   "x": 620,
+   "y": 250,
+   "to": [
+    380,
+    360
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-path-drift-wrench-u012",
+  "kind": "ride",
+  "x": 880,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
+}

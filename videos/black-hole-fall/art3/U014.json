@@ -1,0 +1,51 @@
+{
+ "centre": "your capsule, large in the foreground, floating far beyond a tiny solar system of dots",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Solar system",
+   "x": 330,
+   "y": 340,
+   "to": [
+    330,
+    500
+   ],
+   "word": "solar system"
+  },
+  {
+   "type": "name",
+   "text": "Spacecraft",
+   "x": 1300,
+   "y": 780,
+   "to": [
+    1300,
+    620
+   ],
+   "word": "spacecraft"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "ride": "mv-core-glide-spacecraft-capsule-u014",
+  "kind": "ride",
+  "x": 1433,
+  "y": 658,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "helmet"
+  ],
+  "says": []
+ }
+}

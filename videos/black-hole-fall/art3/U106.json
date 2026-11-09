@@ -1,0 +1,57 @@
+{
+ "centre": "three glass display cases: a lattice of atoms, a DNA double helix, and a glowing brain with firing sparks and floating memory photos",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "DNA",
+   "x": 960,
+   "y": 860,
+   "to": [
+    960,
+    740
+   ],
+   "word": "DNA"
+  },
+  {
+   "type": "name",
+   "text": "Memories",
+   "x": 1500,
+   "y": 205,
+   "to": [
+    1440,
+    280
+   ],
+   "word": "memories"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "countfingers"
+  },
+  "ride": "mv-core-sway-dna-helix",
+  "kind": "ride",
+  "x": 1078,
+  "y": 760,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "One... two...",
+    "shout": false
+   }
+  ]
+ }
+}

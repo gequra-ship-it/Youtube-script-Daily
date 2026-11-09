@@ -1,0 +1,50 @@
+{
+ "centre": "a very small black dot with a thin glowing edge and a little measuring bracket under it: tiny in a huge empty sky",
+ "focus": [
+  960,
+  540,
+  2.0
+ ],
+ "focus_word": "thirty kilometers",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "30 KM",
+   "word": "thirty kilometers"
+  }
+ ],
+ "spot": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    500
+   ],
+   "vanish": true
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 538,
+  "y": 508,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "Whoaaa!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

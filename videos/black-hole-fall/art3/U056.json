@@ -1,0 +1,47 @@
+{
+ "centre": "an imagined wall with a painted line that fades, leaving only the quiet black shadow",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Where's the wall?",
+   "x": 360,
+   "y": 250,
+   "to": [
+    445,
+    430
+   ],
+   "word": "nothing of the sort"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "But you",
+    "mood": "curious"
+   }
+  ],
+  "act": "look",
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Whoa...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

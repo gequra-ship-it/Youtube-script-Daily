@@ -1,0 +1,58 @@
+{
+ "centre": "a glowing pocket watch at dawn whose red second hand turns one second per second; the astronaut is pulled along a dashed time track toward it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "attractor": [
+  540,
+  760
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "1 SECOND PER SECOND",
+   "word": "one second per second"
+  },
+  {
+   "type": "name",
+   "text": "Tomorrow",
+   "x": 830,
+   "y": 470,
+   "to": [
+    690,
+    700
+   ],
+   "word": "tomorrow"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "magnetized",
+   "obj": "mv-magnet-astronaut"
+  },
+  "x": 180,
+  "y": 1347,
+  "s": 1.09,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "pocketwatch"
+  ],
+  "says": [
+   {
+    "text": "Whoa-oa!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "centre": "your round capsule firing its engine downward while still sinking, beside a draining life gauge",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "thrust",
+   "word": "firing your engines",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Remaining life",
+   "x": 420,
+   "y": 400,
+   "to": [
+    185,
+    520
+   ],
+   "word": "remaining life"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-core-approach-capsule",
+  "kind": "ride",
+  "x": 394,
+  "y": 1155,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "centre": "inside your capsule: a porthole whose blackout shade slides up to show the sky is still full of stars",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Not black?",
+   "x": 640,
+   "y": 240,
+   "to": [
+    500,
+    380
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "You might",
+    "mood": "happy"
+   },
+   {
+    "word": "That is",
+    "mood": "happy"
+   }
+  ],
+  "act": "look",
+  "ride": "mv-slide-window-shade-u078",
+  "kind": "ride",
+  "x": 994,
+  "y": 289,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": false
+   }
+  ]
+ }
+}

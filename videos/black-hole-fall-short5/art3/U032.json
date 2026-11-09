@@ -1,0 +1,49 @@
+{
+ "centre": "a lone orange suit beacon floating in a featureless thermal mist where the black hole used to be",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "the astronaut",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Anyone left?",
+   "x": 540,
+   "y": 560,
+   "to": [
+    540,
+    790
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "zerogroll"
+  },
+  "ride": "mv-core-glide-beacon-light",
+  "kind": "ride",
+  "x": 752,
+  "y": 1028,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Wheee...",
+    "shout": false
+   }
+  ]
+ }
+}

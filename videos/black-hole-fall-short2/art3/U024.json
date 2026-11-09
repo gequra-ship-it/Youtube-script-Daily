@@ -1,0 +1,63 @@
+{
+ "centre": "a cutaway of your suit's chest: the heart beating calmly and the lungs breathing at their usual pace",
+ "focus": [
+  560,
+  905,
+  1.5
+ ],
+ "focus_word": "heart beats",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Heart",
+   "x": 720,
+   "y": 1150,
+   "to": [
+    600,
+    950
+   ],
+   "word": "heart"
+  },
+  {
+   "type": "name",
+   "text": "Lungs",
+   "x": 300,
+   "y": 520,
+   "to": [
+    400,
+    760
+   ],
+   "word": "lungs"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "heartlisten",
+   "obj": "mv-core-heartbeat-heart"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 734,
+  "y": 1035,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Thump... thump.",
+    "shout": false
+   }
+  ]
+ }
+}

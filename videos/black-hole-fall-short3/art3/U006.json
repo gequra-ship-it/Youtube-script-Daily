@@ -1,0 +1,38 @@
+{
+ "centre": "two curved arrows swapping a space road above and a clock below",
+ "labels": [],
+ "sfx": [],
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    960
+   ]
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": "mv-core-glide-swap-arrows",
+  "kind": "ride",
+  "x": 630,
+  "y": 748,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ]
+ }
+}

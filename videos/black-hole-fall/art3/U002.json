@@ -1,0 +1,56 @@
+{
+ "centre": "your round capsule drifting toward a far black hole; the friend on the mother ship watches through a telescope",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Spacecraft",
+   "x": 1180,
+   "y": 330,
+   "to": [
+    1180,
+    400
+   ],
+   "word": "spacecraft"
+  },
+  {
+   "type": "name",
+   "text": "Friend",
+   "x": 240,
+   "y": 470,
+   "to": [
+    385,
+    560
+   ],
+   "word": "friend"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "scope",
+  "ride": "mv-path-drift-spacecraft-capsule-u002",
+  "kind": "ride",
+  "x": 1084,
+  "y": 486,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "says": [
+   {
+    "text": "I see it!",
+    "shout": false
+   }
+  ]
+ }
+}

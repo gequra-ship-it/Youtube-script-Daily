@@ -1,0 +1,59 @@
+{
+ "centre": "a cutaway funnel of bent space-time with a stream of golden matter and a helmet spiralling down into a tiny white-hot point",
+ "focus": [
+  540,
+  1120,
+  1.6
+ ],
+ "focus_word": "central singularity",
+ "sfx": [],
+ "attractor": [
+  540,
+  1180
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "singularity",
+   "x": 540,
+   "y": 1330,
+   "to": [
+    540,
+    1190
+   ],
+   "word": "singularity"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    1180
+   ],
+   "vanish": true
+  },
+  "ride": "mv-path-fall-helmet",
+  "kind": "ride",
+  "x": 397,
+  "y": 613,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "centre": "you at the capsule hatch, stepping toward the huge dark mouth of a black hole; a gauge pinned at its limit",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "iris": [
+  1360,
+  500
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Black hole",
+   "x": 1360,
+   "y": 820,
+   "to": [
+    1360,
+    640
+   ],
+   "word": "black hole"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    1360,
+    500
+   ],
+   "vanish": true
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 670,
+  "y": 546,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

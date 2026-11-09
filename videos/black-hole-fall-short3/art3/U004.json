@@ -1,0 +1,47 @@
+{
+ "centre": "the round capsule fires its engine and loops on a dotted U-turn up and away from a quiet black hole toward small blue Earth",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 300,
+   "y": 600,
+   "to": [
+    300,
+    470
+   ],
+   "word": "Earth"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-path-escape-capsule",
+  "kind": "ride",
+  "x": 628,
+  "y": 1198,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ]
+ }
+}

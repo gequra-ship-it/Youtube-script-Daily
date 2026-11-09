@@ -1,0 +1,44 @@
+{
+ "centre": "the friend's timeline as a road whose ticks crowd together before the horizon, you never arriving",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Still waiting...",
+   "x": 700,
+   "y": 160,
+   "to": [
+    500,
+    250
+   ]
+  }
+ ],
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "scope",
+  "ride": "mv-path-approach-astronaut",
+  "kind": "ride",
+  "x": 877,
+  "y": 776,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "There!",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "centre": "you floating relaxed beside a pocket watch that keeps ticking",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Feels normal!",
+   "x": 600,
+   "y": 230,
+   "to": [
+    870,
+    400
+   ]
+  }
+ ],
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": "snooze",
+  "ride": "mv-path-drift-wrench",
+  "kind": "ride",
+  "x": 415,
+  "y": 706,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Zzz...",
+    "shout": false
+   }
+  ]
+ }
+}

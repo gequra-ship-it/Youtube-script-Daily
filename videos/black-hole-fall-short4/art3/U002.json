@@ -1,0 +1,51 @@
+{
+ "centre": "small capsule between a calm giant black hole above and a violent tiny one below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "black hole",
+   "x": 790,
+   "y": 380,
+   "to": [
+    670,
+    470
+   ],
+   "word": "black hole"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    540,
+    960
+   ]
+  },
+  "ride": "mv-core-glide-capsule",
+  "kind": "ride",
+  "x": 679,
+  "y": 936,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ]
+ }
+}
