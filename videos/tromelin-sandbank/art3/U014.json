@@ -1,0 +1,58 @@
+{
+ "centre": "a wooden signpost with two blank planks planted in the sand of a bare dune",
+ "focus": [
+  960,
+  480,
+  1.6
+ ],
+ "focus_word": "Sand Island",
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "Sand Island",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sand Island",
+   "x": 1330,
+   "y": 380,
+   "to": [
+    1100,
+    440
+   ],
+   "word": "Sand Island"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hopalong",
+   "obj": "mv-hop-sand-crab"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 314,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ]
+ }
+}

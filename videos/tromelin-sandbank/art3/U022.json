@@ -1,0 +1,43 @@
+{
+ "centre": "brass ship's compass with a twitching needle; dice tossed beside it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Feeling lucky?",
+   "x": 560,
+   "y": 520,
+   "to": [
+    420,
+    650
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "nervous",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-approach-compass",
+  "kind": "ride",
+  "x": 1074,
+  "y": 353,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Uh-oh...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "centre": "a big curling surf wave breaking over the reef, small survivors wading to the sand",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "churning surf",
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "churning surf",
+   "vol": 0.6
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "surf",
+   "x": 540,
+   "y": 640,
+   "to": [
+    540,
+    770
+   ],
+   "word": "surf"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-glide-surf-wave",
+  "kind": "ride",
+  "x": 924,
+  "y": 970,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

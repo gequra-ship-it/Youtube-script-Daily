@@ -1,0 +1,51 @@
+{
+ "centre": "a brass ship's porthole showing an underwater wreck, between a naval cap with diving mask and an archaeologist digging in a trench",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "naval officer",
+   "x": 375,
+   "y": 440,
+   "to": [
+    376,
+    570
+   ],
+   "word": "naval officer"
+  },
+  {
+   "type": "name",
+   "text": "underwater archaeologist",
+   "x": 960,
+   "y": 200,
+   "to": [
+    960,
+    330
+   ],
+   "word": "underwater archaeologist"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pushaway"
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 538,
+  "y": 456,
+  "s": 0.9,
+  "flip": 1,
+  "says": [],
+  "bside": 1
+ }
+}

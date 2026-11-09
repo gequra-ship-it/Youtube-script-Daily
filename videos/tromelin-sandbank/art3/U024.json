@@ -1,0 +1,50 @@
+{
+ "centre": "sea chart with a dead-reckoning track, dividers, log glass and log-line reel; charted island in the wrong place",
+ "focus": [
+  1100,
+  470,
+  1.5
+ ],
+ "focus_word": "an estimate of position",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Dead reckoning",
+   "x": 700,
+   "y": 470,
+   "to": [
+    830,
+    600
+   ],
+   "word": "dead reckoning"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 890,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

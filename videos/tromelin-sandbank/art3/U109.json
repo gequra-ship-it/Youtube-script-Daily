@@ -1,0 +1,55 @@
+{
+ "centre": "a sleeping-calm baby boy in a woven basket cradle with a yellow cloth, soft warm glow",
+ "focus": [
+  930,
+  450,
+  1.6
+ ],
+ "focus_word": "Jacques Moyse",
+ "sfx": [],
+ "iris": [
+  960,
+  500
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Jacques Moyse",
+   "x": 960,
+   "y": 210,
+   "to": [
+    920,
+    440
+   ],
+   "word": "Jacques Moyse"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "bob"
+  },
+  "ride": "mv-core-sway-baby-cradle",
+  "kind": "ride",
+  "x": 1228,
+  "y": 730,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "nightcap",
+   "flippers"
+  ],
+  "says": [
+   {
+    "text": "Blub!",
+    "shout": true
+   }
+  ]
+ }
+}

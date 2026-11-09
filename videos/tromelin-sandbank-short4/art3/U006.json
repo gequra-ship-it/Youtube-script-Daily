@@ -1,0 +1,50 @@
+{
+ "centre": "a sea turtle on a moonlit beach laying an egg into a sand pit",
+ "focus": [
+  540,
+  900,
+  1.6
+ ],
+ "focus_word": "Sea turtles",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sea turtles",
+   "x": 540,
+   "y": 560,
+   "to": [
+    540,
+    830
+   ],
+   "word": "Sea turtles"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "bob"
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": "mv-core-approach-turtle",
+  "kind": "ride",
+  "x": 374,
+  "y": 867,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Blub!",
+    "shout": true
+   }
+  ]
+ }
+}

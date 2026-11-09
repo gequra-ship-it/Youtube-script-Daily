@@ -1,0 +1,50 @@
+{
+ "centre": "an old sea chart with a tiny island speck that a dusty cloud drifts over, an oil lamp hanging above",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "island",
+   "x": 820,
+   "y": 500,
+   "to": [
+    640,
+    880
+   ],
+   "word": "island"
+  }
+ ],
+ "light": "right",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "swingride",
+   "obj": "mv-swing-oil-lamp"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-swing-oil-lamp",
+  "kind": "ride",
+  "x": 800,
+  "y": 399,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ]
+ }
+}

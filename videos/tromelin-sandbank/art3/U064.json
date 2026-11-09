@@ -1,0 +1,60 @@
+{
+ "centre": "split day and night beach: sooty terns sitting on eggs in the sun at left, a sea turtle crawling up the moonlit sand to its egg pit at right",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sooty terns",
+   "x": 560,
+   "y": 480,
+   "to": [
+    430,
+    680
+   ],
+   "word": "sooty terns"
+  },
+  {
+   "type": "name",
+   "text": "Sea turtles",
+   "x": 1500,
+   "y": 430,
+   "to": [
+    1440,
+    690
+   ],
+   "word": "Sea turtles"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Sea turtles",
+    "mood": "happy"
+   }
+  ],
+  "act": "think",
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": "mv-path-flying-tern-bird",
+  "kind": "ride",
+  "x": 259,
+  "y": 408,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

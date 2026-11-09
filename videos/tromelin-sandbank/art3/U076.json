@@ -1,0 +1,59 @@
+{
+ "centre": "an old scroll unrolling on an archive table beside a small bundle of old documents, a magnifying glass moving in to check it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Really true?",
+   "x": 1320,
+   "y": 170,
+   "to": [
+    1470,
+    240
+   ]
+  },
+  {
+   "type": "name",
+   "text": "Old documents",
+   "x": 380,
+   "y": 360,
+   "to": [
+    370,
+    520
+   ],
+   "word": "old documents"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-magnifying-glass",
+  "kind": "ride",
+  "x": 1694,
+  "y": 480,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "laurel"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

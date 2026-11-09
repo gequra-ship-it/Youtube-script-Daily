@@ -1,0 +1,59 @@
+{
+ "centre": "a low setting sun over an empty sea, a lone survivor woman standing on the beach watching the horizon",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "standing on that beach",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "num",
+   "text": "10 YEARS",
+   "word": "ten years"
+  },
+  {
+   "type": "say",
+   "text": "Will they come?",
+   "x": 700,
+   "y": 420,
+   "to": [
+    445,
+    562
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "awe"
+   },
+   {
+    "word": "Would you",
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-core-glide-setting-sun",
+  "kind": "ride",
+  "x": 1103,
+  "y": 605,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "flippers"
+  ],
+  "says": [
+   {
+    "text": "Let me think.",
+    "shout": false
+   }
+  ]
+ }
+}

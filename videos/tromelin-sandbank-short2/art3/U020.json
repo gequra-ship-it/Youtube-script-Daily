@@ -1,0 +1,52 @@
+{
+ "centre": "the finished small boat at the water's edge, with a much wider crowd of survivors on the beach below it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Not enough room",
+   "x": 790,
+   "y": 640,
+   "to": [
+    640,
+    830
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   },
+   {
+    "word": "The boat",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "steadyit",
+   "obj": "mv-core-wobble-boat-providence"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 719,
+  "y": 919,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Careful!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "centre": "a row of coral humps hiding under dark water while a small ship with a lantern sails above, unaware",
+ "focus": [
+  540,
+  1130,
+  1.6
+ ],
+ "focus_word": "coral reef",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "coral reef",
+   "x": 540,
+   "y": 1000,
+   "to": [
+    540,
+    1200
+   ],
+   "word": "coral reef"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   },
+   {
+    "word": "In the",
+    "mood": "happy"
+   }
+  ],
+  "act": "facepalm",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-sailing-ship",
+  "kind": "ride",
+  "x": 388,
+  "y": 806,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Oops.",
+    "shout": false
+   }
+  ]
+ }
+}

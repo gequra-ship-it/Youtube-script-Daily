@@ -1,0 +1,38 @@
+{
+ "centre": "a small campfire still burning on the sand island while a rescue boat rows in",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "fire still lit",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-path-rescue-boat",
+  "kind": "ride",
+  "x": 380,
+  "y": 1344,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "diver"
+  ],
+  "says": [
+   {
+    "text": "Ta-da!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "centre": "a survivor standing on a low dune beside a small fire, watching an empty sunset horizon for a sail",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "A sail? Not yet.",
+   "x": 640,
+   "y": 420,
+   "to": [
+    490,
+    545
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "chinrub"
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": "mv-path-flying-tern-bird",
+  "kind": "ride",
+  "x": 936,
+  "y": 326,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

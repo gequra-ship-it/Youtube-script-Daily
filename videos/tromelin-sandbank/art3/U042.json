@@ -1,0 +1,60 @@
+{
+ "centre": "copper bowl on a rope above a crude well dug in the sand",
+ "focus": [
+  960,
+  560,
+  1.8
+ ],
+ "focus_word": "single crude well",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Well",
+   "x": 1300,
+   "y": 330,
+   "to": [
+    1075,
+    480
+   ],
+   "word": "well"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "That single",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-water-drop",
+   "serious": false
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1004,
+  "y": 786,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
+}

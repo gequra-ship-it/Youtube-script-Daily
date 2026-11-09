@@ -1,0 +1,53 @@
+{
+ "centre": "a nearly empty grain sack slumped on a colony dock beside a stack of crates and an empty open crate",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "colony",
+   "x": 330,
+   "y": 560,
+   "to": [
+    540,
+    830
+   ],
+   "word": "colony's"
+  }
+ ],
+ "light": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dodge",
+   "obj": "mv-rollby-barrel",
+   "h": 90,
+   "pass": 3.369
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 633,
+  "y": 1290,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

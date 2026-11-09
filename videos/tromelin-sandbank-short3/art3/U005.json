@@ -1,0 +1,66 @@
+{
+ "centre": "five survivors seen from behind on the beach as the small sail sinks below the horizon",
+ "focus": [
+  620,
+  760,
+  1.6
+ ],
+ "focus_word": "vanished",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Malagasy survivors",
+   "x": 420,
+   "y": 960,
+   "to": [
+    520,
+    1075
+   ],
+   "word": "Malagasy survivors"
+  },
+  {
+   "type": "name",
+   "text": "sail",
+   "x": 800,
+   "y": 600,
+   "to": [
+    620,
+    712
+   ],
+   "word": "sail"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    622,
+    723
+   ],
+   "vanish": true
+  },
+  "outfit": [
+   "goggles",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 384,
+  "y": 728,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "centre": "a survivor walking along the beach with a bundle of driftwood on her head, footprints behind her, driftwood, a plank, a rope and a barrel washed up ahead",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "More for the fire!",
+   "x": 1000,
+   "y": 460,
+   "to": [
+    760,
+    680
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "hideshell"
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": "mv-path-flying-tern-bird",
+  "kind": "ride",
+  "x": 1230,
+  "y": 228,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Eep.",
+    "shout": false
+   }
+  ]
+ }
+}

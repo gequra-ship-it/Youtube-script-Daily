@@ -1,0 +1,40 @@
+{
+ "centre": "a small campfire still burning on the sand while a rescue boat nears through the surf",
+ "focus": null,
+ "sfx": [
+  {
+   "name": "crackle",
+   "word": "fire",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-path-corvette-ship",
+  "kind": "ride",
+  "x": 528,
+  "y": 526,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lifevest",
+   "shellhat"
+  ],
+  "says": [
+   {
+    "text": "So dizzy...",
+    "shout": false
+   }
+  ]
+ }
+}

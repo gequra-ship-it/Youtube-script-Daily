@@ -1,0 +1,50 @@
+{
+ "centre": "a paper map of the southwestern Indian Ocean, mostly deep blue, with Madagascar and a magnifying lens sweeping the empty sea",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Indian Ocean",
+   "x": 1280,
+   "y": 230,
+   "to": [
+    1280,
+    330
+   ],
+   "word": "Indian Ocean"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-magnifier-lens",
+  "kind": "ride",
+  "x": 696,
+  "y": 674,
+  "s": 1.24,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

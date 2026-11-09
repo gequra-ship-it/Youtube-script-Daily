@@ -1,0 +1,60 @@
+{
+ "centre": "the small Providence boat readied in the surf while survivors watch a pile of supplies and tools left on the sand",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Supplies",
+   "x": 940,
+   "y": 680,
+   "to": [
+    900,
+    790
+   ],
+   "word": "supplies"
+  },
+  {
+   "type": "name",
+   "text": "Tools",
+   "x": 640,
+   "y": 700,
+   "to": [
+    640,
+    830
+   ],
+   "word": "tools"
+  }
+ ],
+ "iris": [
+  350,
+  650
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "The sailors",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-sway-crate",
+  "kind": "ride",
+  "x": 812,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": []
+ }
+}

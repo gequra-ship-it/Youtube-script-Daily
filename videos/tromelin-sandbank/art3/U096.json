@@ -1,0 +1,49 @@
+{
+ "centre": "the flat sand island seen from above with a dotted walking route from one end to the other and a tiny walker",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "step",
+   "word": "walk across",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Same sand again",
+   "x": 560,
+   "y": 300,
+   "to": [
+    500,
+    440
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "wave",
+  "x": 554,
+  "y": 520,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "pocketwatch"
+  ],
+  "says": [
+   {
+    "text": "Tick tock...",
+    "shout": false
+   }
+  ]
+ }
+}

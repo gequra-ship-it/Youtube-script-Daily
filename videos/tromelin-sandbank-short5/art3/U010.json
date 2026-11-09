@@ -1,0 +1,60 @@
+{
+ "centre": "top: a rowboat with sailors and the women crossing the reef to the corvette; bottom: a freedom document with a red wax seal unrolling at Isle de France",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Isle de France",
+   "x": 760,
+   "y": 980,
+   "to": [
+    300,
+    1000
+   ],
+   "word": "Isle de France"
+  },
+  {
+   "type": "name",
+   "text": "corvette",
+   "x": 640,
+   "y": 360,
+   "to": [
+    800,
+    470
+   ],
+   "word": "corvette"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   },
+   {
+    "word": "In Isle",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "jog",
+   "dist": 324
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 1000,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Hup hup!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

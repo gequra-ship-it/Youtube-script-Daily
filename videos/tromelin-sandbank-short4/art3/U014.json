@@ -1,0 +1,45 @@
+{
+ "centre": "a castaway walking along the beach with a driftwood bundle on her back, footprints behind her and a plank, rope and seaweed washed up ahead",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Another plank!",
+   "x": 330,
+   "y": 650,
+   "to": [
+    430,
+    822
+   ]
+  }
+ ],
+ "motion_note": "the survivor walks along the shore (mv-walk)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "outfit": [
+   "goggles",
+   "flippers"
+  ],
+  "x": 547,
+  "y": 1088,
+  "s": 1.2,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": "mv-walk-woman-survivor",
+  "bside": 1,
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}
