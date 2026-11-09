@@ -1,0 +1,63 @@
+{
+ "centre": "a diagram: the Sun, tiny Voyager 1 just setting out, and the nearest star far away",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "4 LIGHT-YEARS",
+   "word": "four light-years"
+  },
+  {
+   "type": "name",
+   "text": "Voyager 1",
+   "x": 600,
+   "y": 280,
+   "to": [
+    540,
+    400
+   ],
+   "word": "Voyager 1"
+  },
+  {
+   "type": "name",
+   "text": "nearest star",
+   "x": 1580,
+   "y": 680,
+   "to": [
+    1640,
+    500
+   ],
+   "word": "nearest star"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-path-voyager-probe",
+  "kind": "ride",
+  "x": 656,
+  "y": 478,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hot!",
+    "shout": true
+   }
+  ]
+ }
+}

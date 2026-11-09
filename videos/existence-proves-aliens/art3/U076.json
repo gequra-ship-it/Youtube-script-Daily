@@ -1,0 +1,43 @@
+{
+ "centre": "a probe flying through a haze plume with a tray showing a salt crystal, an organic molecule and a hydrogen pair",
+ "focus": [
+  960,
+  740,
+  1.5
+ ],
+ "focus_word": "salts, organic molecules, and hydrogen",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-hydrogen-pair",
+   "h": 68
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1322,
+  "y": 784,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

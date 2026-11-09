@@ -1,0 +1,35 @@
+{
+ "centre": "Earth seen from space at dawn, its night side sprinkled with warm lights; a ringing alarm clock floats on the left, dim dashed-outline worlds wait around",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "clock",
+   "word": "woke up",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Wake up!",
+   "x": 380,
+   "y": 225,
+   "to": [
+    380,
+    300
+   ]
+  },
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 1190,
+   "y": 330,
+   "to": [
+    1050,
+    430
+   ],
+   "word": "Earth"
+  }
+ ]
+}

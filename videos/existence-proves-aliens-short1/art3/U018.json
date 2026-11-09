@@ -1,0 +1,48 @@
+{
+ "centre": "a scoop of wet sand in cupped hands with a tiny living crab peeking out",
+ "focus": [
+  540,
+  820,
+  1.6
+ ],
+ "focus_word": "living crab",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hello up there!",
+   "x": 300,
+   "y": 560,
+   "to": [
+    540,
+    768
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-core-glide-sand-scoop",
+  "kind": "ride",
+  "x": 734,
+  "y": 928,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "umbrella",
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "La la la~",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "centre": "a meteorite cut open on a lab tray showing tiny glowing amino acid specks; a comet crosses the window; an asteroid sample capsule below",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "comets",
+   "x": 780,
+   "y": 330,
+   "to": [
+    880,
+    430
+   ],
+   "word": "comets"
+  },
+  {
+   "type": "name",
+   "text": "meteorites",
+   "x": 820,
+   "y": 720,
+   "to": [
+    640,
+    820
+   ],
+   "word": "meteorites"
+  },
+  {
+   "type": "name",
+   "text": "asteroid samples",
+   "x": 540,
+   "y": 1390,
+   "to": [
+    400,
+    1260
+   ],
+   "word": "asteroid samples"
+  }
+ ],
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-path-comet",
+  "kind": "ride",
+  "x": 789,
+  "y": 477,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

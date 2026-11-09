@@ -1,0 +1,58 @@
+{
+ "centre": "glowing molten young Earth with lava cracks and a toxic yellow haze while an asteroid streaks toward it through a dusty debris field",
+ "focus": [
+  960,
+  500,
+  1.5
+ ],
+ "focus_word": "violent collisions",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "4.5 BILLION YEARS AGO",
+   "word": "four and a half billion"
+  },
+  {
+   "type": "say",
+   "text": "Ouch!",
+   "x": 1330,
+   "y": 420,
+   "to": [
+    1080,
+    480
+   ]
+  }
+ ],
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-asteroid-rock",
+  "kind": "ride",
+  "x": 52,
+  "y": 366,
+  "s": 1.4,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

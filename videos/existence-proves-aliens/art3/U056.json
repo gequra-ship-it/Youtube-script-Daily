@@ -1,0 +1,57 @@
+{
+ "centre": "big glass jar glowing with six coloured ingredient dots on a space-kitchen shelf",
+ "focus": [
+  960,
+  520,
+  1.8
+ ],
+ "focus_word": "cosmic kitchen",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Well stocked!",
+   "x": 1140,
+   "y": 360,
+   "to": [
+    1010,
+    440
+   ],
+   "word": "well stocked"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "The cosmic",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "swingride",
+   "obj": "mv-swing-whisk"
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-swing-whisk",
+  "kind": "ride",
+  "x": 600,
+  "y": 435,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ]
+ }
+}

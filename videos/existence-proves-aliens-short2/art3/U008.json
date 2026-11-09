@@ -1,0 +1,55 @@
+{
+ "centre": "a radio dish on a night hill sending wavy signals up into space, an old radio set beside it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hello, space!",
+   "x": 820,
+   "y": 640,
+   "to": [
+    640,
+    800
+   ]
+  },
+  {
+   "type": "name",
+   "text": "radio signals",
+   "x": 280,
+   "y": 1330,
+   "to": [
+    255,
+    1240
+   ],
+   "word": "radio signals"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "outfit": [
+   "helmet"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 724,
+  "y": 922,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Beep... beep.",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,60 @@
+{
+ "centre": "the Sun glowing in the middle of a time line that runs down from a Big Bang flash",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Big Bang",
+   "x": 770,
+   "y": 420,
+   "to": [
+    600,
+    420
+   ],
+   "word": "Big Bang"
+  },
+  {
+   "type": "name",
+   "text": "Our sun",
+   "x": 790,
+   "y": 860,
+   "to": [
+    640,
+    860
+   ],
+   "word": "Our sun"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 820,
+  "y": 1120,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "outfit": [
+   "sunglasses",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "So dizzy...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

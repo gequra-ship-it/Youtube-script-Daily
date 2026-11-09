@@ -1,0 +1,51 @@
+{
+ "centre": "a big glass kitchen jar on a shelf filling up with countless tiny galaxies, one more popping in over the lid",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Observable universe",
+   "x": 330,
+   "y": 480,
+   "to": [
+    420,
+    720
+   ],
+   "word": "observable universe"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-spiral-galaxy",
+   "h": 40
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 540,
+  "y": 550,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

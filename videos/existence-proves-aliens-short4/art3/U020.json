@@ -1,0 +1,43 @@
+{
+ "centre": "a magnifying glass with a glowing question mark inside, drifting in fog",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who knows?",
+   "x": 800,
+   "y": 620,
+   "to": [
+    650,
+    760
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-core-glide-magnifying-lens",
+  "kind": "ride",
+  "x": 834,
+  "y": 1110,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

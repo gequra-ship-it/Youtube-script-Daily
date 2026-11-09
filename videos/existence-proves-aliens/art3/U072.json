@@ -1,0 +1,50 @@
+{
+ "centre": "cutaway of an icy moon: ice crust, hidden ocean, warm rock core, with Saturn's pull arrows",
+ "focus": [
+  860,
+  500,
+  1.6
+ ],
+ "focus_word": "oceans of liquid water",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Enceladus",
+   "x": 620,
+   "y": 260,
+   "to": [
+    720,
+    340
+   ],
+   "word": "Enceladus"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1000,
+  "y": 650,
+  "s": 1.0,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": "mv-pulse-core-rockheat",
+  "says": [
+   {
+    "text": "Psst...",
+    "shout": false
+   }
+  ]
+ }
+}

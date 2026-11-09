@@ -1,0 +1,44 @@
+{
+ "centre": "one small blue Earth hovering over a cracked grey wasteland, dashed ghost planets fading in",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Just me?",
+   "x": 760,
+   "y": 680,
+   "to": [
+    610,
+    790
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-core-glide-earth-planet",
+  "kind": "ride",
+  "x": 754,
+  "y": 1030,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

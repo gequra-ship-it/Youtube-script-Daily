@@ -1,0 +1,62 @@
+{
+ "centre": "a nearly empty flask with one drop falling in from a dropper, empty jars on shelves",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Carbon",
+   "x": 250,
+   "y": 520,
+   "to": [
+    230,
+    590
+   ],
+   "word": "carbon"
+  },
+  {
+   "type": "name",
+   "text": "oxygen",
+   "x": 300,
+   "y": 1260,
+   "to": [
+    540,
+    990
+   ],
+   "word": "oxygen"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-water-drop",
+   "serious": false
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 540,
+  "y": 873,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
+}

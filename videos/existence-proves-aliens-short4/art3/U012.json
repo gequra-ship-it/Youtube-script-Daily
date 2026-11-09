@@ -1,0 +1,47 @@
+{
+ "centre": "a cosmic cauldron brewing star soup, with a rocky planet and a green sprout rising from it",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Bloop!",
+   "x": 790,
+   "y": 1000,
+   "to": [
+    610,
+    806
+   ]
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-rocky-planet"
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "x": 390,
+  "y": 711,
+  "s": 1.09,
+  "flip": 1,
+  "kind": "ride",
+  "ride": "mv-ascend-rocky-planet",
+  "behind": null,
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

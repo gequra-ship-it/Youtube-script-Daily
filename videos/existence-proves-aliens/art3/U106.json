@@ -1,0 +1,47 @@
+{
+ "centre": "an early guest (humanity) waves just inside the open door of an empty party hall whose great window opens onto the stars; empty table and chairs, a mirror ball",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Am I early?",
+   "x": 640,
+   "y": 470,
+   "to": [
+    606,
+    590
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-balloon"
+  },
+  "ride": "mv-ascend-balloon",
+  "kind": "ride",
+  "x": 1530,
+  "y": 643,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ]
+ }
+}

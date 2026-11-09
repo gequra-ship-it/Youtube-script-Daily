@@ -1,0 +1,49 @@
+{
+ "centre": "a vintage radio with a round gold speaker between an old TV and a wifi router; their signals fade out before the window sky",
+ "focus": [
+  960,
+  500,
+  1.5
+ ],
+ "focus_word": "radio broadcasts",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Out of range!",
+   "x": 1500,
+   "y": 430,
+   "to": [
+    1500,
+    700
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "listen",
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1198,
+  "y": 760,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headphones",
+   "tinfoil"
+  ],
+  "says": [
+   {
+    "text": "Beep... beep.",
+    "shout": false
+   }
+  ]
+ }
+}

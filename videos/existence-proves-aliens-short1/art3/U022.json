@@ -1,0 +1,57 @@
+{
+ "centre": "a glowing chemistry flask above rows of worlds lighting up one by one",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Again and again!",
+   "x": 790,
+   "y": 560,
+   "to": [
+    590,
+    650
+   ]
+  },
+  {
+   "type": "name",
+   "text": "countless other worlds",
+   "x": 540,
+   "y": 1380,
+   "to": [
+    540,
+    1235
+   ],
+   "word": "countless other worlds"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "countfingers"
+  },
+  "ride": "mv-core-glide-chemistry-flask",
+  "kind": "ride",
+  "x": 774,
+  "y": 1090,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "One, two...",
+    "shout": false
+   }
+  ]
+ }
+}

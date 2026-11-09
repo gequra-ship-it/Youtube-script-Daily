@@ -1,0 +1,60 @@
+{
+ "centre": "two near-equal planets side by side: Earth with green land and a slightly larger ocean exoplanet, in a green habitable band above a star's glowing limb",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "roughly Earth-sized",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth-sized",
+   "x": 760,
+   "y": 260,
+   "to": [
+    800,
+    390
+   ],
+   "word": "Earth-sized"
+  },
+  {
+   "type": "name",
+   "text": "Habitable zone",
+   "x": 1450,
+   "y": 300,
+   "to": [
+    1130,
+    400
+   ],
+   "word": "habitable zone"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "zerogroll"
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 260,
+  "y": 780,
+  "s": 0.85,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Wheee...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

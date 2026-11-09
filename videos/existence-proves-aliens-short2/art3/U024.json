@@ -1,0 +1,41 @@
+{
+ "centre": "a lone walker with a lantern on a path through an endless pine forest under the moon",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hello-o?",
+   "x": 330,
+   "y": 960,
+   "to": [
+    528,
+    1034
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "x": 820,
+  "y": 1560,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Boom-cha!",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

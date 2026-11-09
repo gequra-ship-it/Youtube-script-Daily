@@ -1,0 +1,46 @@
+{
+ "centre": "a massive blue star with a short burning fuse; a small yellow star far away on a very long fuse",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hurry up!",
+   "x": 300,
+   "y": 700,
+   "to": [
+    460,
+    830
+   ]
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-path-fuse-spark",
+  "kind": "ride",
+  "x": 564,
+  "y": 1250,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "This big!",
+    "shout": true
+   }
+  ]
+ }
+}

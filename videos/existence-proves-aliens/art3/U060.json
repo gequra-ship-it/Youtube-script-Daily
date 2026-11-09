@@ -1,0 +1,66 @@
+{
+ "centre": "small sample-return capsule with a glowing core, dashed paths from a comet and two asteroids",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Wild 2",
+   "x": 400,
+   "y": 190,
+   "to": [
+    415,
+    320
+   ],
+   "word": "Wild 2"
+  },
+  {
+   "type": "name",
+   "text": "Ryugu",
+   "x": 1380,
+   "y": 150,
+   "to": [
+    1380,
+    270
+   ],
+   "word": "Ryugu"
+  },
+  {
+   "type": "name",
+   "text": "Bennu",
+   "x": 1580,
+   "y": 790,
+   "to": [
+    1565,
+    700
+   ],
+   "word": "Bennu"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-path-comet-wild-two",
+  "kind": "ride",
+  "x": 416,
+  "y": 252,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

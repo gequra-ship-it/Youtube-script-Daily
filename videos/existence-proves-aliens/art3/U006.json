@@ -1,0 +1,45 @@
+{
+ "centre": "night meadow: a stargazer points up at a strange light while a radio dish on the right listens to a dashed signal from a far star; a small satellite crosses the sky",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "What is that light?",
+   "x": 250,
+   "y": 450,
+   "to": [
+    430,
+    600
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "kind": "bg",
+  "ride": null,
+  "behind": "mv-core-ping-radio-dish",
+  "x": 1340,
+  "y": 612,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "headphones",
+   "goggles"
+  ],
+  "says": [
+   {
+    "text": "Beep... beep.",
+    "shout": false
+   }
+  ]
+ }
+}

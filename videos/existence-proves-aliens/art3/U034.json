@@ -1,0 +1,47 @@
+{
+ "centre": "a single glass specimen jar on a shelf holding a small glowing Earth, six empty jars beside it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Just me?",
+   "x": 1130,
+   "y": 330,
+   "to": [
+    985,
+    470
+   ]
+  }
+ ],
+ "iris": [
+  960,
+  500
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "clap",
+  "ride": "mv-core-sway-earth-jar",
+  "kind": "ride",
+  "x": 1090,
+  "y": 616,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "gradcap"
+  ],
+  "says": [
+   {
+    "text": "Bravo!",
+    "shout": false
+   }
+  ]
+ }
+}

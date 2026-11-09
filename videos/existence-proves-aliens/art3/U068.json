@@ -1,0 +1,51 @@
+{
+ "centre": "a microbe floating in a dark deep-rock cavern with sulfur crystals, hydrogen bubbles and a heat glow",
+ "focus": [
+  1000,
+  720,
+  1.6
+ ],
+ "focus_word": "sulfur and hydrogen",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sulfur",
+   "x": 600,
+   "y": 850,
+   "to": [
+    570,
+    740
+   ],
+   "word": "sulfur"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-core-glide-microbe",
+  "kind": "ride",
+  "x": 766,
+  "y": 570,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ]
+ }
+}

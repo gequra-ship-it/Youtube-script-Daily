@@ -1,0 +1,53 @@
+{
+ "centre": "a bright star with a small planet circling it, a small space telescope at left, many more distant stars with planets",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Exoplanets",
+   "x": 1420,
+   "y": 250,
+   "to": [
+    1534,
+    382
+   ],
+   "word": "exoplanets"
+  },
+  {
+   "type": "say",
+   "text": "Found another!",
+   "x": 600,
+   "y": 190,
+   "to": [
+    450,
+    296
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 1660,
+  "y": 740,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}
