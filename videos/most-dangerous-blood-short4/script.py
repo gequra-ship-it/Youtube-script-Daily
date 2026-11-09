@@ -1,0 +1,61 @@
+# -*- coding: utf-8 -*-
+# most-dangerous-blood-short4 (Miya's Note). Script from miya 2026-11-09; fact-checked per guideline 12-1 (see ../most-dangerous-blood/script-check.md).
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh4_1',
+  'What makes a blood type golden? Since the discovery of Rh-null blood in 1961, only a small number of people have been identified with it.'),
+ ('S02',
+  'Part 2',
+  'ill',
+  'sh4_2',
+  'Commonly cited estimates say fewer than fifty people in the world, and only a handful of them are active donors. The exact count differs between '
+  'sources and changes over time, so treat these numbers as approximate.'),
+ ('S03',
+  'Part 3',
+  'ill',
+  'sh4_3',
+  'Whatever the true figure, it is tiny, and the blood became known as golden blood. But why would a field known for sober language choose such a '
+  'glittering name?'),
+ ('S04',
+  'Part 4',
+  'ill',
+  'sh4_4',
+  'Rh-null blood also comes in every ABO type, so even among the few donors, the right ABO match may be rarer still. The name reflects both its '
+  'value and its irony.'),
+ ('S05',
+  'Part 5',
+  'ill',
+  'sh4_5',
+  'Because Rh-null red cells carry no Rh antigens, they cannot set off an Rh reaction in anyone. Some patients have extremely rare Rh types and have '
+  'made antibodies against nearly every Rh antigen.'),
+ ('S06',
+  'Part 6',
+  'ill',
+  'sh4_6',
+  'For them, ordinary blood may be unsafe, and Rh-null blood may be the only compatible choice, as long as the ABO type also matches.'),
+ ('S07',
+  'Part 7',
+  'ill',
+  'sh4_7',
+  'So Rh-null is best described as a lifeline for people with rare Rh types, not a magic cure for everyone. Because donors are so few, rare blood is '
+  'tracked through national and international networks.'),
+ ('S08',
+  'Part 8',
+  'ill',
+  'sh4_8',
+  'Red cells can be frozen and stored for years, and when a patient needs a rare unit, frozen blood has been shipped from one country to another.'),
+ ('S09',
+  'Part 9',
+  'ill',
+  'sh4_9',
+  'A single donation can reach a patient on another continent. Yet consider the person who carries it. If an Rh-null person ever receives ordinary '
+  'Rh-negative blood, their immune system may see those Rh antigens as foreign and build strong antibodies, which makes future transfusions even '
+  'harder.'),
+ ('S10',
+  'Part 10',
+  'ill',
+  'sh4_10',
+  'So the only truly safe blood for them is Rh-null blood, from someone else or from themselves. Counting such people is hard, because a registry '
+  'only includes those whose blood has been tested by a specialist laboratory.'),
+ ('S11', 'Part 11', 'ill', 'sh4_11', 'The most valuable blood in the world can also be the hardest to replace.')]
