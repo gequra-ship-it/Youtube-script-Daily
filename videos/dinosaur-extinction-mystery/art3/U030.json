@@ -1,0 +1,58 @@
+{
+ "centre": "a small sturdy answer block stays standing while a pendulum knocks and a tap drips on it; a checklist fills with ticks",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Still standing!",
+   "x": 1120,
+   "y": 560,
+   "to": [
+    900,
+    700
+   ]
+  }
+ ],
+ "iris": [
+  1505,
+  460
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "The goal",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-tap-droplet",
+   "serious": false
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 860,
+  "y": 628,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
+}

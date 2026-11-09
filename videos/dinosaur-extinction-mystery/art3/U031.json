@@ -1,0 +1,52 @@
+{
+ "centre": "silver iridium tile pinned on a clue board",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "iridium",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Iridium",
+   "x": 1230,
+   "y": 560,
+   "to": [
+    1060,
+    520
+   ],
+   "word": "iridium"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "It was",
+    "mood": "happy"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-swing-clue-tag",
+  "kind": "ride",
+  "x": 1658,
+  "y": 540,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "detective"
+  ],
+  "says": [
+   {
+    "text": "Look closer...",
+    "shout": false
+   }
+  ]
+ }
+}

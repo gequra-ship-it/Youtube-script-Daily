@@ -1,0 +1,42 @@
+{
+ "centre": "a rocky asteroid with a glowing tail plunging toward Earth, dust spreading around the curve",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Asteroid",
+   "x": 640,
+   "y": 420,
+   "to": [
+    870,
+    440
+   ],
+   "word": "asteroid"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "ride": "mv-path-fall-asteroid",
+  "kind": "ride",
+  "x": 740,
+  "y": 536,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "says": []
+ }
+}

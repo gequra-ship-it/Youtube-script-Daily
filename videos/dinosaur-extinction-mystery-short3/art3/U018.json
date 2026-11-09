@@ -1,0 +1,46 @@
+{
+ "centre": "a single plump seed above a rat-sized mammal in its burrow",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Seeds",
+   "x": 300,
+   "y": 1330,
+   "to": [
+    300,
+    1430
+   ],
+   "word": "seeds"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 656,
+  "y": 1460,
+  "s": 1.2,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": "mv-breathe-small-mammal",
+  "outfit": [
+   "scarf",
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

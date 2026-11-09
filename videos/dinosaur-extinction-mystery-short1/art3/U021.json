@@ -1,0 +1,55 @@
+{
+ "centre": "a small Earth with a plaster on its wound, green sprouts growing in the foreground",
+ "labels": [
+  {
+   "type": "say",
+   "text": "All better!",
+   "x": 300,
+   "y": 620,
+   "to": [
+    470,
+    790
+   ]
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Earth heals",
+    "mood": "hurt"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-bandage",
+   "h": 159
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 540,
+  "y": 939,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "bandage",
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

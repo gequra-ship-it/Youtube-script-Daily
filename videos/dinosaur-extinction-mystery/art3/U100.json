@@ -1,0 +1,52 @@
+{
+ "centre": "a small mammal asleep in a cozy den underground; fire above on the left, frost and icicles above on the right",
+ "focus": [
+  975,
+  670,
+  1.6
+ ],
+ "focus_word": "burrow underground",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Wake me later",
+   "x": 1290,
+   "y": 610,
+   "to": [
+    1085,
+    662
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 260,
+  "y": 540,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "So dizzy...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

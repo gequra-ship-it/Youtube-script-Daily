@@ -1,0 +1,42 @@
+{
+ "centre": "a small mammal stepping out of its burrow into an open sunny meadow as the giant shadow lifts, with a row from shrew to primate to human",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hi, ancestor!",
+   "x": 640,
+   "y": 1110,
+   "to": [
+    780,
+    1200
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "awe"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-slide-dinosaur-foot-shadow",
+  "kind": "ride",
+  "x": 306,
+  "y": 268,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

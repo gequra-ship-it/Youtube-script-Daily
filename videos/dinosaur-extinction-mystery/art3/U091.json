@@ -1,0 +1,48 @@
+{
+ "centre": "a healthy, smiling sauropod in a lush fern valley; a tiny asteroid far away; a tossed die with one pip",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Feeling great!",
+   "x": 1220,
+   "y": 360,
+   "to": [
+    1048,
+    413
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-asteroid-fall-rock",
+  "kind": "ride",
+  "x": 1820,
+  "y": 204,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

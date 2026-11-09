@@ -1,0 +1,44 @@
+{
+ "centre": "huge rocky asteroid with fiery trail above small mountains",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "mountain of rock",
+ "iris": [
+  960,
+  500
+ ],
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "10-15 KM",
+   "word": "ten to fifteen kilometers"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "ride": "mv-core-approach-asteroid-rock",
+  "kind": "ride",
+  "x": 1098,
+  "y": 322,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "helmet",
+   "pocketwatch"
+  ],
+  "says": [],
+  "lock": true
+ }
+}

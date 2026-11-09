@@ -1,0 +1,57 @@
+{
+ "centre": "map of the Gulf of Mexico with a dashed ring at the Yucatan Peninsula",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Yucatan Peninsula",
+   "x": 1390,
+   "y": 820,
+   "to": [
+    1090,
+    640
+   ],
+   "word": "Yucatan Peninsula"
+  },
+  {
+   "type": "name",
+   "text": "Gulf of Mexico",
+   "x": 600,
+   "y": 330,
+   "to": [
+    900,
+    400
+   ],
+   "word": "Gulf of Mexico"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "peekover"
+  },
+  "ride": "mv-core-glide-crater-ring",
+  "kind": "ride",
+  "x": 1218,
+  "y": 665,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Psst?",
+    "shout": false
+   }
+  ]
+ }
+}

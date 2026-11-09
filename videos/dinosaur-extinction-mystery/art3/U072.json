@@ -1,0 +1,51 @@
+{
+ "centre": "grey barren plain: a giant herbivore silhouette fades first, then the hunter silhouette behind it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "giant herbivores",
+   "x": 760,
+   "y": 300,
+   "to": [
+    700,
+    560
+   ],
+   "word": "herbivores"
+  },
+  {
+   "type": "name",
+   "text": "hunters",
+   "x": 1560,
+   "y": 380,
+   "to": [
+    1400,
+    560
+   ],
+   "word": "hunters"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "x": 260,
+  "y": 340,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

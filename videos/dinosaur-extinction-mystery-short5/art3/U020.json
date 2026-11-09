@@ -1,0 +1,45 @@
+{
+ "centre": "a glowing rocky asteroid with a warm trail passing a blue-green Earth",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Asteroid",
+   "x": 780,
+   "y": 700,
+   "to": [
+    620,
+    820
+   ],
+   "word": "asteroid"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-asteroid-glowing-rock",
+  "kind": "ride",
+  "x": 692,
+  "y": 958,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "says": [
+   {
+    "text": "Off we go!",
+    "shout": false
+   }
+  ]
+ }
+}

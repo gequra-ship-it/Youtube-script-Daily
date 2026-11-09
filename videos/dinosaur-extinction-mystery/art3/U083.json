@@ -1,0 +1,54 @@
+{
+ "centre": "map of India with a dark lava patch, linked to a cross-section of stair-stepped basalt plateaus with an erupting volcano and lava rivers",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "India",
+   "x": 640,
+   "y": 230,
+   "to": [
+    520,
+    330
+   ],
+   "word": "India"
+  },
+  {
+   "type": "name",
+   "text": "Deccan Traps",
+   "x": 1560,
+   "y": 800,
+   "to": [
+    1560,
+    760
+   ],
+   "word": "Deccan Traps"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "x": 1660,
+  "y": 340,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "detective",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Hmm, interesting.",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

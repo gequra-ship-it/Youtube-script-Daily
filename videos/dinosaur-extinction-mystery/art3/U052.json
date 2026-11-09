@@ -1,0 +1,48 @@
+{
+ "centre": "a person in an ordinary living room reaching toward a glowing orb holding a tiny impact scene (the moment held in mind)",
+ "focus": [
+  1180,
+  430,
+  1.7
+ ],
+ "focus_word": "hold that moment",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Way too big!",
+   "x": 1500,
+   "y": 500,
+   "to": [
+    1475,
+    568
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-memory-orb",
+  "kind": "ride",
+  "x": 1340,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "umbrella",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "centre": "a giant space rock approaching Earth while a magnifier searches the globe for the scar",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Space rock",
+   "x": 560,
+   "y": 450,
+   "to": [
+    470,
+    290
+   ],
+   "word": "space rock"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": "mv-path-search-magnifier",
+  "kind": "ride",
+  "x": 1146,
+  "y": 510,
+  "s": 1.05,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

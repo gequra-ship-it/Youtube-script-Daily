@@ -1,0 +1,51 @@
+{
+ "centre": "magnifier over the thin clay line showing black soot specks",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "Soot",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Clay layer",
+   "x": 500,
+   "y": 380,
+   "to": [
+    600,
+    498
+   ],
+   "word": "clay layer"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-core-glide-magnifier-lens",
+  "kind": "ride",
+  "x": 1238,
+  "y": 760,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "umbrella",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "So dizzy...",
+    "shout": false
+   }
+  ]
+ }
+}

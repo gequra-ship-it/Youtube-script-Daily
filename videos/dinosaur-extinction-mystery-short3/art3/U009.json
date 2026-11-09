@@ -1,0 +1,43 @@
+{
+ "centre": "a sauropod eating from a towering pile of fern bundles taller than itself",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "More, please!",
+   "x": 760,
+   "y": 820,
+   "to": [
+    520,
+    990
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "A giant",
+    "mood": "awe"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 840,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

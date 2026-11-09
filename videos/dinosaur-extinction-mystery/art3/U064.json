@@ -1,0 +1,57 @@
+{
+ "centre": "a magnifier lens over the thin clay layer showing tiny round glass beads inside it",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "tiny glass beads",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "glass beads",
+   "x": 1300,
+   "y": 330,
+   "to": [
+    990,
+    470
+   ],
+   "word": "glass beads"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dodge",
+   "obj": "mv-rollby-glass-bead",
+   "h": 52,
+   "pass": 2.067
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 542,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab",
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

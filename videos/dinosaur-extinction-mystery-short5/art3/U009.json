@@ -1,0 +1,43 @@
+{
+ "centre": "a shrew curled asleep in a deep burrow chamber, heat on the left and frost on the right above ground",
+ "focus": [
+  540,
+  1110,
+  1.7
+ ],
+ "focus_word": "wait out the worst",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Zzz...",
+   "x": 760,
+   "y": 960,
+   "to": [
+    600,
+    1100
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 820,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "flowercrown"
+  ],
+  "says": [],
+  "bside": -1
+ }
+}

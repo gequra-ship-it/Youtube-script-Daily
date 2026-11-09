@@ -1,0 +1,51 @@
+{
+ "centre": "space rock studded with silver sparkles beside plain earth rock with one sparkle",
+ "focus": [
+  1440,
+  500,
+  1.6
+ ],
+ "focus_word": "space rocks",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Space rock",
+   "x": 1240,
+   "y": 250,
+   "to": [
+    1340,
+    350
+   ],
+   "word": "space rocks"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-core-glide-asteroid-rock",
+  "kind": "ride",
+  "x": 1668,
+  "y": 690,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Phew.",
+    "shout": false
+   }
+  ]
+ }
+}

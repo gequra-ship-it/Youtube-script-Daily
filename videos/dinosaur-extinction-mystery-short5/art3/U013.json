@@ -1,0 +1,47 @@
+{
+ "centre": "a sparrow hopping on paving stones, casting a giant T. rex shadow on the garden wall behind it",
+ "focus": [
+  560,
+  690,
+  1.5
+ ],
+ "focus_word": "ancestry",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Rawr!",
+   "x": 760,
+   "y": 980,
+   "to": [
+    592,
+    1058
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "leap",
+   "dist": 367
+  },
+  "x": 820,
+  "y": 1560,
+  "s": 1.05,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "outfit": [
+   "bunny",
+   "backpack"
+  ],
+  "says": [],
+  "bside": -1,
+  "lock": true
+ }
+}

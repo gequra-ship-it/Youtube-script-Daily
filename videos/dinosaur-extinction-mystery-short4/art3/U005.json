@@ -1,0 +1,43 @@
+{
+ "centre": "big magnifier with bright gold lens over a stone tablet half hidden by fog",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Who knows?",
+   "x": 800,
+   "y": 700,
+   "to": [
+    640,
+    780
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-slide-fog-cover",
+  "kind": "ride",
+  "x": 426,
+  "y": 1094,
+  "s": 1.44,
+  "flip": -1,
+  "bside": 1,
+  "outfit": [
+   "umbrella",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

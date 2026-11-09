@@ -1,0 +1,55 @@
+{
+ "centre": "healthy sauropod eating from a fern tree and a horned dinosaur in a calm meadow; a small asteroid far in the sky",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "rustle",
+   "word": "healthy",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Yum, ferns!",
+   "x": 560,
+   "y": 700,
+   "to": [
+    740,
+    846
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-fall-asteroid-rock",
+  "kind": "ride",
+  "x": 1011,
+  "y": 426,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

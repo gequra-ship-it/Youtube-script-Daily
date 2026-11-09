@@ -1,0 +1,46 @@
+{
+ "centre": "glowing lava pool in a wide lava river with gas plumes from vents",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "lava flows",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Lava flows",
+   "x": 300,
+   "y": 960,
+   "to": [
+    470,
+    900
+   ],
+   "word": "lava flows"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 820,
+  "y": 640,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "lab",
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": -1
+ }
+}

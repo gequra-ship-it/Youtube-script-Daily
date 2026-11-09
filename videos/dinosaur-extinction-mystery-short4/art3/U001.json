@@ -1,0 +1,48 @@
+{
+ "centre": "Earth globe with hairline gold cracks, small asteroid drifting in from the upper right",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "planet",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 540,
+   "y": 1110,
+   "to": [
+    540,
+    960
+   ],
+   "word": "Earth"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shiver",
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-core-approach-earth-globe",
+  "kind": "ride",
+  "x": 654,
+  "y": 714,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "centre": "cliff cross-section with one thin glowing clay line and a magnifier beside it",
+ "focus": [
+  540,
+  861,
+  1.8
+ ],
+ "focus_word": "thin ribbon of clay",
+ "labels": [
+  {
+   "type": "num",
+   "text": "A FEW CM THICK",
+   "word": "few centimeters"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 675,
+  "y": 790,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-hover-magnifier-lens",
+  "outfit": [
+   "detective",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}
