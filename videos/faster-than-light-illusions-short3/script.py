@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# faster-than-light-illusions-short3 (Miya's Note). Script from miya 2026-11-10 (dated 2026-10-24); fact-checked per guideline 12-1 (see script-check.md).
+SCENES = [
+ ('S01', 'Part 1', 'ill', 'sh3_1', 'Can a particle beat light? Light can be slowed down. In pure water, for instance, light travels at approximately 225,000 kilometers per second, which is about three-quarters of its maximum speed in empty space.'),
+ ('S02', 'Part 2', 'ill', 'sh3_2', 'The electromagnetic fields of the water molecules interact with the passing light waves, creating a cumulative delay that slows down the wave front. Now, imagine a high-energy particle, such as an electron ejected from a decaying radioactive fuel rod, entering that same pool of water.'),
+ ('S03', 'Part 3', 'ill', 'sh3_3', 'That energetic electron might plunge into the water traveling at 250,000 kilometers per second. In that specific environment, the electron is moving faster than the local speed of light in water. What happens when a physical particle outpaces light within a physical medium?'),
+ ('S04', 'Part 4', 'ill', 'sh3_4', 'The result is one of the most stunning sights in nuclear physics, known as Cherenkov radiation. When an aircraft travels faster than the speed of sound in air, it creates an acoustic shock wave, a booming pressure front that shakes the ground.'),
+ ('S05', 'Part 5', 'ill', 'sh3_5', 'Similarly, when a charged particle travels faster than the phase velocity of light in a medium, it generates an optical shock wave. As the electron speeds through the water, it polarizes the surrounding water molecules, which quickly snap back to their resting states, emitting photons as they relax.'),
+ ('S06', 'Part 6', 'ill', 'sh3_6', 'Because the electron is moving faster than the emitted light waves can travel through the liquid, those light waves pile up behind the particle, forming a coherent, cone-shaped electromagnetic shock wave.'),
+ ('S07', 'Part 7', 'ill', 'sh3_7', 'To human eyes, this optical shock wave radiates as an eerie, luminous blue glow, illuminating the deep cooling pools of nuclear reactors worldwide.'),
+ ('S08', 'Part 8', 'ill', 'sh3_8', 'Cherenkov radiation proves that the true cosmic speed limit is not simply how fast light happens to be moving inside a room or a glass of water. The true limit is the invariant constant c, the speed of light in the pure vacuum of space.'),
+ ('S09', 'Part 9', 'ill', 'sh3_9', 'The electron in the nuclear pool did not break the universal speed limit of 299,792 kilometers per second; it merely overtook light that had been slowed down by a crowd of molecules. Watch the full video to see how waves play an even subtler trick.'),
+]

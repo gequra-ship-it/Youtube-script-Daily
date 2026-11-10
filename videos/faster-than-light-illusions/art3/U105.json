@@ -1,0 +1,49 @@
+{
+ "centre": "two raisins close together in a slice of dough, a small bracket between them slowly widening",
+ "focus": [
+  960,
+  540,
+  1.8
+ ],
+ "focus_word": "close together",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Raisins",
+   "x": 960,
+   "y": 300,
+   "to": [
+    880,
+    490
+   ],
+   "word": "raisins"
+  }
+ ],
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "scope",
+  "ride": "mv-path-right-raisin",
+  "kind": "ride",
+  "x": 929,
+  "y": 590,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "I see it!",
+    "shout": false
+   }
+  ]
+ }
+}

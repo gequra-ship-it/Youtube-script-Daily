@@ -1,0 +1,44 @@
+{
+ "centre": "a burst of red photons flying from Earth to the left side of the Moon",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 300,
+   "y": 540,
+   "to": [
+    270,
+    720
+   ],
+   "word": "Earth"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "photo",
+  "ride": "mv-path-photon-burst",
+  "kind": "ride",
+  "x": 477,
+  "y": 699,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Say cheese!",
+    "shout": false
+   }
+  ]
+ }
+}

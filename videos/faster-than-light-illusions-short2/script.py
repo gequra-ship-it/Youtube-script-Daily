@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+# faster-than-light-illusions-short2 (Miya's Note). Script from miya 2026-11-10 (dated 2026-10-24); fact-checked per guideline 12-1 (see script-check.md).
+SCENES = [
+ ('S01', 'Part 1', 'ill', 'sh2_1', 'Can a shadow outrun light? Imagine standing in front of a powerful spotlight in a vast auditorium, casting your shadow onto a giant wall far behind you. If you slowly raise your hand, your shadow rises across the wall.'),
+ ('S02', 'Part 2', 'ill', 'sh2_2', 'Now, imagine that the back wall is moved light-years away into deep space, onto a massive interstellar dust cloud. If you move your fingers in front of the lamp, the shadow cast onto that cosmic cloud would sweep across vast light-years in mere seconds.'),
+ ('S03', 'Part 3', 'ill', 'sh2_3', 'Does this mean darkness can travel faster than the light that creates it? Once again, the answer lies in what a shadow actually is. A shadow is not a physical object, nor is it a tangible substance flowing across space.'),
+ ('S04', 'Part 4', 'ill', 'sh2_4', 'A shadow is simply an absence, a geometric region where incoming photons have been blocked from arriving. Just like the sweeping laser dot, the darkness at one end of the dust cloud has no physical connection to the darkness at the other end.'),
+ ('S05', 'Part 5', 'ill', 'sh2_5', 'No information, energy, or mass travels across the surface where the shadow falls. Consider another classic thought experiment involving a giant pair of scissors.'),
+ ('S06', 'Part 6', 'ill', 'sh2_6', 'Picture a pair of blades that stretch across entire astronomical units, extending far past the orbit of Mars. As you slowly close the handles on Earth, the point where the two sharp edges intersect begins to slide outward along the blades.'),
+ ('S07', 'Part 7', 'ill', 'sh2_7', 'If the angle between the two blades is infinitesimally small, that point of intersection will race forward toward the tips at a velocity far greater than the speed of light. Does this mean the intersection point breaks the cosmic limit?'),
+ ('S08', 'Part 8', 'ill', 'sh2_8', 'Physicists will tell you that the intersection point is an abstract mathematical concept, not a material object. There is no physical particle moving along the blades; it is simply a geometric location where two pieces of metal overlap in space.'),
+ ('S09', 'Part 9', 'ill', 'sh2_9', 'Furthermore, if you close the handles on Earth, the mechanical force must travel through the atoms of the blades via electromagnetic interactions. The blades themselves would bend, transmitting the motion through sound waves in the steel, which travel tens of thousands of times slower than light.'),
+ ('S10', 'Part 10', 'ill', 'sh2_10', 'The tips would not even begin to move until more than a year later. Watch the full video to see where the real speed limit hides.'),
+]

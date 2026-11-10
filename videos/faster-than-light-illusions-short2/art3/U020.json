@@ -1,0 +1,55 @@
+{
+ "centre": "the glowing intersection point rushing toward a glowing cosmic barrier line, beside a speed limit sign with a photon",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Too fast?",
+   "x": 860,
+   "y": 1080,
+   "to": [
+    700,
+    1170
+   ]
+  },
+  {
+   "type": "name",
+   "text": "cosmic limit",
+   "x": 600,
+   "y": 680,
+   "to": [
+    600,
+    780
+   ],
+   "word": "cosmic limit"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-path-cut-point",
+  "kind": "ride",
+  "x": 566,
+  "y": 1250,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

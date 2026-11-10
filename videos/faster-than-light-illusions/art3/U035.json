@@ -1,0 +1,45 @@
+{
+ "centre": "an opaque ball in a spotlight beam; behind it a dark cone where no light arrives, ending as a dark disc on a lit slab",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Shadows",
+   "x": 1330,
+   "y": 230,
+   "to": [
+    1600,
+    470
+   ],
+   "word": "shadows"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-approach-ball",
+  "kind": "ride",
+  "x": 1148,
+  "y": 650,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "gradcap",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

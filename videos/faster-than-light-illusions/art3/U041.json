@@ -1,0 +1,52 @@
+{
+ "centre": "a giant pair of open scissors floating among stars and far galaxies, a thought-experiment object",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Scissors",
+   "x": 1300,
+   "y": 220,
+   "to": [
+    1250,
+    400
+   ],
+   "word": "scissors"
+  },
+  {
+   "type": "say",
+   "text": "Snip?",
+   "x": 600,
+   "y": 300,
+   "to": [
+    800,
+    470
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "ride": "mv-core-approach-scissors",
+  "kind": "ride",
+  "x": 1471,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "cap"
+  ],
+  "says": []
+ }
+}

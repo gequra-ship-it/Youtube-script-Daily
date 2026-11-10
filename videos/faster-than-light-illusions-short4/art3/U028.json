@@ -1,0 +1,43 @@
+{
+ "centre": "the astronaut waiting beside an empty receiving dish, a clock ticking, Earth tiny in the distance",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Waiting...",
+   "x": 220,
+   "y": 760,
+   "to": [
+    340,
+    800
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": "snooze",
+  "ride": "mv-core-sway-dish",
+  "kind": "ride",
+  "x": 911,
+  "y": 1097,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Zzz...",
+    "shout": false
+   }
+  ]
+ }
+}

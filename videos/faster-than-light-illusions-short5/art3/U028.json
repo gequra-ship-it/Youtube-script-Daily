@@ -1,0 +1,48 @@
+{
+ "centre": "a glowing play button above a row of dominoes tipping one after another along a gold dashed line",
+ "focus": [
+  540,
+  620,
+  1.5
+ ],
+ "focus_word": "full video",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Cause and effect",
+   "x": 540,
+   "y": 900,
+   "to": [
+    400,
+    1100
+   ],
+   "word": "cause"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-core-approach-play-button",
+  "kind": "ride",
+  "x": 704,
+  "y": 740,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
+}

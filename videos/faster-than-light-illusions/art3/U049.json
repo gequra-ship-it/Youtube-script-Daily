@@ -1,0 +1,44 @@
+{
+ "centre": "top view: two steel bars cross; the only 'thing' at the crossing is a highlighted overlap region and its centre spot",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Overlap",
+   "x": 960,
+   "y": 300,
+   "to": [
+    960,
+    480
+   ],
+   "word": "overlap"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "look",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-slide-metal-bar",
+  "kind": "ride",
+  "x": 500,
+  "y": 384,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": false
+   }
+  ]
+ }
+}

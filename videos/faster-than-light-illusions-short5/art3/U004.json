@@ -1,0 +1,55 @@
+{
+ "centre": "a vertical line of galaxies at three distances, each with a longer arrow the farther it is",
+ "focus": [
+  600,
+  540,
+  1.7
+ ],
+ "focus_word": "faster it appears",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Galaxy",
+   "x": 760,
+   "y": 640,
+   "to": [
+    610,
+    560
+   ],
+   "word": "galaxy"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-tick-near",
+   "h": 0
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 330,
+  "y": 1090,
+  "s": 1.09,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

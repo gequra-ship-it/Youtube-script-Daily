@@ -1,0 +1,45 @@
+{
+ "centre": "a giant pair of steel scissors floating open in space, much bigger than a small planet",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "giant pair of scissors",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Snip?",
+   "x": 720,
+   "y": 640,
+   "to": [
+    800,
+    700
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "ride": "mv-path-comet",
+  "kind": "ride",
+  "x": 226,
+  "y": 500,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "says": []
+ }
+}

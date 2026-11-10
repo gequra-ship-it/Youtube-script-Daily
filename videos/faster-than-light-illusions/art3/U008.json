@@ -1,0 +1,55 @@
+{
+ "centre": "an old open physics book on a lectern under an arched starry window, a glowing round speed-limit emblem with a photon above it",
+ "focus": [
+  960,
+  340,
+  1.6
+ ],
+ "focus_word": "strict cosmic rule",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "modern physics",
+   "x": 660,
+   "y": 520,
+   "to": [
+    860,
+    600
+   ],
+   "word": "modern physics"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "knocked",
+   "obj": "mv-pendulum-pocket-watch-cord"
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1466,
+  "y": 694,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "centre": "Earth on the left and the small Moon far to the right, a dotted distance line between them with a light pulse travelling along it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "380,000 KM",
+   "word": "380,000"
+  },
+  {
+   "type": "name",
+   "text": "Moon",
+   "x": 1540,
+   "y": 300,
+   "to": [
+    1540,
+    430
+   ],
+   "word": "Moon"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "countstars"
+  },
+  "ride": "mv-path-light-pulse",
+  "kind": "ride",
+  "x": 672,
+  "y": 504,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Countless...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "centre": "a tiny red dot racing across the whole face of the Moon",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "red dot",
+   "x": 300,
+   "y": 1150,
+   "to": [
+    225,
+    905
+   ],
+   "word": "tiny red dot"
+  },
+  {
+   "type": "say",
+   "text": "Zoom!",
+   "x": 820,
+   "y": 640,
+   "to": [
+    860,
+    870
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-path-race-red-dot",
+  "kind": "ride",
+  "x": 315,
+  "y": 951,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
+}

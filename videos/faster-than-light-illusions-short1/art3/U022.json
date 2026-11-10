@@ -1,0 +1,39 @@
+{
+ "centre": "two red dots on the lunar surface with an empty dashed path between them: nothing travels sideways",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Nothing moved here",
+   "x": 540,
+   "y": 900,
+   "to": [
+    540,
+    1060
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 1560,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "backpack",
+   "bowler"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

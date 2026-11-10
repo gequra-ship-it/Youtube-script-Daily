@@ -1,0 +1,43 @@
+{
+ "centre": "the astronaut watching a paper tape unroll with a random string of spin-up and spin-down arrows",
+ "focus": [
+  690,
+  940,
+  1.6
+ ],
+ "focus_word": "spin-up and spin-down",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "unrolled",
+   "obj": "mv-unroll-result-tape",
+   "frac": 0.7
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 786,
+  "y": 990,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

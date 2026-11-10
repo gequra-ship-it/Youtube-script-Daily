@@ -1,0 +1,44 @@
+{
+ "centre": "an envelope stuck at the top particle, unable to ride down the entangled link past a light-speed limit sign",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Can't get through!",
+   "x": 780,
+   "y": 470,
+   "to": [
+    700,
+    600
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "cupshout"
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "x": 260,
+  "y": 1120,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Anyone out there?",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

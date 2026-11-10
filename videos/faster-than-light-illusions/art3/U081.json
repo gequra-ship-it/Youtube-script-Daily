@@ -1,0 +1,53 @@
+{
+ "centre": "a glowing gold particle kept in a glass bell jar on a lab bench; the physicist points at it while its partner leaves in a small capsule toward the window",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "one particle on Earth",
+ "sfx": [],
+ "iris": [
+  520,
+  560
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "laboratory",
+   "x": 1180,
+   "y": 390,
+   "to": [
+    1040,
+    470
+   ],
+   "word": "laboratory"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-path-launch-capsule",
+  "kind": "ride",
+  "x": 1114,
+  "y": 638,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

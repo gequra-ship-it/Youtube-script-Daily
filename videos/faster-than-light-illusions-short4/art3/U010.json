@@ -1,0 +1,43 @@
+{
+ "centre": "the astronaut near Saturn beside a glass capsule; the particle inside snaps to a spin-down arrow",
+ "focus": [
+  400,
+  1040,
+  1.6
+ ],
+ "focus_word": "pointing down",
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-arrow-down",
+   "h": 160
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 360,
+  "y": 1140,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

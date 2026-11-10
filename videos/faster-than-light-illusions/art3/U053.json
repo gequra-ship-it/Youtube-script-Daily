@@ -1,0 +1,65 @@
+{
+ "centre": "two lanes from Earth: light reaches the far end at once while the sound pulse in the steel has barely started; a calendar pops up by the tips",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Tips",
+   "x": 1640,
+   "y": 690,
+   "to": [
+    1750,
+    596
+   ],
+   "word": "tips"
+  },
+  {
+   "type": "say",
+   "text": "Still waiting...",
+   "x": 1400,
+   "y": 760,
+   "to": [
+    1600,
+    545
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "The tips",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-calendar",
+   "h": 148
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "x": 1635,
+  "y": 540,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

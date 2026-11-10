@@ -1,0 +1,55 @@
+{
+ "centre": "a two-lane race in space: a coral crest marker races ahead on the top lane, a glowing gold energy packet moves slower on the lower lane toward a chequered finish flag",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "phase velocity",
+   "x": 480,
+   "y": 190,
+   "to": [
+    600,
+    290
+   ],
+   "word": "phase velocity"
+  },
+  {
+   "type": "name",
+   "text": "group velocity",
+   "x": 470,
+   "y": 790,
+   "to": [
+    520,
+    690
+   ],
+   "word": "group velocity"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Here is",
+    "mood": "confused"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-path-energy-packet",
+  "kind": "ride",
+  "x": 652,
+  "y": 628,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": []
+ }
+}

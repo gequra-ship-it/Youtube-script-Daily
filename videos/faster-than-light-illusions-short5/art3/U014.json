@@ -1,0 +1,44 @@
+{
+ "centre": "a kitchen oven with a glowing window and a raisin bread loaf baking inside",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Raisin bread",
+   "x": 800,
+   "y": 420,
+   "to": [
+    620,
+    880
+   ],
+   "word": "raisin bread"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-swing-oven-mitten",
+  "kind": "ride",
+  "x": 174,
+  "y": 698,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "chef"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ]
+ }
+}

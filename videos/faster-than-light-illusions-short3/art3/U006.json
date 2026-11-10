@@ -1,0 +1,51 @@
+{
+ "centre": "three glowing fuel rods standing on the pool floor, an electron shooting out of the middle rod up through the water",
+ "focus": [
+  500,
+  1040,
+  1.5
+ ],
+ "focus_word": "fuel rod",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Fuel rod",
+   "x": 300,
+   "y": 860,
+   "to": [
+    270,
+    1100
+   ],
+   "word": "fuel rod"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "headshake"
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": "mv-path-electron-bolt",
+  "kind": "ride",
+  "x": 613,
+  "y": 1042,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "No way...",
+    "shout": false
+   }
+  ]
+ }
+}

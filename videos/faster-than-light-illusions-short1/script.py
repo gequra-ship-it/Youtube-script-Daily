@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+# faster-than-light-illusions-short1 (Miya's Note). Script from miya 2026-11-10 (dated 2026-10-24); fact-checked per guideline 12-1 (see script-check.md).
+SCENES = [
+ ('S01', 'Part 1', 'ill', 'sh1_1', 'Can a laser pointer break the speed of light? Imagine you are standing on your rooftop on a clear night, looking up at the full Moon. The Moon sits roughly 380,000 kilometers away from where you are standing.'),
+ ('S02', 'Part 2', 'ill', 'sh1_2', 'Now, imagine you hold a laser pointer capable of casting an intensely bright red dot onto the lunar surface. If you hold your hand steady, the light takes about 1.3 seconds to travel from your roof to the dusty craters of the Moon.'),
+ ('S03', 'Part 3', 'ill', 'sh1_3', 'But what happens if you suddenly flick your wrist and sweep the beam from one side of the lunar disk to the other? If you sweep your hand across an angle of about half a degree in a fraction of a second, that tiny red dot will race across the entire face of the Moon.'),
+ ('S04', 'Part 4', 'ill', 'sh1_4', 'Because the Moon is thousands of kilometers wide, a swift turn of your wrist causes the dot to travel across the lunar terrain at speeds exceeding hundreds of thousands of kilometers per second.'),
+ ('S05', 'Part 5', 'ill', 'sh1_5', 'If you performed this same thought experiment on a screen placed millions of kilometers away, the illuminated dot would easily sweep across the surface faster than 299,792 kilometers per second.'),
+ ('S06', 'Part 6', 'ill', 'sh1_6', 'Has your laser pointer just broken the ultimate law of physics? The truth is that the red dot is an optical illusion of motion. The dot on the left side of the Moon and the dot on the right side are not the same physical entity.'),
+ ('S07', 'Part 7', 'ill', 'sh1_7', 'When you shine a laser, you are not waving a rigid stick of light across space. You are spraying an endless stream of independent photon bullets outward from your device.'),
+ ('S08', 'Part 8', 'ill', 'sh1_8', 'The photons hitting the left side of the Moon arrived from Earth, and the photons hitting the right side arrived a moment later from another burst. Because no physical object is traveling sideways across the surface of the Moon, no law of physics is violated.'),
+ ('S09', 'Part 9', 'ill', 'sh1_9', 'More importantly, no information is traveling from the first crater to the second crater. If an astronaut standing at the first location wanted to send a message to an astronaut at the second location using that swept dot, they could not do so.'),
+ ('S10', 'Part 10', 'ill', 'sh1_10', 'The information traveled strictly from your hand to the Moon at the speed of light. The sideways movement of the dot is merely an illusion created by your perspective. Watch the full video to see what else only looks faster than light.'),
+]
