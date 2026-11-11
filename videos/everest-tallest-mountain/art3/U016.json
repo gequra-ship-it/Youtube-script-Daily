@@ -1,0 +1,44 @@
+{
+ "centre": "an ancient shallow sea: an ammonite swimming past swaying sea lilies and small shells on a sandy seabed under sun rays",
+ "focus": null,
+ "wind": "left",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Lovely warm sea!",
+   "x": 1120,
+   "y": 250,
+   "to": [
+    1110,
+    340
+   ]
+  }
+ ],
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "outfit": [
+   "goggles",
+   "flippers"
+  ],
+  "ride": "mv-path-ammonite",
+  "kind": "ride",
+  "x": 1082,
+  "y": 436,
+  "s": 1.13,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Gulp.",
+    "shout": false
+   }
+  ]
+ }
+}

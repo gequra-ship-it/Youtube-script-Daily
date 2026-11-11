@@ -1,0 +1,56 @@
+{
+ "centre": "map: the India landmass drifting north across an ancient sea toward the long coast of Eurasia",
+ "focus": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "India",
+   "x": 1280,
+   "y": 760,
+   "to": [
+    1000,
+    760
+   ],
+   "word": "India"
+  },
+  {
+   "type": "name",
+   "text": "Eurasia",
+   "x": 420,
+   "y": 190,
+   "to": [
+    520,
+    160
+   ],
+   "word": "Eurasia"
+  }
+ ],
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-path-india-landmass",
+  "kind": "ride",
+  "x": 841,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ]
+ }
+}

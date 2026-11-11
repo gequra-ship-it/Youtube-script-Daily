@@ -1,0 +1,47 @@
+{
+ "centre": "Everest carved out with its roots, held above a trench ready to drop into it",
+ "focus": [
+  540,
+  560,
+  1.5
+ ],
+ "focus_word": "Mount Everest",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Everest",
+   "x": 690,
+   "y": 430,
+   "to": [
+    600,
+    560
+   ],
+   "word": "Everest"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "think",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-drop-everest",
+  "kind": "ride",
+  "x": 441,
+  "y": 632,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
+}

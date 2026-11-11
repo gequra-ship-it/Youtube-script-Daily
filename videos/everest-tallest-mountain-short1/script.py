@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+# everest-tallest-mountain-short1 (Miya's Note). Script from miya 2026-11-11 (dated 2026-10-21); fact-checked per guideline 12-1 (see script-check.md).
+SCENES = [
+ ('S01', 'Part 1', 'ill', 'sh1_1', 'Is Mount Everest really the tallest mountain on Earth? Everyone learns the answer in school, but the real answer depends on where you place your ruler. Measure from sea level, and Everest wins. Measure from the true base of the mountain, where its rock begins, and another giant steps forward. Measure from the center of the planet, and it is a different mountain again.'),
+ ('S02', 'Part 2', 'ill', 'sh1_2', 'Three rulers, three winners. So which one is the real champion, and are there mountains on other worlds that make all of them look small? Imagine for a moment that the ocean waters were completely drained away. Suddenly, Mount Everest is no longer alone at the top.'),
+ ('S03', 'Part 3', 'ill', 'sh1_3', "Other silent giants step forward from the deep ocean floor and the equatorial bulge of our spinning globe. Welcome to Miya's Note, where today we explore what truly makes a mountain the tallest in the world."),
+ ('S04', 'Part 4', 'ill', 'sh1_4', 'Let us begin high in the frozen realm of the Himalayas. Picture sharp granite, blinding white glaciers, and winds that roar like jet engines. Mount Everest straddles the border between Nepal and China, rising to an officially recognized 8,848 meters above sea level.'),
+ ('S05', 'Part 5', 'ill', 'sh1_5', 'At the summit, the air holds barely one-third of the oxygen found at the coast. Climbers enter what high-altitude doctors call the death zone, where the body slowly starves of oxygen.'),
+ ('S06', 'Part 6', 'ill', 'sh1_6', "Yet the stone beneath a climber's boots holds a secret. Near the summit, a band of limestone holds marine fossils, the remains of sea creatures that lived in a shallow ocean hundreds of millions of years ago. How did ocean floor end up on the rooftop of the world?"),
+ ('S07', 'Part 7', 'ill', 'sh1_7', 'Tens of millions of years ago, India drifted northward and collided with Eurasia. The crust crumpled and folded, shoving ancient seabeds into the sky, and the Himalayas still rise by a few millimeters each year.'),
+ ('S08', 'Part 8', 'ill', 'sh1_8', 'By altitude above sea level, Everest is the undisputed king of dry land. But why did we decide that sea level should be the judge? Watch the full video to see which mountains win when we change the ruler.'),
+]

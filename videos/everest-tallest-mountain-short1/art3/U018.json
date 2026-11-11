@@ -1,0 +1,44 @@
+{
+ "centre": "climbing boots on a snowy ledge above a cut-away of rock layers, one layer hiding a softly glowing fossil",
+ "focus": [
+  540,
+  1040,
+  1.6
+ ],
+ "focus_word": "holds a secret",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Psst, down here!",
+   "x": 540,
+   "y": 1230,
+   "to": [
+    540,
+    1120
+   ]
+  }
+ ],
+ "motion": "the hidden fossil glows softly (glint)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "x": 820,
+  "y": 1560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": -1
+ }
+}

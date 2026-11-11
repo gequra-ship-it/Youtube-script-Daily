@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+# everest-tallest-mountain-short3 (Miya's Note). Script from miya 2026-11-11 (dated 2026-10-21); fact-checked per guideline 12-1 (see script-check.md).
+SCENES = [
+ ('S01', 'Part 1', 'ill', 'sh3_1', 'What if the most meaningful measurement is not how far a peak rises above the water, or how tall it stands from its base, but how far its summit reaches out into space? Which point on the surface of our planet is farthest from its center?'),
+ ('S02', 'Part 2', 'ill', 'sh3_2', 'If you assume the answer is Everest, prepare for a surprise. For this ruler, we must travel to the volcanic spine of Ecuador, in South America.'),
+ ('S03', 'Part 3', 'ill', 'sh3_3', 'Here stands Mount Chimborazo, an ancient, ice-capped stratovolcano in the Western Cordillera of the Andes. By its official altitude, Chimborazo seems entirely out of the running. Its summit rises to 6,263 meters above the ocean, far down the list of global summits.'),
+ ('S04', 'Part 4', 'ill', 'sh3_4', "It is not even the highest peak in the Andes; that title belongs to Aconcagua in Argentina. Yet its summit is the farthest point on the Earth's surface from the center of our planet."),
+ ('S05', 'Part 5', 'ill', 'sh3_5', 'How can a mountain more than two thousand meters shorter than Everest reach farther into space? The secret lies in the imperfect shape of the Earth. In textbooks, our planet is a smooth, perfect blue marble. In reality, it is an oblate spheroid, slightly flattened at the poles and bulging at the middle.'),
+ ('S06', 'Part 6', 'ill', 'sh3_6', 'Our planet spins at roughly 1,670 kilometers per hour at the equator, and that rotation pushes the equatorial regions outward. The radius at the equator is about twenty-one kilometers longer than the radius at the poles.'),
+ ('S07', 'Part 7', 'ill', 'sh3_7', 'Chimborazo sits about one and a half degrees south of the equator, right on top of this planetary bulge. Everest sits much farther north, at roughly twenty-eight degrees latitude, well away from the maximum bulge. Measured from the center of the Earth, the summit of Chimborazo is approximately 6,384 kilometers away. Everest comes up short by more than two thousand meters. Everest is higher above sea level, but sea level itself sits farther from the center of the Earth at the equator than at the poles. A mountain\'s distance from the center depends on where it stands, and Chimborazo stands on the bulge.'),
+ ('S08', 'Part 8', 'ill', 'sh3_8', 'Watch the full video to see how the deepest place on Earth compares with the tallest mountain.'),
+]

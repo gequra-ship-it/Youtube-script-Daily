@@ -1,0 +1,73 @@
+{
+ "centre": "a granite crag: a glacier grinding down the couloir, wind blowing a snow plume off the summit, a boulder tumbling down by gravity",
+ "wind": "right",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Wind",
+   "x": 1540,
+   "y": 400,
+   "to": [
+    1400,
+    330
+   ],
+   "word": "wind"
+  },
+  {
+   "type": "name",
+   "text": "Ice",
+   "x": 230,
+   "y": 560,
+   "to": [
+    440,
+    640
+   ],
+   "word": "ice"
+  },
+  {
+   "type": "name",
+   "text": "Gravity",
+   "x": 1180,
+   "y": 600,
+   "to": [
+    1015,
+    470
+   ],
+   "word": "gravity"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-falling-boulder",
+  "kind": "ride",
+  "x": 914,
+  "y": 537,
+  "s": 1.0,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

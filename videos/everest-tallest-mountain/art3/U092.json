@@ -1,0 +1,57 @@
+{
+ "centre": "the lumpy asteroid Vesta with the giant Rheasilvia impact basin on its lower side, a small impactor streaking in",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Vesta",
+   "x": 1420,
+   "y": 300,
+   "to": [
+    1150,
+    380
+   ],
+   "word": "Vesta"
+  },
+  {
+   "type": "name",
+   "text": "Rheasilvia",
+   "x": 1420,
+   "y": 780,
+   "to": [
+    1060,
+    620
+   ],
+   "word": "Rheasilvia"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   },
+   {
+    "word": "On the",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "ride": "mv-core-glide-vesta-asteroid",
+  "kind": "ride",
+  "x": 1318,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "says": []
+ }
+}

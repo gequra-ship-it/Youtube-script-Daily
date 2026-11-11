@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+# everest-tallest-mountain-short2 (Miya's Note). Script from miya 2026-11-11 (dated 2026-10-21); fact-checked per guideline 12-1 (see script-check.md).
+SCENES = [
+ ('S01', 'Part 1', 'ill', 'sh2_1', 'What happens if we look at a mountain the way an engineer looks at a skyscraper? An architect does not measure a building from a street curb across town; they measure from the foundation up to the spire.'),
+ ('S02', 'Part 2', 'ill', 'sh2_2', 'Apply that same logic to the mountains of our world, and a different contender takes the crown. We must leave the freezing snows of the Himalayas and cross thousands of kilometers of open water to the islands of Hawaii.'),
+ ('S03', 'Part 3', 'ill', 'sh2_3', 'Rising from the floor of the North Pacific Ocean is the massive volcanic giant Mauna Kea. To a traveler on a sandy Hawaiian beach, it looks like a gentle, broad-shouldered mountain rising into the tropical clouds. Its summit reaches 4,207 meters above sea level, impressive, but modest next to Everest.'),
+ ('S04', 'Part 4', 'ill', 'sh2_4', 'It even hosts astronomical observatories near its peak, because the air above it is remarkably dry and clear. But that visible summit is only the tip of an unimaginably massive volcanic structure.'),
+ ('S05', 'Part 5', 'ill', 'sh2_5', 'The true base of Mauna Kea does not sit on dry land. It rests on the deep ocean floor, about six thousand meters below the surface of the Pacific. If you could drain the ocean, you would see a monumental volcanic tower rising from the abyss.'),
+ ('S06', 'Part 6', 'ill', 'sh2_6', 'Measured from its underwater base to its summit, Mauna Kea rises roughly 10,210 meters. That is well over a thousand meters taller than Mount Everest. If you stood on the seafloor at its base and looked up, you would face a stone wall more than ten kilometers high.'),
+ ('S07', 'Part 7', 'ill', 'sh2_7', "How did such a colossal giant form without a collision of continents? While Everest was born from a head-on crash between two continents, Mauna Kea was born from a mantle plume, often called a volcanic hotspot. Deep within the Earth, a column of intense heat melts rock and punches through the oceanic crust like a welder's torch."),
+ ('S08', 'Part 8', 'ill', 'sh2_8', 'Over millions of years, fluid basaltic lava erupted onto the ocean floor and cooled in the frigid water. Layer after layer stacked up, slowly building an enormous shield volcano. Watch the full video to meet the mountain that reaches farthest into space.'),
+]

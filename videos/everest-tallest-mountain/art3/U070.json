@@ -1,0 +1,68 @@
+{
+ "centre": "ocean chart of the western Pacific with the Mariana island arc and a dark crescent trench glowing at its deepest point",
+ "focus": [
+  1180,
+  480,
+  1.7
+ ],
+ "focus_word": "Mariana Trench",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Mariana Islands",
+   "x": 900,
+   "y": 380,
+   "to": [
+    1105,
+    440
+   ],
+   "word": "Mariana Islands"
+  },
+  {
+   "type": "name",
+   "text": "Mariana Trench",
+   "x": 1560,
+   "y": 560,
+   "to": [
+    1195,
+    600
+   ],
+   "word": "Mariana Trench"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    540
+   ]
+  },
+  "x": 1660,
+  "y": 780,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "outfit": [
+   "explorer",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

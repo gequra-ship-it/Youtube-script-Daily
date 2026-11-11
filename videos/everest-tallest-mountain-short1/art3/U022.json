@@ -1,0 +1,54 @@
+{
+ "centre": "a map of an ancient sea: the India block drifting north toward the long Eurasian coast",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "India",
+   "x": 800,
+   "y": 1220,
+   "to": [
+    600,
+    1240
+   ],
+   "word": "India"
+  },
+  {
+   "type": "name",
+   "text": "Eurasia",
+   "x": 300,
+   "y": 430,
+   "to": [
+    400,
+    520
+   ],
+   "word": "Eurasia"
+  }
+ ],
+ "motion": "India travels north along a path until it meets Eurasia",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "ride": "mv-path-india-plate",
+  "kind": "ride",
+  "x": 386,
+  "y": 1420,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": []
+ }
+}

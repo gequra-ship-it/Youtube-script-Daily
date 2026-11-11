@@ -1,0 +1,56 @@
+{
+ "centre": "a curved Earth from high above: the snowy Himalayas on the Asian landmass at left, a dashed voyage route with a ship crossing the open Pacific to the Hawaiian islands",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Himalayas",
+   "x": 330,
+   "y": 300,
+   "to": [
+    300,
+    480
+   ],
+   "word": "Himalayas"
+  },
+  {
+   "type": "name",
+   "text": "Hawaii",
+   "x": 1560,
+   "y": 470,
+   "to": [
+    1550,
+    595
+   ],
+   "word": "Hawaii"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "outfit": [
+   "goggles",
+   "scarf"
+  ],
+  "ride": "mv-path-voyage-ship",
+  "kind": "ride",
+  "x": 738,
+  "y": 576,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Gulp.",
+    "shout": false
+   }
+  ]
+ }
+}

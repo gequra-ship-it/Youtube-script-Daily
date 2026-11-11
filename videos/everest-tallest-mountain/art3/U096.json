@@ -1,0 +1,69 @@
+{
+ "centre": "the curved Earth limb seen through a station window; three tiny mountain bumps on the horizon fade away",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Everest",
+   "x": 500,
+   "y": 420,
+   "to": [
+    612,
+    560
+   ],
+   "word": "Everest"
+  },
+  {
+   "type": "name",
+   "text": "Mauna Kea",
+   "x": 960,
+   "y": 340,
+   "to": [
+    960,
+    572
+   ],
+   "word": "Mauna Kea"
+  },
+  {
+   "type": "name",
+   "text": "Chimborazo",
+   "x": 1420,
+   "y": 420,
+   "to": [
+    1298,
+    556
+   ],
+   "word": "Chimborazo"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "outfit": [
+   "helmet",
+   "scarf"
+  ],
+  "x": 1660,
+  "y": 420,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "lie",
+   "dist": 461
+  },
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

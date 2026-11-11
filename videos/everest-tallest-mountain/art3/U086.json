@@ -1,0 +1,60 @@
+{
+ "centre": "map of North America with the circular base of Olympus Mons, seen from above, sliding onto the American Southwest",
+ "focus": [
+  760,
+  560,
+  1.6
+ ],
+ "focus_word": "its circular base",
+ "labels": [
+  {
+   "type": "name",
+   "text": "North America",
+   "x": 1150,
+   "y": 330,
+   "to": [
+    1090,
+    420
+   ],
+   "word": "North America"
+  },
+  {
+   "type": "name",
+   "text": "Olympus Mons",
+   "x": 700,
+   "y": 740,
+   "to": [
+    728,
+    600
+   ],
+   "word": "Olympus Mons"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-slide-olympus-mons-base",
+  "kind": "ride",
+  "x": 868,
+  "y": 692,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "laurel",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "centre": "jagged mountain summit seen close up deep under the water, with a bracket up to the surface",
+ "focus": [
+  580,
+  860,
+  1.6
+ ],
+ "focus_word": "summit",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "2 KM",
+   "word": "two kilometers"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-gap-bracket",
+   "h": 310
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 800,
+  "y": 850,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "scarf",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

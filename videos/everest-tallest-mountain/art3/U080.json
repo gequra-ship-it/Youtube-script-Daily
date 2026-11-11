@@ -1,0 +1,49 @@
+{
+ "centre": "a small rocket leaving the blue Earth toward a distant red dot",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 420,
+   "y": 340,
+   "to": [
+    400,
+    430
+   ],
+   "word": "Earth"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-rocket-launch",
+  "kind": "ride",
+  "x": 824,
+  "y": 586,
+  "s": 1.14,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
+}

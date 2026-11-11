@@ -1,0 +1,49 @@
+{
+ "centre": "two 19th-century surveyors in long brown coats at night: one beside a tripod theodolite sighting the mountain range, a lantern hanging from a levelling staff",
+ "focus": [
+  700,
+  600,
+  1.6
+ ],
+ "focus_word": "surveyors",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Surveyors",
+   "x": 720,
+   "y": 380,
+   "to": [
+    560,
+    600
+   ],
+   "word": "surveyors"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-swing-lantern",
+  "kind": "ride",
+  "x": 1103,
+  "y": 605,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "explorer",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Eek...",
+    "shout": false
+   }
+  ]
+ }
+}

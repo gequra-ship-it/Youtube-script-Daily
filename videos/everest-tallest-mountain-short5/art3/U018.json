@@ -1,0 +1,57 @@
+{
+ "centre": "the asteroid Vesta with a huge crater and a central peak at its southern end",
+ "focus": [
+  540,
+  1040,
+  1.8
+ ],
+ "focus_word": "Rheasilvia",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Vesta",
+   "x": 330,
+   "y": 720,
+   "to": [
+    410,
+    790
+   ],
+   "word": "Vesta"
+  },
+  {
+   "type": "name",
+   "text": "Rheasilvia",
+   "x": 680,
+   "y": 1190,
+   "to": [
+    610,
+    1090
+   ],
+   "word": "Rheasilvia"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "ride": "mv-core-approach-vesta",
+  "kind": "ride",
+  "x": 824,
+  "y": 1130,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": []
+ }
+}

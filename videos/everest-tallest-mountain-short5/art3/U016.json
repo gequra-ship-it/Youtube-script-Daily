@@ -1,0 +1,41 @@
+{
+ "centre": "a dusty sun above a gently tilting Martian ground with a rolling boulder",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dodge",
+   "obj": "mv-rollby-boulder",
+   "h": 68,
+   "pass": 1.992
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 610,
+  "y": 1394,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}
