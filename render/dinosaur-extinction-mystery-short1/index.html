@@ -302,21 +302,26 @@ function miyaTrAnim(tl,sel,tr,t0,dur,W,H){
 // a name label / speech bubble whose target point sits on a MOVING group follows that group (miya 2026-10-27: labels stayed at the pre-motion spot).
 // Seek-safe: a modifier tween reads the group's current matrix on every render (callbacks are skipped by seek, modifiers are not); the reference
 // matrix is read once at page init, before any motion is applied (units are hidden then, so the unit is shown invisibly for the read).
-function miyaFollow(tl,gsel,els,px,py,t0,t1,tm){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
+function miyaFollow(tl,gsel,els,px,py,t0,t1,tm,tm2){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
  var tg=els.map(function(s){return document.querySelector(s);}).filter(Boolean);if(!tg.length)return;
- var rec={g:g,p:p,q0:null,t:t0,tm:(tm==null?t0:tm),last:[0,0],tg:tg};/* tm = when the object still stands where it was DRAWN (picture start): the label's pointer was authored against that spot, so the offset is measured from there */window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
+ var rec={g:g,p:p,q0:null,t:t0,tm:(tm==null?t0:tm),tm2:(tm2==null?null:tm2),ax:px,ay:py,last:[0,0],tg:tg};/* tm = when the object still stands where it was DRAWN (picture start): the label's pointer was authored against that spot, so the offset is measured from there */window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
  function d(){if(!rec.q0)return[0,0];var m=miyaCtm(g);if(!m)return rec.last;var q=p.matrixTransform(m);rec.last=[q.x-rec.q0.x,q.y-rec.q0.y];return rec.last;}
  tl.fromTo(tg,{x:0.001,y:0.001},{x:0,y:0,duration:Math.max(t1-t0,.1),ease:'none',immediateRender:false,modifiers:{x:function(){return d()[0]+'px';},y:function(){return d()[1]+'px';}}},t0);}
 function miyaCtm(g){var t=g.closest('.t'),m=null;if(t&&t.style.display==='none'){var pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';try{m=g.getCTM();}catch(e){}t.style.display=pd;t.style.visibility=pv;}else{try{m=g.getCTM();}catch(e){}}return m;}
 // after the whole timeline exists: the tracked point (the group's centre) and its position are read AT THE LABEL'S START TIME (GSAP replaces a group's own transform
 // attribute, so the matrix at page init is not the one the label was placed against); then the timeline goes back to 0
-function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;L.slice().sort(function(a,b){return a.tm-b.tm;}).forEach(function(r){void tl.seek(r.tm+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m)r.q0=r.p.matrixTransform(m);});void tl.seek(0,false);   // 2026-10-29: the measuring seeks must go FORWARD in time only. A seek backwards renders the children in reverse order, so a picture's `display:none` (its end) was applied before its tweens had initialised: GSAP then read the empty bbox of the hidden picture and froze the wrong svgOrigin (bbox corner) of every hinge/rotor that had not been initialised yet (windmill, gears, frog legs, tails, neck, clock hand). tools/pivotlive.py checks it
+function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;var J=[];L.forEach(function(r){J.push({t:r.tm,r:r,i:0});if(r.tm2!=null){J.push({t:r.tm2,r:r,i:1});[.62,.7,.85].forEach(function(dt,k){if(r.tm+dt<r.t+Math.max(.2,0))void 0;J.push({t:r.tm+dt,r:r,i:2+k});});}});
+ J.sort(function(a,b){return a.t-b.t;}).forEach(function(j){var r=j.r;void tl.seek(j.t+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m){(r.qs=r.qs||[])[j.i]=r.p.matrixTransform(m);}});
+ L.forEach(function(r){var best=null,bd=1e18;(r.qs||[]).forEach(function(q){if(!q)return;var d=Math.hypot(q.x-r.ax,q.y-r.ay);if(d<bd){bd=d;best=q;}});r.q0=(r.tm2!=null)?{x:r.ax,y:r.ay}:best;});   /* slide/rise: the pointer dot rides the object's centre (offset = centre - authored point) */   // 2026-11-12: a sliding/rising object: the pointer was authored at the spot where the object is DRAWN (picture start) or where it is when the label pops -> take the moment nearer to the authored point (U086 Olympus Mons label stayed behind)
+ void tl.seek(0,false);
  // render order inside one seek can leave the follower one step behind its object: after every seek (the renderer steps frame by frame with seek) the followers are set again from the objects' final matrices
  function fix(){L.forEach(function(r){if(!r.q0||!r.tg)return;var m=miyaCtm(r.g);if(!m)return;var q=r.p.matrixTransform(m);gsap.set(r.tg,{x:q.x-r.q0.x,y:q.y-r.q0.y});});}
  var seek0=tl.seek;tl.seek=function(a,b){if(!arguments.length)return seek0.call(tl);var out=seek0.call(tl,a,b);fix();return out;};var time0=tl.time;tl.time=function(a,b){if(!arguments.length)return time0.call(tl);var out=time0.call(tl,a,b);fix();return out;};gsap.ticker.add(function(){if(tl.isActive())fix();});}   // the tracked point = the group's own centre (local bbox), so a turning object does not swing the label about a far pivot
 function miyaM(g){var pa=g.parentNode,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',m=null;if(t){t.style.display='block';t.style.visibility='hidden';}
  try{m=pa.getCTM();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}return m?m.inverse():null;}
 // data-pivot is meant in picture coordinates, but agents often wrote it in the coordinates the part was drawn in (inside a translated/scaled wrapper): use whichever reading lands nearer the part itself
+function miyaBO(g,fx,fy){var t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',b=null;if(t){t.style.display='block';t.style.visibility='hidden';}try{b=g.getBBox();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}
+ return b?(b.x+b.width*fx)+' '+(b.y+b.height*fy):'0 0';}
 function miyaPv(g,x,y){var m=miyaM(g);if(!m)return x+' '+y;var cx=m.a*x+m.c*y+m.e,cy=m.b*x+m.d*y+m.f,b=null,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'';
  if(t){t.style.display='block';t.style.visibility='hidden';}try{b=g.getBBox();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}
  if(b&&b.width+b.height>0){function dd(u,v){return Math.hypot(Math.max(b.x-u,0,u-b.x-b.width),Math.max(b.y-v,0,v-b.y-b.height));}if(dd(x,y)+4<dd(cx,cy))return x+' '+y;}
@@ -441,6 +446,8 @@ tl.fromTo("#w1",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:
 tl.fromTo("#fx1",{opacity:0},{opacity:1,duration:.6,immediateRender:false},0.200);tl.to("#fx1",{opacity:0,duration:.4},3.820);
 tl.fromTo("#fx1r",{rotation:-3,svgOrigin:"918 -192"},{rotation:3,duration:4.27,ease:"sine.inOut",immediateRender:false},0.000);
 tl.fromTo("#fx1 polygon",{opacity:.05},{opacity:.12,duration:1.6,yoyo:true,stagger:{each:.12,repeat:0,yoyo:true},ease:"sine.inOut",immediateRender:false},0.000);
+gsap.set(gsap.utils.toArray("#w1 .mv-core-swell-sun")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w1 .mv-core-swell-sun")[0],.5,.5),smoothOrigin:false});
+tl.fromTo(gsap.utils.toArray("#w1 .mv-core-swell-sun")[0],{scale:1,},{scale:1.2,duration:2.2,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},0.000);
 tl.set("#t2",{display:"block"},3.470);tl.set("#t2",{display:"none"},8.540);
 tl.set("#t2",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},3.470);
 tl.set("#w2",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},3.470);
@@ -502,6 +509,7 @@ tl.to("#fgu5_ll,#fgu5_lr",{attr:{height:27},duration:.06,ease:"none"},21.099);tl
 tl.fromTo("#fgu5_hd,#fgu5_of,#fgu5_te",{rotation:2.4,svgOrigin:"4 -40"},{rotation:-2.4,duration:1.90,yoyo:true,repeat:1,ease:"sine.inOut",svgOrigin:"4 -40",immediateRender:false},18.299);
 tl.to("#fgu5_lgr",{rotation:-16,duration:.22,ease:"power2.out",svgOrigin:"28 -10"},20.099);tl.to("#fgu5_lgr",{rotation:0,duration:.28,ease:"power2.in",svgOrigin:"28 -10"},20.399);
 tl.fromTo("#w5",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:0.0,y:0,duration:5.438,ease:"sine.inOut",immediateRender:false},16.449);
+gsap.set(gsap.utils.toArray("#w5 .mv-core-glide-crown")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w5 .mv-core-glide-crown")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w5 .mv-core-glide-crown")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},16.449);
 tl.set("#t6",{display:"block"},21.087);tl.set("#t6",{display:"none"},25.923);
 tl.set("#t6",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},21.087);
@@ -581,6 +589,7 @@ tl.to("#w7",{scale:1.8,x:-432.0,y:-589.8,duration:1.4,ease:"power2.inOut"},26.82
 if(document.getElementById("sp7"))tl.fromTo("#sp7",{opacity:0},{opacity:1,duration:1.4,ease:"power2.inOut",immediateRender:false},26.823);
 tl.fromTo(gsap.utils.toArray("#w7 .mv-hover-magnifier-lens")[0],{y:-10},{y:10,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},25.123);
 tl.fromTo(gsap.utils.toArray("#w7 .mv-hover-magnifier-lens")[0],{x:-14},{x:14,duration:3.680,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},25.123);
+gsap.set(gsap.utils.toArray("#w7 .mv-core-sway-pebble")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w7 .mv-core-sway-pebble")[0],.5,.5),smoothOrigin:false});
 tl.set("#t8",{display:"block"},28.960);tl.set("#t8",{display:"none"},36.759);
 tl.set("#t8",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},28.960);
 tl.set("#w8",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},28.960);
@@ -736,6 +745,8 @@ tl.fromTo("#fgu12_lf",{rotation:-1.2,svgOrigin:"0 6"},{rotation:1.2,duration:5.2
 tl.fromTo("#fgu12_hd,#fgu12_of,#fgu12_te",{rotation:2.4,svgOrigin:"4 -40"},{rotation:-2.4,duration:1.90,yoyo:true,repeat:1,ease:"sine.inOut",svgOrigin:"4 -40",immediateRender:false},55.360);
 tl.to("#fgu12_lgr",{rotation:-16,duration:.22,ease:"power2.out",svgOrigin:"28 -10"},57.160);tl.to("#fgu12_lgr",{rotation:0,duration:.28,ease:"power2.in",svgOrigin:"28 -10"},57.460);
 tl.fromTo("#w12",{scale:1.06,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.0,x:0.0,y:0,duration:5.498,ease:"sine.inOut",immediateRender:false},53.610);
+gsap.set(gsap.utils.toArray("#w12 .mv-core-approach-iridium-tile")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w12 .mv-core-approach-iridium-tile")[0],.5,.5),smoothOrigin:false});
+tl.fromTo(gsap.utils.toArray("#w12 .mv-core-approach-iridium-tile")[0],{scale:1,},{scale:1.3,duration:5.698,ease:"power1.out",immediateRender:false},53.610);
 tl.set("#t13",{display:"block"},58.608);tl.set("#t13",{display:"none"},66.931);
 tl.set("#t13",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},58.608);
 tl.set("#w13",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},58.608);
@@ -745,6 +756,8 @@ tl.fromTo("#w13",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x
 tl.fromTo("#fx13",{opacity:0},{opacity:1,duration:.6,immediateRender:false},58.808);tl.to("#fx13",{opacity:0,duration:.4},66.481);
 tl.fromTo("#fx13r",{rotation:-3,svgOrigin:"918 -192"},{rotation:3,duration:8.32,ease:"sine.inOut",immediateRender:false},58.608);
 tl.fromTo("#fx13 polygon",{opacity:.05},{opacity:.12,duration:1.6,yoyo:true,stagger:{each:.12,repeat:3,yoyo:true},ease:"sine.inOut",immediateRender:false},58.608);
+gsap.set(gsap.utils.toArray("#w13 .mv-core-spin-asteroid-rock")[0],{svgOrigin:miyaPv(gsap.utils.toArray("#w13 .mv-core-spin-asteroid-rock")[0],540,860),smoothOrigin:false});
+tl.fromTo(gsap.utils.toArray("#w13 .mv-core-spin-asteroid-rock")[0],{rotation:0,},{rotation:306.8,duration:8.523,ease:"none",immediateRender:false},58.608);
 tl.fromTo(gsap.utils.toArray("#w13 .mv-drift-rock-chunk")[0],{y:0,x:0},{y:-14,x:6,duration:6.000,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},58.608);
 tl.fromTo(gsap.utils.toArray("#w13 .mv-drift-rock-fragment")[0],{y:0,x:0},{y:-14,x:6,duration:6.000,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},58.608);
 tl.set("#t14",{display:"block"},66.031);tl.set("#t14",{display:"none"},74.755);
@@ -785,6 +798,7 @@ tl.fromTo("#fgu14_lf",{rotation:-1.2,svgOrigin:"0 6"},{rotation:1.2,duration:5.2
 tl.fromTo("#fgu14_hd,#fgu14_of,#fgu14_te",{rotation:2.4,svgOrigin:"4 -40"},{rotation:-2.4,duration:1.90,yoyo:true,repeat:3,ease:"sine.inOut",svgOrigin:"4 -40",immediateRender:false},67.881);
 tl.to("#fgu14_lgr",{rotation:-16,duration:.22,ease:"power2.out",svgOrigin:"28 -10"},69.681);tl.to("#fgu14_lgr",{rotation:0,duration:.28,ease:"power2.in",svgOrigin:"28 -10"},69.981);
 miyaTrack(tl,"#w14","M160 1160 C 300 1330 760 1330 920 1100",67.231,3.600,1.3,1080,1920,"power2.inOut",1080,1920);
+gsap.set(gsap.utils.toArray("#w14 .mv-core-glide-globe")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w14 .mv-core-glide-globe")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w14 .mv-core-glide-globe")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},66.031);
 miyaPath(tl,gsap.utils.toArray("#w14 .mv-path-paper-plane")[0],"M160 1160 C 300 1330 760 1330 920 1100",67.231,3.600,1,0.0);
 tl.set("#t15",{display:"block"},74.755);tl.set("#t15",{display:"none"},81.953);
@@ -1116,6 +1130,8 @@ tl.to("#fgu21_ll,#fgu21_lr",{attr:{height:27},duration:.06,ease:"none"},109.417)
 tl.fromTo("#w21",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:0.0,y:0,duration:4.451,ease:"sine.inOut",immediateRender:false},107.397);
 tl.fromTo("#fx21",{opacity:0},{opacity:1,duration:.6,immediateRender:false},107.597);tl.to("#fx21",{opacity:0,duration:.4},111.398);
 tl.fromTo("#fx21a",{opacity:0},{opacity:0.22,duration:1.2,ease:"sine.out",immediateRender:false},107.697);
+gsap.set(gsap.utils.toArray("#w21 .mv-core-approach-earth-globe")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w21 .mv-core-approach-earth-globe")[0],.5,.5),smoothOrigin:false});
+tl.fromTo(gsap.utils.toArray("#w21 .mv-core-approach-earth-globe")[0],{scale:1,},{scale:1.3,duration:4.651,ease:"power1.out",immediateRender:false},107.397);
 tl.to(gsap.utils.toArray("#w21 .mv-popin-bandage")[0],{scaleY:1,opacity:1,duration:.45,ease:"back.out(2)",immediateRender:false},108.597);
 tl.to(gsap.utils.toArray("#w21 .mv-hatch-sprout-plant")[0],{keyframes:[{scale:1.12,duration:0.40,ease:"power2.out"},{scale:.96,duration:0.20,ease:"sine.inOut"},{scale:1,duration:0.20,ease:"sine.out"}],immediateRender:false},108.597);
 tl.to(gsap.utils.toArray("#w21 .mv-hatch-sprout-seedling")[0],{keyframes:[{scale:1.12,duration:0.50,ease:"power2.out"},{scale:.96,duration:0.25,ease:"sine.inOut"},{scale:1,duration:0.25,ease:"sine.out"}],immediateRender:false},108.597);
@@ -1128,6 +1144,7 @@ tl.to("#t22",{y:-1920,duration:.7,ease:"power3.inOut"},117.862);
 tl.fromTo("#w22",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:-27.0,y:0,duration:7.514,ease:"sine.inOut",immediateRender:false},111.048);
 tl.fromTo("#fx22",{opacity:0},{opacity:1,duration:.6,immediateRender:false},111.248);tl.to("#fx22",{opacity:0,duration:.4},118.112);
 tl.fromTo("#fx22 line",{y:-480,x:-173},{y:480,x:173,duration:0.55,ease:"none",stagger:{each:.021,repeat:11},immediateRender:false},111.048);
+gsap.set(gsap.utils.toArray("#w22 .mv-core-orbit-rock")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w22 .mv-core-orbit-rock")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w22 .mv-core-orbit-rock")[0],{x:-34,y:0},{x:34,duration:2.4,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},111.048);
 tl.fromTo(gsap.utils.toArray("#w22 .mv-core-orbit-rock")[0],{y:-26},{y:26,duration:3.1,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},111.048);
 tl.set("#t23",{display:"block"},117.862);tl.set("#t23",{display:"none"},125.276);
@@ -1176,6 +1193,7 @@ if(document.getElementById("sp25"))tl.fromTo("#sp25",{opacity:0},{opacity:1,dura
 tl.set(gsap.utils.toArray("#w25 .mv-draw-map-coast")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:0,drawSVG:"0%"},129.030);
 tl.fromTo(gsap.utils.toArray("#w25 .mv-draw-map-coast")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{drawSVG:"0%"},{drawSVG:"100%",duration:1.4,ease:"power1.inOut",stagger:.08,immediateRender:false},130.230);
 tl.to(gsap.utils.toArray("#w25 .mv-draw-map-coast")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:(i,e)=>parseFloat(e.getAttribute("fill-opacity")||1),duration:.6,ease:"power1.out",stagger:.03,immediateRender:false},131.070);
+gsap.set(gsap.utils.toArray("#w25 .mv-core-glide-map-compass")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w25 .mv-core-glide-map-compass")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w25 .mv-core-glide-map-compass")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},129.030);
 tl.set("#t26",{display:"block"},134.134);tl.set("#t26",{display:"none"},139.237);
 tl.set("#t26",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},134.134);
@@ -1215,6 +1233,7 @@ tl.fromTo("#fgu26_hd,#fgu26_of,#fgu26_te",{rotation:2.4,svgOrigin:"4 -40"},{rota
 tl.to("#fgu26_lgr",{rotation:-16,duration:.22,ease:"power2.out",svgOrigin:"28 -10"},137.334);tl.to("#fgu26_lgr",{rotation:0,duration:.28,ease:"power2.in",svgOrigin:"28 -10"},137.634);
 tl.to("#w26",{scale:1.2,x:-108.0,y:-72.0,duration:1.4,ease:"power2.inOut"},136.876);
 if(document.getElementById("sp26"))tl.fromTo("#sp26",{opacity:0},{opacity:1,duration:1.4,ease:"power2.inOut",immediateRender:false},136.876);
+gsap.set(gsap.utils.toArray("#w26 .mv-core-glide-gravity-map")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w26 .mv-core-glide-gravity-map")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w26 .mv-core-glide-gravity-map")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},134.134);
 tl.set("#t27",{display:"block"},138.237);tl.set("#t27",{display:"none"},145.119);
 tl.set("#t27",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},138.237);
@@ -1224,6 +1243,7 @@ tl.fromTo("#w27",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x
 tl.set("#fx27",{opacity:1},138.237);
 tl.fromTo("#fx27a",{scale:.2,opacity:.8,svgOrigin:"540 960"},{scale:18.0,opacity:0,duration:.9,ease:"power2.out",immediateRender:false},139.237);
 tl.fromTo("#t27",{x:0},{x:8,duration:.05,yoyo:true,repeat:7,immediateRender:false},139.237);
+gsap.set(gsap.utils.toArray("#w27 .mv-core-flicker-crater-glow")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w27 .mv-core-flicker-crater-glow")[0],.5,.5),smoothOrigin:false});
 tl.set(gsap.utils.toArray("#w27 .mv-core-flicker-crater-glow")[0],{opacity:1},138.237);
 tl.to(gsap.utils.toArray("#w27 .mv-core-flicker-crater-glow")[0],{keyframes:[{opacity:.45,duration:.12},{opacity:1,duration:.18},{opacity:.62,duration:.14},{opacity:.95,duration:.2},{opacity:.35,duration:.1},{opacity:1,duration:.26}],repeat:7,immediateRender:false},138.237);
 tl.to(gsap.utils.toArray("#w27 .mv-popin-check-badge")[0],{scaleY:1,opacity:1,duration:.45,ease:"back.out(2)",immediateRender:false},140.237);
@@ -1253,6 +1273,7 @@ tl.fromTo("#fgu28_lf",{rotation:-1.2,svgOrigin:"0 6"},{rotation:1.2,duration:5.2
 tl.fromTo("#fgu28_hd,#fgu28_of,#fgu28_te",{rotation:2.4,svgOrigin:"4 -40"},{rotation:-2.4,duration:1.90,yoyo:true,repeat:2,ease:"sine.inOut",svgOrigin:"4 -40",immediateRender:false},146.069);
 tl.to("#fgu28_lgr",{rotation:-16,duration:.22,ease:"power2.out",svgOrigin:"28 -10"},147.869);tl.to("#fgu28_lgr",{rotation:0,duration:.28,ease:"power2.in",svgOrigin:"28 -10"},148.169);
 tl.fromTo("#w28",{scale:1.06,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.0,x:0.0,y:0,duration:6.682,ease:"sine.inOut",immediateRender:false},144.319);
+gsap.set(gsap.utils.toArray("#w28 .mv-core-glide-crater-disc")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w28 .mv-core-glide-crater-disc")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w28 .mv-core-glide-crater-disc")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},144.319);
 tl.to(gsap.utils.toArray("#w28 .mv-grow-width-ruler")[0],{scaleX:1.0,duration:1.6,ease:"power1.inOut",immediateRender:false},145.419);
 tl.set("#t29",{display:"block"},150.201);tl.set("#t29",{display:"none"},157.137);
@@ -1367,10 +1388,10 @@ tl.fromTo("#L29_0s",{opacity:0,y:30},{opacity:1,y:0,duration:0.4,ease:"power2.ou
 tl.set("#L29_0g",{opacity:1},153.701);
 tl.set("#L30_0g",{opacity:1},157.287);
 tl.fromTo("#L30_0",{scale:1,transformOrigin:"0px 0px"},{scale:0.6667,duration:1.4,ease:"power2.inOut",immediateRender:false},158.037);
-miyaFollow(tl,"#w14 .mv-core-glide-globe",["#L14_0", "#L14_0g"],505,790,69.068,74.755,66.931);
-miyaFollow(tl,"#w18 .mv-path-fall-asteroid",["#L18_0", "#L18_0g"],870,440,90.998,95.296,90.848);
-miyaFollow(tl,"#w20 .mv-path-magnifier-lens",["#L20_0", "#L20_0g"],740,720,102.097,108.297,101.797);
-miyaFollow(tl,"#w29 .mv-path-sparrow-bird",["#L29_0", "#L29_0g"],262,548,153.701,157.137,151.001);
+miyaFollow(tl,"#w14 .mv-core-glide-globe",["#L14_0", "#L14_0g"],505,790,69.068,74.755,66.931,null);
+miyaFollow(tl,"#w18 .mv-path-fall-asteroid",["#L18_0", "#L18_0g"],870,440,90.998,95.296,90.848,null);
+miyaFollow(tl,"#w20 .mv-path-magnifier-lens",["#L20_0", "#L20_0g"],740,720,102.097,108.297,101.797,null);
+miyaFollow(tl,"#w29 .mv-path-sparrow-bird",["#L29_0", "#L29_0g"],262,548,153.701,157.137,151.001,null);
 tl.set("#c0",{opacity:1},0.300);tl.set("#c0",{opacity:0},1.800);
 tl.set("#c0w0",{color:"#ffd54a"},0.300);tl.set("#c0w0",{color:"#fff"},0.800);tl.set("#c0w1",{color:"#ffd54a"},0.800);tl.set("#c0w1",{color:"#fff"},0.925);tl.set("#c0w2",{color:"#ffd54a"},0.925);tl.set("#c0w2",{color:"#fff"},1.300);tl.set("#c0w3",{color:"#ffd54a"},1.300);
 tl.set("#c1",{opacity:1},1.800);tl.set("#c1",{opacity:0},4.480);
@@ -1586,7 +1607,6 @@ tl.set("#c105w0",{color:"#ffd54a"},159.521);tl.set("#c105w0",{color:"#fff"},159.
 tl.set("#c106",{opacity:1},160.721);tl.set("#c106",{opacity:0},162.323);
 tl.set("#c106w0",{color:"#ffd54a"},160.721);tl.set("#c106w0",{color:"#fff"},160.919);tl.set("#c106w1",{color:"#ffd54a"},160.919);tl.set("#c106w1",{color:"#fff"},161.248);tl.set("#c106w2",{color:"#ffd54a"},161.248);tl.set("#c106w2",{color:"#fff"},161.512);tl.set("#c106w3",{color:"#ffd54a"},161.512);
 miyaFollowInit(tl);
-tl.fromTo(gsap.utils.toArray("#w1 .mv-core-swell-sun")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.2,duration:2.2,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},0.000);
 tl.fromTo(gsap.utils.toArray("#w1 .mv-breathe-sauropod-far-dinosaur")[0],{scaleY:1,transformOrigin:"50% 100%"},{scaleY:1.030,duration:2.200,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},0.000);
 tl.fromTo(gsap.utils.toArray("#w1 .mv-breathe-sauropod-distant-dinosaur")[0],{scaleY:1,transformOrigin:"50% 100%"},{scaleY:1.030,duration:2.200,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},0.000);
 tl.fromTo(gsap.utils.toArray("#w1 .mv-sway-fern-plant-left")[0],{rotation:-5.0,svgOrigin:miyaPv(gsap.utils.toArray("#w1 .mv-sway-fern-plant-left")[0],140,1330),smoothOrigin:false},{rotation:5.0,duration:2.200,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},0.000);
@@ -1670,10 +1690,8 @@ tl.fromTo(gsap.utils.toArray("#w11 .mv-lamp-indicator-lamp")[0],{scale:1,opacity
 tl.fromTo(gsap.utils.toArray("#w11 .mv-breathe-researcher-person")[0],{scaleY:1,transformOrigin:"50% 100%"},{scaleY:1.030,duration:2.200,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},48.812);
 tl.fromTo(gsap.utils.toArray("#w11 .mv-limb-researcher-person-arm-r-1")[0],{rotation:-2.50,svgOrigin:miyaPv(gsap.utils.toArray("#w11 .mv-limb-researcher-person-arm-r-1")[0],779.0,969.2),smoothOrigin:false},{rotation:2.50,duration:2.400,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},48.812);
 tl.fromTo(gsap.utils.toArray("#w11 .mv-limb-researcher-person-arm-l-1")[0],{rotation:-2.50,svgOrigin:miyaPv(gsap.utils.toArray("#w11 .mv-limb-researcher-person-arm-l-1")[0],881.0,969.2),smoothOrigin:false},{rotation:2.50,duration:2.400,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},48.812);
-tl.fromTo(gsap.utils.toArray("#w12 .mv-core-approach-iridium-tile")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.3,duration:5.698,ease:"power1.out",immediateRender:false},53.610);
 tl.fromTo(Array.prototype.slice.call(gsap.utils.toArray("#w12 .mv-sparkle-iridium-glint")[0].children),{scale:1,opacity:.6,transformOrigin:"50% 50%"},{scale:1.5,opacity:1,duration:0.60,ease:"sine.inOut",stagger:{each:0.30,repeat:6,yoyo:true},immediateRender:false},53.610);
 tl.fromTo(gsap.utils.toArray("#w13 .mv-glint-crust-speck")[0],{scale:1,opacity:.85,transformOrigin:"50% 50%"},{scale:1.06,opacity:1,duration:1.400,ease:"sine.inOut",yoyo:true,repeat:6,immediateRender:false},58.608);
-tl.fromTo(gsap.utils.toArray("#w13 .mv-core-spin-asteroid-rock")[0],{rotation:0,transformOrigin:"50% 50%"},{rotation:306.8,duration:8.523,ease:"none",immediateRender:false},58.608);
 tl.fromTo(gsap.utils.toArray("#w14 .mv-glint-site-pin-1")[0],{scale:1,opacity:.85,transformOrigin:"50% 50%"},{scale:1.06,opacity:1,duration:1.400,ease:"sine.inOut",yoyo:true,repeat:6,immediateRender:false},66.031);
 tl.fromTo(gsap.utils.toArray("#w14 .mv-glint-site-pin-2")[0],{scale:1,opacity:.85,transformOrigin:"50% 50%"},{scale:1.06,opacity:1,duration:1.400,ease:"sine.inOut",yoyo:true,repeat:6,immediateRender:false},66.031);
 tl.fromTo(gsap.utils.toArray("#w14 .mv-glint-site-pin-3")[0],{scale:1,opacity:.85,transformOrigin:"50% 50%"},{scale:1.06,opacity:1,duration:1.400,ease:"sine.inOut",yoyo:true,repeat:6,immediateRender:false},66.031);
@@ -1717,7 +1735,6 @@ tl.fromTo(gsap.utils.toArray("#w17 .mv-popin-idea-bubble")[0],{scale:1,transform
 tl.fromTo(gsap.utils.toArray("#w18 .mv-swell-dust-cloud")[0],{scale:1,opacity:.85,transformOrigin:"50% 50%"},{scale:1.06,opacity:1,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},90.048);
 tl.fromTo(gsap.utils.toArray("#w18 .mv-glint-impact-flash")[0],{scale:1,opacity:.85,transformOrigin:"50% 50%"},{scale:1.06,opacity:1,duration:1.400,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},90.048);
 tl.fromTo(gsap.utils.toArray("#w19 .mv-tilt-balance-scale")[0],{rotation:-6.0,svgOrigin:miyaPv(gsap.utils.toArray("#w19 .mv-tilt-balance-scale")[0],540,700),smoothOrigin:false},{rotation:6.0,duration:2.800,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},94.696);
-tl.fromTo(gsap.utils.toArray("#w21 .mv-core-approach-earth-globe")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.3,duration:4.651,ease:"power1.out",immediateRender:false},107.397);
 tl.set(gsap.utils.toArray("#w21 .mv-popin-bandage")[0],{scaleY:0,opacity:0,transformOrigin:"50% 50%"},107.397);
 tl.fromTo(gsap.utils.toArray("#w21 .mv-popin-bandage")[0],{scale:1,transformOrigin:"50% 60%"},{scale:1.03,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},109.197);
 tl.set(gsap.utils.toArray("#w21 .mv-hatch-sprout-plant")[0],{scale:0,transformOrigin:"50% 100%"},107.397);

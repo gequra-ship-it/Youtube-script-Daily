@@ -288,21 +288,26 @@ function miyaTrAnim(tl,sel,tr,t0,dur,W,H){
 // a name label / speech bubble whose target point sits on a MOVING group follows that group (miya 2026-10-27: labels stayed at the pre-motion spot).
 // Seek-safe: a modifier tween reads the group's current matrix on every render (callbacks are skipped by seek, modifiers are not); the reference
 // matrix is read once at page init, before any motion is applied (units are hidden then, so the unit is shown invisibly for the read).
-function miyaFollow(tl,gsel,els,px,py,t0,t1,tm){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
+function miyaFollow(tl,gsel,els,px,py,t0,t1,tm,tm2){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
  var tg=els.map(function(s){return document.querySelector(s);}).filter(Boolean);if(!tg.length)return;
- var rec={g:g,p:p,q0:null,t:t0,tm:(tm==null?t0:tm),last:[0,0],tg:tg};/* tm = when the object still stands where it was DRAWN (picture start): the label's pointer was authored against that spot, so the offset is measured from there */window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
+ var rec={g:g,p:p,q0:null,t:t0,tm:(tm==null?t0:tm),tm2:(tm2==null?null:tm2),ax:px,ay:py,last:[0,0],tg:tg};/* tm = when the object still stands where it was DRAWN (picture start): the label's pointer was authored against that spot, so the offset is measured from there */window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
  function d(){if(!rec.q0)return[0,0];var m=miyaCtm(g);if(!m)return rec.last;var q=p.matrixTransform(m);rec.last=[q.x-rec.q0.x,q.y-rec.q0.y];return rec.last;}
  tl.fromTo(tg,{x:0.001,y:0.001},{x:0,y:0,duration:Math.max(t1-t0,.1),ease:'none',immediateRender:false,modifiers:{x:function(){return d()[0]+'px';},y:function(){return d()[1]+'px';}}},t0);}
 function miyaCtm(g){var t=g.closest('.t'),m=null;if(t&&t.style.display==='none'){var pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';try{m=g.getCTM();}catch(e){}t.style.display=pd;t.style.visibility=pv;}else{try{m=g.getCTM();}catch(e){}}return m;}
 // after the whole timeline exists: the tracked point (the group's centre) and its position are read AT THE LABEL'S START TIME (GSAP replaces a group's own transform
 // attribute, so the matrix at page init is not the one the label was placed against); then the timeline goes back to 0
-function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;L.slice().sort(function(a,b){return a.tm-b.tm;}).forEach(function(r){void tl.seek(r.tm+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m)r.q0=r.p.matrixTransform(m);});void tl.seek(0,false);   // 2026-10-29: the measuring seeks must go FORWARD in time only. A seek backwards renders the children in reverse order, so a picture's `display:none` (its end) was applied before its tweens had initialised: GSAP then read the empty bbox of the hidden picture and froze the wrong svgOrigin (bbox corner) of every hinge/rotor that had not been initialised yet (windmill, gears, frog legs, tails, neck, clock hand). tools/pivotlive.py checks it
+function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;var J=[];L.forEach(function(r){J.push({t:r.tm,r:r,i:0});if(r.tm2!=null){J.push({t:r.tm2,r:r,i:1});[.62,.7,.85].forEach(function(dt,k){if(r.tm+dt<r.t+Math.max(.2,0))void 0;J.push({t:r.tm+dt,r:r,i:2+k});});}});
+ J.sort(function(a,b){return a.t-b.t;}).forEach(function(j){var r=j.r;void tl.seek(j.t+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m){(r.qs=r.qs||[])[j.i]=r.p.matrixTransform(m);}});
+ L.forEach(function(r){var best=null,bd=1e18;(r.qs||[]).forEach(function(q){if(!q)return;var d=Math.hypot(q.x-r.ax,q.y-r.ay);if(d<bd){bd=d;best=q;}});r.q0=(r.tm2!=null)?{x:r.ax,y:r.ay}:best;});   /* slide/rise: the pointer dot rides the object's centre (offset = centre - authored point) */   // 2026-11-12: a sliding/rising object: the pointer was authored at the spot where the object is DRAWN (picture start) or where it is when the label pops -> take the moment nearer to the authored point (U086 Olympus Mons label stayed behind)
+ void tl.seek(0,false);
  // render order inside one seek can leave the follower one step behind its object: after every seek (the renderer steps frame by frame with seek) the followers are set again from the objects' final matrices
  function fix(){L.forEach(function(r){if(!r.q0||!r.tg)return;var m=miyaCtm(r.g);if(!m)return;var q=r.p.matrixTransform(m);gsap.set(r.tg,{x:q.x-r.q0.x,y:q.y-r.q0.y});});}
  var seek0=tl.seek;tl.seek=function(a,b){if(!arguments.length)return seek0.call(tl);var out=seek0.call(tl,a,b);fix();return out;};var time0=tl.time;tl.time=function(a,b){if(!arguments.length)return time0.call(tl);var out=time0.call(tl,a,b);fix();return out;};gsap.ticker.add(function(){if(tl.isActive())fix();});}   // the tracked point = the group's own centre (local bbox), so a turning object does not swing the label about a far pivot
 function miyaM(g){var pa=g.parentNode,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',m=null;if(t){t.style.display='block';t.style.visibility='hidden';}
  try{m=pa.getCTM();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}return m?m.inverse():null;}
 // data-pivot is meant in picture coordinates, but agents often wrote it in the coordinates the part was drawn in (inside a translated/scaled wrapper): use whichever reading lands nearer the part itself
+function miyaBO(g,fx,fy){var t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',b=null;if(t){t.style.display='block';t.style.visibility='hidden';}try{b=g.getBBox();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}
+ return b?(b.x+b.width*fx)+' '+(b.y+b.height*fy):'0 0';}
 function miyaPv(g,x,y){var m=miyaM(g);if(!m)return x+' '+y;var cx=m.a*x+m.c*y+m.e,cy=m.b*x+m.d*y+m.f,b=null,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'';
  if(t){t.style.display='block';t.style.visibility='hidden';}try{b=g.getBBox();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}
  if(b&&b.width+b.height>0){function dd(u,v){return Math.hypot(Math.max(b.x-u,0,u-b.x-b.width),Math.max(b.y-v,0,v-b.y-b.height));}if(dd(x,y)+4<dd(cx,cy))return x+' '+y;}
@@ -412,6 +417,7 @@ tl.fromTo(gsap.utils.toArray("#w1 .mv-float-ash-cloud-0")[0],{y:-12},{y:12,durat
 tl.fromTo(gsap.utils.toArray("#w1 .mv-float-ash-cloud-1")[0],{y:-12},{y:12,duration:3.000,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},0.000);
 tl.fromTo(gsap.utils.toArray("#w1 .mv-float-ash-cloud-2")[0],{y:-12},{y:12,duration:3.000,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},0.000);
 tl.fromTo(gsap.utils.toArray("#w1 .mv-float-ash-cloud-3")[0],{y:-12},{y:12,duration:3.000,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},0.000);
+gsap.set(gsap.utils.toArray("#w1 .mv-core-flicker-dim-sun")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w1 .mv-core-flicker-dim-sun")[0],.5,.5),smoothOrigin:false});
 tl.set(gsap.utils.toArray("#w1 .mv-core-flicker-dim-sun")[0],{opacity:1},0.000);
 tl.to(gsap.utils.toArray("#w1 .mv-core-flicker-dim-sun")[0],{keyframes:[{opacity:.45,duration:.12},{opacity:1,duration:.18},{opacity:.62,duration:.14},{opacity:.95,duration:.2},{opacity:.35,duration:.1},{opacity:1,duration:.26}],repeat:5,immediateRender:false},0.000);
 tl.set("#t2",{display:"block"},4.087);tl.set("#t2",{display:"none"},9.973);
@@ -436,6 +442,8 @@ tl.to("#fgu2_ll,#fgu2_lr",{attr:{height:27},duration:.06,ease:"none"},8.737);tl.
 tl.fromTo("#fgu2_hd,#fgu2_of,#fgu2_te",{rotation:2.4,svgOrigin:"4 -40"},{rotation:-2.4,duration:1.90,yoyo:true,repeat:1,ease:"sine.inOut",svgOrigin:"4 -40",immediateRender:false},5.937);
 tl.to("#fgu2_lgr",{rotation:-16,duration:.22,ease:"power2.out",svgOrigin:"28 -10"},7.737);tl.to("#fgu2_lgr",{rotation:0,duration:.28,ease:"power2.in",svgOrigin:"28 -10"},8.037);
 tl.fromTo("#w2",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:-27.0,y:0,duration:5.887,ease:"sine.inOut",immediateRender:false},4.087);
+gsap.set(gsap.utils.toArray("#w2 .mv-core-approach-cracked-boulder")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w2 .mv-core-approach-cracked-boulder")[0],.5,.5),smoothOrigin:false});
+tl.fromTo(gsap.utils.toArray("#w2 .mv-core-approach-cracked-boulder")[0],{scale:1,},{scale:1.3,duration:6.087,ease:"power1.out",immediateRender:false},4.087);
 tl.set("#t3",{display:"block"},9.373);tl.set("#t3",{display:"none"},15.224);
 tl.set("#t3",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},9.373);
 tl.set("#w3",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},9.373);
@@ -570,6 +578,8 @@ tl.fromTo("#w6",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:
 tl.fromTo("#fx6",{opacity:0},{opacity:1,duration:.6,immediateRender:false},24.927);tl.to("#fx6",{opacity:0,duration:.4},32.049);
 tl.fromTo("#fx6r",{rotation:-3,svgOrigin:"918 -192"},{rotation:3,duration:7.77,ease:"sine.inOut",immediateRender:false},24.727);
 tl.fromTo("#fx6 polygon",{opacity:.05},{opacity:.12,duration:1.6,yoyo:true,stagger:{each:.12,repeat:2,yoyo:true},ease:"sine.inOut",immediateRender:false},24.727);
+gsap.set(gsap.utils.toArray("#w6 .mv-core-swell-sun")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w6 .mv-core-swell-sun")[0],.5,.5),smoothOrigin:false});
+tl.fromTo(gsap.utils.toArray("#w6 .mv-core-swell-sun")[0],{scale:1,},{scale:1.2,duration:2.2,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},24.727);
 tl.to(gsap.utils.toArray("#w6 .mv-hatch-fern-sprout")[0],{keyframes:[{scale:1.12,duration:0.40,ease:"power2.out"},{scale:.96,duration:0.20,ease:"sine.inOut"},{scale:1,duration:0.20,ease:"sine.out"}],immediateRender:false},27.127);
 tl.set("#t7",{display:"block"},31.999);tl.set("#t7",{display:"none"},37.026);
 tl.set("#t7",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},31.999);
@@ -580,6 +590,7 @@ tl.to("#t7",{x:-1080,duration:.45,ease:"expo.out"},36.576);
 tl.to("#w7",{scale:1.8,x:-432.0,y:-588.0,duration:1.4,ease:"power2.inOut"},33.499);
 if(document.getElementById("sp7"))tl.fromTo("#sp7",{opacity:0},{opacity:1,duration:1.4,ease:"power2.inOut",immediateRender:false},33.499);
 tl.to(gsap.utils.toArray("#w7 .mv-topple-stone-column")[0],{rotation:72.0,duration:0.55,ease:"power2.inOut",immediateRender:false},32.799);
+gsap.set(gsap.utils.toArray("#w7 .mv-core-flicker-seed-glow")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w7 .mv-core-flicker-seed-glow")[0],.5,.5),smoothOrigin:false});
 tl.set(gsap.utils.toArray("#w7 .mv-core-flicker-seed-glow")[0],{opacity:1},31.999);
 tl.to(gsap.utils.toArray("#w7 .mv-core-flicker-seed-glow")[0],{keyframes:[{opacity:.45,duration:.12},{opacity:1,duration:.18},{opacity:.62,duration:.14},{opacity:.95,duration:.2},{opacity:.35,duration:.1},{opacity:1,duration:.26}],repeat:5,immediateRender:false},31.999);
 tl.set("#t8",{display:"block"},36.576);tl.set("#t8",{display:"none"},41.553);
@@ -596,6 +607,7 @@ tl.fromTo("#trs6",{x:1160,opacity:.85},{x:-810,opacity:0,duration:.45,ease:"powe
 tl.fromTo("#trs7",{x:1160,opacity:.85},{x:-810,opacity:0,duration:.45,ease:"power1.out",immediateRender:false},36.681);
 tl.fromTo("#trs8",{x:1160,opacity:.85},{x:-810,opacity:0,duration:.45,ease:"power1.out",immediateRender:false},36.696);
 tl.fromTo("#w8",{scale:1.06,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.0,x:0.0,y:0,duration:4.977,ease:"sine.inOut",immediateRender:false},36.576);
+gsap.set(gsap.utils.toArray("#w8 .mv-core-flicker-warm-glow")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w8 .mv-core-flicker-warm-glow")[0],.5,.5),smoothOrigin:false});
 tl.set(gsap.utils.toArray("#w8 .mv-core-flicker-warm-glow")[0],{opacity:1},36.576);
 tl.to(gsap.utils.toArray("#w8 .mv-core-flicker-warm-glow")[0],{keyframes:[{opacity:.45,duration:.12},{opacity:1,duration:.18},{opacity:.62,duration:.14},{opacity:.95,duration:.2},{opacity:.35,duration:.1},{opacity:1,duration:.26}],repeat:5,immediateRender:false},36.576);
 tl.to(gsap.utils.toArray("#w8 .mv-popin-seed-pile")[0],{scale:1,opacity:1,duration:.45,ease:"back.out(2)",immediateRender:false},37.326);
@@ -918,6 +930,7 @@ tl.fromTo("#w18",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x
 tl.fromTo("#fx18",{opacity:0},{opacity:1,duration:.6,immediateRender:false},89.944);tl.to("#fx18",{opacity:0,duration:.4},94.485);
 tl.fromTo("#fx18r",{rotation:-3,svgOrigin:"918 -192"},{rotation:3,duration:5.19,ease:"sine.inOut",immediateRender:false},89.744);
 tl.fromTo("#fx18 polygon",{opacity:.05},{opacity:.12,duration:1.6,yoyo:true,stagger:{each:.12,repeat:1,yoyo:true},ease:"sine.inOut",immediateRender:false},89.744);
+gsap.set(gsap.utils.toArray("#w18 .mv-core-glide-sun")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w18 .mv-core-glide-sun")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w18 .mv-core-glide-sun")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},89.744);
 tl.set(gsap.utils.toArray("#w18 .mv-fade-trex-silhouette")[0],{opacity:0.95},89.744);
 tl.to(gsap.utils.toArray("#w18 .mv-fade-trex-silhouette")[0],{opacity:0.3,duration:2.6,ease:"power1.inOut",immediateRender:false},91.544);
@@ -971,6 +984,7 @@ tl.fromTo("#fgu20_lf",{rotation:-1.2,svgOrigin:"0 6"},{rotation:1.2,duration:5.2
 tl.fromTo("#fgu20_hd,#fgu20_of,#fgu20_te",{rotation:2.4,svgOrigin:"4 -40"},{rotation:-2.4,duration:1.90,yoyo:true,repeat:1,ease:"sine.inOut",svgOrigin:"4 -40",immediateRender:false},100.477);
 tl.to("#fgu20_lgr",{rotation:-16,duration:.22,ease:"power2.out",svgOrigin:"28 -10"},102.277);tl.to("#fgu20_lgr",{rotation:0,duration:.28,ease:"power2.in",svgOrigin:"28 -10"},102.577);
 tl.fromTo("#w20",{scale:1.06,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.0,x:0.0,y:0,duration:5.595,ease:"sine.inOut",immediateRender:false},98.827);
+gsap.set(gsap.utils.toArray("#w20 .mv-core-glide-asteroid-glowing-rock")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w20 .mv-core-glide-asteroid-glowing-rock")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w20 .mv-core-glide-asteroid-glowing-rock")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},98.827);
 tl.set("#t21",{display:"block"},103.621);tl.set("#t21",{display:"none"},108.447);
 tl.set("#t21",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},103.621);
@@ -1002,6 +1016,7 @@ if(document.getElementById("sp22"))tl.fromTo("#sp22",{opacity:0},{opacity:1,dura
 tl.fromTo(gsap.utils.toArray("#w22 .mv-nudge-rock-slab")[0],{x:0,y:0},{x:70,y:0,duration:.4,ease:"back.out(2.2)",immediateRender:false},108.747);
 tl.fromTo(gsap.utils.toArray("#w22 .mv-nudge-rock-slab-2")[0],{x:0,y:0},{x:-70,y:0,duration:.4,ease:"back.out(2.2)",immediateRender:false},108.747);
 tl.to(gsap.utils.toArray("#w22 .mv-hatch-sprout-stem-plant")[0],{keyframes:[{scale:1.12,duration:0.40,ease:"power2.out"},{scale:.96,duration:0.20,ease:"sine.inOut"},{scale:1,duration:0.20,ease:"sine.out"}],immediateRender:false},108.747);
+gsap.set(gsap.utils.toArray("#w22 .mv-core-flicker-gold-bud")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w22 .mv-core-flicker-gold-bud")[0],.5,.5),smoothOrigin:false});
 tl.set(gsap.utils.toArray("#w22 .mv-core-flicker-gold-bud")[0],{opacity:1},107.997);
 tl.to(gsap.utils.toArray("#w22 .mv-core-flicker-gold-bud")[0],{keyframes:[{opacity:.45,duration:.12},{opacity:1,duration:.18},{opacity:.62,duration:.14},{opacity:.95,duration:.2},{opacity:.35,duration:.1},{opacity:1,duration:.26}],repeat:4,immediateRender:false},107.997);
 tl.set("#t23",{display:"block"},111.473);tl.set("#t23",{display:"none"},119.992);
@@ -1041,6 +1056,7 @@ tl.fromTo("#fx23p14",{x:"-=22"},{x:"+=44",duration:2.00,ease:"sine.inOut",yoyo:t
 tl.fromTo("#fx23p15",{y:0,x:0,opacity:0.6,rotation:0},{y:366,x:12,duration:2.31,ease:"none",immediateRender:false},117.678);
 tl.fromTo("#fx23p15",{x:"-=22"},{x:"+=44",duration:2.40,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},111.473);
 tl.fromTo(gsap.utils.toArray("#w23 .mv-float-ash-blanket")[0],{y:-12},{y:12,duration:3.000,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},111.473);
+gsap.set(gsap.utils.toArray("#w23 .mv-core-orbit-seed")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w23 .mv-core-orbit-seed")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w23 .mv-core-orbit-seed")[0],{x:-34,y:0},{x:34,duration:2.4,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},111.473);
 tl.fromTo(gsap.utils.toArray("#w23 .mv-core-orbit-seed")[0],{y:-26},{y:26,duration:3.1,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},111.473);
 tl.set("#t24",{display:"block"},119.492);tl.set("#t24",{display:"none"},127.596);
@@ -1050,6 +1066,7 @@ tl.fromTo("#t24",{scale:2.4,opacity:0},{scale:1,duration:1.7,ease:"power3.out",i
 tl.to("#t24",{opacity:1,duration:.5,ease:"none"},119.492);
 tl.to("#w24",{scale:1.7,x:-378.0,y:-502.0,duration:1.4,ease:"power2.inOut"},123.692);
 if(document.getElementById("sp24"))tl.fromTo("#sp24",{opacity:0},{opacity:1,duration:1.4,ease:"power2.inOut",immediateRender:false},123.692);
+gsap.set(gsap.utils.toArray("#w24 .mv-core-flicker-dawn-sun")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w24 .mv-core-flicker-dawn-sun")[0],.5,.5),smoothOrigin:false});
 tl.set(gsap.utils.toArray("#w24 .mv-core-flicker-dawn-sun")[0],{opacity:1},119.492);
 tl.to(gsap.utils.toArray("#w24 .mv-core-flicker-dawn-sun")[0],{keyframes:[{opacity:.45,duration:.12},{opacity:1,duration:.18},{opacity:.62,duration:.14},{opacity:.95,duration:.2},{opacity:.35,duration:.1},{opacity:1,duration:.26}],repeat:8,immediateRender:false},119.492);
 tl.set("#t25",{display:"block"},127.596);tl.set("#t25",{display:"none"},132.132);
@@ -1059,6 +1076,7 @@ tl.set("#wash",{background:"#ece4d1"},127.096);
 tl.fromTo("#wash",{opacity:0},{opacity:1,duration:.45,ease:"power1.in",immediateRender:false},127.146);
 tl.to("#wash",{opacity:0,duration:.45,ease:"power1.out"},127.596);
 tl.fromTo("#w25",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:0.0,y:0,duration:4.536,ease:"sine.inOut",immediateRender:false},127.596);
+gsap.set(gsap.utils.toArray("#w25 .mv-core-flicker-buried-crater-disc")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w25 .mv-core-flicker-buried-crater-disc")[0],.5,.5),smoothOrigin:false});
 tl.set(gsap.utils.toArray("#w25 .mv-core-flicker-buried-crater-disc")[0],{opacity:1},127.596);
 tl.to(gsap.utils.toArray("#w25 .mv-core-flicker-buried-crater-disc")[0],{keyframes:[{opacity:.45,duration:.12},{opacity:1,duration:.18},{opacity:.62,duration:.14},{opacity:.95,duration:.2},{opacity:.35,duration:.1},{opacity:1,duration:.26}],repeat:4,immediateRender:false},127.596);
 tl.fromTo(gsap.utils.toArray("#w25 .mv-float-fish-shoal")[0],{y:-12},{y:12,duration:3.000,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},127.596);
@@ -1121,9 +1139,9 @@ tl.set("#L19_0g",{opacity:1},95.235);
 tl.fromTo("#L20_0s",{opacity:0,y:-30},{opacity:1,y:0,duration:0.4,ease:"bounce.out",immediateRender:false},100.007);
 tl.fromTo("#L20_0s",{scale:1},{scale:1.1,duration:.16,yoyo:true,repeat:1,ease:"power2.out",immediateRender:false},101.107);
 tl.set("#L20_0g",{opacity:1},100.007);
-miyaFollow(tl,"#w12 .mv-path-landing-sparrow",["#L12_0", "#L12_0g"],320,500,61.788,66.124,60.888);
-miyaFollow(tl,"#w13 .mv-hop-sparrow-bird",["#L13_0", "#L13_0g"],592,1058,66.424,71.505,66.124);
-miyaFollow(tl,"#w20 .mv-core-glide-asteroid-glowing-rock",["#L20_0", "#L20_0g"],620,820,100.007,104.421,99.527);
+miyaFollow(tl,"#w12 .mv-path-landing-sparrow",["#L12_0", "#L12_0g"],320,500,61.788,66.124,60.888,null);
+miyaFollow(tl,"#w13 .mv-hop-sparrow-bird",["#L13_0", "#L13_0g"],592,1058,66.424,71.505,66.124,null);
+miyaFollow(tl,"#w20 .mv-core-glide-asteroid-glowing-rock",["#L20_0", "#L20_0g"],620,820,100.007,104.421,99.527,null);
 tl.set("#c0",{opacity:1},0.300);tl.set("#c0",{opacity:0},1.380);
 tl.set("#c0w0",{color:"#ffd54a"},0.300);tl.set("#c0w0",{color:"#fff"},0.527);tl.set("#c0w1",{color:"#ffd54a"},0.527);tl.set("#c0w1",{color:"#fff"},0.868);tl.set("#c0w2",{color:"#ffd54a"},0.868);tl.set("#c0w2",{color:"#fff"},1.266);tl.set("#c0w3",{color:"#ffd54a"},1.266);
 tl.set("#c1",{opacity:1},1.380);tl.set("#c1",{opacity:0},2.560);
@@ -1324,7 +1342,6 @@ tl.fromTo(gsap.utils.toArray("#w1 .mv-sway-bare-tree-2")[0],{rotation:-5.0,svgOr
 tl.fromTo(gsap.utils.toArray("#w2 .mv-breathe-trex-dinosaur-a")[0],{scaleY:1,transformOrigin:"50% 100%"},{scaleY:1.030,duration:2.200,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},4.087);
 tl.to(gsap.utils.toArray("#w2 .mv-blink-trex-eye-a")[0],{scaleY:.08,duration:.07,yoyo:true,repeat:1,ease:"none",transformOrigin:"50% 50%"},4.987);
 tl.to(gsap.utils.toArray("#w2 .mv-blink-trex-eye-a")[0],{scaleY:.08,duration:.07,yoyo:true,repeat:1,ease:"none",transformOrigin:"50% 50%"},8.087);
-tl.fromTo(gsap.utils.toArray("#w2 .mv-core-approach-cracked-boulder")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.3,duration:6.087,ease:"power1.out",immediateRender:false},4.087);
 tl.fromTo(gsap.utils.toArray("#w2 .mv-teeter-small-rock")[0],{rotation:0,transformOrigin:"50% 100%"},{rotation:9.0,duration:2.40,ease:"miyaWig",immediateRender:false},5.287);
 tl.to(gsap.utils.toArray("#w2 .mv-blink-mammal-eye-b")[0],{scaleY:.08,duration:.07,yoyo:true,repeat:1,ease:"none",transformOrigin:"50% 50%"},4.987);
 tl.to(gsap.utils.toArray("#w2 .mv-blink-mammal-eye-b")[0],{scaleY:.08,duration:.07,yoyo:true,repeat:1,ease:"none",transformOrigin:"50% 50%"},8.087);
@@ -1367,7 +1384,6 @@ tl.fromTo(gsap.utils.toArray("#w5 .mv-breathe-sparrow-bird")[0],{scaleY:1,transf
 tl.fromTo(gsap.utils.toArray("#w5 .mv-joint-sparrow-head")[0],{rotation:-12.00,svgOrigin:miyaPv(gsap.utils.toArray("#w5 .mv-joint-sparrow-head")[0],556,1009),smoothOrigin:false},{rotation:12.00,duration:1.100,ease:"sine.inOut",yoyo:true,repeat:5,immediateRender:false},19.576);
 tl.to(gsap.utils.toArray("#w5 .mv-blink-sparrow-eye")[0],{scaleY:.08,duration:.07,yoyo:true,repeat:1,ease:"none",transformOrigin:"50% 50%"},20.476);
 tl.to(gsap.utils.toArray("#w5 .mv-blink-sparrow-eye")[0],{scaleY:.08,duration:.07,yoyo:true,repeat:1,ease:"none",transformOrigin:"50% 50%"},23.576);
-tl.fromTo(gsap.utils.toArray("#w6 .mv-core-swell-sun")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.2,duration:2.2,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},24.727);
 tl.set(gsap.utils.toArray("#w6 .mv-hatch-fern-sprout")[0],{scale:0,transformOrigin:"50% 100%"},24.727);
 tl.fromTo(gsap.utils.toArray("#w6 .mv-hatch-fern-sprout")[0],{scale:1,transformOrigin:"50% 60%"},{scale:1.03,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},28.077);
 tl.set(gsap.utils.toArray("#w7 .mv-topple-stone-column")[0],{rotation:0,svgOrigin:miyaPv(gsap.utils.toArray("#w7 .mv-topple-stone-column")[0],190,1280),smoothOrigin:false},31.999);
