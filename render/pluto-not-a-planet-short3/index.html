@@ -268,21 +268,26 @@ function miyaTrAnim(tl,sel,tr,t0,dur,W,H){
 // a name label / speech bubble whose target point sits on a MOVING group follows that group (miya 2026-10-27: labels stayed at the pre-motion spot).
 // Seek-safe: a modifier tween reads the group's current matrix on every render (callbacks are skipped by seek, modifiers are not); the reference
 // matrix is read once at page init, before any motion is applied (units are hidden then, so the unit is shown invisibly for the read).
-function miyaFollow(tl,gsel,els,px,py,t0,t1,tm){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
+function miyaFollow(tl,gsel,els,px,py,t0,t1,tm,tm2){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
  var tg=els.map(function(s){return document.querySelector(s);}).filter(Boolean);if(!tg.length)return;
- var rec={g:g,p:p,q0:null,t:t0,tm:(tm==null?t0:tm),last:[0,0],tg:tg};/* tm = when the object still stands where it was DRAWN (picture start): the label's pointer was authored against that spot, so the offset is measured from there */window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
+ var rec={g:g,p:p,q0:null,t:t0,tm:(tm==null?t0:tm),tm2:(tm2==null?null:tm2),ax:px,ay:py,last:[0,0],tg:tg};/* tm = when the object still stands where it was DRAWN (picture start): the label's pointer was authored against that spot, so the offset is measured from there */window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
  function d(){if(!rec.q0)return[0,0];var m=miyaCtm(g);if(!m)return rec.last;var q=p.matrixTransform(m);rec.last=[q.x-rec.q0.x,q.y-rec.q0.y];return rec.last;}
  tl.fromTo(tg,{x:0.001,y:0.001},{x:0,y:0,duration:Math.max(t1-t0,.1),ease:'none',immediateRender:false,modifiers:{x:function(){return d()[0]+'px';},y:function(){return d()[1]+'px';}}},t0);}
 function miyaCtm(g){var t=g.closest('.t'),m=null;if(t&&t.style.display==='none'){var pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';try{m=g.getCTM();}catch(e){}t.style.display=pd;t.style.visibility=pv;}else{try{m=g.getCTM();}catch(e){}}return m;}
 // after the whole timeline exists: the tracked point (the group's centre) and its position are read AT THE LABEL'S START TIME (GSAP replaces a group's own transform
 // attribute, so the matrix at page init is not the one the label was placed against); then the timeline goes back to 0
-function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;L.slice().sort(function(a,b){return a.tm-b.tm;}).forEach(function(r){void tl.seek(r.tm+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m)r.q0=r.p.matrixTransform(m);});void tl.seek(0,false);   // 2026-10-29: the measuring seeks must go FORWARD in time only. A seek backwards renders the children in reverse order, so a picture's `display:none` (its end) was applied before its tweens had initialised: GSAP then read the empty bbox of the hidden picture and froze the wrong svgOrigin (bbox corner) of every hinge/rotor that had not been initialised yet (windmill, gears, frog legs, tails, neck, clock hand). tools/pivotlive.py checks it
+function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;var J=[];L.forEach(function(r){J.push({t:r.tm,r:r,i:0});if(r.tm2!=null){J.push({t:r.tm2,r:r,i:1});[.62,.7,.85].forEach(function(dt,k){if(r.tm+dt<r.t+Math.max(.2,0))void 0;J.push({t:r.tm+dt,r:r,i:2+k});});}});
+ J.sort(function(a,b){return a.t-b.t;}).forEach(function(j){var r=j.r;void tl.seek(j.t+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m){(r.qs=r.qs||[])[j.i]=r.p.matrixTransform(m);}});
+ L.forEach(function(r){var best=null,bd=1e18;(r.qs||[]).forEach(function(q){if(!q)return;var d=Math.hypot(q.x-r.ax,q.y-r.ay);if(d<bd){bd=d;best=q;}});r.q0=(r.tm2!=null)?{x:r.ax,y:r.ay}:best;});   /* slide/rise: the pointer dot rides the object's centre (offset = centre - authored point) */   // 2026-11-12: a sliding/rising object: the pointer was authored at the spot where the object is DRAWN (picture start) or where it is when the label pops -> take the moment nearer to the authored point (U086 Olympus Mons label stayed behind)
+ void tl.seek(0,false);
  // render order inside one seek can leave the follower one step behind its object: after every seek (the renderer steps frame by frame with seek) the followers are set again from the objects' final matrices
  function fix(){L.forEach(function(r){if(!r.q0||!r.tg)return;var m=miyaCtm(r.g);if(!m)return;var q=r.p.matrixTransform(m);gsap.set(r.tg,{x:q.x-r.q0.x,y:q.y-r.q0.y});});}
  var seek0=tl.seek;tl.seek=function(a,b){if(!arguments.length)return seek0.call(tl);var out=seek0.call(tl,a,b);fix();return out;};var time0=tl.time;tl.time=function(a,b){if(!arguments.length)return time0.call(tl);var out=time0.call(tl,a,b);fix();return out;};gsap.ticker.add(function(){if(tl.isActive())fix();});}   // the tracked point = the group's own centre (local bbox), so a turning object does not swing the label about a far pivot
 function miyaM(g){var pa=g.parentNode,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',m=null;if(t){t.style.display='block';t.style.visibility='hidden';}
  try{m=pa.getCTM();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}return m?m.inverse():null;}
 // data-pivot is meant in picture coordinates, but agents often wrote it in the coordinates the part was drawn in (inside a translated/scaled wrapper): use whichever reading lands nearer the part itself
+function miyaBO(g,fx,fy){var t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',b=null;if(t){t.style.display='block';t.style.visibility='hidden';}try{b=g.getBBox();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}
+ return b?(b.x+b.width*fx)+' '+(b.y+b.height*fy):'0 0';}
 function miyaPv(g,x,y){var m=miyaM(g);if(!m)return x+' '+y;var cx=m.a*x+m.c*y+m.e,cy=m.b*x+m.d*y+m.f,b=null,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'';
  if(t){t.style.display='block';t.style.visibility='hidden';}try{b=g.getBBox();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}
  if(b&&b.width+b.height>0){function dd(u,v){return Math.hypot(Math.max(b.x-u,0,u-b.x-b.width),Math.max(b.y-v,0,v-b.y-b.height));}if(dd(x,y)+4<dd(cx,cy))return x+' '+y;}
@@ -410,6 +415,7 @@ tl.fromTo("#fx1p17",{opacity:0.14},{opacity:0.9,duration:2.20,ease:"sine.inOut",
 tl.fromTo(gsap.utils.toArray("#w1 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},0.000);
 tl.fromTo(gsap.utils.toArray("#w1 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},0.000);
 tl.fromTo(gsap.utils.toArray("#w1 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},0.000);
+gsap.set(gsap.utils.toArray("#w1 .mv-core-glide-pluto-planet")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w1 .mv-core-glide-pluto-planet")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w1 .mv-core-glide-pluto-planet")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},0.000);
 tl.set("#t2",{display:"block"},5.661);tl.set("#t2",{display:"none"},13.323);
 tl.set("#t2",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},5.661);
@@ -578,6 +584,7 @@ tl.fromTo(gsap.utils.toArray("#w3 .mv-glint-s3")[0],{opacity:1},{opacity:.35,dur
 tl.set(gsap.utils.toArray("#w3 .mv-draw-angle-arc-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:0,drawSVG:"0%"},12.423);
 tl.fromTo(gsap.utils.toArray("#w3 .mv-draw-angle-arc-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{drawSVG:"0%"},{drawSVG:"100%",duration:1.4,ease:"power1.inOut",stagger:.08,immediateRender:false},13.623);
 tl.to(gsap.utils.toArray("#w3 .mv-draw-angle-arc-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:(i,e)=>parseFloat(e.getAttribute("fill-opacity")||1),duration:.6,ease:"power1.out",stagger:.03,immediateRender:false},14.463);
+gsap.set(gsap.utils.toArray("#w3 .mv-core-glide-pluto-planet")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w3 .mv-core-glide-pluto-planet")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w3 .mv-core-glide-pluto-planet")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},12.423);
 tl.set("#t4",{display:"block"},18.200);tl.set("#t4",{display:"none"},24.678);
 tl.set("#t4",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},18.200);
@@ -669,6 +676,7 @@ tl.fromTo(gsap.utils.toArray("#w4 .mv-glint-s3")[0],{opacity:1},{opacity:.35,dur
 tl.set(gsap.utils.toArray("#w4 .mv-draw-oval-orbit-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:0,drawSVG:"0%"},18.200);
 tl.fromTo(gsap.utils.toArray("#w4 .mv-draw-oval-orbit-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{drawSVG:"0%"},{drawSVG:"100%",duration:1.4,ease:"power1.inOut",stagger:.08,immediateRender:false},19.300);
 tl.to(gsap.utils.toArray("#w4 .mv-draw-oval-orbit-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:(i,e)=>parseFloat(e.getAttribute("fill-opacity")||1),duration:.6,ease:"power1.out",stagger:.03,immediateRender:false},20.140);
+gsap.set(gsap.utils.toArray("#w4 .mv-core-glide-pluto-planet")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w4 .mv-core-glide-pluto-planet")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w4 .mv-core-glide-pluto-planet")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},18.200);
 tl.set("#t5",{display:"block"},23.778);tl.set("#t5",{display:"none"},30.356);
 tl.set("#t5",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},23.778);
@@ -684,6 +692,7 @@ tl.fromTo(gsap.utils.toArray("#w5 .mv-glint-s1")[0],{opacity:1},{opacity:.35,dur
 tl.fromTo(gsap.utils.toArray("#w5 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},23.778);
 tl.fromTo(gsap.utils.toArray("#w5 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},23.778);
 tl.fromTo(Array.prototype.slice.call(gsap.utils.toArray("#w5 .mv-dash-distance-line")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect")),{strokeDashoffset:0},{strokeDashoffset:-203,duration:6.778,ease:"none",immediateRender:false},23.778);
+gsap.set(gsap.utils.toArray("#w5 .mv-core-glide-pluto-planet")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w5 .mv-core-glide-pluto-planet")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w5 .mv-core-glide-pluto-planet")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},23.778);
 tl.set("#t6",{display:"block"},29.656);tl.set("#t6",{display:"none"},35.408);
 tl.set("#t6",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},29.656);
@@ -712,6 +721,7 @@ tl.fromTo(gsap.utils.toArray("#w6 .mv-glint-s1")[0],{opacity:1},{opacity:.35,dur
 tl.fromTo(gsap.utils.toArray("#w6 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},29.656);
 tl.fromTo(gsap.utils.toArray("#w6 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},29.656);
 tl.fromTo(gsap.utils.toArray("#w6 .mv-drift-icy-body")[0],{y:0,x:0},{y:-14,x:6,duration:6.000,ease:"sine.inOut",yoyo:true,repeat:0,immediateRender:false},29.656);
+gsap.set(gsap.utils.toArray("#w6 .mv-core-glide-pluto-planet")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w6 .mv-core-glide-pluto-planet")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w6 .mv-core-glide-pluto-planet")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},29.656);
 tl.set("#t7",{display:"block"},34.508);tl.set("#t7",{display:"none"},40.460);
 tl.set("#t7",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},34.508);
@@ -775,6 +785,7 @@ tl.fromTo(gsap.utils.toArray("#w8 .mv-glint-s3")[0],{opacity:1},{opacity:.35,dur
 tl.set(gsap.utils.toArray("#w8 .mv-draw-travelled-arc-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:0,drawSVG:"0%"},39.660);
 tl.fromTo(gsap.utils.toArray("#w8 .mv-draw-travelled-arc-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{drawSVG:"0%"},{drawSVG:"100%",duration:1.4,ease:"power1.inOut",stagger:.08,immediateRender:false},40.760);
 tl.to(gsap.utils.toArray("#w8 .mv-draw-travelled-arc-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:(i,e)=>parseFloat(e.getAttribute("fill-opacity")||1),duration:.6,ease:"power1.out",stagger:.03,immediateRender:false},41.600);
+gsap.set(gsap.utils.toArray("#w8 .mv-core-glide-pluto-planet")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w8 .mv-core-glide-pluto-planet")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w8 .mv-core-glide-pluto-planet")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},39.660);
 tl.set("#t9",{display:"block"},44.912);tl.set("#t9",{display:"none"},51.154);
 tl.set("#t9",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},44.912);
@@ -836,6 +847,8 @@ tl.fromTo("#fx10p17",{opacity:0.14},{opacity:0.9,duration:2.20,ease:"sine.inOut"
 tl.fromTo(gsap.utils.toArray("#w10 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},50.354);
 tl.fromTo(gsap.utils.toArray("#w10 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},50.354);
 tl.fromTo(gsap.utils.toArray("#w10 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},50.354);
+gsap.set(gsap.utils.toArray("#w10 .mv-core-approach-pluto-planet")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w10 .mv-core-approach-pluto-planet")[0],.5,.5),smoothOrigin:false});
+tl.fromTo(gsap.utils.toArray("#w10 .mv-core-approach-pluto-planet")[0],{scale:1,},{scale:1.3,duration:6.642,ease:"power1.out",immediateRender:false},50.354);
 tl.set(gsap.utils.toArray("#w10 .mv-draw-spin-arrow-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:0,drawSVG:"0%"},50.354);
 tl.fromTo(gsap.utils.toArray("#w10 .mv-draw-spin-arrow-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{drawSVG:"0%"},{drawSVG:"100%",duration:1.4,ease:"power1.inOut",stagger:.08,immediateRender:false},51.454);
 tl.to(gsap.utils.toArray("#w10 .mv-draw-spin-arrow-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:(i,e)=>parseFloat(e.getAttribute("fill-opacity")||1),duration:.6,ease:"power1.out",stagger:.03,immediateRender:false},52.294);
@@ -859,6 +872,8 @@ tl.to(gsap.utils.toArray("#w11 .mv-draw-forward-spin-arrow-path")[0].querySelect
 tl.set(gsap.utils.toArray("#w11 .mv-draw-backward-spin-arrow-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:0,drawSVG:"0%"},55.896);
 tl.fromTo(gsap.utils.toArray("#w11 .mv-draw-backward-spin-arrow-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{drawSVG:"0%"},{drawSVG:"100%",duration:1.4,ease:"power1.inOut",stagger:.08,immediateRender:false},57.096);
 tl.to(gsap.utils.toArray("#w11 .mv-draw-backward-spin-arrow-path")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect"),{fillOpacity:(i,e)=>parseFloat(e.getAttribute("fill-opacity")||1),duration:.6,ease:"power1.out",stagger:.03,immediateRender:false},57.936);
+gsap.set(gsap.utils.toArray("#w11 .mv-core-approach-pluto-planet")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w11 .mv-core-approach-pluto-planet")[0],.5,.5),smoothOrigin:false});
+tl.fromTo(gsap.utils.toArray("#w11 .mv-core-approach-pluto-planet")[0],{scale:1,},{scale:1.3,duration:6.742,ease:"power1.out",immediateRender:false},55.896);
 tl.set("#t12",{display:"block"},61.939);tl.set("#t12",{display:"none"},67.982);
 tl.set("#t12",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},61.939);
 tl.set("#w12",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},61.939);
@@ -922,6 +937,7 @@ tl.fromTo("#w12",{scale:1.06,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.0,x
 tl.fromTo(gsap.utils.toArray("#w12 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},61.939);
 tl.fromTo(gsap.utils.toArray("#w12 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},61.939);
 tl.fromTo(gsap.utils.toArray("#w12 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},61.939);
+gsap.set(gsap.utils.toArray("#w12 .mv-core-glide-pluto-planet")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w12 .mv-core-glide-pluto-planet")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w12 .mv-core-glide-pluto-planet")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},61.939);
 tl.set("#t13",{display:"block"},67.382);tl.set("#t13",{display:"none"},73.526);
 tl.set("#t13",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},67.382);
@@ -1143,6 +1159,7 @@ tl.fromTo("#fx18p17",{opacity:0.14},{opacity:0.9,duration:2.20,ease:"sine.inOut"
 tl.fromTo(gsap.utils.toArray("#w18 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},95.027);
 tl.fromTo(gsap.utils.toArray("#w18 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},95.027);
 tl.fromTo(gsap.utils.toArray("#w18 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},95.027);
+gsap.set(gsap.utils.toArray("#w18 .mv-core-glide-pluto-planet")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w18 .mv-core-glide-pluto-planet")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w18 .mv-core-glide-pluto-planet")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},95.027);
 miyaPath(tl,gsap.utils.toArray("#w18 .mv-path-neptune-planet")[0],"M427.2 448.5 L443.2 451.6 L459.1 455.1 L474.9 459.1 L490.6 463.5 L506.1 468.4 L521.5 473.8 L536.8 479.6 L551.8 485.8 L566.7 492.5 L581.3 499.6 L595.8 507.1 L610 515 L624 523.4 L637.7 532.1 L651.2 541.3 L664.4 550.8 L677.3 560.7 L690 571 L702.3 581.7 L714.3 592.7 L726 604 L737.3 615.7 L748.3 627.7 L759 640 L769.3 652.7 L779.2 665.6 L788.7 678.8 L797.9 692.3 L806.6 706 L815 720",96.027,4.000,0,0.0);
 tl.set("#t19",{display:"block"},100.834);tl.set("#t19",{display:"none"},105.888);
@@ -1193,6 +1210,7 @@ if(document.getElementById("sp20"))tl.fromTo("#sp20",{opacity:0},{opacity:1,dura
 tl.fromTo(gsap.utils.toArray("#w20 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},104.888);
 tl.fromTo(gsap.utils.toArray("#w20 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},104.888);
 tl.fromTo(gsap.utils.toArray("#w20 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},104.888);
+gsap.set(gsap.utils.toArray("#w20 .mv-core-glide-pluto-planet")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w20 .mv-core-glide-pluto-planet")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w20 .mv-core-glide-pluto-planet")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},104.888);
 tl.set("#t21",{display:"block"},109.692);tl.set("#t21",{display:"none"},115.096);
 tl.set("#t21",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},109.692);
@@ -1256,6 +1274,8 @@ tl.fromTo(gsap.utils.toArray("#w22 .mv-glint-s1")[0],{opacity:1},{opacity:.35,du
 tl.fromTo(gsap.utils.toArray("#w22 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},114.296);
 tl.fromTo(gsap.utils.toArray("#w22 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},114.296);
 miyaPath(tl,gsap.utils.toArray("#w22 .mv-path-orbit-pluto-planet")[0],"M563.4 716.5 L519.3 729.5 L475.4 741.6 L432.2 752.5 L390.2 762.2 L349.9 770.6 L311.6 777.5 L275.8 782.9 L243 786.8 L213.3 789 L187.3 789.7 L165.1 788.6 L147 786 L133.3 781.7 L124 775.9 L119.2 768.6 L119.1 759.9 L123.6 749.9 L132.6 738.7 L146.1 726.4 L163.9 713.2 L185.8 699.1 L211.7 684.4 L241.1 669.2 L273.8 653.7 L309.4 638.1 L347.5 622.4 L387.7 607 L429.6 591.9 L472.8 577.4 L516.6 563.5 L560.7 550.5 L604.6 538.4 L647.8 527.5 L689.8 517.8 L730.1 509.4 L768.4 502.5 L804.2 497.1 L837 493.2 L866.7 491 L892.7 490.3 L914.9 491.4 L933 494 L946.7 498.3 L956 504.1 L960.8 511.4 L960.9 520.1 L956.4 530.1 L947.4 541.3 L933.9 553.6 L916.1 566.8 L894.2 580.9 L868.3 595.6 L838.9 610.8 L806.2 626.3 L770.6 641.9 L732.5 657.6 L692.3 673 L650.4 688.1 L607.2 702.6 L563.4 716.5",115.296,6.000,0,0.0);
+gsap.set(gsap.utils.toArray("#w22 .mv-core-approach-play-button")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w22 .mv-core-approach-play-button")[0],.5,.5),smoothOrigin:false});
+tl.fromTo(gsap.utils.toArray("#w22 .mv-core-approach-play-button")[0],{scale:1,},{scale:1.3,duration:8.024,ease:"power1.out",immediateRender:false},114.296);
 tl.fromTo("#L1_0s",{opacity:0,scale:2.2},{opacity:1,scale:1,duration:0.35,ease:"power3.out",immediateRender:false},0.300);
 tl.set("#L1_0g",{opacity:1},0.300);
 tl.fromTo("#L1_0",{scale:1,transformOrigin:"0px 0px"},{scale:0.5882,duration:1.4,ease:"power2.inOut",immediateRender:false},0.900);
@@ -1288,7 +1308,7 @@ tl.to("#L14_0",{opacity:0,x:-20,duration:.35,ease:"power1.in"},81.220);
 (function(){var c=document.querySelector("#L14_0 .cnt");if(!c)return;var v=+c.dataset.v,d=+c.dataset.dec,gp=c.dataset.grp==="1";tl.fromTo(c,{innerText:0},{innerText:v,duration:.9,ease:"power2.out",immediateRender:false,modifiers:{innerText:function(x){return (+x).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:gp});}}},74.459);})();
 tl.to("#L19_0",{opacity:0,x:-20,duration:.35,ease:"power1.in"},108.038);
 (function(){var c=document.querySelector("#L19_0 .cnt");if(!c)return;var v=+c.dataset.v,d=+c.dataset.dec,gp=c.dataset.grp==="1";tl.fromTo(c,{innerText:0},{innerText:v,duration:.9,ease:"power2.out",immediateRender:false,modifiers:{innerText:function(x){return (+x).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:gp});}}},102.644);})();
-miyaFollow(tl,"#w1 .mv-core-glide-pluto-planet",["#L1_0", "#L1_0g"],600,760,0.300,6.661,0.000);
+miyaFollow(tl,"#w1 .mv-core-glide-pluto-planet",["#L1_0", "#L1_0g"],600,760,0.300,6.661,0.000,null);
 tl.set("#c0",{opacity:1},0.300);tl.set("#c0",{opacity:0},1.080);
 tl.set("#c0w0",{color:"#ffd54a"},0.300);tl.set("#c0w0",{color:"#fff"},0.473);tl.set("#c0w1",{color:"#ffd54a"},0.473);tl.set("#c0w1",{color:"#fff"},0.647);tl.set("#c0w2",{color:"#ffd54a"},0.647);tl.set("#c0w2",{color:"#fff"},0.863);tl.set("#c0w3",{color:"#ffd54a"},0.863);
 tl.set("#c1",{opacity:1},1.080);tl.set("#c1",{opacity:0},2.140);
@@ -1464,17 +1484,14 @@ tl.fromTo(gsap.utils.toArray("#w4 .mv-draw-oval-orbit-path")[0],{scale:1,transfo
 tl.fromTo(gsap.utils.toArray("#w7 .mv-flagwave-finish-flag")[0],{skewY:-4.0,svgOrigin:miyaPv(gsap.utils.toArray("#w7 .mv-flagwave-finish-flag")[0],840,1350),smoothOrigin:false},{skewY:4.0,duration:0.700,ease:"sine.inOut",yoyo:true,repeat:8,immediateRender:false},34.508);
 tl.fromTo(gsap.utils.toArray("#w8 .mv-draw-travelled-arc-path")[0],{scale:1,transformOrigin:"50% 60%"},{scale:1.03,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},42.910);
 tl.fromTo(gsap.utils.toArray("#w9 .mv-flagwave-gate-flag")[0],{skewY:-4.0,svgOrigin:miyaPv(gsap.utils.toArray("#w9 .mv-flagwave-gate-flag")[0],700,700),smoothOrigin:false},{skewY:4.0,duration:0.700,ease:"sine.inOut",yoyo:true,repeat:9,immediateRender:false},44.912);
-tl.fromTo(gsap.utils.toArray("#w10 .mv-core-approach-pluto-planet")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.3,duration:6.642,ease:"power1.out",immediateRender:false},50.354);
 tl.fromTo(gsap.utils.toArray("#w10 .mv-draw-spin-arrow-path")[0],{scale:1,transformOrigin:"50% 60%"},{scale:1.03,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},53.604);
 tl.fromTo(gsap.utils.toArray("#w11 .mv-draw-forward-spin-arrow-path")[0],{scale:1,transformOrigin:"50% 60%"},{scale:1.03,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},59.246);
 tl.fromTo(gsap.utils.toArray("#w11 .mv-draw-backward-spin-arrow-path")[0],{scale:1,transformOrigin:"50% 60%"},{scale:1.03,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},59.246);
-tl.fromTo(gsap.utils.toArray("#w11 .mv-core-approach-pluto-planet")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.3,duration:6.742,ease:"power1.out",immediateRender:false},55.896);
 tl.set(gsap.utils.toArray("#w19 .mv-unroll-measuring-tape")[0],{scaleX:0,transformOrigin:"0% 50%"},100.834);
 tl.fromTo(gsap.utils.toArray("#w19 .mv-unroll-measuring-tape")[0],{scale:1,transformOrigin:"50% 60%"},{scale:1.03,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},102.534);
 tl.fromTo(gsap.utils.toArray("#w20 .mv-lamp-spot-lamp")[0],{scale:1,opacity:.85,transformOrigin:"50% 50%"},{scale:1.06,opacity:1,duration:1.200,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},104.888);
 tl.fromTo("#t21",{rotation:-8,scale:1.25,opacity:0,transformOrigin:"50% 120%"},{rotation:0,scale:1,opacity:1,duration:.8,ease:"back.out(1.4)",immediateRender:false},109.692);
 tl.to("#t21",{scaleX:0,transformOrigin:"0% 50%",duration:.8,ease:"power2.inOut"},114.296);
-tl.fromTo(gsap.utils.toArray("#w22 .mv-core-approach-play-button")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.3,duration:8.024,ease:"power1.out",immediateRender:false},114.296);
 tl.fromTo("#L3_0",{scale:1,transformOrigin:"0% 50%"},{scale:1.08,duration:.14,ease:"power2.out",yoyo:true,repeat:1,immediateRender:false},17.500);
 tl.fromTo("#L5_0",{scale:1,transformOrigin:"0% 50%"},{scale:1.08,duration:.14,ease:"power2.out",yoyo:true,repeat:1,immediateRender:false},27.743);
 tl.fromTo("#L6_0",{opacity:0,rotationX:90,transformPerspective:600,transformOrigin:"50% 0%"},{opacity:1,rotationX:0,duration:.45,ease:"power2.out",immediateRender:false},32.458);
