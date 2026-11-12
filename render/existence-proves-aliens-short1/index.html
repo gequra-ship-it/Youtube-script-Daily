@@ -293,21 +293,26 @@ function miyaTrAnim(tl,sel,tr,t0,dur,W,H){
 // a name label / speech bubble whose target point sits on a MOVING group follows that group (miya 2026-10-27: labels stayed at the pre-motion spot).
 // Seek-safe: a modifier tween reads the group's current matrix on every render (callbacks are skipped by seek, modifiers are not); the reference
 // matrix is read once at page init, before any motion is applied (units are hidden then, so the unit is shown invisibly for the read).
-function miyaFollow(tl,gsel,els,px,py,t0,t1,tm){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
+function miyaFollow(tl,gsel,els,px,py,t0,t1,tm,tm2){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
  var tg=els.map(function(s){return document.querySelector(s);}).filter(Boolean);if(!tg.length)return;
- var rec={g:g,p:p,q0:null,t:t0,tm:(tm==null?t0:tm),last:[0,0],tg:tg};/* tm = when the object still stands where it was DRAWN (picture start): the label's pointer was authored against that spot, so the offset is measured from there */window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
+ var rec={g:g,p:p,q0:null,t:t0,tm:(tm==null?t0:tm),tm2:(tm2==null?null:tm2),ax:px,ay:py,last:[0,0],tg:tg};/* tm = when the object still stands where it was DRAWN (picture start): the label's pointer was authored against that spot, so the offset is measured from there */window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
  function d(){if(!rec.q0)return[0,0];var m=miyaCtm(g);if(!m)return rec.last;var q=p.matrixTransform(m);rec.last=[q.x-rec.q0.x,q.y-rec.q0.y];return rec.last;}
  tl.fromTo(tg,{x:0.001,y:0.001},{x:0,y:0,duration:Math.max(t1-t0,.1),ease:'none',immediateRender:false,modifiers:{x:function(){return d()[0]+'px';},y:function(){return d()[1]+'px';}}},t0);}
 function miyaCtm(g){var t=g.closest('.t'),m=null;if(t&&t.style.display==='none'){var pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';try{m=g.getCTM();}catch(e){}t.style.display=pd;t.style.visibility=pv;}else{try{m=g.getCTM();}catch(e){}}return m;}
 // after the whole timeline exists: the tracked point (the group's centre) and its position are read AT THE LABEL'S START TIME (GSAP replaces a group's own transform
 // attribute, so the matrix at page init is not the one the label was placed against); then the timeline goes back to 0
-function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;L.slice().sort(function(a,b){return a.tm-b.tm;}).forEach(function(r){void tl.seek(r.tm+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m)r.q0=r.p.matrixTransform(m);});void tl.seek(0,false);   // 2026-10-29: the measuring seeks must go FORWARD in time only. A seek backwards renders the children in reverse order, so a picture's `display:none` (its end) was applied before its tweens had initialised: GSAP then read the empty bbox of the hidden picture and froze the wrong svgOrigin (bbox corner) of every hinge/rotor that had not been initialised yet (windmill, gears, frog legs, tails, neck, clock hand). tools/pivotlive.py checks it
+function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;var J=[];L.forEach(function(r){J.push({t:r.tm,r:r,i:0});if(r.tm2!=null){J.push({t:r.tm2,r:r,i:1});[.62,.7,.85].forEach(function(dt,k){if(r.tm+dt<r.t+Math.max(.2,0))void 0;J.push({t:r.tm+dt,r:r,i:2+k});});}});
+ J.sort(function(a,b){return a.t-b.t;}).forEach(function(j){var r=j.r;void tl.seek(j.t+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m){(r.qs=r.qs||[])[j.i]=r.p.matrixTransform(m);}});
+ L.forEach(function(r){var best=null,bd=1e18;(r.qs||[]).forEach(function(q){if(!q)return;var d=Math.hypot(q.x-r.ax,q.y-r.ay);if(d<bd){bd=d;best=q;}});r.q0=(r.tm2!=null)?{x:r.ax,y:r.ay}:best;});   /* slide/rise: the pointer dot rides the object's centre (offset = centre - authored point) */   // 2026-11-12: a sliding/rising object: the pointer was authored at the spot where the object is DRAWN (picture start) or where it is when the label pops -> take the moment nearer to the authored point (U086 Olympus Mons label stayed behind)
+ void tl.seek(0,false);
  // render order inside one seek can leave the follower one step behind its object: after every seek (the renderer steps frame by frame with seek) the followers are set again from the objects' final matrices
  function fix(){L.forEach(function(r){if(!r.q0||!r.tg)return;var m=miyaCtm(r.g);if(!m)return;var q=r.p.matrixTransform(m);gsap.set(r.tg,{x:q.x-r.q0.x,y:q.y-r.q0.y});});}
  var seek0=tl.seek;tl.seek=function(a,b){if(!arguments.length)return seek0.call(tl);var out=seek0.call(tl,a,b);fix();return out;};var time0=tl.time;tl.time=function(a,b){if(!arguments.length)return time0.call(tl);var out=time0.call(tl,a,b);fix();return out;};gsap.ticker.add(function(){if(tl.isActive())fix();});}   // the tracked point = the group's own centre (local bbox), so a turning object does not swing the label about a far pivot
 function miyaM(g){var pa=g.parentNode,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',m=null;if(t){t.style.display='block';t.style.visibility='hidden';}
  try{m=pa.getCTM();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}return m?m.inverse():null;}
 // data-pivot is meant in picture coordinates, but agents often wrote it in the coordinates the part was drawn in (inside a translated/scaled wrapper): use whichever reading lands nearer the part itself
+function miyaBO(g,fx,fy){var t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',b=null;if(t){t.style.display='block';t.style.visibility='hidden';}try{b=g.getBBox();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}
+ return b?(b.x+b.width*fx)+' '+(b.y+b.height*fy):'0 0';}
 function miyaPv(g,x,y){var m=miyaM(g);if(!m)return x+' '+y;var cx=m.a*x+m.c*y+m.e,cy=m.b*x+m.d*y+m.f,b=null,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'';
  if(t){t.style.display='block';t.style.visibility='hidden';}try{b=g.getBBox();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}
  if(b&&b.width+b.height>0){function dd(u,v){return Math.hypot(Math.max(b.x-u,0,u-b.x-b.width),Math.max(b.y-v,0,v-b.y-b.height));}if(dd(x,y)+4<dd(cx,cy))return x+' '+y;}
@@ -413,6 +418,7 @@ tl.set("#t1",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 8
 tl.set("#w1",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},0.000);
 tl.to("#w1",{scale:1.5,x:-270.0,y:-330.0,duration:1.4,ease:"power2.inOut"},0.900);
 if(document.getElementById("sp1"))tl.fromTo("#sp1",{opacity:0},{opacity:1,duration:1.4,ease:"power2.inOut",immediateRender:false},0.900);
+gsap.set(gsap.utils.toArray("#w1 .mv-core-flicker-warm-glow")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w1 .mv-core-flicker-warm-glow")[0],.5,.5),smoothOrigin:false});
 tl.set(gsap.utils.toArray("#w1 .mv-core-flicker-warm-glow")[0],{opacity:1},0.000);
 tl.to(gsap.utils.toArray("#w1 .mv-core-flicker-warm-glow")[0],{keyframes:[{opacity:.45,duration:.12},{opacity:1,duration:.18},{opacity:.62,duration:.14},{opacity:.95,duration:.2},{opacity:.35,duration:.1},{opacity:1,duration:.26}],repeat:5,immediateRender:false},0.000);
 tl.fromTo(gsap.utils.toArray("#w1 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},0.000);
@@ -444,6 +450,8 @@ tl.fromTo(gsap.utils.toArray("#w2 .mv-glint-s1")[0],{opacity:1},{opacity:.35,dur
 tl.fromTo(gsap.utils.toArray("#w2 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},3.955);
 tl.fromTo(gsap.utils.toArray("#w2 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},3.955);
 miyaPath(tl,gsap.utils.toArray("#w2 .mv-path-comet")[0],"M140 420 C380 360 620 340 920 380",5.355,4.500,1,0.0);
+gsap.set(gsap.utils.toArray("#w2 .mv-core-approach-magnifier-lens")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w2 .mv-core-approach-magnifier-lens")[0],.5,.5),smoothOrigin:false});
+tl.fromTo(gsap.utils.toArray("#w2 .mv-core-approach-magnifier-lens")[0],{scale:1,},{scale:1.3,duration:6.155,ease:"power1.out",immediateRender:false},3.955);
 tl.set("#t3",{display:"block"},9.409);tl.set("#t3",{display:"none"},15.909);
 tl.set("#t3",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},9.409);
 tl.set("#w3",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},9.409);
@@ -497,6 +505,7 @@ tl.fromTo("#fx3p7",{x:"-=22"},{x:"+=44",duration:2.40,ease:"sine.inOut",yoyo:tru
 tl.fromTo(gsap.utils.toArray("#w3 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},9.409);
 tl.fromTo(gsap.utils.toArray("#w3 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},9.409);
 tl.fromTo(gsap.utils.toArray("#w3 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},9.409);
+gsap.set(gsap.utils.toArray("#w3 .mv-core-ping-radio-dish")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w3 .mv-core-ping-radio-dish")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(Array.prototype.slice.call(gsap.utils.toArray("#w3 .mv-dash-radio-beam")[0].querySelectorAll("path,line,polyline,polygon,circle,ellipse,rect")),{strokeDashoffset:0},{strokeDashoffset:-268,duration:6.699,ease:"none",immediateRender:false},9.409);
 miyaPath(tl,gsap.utils.toArray("#w3 .mv-path-satellite")[0],"M880 460 C760 420 640 400 520 410",10.209,5.000,0,0.0);
 tl.set("#t4",{display:"block"},15.109);tl.set("#t4",{display:"none"},21.908);
@@ -563,6 +572,7 @@ tl.fromTo(gsap.utils.toArray("#w7 .mv-glint-s1")[0],{opacity:1},{opacity:.35,dur
 tl.fromTo(gsap.utils.toArray("#w7 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},31.592);
 tl.fromTo(gsap.utils.toArray("#w7 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},31.592);
 tl.fromTo(gsap.utils.toArray("#w7 .mv-smoke-volcano-plume")[0],{y:0,x:0},{y:-14,x:6,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:5,immediateRender:false},31.592);
+gsap.set(gsap.utils.toArray("#w7 .mv-core-glide-molecule-cluster")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w7 .mv-core-glide-molecule-cluster")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w7 .mv-core-glide-molecule-cluster")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},31.592);
 miyaPath(tl,gsap.utils.toArray("#w7 .mv-path-falling-meteor")[0],"M560 340 C680 420 780 500 860 600",33.192,2.200,1,0.0);
 tl.set("#t8",{display:"block"},39.093);tl.set("#t8",{display:"none"},46.695);
@@ -719,6 +729,7 @@ tl.fromTo("#fx11p17",{opacity:0.14},{opacity:0.9,duration:2.20,ease:"sine.inOut"
 tl.fromTo(gsap.utils.toArray("#w11 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},56.980);
 tl.fromTo(gsap.utils.toArray("#w11 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},56.980);
 tl.fromTo(gsap.utils.toArray("#w11 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},56.980);
+gsap.set(gsap.utils.toArray("#w11 .mv-core-flicker-host-star")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w11 .mv-core-flicker-host-star")[0],.5,.5),smoothOrigin:false});
 tl.set(gsap.utils.toArray("#w11 .mv-core-flicker-host-star")[0],{opacity:1},56.980);
 tl.to(gsap.utils.toArray("#w11 .mv-core-flicker-host-star")[0],{keyframes:[{opacity:.45,duration:.12},{opacity:1,duration:.18},{opacity:.62,duration:.14},{opacity:.95,duration:.2},{opacity:.35,duration:.1},{opacity:1,duration:.26}],repeat:6,immediateRender:false},56.980);
 tl.set("#t12",{display:"block"},62.572);tl.set("#t12",{display:"none"},69.050);
@@ -749,6 +760,7 @@ tl.fromTo(gsap.utils.toArray("#w12 .mv-glint-s1")[0],{opacity:1},{opacity:.35,du
 tl.fromTo(gsap.utils.toArray("#w12 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},62.572);
 tl.fromTo(gsap.utils.toArray("#w12 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},62.572);
 miyaTicks(tl,gsap.utils.toArray("#w12 .mv-ticks-found-planets")[0],62.572,64.072,0.12,"",9999);
+gsap.set(gsap.utils.toArray("#w12 .mv-core-glide-kepler-telescope")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w12 .mv-core-glide-kepler-telescope")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w12 .mv-core-glide-kepler-telescope")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},62.572);
 tl.set("#t13",{display:"block"},69.050);tl.set("#t13",{display:"none"},74.628);
 tl.set("#t13",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},69.050);
@@ -779,6 +791,7 @@ tl.fromTo("#fx13p17",{opacity:0.14},{opacity:0.9,duration:2.20,ease:"sine.inOut"
 tl.fromTo(gsap.utils.toArray("#w13 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},69.050);
 tl.fromTo(gsap.utils.toArray("#w13 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},69.050);
 tl.fromTo(gsap.utils.toArray("#w13 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},69.050);
+gsap.set(gsap.utils.toArray("#w13 .mv-core-glide-ocean-exoplanet")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w13 .mv-core-glide-ocean-exoplanet")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w13 .mv-core-glide-ocean-exoplanet")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},69.050);
 tl.set("#t14",{display:"block"},73.728);tl.set("#t14",{display:"none"},80.207);
 tl.set("#t14",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},73.728);
@@ -793,6 +806,7 @@ tl.fromTo("#fx14 polygon",{opacity:.05},{opacity:.12,duration:1.6,yoyo:true,stag
 tl.fromTo(gsap.utils.toArray("#w14 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},73.728);
 tl.fromTo(gsap.utils.toArray("#w14 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},73.728);
 tl.fromTo(gsap.utils.toArray("#w14 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},73.728);
+gsap.set(gsap.utils.toArray("#w14 .mv-core-flicker-sun")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w14 .mv-core-flicker-sun")[0],.5,.5),smoothOrigin:false});
 tl.set(gsap.utils.toArray("#w14 .mv-core-flicker-sun")[0],{opacity:1},73.728);
 tl.to(gsap.utils.toArray("#w14 .mv-core-flicker-sun")[0],{keyframes:[{opacity:.45,duration:.12},{opacity:1,duration:.18},{opacity:.62,duration:.14},{opacity:.95,duration:.2},{opacity:.35,duration:.1},{opacity:1,duration:.26}],repeat:6,immediateRender:false},73.728);
 miyaPath(tl,gsap.utils.toArray("#w14 .mv-path-comet")[0],"M140 360 C380 330 640 340 900 300",75.028,5.000,1,0.0);
@@ -1002,6 +1016,7 @@ tl.fromTo("#fx18p25",{y:0,x:-540,opacity:0.6,rotation:0},{y:-16,x:-213,duration:
 tl.fromTo(gsap.utils.toArray("#w18 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},92.984);
 tl.fromTo(gsap.utils.toArray("#w18 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},92.984);
 tl.fromTo(gsap.utils.toArray("#w18 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},92.984);
+gsap.set(gsap.utils.toArray("#w18 .mv-core-glide-sand-scoop")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w18 .mv-core-glide-sand-scoop")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w18 .mv-core-glide-sand-scoop")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},92.984);
 tl.to(gsap.utils.toArray("#w18 .mv-hatch-living-crab")[0],{keyframes:[{scale:1.12,duration:0.40,ease:"power2.out"},{scale:.96,duration:0.20,ease:"sine.inOut"},{scale:1,duration:0.20,ease:"sine.out"}],immediateRender:false},94.384);
 tl.set("#t19",{display:"block"},99.353);tl.set("#t19",{display:"none"},106.721);
@@ -1158,6 +1173,7 @@ tl.fromTo("#fx22p8",{x:"-=10"},{x:"+=20",duration:1.20,ease:"sine.inOut",yoyo:tr
 tl.fromTo(gsap.utils.toArray("#w22 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},117.306);
 tl.fromTo(gsap.utils.toArray("#w22 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},117.306);
 tl.fromTo(gsap.utils.toArray("#w22 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},117.306);
+gsap.set(gsap.utils.toArray("#w22 .mv-core-glide-chemistry-flask")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w22 .mv-core-glide-chemistry-flask")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w22 .mv-core-glide-chemistry-flask")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},117.306);
 tl.set(gsap.utils.toArray("#w22 .mv-bubble-flask-bubbles")[0],{opacity:0},117.306);
 tl.fromTo(gsap.utils.toArray("#w22 .mv-bubble-flask-bubbles")[0],{y:0,opacity:.8},{y:-120,opacity:0,duration:1.4,ease:"none",repeat:3,immediateRender:false},118.056);
@@ -1171,6 +1187,8 @@ if(document.getElementById("sp23"))tl.fromTo("#sp23",{opacity:0},{opacity:1,dura
 tl.fromTo(gsap.utils.toArray("#w23 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},121.368);
 tl.fromTo(gsap.utils.toArray("#w23 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},121.368);
 tl.fromTo(gsap.utils.toArray("#w23 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},121.368);
+gsap.set(gsap.utils.toArray("#w23 .mv-core-heartbeat-heart")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w23 .mv-core-heartbeat-heart")[0],.5,.5),smoothOrigin:false});
+tl.set(gsap.utils.toArray("#w23 .mv-core-heartbeat-heart")[0],{scale:1,},121.368);
 tl.to(gsap.utils.toArray("#w23 .mv-core-heartbeat-heart")[0],{keyframes:[{scale:1.07,duration:.18,ease:"sine.out"},{scale:1,duration:.26,ease:"sine.inOut"},{scale:1.04,duration:.16,ease:"sine.out"},{scale:1,duration:1.0,ease:"sine.inOut"}],repeat:3,immediateRender:false},121.368);
 tl.set("#t24",{display:"block"},125.580);tl.set("#t24",{display:"none"},132.345);
 tl.set("#t24",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},125.580);
@@ -1244,6 +1262,7 @@ miyaTrack(tl,"#w26","M160 560 C330 520 520 480 720 430",139.109,4.500,1.3,1080,1
 tl.fromTo(gsap.utils.toArray("#w26 .mv-glint-s1")[0],{opacity:1},{opacity:.35,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:5,immediateRender:false},137.309);
 tl.fromTo(gsap.utils.toArray("#w26 .mv-glint-s2")[0],{opacity:1},{opacity:.35,duration:2.100,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},137.309);
 tl.fromTo(gsap.utils.toArray("#w26 .mv-glint-s3")[0],{opacity:1},{opacity:.35,duration:2.700,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},137.309);
+gsap.set(gsap.utils.toArray("#w26 .mv-core-flicker-galaxy-eye")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w26 .mv-core-flicker-galaxy-eye")[0],.5,.5),smoothOrigin:false});
 tl.set(gsap.utils.toArray("#w26 .mv-core-flicker-galaxy-eye")[0],{opacity:1},137.309);
 tl.to(gsap.utils.toArray("#w26 .mv-core-flicker-galaxy-eye")[0],{keyframes:[{opacity:.45,duration:.12},{opacity:1,duration:.18},{opacity:.62,duration:.14},{opacity:.95,duration:.2},{opacity:.35,duration:.1},{opacity:1,duration:.26}],repeat:9,immediateRender:false},137.309);
 miyaPath(tl,gsap.utils.toArray("#w26 .mv-path-comet")[0],"M160 560 C330 520 520 480 720 430",139.109,4.500,1,0.0);
@@ -1315,14 +1334,14 @@ tl.fromTo("#L25_0s",{opacity:0,scale:.6},{opacity:1,scale:1,duration:0.25,ease:"
 tl.set("#L25_0g",{opacity:1},135.709);
 tl.fromTo("#L26_0s",{y:0},{y:-6,duration:1.4,yoyo:true,repeat:5,ease:"sine.inOut",immediateRender:false},139.409);
 tl.set("#L26_0g",{opacity:1},138.409);
-miyaFollow(tl,"#w11 .mv-circle-planet-b",["#L11_0", "#L11_0g"],706,840,58.180,63.472,57.880);
-miyaFollow(tl,"#w12 .mv-core-glide-kepler-telescope",["#L12_0", "#L12_0g"],470,930,64.132,69.050,63.472);
-miyaFollow(tl,"#w13 .mv-core-glide-ocean-exoplanet",["#L13_1", "#L13_1g"],590,900,72.128,74.628,69.050);
-miyaFollow(tl,"#w15 .mv-path-earth-globe",["#L15_0", "#L15_0g"],500,940,80.507,84.732,80.207);
-miyaFollow(tl,"#w18 .mv-core-glide-sand-scoop",["#L18_0", "#L18_0g"],540,768,94.084,100.253,93.784);
-miyaFollow(tl,"#w22 .mv-core-glide-chemistry-flask",["#L22_0", "#L22_0g"],590,650,118.056,122.168,117.756);
-miyaFollow(tl,"#w24 .mv-hover-magnifier-lens",["#L24_0", "#L24_0g"],480,690,126.880,132.345,126.580);
-miyaFollow(tl,"#w25 .mv-path-ghost-blueprint-copy",["#L25_0", "#L25_0g"],540,500,135.709,138.109,132.345);
+miyaFollow(tl,"#w11 .mv-circle-planet-b",["#L11_0", "#L11_0g"],706,840,58.180,63.472,57.880,null);
+miyaFollow(tl,"#w12 .mv-core-glide-kepler-telescope",["#L12_0", "#L12_0g"],470,930,64.132,69.050,63.472,null);
+miyaFollow(tl,"#w13 .mv-core-glide-ocean-exoplanet",["#L13_1", "#L13_1g"],590,900,72.128,74.628,69.050,null);
+miyaFollow(tl,"#w15 .mv-path-earth-globe",["#L15_0", "#L15_0g"],500,940,80.507,84.732,80.207,null);
+miyaFollow(tl,"#w18 .mv-core-glide-sand-scoop",["#L18_0", "#L18_0g"],540,768,94.084,100.253,93.784,null);
+miyaFollow(tl,"#w22 .mv-core-glide-chemistry-flask",["#L22_0", "#L22_0g"],590,650,118.056,122.168,117.756,null);
+miyaFollow(tl,"#w24 .mv-hover-magnifier-lens",["#L24_0", "#L24_0g"],480,690,126.880,132.345,126.580,null);
+miyaFollow(tl,"#w25 .mv-path-ghost-blueprint-copy",["#L25_0", "#L25_0g"],540,500,135.709,138.109,132.345,null);
 tl.set("#c0",{opacity:1},0.300);tl.set("#c0",{opacity:0},2.600);
 tl.set("#c0w0",{color:"#ffd54a"},0.300);tl.set("#c0w0",{color:"#fff"},0.593);tl.set("#c0w1",{color:"#ffd54a"},0.593);tl.set("#c0w1",{color:"#fff"},0.886);tl.set("#c0w2",{color:"#ffd54a"},0.886);tl.set("#c0w2",{color:"#fff"},1.061);tl.set("#c0w3",{color:"#ffd54a"},1.061);tl.set("#c0w3",{color:"#fff"},1.354);tl.set("#c0w4",{color:"#ffd54a"},1.354);tl.set("#c0w4",{color:"#fff"},1.589);tl.set("#c0w5",{color:"#ffd54a"},1.589);
 tl.set("#c1",{opacity:1},2.600);tl.set("#c1",{opacity:0},3.280);
@@ -1529,7 +1548,6 @@ tl.set("#c101",{opacity:1},143.789);tl.set("#c101",{opacity:0},145.485);
 tl.set("#c101w0",{color:"#ffd54a"},143.789);tl.set("#c101w0",{color:"#fff"},143.983);tl.set("#c101w1",{color:"#ffd54a"},143.983);tl.set("#c101w1",{color:"#fff"},144.240);tl.set("#c101w2",{color:"#ffd54a"},144.240);tl.set("#c101w2",{color:"#fff"},144.498);tl.set("#c101w3",{color:"#ffd54a"},144.498);
 miyaFollowInit(tl);
 tl.fromTo(gsap.utils.toArray("#w1 .mv-breathe-viewer-arm")[0],{scaleY:1,transformOrigin:"50% 100%"},{scaleY:1.030,duration:2.200,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},0.000);
-tl.fromTo(gsap.utils.toArray("#w2 .mv-core-approach-magnifier-lens")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.3,duration:6.155,ease:"power1.out",immediateRender:false},3.955);
 tl.to("#t3",{scaleX:0,transformOrigin:"0% 50%",duration:.8,ease:"power2.inOut"},15.109);
 tl.fromTo("#fx3p0",{y:-0,x:0,opacity:0.85,rotation:0,transformOrigin:"50% 50%"},{y:-768,x:65,opacity:0,rotation:25,duration:5.50,ease:"none",immediateRender:false},9.409);
 tl.fromTo("#fx3p1",{y:-475,x:40,opacity:0.32,rotation:-15,transformOrigin:"50% 50%"},{y:-768,x:65,opacity:0,rotation:-25,duration:2.37,ease:"none",immediateRender:false},9.409);
@@ -1677,7 +1695,6 @@ tl.fromTo("#fx22p6",{y:-843,x:0,opacity:0.16,transformOrigin:"50% 50%"},{y:-1190
 tl.fromTo("#fx22p7",{y:-388,x:0,opacity:0.37,transformOrigin:"50% 50%"},{y:-1190,x:0,opacity:0,duration:2.63,ease:"sine.in",immediateRender:false},117.306);
 tl.fromTo("#fx22p8",{y:-1124,x:0,opacity:0.03,transformOrigin:"50% 50%"},{y:-1190,x:0,opacity:0,duration:0.26,ease:"sine.in",immediateRender:false},117.306);
 tl.fromTo("#t23",{rotation:-8,scale:1.25,opacity:0,transformOrigin:"50% 120%"},{rotation:0,scale:1,opacity:1,duration:.8,ease:"back.out(1.4)",immediateRender:false},121.368);
-tl.set(gsap.utils.toArray("#w23 .mv-core-heartbeat-heart")[0],{scale:1,transformOrigin:"50% 50%"},121.368);
 tl.to("#t25",{scaleX:0,transformOrigin:"0% 50%",duration:.8,ease:"power2.inOut"},137.309);
 tl.fromTo(gsap.utils.toArray("#w25 .mv-draw-blueprint-person")[0],{scale:1,transformOrigin:"50% 60%"},{scale:1.03,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:0,immediateRender:false},135.595);
 tl.fromTo(gsap.utils.toArray("#w25 .mv-glint-heart-mark")[0],{scale:1,opacity:.85,transformOrigin:"50% 50%"},{scale:1.06,opacity:1,duration:1.400,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},131.445);
