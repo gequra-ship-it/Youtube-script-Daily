@@ -825,8 +825,8 @@ for k, u in enumerate(units):
         js.append(f'tl.set("#k{i}",{{display:"block"}},{t0:.3f});tl.set("#k{i}",{{display:"none"}},{t1:.3f});')
         js.append(f'tl.set("#k{i}r0",{{opacity:1}},{t0:.3f});tl.set("#k{i}ph0",{{opacity:0}},{t0:.3f});')
         for r, tt in ((1, ts[1]), (2, ts[2])):
-            js.append(f'tl.set("#k{i}ph{r}",{{opacity:0}},{tt:.3f});tl.fromTo("#k{i}r{r}",{{opacity:1,scale:.96}},{{scale:1.02,duration:.05,ease:"power1.out",immediateRender:false}},{tt:.3f});tl.to("#k{i}r{r}",{{scale:1,duration:.05,ease:"power1.in"}},{tt + .05:.3f});')
-        js.append(f'tl.fromTo("#k{i}cc",{{opacity:1,scale:.96}},{{scale:1.02,duration:.05,immediateRender:false}},{ts[3]:.3f});tl.to("#k{i}cc",{{scale:1,duration:.05}},{ts[3] + .05:.3f});')
+            js.append(f'tl.set("#k{i}ph{r}",{{opacity:0}},{tt:.3f});tl.set("#k{i}r{r}",{{opacity:1}},{tt:.3f});tl.fromTo("#k{i}r{r}",{{opacity:1,scale:.96}},{{scale:1.02,duration:.05,ease:"power1.out",immediateRender:false}},{tt:.3f});tl.to("#k{i}r{r}",{{scale:1,duration:.05,ease:"power1.in"}},{tt + .05:.3f});')
+        js.append(f'tl.set("#k{i}cc",{{opacity:1}},{ts[3]:.3f});tl.fromTo("#k{i}cc",{{opacity:1,scale:.96}},{{scale:1.02,duration:.05,immediateRender:false}},{ts[3]:.3f});tl.to("#k{i}cc",{{scale:1,duration:.05}},{ts[3] + .05:.3f});')
         js.append(f'tl.set("#k{i}r1",{{opacity:0}},{t0:.3f});tl.set("#k{i}r2",{{opacity:0}},{t0:.3f});tl.set("#k{i}cc",{{opacity:0}},{t0:.3f});tl.set("#k{i}ph1",{{opacity:1}},{t0:.3f});tl.set("#k{i}ph2",{{opacity:1}},{t0:.3f});')
         js.extend(motions.chalk_life_js(i, t0, t1, ts, FROG_ON)); js.extend(motions.chalk_title_js(i, t0)); js.extend(motions.chalk_concl_js(i, ts[3]))   # round 4 text effects   # round 3 chalk life (slot breathe, value pulse + arm tap in long gaps), see motions.chalk_life_js
         if FROG_ON:   # the frog stands bottom-left and points at each row / the conclusion as it is spoken
@@ -1110,7 +1110,7 @@ for (nn, ty, lid, gid, tt) in label_t:
             if parts[0] != 'mv' or len(parts) < 3 or not (parts[1] in MOVING or (parts[1] == 'core' and parts[2] in MOVING_CORE)): continue
             if _words & {w_.rstrip('s') for w_ in parts[2:]}: best = (0, g_); break
     if best:
-        js.append(f'miyaFollow(tl,"#w{nn} .{best[1]}",{json.dumps(["#" + lid] + (["#" + gid] if gid else []))},{px_:.0f},{py_:.0f},{tt:.3f},{UEND[nn]:.3f},{(tt if best[1].split('-')[1] in ('rise', 'slide') else UST0[nn]):.3f});'); FOLLOWED.append((UID_OF.get(nn, nn), lid, best[1]))
+        js.append(f'miyaFollow(tl,"#w{nn} .{best[1]}",{json.dumps(["#" + lid] + (["#" + gid] if gid else []))},{px_:.0f},{py_:.0f},{tt:.3f},{UEND[nn]:.3f},{UST0[nn]:.3f},{(('%.3f' % tt) if best[1].split('-')[1] in ('rise', 'slide') else 'null')});'); FOLLOWED.append((UID_OF.get(nn, nn), lid, best[1]))
 print('labels follow moving objects:', len(FOLLOWED), FOLLOWED[:10])
 print('library fx (2026-10-29):', dict(fxlib.LOG) or 'none', '| bg burst', sum(1 for v in FXU.values() for kd, _ in v if kd == 'burst'))
 for k, c in enumerate(caps):
