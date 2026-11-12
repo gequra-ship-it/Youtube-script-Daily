@@ -290,21 +290,26 @@ function miyaTrAnim(tl,sel,tr,t0,dur,W,H){
 // a name label / speech bubble whose target point sits on a MOVING group follows that group (miya 2026-10-27: labels stayed at the pre-motion spot).
 // Seek-safe: a modifier tween reads the group's current matrix on every render (callbacks are skipped by seek, modifiers are not); the reference
 // matrix is read once at page init, before any motion is applied (units are hidden then, so the unit is shown invisibly for the read).
-function miyaFollow(tl,gsel,els,px,py,t0,t1,tm){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
+function miyaFollow(tl,gsel,els,px,py,t0,t1,tm,tm2){var g=document.querySelector(gsel);if(!g||!g.ownerSVGElement)return;var svg=g.ownerSVGElement,p=svg.createSVGPoint();p.x=px;p.y=py;
  var tg=els.map(function(s){return document.querySelector(s);}).filter(Boolean);if(!tg.length)return;
- var rec={g:g,p:p,q0:null,t:t0,tm:(tm==null?t0:tm),last:[0,0],tg:tg};/* tm = when the object still stands where it was DRAWN (picture start): the label's pointer was authored against that spot, so the offset is measured from there */window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
+ var rec={g:g,p:p,q0:null,t:t0,tm:(tm==null?t0:tm),tm2:(tm2==null?null:tm2),ax:px,ay:py,last:[0,0],tg:tg};/* tm = when the object still stands where it was DRAWN (picture start): the label's pointer was authored against that spot, so the offset is measured from there */window.MIYA_FOLLOW=window.MIYA_FOLLOW||[];window.MIYA_FOLLOW.push(rec);
  function d(){if(!rec.q0)return[0,0];var m=miyaCtm(g);if(!m)return rec.last;var q=p.matrixTransform(m);rec.last=[q.x-rec.q0.x,q.y-rec.q0.y];return rec.last;}
  tl.fromTo(tg,{x:0.001,y:0.001},{x:0,y:0,duration:Math.max(t1-t0,.1),ease:'none',immediateRender:false,modifiers:{x:function(){return d()[0]+'px';},y:function(){return d()[1]+'px';}}},t0);}
 function miyaCtm(g){var t=g.closest('.t'),m=null;if(t&&t.style.display==='none'){var pd=t.style.display,pv=t.style.visibility;t.style.display='block';t.style.visibility='hidden';try{m=g.getCTM();}catch(e){}t.style.display=pd;t.style.visibility=pv;}else{try{m=g.getCTM();}catch(e){}}return m;}
 // after the whole timeline exists: the tracked point (the group's centre) and its position are read AT THE LABEL'S START TIME (GSAP replaces a group's own transform
 // attribute, so the matrix at page init is not the one the label was placed against); then the timeline goes back to 0
-function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;L.slice().sort(function(a,b){return a.tm-b.tm;}).forEach(function(r){void tl.seek(r.tm+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m)r.q0=r.p.matrixTransform(m);});void tl.seek(0,false);   // 2026-10-29: the measuring seeks must go FORWARD in time only. A seek backwards renders the children in reverse order, so a picture's `display:none` (its end) was applied before its tweens had initialised: GSAP then read the empty bbox of the hidden picture and froze the wrong svgOrigin (bbox corner) of every hinge/rotor that had not been initialised yet (windmill, gears, frog legs, tails, neck, clock hand). tools/pivotlive.py checks it
+function miyaFollowInit(tl){var L=window.MIYA_FOLLOW||[];if(!L.length)return;var J=[];L.forEach(function(r){J.push({t:r.tm,r:r,i:0});if(r.tm2!=null){J.push({t:r.tm2,r:r,i:1});[.62,.7,.85].forEach(function(dt,k){if(r.tm+dt<r.t+Math.max(.2,0))void 0;J.push({t:r.tm+dt,r:r,i:2+k});});}});
+ J.sort(function(a,b){return a.t-b.t;}).forEach(function(j){var r=j.r;void tl.seek(j.t+0.05,false);try{var bb=r.g.getBBox();if(bb&&bb.width){r.p.x=bb.x+bb.width/2;r.p.y=bb.y+bb.height/2;}}catch(e){}var m=miyaCtm(r.g);if(m){(r.qs=r.qs||[])[j.i]=r.p.matrixTransform(m);}});
+ L.forEach(function(r){var best=null,bd=1e18;(r.qs||[]).forEach(function(q){if(!q)return;var d=Math.hypot(q.x-r.ax,q.y-r.ay);if(d<bd){bd=d;best=q;}});r.q0=(r.tm2!=null)?{x:r.ax,y:r.ay}:best;});   /* slide/rise: the pointer dot rides the object's centre (offset = centre - authored point) */   // 2026-11-12: a sliding/rising object: the pointer was authored at the spot where the object is DRAWN (picture start) or where it is when the label pops -> take the moment nearer to the authored point (U086 Olympus Mons label stayed behind)
+ void tl.seek(0,false);
  // render order inside one seek can leave the follower one step behind its object: after every seek (the renderer steps frame by frame with seek) the followers are set again from the objects' final matrices
  function fix(){L.forEach(function(r){if(!r.q0||!r.tg)return;var m=miyaCtm(r.g);if(!m)return;var q=r.p.matrixTransform(m);gsap.set(r.tg,{x:q.x-r.q0.x,y:q.y-r.q0.y});});}
  var seek0=tl.seek;tl.seek=function(a,b){if(!arguments.length)return seek0.call(tl);var out=seek0.call(tl,a,b);fix();return out;};var time0=tl.time;tl.time=function(a,b){if(!arguments.length)return time0.call(tl);var out=time0.call(tl,a,b);fix();return out;};gsap.ticker.add(function(){if(tl.isActive())fix();});}   // the tracked point = the group's own centre (local bbox), so a turning object does not swing the label about a far pivot
 function miyaM(g){var pa=g.parentNode,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',m=null;if(t){t.style.display='block';t.style.visibility='hidden';}
  try{m=pa.getCTM();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}return m?m.inverse():null;}
 // data-pivot is meant in picture coordinates, but agents often wrote it in the coordinates the part was drawn in (inside a translated/scaled wrapper): use whichever reading lands nearer the part itself
+function miyaBO(g,fx,fy){var t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'',b=null;if(t){t.style.display='block';t.style.visibility='hidden';}try{b=g.getBBox();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}
+ return b?(b.x+b.width*fx)+' '+(b.y+b.height*fy):'0 0';}
 function miyaPv(g,x,y){var m=miyaM(g);if(!m)return x+' '+y;var cx=m.a*x+m.c*y+m.e,cy=m.b*x+m.d*y+m.f,b=null,t=g.closest('.t'),pd=t?t.style.display:'',pv=t?t.style.visibility:'';
  if(t){t.style.display='block';t.style.visibility='hidden';}try{b=g.getBBox();}catch(e){}if(t){t.style.display=pd;t.style.visibility=pv;}
  if(b&&b.width+b.height>0){function dd(u,v){return Math.hypot(Math.max(b.x-u,0,u-b.x-b.width),Math.max(b.y-v,0,v-b.y-b.height));}if(dd(x,y)+4<dd(cx,cy))return x+' '+y;}
@@ -478,6 +483,7 @@ tl.fromTo("#fx2",{opacity:0},{opacity:1,duration:.6,immediateRender:false},3.333
 tl.fromTo("#fx2p0",{x:0},{x:540,duration:4.00,ease:"none",repeat:0,immediateRender:false},3.133);
 tl.fromTo("#fx2p1",{x:0},{x:540,duration:5.20,ease:"none",repeat:0,immediateRender:false},3.133);
 tl.fromTo("#fx2p2",{x:0},{x:540,duration:6.40,ease:"none",repeat:0,immediateRender:false},3.133);
+gsap.set(gsap.utils.toArray("#w2 .mv-core-glide-red-cell")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w2 .mv-core-glide-red-cell")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w2 .mv-core-glide-red-cell")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},3.133);
 tl.set("#t3",{display:"block"},7.767);tl.set("#t3",{display:"none"},12.506);
 tl.set("#t3",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},7.767);
@@ -486,6 +492,7 @@ tl.fromTo("#t3",{scale:2.4,opacity:0},{scale:1,duration:1.7,ease:"power3.out",im
 tl.to("#t3",{opacity:1,duration:.5,ease:"none"},7.767);
 tl.to("#t3",{x:-194,duration:0.700,ease:"power2.in"},11.806);
 tl.fromTo("#w3",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:27.0,y:0,duration:4.739,ease:"sine.inOut",immediateRender:false},7.767);
+gsap.set(gsap.utils.toArray("#w3 .mv-core-sway-paint-drop")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w3 .mv-core-sway-paint-drop")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w3 .mv-hover-brush-handle")[0],{y:-10},{y:10,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:3,immediateRender:false},7.767);
 tl.fromTo(gsap.utils.toArray("#w3 .mv-hover-brush-handle")[0],{x:-14},{x:14,duration:3.680,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},7.767);
 tl.to(gsap.utils.toArray("#w3 .mv-popin-cross-mark")[0],{scale:1,opacity:1,duration:.45,ease:"back.out(2)",immediateRender:false},8.567);
@@ -502,6 +509,7 @@ tl.set("#t5",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 8
 tl.set("#w5",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},15.845);
 miyaTrAnim(tl,"#t5","zigzag",15.845,0.9,1080,1920);
 tl.fromTo("#w5",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:0.0,y:0,duration:5.774,ease:"sine.inOut",immediateRender:false},15.845);
+gsap.set(gsap.utils.toArray("#w5 .mv-core-glide-red-cell")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w5 .mv-core-glide-red-cell")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w5 .mv-core-glide-red-cell")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},15.845);
 tl.to(gsap.utils.toArray("#w5 .mv-popin-antigen-flag")[0],{scale:1,opacity:1,duration:.45,ease:"back.out(2)",immediateRender:false},17.045);
 tl.set("#t6",{display:"block"},20.620);tl.set("#t6",{display:"none"},26.494);
@@ -530,6 +538,7 @@ tl.set("#w9",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},35.110);
 tl.fromTo("#t9",{y:1920},{y:0,duration:.7,ease:"power3.inOut",immediateRender:false},35.110);
 tl.to("#t9",{x:-1080,duration:.45,ease:"expo.out"},39.802);
 tl.fromTo("#w9",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:0.0,y:0,duration:5.142,ease:"sine.inOut",immediateRender:false},35.110);
+gsap.set(gsap.utils.toArray("#w9 .mv-core-ping-lens-scanner")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w9 .mv-core-ping-lens-scanner")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w9 .mv-scroll-red-cell-row")[0],{x:0},{x:150,duration:5.342,ease:"none",immediateRender:false},35.110);
 tl.set("#t10",{display:"block"},39.802);tl.set("#t10",{display:"none"},44.353);
 tl.set("#t10",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},39.802);
@@ -565,6 +574,7 @@ tl.fromTo(gsap.utils.toArray("#w11 .mv-float-red-cell-7")[0],{y:-12},{y:12,durat
 tl.fromTo(gsap.utils.toArray("#w11 .mv-float-red-cell-8")[0],{y:-12},{y:12,duration:3.000,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},43.453);
 miyaPath(tl,gsap.utils.toArray("#w11 .mv-path-red-cell-9")[0],"M0 0 C 20 -90 -20 -180 0 -270",44.553,5.000,1,0.0);
 tl.fromTo(gsap.utils.toArray("#w11 .mv-float-red-cell-10")[0],{y:-12},{y:12,duration:3.000,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},43.453);
+gsap.set(gsap.utils.toArray("#w11 .mv-core-glide-ship-cell")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w11 .mv-core-glide-ship-cell")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w11 .mv-core-glide-ship-cell")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},43.453);
 tl.set("#t12",{display:"block"},47.653);tl.set("#t12",{display:"none"},54.090);
 tl.set("#t12",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},47.653);
@@ -608,6 +618,7 @@ tl.fromTo("#fgu14_lf",{rotation:-1.2,svgOrigin:"0 6"},{rotation:1.2,duration:5.2
 tl.fromTo("#fgu14_hd,#fgu14_of,#fgu14_te",{rotation:2.4,svgOrigin:"4 -40"},{rotation:-2.4,duration:1.90,yoyo:true,repeat:2,ease:"sine.inOut",svgOrigin:"4 -40",immediateRender:false},60.677);
 tl.to("#fgu14_lgr",{rotation:-16,duration:.22,ease:"power2.out",svgOrigin:"28 -10"},62.477);tl.to("#fgu14_lgr",{rotation:0,duration:.28,ease:"power2.in",svgOrigin:"28 -10"},62.777);
 tl.fromTo("#w14",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:-27.0,y:0,duration:7.386,ease:"sine.inOut",immediateRender:false},58.927);
+gsap.set(gsap.utils.toArray("#w14 .mv-core-glide-type-ab-cell")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w14 .mv-core-glide-type-ab-cell")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w14 .mv-core-glide-type-ab-cell")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},58.927);
 tl.fromTo(gsap.utils.toArray("#w14 .mv-float-antibody")[0],{y:-12},{y:12,duration:3.000,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},58.927);
 tl.set("#t15",{display:"block"},65.713);tl.set("#t15",{display:"none"},72.899);
@@ -656,6 +667,7 @@ tl.set("#t17",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 
 tl.set("#w17",{scale:1,x:0,y:0,transformOrigin:"0px 0px"},77.806);
 miyaTrAnim(tl,"#t17","zigzag",77.806,0.9,1080,1920);
 tl.fromTo("#w17",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:0.0,y:0,duration:6.707,ease:"sine.inOut",immediateRender:false},77.806);
+gsap.set(gsap.utils.toArray("#w17 .mv-core-glide-bare-cell")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w17 .mv-core-glide-bare-cell")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w17 .mv-core-glide-bare-cell")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},77.806);
 tl.fromTo(gsap.utils.toArray("#w17 .mv-hover-antibody-1")[0],{y:-10},{y:10,duration:1.600,ease:"sine.inOut",yoyo:true,repeat:4,immediateRender:false},77.806);
 tl.fromTo(gsap.utils.toArray("#w17 .mv-hover-antibody-1")[0],{x:-14},{x:14,duration:3.680,ease:"sine.inOut",yoyo:true,repeat:1,immediateRender:false},77.806);
@@ -899,6 +911,7 @@ tl.set("#t25",{clipPath:"none"},119.309);
 tl.fromTo("#w25",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:0.0,y:0,duration:5.715,ease:"sine.inOut",immediateRender:false},118.399);
 tl.fromTo(gsap.utils.toArray("#w25 .mv-nudge-left-cell")[0],{x:0,y:0},{x:40,y:0,duration:.4,ease:"back.out(2.2)",immediateRender:false},119.599);
 tl.fromTo(gsap.utils.toArray("#w25 .mv-nudge-right-cell")[0],{x:0,y:0},{x:-40,y:0,duration:.4,ease:"back.out(2.2)",immediateRender:false},119.599);
+gsap.set(gsap.utils.toArray("#w25 .mv-core-glide-antibody")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w25 .mv-core-glide-antibody")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w25 .mv-core-glide-antibody")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},118.399);
 tl.to(gsap.utils.toArray("#w25 .mv-swing-handcuff")[0],{keyframes:[{rotation:28.00,duration:1.200,ease:"sine.inOut"},{rotation:-21.84,duration:1.200,ease:"sine.inOut"},{rotation:17.04,duration:1.200,ease:"sine.inOut"},{rotation:-13.29,duration:1.200,ease:"sine.inOut"},{rotation:10.36,duration:1.200,ease:"sine.inOut"}],immediateRender:false},118.399);
 tl.set("#t26",{display:"block"},123.315);tl.set("#t26",{display:"none"},129.282);
@@ -917,6 +930,7 @@ tl.set("#wash",{background:"#ece1d8"},128.782);
 tl.fromTo("#wash",{opacity:0},{opacity:1,duration:.45,ease:"power1.in",immediateRender:false},128.832);
 tl.to("#wash",{opacity:0,duration:.45,ease:"power1.out"},129.282);
 tl.fromTo("#w27",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x:27.0,y:0,duration:5.167,ease:"sine.inOut",immediateRender:false},129.282);
+gsap.set(gsap.utils.toArray("#w27 .mv-core-glide-open-cell")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w27 .mv-core-glide-open-cell")[0],.5,.5),smoothOrigin:false});
 tl.fromTo(gsap.utils.toArray("#w27 .mv-core-glide-open-cell")[0],{x:-60},{x:60,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},129.282);
 tl.set("#t28",{display:"block"},133.649);tl.set("#t28",{display:"none"},139.849);
 tl.set("#t28",{scale:1,x:0,y:0,opacity:1,clipPath:"none",transformOrigin:"540px 860px"},133.649);
@@ -935,6 +949,8 @@ tl.fromTo("#w29",{scale:1.0,x:0,y:0,transformOrigin:"540px 860px"},{scale:1.06,x
 tl.fromTo("#fx29",{opacity:0},{opacity:1,duration:.6,immediateRender:false},139.349);tl.to("#fx29",{opacity:0,duration:.4},144.799);
 tl.fromTo("#fx29a",{opacity:0},{opacity:0.22,duration:1.2,ease:"sine.out",immediateRender:false},139.449);
 tl.to(gsap.utils.toArray("#w29 .mv-swing-label-tag")[0],{keyframes:[{rotation:28.00,duration:1.200,ease:"sine.inOut"},{rotation:-21.84,duration:1.200,ease:"sine.inOut"},{rotation:17.04,duration:1.200,ease:"sine.inOut"},{rotation:-13.29,duration:1.200,ease:"sine.inOut"},{rotation:10.36,duration:1.200,ease:"sine.inOut"},{rotation:-8.08,duration:1.200,ease:"sine.inOut"}],immediateRender:false},139.149);
+gsap.set(gsap.utils.toArray("#w29 .mv-core-approach-shield")[0],{svgOrigin:miyaBO(gsap.utils.toArray("#w29 .mv-core-approach-shield")[0],.5,.5),smoothOrigin:false});
+tl.fromTo(gsap.utils.toArray("#w29 .mv-core-approach-shield")[0],{scale:1,},{scale:1.3,duration:6.300,ease:"power1.out",immediateRender:false},139.149);
 tl.fromTo("#L1_0s",{opacity:0,scale:1.8},{opacity:1,scale:1,duration:.22,ease:"power3.in",immediateRender:false},0.300);tl.fromTo("#L1_0s",{x:0},{x:5,duration:.04,yoyo:true,repeat:5,immediateRender:false},0.520);
 tl.fromTo("#L1_0s",{y:0},{y:-6,duration:1.4,yoyo:true,repeat:2,ease:"sine.inOut",immediateRender:false},1.300);
 tl.set("#L1_0g",{opacity:1},0.300);
@@ -1002,19 +1018,19 @@ tl.set("#L28_0g",{opacity:1},136.049);
 tl.fromTo("#L28_0",{scale:1,transformOrigin:"0px 0px"},{scale:0.6667,duration:1.4,ease:"power2.inOut",immediateRender:false},135.349);
 tl.set("#L29_0s",{opacity:1,text:""},142.969);tl.to("#L29_0s",{duration:0.84,text:{value:"Defense system",delimiter:""},ease:"none",immediateRender:false},142.989);
 tl.set("#L29_0g",{opacity:1},142.969);
-miyaFollow(tl,"#w1 .mv-bob-antibody-guard",["#L1_0", "#L1_0g"],800,872,0.300,4.133,0.000);
-miyaFollow(tl,"#w2 .mv-core-glide-red-cell",["#L2_0", "#L2_0g"],540,840,5.717,8.267,4.133);
-miyaFollow(tl,"#w4 .mv-bob-red-cell-ship",["#L4_0", "#L4_0g"],540,850,13.667,16.745,12.506);
-miyaFollow(tl,"#w8 .mv-bob-boat-patrol",["#L8_0", "#L8_0g"],700,1190,33.268,35.810,31.368);
-miyaFollow(tl,"#w9 .mv-scroll-red-cell-row",["#L9_1", "#L9_1g"],650,1160,36.610,40.252,35.810);
-miyaFollow(tl,"#w13 .mv-magnet-antibody-anti-b",["#L13_0", "#L13_0g"],565,520,54.240,59.727,54.090);
-miyaFollow(tl,"#w14 .mv-core-glide-type-ab-cell",["#L14_0", "#L14_0g"],540,900,59.877,66.313,59.727);
-miyaFollow(tl,"#w15 .mv-float-antibody-plasma",["#L15_0", "#L15_0g"],540,900,66.463,72.899,66.313);
-miyaFollow(tl,"#w17 .mv-hover-antibody-1",["#L17_0", "#L17_0g"],240,620,79.006,84.513,78.706);
-miyaFollow(tl,"#w18 .mv-float-antibody-own",["#L18_0", "#L18_0g"],395,925,84.813,89.260,84.513);
-miyaFollow(tl,"#w19 .mv-path-bacterium-1",["#L19_0", "#L19_0g"],300,490,91.506,94.006,89.260);
-miyaFollow(tl,"#w25 .mv-core-glide-antibody",["#L25_0", "#L25_0g"],540,860,119.449,124.115,119.299);
-miyaFollow(tl,"#w27 .mv-drip-hemoglobin-drop-2",["#L27_0", "#L27_0g"],560,1120,131.915,134.449,129.282);
+miyaFollow(tl,"#w1 .mv-bob-antibody-guard",["#L1_0", "#L1_0g"],800,872,0.300,4.133,0.000,null);
+miyaFollow(tl,"#w2 .mv-core-glide-red-cell",["#L2_0", "#L2_0g"],540,840,5.717,8.267,4.133,null);
+miyaFollow(tl,"#w4 .mv-bob-red-cell-ship",["#L4_0", "#L4_0g"],540,850,13.667,16.745,12.506,null);
+miyaFollow(tl,"#w8 .mv-bob-boat-patrol",["#L8_0", "#L8_0g"],700,1190,33.268,35.810,31.368,null);
+miyaFollow(tl,"#w9 .mv-scroll-red-cell-row",["#L9_1", "#L9_1g"],650,1160,36.610,40.252,35.810,null);
+miyaFollow(tl,"#w13 .mv-magnet-antibody-anti-b",["#L13_0", "#L13_0g"],565,520,54.240,59.727,54.090,null);
+miyaFollow(tl,"#w14 .mv-core-glide-type-ab-cell",["#L14_0", "#L14_0g"],540,900,59.877,66.313,59.727,null);
+miyaFollow(tl,"#w15 .mv-float-antibody-plasma",["#L15_0", "#L15_0g"],540,900,66.463,72.899,66.313,null);
+miyaFollow(tl,"#w17 .mv-hover-antibody-1",["#L17_0", "#L17_0g"],240,620,79.006,84.513,78.706,null);
+miyaFollow(tl,"#w18 .mv-float-antibody-own",["#L18_0", "#L18_0g"],395,925,84.813,89.260,84.513,null);
+miyaFollow(tl,"#w19 .mv-path-bacterium-1",["#L19_0", "#L19_0g"],300,490,91.506,94.006,89.260,null);
+miyaFollow(tl,"#w25 .mv-core-glide-antibody",["#L25_0", "#L25_0g"],540,860,119.449,124.115,119.299,null);
+miyaFollow(tl,"#w27 .mv-drip-hemoglobin-drop-2",["#L27_0", "#L27_0g"],560,1120,131.915,134.449,129.282,null);
 tl.set("#c0",{opacity:1},0.300);tl.set("#c0",{opacity:0},1.260);
 tl.set("#c0w0",{color:"#ffd54a"},0.300);tl.set("#c0w0",{color:"#fff"},0.502);tl.set("#c0w1",{color:"#ffd54a"},0.502);tl.set("#c0w1",{color:"#fff"},0.755);tl.set("#c0w2",{color:"#ffd54a"},0.755);tl.set("#c0w2",{color:"#fff"},1.007);tl.set("#c0w3",{color:"#ffd54a"},1.007);
 tl.set("#c1",{opacity:1},1.260);tl.set("#c1",{opacity:0},2.460);
@@ -1295,7 +1311,6 @@ tl.fromTo(gsap.utils.toArray("#w28 .mv-breathe-doctor-person")[0],{scaleY:1,tran
 tl.fromTo(gsap.utils.toArray("#w28 .mv-limb-doctor-person-arm-r-1")[0],{rotation:-2.50,svgOrigin:miyaPv(gsap.utils.toArray("#w28 .mv-limb-doctor-person-arm-r-1")[0],821.3,1055.6),smoothOrigin:false},{rotation:2.50,duration:2.400,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},133.649);
 tl.fromTo(gsap.utils.toArray("#w28 .mv-limb-doctor-person-arm-l-1")[0],{rotation:-2.50,svgOrigin:miyaPv(gsap.utils.toArray("#w28 .mv-limb-doctor-person-arm-l-1")[0],918.7,1055.6),smoothOrigin:false},{rotation:2.50,duration:2.400,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},133.649);
 tl.set(gsap.utils.toArray("#w29 .mv-swing-label-tag")[0],{rotation:0,svgOrigin:miyaPv(gsap.utils.toArray("#w29 .mv-swing-label-tag")[0],200,330),smoothOrigin:false},139.149);
-tl.fromTo(gsap.utils.toArray("#w29 .mv-core-approach-shield")[0],{scale:1,transformOrigin:"50% 50%"},{scale:1.3,duration:6.300,ease:"power1.out",immediateRender:false},139.149);
 tl.fromTo(gsap.utils.toArray("#w29 .mv-bob-antibody-guard")[0],{y:-8,rotation:-3.0,transformOrigin:"50% 50%"},{y:8,rotation:3.0,duration:2.400,ease:"sine.inOut",yoyo:true,repeat:2,immediateRender:false},139.149);
 tl.fromTo("#L2_0s",{opacity:0,scaleX:.3,transformOrigin:"0% 50%"},{opacity:1,scaleX:1,duration:0.7,ease:"elastic.out(1,.45)",immediateRender:false},5.717);
 tl.fromTo("#L7_0s",{opacity:0,scale:.6,rotation:-12,transformOrigin:"50% 100%"},{opacity:1,scale:1,rotation:0,duration:.4,ease:"back.out(2.5)",immediateRender:false},26.794);tl.fromTo("#L7_0s",{rotation:0},{rotation:5,duration:.5,yoyo:true,repeat:3,ease:"sine.inOut",immediateRender:false},27.244);
