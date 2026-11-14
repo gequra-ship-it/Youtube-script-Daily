@@ -133,4 +133,4 @@ Steps (run from the repo root):
 - `frog.py` camera coupling (2026-11-05, guideline 7-2 L): `js(..., cam=)` gets the unit's transition / next transition / focus zoom / background effects / tracking flag / wind sign from build3; `enter_js` picks the entrance by transition (`TR_ENTER`), `cam_js` the exit pose, the focus glance and the effect reaction (`CAM_CALM` acts only). `frog_place.pulse_response` puts the frog beside a pulsing centre object with a `frog_rig.RESPONSE_ACTS` act instead of riding it (`OK` regex = ridable groups).
 - Checked: synthetic 54-scene page (34 acts + 20 accessories) 0 JS errors, frames of flag / jetpack / zero-g roll looked at; frog_place rerun on 6 old slugs (acts 19-37 distinct, was ~12). Not checked: an Actions render.
 
-- `used_check.py <슬러그> [붙인원문.txt]` / `--all`: `scripts*/used/`에 원본 하나가 있는지 점검(경고만, 2026-11-11). `final_check.py`가 함께 돌린다.
+- `used_check.py <슬러그> [붙인원문.txt]` / `--all`: `scripts/<daily|owl|igwahyung>/used/`에 원본 하나가 있는지 점검(경고만, 2026-11-11). `final_check.py`가 함께 돌린다.
