@@ -59,7 +59,7 @@ def core_sanitize(ctype, name, keep=False):
 # ---- 2026-11-05 (miya: "빠르게 두근거리는 모션이 너무 자주 나온다"): the pulse family of centre motions needs a reason ----
 # heartbeat / swell / tremble / ping / wobble / squeeze / pop / stamp / drop are EVENT motions: they are kept only when the unit's sentence or the object's
 # name says so (CORE_WORDS / CORE_NAMES); otherwise, and beyond a per-video share (CORE_CAP of the units, at least 3), the least-used calm motion
-# (CORE_CALM, name-fitted by core_sanitize) replaces them. tools/corefix.py rewrites the group ids in the pictures with this before frog_place and build3,
+# (CORE_CALM, name-fitted by core_sanitize) replaces them. tools/fix/corefix.py rewrites the group ids in the pictures with this before frog_place and build3,
 # so every later rule (frog ride / response, contact timing, variety check) sees the same kind. A group with data-keep="1" is never changed.
 CORE_WORDS = {
     'heartbeat': r'\b(hearts?|heartbeat\w*|puls(e|es|ed|ing|ar)|beat(s|ing)?|throb\w*|pound\w*|alive|living|life)\b',
@@ -141,7 +141,7 @@ def _core_js(ctype, g, t0, v0, sp, ring=None, pivot=None, pv=None, at=None):
     if ctype == 'turn':        # (2026-10-19) turns ONLY this group (wind-turbine rotor, fan, propeller); neighbours are not wrapped in, so the tower/body stays still
         return [f'tl.fromTo({g},{{rotation:0,{C}}},{{rotation:{90 * sp:.1f},duration:{sp:.3f},ease:"none",immediateRender:false}},{v0:.3f});']
     if ctype == 'sway':        # pendulum around the top (lamp, bell, key, hanging things); round 4: things that stand on the ground sway from the base (pivot='bottom': tree, pole, sign post, figure)
-        if pv and len(pv) == 2:   # 2026-10-29: an explicit data-pivot (tools/setbase.py writes the foot of the stem/trunk/post) beats the bbox percent, which sat beside a leaning trunk or inside a wide group
+        if pv and len(pv) == 2:   # 2026-10-29: an explicit data-pivot (tools/fix/setbase.py writes the foot of the stem/trunk/post) beats the bbox percent, which sat beside a leaning trunk or inside a wide group
             return [f'tl.fromTo({g},{{rotation:-5,svgOrigin:miyaPv({g},{pv[0]},{pv[1]}),smoothOrigin:false}},{{rotation:5,duration:2.2,{yo(2.2)}}},{v0:.3f});']
         if pivot == 'bottom': return [f'tl.fromTo({g},{{rotation:-5,transformOrigin:"50% 100%"}},{{rotation:5,duration:2.2,{yo(2.2)}}},{v0:.3f});']
         if pivot == 'center': return [f'tl.fromTo({g},{{rotation:-6,{C}}},{{rotation:6,duration:2.0,{yo(2.0)}}},{v0:.3f});']

@@ -13,7 +13,7 @@
 #    flattens it), dodge (jumps over a rolling / sliding object), chase (runs after it), splash (a drop into water soaks it),
 #    swingride (hangs under a swing in phase), bumped (jolted by a bouncing thing), blown (a gust rolls it over), tug (pulls a rope,
 #    slips), lift (holds up a rising load), catch (catches the dropped thing), trip (stumbles over a low thing while running).
-#    Which one, where the frog stands and the sound word are chosen by tools/frog_place.py (object group names + sizes + sentence
+#    Which one, where the frog stands and the sound word are chosen by tools/build/frog_place.py (object group names + sizes + sentence
 #    words, guideline 7-2 G); the times come from obj_span() here, shared by frog_place (bubble times) and build3 (absolute times).
 # Everything is absolute-time GSAP on the main timeline (seek-safe, chunk-render-safe); no randomness.
 import json, math, os

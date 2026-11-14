@@ -1,6 +1,6 @@
 # Axis catalogue (generated from tools/axis_lib.py, do not edit by hand)
 
-Name the group after the thing (`mv-<kind>-<thing>`); the axis is computed from the drawing by the rule in column 2 (`tools/axisfix.py`, automatic in build3). Column 3 = motion kinds that fit, column 4 = kinds that are reported as wrong.
+Name the group after the thing (`mv-<kind>-<thing>`); the axis is computed from the drawing by the rule in column 2 (`tools/fix/axisfix.py`, automatic in build3). Column 3 = motion kinds that fit, column 4 = kinds that are reported as wrong.
 
 | thing (name words) | axis rule | kinds that fit | kinds that do not | group holds / note |
 |---|---|---|---|---|

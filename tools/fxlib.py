@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Open-source effect libraries wired into the build (miya 2026-10-29, guideline 4-6): GSAP 3.15 plugins (all free since 3.13),
 # anime.js 4 (springs + grid stagger, driven from the GSAP timeline so every frame stays seekable), lucide pictograms (2,193 ISC icons,
-# svgo-minified into tools/assets/lucide.json) and an optional svgo pass over the art (tools/svg_opt.py).
+# svgo-minified into tools/assets/lucide.json) and an optional svgo pass over the art (tools/build/svg_opt.py).
 # Everything here is chosen by code rules (script words > picture evidence > unit number), never by a model at build time.
 import json, os, re
 from collections import Counter

@@ -42,7 +42,7 @@ P = {
 #  - upper arm (shoulder->elbow) is LONGER than the forearm (elbow->wrist); forearm + hand is about as long as the upper arm + 0.5 H.
 #  - shoulders 2 H wide for adults; the shoulder joint sits inside the torso outline, not at the neck or outside the body.
 #  - elbows only fold (0-140 deg), never bend backwards, never a kink with two elbows; the elbow is a smooth round joint.
-#  - an arm raised above the shoulder (|upper| > 100) curves DOWN: elbow low and out, forearm folds up and in (bend_dir is forced toward straight up; tools/armfix.py repairs and checks finished pictures).
+#  - an arm raised above the shoulder (|upper| > 100) curves DOWN: elbow low and out, forearm folds up and in (bend_dir is forced toward straight up; tools/fix/armfix.py repairs and checks finished pictures).
 #  - legs: hip joint at mid-height of the figure (adult 3.75 H from the top of the head); knee halfway between hip and ankle.
 
 

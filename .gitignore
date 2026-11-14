@@ -1,2 +1,13 @@
 __pycache__/
 *.pyc
+# shared page assets: build3 copies them into render/<slug>/ for local preview; renders link them from tools/assets (tools/chunk_prep.py), 2026-11-14
+/render/*/gsap/
+/render/*/gsap.min.js
+/render/*/anime.min.js
+/render/*/Fredoka-700.woff2
+/render/*/PatrickHand-400.woff2
+/render/*/logo.png
+/render/*/grain.png
+!/render/sample/**
+/render/*__c[0-9]*/
+/render/*__clip/
