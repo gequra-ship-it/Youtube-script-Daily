@@ -10,7 +10,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
-SAVE_DIR = "./scripts_igwahyung"
+SAVE_DIR = "./scripts/daily"
 
 PUBLISHED_DATE = None  # 참고 영상의 게시일(참고용). 대본 파일명·날짜는 생성일(실행일)을 쓴다(2026-10-24 수정: 예전엔 게시일이 파일명에 들어갔음)
 
@@ -54,9 +54,8 @@ def get_unprocessed_top_video():
     try:
         youtube = build("youtube", "v3", developerKey=YOUTUBE_API_KEY)
         
-        # 💡 타겟 채널 변경: @sciencedream -> @이과형
         channel_request = youtube.search().list(
-            part="id", q="@이과형", type="channel", maxResults=1
+            part="id", q="@sciencedream", type="channel", maxResults=1
         )
         channel_response = channel_request.execute()
         
@@ -182,7 +181,7 @@ def log_hook_score(script_text):
     """[1부] 첫 약 40단어(첫 15초)의 훅 점수를 로그로만 남긴다(참고용, tools/hookscore.py; 재생성하지 않음)."""
     try:
         import sys as _sys
-        _sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
+        _sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
         import hookscore
         start = script_text.index("=== 1부")
         body = script_text[start:].split("\n", 1)[1]
@@ -233,7 +232,7 @@ def create_ai_studio_script(youtube_title, transcript_text):
 2. **분량**: [1부] 영어 단어 수는 **약 2,050단어(허용 1,900~2,200단어)**로 맞춰. (Kokoro 남성 목소리가 분당 약 145단어로 읽고 장면 간격·여백이 더해져 영상 약 13~15분 이내가 돼. 15분을 넘기면 안 돼.) 1,900단어에 못 미치면 구체적인 장면 묘사, 원리 설명, 일상 비유, **원본에 있는 사례**로 보강하고, 2,200단어를 넘으면 반복과 곁가지를 덜어내. 원본 자막이 있으면 원본의 디테일과 예시를 최대한 살려.
 3. **문단 = 장면 하나**: [1부]는 문단마다 빈 줄로 구분해. 한 문단은 같은 장소·같은 생각을 다루는 장면 하나이고 **약 60~110단어(문장 4~7개, 약 25~40초)**로 써. 장면이 바뀔 때(장소·시대·예시·질문이 바뀔 때)만 문단을 나눠. 숫자 비교가 중심인 문단은 그 숫자들을 한 문단에 모아(영상에서 데이터 카드 한 장이 돼). 문장은 짧게(평균 15단어 안팎), 평서문과 의문문을 섞어.
 4. **말투**: 한 사람에게 이야기하듯 따뜻하고 공손한 대화체. 시청자를 "you"로 부르고 축약형(it's, don't)을 써도 돼. 수사 의문문은 영상 전체에서 8~18개.
-5. **구성**: ① 처음 60초 훅은 일상적인 감각("Take a look at your fingernails.") / 의외의 숫자나 사실 / 뒤집기 / 핵심 질문 / 출발 선언 중에서 골라 시작해. ② 본문은 구체적인 장면 묘사로 열고, 원리를 설명하고, 일상 비유를 들어. ③ 도입과 결말에 현대인의 일상 장면을 넣어. ④ 결말은 시청자의 현재로 돌아와 감성적으로 정리하고, 마지막은 주제의 여운을 남기는 한두 문장으로 끝내고, 구독·좋아요 요청은 쓰지 마(영상 끝에 고정 아웃트로가 따로 붙어서 중복돼). '서재(library)'라는 표현과 원본 채널 이름은 절대 쓰지 마.
+5. **구성**: ① 처음 5분은 설명보다 끌어당김이 먼저야: 시청자에게 던지는 질문 / "만약 ~라면?" 가정 상황(가정임을 밝히고 수치는 A등급만) / 친숙한 영화 장면(영화의 실제 내용만, 확인 못 하면 쓰지 말고 질문·가정으로 대체) 중에서 소재에 맞게 골라 섞어 시작하고, 답을 바로 주지 말고 궁금증을 유지한 채 1~2분 안에 본론으로 이어가. 처음 60초 훅은 일상적인 감각("Take a look at your fingernails.") / 의외의 숫자나 사실 / 뒤집기 / 핵심 질문 / 출발 선언 중에서 골라 시작해. ② 본문은 구체적인 장면 묘사로 열고, 원리를 설명하고, 일상 비유를 들어. ③ 도입과 결말에 현대인의 일상 장면을 넣어. ④ 결말은 시청자의 현재로 돌아와 감성적으로 정리하고, 마지막은 주제의 여운을 남기는 한두 문장으로 끝내고, 구독·좋아요 요청은 쓰지 마(영상 끝에 고정 아웃트로가 따로 붙어서 중복돼). '서재(library)'라는 표현과 원본 채널 이름은 절대 쓰지 마.
 6. **사실 확인 (지어내기 금지)**: 존재하지 않는 사례·연구·숫자·인용·인물을 절대 만들지 마. 자극적으로 만드는 방법은 오직 '사실의 배열'(가장 놀라운 확인된 사실을 앞에, 반전은 확인된 사실로, 질문과 긴장감 있는 문장)이야. 모든 사실 주장을 아래 등급으로 나눠서 처리해:
    - A: 아래 원본에 사실로 적혀 있는 내용 → 단정해서 써.
    - B: 원본이 가설·추정·"의심된다"로 말한 내용, 또는 원본에는 없고 네 배경지식으로만 아는 내용 → "scientists suspect…", "one hypothesis is…"처럼 가설임을 밝혀서만 써. 구체적인 숫자·연도·인명·논문은 쓰지 마.
@@ -378,7 +377,7 @@ def create_korean_summary(script_text, label=""):
 
 
 if __name__ == "__main__":
-    print("🚀 이과형 채널 전용 클라우드 대본 공장 가동!", flush=True)
+    print("🚀 클라우드 대본 생성 작업 시작!", flush=True)
     if not os.path.exists(SAVE_DIR):
         os.makedirs(SAVE_DIR)
             

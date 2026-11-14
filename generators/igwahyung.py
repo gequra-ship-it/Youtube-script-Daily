@@ -10,7 +10,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
-SAVE_DIR = "./scripts_owl" 
+SAVE_DIR = "./scripts/igwahyung"
 
 PUBLISHED_DATE = None  # 참고 영상의 게시일(참고용). 대본 파일명·날짜는 생성일(실행일)을 쓴다(2026-10-24 수정: 예전엔 게시일이 파일명에 들어갔음)
 
@@ -54,7 +54,17 @@ def get_unprocessed_top_video():
     try:
         youtube = build("youtube", "v3", developerKey=YOUTUBE_API_KEY)
         
-        channel_id = "UCrBpV_pG2kyMMEHCMTNzjAQ" # 리뷰엉이 채널 고유 ID
+        # 💡 타겟 채널 변경: @sciencedream -> @이과형
+        channel_request = youtube.search().list(
+            part="id", q="@이과형", type="channel", maxResults=1
+        )
+        channel_response = channel_request.execute()
+        
+        if not channel_response.get("items"):
+            print("❌ 채널을 찾을 수 없습니다.", flush=True)
+            return None, None
+            
+        channel_id = channel_response["items"][0]["id"]["channelId"]
         
         processed_videos = []
         if os.path.exists(HISTORY_FILE):
@@ -70,31 +80,21 @@ def get_unprocessed_top_video():
             video_id = item["id"]["videoId"]
             video_title = item["snippet"]["title"]
             
-            # 💡 [핵심 수정] 우주/과학 영상만 골라내는 엄격한 필터링 로직
-            allowed_keywords = ['우주', '지구', '태양', '행성', '블랙홀', '양자', '과학', '외계', '은하', '물리', '상대성', '차원', '빛', '빅뱅', '다중우주', '달', '별', '중력', '우주선', 'NASA', '나사', '엔트로피', '타임머신', '시간', '입자', '광속', '우주인']
-            excluded_keywords = ['영화', '마블', '어벤져스', '결말', '스포', '리뷰', '예고편', '쿠키', '드라마', '애니', '스파이더맨', '배트맨', '아이언맨', 'DC', 'MCU', '해석', '디즈니', '넷플릭스', '극장']
-            
-            # 1. 영화/애니메이션 관련 키워드가 제목에 하나라도 있으면 즉시 건너뜀
-            if any(ext_kw in video_title.upper() for ext_kw in excluded_keywords):
-                continue
-                
-            # 2. 우주/과학 관련 키워드가 제목에 단 하나라도 있어야만 통과
-            if not any(allow_kw in video_title for allow_kw in allowed_keywords):
-                continue
-
             if video_id not in processed_videos:
-                print(f"✅ 우주/과학 타겟 영상 발견: {video_title}", flush=True)
+                print(f"✅ 새로운 타겟 영상 발견: {video_title}", flush=True)
                 global PUBLISHED_DATE
                 PUBLISHED_DATE = item["snippet"].get("publishedAt", "")[:10] or None
                 return video_title, video_id
                 
-        print("⚠️ 상위 50개 영상 중 조건(우주/과학)에 맞는 새로운 영상을 찾지 못했습니다!", flush=True)
+        print("⚠️ 상위 50개 영상을 모두 처리했습니다!", flush=True)
         return None, None
         
     except Exception as e:
         error_msg = str(e).lower()
+        # 💡 유튜브 API 한도 초과 감지 기능 추가
         if "quota" in error_msg or "429" in error_msg or "rate limit" in error_msg:
             print("\n🚨 [경고: 유튜브 API 한도 초과] 하루 무료 검색량(10,000 포인트)을 모두 소진했습니다!", flush=True)
+            print("💡 해결책: 한국 시간 매일 오후 4시에 리셋되니 그때 다시 시도하시거나, 구글 콘솔에서 새 API 키를 발급받아 교체하세요.\n", flush=True)
         else:
             print(f"❌ 유튜브 검색 중 에러 발생: {e}", flush=True)
         return None, None
@@ -152,22 +152,9 @@ def get_video_transcript(video_id):
     if not segments:
         print("⚠️ 자막·자동 생성 자막 모두 없음. 제목만으로 대본을 창작합니다.", flush=True)
         return None
-    chunks = []
-    current_chunk = []
-    chunk_limit = 1200
-
-    for t in segments:
-        if t['start'] >= chunk_limit:
-            chunks.append(" ".join(current_chunk))
-            current_chunk = []
-            chunk_limit += 1200
-        current_chunk.append(t['text'])
-
-    if current_chunk:
-        chunks.append(" ".join(current_chunk))
-
-    print(f"✅ 원본 자막 추출 성공! (20분 단위로 총 {len(chunks)}개의 파트로 나눔)", flush=True)
-    return chunks
+    text = " ".join(t['text'] for t in segments)
+    print("✅ 원본 자막 추출 성공! (이 내용을 바탕으로 대본을 씁니다)", flush=True)
+    return text
 
 def fetch_gemini_response(api_key, prompt, return_dict):
     try:
@@ -195,7 +182,7 @@ def log_hook_score(script_text):
     """[1부] 첫 약 40단어(첫 15초)의 훅 점수를 로그로만 남긴다(참고용, tools/hookscore.py; 재생성하지 않음)."""
     try:
         import sys as _sys
-        _sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
+        _sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
         import hookscore
         start = script_text.index("=== 1부")
         body = script_text[start:].split("\n", 1)[1]
@@ -216,25 +203,17 @@ def log_word_count(script_text, low, high):
     else:
         print(f"📊 [1부] 영어 단어 수 {words}개 (Kokoro 남성 약 145단어/분 기준 약 {words/145:.1f}분)", flush=True)
 
-def create_ai_studio_script(youtube_title, transcript_text, part_num, total_parts):
-    print(f"🤖 제미나이 영어 내레이션 대본 기획 시작... (시리즈 Part {part_num}/{total_parts})", flush=True)
+def create_ai_studio_script(youtube_title, transcript_text):
+    print("🤖 제미나이 영어 내레이션 대본 기획 시작...", flush=True)
     if not GEMINI_API_KEY:
         return None
         
-    if total_parts > 1:
-        if part_num < total_parts:
-            connection_instruction = "이 대본은 내용이 방대하여 여러 편으로 나눈 시리즈 중 하나야. [1부]의 마지막 문단은 다음 편(Part)을 안 보고는 못 배기도록 극적이고 긴장감 넘치는 클리프행어로 끊어줘. 이 편에서는 규칙 5의 결말(현대 일상 복귀, 구독 요청)을 쓰지 말고, 이 편에 없는 내용을 미리 풀지도 마."
-        else:
-            connection_instruction = "이 대본은 시리즈의 마지막 편(Part)이야. 이전 편의 분위기를 자연스럽게 이어받고, 마지막에는 모든 궁금증을 해소하며 규칙 5의 결말(현대 일상 복귀, 구독 요청)로 웅장하게 마무리해."
-    else:
-        connection_instruction = "이 대본은 단일 영상으로 끝나는 대본이야. 기승전결이 완벽하게 마무리되도록 해줘."
-
     if transcript_text and TRANSCRIPT_SOURCE == "auto":
         transcript_text = ("(아래는 유튜브 자동 생성 자막이라 음성 인식 오류·문장부호 누락이 있을 수 있음. 문맥상 명백한 오인식은 바로잡고, "
                            "확실하지 않은 고유명사·숫자는 쓰지 말 것.)\n" + transcript_text)
     if transcript_text:
         source_material = f"""
-[원본 영상 제목]: "{youtube_title}" (전체 시리즈 중 Part {part_num}/{total_parts})
+[원본 영상 제목]: "{youtube_title}"
 [원본 영상 실제 대본 내용 (이 내용에 있는 사실만 근거로 삼아 우리만의 영어 내레이션으로 재구성할 것)]:
 {transcript_text}
 """
@@ -245,28 +224,25 @@ def create_ai_studio_script(youtube_title, transcript_text, part_num, total_part
 """
 
     prompt = f"""
-너는 'Miya's Note' 채널의 영어 내레이션 작가야. 글로벌 시청자에게 우주·과학 지식을 몰입감 있게 전달하는 롱폼 영상의 **영어 내레이션 대본**을 쓴다. 이 대본은 그대로 TTS 음성과 모션그래픽(SVG 일러스트) 영상으로 만들어질 예정이야.
+너는 'Miya's Note' 채널의 영어 내레이션 작가야. 글로벌 시청자에게 지식을 차분하고 깊이 있게 전달하는 롱폼 영상의 **영어 내레이션 대본**을 쓴다. 이 대본은 그대로 TTS 음성과 모션그래픽(SVG 일러스트) 영상으로 만들어질 예정이야.
 
 {source_material}
 
 [작성 규칙 - 지침서 기준, 절대 어기지 마!]:
 1. **언어**: 영상에 들리고 보이는 것은 전부 영어야. [1부]는 영어 내레이션만 쓰고 한글, 이모지, 괄호 연출 메모, 타임코드, 장면 번호를 절대 넣지 마(TTS에 그대로 붙여 넣을 글이야). 원본이 한국어·일본어여도 자연스러운 영어로 옮겨 써. 숫자·단위·날짜는 영어 표기(예: "2.461 billion years ago", "380,000 km").
-2. **분량**: [1부] 영어 단어 수는 **약 2,050단어(허용 1,900~2,200단어, 영상 15분 이내)**로 맞춰. 원본이 더 길면 가장 중요한 내용 위주로 줄이고, 짧으면 원본에 있는 사례·수치·디테일을 풀어 쓰고 원리 설명과 일상 비유로만 보강해. (원본에 없는 사실·숫자·인물·연구를 지어내지는 마.)
+2. **분량**: [1부] 영어 단어 수는 **약 2,050단어(허용 1,900~2,200단어)**로 맞춰. (Kokoro 남성 목소리가 분당 약 145단어로 읽고 장면 간격·여백이 더해져 영상 약 13~15분 이내가 돼. 15분을 넘기면 안 돼.) 1,900단어에 못 미치면 구체적인 장면 묘사, 원리 설명, 일상 비유, **원본에 있는 사례**로 보강하고, 2,200단어를 넘으면 반복과 곁가지를 덜어내. 원본 자막이 있으면 원본의 디테일과 예시를 최대한 살려.
 3. **문단 = 장면 하나**: [1부]는 문단마다 빈 줄로 구분해. 한 문단은 같은 장소·같은 생각을 다루는 장면 하나이고 **약 60~110단어(문장 4~7개, 약 25~40초)**로 써. 장면이 바뀔 때(장소·시대·예시·질문이 바뀔 때)만 문단을 나눠. 숫자 비교가 중심인 문단은 그 숫자들을 한 문단에 모아(영상에서 데이터 카드 한 장이 돼). 문장은 짧게(평균 15단어 안팎), 평서문과 의문문을 섞어.
 4. **말투**: 한 사람에게 이야기하듯 따뜻하고 공손한 대화체. 시청자를 "you"로 부르고 축약형(it's, don't)을 써도 돼. 수사 의문문은 영상 전체에서 8~18개.
-5. **구성**: ① 처음 5분은 설명보다 끌어당김이 먼저야: 시청자에게 던지는 질문 / "만약 ~라면?" 가정 상황(가정임을 밝히고 수치는 A등급만) / 친숙한 영화 장면(영화의 실제 내용만, 확인 못 하면 쓰지 말고 질문·가정으로 대체) 중에서 소재에 맞게 골라 섞어 시작하고, 답을 바로 주지 말고 궁금증을 유지한 채 1~2분 안에 본론으로 이어가. 처음 60초 훅은 일상적인 감각("Take a look at your fingernails.") / 의외의 숫자나 사실 / 뒤집기 / 핵심 질문 / 출발 선언 중에서 골라 시작해. ② 본문은 구체적인 장면 묘사로 열고, 원리를 설명하고, 일상 비유를 들어. ③ 도입과 결말에 현대인의 일상 장면을 넣어. ④ 결말은 시청자의 현재로 돌아와 감성적으로 정리하고, 마지막은 주제의 여운을 남기는 한두 문장으로 끝내고, 구독·좋아요 요청은 쓰지 마(영상 끝에 고정 아웃트로가 따로 붙어서 중복돼). '서재(library)'라는 표현과 원본 채널 이름은 절대 쓰지 마.
+5. **구성**: ① 처음 60초 훅은 일상적인 감각("Take a look at your fingernails.") / 의외의 숫자나 사실 / 뒤집기 / 핵심 질문 / 출발 선언 중에서 골라 시작해. ② 본문은 구체적인 장면 묘사로 열고, 원리를 설명하고, 일상 비유를 들어. ③ 도입과 결말에 현대인의 일상 장면을 넣어. ④ 결말은 시청자의 현재로 돌아와 감성적으로 정리하고, 마지막은 주제의 여운을 남기는 한두 문장으로 끝내고, 구독·좋아요 요청은 쓰지 마(영상 끝에 고정 아웃트로가 따로 붙어서 중복돼). '서재(library)'라는 표현과 원본 채널 이름은 절대 쓰지 마.
 6. **사실 확인 (지어내기 금지)**: 존재하지 않는 사례·연구·숫자·인용·인물을 절대 만들지 마. 자극적으로 만드는 방법은 오직 '사실의 배열'(가장 놀라운 확인된 사실을 앞에, 반전은 확인된 사실로, 질문과 긴장감 있는 문장)이야. 모든 사실 주장을 아래 등급으로 나눠서 처리해:
    - A: 아래 원본에 사실로 적혀 있는 내용 → 단정해서 써.
    - B: 원본이 가설·추정·"의심된다"로 말한 내용, 또는 원본에는 없고 네 배경지식으로만 아는 내용 → "scientists suspect…", "one hypothesis is…"처럼 가설임을 밝혀서만 써. 구체적인 숫자·연도·인명·논문은 쓰지 마.
    - C: 근거를 모르는 주장 → 쓰지 마. 모른다는 사실 자체가 확실할 때만 "No one knows for sure" 같은 미스터리 훅으로 바꿔.
    - D: 원본이나 확실한 지식과 모순되는 틀린 주장 → 반드시 고쳐서 써.
    등급이 애매하면 한 단계 보수적으로(A가 아니라 B로) 처리해. 너는 인터넷 검색을 할 수 없으니 네가 직접 확인했다고 말하지 마.
-7. **영화 내용 완전 삭제**: 원본에 '영화(movie)', '시네마', '마블', 특정 영화 제목이나 영화 속 설정에 대한 언급·비유·예시가 있으면 **한 줄도 남기지 말고 삭제**하고, 실제 과학적·역사적 사실과 지식만으로 재구성해.
-8. **몰입감 (사실 범위 안에서)**: 사실을 바꾸거나 지어내지 않는 선에서, 확인된 사실을 긴장감 있게 배열하고 소름 돋는 묘사와 호기심을 자극하는 질문을 써. 숫자·사례를 과장하거나 만들어내는 것은 금지야.
-9. **시리즈 연결**: {connection_instruction}
 
 [출력 양식 - 이 구조와 구분선을 정확히 지켜]:
-[영상 제목]: <영어 Title Case, 짧고 관심을 끄는 제목 약 50자 이하(질문형일 필요 없음, 직관적이든 은유적이든 상관없음), 이모지 없음, 전부 대문자 금지, 영상에 없는 내용을 약속하지 않기> (Part {part_num}/{total_parts})
+[영상 제목]: <영어 Title Case, 짧고 관심을 끄는 제목 약 50자 이하(질문형일 필요 없음, 직관적이든 은유적이든 상관없음), 이모지 없음, 전부 대문자 금지, 영상에 없는 내용을 약속하지 않기>
 
 === 1부: TTS 입력용 전문 ===
 <영어 내레이션 문단들, 문단 사이 빈 줄>
@@ -303,12 +279,14 @@ def create_ai_studio_script(youtube_title, transcript_text, part_num, total_part
         
         p = multiprocessing.Process(target=fetch_gemini_response, args=(GEMINI_API_KEY, prompt, return_dict))
         p.start()
+        
         p.join(300)
         
         if p.is_alive():
             print(f"❌ 제미나이 통신 에러 (시도 {attempt+1}/{max_retries}): 300초 무응답, 연결 강제 절단(Kill)!", flush=True)
             p.terminate()
             p.join() 
+            
             if attempt < max_retries - 1:
                 print("⏳ 30초 후 다시 시도합니다...", flush=True)
                 time.sleep(30)
@@ -319,7 +297,7 @@ def create_ai_studio_script(youtube_title, transcript_text, part_num, total_part
             text = return_dict.get('text')
             
             if status == 'SUCCESS':
-                print(f"✅ 대본 생성 성공! (Part {part_num}/{total_parts})", flush=True)
+                print("✅ 대본 생성 성공!", flush=True)
                 log_word_count(text, 1900, 2200)
                 log_hook_score(text)
                 words = count_narration_words(text) or 0
@@ -331,9 +309,11 @@ def create_ai_studio_script(youtube_title, transcript_text, part_num, total_part
                     continue
                 return best_text
             else:
+                # 💡 제미나이 API 한도 초과 감지 기능 추가
                 error_msg_lower = text.lower()
                 if "429" in error_msg_lower or "quota" in error_msg_lower or "resource_exhausted" in error_msg_lower:
-                    print(f"\n🚨 [경고: 제미나이 API 한도 초과] 무료 할당량을 모두 소진했습니다!", flush=True)
+                    print(f"\n🚨 [경고: 제미나이 API 한도 초과] (시도 {attempt+1}/{max_retries}) 무료 할당량을 모두 소진했거나 1분당 요청 한도를 넘었습니다!", flush=True)
+                    print("💡 해결책: 구글 AI 스튜디오에서 결제 수단(신용카드)을 연동해 제한을 해제하거나, 할당량이 초기화될 때까지 기다리세요.\n", flush=True)
                 else:
                     print(f"❌ 제미나이 내부 에러 (시도 {attempt+1}/{max_retries}): {text}", flush=True)
                 
@@ -398,49 +378,33 @@ def create_korean_summary(script_text, label=""):
 
 
 if __name__ == "__main__":
-    print("🚀 리뷰엉이 채널 전용 클라우드 대본 공장 가동!", flush=True)
+    print("🚀 이과형 채널 전용 클라우드 대본 공장 가동!", flush=True)
     if not os.path.exists(SAVE_DIR):
         os.makedirs(SAVE_DIR)
             
     title, video_id = get_unprocessed_top_video()
     
     if title and video_id:
-        transcript_chunks = get_video_transcript(video_id)
+        transcript_text = get_video_transcript(video_id)
         
-        if not transcript_chunks:
-            transcript_chunks = [None] 
+        script_text = create_ai_studio_script(title, transcript_text)
+        
+        if script_text:
+            summary = create_korean_summary(script_text)
+            filename = f"{script_date()}_{safe_title(korean_title_of(script_text, summary, video_title_of(script_text, title)))}.txt"
+            text_file_path = os.path.join(SAVE_DIR, filename)
             
-        total_parts = len(transcript_chunks)
-        all_parts_success = True
-        
-        for i, chunk_text in enumerate(transcript_chunks):
-            part_num = i + 1
-            script_text = create_ai_studio_script(title, chunk_text, part_num, total_parts)
-            
-            if script_text:
-                summary = create_korean_summary(script_text, f" (Part {part_num}/{total_parts})")
-                filename = f"{script_date()}_{safe_title(korean_title_of(script_text, summary, video_title_of(script_text, title)))}_Part{part_num}.txt"
-                text_file_path = os.path.join(SAVE_DIR, filename)
+            with open(text_file_path, "w", encoding="utf-8") as f:
+                f.write(f"날짜: {script_date()}\n제목: {video_title_of(script_text, title)}\n레퍼런스 주제: {title}\n\n")
+                if summary:
+                    f.write("=== 한국어 요약 (전체 번역이 아닌 요약본) ===\n" + summary.strip() + "\n\n")
+                f.write(script_text)
                 
-                with open(text_file_path, "w", encoding="utf-8") as f:
-                    f.write(f"날짜: {script_date()}\n제목: {video_title_of(script_text, title)}\n레퍼런스 주제: {title} (총 {total_parts}부작 중 {part_num}부)\n\n")
-                    if summary:
-                        f.write("=== 한국어 요약 (전체 번역이 아닌 요약본) ===\n" + summary.strip() + "\n\n")
-                    f.write(script_text)
-                    
-                print(f"🎉 Part {part_num} 작업 성공! 파일 저장 완료: {text_file_path}", flush=True)
-            else:
-                print(f"⚠ Part {part_num} 대본 생성 실패.", flush=True)
-                all_parts_success = False
-                break 
-                
-            if part_num < total_parts:
-                print("⏳ 다음 파트 생성을 위해 10초 대기 중...", flush=True)
-                time.sleep(10)
-        
-        if all_parts_success:
             with open(HISTORY_FILE, "a", encoding="utf-8") as f:
                 f.write(f"{video_id}\n")
-            print("🏁 타겟 영상의 모든 파트 처리가 완료되어 진도표에 기록되었습니다.", flush=True)
+                
+            print(f"🎉 모든 작업 성공! 파일 저장 완료: {text_file_path}", flush=True)
+        else:
+            print("⚠ 대본 생성 실패로 파일을 저장하지 못했습니다.", flush=True)
     else:
          print("⚠ 처리할 영상을 찾지 못해 작업을 종료합니다.", flush=True)

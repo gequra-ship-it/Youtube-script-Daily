@@ -129,3 +129,4 @@
 - `CLAUDE.md` 브랜치 표에 `main_이과형.py`·`scripts_igwahyung/`·`schedule_igwahyung.yml`·`render-chunked.yml`·archive 브랜치 추가. `README.md` 브랜치 설명을 두 브랜치 공용으로 고침.
 - `tools/README.md`: 영상 폴더 구성(`art3/`, 썸네일 3장), 렌더 기본 경로(`render-chunked.yml`), 말 속도(분당 145단어)를 현재 값으로 고침.
 - `main`의 `tools/`·`docs/` 사본을 `render-pipeline`과 다시 맞춤(`build3.py`·`motions.py`·`thumb_shot.py`·`16-thumbnail.md`, 빠져 있던 `eyecheck.py`).
+- 2026-11-14 (miya, 구조 개편 1): `main` 루트 정리. `main.py`·`main_owl.py`·`main_이과형.py` → `generators/daily.py`·`owl.py`·`igwahyung.py`, `scripts/`·`scripts_owl/`·`scripts_igwahyung/` → `scripts/daily/`·`scripts/owl/`·`scripts/igwahyung/`(각자 `history.txt`, `used/`). 예약 워크플로 3개의 경로, `tools/used_check.py`, CLAUDE.md·지침서 12-1 표기를 같이 바꿈.
