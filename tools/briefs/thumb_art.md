@@ -1,5 +1,5 @@
-# Brief for the Opus thumbnail agent (guideline 16-6, user decision 2026-10-18)
-You make THREE YouTube thumbnails (A, B, C; 1920x1080 PNG) for ONE video of the channel Miya's Note. Read first: `docs/guideline/16-thumbnail.md` (esp. 16-2, 16-6), `tools/thumb_lib.py` (page/text helpers), `tools/figlib.py` (every visible hand with fingers = `hand(...)`, 12 poses, 2026-11-05; `tools/hands.py` only when matching an old thumbnail), `tools/art_spec.md` section 6A/6B if you draw people (cute proportions, body.arm).
+# Brief for the Opus thumbnail agent (guideline 16-6)
+You make THREE YouTube thumbnails (A, B, C; 1920x1080 PNG) for ONE video of the channel Miya's Note. Read first: `docs/guideline/16-thumbnail.md` (esp. 16-2, 16-6), `tools/thumb_lib.py` (page/text helpers), `tools/figlib.py` (every visible hand with fingers = `hand(...)`, 12 poses; `tools/hands.py` only when matching an old thumbnail), `tools/art_spec.md` section 6A/6B if you draw people (cute proportions, body.arm).
 
 ## What a good thumbnail is here (the owner's words: "it must be fun and eye-catching")
 The owner's four favourites, and WHY they work:
@@ -19,11 +19,17 @@ Render with `cd /home/user/rp && MIYA_WORK=/home/user/miya-work SLUG=<slug> pyth
 ## Homages already used (do not reuse in another video)
 Jaws (poster), Jurassic Park (car mirror), Lawrence of Arabia, The Lion King (opening), Rocky (steps), E.T. (moon), The Creation of Adam (painting), The Truman Show, Interstellar. Pick other famous films/images; prefer one that truly matches the topic.
 
-## Mascot frog (owner decision 2026-10-24)
+## Mascot frog
 Every thumbnail (A, B, C) includes the channel's notebook frog (`tools/assets/frog.svg`, same green body, ink outline, big round eyes). It does NOT explain anything here: put it into the scene in a pose, place and outfit that fits THIS thumbnail (riding on top of the spaceship, in a diving suit on the sea floor, peeking out of the dinosaur skull...). Surprised or curious face. About 1/5-1/3 of the frame height, never covering the main subject or the text. Recognisably the same frog in all three. Only the outfit/props change, not the frog's body colours.
 
 
-## Shorts thumbnails (miya 2026-11-06, guideline 16-9)
+## Shorts thumbnails (guideline 16-9)
 After the 3 long-form thumbnails, also make ONE thumbnail per short (5 shorts: slug `<slug>-short1..5`). **Different spec from long form: VERTICAL 1080x1920 PNG (9:16), text CENTRED (horizontal centre, around mid-height), no empty bottom-right rule.** Same text style (Fredoka Bold, white + dark outline, one yellow key word, 2-5 English words), same frog (not covering text/subject), big detailed scene with glow and depth; keep key things off the very top/bottom edges (YouTube UI). Each = the strongest scene of THAT short's script (`videos/<slug>-shortN/script.py`), different from the long thumbnails and each other. One file `videos/<slug>-shortN/thumb/A.html`: copy `tools/assets/thumb_v/*` into `thumb/`, build with `thumb_lib.vpage/vsvg`, render `SLUG=<slug>-shortN python3 tools/build/thumb_shot.py` -> `render/<slug>-shortN/deliver/<slug>-shortN_thumbnail_A.png` (<= 2 MB). Self-check with a 5-up contact sheet + 320px-wide readability. NO miya approval: they ship with the short render.
 
-**Style B (miya 2026-11-07, guideline 16-9 B): glow + concrete subject + one-line hook.** Shorts thumbnails are a dark / high-contrast scene with ONE big glowing, concrete focal subject from the script (halo, sparkles, light particles, vignette) and a centred 2-4 word English hook (facts from the script only) on a soft dark band. Use `thumb_lib.fireflies / halo / darkband`; reference: `videos/parasite-monster-frogs/thumb/make_short1_glow_sample.py`. Keep protruding parts of the subject out of the text zone (y 860-1240).
+**Style B (guideline 16-9 B): glow + concrete subject + one-line hook.** Shorts thumbnails are a dark / high-contrast scene with ONE big glowing, concrete focal subject from the script (halo, sparkles, light particles, vignette) and a centred 2-4 word English hook (facts from the script only) on a soft dark band. Use `thumb_lib.fireflies / halo / darkband`; reference: `videos/parasite-monster-frogs/thumb/make_short1_glow_sample.py`. Keep protruding parts of the subject out of the text zone (y 860-1240).
+
+---
+
+### History
+- 2026-10-18 (owner): three thumbnails by the Opus agent. 2026-10-24 (owner): mascot frog. 2026-11-05: figlib hands. 2026-11-06 (miya): shorts thumbnails. 2026-11-07 (miya): shorts style B.
+- 2026-11-14 (miya): dated notes moved here; no rule changed.
