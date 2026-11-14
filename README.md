@@ -7,5 +7,5 @@ English knowledge YouTube channel **Miya's Note**. Start with `CLAUDE.md` (repo 
 - Per video: `videos/<slug>/` (script, config, pictures `art3/`), render sources `render/<slug>/`
 - Repo change log: `docs/repo-changes.md`
 
-Branches: `render-pipeline` = video production (this), `main` = daily script generation (copies of `docs/`, `tools/`).
+Branches: `render-pipeline` = video production (`videos/`, `render/` and the render workflows exist only there), `main` = daily script generation (`main*.py`, `scripts*/`, plus copies of `docs/`, `tools/`), `archive/miyas-lab-2026-10-24` = old channel, read-only. `main` and `render-pipeline` are never merged.
 Pushing `render/.chunked`, `render/.slug`, `render/sample/**` or the render workflows starts a GitHub Actions render that overwrites the Drive MP4.

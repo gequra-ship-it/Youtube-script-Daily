@@ -123,3 +123,9 @@
 - 2026-11-06: shorts thumbnails (1 per short, 5 per video, no miya approval): guideline 16-9, CLAUDE.md, 18-drive, tools/README.md, tools/briefs/thumb_art.md. No code change (thumb_shot.py and render.yml already handle `-shortN` slugs).
 - 2026-11-06 (fix): shorts thumbnails are vertical 1080x1920 with centred text: tools/thumb_shot.py (size by slug), tools/thumb_lib.py (vpage/vsvg), tools/assets/thumb_v/, guideline 16-9.
 - 2026-11-11: tools/used_check.py + 완료 체크리스트(used/ 원본 보관) 추가, CLAUDE.md·지침서 12장 반영 (miya)
+
+## 2026-11-14 (레포 점검·정리, miya)
+- `render-pipeline`: 테스트 렌더 폴더 `render/eating-bis-A~K`·`eating-bis-none`(커밋된 MP4 12개 포함)과 추적되던 `videos/sharpest-blade-fastest-gun*/__pycache__` pyc 13개 삭제.
+- `CLAUDE.md` 브랜치 표에 `main_이과형.py`·`scripts_igwahyung/`·`schedule_igwahyung.yml`·`render-chunked.yml`·archive 브랜치 추가. `README.md` 브랜치 설명을 두 브랜치 공용으로 고침.
+- `tools/README.md`: 영상 폴더 구성(`art3/`, 썸네일 3장), 렌더 기본 경로(`render-chunked.yml`), 말 속도(분당 145단어)를 현재 값으로 고침.
+- `main`의 `tools/`·`docs/` 사본을 `render-pipeline`과 다시 맞춤(`build3.py`·`motions.py`·`thumb_shot.py`·`16-thumbnail.md`, 빠져 있던 `eyecheck.py`).
