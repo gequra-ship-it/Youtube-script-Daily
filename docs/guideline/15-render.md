@@ -61,18 +61,19 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 **저장소** `gequra-ship-it/youtube-script-daily`
 - 예전 이름 `ht`/`HT`/`Youtube-script-Daily`로 연결돼 있으면 Actions API가 막힌다. `list_repos`로 확인하고 `add_repo`(access: push), 로컬 `origin`도 바꾼다.
 
-**워크플로**
-
-| 워크플로 | 쓰는 곳 | 시작 조건(`render-pipeline` 푸시) |
-|---|---|---|
-| `render-chunked.yml` | 기본. 구간별 병렬 렌더(20-7) | `render/.chunked`, `.github/workflows/render-chunked.yml` |
-| `render.yml`(`render-video`, `ubuntu-24.04`, 300분) | `.deliver_only` 업로드 전용(20-7) | `render/.slug`, `.github/workflows/render.yml`, `render/sample/**` |
-
+**워크플로 `render-chunked.yml` (하나뿐이다)**
+- 시작 조건(`render-pipeline` 푸시): `render/.chunked` 또는 `.github/workflows/render-chunked.yml`이 바뀔 때. 수동 실행 입력 `spec`(쉼표로 여러 개), `reuse_run`(20-7).
 - **시작 조건은 되돌리기 어렵다**: 위 파일이 바뀌면 바로 렌더하고 Drive의 같은 이름 MP4를 덮어쓴다. 의도 없이 건드리지 않는다.
-- `render.yml` 단계: Node 22 → FFmpeg·rclone → Chrome 예열(버전 확인 최대 3번 + 빈 페이지) → `npx hyperframes@0.8.141 render`(MP4가 없으면 재시도, 3번까지) → ffprobe·음량 → Drive 업로드(비밀값이 있을 때만).
-- 실패 로그 끝부분은 `<슬러그>_render_error.txt`로 Drive에 올라간다. 한 슬러그가 실패해도 다음을 계속한다.
-- `render.yml`의 `.slug`: 한 줄에 슬러그 하나, 차례로 처리. 같은 내용을 다시 돌릴 때는 줄 순서를 바꾼다. 워크플로만 바꿀 때는 `none`. 파일이 없으면 `sample`(→ `_ci-test/`). 수동 실행 입력 `slug`(쉼표로 여러 개).
-- `.slug` 목록은 fd 3으로 읽는다(`while read -r SLUG <&3 ... done 3< 파일`). 표준입력으로 읽으면 첫 슬러그만 처리된다(롱폼이 몇 분 만에 끝나면 의심).
+
+| `render/.chunked`의 줄 | 뜻 |
+|---|---|
+| `<슬러그> <구간 수>` | 구간별 병렬 렌더 뒤 합쳐 Drive에 올린다(20-7) |
+| `<슬러그> 0` | 렌더하지 않고 `render/<슬러그>/deliver/`(썸네일·메타데이터)만 올린다 |
+| `#`으로 시작하는 줄 | 무시. 슬러그 줄이 하나도 없으면 아무것도 하지 않는다 |
+
+- `.chunked`의 **모든 줄**이 푸시마다 다시 실행된다. 끝난 영상의 줄은 지우고, 다른 영상의 줄을 남기지 않는다.
+- 구간 작업 단계: Node 22 → FFmpeg → Chrome 예열(버전 확인 최대 3번 + 빈 페이지) → `tools/chunk_prep.py` → `npx hyperframes@0.8.141 render`(MP4가 없으면 재시도, 3번까지) → 구간 리포트. 합치는 작업: 구간 연결 → 음성 합치기 → ffprobe·음량 → Drive 업로드(비밀값이 있을 때만).
+- 작업 하나의 시간 한도는 300분(합치는 작업 180분).
 
 **렌더 원본 `render/<슬러그>/`**
 - `index.html`, `mix.m4a`, 그림, 공용 자산 링크(15-2).
@@ -86,7 +87,6 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 | `.dest` | Drive 폴더(18장). 없으면 `<슬러그>/`, `-short`·`-short1`~`-short9`면 접미어를 뗀 이름의 `short/` |
 | `.outname` | Drive 파일 이름 |
 | `.skip_deliver` | `deliver/`를 다시 올리지 않는다 |
-| `.deliver_only` | 렌더 없이 `deliver/`만 올린다. 다시 렌더하려면 지운다 |
 | `.checked` | `final_check` 통과 표시(15-8). 렌더를 시작시키지 않는다 |
 
 **Drive 업로드**
@@ -148,7 +148,7 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 3. `tools/README.md` 순서대로 진행한다.
 4. 대본을 받으면 `videos/<슬러그>/`를 만든다. `script.py`는 12-1 사실 확인 뒤의 영어 내레이션, `art3/`는 하위 에이전트, `config.py`·`thumb/`는 예시를 따른다.
 
-- 렌더 시작 파일(`render/.chunked` 또는 `render/.slug`)은 내가 적는다(사용자 일이 아니다).
+- 렌더 시작 파일(`render/.chunked`)은 내가 적는다(사용자 일이 아니다).
 
 **이미 만든 영상의 모션만 바꾸기**
 - `python3 tools/build/restyle_motion.py render/<슬러그>`가 `index.html`을 현재 모션 규칙(19종, 빛 맥동, 이웃 도형 묶기, 칠판 글자 맞춤, 배지 카운트업, 스포트라이트, 자막 단어 강조)으로 바꾼다.
@@ -198,5 +198,6 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 - 2026-10-29 (miya): 최종 점검 게이트("마지막에 메인이 다시 한번 확인"). build3에 svgo 사본·플러그인(4-6). 숏츠3 끝부분이 멈추고 음성만 나와 렌더 뒤 freezecheck 추가(그때 프레임당 시간이 0.1→0.4초로 느려짐).
 - 2026-10-30 (miya): 멈춤 원인 확정. ① `CustomWiggle` `random` 형(`mv-core-tremble`)이 트윈 끝에서 캡처를 멈춤(stolen-time 숏츠3 37.6초, 식인 숏츠3 6.8초, 괴물 개구리 숏츠3 117.5초). ② 문자열 `wiggle({type:'easeOut'|'uniform'})`와 `CustomWiggle.create`도 같은 증상(stolen-time 숏츠1 72.6초). 로컬 구간 렌더 이분 탐색으로 확인, `miyaBnc`(CustomBounce)는 원인이 아님.
 - 2026-10-31: 다양성 검사. 2026-11-05: 맥동 탑승 0, 센터 모션 ≤ 15 %.
-- 2026-11-14: 공용 자산을 `tools/assets` 링크로, GSAP 3.14.2 → 3.15.0 표기, Chromium 경로는 `paths.chrome()`, `render.yml`은 deliver 전용, 저장소 "비공개" 표기 삭제.
+- 2026-11-14: 공용 자산을 `tools/assets` 링크로, GSAP 3.14.2 → 3.15.0 표기, Chromium 경로는 `paths.chrome()`, 저장소 "비공개" 표기 삭제.
 - 2026-11-14 (miya): 문서 유지 규칙 형식으로 정리(현재 규칙만, 이력은 여기).
+- 2026-11-14 (miya): `render.yml`(한 작업 방식, `render/.slug`, `.deliver_only`)을 없애고 `render-chunked.yml` 하나로 통합. 썸네일만 올리기는 `.chunked`의 `<슬러그> 0`.
