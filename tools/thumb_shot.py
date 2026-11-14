@@ -15,5 +15,6 @@ with sync_playwright() as p:
         pg.goto(f'file://{vdir()}/thumb/{n}.html'); pg.wait_for_timeout(500)
         ok = pg.evaluate("document.fonts.check('700 100px Fredoka')")
         f = f'{out}/{SLUG}_thumbnail_{n}.png'; pg.screenshot(path=f); assert not SHORT or os.path.getsize(f) < 2_000_000, 'over 2MB'
+        import eyecheck; _n, _bad = eyecheck.check(f'{vdir()}/thumb/{n}.html'); print('EYES', 'BAD pupil outside eye white: ' + str(_bad) if _bad else f'ok ({_n})')
         print(n, 'font', ok, os.path.getsize(f), 'bytes')
     print('errors', errs); b.close()

@@ -60,5 +60,6 @@
   3. **훅**: 영어 2~4단어, 가운데 정렬, 대본에 있는 사실만(숫자는 대본에 있을 때만). 읽는 위치는 세로 중간(y≈860~1240), 글자 뒤에 `darkband`. 핵심 낱말 하나만 노랑.
   4. 글자·초점 대상이 서로 겹치지 않게(튀어나온 소재가 글자 영역에 닿으면 줄이거나 뺀다). 마스코트 개구리는 16-8대로 하단 구석, 소재에 맞는 옷·표정.
   5. 코드: `tools/thumb_lib.py`의 `fireflies`·`halo`·`darkband`. 기준 예시 `videos/parasite-monster-frogs/thumb/make_short1_glow_sample.py`(short1 "TOO MANY LEGS", 샘플 PNG는 프로젝트 폴더 `parasite-monster-frogs/short1_sample_v2.png`).
+- **개구리 눈 (2026-11-07, miya)**: 검은자는 반드시 흰자 안에 완전히 들어가야 한다(숏츠는 작은 화면이라 벗어나면 흰자만 보여 이상함). `tools/thumb_shot.py`가 `tools/eyecheck.py`로 자동 점검해 `EYES BAD`가 나오면 `look`을 줄이거나 고친다(공용 `frog()`는 검은자를 흰자 안으로 제한).
 - **납품**: 숏츠 렌더와 함께 `deliver/`가 Drive `.../NN_<슬러그>/short/`로 올라간다(`render.yml`이 `-shortN`을 `short/`로 보냄). 이미 렌더한 숏츠는 썸네일만 올릴 때 `render/<슬러그>-shortN/.deliver_only` + `render/.slug`(16-7).
 - 확인(2026-11-06): 테스트 슬러그로 `thumb_shot.py`를 돌려 1080×1920 PNG가 나오는 것을 확인했다.

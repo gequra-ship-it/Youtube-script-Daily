@@ -5,9 +5,9 @@ All paths come from `tools/paths.py`. Set `SLUG=<video-slug>` (and optionally `M
 
 Per video you need `videos/<slug>/`:
 - `script.py` — `SCENES = [(id, chapter title, "ill"|"chalk", art id, narration), ...]`
-- `art/<art id>.svg` — one 1920x1080 SVG per scene (spec: `tools/art_spec.md`; movable parts as `id="mv-name"` groups)
+- `art3/<uid>.svg` + `art3/<uid>.json` — one picture and sidecar per unit of `plan.json` (spec: `tools/art_spec.md`; movable parts as `id="mv-<kind>-<name>"` groups)
 - `config.py` — `CHALK`, `WHOOSH`, `TITLE`, `DESC`, `CHAPTERS`, `SOURCES`, `HASHTAGS` (see the existing one)
-- `thumb/A.html`, `thumb/B.html`, `thumb/common.css`, `thumb/Fredoka-700.woff2` — two original thumbnails
+- `thumb/A.html`, `thumb/B.html`, `thumb/C.html`, `thumb/make.py`, `thumb/common.css`, `thumb/Fredoka-700.woff2` — three thumbnails (shorts: `A.html` only)
 
 Steps (run from the repo root):
 1. `SLUG=x HYPERFRAMES_PYTHON=<venv python> tools/tts.sh` — Kokoro `am_michael` (male; miya 2026-10-26 reverted from af_heart), one wav per scene; 4-digit years are spelled out by `tts_text.py`.
@@ -19,7 +19,7 @@ Steps (run from the repo root):
 4. Thumbnails (guideline 16-6/16-7): an **Opus agent** (brief `tools/briefs/thumb_art.md`) writes `videos/<slug>/thumb/{A,B,C}.html` with a generator `make.py` using `tools/thumb_lib.py` (`page`, `svg`, `lin`, `rad`, `stars`, `spark`, `blobs`) and `tools/hands.py`; then `SLUG=x python3 tools/thumb_shot.py` -> `render/x/deliver/x_thumbnail_A..F.png` (A-C always, D-F only if the html exists). To upload only the thumbnails: `render/<slug>/.deliver_only` + `render/.slug` (see 16-7).
 5. `SLUG=x python3 tools/gen_text.py` — metadata txt (title, short description, timeline, hashtags) into `render/x/deliver/`; the script reference stays in the work dir (2026-10-24).
 6. Shorts: same steps with slug `x-short` (`VERT=1` for build3; one thumbnail per short = `videos/x-shortN/thumb/A.html` -> `SLUG=x-shortN python3 tools/thumb_shot.py` -> `render/x-shortN/deliver/x-shortN_thumbnail_A.png`, VERTICAL 1080x1920 (`thumb_lib.vpage/vsvg`, `assets/thumb_v/common.css`; centred text), no miya approval needed (guideline 16-9); `gen_text.py` writes title/description/hashtags because `CHAPTERS=[]`). Shorts art is vertical (`art_spec.md` section 10).
-7. (The workflow reads slugs through fd 3 because npx/ffmpeg inside the loop otherwise swallow the remaining slug lines — this made the first run skip the long video.) Write both slugs to `render/.slug`, one per line (`x` then `x-short`), commit, push to `render-pipeline`. The workflow renders each slug in turn and uploads to Drive: long -> `x/`, Shorts -> `x/short/`.
+7. Render (current): run `SLUG=x python3 tools/final_check.py`, then `python3 tools/chunk_plan.py render/x` and start `render-chunked.yml` (push `render/.chunked` lines `"<slug> <chunks>"`, or workflow_dispatch with `spec`); see CLAUDE.md and guideline 15 / 20-7. The rest of this step describes the older single-job `render.yml` route through `render/.slug`. (The workflow reads slugs through fd 3 because npx/ffmpeg inside the loop otherwise swallow the remaining slug lines — this made the first run skip the long video.) Write both slugs to `render/.slug`, one per line (`x` then `x-short`), commit, push to `render-pipeline`. The workflow renders each slug in turn and uploads to Drive: long -> `x/`, Shorts -> `x/short/`.
    - `render/<slug>/.dest` (one line) overrides the Drive folder (e.g. `x/short`) when the slug name does not follow `<long>-short`.
    - A slug folder containing an empty file `.deliver_only` skips the render and only uploads `deliver/` (use to re-upload thumbnails/text).
 
@@ -32,7 +32,7 @@ Steps (run from the repo root):
 - Five Shorts per video (2026-10-24): slugs `<slug>-short1` ... `<slug>-short5`; each has its own `.dest` (`<long .dest>/short`). Put all six slugs in `render/.slug` (or split commits, 15-5).
 
 ## 2026-10-10 (epomis-frog-hunter-v2)
-- Kokoro speed re-measured at ~163 words/min (not 126): plan ~2,200 words (2,000-2,300) for a video of at most 15 min (since 2026-10-24; was 3,450 for 20+ min). Always check `audio_prep.py`'s total.
+- Kokoro speed: the male voice `am_michael` measures ~145 words/min (guideline 9-2, re-measured 2026-11-02; the 163 words/min measured here on 2026-10-10 is outdated): plan ~2,000-2,100 words (1,900-2,200) for a video of at most 15 min. Always check `audio_prep.py`'s total.
 - `build3.py`: very short units (<1.6 s) merge into a neighbour; a short last unit re-splits with the previous one. A partial `SEL=` build now takes picture uids from `plan.json` (before, numbering restarted at 1 and pictures were mismatched).
 - `body.py` (2026-10-17): human proportions in head heights + `arm()` (2-link `mv-limb` arm with a hands.py hand; art_spec 6B); `python3 tools/body.py out.svg` draws the reference sheet. build3 animates `mv-limb-*` gently and in step.
 - `hands.py` (2026-10-17): anatomically sane hands (art_spec 6A); since 2026-11-05 only for old pictures/thumbnails — new pictures use `figlib.py`.
