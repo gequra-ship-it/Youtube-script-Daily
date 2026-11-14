@@ -5,9 +5,9 @@
 ## 현재 구조
 | 브랜치 | 내용 |
 |---|---|
-| `main` (기본) | 매일 대본 생성: `main.py`(6시), `main_owl.py`(7시), `main_이과형.py`(9시, KST) + 워크플로 `schedule.yml`·`schedule_owl.yml`·`schedule_igwahyung.yml`, 봇이 커밋하는 `scripts/`·`scripts_owl/`·`scripts_igwahyung/`. `docs/`·`tools/`는 `render-pipeline`의 사본. `render/`·`videos/`는 넣지 않는다(약 650MB) |
-| `render-pipeline` | 영상 제작 원본: `tools/`, `docs/`, `videos/<슬러그>/`, `render/<슬러그>/`, 워크플로 `render-chunked.yml`(구간 병렬 렌더)·`render.yml`(`render/.slug`) |
-| `claude/epic-ritchie-0mujsz` | 세션 작업 브랜치(`main`에 합쳐 쓰는 대본 도구용) |
+| `main` (기본) | 매일 대본 생성: `generators/daily.py`(6시), `owl.py`(7시), `igwahyung.py`(9시, KST) + 워크플로 `schedule.yml`·`schedule_owl.yml`·`schedule_igwahyung.yml`, 봇이 커밋하는 `scripts/daily/`·`scripts/owl/`·`scripts/igwahyung/`. `docs/`·`tools/`는 `render-pipeline`의 사본. `render/`·`videos/`는 넣지 않는다 |
+| `render-pipeline` | 영상 제작 원본: `tools/`, `docs/`, `videos/<슬러그>/`, `render/<슬러그>/`, 워크플로 `render-chunked.yml`(`render/.chunked`의 `<슬러그> <구간 수>`, `0`이면 `deliver/`만 업로드) |
+| `archive/miyas-lab-2026-10-24` | 옛 영상·3D·옛 문서 보관 |
 - `cine-test/`(3D 보관)와 `docs/archive/`는 2026-10-24에 지웠다. 필요하면 브랜치 `archive/miyas-lab-2026-10-24`에서 꺼낸다.
 - 일부러 합치지 않은 것: `videos/*/art_brief.md`(영상별 등장인물·장소 시트), `videos/*/STATUS.md`·`NEXT.md`(영상별 작업 메모), `tools/README.md`(사용법).
 
@@ -134,3 +134,4 @@
 - 2026-11-14 (miya, 구조 개편 5): `render/<slug>/`마다 커밋돼 있던 공용 자산(gsap 14개·`gsap.min.js`·`anime.min.js`·폰트 2·`logo.png`·`grain.png`, 204개 폴더 4,080개 파일, 전부 `tools/assets`와 같은 내용) 추적 해제 + `.gitignore`. `chunk_prep.py`·`clip_prep.py`가 `tools/assets`에서 링크하고, 점검 도구는 `paths.ensure_assets()`를 쓴다. 검증: 링크된 자산으로 3초 구간 로컬 렌더(글꼴·모션 정상). `render/sample/`은 그대로.
 - 2026-11-14 (miya): 문서 유지 규칙 추가(지침서 핵심 파일 맨 위·CLAUDE.md). 9장(오디오)을 그 형식으로 다시 씀(현재 규칙만, 표, 개정 이력은 맨 아래). `videos/<slug>/` 파일 규격을 `tools/README.md`에 적음.
 - 2026-11-14 (miya, 지침서 정리): 지침서 모든 장(`docs/guideline/*.md`), 핵심 파일, `CLAUDE.md`를 문서 유지 규칙 형식으로 다시 씀. 본문은 현재 규칙만(표·짧은 목록), 날짜·경위·인용은 각 장 맨 아래 "개정 이력"으로, 장 맨 위 "최종 수정" 줄. 규칙 내용과 절 번호는 그대로(7-2 C-4는 C-2-1 ⑥에 합침, 3-6 끝의 픽토그램 항목은 9번으로). `00-header-decisions.md`는 결정 연표로. 본문을 현재 코드에 맞춘 곳: 15-2 GSAP 3.15·공용 자산 링크, 15-3 Chromium 경로 `paths.chrome()`, 4-6 CustomWiggle 행(금지), 7-2 D의 `bounce` 탑승 반응 삭제(L-1), 3-7 길이(15분 이내). `CLAUDE.md` 20KB → 약 8KB(요약 표 + 장 번호). `tools/README.md`의 날짜별 추가 절은 아직 옛 형식. 시험 렌더: render-chunked #231 `pluto-not-a-planet-short1` 성공, 글꼴·자산 링크 정상, freezecheck ok.
+- 2026-11-14 (miya, 추가 정리): `render.yml`·`render/.slug`·`.deliver_only`를 없애고 `render-chunked.yml` 하나로 통합(`render/.chunked`의 `<슬러그> 0` = 렌더 없이 `deliver/`만 업로드, 주석만 있으면 아무것도 안 함). `render/right-handed-majority-short1~5/.deliver_only`와 `main`의 `scripts/igwahyung/used/fall-from-ten-km__*.txt`(영상 없는 대본) 삭제. `tools/README.md`를 현재 규칙 형식으로 다시 씀, `tools/art_spec.md`의 날짜 메모를 맨 아래 History로 옮김(7A 제목 복원, 규칙 내용은 그대로).

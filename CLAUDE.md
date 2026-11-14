@@ -42,11 +42,13 @@
 ## 렌더 주의 (되돌리기 어려움)
 - `render-pipeline` 푸시에서 아래 파일이 바뀌면 GitHub Actions 렌더가 **바로 시작**되고 Drive의 같은 이름 파일을 덮어쓴다. 의도하지 않았다면 건드리지 않는다.
 
-| 파일 | 워크플로 | 쓰는 곳 |
-|---|---|---|
-| `render/.chunked`(`"<slug> <구간 수>"`), `.github/workflows/render-chunked.yml` | `render-chunked.yml` | 기본. 구간 병렬 렌더(20-7) |
-| `render/.slug`, `.github/workflows/render.yml`, `render/sample/**` | `render.yml` | `.deliver_only` 업로드 전용 |
+| 파일 | 뜻 |
+|---|---|
+| `render/.chunked`의 `<slug> <구간 수>` | 구간 병렬 렌더 뒤 Drive 업로드(20-7) |
+| `render/.chunked`의 `<slug> 0` | 렌더 없이 `deliver/`(썸네일·메타데이터)만 업로드 |
+| `.github/workflows/render-chunked.yml` | 워크플로 자체. 고치는 푸시도 `.chunked`의 줄을 전부 실행한다 |
 
+- `.chunked`의 모든 줄이 푸시마다 다시 실행된다. 끝난 영상의 줄은 지운다(15-5).
 - 구간 수는 `python3 tools/build/chunk_plan.py render/<slug>`. `final_check`를 통과한 빌드(`.checked`)에만 사양을 내놓는다.
 - Drive 경로는 `render/<slug>/.dest`(18장): `Miya's Note/<01. Life & History | 02. Space & Science>/NN_<slug>`, 숏츠는 그 아래 `short/`. 폴더 이름이 바뀌면 `.dest`도 바꾼다.
 - 병렬로 여러 영상을 만들 때는 Drive 폴더 번호와 `render/.chunked`가 겹치지 않게 푸시 전에 rebase한다.
@@ -92,4 +94,4 @@
 - 2026-10-16: SVG 방식 복귀. 2026-10-17 (사용자): 그림 에이전트 모델 나누기, 보고 절약.
 - 2026-10-24: 새 채널 Miya's Note, 옛 영상·3D는 보관 브랜치로.
 - 2026-10-26~11-11: 개구리·축·방향·소리·다양성·렌더 멈춤·`used/` 규칙 요약 추가(자세한 경위는 각 장 개정 이력).
-- 2026-11-14 (miya): 레포 구조 개편 반영. 문서 유지 규칙 형식으로 줄임(20KB → 요약 표 + 장 번호).
+- 2026-11-14 (miya): 레포 구조 개편 반영. 렌더 워크플로를 `render-chunked.yml` 하나로. 문서 유지 규칙 형식으로 줄임(20KB → 요약 표 + 장 번호).

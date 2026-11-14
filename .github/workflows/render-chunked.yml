@@ -4,6 +4,8 @@ name: render-chunked
 # The video is split into <chunks> time ranges, rendered at the same time (one job each, 300 min limit per job),
 # joined without re-encoding, then the full audio (the <audio> src of index.html) is muxed once and uploaded to Drive.
 # Push to render-pipeline changing render/.chunked (or this file) starts it. Manual: Actions > render-chunked > Run workflow.
+# "<slug> 0" = no render: only render/<slug>/deliver/ (thumbnails, metadata) is uploaded to Drive (this replaced render.yml + .deliver_only, 2026-11-14).
+# A file with no slug lines (only # comments) does nothing.
 on:
   workflow_dispatch:
     inputs:
@@ -44,7 +46,7 @@ jobs:
 
   chunk:
     needs: plan
-    if: ${{ github.event.inputs.reuse_run == '' || github.event.inputs.reuse_run == null }}
+    if: ${{ (github.event.inputs.reuse_run == '' || github.event.inputs.reuse_run == null) && needs.plan.outputs.chunks != '[]' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 300
     strategy:
@@ -89,7 +91,7 @@ jobs:
 
   merge:
     needs: [plan, chunk]
-    if: ${{ !cancelled() }}
+    if: ${{ !cancelled() && needs.plan.outputs.slugs != '[]' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 180
     strategy:
@@ -104,12 +106,14 @@ jobs:
       - name: Install FFmpeg and rclone
         run: sudo apt-get update -y && sudo apt-get install -y ffmpeg rclone
       - uses: actions/download-artifact@v4
+        if: ${{ matrix.n > 0 }}
         with:
           pattern: "chunk-${{ matrix.slug }}-*"
           path: chunks
           run-id: ${{ github.event.inputs.reuse_run || github.run_id }}
           github-token: ${{ github.token }}
       - name: Join, add audio, report
+        if: ${{ matrix.n > 0 }}
         run: |
           SLUG="${{ matrix.slug }}"; N="${{ matrix.n }}"; : > list.txt; : > report.txt
           for i in $(seq 0 $((N-1))); do d="chunks/chunk-$SLUG-$i"; test -f "$d/chunk.mp4" || { echo "missing chunk $i" | tee -a report.txt; exit 1; }
@@ -128,6 +132,6 @@ jobs:
           DEST_DIR="$SLUG"; case "$SLUG" in *-short|*-short[0-9]) DEST_DIR="$(echo "$SLUG" | sed -E 's/-short[0-9]?$//')/short";; esac
           [ -f "render/$SLUG/.dest" ] && DEST_DIR=$(cat "render/$SLUG/.dest")
           OUTNAME="$SLUG"; [ -f "render/$SLUG/.outname" ] && OUTNAME=$(cat "render/$SLUG/.outname")
-          rclone copyto "$SLUG.mp4" "gdrive:${DEST_DIR}/${OUTNAME}.mp4" --drive-root-folder-id "$ROOT_ID" --drive-chunk-size 64M
+          if [ -f "$SLUG.mp4" ]; then rclone copyto "$SLUG.mp4" "gdrive:${DEST_DIR}/${OUTNAME}.mp4" --drive-root-folder-id "$ROOT_ID" --drive-chunk-size 64M; else echo "deliver only: no render for $SLUG"; fi
           if [ -d "render/$SLUG/deliver" ] && [ ! -f "render/$SLUG/.skip_deliver" ]; then rclone copy "render/$SLUG/deliver" "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID"; fi
           rclone lsl "gdrive:${DEST_DIR}/" --drive-root-folder-id "$ROOT_ID"
