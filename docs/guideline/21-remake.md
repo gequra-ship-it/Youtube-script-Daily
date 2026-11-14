@@ -35,7 +35,7 @@
 - 세로 옮기기: 가로 그림을 0.85배로 줄이면 위아래가 비므로 1.1~1.2배로 키운다. 가운데 물체를 (540,860)에 두고, 양옆 무리를 안쪽·위아래로 옮기고, 바닥·하늘을 화면 끝까지 잇는다.
 
 ### 21-4. 보고와 토큰
-`docs/miyas-lab-guideline.md`에 있다(모든 작업에 적용).
+`docs/miyas-note-guideline.md`에 있다(모든 작업에 적용).
 
 ### 21-5. 자막·그림·효과음 시간은 음성에서 잰다
 - `tools/build/align.py`가 문단 음성(`build/s<NN>.wav`)을 faster-whisper(small.en, CPU)로 인식해 **대본 단어마다 시작·끝 시간**을 `build/words.json`에 쓴다(대본을 초기 프롬프트로 준다).
