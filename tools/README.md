@@ -24,6 +24,9 @@ Per video you need `videos/<slug>/`:
 - `script.py` — `SCENES = [(id, chapter title, "ill"|"chalk", art id, narration), ...]`
 - `art3/<uid>.svg` + `art3/<uid>.json` — one picture and sidecar per unit of `plan.json` (spec: `tools/art_spec.md`; movable parts as `id="mv-<kind>-<name>"` groups)
 - `config.py` — `CHALK`, `WHOOSH`, `TITLE`, `DESC`, `CHAPTERS`, `SOURCES`, `HASHTAGS` (see the existing one)
+- `art_brief.md` — character sheet and per-video picture notes for the agents (one name only; not `art_agent.md`)
+- long-form folder only: `script-check.md` (fact-check table, length changes) and the corrected narration `long.txt`, `short1.txt`…`short5.txt`. The untouched original stays on `main` in `scripts/<daily|owl|igwahyung>/used/`. Videos made before 2026-11-14 may lack these files.
+- nothing else loose in the folder (no `__pycache__`, scratch images or agent logs)
 - `thumb/A.html`, `thumb/B.html`, `thumb/C.html`, `thumb/make.py`, `thumb/common.css`, `thumb/Fredoka-700.woff2` — three thumbnails (shorts: `A.html` only)
 
 Steps (run from the repo root):
