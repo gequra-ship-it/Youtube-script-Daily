@@ -2,7 +2,7 @@
 #
 # One table says, for every kind of thing a picture agent draws, WHERE its axis is, WHICH motion kinds fit it and WHAT goes in its group.
 # The agent only names the group after the thing (`mv-<kind>-<thing>`, art_spec 7); the pivot is then computed from the drawing by this
-# module (`resolve` / `apply`), checked by attachcheck.py ("catalogue" lines) and written by `tools/axisfix.py`. build3 applies it before every build.
+# module (`resolve` / `apply`), checked by attachcheck.py ("catalogue" lines) and written by `tools/fix/axisfix.py`. build3 applies it before every build.
 # No model judgement, no hand-typed coordinates: the same drawing always gets the same axis.
 #
 # Pivot rules (how the point is computed from the shapes of the group, in picture coordinates):
@@ -268,7 +268,7 @@ def apply(page, path, W, H, force=False, tol=12):
 def doc():
     """the catalogue as a Markdown table (tools/axis_catalog.md is generated from this: python3 tools/axis_lib.py --doc)"""
     L = ['# Axis catalogue (generated from tools/axis_lib.py, do not edit by hand)', '',
-         'Name the group after the thing (`mv-<kind>-<thing>`); the axis is computed from the drawing by the rule in column 2 (`tools/axisfix.py`, automatic in build3). '
+         'Name the group after the thing (`mv-<kind>-<thing>`); the axis is computed from the drawing by the rule in column 2 (`tools/fix/axisfix.py`, automatic in build3). '
          'Column 3 = motion kinds that fit, column 4 = kinds that are reported as wrong.', '',
          '| thing (name words) | axis rule | kinds that fit | kinds that do not | group holds / note |', '|---|---|---|---|---|']
     for rx, rule, ok, bad, note in CATALOGUE:

@@ -1,7 +1,7 @@
 # Miya's Note 모션그래픽 제작 지침 (핵심 — 항상 이것만 먼저 읽는다)
 
 > **구조 (2026-10-22 토큰 절약)**: 이 파일은 항상 읽는 핵심(0·1·11장, 12장 표와 12-1 작업 순서, 21-4 보고)이다. 나머지 장은 `docs/guideline/` 아래 장별 파일이고, **지금 하는 단계에 해당하는 파일만** 아래 표를 보고 읽는다. 장 번호(3-5, 16-6, 21-5 등)는 그대로다. 이 핵심 파일과 장 파일이 다르면 이 파일이 우선이다. 옛 전문은 브랜치 `archive/miyas-lab-2026-10-24`의 `docs/archive/guideline-full-2026-10-18.md`, 이 분리 직전의 한 파일 전체본은 `docs/archive/guideline-2026-10-22-before-split.md`(평소 읽지 않는다).
-> 수치는 1920×1080 기준. **(추정)** = 눈으로 판단, **(환산)** = 한국어 참고 영상 값을 영어용으로 바꾼 것, **(채널 결정)** = Miya's Note이 정한 값. 기본 방식은 SVG 모션그래픽(`tools/build3.py`), 20장이 3~4장·19장보다 우선. 머리말의 날짜별 주요 결정 목록은 `docs/guideline/00-header-decisions.md`.
+> 수치는 1920×1080 기준. **(추정)** = 눈으로 판단, **(환산)** = 한국어 참고 영상 값을 영어용으로 바꾼 것, **(채널 결정)** = Miya's Note이 정한 값. 기본 방식은 SVG 모션그래픽(`tools/build/build3.py`), 20장이 3~4장·19장보다 우선. 머리말의 날짜별 주요 결정 목록은 `docs/guideline/00-header-decisions.md`.
 
 ---
 
@@ -59,12 +59,12 @@
    | **D** | 근거와 모순 | 반드시 고치고 표에 표시 |
    - **지어내지 않는다**: 존재하지 않는 사례·연구·숫자·인용·인물 금지. 자극은 사실의 배열로.
    - A~D 처리를 반영한 내레이션으로 만들고 표에 표시. 애매하면 한 단계 보수적으로(A가 아니라 B).
-3-1. **훅 점수 (참고용, 2026-10-22)**: 대본 첫 15초(첫 문단) 훅 후보 3~5개를 한 줄씩 `hooks.txt`에 적어 `python3 tools/hookscore.py hooks.txt`로 점수를 본다(`tools/hooks.json` = 훅 공식 21개, youtube-agent-skill MIT). 낮은 점수는 다시 볼 신호일 뿐 높은 점수는 성과 보장이 아니다(도구가 밝힘). 수정할 때도 10-2A(질문·가정·영화 훅)와 12-1 사실 확인이 우선이다.
-4. **장면 설계**: 컷, 등장인물·장소 시트, 칠판 구간, 효과음 큐, 팔레트(3-5). 5. HTML 애니메틱(13장). 6. 대본 txt(14장, HTML과 글자 하나까지 같게). 7. 썸네일은 위 ③에서 TTS 직후에 만든다(16장, 사용자 확인 필수). 4~6의 그림·렌더는 썸네일 통과 뒤. 그림이 끝나면 `python3 tools/frog_place.py <slug>`(7-2: 의상·동작은 대본 단어 + 그림 증거) → `build3.py`; 빌드 로그의 `motion sanity`·`direction sanity`(4-4)·`sfx auto`·`music style`(9-3·9-4)을 확인한다(2026-10-27).
+3-1. **훅 점수 (참고용, 2026-10-22)**: 대본 첫 15초(첫 문단) 훅 후보 3~5개를 한 줄씩 `hooks.txt`에 적어 `python3 tools/writing/hookscore.py hooks.txt`로 점수를 본다(`tools/writing/hooks.json` = 훅 공식 21개, youtube-agent-skill MIT). 낮은 점수는 다시 볼 신호일 뿐 높은 점수는 성과 보장이 아니다(도구가 밝힘). 수정할 때도 10-2A(질문·가정·영화 훅)와 12-1 사실 확인이 우선이다.
+4. **장면 설계**: 컷, 등장인물·장소 시트, 칠판 구간, 효과음 큐, 팔레트(3-5). 5. HTML 애니메틱(13장). 6. 대본 txt(14장, HTML과 글자 하나까지 같게). 7. 썸네일은 위 ③에서 TTS 직후에 만든다(16장, 사용자 확인 필수). 4~6의 그림·렌더는 썸네일 통과 뒤. 그림이 끝나면 `python3 tools/build/frog_place.py <slug>`(7-2: 의상·동작은 대본 단어 + 그림 증거) → `build3.py`; 빌드 로그의 `motion sanity`·`direction sanity`(4-4)·`sfx auto`·`music style`(9-3·9-4)을 확인한다(2026-10-27).
 8. MP4 렌더(15장): Actions 서버 렌더(15-5, 병렬 20-7)가 기본(대화로는 30MiB 한도라 MP4를 못 보냄). 막히면 15-1~15-4의 이 환경 렌더.
 9. 제목·설명 파일(17장), 타임스탬프는 렌더 MP4의 실제 컷 시각.
 10. **Drive 저장(18장)**: 모든 산출물을 **Git으로 보내 Actions가 Drive로 올린다**(사용자 결정: PC가 꺼져 있을 수 있음). 썸네일·txt는 `render/<슬러그>/deliver/`.
-    - **사용한 대본 보관 (miya 2026-10-22)**: 영상을 만든 대본은 렌더를 올리는 푸시에 함께 `scripts/daily/used/<슬러그>__<원래 파일명>.txt`(`generators/owl.py` 대본은 `scripts/owl/used/`, `generators/igwahyung.py` 대본은 `scripts/igwahyung/used/`; 2026-11-14 폴더 이름 변경)로 옮긴다(`git mv`, 사용자가 직접 준 대본은 같은 이름으로 복사해 저장). `scripts/<daily|owl|igwahyung>/` 맨 위에는 아직 안 쓴 대본만 남는다. **(2026-11-11, miya) `used/`에는 붙여 준 원문을 한 글자도 바꾸지 않고 둔다(수정·팩트체크본 금지, 슬러그당 원본 하나). 영상 완료 체크리스트: `python3 tools/used_check.py <슬러그>` OK.**
+    - **사용한 대본 보관 (miya 2026-10-22)**: 영상을 만든 대본은 렌더를 올리는 푸시에 함께 `scripts/daily/used/<슬러그>__<원래 파일명>.txt`(`generators/owl.py` 대본은 `scripts/owl/used/`, `generators/igwahyung.py` 대본은 `scripts/igwahyung/used/`; 2026-11-14 폴더 이름 변경)로 옮긴다(`git mv`, 사용자가 직접 준 대본은 같은 이름으로 복사해 저장). `scripts/<daily|owl|igwahyung>/` 맨 위에는 아직 안 쓴 대본만 남는다. **(2026-11-11, miya) `used/`에는 붙여 준 원문을 한 글자도 바꾸지 않고 둔다(수정·팩트체크본 금지, 슬러그당 원본 하나). 영상 완료 체크리스트: `python3 tools/check/used_check.py <슬러그>` OK.**
 
 ---
 

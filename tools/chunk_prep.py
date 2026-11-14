@@ -18,6 +18,11 @@ for name in os.listdir(src):
     if name in ('index.html', 'renders', 'deliver') or name.startswith('.') or name.endswith('.log'): continue
     p = f'{dst}/{name}'
     if not os.path.exists(p): os.symlink(os.path.abspath(f'{src}/{name}'), p)
+# 2026-11-14: the assets every video shares (fonts, logo, grain, gsap, anime) are no longer committed under render/<slug>/; link them from tools/assets
+_A = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
+for name in ('Fredoka-700.woff2', 'PatrickHand-400.woff2', 'logo.png', 'grain.png', 'gsap.min.js', 'anime.min.js', 'gsap'):
+    p = f'{dst}/{name}'
+    if not os.path.lexists(p) and os.path.exists(f'{_A}/{name}'): os.symlink(os.path.abspath(f'{_A}/{name}'), p)
 html = re.sub(r'<audio\b[^>]*>\s*</audio>', '', html)
 html = re.sub(r'(id="root"[^>]*data-duration=")[\d.]+(")', lambda q: q.group(1) + f'{L:.6f}' + q.group(2), html, count=1)
 wrap = ('<script>(function(){var m=window.__timelines.main,T0=%r,L=%r;var o=gsap.timeline({paused:true});'

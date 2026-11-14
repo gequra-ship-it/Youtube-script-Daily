@@ -10,11 +10,11 @@
 - **Drive**: `.dest`를 `old/<영상>`에서 주제 폴더 다음 번호로(18장). 남은 `.skip_deliver`는 지운다(대본·메타데이터·썸네일이 안 올라감).
 
 ### 21-2. 순서 (명령)
-1. 음성: 작업 폴더에 없으면 `SLUG=<slug> HYPERFRAMES_PYTHON=/home/user/kvenv/bin/python tools/tts.sh` 후 `SLUG=<slug> python3 tools/audio_prep.py`(롱폼 45문단 약 15분, 백그라운드), 그다음 `align.py`(21-5).
+1. 음성: 작업 폴더에 없으면 `SLUG=<slug> HYPERFRAMES_PYTHON=/home/user/kvenv/bin/python tools/build/tts.sh` 후 `SLUG=<slug> python3 tools/build/audio_prep.py`(롱폼 45문단 약 15분, 백그라운드), 그다음 `align.py`(21-5).
 1-1. (새 영상) 음성 뒤 썸네일 3장 → 사용자 확인 → 통과 후 그림(12-1 순서).
-2. 롱폼: `SLUG=<slug> python3 tools/remake.py` → 예전 `plan.json`을 `$MIYA_WORK/<slug>/plan_prev.json`에 두고 다시 나눈 뒤 `remap_art.py`가 가장 많이 겹치는 예전 그림을 붙이고 `.dest`·`.skip_deliver`를 점검. 출력의 `NO ART`와 `NEEDS VARIANT`(앞 단위와 같은 그림)만 그린다.
-3. 숏츠 대본 5편(에이전트, Sonnet) → 음성 → `SLUG=<slug>-shortN VERT=1 PLAN=1 python3 tools/build3.py` → 그림(21-3).
-4. 빌드 4개(`fallback art 0` 확인), `tools/gen_text.py`(대본·메타데이터), 썸네일 `tools/thumb_shot.py`.
+2. 롱폼: `SLUG=<slug> python3 tools/build/remake.py` → 예전 `plan.json`을 `$MIYA_WORK/<slug>/plan_prev.json`에 두고 다시 나눈 뒤 `remap_art.py`가 가장 많이 겹치는 예전 그림을 붙이고 `.dest`·`.skip_deliver`를 점검. 출력의 `NO ART`와 `NEEDS VARIANT`(앞 단위와 같은 그림)만 그린다.
+3. 숏츠 대본 5편(에이전트, Sonnet) → 음성 → `SLUG=<slug>-shortN VERT=1 PLAN=1 python3 tools/build/build3.py` → 그림(21-3).
+4. 빌드 4개(`fallback art 0` 확인), `tools/build/gen_text.py`(대본·메타데이터), 썸네일 `tools/build/thumb_shot.py`.
 5. `render/.chunked`에 `<slug> 3`과 숏츠 `<slug>-shortN 1` 세 줄, 커밋·푸시(20-7). 렌더 확인은 예약 메시지로.
 
 ### 21-3. 그림 에이전트
@@ -26,8 +26,8 @@
 
 ### 21-5. 자막·그림·효과음 시간은 음성에서 잰다 (사용자 지적 2026-10-17: "자막과 음성 싱크가 맞을 때도 안 맞을 때도 있다")
 - 예전 글자 수 비율 추정은 중앙값 0.35초, 상위 5% 0.84초, 최대 1.2초 어긋났다.
-- `tools/align.py`가 문단 음성(`build/s<NN>.wav`)을 faster-whisper(small.en, CPU)로 인식해 **대본 단어마다 시작·끝 시간**을 `build/words.json`에 쓴다(대본을 초기 프롬프트로). difflib로 짝짓고, 짝 없는 단어는 그 구간 시간 폭에 글자 수 비율로 넣는다. `build3.py`의 `tchar`가 이 시간을 자막 줄·그림 전환·효과음·강조 단어·숫자 배지에 쓴다.
-- **순서**: `tts.sh` → `audio_prep.py` → **`SLUG=<slug> python3 tools/align.py`**(문단 45개 약 4분) → `PLAN=1 build3.py` → 빌드. words.json이 없거나 대본 단어의 90% 미만만 맞은 문단이 있으면 `build3.py`가 문단 번호를 출력하고 멈춘다(`ALIGN_LOOSE=1`은 예전 추정으로 진행, 쓰지 않는다).
+- `tools/build/align.py`가 문단 음성(`build/s<NN>.wav`)을 faster-whisper(small.en, CPU)로 인식해 **대본 단어마다 시작·끝 시간**을 `build/words.json`에 쓴다(대본을 초기 프롬프트로). difflib로 짝짓고, 짝 없는 단어는 그 구간 시간 폭에 글자 수 비율로 넣는다. `build3.py`의 `tchar`가 이 시간을 자막 줄·그림 전환·효과음·강조 단어·숫자 배지에 쓴다.
+- **순서**: `tts.sh` → `audio_prep.py` → **`SLUG=<slug> python3 tools/build/align.py`**(문단 45개 약 4분) → `PLAN=1 build3.py` → 빌드. words.json이 없거나 대본 단어의 90% 미만만 맞은 문단이 있으면 `build3.py`가 문단 번호를 출력하고 멈춘다(`ALIGN_LOOSE=1`은 예전 추정으로 진행, 쓰지 않는다).
 - **재시간 맞추기**: `plan.json`이 있으면 단위 나눔은 그대로 두고 시간만 새로 잰다. 새로 나누려면 `UNITS=new`(`remake.py`는 자동). 대본을 고쳤으면 `align.py`를 다시 돌리고 `UNITS=new`.
 - 검증: 다른 모델(base.en)과 단어 시작 시간 차이 중앙값 0.06초, 상위 5% 0.2초.
 

@@ -16,7 +16,7 @@
 # hand:   (x, y) = wrist, size = palm height px (a figure's hand is about 0.3 H), rot = finger direction in degrees
 #         (0 = up, clockwise), side = which hand of the figure it is ('R' = the figure's right hand, which is on the VIEWER'S
 #         LEFT when the figure faces us). The pose is drawn for its natural side and mirrored for the other one.
-# Everything carries data-fig="person:<pose>" / data-fig="hand:<pose>" so tools/figcheck.py can see that people and hands
+# Everything carries data-fig="person:<pose>" / data-fig="hand:<pose>" so tools/check/figcheck.py can see that people and hands
 # came from here. Reference sheets: python3 tools/figlib.py <out_dir>  (people.svg/.png, hands.svg/.png).
 
 import math, os, sys
@@ -203,7 +203,7 @@ def person(cx, base, H=70, pose='stand', kind='cute', skin=DEFAULT['skin'], hair
         sx = cx - sw / 2 + H * .12 if side == 'R' else cx + sw / 2 - H * .12
         a = body.arm(sx, sh, H, upper=upper, bend=bend, bend_dir=bdir, name=f'{name}-arm-{side.lower()}', side=side,
                      sleeve=shirt, skin=skin, line=line, kind=kind, lw=lw, hand_fn=fn)
-        if bend >= 60:   # a deliberate fold (hand at the chin, on the hip, cupped forward): tools/armfix.py leaves marked arms alone
+        if bend >= 60:   # a deliberate fold (hand at the chin, on the hip, cupped forward): tools/fix/armfix.py leaves marked arms alone
             a = a.replace('<g class="mv mv-limb-', '<g data-armfixed="1" class="mv mv-limb-', 1)
         return a
     g.append(mk('R')); g.append(mk('L'))

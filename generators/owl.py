@@ -195,7 +195,7 @@ def log_hook_score(script_text):
     """[1부] 첫 약 40단어(첫 15초)의 훅 점수를 로그로만 남긴다(참고용, tools/hookscore.py; 재생성하지 않음)."""
     try:
         import sys as _sys
-        _sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
+        _sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools", "writing"))
         import hookscore
         start = script_text.index("=== 1부")
         body = script_text[start:].split("\n", 1)[1]

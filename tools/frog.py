@@ -5,7 +5,7 @@
 #     spoken (js(..., targets=...)); the arm turns only when the pointed row changes.
 #   PICTURE scenes (plan.json frog_hint units): NO explainer standing beside the picture. A companion: it rides a moving object (drawn INSIDE
 #     that picture group via inject(..., ride=id), so it moves and turns with it) or roams / acts in the background; the arm is
-#     hidden unless the sidecar has points. tools/frog_place.py writes these sidecars (guideline 7-2).
+#     hidden unless the sidecar has points. tools/build/frog_place.py writes these sidecars (guideline 7-2).
 # markup()  -> SVG group string to put INTO a picture svg (ids fg<tag>_*), or into an overlay svg for chalkboard scenes
 # js()      -> GSAP lines (absolute timeline seconds) for that frog
 # Sidecar key in art3/<uid>.json: "frog": {"x": 220, "y": 1040, "s": 2.4, "flip": 1, "delay": 0.35, ...}
@@ -185,7 +185,7 @@ OUTFITS2.update({
 
 
 # ---- round 4b (2026-10-26): 12 data-driven acts. body = (from, to, period) tween on #<t>_ac (yoyo); ra / la = arm angles (deg); prop = part id to show; mood; pup = pupil cy;
-# mouth = open-mouth ry; mirror = flip rotation/x with the facing side; sweat / spiral = extra loops. Words that choose them: tools/frog_place.py ACT_WORDS2. ----
+# mouth = open-mouth ry; mirror = flip rotation/x with the facing side; sweat / spiral = extra loops. Words that choose them: tools/build/frog_place.py ACT_WORDS2. ----
 SIMPLE_ACTS = {
  'stretch':  dict(body=({'scaleY': 1.0, 'y': 0}, {'scaleY': 1.07, 'y': -4}, 1.6), ra=-165, la=165, mood='sleepy', mouth=9),          # morning / waking / a new day: arms up, long stretch
  'shrug':    dict(body=({'rotation': -3, 'y': 0}, {'rotation': 3, 'y': -3}, 1.4), ra=-70, la=70, mood='worried', mirror=True),            # nobody knows / uncertain: palms up, shoulders lift
@@ -339,7 +339,7 @@ def lint(d, vert=False):
     if d.get('point') or d.get('points'): w.append('points in a picture scene (the explainer is chalkboard only)')
     if d.get('ride'):
         if not RIDEABLE.match(d['ride']): w.append(f'rides {d["ride"]}, a motion that flips/fades/fills/clips (pick a core swell|heartbeat|wobble|sway|glide|approach|drop|ping|tremble, path, slide or swing group)')
-    elif not d.get('roam') and not d.get('act') and not d.get('says') and not d.get('behind'): w.append('a background frog with no act, no bubble and no roam (guideline 7-2 B-1: only a meaningful frog): python3 tools/frog_place.py <slug>')
+    elif not d.get('roam') and not d.get('act') and not d.get('says') and not d.get('behind'): w.append('a background frog with no act, no bubble and no roam (guideline 7-2 B-1: only a meaningful frog): python3 tools/build/frog_place.py <slug>')
     return w
 
 

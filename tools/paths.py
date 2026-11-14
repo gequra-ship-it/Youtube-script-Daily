@@ -2,6 +2,24 @@
 import os, importlib.util
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS = REPO + '/tools/assets'
+TOOLS = REPO + '/tools'
+TOOL_DIRS = ('build', 'check', 'fix', 'preview', 'writing')   # 2026-11-14: command-line tools live in these folders, importable libraries stay in tools/
+SHARED = ['Fredoka-700.woff2', 'PatrickHand-400.woff2', 'logo.png', 'grain.png', 'gsap.min.js', 'anime.min.js', 'gsap']   # same for every video: not committed under render/<slug>/ since 2026-11-14
+
+
+def tool(name):
+    """absolute path of a tool script wherever it lives under tools/ (tool('armfix.py') -> .../tools/fix/armfix.py)"""
+    for d in ('',) + TOOL_DIRS:
+        p = os.path.join(TOOLS, d, name)
+        if os.path.exists(p): return p
+    raise FileNotFoundError(name)
+
+
+def ensure_assets(render_dir):
+    """link the shared page assets (fonts, logo, grain, gsap, anime) from tools/assets into a render folder that lacks them (fresh clone, chunk folder)"""
+    for n in SHARED:
+        p = os.path.join(render_dir, n)
+        if not os.path.lexists(p) and os.path.exists(f'{ASSETS}/{n}'): os.symlink(os.path.abspath(f'{ASSETS}/{n}'), p)
 SLUG = os.environ.get('SLUG', '')
 WORK = os.environ.get('MIYA_WORK', '/tmp/miya-work')
 

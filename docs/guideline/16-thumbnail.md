@@ -17,7 +17,7 @@
 ### 16-3. 만드는 방법
 1. 그림에는 글자를 넣지 않고, 문구는 HTML로 올린다.
 2. 그림은 SVG(이미지 생성 도구가 있으면 3-4 템플릿 + `thumbnail composition, one large subject, clear focal point, space for short text on one side`).
-3. HTML 한 장(1920×1080)에 그림+문구, Chromium으로 PNG 캡처(`tools/thumb_shot.py`, `thumb/A.html`~). 외부 CDN·폰트 링크 금지, 글꼴은 로컬 Fredoka Bold(npm `@fontsource/fredoka`).
+3. HTML 한 장(1920×1080)에 그림+문구, Chromium으로 PNG 캡처(`tools/build/thumb_shot.py`, `thumb/A.html`~). 외부 CDN·폰트 링크 금지, 글꼴은 로컬 Fredoka Bold(npm `@fontsource/fredoka`).
 4. 확인: 2MB 이하·1920×1080, 가로 320px로 줄여 판독, 오른쪽 아래 비움, 한글·철자 오류 없음.
 5. 시안별 문구와 소재가 대본의 어디서 왔는지 한 줄씩 기록. 대본 내용이 사실과 다르면 문구에 쓰지 않는다.
 
@@ -34,7 +34,7 @@
 4. **색은 대본 내용으로, 팔레트는 뼈대**(3-5; 2026-10-18: "그라데이션 밤하늘·바다는 아니야"). 주제 팔레트(`tools/palettes.py`)는 출발점일 뿐이고 그림 에이전트가 소재에 맞게 색을 바꾸거나 더해도 된다. 초점 대상이 배경보다 훨씬 밝거나 선명하게(후광 가능), 포인트 색은 금 `#F2D27A` + 보색 하나. 지평선은 높이의 65~80%, 그 아래 더 어둡게.
 5. **완성도**: 크고 디테일한 대상(음영, 가장자리 빛, 질감, 소품), 분명한 빛 방향·후광, 앞·중간·뒤 깊이, 큰 대비. 네온 윤곽·얇은 밝은 윤곽선 가능.
 6. 오른쪽 아래 비움, 글자와 핵심 그림 겹치지 않음. 7. 세 장은 소재·대상 위치·글자 형식(질문형, 등식·숫자형, 선언형)을 다르게.
-8. **Opus 에이전트가 만든다**(2026-10-18, 지시문 `tools/briefs/thumb_art.md`): 영상마다 에이전트 1명이 3장 + 접촉 시트 1장으로 확인, 8줄 이내 보고 → **사용자에게 접촉 시트로 보이고 통과/수정 답을 받는다(필수, 2026-10-22)** → 통과한 뒤에만 Drive 업로드. 확인 전에는 그림·렌더·업로드 금지. 순서는 TTS 다음, 그림 앞(12-1). 캡처 `tools/thumb_shot.py`(A~F).
+8. **Opus 에이전트가 만든다**(2026-10-18, 지시문 `tools/briefs/thumb_art.md`): 영상마다 에이전트 1명이 3장 + 접촉 시트 1장으로 확인, 8줄 이내 보고 → **사용자에게 접촉 시트로 보이고 통과/수정 답을 받는다(필수, 2026-10-22)** → 통과한 뒤에만 Drive 업로드. 확인 전에는 그림·렌더·업로드 금지. 순서는 TTS 다음, 그림 앞(12-1). 캡처 `tools/build/thumb_shot.py`(A~F).
 
 ### 16-7. 2026-10-18 제작 기록 (Opus 에이전트, 접촉 시트·320px 판독 확인; 영상 내용은 직접 보지 않음)
 - 통과한 12장: dinosaur-restorations A~C, desert-oasis A~C, left-handed-ten-percent A~C, paleozoic-chronicles D~F(문구·유형 표는 archive). 한 영상(3장)당 에이전트 1명, 약 5~10분, 토큰 약 11만~14만.
@@ -53,13 +53,13 @@
 ## 16-9. 숏츠 썸네일 (2026-11-06, miya: "숏츠도 썸네일 각 1개씩, 확인 안 받아도 돼" → 같은 날 정정: 숏츠 비율, 글자는 중앙)
 - 영상 하나 = 롱폼 썸네일 3장(A·B·C, 확인 필요, 16:9) + **숏츠 5편 각 1장**(총 8장). 숏츠 썸네일은 **miya 확인 없이** 만들어 바로 납품한다.
 - **규격(롱폼과 다름)**: **세로 9:16, 1080×1920 PNG, 2MB 이하**. **글자는 가운데 정렬**(가로 중앙, 세로는 화면 중간 근처), **오른쪽 아래 비움 규칙·16-6 1번의 왼쪽 위 배치는 숏츠 썸네일에 적용하지 않는다.** 글자 스타일(Fredoka Bold·흰 글자+짙은 외곽선·핵심 낱말 노랑 `#F2D27A`, 영어 2~5단어)과 개구리(16-8, 글자·주인공 그림을 가리지 않게), 큰 한 장면+빛·깊이(16-6 2·4·5)는 그대로. 위·아래 가장자리(유튜브 UI)에 중요한 것을 붙이지 않는다. 소재는 **해당 숏츠 대본의 핵심 한 장면**(롱폼 썸네일·다른 숏츠와 겹치지 않게), 대본에 없는 숫자·주장 금지.
-- **제작**: 슬러그 `<슬러그>-shortN`마다 `videos/<슬러그>-shortN/thumb/A.html` 1개. `tools/assets/thumb_v/`(common.css·Fredoka-700.woff2)를 `thumb/`에 복사하고 `tools/thumb_lib.py`의 `vpage(bg, vsvg(defs, body), [(글자, 크기, 'w'|'y'), ...], top=700)`·`vsvg`(viewBox 1080×1920)를 쓴다 → `SLUG=<슬러그>-shortN python3 tools/thumb_shot.py`(슬러그가 `-shortN`이면 자동으로 1080×1920, A만, 2MB 넘으면 실패) → `render/<슬러그>-shortN/deliver/<슬러그>-shortN_thumbnail_A.png`. 에이전트 1명이 5개를 이어서 만들어도 된다(`tools/briefs/thumb_art.md`), 5장 접촉 시트·320px 폭 판독으로 자체 점검.
+- **제작**: 슬러그 `<슬러그>-shortN`마다 `videos/<슬러그>-shortN/thumb/A.html` 1개. `tools/assets/thumb_v/`(common.css·Fredoka-700.woff2)를 `thumb/`에 복사하고 `tools/thumb_lib.py`의 `vpage(bg, vsvg(defs, body), [(글자, 크기, 'w'|'y'), ...], top=700)`·`vsvg`(viewBox 1080×1920)를 쓴다 → `SLUG=<슬러그>-shortN python3 tools/build/thumb_shot.py`(슬러그가 `-shortN`이면 자동으로 1080×1920, A만, 2MB 넘으면 실패) → `render/<슬러그>-shortN/deliver/<슬러그>-shortN_thumbnail_A.png`. 에이전트 1명이 5개를 이어서 만들어도 된다(`tools/briefs/thumb_art.md`), 5장 접촉 시트·320px 폭 판독으로 자체 점검.
 - **B. 화려함 + 구체성 + 한 줄 훅 (2026-11-07, miya: "괜찮네 이 방식")**: 숏츠 썸네일은 기본 평면 만화 장면이 아니라 **어둡거나 대비 큰 배경 위에 발광하는 주인공 한 장면 + 훅 한 줄**로 만든다. 같은 장면이라도 낮 풍경 대신 밤·심해·우주 등으로 바꾼다. 이유: 이 채널에서 시선이 가는 숏츠 이미지는 대부분 화려한 발광색(청록·금)과 큰 단일 주인공이었다(이미지에서 읽은 공통점이며 조회수 수치로 확인한 것은 아니다; Studio 노출 클릭률로 검증 예정).
   1. **화려함**: 어두운 바탕(밤하늘·밤 물·심해) + 후광(`halo`) + 반짝임(`spark`)·빛 입자(`fireflies`) + 비네트. 초점 대상이 배경보다 훨씬 밝게.
   2. **구체성**: 대본 핵심 장면을 그림만 봐도 뜻이 보이는 구체 소재로(예: 그물에 잡힌 다리 많은 개구리). 요소 3~4개, 주인공 한 개가 화면 상단 절반.
   3. **훅**: 영어 2~4단어, 가운데 정렬, 대본에 있는 사실만(숫자는 대본에 있을 때만). 읽는 위치는 세로 중간(y≈860~1240), 글자 뒤에 `darkband`. 핵심 낱말 하나만 노랑.
   4. 글자·초점 대상이 서로 겹치지 않게(튀어나온 소재가 글자 영역에 닿으면 줄이거나 뺀다). 마스코트 개구리는 16-8대로 하단 구석, 소재에 맞는 옷·표정.
   5. 코드: `tools/thumb_lib.py`의 `fireflies`·`halo`·`darkband`. 기준 예시 `videos/parasite-monster-frogs/thumb/make_short1_glow_sample.py`(short1 "TOO MANY LEGS", 샘플 PNG는 프로젝트 폴더 `parasite-monster-frogs/short1_sample_v2.png`).
-- **개구리 눈 (2026-11-07, miya)**: 검은자는 반드시 흰자 안에 완전히 들어가야 한다(숏츠는 작은 화면이라 벗어나면 흰자만 보여 이상함). `tools/thumb_shot.py`가 `tools/eyecheck.py`로 자동 점검해 `EYES BAD`가 나오면 `look`을 줄이거나 고친다(공용 `frog()`는 검은자를 흰자 안으로 제한).
+- **개구리 눈 (2026-11-07, miya)**: 검은자는 반드시 흰자 안에 완전히 들어가야 한다(숏츠는 작은 화면이라 벗어나면 흰자만 보여 이상함). `tools/build/thumb_shot.py`가 `tools/check/eyecheck.py`로 자동 점검해 `EYES BAD`가 나오면 `look`을 줄이거나 고친다(공용 `frog()`는 검은자를 흰자 안으로 제한).
 - **납품**: 숏츠 렌더와 함께 `deliver/`가 Drive `.../NN_<슬러그>/short/`로 올라간다(`render.yml`이 `-shortN`을 `short/`로 보냄). 이미 렌더한 숏츠는 썸네일만 올릴 때 `render/<슬러그>-shortN/.deliver_only` + `render/.slug`(16-7).
 - 확인(2026-11-06): 테스트 슬러그로 `thumb_shot.py`를 돌려 1080×1920 PNG가 나오는 것을 확인했다.
