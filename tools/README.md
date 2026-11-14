@@ -1,6 +1,6 @@
 # Miya's Note pipeline tools
 
-> Last updated: 2026-11-14 · The body holds only what is true now. How things changed is in "History" at the bottom. Rules live in the guideline (`docs/miyas-lab-guideline.md`); this file says which tool does what.
+> Last updated: 2026-11-14 · The body holds only what is true now. How things changed is in "History" at the bottom. Rules live in the guideline (`docs/miyas-note-guideline.md`); this file says which tool does what.
 
 Script (English narration) → narration wavs → pictures → render folder → GitHub Actions render → Google Drive.
 

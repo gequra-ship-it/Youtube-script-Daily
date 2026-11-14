@@ -31,7 +31,7 @@ jobs:
       chunks: ${{ steps.p.outputs.chunks }}
       slugs: ${{ steps.p.outputs.slugs }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with: { sparse-checkout: render/.chunked, sparse-checkout-cone-mode: false }
       - id: p
         run: |
@@ -55,8 +55,8 @@ jobs:
         include: ${{ fromJSON(needs.plan.outputs.chunks) }}
     name: render ${{ matrix.slug }} ${{ matrix.i }}/${{ matrix.n }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with: { node-version: "22" }
       - name: Install FFmpeg
         run: sudo apt-get update -y && sudo apt-get install -y ffmpeg
@@ -81,7 +81,7 @@ jobs:
             # repeated frames (a stalled capture shows as an exact repeat -> judder): frames kept by a strict mpdecimate vs all frames
             kept=$(ffmpeg -nostdin -i "$f" -vf "scale=320:-2,mpdecimate=hi=200:lo=100:frac=0.1,showinfo" -f null - 2>&1 | grep -c "pts_time:")
             echo "repeat_check kept=$kept"; } | tee "$GITHUB_WORKSPACE/chunk.txt"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: chunk-${{ matrix.slug }}-${{ matrix.i }}
           path: |
@@ -102,10 +102,10 @@ jobs:
       RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
       ROOT_ID: 1lBexNbmVvKNahw56d-s2rUVR5Qp76V3i
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install FFmpeg and rclone
         run: sudo apt-get update -y && sudo apt-get install -y ffmpeg rclone
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         if: ${{ matrix.n > 0 }}
         with:
           pattern: "chunk-${{ matrix.slug }}-*"

@@ -1,6 +1,6 @@
 ## 15. HTML → MP4 렌더링 (최종 결과물)
 
-> 최종 수정: 2026-11-14 · 본문은 지금 유효한 규칙만 담는다. 바뀐 경위는 맨 아래 개정 이력.
+> 최종 수정: 2026-11-15 · 본문은 지금 유효한 규칙만 담는다. 바뀐 경위는 맨 아래 개정 이력.
 
 MP4는 별도 컴포지션(렌더 원본 `render/<슬러그>/`)으로 렌더한다. 13장 애니메틱은 그대로 렌더되지 않는다. SVG 그림 기준 MP4라는 것을 알리고, AI 생성 클립이 있으면 교체한다.
 
@@ -58,8 +58,8 @@ npx --yes hyperframes@0.8.141 render
 ### 15-5. GitHub Actions 서버 렌더 + Drive 자동 업로드
 MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치지 않는다).
 
-**저장소** `gequra-ship-it/youtube-script-daily`
-- 예전 이름 `ht`/`HT`/`Youtube-script-Daily`로 연결돼 있으면 Actions API가 막힌다. `list_repos`로 확인하고 `add_repo`(access: push), 로컬 `origin`도 바꾼다.
+**저장소** `gequra-ship-it/Youtube-script-Daily`
+- 대소문자는 구분하지 않는다(소문자 주소도 되지만 git이 "moved" 안내를 낸다). 예전 이름 `ht`/`HT`로 연결돼 있으면 Actions API가 막힌다. `list_repos`로 확인하고 `add_repo`(access: push), 로컬 `origin`도 바꾼다.
 
 **워크플로 `render-chunked.yml` (하나뿐이다)**
 - 시작 조건(`render-pipeline` 푸시): `render/.chunked` 또는 `.github/workflows/render-chunked.yml`이 바뀔 때. 수동 실행 입력 `spec`(쉼표로 여러 개), `reuse_run`(20-7).
@@ -201,3 +201,4 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 - 2026-11-14: 공용 자산을 `tools/assets` 링크로, GSAP 3.14.2 → 3.15.0 표기, Chromium 경로는 `paths.chrome()`, 저장소 "비공개" 표기 삭제.
 - 2026-11-14 (miya): 문서 유지 규칙 형식으로 정리(현재 규칙만, 이력은 여기).
 - 2026-11-14 (miya): `render.yml`(한 작업 방식, `render/.slug`, `.deliver_only`)을 없애고 `render-chunked.yml` 하나로 통합. 썸네일만 올리기는 `.chunked`의 `<슬러그> 0`.
+- 2026-11-15 (miya): 저장소 표기 `Youtube-script-Daily`, 워크플로 액션을 Node 24 기반 버전으로.

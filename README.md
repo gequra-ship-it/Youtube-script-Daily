@@ -2,7 +2,7 @@
 
 English knowledge YouTube channel **Miya's Note**. Start with `CLAUDE.md` (repo map, branches, render cautions), then:
 
-- Guideline: `docs/miyas-lab-guideline.md` (core) + `docs/guideline/` (chapters; `04-motion.md` object motion rules, `07-chalkboard.md` 7-2 note-frog rules)
+- Guideline: `docs/miyas-note-guideline.md` (core) + `docs/guideline/` (chapters; `04-motion.md` object motion rules, `07-chalkboard.md` 7-2 note-frog rules)
 - Tools and their order: `tools/README.md`; picture spec `tools/art_spec.md`
 - Per video: `videos/<slug>/` (script, config, pictures `art3/`), render sources `render/<slug>/`
 - Repo change log: `docs/repo-changes.md`
