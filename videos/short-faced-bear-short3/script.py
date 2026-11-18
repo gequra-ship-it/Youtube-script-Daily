@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 # short-faced-bear-short3 (Miya's Note). Script from miya 2026-11-05 (dated 2026-10-10); fact-checked per guideline 12-1 (see ../short-faced-bear/script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'Scientists found a way to ask a fossil bear what it ate.  The answer started a debate.'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh3_1',
+  "Scientists measured nitrogen and carbon in a fossil bear's bone collagen to learn what it ate, and the answer started a debate."),
  ('S02', 'Part 2', 'ill', 'sh3_2', 'So what did Arctodus actually eat?  Scientists turned to chemistry.'),
  ('S03',
   'Part 3',

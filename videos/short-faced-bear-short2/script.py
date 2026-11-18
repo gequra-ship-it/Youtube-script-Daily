@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # short-faced-bear-short2 (Miya's Note). Script from miya 2026-11-05 (dated 2026-10-10); fact-checked per guideline 12-1 (see ../short-faced-bear/script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh2_1', 'Why did people once call this giant the running bear?  New science tells a different story.'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh2_1',
+  'For decades, popular science said this one-ton bear could sprint after wild horses at over sixty kilometers per hour. New science tells a '
+  'different story.'),
  ('S02', 'Part 2', 'ill', 'sh2_2', 'For decades, popular science called Arctodus simus the "running bear."'),
  ('S03',
   'Part 3',

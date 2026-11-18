@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 # short-faced-bear-short4 (Miya's Note). Script from miya 2026-11-05 (dated 2026-10-10); fact-checked per guideline 12-1 (see ../short-faced-bear/script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh4_1', 'No single blow ended this bear.  It was a slow squeeze from every direction.'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh4_1',
+  'No single blow ended the giant short-faced bear: climate, food, rivals, and humans squeezed it from every direction.'),
  ('S02',
   'Part 2',
   'ill',
