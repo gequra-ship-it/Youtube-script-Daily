@@ -1,33 +1,54 @@
 {
- "centre": "a small glass terrarium holding one tidy world on the left; on the right a vast glowing trunk branching into countless bubble worlds",
- "focus": null,
- "focus_word": null,
+ "centre": "a sealed lab box floating in space with a glowing gold porthole showing a tiny friend inside; Wigner stands outside on a plank",
+ "focus": [
+  960,
+  470,
+  1.6
+ ],
+ "focus_word": "Wigner's Friend",
  "labels": [
   {
    "type": "name",
-   "text": "terrarium",
-   "x": 420,
-   "y": 270,
+   "text": "Wigner's Friend",
+   "x": 1360,
+   "y": 220,
    "to": [
-    420,
-    420
+    968,
+    470
    ],
-   "word": "terrarium"
-  },
-  {
-   "type": "name",
-   "text": "multiverse",
-   "x": 1620,
-   "y": 760,
-   "to": [
-    1360,
-    560
-   ],
-   "word": "multiverse"
+   "word": "Wigner's Friend"
   }
  ],
- "iris": [
-  420,
-  560
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    470
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 538,
+  "y": 485,
+  "s": 0.9,
+  "flip": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

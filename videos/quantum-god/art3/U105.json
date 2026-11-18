@@ -1,47 +1,33 @@
 {
- "centre": "glowing photon source between two detector stations",
+ "centre": "a golden knot where a smooth curved-space grid (left) meets a grainy quantum field (right)",
  "focus": [
   960,
-  520,
+  500,
   1.6
  ],
- "focus_word": "entangled photons",
+ "focus_word": "Theory of Everything",
  "labels": [
   {
    "type": "name",
-   "text": "Entangled photons",
-   "x": 960,
-   "y": 320,
+   "text": "General Relativity",
+   "x": 480,
+   "y": 250,
    "to": [
-    960,
-    470
+    480,
+    450
    ],
-   "word": "entangled photons"
+   "word": "General Relativity"
+  },
+  {
+   "type": "name",
+   "text": "Quantum Mechanics",
+   "x": 1440,
+   "y": 250,
+   "to": [
+    1440,
+    480
+   ],
+   "word": "Quantum Mechanics"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "excited"
-   }
-  ],
-  "act": "idea",
-  "ride": "mv-core-sway-source",
-  "kind": "ride",
-  "x": 1168,
-  "y": 670,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "lab"
-  ],
-  "says": [
-   {
-    "text": "Eureka!",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

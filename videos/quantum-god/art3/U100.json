@@ -1,44 +1,57 @@
 {
- "centre": "a sealed lab box floating in space with a glowing gold porthole showing a tiny friend inside; Wigner stands outside on a plank",
- "focus": [
-  960,
-  470,
-  1.6
- ],
- "focus_word": "Wigner's Friend",
+ "centre": "Wigner stands outside a sealed lab door; through its window two ghost copies of his friend overlap in superposition",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Wigner's Friend",
-   "x": 1360,
-   "y": 220,
+   "text": "Wigner",
+   "x": 420,
+   "y": 240,
    "to": [
-    968,
-    470
+    620,
+    330
    ],
-   "word": "Wigner's Friend"
+   "word": "Wigner"
+  },
+  {
+   "type": "name",
+   "text": "sealed laboratory",
+   "x": 1240,
+   "y": 180,
+   "to": [
+    1000,
+    340
+   ],
+   "word": "sealed laboratory"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "squint"
    }
   ],
   "act": {
-   "type": "duck"
+   "type": "helmetwipe"
   },
-  "ride": null,
-  "kind": "bg",
-  "x": 538,
-  "y": 485,
-  "s": 0.9,
-  "flip": 1,
+  "ride": "mv-swing-tag-string-u098",
+  "kind": "ride",
+  "x": 1190,
+  "y": 692,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
    "lab",
-   "cap"
+   "beanie"
   ],
-  "says": [],
-  "bside": 1
+  "says": [
+   {
+    "text": "Phew.",
+    "shout": false
+   }
+  ]
  }
 }

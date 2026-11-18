@@ -1,33 +1,32 @@
 {
- "centre": "glowing teal electron with two ghost copies passing through both slits of the plate",
+ "centre": "close-up of a two-slit plate with small gold eye-lens detectors at the slits, an electron approaching",
  "focus": [
-  960,
-  500,
-  1.6
+  1120,
+  302,
+  1.8
  ],
- "focus_word": "both slits at once",
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "squint"
    }
   ],
-  "act": "dance",
-  "ride": "mv-path-electron-ball",
+  "act": {
+   "type": "helmetwipe"
+  },
+  "ride": "mv-path-electron",
   "kind": "ride",
-  "x": 616,
-  "y": 578,
-  "s": 0.95,
+  "x": 311,
+  "y": 463,
+  "s": 1.15,
   "flip": 1,
   "bside": 1,
-  "gaze": 1,
   "outfit": [
-   "ghost",
-   "bowtie"
+   "bowler"
   ],
   "says": [
    {
-    "text": "La la la~",
+    "text": "Phew.",
     "shout": false
    }
   ]

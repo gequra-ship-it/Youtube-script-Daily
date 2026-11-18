@@ -1,25 +1,45 @@
 {
- "centre": "a plate with two narrow gaps between a glowing emitter and a striped screen on a lab bench",
+ "centre": "an electron gun on a lab bench firing small glowing teal balls along a dashed beam toward a waiting slit plate",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "click",
-   "word": "experiment",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Double-slit experiment",
-   "x": 900,
-   "y": 110,
+   "text": "electrons",
+   "x": 720,
+   "y": 400,
    "to": [
-    900,
-    260
+    820,
+    516
    ],
-   "word": "double-slit experiment"
+   "word": "electrons"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": {
+   "type": "fan"
+  },
+  "ride": "mv-path-electron",
+  "kind": "ride",
+  "x": 576,
+  "y": 578,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Phew...",
+    "shout": false
+   }
+  ]
+ }
 }

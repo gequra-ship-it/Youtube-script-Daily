@@ -1,48 +1,41 @@
 {
- "centre": "glowing electron halted before a tall barrier with a hazy unknown behind it",
+ "centre": "a vast grid of tiny atoms, half of which fade as time passes",
  "focus": null,
  "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Barrier",
-   "x": 1330,
-   "y": 220,
+   "text": "Half-life",
+   "x": 960,
+   "y": 790,
    "to": [
-    1170,
-    300
+    960,
+    640
    ],
-   "word": "barrier"
+   "word": "half-life"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "hopalong",
-   "obj": "mv-hop-ball-spark"
-  },
-  "outfit": [
-   "helmet",
-   "jetpack"
-  ],
-  "x": 322,
-  "y": 790,
-  "s": 0.95,
+  "act": "write",
+  "x": 260,
+  "y": 780,
+  "s": 0.88,
   "flip": 1,
   "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "bside": -1,
-  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
   "says": [
    {
-    "text": "Hop hop!",
-    "shout": true
+    "text": "Noted!",
+    "shout": false
    }
-  ]
+  ],
+  "bside": 1
  }
 }

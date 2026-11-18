@@ -1,55 +1,22 @@
 {
- "centre": "a glowing cube-shaped logic gate at the heart of a circuit lattice over a faint galaxy",
+ "centre": "a single quiet star over a still night lake",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pulse",
-   "word": "computation",
-   "vol": 0.6
-  }
- ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Quantum computation",
-   "x": 960.0,
-   "y": 860,
-   "to": [
-    960,
-    600
-   ],
-   "word": "quantum computation"
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "excited"
-   },
-   {
-    "word": "It remains",
-    "mood": "happy"
+    "mood": "scared"
    }
   ],
-  "act": "idea",
-  "outfit": [
-   "helmet",
-   "moonboots"
-  ],
-  "ride": "mv-core-glide-gate",
-  "kind": "ride",
-  "x": 1198,
-  "y": 700,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Aha!",
-    "shout": false
-   }
-  ]
+  "act": {
+   "type": "duck"
+  },
+  "x": 260,
+  "y": 340,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
  }
 }

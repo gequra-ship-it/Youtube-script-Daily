@@ -1,49 +1,16 @@
 {
- "centre": "speculative microscopic wormhole tube in a bubbling foam, with a clock breaking apart",
- "focus": null,
- "focus_word": null,
- "labels": [
-  {
-   "type": "name",
-   "text": "Microscopic wormholes",
-   "x": 820,
-   "y": 770,
-   "to": [
-    900,
-    540
-   ],
-   "word": "microscopic wormholes"
-  }
+ "centre": "a faint dashed ghost where the time variable has vanished from a row of glowing shapes",
+ "focus": [
+  960,
+  500,
+  1.8
  ],
- "frog": {
-  "moods": [
-   {
-    "mood": "scared"
-   }
-  ],
-  "act": {
-   "type": "pull",
-   "to": [
-    963,
-    500
-   ],
-   "vanish": true
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 496,
-  "y": 523,
-  "s": 0.9,
-  "flip": 1,
-  "outfit": [
-   "bowtie"
-  ],
-  "says": [
-   {
-    "text": "AAAAAH!",
-    "shout": true
-   }
-  ],
-  "bside": 1
- }
+ "focus_word": "has vanished",
+ "sfx": [
+  {
+   "name": "glimmer",
+   "word": "vanished",
+   "vol": 0.6
+  }
+ ]
 }

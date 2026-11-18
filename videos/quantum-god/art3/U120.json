@@ -1,35 +1,18 @@
 {
- "centre": "sealed steel box with an atom, detector, hammer and poison flask in a chain",
- "focus": [
-  1130,
-  480,
-  1.5
- ],
- "focus_word": "brutally simple",
- "sfx": [
+ "centre": "open steel box glowing with a ghosted lying cat and sitting cat at once",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "click",
-   "word": "setup",
-   "vol": 0.5
+   "type": "name",
+   "text": "Superposition",
+   "x": 960,
+   "y": 250,
+   "to": [
+    960,
+    420
+   ],
+   "word": "superposition"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "chilly"
-   }
-  ],
-  "act": {
-   "type": "rubhands"
-  },
-  "ride": "mv-swing-hammer",
-  "kind": "ride",
-  "x": 1210,
-  "y": 601,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "says": []
- }
+ ]
 }

@@ -1,31 +1,37 @@
 {
- "centre": "big magnifier glass over an electron on a tidy lab bench",
+ "centre": "glowing star-knot at the heart of woven threads, a cosmic fabric",
  "focus": null,
  "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "worried"
+    "mood": "curious"
    }
   ],
-  "act": "facepalm",
-  "ride": "mv-core-glide-magnifier-lens",
-  "kind": "ride",
-  "x": 1258,
-  "y": 760,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "act": {
+   "type": "unrolled",
+   "obj": "mv-unroll-cloth-ribbon",
+   "frac": 0.7
+  },
   "outfit": [
-   "lab",
-   "bowler"
+   "helmet",
+   "goldvisor"
   ],
+  "x": 1195,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "says": [
    {
-    "text": "Oops.",
-    "shout": false
+    "text": "Whoa!",
+    "shout": true
    }
-  ]
+  ],
+  "bside": -1
  }
 }

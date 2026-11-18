@@ -1,25 +1,48 @@
 {
- "centre": "a large slit plate with two gaps; electrons fly straight through to two plain bars on a screen",
+ "centre": "glowing screen with alternating bright and dark interference stripes",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "tick",
-   "word": "two neat lines",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Two neat lines",
-   "x": 1380,
+   "text": "Interference pattern",
+   "x": 1560,
    "y": 210,
    "to": [
-    1660,
-    340
+    1340,
+    300
    ],
-   "word": "two neat lines"
+   "word": "interference pattern"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hopalong",
+   "obj": "mv-hop-marble-ball"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1676,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ]
+ }
 }

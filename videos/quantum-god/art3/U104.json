@@ -1,22 +1,34 @@
 {
- "centre": "a sealed lab box with the friend inside as two ghost copies, Wigner outside reaching for the door",
- "focus": [
-  1160,
-  620,
-  1.6
+ "centre": "a tiny climber with a lantern on a glowing trail up a night mountain to a golden summit light",
+ "focus": null,
+ "focus_word": null,
+ "iris": [
+  1380,
+  270
  ],
- "focus_word": "opens the door",
- "labels": [
-  {
-   "type": "name",
-   "text": "Wigner",
-   "x": 1560,
-   "y": 340,
-   "to": [
-    1420,
-    430
-   ],
-   "word": "Wigner"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-person-climber",
+  "kind": "ride",
+  "x": 994,
+  "y": 762,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

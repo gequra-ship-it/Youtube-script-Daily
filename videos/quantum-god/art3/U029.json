@@ -1,31 +1,34 @@
 {
- "centre": "single electron flying toward a screen that slowly collects dots",
- "focus": null,
- "focus_word": null,
+ "centre": "glowing teal electron with two ghost copies passing through both slits of the plate",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "both slits at once",
  "frog": {
   "moods": [
    {
-    "mood": "determined"
+    "mood": "excited"
    }
   ],
-  "act": {
-   "type": "hammer"
-  },
+  "act": "dance",
   "ride": "mv-path-electron-ball",
   "kind": "ride",
-  "x": 446,
-  "y": 548,
+  "x": 616,
+  "y": 578,
   "s": 0.95,
   "flip": 1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "hardhat"
+   "ghost",
+   "bowtie"
   ],
   "says": [
    {
-    "text": "Bang! Bang!",
-    "shout": true
+    "text": "La la la~",
+    "shout": false
    }
   ]
  }

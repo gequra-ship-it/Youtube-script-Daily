@@ -23,8 +23,7 @@ SCENES = [('S01',
   'Determinism and God',
   'ill',
   'q05',
-  'Throughout much of classical history, theology and physics walked hand in hand under the banner of determinism. Classical physics assured us that if you possessed the exact '
-  'coordinates and momentum of every particle, the entire future could be calculated with flawless certainty.'),
+  'Classical physics assured us that if you possessed the exact coordinates and momentum of every particle, the entire future could be calculated with flawless certainty.'),
  ('S06', 'Determinism and God', 'ill', 'q06', 'Many took this predictability as a fingerprint of God, a sign that a supreme mind charted the cosmos from beginning to end.'),
  ('S07',
   'Determinism and God',
@@ -83,8 +82,8 @@ SCENES = [('S01',
   'The Uncertainty Principle',
   'ill',
   'q16',
-  'This is not a limitation of human technology, nor is it a temporary flaw in our laboratory equipment. It is an intrinsic law woven into the fabric of the cosmos itself. In '
-  'standard quantum theory, the universe sets an absolute barrier on what can be known about a particle at once.'),
+  'It is an intrinsic law woven into the fabric of the cosmos itself. In standard quantum theory, the universe sets an absolute barrier on what can be known about a particle at '
+  'once.'),
  ('S17',
   'Random Decay',
   'ill',
@@ -120,8 +119,8 @@ SCENES = [('S01',
   'The Observer Problem',
   'ill',
   'q23',
-  'As if random decay were not unsettling enough, the role of the observer plunges physics into an even deeper puzzle. In the standard Copenhagen interpretation of quantum '
-  'mechanics, subatomic systems exist in a blend of overlapping possibilities called a superposition.'),
+  'The role of the observer is an even deeper puzzle. In the standard Copenhagen interpretation of quantum mechanics, subatomic systems exist in a blend of overlapping '
+  'possibilities called a superposition.'),
  ('S24',
   'The Observer Problem',
   'ill',
@@ -246,8 +245,7 @@ SCENES = [('S01',
   'ill',
   'q45',
   "We cannot discuss quantum theology without confronting Erwin Schrödinger's infamous thought experiment: Schrödinger's Cat. Devised in nineteen thirty-five to illustrate the "
-  'sheer absurdity of the Copenhagen interpretation, the setup is brutally simple. A cat is placed in a steel box with a radioactive atom, a Geiger counter, a vial of poison, and '
-  'a hammer.'),
+  'absurdity of the Copenhagen interpretation. A cat is placed in a steel box with a radioactive atom, a Geiger counter, a vial of poison, and a hammer.'),
  ('S46',
   "Schrödinger's Cat",
   'ill',
@@ -271,6 +269,6 @@ SCENES = [('S01',
   'Room for Faith?',
   'ill',
   'q49',
-  'We arrive at the precipice of understanding. For millennia, people have looked into the darkness of the night sky and searched for meaning, and many found it in faith. What '
-  'quantum mechanics shows is a universe governed by irreducible probability, non-local interconnectedness, and subtle mathematical laws.'),
+  'For millennia, people have looked into the darkness of the night sky and searched for meaning, and many found it in faith. What quantum mechanics shows is a universe governed '
+  'by irreducible probability, non-local interconnectedness, and subtle mathematical laws.'),
  ('S50', 'Room for Faith?', 'ill', 'q50', 'Whether that leaves room for faith is a question physics alone cannot answer.')]

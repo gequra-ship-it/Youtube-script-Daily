@@ -1,29 +1,32 @@
 {
- "centre": "a pile of solid marbles on a shelf on the left, rippling wave sheets on the right, a dotted arrow between",
+ "centre": "single electron flying toward a screen that slowly collects dots",
  "focus": null,
  "focus_word": null,
- "labels": [
-  {
-   "type": "name",
-   "text": "matter",
-   "x": 420,
-   "y": 260,
-   "to": [
-    420,
-    380
-   ],
-   "word": "matter"
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "hammer"
   },
-  {
-   "type": "name",
-   "text": "waves",
-   "x": 1500,
-   "y": 170,
-   "to": [
-    1500,
-    300
-   ],
-   "word": "waves"
-  }
- ]
+  "ride": "mv-path-electron-ball",
+  "kind": "ride",
+  "x": 446,
+  "y": 548,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Bang! Bang!",
+    "shout": true
+   }
+  ]
+ }
 }

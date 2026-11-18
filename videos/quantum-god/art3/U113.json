@@ -1,18 +1,42 @@
 {
- "centre": "a cracked clock face with its hands spinning loose, fragments floating into a faint foam of tiny cells",
+ "centre": "glowing zero ring at the end of an equation made of abstract shapes",
  "focus": null,
  "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "classical concept of time",
-   "x": 700,
-   "y": 170,
+   "text": "Master equation",
+   "x": 660,
+   "y": 200,
    "to": [
-    700,
-    260
+    660,
+    300
    ],
-   "word": "classical concept of time"
+   "word": "master equation"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Floaty...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

@@ -1,25 +1,50 @@
 {
- "centre": "an electron with up and down arrows at once, a gold detector with an eye lens, then one definite arrow",
+ "centre": "a glass bulb holding a ghosted twin electron and a calm wave on a shelf",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "measurement",
+   "name": "glimmer",
+   "word": "answer",
    "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Measurement",
-   "x": 1245,
-   "y": 300,
+   "text": "Decoherence",
+   "x": 1400,
+   "y": 330,
    "to": [
-    1245,
-    420
+    1070,
+    440
    ],
-   "word": "measurement"
+   "word": "Decoherence"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "look",
+  "ride": "mv-core-sway-glass-bulb",
+  "kind": "ride",
+  "x": 1298,
+  "y": 780,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": false
+   }
+  ]
+ }
 }

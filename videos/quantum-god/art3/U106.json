@@ -1,43 +1,49 @@
 {
- "centre": "one cube half teal half magenta seen differently by two observers",
+ "centre": "a heavy star resting in a smooth curved spacetime sheet under geometric vault arches, a planet orbiting",
  "focus": null,
  "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Two observers",
-   "x": 960,
-   "y": 170,
+   "text": "Einstein",
+   "x": 520,
+   "y": 470,
    "to": [
-    960,
-    380
+    340,
+    600
    ],
-   "word": "two observers"
+   "word": "Einstein"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "surprised"
    }
   ],
-  "act": "scope",
-  "ride": "mv-core-approach-cube",
-  "kind": "ride",
-  "x": 1228,
-  "y": 730,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "act": {
+   "type": "slide",
+   "to": [
+    960,
+    772
+   ]
+  },
   "outfit": [
-   "beanie"
+   "helmet",
+   "moonboots"
   ],
+  "kind": "bg",
+  "ride": null,
+  "x": 384,
+  "y": 556,
+  "s": 0.9,
+  "flip": 1,
   "says": [
    {
-    "text": "There!",
-    "shout": false
+    "text": "Wheee!",
+    "shout": true
    }
-  ]
+  ],
+  "bside": 1
  }
 }

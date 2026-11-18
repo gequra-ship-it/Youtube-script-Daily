@@ -1,25 +1,30 @@
 {
- "centre": "a chalk dial and a curve crossing a dashed limit on a chalkboard; a silhouette of Bell writing",
+ "centre": "a glass tube whose glowing level rises past a golden limit line",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pencil",
-   "word": "formulating a mathematical test",
-   "vol": 0.5
-  }
- ],
- "labels": [
-  {
-   "type": "name",
-   "text": "John Stewart Bell",
-   "x": 430,
-   "y": 170,
-   "to": [
-    470,
-    270
-   ],
-   "word": "John Stewart Bell"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "idea",
+  "ride": "mv-core-sway-bulb",
+  "kind": "ride",
+  "x": 1108,
+  "y": 250,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "I know!",
+    "shout": false
+   }
+  ]
+ }
 }

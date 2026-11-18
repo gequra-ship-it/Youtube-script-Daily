@@ -1,18 +1,63 @@
 {
- "centre": "a boiling sea of glowing quantum foam cells with tiny wormhole tubes, imagined",
+ "centre": "a glowing abstract equation orb on a chalkboard, merging a quantum wave and a curved geometry grid",
  "focus": null,
  "focus_word": null,
+ "iris": [
+  400,
+  560
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Quantum Foam",
+   "text": "John Wheeler",
+   "x": 330,
+   "y": 300,
+   "to": [
+    400,
+    560
+   ],
+   "word": "John Wheeler"
+  },
+  {
+   "type": "name",
+   "text": "Bryce DeWitt",
+   "x": 1600,
+   "y": 300,
+   "to": [
+    1530,
+    560
+   ],
+   "word": "Bryce DeWitt"
+  },
+  {
+   "type": "name",
+   "text": "Wheeler-DeWitt Equation",
    "x": 960,
-   "y": 220,
+   "y": 790,
    "to": [
     960,
-    400
+    600
    ],
-   "word": "Quantum Foam"
+   "word": "Wheeler-DeWitt Equation"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "x": 260,
+  "y": 340,
+  "s": 0.94,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
 }

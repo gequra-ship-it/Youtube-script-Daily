@@ -1,25 +1,52 @@
 {
- "centre": "a cracked dark shell opening to reveal a tiny glowing atom at dawn",
+ "centre": "a brass gear tower cracking while chunks and cogs fall away from it",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pop",
-   "word": "cracked open",
+   "name": "stone",
+   "word": "crumble",
    "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Subatomic realm",
-   "x": 560,
-   "y": 260,
+   "text": "Certainty",
+   "x": 700,
+   "y": 280,
    "to": [
-    800,
-    520
+    500,
+    560
    ],
-   "word": "subatomic realm"
+   "word": "certainty"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "rimride",
+   "obj": "mv-spin-gear",
+   "r": 94
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1530,
+  "y": 336,
+  "s": 0.66,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "beanie"
+  ],
+  "says": []
+ }
 }

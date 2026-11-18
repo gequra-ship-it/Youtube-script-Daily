@@ -1,18 +1,25 @@
 {
- "centre": "a vast grid of tiny atoms, half of which fade as time passes",
+ "centre": "one atom flashing as it decays while its identical neighbour stays calm",
  "focus": null,
  "focus_word": null,
+ "sfx": [
+  {
+   "name": "sparkle",
+   "word": "decay",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Half-life",
-   "x": 960,
-   "y": 790,
+   "text": "Its neighbor",
+   "x": 1300,
+   "y": 380,
    "to": [
-    960,
-    640
+    1300,
+    540
    ],
-   "word": "half-life"
+   "word": "neighbor"
   }
  ],
  "frog": {
@@ -21,21 +28,23 @@
     "mood": "curious"
    }
   ],
-  "act": "write",
-  "x": 260,
-  "y": 780,
-  "s": 0.88,
+  "act": "think",
+  "ride": "mv-path-decay-particle",
+  "kind": "ride",
+  "x": 844,
+  "y": 546,
+  "s": 0.95,
   "flip": 1,
-  "kind": "bg",
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "glasses"
+   "headband"
   ],
   "says": [
    {
-    "text": "Noted!",
+    "text": "Hmm...",
     "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

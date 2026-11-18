@@ -1,29 +1,48 @@
 {
- "centre": "a lab monitor where a spread-out wave snaps into one sharp spike and a single bright dot",
+ "centre": "glowing photon source between two detector stations",
  "focus": [
   960,
-  560,
+  520,
   1.6
  ],
- "focus_word": "single definitive result",
- "sfx": [
-  {
-   "name": "click",
-   "word": "complete",
-   "vol": 0.5
-  }
- ],
+ "focus_word": "entangled photons",
  "labels": [
   {
    "type": "name",
-   "text": "single definitive result",
-   "x": 1180,
-   "y": 420,
+   "text": "Entangled photons",
+   "x": 960,
+   "y": 320,
    "to": [
-    966,
-    640
+    960,
+    470
    ],
-   "word": "single definitive result"
+   "word": "entangled photons"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "idea",
+  "ride": "mv-core-sway-source",
+  "kind": "ride",
+  "x": 1168,
+  "y": 670,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Eureka!",
+    "shout": false
+   }
+  ]
+ }
 }
