@@ -33,6 +33,7 @@ def check(title, thumb=None):
     if low: issues.append(f"not Title Case: {', '.join(low)}")
     v = sorted({w for w in words(t) if w in VAGUE})
     if v: issues.append(f"vague hype: {', '.join(v)}")
+    if re.match(r"(what it (truly )?means|the meaning of|understanding|an introduction|a guide to)", t.lower()): issues.append("abstract explainer opener (use paradox/danger/concrete scene, 17-3)")
     if not [w for w in words(t)[:3] if w not in STOP]: issues.append("first 3 words are filler")
     if thumb:
         shared = (set(words(t)) - STOP) & (set(words(thumb)) - STOP)
