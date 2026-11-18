@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 # giant-mold-short3 (Miya's Note). Script from miya 2026-11-03 (dated 2026-10-25); fact-checked per guideline 12-1.
-SCENES = [('S01',
-  'Part 1',
-  'ill',
-  'sh3_1',
-  'Look out your window at a tall oak or pine tree. It seems completely natural that trees dominate the skyline of our planet.'),
- ('S02', 'Part 2', 'ill', 'sh3_2', 'But for millions of years, Earth had no wood, no canopy, and no leafy shade.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'Earth once had a skyline with no trees at all. The tallest things on it were very likely fungi.'),
+ ('S02', 'Part 2', 'ill', 'sh3_2', 'For millions of years, Earth had no wood, no canopy, and no leafy shade.'),
  ('S03', 'Part 3', 'ill', 'sh3_3', 'No tree had yet grown taller than a few meters, and no forest had ever cast a shadow on the ground.'),
  ('S04', 'Part 4', 'ill', 'sh3_4', 'In that landscape, life found a very different way to touch the sky.'),
  ('S05', 'Part 5', 'ill', 'sh3_5', 'More than four hundred million years ago, towering columns known as Prototaxites rose from the barren ground.'),
