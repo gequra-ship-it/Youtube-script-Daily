@@ -1,19 +1,35 @@
 {
- "centre": "a proud trilobite in the centre of the sea floor while ghosts of a dinosaur and a pyramid fade away above",
+ "centre": "looking down on a prehistoric seafloor: a trilobite crawls up the frame at the head of its long Cruziana track",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Still here!",
-   "x": 780,
-   "y": 1300,
-   "to": [
-    610,
-    1080
-   ]
+   "type": "num",
+   "text": "270 MILLION YEARS",
+   "word": "two hundred and seventy million"
   }
  ],
- "motion": "core heartbeat trilobite + fade ghosts + sway seaweed + bubble"
+ "motion": "path trilobite (rot 0) + dash trail + creep crab",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-trilobite",
+  "kind": "ride",
+  "x": 625,
+  "y": 798,
+  "s": 1.44,
+  "flip": 1,
+  "bside": -1,
+  "says": []
+ }
 }

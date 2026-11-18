@@ -1,36 +1,30 @@
 {
- "centre": "a rolled-up trilobite ball with a cut-away window: soft legs and feathery gills folded inside the stone-hard shell; fossil balls appear on a rock ledge",
- "focus": [
-  920,
-  560,
-  1.5
- ],
- "focus_word": "tucked safely inside",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "gills",
-   "x": 1230,
-   "y": 380,
-   "to": [
-    960,
-    520
-   ],
-   "word": "gills"
-  },
-  {
-   "type": "name",
-   "text": "legs",
-   "x": 1240,
-   "y": 600,
-   "to": [
-    1010,
-    615
-   ],
-   "word": "legs"
-  }
- ],
- "motion": "ball beats like a guarded heart; fossil balls tick in one by one on the ledge (common)",
- "light": "left"
+ "centre": "an enrolled trilobite ball resting on the seafloor under a faint golden shield glow while a sea scorpion's claws close in",
+ "focus": null,
+ "focus_word": null,
+ "motion": "scorpion path + claw joints; ball shakes when hit",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-scorpion-approach",
+  "kind": "ride",
+  "x": 1245,
+  "y": 487,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,48 +1,33 @@
 {
- "centre": "the supercontinent seen from above with a dashed route and a small sauropod walking across it",
+ "centre": "a proud trilobite in the centre of the sea floor while ghosts of a dinosaur and a pyramid fade away above",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "165 MILLION YEARS",
-   "word": "one hundred and sixty-five million"
-  },
-  {
-   "type": "name",
-   "text": "continents",
-   "x": 760,
-   "y": 1000,
-   "to": [
-    720,
-    1180
-   ],
-   "word": "continents"
-  }
- ],
- "motion": "path dinosaur (rot 0) + dash route",
+ "motion": "core heartbeat trilobite + fade ghosts + sway seaweed + bubble",
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "shrinkdown"
+   "type": "binocs"
   },
   "outfit": [
-   "diver",
-   "flippers"
+   "diver"
   ],
-  "ride": "mv-path-dinosaur",
+  "ride": "mv-core-glide-trilobite",
   "kind": "ride",
-  "x": 451,
-  "y": 1247,
+  "x": 346,
+  "y": 1086,
   "s": 1.09,
   "flip": 1,
-  "bside": 1,
+  "bside": -1,
   "gaze": 1,
-  "says": []
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
  }
 }

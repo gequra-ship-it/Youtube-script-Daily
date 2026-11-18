@@ -2,7 +2,6 @@
  "centre": "a hazy red-orange sun sinking at a dark sea horizon under ash-streaked sky, volcano silhouettes far away",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "num",
@@ -10,5 +9,29 @@
    "word": "two hundred and fifty-two million years ago"
   }
  ],
- "motion": "core swell, ash plume sway"
+ "motion": "core swell, ash plume sway",
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": "stretch",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 1660,
+  "y": 340,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Good morning!",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

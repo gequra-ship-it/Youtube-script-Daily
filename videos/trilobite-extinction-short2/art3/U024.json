@@ -1,42 +1,30 @@
 {
- "centre": "two rock panels slide apart to uncover the Siberian Traps: a glowing lava fissure under a red sky and a huge ash column, sickly sea below",
- "focus": [
-  540,
-  940,
-  1.5
- ],
- "focus_word": "planetary catastrophe",
- "sfx": [],
- "labels": [],
- "motion": "slide out cover panels x2 + flicker lava",
+ "centre": "the last trilobite curled up on a dark purple sea floor as a small crown drops and lands beside it: the end of the reign",
+ "focus": null,
+ "focus_word": null,
+ "motion": "core drop crown + breathe last trilobite + bubble",
  "frog": {
   "moods": [
    {
-    "mood": "determined"
+    "mood": "starry"
    }
   ],
-  "act": {
-   "type": "chase",
-   "obj": "mv-slide-cover-panel-right",
-   "dist": 496
-  },
+  "act": "rest",
   "outfit": [
    "diver"
   ],
-  "ride": null,
-  "kind": "bg",
-  "x": 475,
-  "y": 1250,
+  "ride": "mv-core-sway-crown",
+  "kind": "ride",
+  "x": 834,
+  "y": 1290,
   "s": 1.09,
-  "flip": 1,
+  "flip": -1,
   "bside": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
+  "gaze": 1,
   "says": [
    {
-    "text": "Wait!",
-    "shout": true
+    "text": "Ahh...",
+    "shout": false
    }
   ]
  }

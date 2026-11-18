@@ -2,19 +2,6 @@
  "centre": "a sea scorpion trying to grip an enrolled trilobite ball whose soft parts stay sealed inside",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Too hard!",
-   "x": 860,
-   "y": 980,
-   "to": [
-    640,
-    720
-   ]
-  }
- ],
  "motion": "claws hinge, ball trembles under the grip",
  "frog": {
   "moods": [
@@ -26,23 +13,22 @@
     "mood": "happy"
    }
   ],
-  "act": {
-   "type": "hideshell"
-  },
+  "act": "wave",
   "outfit": [
-   "diver"
+   "diver",
+   "flippers"
   ],
-  "x": 260,
+  "x": 820,
   "y": 1200,
-  "s": 1.21,
-  "flip": 1,
+  "s": 0.99,
+  "flip": -1,
   "kind": "bg",
   "says": [
    {
-    "text": "Cozy!",
-    "shout": true
+    "text": "Hi there!",
+    "shout": false
    }
   ],
-  "bside": 1
+  "bside": -1
  }
 }

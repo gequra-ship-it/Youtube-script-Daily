@@ -13,30 +13,32 @@
    "vol": 0.5
   }
  ],
- "labels": [],
  "motion": "ripple surf, path seagull, creep crab",
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "determined"
    }
   ],
-  "act": "wave",
+  "act": {
+   "type": "jog",
+   "dist": 422
+  },
   "outfit": [
    "goggles",
    "lifering"
   ],
-  "x": 260,
+  "x": 1660,
   "y": 890,
-  "s": 0.88,
+  "s": 0.72,
   "flip": 1,
   "kind": "bg",
   "says": [
    {
-    "text": "Hi there!",
-    "shout": false
+    "text": "Hup hup!",
+    "shout": true
    }
   ],
-  "bside": 1
+  "bside": -1
  }
 }

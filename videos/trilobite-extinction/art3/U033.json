@@ -1,26 +1,42 @@
 {
- "centre": "a trilobite rolled into a tight armored ball, a looming claw shadow behind and a grey pill bug ball rolling in the corner",
- "motion": "core wobble (ball) + rollby (pill bug) + sway (kelp)",
+ "centre": "a tightly enrolled trilobite ball, plus a magnified inset where the toothed head and tail plate edges slide together",
+ "focus": [
+  960,
+  520,
+  1.7
+ ],
+ "focus_word": "locked together",
  "sfx": [
   {
-   "name": "stone",
-   "word": "tight ball",
-   "vol": 0.5
+   "name": "click",
+   "word": "locked together",
+   "vol": 0.6
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Crustaceans",
-   "x": 560,
-   "y": 650,
-   "to": [
-    390,
-    790
-   ],
-   "word": "crustaceans"
-  }
- ],
- "focus": null,
- "focus_word": null
+ "motion": "squeeze ball + two plates slide into zig-zag lock",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-slide-head-plate",
+  "kind": "ride",
+  "x": 556,
+  "y": 395,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

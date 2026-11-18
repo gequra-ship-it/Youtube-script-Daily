@@ -2,8 +2,6 @@
  "centre": "an escalating staircase: each defence step (ball, spikes, longer spines) is answered by a bigger armoured jaw",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "motion": "steps appear one after another, climbing up (arms race)",
  "frog": {
   "moods": [
@@ -11,19 +9,25 @@
     "mood": "squint"
    }
   ],
-  "act": {
-   "type": "leanback"
-  },
+  "act": "wind",
   "outfit": [
-   "diver",
-   "flippers"
+   "diver"
   ],
-  "x": 820,
+  "x": 260,
   "y": 1560,
-  "s": 1.0,
-  "flip": -1,
+  "s": 1.16,
+  "flip": 1,
   "kind": "bg",
-  "says": [],
-  "bside": -1
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ],
+  "bside": 1
  }
 }

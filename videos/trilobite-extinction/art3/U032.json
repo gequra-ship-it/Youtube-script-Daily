@@ -1,20 +1,26 @@
 {
- "centre": "danger: a looming sea scorpion reaches its claws toward a trilobite on the floor that shivers; across a diagonal seam, a garden where a pill bug rolled into a ball rolls past",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a trilobite rolled into a tight armored ball, a looming claw shadow behind and a grey pill bug ball rolling in the corner",
+ "motion": "core wobble (ball) + rollby (pill bug) + sway (kelp)",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "tight ball",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Pill bugs",
-   "x": 1560,
-   "y": 520,
+   "text": "Crustaceans",
+   "x": 560,
+   "y": 650,
    "to": [
-    1760,
-    668
+    390,
+    790
    ],
-   "word": "pill bugs"
+   "word": "crustaceans"
   }
  ],
- "motion": "joint: sea scorpion claws grasp; shiver: the curling trilobite; rollby: a rolled pill bug ball rolls through the garden"
+ "focus": null,
+ "focus_word": null
 }

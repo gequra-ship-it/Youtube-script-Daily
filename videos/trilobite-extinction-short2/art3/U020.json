@@ -1,8 +1,31 @@
 {
- "centre": "a slice of sea: a big-eyed trilobite swims in open water, one crawls on the floor, one burrows in the mud, one perches on a sponge",
+ "centre": "a trilobite in a spotlight on top of a tall pillar of rock layers, each layer holding fossils: the longest record",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "swim swimmer + creep crawler + breathe feeder + sway seaweed + bubble"
+ "motion": "ticks strata record + core ping trilobite + sparkle",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-glide-trilobite",
+  "kind": "ride",
+  "x": 702,
+  "y": 767,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
 }

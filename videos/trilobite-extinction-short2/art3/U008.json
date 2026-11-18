@@ -1,35 +1,55 @@
 {
- "centre": "looking down on a prehistoric seafloor: a trilobite crawls up the frame at the head of its long Cruziana track",
+ "centre": "a split frame: clear teal Cambrian sea with sponges above, red volcanic Permian world with sickly water below; one trilobite travels from top to bottom",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "270 MILLION YEARS",
-   "word": "two hundred and seventy million"
+   "type": "name",
+   "text": "Cambrian",
+   "x": 700,
+   "y": 400,
+   "to": [
+    760,
+    700
+   ],
+   "word": "Cambrian"
+  },
+  {
+   "type": "name",
+   "text": "Permian",
+   "x": 330,
+   "y": 1290,
+   "to": [
+    740,
+    1300
+   ],
+   "word": "Permian"
   }
  ],
- "motion": "path trilobite (rot 0) + dash trail + creep crab",
+ "motion": "path trilobite + sway seaweed",
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "sad"
    }
   ],
-  "act": {
-   "type": "measure"
-  },
+  "act": "wish",
   "outfit": [
    "diver"
   ],
-  "ride": "mv-path-trilobite",
+  "ride": "mv-path-trilobite-journey",
   "kind": "ride",
-  "x": 625,
-  "y": 798,
-  "s": 1.44,
+  "x": 470,
+  "y": 752,
+  "s": 1.09,
   "flip": 1,
-  "bside": -1,
-  "says": []
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Please...",
+    "shout": false
+   }
+  ]
  }
 }

@@ -26,5 +26,31 @@
    "word": "ice sheets"
   }
  ],
- "motion": "water fill drops, iceberg float, ice swell"
+ "motion": "water fill drops, iceberg float, ice swell",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-approach-ice-sheet",
+  "kind": "ride",
+  "x": 664,
+  "y": 378,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
 }

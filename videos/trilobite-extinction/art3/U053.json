@@ -2,18 +2,32 @@
  "centre": "a survivor trilobite, still flecked with frost, walks away from an ice wall into warmer water; an ice chunk drops behind it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Still here!",
-   "x": 1060,
-   "y": 380,
-   "to": [
-    900,
-    600
-   ]
-  }
- ],
- "motion": "the survivor crawls right out of the freeze (camera follows); an ice chunk drops behind it"
+ "motion": "the survivor crawls right out of the freeze (camera follows); an ice chunk drops behind it",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "hideshell"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-trilobite-survivor",
+  "kind": "ride",
+  "x": 911,
+  "y": 516,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Eep.",
+    "shout": false
+   }
+  ]
+ }
 }
