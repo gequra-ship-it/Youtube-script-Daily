@@ -1,49 +1,61 @@
 {
- "centre": "tall glowing lava fountain at the centre of a long glowing fissure in Siberian ground",
+ "centre": "three towering Carboniferous plants seen from the forest floor: a scale tree, a giant horsetail and a club moss",
  "focus": null,
  "focus_word": null,
  "labels": [
   {
-   "type": "num",
-   "text": "252 MILLION YEARS AGO",
-   "word": "252 million"
+   "type": "name",
+   "text": "Scale trees",
+   "x": 290,
+   "y": 520,
+   "to": [
+    515,
+    600
+   ],
+   "word": "scale trees"
   },
   {
    "type": "name",
-   "text": "Siberia",
-   "x": 420,
-   "y": 360,
+   "text": "Giant horsetails",
+   "x": 1270,
+   "y": 820,
    "to": [
-    560,
-    720
+    1085,
+    840
    ],
-   "word": "Siberia"
+   "word": "giant horsetails"
+  },
+  {
+   "type": "name",
+   "text": "Club mosses",
+   "x": 1680,
+   "y": 560,
+   "to": [
+    1505,
+    620
+   ],
+   "word": "club mosses"
   }
  ],
+ "light": "left",
  "frog": {
   "moods": [
    {
-    "mood": "sleepy"
+    "mood": "surprised"
    }
   ],
   "act": {
-   "type": "slowwalk",
-   "dist": 288
+   "type": "shrinkdown"
   },
-  "x": 1660,
-  "y": 380,
-  "s": 0.72,
-  "flip": -1,
-  "kind": "bg",
   "outfit": [
-   "explorer"
+   "diver"
   ],
-  "says": [
-   {
-    "text": "Sooo slow...",
-    "shout": false
-   }
-  ],
-  "bside": -1
+  "x": 260,
+  "y": 780,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
  }
 }

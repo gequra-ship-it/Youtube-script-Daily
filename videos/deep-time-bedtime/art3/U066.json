@@ -1,35 +1,47 @@
 {
- "centre": "cross-section of a stagnant swamp where fallen trees pile up in layers, with a puzzled fungus on a stump",
+ "centre": "the early tetrapod ancestor at the root of branches leading to an amphibian, a reptile, a bird and a mammal",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "thud",
-   "word": "fallen trees stacked",
+   "name": "pop",
+   "word": "amphibian, reptile, bird, and mammal",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "say",
-   "text": "Too tough!",
-   "x": 560,
-   "y": 230,
+   "type": "name",
+   "text": "Amphibian",
+   "x": 330,
+   "y": 250,
    "to": [
-    380,
-    300
-   ]
+    400,
+    425
+   ],
+   "word": "amphibian"
   },
   {
    "type": "name",
-   "text": "Fallen trees",
-   "x": 1560,
-   "y": 650,
+   "text": "Bird",
+   "x": 1170,
+   "y": 150,
    "to": [
-    1400,
-    720
+    1170,
+    290
    ],
-   "word": "fallen trees"
+   "word": "bird"
+  },
+  {
+   "type": "name",
+   "text": "Mammal",
+   "x": 1560,
+   "y": 260,
+   "to": [
+    1540,
+    400
+   ],
+   "word": "mammal"
   }
  ]
 }

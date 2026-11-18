@@ -1,14 +1,56 @@
 {
- "centre": "a tall stack of rock layers (deep time) with Triceratops and T. rex standing on top",
+ "centre": "a pterosaur gliding in the sky above, a mosasaur swimming in the sea below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "TENS OF MILLIONS OF YEARS",
-   "word": "tens of millions"
+   "type": "name",
+   "text": "pterosaurs",
+   "x": 360,
+   "y": 380,
+   "to": [
+    300,
+    540
+   ],
+   "word": "pterosaurs"
+  },
+  {
+   "type": "name",
+   "text": "marine reptiles",
+   "x": 600,
+   "y": 1380,
+   "to": [
+    400,
+    1250
+   ],
+   "word": "marine reptiles"
   }
  ],
- "motion": "rock layers appear one after another from the bottom (ticks), T. rex breathes and moves its jaw"
+ "motion": "pterosaur glides along a path with wing joints, mosasaur swims with tail chain and flippers",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "sunshade"
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "ride": "mv-path-pterosaur",
+  "kind": "ride",
+  "x": 368,
+  "y": 517,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Bright!",
+    "shout": true
+   }
+  ]
+ }
 }

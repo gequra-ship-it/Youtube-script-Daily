@@ -1,41 +1,51 @@
 {
- "centre": "woolly mammoth walking across the tundra steppe",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "cross-section of a plate pushing into another while mountains rise",
+ "focus": [
+  1350,
+  420,
+  1.6
+ ],
+ "focus_word": "Himalayas",
+ "iris": [
+  1350,
+  450
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Woolly mammoths",
-   "x": 960,
-   "y": 340,
+   "text": "Himalayas",
+   "x": 1000,
+   "y": 200,
    "to": [
-    990,
-    470
+    1290,
+    350
    ],
-   "word": "Woolly mammoths"
-  },
-  {
-   "type": "name",
-   "text": "saber-toothed cats",
-   "x": 1470,
-   "y": 520,
-   "to": [
-    1480,
-    700
-   ],
-   "word": "saber-toothed cats"
-  },
-  {
-   "type": "name",
-   "text": "giant ground sloths",
-   "x": 420,
-   "y": 440,
-   "to": [
-    420,
-    590
-   ],
-   "word": "giant ground sloths"
+   "word": "Himalayas"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": "stretch",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-slide-plate-india",
+  "kind": "ride",
+  "x": 904,
+  "y": 698,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Good morning!",
+    "shout": false
+   }
+  ]
+ }
 }

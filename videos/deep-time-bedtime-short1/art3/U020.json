@@ -1,13 +1,15 @@
 {
- "centre": "a magnifying lens over a glowing furnace-like lava plain, one tiny bright speck inside the lens",
- "focus": [
-  540,
-  860,
-  1.6
+ "centre": "a tall thermometer standing over a steaming green sea, the red column sinking as the water cools",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "num",
+   "text": "4 BILLION YEARS AGO",
+   "word": "four billion"
+  }
  ],
- "focus_word": "alien furnace",
- "sfx": [],
- "labels": [],
+ "motion": "thermometer column drops",
  "frog": {
   "moods": [
    {
@@ -17,23 +19,21 @@
   "act": {
    "type": "dizzy"
   },
-  "ride": "mv-core-wobble-magnifier-lens",
-  "kind": "ride",
-  "x": 864,
-  "y": 1170,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
   "outfit": [
-   "alien",
-   "scarf"
+   "goggles",
+   "raincoat"
   ],
+  "x": 820,
+  "y": 800,
+  "s": 0.99,
+  "flip": -1,
+  "kind": "bg",
   "says": [
    {
-    "text": "Wooo-ooo...",
-    "shout": false
+    "text": "Whoosh!",
+    "shout": true
    }
-  ]
+  ],
+  "bside": -1
  }
 }

@@ -1,19 +1,33 @@
 {
- "centre": "a Triceratops lifting its head toward a tiny new bright speck in the evening sky",
+ "centre": "a round setting sun over a calm Cretaceous lake, a faint new speck beside it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Hm? A new star?",
-   "x": 300,
-   "y": 920,
-   "to": [
-    600,
-    1110
-   ]
+   "type": "num",
+   "text": "66 MILLION YEARS AGO",
+   "word": "Sixty-six million"
   }
  ],
- "motion": "the speck pings (pulses), Triceratops breathes, head and tail move, eye blinks"
+ "motion": "the sun beats softly, a ripple spreads on the lake",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "x": 820,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "headlamp"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

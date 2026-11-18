@@ -1,8 +1,34 @@
 {
- "centre": "a pale oxygen cloud lifting above the curved limb of the planet, blue atmosphere glow growing",
+ "centre": "a pale purple anaerobic microbe in a muddy pocket with an oxygen bubble drifting near",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "atmosphere glows brighter; oxygen cloud swells"
+ "motion": "microbes dim; one trembles",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "ride": "mv-core-approach-microbe-rod",
+  "kind": "ride",
+  "x": 665,
+  "y": 980,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ },
+ "lock": true
 }

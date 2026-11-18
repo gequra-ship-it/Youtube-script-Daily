@@ -1,51 +1,44 @@
 {
- "centre": "a steam engine's turning flywheel by a factory, with a dashed sunbeam reaching down into a buried coal seam",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a cross-section of rock layers pressing down on a band of buried, flattened tree trunks, heat glowing from below",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "unrotted trunks",
  "labels": [
   {
    "type": "name",
-   "text": "solar energy",
-   "x": 820,
-   "y": 600,
+   "text": "pressure",
+   "x": 760,
+   "y": 640,
    "to": [
-    780,
-    500
+    760,
+    560
    ],
-   "word": "solar energy"
-  },
-  {
-   "type": "name",
-   "text": "Industrial Revolution",
-   "x": 520,
-   "y": 1080,
-   "to": [
-    300,
-    900
-   ],
-   "word": "Industrial Revolution"
+   "word": "pressure"
   }
  ],
- "light": "right",
+ "light": "left",
  "frog": {
   "moods": [
    {
-    "mood": "shock"
+    "mood": "dizzy"
    }
   ],
   "act": {
-   "type": "gasp"
+   "type": "dizzy"
   },
-  "x": 260,
-  "y": 560,
-  "s": 1.05,
-  "flip": 1,
-  "kind": "bg",
+  "ride": "mv-slide-pressure-arrows",
+  "kind": "ride",
+  "x": 540,
+  "y": 128,
+  "s": 1.0,
+  "flip": -1,
   "outfit": [
-   "raincoat"
+   "sunglasses"
   ],
   "says": [],
-  "bside": 1
+  "bside": -1
  }
 }

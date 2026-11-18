@@ -1,30 +1,30 @@
 {
- "centre": "a magnifying lens over an Ediacaran fossil slab, held by a paleontologist beside a painting of the seabed garden",
+ "centre": "a large soft quilted Ediacaran creature drifting gently over a quiet seabed of fronds",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Garden of Ediacara",
-   "x": 410,
-   "y": 580,
-   "to": [
-    410,
-    420
-   ],
-   "word": "Garden of Ediacara"
-  },
-  {
-   "type": "name",
-   "text": "paleontologists",
-   "x": 1180,
-   "y": 240,
-   "to": [
-    1430,
-    300
-   ],
-   "word": "paleontologists"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-glide-dickinsonia",
+  "kind": "ride",
+  "x": 742,
+  "y": 634,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Off we go!",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,13 +1,22 @@
 {
- "centre": "a grid of ocean species fading away, leaving one small fish still swimming in a glowing square",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a thermometer spiking above an ocean whose oxygen bubbles fade away while a seashell slowly dissolves on the seafloor",
+ "focus": [
+  540,
+  1300,
+  1.6
+ ],
+ "focus_word": "turned acidic",
  "labels": [
   {
-   "type": "num",
-   "text": "90 %",
-   "word": "ninety percent"
+   "type": "name",
+   "text": "oceans",
+   "x": 300,
+   "y": 1300,
+   "to": [
+    300,
+    1000
+   ],
+   "word": "oceans"
   }
  ],
  "light": "left"

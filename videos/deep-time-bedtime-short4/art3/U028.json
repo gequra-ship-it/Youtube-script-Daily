@@ -1,50 +1,30 @@
 {
- "centre": "a silent grey wasteland crossed by a tiny handful of stocky, tusked survivors",
+ "centre": "a dead scale tree toppling over a grey plain, above the fossil spines of a sail-backed synapsid in the rock",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "survivors",
-   "x": 680,
-   "y": 820,
+   "text": "synapsids",
+   "x": 760,
+   "y": 1300,
    "to": [
-    700,
-    1080
+    640,
+    1395
    ],
-   "word": "hardy survivors"
+   "word": "synapsids"
   },
   {
-   "type": "say",
-   "text": "Still here!",
-   "x": 400,
-   "y": 1020,
+   "type": "name",
+   "text": "ancient forests",
+   "x": 300,
+   "y": 400,
    "to": [
     500,
-    1180
-   ]
+    600
+   ],
+   "word": "ancient forests"
   }
  ],
- "light": "left",
- "frog": {
-  "moods": [
-   {
-    "mood": "surprised"
-   }
-  ],
-  "act": {
-   "type": "leanback"
-  },
-  "x": 260,
-  "y": 800,
-  "s": 1.16,
-  "flip": 1,
-  "kind": "bg",
-  "outfit": [
-   "headlamp"
-  ],
-  "says": [],
-  "bside": 1
- }
+ "light": "left"
 }

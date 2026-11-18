@@ -1,24 +1,38 @@
 {
- "centre": "a big glowing colony of green cyanobacteria cells in a sunlit sea, chains of cells drifting around",
+ "centre": "large oxygen bubble rising above a green cyanobacteria mat",
  "focus": [
   540,
   860,
   1.6
  ],
- "focus_word": "cyanobacteria",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Cyanobacteria",
-   "x": 540,
-   "y": 560,
-   "to": [
-    540,
-    800
-   ],
-   "word": "cyanobacteria"
-  }
- ],
- "motion": "colony swells, chains drift"
+ "motion": "bubbles rise",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-oxygen-bubble"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 784,
+  "y": 1060,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

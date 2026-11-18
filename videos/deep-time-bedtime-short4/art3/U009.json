@@ -1,20 +1,43 @@
 {
- "centre": "a lush swamp above and dry cracked Permian ground below, with a puddle shrinking and a dry leaf dropping",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a long segmented millipede-like Arthropleura crawling across a spongy, fern-filled forest floor",
+ "focus": [
+  560,
+  1120,
+  1.5
+ ],
+ "focus_word": "giant millipede-like creatures",
  "labels": [
   {
    "type": "name",
-   "text": "Permian Period",
-   "x": 380,
-   "y": 1000,
+   "text": "ferns",
+   "x": 760,
+   "y": 1330,
    "to": [
-    400,
-    1150
+    960,
+    1275
    ],
-   "word": "Permian Period"
+   "word": "ferns"
   }
  ],
- "light": "right"
+ "light": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 1000,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "headlamp"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

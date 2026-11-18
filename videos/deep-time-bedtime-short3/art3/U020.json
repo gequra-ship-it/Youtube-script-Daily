@@ -1,19 +1,43 @@
 {
- "centre": "a huge sea scorpion, seen from above, stretches across the shallows; a tiny fish swims below it for scale",
+ "centre": "armoured jawless fish with bony head shields swim over a wide reef of coral-like mounds",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "sea scorpions",
-   "x": 300,
-   "y": 420,
+   "text": "jawless fish",
+   "x": 440,
+   "y": 520,
    "to": [
-    500,
-    600
+    440,
+    700
    ],
-   "word": "sea scorpions"
+   "word": "jawless fish"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 840,
+  "s": 1.21,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

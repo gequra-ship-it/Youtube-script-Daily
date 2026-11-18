@@ -1,1 +1,51 @@
-{"centre": "hazy orange sky with a dim sun over an iron-green sea streaked with rust", "focus": null, "focus_word": null, "sfx": [], "labels": [{"type": "name", "text": "Iron-rich", "x": 420, "y": 790, "to": [470, 700], "word": "iron-rich"}]}
+{
+ "centre": "round gauge dial with a needle, boiling orange sea on the left cooling to teal sea on the right",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "num",
+   "text": "4 BILLION YEARS AGO",
+   "word": "four billion years ago"
+  },
+  {
+   "type": "name",
+   "text": "Archean Eon",
+   "x": 1400,
+   "y": 420,
+   "to": [
+    1180,
+    560
+   ],
+   "word": "Archean Eon"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-core-glide-dial",
+  "kind": "ride",
+  "x": 1128,
+  "y": 570,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "says": [
+   {
+    "text": "Land ho!",
+    "shout": true
+   }
+  ]
+ }
+}

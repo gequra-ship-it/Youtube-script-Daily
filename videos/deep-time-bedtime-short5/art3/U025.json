@@ -1,24 +1,42 @@
 {
- "centre": "a small warm furry mammal nibbling a seed among leaf litter and a rotting log",
- "focus": [
-  600,
-  860,
-  1.6
- ],
- "focus_word": "warm-blooded",
- "sfx": [],
+ "centre": "the same small mammal at the mouth of its burrow in a grey impact winter, eyeing a beetle",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "seeds",
-   "x": 480,
-   "y": 1100,
+   "text": "insects",
+   "x": 860,
+   "y": 900,
    "to": [
-    180,
-    1290
+    860,
+    1040
    ],
-   "word": "seeds"
+   "word": "insects"
   }
  ],
- "motion": "mammal wobbles gently with head, tail and blink; a seed rolls across the litter; a small insect hovers"
+ "motion": "mammal sways gently (head, tail, blink), beetle hops",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "ride": "mv-core-sway-mammal",
+  "kind": "ride",
+  "x": 810,
+  "y": 953,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "leafhat"
+  ],
+  "says": []
+ }
 }

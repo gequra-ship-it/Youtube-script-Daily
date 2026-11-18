@@ -1,11 +1,35 @@
 {
- "centre": "a huge dark storm cloud with a flash of lightning and a heavy curtain of water pouring over volcanic islands",
+ "centre": "thick dark clouds splitting apart to reveal a bright pale gap of sky",
  "focus": [
   540,
   860,
   1.5
  ],
- "focus_word": "torrential",
- "sfx": [],
- "labels": []
+ "focus_word": "broke open",
+ "motion": "two cloud halves slide apart",
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-slide-storm-cloud-left",
+  "kind": "ride",
+  "x": 508,
+  "y": 614,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "umbrella",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
 }

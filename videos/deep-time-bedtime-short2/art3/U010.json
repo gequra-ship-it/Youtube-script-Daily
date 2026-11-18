@@ -1,34 +1,35 @@
 {
- "centre": "a pale purple anaerobic microbe in a muddy pocket with an oxygen bubble drifting near",
+ "centre": "purple microbes hiding in a dark crevice while a rock slab slides over the opening and oxygen bubbles drift past",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "microbes dim; one trembles",
+ "motion": "rock slab slides to cover the crevice",
  "frog": {
   "moods": [
    {
-    "mood": "determined"
+    "mood": "squint"
    }
   ],
   "act": {
-   "type": "jog"
+   "type": "push",
+   "from": 0.6
   },
-  "ride": "mv-core-tremble-microbe-rod",
-  "kind": "ride",
-  "x": 665,
-  "y": 980,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
   "outfit": [
-   "laurel",
-   "toga"
+   "diver",
+   "flippers"
   ],
+  "ride": "mv-slide-rock-slab",
+  "kind": "ride",
+  "x": 849,
+  "y": 1254,
+  "s": 1.32,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Hup hup!",
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
     "shout": true
    }
   ]

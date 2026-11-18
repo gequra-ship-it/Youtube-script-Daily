@@ -1,24 +1,37 @@
 {
- "centre": "a long volcanic fissure cracking open across a dark Siberian plain, with curtains of lava fountaining along it",
+ "centre": "a cliff of rock layers with one dark boundary band marking the end of the Permian, and an hourglass turning on a ledge",
  "focus": [
-  560,
-  1120,
-  1.5
+  540,
+  790,
+  1.6
  ],
- "focus_word": "immense volcanic fissures",
- "sfx": [],
+ "focus_word": "the close of the Permian",
  "labels": [
   {
-   "type": "name",
-   "text": "Siberia",
-   "x": 420,
-   "y": 900,
-   "to": [
-    380,
-    810
-   ],
-   "word": "Siberia"
+   "type": "num",
+   "text": "252 MILLION YEARS AGO",
+   "word": "252 million"
   }
  ],
- "light": "left"
+ "light": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "x": 820,
+  "y": 680,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "hardhat"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

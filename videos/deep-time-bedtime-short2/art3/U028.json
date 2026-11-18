@@ -6,8 +6,6 @@
   1.5
  ],
  "focus_word": "microbial mats",
- "sfx": [],
- "labels": [],
  "motion": "disc breathes, bubbles rise from mats",
  "frog": {
   "moods": [
@@ -16,7 +14,11 @@
    }
   ],
   "act": "rest",
-  "ride": "mv-core-swell-resting-disc",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-glide-resting-disc",
   "kind": "ride",
   "x": 834,
   "y": 1011,
@@ -24,9 +26,6 @@
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "outfit": [
-   "headlamp"
-  ],
   "says": [
    {
     "text": "Ahh...",

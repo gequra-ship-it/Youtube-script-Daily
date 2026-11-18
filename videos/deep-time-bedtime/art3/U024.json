@@ -1,34 +1,47 @@
 {
- "centre": "one glowing tiny pore inside a slab of rock, sunbeams stopping at the surface above",
+ "centre": "tall black smoker chimney spewing dark mineral plumes into deep water",
  "focus": [
   960,
-  540,
-  1.9
+  500,
+  1.5
  ],
- "focus_word": "tiny pores",
- "sfx": [],
- "labels": [],
+ "focus_word": "superheated mineral soup",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hydrothermal vents",
+   "x": 560,
+   "y": 300,
+   "to": [
+    520,
+    420
+   ],
+   "word": "hydrothermal vents"
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "chilly"
    }
   ],
-  "act": "magnify",
-  "ride": "mv-core-heartbeat-pore",
+  "act": {
+   "type": "hug"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-sway-black-smoker",
   "kind": "ride",
-  "x": 1103,
-  "y": 645,
+  "x": 1108,
+  "y": 790,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "outfit": [
-   "bowler"
-  ],
   "says": [
    {
-    "text": "A clue!",
+    "text": "Cold down here...",
     "shout": false
    }
   ]

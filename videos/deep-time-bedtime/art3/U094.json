@@ -1,11 +1,49 @@
 {
- "centre": "dark ash plume spreading across the sky, dim sun behind it",
- "focus": [
-  900,
-  300,
-  1.5
+ "centre": "a glowing ten-kilometre asteroid streaks down through the upper atmosphere toward the curved Earth horizon at dusk",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "num",
+   "text": "66 MILLION YEARS AGO",
+   "word": "Sixty-six million years ago"
+  },
+  {
+   "type": "name",
+   "text": "Asteroid",
+   "x": 720,
+   "y": 380,
+   "to": [
+    565,
+    250
+   ],
+   "word": "asteroid"
+  }
  ],
- "focus_word": "stratosphere",
- "sfx": [],
- "labels": []
+ "motion": "asteroid travels down-right along a path (camera follows), trail streaks dash backward",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": "mv-path-asteroid",
+  "kind": "ride",
+  "x": 568,
+  "y": 252,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
 }

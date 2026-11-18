@@ -1,41 +1,45 @@
 {
- "centre": "a round setting sun over a calm Cretaceous lake, a faint new speck beside it",
+ "centre": "a dark ten-kilometre asteroid glowing at its front, streaking down through an orange sky over a mountain",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "num",
-   "text": "66 MILLION YEARS AGO",
-   "word": "Sixty-six million"
+   "text": "10 KM",
+   "word": "ten kilometers"
+  },
+  {
+   "type": "name",
+   "text": "asteroid",
+   "x": 420,
+   "y": 330,
+   "to": [
+    690,
+    430
+   ],
+   "word": "asteroid"
   }
  ],
- "motion": "the sun beats softly, a ripple spreads on the lake",
+ "motion": "asteroid follows a steep path down (camera follows), trail dashes stream behind it",
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "excited"
    }
   ],
   "act": {
-   "type": "binocs"
+   "type": "pointfar"
   },
-  "ride": "mv-core-heartbeat-sun",
-  "kind": "ride",
-  "x": 814,
-  "y": 1090,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
   "outfit": [
-   "explorer"
+   "helmet"
   ],
-  "says": [
-   {
-    "text": "Ooh!",
-    "shout": true
-   }
-  ]
+  "ride": "mv-path-asteroid",
+  "kind": "ride",
+  "x": 652,
+  "y": 301,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": []
  }
 }

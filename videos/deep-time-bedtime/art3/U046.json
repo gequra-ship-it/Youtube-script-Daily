@@ -1,20 +1,7 @@
 {
- "centre": "a large soft quilted Ediacaran creature drifting gently over a quiet seabed of fronds",
+ "centre": "melting ice block floating on warming sea",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Just drifting...",
-   "x": 1300,
-   "y": 300,
-   "to": [
-    1080,
-    430
-   ]
-  }
- ],
  "frog": {
   "moods": [
    {
@@ -22,17 +9,18 @@
    }
   ],
   "act": "rest",
-  "ride": "mv-core-glide-dickinsonia",
-  "kind": "ride",
-  "x": 742,
-  "y": 634,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
   "outfit": [
-   "headlamp"
+   "diver",
+   "flippers"
   ],
+  "ride": "mv-core-sway-meltblock",
+  "kind": "ride",
+  "x": 1118,
+  "y": 582,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
     "text": "Home sweet home.",

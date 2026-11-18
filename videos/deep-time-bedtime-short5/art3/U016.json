@@ -1,24 +1,48 @@
 {
- "centre": "map of the Gulf of Mexico with a bright impact flash in the shallow water off the Yucatan Peninsula",
- "focus": [
-  650,
-  950,
-  1.6
- ],
- "focus_word": "Yucatan",
- "sfx": [],
+ "centre": "a huge glowing dome of light rising from the horizon",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Yucatan Peninsula",
-   "x": 760,
-   "y": 1150,
+   "text": "energy",
+   "x": 300,
+   "y": 620,
    "to": [
-    800,
-    1060
+    500,
+    800
    ],
-   "word": "Yucatan Peninsula"
+   "word": "energy"
   }
  ],
- "motion": "impact flash slams into the shallow sea"
+ "motion": "fireball dome flickers, rows of tiny lights appear one by one (billions)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 260,
+  "y": 600,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "outfit": [
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

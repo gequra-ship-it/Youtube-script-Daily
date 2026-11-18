@@ -1,34 +1,32 @@
 {
- "centre": "a huge glowing lava bubble about to burst in churning molten crust with dark crust plates floating",
+ "centre": "a large glowing meteorite streaking down toward a molten lava surface, two smaller ones beside it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "crust plates float and lava bubbles rise",
+ "motion": "three meteorites fall in diagonal paths onto the lava",
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "dizzy"
    }
   ],
   "act": {
-   "type": "binocs"
+   "type": "dizzy"
   },
-  "ride": "mv-core-tremble-lava-bubble",
+  "ride": "mv-path-fall-meteorite-big",
   "kind": "ride",
-  "x": 734,
-  "y": 1010,
-  "s": 1.09,
+  "x": 602,
+  "y": 611,
+  "s": 1.31,
   "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "bside": -1,
   "outfit": [
+   "helmet",
    "raincoat"
   ],
   "says": [
    {
-    "text": "Ooh!",
-    "shout": true
+    "text": "Wooo-ooo...",
+    "shout": false
    }
   ]
  }

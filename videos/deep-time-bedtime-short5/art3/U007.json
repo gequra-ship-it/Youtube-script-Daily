@@ -1,20 +1,44 @@
 {
- "centre": "a bee-like insect flying up to a large open flower",
+ "centre": "a huge long-necked titanosaur walking right across a meadow of flowers",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "humming insects",
-   "x": 330,
-   "y": 1360,
+   "text": "legendary titans",
+   "x": 300,
+   "y": 600,
    "to": [
-    230,
-    1260
+    420,
+    1050
    ],
-   "word": "humming insects"
+   "word": "titans"
   }
  ],
- "motion": "bee follows a path to the flower with flapping wings, second insect hovers"
+ "motion": "titanosaur walks along a path (camera follows), legs, neck and tail move",
+ "frog": {
+  "moods": [
+   {
+    "mood": "awe"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-dinosaur",
+  "kind": "ride",
+  "x": 575,
+  "y": 884,
+  "s": 1.44,
+  "flip": 1,
+  "bside": -1,
+  "outfit": [
+   "wizard",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
 }

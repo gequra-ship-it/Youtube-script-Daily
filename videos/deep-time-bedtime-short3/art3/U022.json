@@ -1,23 +1,46 @@
 {
- "centre": "a microscope view: tiny four-part plant spores float in the round field above the tips of a moss-like cushion",
- "focus": [
-  460,
-  760,
-  1.6
- ],
- "focus_word": "microscopic plant spores",
- "sfx": [],
+ "centre": "a barren grey rocky land under a harsh pale sun: no plants, only cracked stone; a small stack of rocks topples in the silence",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "plant spores",
-   "x": 540,
-   "y": 380,
+   "text": "gray rock",
+   "x": 300,
+   "y": 1390,
    "to": [
-    420,
-    720
+    560,
+    1320
    ],
-   "word": "plant spores"
+   "word": "gray rock"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 800,
+  "y": 736,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "diver"
+  ],
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

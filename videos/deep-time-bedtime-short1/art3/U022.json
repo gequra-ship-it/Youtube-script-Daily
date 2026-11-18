@@ -1,23 +1,36 @@
 {
- "centre": "a dark chimney-like hydrothermal vent on the seafloor pouring glowing mineral-rich dark water upward",
+ "centre": "a magnifying lens over a glowing furnace-like lava plain, one tiny bright speck inside the lens",
  "focus": [
   540,
-  1180,
+  860,
   1.6
  ],
- "focus_word": "hydrothermal vents",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "hydrothermal vents",
-   "x": 740,
-   "y": 1320,
-   "to": [
-    600,
-    1400
-   ],
-   "word": "hydrothermal vents"
-  }
- ]
+ "focus_word": "alien furnace",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-core-sway-magnifier-lens",
+  "kind": "ride",
+  "x": 864,
+  "y": 1170,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "alien"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ]
+ }
 }

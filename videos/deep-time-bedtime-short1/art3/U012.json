@@ -1,11 +1,27 @@
 {
- "centre": "a big dark basalt slab among cooled hexagonal basalt columns with last glowing cracks fading",
- "focus": [
-  540,
-  860,
-  1.5
- ],
- "focus_word": "dark basalt",
- "sfx": [],
- "labels": []
+ "centre": "a crater field under sparse fading meteor streaks, one glowing crater at the centre cooling",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "ride": "mv-path-fall-meteor-small",
+  "kind": "ride",
+  "x": 696,
+  "y": 580,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet"
+  ],
+  "says": []
+ }
 }

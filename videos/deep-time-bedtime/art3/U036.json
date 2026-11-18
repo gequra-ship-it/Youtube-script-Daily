@@ -1,51 +1,29 @@
 {
- "centre": "oxygen bubble studded with rust-orange iron specks",
+ "centre": "big shining oxygen bubble",
  "focus": [
   960,
   500,
-  1.6
+  1.7
  ],
- "focus_word": "dissolved iron",
- "sfx": [],
+ "focus_word": "free oxygen",
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "free oxygen",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "iron",
-   "x": 500,
+   "text": "oxygen",
+   "x": 1290,
    "y": 330,
    "to": [
-    380,
-    440
+    1040,
+    460
    ],
-   "word": "iron"
+   "word": "oxygen"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": {
-   "type": "peer"
-  },
-  "outfit": [
-   "goggles",
-   "flippers"
-  ],
-  "ride": "mv-core-tremble-bubble",
-  "kind": "ride",
-  "x": 812,
-  "y": 609,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Hmm?",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

@@ -1,20 +1,52 @@
 {
- "centre": "a resting Dimetrodon turning its sail to a blistering desert sun, beside a thermometer that holds steady",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a Dimetrodon with a tall skin sail walking across an arid plain",
+ "focus": [
+  560,
+  1060,
+  1.5
+ ],
+ "focus_word": "magnificent skin sail",
  "labels": [
   {
    "type": "name",
-   "text": "desert sun",
-   "x": 760,
-   "y": 360,
+   "text": "Dimetrodon",
+   "x": 300,
+   "y": 700,
    "to": [
-    560,
-    420
+    420,
+    950
    ],
-   "word": "desert sun"
+   "word": "Dimetrodon"
   }
  ],
- "light": "left"
+ "light": "right",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "skate",
+   "dist": 367
+  },
+  "x": 820,
+  "y": 1560,
+  "s": 1.16,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

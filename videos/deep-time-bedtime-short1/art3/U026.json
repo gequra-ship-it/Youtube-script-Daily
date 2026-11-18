@@ -1,10 +1,11 @@
 {
- "centre": "a tiny microbe with a wavy tail drifting along warm yellow-green sulfur currents",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "the microbe drifts across the current",
+ "centre": "a double-strand molecule beside its new copy with a bright spark of life between them in a rocky pore",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "quiet spark of life",
  "frog": {
   "moods": [
    {
@@ -12,16 +13,16 @@
    }
   ],
   "act": "rest",
-  "ride": "mv-path-drift-microbe",
+  "ride": "mv-core-approach-life-spark",
   "kind": "ride",
-  "x": 310,
-  "y": 934,
+  "x": 734,
+  "y": 1010,
   "s": 1.09,
-  "flip": 1,
+  "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "hardhat"
+   "sunglasses"
   ],
   "says": [
    {

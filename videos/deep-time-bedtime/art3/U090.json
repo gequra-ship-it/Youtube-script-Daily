@@ -1,35 +1,57 @@
 {
- "centre": "map view at dusk: a bright impact flash on the shallow northwest coast of the Yucatan Peninsula, Mexico curving round the Gulf",
- "focus": [
-  960,
-  500,
-  1.4
- ],
- "focus_word": "slamming",
- "sfx": [],
+ "centre": "a horned Triceratops herd strides right through a flowering dusk meadow; a distant T. rex silhouette waits on the ridge",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Yucatan Peninsula",
-   "x": 1180,
-   "y": 700,
+   "text": "Triceratops",
+   "x": 760,
+   "y": 450,
    "to": [
-    1180,
-    600
+    820,
+    610
    ],
-   "word": "Yucatan Peninsula"
+   "word": "Triceratops"
   },
   {
    "type": "name",
-   "text": "Mexico",
-   "x": 560,
-   "y": 680,
+   "text": "Apex predator",
+   "x": 1560,
+   "y": 330,
    "to": [
-    470,
-    862
+    1590,
+    470
    ],
-   "word": "Mexico"
+   "word": "apex predator"
   }
  ],
- "motion": "impact flash slams in on the coast, vapour plume drifts up"
+ "motion": "herd walks right (mv-path, camera follows); lead's legs alternate, tail swings; flower clumps sway",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": {
+   "type": "present"
+  },
+  "ride": "mv-path-triceratops-herd",
+  "kind": "ride",
+  "x": 979,
+  "y": 536,
+  "s": 1.25,
+  "flip": 1,
+  "bside": -1,
+  "outfit": [
+   "wizard",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Ta-da!",
+    "shout": true
+   }
+  ]
+ }
 }

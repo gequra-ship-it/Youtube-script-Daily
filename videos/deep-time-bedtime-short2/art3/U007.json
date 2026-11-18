@@ -1,24 +1,39 @@
 {
- "centre": "a cutaway slab of red and grey banded iron on the seafloor with rust flakes settling",
+ "centre": "a full tank of rust-red sea with oxygen bubbles escaping through the top into the sky",
  "focus": [
   540,
-  870,
-  1.6
+  900,
+  1.5
  ],
- "focus_word": "banded iron",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Banded iron",
-   "x": 540,
-   "y": 520,
-   "to": [
-    540,
-    700
-   ],
-   "word": "banded iron"
-  }
- ],
- "motion": "rust flakes drop onto the slab"
+ "focus_word": "leaking",
+ "motion": "bubbles escape upward",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-oxygen-bubble"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 774,
+  "y": 1050,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

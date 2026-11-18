@@ -1,42 +1,29 @@
 {
- "centre": "dimmer Moon above a cooled dark basalt plain with a few old craters",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Basalt",
-   "x": 420,
-   "y": 640,
-   "to": [
-    400,
-    790
-   ],
-   "word": "basalt rock"
-  }
+ "centre": "huge hazy orange newborn Moon over a cooling lava plain, seen from a dark cliff edge",
+ "focus": [
+  960,
+  760,
+  1.8
  ],
+ "focus_word": "newborn crust",
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "surprised"
    }
   ],
   "act": {
-   "type": "measure"
+   "type": "leanback"
   },
+  "x": 260,
+  "y": 340,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
   "outfit": [
-   "helmet",
-   "raincoat"
+   "explorer"
   ],
-  "ride": "mv-core-heartbeat-moon",
-  "kind": "ride",
-  "x": 1106,
-  "y": 578,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "says": []
+  "says": [],
+  "bside": 1
  }
 }

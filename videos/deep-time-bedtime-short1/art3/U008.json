@@ -1,36 +1,37 @@
 {
- "centre": "a planet-sized rocky body smashing into the top of glowing proto-Earth with a blinding flash and flying debris",
- "focus": [
-  540,
-  880,
-  1.7
- ],
- "focus_word": "collided",
- "sfx": [],
- "labels": [],
- "motion": "the impactor drops onto Earth, flash, debris tossed outward",
+ "centre": "a glowing proto-Earth at the bottom with a smaller rocky planet approaching from above along a dotted path",
+ "focus": null,
+ "focus_word": null,
+ "motion": "the Mars-sized body slowly approaches proto-Earth",
  "frog": {
   "moods": [
    {
-    "mood": "hot"
+    "mood": "curious"
    }
   ],
-  "act": "lean",
-  "ride": "mv-path-impact-theia",
-  "kind": "ride",
-  "x": 450,
-  "y": 525,
-  "s": 1.44,
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-model-notebook",
+   "h": 310
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 245,
+  "y": 690,
+  "s": 1.09,
   "flip": 1,
-  "bside": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "outfit": [
-   "backpack",
-   "scarf"
+   "explorer"
   ],
   "says": [
    {
-    "text": "Here we go!",
-    "shout": false
+    "text": "Whoa!",
+    "shout": true
    }
   ]
  }

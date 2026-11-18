@@ -1,19 +1,29 @@
 {
- "centre": "a tiny furry early mammal on the forest floor looks toward a huge three-toed dinosaur foot planted beside it",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Who, me?",
-   "x": 880,
-   "y": 650,
-   "to": [
-    815,
-    815
-   ]
-  }
+ "centre": "a tree engulfed in flames under a blinding sky glow",
+ "focus": [
+  960,
+  500,
+  1.6
  ],
- "motion": "the small mammal breathes, blinks and flicks its tail; the giant foot stays still (scale contrast, question unit)"
+ "focus_word": "forests ablaze",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 340,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "headlamp"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

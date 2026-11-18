@@ -1,20 +1,41 @@
 {
- "centre": "a huge glowing dome of light rising from the horizon",
+ "centre": "a blinding round glow on the horizon behind dark conifer forests, soft flames in the treetops",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "energy",
-   "x": 300,
-   "y": 620,
+   "text": "forests",
+   "x": 540,
+   "y": 1180,
    "to": [
-    500,
-    800
+    270,
+    1100
    ],
-   "word": "energy"
+   "word": "forests"
   }
  ],
- "motion": "fireball dome flickers, rows of tiny lights appear one by one (billions)"
+ "motion": "the thermal glow approaches, flames flicker in the trees",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "ride": "mv-core-approach-pulse-light",
+  "kind": "ride",
+  "x": 844,
+  "y": 1120,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "explorer"
+  ],
+  "says": []
+ }
 }

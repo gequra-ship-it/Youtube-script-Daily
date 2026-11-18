@@ -1,68 +1,45 @@
 {
- "centre": "split view at the sea surface: a pterosaur glides through the dusk sky above, a long-necked marine reptile swims below; a faint bright streak high in the sky",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "first small flower with petals opening on the forest floor among ferns",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "flowering plants",
  "labels": [
   {
    "type": "name",
-   "text": "Pterosaurs",
-   "x": 560,
-   "y": 360,
+   "text": "Flowering plants",
+   "x": 1380,
+   "y": 380,
    "to": [
-    575,
-    245
+    1050,
+    470
    ],
-   "word": "pterosaurs"
-  },
-  {
-   "type": "name",
-   "text": "Marine reptiles",
-   "x": 600,
-   "y": 730,
-   "to": [
-    820,
-    790
-   ],
-   "word": "marine reptiles"
+   "word": "flowering plants"
   }
  ],
- "motion": "pterosaur flies right (path, wings flap), plesiosaur swims right with paddling flippers, a cycad cone drops onto the island sand ('about to fall')",
  "frog": {
   "moods": [
    {
-    "mood": "curious"
-   },
-   {
-    "word": "Did they",
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "bonk",
-   "obj": "mv-core-drop-pinecone"
-  },
+  "act": "rest",
   "outfit": [
-   "goggles",
-   "scarf"
+   "diver"
   ],
-  "ride": null,
-  "kind": "bg",
-  "x": 320,
-  "y": 596,
+  "ride": "mv-core-sway-flower",
+  "kind": "ride",
+  "x": 1121,
+  "y": 623,
   "s": 0.95,
-  "flip": 1,
+  "flip": -1,
   "bside": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
+  "gaze": 1,
   "says": [
    {
-    "text": "Bonk!",
-    "shout": true
-   },
-   {
-    "text": "Ouch...",
+    "text": "Safe at last.",
     "shout": false
    }
   ]

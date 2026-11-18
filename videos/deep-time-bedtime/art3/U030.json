@@ -1,18 +1,57 @@
 {
- "centre": "a large quiet stromatolite dome at the water's edge with a foam wave lapping at its foot",
+ "centre": "a cross-section of a layered stromatolite dome topped by a living microbial mat",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Shh...",
-   "x": 1260,
-   "y": 360,
+   "type": "name",
+   "text": "stromatolites",
+   "x": 420,
+   "y": 470,
    "to": [
-    1060,
-    520
-   ]
+    760,
+    640
+   ],
+   "word": "stromatolites"
+  },
+  {
+   "type": "name",
+   "text": "colonial mats",
+   "x": 1440,
+   "y": 330,
+   "to": [
+    1150,
+    450
+   ],
+   "word": "colonial mats"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hideshell"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-sway-pebble",
+  "kind": "ride",
+  "x": 1672,
+  "y": 756,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Cozy!",
+    "shout": true
+   }
+  ]
+ }
 }

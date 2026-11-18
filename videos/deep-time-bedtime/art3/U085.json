@@ -1,31 +1,31 @@
 {
- "centre": "a horned Triceratops herd strides right through a flowering dusk meadow; a distant T. rex silhouette waits on the ridge",
+ "centre": "bright high Cretaceous sun above a lush landscape with a Triceratops and a T. rex",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Triceratops",
-   "x": 760,
-   "y": 450,
-   "to": [
-    820,
-    610
-   ],
-   "word": "Triceratops"
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "headshake"
   },
-  {
-   "type": "name",
-   "text": "Apex predator",
-   "x": 1560,
-   "y": 330,
-   "to": [
-    1590,
-    470
-   ],
-   "word": "apex predator"
-  }
- ],
- "motion": "herd walks right (mv-path, camera follows); lead's legs alternate, tail swings; flower clumps sway"
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-triceratops",
+  "kind": "ride",
+  "x": 616,
+  "y": 658,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "No way...",
+    "shout": false
+   }
+  ]
+ }
 }

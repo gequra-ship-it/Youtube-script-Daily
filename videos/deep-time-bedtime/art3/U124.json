@@ -1,34 +1,37 @@
 {
- "centre": "calm blue Earth cradled in a cloud bowl",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "glowing bedside lamp",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "quietness",
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "surprised"
    }
   ],
   "act": {
-   "type": "dizzy"
+   "type": "backstep",
+   "obj": "mv-core-swell-lamp"
   },
   "outfit": [
-   "goggles",
-   "raincoat"
+   "diver"
   ],
-  "ride": "mv-slide-asteroid",
-  "kind": "ride",
-  "x": 1542,
-  "y": 260,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1188,
+  "y": 690,
   "s": 0.95,
   "flip": -1,
-  "bside": -1,
+  "bside": 1,
   "gaze": 1,
   "says": [
    {
-    "text": "Wooo-ooo...",
-    "shout": false
+    "text": "Whoa, it grows!",
+    "shout": true
    }
   ]
  }
