@@ -1,24 +1,13 @@
 {
- "centre": "a tiny round trilobite larva floating up out of an opened egg among a cluster of amber eggs; a giant adult trilobite blurred in the background for scale",
- "focus": [
-  960,
-  540,
-  1.7
- ],
- "focus_word": "tiny larva",
- "sfx": [],
- "labels": [
+ "centre": "three trilobites growing in size left to right, each beside the pale empty shell it just shed",
+ "motion": "popin (new bigger bodies) + fade (shed shells) + creep",
+ "sfx": [
   {
-   "type": "name",
-   "text": "Larva",
-   "x": 1190,
-   "y": 400,
-   "to": [
-    1010,
-    500
-   ],
-   "word": "larva"
+   "name": "cloth",
+   "word": "shedding",
+   "vol": 0.5
   }
  ],
- "motion": "float: the larva hovers up from its egg; toss: a broken eggshell piece flies off"
+ "focus": null,
+ "focus_word": null
 }

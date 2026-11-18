@@ -2,7 +2,6 @@
  "centre": "a glowing enrolled trilobite ball on a rock ledge, a small rolled trilobite rolling by below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -20,16 +19,19 @@
  "frog": {
   "moods": [
    {
-    "mood": "proud"
+    "mood": "curious"
    }
   ],
-  "act": "clap",
+  "act": {
+   "type": "heartlisten",
+   "obj": "mv-core-heartbeat-trilobite-ball"
+  },
   "outfit": [
-   "diver",
-   "flippers"
+   "diver"
   ],
-  "ride": "mv-core-heartbeat-trilobite-ball",
-  "kind": "ride",
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
   "x": 774,
   "y": 1050,
   "s": 1.09,
@@ -38,7 +40,7 @@
   "gaze": 1,
   "says": [
    {
-    "text": "Bravo!",
+    "text": "Thump... thump.",
     "shout": false
    }
   ]

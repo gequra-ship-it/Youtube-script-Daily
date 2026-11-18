@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 # trilobite-extinction-short1 (Miya's Note). Script from miya 2026-11-04 (dated 2026-10-31); fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01',
-  'Part 1',
-  'ill',
-  'sh1_1',
-  'Did you know that hundreds of millions of years ago, creatures walked the bottom of the sea with eyes made of literal rock?'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh1_1', 'Hundreds of millions of years ago, trilobites crawled the seafloor with eyes made of solid rock.'),
  ('S02', 'Part 2', 'ill', 'sh1_2', 'It sounds like something from a fantasy novel, but it is real evolutionary history.'),
  ('S03', 'Part 3', 'ill', 'sh1_3', 'Modern animals, including you and me, see through soft organic lenses made of living cells.'),
  ('S04',

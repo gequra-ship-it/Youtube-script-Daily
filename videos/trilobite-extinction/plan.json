@@ -26,11 +26,11 @@
     "#d9694a"
    ]
   },
-  "text": "Have you ever picked up an ordinary stone on a beach and noticed a faint, ribbed pattern shaped like a tiny shield?",
-  "dur": 6.04,
+  "text": "The faint, ribbed, shield-shaped pattern on an ordinary beach stone is not a trick of erosion:",
+  "dur": 5.84,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "You might brush it off as a trick of erosion.",
+  "nxt": "you are holding the remains of an ancient traveler.",
   "frog_hint": false
  },
  {
@@ -60,10 +60,10 @@
     "#d9694a"
    ]
   },
-  "text": "You might brush it off as a trick of erosion.",
-  "dur": 6.04,
+  "text": "you are holding the remains of an ancient traveler.",
+  "dur": 5.84,
   "transition_in": "wave",
-  "prev": "Have you ever picked up an ordinary stone on a beach and noticed a faint, ribbed pattern shaped like a tiny shield?",
+  "prev": "The faint, ribbed, shield-shaped pattern on an ordinary beach stone is not a trick of erosion:",
   "nxt": "",
   "frog_hint": true
  },
@@ -94,11 +94,11 @@
     "#d9694a"
    ]
   },
-  "text": "But what if you are holding the remains of an ancient traveler?",
-  "dur": 4.78,
-  "transition_in": "tilt",
+  "text": "Long before the first dinosaur took a breath, creatures like this filled the global ocean.",
+  "dur": 5.23,
+  "transition_in": "zoom",
   "prev": "",
-  "nxt": "Long before the first dinosaur took a breath, creatures like this filled the global ocean.",
+  "nxt": "They ruled it for roughly two hundred and seventy million years.",
   "frog_hint": false
  },
  {
@@ -128,49 +128,15 @@
     "#d9694a"
    ]
   },
-  "text": "Long before the first dinosaur took a breath, creatures like this filled the global ocean.",
-  "dur": 4.78,
+  "text": "They ruled it for roughly two hundred and seventy million years.",
+  "dur": 5.23,
   "transition_in": "page",
-  "prev": "But what if you are holding the remains of an ancient traveler?",
-  "nxt": "They ruled it for roughly two hundred and seventy million years.",
+  "prev": "Long before the first dinosaur took a breath, creatures like this filled the global ocean.",
+  "nxt": "",
   "frog_hint": true
  },
  {
   "uid": "U005",
-  "scene": 2,
-  "title": "A Stone with a Pattern",
-  "art_theme": "p01b",
-  "bg": "dusk",
-  "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
-   "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
-   ],
-   "dusk_ink": "#1a2b3a",
-   "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
-   ]
-  },
-  "text": "They ruled it for roughly two hundred and seventy million years.",
-  "dur": 4.78,
-  "transition_in": "diamond",
-  "prev": "Long before the first dinosaur took a breath, creatures like this filled the global ocean.",
-  "nxt": "",
-  "frog_hint": false
- },
- {
-  "uid": "U006",
   "scene": 3,
   "title": "A Stone with a Pattern",
   "art_theme": "p01c",
@@ -201,10 +167,10 @@
   "transition_in": "zigzag",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U007",
+  "uid": "U006",
   "scene": 4,
   "title": "Longer Than the Dinosaurs",
   "art_theme": "p02a",
@@ -232,13 +198,13 @@
   },
   "text": "To see how strange that is, look at our own brief story.",
   "dur": 4.38,
-  "transition_in": "zoom",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U009",
+  "uid": "U008",
   "scene": 6,
   "title": "Longer Than the Dinosaurs",
   "art_theme": "p02c",
@@ -272,7 +238,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U010",
+  "uid": "U009",
   "scene": 7,
   "title": "Twenty Thousand Species",
   "art_theme": "p03a",
@@ -300,13 +266,13 @@
   },
   "text": "Trilobites were once as common in the sea as beetles are in our forests today.",
   "dur": 5.83,
-  "transition_in": "seam",
+  "transition_in": "tilt",
   "prev": "",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U012",
+  "uid": "U011",
   "scene": 9,
   "title": "Twenty Thousand Species",
   "art_theme": "p03c",
@@ -340,7 +306,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U013",
+  "uid": "U012",
   "scene": 9,
   "title": "Twenty Thousand Species",
   "art_theme": "p03c",
@@ -368,13 +334,13 @@
   },
   "text": "They touched nearly every corner of ancient marine life,",
   "dur": 5.38,
-  "transition_in": "wash",
+  "transition_in": "wipe",
   "prev": "Their bodies came with delicate spikes, bizarre shovel-shaped heads, and long flowing spines.",
   "nxt": "and their fossils turn up on every continent, from Utah and Morocco to China.",
   "frog_hint": false
  },
  {
-  "uid": "U014",
+  "uid": "U013",
   "scene": 9,
   "title": "Twenty Thousand Species",
   "art_theme": "p03c",
@@ -402,10 +368,44 @@
   },
   "text": "and their fossils turn up on every continent, from Utah and Morocco to China.",
   "dur": 5.38,
-  "transition_in": "match",
+  "transition_in": "wash",
   "prev": "They touched nearly every corner of ancient marine life,",
   "nxt": "",
   "frog_hint": true
+ },
+ {
+  "uid": "U014",
+  "scene": 10,
+  "title": "Three Lobes",
+  "art_theme": "p04a",
+  "bg": "night",
+  "pal": {
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
+   "dusk_stops": [
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
+   ],
+   "dusk_ink": "#1a2b3a",
+   "accents": [
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
+   ]
+  },
+  "text": "The name simply means three lobes.",
+  "dur": 5.32,
+  "transition_in": "iris",
+  "prev": "",
+  "nxt": "A central axial lobe ran down the back, flanked on each side by a pleural lobe that sheltered the legs and gills.",
+  "frog_hint": false
  },
  {
   "uid": "U015",
@@ -434,18 +434,18 @@
     "#d9694a"
    ]
   },
-  "text": "The name simply means three lobes.",
+  "text": "A central axial lobe ran down the back, flanked on each side by a pleural lobe that sheltered the legs and gills.",
   "dur": 5.32,
-  "transition_in": "wipe",
-  "prev": "",
-  "nxt": "A central axial lobe ran down the back, flanked on each side by a pleural lobe that sheltered the legs and gills.",
-  "frog_hint": false
+  "transition_in": "slide",
+  "prev": "The name simply means three lobes.",
+  "nxt": "",
+  "frog_hint": true
  },
  {
   "uid": "U016",
-  "scene": 10,
+  "scene": 11,
   "title": "Three Lobes",
-  "art_theme": "p04a",
+  "art_theme": "p04b",
   "bg": "night",
   "pal": {
    "palette": "ocean",
@@ -468,12 +468,12 @@
     "#d9694a"
    ]
   },
-  "text": "A central axial lobe ran down the back, flanked on each side by a pleural lobe that sheltered the legs and gills.",
-  "dur": 5.32,
-  "transition_in": "fade",
-  "prev": "The name simply means three lobes.",
-  "nxt": "",
-  "frog_hint": true
+  "text": "Their bodies were also divided lengthwise into a head shield, a flexible segmented thorax, and a tail.",
+  "dur": 6.92,
+  "transition_in": "eye",
+  "prev": "",
+  "nxt": "This modular design was an evolutionary masterpiece.",
+  "frog_hint": false
  },
  {
   "uid": "U017",
@@ -502,49 +502,15 @@
     "#d9694a"
    ]
   },
-  "text": "Their bodies were also divided lengthwise into a head shield, a flexible segmented thorax, and a tail.",
-  "dur": 6.92,
-  "transition_in": "slide",
-  "prev": "",
-  "nxt": "This modular design was an evolutionary masterpiece.",
-  "frog_hint": false
- },
- {
-  "uid": "U018",
-  "scene": 11,
-  "title": "Three Lobes",
-  "art_theme": "p04b",
-  "bg": "night",
-  "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
-   "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
-   ],
-   "dusk_ink": "#1a2b3a",
-   "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
-   ]
-  },
   "text": "This modular design was an evolutionary masterpiece.",
   "dur": 6.92,
-  "transition_in": "iris",
+  "transition_in": "push",
   "prev": "Their bodies were also divided lengthwise into a head shield, a flexible segmented thorax, and a tail.",
   "nxt": "It let trilobites settle almost every marine habitat, from cold high-latitude seas to warm tropical shallows.",
   "frog_hint": true
  },
  {
-  "uid": "U019",
+  "uid": "U018",
   "scene": 11,
   "title": "Three Lobes",
   "art_theme": "p04b",
@@ -578,7 +544,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U020",
+  "uid": "U019",
   "scene": 12,
   "title": "Living Machines",
   "art_theme": "p05a",
@@ -606,13 +572,13 @@
   },
   "text": "Beneath that armor, a trilobite looked more like a living machine.",
   "dur": 5.8,
-  "transition_in": "eye",
+  "transition_in": "whip",
   "prev": "",
   "nxt": "It carried a pair of long antennae at the front, and under each segment a pair of jointed legs.",
   "frog_hint": true
  },
  {
-  "uid": "U021",
+  "uid": "U020",
   "scene": 12,
   "title": "Living Machines",
   "art_theme": "p05a",
@@ -640,10 +606,44 @@
   },
   "text": "It carried a pair of long antennae at the front, and under each segment a pair of jointed legs.",
   "dur": 5.8,
-  "transition_in": "push",
+  "transition_in": "seam",
   "prev": "Beneath that armor, a trilobite looked more like a living machine.",
   "nxt": "",
   "frog_hint": false
+ },
+ {
+  "uid": "U021",
+  "scene": 13,
+  "title": "Living Machines",
+  "art_theme": "p05b",
+  "bg": "night",
+  "pal": {
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
+   "dusk_stops": [
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
+   ],
+   "dusk_ink": "#1a2b3a",
+   "accents": [
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
+   ]
+  },
+  "text": "Each leg had two branches: one for walking, and one that worked like a gill.",
+  "dur": 5.19,
+  "transition_in": "diamond",
+  "prev": "",
+  "nxt": "A young trilobite hatched as a tiny larva,",
+  "frog_hint": true
  },
  {
   "uid": "U022",
@@ -672,12 +672,12 @@
     "#d9694a"
    ]
   },
-  "text": "Each leg had two branches: one for walking, and one that worked like a gill.",
+  "text": "A young trilobite hatched as a tiny larva,",
   "dur": 5.19,
   "transition_in": "whip",
-  "prev": "",
-  "nxt": "A young trilobite hatched as a tiny larva,",
-  "frog_hint": true
+  "prev": "Each leg had two branches: one for walking, and one that worked like a gill.",
+  "nxt": "then grew by shedding its hard outer skeleton again and again, adding new segments along the way.",
+  "frog_hint": false
  },
  {
   "uid": "U023",
@@ -706,49 +706,15 @@
     "#d9694a"
    ]
   },
-  "text": "A young trilobite hatched as a tiny larva,",
-  "dur": 5.19,
-  "transition_in": "tilt",
-  "prev": "Each leg had two branches: one for walking, and one that worked like a gill.",
-  "nxt": "then grew by shedding its hard outer skeleton again and again, adding new segments along the way.",
-  "frog_hint": false
- },
- {
-  "uid": "U024",
-  "scene": 13,
-  "title": "Living Machines",
-  "art_theme": "p05b",
-  "bg": "night",
-  "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
-   "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
-   ],
-   "dusk_ink": "#1a2b3a",
-   "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
-   ]
-  },
   "text": "then grew by shedding its hard outer skeleton again and again, adding new segments along the way.",
   "dur": 5.19,
-  "transition_in": "whip",
+  "transition_in": "push",
   "prev": "A young trilobite hatched as a tiny larva,",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U025",
+  "uid": "U024",
   "scene": 14,
   "title": "Living Machines",
   "art_theme": "p05c",
@@ -776,10 +742,44 @@
   },
   "text": "This habit of molting would turn out to matter for us, as you will soon see.",
   "dur": 5.26,
-  "transition_in": "page",
+  "transition_in": "seam",
   "prev": "",
   "nxt": "",
   "frog_hint": false
+ },
+ {
+  "uid": "U025",
+  "scene": 15,
+  "title": "Eyes of Stone",
+  "art_theme": "p06a",
+  "bg": "night",
+  "pal": {
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
+   "dusk_stops": [
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
+   ],
+   "dusk_ink": "#1a2b3a",
+   "accents": [
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
+   ]
+  },
+  "text": "Perhaps the most astonishing marvel sat right on their heads. Our eyes are made of soft living tissue.",
+  "dur": 6.87,
+  "transition_in": "tilt",
+  "prev": "",
+  "nxt": "Trilobite eyes were built from solid calcite, a crystal form of calcium carbonate.",
+  "frog_hint": true
  },
  {
   "uid": "U026",
@@ -808,49 +808,15 @@
     "#d9694a"
    ]
   },
-  "text": "Perhaps the most astonishing marvel sat right on their heads. Our eyes are made of soft living tissue.",
-  "dur": 6.87,
-  "transition_in": "diamond",
-  "prev": "",
-  "nxt": "Trilobite eyes were built from solid calcite, a crystal form of calcium carbonate.",
-  "frog_hint": true
- },
- {
-  "uid": "U027",
-  "scene": 15,
-  "title": "Eyes of Stone",
-  "art_theme": "p06a",
-  "bg": "night",
-  "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
-   "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
-   ],
-   "dusk_ink": "#1a2b3a",
-   "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
-   ]
-  },
   "text": "Trilobite eyes were built from solid calcite, a crystal form of calcium carbonate.",
   "dur": 6.87,
-  "transition_in": "iris",
+  "transition_in": "diamond",
   "prev": "Perhaps the most astonishing marvel sat right on their heads. Our eyes are made of soft living tissue.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U028",
+  "uid": "U027",
   "scene": 16,
   "title": "Eyes of Stone",
   "art_theme": "p06b",
@@ -884,7 +850,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U029",
+  "uid": "U028",
   "scene": 16,
   "title": "Eyes of Stone",
   "art_theme": "p06b",
@@ -918,7 +884,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U030",
+  "uid": "U029",
   "scene": 17,
   "title": "Eyes of Stone",
   "art_theme": "p06c",
@@ -946,13 +912,13 @@
   },
   "text": "Some species, such as the phacopids, even had double-lens systems that corrected distortion under water.",
   "dur": 5.36,
-  "transition_in": "zoom",
+  "transition_in": "iris",
   "prev": "",
   "nxt": "Could you imagine seeing through living stone?",
   "frog_hint": true
  },
  {
-  "uid": "U031",
+  "uid": "U030",
   "scene": 17,
   "title": "Eyes of Stone",
   "art_theme": "p06c",
@@ -980,13 +946,13 @@
   },
   "text": "Could you imagine seeing through living stone?",
   "dur": 5.36,
-  "transition_in": "match",
+  "transition_in": "eye",
   "prev": "Some species, such as the phacopids, even had double-lens systems that corrected distortion under water.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U032",
+  "uid": "U031",
   "scene": 18,
   "title": "The Rolled-Up Fortress",
   "art_theme": "p07a",
@@ -1020,7 +986,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U033",
+  "uid": "U032",
   "scene": 18,
   "title": "The Rolled-Up Fortress",
   "art_theme": "p07a",
@@ -1048,10 +1014,44 @@
   },
   "text": "which are unrelated crustaceans. They rolled up into a tight ball.",
   "dur": 6.3,
-  "transition_in": "wash",
+  "transition_in": "page",
   "prev": "The ancient ocean was full of danger, so many trilobites learned a trick you can still see in garden pill bugs,",
   "nxt": "",
   "frog_hint": false
+ },
+ {
+  "uid": "U033",
+  "scene": 19,
+  "title": "The Rolled-Up Fortress",
+  "art_theme": "p07b",
+  "bg": "night",
+  "pal": {
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
+   "dusk_stops": [
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
+   ],
+   "dusk_ink": "#1a2b3a",
+   "accents": [
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
+   ]
+  },
+  "text": "Matching grooves along the edges of the head and tail plates locked together,",
+  "dur": 6.85,
+  "transition_in": "wash",
+  "prev": "",
+  "nxt": "and the soft legs and gills were tucked safely inside a stone fortress. Fossil trilobites caught in this pose are common.",
+  "frog_hint": true
  },
  {
   "uid": "U034",
@@ -1080,49 +1080,15 @@
     "#d9694a"
    ]
   },
-  "text": "Matching grooves along the edges of the head and tail plates locked together,",
-  "dur": 6.85,
-  "transition_in": "wipe",
-  "prev": "",
-  "nxt": "and the soft legs and gills were tucked safely inside a stone fortress. Fossil trilobites caught in this pose are common.",
-  "frog_hint": true
- },
- {
-  "uid": "U035",
-  "scene": 19,
-  "title": "The Rolled-Up Fortress",
-  "art_theme": "p07b",
-  "bg": "night",
-  "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
-   "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
-   ],
-   "dusk_ink": "#1a2b3a",
-   "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
-   ]
-  },
   "text": "and the soft legs and gills were tucked safely inside a stone fortress. Fossil trilobites caught in this pose are common.",
   "dur": 6.85,
-  "transition_in": "zigzag",
+  "transition_in": "match",
   "prev": "Matching grooves along the edges of the head and tail plates locked together,",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U036",
+  "uid": "U035",
   "scene": 20,
   "title": "The Rolled-Up Fortress",
   "art_theme": "p07c",
@@ -1150,10 +1116,44 @@
   },
   "text": "For a very long time, it was a very good defense.",
   "dur": 4.11,
-  "transition_in": "eye",
+  "transition_in": "wipe",
   "prev": "",
   "nxt": "",
   "frog_hint": true
+ },
+ {
+  "uid": "U036",
+  "scene": 21,
+  "title": "Masters of the Cambrian",
+  "art_theme": "p08a",
+  "bg": "night",
+  "pal": {
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
+   "dusk_stops": [
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
+   ],
+   "dusk_ink": "#1a2b3a",
+   "accents": [
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
+   ]
+  },
+  "text": "The oldest trilobite fossils are about five hundred and twenty million years old.",
+  "dur": 4.88,
+  "transition_in": "zigzag",
+  "prev": "",
+  "nxt": "In that Cambrian period, animal life erupted in a burst of creativity.",
+  "frog_hint": false
  },
  {
   "uid": "U037",
@@ -1182,12 +1182,12 @@
     "#d9694a"
    ]
   },
-  "text": "The oldest trilobite fossils are about five hundred and twenty million years old.",
+  "text": "In that Cambrian period, animal life erupted in a burst of creativity.",
   "dur": 4.88,
   "transition_in": "push",
-  "prev": "",
-  "nxt": "In that Cambrian period, animal life erupted in a burst of creativity.",
-  "frog_hint": false
+  "prev": "The oldest trilobite fossils are about five hundred and twenty million years old.",
+  "nxt": "Trilobites became masters of the seafloor.",
+  "frog_hint": true
  },
  {
   "uid": "U038",
@@ -1216,49 +1216,15 @@
     "#d9694a"
    ]
   },
-  "text": "In that Cambrian period, animal life erupted in a burst of creativity.",
-  "dur": 4.88,
-  "transition_in": "seam",
-  "prev": "The oldest trilobite fossils are about five hundred and twenty million years old.",
-  "nxt": "Trilobites became masters of the seafloor.",
-  "frog_hint": true
- },
- {
-  "uid": "U039",
-  "scene": 21,
-  "title": "Masters of the Cambrian",
-  "art_theme": "p08a",
-  "bg": "night",
-  "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
-   "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
-   ],
-   "dusk_ink": "#1a2b3a",
-   "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
-   ]
-  },
   "text": "Trilobites became masters of the seafloor.",
   "dur": 4.88,
-  "transition_in": "tilt",
+  "transition_in": "eye",
   "prev": "In that Cambrian period, animal life erupted in a burst of creativity.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U040",
+  "uid": "U039",
   "scene": 22,
   "title": "Masters of the Cambrian",
   "art_theme": "p08b",
@@ -1292,7 +1258,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U041",
+  "uid": "U040",
   "scene": 22,
   "title": "Masters of the Cambrian",
   "art_theme": "p08b",
@@ -1320,13 +1286,13 @@
   },
   "text": "Because one animal shed its shell many times, a single trilobite could leave behind many fossils in its lifetime.",
   "dur": 7.75,
-  "transition_in": "slide",
+  "transition_in": "match",
   "prev": "Some scavenged, some hunted small prey, and others plowed through silt, sifting out tiny meals.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U042",
+  "uid": "U041",
   "scene": 23,
   "title": "Masters of the Cambrian",
   "art_theme": "p08c",
@@ -1354,10 +1320,44 @@
   },
   "text": "That is why their stony armor is so abundant in the rock layers of modern mountains, deserts, and valleys.",
   "dur": 7.71,
-  "transition_in": "zigzag",
+  "transition_in": "tilt",
   "prev": "",
   "nxt": "",
   "frog_hint": true
+ },
+ {
+  "uid": "U042",
+  "scene": 24,
+  "title": "Tracks in the Mud",
+  "art_theme": "p09a",
+  "bg": "night",
+  "pal": {
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
+   "dusk_stops": [
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
+   ],
+   "dusk_ink": "#1a2b3a",
+   "accents": [
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
+   ]
+  },
+  "text": "They left more than shells. In ancient mud, paleontologists find long furrows and scratch marks called Cruziana,",
+  "dur": 7.22,
+  "transition_in": "whip",
+  "prev": "",
+  "nxt": "which many scientists link to trilobites plowing through the sediment as they fed.",
+  "frog_hint": false
  },
  {
   "uid": "U043",
@@ -1386,18 +1386,18 @@
     "#d9694a"
    ]
   },
-  "text": "They left more than shells. In ancient mud, paleontologists find long furrows and scratch marks called Cruziana,",
+  "text": "which many scientists link to trilobites plowing through the sediment as they fed.",
   "dur": 7.22,
-  "transition_in": "page",
-  "prev": "",
-  "nxt": "which many scientists link to trilobites plowing through the sediment as they fed.",
-  "frog_hint": false
+  "transition_in": "fade",
+  "prev": "They left more than shells. In ancient mud, paleontologists find long furrows and scratch marks called Cruziana,",
+  "nxt": "",
+  "frog_hint": true
  },
  {
   "uid": "U044",
-  "scene": 24,
+  "scene": 25,
   "title": "Tracks in the Mud",
-  "art_theme": "p09a",
+  "art_theme": "p09b",
   "bg": "night",
   "pal": {
    "palette": "ocean",
@@ -1420,12 +1420,12 @@
     "#d9694a"
    ]
   },
-  "text": "which many scientists link to trilobites plowing through the sediment as they fed.",
-  "dur": 7.22,
-  "transition_in": "wipe",
-  "prev": "They left more than shells. In ancient mud, paleontologists find long furrows and scratch marks called Cruziana,",
-  "nxt": "",
-  "frog_hint": true
+  "text": "These are frozen moments of behavior, a trilobite caught in the middle of an ordinary day, hundreds of millions of years ago.",
+  "dur": 6.3,
+  "transition_in": "seam",
+  "prev": "",
+  "nxt": "Few extinct animals let us watch them live this way.",
+  "frog_hint": false
  },
  {
   "uid": "U045",
@@ -1454,12 +1454,12 @@
     "#d9694a"
    ]
   },
-  "text": "These are frozen moments of behavior, a trilobite caught in the middle of an ordinary day, hundreds of millions of years ago.",
-  "dur": 6.41,
-  "transition_in": "seam",
-  "prev": "",
-  "nxt": "Few extinct animals let us watch them live this way.",
-  "frog_hint": false
+  "text": "Few extinct animals let us watch them live this way.",
+  "dur": 6.3,
+  "transition_in": "zigzag",
+  "prev": "These are frozen moments of behavior, a trilobite caught in the middle of an ordinary day, hundreds of millions of years ago.",
+  "nxt": "But their golden age would not last, and the way it ended is the strangest part of this story.",
+  "frog_hint": true
  },
  {
   "uid": "U046",
@@ -1488,12 +1488,12 @@
     "#d9694a"
    ]
   },
-  "text": "Few extinct animals let us watch them live this way.",
-  "dur": 6.41,
-  "transition_in": "match",
-  "prev": "These are frozen moments of behavior, a trilobite caught in the middle of an ordinary day, hundreds of millions of years ago.",
+  "text": "But their golden age would not last, and the way it ended is the strangest part of this story.",
+  "dur": 6.3,
+  "transition_in": "page",
+  "prev": "Few extinct animals let us watch them live this way.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U047",
@@ -1527,7 +1527,7 @@
   "transition_in": "tilt",
   "prev": "",
   "nxt": "and trilobites split into a huge number of forms, each fitted to a different way of life.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U048",
@@ -1561,7 +1561,7 @@
   "transition_in": "zigzag",
   "prev": "Surprisingly, the Ordovician was one of the peaks of trilobite variety. Warm seas, rich in food, spread across the continents,",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U049",
@@ -1592,10 +1592,10 @@
   },
   "text": "They were swimmers, burrowers, and crawlers, hunters and scavengers. At that moment, it seemed nothing could stop them.",
   "dur": 8.27,
-  "transition_in": "eye",
+  "transition_in": "slide",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U050",
@@ -1626,10 +1626,10 @@
   },
   "text": "No golden age lasts forever. Around four hundred and forty-five million years ago came the Late Ordovician mass extinction.",
   "dur": 8.81,
-  "transition_in": "push",
+  "transition_in": "wash",
   "prev": "",
   "nxt": "Massive ice sheets spread across the southern continents, locking away water and causing sea levels to plummet worldwide.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U051",
@@ -1663,7 +1663,7 @@
   "transition_in": "wave",
   "prev": "No golden age lasts forever. Around four hundred and forty-five million years ago came the Late Ordovician mass extinction.",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U052",
@@ -1694,10 +1694,10 @@
   },
   "text": "The shallow shelves where trilobites thrived shrank, and the water cooled. Many families vanished.",
   "dur": 6.78,
-  "transition_in": "wash",
+  "transition_in": "wipe",
   "prev": "",
   "nxt": "Yet the survivors pulled through, proving that their design could outlast a planetary freeze.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U053",
@@ -1731,7 +1731,7 @@
   "transition_in": "diamond",
   "prev": "The shallow shelves where trilobites thrived shrank, and the water cooled. Many families vanished.",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U054",
@@ -1762,10 +1762,10 @@
   },
   "text": "When the climate settled, the oceans grew more dangerous than before.",
   "dur": 7.32,
-  "transition_in": "fade",
+  "transition_in": "zoom",
   "prev": "",
   "nxt": "Giant sea scorpions prowled the bottom, and cephalopods with sharp beaks hunted nearby. Later, the first armored, jawed fish arrived.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U055",
@@ -1799,7 +1799,7 @@
   "transition_in": "wave",
   "prev": "When the climate settled, the oceans grew more dangerous than before.",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U056",
@@ -1830,10 +1830,10 @@
   },
   "text": "Rolling into a ball was no longer always enough, because strong jaws can crush a thin shell.",
   "dur": 7.56,
-  "transition_in": "zoom",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "Many paleontologists think this pressure drove an arms race. Some trilobites grew forests of sharp spikes.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U057",
@@ -1864,10 +1864,10 @@
   },
   "text": "Many paleontologists think this pressure drove an arms race. Some trilobites grew forests of sharp spikes.",
   "dur": 7.56,
-  "transition_in": "iris",
+  "transition_in": "zoom",
   "prev": "Rolling into a ball was no longer always enough, because strong jaws can crush a thin shell.",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U058",
@@ -1901,7 +1901,7 @@
   "transition_in": "whip",
   "prev": "",
   "nxt": "A few lineages lost their eyes altogether in dark, deep water.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U059",
@@ -1932,10 +1932,10 @@
   },
   "text": "A few lineages lost their eyes altogether in dark, deep water.",
   "dur": 6.93,
-  "transition_in": "eye",
+  "transition_in": "slide",
   "prev": "Others evolved periscope-like eyes on stalks, which may have let them bury themselves in sediment and still watch for danger.",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U060",
@@ -1966,10 +1966,10 @@
   },
   "text": "Then came the Late Devonian crisis, beginning roughly three hundred and seventy million years ago.",
   "dur": 5.96,
-  "transition_in": "zoom",
+  "transition_in": "eye",
   "prev": "",
   "nxt": "Scientists suspect that widespread ocean anoxia, a severe drop in dissolved oxygen,",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U061",
@@ -2003,7 +2003,7 @@
   "transition_in": "push",
   "prev": "Then came the Late Devonian crisis, beginning roughly three hundred and seventy million years ago.",
   "nxt": "suffocated marine ecosystems over millions of years.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U062",
@@ -2034,10 +2034,10 @@
   },
   "text": "suffocated marine ecosystems over millions of years.",
   "dur": 5.96,
-  "transition_in": "match",
+  "transition_in": "seam",
   "prev": "Scientists suspect that widespread ocean anoxia, a severe drop in dissolved oxygen,",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U063",
@@ -2068,10 +2068,10 @@
   },
   "text": "Reef systems collapsed, and trilobite families disappeared one after another.",
   "dur": 5.95,
-  "transition_in": "seam",
+  "transition_in": "wash",
   "prev": "",
   "nxt": "Vast dead zones spread across the seafloor, choking the muddy habitats that trilobites called home.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U064",
@@ -2102,10 +2102,10 @@
   },
   "text": "Vast dead zones spread across the seafloor, choking the muddy habitats that trilobites called home.",
   "dur": 5.95,
-  "transition_in": "fade",
+  "transition_in": "diamond",
   "prev": "Reef systems collapsed, and trilobite families disappeared one after another.",
   "nxt": "When the long crisis ended, only one order was left: the proetids.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U065",
@@ -2136,10 +2136,10 @@
   },
   "text": "When the long crisis ended, only one order was left: the proetids.",
   "dur": 5.95,
-  "transition_in": "slide",
+  "transition_in": "page",
   "prev": "Vast dead zones spread across the seafloor, choking the muddy habitats that trilobites called home.",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U066",
@@ -2170,10 +2170,10 @@
   },
   "text": "The flamboyant giants, the spiny monsters, and the bizarre spade-nosed scavengers were gone.",
   "dur": 8.5,
-  "transition_in": "whip",
+  "transition_in": "zoom",
   "prev": "",
   "nxt": "The proetids were mostly small, modest creatures with oval bodies, generalists clinging to life in the remaining shallow waters. They had weathered the storm.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U067",
@@ -2207,7 +2207,7 @@
   "transition_in": "wave",
   "prev": "The flamboyant giants, the spiny monsters, and the bizarre spade-nosed scavengers were gone.",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U068",
@@ -2238,10 +2238,10 @@
   },
   "text": "But their family tree had been pruned down to a single branch, and that would matter later.",
   "dur": 5.98,
-  "transition_in": "diamond",
+  "transition_in": "wipe",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U069",
@@ -2272,10 +2272,10 @@
   },
   "text": "For well over a hundred million years, through the Carboniferous and the Permian, the proetids held on.",
   "dur": 5.75,
-  "transition_in": "wipe",
+  "transition_in": "iris",
   "prev": "",
   "nxt": "On land, vast swampy forests formed the coal beds that power our factories today.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U070",
@@ -2306,10 +2306,10 @@
   },
   "text": "On land, vast swampy forests formed the coal beds that power our factories today.",
   "dur": 5.75,
-  "transition_in": "page",
+  "transition_in": "slide",
   "prev": "For well over a hundred million years, through the Carboniferous and the Permian, the proetids held on.",
   "nxt": "In the sea, sharks and bony fish ruled the open water.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U071",
@@ -2343,7 +2343,7 @@
   "transition_in": "eye",
   "prev": "On land, vast swampy forests formed the coal beds that power our factories today.",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U072",
@@ -2374,10 +2374,10 @@
   },
   "text": "By the Permian, only a handful of trilobite genera remained. The trilobites were no longer rulers, but they were remarkably persistent.",
   "dur": 6.85,
-  "transition_in": "wash",
+  "transition_in": "seam",
   "prev": "",
   "nxt": "They had already survived two global extinctions.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U073",
@@ -2408,10 +2408,10 @@
   },
   "text": "They had already survived two global extinctions.",
   "dur": 6.85,
-  "transition_in": "push",
+  "transition_in": "zigzag",
   "prev": "By the Permian, only a handful of trilobite genera remained. The trilobites were no longer rulers, but they were remarkably persistent.",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U074",
@@ -2445,7 +2445,7 @@
   "transition_in": "zoom",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U075",
@@ -2476,10 +2476,10 @@
   },
   "text": "Think about what that meant. Each earlier crisis had taken away more than species.",
   "dur": 6.81,
-  "transition_in": "fade",
+  "transition_in": "push",
   "prev": "",
   "nxt": "It had taken away whole ways of living: the swimmers, the giants, the spiny defenders, the burrowing watchers.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U076",
@@ -2510,10 +2510,10 @@
   },
   "text": "It had taken away whole ways of living: the swimmers, the giants, the spiny defenders, the burrowing watchers.",
   "dur": 6.81,
-  "transition_in": "wipe",
+  "transition_in": "diamond",
   "prev": "Think about what that meant. Each earlier crisis had taken away more than species.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U077",
@@ -2544,10 +2544,10 @@
   },
   "text": "What remained was a small toolkit of habits, repeated across a few shallow seas.",
   "dur": 7.69,
-  "transition_in": "slide",
+  "transition_in": "iris",
   "prev": "",
   "nxt": "A group that once filled the world ocean with thousands of forms had been reduced to a quiet remnant. It had survived, but it was fragile.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U078",
@@ -2578,10 +2578,10 @@
   },
   "text": "A group that once filled the world ocean with thousands of forms had been reduced to a quiet remnant. It had survived, but it was fragile.",
   "dur": 7.69,
-  "transition_in": "match",
+  "transition_in": "whip",
   "prev": "What remained was a small toolkit of habits, repeated across a few shallow seas.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U079",
@@ -2615,7 +2615,7 @@
   "transition_in": "page",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
   "uid": "U081",
@@ -2748,7 +2748,7 @@
   },
   "text": "Scientists think the magma also burned through coal and carbonate rocks, releasing enormous amounts of carbon dioxide and other gases.",
   "dur": 8.17,
-  "transition_in": "whip",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "The climate warmed sharply, and the oceans grew far hotter than anything life there had known.",
   "frog_hint": false
@@ -2782,7 +2782,7 @@
   },
   "text": "The climate warmed sharply, and the oceans grew far hotter than anything life there had known.",
   "dur": 8.17,
-  "transition_in": "diamond",
+  "transition_in": "wash",
   "prev": "Scientists think the magma also burned through coal and carbonate rocks, releasing enormous amounts of carbon dioxide and other gases.",
   "nxt": "",
   "frog_hint": true
@@ -2816,7 +2816,7 @@
   },
   "text": "As carbon dioxide dissolved into the sea, the ocean became more acidic.",
   "dur": 5.76,
-  "transition_in": "iris",
+  "transition_in": "wipe",
   "prev": "",
   "nxt": "For animals with shells made of calcium carbonate, that was a serious problem.",
   "frog_hint": false
@@ -2850,7 +2850,7 @@
   },
   "text": "For animals with shells made of calcium carbonate, that was a serious problem.",
   "dur": 5.76,
-  "transition_in": "seam",
+  "transition_in": "zigzag",
   "prev": "As carbon dioxide dissolved into the sea, the ocean became more acidic.",
   "nxt": "Building and repairing a hard shell takes the right chemistry in the surrounding water.",
   "frog_hint": true
@@ -2884,7 +2884,7 @@
   },
   "text": "Building and repairing a hard shell takes the right chemistry in the surrounding water.",
   "dur": 5.76,
-  "transition_in": "zigzag",
+  "transition_in": "page",
   "prev": "For animals with shells made of calcium carbonate, that was a serious problem.",
   "nxt": "",
   "frog_hint": false
@@ -2952,7 +2952,7 @@
   },
   "text": "Many researchers suspect that acidification hit shell-building animals hard, and trilobites relied on exactly that kind of armor.",
   "dur": 7.23,
-  "transition_in": "fade",
+  "transition_in": "eye",
   "prev": "Imagine trying to build a stone house while the mortar dissolves in the rain.",
   "nxt": "",
   "frog_hint": false
@@ -2986,7 +2986,7 @@
   },
   "text": "Then there was a second blow. Warm water holds less oxygen than cold water.",
   "dur": 6.23,
-  "transition_in": "wash",
+  "transition_in": "push",
   "prev": "",
   "nxt": "As the seas heated up, ocean circulation likely slowed,",
   "frog_hint": true
@@ -3020,7 +3020,7 @@
   },
   "text": "As the seas heated up, ocean circulation likely slowed,",
   "dur": 6.23,
-  "transition_in": "wipe",
+  "transition_in": "whip",
   "prev": "Then there was a second blow. Warm water holds less oxygen than cold water.",
   "nxt": "and dead zones with almost no oxygen spread across the seafloor, some perhaps laced with poisonous hydrogen sulfide.",
   "frog_hint": false
@@ -3054,7 +3054,7 @@
   },
   "text": "and dead zones with almost no oxygen spread across the seafloor, some perhaps laced with poisonous hydrogen sulfide.",
   "dur": 6.23,
-  "transition_in": "wash",
+  "transition_in": "tilt",
   "prev": "As the seas heated up, ocean circulation likely slowed,",
   "nxt": "",
   "frog_hint": true
@@ -3086,9 +3086,9 @@
     "#d9694a"
    ]
   },
-  "text": "Trilobites were bottom dwellers. When the mud beneath them turned toxic, they had nowhere left to go.",
-  "dur": 7.29,
-  "transition_in": "zoom",
+  "text": "Trilobites were bottom dwellers. Where could a bottom dweller go when the mud beneath it turned toxic? Nowhere.",
+  "dur": 7.93,
+  "transition_in": "wipe",
   "prev": "",
   "nxt": "",
   "frog_hint": false
@@ -3122,7 +3122,7 @@
   },
   "text": "Why couldn't they adapt one more time? No one knows for sure.",
   "dur": 6.71,
-  "transition_in": "slide",
+  "transition_in": "wash",
   "prev": "",
   "nxt": "But evolution needs time and variety, and the Devonian crisis had pruned the trilobite family tree down to one narrow branch.",
   "frog_hint": true
@@ -3156,7 +3156,7 @@
   },
   "text": "But evolution needs time and variety, and the Devonian crisis had pruned the trilobite family tree down to one narrow branch.",
   "dur": 6.71,
-  "transition_in": "match",
+  "transition_in": "seam",
   "prev": "Why couldn't they adapt one more time? No one knows for sure.",
   "nxt": "",
   "frog_hint": false
@@ -3190,7 +3190,7 @@
   },
   "text": "That may have left too little diversity to respond. And the Permian disaster was extreme.",
   "dur": 7.56,
-  "transition_in": "eye",
+  "transition_in": "slide",
   "prev": "",
   "nxt": "When your shell weakens, your food web collapses, and your water turns toxic, survival becomes an impossible equation.",
   "frog_hint": true
@@ -3224,7 +3224,7 @@
   },
   "text": "When your shell weakens, your food web collapses, and your water turns toxic, survival becomes an impossible equation.",
   "dur": 7.56,
-  "transition_in": "zoom",
+  "transition_in": "fade",
   "prev": "That may have left too little diversity to respond. And the Permian disaster was extreme.",
   "nxt": "",
   "frog_hint": false
@@ -3258,7 +3258,7 @@
   },
   "text": "Picture one of the very last trilobites, somewhere in the warm,",
   "dur": 6.68,
-  "transition_in": "seam",
+  "transition_in": "diamond",
   "prev": "",
   "nxt": "murky shallows of the Permian sea, curling into its defensive ball for the final time. Its crystal eyes saw no shelter.",
   "frog_hint": true
@@ -3326,7 +3326,7 @@
   },
   "text": "Its armor, an engineering marvel that had served its kind for hundreds of millions of years,",
   "dur": 5.3,
-  "transition_in": "whip",
+  "transition_in": "zigzag",
   "prev": "",
   "nxt": "could not protect it from the chemistry of a poisoned ocean.",
   "frog_hint": true
@@ -3360,7 +3360,7 @@
   },
   "text": "could not protect it from the chemistry of a poisoned ocean.",
   "dur": 5.3,
-  "transition_in": "diamond",
+  "transition_in": "page",
   "prev": "Its armor, an engineering marvel that had served its kind for hundreds of millions of years,",
   "nxt": "",
   "frog_hint": false
@@ -3394,7 +3394,7 @@
   },
   "text": "When the last one stopped moving, a dynasty that had watched complex animal life rise quietly slipped into eternity.",
   "dur": 8.67,
-  "transition_in": "push",
+  "transition_in": "diamond",
   "prev": "",
   "nxt": "",
   "frog_hint": true
@@ -3428,7 +3428,7 @@
   },
   "text": "We often think of extinction as failure. But is that fair? Look at the numbers.",
   "dur": 5.71,
-  "transition_in": "slide",
+  "transition_in": "iris",
   "prev": "",
   "nxt": "",
   "frog_hint": false
@@ -3496,7 +3496,7 @@
   },
   "text": "Our own species has existed for about three hundred thousand years.",
   "dur": 7.47,
-  "transition_in": "tilt",
+  "transition_in": "whip",
   "prev": "Trilobites thrived for about two hundred and seventy million years. They adapted to nearly every corner of the sea, and they developed crystal vision.",
   "nxt": "",
   "frog_hint": false
@@ -3632,7 +3632,7 @@
   },
   "text": "It belongs to a different branch of the arthropods.",
   "dur": 5.37,
-  "transition_in": "zigzag",
+  "transition_in": "wipe",
   "prev": "A horseshoe crab scuttling along a muddy shore at low tide is not a trilobite descendant.",
   "nxt": "",
   "frog_hint": false
@@ -3666,7 +3666,7 @@
   },
   "text": "But its armored shell, segmented body, and ancient lifestyle give us a living glimpse of that old world.",
   "dur": 8.38,
-  "transition_in": "fade",
+  "transition_in": "wash",
   "prev": "",
   "nxt": "Crustaceans, insects, and spiders are also distant cousins, sharing the jointed-legged body plan of the arthropod family.",
   "frog_hint": true
@@ -3700,7 +3700,7 @@
   },
   "text": "Crustaceans, insects, and spiders are also distant cousins, sharing the jointed-legged body plan of the arthropod family.",
   "dur": 8.38,
-  "transition_in": "match",
+  "transition_in": "slide",
   "prev": "But its armored shell, segmented body, and ancient lifestyle give us a living glimpse of that old world.",
   "nxt": "",
   "frog_hint": false
@@ -3734,7 +3734,7 @@
   },
   "text": "Their disappearance also holds up a mirror to our own time.",
   "dur": 6.17,
-  "transition_in": "wash",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "Today, human activity releases carbon dioxide that warms the oceans and makes them more acidic.",
   "frog_hint": true
@@ -3802,7 +3802,7 @@
   },
   "text": "Corals and shell-building animals in modern seas are already struggling in acidifying water.",
   "dur": 6.17,
-  "transition_in": "zigzag",
+  "transition_in": "eye",
   "prev": "Today, human activity releases carbon dioxide that warms the oceans and makes them more acidic.",
   "nxt": "",
   "frog_hint": true
@@ -3836,7 +3836,7 @@
   },
   "text": "Today's changes are not the same as the Permian catastrophe, and no one can say exactly how the future will unfold.",
   "dur": 6.43,
-  "transition_in": "page",
+  "transition_in": "tilt",
   "prev": "",
   "nxt": "But the rocks remind us that chemistry does not negotiate.",
   "frog_hint": false
@@ -3870,7 +3870,7 @@
   },
   "text": "But the rocks remind us that chemistry does not negotiate.",
   "dur": 6.43,
-  "transition_in": "wipe",
+  "transition_in": "seam",
   "prev": "Today's changes are not the same as the Permian catastrophe, and no one can say exactly how the future will unfold.",
   "nxt": "",
   "frog_hint": true
@@ -3904,7 +3904,7 @@
   },
   "text": "Even the most durable, armored masters of a planet cannot survive when their habitat collapses.",
   "dur": 7.29,
-  "transition_in": "tilt",
+  "transition_in": "zigzag",
   "prev": "",
   "nxt": "",
   "frog_hint": false
@@ -3938,7 +3938,7 @@
   },
   "text": "The next time you walk along a quiet shore and pick up a smooth stone, look at it with curiosity.",
   "dur": 7.58,
-  "transition_in": "whip",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "Run your fingers across its cool, ridged surface and remember the silent travelers who may once have called that rock home.",
   "frog_hint": true
@@ -3972,7 +3972,7 @@
   },
   "text": "Run your fingers across its cool, ridged surface and remember the silent travelers who may once have called that rock home.",
   "dur": 7.58,
-  "transition_in": "seam",
+  "transition_in": "whip",
   "prev": "The next time you walk along a quiet shore and pick up a smooth stone, look at it with curiosity.",
   "nxt": "",
   "frog_hint": false
@@ -4006,7 +4006,7 @@
   },
   "text": "They lived, they adapted, and they saw an ancient world that no human eye will ever witness.",
   "dur": 8.23,
-  "transition_in": "eye",
+  "transition_in": "tilt",
   "prev": "",
   "nxt": "Extinction eventually claimed them, as it may one day claim us all. But their legacy remains carved into the stone bones of our living Earth.",
   "frog_hint": true
@@ -4040,7 +4040,7 @@
   },
   "text": "Extinction eventually claimed them, as it may one day claim us all. But their legacy remains carved into the stone bones of our living Earth.",
   "dur": 8.23,
-  "transition_in": "iris",
+  "transition_in": "eye",
   "prev": "They lived, they adapted, and they saw an ancient world that no human eye will ever witness.",
   "nxt": "",
   "frog_hint": false

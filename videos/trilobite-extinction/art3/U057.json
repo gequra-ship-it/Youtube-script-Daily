@@ -6,7 +6,6 @@
   1.5
  ],
  "focus_word": "forests of sharp spikes",
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -23,5 +22,34 @@
  "iris": [
   380,
   430
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "Some trilobites",
+    "mood": "happy"
+   }
+  ],
+  "act": "wind",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-approach-trilobite-spiny",
+  "kind": "ride",
+  "x": 829,
+  "y": 458,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
 }

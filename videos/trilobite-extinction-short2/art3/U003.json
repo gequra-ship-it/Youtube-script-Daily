@@ -1,20 +1,30 @@
 {
- "centre": "a cave mouth at night with a campfire, an early modern human beside it and hand stencils on the wall",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "crackle",
-   "word": "Modern humans",
-   "vol": 0.5
-  }
+ "centre": "a footprint trail in volcanic ash leading to two tiny ancestors far away, a stone hand axe on a rock",
+ "focus": [
+  250,
+  1180,
+  1.6
  ],
- "labels": [
-  {
-   "type": "num",
-   "text": "300,000 YEARS",
-   "word": "three hundred thousand"
-  }
- ],
- "motion": "flicker fire + steam smoke + person breathe"
+ "focus_word": "toolmaking ancestors",
+ "motion": "ticks footprints + popin hand axe + breathe walkers",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 920,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
 }

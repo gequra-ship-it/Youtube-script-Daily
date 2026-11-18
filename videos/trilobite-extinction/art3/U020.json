@@ -1,8 +1,30 @@
 {
- "centre": "side cutaway of a trilobite: translucent armour over a soft body, rows of jointed legs stepping like pistons and feathery gills, blueprint gears turning behind (living machine)",
+ "centre": "a trilobite seen from below against the bright water surface: two long antennae at the front, a pair of jointed legs under every segment, all moving in a walking wave",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "joint x8: legs step in a wave like machine pistons; rotor: two meshed blueprint gears turn opposite; feeler joint; glint eye"
+ "labels": [
+  {
+   "type": "name",
+   "text": "Antennae",
+   "x": 1380,
+   "y": 210,
+   "to": [
+    1130,
+    150
+   ],
+   "word": "antennae"
+  },
+  {
+   "type": "name",
+   "text": "Jointed legs",
+   "x": 1500,
+   "y": 640,
+   "to": [
+    1170,
+    650
+   ],
+   "word": "jointed legs"
+  }
+ ],
+ "motion": "joint: each leg and antenna swings on its own hinge, legs in a walking wave"
 }

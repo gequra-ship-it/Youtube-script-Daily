@@ -20,18 +20,17 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "sad"
    },
    {
     "word": "Around four",
     "mood": "curious"
    }
   ],
-  "act": {
-   "type": "measure"
-  },
+  "act": "cry",
   "outfit": [
-   "diver"
+   "diver",
+   "flippers"
   ],
   "ride": "mv-slide-cold-panel",
   "kind": "ride",
@@ -40,6 +39,11 @@
   "s": 1.25,
   "flip": -1,
   "bside": -1,
-  "says": []
+  "says": [
+   {
+    "text": "So sad...",
+    "shout": false
+   }
+  ]
  }
 }

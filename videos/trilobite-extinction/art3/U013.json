@@ -1,8 +1,48 @@
 {
- "centre": "a wide seafloor with every kind of trilobite: giant flat, spiny, big-eyed, tiny and a swimmer, among reef and kelp",
- "motion": "creep x4 + swim + float + sway",
- "sfx": [],
- "labels": [],
+ "centre": "a globe with continents and three pins carrying small trilobite fossil icons",
+ "motion": "core wobble (globe) + popin (pins one by one)",
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "Utah",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Utah",
+   "x": 560,
+   "y": 330,
+   "to": [
+    795,
+    380
+   ],
+   "word": "Utah"
+  },
+  {
+   "type": "name",
+   "text": "Morocco",
+   "x": 1360,
+   "y": 730,
+   "to": [
+    930,
+    500
+   ],
+   "word": "Morocco"
+  },
+  {
+   "type": "name",
+   "text": "China",
+   "x": 1480,
+   "y": 330,
+   "to": [
+    1130,
+    365
+   ],
+   "word": "China"
+  }
+ ],
  "focus": null,
  "focus_word": null
 }

@@ -20,19 +20,20 @@
   }
  ],
  "motion": "crystal pings; dashed link marches from the eye to the crystal",
- "sfx": [],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "determined"
    }
   ],
-  "act": "startle",
+  "act": {
+   "type": "stompfoot"
+  },
   "outfit": [
    "diver",
    "flippers"
   ],
-  "ride": "mv-core-ping-calcite-crystal",
+  "ride": "mv-core-sway-calcite-crystal",
   "kind": "ride",
   "x": 783,
   "y": 850,
@@ -42,7 +43,7 @@
   "gaze": 1,
   "says": [
    {
-    "text": "Eek!",
+    "text": "Hup!",
     "shout": true
    }
   ]

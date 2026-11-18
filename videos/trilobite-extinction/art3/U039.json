@@ -1,23 +1,44 @@
 {
- "centre": "a large trilobite standing on a rock mound in light from above, smaller trilobites around it",
- "focus": [
-  960,
-  470,
-  1.5
- ],
- "focus_word": "masters",
- "sfx": [],
- "labels": [
+ "centre": "three trilobites seen from above: one nibbling beside an empty shell, one stalking a worm in its burrow, one plowing a furrow through silt",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "say",
-   "text": "My seafloor!",
-   "x": 1290,
-   "y": 250,
-   "to": [
-    990,
-    300
-   ]
+   "name": "sand",
+   "word": "plowed through silt",
+   "vol": 0.5
   }
  ],
- "motion": "the master trilobite pushes toward us (approach); its antennae swing on their own joints"
+ "motion": "hop scavenger, creep hunter, worm popin, plow path with furrow",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-worm",
+   "h": 14
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1155,
+  "y": 555,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

@@ -1,18 +1,52 @@
 {
- "centre": "a museum drawer whose cells fill one by one with different trilobite species; below, a tiny trilobite next to a single sand grain",
- "focus": [
-  545,
-  1295,
-  2.0
- ],
- "focus_word": "a few millimeters",
- "sfx": [],
+ "centre": "Isotelus rex, a giant smooth trilobite filling the frame next to a measuring rod; an ordinary trilobite at its feet for scale",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
+   "type": "name",
+   "text": "Isotelus rex",
+   "x": 300,
+   "y": 400,
+   "to": [
+    460,
+    620
+   ],
+   "word": "Isotelus rex"
+  },
+  {
    "type": "num",
-   "text": "20,000+ SPECIES",
-   "word": "twenty thousand"
+   "text": "70 CM",
+   "word": "seventy centimeters"
   }
  ],
- "motion": "ticks species"
+ "motion": "core approach isotelus + popin ruler + sway seaweed",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-approach-isotelus",
+  "kind": "ride",
+  "x": 114,
+  "y": 1213,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Huge!",
+    "shout": true
+   }
+  ]
+ }
 }

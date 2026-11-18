@@ -1,31 +1,45 @@
 {
- "centre": "a trilobite seen from below against the bright water surface: two long antennae at the front, a pair of jointed legs under every segment, all moving in a walking wave",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "underside close-up of a trilobite: five leg pairs, each with a jointed walking branch and a feathery teal gill branch",
+ "motion": "joint legs (walking branch, gill branch) per strand",
  "labels": [
   {
    "type": "name",
-   "text": "Antennae",
-   "x": 1380,
-   "y": 210,
+   "text": "Gill",
+   "x": 1680,
+   "y": 560,
    "to": [
-    1130,
-    150
+    1325,
+    520
    ],
-   "word": "antennae"
-  },
-  {
-   "type": "name",
-   "text": "Jointed legs",
-   "x": 1500,
-   "y": 640,
-   "to": [
-    1170,
-    650
-   ],
-   "word": "jointed legs"
+   "word": "gill"
   }
  ],
- "motion": "joint: each leg and antenna swings on its own hinge, legs in a walking wave"
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 1660,
+  "y": 890,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

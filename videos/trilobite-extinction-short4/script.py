@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 # trilobite-extinction-short4 (Miya's Note). Script from miya 2026-11-04 (dated 2026-10-31); fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh4_1', 'What happens when an entire ocean becomes too acidic for the animals that live in it?'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh4_1',
+  'About two hundred and fifty-two million years ago, an entire ocean became too acidic for the animals that lived in it.'),
  ('S02',
   'Part 2',
   'ill',
   'sh4_2',
-  'About two hundred and fifty-two million years ago, planet Earth went through the Great Dying, the most severe extinction in the known history of '
-  'life.'),
+  'It was real: planet Earth went through the Great Dying, the most severe extinction in the known history of life.'),
  ('S03', 'Part 3', 'ill', 'sh4_3', 'Estimates say that between roughly eighty and ninety-six percent of marine species disappeared.'),
  ('S04',
   'Part 4',

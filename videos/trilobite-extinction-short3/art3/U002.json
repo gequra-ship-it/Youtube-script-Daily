@@ -1,45 +1,49 @@
 {
- "centre": "then and now: a pill bug ball in the garden on top, rock layers of deep time in the middle, an enrolled trilobite in an ancient sea below",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a grey pill bug in a night garden, touched by a fingertip, curling into a tight ball",
+ "focus": [
+  540,
+  960,
+  1.6
+ ],
  "labels": [
   {
    "type": "num",
    "text": "500 MILLION YEARS AGO",
    "word": "five hundred million years"
-  },
-  {
-   "type": "name",
-   "text": "trilobites",
-   "x": 780,
-   "y": 1160,
-   "to": [
-    640,
-    1240
-   ],
-   "word": "trilobites"
   }
  ],
- "motion": "pill bug ball wobbles, trilobite ball breathes, seaweed sways, bubbles rise",
+ "motion": "fingertip slides down, flat pill bug fades, ball pops in; clover sways",
  "frog": {
   "moods": [
    {
-    "mood": "shock"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "gasp"
+   "type": "launched",
+   "obj": "mv-popin-pill-bug-ball",
+   "h": 184
   },
   "outfit": [
-   "diver"
+   "diver",
+   "flippers"
   ],
-  "x": 260,
-  "y": 1080,
-  "s": 1.05,
-  "flip": 1,
+  "ride": null,
   "kind": "bg",
-  "says": [],
-  "bside": 1
+  "x": 540,
+  "y": 1067,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
  }
 }

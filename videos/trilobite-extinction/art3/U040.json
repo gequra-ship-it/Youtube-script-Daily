@@ -1,45 +1,20 @@
 {
- "centre": "three trilobites seen from above: one nibbling beside an empty shell, one stalking a worm in its burrow, one plowing a furrow through silt",
+ "centre": "a row of empty moulted shells growing in size, ending with the living trilobite crawling out of its newest shell",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "sand",
-   "word": "plowed through silt",
-   "vol": 0.5
+   "type": "name",
+   "text": "shell",
+   "x": 600,
+   "y": 360,
+   "to": [
+    600,
+    520
+   ],
+   "word": "shell"
   }
  ],
- "labels": [],
- "motion": "hop scavenger, creep hunter, worm popin, plow path with furrow",
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": {
-   "type": "launched",
-   "obj": "mv-popin-worm",
-   "h": 14
-  },
-  "outfit": [
-   "diver"
-  ],
-  "ride": null,
-  "kind": "bg",
-  "x": 1155,
-  "y": 555,
-  "s": 0.95,
-  "flip": -1,
-  "bside": -1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
-  "says": [
-   {
-    "text": "Whoa!",
-    "shout": true
-   }
-  ]
- }
+ "motion": "moults tick in one by one (many fossils from one animal); the trilobite then crawls out to the right",
+ "track": false
 }

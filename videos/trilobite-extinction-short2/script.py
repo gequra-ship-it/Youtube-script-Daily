@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 # trilobite-extinction-short2 (Miya's Note). Script from miya 2026-11-04 (dated 2026-10-31); fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01',
-  'Part 1',
-  'ill',
-  'sh2_1',
-  'Human civilization feels ancient to us, but what if I told you that our entire history is barely a blink next to the story of the trilobites?'),
- ('S02', 'Part 2', 'ill', 'sh2_2', 'Modern humans have lived on Earth for roughly three hundred thousand years.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh2_1', 'All of human history is barely a blink next to the story of the trilobites.'),
+ ('S02', 'Part 2', 'ill', 'sh2_2', 'The numbers are real: modern humans have lived on Earth for roughly three hundred thousand years.'),
  ('S03', 'Part 3', 'ill', 'sh2_3', 'Even if you count all our toolmaking ancestors, we have walked the land for only a few million.'),
  ('S04',
   'Part 4',

@@ -3,7 +3,6 @@
  "motion": "path sink (three CO2 molecules) + fade (acid tint) + ripple (surface) + bubble fizz x2",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -24,10 +23,11 @@
    }
   ],
   "act": {
-   "type": "growtall"
+   "type": "spinaround"
   },
   "outfit": [
-   "diver"
+   "diver",
+   "flippers"
   ],
   "ride": "mv-path-sink-co2-molecule",
   "kind": "ride",
@@ -39,7 +39,7 @@
   "gaze": 1,
   "says": [
    {
-    "text": "Huge!",
+    "text": "Whoa!",
     "shout": true
    }
   ]

@@ -2,7 +2,25 @@
  "centre": "warm dusk sea split at the surface: a herd of trilobites crawling across the floor of a sunset-lit ancient ocean, barren shore without plants, many more trilobites hazy in the distance",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "creep: the trilobite herd crawls right (head first); bubbles rise on the left"
+ "motion": "creep: the trilobite herd crawls right (head first); bubbles rise on the left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 500,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
 }

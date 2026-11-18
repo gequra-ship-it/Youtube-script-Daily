@@ -1,42 +1,38 @@
 {
- "centre": "top view of a trilobite on rippled sand, split lengthwise into its three parts: head shield, segmented thorax and tail shield, which slide apart",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "centre": "a trilobite split into modular head, thorax and tail pieces that slide together with gold joints",
+ "motion": "slide (head, tail) + popin (thorax) + glint",
+ "sfx": [
   {
-   "type": "name",
-   "text": "Head shield",
-   "x": 440,
-   "y": 200,
-   "to": [
-    470,
-    400
-   ],
-   "word": "head shield"
-  },
-  {
-   "type": "name",
-   "text": "Thorax",
-   "x": 960,
-   "y": 820,
-   "to": [
-    960,
-    640
-   ],
-   "word": "thorax"
-  },
-  {
-   "type": "name",
-   "text": "Tail",
-   "x": 1470,
-   "y": 200,
-   "to": [
-    1440,
-    440
-   ],
-   "word": "tail"
+   "name": "click",
+   "word": "modular",
+   "vol": 0.55
   }
  ],
- "motion": "slide: head shield and tail shield slide apart from the thorax (divided lengthwise)"
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "glasses"
+  ],
+  "ride": "mv-slide-head-piece",
+  "kind": "ride",
+  "x": 851,
+  "y": 252,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ],
+  "lock": true
+ }
 }

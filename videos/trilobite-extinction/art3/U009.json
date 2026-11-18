@@ -1,8 +1,30 @@
 {
- "centre": "one trilobite alone in a shaft of light on a dark seafloor, a long line of its tracks and fading ghost copies behind it; it fades away",
+ "centre": "split frame: left an ancient seafloor filling up with trilobites, right a night forest floor with beetles; an acorn drops",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "draw: the long track draws itself (survived that long); fade: the trilobite vanishes; flicker light shaft"
+ "labels": [
+  {
+   "type": "name",
+   "text": "Trilobites",
+   "x": 480,
+   "y": 180,
+   "to": [
+    470,
+    320
+   ],
+   "word": "Trilobites"
+  },
+  {
+   "type": "name",
+   "text": "Beetles",
+   "x": 1420,
+   "y": 560,
+   "to": [
+    1300,
+    690
+   ],
+   "word": "beetles"
+  }
+ ],
+ "motion": "ticks: trilobites appear one by one (as common as); creep: a beetle walks; core-drop: an acorn falls on the forest floor"
 }

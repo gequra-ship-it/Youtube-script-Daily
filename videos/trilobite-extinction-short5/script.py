@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 # trilobite-extinction-short5 (Miya's Note). Script from miya 2026-11-04 (dated 2026-10-31); fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01',
-  'Part 1',
-  'ill',
-  'sh5_1',
-  'Did you know that the trilobite empire was nearly wiped out more than a hundred million years before its final extinction?'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh5_1', 'More than a hundred million years before their final extinction, the trilobite empire was nearly wiped out.'),
  ('S02',
   'Part 2',
   'ill',
   'sh5_2',
-  'Around three hundred and seventy million years ago, during the Late Devonian crisis, a long ecological disaster struck the global oceans.'),
+  'It was real. Around three hundred and seventy million years ago, during the Late Devonian crisis, a long ecological disaster struck the global '
+  'oceans.'),
  ('S03',
   'Part 3',
   'ill',

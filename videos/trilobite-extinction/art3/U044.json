@@ -1,52 +1,11 @@
 {
- "centre": "cross-section of the seafloor: a trilobite in side view plows through the top of the mud with digging legs, leaving a furrow behind",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "sediment",
-   "x": 330,
-   "y": 800,
-   "to": [
-    250,
-    920
-   ],
-   "word": "sediment"
-  }
+ "centre": "a rock slab where the scratch-trail ends in the trilobite body fossil; a glowing ghost of the living animal fades into the stone",
+ "focus": [
+  960,
+  520,
+  1.5
  ],
- "motion": "the trilobite plows to the right (camera follows), legs dig, silt puffs rise, the furrow lengthens behind it",
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": {
-   "type": "unrolled",
-   "obj": "mv-unroll-furrow",
-   "frac": 0.7
-  },
-  "outfit": [
-   "diver",
-   "flippers"
-  ],
-  "ride": null,
-  "kind": "bg",
-  "x": 554,
-  "y": 640,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
-  "says": [
-   {
-    "text": "Whoa!",
-    "shout": true
-   }
-  ]
- }
+ "focus_word": "frozen moments",
+ "motion": "ghost of the living trilobite fades into the fossil (frozen moment); silt specks glimmer",
+ "light": "left"
 }
