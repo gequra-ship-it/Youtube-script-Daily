@@ -4,14 +4,13 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh3_1',
-  'If you have ever gently touched a pill bug in your garden and watched it instantly curl into a tight ball, you have seen a defensive trick that '
-  'trilobites were using more than five hundred million years ago.'),
+  'A pill bug curls into a tight ball when touched, and trilobites were doing the same more than five hundred million years ago.'),
  ('S02',
   'Part 2',
   'ill',
   'sh3_2',
-  'In the ancient seas, survival was a brutal game. By the Ordovician period, giant sea scorpions prowled the muddy bottom, and shelled cephalopods '
-  'with sharp beaks hunted in the water above.'),
+  'It was real, and in the ancient seas survival was a brutal game. By the Ordovician period, giant sea scorpions prowled the muddy bottom, and '
+  'shelled cephalopods with sharp beaks hunted in the water above.'),
  ('S03', 'Part 3', 'ill', 'sh3_3', 'To stay alive, trilobites relied on one of the most successful defenses in the history of animals: enrolment.'),
  ('S04',
   'Part 4',
