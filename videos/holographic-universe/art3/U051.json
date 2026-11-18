@@ -1,11 +1,47 @@
 {
- "centre": "a floating pocket clock with a turning hand on the left; a rock and an info cube are pulled into a tilted lensed black hole and vanish",
- "focus": [
-  1250,
-  480,
-  1.5
+ "centre": "fire in a stone brazier at the centre; heat waves fill a thermometer while a glowing info cube passes through the flames intact",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Heat",
+   "x": 1500,
+   "y": 170,
+   "to": [
+    1500,
+    300
+   ],
+   "word": "heat"
+  }
  ],
- "focus_word": "they vanish",
- "sfx": [],
- "labels": []
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-path-info-cube",
+  "kind": "ride",
+  "x": 496,
+  "y": 598,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Hot!",
+    "shout": true
+   }
+  ]
+ }
 }

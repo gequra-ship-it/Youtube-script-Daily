@@ -1,19 +1,55 @@
 {
- "centre": "our small glowing world far below a vast tilted flat surface tiled with light, joined by light threads",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "glowing teal/magenta wireframe hologram lattice floating over a flat plate",
+ "focus": [
+  540,
+  900,
+  1.6
+ ],
+ "focus_word": "holographic principle",
  "labels": [
   {
    "type": "name",
-   "text": "Two-dimensional surface",
+   "text": "Holographic principle",
    "x": 540,
-   "y": 760,
+   "y": 640,
    "to": [
     540,
-    600
+    750
    ],
-   "word": "two-dimensional surface"
+   "word": "holographic principle"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-notebook",
+   "h": 116
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 220,
+  "y": 1296,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab",
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

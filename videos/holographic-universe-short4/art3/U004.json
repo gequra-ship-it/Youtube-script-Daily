@@ -1,23 +1,29 @@
 {
- "centre": "flat dark boundary slab of glowing sparkles beside a ghost cube that has depth",
+ "centre": "glowing ball sinking into a curved well of a glowing grid space (gravity)",
  "focus": [
-  570,
-  925,
-  1.5
+  540,
+  850,
+  1.7
  ],
- "focus_word": "boundary",
- "sfx": [],
+ "focus_word": "gravity",
+ "sfx": [
+  {
+   "name": "thrust",
+   "word": "pulling",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Boundary",
-   "x": 800,
-   "y": 640,
+   "text": "Gravity",
+   "x": 690,
+   "y": 610,
    "to": [
-    690,
-    800
+    590,
+    810
    ],
-   "word": "boundary"
+   "word": "gravity"
   }
  ]
 }

@@ -1,23 +1,32 @@
 {
- "centre": "pink saddle grid above and our own teal round universe below, split by a dashed line",
+ "centre": "glowing pink saddle-shaped grid with a teal ball rolling over it",
  "focus": [
   540,
   860,
   1.5
  ],
- "focus_word": "anti-de Sitter",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "anti-de Sitter",
-   "x": 360,
-   "y": 720,
-   "to": [
-    430,
-    590
-   ],
-   "word": "anti-de Sitter"
-  }
- ]
+ "focus_word": "saddle",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-path-ball",
+  "kind": "ride",
+  "x": 426,
+  "y": 830,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": []
+ }
 }

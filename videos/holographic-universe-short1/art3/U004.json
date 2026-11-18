@@ -1,19 +1,32 @@
 {
- "centre": "small projector at the bottom throwing a beam onto a big screen showing a deep street",
+ "centre": "a deep hallway whose far end dissolves into glowing stardust; ghost wireframe cube",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Projection",
-   "x": 540,
-   "y": 900,
-   "to": [
-    540,
-    790
-   ],
-   "word": "projection"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "confused"
+   }
+  ],
+  "act": {
+   "type": "scratchhead"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-glide-illusion-dust",
+  "kind": "ride",
+  "x": 754,
+  "y": 990,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Huh?",
+    "shout": false
+   }
+  ]
+ }
 }

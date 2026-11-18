@@ -1,39 +1,40 @@
 {
- "centre": "glowing pink saddle-shaped grid with a teal ball rolling over it",
+ "centre": "open palm held up in front of a ghostly hologram sphere saying no",
  "focus": [
   540,
-  860,
+  1000,
   1.5
  ],
- "focus_word": "saddle",
- "sfx": [],
- "labels": [],
+ "focus_word": "No",
  "frog": {
   "moods": [
    {
     "mood": "happy"
+   },
+   {
+    "word": "No",
+    "mood": "happy"
    }
   ],
   "act": {
-   "type": "zerogroll"
+   "type": "moonbounce",
+   "dist": 302
   },
   "outfit": [
    "helmet",
-   "jetpack"
+   "antenna"
   ],
-  "ride": "mv-path-ball",
-  "kind": "ride",
-  "x": 426,
-  "y": 830,
-  "s": 1.09,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
+  "x": 820,
+  "y": 680,
+  "s": 0.99,
+  "flip": -1,
+  "kind": "bg",
   "says": [
    {
-    "text": "Wheee...",
-    "shout": false
+    "text": "Boing!",
+    "shout": true
    }
-  ]
+  ],
+  "bside": -1
  }
 }

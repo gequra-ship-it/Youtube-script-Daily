@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # holographic-universe-short3 (Miya's Note). Script from miya 2026-11-04 (dated 2026-10-14); fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'Here is a question that sounds simple. How much data can a black hole store?'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh3_1',
+  "A black hole's memory capacity depends on its outer surface, not its volume. That is what calculations in the nineteen-seventies suggested, and "
+  'it breaks the everyday rule that bigger means more room.'),
  ('S02',
   'Part 2',
   'ill',

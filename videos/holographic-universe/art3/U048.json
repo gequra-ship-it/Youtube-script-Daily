@@ -1,48 +1,27 @@
 {
- "centre": "fire in a stone brazier at the centre; heat waves fill a thermometer while a glowing info cube passes through the flames intact",
+ "centre": "cute cut-away hard drive with a spinning platter, a swinging arm and rows of data cells",
  "focus": null,
  "focus_word": null,
  "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Heat",
-   "x": 1500,
-   "y": 170,
-   "to": [
-    1500,
-    300
-   ],
-   "word": "heat"
-  }
- ],
- "track": false,
+ "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "scared"
    }
   ],
   "act": {
-   "type": "dizzy"
+   "type": "pushaway"
   },
-  "ride": "mv-path-info-cube",
-  "kind": "ride",
-  "x": 496,
-  "y": 598,
-  "s": 0.95,
+  "x": 260,
+  "y": 620,
+  "s": 0.88,
   "flip": 1,
-  "bside": 1,
-  "gaze": 1,
+  "kind": "bg",
   "outfit": [
-   "sunglasses",
-   "bowtie"
+   "glasses"
   ],
-  "says": [
-   {
-    "text": "Wooo-ooo...",
-    "shout": false
-   }
-  ]
+  "says": [],
+  "bside": 1
  }
 }

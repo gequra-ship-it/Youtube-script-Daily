@@ -2,37 +2,26 @@
  "centre": "a small black hole deep in a stretched net, a theory card pressed above it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "pull",
-   "to": [
-    540,
-    1060
-   ],
-   "vanish": true
+   "type": "doodle",
+   "from": 0.9
   },
-  "ride": null,
   "kind": "bg",
-  "x": 242,
-  "y": 1080,
-  "s": 0.9,
-  "flip": 1,
+  "x": 713,
+  "y": 546,
+  "s": 1.4,
+  "flip": -1,
   "outfit": [
-   "cap"
+   "glasses",
+   "bowtie"
   ],
-  "says": [
-   {
-    "text": "AAAAAH!",
-    "shout": true
-   }
-  ],
-  "bside": 1
+  "says": [],
+  "bside": -1
  }
 }

@@ -1,7 +1,43 @@
 {
- "centre": "lamp light hitting a flat card sticker; a glowing 3D hologram cube floats above it",
+ "centre": "magnified rainbow hologram sticker, with its edge-on thin plastic sheet under a magnifier",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Thin plastic",
+   "x": 540,
+   "y": 1320,
+   "to": [
+    600,
+    1192
+   ],
+   "word": "thin plastic"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-hologram-sticker",
+  "kind": "ride",
+  "x": 924,
+  "y": 1100,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
 }

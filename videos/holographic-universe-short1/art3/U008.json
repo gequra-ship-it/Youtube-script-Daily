@@ -1,23 +1,43 @@
 {
- "centre": "a translucent 3D world-cube with a planet inside, rising from a flat boundary tiled with glowing information",
- "focus": [
-  540,
-  1100,
-  1.5
- ],
- "focus_word": "flat boundary",
- "sfx": [],
+ "centre": "a flat framed painting of a globe hanging on a nail, with its paper-thin edge below",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Flat boundary",
+   "text": "Flat picture",
    "x": 540,
-   "y": 1050,
+   "y": 1380,
    "to": [
     540,
-    1200
+    1305
    ],
-   "word": "flat boundary"
+   "word": "flat picture"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "photo",
+  "ride": "mv-swing-picture-string",
+  "kind": "ride",
+  "x": 874,
+  "y": 1190,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Say cheese!",
+    "shout": false
+   }
+  ]
+ }
 }

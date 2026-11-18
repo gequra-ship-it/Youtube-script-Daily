@@ -1,32 +1,32 @@
 {
- "centre": "a top-down black hole whirl with a cube, a star and a book spiralling into it",
- "labels": [],
+ "centre": "a magnifying lens that shows only darkness with a faint cube vanishing",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "frog": {
   "moods": [
    {
-    "mood": "scared"
-   },
-   {
-    "word": "Things fall",
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "pushaway"
+   "type": "countstars"
   },
-  "ride": null,
-  "kind": "bg",
-  "x": 285,
-  "y": 877,
-  "s": 0.9,
-  "flip": 1,
+  "ride": "mv-core-sway-magnifier-lens",
+  "kind": "ride",
+  "x": 864,
+  "y": 1130,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "bowtie"
+   "headband"
   ],
-  "says": [],
-  "bside": 1
+  "says": [
+   {
+    "text": "So many...",
+    "shout": false
+   }
+  ]
  }
 }

@@ -1,41 +1,29 @@
 {
- "centre": "a telescope on a rock looks at a book, a gas cloud and a star that fade to dashed ghost outlines beside a small black hole",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a small probe flying across a glowing line of tiles into darkness, with no way back",
+ "focus": [
+  1080,
+  500,
+  1.6
+ ],
+ "focus_word": "line of no return",
+ "sfx": [
+  {
+   "name": "thrust",
+   "word": "line of no return",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Book",
-   "x": 720,
-   "y": 330,
+   "text": "line of no return",
+   "x": 1420,
+   "y": 250,
    "to": [
-    720,
-    440
+    1080,
+    300
    ],
-   "word": "book"
-  },
-  {
-   "type": "name",
-   "text": "Gas",
-   "x": 1000,
-   "y": 320,
-   "to": [
-    1000,
-    445
-   ],
-   "word": "gas"
-  },
-  {
-   "type": "name",
-   "text": "Star",
-   "x": 1280,
-   "y": 330,
-   "to": [
-    1280,
-    440
-   ],
-   "word": "the star"
+   "word": "line of no return"
   }
  ]
 }

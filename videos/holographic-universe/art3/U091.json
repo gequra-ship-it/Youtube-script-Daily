@@ -1,17 +1,48 @@
 {
  "focus": [
   960,
-  500,
-  1.4
+  520,
+  1.5
  ],
- "focus_word": "neither one is the truth",
+ "focus_word": "saddle-shaped geometry",
  "sfx": [
   {
-   "name": "tick",
-   "word": "identical",
+   "name": "sparkle",
+   "word": "geometry",
    "vol": 0.5
   }
  ],
- "labels": [],
- "centre": "level balance scale with a gravity orb and a boundary orb of equal weight"
+ "centre": "large glowing saddle-shaped grid with a marble rolling over it",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "The universe",
+    "mood": "happy"
+   }
+  ],
+  "act": "look",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "x": 260,
+  "y": 340,
+  "s": 0.94,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "swim",
+   "dist": 461
+  },
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

@@ -1,29 +1,55 @@
 {
- "centre": "black hole connected by a dotted thread to a tall glass gauge filling with glowing cubes",
+ "centre": "large black hole with a thin glowing event-horizon shell and a magnifier examining its edge",
  "focus": null,
  "focus_word": null,
- "iris": [
-  760,
-  500
- ],
  "sfx": [
   {
-   "name": "pop",
-   "word": "hold",
+   "name": "click",
+   "word": "examined",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "information",
-   "x": 1465,
+   "text": "event horizon",
+   "x": 1180,
    "y": 190,
    "to": [
-    1465,
-    420
+    1180,
+    292
    ],
-   "word": "information"
+   "word": "event horizon"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-slide-magnifier",
+  "kind": "ride",
+  "x": 262,
+  "y": 824,
+  "s": 1.4,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
 }

@@ -1,41 +1,9 @@
 {
- "centre": "a little rover rolling along a trail on solid rocky ground toward a golden moon on the horizon; a flag waits at the end",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Worth the trip!",
-   "x": 420,
-   "y": 640,
-   "to": [
-    270,
-    760
-   ]
-  }
+ "centre": "close-up of two hands warming around a coffee mug, steam rising, a pre-dawn window behind",
+ "focus": [
+  960,
+  520,
+  1.5
  ],
- "frog": {
-  "moods": [
-   {
-    "mood": "surprised"
-   }
-  ],
-  "act": {
-   "type": "shrinkdown"
-  },
-  "outfit": [
-   "helmet",
-   "patch"
-  ],
-  "ride": "mv-core-heartbeat-moon",
-  "kind": "ride",
-  "x": 1218,
-  "y": 670,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "says": []
- }
+ "focus_word": "coffee"
 }

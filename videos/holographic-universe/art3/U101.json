@@ -1,7 +1,48 @@
 {
- "centre": "a faint tiny room with a cup and desk glowing inside a giant shell tiled with glowing squares",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "sfx": [
+  {
+   "name": "static",
+   "word": "digital code",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Digital code",
+   "x": 530,
+   "y": 740,
+   "to": [
+    530,
+    520
+   ],
+   "word": "digital code"
+  }
+ ],
+ "centre": "flat code screen projecting a glowing universe sphere",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-core-sway-projected-universe",
+  "kind": "ride",
+  "x": 1638,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
 }

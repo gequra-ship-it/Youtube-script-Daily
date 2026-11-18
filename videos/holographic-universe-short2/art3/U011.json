@@ -1,19 +1,27 @@
 {
- "centre": "a faceless silhouette holding a notebook beside a black hole whose cubes fade",
- "labels": [
-  {
-   "type": "name",
-   "text": "Hawking",
-   "x": 330,
-   "y": 500,
-   "to": [
-    330,
-    640
-   ],
-   "word": "Hawking"
-  }
- ],
+ "centre": "a top-down black hole whirl with a cube, a star and a book spiralling into it",
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "Things fall",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "pushaway"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 285,
+  "y": 877,
+  "s": 0.9,
+  "flip": 1,
+  "says": [],
+  "bside": 1
+ }
 }

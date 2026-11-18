@@ -1,55 +1,58 @@
 {
- "centre": "large black hole with a thin glowing event-horizon shell and a magnifier examining its edge",
+ "centre": "bright clash spark between a quantum wave panel and a curved-grid gravity panel",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "examined",
-   "vol": 0.5
+   "name": "pulse",
+   "word": "clash",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "event horizon",
-   "x": 1180,
-   "y": 190,
+   "text": "Quantum theory",
+   "x": 490,
+   "y": 165,
    "to": [
-    1180,
-    292
+    490,
+    420
    ],
-   "word": "event horizon"
+   "word": "quantum theory"
+  },
+  {
+   "type": "name",
+   "text": "Gravity",
+   "x": 1430,
+   "y": 165,
+   "to": [
+    1430,
+    430
+   ],
+   "word": "gravity"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "scared"
    }
   ],
   "act": {
-   "type": "push",
-   "from": 0.6
+   "type": "leanback"
   },
-  "outfit": [
-   "helmet",
-   "moonboots"
-  ],
-  "ride": "mv-slide-magnifier",
+  "ride": "mv-core-approach-spark",
   "kind": "ride",
-  "x": 262,
-  "y": 824,
-  "s": 1.4,
-  "flip": 1,
+  "x": 1118,
+  "y": 620,
+  "s": 0.95,
+  "flip": -1,
   "bside": 1,
-  "says": [
-   {
-    "text": "Heave-ho!",
-    "t": 1.0,
-    "dur": 1.6,
-    "shout": true
-   }
-  ]
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": []
  }
 }

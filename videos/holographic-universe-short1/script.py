@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh1_1',
-  'Look down at your hands right now. Feel the solid desk beneath your fingers. Everything feels unmistakably heavy, three-dimensional, and '
-  'undeniably real.'),
+  'Press your palm against a solid desk. Physicists have asked whether all of that depth could be written on a flat surface far away. That idea is a '
+  'hypothesis, and where it comes from is the strange part.'),
  ('S02',
   'Part 2',
   'ill',

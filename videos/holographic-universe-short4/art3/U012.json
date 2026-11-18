@@ -1,7 +1,34 @@
 {
- "centre": "golden gem between two scrolls that carry the same pattern, one in circles and one in squares",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "glowing lantern at a fork where a tangled path and a smooth path both lead to one star",
+ "focus": [
+  540,
+  640,
+  1.5
+ ],
+ "focus_word": "easier",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "read",
+  "ride": "mv-core-sway-lantern",
+  "kind": "ride",
+  "x": 664,
+  "y": 940,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Interesting...",
+    "shout": false
+   }
+  ]
+ }
 }
