@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 # frog-hunting-beetle-short5 (Miya's Note). Script from miya 2026-11-03 (dated 2026-10-09); fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh5_1', 'For a long time, bugs killing frogs sounded like a myth. Then someone tested it.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh5_1', 'In an Israeli laboratory, beetle larvae waved their jaws at toads.'),
  ('S02',
   'Part 2',
   'ill',
   'sh5_2',
-  'In 2011, Gil Wizen and Avital Gasith, at Tel Aviv University in Israel, published a laboratory study of two beetles, Epomis circumscriptus and '
-  'Epomis dejeani.'),
+  'For a long time, bugs killing frogs sounded like a myth. Then someone tested it. In 2011, Gil Wizen and Avital Gasith, at Tel Aviv University in '
+  'Israel, published a laboratory study of two beetles, Epomis circumscriptus and Epomis dejeani.'),
  ('S03',
   'Part 3',
   'ill',

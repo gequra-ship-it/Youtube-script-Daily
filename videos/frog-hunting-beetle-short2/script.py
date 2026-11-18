@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 # frog-hunting-beetle-short2 (Miya's Note). Script from miya 2026-11-03 (dated 2026-10-09); fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01',
-  'Part 1',
-  'ill',
-  'sh2_1',
-  "A frog is creeping toward a tiny wiggling lure. Everything seems to be going the frog's way. Watch what happens next."),
+SCENES = [('S01', 'Part 1', 'ill', 'sh2_1', 'A frog is creeping toward a tiny wiggling lure. This really happened, and the lure was a trap.'),
  ('S02',
   'Part 2',
   'ill',
