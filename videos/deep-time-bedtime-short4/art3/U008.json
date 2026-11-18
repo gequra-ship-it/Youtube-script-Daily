@@ -1,49 +1,37 @@
 {
- "centre": "a long segmented millipede-like Arthropleura crawling across a spongy, fern-filled forest floor",
- "focus": [
-  560,
-  1120,
-  1.5
- ],
- "focus_word": "giant millipede-like creatures",
- "sfx": [],
+ "centre": "a giant dragonfly relative darting upward through misty, humid swamp air",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "ferns",
-   "x": 760,
-   "y": 1330,
-   "to": [
-    960,
-    1275
-   ],
-   "word": "ferns"
+   "type": "num",
+   "text": "70 CM",
+   "word": "seventy centimeters"
   }
  ],
  "light": "left",
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "excited"
    }
   ],
-  "act": {
-   "type": "crawl",
-   "dist": 367
-  },
-  "x": 260,
-  "y": 1560,
-  "s": 1.0,
-  "flip": 1,
+  "act": "dance",
+  "x": 820,
+  "y": 680,
+  "s": 1.04,
+  "flip": -1,
   "kind": "bg",
-  "ride": null,
-  "behind": null,
+  "outfit": [
+   "wizard",
+   "raincoat"
+  ],
   "says": [
    {
-    "text": "Hup...",
+    "text": "La la la~",
     "shout": false
    }
   ],
-  "bside": 1
+  "bside": -1
  }
 }

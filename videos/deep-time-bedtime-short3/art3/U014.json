@@ -2,7 +2,6 @@
  "centre": "looking down at the ocean mud: a trilobite scuttles away leaving a track while others roll into tight balls as a dark shadow slides overhead",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -15,5 +14,38 @@
    ],
    "word": "trilobites"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dodge",
+   "obj": "mv-rollby-trilobite-ball",
+   "h": 104,
+   "pass": 3.667
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 699,
+  "y": 872,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

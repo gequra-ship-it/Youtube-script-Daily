@@ -1,23 +1,30 @@
 {
- "centre": "a giant T. rex leg and foot towering over a tiny furry mammal on the ground",
- "focus": [
-  800,
-  1240,
-  1.8
- ],
- "focus_word": "small, furry ancestors",
- "sfx": [],
+ "centre": "cross-section of a riverbank with two small mammals curled up asleep in their burrows",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "say",
-   "text": "Who, me?",
-   "x": 820,
-   "y": 1060,
+   "type": "name",
+   "text": "burrows",
+   "x": 300,
+   "y": 1260,
    "to": [
-    700,
-    1250
-   ]
+    370,
+    1060
+   ],
+   "word": "burrows"
+  },
+  {
+   "type": "name",
+   "text": "riverbanks",
+   "x": 860,
+   "y": 980,
+   "to": [
+    820,
+    820
+   ],
+   "word": "riverbanks"
   }
  ],
- "motion": "the mammal breathes, head and tail move, eye blinks"
+ "motion": "sleeping mammals breathe, reeds sway, a ripple on the river"
 }

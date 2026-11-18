@@ -1,60 +1,37 @@
 {
- "centre": "close-up of a trilobite head with a big compound eye of many lenses; a brachiopod shell opens at the left",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "compound eyes",
- "sfx": [],
+ "centre": "calm Ediacaran sea floor with fronds; an Anomalocaris glides in and a crack runs across the microbial mat",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "compound eyes",
-   "x": 1240,
-   "y": 300,
-   "to": [
-    1020,
-    470
-   ],
-   "word": "compound eyes"
-  },
-  {
-   "type": "name",
-   "text": "shells",
-   "x": 1330,
-   "y": 470,
-   "to": [
-    1480,
-    600
-   ],
-   "word": "shells"
+   "type": "num",
+   "text": "541 MILLION YEARS AGO",
+   "word": "541 million"
   }
+ ],
+ "iris": [
+  1300,
+  440
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "shock"
    }
   ],
-  "act": "tap",
-  "ride": "mv-core-swell-eye-lens",
-  "kind": "ride",
-  "x": 1123,
-  "y": 620,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "act": {
+   "type": "gasp"
+  },
   "outfit": [
-   "headlamp",
-   "backpack"
+   "diver"
   ],
-  "says": [
-   {
-    "text": "Knock knock!",
-    "shout": false
-   }
-  ]
+  "ride": "mv-path-anomalocaris",
+  "kind": "ride",
+  "x": 1334,
+  "y": 361,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "says": []
  }
 }

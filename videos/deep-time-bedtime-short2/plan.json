@@ -6,7 +6,7 @@
   "art_theme": "sh2_1",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -26,21 +26,21 @@
     "#d9694a"
    ]
   },
-  "text": "Around two and a half billion years ago, our planet transitioned into the Proterozoic Eon,",
-  "dur": 5.54,
+  "text": "Two and a half billion years ago, the ocean began filling with a deadly toxin.",
+  "dur": 5.75,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "bringing one of the most dramatic transformations in planetary history.",
+  "nxt": "",
   "frog_hint": false
  },
  {
   "uid": "U002",
-  "scene": 1,
-  "title": "Part 1",
-  "art_theme": "sh2_1",
+  "scene": 2,
+  "title": "Part 2",
+  "art_theme": "sh2_2",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -60,11 +60,11 @@
     "#d9694a"
    ]
   },
-  "text": "bringing one of the most dramatic transformations in planetary history.",
-  "dur": 5.54,
-  "transition_in": "page",
-  "prev": "Around two and a half billion years ago, our planet transitioned into the Proterozoic Eon,",
-  "nxt": "",
+  "text": "It was real, and it is the gas you are breathing: free oxygen,",
+  "dur": 5.23,
+  "transition_in": "zoom",
+  "prev": "",
+  "nxt": "released by photosynthetic cyanobacteria flourishing across the global ocean.",
   "frog_hint": true
  },
  {
@@ -74,7 +74,7 @@
   "art_theme": "sh2_2",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -94,55 +94,21 @@
     "#d9694a"
    ]
   },
-  "text": "As photosynthetic cyanobacteria flourished across the global ocean,",
-  "dur": 5.95,
+  "text": "released by photosynthetic cyanobacteria flourishing across the global ocean.",
+  "dur": 5.23,
   "transition_in": "wave",
-  "prev": "",
-  "nxt": "they released a steady byproduct that had never existed in large quantities before: free oxygen.",
+  "prev": "It was real, and it is the gas you are breathing: free oxygen,",
+  "nxt": "",
   "frog_hint": false
  },
  {
   "uid": "U004",
-  "scene": 2,
-  "title": "Part 2",
-  "art_theme": "sh2_2",
-  "bg": "paper",
-  "pal": {
-   "palette": "history",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
-   "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
-   ],
-   "dusk_ink": "#1a2b3a",
-   "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
-   ]
-  },
-  "text": "they released a steady byproduct that had never existed in large quantities before: free oxygen.",
-  "dur": 5.95,
-  "transition_in": "zigzag",
-  "prev": "As photosynthetic cyanobacteria flourished across the global ocean,",
-  "nxt": "",
-  "frog_hint": true
- },
- {
-  "uid": "U005",
   "scene": 3,
   "title": "Part 3",
   "art_theme": "sh2_3",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -162,21 +128,21 @@
     "#d9694a"
    ]
   },
-  "text": "Isn't it strange that the very gas keeping you awake tonight was once a deadly toxin to the planet's first residents?",
-  "dur": 7.56,
+  "text": "Oxygen, the very gas keeping you awake tonight, was once a deadly toxin to the planet's first residents.",
+  "dur": 7.31,
   "transition_in": "eye",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U006",
+  "uid": "U005",
   "scene": 4,
   "title": "Part 4",
   "art_theme": "sh2_4",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -197,20 +163,20 @@
    ]
   },
   "text": "The newly generated oxygen reacted with dissolved iron in the seas,",
-  "dur": 5.72,
-  "transition_in": "zoom",
+  "dur": 5.9,
+  "transition_in": "zigzag",
   "prev": "",
   "nxt": "creating massive deposits of banded iron that rusted and settled into the ocean floor.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U007",
+  "uid": "U006",
   "scene": 4,
   "title": "Part 4",
   "art_theme": "sh2_4",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -231,20 +197,20 @@
    ]
   },
   "text": "creating massive deposits of banded iron that rusted and settled into the ocean floor.",
-  "dur": 5.72,
-  "transition_in": "tilt",
+  "dur": 5.9,
+  "transition_in": "seam",
   "prev": "The newly generated oxygen reacted with dissolved iron in the seas,",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U008",
+  "uid": "U007",
   "scene": 5,
   "title": "Part 5",
   "art_theme": "sh2_5",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -265,20 +231,20 @@
    ]
   },
   "text": "Once the iron reservoirs were fully saturated, free oxygen began leaking directly into the atmosphere,",
-  "dur": 5.64,
-  "transition_in": "diamond",
+  "dur": 5.83,
+  "transition_in": "page",
   "prev": "",
   "nxt": "triggering what geologists call the Great Oxidation Event.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U009",
+  "uid": "U008",
   "scene": 5,
   "title": "Part 5",
   "art_theme": "sh2_5",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -299,20 +265,20 @@
    ]
   },
   "text": "triggering what geologists call the Great Oxidation Event.",
-  "dur": 5.64,
-  "transition_in": "push",
+  "dur": 5.83,
+  "transition_in": "whip",
   "prev": "Once the iron reservoirs were fully saturated, free oxygen began leaking directly into the atmosphere,",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U010",
+  "uid": "U009",
   "scene": 6,
   "title": "Part 6",
   "art_theme": "sh2_6",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -333,20 +299,20 @@
    ]
   },
   "text": "This sudden atmospheric shift proved catastrophic for the ancient",
-  "dur": 4.27,
-  "transition_in": "whip",
+  "dur": 4.32,
+  "transition_in": "diamond",
   "prev": "",
   "nxt": "anaerobic organisms that could not tolerate oxygen.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U011",
+  "uid": "U010",
   "scene": 6,
   "title": "Part 6",
   "art_theme": "sh2_6",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -367,20 +333,20 @@
    ]
   },
   "text": "anaerobic organisms that could not tolerate oxygen.",
-  "dur": 4.27,
-  "transition_in": "iris",
+  "dur": 4.32,
+  "transition_in": "push",
   "prev": "This sudden atmospheric shift proved catastrophic for the ancient",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U012",
+  "uid": "U011",
   "scene": 7,
   "title": "Part 7",
   "art_theme": "sh2_7",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -401,20 +367,20 @@
    ]
   },
   "text": "Furthermore, the oxygen began reacting with atmospheric methane,",
-  "dur": 4.8,
-  "transition_in": "seam",
+  "dur": 4.99,
+  "transition_in": "tilt",
   "prev": "",
   "nxt": "a potent greenhouse gas, stripping away the planet's natural insulation.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U013",
+  "uid": "U012",
   "scene": 7,
   "title": "Part 7",
   "art_theme": "sh2_7",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -435,20 +401,20 @@
    ]
   },
   "text": "a potent greenhouse gas, stripping away the planet's natural insulation.",
-  "dur": 4.8,
-  "transition_in": "wash",
+  "dur": 4.99,
+  "transition_in": "wipe",
   "prev": "Furthermore, the oxygen began reacting with atmospheric methane,",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U014",
+  "uid": "U013",
   "scene": 8,
   "title": "Part 8",
   "art_theme": "sh2_8",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -469,20 +435,20 @@
    ]
   },
   "text": "Earth began to cool at a terrifying speed, plunging the entire globe into a deep planetary freeze.",
-  "dur": 7.07,
-  "transition_in": "push",
+  "dur": 7.31,
+  "transition_in": "fade",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U015",
+  "uid": "U014",
   "scene": 9,
   "title": "Part 9",
   "art_theme": "sh2_9",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -503,20 +469,20 @@
    ]
   },
   "text": "Scientists call this possibility Snowball Earth,",
-  "dur": 4.16,
-  "transition_in": "wipe",
+  "dur": 4.27,
+  "transition_in": "iris",
   "prev": "",
   "nxt": "when glaciers may have crept from the poles all the way to the tropical equator.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U016",
+  "uid": "U015",
   "scene": 9,
   "title": "Part 9",
   "art_theme": "sh2_9",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -537,20 +503,20 @@
    ]
   },
   "text": "when glaciers may have crept from the poles all the way to the tropical equator.",
-  "dur": 4.16,
-  "transition_in": "fade",
+  "dur": 4.27,
+  "transition_in": "slide",
   "prev": "Scientists call this possibility Snowball Earth,",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U017",
+  "uid": "U016",
   "scene": 10,
   "title": "Part 10",
   "art_theme": "sh2_10",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -571,20 +537,20 @@
    ]
   },
   "text": "How did life endure beneath such thick ice?",
-  "dur": 3.27,
-  "transition_in": "slide",
+  "dur": 3.34,
+  "transition_in": "wash",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U018",
+  "uid": "U017",
   "scene": 11,
   "title": "Part 11",
   "art_theme": "sh2_11",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -605,20 +571,20 @@
    ]
   },
   "text": "Scientists think tiny communities of single-celled organisms clung to",
-  "dur": 4.95,
+  "dur": 5.05,
   "transition_in": "fade",
   "prev": "",
   "nxt": "life in pockets of liquid water and around volcanic hot spots.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U019",
+  "uid": "U018",
   "scene": 11,
   "title": "Part 11",
   "art_theme": "sh2_11",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -639,20 +605,20 @@
    ]
   },
   "text": "life in pockets of liquid water and around volcanic hot spots.",
-  "dur": 4.95,
+  "dur": 5.05,
   "transition_in": "wave",
   "prev": "Scientists think tiny communities of single-celled organisms clung to",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U020",
+  "uid": "U019",
   "scene": 12,
   "title": "Part 12",
   "art_theme": "sh2_12",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -672,10 +638,44 @@
     "#d9694a"
    ]
   },
-  "text": "For millions of years, the world slept under a shell of ice, reflecting much of the incoming sunlight back into space.",
-  "dur": 7.77,
+  "text": "For millions of years, the world slept under a shell of ice,",
+  "dur": 4.04,
   "transition_in": "zoom",
   "prev": "",
+  "nxt": "reflecting much of the incoming sunlight back into space.",
+  "frog_hint": false
+ },
+ {
+  "uid": "U020",
+  "scene": 12,
+  "title": "Part 12",
+  "art_theme": "sh2_12",
+  "bg": "paper",
+  "pal": {
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
+   "dusk_stops": [
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
+   ],
+   "dusk_ink": "#1a2b3a",
+   "accents": [
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
+   ]
+  },
+  "text": "reflecting much of the incoming sunlight back into space.",
+  "dur": 4.04,
+  "transition_in": "match",
+  "prev": "For millions of years, the world slept under a shell of ice,",
   "nxt": "",
   "frog_hint": true
  },
@@ -686,7 +686,7 @@
   "art_theme": "sh2_13",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -707,7 +707,7 @@
    ]
   },
   "text": "Only the slow, patient accumulation of volcanic carbon dioxide eventually broke the icy grip,",
-  "dur": 6.61,
+  "dur": 6.78,
   "transition_in": "zigzag",
   "prev": "",
   "nxt": "melting the glaciers and releasing a flood of nutrients into the newly warmed seas.",
@@ -720,7 +720,7 @@
   "art_theme": "sh2_13",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -741,8 +741,8 @@
    ]
   },
   "text": "melting the glaciers and releasing a flood of nutrients into the newly warmed seas.",
-  "dur": 6.61,
-  "transition_in": "match",
+  "dur": 6.78,
+  "transition_in": "whip",
   "prev": "Only the slow, patient accumulation of volcanic carbon dioxide eventually broke the icy grip,",
   "nxt": "",
   "frog_hint": true
@@ -754,7 +754,7 @@
   "art_theme": "sh2_14",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -775,8 +775,8 @@
    ]
   },
   "text": "Life had already learned to build complex cells with dedicated nuclei and internal engines,",
-  "dur": 4.51,
-  "transition_in": "slide",
+  "dur": 4.77,
+  "transition_in": "diamond",
   "prev": "",
   "nxt": "and after the thaws it blossomed in new ways.",
   "frog_hint": false
@@ -788,7 +788,7 @@
   "art_theme": "sh2_14",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -809,8 +809,8 @@
    ]
   },
   "text": "and after the thaws it blossomed in new ways.",
-  "dur": 4.51,
-  "transition_in": "whip",
+  "dur": 4.77,
+  "transition_in": "tilt",
   "prev": "Life had already learned to build complex cells with dedicated nuclei and internal engines,",
   "nxt": "",
   "frog_hint": true
@@ -822,7 +822,7 @@
   "art_theme": "sh2_15",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -843,7 +843,7 @@
    ]
   },
   "text": "By the late Proterozoic, in an enigmatic time called the Ediacaran Period,",
-  "dur": 4.92,
+  "dur": 5.1,
   "transition_in": "page",
   "prev": "",
   "nxt": "soft-bodied multicellular creatures drifted through the quiet seabed.",
@@ -856,7 +856,7 @@
   "art_theme": "sh2_15",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -877,8 +877,8 @@
    ]
   },
   "text": "soft-bodied multicellular creatures drifted through the quiet seabed.",
-  "dur": 4.92,
-  "transition_in": "eye",
+  "dur": 5.1,
+  "transition_in": "wipe",
   "prev": "By the late Proterozoic, in an enigmatic time called the Ediacaran Period,",
   "nxt": "",
   "frog_hint": true
@@ -890,7 +890,7 @@
   "art_theme": "sh2_16",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -911,8 +911,8 @@
    ]
   },
   "text": "They looked like quilted leaves, ribbed discs, and feather-like fronds, lacking eyes, shells, or bones.",
-  "dur": 6.52,
-  "transition_in": "seam",
+  "dur": 6.77,
+  "transition_in": "push",
   "prev": "",
   "nxt": "",
   "frog_hint": false
@@ -924,7 +924,7 @@
   "art_theme": "sh2_17",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -945,8 +945,8 @@
    ]
   },
   "text": "They rested upon the microbial mats in serene tranquility, living in a world so gentle,",
-  "dur": 6.23,
-  "transition_in": "tilt",
+  "dur": 6.39,
+  "transition_in": "seam",
   "prev": "",
   "nxt": "with few if any hunters, that paleontologists often call it the Garden of Ediacara.",
   "frog_hint": true
@@ -958,7 +958,7 @@
   "art_theme": "sh2_17",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -979,8 +979,8 @@
    ]
   },
   "text": "with few if any hunters, that paleontologists often call it the Garden of Ediacara.",
-  "dur": 6.23,
-  "transition_in": "wash",
+  "dur": 6.39,
+  "transition_in": "slide",
   "prev": "They rested upon the microbial mats in serene tranquility, living in a world so gentle,",
   "nxt": "",
   "frog_hint": false
@@ -992,7 +992,7 @@
   "art_theme": "sh2_18",
   "bg": "paper",
   "pal": {
-   "palette": "history",
+   "palette": "ocean",
    "paper_base": "#dfe6e6",
    "paper_ink": "#1a2b3a",
    "night_top": "#04101f",
@@ -1013,7 +1013,7 @@
    ]
   },
   "text": "All of it began in the quiet of a young world's oceans.",
-  "dur": 4.64,
+  "dur": 4.68,
   "transition_in": "wave",
   "prev": "",
   "nxt": "",

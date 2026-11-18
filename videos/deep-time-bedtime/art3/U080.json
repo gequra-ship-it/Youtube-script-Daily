@@ -1,31 +1,36 @@
 {
- "centre": "bright high Cretaceous sun above a lush landscape with a Triceratops and a T. rex",
+ "centre": "a pale hot sun over dry dunes and cracked mudflats, an animal resting in the shade",
  "focus": null,
  "focus_word": null,
- "labels": [],
+ "light": "right",
+ "wind": "right",
  "frog": {
   "moods": [
    {
-    "mood": "awe"
+    "mood": "surprised"
    }
   ],
-  "act": "bounce",
-  "ride": "mv-core-swell-sun",
-  "kind": "ride",
-  "x": 1198,
-  "y": 670,
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-sun"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1238,
+  "y": 600,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "outfit": [
-   "dino",
-   "pocketwatch"
-  ],
   "says": [
    {
-    "text": "Bumpy!",
-    "shout": false
+    "text": "Whoa, it grows!",
+    "shout": true
    }
   ]
  }

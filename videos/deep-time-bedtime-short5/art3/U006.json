@@ -1,45 +1,44 @@
 {
- "centre": "rolling hills dotted with the first coloured flowers",
+ "centre": "a bee-like insect flying up to a large open flower",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "petals",
-   "x": 820,
-   "y": 1180,
+   "text": "humming insects",
+   "x": 330,
+   "y": 1360,
    "to": [
-    760,
-    1300
+    230,
+    1260
    ],
-   "word": "petals"
+   "word": "humming insects"
   }
  ],
- "motion": "foreground flowers sway, a petal drops to the ground",
+ "motion": "bee follows a path to the flower with flapping wings, second insect hovers",
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "excited"
    }
   ],
-  "act": "startle",
-  "ride": "mv-core-drop-petal",
+  "act": "dance",
+  "ride": "mv-path-bee",
   "kind": "ride",
-  "x": 841,
-  "y": 1326,
+  "x": 357,
+  "y": 1278,
   "s": 1.09,
-  "flip": -1,
+  "flip": 1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "flowercrown",
-   "scarf"
+   "bee",
+   "backpack"
   ],
   "says": [
    {
-    "text": "Eek!",
-    "shout": true
+    "text": "La la la~",
+    "shout": false
    }
   ]
  }

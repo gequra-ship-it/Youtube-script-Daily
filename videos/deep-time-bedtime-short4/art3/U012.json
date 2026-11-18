@@ -1,31 +1,23 @@
 {
- "centre": "a sprawling red-sand desert of dunes and mesas with a cracked slab of baked stone",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a map of the huge supercontinent: rain clouds and moisture arrows at the coasts stop short of the dry red interior",
+ "focus": [
+  560,
+  860,
+  1.5
+ ],
+ "focus_word": "deep inland",
  "labels": [
   {
    "type": "name",
-   "text": "red sand",
-   "x": 330,
-   "y": 1060,
+   "text": "moisture",
+   "x": 380,
+   "y": 560,
    "to": [
-    480,
-    1160
+    300,
+    650
    ],
-   "word": "red sand"
-  },
-  {
-   "type": "name",
-   "text": "baked stone",
-   "x": 700,
-   "y": 1385,
-   "to": [
-    700,
-    1320
-   ],
-   "word": "baked stone"
+   "word": "moisture"
   }
  ],
- "light": "right"
+ "light": "left"
 }

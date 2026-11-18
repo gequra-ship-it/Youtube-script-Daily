@@ -1,31 +1,49 @@
 {
- "centre": "cross-section of a riverbank with two small mammals curled up asleep in their burrows",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a small warm furry mammal nibbling a seed among leaf litter and a rotting log",
+ "focus": [
+  600,
+  860,
+  1.6
+ ],
+ "focus_word": "warm-blooded",
  "labels": [
   {
    "type": "name",
-   "text": "burrows",
-   "x": 300,
-   "y": 1260,
+   "text": "seeds",
+   "x": 480,
+   "y": 1100,
    "to": [
-    370,
-    1060
+    180,
+    1290
    ],
-   "word": "burrows"
-  },
-  {
-   "type": "name",
-   "text": "riverbanks",
-   "x": 860,
-   "y": 980,
-   "to": [
-    820,
-    820
-   ],
-   "word": "riverbanks"
+   "word": "seeds"
   }
  ],
- "motion": "sleeping mammals breathe, reeds sway, a ripple on the river"
+ "motion": "mammal wobbles gently with head, tail and blink; a seed rolls across the litter; a small insect hovers",
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-core-sway-mammal",
+  "kind": "ride",
+  "x": 810,
+  "y": 953,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
 }

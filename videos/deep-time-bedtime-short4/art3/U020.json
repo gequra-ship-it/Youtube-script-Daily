@@ -1,35 +1,39 @@
 {
- "centre": "a cross-section where a rising magma dike burns through a buried coal seam, sending a gas plume out of the ground",
- "focus": [
-  548,
-  920,
-  1.6
- ],
- "focus_word": "burned through buried coal",
- "sfx": [],
+ "centre": "flood-basalt lava layers stacking up one on top of another into a vast stepped plateau, molten rock spreading across the top",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "buried coal",
-   "x": 360,
-   "y": 1100,
+   "text": "molten basalt",
+   "x": 600,
+   "y": 700,
    "to": [
-    330,
-    930
+    560,
+    856
    ],
-   "word": "buried coal"
-  },
-  {
-   "type": "name",
-   "text": "sulfur dioxide",
-   "x": 700,
-   "y": 560,
-   "to": [
-    600,
-    450
-   ],
-   "word": "sulfur dioxide"
+   "word": "molten basalt"
   }
  ],
- "light": "left"
+ "light": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 260,
+  "y": 760,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "raincoat"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

@@ -2,7 +2,6 @@
  "centre": "a wide seafloor arena: an Anomalocaris hunter swoops down from above while trilobites hurry away across the mud and a worm hides in its burrow",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -34,7 +33,7 @@
    }
   ],
   "act": {
-   "type": "growtall"
+   "type": "shrinkdown"
   },
   "outfit": [
    "goggles"
@@ -48,9 +47,10 @@
   "bside": -1,
   "says": [
    {
-    "text": "Grew!",
-    "shout": true
+    "text": "Tiny...",
+    "shout": false
    }
   ]
- }
+ },
+ "lock": true
 }

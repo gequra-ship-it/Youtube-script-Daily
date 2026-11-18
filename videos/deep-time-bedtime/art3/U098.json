@@ -1,35 +1,38 @@
 {
- "centre": "cross-section of a riverbank: a small mammal curled asleep in an underground burrow chamber, another peeking from a hole in the bank by the water",
- "focus": [
-  960,
-  700,
-  1.5
- ],
- "focus_word": "burrows",
- "sfx": [],
+ "centre": "huge curling tsunami wave beside cracked, shaking ground",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Burrows",
+   "text": "tsunamis",
    "x": 560,
-   "y": 760,
+   "y": 170,
    "to": [
-    800,
-    700
+    520,
+    320
    ],
-   "word": "burrows"
-  },
-  {
-   "type": "name",
-   "text": "Riverbanks",
-   "x": 1300,
-   "y": 625,
-   "to": [
-    1460,
-    545
-   ],
-   "word": "riverbanks"
+   "word": "tsunamis"
   }
  ],
- "motion": "sleeping mammal breathes in its burrow, the bank mammal nods out of its hole, reeds sway"
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "x": 1660,
+  "y": 340,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "explorer"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

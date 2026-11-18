@@ -1,24 +1,33 @@
 {
- "centre": "close-up profile of a Tyrannosaurus rex head, jaw slightly open showing its teeth",
- "focus": [
-  420,
-  950,
-  1.5
- ],
- "focus_word": "strongest bites",
- "sfx": [],
+ "centre": "a tall stack of rock layers (deep time) with Triceratops and T. rex standing on top",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "Tyrannosaurus rex",
-   "x": 420,
-   "y": 660,
-   "to": [
-    380,
-    790
-   ],
-   "word": "Tyrannosaurus rex"
+   "type": "num",
+   "text": "TENS OF MILLIONS OF YEARS",
+   "word": "tens of millions"
   }
  ],
- "motion": "jaw hinges open and shut (the bite), eye blinks, head breathes"
+ "motion": "rock layers appear one after another from the bottom (ticks), T. rex breathes and moves its jaw",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "x": 260,
+  "y": 960,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

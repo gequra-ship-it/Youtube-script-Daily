@@ -1,44 +1,30 @@
 {
- "centre": "a huge long-necked titanosaur walking right across a meadow of flowers",
+ "centre": "a horned Triceratops in the foreground of its herd, a small T. rex on the far ridge",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "legendary titans",
-   "x": 300,
-   "y": 600,
+   "text": "Triceratops",
+   "x": 260,
+   "y": 1180,
    "to": [
-    420,
-    1050
+    380,
+    1250
    ],
-   "word": "titans"
+   "word": "Triceratops"
+  },
+  {
+   "type": "name",
+   "text": "apex predator",
+   "x": 640,
+   "y": 420,
+   "to": [
+    830,
+    540
+   ],
+   "word": "apex predator"
   }
  ],
- "motion": "titanosaur walks along a path (camera follows), legs, neck and tail move",
- "frog": {
-  "moods": [
-   {
-    "mood": "awe"
-   }
-  ],
-  "act": "lean",
-  "ride": "mv-path-dinosaur",
-  "kind": "ride",
-  "x": 575,
-  "y": 884,
-  "s": 1.44,
-  "flip": 1,
-  "bside": -1,
-  "outfit": [
-   "wizard"
-  ],
-  "says": [
-   {
-    "text": "Here we go!",
-    "shout": false
-   }
-  ]
- }
+ "motion": "Triceratops head nods and tail sways, eyes blink; T. rex far away breathes, jaw moves"
 }

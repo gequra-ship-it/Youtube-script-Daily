@@ -1,22 +1,29 @@
 {
- "centre": "a single green fern sprout uncurling from cracked grey ash",
- "focus": [
-  960,
-  560,
-  1.6
- ],
- "focus_word": "remarkably stubborn",
- "sfx": [],
+ "centre": "glowing burning coal seam where a magma dyke crosses it underground, sulfur gas puffing from the vent above",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "say",
-   "text": "Still here!",
-   "x": 1250,
-   "y": 420,
+   "type": "name",
+   "text": "Coal",
+   "x": 560,
+   "y": 410,
    "to": [
-    1010,
-    450
-   ]
+    600,
+    505
+   ],
+   "word": "coal"
+  },
+  {
+   "type": "name",
+   "text": "Sulfur dioxide",
+   "x": 1380,
+   "y": 210,
+   "to": [
+    1000,
+    230
+   ],
+   "word": "sulfur dioxide"
   }
  ]
 }

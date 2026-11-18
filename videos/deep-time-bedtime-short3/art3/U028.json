@@ -1,19 +1,43 @@
 {
- "centre": "the muddy edge of a quiet freshwater lake: reeds, mud, puddles, and the shadow of a fish moving in the shallows",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "close-up of the armoured head of Dunkleosteus: instead of teeth, sharp bony plates on the jaw edges slowly open and close",
+ "focus": [
+  740,
+  890,
+  1.6
+ ],
+ "focus_word": "bony shearing plates",
  "labels": [
   {
    "type": "name",
-   "text": "freshwater lakes",
-   "x": 540,
-   "y": 620,
+   "text": "bony shearing plates",
+   "x": 600,
+   "y": 1060,
    "to": [
-    540,
-    900
+    740,
+    880
    ],
-   "word": "freshwater lakes"
+   "word": "bony shearing plates"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 820,
+  "y": 1240,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "says": [],
+  "bside": -1
+ }
 }

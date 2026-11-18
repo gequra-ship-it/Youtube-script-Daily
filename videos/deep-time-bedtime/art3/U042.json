@@ -1,31 +1,22 @@
 {
- "centre": "white ice-covered plain bouncing sunlight back to space",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": "think",
-  "outfit": [
-   "helmet",
-   "raincoat"
-  ],
-  "x": 1660,
-  "y": 780,
-  "s": 0.77,
-  "flip": -1,
-  "kind": "bg",
-  "says": [
-   {
-    "text": "Hmm...",
-    "shout": false
-   }
-  ],
-  "bside": -1
- }
+ "centre": "colony of single-celled organisms huddled under ice",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "single-celled organisms",
+ "labels": [
+  {
+   "type": "name",
+   "text": "single-celled",
+   "x": 1300,
+   "y": 560,
+   "to": [
+    1010,
+    520
+   ],
+   "word": "single-celled"
+  }
+ ]
 }

@@ -1,8 +1,34 @@
 {
- "centre": "a sleepy Earth marble tucked under a warm patchwork quilt that slides away",
- "focus": null,
- "focus_word": "insulation",
- "sfx": [],
- "labels": [],
- "motion": "quilt (the greenhouse insulation) slides off the globe"
+ "centre": "a tall thermometer whose red column drops fast, icy blue background",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "terrifying speed",
+ "motion": "mercury drops",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "hide",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 820,
+  "y": 880,
+  "s": 0.99,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Can't look!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

@@ -1,53 +1,45 @@
 {
- "centre": "a Dimetrodon with a tall skin sail walking across an arid plain",
- "focus": [
-  560,
-  1060,
-  1.5
- ],
- "focus_word": "magnificent skin sail",
- "sfx": [],
+ "centre": "a small sprawling synapsid climbing up a long rocky ridge",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Dimetrodon",
+   "text": "synapsids",
    "x": 300,
-   "y": 700,
+   "y": 1200,
    "to": [
-    420,
-    950
+    220,
+    1420
    ],
-   "word": "Dimetrodon"
+   "word": "synapsids"
   }
  ],
  "light": "right",
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "proud"
    }
   ],
   "act": {
-   "type": "skate",
-   "dist": 367
+   "type": "present"
   },
-  "x": 260,
-  "y": 1560,
-  "s": 0.95,
+  "ride": "mv-path-climb-synapsid",
+  "kind": "ride",
+  "x": 281,
+  "y": 1331,
+  "s": 1.44,
   "flip": 1,
-  "kind": "bg",
-  "ride": null,
-  "behind": null,
+  "bside": 1,
   "outfit": [
-   "scarf",
-   "hardhat"
+   "headlamp"
   ],
   "says": [
    {
-    "text": "Wheee!",
+    "text": "Ta-da!",
     "shout": true
    }
-  ],
-  "bside": 1
+  ]
  }
 }

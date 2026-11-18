@@ -1,24 +1,32 @@
 {
- "centre": "a glowing lump of coal burning inside an open winter furnace, with a faint memory of a swamp tree rising above",
- "focus": [
-  540,
-  880,
-  1.6
- ],
- "focus_word": "lump of coal",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "coal",
-   "x": 300,
-   "y": 1100,
-   "to": [
-    500,
-    910
-   ],
-   "word": "coal"
-  }
- ],
- "light": "right"
+ "centre": "towering Carboniferous scale trees with diamond bark rising from swamp water",
+ "focus": null,
+ "focus_word": null,
+ "light": "right",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "x": 260,
+  "y": 1000,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "hardhat",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Small!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

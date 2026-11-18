@@ -2,7 +2,35 @@
  "centre": "a softly glowing bedside lamp on a wooden table, sleeper breathing in bed at the right",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "light": "left"
+ "light": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
+  "outfit": [
+   "goggles",
+   "shield"
+  ],
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ]
+ }
 }

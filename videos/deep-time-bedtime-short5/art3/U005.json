@@ -1,20 +1,45 @@
 {
- "centre": "an early magnolia-like flower with cream and pink petals, drawn like a botanical plate",
+ "centre": "rolling hills dotted with the first coloured flowers",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "flowering plants",
-   "x": 540,
-   "y": 520,
+   "text": "petals",
+   "x": 820,
+   "y": 1180,
    "to": [
-    540,
-    770
+    760,
+    1300
    ],
-   "word": "flowering plants"
+   "word": "petals"
   }
  ],
- "motion": "core reveal of the flower"
+ "motion": "foreground flowers sway, a petal drops to the ground",
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-petal",
+  "kind": "ride",
+  "x": 841,
+  "y": 1326,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "flowercrown",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

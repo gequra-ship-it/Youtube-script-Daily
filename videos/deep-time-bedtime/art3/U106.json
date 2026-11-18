@@ -1,23 +1,49 @@
 {
- "centre": "grass clumps spreading across an open plain as a few trees stand left",
- "focus": [
-  1100,
-  740,
-  1.5
- ],
- "focus_word": "grasses",
- "sfx": [],
+ "centre": "the sun breaks through as a grey cloud bank slides away over a wide blackened plain; a small mammal crawls out of its burrow, another peeks, a first green sprout pops up",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "grasses",
-   "x": 1100,
-   "y": 560,
+   "text": "Mammals",
+   "x": 640,
+   "y": 620,
    "to": [
-    1100,
-    720
+    660,
+    770
    ],
-   "word": "grasses"
+   "word": "mammals"
   }
- ]
+ ],
+ "motion": "cloud bank slides out (skies clear), sun swells, mammal crawls out to the right along a path, sprout pops in",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1403,
+  "y": 760,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

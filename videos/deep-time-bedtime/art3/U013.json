@@ -1,1 +1,45 @@
-{"centre": "huge hazy orange newborn Moon over a cooling lava plain, seen from a dark cliff edge", "focus": [960, 760, 1.8], "focus_word": "newborn crust", "sfx": [], "labels": []}
+{
+ "centre": "a young Earth with a ring of glowing debris clumping into a new Moon at the upper right",
+ "focus": [
+  1450,
+  300,
+  1.8
+ ],
+ "focus_word": "Moon",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Moon",
+   "x": 1450,
+   "y": 150,
+   "to": [
+    1450,
+    230
+   ],
+   "word": "Moon"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-core-approach-moon",
+  "kind": "ride",
+  "x": 1583,
+  "y": 395,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
+}

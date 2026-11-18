@@ -1,42 +1,40 @@
 {
- "centre": "a blinding round glow on the horizon behind dark conifer forests, soft flames in the treetops",
+ "centre": "a towering tsunami wave curling over a cracked shore, an orange sky glow inside its curve",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "forests",
-   "x": 540,
-   "y": 1180,
+   "text": "tsunamis",
+   "x": 860,
+   "y": 420,
    "to": [
-    270,
-    1100
+    900,
+    560
    ],
-   "word": "forests"
+   "word": "tsunamis"
   }
  ],
- "motion": "the thermal glow approaches, flames flicker in the trees",
+ "motion": "the wave drifts in toward the shore, a tree topples on the cracked ground (earthquake)",
  "frog": {
   "moods": [
    {
-    "mood": "shock"
+    "mood": "surprised"
    }
   ],
   "act": {
-   "type": "gasp"
+   "type": "shrinkdown"
   },
-  "ride": "mv-core-approach-pulse-light",
-  "kind": "ride",
-  "x": 844,
-  "y": 1120,
-  "s": 1.09,
+  "x": 820,
+  "y": 1280,
+  "s": 1.0,
   "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "kind": "bg",
   "outfit": [
-   "sunglasses"
+   "goggles",
+   "raincoat"
   ],
-  "says": []
+  "says": [],
+  "bside": -1
  }
 }

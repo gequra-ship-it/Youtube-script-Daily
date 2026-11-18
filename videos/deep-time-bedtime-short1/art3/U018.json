@@ -1,39 +1,46 @@
 {
- "centre": "a tall thermometer standing over a steaming green sea, the red column sinking as the water cools",
+ "centre": "a steaming volcanic island in a wide new ocean seen from above, small islands scattered",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "4 BILLION YEARS AGO",
-   "word": "four billion"
+   "type": "name",
+   "text": "first oceans",
+   "x": 740,
+   "y": 1390,
+   "to": [
+    640,
+    1290
+   ],
+   "word": "first oceans"
   }
  ],
- "motion": "thermometer column drops",
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "proud"
    }
   ],
   "act": {
-   "type": "dizzy"
+   "type": "present"
   },
   "outfit": [
-   "goggles"
+   "goggles",
+   "scarf"
   ],
-  "x": 260,
-  "y": 800,
-  "s": 1.1,
+  "ride": "mv-core-glide-volcano-island",
+  "kind": "ride",
+  "x": 251,
+  "y": 1047,
+  "s": 1.09,
   "flip": 1,
-  "kind": "bg",
+  "bside": -1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Up we go!",
+    "text": "Ta-da!",
     "shout": true
    }
-  ],
-  "bside": 1
+  ]
  }
 }

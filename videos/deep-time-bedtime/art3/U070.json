@@ -1,29 +1,25 @@
 {
- "centre": "glowing burning coal seam where a magma dyke crosses it underground, sulfur gas puffing from the vent above",
+ "centre": "cross-section of a stagnant swamp where fallen trees pile up in layers, with a puzzled fungus on a stump",
  "focus": null,
  "focus_word": null,
+ "sfx": [
+  {
+   "name": "thud",
+   "word": "fallen trees stacked",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Coal",
-   "x": 560,
-   "y": 410,
+   "text": "Fallen trees",
+   "x": 1560,
+   "y": 650,
    "to": [
-    600,
-    505
+    1400,
+    720
    ],
-   "word": "coal"
-  },
-  {
-   "type": "name",
-   "text": "Sulfur dioxide",
-   "x": 1380,
-   "y": 210,
-   "to": [
-    1000,
-    230
-   ],
-   "word": "sulfur dioxide"
+   "word": "fallen trees"
   }
  ]
 }

@@ -1,36 +1,49 @@
 {
- "centre": "water-acidity gauge with needle in the red zone, standing on the seabed beside a thermometer climbing and fish sinking",
- "focus": [
-  960,
-  500,
-  1.7
+ "centre": "tall glowing lava fountain at the centre of a long glowing fissure in Siberian ground",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "num",
+   "text": "252 MILLION YEARS AGO",
+   "word": "252 million"
+  },
+  {
+   "type": "name",
+   "text": "Siberia",
+   "x": 420,
+   "y": 360,
+   "to": [
+    560,
+    720
+   ],
+   "word": "Siberia"
+  }
  ],
- "focus_word": "acidic",
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "sleepy"
    }
   ],
-  "act": "search",
-  "outfit": [
-   "goggles",
-   "raincoat"
-  ],
-  "ride": "mv-core-swell-gauge",
-  "kind": "ride",
-  "x": 1118,
-  "y": 620,
-  "s": 0.95,
+  "act": {
+   "type": "oldman",
+   "dist": 288
+  },
+  "x": 1660,
+  "y": 380,
+  "s": 0.76,
   "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "kind": "bg",
+  "outfit": [
+   "sunglasses"
+  ],
   "says": [
    {
-    "text": "Where is it?",
+    "text": "Eons...",
     "shout": false
    }
-  ]
+  ],
+  "bside": -1
  }
 }

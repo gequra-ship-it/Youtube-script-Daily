@@ -1,11 +1,39 @@
 {
- "centre": "a thermometer whose red column drops beside a cooling globe with ice cap",
- "focus": [
-  1100,
-  470,
-  1.4
+ "centre": "grey impact-winter landscape under a dim hazy sun: a beetle crawls toward a small mammal peeking from its burrow; faded giant bones lie far behind",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Insects",
+   "x": 900,
+   "y": 690,
+   "to": [
+    912,
+    805
+   ],
+   "word": "insects"
+  }
  ],
- "focus_word": "cool the global climate",
- "sfx": [],
- "labels": []
+ "motion": "beetle creeps right toward the burrow, mammal head nods out and blinks; still, cold scene",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 340,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
 }

@@ -1,41 +1,22 @@
 {
- "centre": "white frozen Earth like a snowball",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "oxygen bubble studded with rust-orange iron specks",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "dissolved iron",
  "labels": [
   {
    "type": "name",
-   "text": "Snowball Earth",
-   "x": 1400,
+   "text": "iron",
+   "x": 500,
    "y": 330,
    "to": [
-    1060,
-    450
+    380,
+    440
    ],
-   "word": "Snowball Earth"
+   "word": "iron"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "chilly"
-   }
-  ],
-  "act": {
-   "type": "hug"
-  },
-  "ride": "mv-core-wobble-snowball",
-  "kind": "ride",
-  "x": 1050,
-  "y": 384,
-  "s": 1.25,
-  "flip": -1,
-  "bside": -1,
-  "outfit": [
-   "lab",
-   "scarf"
-  ],
-  "says": []
- }
+ ]
 }

@@ -1,14 +1,45 @@
 {
- "centre": "a giant dragonfly relative darting upward through misty, humid swamp air",
+ "centre": "a giant griffenfly popping up to full size beside a tiny modern-sized dragonfly",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "70 CM",
-   "word": "seventy centimeters"
+   "type": "name",
+   "text": "insects",
+   "x": 300,
+   "y": 640,
+   "to": [
+    270,
+    490
+   ],
+   "word": "insects"
   }
  ],
- "light": "left"
+ "light": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "x": 260,
+  "y": 1280,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "lab",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

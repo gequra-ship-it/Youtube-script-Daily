@@ -1,38 +1,38 @@
 {
- "centre": "a huddle of single-celled organisms clinging together in a cavity of ice",
+ "centre": "a warm plume of water with cells rising from a volcanic vent beneath thick ice with liquid pockets",
  "focus": [
   540,
   860,
-  1.7
+  1.6
  ],
- "focus_word": "communities",
- "sfx": [],
- "labels": [],
- "motion": "cells gather into a ring",
+ "focus_word": "volcanic hot spots",
+ "motion": "vent glows, bubbles rise",
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "dizzy"
    }
   ],
-  "act": "magnify",
-  "ride": "mv-core-swell-warm-glow",
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-core-glide-warm-water",
   "kind": "ride",
-  "x": 864,
-  "y": 1140,
-  "s": 1.09,
+  "x": 678,
+  "y": 683,
+  "s": 1.44,
   "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "bside": -1,
   "outfit": [
-   "lab",
-   "hardhat"
+   "goggles",
+   "lifering"
   ],
   "says": [
    {
-    "text": "A clue!",
+    "text": "Tiny...",
     "shout": false
    }
   ]
- }
+ },
+ "lock": true
 }

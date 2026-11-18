@@ -1,25 +1,43 @@
 {
- "centre": "a glowing ten-kilometre asteroid streaks down through the upper atmosphere toward the curved Earth horizon at dusk",
+ "centre": "big open flower face-on with a bee flying toward it among other petalled flowers and a butterfly",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "66 MILLION YEARS AGO",
-   "word": "Sixty-six million years ago"
-  },
-  {
    "type": "name",
-   "text": "Asteroid",
-   "x": 720,
-   "y": 380,
+   "text": "Petals",
+   "x": 1220,
+   "y": 660,
    "to": [
-    565,
-    250
+    1040,
+    560
    ],
-   "word": "asteroid"
+   "word": "petals"
   }
  ],
- "motion": "asteroid travels down-right along a path (camera follows), trail streaks dash backward"
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-sway-flower",
+  "kind": "ride",
+  "x": 1136,
+  "y": 638,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "La la la~",
+    "shout": false
+   }
+  ]
+ }
 }

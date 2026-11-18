@@ -1,43 +1,36 @@
 {
- "centre": "the same small mammal at the mouth of its burrow in a grey impact winter, eyeing a beetle",
+ "centre": "the sun rising into a clear sky as dark clouds part over a blackened, burnt land",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "insects",
-   "x": 860,
-   "y": 900,
-   "to": [
-    860,
-    1040
-   ],
-   "word": "insects"
-  }
- ],
- "motion": "mammal sways gently (head, tail, blink), beetle hops",
+ "motion": "clouds slide apart, the sun rises into view",
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "dizzy"
    }
   ],
   "act": {
-   "type": "shrinkdown"
+   "type": "dizzy"
   },
-  "ride": "mv-core-sway-mammal",
-  "kind": "ride",
-  "x": 810,
-  "y": 953,
+  "ride": null,
+  "kind": "bg",
+  "x": 555,
+  "y": 810,
   "s": 1.09,
-  "flip": -1,
+  "flip": 1,
   "bside": 1,
-  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "outfit": [
-   "scarf",
-   "leafhat"
+   "sunglasses",
+   "scarf"
   ],
-  "says": []
+  "says": [
+   {
+    "text": "Wait!",
+    "shout": true
+   }
+  ]
  }
 }

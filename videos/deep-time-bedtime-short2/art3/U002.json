@@ -1,32 +1,38 @@
 {
- "centre": "sun over a sky that turns from copper haze to blue above a green-matted sea",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "copper sky fades to blue",
+ "centre": "a big glowing colony of green cyanobacteria cells in a sunlit sea, chains of cells drifting around",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "motion": "colony swells, chains drift",
  "frog": {
   "moods": [
    {
-    "mood": "awe"
+    "mood": "surprised"
    }
   ],
-  "act": "bounce",
-  "ride": "mv-core-swell-sun-disc",
-  "kind": "ride",
-  "x": 844,
-  "y": 1120,
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-cyanobacteria-colony"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 794,
+  "y": 1070,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "outfit": [
-   "explorer"
-  ],
   "says": [
    {
-    "text": "Boing boing.",
-    "shout": false
+    "text": "Whoa, it grows!",
+    "shout": true
    }
   ]
  }

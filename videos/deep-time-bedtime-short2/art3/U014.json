@@ -1,36 +1,23 @@
 {
- "centre": "a tall thermometer whose red column drops fast, icy blue background",
+ "centre": "Earth as a white cracked snowball",
  "focus": [
   540,
   860,
   1.6
  ],
- "focus_word": "terrifying speed",
- "sfx": [],
- "labels": [],
- "motion": "mercury drops",
- "frog": {
-  "moods": [
-   {
-    "mood": "squint"
-   }
-  ],
-  "act": "wind",
-  "outfit": [
-   "diver"
-  ],
-  "ride": "mv-core-tremble-thermometer-bulb",
-  "kind": "ride",
-  "x": 660,
-  "y": 707,
-  "s": 1.44,
-  "flip": -1,
-  "bside": -1,
-  "says": [
-   {
-    "text": "Whooosh!",
-    "shout": true
-   }
-  ]
- }
+ "focus_word": "Snowball Earth",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Snowball Earth",
+   "x": 540,
+   "y": 520,
+   "to": [
+    540,
+    650
+   ],
+   "word": "Snowball Earth"
+  }
+ ],
+ "motion": "snowball slowly turns"
 }

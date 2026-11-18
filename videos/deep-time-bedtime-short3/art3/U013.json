@@ -2,20 +2,15 @@
  "centre": "side view: Anomalocaris glides gracefully from left to right above a calm seafloor of fronds and sponges",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "binocs"
-  },
+  "act": "lean",
   "outfit": [
-   "diver",
-   "flippers"
+   "headlamp"
   ],
   "ride": "mv-path-anomalocaris",
   "kind": "ride",
@@ -26,9 +21,10 @@
   "bside": 1,
   "says": [
    {
-    "text": "Ooh!",
-    "shout": true
+    "text": "Here we go!",
+    "shout": false
    }
   ]
- }
+ },
+ "lock": true
 }

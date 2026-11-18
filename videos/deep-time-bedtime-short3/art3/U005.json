@@ -2,7 +2,6 @@
  "centre": "an hourglass stands on the Cambrian seafloor; its sand runs down to show a span of tens of millions of years",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "num",
@@ -13,21 +12,22 @@
  "frog": {
   "moods": [
    {
-    "mood": "shock"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "gasp"
+   "type": "measure"
   },
-  "x": 260,
-  "y": 1120,
-  "s": 1.05,
-  "flip": 1,
-  "kind": "bg",
   "outfit": [
-   "sailorhat"
+   "diver",
+   "flippers"
   ],
+  "x": 820,
+  "y": 1160,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
   "says": [],
-  "bside": 1
+  "bside": -1
  }
 }
