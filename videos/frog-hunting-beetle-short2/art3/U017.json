@@ -1,33 +1,34 @@
 {
- "centre": "limp drooping frog tongue while a fly buzzes past",
+ "centre": "thought bubble: the frog imagines gulping the larva",
  "focus": null,
  "focus_word": null,
- "iris": [
-  772,
-  1094
- ],
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "tongue",
-   "x": 820,
-   "y": 1060,
-   "to": [
-    772,
-    1064
-   ],
-   "word": "tongue"
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-U018-thought-bubble"
   },
-  {
-   "type": "say",
-   "text": "Missed me!",
-   "x": 620,
-   "y": 400,
-   "to": [
-    760,
-    510
-   ]
-  }
- ]
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 696,
+  "y": 972,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

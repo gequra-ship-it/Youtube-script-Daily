@@ -6,27 +6,16 @@
   1.5
  ],
  "focus_word": "on its back",
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Can't reach it!",
-   "x": 540,
-   "y": 520,
-   "to": [
-    540,
-    670
-   ]
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "angry"
+    "mood": "scared"
    }
   ],
-  "act": "bounce",
-  "ride": "mv-core-heartbeat-adult-beetle",
+  "act": {
+   "type": "hideshell"
+  },
+  "ride": "mv-core-sway-adult-beetle",
   "kind": "ride",
   "x": 660,
   "y": 998,
@@ -39,7 +28,7 @@
   ],
   "says": [
    {
-    "text": "Boing boing.",
+    "text": "Eep.",
     "shout": false
    }
   ]

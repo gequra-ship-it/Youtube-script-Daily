@@ -1,18 +1,12 @@
 {
- "centre": "thought bubble: the frog imagines gulping the larva",
+ "centre": "round belly window showing the swallowed larva; larva spat out alive",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Plan B?",
-   "x": 820,
-   "y": 1080,
-   "to": [
-    595,
-    1207
-   ]
+   "type": "num",
+   "text": "7 TRIALS",
+   "word": "seven"
   }
  ],
  "frog": {
@@ -22,10 +16,12 @@
    }
   ],
   "act": {
-   "type": "peer"
+   "type": "heartlisten",
+   "obj": "mv-core-heartbeat-U019-belly-window"
   },
-  "ride": "mv-core-swell-U018-thought-bubble",
-  "kind": "ride",
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
   "x": 696,
   "y": 972,
   "s": 1.09,
@@ -33,11 +29,11 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "explorer"
+   "flowercrown"
   ],
   "says": [
    {
-    "text": "Hmm?",
+    "text": "Thump... thump.",
     "shout": false
    }
   ]

@@ -1,18 +1,48 @@
 {
- "centre": "open rule book; the frog-eats-bug arrow flips to point back at the frog, larva sits on the page",
+ "centre": "empty dinner plate between a worried frog and a larva wearing a bib",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "New rule.",
+   "type": "name",
+   "text": "Beetle",
    "x": 1560,
-   "y": 180,
+   "y": 330,
    "to": [
-    1230,
-    270
-   ]
+    1500,
+    610
+   ],
+   "word": "beetle"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": {
+   "type": "steadyit",
+   "obj": "mv-core-wobble-plate"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1148,
+  "y": 640,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bee",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Careful!",
+    "shout": true
+   }
+  ]
+ }
 }

@@ -1,44 +1,42 @@
 {
- "centre": "the frog stepping closer from the right while the larva on a mossy log waves its antennae and hooked jaws",
+ "centre": "the frog's pink tongue shooting in a blur toward the larva, a stopwatch hand racing",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Antennae",
-   "x": 300,
-   "y": 700,
+   "text": "Tongue",
+   "x": 780,
+   "y": 720,
    "to": [
-    470.8,
-    883.2
+    735,
+    1027
    ],
-   "word": "antennae"
+   "word": "tongue"
   }
  ],
  "frog": {
   "moods": [
    {
+    "mood": "squint"
+   },
+   {
+    "word": "A frog's",
     "mood": "happy"
    }
   ],
-  "act": "lean",
-  "ride": "mv-path-young-frog",
-  "kind": "ride",
-  "x": 713,
-  "y": 964,
-  "s": 1.44,
-  "flip": -1,
-  "bside": -1,
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 1560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
   "outfit": [
-   "shark",
-   "backpack"
+   "explorer"
   ],
-  "says": [
-   {
-    "text": "Here we go!",
-    "shout": false
-   }
-  ]
+  "says": [],
+  "bside": 1
  }
 }

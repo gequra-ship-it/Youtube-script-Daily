@@ -1,23 +1,35 @@
 {
- "centre": "a round score dial with its needle quivering near the top of the scale",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "CLOSE TO 100 %",
-   "word": "one hundred percent"
-  },
-  {
-   "type": "say",
-   "text": "Not fair!",
-   "x": 800,
-   "y": 1050,
-   "to": [
-    728,
-    1170
-   ]
-  }
- ]
+ "centre": "a round pond stone where a frog landed by accident and found a larva clinging at its side",
+ "focus": [
+  470,
+  790,
+  1.6
+ ],
+ "focus_word": "ended badly",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-core-glide-stone",
+  "kind": "ride",
+  "x": 699,
+  "y": 1015,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bandage",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
 }

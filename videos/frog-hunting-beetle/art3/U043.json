@@ -1,7 +1,39 @@
 {
- "centre": "front view of the frog with a swelling throat, eyes wide, thinking about the larva it cannot shake off",
+ "centre": "a frog in a clear test arena spitting a small larva out in an arc",
  "focus": null,
- "labels": [],
  "focus_word": null,
- "sfx": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "7 TRIALS",
+   "word": "seven"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "love"
+   }
+  ],
+  "act": {
+   "type": "sniff"
+  },
+  "ride": "mv-path-drop-epomis-larva",
+  "kind": "ride",
+  "x": 949,
+  "y": 689,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Ahh~",
+    "shout": false
+   }
+  ]
+ }
 }

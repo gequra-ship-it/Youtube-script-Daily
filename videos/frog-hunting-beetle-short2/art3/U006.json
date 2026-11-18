@@ -1,11 +1,30 @@
 {
- "centre": "macro close-up of the frog's wet, glossy, sticky tongue pad with stretchy strands",
- "focus": [
-  540,
-  900,
-  1.5
- ],
- "focus_word": "wet and sticky",
- "sfx": [],
- "labels": []
+ "centre": "the frog's tongue snapping back toward its mouth with a surprised little fly stuck on the tip",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "eat",
+  "ride": "mv-path-snap-fly",
+  "kind": "ride",
+  "x": 386,
+  "y": 1264,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Nom nom.",
+    "shout": false
+   }
+  ]
+ }
 }

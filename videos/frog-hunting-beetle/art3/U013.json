@@ -1,29 +1,55 @@
 {
- "centre": "lab Petri dish: the larva ignores a tray of worm, snail and cricket and turns to a small frog",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "stylised map scroll with a red pin dropping on Israel; small university building",
+ "focus": [
+  1150,
+  470,
+  1.5
+ ],
+ "focus_word": "Israel",
  "labels": [
   {
-   "type": "name",
-   "text": "Laboratory",
-   "x": 640,
-   "y": 260,
-   "to": [
-    800,
-    560
-   ],
-   "word": "laboratory"
+   "type": "num",
+   "text": "2011",
+   "word": "2011"
   },
   {
-   "type": "say",
-   "text": "Frogs only.",
-   "x": 980,
-   "y": 380,
+   "type": "name",
+   "text": "Israel",
+   "x": 920,
+   "y": 360,
    "to": [
-    1010,
-    560
-   ]
+    1150,
+    440
+   ],
+   "word": "Israel"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "ride": "mv-core-sway-map-pin",
+  "kind": "ride",
+  "x": 1232,
+  "y": 539,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
 }
