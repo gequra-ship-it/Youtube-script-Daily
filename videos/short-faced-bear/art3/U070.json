@@ -1,20 +1,30 @@
 {
- "centre": "a ghosted Arctodus walking along a winding scent trail across a misty Ice Age landscape",
+ "centre": "an animal carcass on the cold steppe with a storm rolling in, ravens and a fox closing in, a bear far away",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "scent trails",
-   "x": 900,
-   "y": 590,
+   "text": "weather",
+   "x": 420,
+   "y": 470,
    "to": [
-    960,
-    740
+    380,
+    320
    ],
-   "word": "scent trails"
+   "word": "weather"
+  },
+  {
+   "type": "name",
+   "text": "smaller animals",
+   "x": 1640,
+   "y": 850,
+   "to": [
+    1450,
+    790
+   ],
+   "word": "smaller animals"
   }
  ],
- "motion": "Arctodus walks along the trail (path, 4 leg joints, camera tracks); trail dashes march"
+ "motion": "storm cloud scrolls in, raven hops (moving prop); horizon wide shot"
 }

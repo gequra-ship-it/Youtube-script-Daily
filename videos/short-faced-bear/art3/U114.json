@@ -1,20 +1,62 @@
 {
- "centre": "family tree of short-faced bears: grey ghost branches end in extinct bears, one green branch ends in the living spectacled bear face",
+ "centre": "a small hiker climbing a trail into misty Andes cloud-forest ridges, with a map card of the Andes route",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "short-faced bear subfamily",
-   "x": 1380,
-   "y": 800,
+   "text": "Andes",
+   "x": 760,
+   "y": 260,
    "to": [
-    985,
-    800
+    820,
+    380
    ],
-   "word": "subfamily"
+   "word": "Andes"
+  },
+  {
+   "type": "name",
+   "text": "Venezuela",
+   "x": 1240,
+   "y": 190,
+   "to": [
+    1514,
+    262
+   ],
+   "word": "Venezuela"
+  },
+  {
+   "type": "name",
+   "text": "Bolivia",
+   "x": 1250,
+   "y": 700,
+   "to": [
+    1524,
+    642
+   ],
+   "word": "Bolivia"
   }
  ],
- "motion": "family tree draws on, living bear face core-approach; diagram composition"
+ "motion": "hiker path up the trail, mist bands scroll, andes route draws on the map; map + horizon composition",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 1560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "explorer",
+   "scarf"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

@@ -1,42 +1,51 @@
 {
- "centre": "museum hall: a weighing dial whose needle swings widely between a smaller female and a bigger male Arctodus, fossil femur in front",
+ "centre": "Arctodus walking from a snowy spruce valley (left) toward warm golden open plains (right)",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "females",
-   "x": 430,
-   "y": 380,
+   "text": "northern valleys",
+   "x": 330,
+   "y": 200,
    "to": [
-    520,
-    560
+    330,
+    470
    ],
-   "word": "females"
+   "word": "northern valleys"
   },
   {
    "type": "name",
-   "text": "males",
-   "x": 1580,
-   "y": 300,
+   "text": "open country",
+   "x": 1560,
+   "y": 400,
    "to": [
-    1480,
-    520
+    1560,
+    640
    ],
-   "word": "males"
-  },
-  {
-   "type": "name",
-   "text": "fossil evidence",
-   "x": 660,
-   "y": 850,
-   "to": [
-    860,
-    818
-   ],
-   "word": "fossil evidence"
+   "word": "open country"
   }
  ],
- "motion": "joint: dial needle swings wide (estimates vary)"
+ "motion": "creep: Arctodus walks right (legs jointed); spruces and grass sway",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck"
+  },
+  "x": 260,
+  "y": 560,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

@@ -1,31 +1,66 @@
 {
- "centre": "lab bench: a big Arctodus limb bone beside a smaller living-bear bone, a dashed longer old estimate fades away, a tape measure unrolls",
- "motion": "unroll tape measure, fade the old long-legged estimate, researcher breathes",
+ "centre": "a study desk: an open popular-science book showing a running bear, a stack of magazines, and a 'running bear' poster unrolling on the wall",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Arctodus",
-   "x": 1000,
-   "y": 420,
+   "text": "running bear",
+   "x": 1460,
+   "y": 560,
    "to": [
-    960,
-    568
+    1460,
+    360
    ],
-   "word": "Arctodus"
+   "word": "running bear"
   },
   {
    "type": "name",
-   "text": "living bears",
-   "x": 1400,
-   "y": 740,
+   "text": "popular science",
+   "x": 430,
+   "y": 850,
    "to": [
-    1000,
-    630
+    440,
+    740
    ],
-   "word": "living bears"
+   "word": "popular science"
   }
- ]
+ ],
+ "iris": [
+  960,
+  690
+ ],
+ "motion": "unroll: the running-bear poster opens",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "Some",
+    "mood": "happy"
+   }
+  ],
+  "act": "shiver",
+  "x": 260,
+  "y": 1560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "run",
+   "dist": 540
+  },
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

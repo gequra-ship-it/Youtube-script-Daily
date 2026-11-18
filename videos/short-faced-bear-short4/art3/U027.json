@@ -1,19 +1,49 @@
 {
- "centre": "Arctodus calm on a near ridge while, far off in the valley, hunters chase the bison herd: pressure on its food, not on the bear",
+ "centre": "an Arctodus skull in an excavation grid, a magnifying glass sweeping over it; a lone stone point fragment lies far away in another layer",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "its food",
-   "x": 260,
-   "y": 700,
+   "text": "Arctodus",
+   "x": 540,
+   "y": 1210,
    "to": [
-    270,
-    850
+    520,
+    1000
    ],
-   "word": "its food"
+   "word": "Arctodus"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-magnifier-glass",
+  "kind": "ride",
+  "x": 194,
+  "y": 1012,
+  "s": 1.04,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
 }

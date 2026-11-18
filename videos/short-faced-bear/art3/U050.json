@@ -1,20 +1,59 @@
 {
- "centre": "the Arctodus standing calmly while many foods (berries, fish, meat, roots) gather around it; a ghosted cracked bone fades away",
+ "centre": "a framed old card of the running bear on a shelf topples toward an archive box while a new measurement chart slides onto the board",
+ "motion": "slide in of the chart, topple of the old card (did not survive)",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Flexible omnivore",
-   "x": 1000,
-   "y": 250,
+   "text": "running bear",
+   "x": 710,
+   "y": 240,
    "to": [
-    960,
-    450
+    710,
+    420
    ],
-   "word": "flexible omnivore"
+   "word": "running bear"
+  },
+  {
+   "type": "name",
+   "text": "new measurements",
+   "x": 1215,
+   "y": 500,
+   "to": [
+    1215,
+    300
+   ],
+   "word": "new measurements"
   }
  ],
- "motion": "foods converge onto the ground, cracked bone fades out, spruce sways"
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "It simply",
+    "mood": "happy"
+   }
+  ],
+  "act": "idea",
+  "ride": "mv-slide-measurement-chart",
+  "kind": "ride",
+  "x": 1215,
+  "y": 168,
+  "s": 1.0,
+  "flip": -1,
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Aha!",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

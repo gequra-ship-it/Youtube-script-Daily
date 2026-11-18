@@ -1,20 +1,30 @@
 {
- "centre": "Arctodus skull seen from above on a light table, wide cheekbone arches with big red jaw muscles inside, width arrow",
+ "centre": "skull diagram with a red jaw muscle close to the teeth, a short-distance arrow, and a lever below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "cheekbones",
-   "x": 260,
-   "y": 640,
+   "text": "jaw muscles",
+   "x": 300,
+   "y": 360,
    "to": [
-    250,
-    860
+    560,
+    520
    ],
-   "word": "cheekbones"
+   "word": "jaw muscles"
+  },
+  {
+   "type": "name",
+   "text": "leverage",
+   "x": 300,
+   "y": 1370,
+   "to": [
+    360,
+    1236
+   ],
+   "word": "leverage"
   }
  ],
- "motion": "mv-jiggle both jaw muscles, mv-draw width arrow"
+ "motion": "mv-joint skull jaw (hinge pin), mv-draw arrow, mv-tilt lever beam"
 }

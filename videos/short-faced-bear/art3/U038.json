@@ -1,8 +1,67 @@
 {
- "centre": "misty snow plain: a trail of paw prints leads to the Arctodus walking calmly in the distance",
- "motion": "walk of the bear with leg joints, paw prints appear one by one",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "side view of the Arctodus with a see-through chest: pale blue lungs and a glowing red heart",
+ "motion": "core heartbeat on the heart (sentence: heart), breath steam, eye blink",
+ "focus": [
+  1020,
+  540,
+  1.5
+ ],
+ "focus_word": "deep chest",
+ "labels": [
+  {
+   "type": "name",
+   "text": "lungs",
+   "x": 860,
+   "y": 300,
+   "to": [
+    964,
+    502
+   ],
+   "word": "lungs"
+  },
+  {
+   "type": "name",
+   "text": "heart",
+   "x": 1300,
+   "y": 660,
+   "to": [
+    1091,
+    554
+   ],
+   "word": "heart"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "It seemed",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "heartlisten",
+   "obj": "mv-core-heartbeat-heart"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 967,
+  "y": 634,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Thump... thump.",
+    "shout": false
+   }
+  ]
+ }
 }

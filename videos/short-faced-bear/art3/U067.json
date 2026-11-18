@@ -1,41 +1,34 @@
 {
- "centre": "an animal carcass on the cold steppe with a storm rolling in, ravens and a fox closing in, a bear far away",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "nearly one-ton Arctodus raising a huge forepaw beside a much smaller saber-toothed cat",
+ "focus": [
+  1000,
+  520,
+  1.5
+ ],
+ "focus_word": "huge forepaws",
  "labels": [
   {
    "type": "name",
-   "text": "weather",
-   "x": 420,
-   "y": 470,
+   "text": "saber-toothed cat",
+   "x": 470,
+   "y": 380,
    "to": [
-    380,
-    320
+    540,
+    650
    ],
-   "word": "weather"
+   "word": "saber-toothed cat"
   },
   {
    "type": "name",
-   "text": "smaller animals",
-   "x": 1640,
-   "y": 850,
+   "text": "huge forepaws",
+   "x": 760,
+   "y": 230,
    "to": [
-    1450,
-    790
+    905,
+    345
    ],
-   "word": "smaller animals"
-  },
-  {
-   "type": "say",
-   "text": "Mine first!",
-   "x": 1150,
-   "y": 560,
-   "to": [
-    1300,
-    790
-   ]
+   "word": "huge forepaws"
   }
  ],
- "motion": "storm cloud scrolls in, raven hops (moving prop); horizon wide shot"
+ "motion": "joint foreleg swipe on Arctodus, saber cat tail/head joints; size comparison composition"
 }

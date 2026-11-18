@@ -1,31 +1,45 @@
 {
- "centre": "Arctodus skull on a desk under a lamp, a magnifying lens sliding along the teeth showing them enlarged",
+ "centre": "close-up of heavy crushing molars on a jaw, with a ghosted dream cloud above showing a bear cracking a bone at old ribs",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "skull",
-   "x": 760,
-   "y": 600,
+   "text": "crushing teeth",
+   "x": 540,
+   "y": 1270,
    "to": [
-    700,
-    760
+    480,
+    1100
    ],
-   "word": "skull"
-  },
-  {
-   "type": "name",
-   "text": "teeth",
-   "x": 830,
-   "y": 1200,
-   "to": [
-    780,
-    960
-   ],
-   "word": "teeth"
+   "word": "crushing teeth"
   }
  ],
- "motion": "mv-path magnifier lens along the teeth, mv-lamp desk lamp"
+ "motion": "mv-fade dream cloud in (ghosted, hedged 'imagined'), mv-shake dream bone, ghost bear head/leg joints, mv-core-glide teeth",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shrinkdown",
+  "ride": "mv-core-glide-crushing-teeth",
+  "kind": "ride",
+  "x": 283,
+  "y": 1091,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "lab",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "lock": true
+ }
 }

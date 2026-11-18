@@ -1,24 +1,41 @@
 {
- "centre": "a wide meadow-to-river panorama: a brown bear grazing grass, digging roots, eating berries and fishing a jumping salmon",
+ "centre": "a brown bear in a meadow with its many foods around it: berries, dug-up roots, a ham-bone of meat and a salmon leaping from the river",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "world": [
-  3840,
-  1080
- ],
  "labels": [
   {
    "type": "name",
-   "text": "grasses",
-   "x": 520,
+   "text": "berries",
+   "x": 330,
    "y": 470,
    "to": [
-    460,
-    760
+    330,
+    640
    ],
-   "word": "grasses"
+   "word": "berries"
+  },
+  {
+   "type": "name",
+   "text": "roots",
+   "x": 230,
+   "y": 860,
+   "to": [
+    400,
+    930
+   ],
+   "word": "roots"
+  },
+  {
+   "type": "name",
+   "text": "fish",
+   "x": 1700,
+   "y": 640,
+   "to": [
+    1500,
+    765
+   ],
+   "word": "fish"
   }
  ],
- "motion": "track: camera travels grasses -> roots -> berries -> river; toss: a salmon leaps; joint heads nod"
+ "motion": "toss: a salmon leaps out of the river (fish on the menu); brown bear blinks and shifts"
 }

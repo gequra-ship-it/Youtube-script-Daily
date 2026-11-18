@@ -1,30 +1,45 @@
 {
- "centre": "a small spectacled bear on a misty ledge looking at pale ghost shapes of the Ice Age giants in the clouds",
+ "centre": "family tree of short-faced bears: grey ghost branches end in extinct bears, one green branch ends in the living spectacled bear face",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Just me now.",
-   "x": 520,
-   "y": 470,
-   "to": [
-    775,
-    560
-   ]
-  },
-  {
    "type": "name",
-   "text": "Ice Age giants",
-   "x": 1320,
-   "y": 160,
+   "text": "short-faced bear subfamily",
+   "x": 1380,
+   "y": 800,
    "to": [
-    1250,
-    330
+    985,
+    800
    ],
-   "word": "Ice Age giants"
+   "word": "subfamily"
   }
  ],
- "motion": "bear breathes, ghost herd floats; foreground/background composition"
+ "motion": "family tree draws on, living bear face core-approach; diagram composition",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-core-approach-spectacled-bear",
+  "kind": "ride",
+  "x": 811,
+  "y": 507,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Eek...",
+    "shout": false
+   }
+  ]
+ }
 }

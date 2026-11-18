@@ -1,21 +1,59 @@
 {
- "centre": "a round magnifying lens (same size as the previous dial) showing the Arctodus head, gliding over a three-tier food web: plants, grazers (mammoth, bison), hunters (dire wolf, saber cat); a marker climbs a level ruler",
+ "centre": "close-up of heavy crushing teeth; a dashed dream cloud shows a translucent Arctodus cracking a big bone at an old carcass",
+ "motion": "bone chips scatter in the imagined scene (hypothesis: imagined, ghosted), eye blink",
  "focus": null,
  "focus_word": null,
- "track": false,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Food web",
-   "x": 1500,
-   "y": 250,
+   "text": "crushing teeth",
+   "x": 470,
+   "y": 300,
    "to": [
-    1360,
-    380
+    520,
+    450
    ],
-   "word": "food web"
+   "word": "crushing teeth"
+  },
+  {
+   "type": "name",
+   "text": "scavenger",
+   "x": 1340,
+   "y": 790,
+   "to": [
+    1430,
+    500
+   ],
+   "word": "scavenger"
   }
  ],
- "motion": "lens glides (core), marker rises up the ruler, food-web links flow"
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "It is",
+    "mood": "happy"
+   },
+   {
+    "word": "Some researchers",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "rubhands"
+  },
+  "x": 820,
+  "y": 560,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "lab",
+   "scarf"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

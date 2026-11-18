@@ -1,63 +1,23 @@
 {
- "centre": "a vertical line-up of the big plant-eaters: a giant ground sloth, a western camel and a mammoth, popping in one by one",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a big wooden food bowl whose heap of meat and bones sinks lower and lower while a worried Arctodus looks in",
+ "focus": [
+  560,
+  900,
+  1.5
+ ],
+ "focus_word": "food supply",
  "labels": [
   {
    "type": "name",
-   "text": "ground sloths",
-   "x": 720,
-   "y": 420,
+   "text": "food supply",
+   "x": 380,
+   "y": 620,
    "to": [
-    360,
-    520
+    500,
+    840
    ],
-   "word": "ground sloths"
-  },
-  {
-   "type": "name",
-   "text": "western camels",
-   "x": 330,
-   "y": 800,
-   "to": [
-    650,
-    880
-   ],
-   "word": "western camels"
-  },
-  {
-   "type": "name",
-   "text": "mammoths",
-   "x": 830,
-   "y": 1140,
-   "to": [
-    560,
-    1230
-   ],
-   "word": "mammoths"
+   "word": "food supply"
   }
  ],
- "motion": "popin x3 timed to each animal name, joints on tails/arms/necks/trunk",
- "frog": {
-  "moods": [
-   {
-    "mood": "shock"
-   }
-  ],
-  "act": {
-   "type": "gasp"
-  },
-  "x": 260,
-  "y": 840,
-  "s": 1.05,
-  "flip": 1,
-  "kind": "bg",
-  "outfit": [
-   "scarf",
-   "hardhat"
-  ],
-  "says": [],
-  "bside": 1
- }
+ "motion": "fill: food level drops (decline), bear head joint"
 }

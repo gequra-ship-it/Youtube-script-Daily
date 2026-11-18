@@ -1,31 +1,45 @@
 {
- "centre": "a big close-up of the short-faced bear's head with its short, broad snub nose; a giant tooth pops in on the left",
- "motion": "popin (tooth) + nod (head) + blink",
+ "centre": "the giant short-faced bear striding confidently through an Ice Age snowstorm between swaying spruces",
+ "motion": "core approach (bear) + leg/head joints + blink + sway (spruces) + rollby (snowball)",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "wind": "left",
  "labels": [
   {
    "type": "name",
-   "text": "bear tooth",
-   "x": 470,
-   "y": 700,
+   "text": "Arctodus simus",
+   "x": 760,
+   "y": 300,
    "to": [
-    462,
-    580
+    900,
+    470
    ],
-   "word": "bear tooth"
-  },
-  {
-   "type": "name",
-   "text": "snub-nosed",
-   "x": 1320,
-   "y": 340,
-   "to": [
-    1380,
-    500
-   ],
-   "word": "snub-nosed"
+   "word": "Arctodus simus"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-arctodus-bear",
+  "kind": "ride",
+  "x": 700,
+  "y": 784,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

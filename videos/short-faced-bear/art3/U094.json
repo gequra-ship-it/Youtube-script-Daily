@@ -1,20 +1,45 @@
 {
- "centre": "a brown bear (smaller, long snout, shoulder hump) walking out of a melting snow steppe into a greening spruce meadow",
+ "centre": "a sketch map of the North Pacific: a dashed route and a little brown bear travelling from Asia over the Beringia land bridge and south through North America",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "omnivore",
-   "x": 760,
-   "y": 360,
+   "text": "Asia",
+   "x": 220,
+   "y": 160,
    "to": [
-    960,
-    560
+    280,
+    360
    ],
-   "word": "omnivore"
+   "word": "Asia"
   }
  ],
- "motion": "walk: the brown bear walks from snow into the meadow (changing world); hatch: a spruce sapling sprouts; sway: spruce trees"
+ "motion": "draw: the migration route draws itself; path: the brown bear icon walks along it from Asia and south (camera tracks)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-path-brown-bear",
+  "kind": "ride",
+  "x": 541,
+  "y": 301,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ]
+ }
 }

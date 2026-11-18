@@ -1,31 +1,30 @@
 {
- "centre": "the same fossil leg bone, linked to a caliper above, a chemistry flask and a computer model below",
+ "centre": "a large fossil leg bone exposed in a dug pit, cross-section of rock layers with smaller fossils",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "chemistry",
+   "text": "Fossils",
    "x": 300,
-   "y": 980,
+   "y": 1200,
    "to": [
-    300,
-    1180
+    230,
+    1122
    ],
-   "word": "chemistry"
+   "word": "Fossils"
   },
   {
    "type": "name",
-   "text": "computer models",
-   "x": 770,
-   "y": 960,
+   "text": "bones",
+   "x": 700,
+   "y": 1040,
    "to": [
-    770,
-    1100
+    610,
+    860
    ],
-   "word": "computer models"
+   "word": "bones"
   }
  ],
- "motion": "match transition (same bone), mv-core-glide bone, mv-nudge caliper jaw, mv-bubble flask, mv-draw wireframe on the monitor"
+ "motion": "mv-core-reveal femur bone, mv-flagwave flag on the dig stake"
 }

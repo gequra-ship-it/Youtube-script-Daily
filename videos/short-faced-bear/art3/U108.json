@@ -1,35 +1,54 @@
 {
- "centre": "earth cross-section: a melting glacier at the surface (end of the Ice Age), a fossil Arctodus jaw in the top layer, a radiocarbon dial and test tubes",
- "focus": [
-  840,
-  500,
-  1.6
- ],
- "focus_word": "Ice Age",
- "sfx": [],
+ "centre": "the Arctodus pressed in the middle: a storm cloud slides in from the left, a brown bear from the right, its bone pile shrinks below",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "radiocarbon dating",
-   "x": 1300,
-   "y": 470,
+   "text": "climate",
+   "x": 460,
+   "y": 140,
    "to": [
-    1440,
-    330
+    360,
+    300
    ],
-   "word": "radiocarbon dating"
+   "word": "climate"
   },
   {
    "type": "name",
-   "text": "Ice Age",
-   "x": 640,
-   "y": 340,
+   "text": "brown bears",
+   "x": 1560,
+   "y": 470,
    "to": [
-    520,
-    380
+    1560,
+    700
    ],
-   "word": "Ice Age"
+   "word": "brown bears"
   }
  ],
- "motion": "joint: the radiocarbon dial needle swings; drip: meltwater from the glacier (end of the Ice Age)"
+ "motion": "slide: storm cloud and brown bear close in (pressed); grow (shrinking): the food pile shrinks",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-slide-storm-cloud",
+  "kind": "ride",
+  "x": 511,
+  "y": 268,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
 }

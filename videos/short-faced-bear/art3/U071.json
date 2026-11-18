@@ -1,71 +1,37 @@
 {
- "centre": "mounted Arctodus skeleton in a museum: bones and teeth survive, a faint ghost of the living bear's behaviour fades",
+ "centre": "close-up of a modern brown bear's long snout sniffing scent ribbons drifting from a carcass far away",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "breath",
+   "word": "scent",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "bones",
-   "x": 700,
-   "y": 220,
+   "text": "Modern bears",
+   "x": 420,
+   "y": 230,
    "to": [
-    780,
-    410
+    480,
+    400
    ],
-   "word": "bones"
+   "word": "Modern bears"
   },
   {
    "type": "name",
-   "text": "teeth",
-   "x": 360,
-   "y": 560,
-   "to": [
-    362,
-    668
-   ],
-   "word": "teeth"
-  },
-  {
-   "type": "name",
-   "text": "not behavior",
+   "text": "very far away",
    "x": 1560,
-   "y": 380,
+   "y": 520,
    "to": [
-    1560,
-    560
+    1650,
+    670
    ],
-   "word": "not behavior"
+   "word": "very far away"
   }
  ],
- "motion": "ghost of living behaviour fades; hanging lantern swings (prop); museum composition",
- "frog": {
-  "moods": [
-   {
-    "mood": "chilly"
-   },
-   {
-    "word": "Fossils preserve",
-    "mood": "happy"
-   }
-  ],
-  "act": "shiver",
-  "ride": "mv-swing-hanging-lantern",
-  "kind": "ride",
-  "x": 1400,
-  "y": 122,
-  "s": 1.0,
-  "flip": -1,
-  "outfit": [
-   "scarf",
-   "headlamp"
-  ],
-  "says": [
-   {
-    "text": "Eek...",
-    "shout": false
-   }
-  ],
-  "bside": -1
- }
+ "motion": "scent trail dashes march toward the nose; nose glint; close-up composition"
 }

@@ -1,30 +1,41 @@
 {
- "centre": "a huge Arctodus perched on a narrow, teetering rock pillar beside a small brown bear on a broad, steady hill",
+ "centre": "a dashed, translucent Arctodus pieced together from three evidence props: a measuring caliper, test tubes, a living brown bear",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "fragile",
-   "x": 400,
-   "y": 600,
+   "text": "measurements",
+   "x": 380,
+   "y": 210,
    "to": [
-    705,
-    640
+    380,
+    310
    ],
-   "word": "fragile"
+   "word": "measurements"
   },
   {
-   "type": "say",
-   "text": "Whoa, whoa...",
-   "x": 1080,
-   "y": 270,
+   "type": "name",
+   "text": "chemistry",
+   "x": 1560,
+   "y": 180,
    "to": [
-    990,
-    300
-   ]
+    1560,
+    270
+   ],
+   "word": "chemistry"
+  },
+  {
+   "type": "name",
+   "text": "living bears",
+   "x": 1560,
+   "y": 600,
+   "to": [
+    1520,
+    760
+   ],
+   "word": "living bears"
   }
  ],
- "motion": "rock pillar teeters about its foot with the bear on it; a pebble drops off (moving prop); metaphor composition"
+ "motion": "the three evidence props converge into place; arrows dash toward the inferred bear; diagram composition"
 }

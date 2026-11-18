@@ -1,8 +1,44 @@
 {
- "centre": "framed old painting of the Arctodus sprinting after a horse; white cracks spread over its glass",
- "motion": "mv-draw cracks draw themselves over the picture (cracks began to appear)",
+ "centre": "a dreamy dashed thought-cloud above two early paleontologists: a translucent Arctodus racing across open Pleistocene plains (hypothesis)",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pleistocene plains",
+   "x": 1250,
+   "y": 830,
+   "to": [
+    1250,
+    720
+   ],
+   "word": "Pleistocene plains"
+  }
+ ],
+ "motion": "path: ghost Arctodus runs right inside the dream (camera follows); dash: speed lines",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-path-run-arctodus-bear",
+  "kind": "ride",
+  "x": 737,
+  "y": 498,
+  "s": 1.44,
+  "flip": 1,
+  "bside": -1,
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
 }

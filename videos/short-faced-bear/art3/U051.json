@@ -1,30 +1,23 @@
 {
- "centre": "left: the Arctodus skull with a glowing jaw-muscle area (strong); right: a balance scale with meat and plants that keeps tipping back and forth (diet not settled)",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "the Arctodus skull from the side on a museum plinth, spotlit; blue brackets mark the short, deep muzzle",
+ "motion": "brackets draw on the muzzle, glint on the skull",
+ "focus": [
+  1150,
+  530,
+  1.6
+ ],
+ "focus_word": "muzzle",
  "labels": [
   {
    "type": "name",
-   "text": "Skull",
-   "x": 330,
-   "y": 260,
+   "text": "muzzle",
+   "x": 1340,
+   "y": 330,
    "to": [
-    400,
-    420
+    1200,
+    540
    ],
-   "word": "skull"
-  },
-  {
-   "type": "say",
-   "text": "Can't decide!",
-   "x": 1400,
-   "y": 230,
-   "to": [
-    1400,
-    400
-   ]
+   "word": "muzzle"
   }
- ],
- "motion": "balance scale tilts back and forth (moving prop), jaw joint flexes"
+ ]
 }

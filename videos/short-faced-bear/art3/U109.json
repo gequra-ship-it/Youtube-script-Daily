@@ -1,20 +1,44 @@
 {
- "centre": "the last Arctodus skull uncovered in the topmost rock layer of a dig",
+ "centre": "a lone Arctodus walking away across the dusk snow and slowly fading, a small human camp with smoke behind it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "iris": [
+  1400,
+  640
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Arctodus simus",
-   "x": 960,
-   "y": 200,
+   "text": "humans",
+   "x": 330,
+   "y": 420,
    "to": [
-    930,
-    440
+    300,
+    640
    ],
-   "word": "Arctodus simus"
+   "word": "humans"
   }
  ],
- "motion": "core-reveal skull + two bone fragments popin; cross-section composition"
+ "motion": "fade: the Arctodus fades as it walks away (could not hold on); smoke and flicker: the human campfire",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "x": 820,
+  "y": 560,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

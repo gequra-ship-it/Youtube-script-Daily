@@ -1,35 +1,31 @@
 {
- "centre": "nearly one-ton Arctodus raising a huge forepaw beside a much smaller saber-toothed cat",
- "focus": [
-  1000,
-  520,
-  1.5
- ],
- "focus_word": "huge forepaws",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "saber-toothed cat",
-   "x": 470,
-   "y": 380,
-   "to": [
-    540,
-    650
-   ],
-   "word": "saber-toothed cat"
+ "centre": "dreamlike scene: the giant short-faced bear steps out of a mist bank toward the wolves' kill; pebbles bounce as the ground trembles; the wolves stare",
+ "focus": null,
+ "focus_word": null,
+ "motion": "bear fades in from the mist with walking legs, pebbles bounce (moving prop)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "It does",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "leanback"
   },
-  {
-   "type": "name",
-   "text": "huge forepaws",
-   "x": 760,
-   "y": 230,
-   "to": [
-    905,
-    345
-   ],
-   "word": "huge forepaws"
-  }
- ],
- "motion": "joint foreleg swipe on Arctodus, saber cat tail/head joints; size comparison composition"
+  "x": 260,
+  "y": 560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "raincoat"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

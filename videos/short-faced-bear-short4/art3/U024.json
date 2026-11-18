@@ -1,30 +1,61 @@
 {
- "centre": "a brass balance scale weighing people (a small hunter) against climate (sun and melting ice), still rocking: debated; extinct animals fade below",
+ "centre": "a woolly mammoth and a mastodon walking away, squeezed between spear hunters (left) and a warm sun melting the glacier (right)",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "people",
-   "x": 250,
-   "y": 500,
+   "text": "mammoths",
+   "x": 860,
+   "y": 1100,
    "to": [
-    250,
-    800
+    640,
+    1020
    ],
-   "word": "people played"
+   "word": "mammoths"
   },
   {
    "type": "name",
-   "text": "extinction",
-   "x": 540,
-   "y": 1150,
+   "text": "mastodons",
+   "x": 820,
+   "y": 1385,
    "to": [
-    470,
-    1300
+    740,
+    1270
    ],
-   "word": "extinction"
+   "word": "mastodons"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-meltwater-1",
+   "serious": false
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 760,
+  "y": 1082,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
 }

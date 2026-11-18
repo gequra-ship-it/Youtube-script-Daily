@@ -1,35 +1,30 @@
 {
- "centre": "side view of the Arctodus with a see-through chest: pale blue lungs and a glowing red heart",
- "motion": "core heartbeat on the heart (sentence: heart), breath steam, eye blink",
- "focus": [
-  1020,
-  540,
-  1.5
- ],
- "focus_word": "deep chest",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "lungs",
-   "x": 860,
-   "y": 300,
-   "to": [
-    964,
-    502
-   ],
-   "word": "lungs"
-  },
-  {
-   "type": "name",
-   "text": "heart",
-   "x": 1300,
-   "y": 660,
-   "to": [
-    1091,
-    554
-   ],
-   "word": "heart"
-  }
- ]
+ "centre": "a dreamy dashed thought-cloud above two early paleontologists: a translucent Arctodus racing across open Pleistocene plains (hypothesis)",
+ "focus": null,
+ "focus_word": null,
+ "motion": "path: ghost Arctodus runs right inside the dream (camera follows); dash: speed lines",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-path-run-arctodus-bear",
+  "kind": "ride",
+  "x": 737,
+  "y": 498,
+  "s": 1.44,
+  "flip": 1,
+  "bside": -1,
+  "outfit": [
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
 }

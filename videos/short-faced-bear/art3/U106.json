@@ -1,31 +1,54 @@
 {
- "centre": "the Arctodus pressed in the middle: a storm cloud slides in from the left, a brown bear from the right, its bone pile shrinks below",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "the Arctodus skull (short deep muzzle, crushing teeth) and leg bones on a museum table, a magnifying lens scanning for hunting marks",
+ "focus": [
+  900,
+  560,
+  1.5
+ ],
+ "focus_word": "Arctodus",
  "labels": [
   {
    "type": "name",
-   "text": "climate",
-   "x": 460,
-   "y": 140,
+   "text": "Arctodus",
+   "x": 900,
+   "y": 360,
    "to": [
-    360,
-    300
+    860,
+    480
    ],
-   "word": "climate"
-  },
-  {
-   "type": "name",
-   "text": "brown bears",
-   "x": 1560,
-   "y": 470,
-   "to": [
-    1560,
-    700
-   ],
-   "word": "brown bears"
+   "word": "Arctodus"
   }
  ],
- "motion": "slide: storm cloud and brown bear close in (pressed); grow (shrinking): the food pile shrinks"
+ "motion": "path: a magnifying lens scans the skull for evidence (very rare); camera follows",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-magnifier-lens",
+  "kind": "ride",
+  "x": 434,
+  "y": 512,
+  "s": 1.0,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
 }

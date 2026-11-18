@@ -1,30 +1,34 @@
 {
- "centre": "Arctodus lifting its long legs awkwardly over fallen logs, roots and branches on a cluttered forest floor",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "Arctodus sunk to its knees in a muddy bog inside a thick dark forest, mud bubbles rising",
+ "focus": [
+  540,
+  1000,
+  1.6
+ ],
+ "focus_word": "long legs",
  "labels": [
   {
    "type": "name",
-   "text": "long limbs",
-   "x": 820,
-   "y": 640,
+   "text": "muddy bogs",
+   "x": 360,
+   "y": 1220,
    "to": [
-    470,
-    1100
+    400,
+    1150
    ],
-   "word": "long limbs"
+   "word": "muddy bogs"
   },
   {
-   "type": "say",
-   "text": "Ugh, so tiring!",
-   "x": 300,
-   "y": 760,
+   "type": "name",
+   "text": "long legs",
+   "x": 760,
+   "y": 880,
    "to": [
-    300,
-    985
-   ]
+    640,
+    1020
+   ],
+   "word": "long legs"
   }
  ],
- "motion": "bear legs swing big (awkward stepping), teeter fallen log, drip sweat drop"
+ "motion": "bear leg joints struggle, mud bubbles, sway reeds; mist for the 'may' hypothesis"
 }

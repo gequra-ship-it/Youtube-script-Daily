@@ -1,31 +1,52 @@
 {
- "centre": "skull diagram with a red jaw muscle close to the teeth, a short-distance arrow, and a lever below",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "Arctodus skull in a lit display case, side view, with a bracket marking the short deep muzzle",
+ "focus": [
+  760,
+  840,
+  1.6
+ ],
+ "focus_word": "muzzle",
  "labels": [
   {
    "type": "name",
-   "text": "jaw muscles",
-   "x": 300,
-   "y": 360,
+   "text": "muzzle",
+   "x": 720,
+   "y": 560,
    "to": [
-    560,
-    520
+    790,
+    700
    ],
-   "word": "jaw muscles"
-  },
-  {
-   "type": "name",
-   "text": "leverage",
-   "x": 300,
-   "y": 1370,
-   "to": [
-    360,
-    1236
-   ],
-   "word": "leverage"
+   "word": "muzzle"
   }
  ],
- "motion": "mv-joint skull jaw (hinge pin), mv-draw arrow, mv-tilt lever beam"
+ "motion": "mv-core-approach skull, mv-draw muzzle bracket, glint",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "Its muzzle",
+    "mood": "happy"
+   }
+  ],
+  "act": "shiver",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-approach-arctodus-skull",
+  "kind": "ride",
+  "x": 162,
+  "y": 1064,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ]
+ }
 }

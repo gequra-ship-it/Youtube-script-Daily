@@ -1,31 +1,34 @@
 {
- "centre": "a ghosted Arctodus chasing a wild horse and a young camel up a dashed chase trail (a claim)",
+ "centre": "a ghosted speed dial with its needle in the high zone above a dreamlike sprinting Arctodus (a claim)",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "wild horses",
-   "x": 250,
-   "y": 560,
-   "to": [
-    190,
-    760
-   ],
-   "word": "wild horses"
-  },
-  {
-   "type": "name",
-   "text": "young camels",
-   "x": 760,
-   "y": 480,
-   "to": [
-    470,
-    700
-   ],
-   "word": "young camels"
+   "type": "num",
+   "text": "OVER 60 KM/H",
+   "word": "sixty kilometers"
   }
  ],
- "motion": "leg joints on all three animals (gallop), dash chase trail; hedged, ghosted"
+ "motion": "gauge needle joint, sprinting leg joints, dash streaks; hedged claim drawn ghosted",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "x": 820,
+  "y": 1560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

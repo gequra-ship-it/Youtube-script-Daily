@@ -1,19 +1,40 @@
 {
- "centre": "the mighty Arctodus standing on a small melting ice floe while the world behind turns from ice to forest; a cracked shield topples into the water",
+ "centre": "a small spectacled bear on a misty ledge looking at pale ghost shapes of the Ice Age giants in the clouds",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Uh-oh.",
-   "x": 1380,
-   "y": 420,
+   "type": "name",
+   "text": "Ice Age giants",
+   "x": 1320,
+   "y": 160,
    "to": [
-    1176,
-    520
-   ]
+    1250,
+    330
+   ],
+   "word": "Ice Age giants"
   }
  ],
- "motion": "bear breathes, shield topples, meltwater drips; before/after split composition"
+ "motion": "bear breathes, ghost herd floats; foreground/background composition",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "x": 820,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "raincoat"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

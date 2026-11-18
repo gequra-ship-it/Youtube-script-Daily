@@ -1,19 +1,19 @@
 {
- "centre": "close-up of a living Arctodus biting down on a big bone, the bone cracking and a chip flying",
+ "centre": "Arctodus skull seen from above on a light table, wide cheekbone arches with big red jaw muscles inside, width arrow",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Crunch!",
-   "x": 820,
-   "y": 420,
+   "type": "name",
+   "text": "cheekbones",
+   "x": 260,
+   "y": 640,
    "to": [
-    860,
-    640
-   ]
+    250,
+    860
+   ],
+   "word": "cheekbones"
   }
  ],
- "motion": "mv-joint lower jaw bite, mv-shake bone, mv-toss bone chip prop"
+ "motion": "mv-jiggle both jaw muscles, mv-draw width arrow"
 }

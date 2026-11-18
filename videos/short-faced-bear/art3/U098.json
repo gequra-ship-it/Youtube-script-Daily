@@ -1,24 +1,30 @@
 {
- "centre": "a small band of faceless parka-wearing people walking across a snowy ridge toward the rising sun",
- "focus": [
-  800,
-  560,
-  1.6
- ],
- "focus_word": "humans",
- "sfx": [],
+ "centre": "split frame: left the Arctodus sniffing at a carcass that fades away; right a plump brown bear by a berry bush building fat",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "humans",
-   "x": 800,
-   "y": 300,
+   "text": "Arctodus",
+   "x": 300,
+   "y": 400,
    "to": [
-    800,
-    520
+    300,
+    640
    ],
-   "word": "humans"
+   "word": "Arctodus"
+  },
+  {
+   "type": "name",
+   "text": "brown bears",
+   "x": 1440,
+   "y": 470,
+   "to": [
+    1440,
+    700
+   ],
+   "word": "brown bears"
   }
  ],
- "motion": "walk: the first people arrive across the ridge"
+ "motion": "fade: the carcass bones vanish (vanishing carcasses); plump brown bear (build fat); head and leg joints"
 }

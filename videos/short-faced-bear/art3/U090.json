@@ -1,23 +1,58 @@
 {
- "centre": "the huge Arctodus standing on top of a tall rock pillar whose edges crumble under its weight, storm sky behind",
- "focus": [
-  960,
-  470,
-  1.5
+ "centre": "an energy gauge dial in the middle with its needle stuck low, a huge Arctodus on the left, a tiny mouse and a berry bush on the right",
+ "focus": null,
+ "focus_word": null,
+ "iris": [
+  1420,
+  780
  ],
- "focus_word": "a burden",
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Uh-oh.",
-   "x": 560,
-   "y": 320,
+   "type": "name",
+   "text": "mice",
+   "x": 1240,
+   "y": 680,
    "to": [
-    695,
-    302
-   ]
+    1310,
+    815
+   ],
+   "word": "mice"
+  },
+  {
+   "type": "name",
+   "text": "berries",
+   "x": 1560,
+   "y": 640,
+   "to": [
+    1500,
+    770
+   ],
+   "word": "berries"
   }
  ],
- "motion": "crumble: rock chunks break off the pillar and fall (size became a burden); bear legs shift"
+ "motion": "hop: a tiny mouse hops (small prey); joint: the gauge needle twitches near empty (energy math)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "A bear",
+    "mood": "worried"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "x": 260,
+  "y": 760,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

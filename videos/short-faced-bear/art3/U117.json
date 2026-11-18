@@ -1,37 +1,41 @@
 {
- "centre": "an open book on a lamp-lit desk; the left page shows a drawing of the giant short-faced bear",
+ "centre": "the huge Arctodus beside the much smaller spectacled bear, which faces a bromeliad and a fruiting palm",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "desk lamp glows, bookmark ribbon swings; close-up still-life composition",
- "frog": {
-  "moods": [
-   {
-    "mood": "excited"
-   }
-  ],
-  "act": {
-   "type": "swingride",
-   "obj": "mv-swing-bookmark-ribbon"
+ "labels": [
+  {
+   "type": "name",
+   "text": "Arctodus",
+   "x": 430,
+   "y": 380,
+   "to": [
+    460,
+    520
+   ],
+   "word": "Arctodus"
   },
-  "x": 1060,
-  "y": 941,
-  "s": 1.09,
-  "flip": -1,
-  "kind": "ride",
-  "ride": "mv-swing-bookmark-ribbon",
-  "behind": null,
-  "outfit": [
-   "scarf",
-   "sunglasses"
-  ],
-  "says": [
-   {
-    "text": "Wheee!",
-    "shout": true
-   }
-  ],
-  "bside": -1
- }
+  {
+   "type": "name",
+   "text": "bromeliads",
+   "x": 1520,
+   "y": 600,
+   "to": [
+    1500,
+    760
+   ],
+   "word": "bromeliads"
+  },
+  {
+   "type": "name",
+   "text": "palm",
+   "x": 1480,
+   "y": 300,
+   "to": [
+    1700,
+    520
+   ],
+   "word": "palm"
+  }
+ ],
+ "motion": "both bears breathe, fruit cluster pops in on \"fruit\"; side-by-side comparison composition"
 }

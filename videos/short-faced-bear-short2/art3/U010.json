@@ -1,40 +1,50 @@
 {
- "centre": "a big leg bone close up with two opposite twisting arrows and stress cracks drawing on",
+ "centre": "a one-ton Arctodus leaning hard into a sudden turn after an agile wild horse, snow clods flying",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Easy on me!",
-   "x": 820,
-   "y": 860,
+   "type": "num",
+   "text": "1 TON",
+   "word": "one-ton"
+  },
+  {
+   "type": "name",
+   "text": "agile prey",
+   "x": 560,
+   "y": 600,
    "to": [
-    600,
-    860
-   ]
+    330,
+    760
+   ],
+   "word": "agile prey"
   }
  ],
- "motion": "opposite nudges of the twist arrows, stress cracks draw on",
+ "motion": "skid of the bear (sudden turn), snow clods scatter (moving prop), dash prey track, leg joints",
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "shock"
    }
   ],
-  "act": {
-   "type": "shrinkdown"
-  },
-  "x": 820,
-  "y": 760,
-  "s": 0.95,
+  "act": "wave",
+  "x": 919,
+  "y": 1332,
+  "s": 1.09,
   "flip": -1,
   "kind": "bg",
+  "ride": null,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
    "scarf",
-   "hardhat"
+   "flowercrown"
   ],
-  "says": [],
-  "bside": -1
+  "says": [
+   {
+    "text": "Hi there!",
+    "shout": false
+   }
+  ]
  }
 }

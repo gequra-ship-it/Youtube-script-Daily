@@ -1,24 +1,32 @@
 {
- "centre": "a book page with an oval chapter vignette showing the Arctodus on the Ice Age steppe",
- "focus": [
-  960,
-  520,
-  1.45
- ],
- "focus_word": "remarkable chapter",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "giant short-faced bear",
-   "x": 1240,
-   "y": 740,
-   "to": [
-    1060,
-    640
-   ],
-   "word": "giant short-faced bear"
-  }
- ],
- "motion": "bear breathes with leg/head joints, pressed leaf zigzags down; framed-page composition"
+ "centre": "left: a ghostly dream of Arctodus as a crowned king on a stone throne; right: a real brown bear family by berries and a salmon stream, the crown flies to them",
+ "focus": null,
+ "focus_word": null,
+ "motion": "hedged king drawn ghosted; crown follows a path to the brown bear; split composition",
+ "frog": {
+  "moods": [
+   {
+    "mood": "starry"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-crown",
+  "kind": "ride",
+  "x": 646,
+  "y": 402,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "knight"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

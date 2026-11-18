@@ -1,48 +1,30 @@
 {
- "centre": "a wide Ice Age landscape offering different foods (berry patch, river with leaping salmon, old bones, roots) while the Arctodus walks across it",
+ "centre": "a chemistry lab bench: fossil bone on a tray, a bubbling flask, test tubes; a pinned picture of the Arctodus and a thinking scientist",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "track": {
-  "scale": 1.2
- },
  "labels": [
   {
    "type": "name",
-   "text": "Varied diet",
-   "x": 760,
-   "y": 470,
+   "text": "Arctodus",
+   "x": 430,
+   "y": 500,
    "to": [
-    740,
-    610
+    430,
+    400
    ],
-   "word": "varied diet"
+   "word": "Arctodus"
+  },
+  {
+   "type": "name",
+   "text": "Chemistry",
+   "x": 960,
+   "y": 340,
+   "to": [
+    960,
+    540
+   ],
+   "word": "chemistry"
   }
  ],
- "motion": "bear walks along a path (camera tracks), salmon leaps (toss, moving prop)",
- "frog": {
-  "moods": [
-   {
-    "mood": "chilly"
-   }
-  ],
-  "act": "eat",
-  "ride": "mv-path-bear-walk",
-  "kind": "ride",
-  "x": 419,
-  "y": 614,
-  "s": 1.44,
-  "flip": 1,
-  "bside": 1,
-  "outfit": [
-   "lab",
-   "scarf"
-  ],
-  "says": [
-   {
-    "text": "Nom nom.",
-    "shout": false
-   }
-  ]
- }
+ "motion": "bubbles rise from the flask, question cloud floats, scientist breathes"
 }

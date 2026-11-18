@@ -1,23 +1,73 @@
 {
- "centre": "close shot of Arctodus high-stepping its long legs over fallen logs, branches and ferns on a cluttered forest floor",
- "focus": [
-  760,
-  600,
-  1.5
- ],
- "focus_word": "long limbs",
- "sfx": [],
+ "centre": "the cold dry Mammoth Steppe on the left tearing apart as spruce forest and wetland pools spread in from the right; saplings sprout into the grass",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "say",
-   "text": "So many logs!",
-   "x": 380,
-   "y": 330,
+   "type": "name",
+   "text": "Mammoth Steppe",
+   "x": 420,
+   "y": 470,
    "to": [
-    435,
-    522
-   ]
+    380,
+    640
+   ],
+   "word": "Mammoth Steppe"
+  },
+  {
+   "type": "name",
+   "text": "forests",
+   "x": 1420,
+   "y": 250,
+   "to": [
+    1380,
+    380
+   ],
+   "word": "forests"
+  },
+  {
+   "type": "name",
+   "text": "wetlands",
+   "x": 1680,
+   "y": 690,
+   "to": [
+    1680,
+    775
+   ],
+   "word": "wetlands"
   }
  ],
- "motion": "joint legs step high (awkward long limbs); topple: a dead snag falls on the cluttered floor; sway: ferns"
+ "motion": "hatch: spruce saplings sprout into the steppe one after another (gave way to forests); sway: two big spruces",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "In many",
+    "mood": "happy"
+   }
+  ],
+  "act": "shiver",
+  "x": 820,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Eek...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

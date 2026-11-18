@@ -1,20 +1,47 @@
 {
- "centre": "dreamlike (imagined) scene: a pack of tired, panting dire wolves around a large bison lying on the plain, the low sun sinking (hours passing)",
+ "centre": "a wide Ice Age landscape offering different foods (berry patch, river with leaping salmon, old bones, roots) while the Arctodus walks across it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "track": {
+  "scale": 1.2
+ },
  "labels": [
   {
    "type": "name",
-   "text": "Dire wolves",
-   "x": 470,
-   "y": 520,
+   "text": "Varied diet",
+   "x": 760,
+   "y": 470,
    "to": [
-    560,
-    690
+    740,
+    610
    ],
-   "word": "dire wolves"
+   "word": "varied diet"
   }
  ],
- "motion": "sun sinks slowly along a path, wolves' tails/heads move, legs idle"
+ "motion": "bear walks along a path (camera tracks), salmon leaps (toss, moving prop)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "eat",
+  "ride": "mv-path-bear-walk",
+  "kind": "ride",
+  "x": 419,
+  "y": 614,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "lab",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Nom nom.",
+    "shout": false
+   }
+  ]
+ }
 }

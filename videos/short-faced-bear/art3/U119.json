@@ -1,14 +1,28 @@
 {
- "centre": "the eight living bear species lined up on a shelf; below them, an Arctodus fossil skeleton in the rock layers",
+ "centre": "an open book on a lamp-lit desk; the left page shows a drawing of the giant short-faced bear",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "8 SPECIES",
-   "word": "eight species"
-  }
- ],
- "motion": "ticks the eight bears in one by one, fossil skeleton fades in on \"a fossil\"; cross-section + lineup composition"
+ "motion": "desk lamp glows, bookmark ribbon swings; close-up still-life composition",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "ride": "mv-swing-bookmark-ribbon",
+  "kind": "ride",
+  "x": 1060,
+  "y": 772,
+  "s": 1.0,
+  "flip": -1,
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

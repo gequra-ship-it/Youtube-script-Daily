@@ -1,31 +1,49 @@
 {
- "centre": "blueprint diagram: the skull with red jaw muscles; the lower jaw hinges, and a lever beside it shows force applied close to the teeth",
- "motion": "jaw joint opens and closes about the hinge, lever beam tilts on its fulcrum",
+ "centre": "dreamlike, translucent Arctodus on a rock ridge sniffing toward a far valley with tiny mammoths; a faded stopwatch upper left",
+ "motion": "head joint (sniffing), scent wisps drift, stopwatch hand turns (thirty seconds)",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "jaw muscles",
-   "x": 470,
-   "y": 250,
-   "to": [
-    598,
-    439
-   ],
-   "word": "jaw muscles"
+   "type": "num",
+   "text": "30 SECONDS",
+   "word": "thirty seconds"
   },
   {
    "type": "name",
-   "text": "teeth",
-   "x": 1010,
-   "y": 780,
+   "text": "landscape",
+   "x": 560,
+   "y": 470,
    "to": [
-    936,
-    568
+    520,
+    600
    ],
-   "word": "teeth"
+   "word": "landscape"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "It may",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "x": 260,
+  "y": 1560,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

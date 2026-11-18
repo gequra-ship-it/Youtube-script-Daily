@@ -1,20 +1,48 @@
 {
- "centre": "open field notebook: an old long-legged bear sketch crossed out, a corrected shorter-legged sketch draws itself",
- "motion": "draw of the corrected sketch, eraser nudged",
+ "centre": "the Arctodus braking hard to turn after a fleeing young horse; inset of a leg bone with red twisting arrows",
+ "motion": "skid of the bear (sudden turn), tossed pebbles, twist arrows draw on the bone, dashed escape trail",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
+   "type": "num",
+   "text": "1 TON",
+   "word": "one-ton"
+  },
+  {
    "type": "name",
-   "text": "paleontology",
-   "x": 960,
-   "y": 850,
+   "text": "bones",
+   "x": 360,
+   "y": 490,
    "to": [
-    960,
-    760
+    360,
+    300
    ],
-   "word": "paleontology"
+   "word": "bones"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": "flex",
+  "x": 820,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "bee"
+  ],
+  "says": [
+   {
+    "text": "Bones!",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

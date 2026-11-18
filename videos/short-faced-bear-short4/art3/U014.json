@@ -1,57 +1,19 @@
 {
- "centre": "a lone bleached mammoth skeleton on the snowy steppe, ravens circling above and a hungry Arctodus walking in",
+ "centre": "a herd of mammoths, a camel and a ground sloth fading away while forest grows over the steppe on the right",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "carcasses",
-   "x": 300,
-   "y": 860,
+   "text": "big herbivores",
+   "x": 420,
+   "y": 760,
    "to": [
-    440,
-    1040
+    400,
+    960
    ],
-   "word": "carcasses"
-  },
-  {
-   "type": "name",
-   "text": "scavengers",
-   "x": 820,
-   "y": 1380,
-   "to": [
-    840,
-    1220
-   ],
-   "word": "scavengers"
+   "word": "big herbivores"
   }
  ],
- "motion": "circle ravens over the bones, path bear walks in (leg joints)",
- "frog": {
-  "moods": [
-   {
-    "mood": "chilly"
-   }
-  ],
-  "act": "look",
-  "ride": "mv-path-arctodus-bear",
-  "kind": "ride",
-  "x": 782,
-  "y": 1120,
-  "s": 1.44,
-  "flip": -1,
-  "bside": -1,
-  "outfit": [
-   "scarf",
-   "headlamp"
-  ],
-  "says": [
-   {
-    "text": "Eek...",
-    "shout": false
-   }
-  ],
-  "lock": true
- }
+ "motion": "fade x3 herd disappearing, hatch spruce trees (landscape changing)"
 }

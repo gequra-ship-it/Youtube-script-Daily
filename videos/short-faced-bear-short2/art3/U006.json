@@ -1,45 +1,30 @@
 {
- "centre": "a framed painting of the running bear hanging on a museum wall, a crack drawing itself across it",
- "focus": [
-  600,
-  860,
-  1.5
- ],
- "focus_word": "cracks",
- "sfx": [],
- "labels": [],
- "motion": "crack draws on (mv-draw), painting swings gently on its cord, plaster flake drips (moving prop)",
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": {
-   "type": "dripped",
-   "obj": "mv-drip-plaster-flake",
-   "serious": false
+ "centre": "Arctodus in side view with a cut-away chest window showing big lungs and a beating heart",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "deep chest",
+   "x": 290,
+   "y": 560,
+   "to": [
+    480,
+    860
+   ],
+   "word": "deep chest"
   },
-  "ride": null,
-  "kind": "bg",
-  "x": 816,
-  "y": 1407,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
-  "outfit": [
-   "lab",
-   "scarf"
-  ],
-  "says": [
-   {
-    "text": "Drip...",
-    "shout": false
-   }
-  ]
- }
+  {
+   "type": "name",
+   "text": "powerful heart",
+   "x": 760,
+   "y": 1290,
+   "to": [
+    600,
+    930
+   ],
+   "word": "powerful heart"
+  }
+ ],
+ "motion": "core heartbeat (sentence says heart), lungs breathe, gentle leg/head joints"
 }

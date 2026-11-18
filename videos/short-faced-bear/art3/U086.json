@@ -1,23 +1,19 @@
 {
- "centre": "a dreamlike pantry cupboard standing in the snow, its shelves bare except one rolling berry, Arctodus peering in",
- "focus": [
-  1100,
-  480,
-  1.5
- ],
- "focus_word": "empty pantry",
- "sfx": [],
+ "centre": "a chart board whose three herd bars shrink while Arctodus looks on from the right",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "say",
-   "text": "Empty?",
-   "x": 1450,
-   "y": 340,
+   "type": "name",
+   "text": "food supply",
+   "x": 700,
+   "y": 130,
    "to": [
-    1371,
-    644
-   ]
+    700,
+    300
+   ],
+   "word": "food supply"
   }
  ],
- "motion": "rollby: the one last berry rolls along the bare shelf (empty pantry); bear blinks"
+ "motion": "fill: the three supply bars shrink one after another (decline); draw: a dashed falling arrow"
 }

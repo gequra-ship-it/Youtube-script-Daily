@@ -1,31 +1,40 @@
 {
- "centre": "a young spruce forest sprouting up behind a wetland pond with reeds where the steppe used to be",
+ "centre": "the golden Mammoth Steppe as a plate of grassland cracking into pieces with tiny mammoths on them, dark forest and wetland showing through the cracks",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "forests",
-   "x": 300,
-   "y": 520,
+   "text": "Mammoth Steppe",
+   "x": 540,
+   "y": 440,
    "to": [
-    330,
-    800
+    560,
+    700
    ],
-   "word": "forests"
-  },
-  {
-   "type": "name",
-   "text": "wetlands",
-   "x": 800,
-   "y": 1040,
-   "to": [
-    700,
-    1290
-   ],
-   "word": "wetlands"
+   "word": "Mammoth Steppe"
   }
  ],
- "motion": "hatch spruce trees one by one, ripple pond, sway reeds"
+ "motion": "scatter: steppe pieces drift apart on 'break apart'",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "x": 260,
+  "y": 1280,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

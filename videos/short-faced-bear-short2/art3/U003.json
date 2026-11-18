@@ -1,14 +1,51 @@
 {
- "centre": "a ghosted speed dial with its needle in the high zone above a dreamlike sprinting Arctodus (a claim)",
+ "centre": "an old open popular-science book with a running-bear illustration on its page",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "OVER 60 KM/H",
-   "word": "sixty kilometers"
+   "type": "name",
+   "text": "Arctodus simus",
+   "x": 780,
+   "y": 640,
+   "to": [
+    770,
+    900
+   ],
+   "word": "Arctodus simus"
   }
  ],
- "motion": "gauge needle joint, sprinting leg joints, dash streaks; hedged claim drawn ghosted"
+ "motion": "book illustration bear leg joints, swinging bookmark string",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "",
+    "mood": "happy"
+   }
+  ],
+  "act": "shiver",
+  "x": 260,
+  "y": 1560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "run",
+   "dist": 540
+  },
+  "outfit": [
+   "scarf",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

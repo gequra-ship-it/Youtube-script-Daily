@@ -1,30 +1,49 @@
 {
- "centre": "a ghosted cloud-shaped vision: the Arctodus walks in to the kill and a dire wolf backs off; two scientists in front disagree about it",
+ "centre": "a dark skua swoops in and snatches the fish a puffin caught; the fish flies from the puffin's beak toward the skua",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "iris": [
+  1250,
+  470
+ ],
  "track": false,
  "labels": [
   {
-   "type": "say",
-   "text": "I think so!",
-   "x": 380,
-   "y": 330,
+   "type": "name",
+   "text": "Kleptoparasite",
+   "x": 1300,
+   "y": 220,
    "to": [
-    260,
-    450
-   ]
-  },
-  {
-   "type": "say",
-   "text": "Not so sure...",
-   "x": 1600,
-   "y": 330,
-   "to": [
-    1680,
-    450
-   ]
+    1260,
+    440
+   ],
+   "word": "kleptoparasite"
   }
  ],
- "motion": "bear walks a short path inside the vision, wolf nudged back, scientists breathe"
+ "motion": "fish tossed from beak to thief (moving prop), skua swoops along a short path flapping its wings",
+ "frog": {
+  "moods": [
+   {
+    "mood": "angry"
+   }
+  ],
+  "act": "eat",
+  "ride": "mv-path-swoop-skua-bird",
+  "kind": "ride",
+  "x": 1272,
+  "y": 278,
+  "s": 1.0,
+  "flip": -1,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Munch munch.",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

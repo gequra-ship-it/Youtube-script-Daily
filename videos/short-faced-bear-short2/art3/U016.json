@@ -1,31 +1,44 @@
 {
- "centre": "a large fossil leg bone exposed in a dug pit, cross-section of rock layers with smaller fossils",
+ "centre": "ghosted Arctodus walking along a long winding steppe trail, sniffing a scent line toward a far carcass at the horizon",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Fossils",
-   "x": 300,
-   "y": 1200,
+   "text": "next meal",
+   "x": 760,
+   "y": 470,
    "to": [
-    230,
-    1122
+    760,
+    590
    ],
-   "word": "Fossils"
-  },
-  {
-   "type": "name",
-   "text": "bones",
-   "x": 700,
-   "y": 1040,
-   "to": [
-    610,
-    860
-   ],
-   "word": "bones"
+   "word": "next meal"
   }
  ],
- "motion": "mv-core-reveal femur bone, mv-flagwave flag on the dig stake"
+ "motion": "mv-path walk of the ghosted bear (4 leg joints + head), mv-dash scent trail, mv-rollby tumbleweed prop",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-path-arctodus-bear",
+  "kind": "ride",
+  "x": 416,
+  "y": 858,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
 }

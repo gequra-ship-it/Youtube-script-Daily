@@ -1,49 +1,53 @@
 {
- "centre": "an Arctodus skull in an excavation grid, a magnifying glass sweeping over it; a lone stone point fragment lies far away in another layer",
+ "centre": "Arctodus in the foreground watching a ghostly bison herd (its food) being driven off by translucent spear hunters: a hypothesis",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
    "text": "Arctodus",
-   "x": 540,
-   "y": 1210,
+   "x": 840,
+   "y": 1330,
    "to": [
-    520,
-    1000
+    700,
+    1220
    ],
    "word": "Arctodus"
+  },
+  {
+   "type": "name",
+   "text": "food",
+   "x": 300,
+   "y": 760,
+   "to": [
+    320,
+    900
+   ],
+   "word": "the food"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "chilly"
    }
   ],
-  "act": {
-   "type": "push",
-   "from": 0.6
-  },
-  "ride": "mv-path-magnifier-glass",
+  "act": "eat",
+  "ride": "mv-path-bison-herd-escape",
   "kind": "ride",
-  "x": 194,
-  "y": 1012,
-  "s": 1.04,
+  "x": 492,
+  "y": 846,
+  "s": 1.44,
   "flip": 1,
   "bside": 1,
-  "gaze": 1,
   "outfit": [
    "scarf",
-   "sunglasses"
+   "hardhat"
   ],
   "says": [
    {
-    "text": "Heave-ho!",
-    "t": 1.0,
-    "dur": 1.6,
-    "shout": true
+    "text": "Nom nom.",
+    "shout": false
    }
   ]
  }

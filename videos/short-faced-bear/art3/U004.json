@@ -3,19 +3,7 @@
  "motion": "unroll (timeline) + dinosaur ghost sway + bear joints + blink",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
-  {
-   "type": "name",
-   "text": "dinosaurs",
-   "x": 470,
-   "y": 220,
-   "to": [
-    520,
-    330
-   ],
-   "word": "dinosaurs"
-  },
   {
    "type": "name",
    "text": "mammal",
@@ -27,5 +15,37 @@
    ],
    "word": "mammal"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "unrolled",
+   "obj": "mv-unroll-timeline",
+   "frac": 0.5
+  },
+  "x": 936,
+  "y": 790,
+  "s": 1.09,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "scarf",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

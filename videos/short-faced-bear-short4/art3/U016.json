@@ -1,44 +1,26 @@
 {
- "centre": "a brown bear (tan, longer snout, shoulder hump) walking across a new land along a dashed route",
+ "centre": "Arctodus standing on an empty steppe beside a bare picked-clean rib cage; the mammoth herd behind fades away",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "brown bear",
-   "x": 330,
-   "y": 760,
-   "to": [
-    380,
-    930
-   ],
-   "word": "the brown bear"
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "chilly"
+    "mood": "surprised"
    }
   ],
-  "act": "nod",
-  "ride": "mv-path-brown-bear",
-  "kind": "ride",
-  "x": 705,
-  "y": 899,
-  "s": 1.44,
-  "flip": -1,
-  "bside": -1,
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 560,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
   "outfit": [
-   "scarf"
+   "scarf",
+   "headlamp"
   ],
-  "says": [
-   {
-    "text": "Gulp.",
-    "shout": false
-   }
-  ],
-  "lock": true
+  "says": [],
+  "bside": 1
  }
 }

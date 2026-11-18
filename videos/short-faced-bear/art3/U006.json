@@ -1,44 +1,38 @@
 {
- "centre": "a bear family tree drawing itself up from deep rock layers, small bear heads on the branch tips, the giant Arctodus head at the top",
- "motion": "draw (family tree) + core glide (Arctodus head) + blink",
+ "centre": "the giant short-faced bear standing proudly on a snowy rock ridge at dawn; a faint ghost bear dissolves in the mist behind",
+ "motion": "breathe (hero bear) + head/leg joints + blink + fade (ghost bear vanishes)",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "bear family",
-   "x": 1300,
-   "y": 820,
+   "text": "Arctodus simus",
+   "x": 640,
+   "y": 300,
    "to": [
-    990,
-    860
+    820,
+    470
    ],
-   "word": "bear family"
+   "word": "Arctodus simus"
   }
  ],
  "frog": {
   "moods": [
    {
     "mood": "surprised"
-   },
-   {
-    "word": "The bear",
-    "mood": "happy"
    }
   ],
   "act": {
    "type": "shrinkdown"
   },
-  "ride": "mv-core-glide-arctodus-head",
-  "kind": "ride",
-  "x": 1539,
-  "y": 210,
-  "s": 1.0,
+  "x": 820,
+  "y": 560,
+  "s": 0.95,
   "flip": -1,
+  "kind": "bg",
   "outfit": [
    "scarf",
-   "sunglasses"
+   "hardhat"
   ],
   "says": [],
   "bside": -1

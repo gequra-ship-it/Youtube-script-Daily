@@ -1,40 +1,30 @@
 {
- "centre": "Arctodus standing in a meadow under an arc of foods (berries, root, salmon, meat, plants) gathering in; a smooth molar beside",
+ "centre": "Arctodus skull on a desk under a lamp, a magnifying lens sliding along the teeth showing them enlarged",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "omnivore",
-   "x": 720,
-   "y": 860,
+   "text": "skull",
+   "x": 760,
+   "y": 600,
    "to": [
-    560,
-    1040
+    700,
+    760
    ],
-   "word": "omnivore"
+   "word": "skull"
+  },
+  {
+   "type": "name",
+   "text": "teeth",
+   "x": 830,
+   "y": 1200,
+   "to": [
+    780,
+    960
+   ],
+   "word": "teeth"
   }
  ],
- "motion": "mv-converge food items into the arc, bear head/leg joints (idle)",
- "frog": {
-  "moods": [
-   {
-    "mood": "scared"
-   }
-  ],
-  "act": {
-   "type": "duck"
-  },
-  "x": 260,
-  "y": 840,
-  "s": 1.05,
-  "flip": 1,
-  "kind": "bg",
-  "outfit": [
-   "scarf"
-  ],
-  "says": [],
-  "bside": 1
- }
+ "motion": "mv-path magnifier lens along the teeth, mv-lamp desk lamp"
 }

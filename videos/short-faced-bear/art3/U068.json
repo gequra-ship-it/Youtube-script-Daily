@@ -1,37 +1,48 @@
 {
- "centre": "close-up of a modern brown bear's long snout sniffing scent ribbons drifting from a carcass far away",
+ "centre": "ghosted scene: Arctodus approaches, two dire wolves back off from their kill (a hypothesis)",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "breath",
-   "word": "scent",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Modern bears",
-   "x": 420,
-   "y": 230,
+   "text": "Arctodus",
+   "x": 1500,
+   "y": 330,
    "to": [
-    480,
-    400
+    1500,
+    520
    ],
-   "word": "Modern bears"
-  },
-  {
-   "type": "name",
-   "text": "very far away",
-   "x": 1560,
-   "y": 520,
-   "to": [
-    1650,
-    670
-   ],
-   "word": "very far away"
+   "word": "Arctodus"
   }
  ],
- "motion": "scent trail dashes march toward the nose; nose glint; close-up composition"
+ "motion": "wolf pack nudges back (backing away), bear core approach, wolf tail joints; all ghosted (might)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "In this",
+    "mood": "happy"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-core-approach-arctodus-bear",
+  "kind": "ride",
+  "x": 1407,
+  "y": 429,
+  "s": 1.0,
+  "flip": -1,
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Gulp.",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

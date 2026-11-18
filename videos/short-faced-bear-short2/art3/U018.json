@@ -1,53 +1,56 @@
 {
- "centre": "old sepia poster of a long-legged galloping bear on a shelf that topples over beside a tape measure and caliper",
+ "centre": "the same fossil leg bone, linked to a caliper above, a chemistry flask and a computer model below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "running bear",
-   "x": 420,
-   "y": 540,
+   "text": "chemistry",
+   "x": 300,
+   "y": 980,
    "to": [
-    420,
-    700
+    300,
+    1180
    ],
-   "word": "running bear"
+   "word": "chemistry"
+  },
+  {
+   "type": "name",
+   "text": "computer models",
+   "x": 770,
+   "y": 960,
+   "to": [
+    770,
+    1100
+   ],
+   "word": "computer models"
   }
  ],
- "motion": "mv-topple poster (after 'did not survive'), mv-swing hanging tape measure",
+ "motion": "match transition (same bone), mv-core-glide bone, mv-nudge caliper jaw, mv-bubble flask, mv-draw wireframe on the monitor",
  "frog": {
   "moods": [
    {
-    "mood": "excited"
-   },
-   {
-    "word": "It simply",
-    "mood": "happy"
+    "mood": "queasy"
    }
   ],
-  "act": {
-   "type": "swingride",
-   "obj": "mv-swing-measuring-tape"
-  },
-  "x": 824,
-  "y": 1391,
+  "act": "tap",
+  "ride": "mv-core-glide-femur-bone",
+  "kind": "ride",
+  "x": 792,
+  "y": 934,
   "s": 1.09,
   "flip": -1,
-  "kind": "ride",
-  "ride": "mv-swing-measuring-tape",
-  "behind": null,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "scarf",
-   "sunglasses"
+   "lab",
+   "scarf"
   ],
   "says": [
    {
-    "text": "Wheee!",
-    "shout": true
+    "text": "Bones!",
+    "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

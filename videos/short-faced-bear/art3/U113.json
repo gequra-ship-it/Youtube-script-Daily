@@ -1,24 +1,36 @@
 {
- "centre": "a spectacled bear sitting on a mossy cloud-forest branch, pale cream rings around its eyes",
+ "centre": "a dark bear face with cream eye rings peeking out of the foliage, looking straight at us",
  "focus": [
   960,
-  380,
+  450,
   1.8
  ],
- "focus_word": "pale rings",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "spectacled bear",
-   "x": 600,
-   "y": 250,
-   "to": [
-    880,
-    380
-   ],
-   "word": "spectacled bear"
-  }
- ],
- "motion": "bear breathes, head nods, legs dangle, blink; portrait composition"
+ "focus_word": "eyes",
+ "motion": "core-approach face, ears + blink, ferns sway; close-up composition",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-spectacled-bear",
+  "kind": "ride",
+  "x": 758,
+  "y": 600,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Off we go!",
+    "shout": false
+   }
+  ]
+ }
 }

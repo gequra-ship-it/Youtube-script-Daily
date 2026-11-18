@@ -1,20 +1,38 @@
 {
- "centre": "ghosted Arctodus walking along a long winding steppe trail, sniffing a scent line toward a far carcass at the horizon",
+ "centre": "a stopwatch swinging on its cord above a ghosted, panting Arctodus slowing from a short chase",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "next meal",
-   "x": 760,
-   "y": 470,
-   "to": [
-    760,
-    590
-   ],
-   "word": "next meal"
+   "type": "num",
+   "text": "30 SECONDS",
+   "word": "thirty seconds"
   }
  ],
- "motion": "mv-path walk of the ghosted bear (4 leg joints + head), mv-dash scent trail, mv-rollby tumbleweed prop"
+ "motion": "stopwatch hand rotor, stopwatch swings on its cord (moving prop), ghosted bear leg joints; hedged",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-swing-stopwatch-cord",
+  "kind": "ride",
+  "x": 725,
+  "y": 831,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Gulp.",
+    "shout": false
+   }
+  ]
+ }
 }

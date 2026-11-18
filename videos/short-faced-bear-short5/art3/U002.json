@@ -2,28 +2,14 @@
  "centre": "a tall misty Andes mountain covered in cloud forest with a switchback trail; a small parka hiker climbs it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Andes",
-   "x": 540,
-   "y": 320,
-   "to": [
-    540,
-    420
-   ],
-   "word": "Andes"
-  }
- ],
  "motion": "hiker follows the trail path upward (camera tracks), ferns sway; tall vertical landscape composition",
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "chilly"
    }
   ],
-  "act": "wind",
+  "act": "lean",
   "ride": "mv-path-climb-hiker",
   "kind": "ride",
   "x": 391,
@@ -38,8 +24,8 @@
   ],
   "says": [
    {
-    "text": "Whooosh!",
-    "shout": true
+    "text": "Here we go!",
+    "shout": false
    }
   ]
  }

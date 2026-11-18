@@ -1,42 +1,45 @@
 {
- "centre": "Arctodus in the middle of an Ice Age steppe line-up: mammoth, ground sloth, saber-toothed cat, dire wolves, American lion",
+ "centre": "map of western North America with fossil-bone markers from Alaska to California; dusk inset of the La Brea tar pit with bones",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "mammoths",
-   "x": 330,
-   "y": 170,
+   "text": "Alaska",
+   "x": 420,
+   "y": 120,
    "to": [
-    300,
-    420
+    400,
+    200
    ],
-   "word": "mammoths"
+   "word": "Alaska"
   },
   {
    "type": "name",
-   "text": "dire wolves",
-   "x": 1290,
-   "y": 540,
+   "text": "California",
+   "x": 640,
+   "y": 760,
    "to": [
-    1250,
-    740
+    870,
+    700
    ],
-   "word": "dire wolves"
+   "word": "California"
   },
   {
    "type": "name",
-   "text": "American lions",
-   "x": 1660,
-   "y": 850,
+   "text": "La Brea Tar Pits",
+   "x": 1460,
+   "y": 820,
    "to": [
-    1640,
-    770
+    1460,
+    660
    ],
-   "word": "American lions"
+   "word": "La Brea"
   }
  ],
- "motion": "popin: each neighbour pops in as it is named"
+ "iris": [
+  1460,
+  520
+ ],
+ "motion": "ticks: fossil markers appear Alaska -> California; tar bubble rises in the pit"
 }

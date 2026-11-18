@@ -1,31 +1,70 @@
 {
- "centre": "Arctodus standing on top of a food-chain pyramid (grass, grazers, hunters) over a faint map of North America",
+ "centre": "mounted Arctodus skeleton in a museum: bones and teeth survive, a faint ghost of the living bear's behaviour fades",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "food chain",
-   "x": 1440,
-   "y": 760,
+   "text": "bones",
+   "x": 700,
+   "y": 220,
    "to": [
-    1260,
-    780
+    780,
+    410
    ],
-   "word": "food chain"
+   "word": "bones"
   },
   {
    "type": "name",
-   "text": "North America",
-   "x": 420,
-   "y": 230,
+   "text": "teeth",
+   "x": 360,
+   "y": 560,
    "to": [
-    480,
-    300
+    362,
+    668
    ],
-   "word": "North America"
+   "word": "teeth"
+  },
+  {
+   "type": "name",
+   "text": "not behavior",
+   "x": 1560,
+   "y": 380,
+   "to": [
+    1560,
+    560
+   ],
+   "word": "not behavior"
   }
  ],
- "motion": "food chain tiers tick in bottom to top, Arctodus sways gently on top; diagram over map"
+ "motion": "ghost of living behaviour fades; hanging lantern swings (prop); museum composition",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "Fossils preserve",
+    "mood": "happy"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-swing-hanging-lantern",
+  "kind": "ride",
+  "x": 1400,
+  "y": 122,
+  "s": 1.0,
+  "flip": -1,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }
