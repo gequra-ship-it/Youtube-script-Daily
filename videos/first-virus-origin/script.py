@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 # first-virus-origin (Miya's Note). Script from miya 2026-11-08 (dated 2026-11-07); fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01', 'Invisible Drifters', 'ill', 'p01a', 'Take a deep breath and look at the palm of your hand.'),
+SCENES = [('S01',
+  'Invisible Drifters',
+  'ill',
+  'p01a',
+  'Right now, trillions of microscopic entities that do not eat, do not sleep, and may not even be alive are drifting across your skin and through '
+  'the air in your lungs.'),
  ('S02',
   'Invisible Drifters',
   'ill',
   'p01b',
-  'Right now, on your skin, in the air filling your lungs, and across every ocean on Earth, trillions of microscopic entities are drifting in '
-  'complete silence. They do not eat. They do not sleep.'),
+  'Take a deep breath and look at the palm of your hand: they are there, and across every ocean on Earth, drifting in complete silence.'),
  ('S03',
   'Invisible Drifters',
   'ill',
@@ -58,15 +62,15 @@ SCENES = [('S01', 'Invisible Drifters', 'ill', 'p01a', 'Take a deep breath and l
   'ill',
   'p04b',
   'Thousands of identical copies can burst forth, ready to seek out new hosts. This bizarre existence places viruses in a shadowy twilight zone of '
-  'science. Are they living organisms, or merely complex chemical packages?'),
- ('S13', 'The Hijack', 'ill', 'p04c', 'For more than a century, biologists have debated this question without reaching a universal agreement.'),
+  'science. Scientists still argue about whether they are living organisms or merely complex chemical packages.'),
+ ('S13', 'The Hijack', 'ill', 'p04c', 'For more than a century, biologists have debated this without reaching a universal agreement.'),
  ('S14',
   'Three Hypotheses',
   'ill',
   'p05a',
-  'And if viruses are not fully alive today, how could they have originated billions of years ago? Did they emerge before the first cellular life, '
-  'floating in the primordial soup of early Earth?'),
- ('S15', 'Three Hypotheses', 'ill', 'p05b', 'Or did they arise much later, as parasitic fragments that escaped from complex organisms?'),
+  'And if viruses are not fully alive today, how could they have originated billions of years ago? Perhaps they emerged before the first cellular '
+  'life, floating in the primordial soup of early Earth.'),
+ ('S15', 'Three Hypotheses', 'ill', 'p05b', 'Or perhaps they arose much later, as parasitic fragments that escaped from complex organisms.'),
  ('S16',
   'Three Hypotheses',
   'ill',
@@ -104,8 +108,8 @@ SCENES = [('S01', 'Invisible Drifters', 'ill', 'p01a', 'Take a deep breath and l
   'Virus First',
   'ill',
   'p08b',
-  'Every virus we observe today relies on the intricate machinery of a host cell to copy its genome and build its protein shell. How could a '
-  'parasite exist before there was anything to parasitize?'),
+  'Every virus we observe today relies on the intricate machinery of a host cell to copy its genome and build its protein shell. It is hard to see '
+  'how a parasite could exist before there was anything to parasitize.'),
  ('S26',
   'Virus First',
   'ill',
@@ -121,13 +125,13 @@ SCENES = [('S01', 'Invisible Drifters', 'ill', 'p01a', 'Take a deep breath and l
   'Shrinking Parasites',
   'ill',
   'p09b',
-  'Instead of starting simple and staying simple, what if viruses started as complex living cells that degenerated over time? In nature, organisms '
+  'Instead of starting simple and staying simple, viruses may have started as complex living cells that degenerated over time. In nature, organisms '
   'that adopt a parasitic lifestyle often shed unnecessary biological systems.'),
  ('S29',
   'Shrinking Parasites',
   'ill',
   'p09c',
-  'If another creature provides food, shelter, and energy, why spend precious resources making those things yourself?'),
+  'If another creature provides food, shelter, and energy, there is little reason to spend precious resources making those things yourself.'),
  ('S30',
   'Shrinking Parasites',
   'ill',
@@ -139,7 +143,7 @@ SCENES = [('S01', 'Invisible Drifters', 'ill', 'p01a', 'Take a deep breath and l
   'ill',
   'p10b',
   'But over millions of generations, as it became dependent on its host, it may have discarded its genes one by one, keeping only the bare minimum '
-  'code needed to reproduce.'),
+  'code needed to reproduce. But a shocking discovery would soon turn this debate on its head.'),
  ('S32',
   'Shrinking Parasites',
   'ill',
@@ -229,11 +233,7 @@ SCENES = [('S01', 'Invisible Drifters', 'ill', 'p01a', 'Take a deep breath and l
   'p16b',
   'A plant virus often uses the molecular language of plants, while a human virus exploits the specific surface receptors of human cells.'),
  ('S50', 'Escaped Genes', 'ill', 'p16c', 'Many proteins that viruses use to replicate resemble enzymes found inside their hosts.'),
- ('S51',
-  'Escaped Genes',
-  'ill',
-  'p16d',
-  'Perhaps some viruses are pieces of ourselves that broke free and learned to wander the world.'),
+ ('S51', 'Escaped Genes', 'ill', 'p16d', 'Perhaps some viruses are pieces of ourselves that broke free and learned to wander the world.'),
  ('S52',
   'Many Origins',
   'ill',
@@ -261,8 +261,8 @@ SCENES = [('S01', 'Invisible Drifters', 'ill', 'p01a', 'Take a deep breath and l
   'Fossils in DNA',
   'ill',
   'p18a',
-  'To make the mystery deeper, consider the viral fossil record. Bones, shells, and tree trunks leave clear impressions in stone that last hundreds '
-  'of millions of years.'),
+  'How do you find a fossil of something with no bones? To make the mystery deeper, consider the viral fossil record. Bones, shells, and tree trunks '
+  'leave clear impressions in stone that last hundreds of millions of years.'),
  ('S58',
   'Fossils in DNA',
   'ill',
@@ -270,11 +270,7 @@ SCENES = [('S01', 'Invisible Drifters', 'ill', 'p01a', 'Take a deep breath and l
   'But most viruses are far smaller than a thousandth of a millimeter, made of delicate protein and nucleic acid, and they almost never leave a '
   'mineral fossil behind.'),
  ('S59', 'Fossils in DNA', 'ill', 'p18c', 'For a long time, the deep past of viruses seemed lost.'),
- ('S60',
-  'Fossils in DNA',
-  'ill',
-  'p19a',
-  'Even so, scientists have not given up.'),
+ ('S60', 'Fossils in DNA', 'ill', 'p19a', 'Even so, scientists have not given up.'),
  ('S61',
   'Fossils in DNA',
   'ill',
@@ -324,7 +320,11 @@ SCENES = [('S01', 'Invisible Drifters', 'ill', 'p01a', 'Take a deep breath and l
   'This protein helps form the placenta, the organ that lets nutrients flow from a mother to an unborn child. Different groups of mammals appear to '
   'have captured different viral genes for the same job.'),
  ('S70', 'Eight Percent', 'ill', 'p22c', 'An ancient infection helped shape the way we are born.'),
- ('S71', 'Viruses of the Sea', 'ill', 'p23a', 'Beyond our own bodies, viruses act as invisible puppet masters of global ecology.'),
+ ('S71',
+  'Viruses of the Sea',
+  'ill',
+  'p23a',
+  'What are viruses doing beyond our own bodies? They act as invisible puppet masters of global ecology.'),
  ('S72',
   'Viruses of the Sea',
   'chalk',

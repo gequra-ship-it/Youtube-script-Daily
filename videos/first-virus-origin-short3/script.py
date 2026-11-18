@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # first-virus-origin-short3 (Miya's Note). Script from miya 2026-11-08; fact-checked per guideline 12-1 (see ../first-virus-origin/script-check.md).
-SCENES = [('S01',
-  'Part 1',
+SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'In the early two thousands, researchers found a virus larger than some bacteria.'),
+ ('S02',
+  'Part 2',
   'ill',
-  'sh3_1',
-  'For decades, science textbooks taught a simple rule: bacteria are large and alive, while viruses are unimaginably tiny and simple.'),
- ('S02', 'Part 2', 'ill', 'sh3_2', 'But in the early two thousands, researchers made a discovery that shattered this rule.'),
+  'sh3_2',
+  'It was real, and it shattered a rule textbooks taught for decades: bacteria are large and alive, while viruses are unimaginably tiny and simple.'),
  ('S03',
   'Part 3',
   'ill',

@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 # first-virus-origin-short1 (Miya's Note). Script from miya 2026-11-08; fact-checked per guideline 12-1 (see ../first-virus-origin/script-check.md).
-SCENES = [('S01',
-  'Part 1',
-  'ill',
-  'sh1_1',
-  'Take a look at the palm of your hand. Right now, countless microscopic entities called viruses are drifting in the air around you.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh1_1', 'Right now, countless viruses are drifting through the air around you, and no one agrees whether they are alive.'),
  ('S02', 'Part 2', 'ill', 'sh1_2', 'But here is a mind-bending question: are they actually alive?'),
  ('S03',
   'Part 3',

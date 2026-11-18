@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # first-virus-origin-short2 (Miya's Note). Script from miya 2026-11-08; fact-checked per guideline 12-1 (see ../first-virus-origin/script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh2_1', 'Did viruses exist before bacteria, plants, and humans ever walked the Earth?'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh2_1', 'Some scientists suspect viruses are older than every bacterium, plant, and animal that has ever lived.'),
  ('S02', 'Part 2', 'ill', 'sh2_2', 'It sounds impossible. After all, every virus we know today requires a living host cell to replicate.'),
  ('S03', 'Part 3', 'ill', 'sh2_3', 'But one of the most fascinating ideas in evolutionary biology is the virus-first hypothesis.'),
  ('S04',
