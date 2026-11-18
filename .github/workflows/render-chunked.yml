@@ -116,6 +116,8 @@ jobs:
         if: ${{ matrix.n > 0 }}
         run: |
           SLUG="${{ matrix.slug }}"; N="${{ matrix.n }}"; : > list.txt; : > report.txt
+          # download-artifact puts a single matching artifact straight into chunks/ (no chunk-<slug>-<i>/ folder): normalise (1-chunk videos)
+          if [ -f chunks/chunk.mp4 ]; then mkdir -p "chunks/chunk-$SLUG-0"; mv chunks/chunk.mp4 chunks/chunk.txt "chunks/chunk-$SLUG-0/"; fi
           for i in $(seq 0 $((N-1))); do d="chunks/chunk-$SLUG-$i"; test -f "$d/chunk.mp4" || { echo "missing chunk $i" | tee -a report.txt; exit 1; }
             echo "file '$PWD/$d/chunk.mp4'" >> list.txt; echo "--- chunk $i" >> report.txt; cat "$d/chunk.txt" >> report.txt; done
           ffmpeg -nostdin -y -f concat -safe 0 -i list.txt -map 0:v -c copy -an video.mp4
