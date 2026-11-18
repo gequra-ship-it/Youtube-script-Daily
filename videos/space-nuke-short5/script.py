@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # space-nuke-short5 (Miya's Note). Script from miya 2026-11-04 (dated 2026-10-25); fact-checked per guideline 12-1.
-SCENES = [('S01', 'Part 1', 'ill', 'sh5_1', 'What is the most dangerous long-term consequence of detonating a nuclear weapon in space?'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh5_1', 'Seconds after a nuclear blast in space, the sky goes dark again, and that is when the real danger begins.'),
  ('S02',
   'Part 2',
   'ill',

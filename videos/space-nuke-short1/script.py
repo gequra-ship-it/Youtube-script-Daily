@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 # space-nuke-short1 (Miya's Note). Script from miya 2026-11-04 (dated 2026-10-25); fact-checked per guideline 12-1.
-SCENES = [('S01', 'Part 1', 'ill', 'sh1_1', 'If you detonated a nuclear warhead in the deep vacuum of space, what would you actually hear?'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh1_1',
+  'A nuclear warhead goes off in space, and you hear absolutely nothing. The silence is the least frightening part of it.'),
  ('S02',
   'Part 2',
   'ill',

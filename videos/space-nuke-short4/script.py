@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh4_1',
-  'Did you know that in 1962, humanity detonated a powerful thermonuclear warhead in space? The test was called Starfish Prime, and it took place '
-  'about four hundred kilometers above the Pacific Ocean.'),
+  'In 1962, humanity detonated a thermonuclear warhead in space, and it was real. The test was called Starfish Prime, and it took place about four '
+  'hundred kilometers above the Pacific Ocean.'),
  ('S02', 'Part 2', 'ill', 'sh4_2', "The warhead's yield was 1.4 megatons, roughly ninety times the power of the bomb dropped on Hiroshima."),
  ('S03',
   'Part 3',

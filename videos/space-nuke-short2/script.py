@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh2_1',
-  'Why does every nuclear explosion on Earth look like a giant mushroom? When a warhead detonates in our atmosphere, it creates a bubble of air '
-  'heated to tens of millions of degrees.'),
+  'A nuclear blast on Earth always grows a mushroom cloud. In space, it never could, and the reason is strange. When a warhead detonates in our '
+  'atmosphere, it creates a bubble of air heated to tens of millions of degrees.'),
  ('S02', 'Part 2', 'ill', 'sh2_2', 'Because this superheated gas is far lighter than the cold air around it, it surges upward like a giant balloon.'),
  ('S03',
   'Part 3',
