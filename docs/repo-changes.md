@@ -138,3 +138,4 @@
 - 2026-11-14 (miya): `tools/briefs/` 지시문 4개의 날짜 메모를 맨 아래 History로 옮김(규칙 내용은 그대로).
 - 2026-11-15 (miya): 지침서 핵심 파일 `docs/miyas-lab-guideline.md` → `docs/miyas-note-guideline.md`(참조하는 문서 모두 고침, 보관 브랜치 이름은 그대로). 워크플로 액션을 Node 24 기반으로 올림(`checkout@v5`, `setup-node@v6`, `upload-artifact@v6`, `download-artifact@v7`, `main`은 `checkout@v5`·`setup-python@v6`). 저장소 표기를 `gequra-ship-it/Youtube-script-Daily`로 통일.
 - 2026-11-18 (miya): 훅 규칙 변경(지침서 10-2A·10-1·19장, 핵심 파일 12-1 3-1 표기)과 생성기 프롬프트 3개(`generators/daily.py`·`owl.py`·`igwahyung.py`의 구성 ①과 숏츠 훅 항목) 반영. `scripts/*/`의 미사용 대본을 새 규칙으로 점검·수정.
+- 2026-11-18 (miya): 롱폼 제목·썸네일 문구 규칙(17-3, 16-2) 변경, `tools/writing/title_lint.py`에 추상 설명형 시작 검사 추가, `docs/upload-log.md` 신설(올린 썸네일 안 기록).
