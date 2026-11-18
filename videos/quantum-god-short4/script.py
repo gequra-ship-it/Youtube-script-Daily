@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # quantum-god-short4 (Miya's Note). Script from miya 2026-10-13/10-24; fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh4_1', 'What if there is more than one version of reality? That is the question behind these ideas.'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh4_1',
+  'Every time a quantum event has several possible outcomes, one idea says all of them happen. Hugh Everett proposed it in nineteen fifty-seven, and it still cannot be tested '
+  'directly.'),
  ('S02',
   'Part 2',
   'ill',

@@ -2,13 +2,6 @@
  "centre": "a glowing lens focused on a tiny electron, with a question mark made of stars",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "sparkle",
-   "word": "question",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
    "type": "name",
@@ -28,8 +21,10 @@
     "mood": "curious"
    }
   ],
-  "act": "think",
-  "ride": "mv-core-swell-lens",
+  "act": {
+   "type": "countstars"
+  },
+  "ride": "mv-core-sway-lens",
   "kind": "ride",
   "x": 1123,
   "y": 625,
@@ -38,11 +33,12 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
+   "halo",
    "bowler"
   ],
   "says": [
    {
-    "text": "Hmm...",
+    "text": "So many...",
     "shout": false
    }
   ]

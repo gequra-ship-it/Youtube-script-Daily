@@ -1,42 +1,63 @@
 {
- "centre": "sealed steel box with an atom, detector, hammer and poison flask in a chain",
- "focus": [
-  1130,
-  480,
-  1.5
+ "centre": "a glowing abstract equation orb on a chalkboard, merging a quantum wave and a curved geometry grid",
+ "focus": null,
+ "focus_word": null,
+ "iris": [
+  400,
+  560
  ],
- "focus_word": "brutally simple",
- "sfx": [
+ "labels": [
   {
-   "name": "click",
-   "word": "setup",
-   "vol": 0.5
+   "type": "name",
+   "text": "John Wheeler",
+   "x": 330,
+   "y": 300,
+   "to": [
+    400,
+    560
+   ],
+   "word": "John Wheeler"
+  },
+  {
+   "type": "name",
+   "text": "Bryce DeWitt",
+   "x": 1600,
+   "y": 300,
+   "to": [
+    1530,
+    560
+   ],
+   "word": "Bryce DeWitt"
+  },
+  {
+   "type": "name",
+   "text": "Wheeler-DeWitt Equation",
+   "x": 960,
+   "y": 790,
+   "to": [
+    960,
+    600
+   ],
+   "word": "Wheeler-DeWitt Equation"
   }
  ],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "curious"
    }
   ],
-  "act": "shiver",
-  "ride": "mv-swing-hammer",
-  "kind": "ride",
-  "x": 1210,
-  "y": 601,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "act": "float",
   "outfit": [
-   "glasses"
+   "helmet",
+   "jetpack"
   ],
-  "says": [
-   {
-    "text": "Brrrr...",
-    "shout": false
-   }
-  ]
+  "x": 1660,
+  "y": 340,
+  "s": 0.77,
+  "flip": -1,
+  "kind": "bg",
+  "says": [],
+  "bside": -1
  }
 }

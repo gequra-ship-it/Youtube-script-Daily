@@ -1,33 +1,29 @@
 {
- "centre": "big magnifier glass over an electron on a tidy lab bench",
+ "centre": "glowing electron between a position dial and a momentum dial",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "worried"
-   }
-  ],
-  "act": "facepalm",
-  "ride": "mv-core-swell-magnifier-lens",
-  "kind": "ride",
-  "x": 1258,
-  "y": 760,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "lab",
-   "bowler"
-  ],
-  "says": [
-   {
-    "text": "Oops.",
-    "shout": false
-   }
-  ]
- }
+ "labels": [
+  {
+   "type": "name",
+   "text": "Position",
+   "x": 420,
+   "y": 720,
+   "to": [
+    420,
+    600
+   ],
+   "word": "position"
+  },
+  {
+   "type": "name",
+   "text": "Momentum",
+   "x": 1500,
+   "y": 720,
+   "to": [
+    1500,
+    610
+   ],
+   "word": "momentum"
+  }
+ ]
 }

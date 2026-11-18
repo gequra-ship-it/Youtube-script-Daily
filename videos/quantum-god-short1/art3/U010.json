@@ -1,53 +1,52 @@
 {
- "centre": "one electron drawn as two ghosted copies passing through both slits and merging",
+ "centre": "screen slowly filling with single dots into stripes",
  "labels": [
   {
    "type": "name",
-   "text": "Its own ghost",
-   "x": 800,
-   "y": 600,
+   "text": "One at a time",
+   "x": 540,
+   "y": 500,
    "to": [
-    740,
-    770
+    540,
+    650
    ],
-   "word": "its own ghost"
+   "word": "one at a time"
   }
  ],
  "focus": [
   540,
-  800,
-  1.5
+  860,
+  1.6
  ],
- "focus_word": "both slits at once",
+ "focus_word": "one at a time",
  "sfx": [
   {
-   "name": "shimmer",
-   "word": "ghost",
+   "name": "tick",
+   "word": "one at a time",
    "vol": 0.5
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "happy"
    }
   ],
-  "act": "dance",
-  "ride": "mv-path-ascend-electron-single",
+  "act": "lean",
+  "ride": "mv-path-ascend-electron",
   "kind": "ride",
-  "x": 426,
-  "y": 1333,
+  "x": 420,
+  "y": 1420,
   "s": 1.09,
   "flip": 1,
   "bside": -1,
   "gaze": 1,
   "outfit": [
-   "ghost",
-   "lifering"
+   "hardhat"
   ],
   "says": [
    {
-    "text": "La la la~",
+    "text": "Off we go!",
     "shout": false
    }
   ]

@@ -1,7 +1,34 @@
 {
- "centre": "gold detector box with a large glowing eye-like lens",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "close-up of a two-slit plate with small gold eye-lens detectors at the slits, an electron approaching",
+ "focus": [
+  1120,
+  302,
+  1.8
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "ride": "mv-path-electron",
+  "kind": "ride",
+  "x": 311,
+  "y": 463,
+  "s": 1.15,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Phew.",
+    "shout": false
+   }
+  ]
+ }
 }

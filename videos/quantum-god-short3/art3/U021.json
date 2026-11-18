@@ -1,17 +1,43 @@
 {
- "centre": "a glowing electron under a gold detector eye with two small observers",
+ "centre": "a die tumbling at the centre with a faded atom cluster above",
  "focus": [
   540,
   860,
   1.6
  ],
- "focus_word": "observer",
+ "focus_word": "unsettling",
  "sfx": [
   {
-   "name": "click",
-   "word": "observer",
+   "name": "thud",
+   "word": "unsettling",
    "vol": 0.6
   }
  ],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "spinaround"
+  },
+  "ride": "mv-core-sway-tumbling-dice",
+  "kind": "ride",
+  "x": 370,
+  "y": 986,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

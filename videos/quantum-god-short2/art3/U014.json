@@ -1,19 +1,43 @@
 {
- "centre": "faceless silhouette of John Stewart Bell writing in a notebook at a lamp-lit desk by a night window",
+ "centre": "a glowing web joining stars everywhere, too big for the empty classical picture frame swinging in front",
  "focus": null,
  "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "John Stewart Bell",
-   "x": 400,
-   "y": 840,
+   "text": "nonlocal",
+   "x": 540,
+   "y": 1230,
    "to": [
-    400,
-    1060
+    660,
+    1050
    ],
-   "word": "John Stewart Bell"
+   "word": "nonlocal"
   }
  ],
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "photo",
+  "ride": "mv-swing-frame-hanging-u013",
+  "kind": "ride",
+  "x": 774,
+  "y": 1000,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Say cheese!",
+    "shout": false
+   }
+  ]
+ }
 }

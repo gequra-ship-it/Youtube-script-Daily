@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # quantum-god-short5 (Miya's Note). Script from miya 2026-10-13/10-24; fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh5_1', "A cat in a box, a foam of spacetime, and a universe made of bits. Three of physics' strangest ideas, in under three minutes."),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh5_1',
+  'A cat sits in a steel box with a radioactive atom, a hammer and a vial of poison. Schrödinger designed it in nineteen thirty-five as a criticism, and it is only the first of '
+  'three ideas here.'),
  ('S02',
   'Part 2',
   'ill',

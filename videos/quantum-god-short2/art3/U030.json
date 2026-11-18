@@ -1,33 +1,45 @@
 {
- "centre": "a quiet night sky with a question mark made of stars above a hill and a small stargazer with a telescope",
+ "centre": "a neat row of dominoes toppling one by one on a grid (classical causality) beside an entangled pair it cannot explain",
  "focus": null,
  "focus_word": null,
- "labels": [],
- "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "classical causality",
+   "x": 440,
+   "y": 880,
+   "to": [
+    300,
+    1060
+   ],
+   "word": "classical causality"
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "determined"
    }
   ],
-  "act": "rest",
-  "ride": "mv-path-comet-u030",
-  "kind": "ride",
-  "x": 315,
-  "y": 700,
-  "s": 1.09,
-  "flip": 1,
-  "bside": 1,
-  "gaze": 1,
+  "act": {
+   "type": "jog",
+   "dist": 324
+  },
   "outfit": [
    "helmet",
-   "antenna"
+   "moonboots"
   ],
+  "x": 260,
+  "y": 880,
+  "s": 1.21,
+  "flip": 1,
+  "kind": "bg",
   "says": [
    {
-    "text": "Ahh...",
-    "shout": false
+    "text": "Hup hup!",
+    "shout": true
    }
-  ]
+  ],
+  "bside": 1
  }
 }

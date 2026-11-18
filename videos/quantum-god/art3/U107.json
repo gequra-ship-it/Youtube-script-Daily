@@ -1,19 +1,37 @@
 {
- "centre": "speculative microscopic wormhole tube in a bubbling foam, with a clock breaking apart",
+ "centre": "a tiny climber with a lantern on a glowing trail up a night mountain to a golden summit light",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Microscopic wormholes",
-   "x": 820,
-   "y": 770,
-   "to": [
-    900,
-    540
-   ],
-   "word": "microscopic wormholes"
-  }
- ]
+ "iris": [
+  1380,
+  270
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "zerogroll"
+  },
+  "ride": "mv-path-person-climber",
+  "kind": "ride",
+  "x": 994,
+  "y": 762,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Wheee...",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,18 +1,35 @@
 {
- "centre": "a lab screen where the spread wave narrows into one bright dot",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Just one result!",
-   "x": 380,
-   "y": 430,
-   "to": [
-    300,
-    580
-   ]
-  }
- ]
+ "centre": "a physicist at a lab bench as a teal electron flies into a gold detector's eye",
+ "focus": [
+  560,
+  860,
+  1.6
+ ],
+ "focus_word": "measuring a quantum particle",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-sway-detector",
+  "kind": "ride",
+  "x": 774,
+  "y": 1050,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Hmm, hard.",
+    "shout": false
+   }
+  ]
+ }
 }

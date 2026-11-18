@@ -1,19 +1,47 @@
 {
- "centre": "measuring dial between a wave pattern above and two bars below",
+ "centre": "single sharp point electron heading to a screen of two plain bars",
  "labels": [
   {
    "type": "name",
-   "text": "Measurement",
-   "x": 800,
-   "y": 760,
+   "text": "Point particle",
+   "x": 780,
+   "y": 980,
    "to": [
-    630,
-    830
+    560,
+    870
    ],
-   "word": "measurement"
+   "word": "single point particle"
   }
  ],
- "focus": null,
- "focus_word": null,
- "sfx": []
+ "focus": [
+  540,
+  700,
+  1.5
+ ],
+ "focus_word": "two plain lines",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-core-approach-electron-point",
+  "kind": "ride",
+  "x": 672,
+  "y": 993,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lifering"
+  ],
+  "says": [
+   {
+    "text": "Boom-cha!",
+    "shout": false
+   }
+  ]
+ }
 }

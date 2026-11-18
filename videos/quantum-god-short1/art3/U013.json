@@ -1,17 +1,48 @@
 {
- "centre": "glowing light revealed as a dark veil parts",
- "labels": [],
+ "centre": "two gold detector boxes with eye-like lenses watching the slits",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Detector",
+   "x": 540,
+   "y": 650,
+   "to": [
+    370,
+    800
+   ],
+   "word": "detectors"
+  }
+ ],
  "focus": [
   540,
-  860,
+  830,
   1.5
  ],
- "focus_word": "reality revealed",
- "sfx": [
-  {
-   "name": "shimmer",
-   "word": "revealed",
-   "vol": 0.5
-  }
- ]
+ "focus_word": "microscopic detectors",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "scope",
+  "ride": "mv-path-ascend-electron",
+  "kind": "ride",
+  "x": 454,
+  "y": 1354,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "captainhat"
+  ],
+  "says": [
+   {
+    "text": "I see it!",
+    "shout": false
+   }
+  ]
+ }
 }

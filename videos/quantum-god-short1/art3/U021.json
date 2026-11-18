@@ -1,30 +1,44 @@
 {
- "centre": "pinned electron on a graph with a position crosshair and a momentum arrow",
+ "centre": "electron between a crisp position ruler and a blurry momentum dial",
  "labels": [
   {
    "type": "name",
-   "text": "Momentum",
-   "x": 800,
-   "y": 640,
+   "text": "Uncertainty Principle",
+   "x": 540,
+   "y": 410,
    "to": [
-    770,
-    760
+    540,
+    520
    ],
-   "word": "momentum"
-  },
-  {
-   "type": "name",
-   "text": "Position",
-   "x": 300,
-   "y": 1000,
-   "to": [
-    450,
-    860
-   ],
-   "word": "position"
+   "word": "Uncertainty Principle"
   }
  ],
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   },
+   {
+    "word": "Heisenberg showed",
+    "mood": "worried"
+   }
+  ],
+  "act": "shrug",
+  "ride": "mv-slide-shutter",
+  "kind": "ride",
+  "x": 286,
+  "y": 780,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Who knows?",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,11 +1,41 @@
 {
- "centre": "a lone glowing seed of light over a quiet night horizon",
- "labels": [],
+ "centre": "glass-like barrier wall with a detector eye below and a blurry particle beyond",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Absolute barrier",
+   "x": 540,
+   "y": 1000,
+   "to": [
+    540,
+    900
+   ],
+   "word": "absolute barrier"
+  }
+ ],
  "focus": [
   540,
   860,
   1.5
  ],
- "focus_word": "quantum physics begins",
- "sfx": []
+ "focus_word": "absolute barrier",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 260,
+  "y": 640,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
 }

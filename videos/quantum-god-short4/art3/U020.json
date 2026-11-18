@@ -1,23 +1,52 @@
 {
- "centre": "a dark slab of glowing abstract symbol-shapes, the pink wave-glyph in the middle",
- "focus": [
-  540,
-  860,
-  1.5
- ],
- "focus_word": "Wheeler-DeWitt Equation",
- "sfx": [],
+ "centre": "Wheeler and DeWitt under a warped space mesh where a quantum wave merges with it",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Wheeler-DeWitt Equation",
-   "x": 540,
-   "y": 520,
+   "text": "John Wheeler",
+   "x": 250,
+   "y": 930,
    "to": [
-    540,
-    760
+    270,
+    1040
    ],
-   "word": "Wheeler-DeWitt Equation"
+   "word": "John Wheeler"
+  },
+  {
+   "type": "name",
+   "text": "Bryce DeWitt",
+   "x": 820,
+   "y": 930,
+   "to": [
+    810,
+    1040
+   ],
+   "word": "Bryce DeWitt"
   }
- ]
+ ],
+ "iris": [
+  540,
+  700
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 260,
+  "y": 880,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
 }

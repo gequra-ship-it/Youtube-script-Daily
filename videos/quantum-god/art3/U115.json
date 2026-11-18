@@ -1,41 +1,16 @@
 {
- "centre": "a cutaway steel box: atom, Geiger counter, hammer over a poison vial, and a black cat",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "centre": "a faint dashed ghost where the time variable has vanished from a row of glowing shapes",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "has vanished",
+ "sfx": [
   {
-   "type": "name",
-   "text": "Radioactive atom",
-   "x": 520,
-   "y": 200,
-   "to": [
-    510,
-    510
-   ],
-   "word": "radioactive atom"
-  },
-  {
-   "type": "name",
-   "text": "Geiger counter",
-   "x": 760,
-   "y": 780,
-   "to": [
-    700,
-    680
-   ],
-   "word": "Geiger counter"
-  },
-  {
-   "type": "name",
-   "text": "Poison",
-   "x": 1200,
-   "y": 200,
-   "to": [
-    1025,
-    600
-   ],
-   "word": "poison"
+   "name": "glimmer",
+   "word": "vanished",
+   "vol": 0.6
   }
  ]
 }

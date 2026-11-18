@@ -1,34 +1,57 @@
 {
- "centre": "a golden knot where a smooth curved-space grid (left) meets a grainy quantum field (right)",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "Theory of Everything",
- "sfx": [],
+ "centre": "Wigner stands outside a sealed lab door; through its window two ghost copies of his friend overlap in superposition",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "General Relativity",
-   "x": 480,
-   "y": 250,
+   "text": "Wigner",
+   "x": 420,
+   "y": 240,
    "to": [
-    480,
-    450
+    620,
+    330
    ],
-   "word": "General Relativity"
+   "word": "Wigner"
   },
   {
    "type": "name",
-   "text": "Quantum Mechanics",
-   "x": 1440,
-   "y": 250,
+   "text": "sealed laboratory",
+   "x": 1240,
+   "y": 180,
    "to": [
-    1440,
-    480
+    1000,
+    340
    ],
-   "word": "Quantum Mechanics"
+   "word": "sealed laboratory"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "starcatch"
+  },
+  "ride": "mv-swing-tag-string-u098",
+  "kind": "ride",
+  "x": 1190,
+  "y": 692,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Gotcha!",
+    "shout": true
+   }
+  ]
+ }
 }

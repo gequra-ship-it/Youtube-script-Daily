@@ -1,41 +1,33 @@
 {
- "centre": "three faceless silhouettes in time order (scroll, book, telescope) before a soft glowing orrery of order",
+ "centre": "a small star with a planet on a fixed path, flanked by a stone and a raindrop on dotted rails",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "Aristotle",
-   "x": 400,
-   "y": 330,
-   "to": [
-    400,
-    520
-   ],
-   "word": "Aristotle"
-  },
-  {
-   "type": "name",
-   "text": "Thomas Aquinas",
-   "x": 960,
-   "y": 260,
-   "to": [
-    960,
-    520
-   ],
-   "word": "Thomas Aquinas"
-  },
-  {
-   "type": "name",
-   "text": "Isaac Newton",
-   "x": 1500,
-   "y": 330,
-   "to": [
-    1500,
-    520
-   ],
-   "word": "Isaac Newton"
+   "name": "tick",
+   "word": "predetermined",
+   "vol": 0.5
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
 }

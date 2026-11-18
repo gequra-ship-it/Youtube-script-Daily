@@ -1,36 +1,57 @@
 {
- "centre": "two close metal plates in vacuum pushed together, beside a tiny shifted energy level and a precision dial",
+ "centre": "a transparent glass chamber of empty space with tiny spark pairs popping inside",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "precision",
+   "name": "sparkle",
+   "word": "vacuum",
    "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Casimir effect",
-   "x": 600,
-   "y": 210,
+   "text": "Empty space",
+   "x": 1390,
+   "y": 520,
    "to": [
-    608,
-    310
+    1140,
+    500
    ],
-   "word": "Casimir effect"
-  },
-  {
-   "type": "name",
-   "text": "Lamb shift",
-   "x": 1440,
-   "y": 500,
-   "to": [
-    1440,
-    600
-   ],
-   "word": "Lamb shift"
+   "word": "empty space"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-pair",
+   "h": 52
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 467,
+  "y": 656,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

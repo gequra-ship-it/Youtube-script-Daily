@@ -1,57 +1,25 @@
 {
- "centre": "glowing electron between a position dial and a momentum dial",
+ "centre": "Heisenberg's faceless silhouette at a lamp-lit desk; above, an electron with a blurred ghost-copy trail",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "formulated",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Position",
-   "x": 420,
-   "y": 720,
+   "text": "Werner Heisenberg",
+   "x": 520,
+   "y": 260,
    "to": [
-    420,
-    600
+    520,
+    480
    ],
-   "word": "position"
-  },
-  {
-   "type": "name",
-   "text": "Momentum",
-   "x": 1500,
-   "y": 720,
-   "to": [
-    1500,
-    610
-   ],
-   "word": "momentum"
+   "word": "Werner Heisenberg"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "squint"
-   }
-  ],
-  "act": {
-   "type": "helmetwipe"
-  },
-  "ride": "mv-core-tremble-electron-ball",
-  "kind": "ride",
-  "x": 1100,
-  "y": 602,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "cap"
-  ],
-  "says": [
-   {
-    "text": "Phew.",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

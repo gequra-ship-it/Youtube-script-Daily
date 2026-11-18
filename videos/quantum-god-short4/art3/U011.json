@@ -1,23 +1,34 @@
 {
- "centre": "Wigner's silhouette with a glasses shape beside a swinging gold prize medal",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Eugene Wigner",
-   "x": 300,
-   "y": 600,
-   "to": [
-    380,
-    930
-   ],
-   "word": "Eugene Wigner"
-  }
+ "centre": "a gold detector with an eye lens below a board of three interpretations, its beam not yet reaching",
+ "focus": [
+  540,
+  900,
+  1.5
  ],
- "iris": [
-  380,
-  1100
- ]
+ "focus_word": "cannot yet be tested directly",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-approach-detector",
+  "kind": "ride",
+  "x": 784,
+  "y": 1080,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
 }

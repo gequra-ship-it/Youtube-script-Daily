@@ -1,30 +1,35 @@
 {
- "centre": "glowing on/off bit cubes flowing out of Wheeler's notebook and dissolving into stars",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "centre": "sealed steel box with an atom, detector, hammer and poison flask in a chain",
+ "focus": [
+  1130,
+  480,
+  1.5
+ ],
+ "focus_word": "brutally simple",
+ "sfx": [
   {
-   "type": "name",
-   "text": "John Archibald Wheeler",
-   "x": 400,
-   "y": 300,
-   "to": [
-    380,
-    500
-   ],
-   "word": "John Archibald Wheeler"
-  },
-  {
-   "type": "name",
-   "text": "It from Bit",
-   "x": 1180,
-   "y": 680,
-   "to": [
-    1170,
-    430
-   ],
-   "word": "It from Bit"
+   "name": "click",
+   "word": "setup",
+   "vol": 0.5
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "rubhands"
+  },
+  "ride": "mv-swing-hammer",
+  "kind": "ride",
+  "x": 1210,
+  "y": 601,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
 }

@@ -1,45 +1,29 @@
 {
- "centre": "a glowing photon racing up a light lane seen from above, a small rocket left far behind",
+ "centre": "ghostly glowing wisps along a thread between two far particles; Einstein silhouette waves it away",
  "focus": null,
  "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "light",
-   "x": 720,
-   "y": 1200,
+   "text": "spooky action",
+   "x": 560,
+   "y": 620,
    "to": [
-    552,
-    1320
+    300,
+    700
    ],
-   "word": "light"
+   "word": "spooky action"
+  },
+  {
+   "type": "name",
+   "text": "Einstein",
+   "x": 770,
+   "y": 830,
+   "to": [
+    770,
+    1000
+   ],
+   "word": "Einstein"
   }
- ],
- "sfx": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "squint"
-   }
-  ],
-  "act": "wind",
-  "outfit": [
-   "helmet",
-   "jetpack"
-  ],
-  "ride": "mv-path-photon-light-u008",
-  "kind": "ride",
-  "x": 406,
-  "y": 1420,
-  "s": 1.09,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Whooosh!",
-    "shout": true
-   }
-  ]
- }
+ ]
 }

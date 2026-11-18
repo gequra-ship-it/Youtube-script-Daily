@@ -1,25 +1,16 @@
 {
- "centre": "big gold detector eye looking down at fading stripes",
- "labels": [
-  {
-   "type": "name",
-   "text": "Observation",
-   "x": 780,
-   "y": 700,
-   "to": [
-    620,
-    830
-   ],
-   "word": "observation"
-  }
+ "centre": "glowing light revealed as a dark veil parts",
+ "focus": [
+  540,
+  860,
+  1.5
  ],
- "focus": null,
- "focus_word": null,
+ "focus_word": "reality revealed",
  "sfx": [
   {
-   "name": "click",
-   "word": "observation",
-   "vol": 0.55
+   "name": "shimmer",
+   "word": "revealed",
+   "vol": 0.5
   }
  ],
  "frog": {
@@ -28,22 +19,22 @@
     "mood": "curious"
    }
   ],
-  "act": "scope",
-  "ride": "mv-core-sway-detector-eye",
-  "kind": "ride",
-  "x": 692,
-  "y": 968,
-  "s": 1.09,
-  "flip": -1,
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 510,
+  "y": 1460,
+  "s": 1.2,
+  "flip": 1,
   "bside": 1,
-  "gaze": 1,
+  "behind": "mv-slide-curtain-left",
   "outfit": [
-   "captainhat"
+   "shellhat"
   ],
   "says": [
    {
-    "text": "There!",
-    "shout": false
+    "text": "Peek-a-boo!",
+    "shout": true
    }
   ]
  }

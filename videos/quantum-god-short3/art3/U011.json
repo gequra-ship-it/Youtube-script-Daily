@@ -1,17 +1,29 @@
 {
- "centre": "a glowing orb over rippling field sheets with a small scientist watching",
+ "centre": "a sealed steel box with a keyhole that a detector scans, finding nothing hidden",
  "focus": [
   540,
   860,
   1.6
  ],
- "focus_word": "quantum field theory",
+ "focus_word": "hidden variables",
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "discovery",
+   "name": "click",
+   "word": "hidden",
    "vol": 0.6
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hidden variables",
+   "x": 400,
+   "y": 520,
+   "to": [
+    450,
+    680
+   ],
+   "word": "hidden variables"
+  }
+ ]
 }

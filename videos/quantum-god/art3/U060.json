@@ -1,19 +1,12 @@
 {
- "centre": "a closed eye above a long timeline of forming stars and planets before any life",
+ "centre": "an open book with a glowing electron orb hovering above its pages",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "clock",
-   "word": "billions of years",
+   "name": "page",
+   "word": "interpretation",
    "vol": 0.6
-  }
- ],
- "labels": [
-  {
-   "type": "num",
-   "text": "BILLIONS OF YEARS",
-   "word": "billions of years"
   }
  ],
  "frog": {
@@ -22,18 +15,24 @@
     "mood": "curious"
    }
   ],
-  "act": {
-   "type": "measure"
-  },
-  "x": 260,
-  "y": 500,
-  "s": 0.88,
-  "flip": 1,
-  "kind": "bg",
+  "act": "look",
+  "ride": "mv-core-approach-book",
+  "kind": "ride",
+  "x": 1458,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "cap"
+   "bandana",
+   "bowtie"
   ],
-  "says": [],
-  "bside": 1
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": false
+   }
+  ]
  }
 }

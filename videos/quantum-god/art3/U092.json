@@ -1,34 +1,32 @@
 {
- "centre": "a small glass terrarium holding one tidy world on the left; on the right a vast glowing trunk branching into countless bubble worlds",
+ "centre": "a neat brass-style clockwork of meshed gears dissolving on the right into tangled threads",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "terrarium",
-   "x": 420,
-   "y": 270,
-   "to": [
-    420,
-    420
-   ],
-   "word": "terrarium"
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "magnetwalk",
+   "dist": 461
   },
-  {
-   "type": "name",
-   "text": "multiverse",
-   "x": 1620,
-   "y": 760,
-   "to": [
-    1360,
-    560
-   ],
-   "word": "multiverse"
-  }
- ],
- "iris": [
-  420,
-  560
- ]
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "x": 260,
+  "y": 780,
+  "s": 0.94,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Clunk, clunk.",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

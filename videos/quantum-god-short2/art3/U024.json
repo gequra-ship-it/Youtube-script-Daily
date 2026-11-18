@@ -1,18 +1,43 @@
 {
- "centre": "five magenta result bars, revealed one after another, all rising past the dashed limit; a gavel slams the verdict",
+ "centre": "optical table from above: a laser hits a glowing crystal that sends entangled photons to two gold detectors",
  "focus": null,
  "focus_word": null,
  "labels": [
   {
-   "type": "say",
-   "text": "Again and again!",
-   "x": 600,
-   "y": 470,
+   "type": "name",
+   "text": "entangled photons",
+   "x": 760,
+   "y": 700,
    "to": [
-    760,
-    560
-   ]
+    552,
+    790
+   ],
+   "word": "entangled photons"
   }
  ],
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "starry"
+   }
+  ],
+  "act": "photo",
+  "ride": "mv-core-sway-crystal-u023",
+  "kind": "ride",
+  "x": 714,
+  "y": 990,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Click!",
+    "shout": false
+   }
+  ]
+ }
 }

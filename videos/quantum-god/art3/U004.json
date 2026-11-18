@@ -1,39 +1,48 @@
 {
- "centre": "a small star with a planet on a fixed path, flanked by a stone and a raindrop on dotted rails",
+ "centre": "a large glowing die tumbling beside a cracked ghosted gear",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "tick",
-   "word": "predetermined",
-   "vol": 0.5
+   "name": "click",
+   "word": "chance",
+   "vol": 0.6
   }
  ],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pure chance",
+   "x": 960,
+   "y": 780,
+   "to": [
+    960,
+    600
+   ],
+   "word": "pure chance"
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "shock"
    }
   ],
   "act": {
-   "type": "zerogroll"
+   "type": "gasp"
   },
   "outfit": [
    "helmet",
    "goldvisor"
   ],
-  "x": 260,
-  "y": 540,
-  "s": 0.85,
-  "flip": 1,
-  "kind": "bg",
-  "says": [
-   {
-    "text": "Wheee...",
-    "shout": false
-   }
-  ],
-  "bside": 1
+  "ride": "mv-core-glide-die",
+  "kind": "ride",
+  "x": 1119,
+  "y": 621,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
  }
 }

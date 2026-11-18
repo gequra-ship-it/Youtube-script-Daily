@@ -1,22 +1,55 @@
 {
- "centre": "screen with fading stripes above a stunned scientist figure",
+ "centre": "one electron drawn as two ghosted copies passing through both slits and merging",
  "labels": [
   {
-   "type": "say",
-   "text": "Impossible!",
-   "x": 760,
-   "y": 1130,
+   "type": "name",
+   "text": "Its own ghost",
+   "x": 800,
+   "y": 600,
    "to": [
-    580,
-    1060
-   ]
+    740,
+    770
+   ],
+   "word": "its own ghost"
   }
  ],
  "focus": [
   540,
-  860,
+  800,
   1.5
  ],
- "focus_word": "impossibility",
- "sfx": []
+ "focus_word": "both slits at once",
+ "sfx": [
+  {
+   "name": "shimmer",
+   "word": "ghost",
+   "vol": 0.5
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-path-ascend-electron-single",
+  "kind": "ride",
+  "x": 426,
+  "y": 1333,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "ghost",
+   "flippers"
+  ],
+  "says": [
+   {
+    "text": "La la la~",
+    "shout": false
+   }
+  ]
+ }
 }

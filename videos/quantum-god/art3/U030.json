@@ -1,52 +1,33 @@
 {
- "centre": "close-up of a two-slit plate with small gold eye-lens detectors at the slits, an electron approaching",
+ "centre": "glowing teal electron with two ghost copies passing through both slits of the plate",
  "focus": [
-  1120,
-  302,
-  1.8
+  960,
+  500,
+  1.6
  ],
- "focus_word": "microscopic detectors",
- "sfx": [
-  {
-   "name": "click",
-   "word": "placed",
-   "vol": 0.5
-  }
- ],
- "labels": [
-  {
-   "type": "name",
-   "text": "detector",
-   "x": 1360,
-   "y": 200,
-   "to": [
-    1120,
-    300
-   ],
-   "word": "detectors"
-  }
- ],
+ "focus_word": "both slits at once",
  "frog": {
   "moods": [
    {
-    "mood": "shock"
+    "mood": "excited"
    }
   ],
-  "act": "scope",
-  "ride": "mv-path-electron",
+  "act": "dance",
+  "ride": "mv-path-electron-ball",
   "kind": "ride",
-  "x": 311,
-  "y": 463,
-  "s": 1.15,
+  "x": 616,
+  "y": 578,
+  "s": 0.95,
   "flip": 1,
   "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "lab",
-   "headband"
+   "ghost",
+   "bowtie"
   ],
   "says": [
    {
-    "text": "I see it!",
+    "text": "La la la~",
     "shout": false
    }
   ]

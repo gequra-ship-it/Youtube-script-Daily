@@ -1,23 +1,47 @@
 {
- "centre": "magnifying lens showing a bubbling mesh at the Planck scale",
+ "centre": "glowing photon source between two detector stations",
  "focus": [
   960,
-  500,
-  1.8
+  520,
+  1.6
  ],
- "focus_word": "Planck scale",
- "sfx": [],
+ "focus_word": "entangled photons",
  "labels": [
   {
    "type": "name",
-   "text": "Planck scale",
+   "text": "Entangled photons",
    "x": 960,
-   "y": 300,
+   "y": 320,
    "to": [
     960,
-    380
+    470
    ],
-   "word": "Planck scale"
+   "word": "entangled photons"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "idea",
+  "ride": "mv-core-sway-source",
+  "kind": "ride",
+  "x": 1168,
+  "y": 670,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Eureka!",
+    "shout": false
+   }
+  ]
+ }
 }

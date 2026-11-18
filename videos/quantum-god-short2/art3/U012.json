@@ -1,19 +1,31 @@
 {
- "centre": "cutaway of a particle showing preset dials and tiny gears inside (local hidden variables)",
+ "centre": "two particles flying from a birth flash, each carrying a sealed instruction card; one cover slides off",
  "focus": null,
  "focus_word": null,
- "labels": [
-  {
-   "type": "name",
-   "text": "local hidden variables",
-   "x": 540,
-   "y": 1180,
-   "to": [
-    540,
-    1060
-   ],
-   "word": "local hidden variables"
-  }
- ],
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 380,
+  "y": 1420,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-flicker-source-crystal-u011",
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
 }

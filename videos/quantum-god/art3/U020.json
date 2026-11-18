@@ -6,7 +6,6 @@
   1.5
  ],
  "focus_word": "something strange",
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -23,12 +22,10 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "excited"
    }
   ],
-  "act": {
-   "type": "gasp"
-  },
+  "act": "idea",
   "ride": "mv-slide-fabric-flap",
   "kind": "ride",
   "x": 876,
@@ -43,7 +40,7 @@
   "says": [
    {
     "text": "Aha!",
-    "shout": true
+    "shout": false
    }
   ]
  }

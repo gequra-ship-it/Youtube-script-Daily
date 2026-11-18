@@ -1,43 +1,30 @@
 {
- "centre": "glowing round theory disc with one missing piece floating away (incomplete), over a manuscript page",
+ "centre": "three faceless silhouettes (Einstein, Podolsky, Rosen) at a desk under a hanging lamp, 1935 study",
  "focus": null,
  "focus_word": null,
- "labels": [
-  {
-   "type": "name",
-   "text": "EPR Paradox",
-   "x": 540,
-   "y": 1170,
-   "to": [
-    520,
-    900
-   ],
-   "word": "EPR Paradox"
-  }
- ],
- "sfx": [],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
-  "act": "think",
-  "ride": "mv-core-glide-puzzle-disc-u004",
+  "act": {
+   "type": "zerogroll"
+  },
+  "ride": "mv-swing-lamp-hanging-u003",
   "kind": "ride",
-  "x": 824,
-  "y": 1100,
+  "x": 744,
+  "y": 800,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "bandana",
-   "bowtie"
+   "cap"
   ],
   "says": [
    {
-    "text": "Hmm...",
+    "text": "Wheee...",
     "shout": false
    }
   ]
