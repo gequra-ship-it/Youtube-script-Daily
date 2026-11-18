@@ -1,49 +1,43 @@
 {
- "centre": "a thin rocket climbing up from the glowing blue curve of the planet toward a small warhead high in black space",
+ "centre": "a gold satellite with a cracked side, one solar panel piece drifting away, a distant glowing blast sphere in the corner",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "planet",
+   "text": "satellite",
    "x": 780,
-   "y": 1340,
+   "y": 520,
    "to": [
-    700,
-    1450
+    620,
+    820
    ],
-   "word": "planet"
+   "word": "satellite"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "push",
-   "from": 0.6
-  },
+  "act": "lean",
   "outfit": [
    "helmet",
-   "jetpack"
+   "antenna"
   ],
-  "ride": "mv-path-launch-rocket",
+  "ride": "mv-core-glide-satellite",
   "kind": "ride",
-  "x": 660,
-  "y": 1451,
-  "s": 1.0,
+  "x": 958,
+  "y": 994,
+  "s": 1.09,
   "flip": -1,
-  "bside": -1,
+  "bside": 1,
   "gaze": 1,
   "says": [
    {
-    "text": "Heave-ho!",
-    "t": 1.0,
-    "dur": 1.6,
-    "shout": true
+    "text": "Steady...",
+    "shout": false
    }
   ]
  }

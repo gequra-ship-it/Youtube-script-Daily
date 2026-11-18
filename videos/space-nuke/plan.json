@@ -4,7 +4,7 @@
   "scene": 1,
   "title": "The Silent Flash",
   "art_theme": "p01a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -26,11 +26,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "Imagine a nuclear warhead detonating in the black emptiness above your head. You would hear nothing.",
-  "dur": 5.45,
+  "text": "In 1962, a nuclear warhead exploded about four hundred kilometers above the Pacific,",
+  "dur": 5.72,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "No roar, no rumble, no thunder.",
+  "nxt": "and streetlights went out in Hawaii, nearly fourteen hundred kilometers away.",
   "frog_hint": false
  },
  {
@@ -38,7 +38,7 @@
   "scene": 1,
   "title": "The Silent Flash",
   "art_theme": "p01a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -60,19 +60,19 @@
     "#ff7a5a"
    ]
   },
-  "text": "No roar, no rumble, no thunder.",
-  "dur": 5.45,
-  "transition_in": "eye",
-  "prev": "Imagine a nuclear warhead detonating in the black emptiness above your head. You would hear nothing.",
-  "nxt": "",
+  "text": "and streetlights went out in Hawaii, nearly fourteen hundred kilometers away.",
+  "dur": 5.72,
+  "transition_in": "wave",
+  "prev": "In 1962, a nuclear warhead exploded about four hundred kilometers above the Pacific,",
+  "nxt": "Yet the blast itself made no sound at all.",
   "frog_hint": true
  },
  {
   "uid": "U003",
-  "scene": 2,
+  "scene": 1,
   "title": "The Silent Flash",
-  "art_theme": "p01b",
-  "bg": "paper",
+  "art_theme": "p01a",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -94,11 +94,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "Just a silent flash. And yet, within moments, streetlights could go dark on islands more than a thousand kilometers away.",
-  "dur": 6.47,
-  "transition_in": "whip",
-  "prev": "",
-  "nxt": "How can an explosion that makes no sound reach so far?",
+  "text": "Yet the blast itself made no sound at all.",
+  "dur": 5.72,
+  "transition_in": "zigzag",
+  "prev": "and streetlights went out in Hawaii, nearly fourteen hundred kilometers away.",
+  "nxt": "",
   "frog_hint": false
  },
  {
@@ -106,7 +106,7 @@
   "scene": 2,
   "title": "The Silent Flash",
   "art_theme": "p01b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -128,19 +128,19 @@
     "#ff7a5a"
    ]
   },
-  "text": "How can an explosion that makes no sound reach so far?",
-  "dur": 6.47,
-  "transition_in": "page",
-  "prev": "Just a silent flash. And yet, within moments, streetlights could go dark on islands more than a thousand kilometers away.",
-  "nxt": "",
+  "text": "No roar, no shockwave, no mushroom cloud.",
+  "dur": 4.44,
+  "transition_in": "iris",
+  "prev": "",
+  "nxt": "In the vacuum of space, a nuclear explosion behaves like nothing we know from Earth,",
   "frog_hint": true
  },
  {
   "uid": "U005",
-  "scene": 3,
+  "scene": 2,
   "title": "The Silent Flash",
-  "art_theme": "p01c",
-  "bg": "paper",
+  "art_theme": "p01b",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -162,19 +162,87 @@
     "#ff7a5a"
    ]
   },
-  "text": "What would it look like, and what would it do? Let's follow it from the very first instant.",
-  "dur": 5.92,
-  "transition_in": "wave",
+  "text": "In the vacuum of space, a nuclear explosion behaves like nothing we know from Earth,",
+  "dur": 4.44,
+  "transition_in": "fade",
+  "prev": "No roar, no shockwave, no mushroom cloud.",
+  "nxt": "and the reason is hidden in the air we take for granted.",
+  "frog_hint": false
+ },
+ {
+  "uid": "U006",
+  "scene": 2,
+  "title": "The Silent Flash",
+  "art_theme": "p01b",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "and the reason is hidden in the air we take for granted.",
+  "dur": 4.44,
+  "transition_in": "eye",
+  "prev": "In the vacuum of space, a nuclear explosion behaves like nothing we know from Earth,",
+  "nxt": "",
+  "frog_hint": true
+ },
+ {
+  "uid": "U007",
+  "scene": 3,
+  "title": "The Silent Flash",
+  "art_theme": "p01c",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "So let's follow that blast from the very first instant, and see what it does to the sky and to the satellites above us.",
+  "dur": 8.44,
+  "transition_in": "whip",
   "prev": "",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U006",
+  "uid": "U008",
   "scene": 4,
   "title": "Fire or Something Stranger",
   "art_theme": "p02a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -198,17 +266,17 @@
   },
   "text": "When most people picture a nuclear blast, familiar images come to mind.",
   "dur": 5.42,
-  "transition_in": "zigzag",
+  "transition_in": "seam",
   "prev": "",
   "nxt": "An ear-splitting roar that shakes the ground. A blinding column of fire.",
   "frog_hint": true
  },
  {
-  "uid": "U007",
+  "uid": "U009",
   "scene": 4,
   "title": "Fire or Something Stranger",
   "art_theme": "p02a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -232,17 +300,17 @@
   },
   "text": "An ear-splitting roar that shakes the ground. A blinding column of fire.",
   "dur": 5.42,
-  "transition_in": "tilt",
+  "transition_in": "push",
   "prev": "When most people picture a nuclear blast, familiar images come to mind.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U008",
+  "uid": "U010",
   "scene": 5,
   "title": "Fire or Something Stranger",
   "art_theme": "p02b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -264,19 +332,19 @@
     "#ff7a5a"
    ]
   },
-  "text": "That iconic, towering mushroom cloud devouring the horizon. But what happens when you take the air away?",
-  "dur": 6.09,
-  "transition_in": "diamond",
+  "text": "That iconic, towering mushroom cloud devouring the horizon.",
+  "dur": 5.02,
+  "transition_in": "tilt",
   "prev": "",
-  "nxt": "Can an explosion even exist without an atmosphere to feed on?",
+  "nxt": "But take the air away, and an explosion has almost nothing to feed on.",
   "frog_hint": true
  },
  {
-  "uid": "U009",
+  "uid": "U011",
   "scene": 5,
   "title": "Fire or Something Stranger",
   "art_theme": "p02b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -298,19 +366,19 @@
     "#ff7a5a"
    ]
   },
-  "text": "Can an explosion even exist without an atmosphere to feed on?",
-  "dur": 6.09,
-  "transition_in": "push",
-  "prev": "That iconic, towering mushroom cloud devouring the horizon. But what happens when you take the air away?",
+  "text": "But take the air away, and an explosion has almost nothing to feed on.",
+  "dur": 5.02,
+  "transition_in": "diamond",
+  "prev": "That iconic, towering mushroom cloud devouring the horizon.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U010",
+  "uid": "U012",
   "scene": 6,
   "title": "Fire or Something Stranger",
   "art_theme": "p02c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -334,17 +402,17 @@
   },
   "text": "If you watched from a spacecraft far away, would you see fire, or something far stranger?",
   "dur": 6.67,
-  "transition_in": "seam",
+  "transition_in": "page",
   "prev": "",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U011",
+  "uid": "U013",
   "scene": 7,
   "title": "Why Explosions Look Like This",
   "art_theme": "p03a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -368,17 +436,17 @@
   },
   "text": "To understand a nuclear explosion in space, we first have to understand why explosions look the way they do on Earth.",
   "dur": 6.86,
-  "transition_in": "zoom",
+  "transition_in": "slide",
   "prev": "",
   "nxt": "Down here, we live at the bottom of a dense ocean of invisible gas.",
   "frog_hint": false
  },
  {
-  "uid": "U012",
+  "uid": "U014",
   "scene": 7,
   "title": "Why Explosions Look Like This",
   "art_theme": "p03a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -402,17 +470,17 @@
   },
   "text": "Down here, we live at the bottom of a dense ocean of invisible gas.",
   "dur": 6.86,
-  "transition_in": "wipe",
+  "transition_in": "wave",
   "prev": "To understand a nuclear explosion in space, we first have to understand why explosions look the way they do on Earth.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U013",
+  "uid": "U015",
   "scene": 8,
   "title": "Why Explosions Look Like This",
   "art_theme": "p03b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -436,17 +504,17 @@
   },
   "text": "When a nuclear weapon detonates in the atmosphere, roughly half of its energy becomes blast, a mechanical force.",
   "dur": 6.33,
-  "transition_in": "fade",
+  "transition_in": "wipe",
   "prev": "",
   "nxt": "The bomb heats the surrounding air to tens of millions of degrees.",
   "frog_hint": false
  },
  {
-  "uid": "U014",
+  "uid": "U016",
   "scene": 8,
   "title": "Why Explosions Look Like This",
   "art_theme": "p03b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -470,17 +538,17 @@
   },
   "text": "The bomb heats the surrounding air to tens of millions of degrees.",
   "dur": 6.33,
-  "transition_in": "match",
+  "transition_in": "wash",
   "prev": "When a nuclear weapon detonates in the atmosphere, roughly half of its energy becomes blast, a mechanical force.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U015",
+  "uid": "U017",
   "scene": 9,
   "title": "Why Explosions Look Like This",
   "art_theme": "p03c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -504,17 +572,17 @@
   },
   "text": "That superheated air expands violently, compressing the atmosphere around it into a crushing wall of pressure.",
   "dur": 7.67,
-  "transition_in": "iris",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U016",
+  "uid": "U018",
   "scene": 10,
   "title": "The Shockwave and the Mushroom",
   "art_theme": "p04a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -544,11 +612,11 @@
   "frog_hint": true
  },
  {
-  "uid": "U017",
+  "uid": "U019",
   "scene": 11,
   "title": "The Shockwave and the Mushroom",
   "art_theme": "p04b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -578,11 +646,11 @@
   "frog_hint": false
  },
  {
-  "uid": "U018",
+  "uid": "U020",
   "scene": 11,
   "title": "The Shockwave and the Mushroom",
   "art_theme": "p04b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -612,11 +680,11 @@
   "frog_hint": true
  },
  {
-  "uid": "U019",
+  "uid": "U021",
   "scene": 12,
   "title": "The Shockwave and the Mushroom",
   "art_theme": "p04c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -646,11 +714,11 @@
   "frog_hint": false
  },
  {
-  "uid": "U020",
+  "uid": "U022",
   "scene": 12,
   "title": "The Shockwave and the Mushroom",
   "art_theme": "p04c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -674,17 +742,17 @@
   },
   "text": "On Earth, the atmosphere is both the fuel and the canvas for the whole nightmare.",
   "dur": 6.18,
-  "transition_in": "page",
+  "transition_in": "whip",
   "prev": "When that column reaches the stable upper atmosphere, it flattens into the famous mushroom cap.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U021",
+  "uid": "U023",
   "scene": 13,
   "title": "Take the Air Away",
   "art_theme": "p05a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -708,17 +776,17 @@
   },
   "text": "Now, take all of that air away. Imagine carrying that same warhead hundreds of kilometers up, into the orbital void.",
   "dur": 5.77,
-  "transition_in": "fade",
+  "transition_in": "eye",
   "prev": "",
   "nxt": "There are no nitrogen molecules here.",
   "frog_hint": false
  },
  {
-  "uid": "U022",
+  "uid": "U024",
   "scene": 13,
   "title": "Take the Air Away",
   "art_theme": "p05a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -742,17 +810,17 @@
   },
   "text": "There are no nitrogen molecules here.",
   "dur": 5.77,
-  "transition_in": "match",
+  "transition_in": "iris",
   "prev": "Now, take all of that air away. Imagine carrying that same warhead hundreds of kilometers up, into the orbital void.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U023",
+  "uid": "U025",
   "scene": 14,
   "title": "Take the Air Away",
   "art_theme": "p05b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -776,17 +844,17 @@
   },
   "text": "No oxygen, no moisture, no air pressure.",
   "dur": 5.67,
-  "transition_in": "wave",
+  "transition_in": "tilt",
   "prev": "",
   "nxt": "Space is an almost perfect vacuum, holding only a few stray particles in every cubic centimeter.",
   "frog_hint": false
  },
  {
-  "uid": "U024",
+  "uid": "U026",
   "scene": 14,
   "title": "Take the Air Away",
   "art_theme": "p05b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -810,17 +878,17 @@
   },
   "text": "Space is an almost perfect vacuum, holding only a few stray particles in every cubic centimeter.",
   "dur": 5.67,
-  "transition_in": "whip",
+  "transition_in": "wipe",
   "prev": "No oxygen, no moisture, no air pressure.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U025",
+  "uid": "U027",
   "scene": 15,
   "title": "Take the Air Away",
   "art_theme": "p05c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -842,53 +910,19 @@
     "#ff7a5a"
    ]
   },
-  "text": "If the warhead sets off its chain reaction here, what is the very first thing you would notice?",
-  "dur": 4.94,
-  "transition_in": "zoom",
+  "text": "If the warhead sets off its chain reaction here, the very first thing you would notice is an eerie, absolute silence.",
+  "dur": 8.37,
+  "transition_in": "seam",
   "prev": "",
-  "nxt": "The answer is an eerie, absolute silence.",
+  "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U026",
-  "scene": 15,
-  "title": "Take the Air Away",
-  "art_theme": "p05c",
-  "bg": "paper",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "The answer is an eerie, absolute silence.",
-  "dur": 4.94,
-  "transition_in": "eye",
-  "prev": "If the warhead sets off its chain reaction here, what is the very first thing you would notice?",
-  "nxt": "",
-  "frog_hint": true
- },
- {
-  "uid": "U027",
+  "uid": "U028",
   "scene": 16,
   "title": "The Sound of Nothing",
   "art_theme": "p06a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -912,17 +946,17 @@
   },
   "text": "Sound is nothing more than vibrating molecules bumping into other molecules.",
   "dur": 6.34,
-  "transition_in": "seam",
+  "transition_in": "diamond",
   "prev": "",
   "nxt": "On Earth, the acoustic shock of a big detonation can rupture eardrums many kilometers away.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U028",
+  "uid": "U029",
   "scene": 16,
   "title": "The Sound of Nothing",
   "art_theme": "p06a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -946,17 +980,17 @@
   },
   "text": "On Earth, the acoustic shock of a big detonation can rupture eardrums many kilometers away.",
   "dur": 6.34,
-  "transition_in": "wipe",
+  "transition_in": "zoom",
   "prev": "Sound is nothing more than vibrating molecules bumping into other molecules.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U029",
+  "uid": "U030",
   "scene": 17,
   "title": "The Sound of Nothing",
   "art_theme": "p06b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -980,17 +1014,17 @@
   },
   "text": "But in a vacuum, there is no medium to carry those vibrations.",
   "dur": 5.4,
-  "transition_in": "tilt",
+  "transition_in": "page",
   "prev": "",
   "nxt": "A warhead with the power of a million tons of TNT would make no sound at all.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U030",
+  "uid": "U031",
   "scene": 17,
   "title": "The Sound of Nothing",
   "art_theme": "p06b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1014,17 +1048,17 @@
   },
   "text": "A warhead with the power of a million tons of TNT would make no sound at all.",
   "dur": 5.4,
-  "transition_in": "wash",
+  "transition_in": "match",
   "prev": "But in a vacuum, there is no medium to carry those vibrations.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U031",
+  "uid": "U032",
   "scene": 18,
   "title": "The Sound of Nothing",
   "art_theme": "p06c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1051,40 +1085,6 @@
   "transition_in": "whip",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
- },
- {
-  "uid": "U032",
-  "scene": 19,
-  "title": "No Blast Wave",
-  "art_theme": "p07a",
-  "bg": "paper",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "Would you feel a blast wave hit your ship? Surprisingly, no.",
-  "dur": 5.27,
-  "transition_in": "tilt",
-  "prev": "",
-  "nxt": "Without air to compress, there is no wall of overpressure sweeping across the void.",
   "frog_hint": true
  },
  {
@@ -1092,7 +1092,7 @@
   "scene": 19,
   "title": "No Blast Wave",
   "art_theme": "p07a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1114,10 +1114,10 @@
     "#ff7a5a"
    ]
   },
-  "text": "Without air to compress, there is no wall of overpressure sweeping across the void.",
-  "dur": 5.27,
-  "transition_in": "slide",
-  "prev": "Would you feel a blast wave hit your ship? Surprisingly, no.",
+  "text": "You would not feel a blast wave hit your ship. Without air to compress, there is no wall of overpressure sweeping across the void.",
+  "dur": 9.03,
+  "transition_in": "wave",
+  "prev": "",
   "nxt": "",
   "frog_hint": false
  },
@@ -1126,7 +1126,7 @@
   "scene": 20,
   "title": "No Blast Wave",
   "art_theme": "p07b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1150,7 +1150,7 @@
   },
   "text": "If you were floating in a spacesuit nearby, no shockwave would shove you backward through the blackness.",
   "dur": 6.89,
-  "transition_in": "iris",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "The air blast that causes most of the physical destruction on Earth simply does not exist in space.",
   "frog_hint": true
@@ -1160,7 +1160,7 @@
   "scene": 20,
   "title": "No Blast Wave",
   "art_theme": "p07b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1194,7 +1194,7 @@
   "scene": 21,
   "title": "No Blast Wave",
   "art_theme": "p07c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1218,7 +1218,7 @@
   },
   "text": "So if there is no air to push against you, does that mean you are safe?",
   "dur": 4.94,
-  "transition_in": "diamond",
+  "transition_in": "slide",
   "prev": "",
   "nxt": "",
   "frog_hint": true
@@ -1228,7 +1228,7 @@
   "scene": 22,
   "title": "Where the Energy Goes",
   "art_theme": "p08a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1262,7 +1262,7 @@
   "scene": 23,
   "title": "Where the Energy Goes",
   "art_theme": "p08b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1286,7 +1286,7 @@
   },
   "text": "On Earth, the dense atmosphere swallows a bomb's first burst of radiation within a few meters,",
   "dur": 4.71,
-  "transition_in": "fade",
+  "transition_in": "wash",
   "prev": "",
   "nxt": "turning it into heat and moving air.",
   "frog_hint": true
@@ -1296,7 +1296,7 @@
   "scene": 23,
   "title": "Where the Energy Goes",
   "art_theme": "p08b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1320,7 +1320,7 @@
   },
   "text": "turning it into heat and moving air.",
   "dur": 4.71,
-  "transition_in": "diamond",
+  "transition_in": "match",
   "prev": "On Earth, the dense atmosphere swallows a bomb's first burst of radiation within a few meters,",
   "nxt": "",
   "frog_hint": false
@@ -1330,7 +1330,7 @@
   "scene": 24,
   "title": "Where the Energy Goes",
   "art_theme": "p08c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1353,8 +1353,8 @@
    ]
   },
   "text": "In the vacuum, nothing swallows it.",
-  "dur": 5.73,
-  "transition_in": "slide",
+  "dur": 5.72,
+  "transition_in": "zoom",
   "prev": "",
   "nxt": "Instead of turning into a pressure wave, most of the weapon's energy escapes at once as invisible, high-energy radiation.",
   "frog_hint": true
@@ -1364,7 +1364,7 @@
   "scene": 24,
   "title": "Where the Energy Goes",
   "art_theme": "p08c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1387,7 +1387,7 @@
    ]
   },
   "text": "Instead of turning into a pressure wave, most of the weapon's energy escapes at once as invisible, high-energy radiation.",
-  "dur": 5.73,
+  "dur": 5.72,
   "transition_in": "wave",
   "prev": "In the vacuum, nothing swallows it.",
   "nxt": "",
@@ -1398,7 +1398,7 @@
   "scene": 26,
   "title": "The X-ray Flood",
   "art_theme": "p09a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1432,7 +1432,7 @@
   "scene": 26,
   "title": "The X-ray Flood",
   "art_theme": "p09a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1466,7 +1466,7 @@
   "scene": 27,
   "title": "The X-ray Flood",
   "art_theme": "p09b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1490,7 +1490,7 @@
   },
   "text": "They do not lose strength pushing through air. They do not slow down.",
   "dur": 5.34,
-  "transition_in": "page",
+  "transition_in": "iris",
   "prev": "",
   "nxt": "If a satellite or spacecraft with no special shielding sits anywhere in the line of sight,",
   "frog_hint": true
@@ -1500,7 +1500,7 @@
   "scene": 27,
   "title": "The X-ray Flood",
   "art_theme": "p09b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1524,7 +1524,7 @@
   },
   "text": "If a satellite or spacecraft with no special shielding sits anywhere in the line of sight,",
   "dur": 5.34,
-  "transition_in": "match",
+  "transition_in": "page",
   "prev": "They do not lose strength pushing through air. They do not slow down.",
   "nxt": "this lethal bath of X-rays strikes its metal hull almost instantly.",
   "frog_hint": false
@@ -1534,7 +1534,7 @@
   "scene": 27,
   "title": "The X-ray Flood",
   "art_theme": "p09b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1558,7 +1558,7 @@
   },
   "text": "this lethal bath of X-rays strikes its metal hull almost instantly.",
   "dur": 5.34,
-  "transition_in": "wash",
+  "transition_in": "match",
   "prev": "If a satellite or spacecraft with no special shielding sits anywhere in the line of sight,",
   "nxt": "",
   "frog_hint": true
@@ -1568,7 +1568,7 @@
   "scene": 28,
   "title": "Blow-off Impulse",
   "art_theme": "p10a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1592,7 +1592,7 @@
   },
   "text": "When intense X-rays hit a solid surface, physics produces a brutal effect called blow-off impulse.",
   "dur": 7.86,
-  "transition_in": "push",
+  "transition_in": "wipe",
   "prev": "",
   "nxt": "The thin outer layer of the spacecraft's skin absorbs so much energy in a fraction of a second that it vaporizes.",
   "frog_hint": false
@@ -1602,7 +1602,7 @@
   "scene": 28,
   "title": "Blow-off Impulse",
   "art_theme": "p10a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1626,7 +1626,7 @@
   },
   "text": "The thin outer layer of the spacecraft's skin absorbs so much energy in a fraction of a second that it vaporizes.",
   "dur": 7.86,
-  "transition_in": "wipe",
+  "transition_in": "tilt",
   "prev": "When intense X-rays hit a solid surface, physics produces a brutal effect called blow-off impulse.",
   "nxt": "",
   "frog_hint": true
@@ -1636,7 +1636,7 @@
   "scene": 29,
   "title": "Blow-off Impulse",
   "art_theme": "p10b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1659,8 +1659,8 @@
    ]
   },
   "text": "As that layer turns to gas and bursts outward, it kicks back against the hull underneath with tremendous force.",
-  "dur": 8.23,
-  "transition_in": "iris",
+  "dur": 8.5,
+  "transition_in": "eye",
   "prev": "",
   "nxt": "Even with no shockwave in the air, the radiation can send a violent shock through the structure and wreck the craft from the inside.",
   "frog_hint": false
@@ -1670,7 +1670,7 @@
   "scene": 29,
   "title": "Blow-off Impulse",
   "art_theme": "p10b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1693,18 +1693,52 @@
    ]
   },
   "text": "Even with no shockwave in the air, the radiation can send a violent shock through the structure and wreck the craft from the inside.",
-  "dur": 8.23,
-  "transition_in": "zigzag",
+  "dur": 8.5,
+  "transition_in": "push",
   "prev": "As that layer turns to gas and bursts outward, it kicks back against the hull underneath with tremendous force.",
-  "nxt": "",
+  "nxt": "And that is only the first second. What the 1962 blast did to the sky above Hawaii, and to the satellites overhead, comes next.",
   "frog_hint": true
  },
  {
   "uid": "U052",
+  "scene": 29,
+  "title": "Blow-off Impulse",
+  "art_theme": "p10b",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "And that is only the first second. What the 1962 blast did to the sky above Hawaii, and to the satellites overhead, comes next.",
+  "dur": 8.5,
+  "transition_in": "diamond",
+  "prev": "Even with no shockwave in the air, the radiation can send a violent shock through the structure and wreck the craft from the inside.",
+  "nxt": "",
+  "frog_hint": false
+ },
+ {
+  "uid": "U053",
   "scene": 30,
   "title": "No Mushroom Cloud",
   "art_theme": "p11a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1728,17 +1762,17 @@
   },
   "text": "What about the visual shape of the explosion? You would never see a mushroom cloud in space.",
   "dur": 6.52,
-  "transition_in": "eye",
+  "transition_in": "zigzag",
   "prev": "",
   "nxt": "A mushroom cloud needs gravity and buoyant air to rise, and neither exists in the void.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U053",
+  "uid": "U054",
   "scene": 30,
   "title": "No Mushroom Cloud",
   "art_theme": "p11a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1762,17 +1796,17 @@
   },
   "text": "A mushroom cloud needs gravity and buoyant air to rise, and neither exists in the void.",
   "dur": 6.52,
-  "transition_in": "diamond",
+  "transition_in": "seam",
   "prev": "What about the visual shape of the explosion? You would never see a mushroom cloud in space.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U054",
+  "uid": "U055",
   "scene": 31,
   "title": "No Mushroom Cloud",
   "art_theme": "p11b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1796,17 +1830,17 @@
   },
   "text": "Instead, the vaporized remains of the bomb expand in all directions at once.",
   "dur": 5.66,
-  "transition_in": "fade",
+  "transition_in": "zoom",
   "prev": "",
   "nxt": "They form a rapidly swelling, translucent bubble of superheated plasma.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U055",
+  "uid": "U056",
   "scene": 31,
   "title": "No Mushroom Cloud",
   "art_theme": "p11b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1833,14 +1867,14 @@
   "transition_in": "tilt",
   "prev": "Instead, the vaporized remains of the bomb expand in all directions at once.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U056",
+  "uid": "U057",
   "scene": 32,
   "title": "A Newborn Star",
   "art_theme": "p12a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1864,17 +1898,17 @@
   },
   "text": "To human eyes, it would look like an expanding sphere of strange, ethereal light.",
   "dur": 6.55,
-  "transition_in": "zoom",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "For an instant, it would outshine the midday sun, lighting the dark like a miniature, newborn star.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U057",
+  "uid": "U058",
   "scene": 32,
   "title": "A Newborn Star",
   "art_theme": "p12a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1901,14 +1935,14 @@
   "transition_in": "whip",
   "prev": "To human eyes, it would look like an expanding sphere of strange, ethereal light.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U058",
+  "uid": "U059",
   "scene": 33,
   "title": "A Newborn Star",
   "art_theme": "p12b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1932,17 +1966,17 @@
   },
   "text": "Then, because no surrounding air traps the heat, the plasma thins out as it rushes into the emptiness.",
   "dur": 7.78,
-  "transition_in": "slide",
+  "transition_in": "iris",
   "prev": "",
   "nxt": "Within seconds, the glowing sphere would stretch so thin that it becomes a faint, transparent shell, and fade into darkness.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U059",
+  "uid": "U060",
   "scene": 33,
   "title": "A Newborn Star",
   "art_theme": "p12b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -1966,17 +2000,17 @@
   },
   "text": "Within seconds, the glowing sphere would stretch so thin that it becomes a faint, transparent shell, and fade into darkness.",
   "dur": 7.78,
-  "transition_in": "match",
+  "transition_in": "slide",
   "prev": "Then, because no surrounding air traps the heat, the plasma thins out as it rushes into the emptiness.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U060",
+  "uid": "U061",
   "scene": 34,
   "title": "Starfish Prime",
   "art_theme": "p13a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2000,17 +2034,17 @@
   },
   "text": "This is not just physics scribbled on a chalkboard. Humanity actually ventured into this realm.",
   "dur": 7.89,
-  "transition_in": "zigzag",
+  "transition_in": "eye",
   "prev": "",
   "nxt": "On the ninth of July in 1962, American scientists launched a thermonuclear warhead high above the Pacific Ocean.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U061",
+  "uid": "U062",
   "scene": 34,
   "title": "Starfish Prime",
   "art_theme": "p13a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2037,14 +2071,14 @@
   "transition_in": "wave",
   "prev": "This is not just physics scribbled on a chalkboard. Humanity actually ventured into this realm.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U062",
+  "uid": "U063",
   "scene": 35,
   "title": "Starfish Prime",
   "art_theme": "p13b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2068,17 +2102,17 @@
   },
   "text": "The test was codenamed Starfish Prime. It remains one of the most astonishing, and most alarming, experiments ever carried out.",
   "dur": 9.35,
-  "transition_in": "page",
+  "transition_in": "diamond",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U063",
+  "uid": "U064",
   "scene": 36,
   "title": "Starfish Prime",
   "art_theme": "p14a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2102,17 +2136,17 @@
   },
   "text": "The rocket lifted off from Johnston Island, a tiny speck of land in the Pacific.",
   "dur": 6.03,
-  "transition_in": "seam",
+  "transition_in": "page",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U065",
+  "uid": "U066",
   "scene": 38,
   "title": "Starfish Prime",
   "art_theme": "p14c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2142,11 +2176,11 @@
   "frog_hint": true
  },
  {
-  "uid": "U066",
+  "uid": "U067",
   "scene": 38,
   "title": "Starfish Prime",
   "art_theme": "p14c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2170,17 +2204,17 @@
   },
   "text": "What they did not fully expect was how far its effects would reach, and how long they would last.",
   "dur": 6.17,
-  "transition_in": "wash",
+  "transition_in": "push",
   "prev": "Scientists expected a spectacular burst of energy in the thin upper atmosphere.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U067",
+  "uid": "U068",
   "scene": 39,
   "title": "The Night Sky Lights Up",
   "art_theme": "p15a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2204,17 +2238,17 @@
   },
   "text": "When the warhead detonated at the edge of space, people in Hawaii saw the sky light up in the middle of the night.",
   "dur": 7.48,
-  "transition_in": "eye",
+  "transition_in": "wash",
   "prev": "",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U068",
+  "uid": "U069",
   "scene": 40,
   "title": "The Night Sky Lights Up",
   "art_theme": "p15b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2244,11 +2278,11 @@
   "frog_hint": false
  },
  {
-  "uid": "U069",
+  "uid": "U070",
   "scene": 40,
   "title": "The Night Sky Lights Up",
   "art_theme": "p15b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2278,11 +2312,11 @@
   "frog_hint": true
  },
  {
-  "uid": "U070",
+  "uid": "U071",
   "scene": 41,
   "title": "Compton Scattering",
   "art_theme": "p16a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2306,17 +2340,17 @@
   },
   "text": "The blast released a burst of gamma rays that slammed downward into the upper layers of the atmosphere.",
   "dur": 5.87,
-  "transition_in": "iris",
+  "transition_in": "zigzag",
   "prev": "",
   "nxt": "When these high-energy photons collided with air molecules,",
   "frog_hint": false
  },
  {
-  "uid": "U071",
+  "uid": "U072",
   "scene": 41,
   "title": "Compton Scattering",
   "art_theme": "p16a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2340,17 +2374,17 @@
   },
   "text": "When these high-energy photons collided with air molecules,",
   "dur": 5.87,
-  "transition_in": "push",
+  "transition_in": "fade",
   "prev": "The blast released a burst of gamma rays that slammed downward into the upper layers of the atmosphere.",
   "nxt": "they knocked countless electrons free at enormous speeds, a process known as Compton scattering.",
   "frog_hint": true
  },
  {
-  "uid": "U072",
+  "uid": "U073",
   "scene": 41,
   "title": "Compton Scattering",
   "art_theme": "p16a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2374,17 +2408,17 @@
   },
   "text": "they knocked countless electrons free at enormous speeds, a process known as Compton scattering.",
   "dur": 5.87,
-  "transition_in": "tilt",
+  "transition_in": "match",
   "prev": "When these high-energy photons collided with air molecules,",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U073",
+  "uid": "U074",
   "scene": 42,
   "title": "Compton Scattering",
   "art_theme": "p16b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2408,17 +2442,17 @@
   },
   "text": "Earth's magnetic field bent these speeding electrons into spirals,",
   "dur": 5.7,
-  "transition_in": "zoom",
+  "transition_in": "tilt",
   "prev": "",
   "nxt": "and together they produced an intense pulse of radio waves spread across a huge area.",
   "frog_hint": true
  },
  {
-  "uid": "U074",
+  "uid": "U075",
   "scene": 42,
   "title": "Compton Scattering",
   "art_theme": "p16b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2448,11 +2482,11 @@
   "frog_hint": false
  },
  {
-  "uid": "U075",
+  "uid": "U076",
   "scene": 43,
   "title": "The Electromagnetic Pulse",
   "art_theme": "p17a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2476,17 +2510,17 @@
   },
   "text": "This was a high-altitude electromagnetic pulse, or EMP. In Hawaii, hundreds of streetlights went dark.",
   "dur": 7.03,
-  "transition_in": "fade",
+  "transition_in": "eye",
   "prev": "",
   "nxt": "Burglar alarms began ringing across the islands, and a telephone link was knocked out.",
   "frog_hint": true
  },
  {
-  "uid": "U076",
+  "uid": "U077",
   "scene": 43,
   "title": "The Electromagnetic Pulse",
   "art_theme": "p17a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2510,17 +2544,17 @@
   },
   "text": "Burglar alarms began ringing across the islands, and a telephone link was knocked out.",
   "dur": 7.03,
-  "transition_in": "wipe",
+  "transition_in": "seam",
   "prev": "This was a high-altitude electromagnetic pulse, or EMP. In Hawaii, hundreds of streetlights went dark.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U077",
+  "uid": "U078",
   "scene": 44,
   "title": "The Electromagnetic Pulse",
   "art_theme": "p17b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2544,17 +2578,17 @@
   },
   "text": "Without a gust of wind or a sound from space,",
   "dur": 6.19,
-  "transition_in": "slide",
+  "transition_in": "wipe",
   "prev": "",
   "nxt": "an invisible wave of electromagnetic energy had struck electrical systems from more than a thousand kilometers away.",
   "frog_hint": true
  },
  {
-  "uid": "U078",
+  "uid": "U079",
   "scene": 44,
   "title": "The Electromagnetic Pulse",
   "art_theme": "p17b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2584,11 +2618,11 @@
   "frog_hint": false
  },
  {
-  "uid": "U079",
+  "uid": "U080",
   "scene": 45,
   "title": "Artificial Auroras",
   "art_theme": "p18a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2612,17 +2646,17 @@
   },
   "text": "High above the clouds, another haunting phenomenon unfolded.",
   "dur": 6.05,
-  "transition_in": "page",
+  "transition_in": "diamond",
   "prev": "",
   "nxt": "Charged particles from the explosion spiraled along the invisible lines of Earth's magnetic field.",
   "frog_hint": true
  },
  {
-  "uid": "U080",
+  "uid": "U081",
   "scene": 45,
   "title": "Artificial Auroras",
   "art_theme": "p18a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2646,17 +2680,17 @@
   },
   "text": "Charged particles from the explosion spiraled along the invisible lines of Earth's magnetic field.",
   "dur": 6.05,
-  "transition_in": "match",
+  "transition_in": "zoom",
   "prev": "High above the clouds, another haunting phenomenon unfolded.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U081",
+  "uid": "U082",
   "scene": 46,
   "title": "Artificial Auroras",
   "art_theme": "p18b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2680,17 +2714,17 @@
   },
   "text": "They energized gases in the upper atmosphere and painted the night sky with artificial auroras.",
   "dur": 7.88,
-  "transition_in": "seam",
+  "transition_in": "slide",
   "prev": "",
   "nxt": "Red and green light rippled over the tropical Pacific for many minutes, like an otherworldly phantom dancing above the ocean.",
   "frog_hint": true
  },
  {
-  "uid": "U082",
+  "uid": "U083",
   "scene": 46,
   "title": "Artificial Auroras",
   "art_theme": "p18b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2714,17 +2748,17 @@
   },
   "text": "Red and green light rippled over the tropical Pacific for many minutes, like an otherworldly phantom dancing above the ocean.",
   "dur": 7.88,
-  "transition_in": "wave",
+  "transition_in": "zigzag",
   "prev": "They energized gases in the upper atmosphere and painted the night sky with artificial auroras.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U083",
+  "uid": "U084",
   "scene": 47,
   "title": "The Invisible Belt",
   "art_theme": "p19a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2754,11 +2788,11 @@
   "frog_hint": true
  },
  {
-  "uid": "U084",
+  "uid": "U085",
   "scene": 47,
   "title": "The Invisible Belt",
   "art_theme": "p19a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2782,17 +2816,17 @@
   },
   "text": "Instead, they became trapped by Earth's magnetic field, creating a dense, artificial radiation belt around the planet.",
   "dur": 8.42,
-  "transition_in": "zigzag",
+  "transition_in": "page",
   "prev": "Yet the most dangerous consequence was invisible. The high-energy electrons did not vanish when the light faded.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U085",
+  "uid": "U086",
   "scene": 48,
   "title": "The Invisible Belt",
   "art_theme": "p19b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2816,17 +2850,17 @@
   },
   "text": "This man-made belt was far more intense than anyone had expected, and it lingered for months, and in some regions for years.",
   "dur": 8.97,
-  "transition_in": "eye",
+  "transition_in": "iris",
   "prev": "",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U086",
+  "uid": "U087",
   "scene": 49,
   "title": "The Satellites Fall Silent",
   "art_theme": "p20a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2850,17 +2884,17 @@
   },
   "text": "In 1962, space exploration was still in its infancy, with only a small number of primitive satellites in orbit.",
   "dur": 7.44,
-  "transition_in": "iris",
+  "transition_in": "push",
   "prev": "",
   "nxt": "Even so, in the months after Starfish Prime, that lingering belt of radiation damaged or disabled a number of satellites,",
   "frog_hint": false
  },
  {
-  "uid": "U087",
+  "uid": "U088",
   "scene": 49,
   "title": "The Satellites Fall Silent",
   "art_theme": "p20a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2884,17 +2918,17 @@
   },
   "text": "Even so, in the months after Starfish Prime, that lingering belt of radiation damaged or disabled a number of satellites,",
   "dur": 7.44,
-  "transition_in": "diamond",
+  "transition_in": "match",
   "prev": "In 1962, space exploration was still in its infancy, with only a small number of primitive satellites in orbit.",
   "nxt": "including the pioneering communications satellite Telstar.",
   "frog_hint": true
  },
  {
-  "uid": "U088",
+  "uid": "U089",
   "scene": 49,
   "title": "The Satellites Fall Silent",
   "art_theme": "p20a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2924,11 +2958,11 @@
   "frog_hint": false
  },
  {
-  "uid": "U089",
+  "uid": "U090",
   "scene": 50,
   "title": "The Satellites Fall Silent",
   "art_theme": "p20b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2952,17 +2986,17 @@
   },
   "text": "Some accounts put the toll at about one-third of those then in low Earth orbit, though the exact count is uncertain.",
   "dur": 7.88,
-  "transition_in": "push",
+  "transition_in": "tilt",
   "prev": "",
   "nxt": "The trapped electrons pierced fragile electronics and wore down the early solar cells until the spacecraft fell silent.",
   "frog_hint": true
  },
  {
-  "uid": "U090",
+  "uid": "U091",
   "scene": 50,
   "title": "The Satellites Fall Silent",
   "art_theme": "p20b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -2992,11 +3026,11 @@
   "frog_hint": false
  },
  {
-  "uid": "U091",
+  "uid": "U092",
   "scene": 51,
   "title": "Lessons and Treaties",
   "art_theme": "p21a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3026,11 +3060,11 @@
   "frog_hint": true
  },
  {
-  "uid": "U092",
+  "uid": "U093",
   "scene": 51,
   "title": "Lessons and Treaties",
   "art_theme": "p21a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3054,17 +3088,17 @@
   },
   "text": "It was a place where Earth's magnetic field could capture and hold the debris of a bomb.",
   "dur": 6.49,
-  "transition_in": "wipe",
+  "transition_in": "wash",
   "prev": "The lesson was hard to ignore. Space was not an empty stage where explosions simply vanished.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U093",
+  "uid": "U094",
   "scene": 52,
   "title": "Lessons and Treaties",
   "art_theme": "p21b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3088,17 +3122,17 @@
   },
   "text": "In 1963, the Partial Test Ban Treaty banned nuclear explosions in the atmosphere, underwater, and in outer space.",
   "dur": 8.55,
-  "transition_in": "fade",
+  "transition_in": "iris",
   "prev": "",
   "nxt": "A few years later, the Outer Space Treaty of 1967 barred placing nuclear weapons in orbit.",
   "frog_hint": true
  },
  {
-  "uid": "U094",
+  "uid": "U095",
   "scene": 52,
   "title": "Lessons and Treaties",
   "art_theme": "p21b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3122,17 +3156,17 @@
   },
   "text": "A few years later, the Outer Space Treaty of 1967 barred placing nuclear weapons in orbit.",
   "dur": 8.55,
-  "transition_in": "match",
+  "transition_in": "eye",
   "prev": "In 1963, the Partial Test Ban Treaty banned nuclear explosions in the atmosphere, underwater, and in outer space.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U095",
+  "uid": "U096",
   "scene": 53,
   "title": "Lessons and Treaties",
   "art_theme": "p21c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3162,11 +3196,11 @@
   "frog_hint": true
  },
  {
-  "uid": "U096",
+  "uid": "U097",
   "scene": 54,
   "title": "Today's Orbital World",
   "art_theme": "p22a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3190,17 +3224,17 @@
   },
   "text": "Now imagine a modern thermonuclear device detonating in near-Earth space today.",
   "dur": 5.61,
-  "transition_in": "iris",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "Our civilization is deeply dependent on orbital technology.",
   "frog_hint": false
  },
  {
-  "uid": "U097",
+  "uid": "U098",
   "scene": 54,
   "title": "Today's Orbital World",
   "art_theme": "p22a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3224,17 +3258,17 @@
   },
   "text": "Our civilization is deeply dependent on orbital technology.",
   "dur": 5.61,
-  "transition_in": "eye",
+  "transition_in": "match",
   "prev": "Now imagine a modern thermonuclear device detonating in near-Earth space today.",
   "nxt": "Thousands of active satellites blanket the globe, quietly supporting financial transactions,",
   "frog_hint": true
  },
  {
-  "uid": "U098",
+  "uid": "U099",
   "scene": 54,
   "title": "Today's Orbital World",
   "art_theme": "p22a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3258,17 +3292,17 @@
   },
   "text": "Thousands of active satellites blanket the globe, quietly supporting financial transactions,",
   "dur": 5.61,
-  "transition_in": "zoom",
+  "transition_in": "iris",
   "prev": "Our civilization is deeply dependent on orbital technology.",
   "nxt": "shipping routes, aircraft navigation, and weather warnings for billions of people.",
   "frog_hint": false
  },
  {
-  "uid": "U099",
+  "uid": "U100",
   "scene": 54,
   "title": "Today's Orbital World",
   "art_theme": "p22a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3292,17 +3326,17 @@
   },
   "text": "shipping routes, aircraft navigation, and weather warnings for billions of people.",
   "dur": 5.61,
-  "transition_in": "iris",
+  "transition_in": "match",
   "prev": "Thousands of active satellites blanket the globe, quietly supporting financial transactions,",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U100",
+  "uid": "U101",
   "scene": 55,
   "title": "Today's Orbital World",
   "art_theme": "p22b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3326,17 +3360,17 @@
   },
   "text": "Our modern world is anchored to a delicate web of glass and silicon orbiting hundreds of kilometers above our heads.",
   "dur": 8.25,
-  "transition_in": "tilt",
+  "transition_in": "diamond",
   "prev": "",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U101",
+  "uid": "U102",
   "scene": 56,
   "title": "The Pulse Today",
   "art_theme": "p23a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3366,11 +3400,11 @@
   "frog_hint": true
  },
  {
-  "uid": "U102",
+  "uid": "U103",
   "scene": 57,
   "title": "The Pulse Today",
   "art_theme": "p23b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3394,17 +3428,17 @@
   },
   "text": "Scientists who study this threat warn that a high-altitude pulse could disrupt power grids and communications across a wide region,",
   "dur": 8.31,
-  "transition_in": "diamond",
+  "transition_in": "page",
   "prev": "",
   "nxt": "and the damage would depend on the weapon, its altitude, and how well the systems on the ground are protected.",
   "frog_hint": false
  },
  {
-  "uid": "U103",
+  "uid": "U104",
   "scene": 57,
   "title": "The Pulse Today",
   "art_theme": "p23b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3428,17 +3462,17 @@
   },
   "text": "and the damage would depend on the weapon, its altitude, and how well the systems on the ground are protected.",
   "dur": 8.31,
-  "transition_in": "page",
+  "transition_in": "zigzag",
   "prev": "Scientists who study this threat warn that a high-altitude pulse could disrupt power grids and communications across a wide region,",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U104",
+  "uid": "U105",
   "scene": 58,
   "title": "The Pulse Today",
   "art_theme": "p23c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3462,17 +3496,17 @@
   },
   "text": "Emergency networks, hospitals, and supply chains could face serious disruption.",
   "dur": 6.15,
-  "transition_in": "zigzag",
+  "transition_in": "wipe",
   "prev": "",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U105",
+  "uid": "U106",
   "scene": 59,
   "title": "Orbit Under Threat",
   "art_theme": "p24a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3496,17 +3530,17 @@
   },
   "text": "Up in orbit, the harm could last much longer.",
   "dur": 5.84,
-  "transition_in": "wash",
+  "transition_in": "whip",
   "prev": "",
   "nxt": "A new radiation belt could slowly degrade the electronics of many low Earth orbit satellites over weeks and months.",
   "frog_hint": true
  },
  {
-  "uid": "U106",
+  "uid": "U107",
   "scene": 59,
   "title": "Orbit Under Threat",
   "art_theme": "p24a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3530,17 +3564,17 @@
   },
   "text": "A new radiation belt could slowly degrade the electronics of many low Earth orbit satellites over weeks and months.",
   "dur": 5.84,
-  "transition_in": "eye",
+  "transition_in": "push",
   "prev": "Up in orbit, the harm could last much longer.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U107",
+  "uid": "U108",
   "scene": 60,
   "title": "Orbit Under Threat",
   "art_theme": "p24b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3564,17 +3598,17 @@
   },
   "text": "Navigation signals might become unreliable. Weather forecasting could lose key data.",
   "dur": 6.2,
-  "transition_in": "slide",
+  "transition_in": "eye",
   "prev": "",
   "nxt": "Whole orbital paths could become hazardous for satellites and for future astronauts.",
   "frog_hint": true
  },
  {
-  "uid": "U108",
+  "uid": "U109",
   "scene": 60,
   "title": "Orbit Under Threat",
   "art_theme": "p24b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3598,17 +3632,17 @@
   },
   "text": "Whole orbital paths could become hazardous for satellites and for future astronauts.",
   "dur": 6.2,
-  "transition_in": "wipe",
+  "transition_in": "tilt",
   "prev": "Navigation signals might become unreliable. Weather forecasting could lose key data.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U109",
+  "uid": "U110",
   "scene": 61,
   "title": "Orbit Under Threat",
   "art_theme": "p24c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3632,17 +3666,17 @@
   },
   "text": "These are estimates, not certainties, but they come from the same physics that played out in 1962.",
   "dur": 7.8,
-  "transition_in": "fade",
+  "transition_in": "wipe",
   "prev": "",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U110",
+  "uid": "U111",
   "scene": 62,
   "title": "The Deep Void",
   "art_theme": "p25a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3672,11 +3706,11 @@
   "frog_hint": false
  },
  {
-  "uid": "U111",
+  "uid": "U112",
   "scene": 62,
   "title": "The Deep Void",
   "art_theme": "p25a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3700,17 +3734,17 @@
   },
   "text": "Out there, beyond the reach of Earth's magnetic field, the weapon would behave very differently.",
   "dur": 6.36,
-  "transition_in": "match",
+  "transition_in": "slide",
   "prev": "What if the detonation happened even farther away, in the deep void between planets?",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U112",
+  "uid": "U113",
   "scene": 63,
   "title": "The Deep Void",
   "art_theme": "p25b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3734,17 +3768,17 @@
   },
   "text": "There would be no artificial auroras, no pulse to disturb a power grid, and no trapped radiation belt.",
   "dur": 7.49,
-  "transition_in": "wash",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "It would be a solitary, silent burst of fire, sending its X-rays racing into the infinite dark.",
   "frog_hint": false
  },
  {
-  "uid": "U113",
+  "uid": "U114",
   "scene": 63,
   "title": "The Deep Void",
   "art_theme": "p25b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3774,11 +3808,11 @@
   "frog_hint": true
  },
  {
-  "uid": "U114",
+  "uid": "U115",
   "scene": 64,
   "title": "The Deep Void",
   "art_theme": "p25c",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3802,17 +3836,17 @@
   },
   "text": "Its energy would simply thin out across millions of kilometers, swallowed by the sheer scale of space.",
   "dur": 7.2,
-  "transition_in": "zigzag",
+  "transition_in": "page",
   "prev": "",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U115",
+  "uid": "U116",
   "scene": 65,
   "title": "The Sun, the Real Thing",
   "art_theme": "p26a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3836,17 +3870,17 @@
   },
   "text": "In a cosmic sense, our whole solar system is already shaped by this kind of physics.",
   "dur": 5.88,
-  "transition_in": "page",
+  "transition_in": "diamond",
   "prev": "",
   "nxt": "Nature has been running thermonuclear reactions since long before we existed.",
   "frog_hint": true
  },
  {
-  "uid": "U116",
+  "uid": "U117",
   "scene": 65,
   "title": "The Sun, the Real Thing",
   "art_theme": "p26a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3870,17 +3904,17 @@
   },
   "text": "Nature has been running thermonuclear reactions since long before we existed.",
   "dur": 5.88,
-  "transition_in": "push",
+  "transition_in": "zigzag",
   "prev": "In a cosmic sense, our whole solar system is already shaped by this kind of physics.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U118",
+  "uid": "U119",
   "scene": 67,
   "title": "The Quiet Sky",
   "art_theme": "p27a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3910,11 +3944,11 @@
   "frog_hint": true
  },
  {
-  "uid": "U119",
+  "uid": "U120",
   "scene": 68,
   "title": "The Quiet Sky",
   "art_theme": "p27b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3937,18 +3971,18 @@
    ]
   },
   "text": "But beneath that calm lies a razor-thin line between life and cosmic devastation.",
-  "dur": 7.9,
-  "transition_in": "fade",
+  "dur": 7.91,
+  "transition_in": "slide",
   "prev": "",
   "nxt": "We survive here not because the universe is gentle, but because a fragile blanket of air protects us from the violent silence of the void.",
   "frog_hint": false
  },
  {
-  "uid": "U120",
+  "uid": "U121",
   "scene": 68,
   "title": "The Quiet Sky",
   "art_theme": "p27b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -3971,18 +4005,18 @@
    ]
   },
   "text": "We survive here not because the universe is gentle, but because a fragile blanket of air protects us from the violent silence of the void.",
-  "dur": 7.9,
-  "transition_in": "slide",
+  "dur": 7.91,
+  "transition_in": "fade",
   "prev": "But beneath that calm lies a razor-thin line between life and cosmic devastation.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U121",
+  "uid": "U122",
   "scene": 69,
   "title": "Destruction Needs No Sound",
   "art_theme": "p28a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -4006,17 +4040,17 @@
   },
   "text": "Our technology has given us the terrifying ability to ignite artificial stars, even in the realm where real stars are born.",
   "dur": 8.47,
-  "transition_in": "diamond",
+  "transition_in": "zoom",
   "prev": "",
   "nxt": "Understanding what a nuclear weapon does in the vacuum reminds us how extraordinary our home truly is.",
   "frog_hint": false
  },
  {
-  "uid": "U122",
+  "uid": "U123",
   "scene": 69,
   "title": "Destruction Needs No Sound",
   "art_theme": "p28a",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -4040,17 +4074,17 @@
   },
   "text": "Understanding what a nuclear weapon does in the vacuum reminds us how extraordinary our home truly is.",
   "dur": 8.47,
-  "transition_in": "eye",
+  "transition_in": "wash",
   "prev": "Our technology has given us the terrifying ability to ignite artificial stars, even in the realm where real stars are born.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U123",
+  "uid": "U124",
   "scene": 70,
   "title": "Destruction Needs No Sound",
   "art_theme": "p28b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -4080,11 +4114,11 @@
   "frog_hint": false
  },
  {
-  "uid": "U124",
+  "uid": "U125",
   "scene": 70,
   "title": "Destruction Needs No Sound",
   "art_theme": "p28b",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -4108,7 +4142,7 @@
   },
   "text": "In the grand emptiness of space, destruction needs no sound to be real.",
   "dur": 7.02,
-  "transition_in": "iris",
+  "transition_in": "wash",
   "prev": "Space does not amplify an explosion with thunder or shockwaves. Its cold silence carries a more sobering message.",
   "nxt": "",
   "frog_hint": true

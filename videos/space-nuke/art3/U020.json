@@ -1,23 +1,46 @@
 {
- "centre": "a painter's canvas on an easel showing a stylised mushroom cloud against the sky, air molecules floating around",
- "focus": [
-  960,
-  420,
-  1.5
- ],
- "focus_word": "canvas",
- "sfx": [],
+ "centre": "a rising stem of dust and smoke topped by a glowing fireball, beside a small red balloon",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "atmosphere",
-   "x": 1500,
-   "y": 180,
+   "text": "balloon",
+   "x": 620,
+   "y": 240,
    "to": [
-    1060,
-    300
+    440,
+    260
    ],
-   "word": "atmosphere"
+   "word": "balloon"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-balloon"
+  },
+  "x": 420,
+  "y": 533,
+  "s": 0.95,
+  "flip": 1,
+  "kind": "ride",
+  "ride": "mv-ascend-balloon",
+  "behind": null,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

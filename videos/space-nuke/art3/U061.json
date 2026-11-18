@@ -1,24 +1,18 @@
 {
- "centre": "rocket with a warhead climbing on a long curved trail high above the Pacific Ocean at night",
+ "centre": "chalk sketch of a blast on a chalkboard (left) beside a real rocket lifting off (right)",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "1962",
-   "word": "1962"
-  },
-  {
    "type": "name",
-   "text": "Pacific Ocean",
-   "x": 1500,
-   "y": 690,
+   "text": "chalkboard",
+   "x": 500,
+   "y": 210,
    "to": [
-    1450,
-    820
+    500,
+    300
    ],
-   "word": "Pacific Ocean"
+   "word": "chalkboard"
   }
  ],
  "frog": {
@@ -31,16 +25,18 @@
    "type": "push",
    "from": 0.6
   },
-  "outfit": [
-   "goggles"
-  ],
-  "ride": "mv-path-rocket-climb",
+  "ride": "mv-path-rocket-launch",
   "kind": "ride",
-  "x": 892,
-  "y": 425,
-  "s": 1.4,
+  "x": 1275,
+  "y": 927,
+  "s": 1.16,
   "flip": 1,
   "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
   "says": [
    {
     "text": "Heave-ho!",

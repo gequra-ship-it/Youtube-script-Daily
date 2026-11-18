@@ -1,19 +1,34 @@
 {
- "centre": "a silent flash above the curve of Earth, a golden arc drawing itself to the tiny Hawaii island chain far away",
+ "centre": "a gold bell swinging silently between a thundercloud and a drum, their sound arcs fading to nothing",
  "focus": null,
  "focus_word": null,
  "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "explosion",
-   "x": 560,
-   "y": 150,
-   "to": [
-    690,
-    290
-   ],
-   "word": "explosion"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "zerogroll"
+  },
+  "ride": "mv-swing-bell",
+  "kind": "ride",
+  "x": 1122,
+  "y": 598,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "earmuffs",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Wheee...",
+    "shout": false
+   }
+  ]
+ }
 }

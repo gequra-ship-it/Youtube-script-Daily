@@ -1,47 +1,43 @@
 {
- "centre": "a rising stem of dust and smoke topped by a glowing fireball, beside a small red balloon",
+ "centre": "side-on: a dusty shockwave wall racing right across an empty city, a steel tower snapping over, glass flying",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "balloon",
-   "x": 620,
-   "y": 240,
+   "text": "shockwave",
+   "x": 560,
+   "y": 160,
    "to": [
-    440,
-    260
+    420,
+    320
    ],
-   "word": "balloon"
+   "word": "shockwave"
   }
  ],
  "frog": {
   "moods": [
    {
     "mood": "excited"
+   },
+   {
+    "word": "It travels",
+    "mood": "surprised"
    }
   ],
   "act": {
-   "type": "balloonride",
-   "obj": "mv-ascend-balloon"
+   "type": "pointfar"
   },
-  "x": 420,
-  "y": 533,
-  "s": 0.95,
-  "flip": 1,
+  "ride": "mv-path-shockwave-wall",
   "kind": "ride",
-  "ride": "mv-ascend-balloon",
-  "behind": null,
+  "x": 385,
+  "y": 280,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
   "outfit": [
-   "bowler"
+   "hardhat"
   ],
-  "says": [
-   {
-    "text": "Up, up!",
-    "shout": true
-   }
-  ],
-  "bside": 1
+  "says": []
  }
 }

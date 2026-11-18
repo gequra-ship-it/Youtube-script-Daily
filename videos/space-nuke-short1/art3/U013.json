@@ -1,14 +1,44 @@
 {
- "centre": "a glowing violet-gold plasma sphere with thin X-ray streaks escaping and an energy gauge filling to about three quarters",
+ "centre": "a vast empty field of stars where a ghostly dashed wall of pressure fades away and a comet passes straight through untouched",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "70 TO 80 PERCENT",
-   "word": "seventy to eighty percent"
+   "type": "name",
+   "text": "pressure wave",
+   "x": 770,
+   "y": 880,
+   "to": [
+    540,
+    800
+   ],
+   "word": "pressure wave"
   }
  ],
- "motion": "gauge fills; sphere swells"
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-path-comet-tail",
+  "kind": "ride",
+  "x": 194,
+  "y": 700,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
 }

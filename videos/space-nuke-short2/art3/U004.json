@@ -1,47 +1,39 @@
 {
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "smoke",
-   "x": 790,
-   "y": 1000,
+   "text": "balloon",
+   "x": 250,
+   "y": 1180,
    "to": [
-    560,
-    1000
+    880,
+    1180
    ],
-   "word": "smoke"
+   "word": "balloon"
   }
  ],
- "centre": "a tall column of dirt and smoke dragged up behind a rising fireball",
+ "centre": "a glowing hot gas bubble surging upward above the ground like a balloon, cold air sinking beside it",
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "chilly"
    }
   ],
   "act": {
-   "type": "balloonride",
-   "obj": "mv-ascend-fireball-puff"
+   "type": "rubhands"
   },
-  "x": 540,
-  "y": 761,
-  "s": 1.09,
+  "x": 820,
+  "y": 1280,
+  "s": 0.95,
   "flip": -1,
-  "kind": "ride",
-  "ride": "mv-ascend-fireball-puff",
-  "behind": null,
+  "kind": "bg",
   "outfit": [
-   "bowler"
+   "scarf",
+   "bowtie"
   ],
-  "says": [
-   {
-    "text": "Up, up!",
-    "shout": true
-   }
-  ],
+  "says": [],
   "bside": -1
  }
 }

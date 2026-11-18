@@ -1,45 +1,40 @@
 {
- "centre": "a lone glowing plasma sphere with thin X-ray streaks racing away to the right into the dark",
- "focus": [
-  900,
-  500,
-  1.5
- ],
- "focus_word": "X-rays",
- "sfx": [],
+ "centre": "three ghosted cards: auroras, a power grid and a radiation belt, each crossed out",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "X-rays",
-   "x": 1050,
-   "y": 215,
+   "text": "auroras",
+   "x": 420,
+   "y": 830,
    "to": [
-    1000,
-    420
+    420,
+    470
    ],
-   "word": "X-rays"
-  }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "dizzy"
-   }
-  ],
-  "act": {
-   "type": "dizzy"
+   "word": "auroras"
   },
-  "outfit": [
-   "helmet",
-   "moonboots"
-  ],
-  "ride": "mv-core-swell-plasma-sphere",
-  "kind": "ride",
-  "x": 482,
-  "y": 296,
-  "s": 1.25,
-  "flip": 1,
-  "bside": 1,
-  "says": []
- }
+  {
+   "type": "name",
+   "text": "power grid",
+   "x": 960,
+   "y": 830,
+   "to": [
+    900,
+    520
+   ],
+   "word": "power grid"
+  },
+  {
+   "type": "name",
+   "text": "radiation belt",
+   "x": 1500,
+   "y": 830,
+   "to": [
+    1420,
+    470
+   ],
+   "word": "radiation belt"
+  }
+ ]
 }

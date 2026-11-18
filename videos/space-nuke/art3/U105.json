@@ -1,38 +1,29 @@
 {
- "centre": "hourglass floating in orbit beside Earth wrapped in a lingering amber radiation haze, a satellite circling",
+ "centre": "night street: hospital with half-dark windows and a fading roof antenna, ambulance beacon, broken supply chain and toppling crates",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "iris": [
-  700,
-  480
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "determined"
-   }
-  ],
-  "act": {
-   "type": "magnetwalk",
-   "dist": 461
+ "labels": [
+  {
+   "type": "name",
+   "text": "hospitals",
+   "x": 560,
+   "y": 300,
+   "to": [
+    560,
+    420
+   ],
+   "word": "hospitals"
   },
-  "outfit": [
-   "helmet",
-   "moonboots"
-  ],
-  "x": 1660,
-  "y": 780,
-  "s": 0.77,
-  "flip": -1,
-  "kind": "bg",
-  "says": [
-   {
-    "text": "Magnet boots!",
-    "shout": true
-   }
-  ],
-  "bside": -1
- }
+  {
+   "type": "name",
+   "text": "supply chains",
+   "x": 1300,
+   "y": 520,
+   "to": [
+    1120,
+    606
+   ],
+   "word": "supply chains"
+  }
+ ]
 }

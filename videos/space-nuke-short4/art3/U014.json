@@ -2,7 +2,6 @@
  "centre": "a ghosted pale-blue electric arc spanning the dark ocean from a far glow to an island with small houses",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -20,12 +19,15 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "curious"
    }
   ],
-  "act": "search",
+  "act": {
+   "type": "duck"
+  },
   "outfit": [
-   "goggles"
+   "goggles",
+   "bowtie"
   ],
   "ride": "mv-path-electric-spark",
   "kind": "ride",
@@ -37,7 +39,7 @@
   "gaze": 1,
   "says": [
    {
-    "text": "Where is it?",
+    "text": "Shh...",
     "shout": false
    }
   ]

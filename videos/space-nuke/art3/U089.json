@@ -1,38 +1,29 @@
 {
- "centre": "a grid of nine little satellites with three of them dark, cracked and red-lit",
- "focus": null,
- "focus_word": null,
+ "centre": "Telstar, a small faceted sphere covered in tiny solar panels with stub antennas",
+ "focus": [
+  960,
+  500,
+  1.5
+ ],
+ "focus_word": "Telstar",
  "sfx": [
   {
-   "name": "tick",
-   "word": "toll",
+   "name": "radio",
+   "word": "communications",
    "vol": 0.5
   }
  ],
  "labels": [
   {
-   "type": "num",
-   "text": "ONE-THIRD",
-   "word": "one-third"
+   "type": "name",
+   "text": "Telstar",
+   "x": 1380,
+   "y": 430,
+   "to": [
+    1070,
+    470
+   ],
+   "word": "Telstar"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "worried"
-   }
-  ],
-  "act": "float",
-  "outfit": [
-   "helmet",
-   "jetpack"
-  ],
-  "x": 260,
-  "y": 620,
-  "s": 0.85,
-  "flip": 1,
-  "kind": "bg",
-  "says": [],
-  "bside": 1
- }
+ ]
 }

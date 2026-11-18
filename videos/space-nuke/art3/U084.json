@@ -1,29 +1,39 @@
 {
- "centre": "a dense glowing amber and teal radiation belt wrapped around the Earth",
- "focus": [
-  900,
-  540,
-  1.4
- ],
- "focus_word": "radiation belt",
+ "centre": "a dashed ghostly teal electron glowing quietly while an aurora fades away",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "pulse",
-   "word": "trapped",
+   "word": "invisible",
    "vol": 0.6
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "radiation belt",
-   "x": 1480,
-   "y": 330,
-   "to": [
-    1290,
-    500
-   ],
-   "word": "radiation belt"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 524,
+  "y": 770,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-flicker-ghost-electron",
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
 }

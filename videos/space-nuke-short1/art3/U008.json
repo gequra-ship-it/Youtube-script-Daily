@@ -1,39 +1,45 @@
 {
- "centre": "a pyramid of wooden crates glowing in the dark as the million tons, above a perfectly flat silent sound line",
+ "centre": "a warhead floating ahead in space seen over the shoulder of an astronaut from behind",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "TNT",
-   "x": 810,
-   "y": 640,
+   "text": "bomb",
+   "x": 790,
+   "y": 470,
    "to": [
-    640,
-    760
+    620,
+    640
    ],
-   "word": "TNT"
+   "word": "bomb"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "shrinkdown"
+   "type": "countstars"
   },
-  "x": 820,
-  "y": 560,
-  "s": 0.95,
+  "ride": "mv-core-approach-bomb",
+  "kind": "ride",
+  "x": 657,
+  "y": 810,
+  "s": 1.09,
   "flip": -1,
-  "kind": "bg",
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
    "glasses"
   ],
-  "says": [],
-  "bside": -1
+  "says": [
+   {
+    "text": "So many...",
+    "shout": false
+   }
+  ]
  }
 }

@@ -1,43 +1,49 @@
 {
- "centre": "a huge stylised ear at right, a distant flash and city skyline at left with sound arcs travelling across a kilometre ruler",
+ "centre": "a Newton's cradle of silver balls, the end ball swinging in and bumping the others",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "kilometers",
-   "x": 780,
-   "y": 720,
+   "text": "molecules",
+   "x": 1620,
+   "y": 410,
    "to": [
-    760,
-    790
+    1600,
+    520
    ],
-   "word": "many kilometers"
+   "word": "molecules"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "shock"
+    "mood": "curious"
    }
   ],
-  "act": "bounce",
-  "ride": "mv-core-swell-fireball",
-  "kind": "ride",
-  "x": 388,
-  "y": 630,
+  "act": {
+   "type": "knocked",
+   "obj": "mv-swing-ball-right"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 852,
+  "y": 656,
   "s": 0.95,
-  "flip": -1,
-  "bside": 1,
+  "flip": 1,
+  "bside": -1,
   "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "outfit": [
-   "beanie"
+   "headphones",
+   "headband"
   ],
   "says": [
    {
-    "text": "Boing boing.",
-    "shout": false
+    "text": "Bonk!",
+    "shout": true
    }
   ]
  }

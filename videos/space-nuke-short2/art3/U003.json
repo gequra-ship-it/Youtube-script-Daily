@@ -1,19 +1,38 @@
 {
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "balloon",
-   "x": 250,
-   "y": 1180,
+   "text": "warhead",
+   "x": 790,
+   "y": 470,
    "to": [
-    880,
-    1180
+    540,
+    1330
    ],
-   "word": "balloon"
+   "word": "warhead"
   }
  ],
- "centre": "a glowing hot gas bubble surging upward above the ground like a balloon, cold air sinking beside it"
+ "centre": "a round orange heated-air bubble glowing around a warhead on the ground",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 260,
+  "y": 1200,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

@@ -1,30 +1,72 @@
 {
- "centre": "night street: hospital with half-dark windows and a fading roof antenna, ambulance beacon, broken supply chain and toppling crates",
+ "centre": "three factors side by side: the warhead on a plinth, an altitude gauge filling up, and a shielded station next to a sparking one",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "hospitals",
-   "x": 560,
-   "y": 300,
+   "text": "weapon",
+   "x": 380,
+   "y": 270,
    "to": [
-    560,
-    420
+    380,
+    540
    ],
-   "word": "hospitals"
+   "word": "weapon"
   },
   {
    "type": "name",
-   "text": "supply chains",
-   "x": 1300,
-   "y": 520,
+   "text": "altitude",
+   "x": 760,
+   "y": 230,
    "to": [
-    1120,
-    606
+    955,
+    300
    ],
-   "word": "supply chains"
+   "word": "altitude"
+  },
+  {
+   "type": "name",
+   "text": "protected",
+   "x": 1390,
+   "y": 470,
+   "to": [
+    1380,
+    600
+   ],
+   "word": "protected"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-shield",
+   "h": 240
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1375,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

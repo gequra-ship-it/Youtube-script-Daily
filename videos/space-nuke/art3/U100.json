@@ -1,23 +1,69 @@
 {
- "centre": "close satellite with glassy silicon solar panels at the heart of a delicate web of satellites anchored to the town below",
- "focus": [
-  960,
-  430,
-  1.7
- ],
- "focus_word": "glass and silicon",
- "sfx": [],
+ "centre": "satellite above a map seen from orbit: a cargo ship on its route, a plane on its air route, a storm with a warning sign",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
  "labels": [
   {
    "type": "name",
-   "text": "glass and silicon",
-   "x": 1260,
-   "y": 560,
+   "text": "shipping routes",
+   "x": 330,
+   "y": 520,
    "to": [
-    1110,
-    440
+    420,
+    690
    ],
-   "word": "glass and silicon"
+   "word": "shipping routes"
+  },
+  {
+   "type": "name",
+   "text": "aircraft navigation",
+   "x": 640,
+   "y": 190,
+   "to": [
+    760,
+    340
+   ],
+   "word": "aircraft navigation"
+  },
+  {
+   "type": "name",
+   "text": "weather warnings",
+   "x": 1500,
+   "y": 690,
+   "to": [
+    1460,
+    560
+   ],
+   "word": "weather warnings"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "ride": "mv-path-cargo-ship",
+  "kind": "ride",
+  "x": 387,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lifevest",
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "To the stars!",
+    "shout": true
+   }
+  ]
+ }
 }

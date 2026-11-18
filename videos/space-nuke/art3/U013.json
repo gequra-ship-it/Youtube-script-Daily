@@ -1,24 +1,29 @@
 {
- "centre": "a fireball whose energy pipes into a tank that fills to half with blast, beside a piston shoving a crate",
+ "centre": "split frame: a violet plasma sphere in space on the left, a fireball and dust wall on Earth on the right, a magnifier moving over",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "HALF",
-   "word": "roughly half"
+   "type": "name",
+   "text": "space",
+   "x": 300,
+   "y": 160,
+   "to": [
+    420,
+    300
+   ],
+   "word": "space"
   },
   {
    "type": "name",
-   "text": "blast",
-   "x": 410,
-   "y": 830,
+   "text": "Earth",
+   "x": 1720,
+   "y": 840,
    "to": [
-    410,
-    640
+    1600,
+    760
    ],
-   "word": "blast"
+   "word": "Earth"
   }
  ]
 }

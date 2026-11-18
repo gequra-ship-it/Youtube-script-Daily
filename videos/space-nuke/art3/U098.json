@@ -1,30 +1,45 @@
 {
- "centre": "Earth wrapped in a blanket of tiny satellites appearing one by one; a bank card and a spinning coin linked to orbit",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "glowing satellites above a night city, dashed data lines tying every rooftop to orbit",
+ "focus": [
+  960,
+  300,
+  1.5
+ ],
+ "focus_word": "orbital technology",
  "labels": [
   {
    "type": "name",
-   "text": "satellites",
-   "x": 560,
-   "y": 170,
+   "text": "orbital technology",
+   "x": 1260,
+   "y": 150,
    "to": [
-    772.7251855628031,
-    694.4240528164653
+    990,
+    215
    ],
-   "word": "satellites"
-  },
-  {
-   "type": "name",
-   "text": "financial transactions",
-   "x": 1520,
-   "y": 500,
-   "to": [
-    1560,
-    650
-   ],
-   "word": "financial transactions"
+   "word": "orbital technology"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "ride": "mv-core-glide-satellite",
+  "kind": "ride",
+  "x": 1108,
+  "y": 320,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "says": []
+ }
 }

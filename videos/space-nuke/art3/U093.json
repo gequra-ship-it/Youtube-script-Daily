@@ -1,51 +1,25 @@
 {
- "centre": "a stack of treaty papers with a gold seal and a quill, above three crossed-out places: air, sea and space",
+ "centre": "a glowing cloud of bomb debris cradled inside looping green magnetic field lines rising from the Earth",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pencil",
-   "word": "banned",
-   "vol": 0.5
+   "name": "pulse",
+   "word": "capture",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Partial Test Ban Treaty",
+   "text": "magnetic field",
    "x": 520,
-   "y": 560,
+   "y": 230,
    "to": [
-    800,
-    620
+    520,
+    380
    ],
-   "word": "Partial Test Ban Treaty"
+   "word": "magnetic field"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": "tap",
-  "outfit": [
-   "goggles",
-   "shield"
-  ],
-  "ride": "mv-core-swell-paper-stack",
-  "kind": "ride",
-  "x": 709,
-  "y": 778,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Hmm, hard.",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

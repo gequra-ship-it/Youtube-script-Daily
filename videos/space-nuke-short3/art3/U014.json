@@ -2,7 +2,6 @@
  "centre": "metal skin plate dissolving into a big glowing orange gas cloud rising off the hull",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -20,12 +19,16 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "surprised"
    }
   ],
-  "act": "bounce",
-  "ride": "mv-core-swell-gas-cloud",
-  "kind": "ride",
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-gas-cloud"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
   "x": 960,
   "y": 1410,
   "s": 1.09,
@@ -34,12 +37,12 @@
   "gaze": 1,
   "outfit": [
    "doctor",
-   "bowler"
+   "cap"
   ],
   "says": [
    {
-    "text": "Tick tock...",
-    "shout": false
+    "text": "Whoa, it grows!",
+    "shout": true
    }
   ]
  }

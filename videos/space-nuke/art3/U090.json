@@ -1,13 +1,38 @@
 {
- "centre": "a satellite microchip peppered by teal electrons beside a cracked, fading solar panel",
+ "centre": "a grid of nine little satellites with three of them dark, cracked and red-lit",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "static",
-   "word": "fell silent",
-   "vol": 0.55
+   "name": "tick",
+   "word": "toll",
+   "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "ONE-THIRD",
+   "word": "one-third"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "x": 260,
+  "y": 620,
+  "s": 0.85,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
 }

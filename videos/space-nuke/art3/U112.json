@@ -1,41 +1,43 @@
 {
- "centre": "three ghosted cards: auroras, a power grid and a radiation belt, each crossed out",
+ "centre": "a warhead alone in the void far to the right of Earth and its magnetic field lines",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "auroras",
-   "x": 420,
-   "y": 830,
+   "text": "magnetic field",
+   "x": 560,
+   "y": 240,
    "to": [
-    420,
-    470
+    640,
+    330
    ],
-   "word": "auroras"
-  },
-  {
-   "type": "name",
-   "text": "power grid",
-   "x": 960,
-   "y": 830,
-   "to": [
-    900,
-    520
-   ],
-   "word": "power grid"
-  },
-  {
-   "type": "name",
-   "text": "radiation belt",
-   "x": 1500,
-   "y": 830,
-   "to": [
-    1420,
-    470
-   ],
-   "word": "radiation belt"
+   "word": "magnetic field"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-warhead",
+  "kind": "ride",
+  "x": 1237,
+  "y": 568,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

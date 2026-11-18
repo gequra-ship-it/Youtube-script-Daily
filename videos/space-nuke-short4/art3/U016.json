@@ -2,7 +2,6 @@
  "centre": "a big glowing charged particle on one huge teal magnetic field line arc, small red/green particles sliding along it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -20,11 +19,11 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "worried"
    }
   ],
-  "act": "startle",
-  "ride": "mv-core-ping-charged-particle",
+  "act": "nervous",
+  "ride": "mv-core-sway-charged-particle",
   "kind": "ride",
   "x": 694,
   "y": 985,
@@ -33,12 +32,12 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "glasses"
+   "bowler"
   ],
   "says": [
    {
-    "text": "Eek!",
-    "shout": true
+    "text": "Uh-oh...",
+    "shout": false
    }
   ]
  }

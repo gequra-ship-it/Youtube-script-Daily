@@ -1,19 +1,44 @@
 {
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
    "text": "particles",
-   "x": 240,
-   "y": 1000,
+   "x": 300,
+   "y": 420,
    "to": [
-    540,
-    860
+    150,
+    500
    ],
-   "word": "particles"
+   "word": "charged particles"
   }
  ],
- "centre": "one glowing teal particle drifting toward Earth's curve with faint invisible ones around"
+ "centre": "glowing teal charged particles streaming across the dark in curved paths",
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-path-charged-particle-1",
+  "kind": "ride",
+  "x": 202,
+  "y": 538,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

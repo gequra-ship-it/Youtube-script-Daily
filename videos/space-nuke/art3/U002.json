@@ -1,47 +1,23 @@
 {
- "centre": "a gold bell swinging silently between a thundercloud and a drum, their sound arcs fading to nothing",
+ "centre": "a tiny silent flash far over the dark sea, a dashed reach line to an island coast where streetlamps flicker out",
  "focus": null,
  "focus_word": null,
  "sfx": [],
+ "iris": [
+  360,
+  200
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "thunder",
-   "x": 400,
-   "y": 290,
+   "text": "streetlights",
+   "x": 1180,
+   "y": 420,
    "to": [
-    400,
-    400
+    1236,
+    566
    ],
-   "word": "thunder"
+   "word": "streetlights"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "happy"
-   }
-  ],
-  "act": {
-   "type": "zerogroll"
-  },
-  "ride": "mv-swing-bell",
-  "kind": "ride",
-  "x": 1122,
-  "y": 598,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "earmuffs",
-   "bowtie"
-  ],
-  "says": [
-   {
-    "text": "Wheee...",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

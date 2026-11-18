@@ -1,43 +1,30 @@
 {
- "centre": "a stylised mushroom-shaped fireball on Earth with side-on walls of compressed air and dust",
+ "centre": "a slim warhead with a gold band and trefoil plate floating tilted in deep space, faint dotted sound arcs fading to nothing",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "nuclear blast",
-   "x": 770,
-   "y": 380,
-   "to": [
-    620,
-    720
-   ],
-   "word": "nuclear blast"
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "hot"
+    "mood": "chilly"
    }
   ],
-  "act": "bounce",
-  "ride": "mv-core-swell-fireball-cloud",
+  "act": {
+   "type": "hug"
+  },
+  "ride": "mv-core-sway-warhead",
   "kind": "ride",
-  "x": 904,
-  "y": 1320,
+  "x": 774,
+  "y": 1139,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "earmuffs",
-   "bowtie"
+   "cap"
   ],
   "says": [
    {
-    "text": "Boing boing.",
+    "text": "So cold...",
     "shout": false
    }
   ]

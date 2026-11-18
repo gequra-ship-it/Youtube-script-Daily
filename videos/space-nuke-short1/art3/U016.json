@@ -1,43 +1,40 @@
 {
- "centre": "a close side view of a gold satellite hull shaking as a burst of orange-white vapour blows outward from its sunlit left face with shock zigzags running through it",
+ "centre": "a gold-foil satellite with blue solar panels being hit from the left by thin invisible rays that make its outer skin glow and vaporise",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "craft",
+   "text": "spacecraft",
    "x": 780,
-   "y": 1240,
+   "y": 460,
    "to": [
-    780,
-    1100
+    620,
+    800
    ],
-   "word": "craft"
+   "word": "spacecraft"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "shock"
+    "mood": "squint"
    }
   ],
-  "act": "rest",
-  "ride": "mv-path-vapour-cloud",
+  "act": {
+   "type": "helmetwipe"
+  },
+  "ride": "mv-core-glide-satellite",
   "kind": "ride",
-  "x": 429,
-  "y": 426,
-  "s": 1.44,
+  "x": 912,
+  "y": 946,
+  "s": 1.2,
   "flip": -1,
-  "bside": 1,
+  "bside": -1,
   "outfit": [
-   "headband"
+   "helmet",
+   "jetpack"
   ],
-  "says": [
-   {
-    "text": "Ahh...",
-    "shout": false
-   }
-  ]
+  "says": []
  }
 }

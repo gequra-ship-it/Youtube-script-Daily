@@ -4,7 +4,7 @@
   "scene": 1,
   "title": "Part 1",
   "art_theme": "sh1_1",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -26,19 +26,53 @@
     "#ff7a5a"
    ]
   },
-  "text": "If you detonated a nuclear warhead in the deep vacuum of space, what would you actually hear?",
-  "dur": 6.6,
+  "text": "A nuclear warhead goes off in space, and you hear absolutely nothing.",
+  "dur": 4.18,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "",
+  "nxt": "The silence is the least frightening part of it.",
   "frog_hint": false
  },
  {
   "uid": "U002",
+  "scene": 1,
+  "title": "Part 1",
+  "art_theme": "sh1_1",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "The silence is the least frightening part of it.",
+  "dur": 4.18,
+  "transition_in": "wave",
+  "prev": "A nuclear warhead goes off in space, and you hear absolutely nothing.",
+  "nxt": "",
+  "frog_hint": true
+ },
+ {
+  "uid": "U003",
   "scene": 2,
   "title": "Part 2",
   "art_theme": "sh1_2",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -62,17 +96,17 @@
   },
   "text": "On Earth, a nuclear blast is one of the loudest events imaginable.",
   "dur": 4.46,
-  "transition_in": "zoom",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "The roar can rupture eardrums many kilometers away,",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U003",
+  "uid": "U004",
   "scene": 2,
   "title": "Part 2",
   "art_theme": "sh1_2",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -96,17 +130,17 @@
   },
   "text": "The roar can rupture eardrums many kilometers away,",
   "dur": 4.46,
-  "transition_in": "zigzag",
+  "transition_in": "page",
   "prev": "On Earth, a nuclear blast is one of the loudest events imaginable.",
   "nxt": "as millions of tons of superheated air violently expand.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U004",
+  "uid": "U005",
   "scene": 2,
   "title": "Part 2",
   "art_theme": "sh1_2",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -130,17 +164,17 @@
   },
   "text": "as millions of tons of superheated air violently expand.",
   "dur": 4.46,
-  "transition_in": "page",
+  "transition_in": "diamond",
   "prev": "The roar can rupture eardrums many kilometers away,",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U005",
+  "uid": "U006",
   "scene": 3,
   "title": "Part 3",
   "art_theme": "sh1_3",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -164,17 +198,17 @@
   },
   "text": "But in the vacuum of space, there is no air, no moisture, and no atmosphere.",
   "dur": 5.41,
-  "transition_in": "wave",
+  "transition_in": "zigzag",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U006",
+  "uid": "U007",
   "scene": 4,
   "title": "Part 4",
   "art_theme": "sh1_4",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -201,14 +235,14 @@
   "transition_in": "slide",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U007",
+  "uid": "U008",
   "scene": 5,
   "title": "Part 5",
   "art_theme": "sh1_5",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -232,17 +266,17 @@
   },
   "text": "So if a one-megaton bomb went off right in front of you,",
   "dur": 4.72,
-  "transition_in": "fade",
+  "transition_in": "seam",
   "prev": "",
   "nxt": "it would release the power of a million tons of TNT in absolute silence.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U008",
+  "uid": "U009",
   "scene": 5,
   "title": "Part 5",
   "art_theme": "sh1_5",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -266,17 +300,17 @@
   },
   "text": "it would release the power of a million tons of TNT in absolute silence.",
   "dur": 4.72,
-  "transition_in": "whip",
+  "transition_in": "push",
   "prev": "So if a one-megaton bomb went off right in front of you,",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U009",
+  "uid": "U010",
   "scene": 6,
   "title": "Part 6",
   "art_theme": "sh1_6",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -300,17 +334,17 @@
   },
   "text": "You would not hear a rumble, a crack, or even a whisper. There would only be a sudden, blinding flash of light.",
   "dur": 7.31,
-  "transition_in": "seam",
+  "transition_in": "whip",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U010",
+  "uid": "U011",
   "scene": 7,
   "title": "Part 7",
   "art_theme": "sh1_7",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -337,14 +371,14 @@
   "transition_in": "tilt",
   "prev": "",
   "nxt": "Down here, the blast wave is what flattens buildings and shatters cities.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U011",
+  "uid": "U012",
   "scene": 7,
   "title": "Part 7",
   "art_theme": "sh1_7",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -368,17 +402,17 @@
   },
   "text": "Down here, the blast wave is what flattens buildings and shatters cities.",
   "dur": 4.62,
-  "transition_in": "iris",
+  "transition_in": "wipe",
   "prev": "Even more bizarrely, you would not feel a shockwave either.",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U012",
+  "uid": "U013",
   "scene": 8,
   "title": "Part 8",
   "art_theme": "sh1_8",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -402,17 +436,17 @@
   },
   "text": "But without air molecules to compress into a wall of force, there is no pressure wave sweeping across the stars.",
   "dur": 7.65,
-  "transition_in": "push",
+  "transition_in": "iris",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U013",
+  "uid": "U014",
   "scene": 9,
   "title": "Part 9",
   "art_theme": "sh1_9",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -439,14 +473,14 @@
   "transition_in": "eye",
   "prev": "",
   "nxt": "at once as high-energy X-rays and gamma rays, traveling at the speed of light.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U014",
+  "uid": "U015",
   "scene": 9,
   "title": "Part 9",
   "art_theme": "sh1_9",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -470,17 +504,17 @@
   },
   "text": "at once as high-energy X-rays and gamma rays, traveling at the speed of light.",
   "dur": 5.36,
-  "transition_in": "match",
+  "transition_in": "zoom",
   "prev": "Instead, roughly seventy to eighty percent of the weapon's energy escapes",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U015",
+  "uid": "U016",
   "scene": 10,
   "title": "Part 10",
   "art_theme": "sh1_10",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -504,17 +538,17 @@
   },
   "text": "Those invisible rays can hit any nearby spacecraft and vaporize the thin outer layer of its metal skin.",
   "dur": 7.56,
-  "transition_in": "wipe",
+  "transition_in": "wash",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U016",
+  "uid": "U017",
   "scene": 11,
   "title": "Part 11",
   "art_theme": "sh1_11",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -538,17 +572,17 @@
   },
   "text": "That layer blows outward, and the recoil sends a violent shock through the rest of the craft.",
   "dur": 5.92,
-  "transition_in": "wash",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U017",
+  "uid": "U018",
   "scene": 12,
   "title": "Part 12",
   "art_theme": "sh1_12",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -572,17 +606,17 @@
   },
   "text": "It is a weapon whose destructive power needs no sound at all.",
   "dur": 4.38,
-  "transition_in": "diamond",
+  "transition_in": "slide",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U018",
+  "uid": "U019",
   "scene": 13,
   "title": "Part 13",
   "art_theme": "sh1_13",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -606,17 +640,17 @@
   },
   "text": "Scientists call this effect blow-off impulse,",
   "dur": 4.66,
-  "transition_in": "fade",
+  "transition_in": "wash",
   "prev": "",
   "nxt": "and it is one of the main ways a nuclear explosion in space can damage a satellite.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U019",
+  "uid": "U020",
   "scene": 13,
   "title": "Part 13",
   "art_theme": "sh1_13",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -640,17 +674,17 @@
   },
   "text": "and it is one of the main ways a nuclear explosion in space can damage a satellite.",
   "dur": 4.66,
-  "transition_in": "zigzag",
+  "transition_in": "seam",
   "prev": "Scientists call this effect blow-off impulse,",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U020",
+  "uid": "U021",
   "scene": 14,
   "title": "Part 14",
   "art_theme": "sh1_14",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -674,17 +708,17 @@
   },
   "text": "But did you know that humanity actually tried detonating one of these high above our planet?",
   "dur": 6.17,
-  "transition_in": "zoom",
+  "transition_in": "zigzag",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U021",
+  "uid": "U022",
   "scene": 15,
   "title": "Part 15",
   "art_theme": "sh1_15",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -711,14 +745,14 @@
   "transition_in": "wave",
   "prev": "",
   "nxt": "And its effects were felt on the ground, far away.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U022",
+  "uid": "U023",
   "scene": 15,
   "title": "Part 15",
   "art_theme": "sh1_15",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -742,17 +776,17 @@
   },
   "text": "And its effects were felt on the ground, far away.",
   "dur": 5.19,
-  "transition_in": "seam",
+  "transition_in": "push",
   "prev": "In 1962, a warhead was set off four hundred kilometers above the Pacific Ocean.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U023",
+  "uid": "U024",
   "scene": 16,
   "title": "Part 16",
   "art_theme": "sh1_16",
-  "bg": "paper",
+  "bg": "night",
   "pal": {
    "palette": "deepfield",
    "paper_base": "#e2e5ee",
@@ -779,6 +813,6 @@
   "transition_in": "eye",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  }
 ]

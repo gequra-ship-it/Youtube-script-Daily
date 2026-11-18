@@ -1,47 +1,38 @@
 {
- "centre": "a big translucent violet-gold bubble of plasma with a bright core and soft filaments",
+ "centre": "a core of vapourised bomb remains spreading evenly in every direction as glowing particles and metal flecks",
  "focus": [
-  960,
-  500,
+  800,
+  520,
   1.3
  ],
- "focus_word": "superheated plasma",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "plasma",
-   "x": 1400,
-   "y": 260,
-   "to": [
-    1170,
-    400
-   ],
-   "word": "plasma"
-  }
- ],
+ "focus_word": "all directions",
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "surprised"
    }
   ],
-  "act": "bounce",
-  "ride": "mv-core-swell-plasma-bubble",
-  "kind": "ride",
-  "x": 1248,
-  "y": 750,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-vapor-cloud"
+  },
   "outfit": [
-   "cap"
+   "helmet",
+   "patch"
   ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 450,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Bumpy!",
-    "shout": false
+    "text": "Whoa, it grows!",
+    "shout": true
    }
   ]
  }

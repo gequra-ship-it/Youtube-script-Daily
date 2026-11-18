@@ -1,7 +1,45 @@
 {
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "centre": "a vertical stream of debris dots growing sparser and fainter until empty dark"
+ "labels": [
+  {
+   "type": "name",
+   "text": "debris",
+   "x": 760,
+   "y": 1250,
+   "to": [
+    640,
+    1050
+   ],
+   "word": "debris"
+  }
+ ],
+ "centre": "a cone of fast debris dots spreading from lower left across the dark",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "x": 260,
+  "y": 1560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

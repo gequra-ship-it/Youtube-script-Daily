@@ -1,11 +1,43 @@
 {
- "centre": "a silent bright violet-gold flash above Earth's curve with a small satellite drifting by",
+ "centre": "a huge pyramid of explosive crates beside a crossed-out loudspeaker",
  "focus": [
-  1200,
-  430,
-  1.5
+  560,
+  520,
+  1.0
  ],
- "focus_word": "silent flash",
- "sfx": [],
- "labels": []
+ "focus_word": "million tons of TNT",
+ "labels": [
+  {
+   "type": "name",
+   "text": "TNT",
+   "x": 1000,
+   "y": 260,
+   "to": [
+    760,
+    400
+   ],
+   "word": "TNT"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "x": 1660,
+  "y": 340,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "headphones",
+   "bowler"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

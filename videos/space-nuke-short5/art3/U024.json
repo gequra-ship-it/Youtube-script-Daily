@@ -25,7 +25,6 @@
    "word": "orbit"
   }
  ],
- "sfx": [],
  "focus_word": null,
  "frog": {
   "moods": [
@@ -38,16 +37,19 @@
   },
   "outfit": [
    "helmet",
-   "goldvisor"
+   "patch"
   ],
-  "ride": "mv-core-swell-earth-planet",
-  "kind": "ride",
-  "x": 710,
-  "y": 986,
-  "s": 1.09,
+  "x": 820,
+  "y": 1080,
+  "s": 0.99,
   "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "says": []
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Pulling...",
+    "shout": false
+   }
+  ],
+  "bside": -1
  }
 }

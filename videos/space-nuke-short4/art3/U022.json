@@ -2,7 +2,6 @@
  "centre": "a ghostly pale-blue cone of effect spreading from a point in space down over the curved ground, a gold measuring tape unrolling across it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "num",
@@ -10,5 +9,38 @@
    "word": "thousand kilometers"
   }
  ],
- "motion": "effect cone fades in (hypothetical, ghosted); measuring tape unrolls across the ground"
+ "motion": "effect cone fades in (hypothetical, ghosted); measuring tape unrolls across the ground",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "unrolled",
+   "obj": "mv-unroll-measuring-tape",
+   "frac": 0.7
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 696,
+  "y": 1286,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

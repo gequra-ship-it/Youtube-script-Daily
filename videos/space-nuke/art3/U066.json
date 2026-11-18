@@ -1,7 +1,46 @@
 {
- "centre": "a small burst high above a huge curve of Earth with a pale effect sheet spreading far across it, and an hourglass for how long it lasts",
+ "centre": "two scientists from behind at a control desk watching the night window where a dreamlike burst glows above the thin upper atmosphere",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "upper atmosphere",
+   "x": 960,
+   "y": 590,
+   "to": [
+    1180,
+    462
+   ],
+   "word": "upper atmosphere"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-swing-clipboard",
+  "kind": "ride",
+  "x": 202,
+  "y": 456,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
 }

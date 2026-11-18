@@ -2,7 +2,6 @@
  "centre": "a bright pulse source high above, a wide pale-blue ripple sheet sweeping down over the curved ocean and islands",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -20,21 +19,23 @@
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "shock"
    }
   ],
   "act": {
-   "type": "shrinkdown"
+   "type": "gasp"
   },
-  "x": 820,
-  "y": 1040,
-  "s": 0.95,
+  "ride": "mv-core-glide-pulse-source",
+  "kind": "ride",
+  "x": 694,
+  "y": 590,
+  "s": 1.09,
   "flip": -1,
-  "kind": "bg",
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "headband"
+   "glasses"
   ],
-  "says": [],
-  "bside": -1
+  "says": []
  }
 }

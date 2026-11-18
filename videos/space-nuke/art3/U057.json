@@ -1,19 +1,39 @@
 {
- "centre": "a blazing white-gold newborn star with a cross flare lighting the dark, dwarfing a dim pale midday sun in the corner",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "midday sun",
-   "x": 640,
-   "y": 230,
-   "to": [
-    420,
-    300
-   ],
-   "word": "midday sun"
-  }
- ]
+ "centre": "a faceless astronaut in a white suit floating at left, gazing at a vast expanding sphere of strange pale light",
+ "focus": [
+  1260,
+  480,
+  1.4
+ ],
+ "focus_word": "sphere of strange",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-ethereal-sphere"
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1558,
+  "y": 740,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

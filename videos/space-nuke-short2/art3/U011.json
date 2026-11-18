@@ -1,19 +1,35 @@
 {
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "smoke",
-   "x": 760,
-   "y": 1330,
-   "to": [
-    930,
-    1100
-   ],
-   "word": "smoke"
-  }
- ],
- "centre": "a spacecraft porthole framing a small glowing sphere, a ghost smoke pillar crossed out"
+ "centre": "a bright vapour sphere with bits of weapon scattering outward in every direction",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-vapor-sphere"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 772,
+  "y": 1048,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

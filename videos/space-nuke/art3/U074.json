@@ -1,19 +1,45 @@
 {
- "centre": "a pale-blue fan of radio waves sweeping down from a point high in the sky over a wide stretch of land and sea",
+ "centre": "Earth with smooth teal field lines looping pole to pole, a glowing electron spiralling along one line",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "radio waves",
-   "x": 1500,
-   "y": 380,
+   "text": "magnetic field",
+   "x": 330,
+   "y": 200,
    "to": [
-    1250,
-    500
+    460,
+    330
    ],
-   "word": "radio waves"
+   "word": "magnetic field"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "jog",
+   "dist": 422
+  },
+  "x": 260,
+  "y": 500,
+  "s": 0.94,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "says": [
+   {
+    "text": "Hup hup!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

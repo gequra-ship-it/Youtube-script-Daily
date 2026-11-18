@@ -1,19 +1,48 @@
 {
- "centre": "a big cute ear at the top with loud dotted sound waves travelling a long dotted path from a distant glowing blast on the horizon far below",
+ "centre": "a stylised mushroom-shaped fireball on Earth with side-on walls of compressed air and dust",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "eardrums",
-   "x": 810,
-   "y": 520,
+   "text": "nuclear blast",
+   "x": 770,
+   "y": 380,
    "to": [
-    660,
-    620
+    620,
+    720
    ],
-   "word": "eardrums"
+   "word": "nuclear blast"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-fireball-cloud"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 904,
+  "y": 1320,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "earmuffs",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

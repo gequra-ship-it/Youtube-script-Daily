@@ -1,23 +1,29 @@
 {
- "centre": "an orbital path glowing red-amber as a hazard band, a dead satellite drifting along it, an astronaut floating nearby with a wrench tumbling",
- "focus": [
-  1400,
-  540,
-  1.5
- ],
- "focus_word": "future astronauts",
- "sfx": [],
+ "centre": "split frame: a navigation satellite with a broken zigzag signal and a shaking map pin; a weather satellite losing data cards over a storm",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "future astronauts",
-   "x": 1150,
-   "y": 300,
+   "text": "Navigation signals",
+   "x": 650,
+   "y": 150,
+   "to": [
+    440,
+    400
+   ],
+   "word": "Navigation signals"
+  },
+  {
+   "type": "name",
+   "text": "Weather forecasting",
+   "x": 1300,
+   "y": 480,
    "to": [
     1440,
-    380
+    760
    ],
-   "word": "future astronauts"
+   "word": "Weather forecasting"
   }
  ]
 }

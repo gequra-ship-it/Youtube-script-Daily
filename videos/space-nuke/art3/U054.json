@@ -1,11 +1,62 @@
 {
- "centre": "a core of vapourised bomb remains spreading evenly in every direction as glowing particles and metal flecks",
+ "centre": "split view: warm air lifts a balloon and gravity drops a pebble on the left, while on the right a puff spreads evenly in the empty void",
  "focus": [
-  800,
-  520,
-  1.3
+  640,
+  480,
+  1.2
  ],
- "focus_word": "all directions",
- "sfx": [],
- "labels": []
+ "focus_word": "buoyant air",
+ "labels": [
+  {
+   "type": "name",
+   "text": "gravity",
+   "x": 720,
+   "y": 320,
+   "to": [
+    830,
+    650
+   ],
+   "word": "gravity"
+  },
+  {
+   "type": "name",
+   "text": "void",
+   "x": 1410,
+   "y": 320,
+   "to": [
+    1410,
+    520
+   ],
+   "word": "void"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-balloon"
+  },
+  "ride": "mv-ascend-balloon",
+  "kind": "ride",
+  "x": 380,
+  "y": 721,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ]
+ }
 }

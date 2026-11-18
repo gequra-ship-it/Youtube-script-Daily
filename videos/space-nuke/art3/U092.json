@@ -1,25 +1,48 @@
 {
- "centre": "a glowing cloud of bomb debris cradled inside looping green magnetic field lines rising from the Earth",
- "focus": null,
- "focus_word": null,
+ "centre": "a small flash of light on an empty theatre stage fading away under a spotlight, stars beyond",
+ "focus": [
+  960,
+  520,
+  1.5
+ ],
+ "focus_word": "explosions",
  "sfx": [
   {
-   "name": "pulse",
-   "word": "capture",
-   "vol": 0.6
+   "name": "bloom",
+   "word": "vanished",
+   "vol": 0.55
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "magnetic field",
-   "x": 520,
-   "y": 230,
-   "to": [
-    520,
-    380
-   ],
-   "word": "magnetic field"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "Space was",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-swing-spotlight-lamp",
+  "kind": "ride",
+  "x": 1356,
+  "y": 228,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "So cold...",
+    "shout": false
+   }
+  ]
+ }
 }

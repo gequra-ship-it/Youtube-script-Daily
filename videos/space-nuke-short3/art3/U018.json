@@ -2,7 +2,6 @@
  "centre": "cute faceless engineer in a hard hat pointing at a spacecraft model on a table in front of a blueprint board",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -20,23 +19,30 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "worried"
    }
   ],
   "act": {
-   "type": "pointfar"
+   "type": "steadyit",
+   "obj": "mv-core-wobble-spacecraft"
   },
-  "ride": "mv-core-wobble-spacecraft",
-  "kind": "ride",
-  "x": 873,
-  "y": 1004,
-  "s": 0.9,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 934,
+  "y": 1016,
+  "s": 1.09,
   "flip": -1,
-  "bside": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "lifevest",
-   "beanie"
+   "hardhat"
   ],
-  "says": []
+  "says": [
+   {
+    "text": "Careful!",
+    "shout": true
+   }
+  ]
  }
 }

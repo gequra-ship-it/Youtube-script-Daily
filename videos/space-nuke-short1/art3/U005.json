@@ -1,19 +1,44 @@
 {
- "centre": "three crossed-out ghost symbols stacked: wind swirl, water droplet, thin blue atmosphere shell, all absent in black space",
+ "centre": "a hot glowing core with a dome of crowded orange air molecules violently expanding upward",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "atmosphere",
-   "x": 800,
-   "y": 1230,
+   "text": "superheated air",
+   "x": 730,
+   "y": 420,
    "to": [
-    700,
-    1330
+    600,
+    760
    ],
-   "word": "atmosphere"
+   "word": "superheated air"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "countfingers"
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 260,
+  "y": 600,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "One, two...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

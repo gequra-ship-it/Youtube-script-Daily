@@ -1,11 +1,51 @@
 {
- "centre": "a faceless astronaut in a white suit floating at left, gazing at a vast expanding sphere of strange pale light",
+ "centre": "a big translucent violet-gold bubble of plasma with a bright core and soft filaments",
  "focus": [
-  1260,
-  480,
-  1.4
+  960,
+  500,
+  1.3
  ],
- "focus_word": "sphere of strange",
- "sfx": [],
- "labels": []
+ "focus_word": "superheated plasma",
+ "labels": [
+  {
+   "type": "name",
+   "text": "plasma",
+   "x": 1400,
+   "y": 260,
+   "to": [
+    1170,
+    400
+   ],
+   "word": "plasma"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-plasma-bubble"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1248,
+  "y": 750,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

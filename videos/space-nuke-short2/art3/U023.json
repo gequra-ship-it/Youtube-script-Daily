@@ -1,19 +1,44 @@
 {
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "magnetic shield",
-   "x": 790,
+   "text": "magnetic field",
+   "x": 840,
    "y": 1180,
    "to": [
-    760,
-    1090
+    700,
+    1000
    ],
-   "word": "magnetic shield"
+   "word": "magnetic field"
   }
  ],
- "centre": "a high flash far above Earth with debris caught under a glowing magnetic shield arc"
+ "centre": "Earth wrapped in smooth green magnetic field lines that bend incoming particles",
+ "frog": {
+  "moods": [
+   {
+    "mood": "confused"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-path-charged-particle-1",
+  "kind": "ride",
+  "x": 228,
+  "y": 394,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
 }

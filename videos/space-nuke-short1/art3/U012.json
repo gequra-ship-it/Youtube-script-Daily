@@ -1,19 +1,18 @@
 {
- "centre": "a vast empty field of stars where a ghostly dashed wall of pressure fades away and a comet passes straight through untouched",
+ "centre": "a wall of compressed air and dust sweeping in from the left, tipping over a row of simple city buildings",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "pressure wave",
-   "x": 770,
-   "y": 880,
+   "text": "blast wave",
+   "x": 620,
+   "y": 380,
    "to": [
-    540,
-    800
+    160,
+    780
    ],
-   "word": "pressure wave"
+   "word": "blast wave"
   }
  ],
  "frog": {
@@ -22,23 +21,25 @@
     "mood": "curious"
    }
   ],
-  "act": "tap",
-  "outfit": [
-   "helmet",
-   "antenna"
-  ],
-  "ride": "mv-path-comet-tail",
+  "act": {
+   "type": "measure"
+  },
+  "ride": "mv-core-approach-blast-wall",
   "kind": "ride",
-  "x": 194,
-  "y": 700,
+  "x": 304,
+  "y": 1340,
   "s": 1.09,
-  "flip": 1,
+  "flip": -1,
   "bside": 1,
   "gaze": 1,
+  "outfit": [
+   "hardhat",
+   "bowtie"
+  ],
   "says": [
    {
-    "text": "Knock knock!",
-    "shout": false
+    "text": "This big!",
+    "shout": true
    }
   ]
  }

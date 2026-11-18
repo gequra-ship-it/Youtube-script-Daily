@@ -1,29 +1,51 @@
 {
- "centre": "Telstar, a small faceted sphere covered in tiny solar panels with stub antennas",
- "focus": [
-  960,
-  500,
-  1.5
- ],
- "focus_word": "Telstar",
+ "centre": "a gold satellite on the radiation belt, sparking red as electrons strike it",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "radio",
-   "word": "communications",
-   "vol": 0.5
+   "name": "static",
+   "word": "damaged",
+   "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Telstar",
-   "x": 1380,
-   "y": 430,
+   "text": "satellites",
+   "x": 1280,
+   "y": 720,
    "to": [
-    1070,
-    470
+    1000,
+    560
    ],
-   "word": "Telstar"
+   "word": "satellites"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-satellite",
+  "kind": "ride",
+  "x": 785,
+  "y": 584,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "says": [
+   {
+    "text": "Let me see...",
+    "shout": false
+   }
+  ]
+ }
 }

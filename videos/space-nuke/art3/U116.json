@@ -1,23 +1,46 @@
 {
- "centre": "a magnifying lens at left showing two atomic nuclei fusing in a flash, with a giant star at right",
- "focus": [
-  1240,
-  500,
-  1.5
- ],
- "focus_word": "thermonuclear reactions",
- "sfx": [],
+ "centre": "a big warm Sun at left with the planets strung along a dotted path to the right",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "thermonuclear reactions",
-   "x": 900,
-   "y": 250,
+   "text": "solar system",
+   "x": 1050,
+   "y": 420,
    "to": [
-    1100,
-    330
+    1230,
+    570
    ],
-   "word": "thermonuclear reactions"
+   "word": "solar system"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "starcatch"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-path-comet",
+  "kind": "ride",
+  "x": 1586,
+  "y": 256,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Gotcha!",
+    "shout": true
+   }
+  ]
+ }
 }

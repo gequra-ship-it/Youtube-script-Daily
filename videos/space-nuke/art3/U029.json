@@ -1,23 +1,45 @@
 {
- "centre": "a bright flash at left, sound arcs dying in an empty gap before reaching a floating astronaut at right",
- "focus": [
-  960,
-  500,
-  1.0
- ],
- "focus_word": "no medium",
- "sfx": [],
+ "centre": "a huge stylised ear at right, a distant flash and city skyline at left with sound arcs travelling across a kilometre ruler",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "vacuum",
-   "x": 1000,
-   "y": 330,
+   "text": "kilometers",
+   "x": 780,
+   "y": 720,
    "to": [
-    1000,
-    480
+    760,
+    790
    ],
-   "word": "vacuum"
+   "word": "many kilometers"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "jetpack"
+  },
+  "ride": "mv-core-sway-fireball",
+  "kind": "ride",
+  "x": 388,
+  "y": 630,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Whoosh!",
+    "shout": true
+   }
+  ]
+ }
 }

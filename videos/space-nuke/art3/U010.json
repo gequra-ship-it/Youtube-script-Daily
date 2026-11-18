@@ -1,23 +1,44 @@
 {
- "centre": "a spacecraft porthole with a far-off glow that changes from fire into a stranger violet sphere, an astronaut watching",
- "focus": [
-  980,
-  440,
-  1.6
- ],
- "focus_word": "something far stranger",
- "sfx": [],
+ "centre": "a stylised towering mushroom cloud on a far horizon, and the layer of air sliding away to the right",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "spacecraft",
-   "x": 520,
+   "text": "mushroom cloud",
+   "x": 420,
    "y": 180,
    "to": [
     700,
-    300
+    260
    ],
-   "word": "spacecraft"
+   "word": "mushroom cloud"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 260,
+  "y": 660,
+  "s": 0.85,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Small!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

@@ -1,19 +1,35 @@
 {
- "centre": "a sudden blinding white flash with three crossed-out ghost sound marks above and a small astronaut watching below",
+ "centre": "a pyramid of wooden crates glowing in the dark as the million tons, above a perfectly flat silent sound line",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "flash",
-   "x": 800,
-   "y": 1130,
+   "text": "TNT",
+   "x": 810,
+   "y": 640,
    "to": [
-    650,
-    980
+    640,
+    760
    ],
-   "word": "flash"
+   "word": "TNT"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "x": 820,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "says": [],
+  "bside": -1
+ }
 }

@@ -1,46 +1,22 @@
 {
- "centre": "a huge pyramid of explosive crates beside a crossed-out loudspeaker",
+ "centre": "a bright flash at left, sound arcs dying in an empty gap before reaching a floating astronaut at right",
  "focus": [
-  560,
-  520,
+  960,
+  500,
   1.0
  ],
- "focus_word": "million tons of TNT",
- "sfx": [],
+ "focus_word": "no medium",
  "labels": [
   {
    "type": "name",
-   "text": "TNT",
+   "text": "vacuum",
    "x": 1000,
-   "y": 260,
+   "y": 330,
    "to": [
-    760,
-    400
+    1000,
+    480
    ],
-   "word": "TNT"
+   "word": "vacuum"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": {
-   "type": "measure"
-  },
-  "ride": "mv-core-drop-crate-top",
-  "kind": "ride",
-  "x": 537,
-  "y": 320,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "outfit": [
-   "headphones",
-   "glasses"
-  ],
-  "says": []
- }
+ ]
 }
