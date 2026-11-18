@@ -1,48 +1,42 @@
 {
- "centre": "a soft mushroom squashed by a small stone on a bench",
+ "centre": "red map pin dropping into a pine forest on Oregon hills",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Too heavy!",
-   "x": 1330,
+   "type": "name",
+   "text": "Malheur National Forest",
+   "x": 560,
    "y": 330,
    "to": [
-    1110,
-    450
-   ]
+    945,
+    480
+   ],
+   "word": "Malheur National Forest"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "shockwave",
-   "obj": "mv-squash-mushroom"
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 1179,
-  "y": 759,
+  "act": "photo",
+  "ride": "mv-core-glide-map-pin",
+  "kind": "ride",
+  "x": 862,
+  "y": 610,
   "s": 0.95,
-  "flip": -1,
-  "bside": 1,
+  "flip": 1,
+  "bside": -1,
   "gaze": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
   "outfit": [
-   "bee"
+   "leafhat"
   ],
   "says": [
    {
-    "text": "Yikes!",
-    "shout": true
+    "text": "Say cheese!",
+    "shout": false
    }
   ]
  }

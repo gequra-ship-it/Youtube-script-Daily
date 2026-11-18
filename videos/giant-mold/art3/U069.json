@@ -1,14 +1,29 @@
 {
- "centre": "wide bright plain with five lonely pale Prototaxites towers of different heights, long soft shadows",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "wind",
-   "word": "standing alone",
-   "vol": 0.5
-  }
+ "centre": "a magnifying lens hovering at the foot of a giant pillar, showing tiny tracks and a millipede peeking",
+ "focus": [
+  1120,
+  560,
+  1.7
  ],
- "light": "left",
- "labels": []
+ "focus_word": "at the foot",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "x": 1660,
+  "y": 340,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "backpack"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

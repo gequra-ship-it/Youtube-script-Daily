@@ -1,7 +1,34 @@
 {
- "centre": "fast wind lines high above, slow short ones near the ground",
- "focus": null,
- "focus_word": "gentle breeze",
- "sfx": [],
- "labels": []
+ "centre": "pillar top with spore pores held far above tiny mosses",
+ "focus": [
+  540,
+  380,
+  1.8
+ ],
+ "focus_word": "lifting",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "ride": "mv-core-sway-prototaxites-pillar",
+  "kind": "ride",
+  "x": 684,
+  "y": 1300,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "So strong!",
+    "shout": false
+   }
+  ]
+ }
 }

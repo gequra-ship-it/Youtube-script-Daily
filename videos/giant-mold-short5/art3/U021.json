@@ -1,11 +1,32 @@
 {
- "centre": "heap of dead wood logs piling up on a bare forest floor",
- "focus": [
-  520,
-  1050,
-  1.6
- ],
- "focus_word": "dead wood",
- "sfx": [],
- "labels": []
+ "centre": "button mushroom linking the forest above with threads underground",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "ride": "mv-core-sway-mushroom",
+  "kind": "ride",
+  "x": 699,
+  "y": 905,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "crown"
+  ],
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
 }

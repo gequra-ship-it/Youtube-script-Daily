@@ -1,47 +1,30 @@
 {
- "centre": "a hiker pressing a hand on the smooth, barkless surface of a giant pale pillar",
- "focus": [
-  1000,
-  480,
-  1.7
- ],
- "focus_word": "reached out to touch",
- "sfx": [],
+ "centre": "a dignified Victorian geologist with a grey beard pointing at a large petrified log on a rocky shore",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "say",
-   "text": "So smooth!",
-   "x": 820,
-   "y": 240,
+   "type": "name",
+   "text": "John William Dawson",
+   "x": 520,
+   "y": 250,
    "to": [
-    762,
-    408
-   ]
+    520,
+    336
+   ],
+   "word": "John William Dawson"
+  },
+  {
+   "type": "name",
+   "text": "petrified trunk",
+   "x": 1240,
+   "y": 840,
+   "to": [
+    1220,
+    720
+   ],
+   "word": "petrified trunks"
   }
  ],
- "light": "left",
- "frog": {
-  "moods": [
-   {
-    "mood": "shock"
-   },
-   {
-    "word": "So what",
-    "mood": "curious"
-   }
-  ],
-  "act": {
-   "type": "gasp"
-  },
-  "x": 1660,
-  "y": 340,
-  "s": 0.76,
-  "flip": -1,
-  "kind": "bg",
-  "outfit": [
-   "strawhat"
-  ],
-  "says": [],
-  "bside": -1
- }
+ "light": "left"
 }

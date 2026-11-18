@@ -1,19 +1,30 @@
 {
- "centre": "low-angle view up a giant pale Prototaxites pillar against a dusty sky with warm sunlight",
+ "centre": "dusk over a bare rocky plain with lonely pale pillars; a dashed ghost tuft of grass fades away",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "wind": "right",
- "labels": [
-  {
-   "type": "say",
-   "text": "Extraordinary!",
-   "x": 470,
-   "y": 640,
-   "to": [
-    240,
-    836
-   ]
-  }
- ]
+ "light": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "There is",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "x": 1660,
+  "y": 780,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "explorer"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

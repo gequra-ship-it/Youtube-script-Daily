@@ -1,11 +1,34 @@
 {
- "centre": "cloud of spores bursting from the pillar top into fast wind",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "millions",
- "sfx": [],
- "labels": []
+ "centre": "spore cloud drifting over hills toward a far horizon",
+ "focus": null,
+ "focus_word": "continent",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-spore-cloud"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 853,
+  "y": 1008,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

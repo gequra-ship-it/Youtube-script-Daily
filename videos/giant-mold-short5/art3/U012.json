@@ -1,42 +1,18 @@
 {
- "centre": "rock split open by a growing tree root",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "break up rock",
- "sfx": [
+ "centre": "dignified Victorian geologist beside a fossil log and microscope",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "stone",
-   "word": "break up rock",
-   "vol": 0.6
+   "type": "name",
+   "text": "Prototaxites",
+   "x": 640,
+   "y": 1200,
+   "to": [
+    640,
+    1020
+   ],
+   "word": "Prototaxites"
   }
- ],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "happy"
-   }
-  ],
-  "act": "startle",
-  "outfit": [
-   "diver"
-  ],
-  "ride": "mv-core-drop-pebble",
-  "kind": "ride",
-  "x": 359,
-  "y": 1062,
-  "s": 1.09,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Eek!",
-    "shout": true
-   }
-  ]
- }
+ ]
 }

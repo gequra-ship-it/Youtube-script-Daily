@@ -1,1 +1,44 @@
-{"centre": "giant pillar with crust, plant mat and microbes it feeds on", "focus": null, "focus_word": null, "sfx": [], "labels": [{"type": "name", "text": "Organic crust", "x": 1500, "y": 230, "to": [1170, 250], "word": "organic crusts"}, {"type": "name", "text": "Microbes", "x": 1500, "y": 730, "to": [1190, 720], "word": "microbes"}]}
+{
+ "centre": "tiny moldy bread slice versus a towering Prototaxites pillar",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Ancient giant",
+   "x": 1020,
+   "y": 240,
+   "to": [
+    1280,
+    300
+   ],
+   "word": "ancient giant"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "x": 1285,
+  "y": 790,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": "mv-grow-prototaxites-tower",
+  "bside": -1,
+  "outfit": [
+   "hardhat",
+   "toga"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

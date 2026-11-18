@@ -1,49 +1,33 @@
 {
- "centre": "a forest ranger's desk with a field map, a plain ranger hat and a sample jar of honey mushrooms",
- "focus": [
-  970,
-  615,
-  1.6
- ],
- "focus_word": "Forest Service",
+ "centre": "one huge thick Prototaxites pillar towering in an empty plain, seen from low",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "page",
-   "word": "according to",
+   "name": "wind",
+   "word": "plain sight",
    "vol": 0.5
   }
  ],
- "labels": [],
+ "wind": "right",
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "surprised"
    }
   ],
   "act": {
-   "type": "unrolled",
-   "obj": "mv-unroll-field-map",
-   "frac": 0.7
+   "type": "shrinkdown"
   },
-  "ride": null,
+  "x": 1660,
+  "y": 620,
+  "s": 0.76,
+  "flip": -1,
   "kind": "bg",
-  "x": 1081,
-  "y": 712,
-  "s": 0.95,
-  "flip": 1,
-  "bside": 1,
-  "gaze": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
   "outfit": [
-   "flowercrown"
+   "explorer"
   ],
-  "says": [
-   {
-    "text": "Whoa!",
-    "shout": true
-   }
-  ]
+  "says": [],
+  "bside": -1
  }
 }

@@ -1,11 +1,44 @@
 {
- "centre": "cut-away under a pair of boots: tree roots wrapped in glowing white threads, a labyrinth meeting at a glowing knot",
- "focus": [
-  960,
-  600,
-  1.6
+ "centre": "glowing junction of a mycorrhizal network linking the roots of an oak, a spruce and a birch",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Mycorrhizal network",
+   "x": 1380,
+   "y": 820,
+   "to": [
+    1180,
+    700
+   ],
+   "word": "mycorrhizal network"
+  }
  ],
- "focus_word": "white threads",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-mycelium-junction",
+  "kind": "ride",
+  "x": 1113,
+  "y": 695,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headlamp",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
 }

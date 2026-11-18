@@ -26,49 +26,15 @@
     "#5f6b4a"
    ]
   },
-  "text": "Look out your window at a tall oak or pine tree.",
-  "dur": 4.66,
+  "text": "Earth once had a skyline with no trees at all. The tallest things on it were very likely fungi.",
+  "dur": 7.18,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "It seems completely natural that trees dominate the skyline of our planet.",
+  "nxt": "",
   "frog_hint": false
  },
  {
   "uid": "U002",
-  "scene": 1,
-  "title": "Part 1",
-  "art_theme": "sh3_1",
-  "bg": "paper",
-  "pal": {
-   "palette": "history",
-   "paper_base": "#e8dcc4",
-   "paper_ink": "#2e2218",
-   "night_top": "#13100c",
-   "night_bottom": "#241c14",
-   "night_line": "#e6c98a",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#f0d6a0",
-    "#c9a068",
-    "#6e5236"
-   ],
-   "dusk_ink": "#2e2218",
-   "accents": [
-    "#8a5a34",
-    "#b5483b",
-    "#c9a64a",
-    "#5f6b4a"
-   ]
-  },
-  "text": "It seems completely natural that trees dominate the skyline of our planet.",
-  "dur": 4.66,
-  "transition_in": "wave",
-  "prev": "Look out your window at a tall oak or pine tree.",
-  "nxt": "",
-  "frog_hint": true
- },
- {
-  "uid": "U003",
   "scene": 2,
   "title": "Part 2",
   "art_theme": "sh3_2",
@@ -94,15 +60,15 @@
     "#5f6b4a"
    ]
   },
-  "text": "But for millions of years, Earth had no wood, no canopy, and no leafy shade.",
-  "dur": 5.47,
+  "text": "For millions of years, Earth had no wood, no canopy, and no leafy shade.",
+  "dur": 5.21,
   "transition_in": "zoom",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U004",
+  "uid": "U003",
   "scene": 3,
   "title": "Part 3",
   "art_theme": "sh3_3",
@@ -133,10 +99,10 @@
   "transition_in": "fade",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U005",
+  "uid": "U004",
   "scene": 4,
   "title": "Part 4",
   "art_theme": "sh3_4",
@@ -164,13 +130,13 @@
   },
   "text": "In that landscape, life found a very different way to touch the sky.",
   "dur": 4.79,
-  "transition_in": "slide",
+  "transition_in": "wave",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U006",
+  "uid": "U005",
   "scene": 5,
   "title": "Part 5",
   "art_theme": "sh3_5",
@@ -201,10 +167,10 @@
   "transition_in": "zigzag",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U007",
+  "uid": "U006",
   "scene": 6,
   "title": "Part 6",
   "art_theme": "sh3_6",
@@ -235,10 +201,10 @@
   "transition_in": "page",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U008",
+  "uid": "U007",
   "scene": 7,
   "title": "Part 7",
   "art_theme": "sh3_7",
@@ -269,10 +235,10 @@
   "transition_in": "diamond",
   "prev": "",
   "nxt": "A tall tower is expensive to build.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U009",
+  "uid": "U008",
   "scene": 7,
   "title": "Part 7",
   "art_theme": "sh3_7",
@@ -300,13 +266,13 @@
   },
   "text": "A tall tower is expensive to build.",
   "dur": 4.57,
-  "transition_in": "push",
+  "transition_in": "whip",
   "prev": "Why would a fungus invest so much energy into building a tower as tall as a modern house?",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U010",
+  "uid": "U009",
   "scene": 8,
   "title": "Part 8",
   "art_theme": "sh3_8",
@@ -337,10 +303,10 @@
   "transition_in": "tilt",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U011",
+  "uid": "U010",
   "scene": 9,
   "title": "Part 9",
   "art_theme": "sh3_9",
@@ -368,9 +334,43 @@
   },
   "text": "Down near the ground, friction slows the wind to a gentle breeze.",
   "dur": 4.68,
-  "transition_in": "whip",
+  "transition_in": "seam",
   "prev": "",
   "nxt": "",
+  "frog_hint": true
+ },
+ {
+  "uid": "U011",
+  "scene": 10,
+  "title": "Part 10",
+  "art_theme": "sh3_10",
+  "bg": "paper",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "By lifting its reproductive tissue high above the ankle-high mosses,",
+  "dur": 4.8,
+  "transition_in": "push",
+  "prev": "",
+  "nxt": "Prototaxites could have released millions of microscopic spores into faster,",
   "frog_hint": false
  },
  {
@@ -400,11 +400,11 @@
     "#5f6b4a"
    ]
   },
-  "text": "By lifting its reproductive tissue high above the ankle-high mosses,",
+  "text": "Prototaxites could have released millions of microscopic spores into faster,",
   "dur": 4.8,
-  "transition_in": "seam",
-  "prev": "",
-  "nxt": "Prototaxites could have released millions of microscopic spores into faster,",
+  "transition_in": "wipe",
+  "prev": "By lifting its reproductive tissue high above the ankle-high mosses,",
+  "nxt": "higher air currents, carrying its offspring across a continent.",
   "frog_hint": true
  },
  {
@@ -434,49 +434,15 @@
     "#5f6b4a"
    ]
   },
-  "text": "Prototaxites could have released millions of microscopic spores into faster,",
+  "text": "higher air currents, carrying its offspring across a continent.",
   "dur": 4.8,
   "transition_in": "wash",
-  "prev": "By lifting its reproductive tissue high above the ankle-high mosses,",
-  "nxt": "higher air currents, carrying its offspring across a continent.",
+  "prev": "Prototaxites could have released millions of microscopic spores into faster,",
+  "nxt": "",
   "frog_hint": false
  },
  {
   "uid": "U014",
-  "scene": 10,
-  "title": "Part 10",
-  "art_theme": "sh3_10",
-  "bg": "paper",
-  "pal": {
-   "palette": "history",
-   "paper_base": "#e8dcc4",
-   "paper_ink": "#2e2218",
-   "night_top": "#13100c",
-   "night_bottom": "#241c14",
-   "night_line": "#e6c98a",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#f0d6a0",
-    "#c9a068",
-    "#6e5236"
-   ],
-   "dusk_ink": "#2e2218",
-   "accents": [
-    "#8a5a34",
-    "#b5483b",
-    "#c9a64a",
-    "#5f6b4a"
-   ]
-  },
-  "text": "higher air currents, carrying its offspring across a continent.",
-  "dur": 4.8,
-  "transition_in": "match",
-  "prev": "Prototaxites could have released millions of microscopic spores into faster,",
-  "nxt": "",
-  "frog_hint": true
- },
- {
-  "uid": "U015",
   "scene": 11,
   "title": "Part 11",
   "art_theme": "sh3_11",
@@ -504,13 +470,13 @@
   },
   "text": "It is the same trick that dandelions and puffball mushrooms use today, only on a far grander scale.",
   "dur": 7.03,
-  "transition_in": "wipe",
+  "transition_in": "iris",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U016",
+  "uid": "U015",
   "scene": 12,
   "title": "Part 12",
   "art_theme": "sh3_12",
@@ -538,13 +504,13 @@
   },
   "text": "Another possibility is that the tower worked like a storage tank.",
   "dur": 4.53,
-  "transition_in": "iris",
+  "transition_in": "eye",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U017",
+  "uid": "U016",
   "scene": 13,
   "title": "Part 13",
   "art_theme": "sh3_13",
@@ -572,13 +538,13 @@
   },
   "text": "In a harsh world where rainfall was unpredictable,",
   "dur": 4.16,
-  "transition_in": "eye",
+  "transition_in": "slide",
   "prev": "",
   "nxt": "a thick column could hold water and nutrients through long dry spells.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U018",
+  "uid": "U017",
   "scene": 13,
   "title": "Part 13",
   "art_theme": "sh3_13",
@@ -609,10 +575,10 @@
   "transition_in": "wave",
   "prev": "In a harsh world where rainfall was unpredictable,",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U019",
+  "uid": "U018",
   "scene": 14,
   "title": "Part 14",
   "art_theme": "sh3_14",
@@ -640,13 +606,13 @@
   },
   "text": "Think of it like a camel's hump, except as high as a house.",
   "dur": 4.02,
-  "transition_in": "iris",
+  "transition_in": "eye",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U020",
+  "uid": "U019",
   "scene": 15,
   "title": "Part 15",
   "art_theme": "sh3_15",
@@ -674,13 +640,13 @@
   },
   "text": "Nobody knows for sure which idea is right, and both could be partly true.",
   "dur": 5.21,
-  "transition_in": "zoom",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U021",
+  "uid": "U020",
   "scene": 16,
   "title": "Part 16",
   "art_theme": "sh3_16",
@@ -708,13 +674,13 @@
   },
   "text": "Scientists can only test these ideas by studying fossils and living fungi, so the debate is still open.",
   "dur": 7.41,
-  "transition_in": "eye",
+  "transition_in": "slide",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U022",
+  "uid": "U021",
   "scene": 17,
   "title": "Part 17",
   "art_theme": "sh3_17",
@@ -742,9 +708,43 @@
   },
   "text": "What we do know is that these skyscrapers stood on the land for roughly forty million years.",
   "dur": 5.81,
-  "transition_in": "fade",
+  "transition_in": "zigzag",
   "prev": "",
   "nxt": "",
+  "frog_hint": false
+ },
+ {
+  "uid": "U022",
+  "scene": 18,
+  "title": "Part 18",
+  "art_theme": "sh3_18",
+  "bg": "paper",
+  "pal": {
+   "palette": "history",
+   "paper_base": "#e8dcc4",
+   "paper_ink": "#2e2218",
+   "night_top": "#13100c",
+   "night_bottom": "#241c14",
+   "night_line": "#e6c98a",
+   "night_glow": "#f2c14e",
+   "dusk_stops": [
+    "#f0d6a0",
+    "#c9a068",
+    "#6e5236"
+   ],
+   "dusk_ink": "#2e2218",
+   "accents": [
+    "#8a5a34",
+    "#b5483b",
+    "#c9a64a",
+    "#5f6b4a"
+   ]
+  },
+  "text": "That is more than one hundred times longer than modern humans have existed.",
+  "dur": 5.52,
+  "transition_in": "page",
+  "prev": "",
+  "nxt": "Discover why these ancient titans finally vanished in our full episode.",
   "frog_hint": true
  },
  {
@@ -774,45 +774,11 @@
     "#5f6b4a"
    ]
   },
-  "text": "That is more than one hundred times longer than modern humans have existed.",
-  "dur": 5.52,
-  "transition_in": "slide",
-  "prev": "",
-  "nxt": "Discover why these ancient titans finally vanished in our full episode.",
-  "frog_hint": false
- },
- {
-  "uid": "U024",
-  "scene": 18,
-  "title": "Part 18",
-  "art_theme": "sh3_18",
-  "bg": "paper",
-  "pal": {
-   "palette": "history",
-   "paper_base": "#e8dcc4",
-   "paper_ink": "#2e2218",
-   "night_top": "#13100c",
-   "night_bottom": "#241c14",
-   "night_line": "#e6c98a",
-   "night_glow": "#f2c14e",
-   "dusk_stops": [
-    "#f0d6a0",
-    "#c9a068",
-    "#6e5236"
-   ],
-   "dusk_ink": "#2e2218",
-   "accents": [
-    "#8a5a34",
-    "#b5483b",
-    "#c9a64a",
-    "#5f6b4a"
-   ]
-  },
   "text": "Discover why these ancient titans finally vanished in our full episode.",
   "dur": 5.52,
-  "transition_in": "whip",
+  "transition_in": "push",
   "prev": "That is more than one hundred times longer than modern humans have existed.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  }
 ]

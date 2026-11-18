@@ -1,8 +1,26 @@
 {
- "centre": "a small red mushroom in a mossy autumn forest floor; tall autumn oak and maple, a leaf drops onto the moss",
+ "centre": "a group of tall pale stone-coloured Prototaxites spires of different heights on a bare plain, the middle one rising",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "oak sways; a falling leaf drops onto the moss (mv-core-drop-leaf); still modern world before the time jump"
+ "motion": "the tallest spire rises into place (mv-rise); tiny plants sway",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "x": 260,
+  "y": 560,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "hardhat"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

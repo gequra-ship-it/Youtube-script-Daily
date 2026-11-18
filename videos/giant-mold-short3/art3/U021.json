@@ -1,1 +1,39 @@
-{"centre": "magnifying lens over a fossil log with a living mushroom", "focus": null, "focus_word": null, "sfx": [], "labels": [{"type": "name", "text": "Fossil", "x": 240, "y": 900, "to": [300, 990], "word": "fossils"}]}
+{
+ "centre": "skyline of tall stone pillars above a long row of time marks",
+ "focus": null,
+ "focus_word": "forty million years",
+ "labels": [
+  {
+   "type": "num",
+   "text": "40 MILLION YEARS",
+   "word": "forty million"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "tiptoe",
+   "dist": 540
+  },
+  "x": 820,
+  "y": 1280,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "hardhat",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Shh...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

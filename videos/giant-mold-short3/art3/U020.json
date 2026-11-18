@@ -1,7 +1,44 @@
 {
- "centre": "balance scale weighing a spore pile against a water drop",
+ "centre": "magnifying lens over a fossil log with a living mushroom",
  "focus": null,
- "focus_word": "both could be partly true",
- "sfx": [],
- "labels": []
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Fossil",
+   "x": 240,
+   "y": 900,
+   "to": [
+    300,
+    990
+   ],
+   "word": "fossils"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "idea",
+  "ride": "mv-core-approach-magnifier",
+  "kind": "ride",
+  "x": 804,
+  "y": 960,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Aha!",
+    "shout": false
+   }
+  ]
+ }
 }
