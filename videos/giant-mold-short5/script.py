@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 # giant-mold-short5 (Miya's Note). Script from miya 2026-11-03 (dated 2026-10-25); fact-checked per guideline 12-1.
-SCENES = [('S01',
-  'Part 1',
-  'ill',
-  'sh5_1',
-  'Did you know that the mushrooms growing in your local park belong to a kingdom that once built the tallest towers on Earth?'),
- ('S02', 'Part 2', 'ill', 'sh5_2', 'The fungal kingdom has been on land for a very long time, and its story is stranger than most people imagine.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh5_1', 'The mushroom in your local park belongs to a kingdom that once built the tallest towers on land.'),
+ ('S02', 'Part 2', 'ill', 'sh5_2', 'It sounds impossible, but it was real, and the story is stranger than most people imagine.'),
  ('S03',
   'Part 3',
   'ill',

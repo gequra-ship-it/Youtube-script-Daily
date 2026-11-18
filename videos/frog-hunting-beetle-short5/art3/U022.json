@@ -1,46 +1,28 @@
 {
- "centre": "a lab bench under a swinging lamp: a small arena with a larva and a young froglet, notebook and stopwatch beside",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a winding growth ribbon from tadpole to legged tadpole to a young froglet on a lily pad",
+ "focus": [
+  540,
+  1080,
+  1.5
+ ],
+ "focus_word": "metamorphosis",
  "labels": [
   {
+   "type": "num",
+   "text": "2-3 WEEKS",
+   "word": "two to three weeks"
+  },
+  {
    "type": "name",
-   "text": "laboratory",
-   "x": 300,
-   "y": 840,
+   "text": "metamorphosis",
+   "x": 760,
+   "y": 1340,
    "to": [
-    640,
-    1050
+    560,
+    1100
    ],
-   "word": "laboratory"
+   "word": "metamorphosis"
   }
  ],
- "light": "right",
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": "magnify",
-  "ride": "mv-swing-hanging-lamp",
-  "kind": "ride",
-  "x": 824,
-  "y": 558,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "lab",
-   "bee"
-  ],
-  "says": [
-   {
-    "text": "A clue!",
-    "shout": false
-   }
-  ]
- }
+ "light": "left"
 }

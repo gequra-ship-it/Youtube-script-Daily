@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 # giant-mold-short2 (Miya's Note). Script from miya 2026-11-03 (dated 2026-10-25); fact-checked per guideline 12-1.
-SCENES = [('S01', 'Part 1', 'ill', 'sh2_1', 'Imagine cracking open what looks like an ancient petrified log, only to find it was never made of wood at all.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh2_1', 'Imagine cracking open an ancient petrified log and finding it was never wood.'),
  ('S02',
   'Part 2',
   'ill',
   'sh2_2',
-  'In the nineteenth century, a geologist named John William Dawson described massive fossilized trunks from Canada, nearly eight meters long and up '
-  'to a meter thick.'),
+  'That really happened, and what the log actually was is still debated. In the nineteenth century, a geologist named John William Dawson described '
+  'massive fossilized trunks from Canada, nearly eight meters long and up to a meter thick.'),
  ('S03',
   'Part 3',
   'ill',

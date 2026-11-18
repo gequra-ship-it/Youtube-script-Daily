@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frog-hunting-beetle-short3 (Miya's Note). Script from miya 2026-11-03 (dated 2026-10-09); fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'What do you do when a tiny creature is locked onto you and you cannot shake it off?'),
- ('S02', 'Part 2', 'ill', 'sh3_2', 'For a young frog in the Epomis experiments, there was no good answer.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'A frog shakes its head and kicks at its skin, but a tiny larva will not let go.'),
+ ('S02', 'Part 2', 'ill', 'sh3_2', 'This was real, and for a young frog in the Epomis experiments, there was no good answer.'),
  ('S03', 'Part 3', 'ill', 'sh3_3', 'Once the larva has bitten on, the frog panics. It shakes its head. It rubs at its skin.'),
  ('S04',
   'Part 4',

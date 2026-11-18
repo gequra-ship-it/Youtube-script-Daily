@@ -1,7 +1,34 @@
 {
- "centre": "tower built of stacked blocks with coin piles at its foot",
+ "centre": "pillar fed by white soil threads with food dots, a clock beside it",
  "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "focus_word": "spore dispersal",
+ "frog": {
+  "moods": [
+   {
+    "mood": "queasy"
+   },
+   {
+    "word": "One hypothesis",
+    "mood": "happy"
+   }
+  ],
+  "act": "eat",
+  "ride": "mv-core-sway-prototaxites-pillar",
+  "kind": "ride",
+  "x": 669,
+  "y": 1200,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Nom nom.",
+    "shout": false
+   }
+  ]
+ }
 }

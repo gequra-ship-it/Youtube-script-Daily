@@ -1,20 +1,43 @@
 {
- "centre": "glowing ground-beetle larva on a stone beside a column of caught everyday insects; calm frog on the bank",
+ "centre": "a frog and a larva each running hard on a treadmill, one above the other, keeping pace",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "one insect",
-   "x": 760,
-   "y": 460,
+   "text": "treadmill",
+   "x": 330,
+   "y": 1395,
    "to": [
-    800,
-    640
+    230,
+    1335
    ],
-   "word": "one insect"
+   "word": "treadmill"
   }
  ],
- "light": "right"
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "x": 299,
+  "y": 854,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Grew!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

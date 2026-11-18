@@ -1,7 +1,47 @@
 {
- "centre": "lone pale pillar leaning and cracked under dark leafy crowns",
- "focus": null,
- "focus_word": "survive",
- "sfx": [],
- "labels": []
+ "centre": "Archaeopteris canopy shading ground mats and crusts, pale Prototaxites pillars at right",
+ "focus": [
+  1050,
+  760,
+  1.6
+ ],
+ "focus_word": "surface crusts and mats",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Crusts and mats",
+   "x": 1040,
+   "y": 820,
+   "to": [
+    1000,
+    790
+   ],
+   "word": "crusts and mats"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.77,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Big!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

@@ -1,42 +1,46 @@
 {
- "centre": "red map pin dropping into a pine forest on Oregon hills",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "centre": "a forest ranger's desk with a field map, a plain ranger hat and a sample jar of honey mushrooms",
+ "focus": [
+  970,
+  615,
+  1.6
+ ],
+ "focus_word": "Forest Service",
+ "sfx": [
   {
-   "type": "name",
-   "text": "Malheur National Forest",
-   "x": 560,
-   "y": 330,
-   "to": [
-    945,
-    480
-   ],
-   "word": "Malheur National Forest"
+   "name": "page",
+   "word": "according to",
+   "vol": 0.5
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "startle",
-  "ride": "mv-core-drop-map-pin",
-  "kind": "ride",
-  "x": 862,
-  "y": 610,
+  "act": {
+   "type": "unrolled",
+   "obj": "mv-unroll-field-map",
+   "frac": 0.7
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1081,
+  "y": 712,
   "s": 0.95,
   "flip": 1,
-  "bside": -1,
+  "bside": 1,
   "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "outfit": [
-   "explorer"
+   "bee"
   ],
   "says": [
    {
-    "text": "Eek!",
+    "text": "Whoa!",
     "shout": true
    }
   ]

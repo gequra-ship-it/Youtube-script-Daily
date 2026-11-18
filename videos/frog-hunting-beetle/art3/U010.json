@@ -1,23 +1,64 @@
 {
- "centre": "adult Epomis ground beetle in an oval museum frame with a night scene",
- "focus": [
-  940,
-  540,
-  1.5
- ],
- "focus_word": "Epomis",
- "sfx": [],
+ "centre": "top-down leaf litter: a ground beetle runs past a worm, a snail and a caterpillar",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Epomis",
-   "x": 1240,
-   "y": 360,
+   "text": "Worm",
+   "x": 700,
+   "y": 160,
    "to": [
-    1060,
-    520
+    700,
+    282
    ],
-   "word": "Epomis"
+   "word": "worms"
+  },
+  {
+   "type": "name",
+   "text": "Snail",
+   "x": 1100,
+   "y": 700,
+   "to": [
+    1300,
+    790
+   ],
+   "word": "snails"
+  },
+  {
+   "type": "name",
+   "text": "Caterpillar",
+   "x": 1440,
+   "y": 170,
+   "to": [
+    1440,
+    290
+   ],
+   "word": "caterpillars"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "eat",
+  "ride": "mv-path-runner-beetle",
+  "kind": "ride",
+  "x": 379,
+  "y": 469,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Munch munch.",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,15 +1,11 @@
 # -*- coding: utf-8 -*-
 # giant-mold-short1 (Miya's Note). Script from miya 2026-11-03 (dated 2026-10-25); fact-checked per guideline 12-1.
-SCENES = [('S01',
-  'Part 1',
-  'ill',
-  'sh1_1',
-  'What if I told you that before trees existed, the tallest living things on dry land were giant spires that looked like mold?'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh1_1', 'Four hundred million years ago, an eight-meter tower stood on bare rock, and it was not a tree.'),
  ('S02',
   'Part 2',
   'ill',
   'sh1_2',
-  'Over four hundred million years ago, during the Silurian and Early Devonian periods, our planet looked completely alien.'),
+  'It was real, and scientists still debate exactly what it was. This was the Silurian and Early Devonian, when our planet looked completely alien.'),
  ('S03',
   'Part 3',
   'ill',

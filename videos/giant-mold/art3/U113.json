@@ -1,41 +1,38 @@
 {
- "centre": "tree with sunlit leaves above, fungal threads round its roots; minerals and water travel up to the roots, sugars travel down",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Minerals",
-   "x": 330,
-   "y": 700,
-   "to": [
-    380,
-    820
-   ],
-   "word": "minerals"
+ "centre": "on the curve of the Earth a tree and a mushroom joined by a glowing root-thread knot; many plants above, a shared network below; a faint old pillar at left",
+ "focus": [
+  960,
+  470,
+  1.7
+ ],
+ "focus_word": "alliance",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-spore"
   },
-  {
-   "type": "name",
-   "text": "Water",
-   "x": 1620,
-   "y": 740,
-   "to": [
-    1520,
-    840
-   ],
-   "word": "water"
-  },
-  {
-   "type": "name",
-   "text": "Sugars",
-   "x": 1280,
-   "y": 420,
-   "to": [
-    1000,
-    360
-   ],
-   "word": "sugars"
-  }
- ]
+  "ride": "mv-ascend-spore",
+  "kind": "ride",
+  "x": 1150,
+  "y": 362,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ]
+ }
 }

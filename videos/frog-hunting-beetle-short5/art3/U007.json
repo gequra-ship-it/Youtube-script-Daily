@@ -1,22 +1,27 @@
 {
- "centre": "a round pond stone where a frog landed by accident and found a larva clinging at its side",
- "focus": [
-  470,
-  790,
-  1.6
+ "centre": "the larva on the mud waving its antennae like a worm while a curious frog leans in; a gauge fills to seventy percent",
+ "focus": null,
+ "focus_word": null,
+ "iris": [
+  640,
+  1090
  ],
- "focus_word": "ended badly",
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Oops!",
-   "x": 690,
-   "y": 600,
+   "type": "num",
+   "text": "70 %",
+   "word": "seventy percent"
+  },
+  {
+   "type": "name",
+   "text": "larva",
+   "x": 620,
+   "y": 1330,
    "to": [
     640,
-    752
-   ]
+    1140
+   ],
+   "word": "the larva lured"
   }
  ]
 }

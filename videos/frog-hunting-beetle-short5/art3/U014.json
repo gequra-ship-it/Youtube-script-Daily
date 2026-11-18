@@ -1,54 +1,18 @@
 {
- "centre": "a frog and a larva each running hard on a treadmill, one above the other, keeping pace",
+ "centre": "a tall red chess queen on a meadow chessboard, a frog and a larva standing on the squares",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "treadmill",
-   "x": 330,
-   "y": 1395,
+   "text": "Red Queen",
+   "x": 790,
+   "y": 760,
    "to": [
-    230,
-    1335
+    610,
+    800
    ],
-   "word": "treadmill"
-  },
-  {
-   "type": "say",
-   "text": "Keep up!",
-   "x": 280,
-   "y": 1120,
-   "to": [
-    400,
-    1250
-   ]
+   "word": "Red Queen"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "surprised"
-   }
-  ],
-  "act": {
-   "type": "growtall"
-  },
-  "x": 299,
-  "y": 854,
-  "s": 1.05,
-  "flip": 1,
-  "kind": "bg",
-  "outfit": [
-   "headband"
-  ],
-  "says": [
-   {
-    "text": "Grew!",
-    "shout": true
-   }
-  ],
-  "bside": 1
- }
+ ]
 }

@@ -1,17 +1,13 @@
 # -*- coding: utf-8 -*-
 # frog-hunting-beetle-short4 (Miya's Note). Script from miya 2026-11-03 (dated 2026-10-09); fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01',
-  'Part 1',
-  'ill',
-  'sh4_1',
-  'You might think the bug grows up and moves on to an easier diet. It does not. The adult is a hunter of amphibians too.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh4_1', 'By day, a frog and a hunting beetle can rest in the same damp shelter.'),
  ('S02',
   'Part 2',
   'ill',
   'sh4_2',
-  'After the larva has fed, molted, and pupated in the soil, an adult Epomis beetle comes out. It has a hard shell and long legs, and it runs across '
-  'the ground at night.'),
- ('S03', 'Part 3', 'ill', 'sh4_3', 'Adults and amphibians often share the same damp shelters by day, and the beetles act when it gets dark.'),
+  'At night, the beetle is the hunter, and that part is real. After the larva has fed, molted, and pupated in the soil, an adult Epomis beetle comes '
+  'out. It has a hard shell and long legs, and it runs across the ground at night.'),
+ ('S03', 'Part 3', 'ill', 'sh4_3', 'The beetles act when it gets dark.'),
  ('S04',
   'Part 4',
   'ill',

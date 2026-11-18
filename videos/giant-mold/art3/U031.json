@@ -1,48 +1,33 @@
 {
- "centre": "magnifying lens showing a mushroom up close",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "cut-away soil with a glowing white mycelium web under one small mushroom",
+ "focus": null,
+ "focus_word": null,
+ "iris": [
+  1420,
+  300
  ],
- "focus_word": "mushroom",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "mushroom",
-   "x": 1240,
-   "y": 330,
+   "text": "hyphae",
+   "x": 470,
+   "y": 250,
    "to": [
-    960,
-    450
+    600,
+    560
    ],
-   "word": "mushroom"
+   "word": "hyphae"
+  },
+  {
+   "type": "name",
+   "text": "mycelium",
+   "x": 1050,
+   "y": 250,
+   "to": [
+    1060,
+    560
+   ],
+   "word": "mycelium"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": "think",
-  "ride": "mv-core-swell-lens",
-  "kind": "ride",
-  "x": 1228,
-  "y": 752,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "leafhat"
-  ],
-  "says": [
-   {
-    "text": "Hmm...",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

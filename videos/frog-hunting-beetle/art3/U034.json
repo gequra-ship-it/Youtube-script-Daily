@@ -1,18 +1,22 @@
 {
- "centre": "frog on a bobbing lily pad beside a score card: seven caught bugs ticked, one miss",
+ "centre": "the larva standing tall on a mossy stone while the frog's tongue swings past it",
+ "focus": [
+  1060,
+  500,
+  1.6
+ ],
+ "focus_word": "it survives",
  "labels": [
   {
    "type": "say",
-   "text": "Another one!",
-   "x": 470,
-   "y": 340,
+   "text": "Missed!",
+   "x": 1380,
+   "y": 300,
    "to": [
-    560,
-    560
-   ]
+    1180,
+    440
+   ],
+   "word": "survives"
   }
- ],
- "focus": null,
- "focus_word": null,
- "sfx": []
+ ]
 }

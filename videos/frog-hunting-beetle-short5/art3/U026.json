@@ -1,18 +1,29 @@
 {
- "centre": "a tall hourglass over deep rock layers, sand running down; a frog's tongue on one side and a waiting larva on the other",
+ "centre": "a ranking podium: a frog with a sketched backbone on top, a larva on the lowest step with open jaws, vines creeping up",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Tick tock...",
-   "x": 830,
-   "y": 420,
+   "type": "name",
+   "text": "backbone",
+   "x": 290,
+   "y": 640,
    "to": [
-    660,
-    560
-   ]
+    500,
+    790
+   ],
+   "word": "backbone"
+  },
+  {
+   "type": "name",
+   "text": "bug",
+   "x": 830,
+   "y": 1360,
+   "to": [
+    820,
+    1130
+   ],
+   "word": "bug"
   }
  ],
  "light": "left"

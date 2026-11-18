@@ -1,38 +1,44 @@
 {
- "centre": "faint tree of life on parchment, a separate glowing twig with a tiny pillar standing alone",
- "focus": [
-  1440,
-  520,
-  1.6
- ],
- "focus_word": "no living relatives",
- "sfx": [],
- "iris": [
-  1440,
-  520
- ],
+ "centre": "a pinned family-tree chart with three empty dashed sockets; a Prototaxites puzzle piece wanders between them",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
  "labels": [
   {
    "type": "name",
-   "text": "Prototaxites",
-   "x": 1640,
-   "y": 300,
+   "text": "family tree",
+   "x": 1460,
+   "y": 760,
    "to": [
-    1460,
-    330
+    1240,
+    600
    ],
-   "word": "Prototaxites"
-  },
-  {
-   "type": "name",
-   "text": "branch of life",
-   "x": 1640,
-   "y": 680,
-   "to": [
-    1450,
-    620
-   ],
-   "word": "branch of life"
+   "word": "family tree"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-path-pillar-piece",
+  "kind": "ride",
+  "x": 928,
+  "y": 640,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "flowercrown"
+  ],
+  "says": [
+   {
+    "text": "Let me think.",
+    "shout": false
+   }
+  ]
+ }
 }

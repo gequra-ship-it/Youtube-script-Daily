@@ -1,33 +1,29 @@
 {
- "centre": "small planet globe with tree crowns along its rim",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "dashed ghost outline of a tree over a bare plain",
+ "focus": [
+  540,
+  820,
+  1.5
+ ],
+ "focus_word": "no wood",
  "frog": {
   "moods": [
    {
-    "mood": "determined"
+    "mood": "shock"
    }
   ],
-  "act": "bounce",
+  "act": {
+   "type": "gasp"
+  },
+  "x": 260,
+  "y": 960,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
   "outfit": [
-   "helmet",
-   "jetpack"
+   "explorer"
   ],
-  "ride": "mv-core-swell-planet-globe",
-  "kind": "ride",
-  "x": 850,
-  "y": 1060,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Boing boing.",
-    "shout": false
-   }
-  ]
+  "says": [],
+  "bside": 1
  }
 }

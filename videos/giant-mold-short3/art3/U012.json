@@ -1,36 +1,36 @@
 {
- "centre": "pillar top with spore pores held far above tiny mosses",
+ "centre": "cloud of spores bursting from the pillar top into fast wind",
  "focus": [
   540,
-  380,
-  1.8
+  860,
+  1.6
  ],
- "focus_word": "lifting",
- "sfx": [],
- "labels": [],
+ "focus_word": "millions",
  "frog": {
   "moods": [
    {
-    "mood": "proud"
+    "mood": "squint"
    }
   ],
-  "act": "flex",
-  "ride": "mv-core-swell-prototaxites-pillar",
-  "kind": "ride",
-  "x": 684,
-  "y": 1300,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "act": "wind",
+  "x": 260,
+  "y": 1560,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
   "outfit": [
-   "sunglasses"
+   "bee"
   ],
   "says": [
    {
-    "text": "So strong!",
-    "shout": false
+    "text": "Whooosh!",
+    "shout": true
    }
-  ]
+  ],
+  "bside": 1
  }
 }

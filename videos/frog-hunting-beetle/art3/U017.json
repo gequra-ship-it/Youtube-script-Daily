@@ -1,23 +1,43 @@
 {
- "centre": "huge golden frog eye in close-up",
- "focus": [
-  960,
-  480,
-  1.7
- ],
- "focus_word": "a frog's eyes",
- "sfx": [],
+ "centre": "frog watching a viewfinder where only a moving fly is bright",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Frog's eyes",
-   "x": 1250,
-   "y": 300,
+   "text": "Small moving things",
+   "x": 1220,
+   "y": 140,
    "to": [
-    1060,
-    420
+    1300,
+    290
    ],
-   "word": "frog's eyes"
+   "word": "small moving things"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-fly",
+  "kind": "ride",
+  "x": 1227,
+  "y": 313,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "flowercrown"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

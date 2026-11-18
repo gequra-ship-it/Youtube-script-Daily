@@ -1,18 +1,29 @@
 {
- "centre": "a large close-up of the delicate mushroom, soft translucent cap with dew",
+ "centre": "cross-section: fallen leaves on the forest floor under towering trunks, glowing white fungal threads recycling them",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Don't mind me",
-   "x": 1460,
-   "y": 250,
-   "to": [
-    1110,
-    330
-   ]
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "x": 1660,
+  "y": 890,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "beanie",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

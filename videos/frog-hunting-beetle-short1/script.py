@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 # frog-hunting-beetle-short1 (Miya's Note). Script from miya 2026-11-03 (dated 2026-10-09); fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh1_1', 'Imagine a tiny creature that sets a trap for an animal much bigger than itself. And the trap is a dance.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh1_1', 'A beetle larva waves its jaws on damp ground, and a hungry frog creeps toward it.'),
  ('S02',
   'Part 2',
   'ill',
   'sh1_2',
-  'This is the larva of Epomis, a ground beetle. At night, it waits on damp ground, near the places where frogs and toads hunt.'),
+  'It was real, and the frog is the one in danger. This is the larva of Epomis, a ground beetle. At night, it waits on damp ground, near the places '
+  'where frogs and toads hunt.'),
  ('S03', 'Part 3', 'ill', 'sh1_3', 'It looks soft and small. To a hungry frog, it looks like an easy snack.'),
  ('S04',
   'Part 4',

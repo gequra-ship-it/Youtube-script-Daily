@@ -1,31 +1,45 @@
 {
- "centre": "a stylised paper map with Africa and Asia where pins pop in to mark reported beetle species",
+ "centre": "a lab bench under a swinging lamp: a small arena with a larva and a young froglet, notebook and stopwatch beside",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Africa",
-   "x": 190,
-   "y": 1170,
+   "text": "laboratory",
+   "x": 300,
+   "y": 840,
    "to": [
-    380,
-    1000
+    640,
+    1050
    ],
-   "word": "Africa"
-  },
-  {
-   "type": "name",
-   "text": "Asia",
-   "x": 820,
-   "y": 380,
-   "to": [
-    800,
-    560
-   ],
-   "word": "Asia"
+   "word": "laboratory"
   }
  ],
- "light": "left"
+ "light": "right",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-swing-hanging-lamp",
+  "kind": "ride",
+  "x": 824,
+  "y": 558,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ]
+ }
 }

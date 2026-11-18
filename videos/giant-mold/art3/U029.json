@@ -1,19 +1,47 @@
 {
- "centre": "a mushroom with its glowing mycelium threads underground, matched to an inset of the fossil's woven tubes",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "magnifying lens showing a mushroom up close",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "mushroom",
  "labels": [
   {
    "type": "name",
-   "text": "fungus",
-   "x": 1560,
-   "y": 220,
+   "text": "mushroom",
+   "x": 1240,
+   "y": 330,
    "to": [
-    1230,
-    300
+    960,
+    450
    ],
-   "word": "fungus"
+   "word": "mushroom"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-core-approach-lens",
+  "kind": "ride",
+  "x": 1228,
+  "y": 752,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "flowercrown"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,57 +1,41 @@
 {
- "centre": "big gold reflex button with an eye, pressed by the larva",
- "focus": [
-  960,
-  650,
-  1.5
- ],
- "focus_word": "push exactly that button",
- "sfx": [],
+ "centre": "larva sitting openly on a flat stone as a frog approaches",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "name",
-   "text": "Epomis",
-   "x": 1400,
-   "y": 470,
+   "type": "say",
+   "text": "Not hiding.",
+   "x": 1360,
+   "y": 480,
    "to": [
-    1200,
-    690
+    1303,
+    672
    ],
-   "word": "Epomis"
+   "word": "does not hide"
   }
  ],
  "frog": {
   "moods": [
    {
     "mood": "curious"
-   },
-   {
-    "word": "Epomis has",
-    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "shockwave",
-   "obj": "mv-squash-button"
-  },
-  "ride": null,
+  "act": "peek",
+  "x": 178,
+  "y": 232,
+  "s": 1.0,
+  "flip": 1,
   "kind": "bg",
-  "x": 1128,
-  "y": 700,
-  "s": 0.95,
-  "flip": -1,
+  "ride": null,
+  "behind": "mv-breathe-frog-body",
   "bside": 1,
-  "gaze": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
   "outfit": [
-   "gradcap",
-   "backpack"
+   "headband"
   ],
   "says": [
    {
-    "text": "Yikes!",
+    "text": "Peek-a-boo!",
     "shout": true
    }
   ]

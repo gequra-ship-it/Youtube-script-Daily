@@ -1,34 +1,44 @@
 {
- "centre": "a stage: an oak and a flower in the spotlight, mushrooms and mold dim in the background",
+ "centre": "a round time-machine capsule with an open door on a silent barren plain, the traveller stepping out",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "iris": [
-  460,
-  740
- ],
  "labels": [
   {
-   "type": "name",
-   "text": "Mushrooms",
-   "x": 420,
-   "y": 600,
-   "to": [
-    384,
-    700
-   ],
-   "word": "mushrooms"
+   "type": "num",
+   "text": "400 MILLION YEARS AGO",
+   "word": "four hundred million"
   },
   {
    "type": "name",
-   "text": "Molds",
-   "x": 760,
-   "y": 660,
+   "text": "Time machine",
+   "x": 470,
+   "y": 330,
    "to": [
-    500,
-    744
+    430,
+    470
    ],
-   "word": "molds"
+   "word": "time machine"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 340,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "hardhat",
+   "headphones"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

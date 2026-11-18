@@ -1,24 +1,34 @@
 {
- "centre": "a university building with one lit lab window and two small researcher silhouettes, palm tree",
+ "centre": "an old open book of legends with a lamp swinging above, a test jar holding a larva",
  "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "2011",
-   "word": "2011"
-  },
-  {
-   "type": "name",
-   "text": "Tel Aviv University",
-   "x": 480,
-   "y": 1290,
-   "to": [
-    470,
-    1120
-   ],
-   "word": "Tel Aviv University"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Then someone",
+    "mood": "happy"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-swing-lamp",
+  "kind": "ride",
+  "x": 634,
+  "y": 578,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headphones",
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
 }

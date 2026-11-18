@@ -1,20 +1,49 @@
 {
- "centre": "a huge pale stone pillar towering out of frame, its long shade falling over a tiny millipede and springtail at its foot",
- "labels": [
-  {
-   "type": "say",
-   "text": "So big!",
-   "x": 520,
-   "y": 660,
-   "to": [
-    650,
-    782
-   ],
-   "word": "mountain"
-  }
- ],
- "motion": "millipede creeps toward the trunk; a moisture drop slides down the stone; dotted mountain outlines behind for scale",
+ "centre": "a cut-away window in a stone pillar showing woven tunnels and glowing round chambers inside",
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Prototaxites",
+   "x": 470,
+   "y": 300,
+   "to": [
+    745,
+    420
+   ],
+   "word": "Prototaxites"
+  }
+ ],
+ "motion": "central chamber swells softly; springtail hops at the pillar base",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hopalong",
+   "obj": "mv-hop-springtail"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1444,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "lab",
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ]
+ }
 }

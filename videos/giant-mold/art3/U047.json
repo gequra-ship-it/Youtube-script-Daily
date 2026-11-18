@@ -1,1 +1,42 @@
-{"centre": "rolled-up mat of liverworts", "focus": null, "focus_word": null, "sfx": [], "labels": [{"type": "name", "text": "Liverworts", "x": 1330, "y": 760, "to": [1300, 640], "word": "liverworts"}], "frog": {"moods": [{"mood": "curious"}], "act": {"type": "unrolled", "obj": "mv-unroll-liverwort-mat", "frac": 0.7}, "x": 1406, "y": 678, "s": 0.95, "flip": 1, "kind": "bg", "ride": null, "behind": null, "enter": "cut", "delay": 0.02, "outfit": ["explorer"], "says": [{"text": "Whoa!", "shout": true}], "bside": -1}}
+{
+ "centre": "glowing chemistry flask",
+ "focus": [
+  960,
+  520,
+  1.6
+ ],
+ "focus_word": "chemistry",
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "chemistry",
+   "vol": 0.5
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-core-sway-flask",
+  "kind": "ride",
+  "x": 1108,
+  "y": 680,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "leafhat"
+  ],
+  "says": [
+   {
+    "text": "Hmm, interesting.",
+    "shout": false
+   }
+  ]
+ }
+}
