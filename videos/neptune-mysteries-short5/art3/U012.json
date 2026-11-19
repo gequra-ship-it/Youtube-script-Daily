@@ -1,37 +1,55 @@
 {
- "centre": "round clock dial with a turning hand under a row of finished planets",
+ "centre": "Triton wandering through a dusty icy belt beside little Pluto",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "clock",
-   "word": "Long after",
-   "vol": 0.5
+   "type": "name",
+   "text": "Pluto",
+   "x": 800,
+   "y": 380,
+   "to": [
+    800,
+    470
+   ],
+   "word": "Pluto"
+  },
+  {
+   "type": "name",
+   "text": "Kuiper Belt",
+   "x": 330,
+   "y": 500,
+   "to": [
+    440,
+    640
+   ],
+   "word": "Kuiper Belt"
   }
  ],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "excited"
    }
   ],
-  "act": "lean",
-  "ride": "mv-core-glide-clock-face",
+  "act": {
+   "type": "jetpack"
+  },
+  "ride": "mv-path-triton",
   "kind": "ride",
-  "x": 844,
-  "y": 1120,
-  "s": 1.09,
-  "flip": -1,
+  "x": 397,
+  "y": 939,
+  "s": 1.44,
+  "flip": 1,
   "bside": 1,
-  "gaze": 1,
   "outfit": [
-   "beanie"
+   "backpack",
+   "headband"
   ],
   "says": [
    {
-    "text": "Steady...",
-    "shout": false
+    "text": "Whoosh!",
+    "shout": true
    }
   ]
  }

@@ -1,49 +1,28 @@
 {
- "centre": "magnifying glass held over Triton with a ghost trail of the past rising",
+ "centre": "lone Triton with a reversed arrow among moons that all go one way",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "hush",
-   "word": "tell us",
-   "vol": 0.5
-  }
- ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Triton",
-   "x": 830,
-   "y": 760,
-   "to": [
-    640,
-    850
-   ],
-   "word": "Triton"
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "determined"
+    "mood": "happy"
    }
   ],
   "act": {
-   "type": "magnetwalk",
+   "type": "moonbounce",
    "dist": 302
   },
-  "outfit": [
-   "helmet",
-   "antenna"
-  ],
   "x": 820,
-  "y": 1240,
+  "y": 1080,
   "s": 0.99,
   "flip": -1,
   "kind": "bg",
+  "outfit": [
+   "glasses"
+  ],
   "says": [
    {
-    "text": "Magnet boots!",
+    "text": "Boing!",
     "shout": true
    }
   ],

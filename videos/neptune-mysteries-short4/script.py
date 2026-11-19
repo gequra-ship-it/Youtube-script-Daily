@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # neptune-mysteries-short4 (Miya's Note). Script from miya 2026-11-05; fact-checked per guideline 12-1.
-SCENES = [('S01', 'Part 1', 'ill', 'sh4_1', 'What lies at the heart of an ice giant?'),
- ('S02', 'Part 2', 'ill', 'sh4_2', 'Imagine diving straight down into the heart of Neptune, leaving the wispy methane clouds behind.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh4_1', 'Dive into Neptune and you never find a surface to land on, only deeper layers of crushing pressure.'),
+ ('S02', 'Part 2', 'ill', 'sh4_2', 'Picture the dive: straight down into the heart of Neptune, leaving the wispy methane clouds behind.'),
  ('S03', 'Part 3', 'ill', 'sh4_3', 'As you plunge deeper, the pressure climbs to many thousands of times that of Earth’s atmosphere at sea level.'),
  ('S04',
   'Part 4',

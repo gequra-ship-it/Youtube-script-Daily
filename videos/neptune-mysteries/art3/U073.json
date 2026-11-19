@@ -1,23 +1,45 @@
 {
- "centre": "a small round compass held in an open hand, its needle pointing away from the planet's vertical axis",
- "focus": [
-  960,
-  520,
-  1.8
- ],
- "focus_word": "compass",
- "sfx": [],
+ "centre": "a Neptune globe ringed by five small compasses whose needles all point in different directions",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "compass",
-   "x": 650,
-   "y": 300,
+   "text": "globe",
+   "x": 1250,
+   "y": 560,
    "to": [
-    860,
-    440
+    1120,
+    520
    ],
-   "word": "compass"
+   "word": "globe"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "wavebig"
+  },
+  "ride": "mv-core-approach-planet",
+  "kind": "ride",
+  "x": 1274,
+  "y": 776,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Hi!",
+    "shout": true
+   }
+  ]
+ }
 }

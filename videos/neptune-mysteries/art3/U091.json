@@ -1,13 +1,37 @@
 {
- "centre": "glowing Triton streaking in with an amber trail, rock debris around it, Neptune looming",
+ "centre": "Neptune with a tangle of long overlapping tilted orbit loops and Triton on one far loop",
  "focus": null,
- "sfx": [
-  {
-   "name": "bloom",
-   "word": "catastrophe",
-   "vol": 0.65
-  }
- ],
- "labels": [],
- "focus_word": null
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    540
+   ]
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-core-glide-moon",
+  "kind": "ride",
+  "x": 1380,
+  "y": 442,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ]
+ }
 }

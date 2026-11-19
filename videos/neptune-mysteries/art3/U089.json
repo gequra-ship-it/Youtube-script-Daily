@@ -1,23 +1,38 @@
 {
- "centre": "small Triton drifting into the soft gravity glow of a huge Neptune",
+ "centre": "Triton at the bend where its straight dashed track turns into a captured orbit around Neptune",
  "focus": null,
- "attractor": [
-  1470,
-  560
- ],
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "Neptune",
-   "x": 1000,
-   "y": 250,
-   "to": [
-    1250,
-    440
-   ],
-   "word": "Neptune"
+   "name": "thrust",
+   "word": "snagged",
+   "vol": 0.55
   }
  ],
- "focus_word": null
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-core-approach-moon",
+  "kind": "ride",
+  "x": 489,
+  "y": 543,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
 }

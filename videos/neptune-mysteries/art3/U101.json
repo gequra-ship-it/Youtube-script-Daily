@@ -1,19 +1,39 @@
 {
- "centre": "dark dust and nitrogen plume spouting from a geyser on frozen Triton",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "geysers",
-   "x": 1340,
-   "y": 560,
-   "to": [
-    1000,
-    620
-   ],
-   "word": "geysers"
-  }
- ]
+ "centre": "a magnifying glass held over blue Neptune against a star-chart wall",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "mystery",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hopalong",
+   "obj": "mv-hop-question-dot"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1471,
+  "y": 573,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "lab",
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ]
+ }
 }

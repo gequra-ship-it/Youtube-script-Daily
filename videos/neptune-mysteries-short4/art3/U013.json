@@ -2,7 +2,6 @@
  "centre": "bright carbon atom ringed by six carbon atoms bonding into a hexagon while hydrogens drift away",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -20,10 +19,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "lean",
+  "act": {
+   "type": "peer"
+  },
   "ride": "mv-core-glide-carbon",
   "kind": "ride",
   "x": 734,
@@ -33,11 +34,11 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "sunglasses"
+   "captainhat"
   ],
   "says": [
    {
-    "text": "Steady...",
+    "text": "Hmm?",
     "shout": false
    }
   ]

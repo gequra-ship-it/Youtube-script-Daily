@@ -1,50 +1,33 @@
 {
- "centre": "Triton crossing a glowing golden threshold line stretched like a finish tape above Neptune",
- "focus": [
-  540,
-  900,
-  1.7
- ],
- "focus_word": "Roche limit",
- "sfx": [],
- "labels": [
+ "centre": "A glowing clock-like dial with a slowly turning hand above a floating notebook page of calculations",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
   {
-   "type": "name",
-   "text": "Roche limit",
-   "x": 540,
-   "y": 1040,
-   "to": [
-    540,
-    830
-   ],
-   "word": "Roche limit"
+   "name": "pencil",
+   "word": "calculate",
+   "vol": 0.5
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "jetpack"
+   "type": "measure"
   },
-  "ride": "mv-core-glide-triton",
-  "kind": "ride",
-  "x": 684,
-  "y": 890,
-  "s": 1.09,
+  "x": 820,
+  "y": 640,
+  "s": 1.0,
   "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "kind": "bg",
   "outfit": [
-   "cap"
+   "lab",
+   "bowtie"
   ],
-  "says": [
-   {
-    "text": "Whoosh!",
-    "shout": true
-   }
-  ]
+  "says": [],
+  "bside": -1
  }
 }

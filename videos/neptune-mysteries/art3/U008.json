@@ -5,8 +5,6 @@
   500,
   1.9
  ],
- "focus_word": "Voyager 2 spacecraft",
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -23,27 +21,28 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "determined"
    }
   ],
   "act": {
-   "type": "pointfar"
+   "type": "pushoff",
+   "dist": 461
   },
   "outfit": [
    "helmet",
-   "antenna"
+   "patch"
   ],
-  "x": 260,
-  "y": 660,
-  "s": 0.85,
-  "flip": 1,
+  "x": 1660,
+  "y": 780,
+  "s": 0.77,
+  "flip": -1,
   "kind": "bg",
   "says": [
    {
-    "text": "To the stars!",
+    "text": "Push off!",
     "shout": true
    }
   ],
-  "bside": 1
+  "bside": -1
  }
 }

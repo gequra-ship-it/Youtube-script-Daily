@@ -1,11 +1,42 @@
 {
- "centre": "a tiny candle flame - the weakest light - amid enormous roaring wind streaks",
+ "centre": "round speed dial between a slow tan Jupiter and a fast Neptune with long wind streaks",
  "focus": [
-  540,
-  860,
+  300,
+  640,
   1.6
  ],
- "focus_word": "weakest sunlight",
- "sfx": [],
- "labels": []
+ "focus_word": "Jupiter",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Jupiter",
+   "x": 520,
+   "y": 500,
+   "to": [
+    280,
+    560
+   ],
+   "word": "Jupiter"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 820,
+  "y": 1560,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "beanie"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

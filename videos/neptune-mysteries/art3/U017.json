@@ -1,25 +1,45 @@
 {
- "centre": "a dashed translucent phantom planet floating over graph-paper maths",
+ "centre": "Uranus on a wobbling orbit pulled toward a dashed unknown planet",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pencil",
-   "word": "pure mathematics",
-   "vol": 0.55
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Newton\u2019s laws",
-   "x": 1480,
-   "y": 520,
+   "text": "unknown planet",
+   "x": 1470,
+   "y": 190,
    "to": [
-    1480,
-    740
+    1500,
+    300
    ],
-   "word": "Newton\u2019s laws"
+   "word": "unknown planet"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 818,
+  "y": 652,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-sway-u018-uranus",
+  "says": [
+   {
+    "text": "Psst...",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh1_1',
-  'The very story of Neptune begins with a ghost. In the early nineteenth century, observers noticed that Uranus was not following its '
-  'mathematically predicted path around the Sun.'),
+  'A planet was found with a pencil before anyone saw it with a telescope. Uranus kept slipping off its predicted path, and something unseen was '
+  'tugging at it.'),
  ('S02',
   'Part 2',
   'ill',

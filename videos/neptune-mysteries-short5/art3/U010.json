@@ -1,44 +1,43 @@
 {
- "centre": "lone Triton dwarf planet drifting in a vast dark with a far tiny Sun",
+ "centre": "ghosted translucent Triton far from Neptune, empty dashed cradle beside the planet",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "dwarf planet",
-   "x": 650,
-   "y": 990,
+   "text": "Neptune",
+   "x": 320,
+   "y": 780,
    "to": [
-    530,
-    930
+    300,
+    640
    ],
-   "word": "dwarf planet"
+   "word": "Neptune"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "surprised"
    }
   ],
-  "act": "lean",
-  "outfit": [
-   "helmet",
-   "patch"
-  ],
-  "ride": "mv-core-glide-triton",
+  "act": {
+   "type": "gasp"
+  },
+  "ride": "mv-path-triton",
   "kind": "ride",
-  "x": 266,
-  "y": 1030,
-  "s": 1.09,
+  "x": 438,
+  "y": 731,
+  "s": 1.44,
   "flip": 1,
-  "bside": -1,
-  "gaze": 1,
+  "bside": 1,
+  "outfit": [
+   "bowler"
+  ],
   "says": [
    {
-    "text": "Here we go!",
-    "shout": false
+    "text": "A new star!",
+    "shout": true
    }
   ]
  }

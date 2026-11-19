@@ -1,7 +1,38 @@
 {
- "centre": "dark whirling storm vortex on the blue globe",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "small gold descent capsule glowing above layered blue cloud decks",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "descend",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-vapour"
+  },
+  "ride": "mv-ascend-vapour",
+  "kind": "ride",
+  "x": 540,
+  "y": 791,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ]
+ }
 }

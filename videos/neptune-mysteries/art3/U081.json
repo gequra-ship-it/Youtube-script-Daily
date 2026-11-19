@@ -1,25 +1,47 @@
 {
- "centre": "small cream-pink Triton glowing in front of a huge blue Neptune limb",
+ "centre": "large frosty Triton with a dark geyser plume rising at the top",
  "focus": null,
- "focus_word": null,
  "sfx": [
   {
-   "name": "sparkle",
-   "word": "tale",
-   "vol": 0.6
+   "name": "glimmer",
+   "word": "frozen",
+   "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Neptune",
-   "x": 560,
-   "y": 240,
+   "text": "Triton",
+   "x": 1480,
+   "y": 780,
    "to": [
-    380,
-    520
+    1180,
+    640
    ],
-   "word": "Neptune"
+   "word": "Triton"
   }
- ]
+ ],
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "ride": "mv-core-approach-moon",
+  "kind": "ride",
+  "x": 1200,
+  "y": 252,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "scarf",
+   "cap"
+  ],
+  "says": []
+ }
 }

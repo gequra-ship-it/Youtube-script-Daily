@@ -1,23 +1,30 @@
 {
- "centre": "a ghosted translucent Neptune cutaway with tiny diamonds forming in the hot teal-violet mantle",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "diamonds",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Neptune",
-   "x": 660,
-   "y": 250,
-   "to": [
-    790,
-    370
-   ],
-   "word": "Neptune"
-  }
- ]
+ "centre": "a big ice-blue diamond sinking through teal-violet slush toward the glowing core, more diamonds falling like hail",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "ride": "mv-path-sink-diamond-1",
+  "kind": "ride",
+  "x": 822,
+  "y": 580,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "So strong!",
+    "shout": false
+   }
+  ]
+ }
 }

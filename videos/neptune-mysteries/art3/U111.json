@@ -1,19 +1,43 @@
 {
- "centre": "a gravitational shockwave rippling through a warped grid past a young cyan planet",
+ "centre": "deep-blue Neptune ploughing outward into a belt of icy debris, followed by Uranus",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "shockwave",
-   "x": 640,
-   "y": 240,
+   "text": "Uranus",
+   "x": 560,
+   "y": 660,
    "to": [
     560,
-    380
+    730
    ],
-   "word": "shockwave"
+   "word": "Uranus"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "salute",
+  "ride": "mv-path-neptune-planet",
+  "kind": "ride",
+  "x": 836,
+  "y": 342,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "scarf",
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Aye aye!",
+    "shout": false
+   }
+  ]
+ }
 }

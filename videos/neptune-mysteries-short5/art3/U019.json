@@ -1,19 +1,39 @@
 {
- "centre": "Triton creeping down toward Neptune past fading ghost copies of its earlier positions",
+ "centre": "Triton leaking golden energy motes that drain down into Neptune's tidal bulge",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "Neptune",
-   "x": 230,
-   "y": 1300,
-   "to": [
-    330,
-    1360
-   ],
-   "word": "Neptune"
+   "name": "glimmer",
+   "word": "draining energy",
+   "vol": 0.5
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "x": 820,
+  "y": 1560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "run",
+   "dist": 540
+  },
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

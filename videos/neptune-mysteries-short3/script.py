@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh3_1',
-  'Here lies what many astronomers consider Neptune’s greatest physical riddle: the puzzle of its internal heat. When instruments measure the '
-  'thermal radiation escaping from Neptune, they reveal a shocking discrepancy.'),
+  'A planet nearly three billion miles from the Sun is radiating more heat than it receives. Astronomers call it Neptune’s greatest physical '
+  'riddle.'),
  ('S02',
   'Part 2',
   'ill',

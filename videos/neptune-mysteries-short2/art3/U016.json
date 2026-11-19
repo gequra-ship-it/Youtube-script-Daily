@@ -1,35 +1,29 @@
 {
- "centre": "a ghosted, translucent Neptune under a tiny faint Sun beam",
+ "centre": "a small gold probe falling through endless deep-blue cloud with no floor beneath",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "sleepy"
    }
   ],
-  "act": {
-   "type": "dizzy"
-  },
-  "ride": "mv-core-approach-planet",
-  "kind": "ride",
-  "x": 745,
-  "y": 1021,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "act": "stretch",
+  "x": 260,
+  "y": 1200,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
   "outfit": [
-   "lab",
-   "glasses"
+   "earmuffs",
+   "lifering"
   ],
   "says": [
    {
-    "text": "Hi!",
-    "shout": true
+    "text": "Good morning!",
+    "shout": false
    }
-  ]
+  ],
+  "bside": 1
  }
 }

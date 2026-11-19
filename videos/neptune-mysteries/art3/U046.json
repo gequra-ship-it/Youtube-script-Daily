@@ -1,43 +1,48 @@
 {
- "centre": "the Hubble telescope looking at Neptune where an empty dashed oval and a fading ghost of the dark spot remain",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "Neptune cut open to show hot slush mantle and an amber glowing core, with a floating puzzle piece and an empty slot",
+ "focus": [
+  960,
+  540,
+  1.5
+ ],
+ "focus_word": "internal heat",
  "labels": [
   {
    "type": "name",
-   "text": "Hubble Space Telescope",
-   "x": 560,
-   "y": 215,
+   "text": "internal heat",
+   "x": 420,
+   "y": 300,
    "to": [
-    560,
-    400
+    900,
+    470
    ],
-   "word": "Hubble Space Telescope"
+   "word": "internal heat"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "dizzy"
    }
   ],
-  "act": "scope",
-  "outfit": [
-   "helmet",
-   "goldvisor"
-  ],
-  "ride": "mv-core-approach-neptune",
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-core-glide-neptune",
   "kind": "ride",
-  "x": 996,
+  "x": 1318,
   "y": 790,
   "s": 0.95,
-  "flip": 1,
-  "bside": -1,
+  "flip": -1,
+  "bside": 1,
   "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "bowtie"
+  ],
   "says": [
    {
-    "text": "I see it!",
+    "text": "So dizzy...",
     "shout": false
    }
   ]

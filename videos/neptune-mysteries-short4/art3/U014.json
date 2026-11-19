@@ -2,7 +2,25 @@
  "centre": "dark mysterious crystal silhouette under a glowing drawn question mark",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "crystal fades in out of the dark"
+ "motion": "crystal fades in out of the dark",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "x": 820,
+  "y": 1280,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "shellhat"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

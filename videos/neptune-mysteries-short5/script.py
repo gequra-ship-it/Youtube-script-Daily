@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # neptune-mysteries-short5 (Miya's Note). Script from miya 2026-11-05; fact-checked per guideline 12-1.
-SCENES = [('S01', 'Part 1', 'ill', 'sh5_1', 'Yet, as baffling as the planet itself is, Neptune’s largest satellite tells an even more dramatic tale.'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh5_1',
+  'Neptune’s largest moon circles the planet backward, and no other large moon in the solar system does that. Astronomers think it did not form '
+  'there at all.'),
  ('S02',
   'Part 2',
   'ill',

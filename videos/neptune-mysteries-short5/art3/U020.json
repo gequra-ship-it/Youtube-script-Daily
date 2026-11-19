@@ -1,35 +1,42 @@
 {
- "centre": "Triton on a dotted spiral winding slowly down into Neptune",
+ "centre": "Triton creeping down toward Neptune past fading ghost copies of its earlier positions",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Neptune",
+   "x": 230,
+   "y": 1300,
+   "to": [
+    330,
+    1360
+   ],
+   "word": "Neptune"
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "hopalong",
-   "obj": "mv-hop-dust"
-  },
-  "x": 116,
-  "y": 530,
+  "act": "magnify",
+  "ride": "mv-core-approach-triton",
+  "kind": "ride",
+  "x": 684,
+  "y": 990,
   "s": 1.09,
-  "flip": 1,
-  "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "bside": -1,
+  "flip": -1,
+  "bside": 1,
   "gaze": 1,
   "outfit": [
-   "headband"
+   "bowler"
   ],
   "says": [
    {
-    "text": "Hop hop!",
-    "shout": true
+    "text": "A clue!",
+    "shout": false
    }
   ]
  }

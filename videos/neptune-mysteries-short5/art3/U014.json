@@ -1,44 +1,22 @@
 {
- "centre": "a translucent blue gravity hand gripping Triton above Neptune",
+ "centre": "Triton drifting in toward giant Neptune along bending gravity lines",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "attractor": [
+  800,
+  1180
+ ],
  "labels": [
   {
    "type": "name",
    "text": "Neptune",
-   "x": 800,
-   "y": 1300,
+   "x": 500,
+   "y": 1360,
    "to": [
-    700,
-    1300
+    650,
+    1250
    ],
    "word": "Neptune"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "surprised"
-   }
-  ],
-  "act": "lean",
-  "ride": "mv-core-glide-triton",
-  "kind": "ride",
-  "x": 745,
-  "y": 1062,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "glasses"
-  ],
-  "says": [
-   {
-    "text": "Off we go!",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

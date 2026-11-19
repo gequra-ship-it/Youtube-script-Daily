@@ -1,19 +1,50 @@
 {
- "centre": "ghosted translucent Triton far from Neptune, empty dashed cradle beside the planet",
+ "centre": "magnifying glass held over Triton with a ghost trail of the past rising",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "tell us",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Neptune",
-   "x": 320,
-   "y": 780,
+   "text": "Triton",
+   "x": 830,
+   "y": 760,
    "to": [
-    300,
-    640
+    640,
+    850
    ],
-   "word": "Neptune"
+   "word": "Triton"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "zerogroll"
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "x": 260,
+  "y": 1240,
+  "s": 1.21,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Wheee...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

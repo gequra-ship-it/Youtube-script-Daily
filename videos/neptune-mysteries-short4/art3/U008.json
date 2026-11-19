@@ -6,7 +6,30 @@
   1.7
  ],
  "focus_word": "liquid water",
- "sfx": [],
- "labels": [],
- "motion": "boat floats on the calm sea, droplet glides"
+ "motion": "boat floats on the calm sea, droplet glides",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "rest",
+  "outfit": [
+   "goggles",
+   "flippers"
+  ],
+  "ride": "mv-core-glide-droplet",
+  "kind": "ride",
+  "x": 666,
+  "y": 700,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
 }

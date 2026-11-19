@@ -2,18 +2,32 @@
  "centre": "glowing amber slush sealed in a riveted pressure sphere under heavy stacked weights",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "I can't boil!",
-   "x": 790,
-   "y": 740,
-   "to": [
-    640,
-    830
-   ]
-  }
- ],
- "motion": "vessel glows amber, bubbles squirm inside"
+ "motion": "vessel glows amber, bubbles squirm inside",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-core-approach-vessel",
+  "kind": "ride",
+  "x": 702,
+  "y": 978,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,29 +1,51 @@
 {
- "centre": "Neptune crowned with a small golden crown and a pale ring, a ghostly dashed Triton fading below",
- "focus": [
-  540,
-  820,
-  1.6
- ],
- "focus_word": "the crown",
+ "centre": "Neptune wearing a bright, wide tilted ring system of icy debris",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
    "name": "sparkle",
-   "word": "crown",
+   "word": "bright ring",
    "vol": 0.55
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Neptune",
+   "text": "Saturn",
    "x": 780,
-   "y": 1060,
+   "y": 1090,
    "to": [
-    630,
-    960
+    720,
+    1200
    ],
-   "word": "Neptune"
+   "word": "Saturn"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-neptune",
+  "kind": "ride",
+  "x": 698,
+  "y": 973,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Off we go!",
+    "shout": false
+   }
+  ]
+ }
 }

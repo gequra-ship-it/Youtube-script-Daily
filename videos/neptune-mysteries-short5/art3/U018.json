@@ -1,40 +1,40 @@
 {
- "centre": "Triton leaking golden energy motes that drain down into Neptune's tidal bulge",
+ "centre": "Triton in the same place, with a golden arrow looping the opposite way to Neptune's spin arrow",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "glimmer",
-   "word": "draining energy",
-   "vol": 0.5
+   "type": "name",
+   "text": "Triton",
+   "x": 780,
+   "y": 820,
+   "to": [
+    640,
+    860
+   ],
+   "word": "Triton"
   }
  ],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "curious"
    }
   ],
-  "act": "wind",
-  "x": 820,
-  "y": 1560,
-  "s": 1.0,
-  "flip": -1,
-  "kind": "bg",
-  "roam": {
-   "kind": "run",
-   "dist": 540
+  "act": {
+   "type": "binocs"
   },
+  "ride": "mv-core-glide-triton",
+  "kind": "ride",
+  "x": 684,
+  "y": 990,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "bowtie"
+   "cap"
   ],
-  "says": [
-   {
-    "text": "Hop hop!",
-    "shout": true
-   }
-  ],
-  "bside": -1
+  "says": []
  }
 }
