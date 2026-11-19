@@ -1,11 +1,35 @@
 {
- "centre": "a glowing landing-site marker on a top-down amber map, one stop on a dashed hopping flight route across dunes, craters and a methane lake",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
- "iris": [
+ "centre": "a glowing carbon-ring organic molecule being analysed, beside a landed rotorcraft with a sampling arm and a rising bar signal panel",
+ "focus": [
   960,
-  540
- ]
+  500,
+  1.7
+ ],
+ "focus_word": "organic chemistry",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-glide-organic-molecule",
+  "kind": "ride",
+  "x": 1228,
+  "y": 730,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
 }

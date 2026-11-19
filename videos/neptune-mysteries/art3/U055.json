@@ -1,30 +1,38 @@
 {
- "centre": "Neptune cut open with a hidden flame inside, Uranus cut open with a cold dead ember",
+ "centre": "a small gold probe capsule diving down through pale methane cloud wisps into deep blue",
  "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "focus_word": "diving straight down",
+ "sfx": [
   {
-   "type": "name",
-   "text": "Neptune",
-   "x": 560,
-   "y": 220,
-   "to": [
-    560,
-    330
-   ],
-   "word": "Neptune"
-  },
-  {
-   "type": "name",
-   "text": "Uranus",
-   "x": 1360,
-   "y": 220,
-   "to": [
-    1360,
-    330
-   ],
-   "word": "Uranus"
+   "name": "warp",
+   "word": "diving straight down",
+   "vol": 0.6
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "think",
+  "outfit": [
+   "goggles",
+   "flippers"
+  ],
+  "ride": "mv-path-sink-probe-capsule",
+  "kind": "ride",
+  "x": 872,
+  "y": 385,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Let me think.",
+    "shout": false
+   }
+  ]
+ }
 }

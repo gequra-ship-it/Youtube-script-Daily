@@ -1,25 +1,41 @@
 {
- "centre": "Neptune wearing a bright, wide tilted ring system of icy debris",
+ "centre": "A bright cluster of icy debris, part of a wide dotted swath spreading along Triton's old orbital arc",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "sparkle",
-   "word": "bright ring",
-   "vol": 0.55
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Saturn",
-   "x": 780,
-   "y": 1090,
+   "text": "Triton",
+   "x": 230,
+   "y": 640,
    "to": [
-    720,
-    1200
+    480,
+    830
    ],
-   "word": "Saturn"
+   "word": "Triton"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-core-glide-debris-cluster",
+  "kind": "ride",
+  "x": 666,
+  "y": 944,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
 }

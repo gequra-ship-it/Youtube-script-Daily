@@ -1,11 +1,35 @@
 {
- "centre": "top-down map: rivers winding across tan highland into a dark polar methane sea",
+ "centre": "a dashed ghost cell hovering over a dark methane lake under an amber sky, hypothetical life only",
  "focus": [
   960,
-  330,
-  1.5
+  500,
+  1.7
  ],
- "focus_word": "polar seas",
- "sfx": [],
- "labels": []
+ "focus_word": "living thing",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-core-glide-ghost-cell",
+  "kind": "ride",
+  "x": 1102,
+  "y": 604,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ]
+ }
 }

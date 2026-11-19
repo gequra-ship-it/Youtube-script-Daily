@@ -1,7 +1,40 @@
 {
- "centre": "small Titan globe between two magnifying lenses, one over the amber surface lake and one over the blue ocean",
- "focus": null,
- "focus_word": null,
- "labels": [],
- "sfx": []
+ "centre": "orange Titan being peeled like a fruit to reveal a blue interior with a dashed unknown shape",
+ "focus": [
+  600,
+  960,
+  1.6
+ ],
+ "focus_word": "unfamiliar",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "knocked",
+   "obj": "mv-swing-orange-peel"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 584,
+  "y": 1391,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   }
+  ]
+ }
 }

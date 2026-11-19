@@ -1,18 +1,33 @@
 {
- "centre": "a glowing trefoil knot with no ends floating in space, a marble rolling round and round it forever",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Wait, what?",
-   "x": 1360,
-   "y": 700,
-   "to": [
-    972,
-    560
-   ]
-  }
- ]
+ "centre": "inside an observatory dome: a colossal truss telescope scans up through the open slit toward a distant star system, a tiny astronomer below for scale",
+ "focus": [
+  900,
+  520,
+  1.5
+ ],
+ "focus_word": "colossal telescopes",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "x": 1660,
+  "y": 340,
+  "s": 0.77,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

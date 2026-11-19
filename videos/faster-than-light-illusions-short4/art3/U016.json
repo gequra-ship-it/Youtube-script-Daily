@@ -1,30 +1,45 @@
 {
- "centre": "an opened box with a left shoe popping up; far away a closed box where the right shoe must be",
+ "centre": "a matching pair of sneakers dropping into two identical open boxes",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "left shoe",
-   "x": 240,
-   "y": 470,
+   "text": "matching shoes",
+   "x": 540,
+   "y": 480,
    "to": [
-    360,
-    690
+    420,
+    600
    ],
-   "word": "left shoe"
-  },
-  {
-   "type": "name",
-   "text": "right shoe",
-   "x": 800,
-   "y": 1050,
-   "to": [
-    720,
-    1240
-   ],
-   "word": "right shoe"
+   "word": "matching shoes"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "countstars"
+  },
+  "ride": "mv-path-drop-shoe-left",
+  "kind": "ride",
+  "x": 465,
+  "y": 661,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "So many...",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -2,7 +2,6 @@
  "centre": "pale cyan Uranus sitting off a dashed predicted path, on its own wavy actual path",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -19,28 +18,32 @@
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "determined"
    }
   ],
   "act": {
-   "type": "dizzy"
+   "type": "tug"
   },
-  "ride": "mv-core-glide-uranus-planet",
-  "kind": "ride",
-  "x": 745,
-  "y": 1021,
+  "ride": null,
+  "kind": "bg",
+  "x": 141,
+  "y": 1344,
   "s": 1.09,
-  "flip": -1,
-  "bside": 1,
+  "flip": 1,
+  "bside": -1,
   "gaze": 1,
+  "behind": null,
   "outfit": [
-   "sunglasses",
-   "bowtie"
+   "cap"
   ],
   "says": [
    {
-    "text": "Wooo-ooo...",
+    "text": "Hnnng...",
     "shout": false
+   },
+   {
+    "text": "Oof!",
+    "shout": true
    }
   ]
  }

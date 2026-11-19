@@ -1,46 +1,31 @@
 {
- "centre": "the curved edge of the horizon glowing at the bottom, a crack of light splitting a pair of particles",
- "focus": [
-  540,
-  1250,
-  1.6
- ],
- "focus_word": "event horizon",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "event horizon",
-   "x": 300,
-   "y": 1030,
-   "to": [
-    330,
-    1450
-   ],
-   "word": "event horizon"
-  }
- ],
+ "centre": "a gold particle racing away from the hole in the corner toward open starry space",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "worried"
    }
   ],
-  "act": {
-   "type": "pushaway"
-  },
+  "act": "nervous",
   "outfit": [
    "helmet",
-   "goldvisor"
+   "antenna"
   ],
-  "ride": "mv-path-particle-inward",
+  "ride": "mv-path-particle-escaping",
   "kind": "ride",
-  "x": 598,
-  "y": 1264,
+  "x": 621,
+  "y": 1420,
   "s": 1.09,
   "flip": -1,
-  "bside": 1,
+  "bside": -1,
   "gaze": 1,
-  "says": []
+  "says": [
+   {
+    "text": "Uh-oh...",
+    "shout": false
+   }
+  ]
  }
 }

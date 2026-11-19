@@ -1,45 +1,37 @@
 {
- "centre": "a small lonely Earth spinning in a vast dark void above a flat signal line",
+ "centre": "a coffee cup on a lunch table seen from above, a hand raised in question",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Just us?",
-   "x": 1260,
-   "y": 560,
-   "to": [
-    1040,
-    470
-   ]
+   "type": "num",
+   "text": "1950",
+   "word": "1950"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "happy"
    }
   ],
-  "act": "shiver",
-  "x": 1660,
-  "y": 700,
-  "s": 0.76,
+  "act": "eat",
+  "ride": "mv-core-approach-coffee-cup",
+  "kind": "ride",
+  "x": 1134,
+  "y": 628,
+  "s": 0.95,
   "flip": -1,
-  "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 288
-  },
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "glasses"
+   "turban"
   ],
   "says": [
    {
-    "text": "Brrrr...",
+    "text": "Nom nom.",
     "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

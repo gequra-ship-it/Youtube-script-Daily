@@ -1,33 +1,25 @@
 {
- "centre": "a single glowing music note on an empty staff stretched across a cosmic stage",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "opening note",
- "sfx": [],
- "labels": [],
+ "centre": "a child beside a telescope on a dawn hilltop, pointing up at the stars",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "leanback"
-  },
+  "act": "float",
   "outfit": [
    "helmet",
-   "patch"
+   "jetpack"
   ],
-  "ride": "mv-core-glide-music-note",
-  "kind": "ride",
-  "x": 1133,
-  "y": 645,
+  "x": 557,
+  "y": 790,
   "s": 0.95,
-  "flip": -1,
-  "bside": 1,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "bside": -1,
   "gaze": 1,
   "says": []
  }

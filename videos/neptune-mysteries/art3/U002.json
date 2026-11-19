@@ -5,19 +5,24 @@
   500,
   2.0
  ],
- "focus_word": "single bright pinprick",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Sun",
-   "x": 960,
-   "y": 330,
-   "to": [
-    960,
-    490
-   ],
-   "word": "Sun"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

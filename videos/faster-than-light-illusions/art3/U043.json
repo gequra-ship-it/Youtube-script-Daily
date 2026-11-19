@@ -1,45 +1,22 @@
 {
- "centre": "closing scissors seen from space near Earth: the spot where the two cutting edges meet starts sliding outward along the blades",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "track": false,
+ "centre": "a magnifying lens over almost-closed scissors blades shows the tiny angle between the two edges",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "infinitesimally small",
  "labels": [
   {
    "type": "name",
-   "text": "Intersect",
-   "x": 721,
-   "y": 420,
+   "text": "Angle",
+   "x": 760,
+   "y": 300,
    "to": [
-    681,
-    564
+    904,
+    500
    ],
-   "word": "intersect"
+   "word": "angle"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "sleepy"
-   }
-  ],
-  "act": "snooze",
-  "ride": "mv-path-cut-point",
-  "kind": "ride",
-  "x": 753,
-  "y": 604,
-  "s": 0.95,
-  "flip": 1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "beanie"
-  ],
-  "says": [
-   {
-    "text": "Zzz...",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

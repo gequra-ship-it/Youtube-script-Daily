@@ -1,32 +1,72 @@
 {
- "centre": "the grey cratered Moon beside a clearly smaller Pluto, each with its width measured",
- "iris": [
-  600,
-  480
- ],
+ "centre": "a museum shelf with seven bigger moons in a row, all taller than a dashed line at Pluto's height, and little Pluto popping in at the end",
  "labels": [
   {
-   "type": "num",
-   "text": "3,474 KM",
-   "word": "3,474"
+   "type": "name",
+   "text": "Ganymede",
+   "x": 284,
+   "y": 560,
+   "to": [
+    284,
+    616
+   ],
+   "word": "Ganymede"
   },
   {
    "type": "name",
-   "text": "Moon",
-   "x": 600,
-   "y": 190,
+   "text": "Titan",
+   "x": 512,
+   "y": 480,
    "to": [
-    600,
-    290
+    512,
+    620
    ],
-   "word": "Moon"
+   "word": "Titan"
+  },
+  {
+   "type": "name",
+   "text": "Europa",
+   "x": 1272,
+   "y": 560,
+   "to": [
+    1272,
+    684
+   ],
+   "word": "Europa"
   }
  ],
- "focus": [
-  960,
-  480,
-  1.4
- ],
- "focus_word": "noticeably smaller",
- "sfx": []
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-pluto-planet",
+   "h": 76
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1720,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

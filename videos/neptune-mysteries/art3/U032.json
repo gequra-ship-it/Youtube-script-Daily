@@ -1,51 +1,40 @@
 {
- "centre": "the same blue-green Earth wrapped by swirling pairs of air circulation loops",
+ "centre": "deep blue Neptune with long fast wind streaks, small Jupiter with short streaks, a nearly empty sunlight gauge",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "circulation cells",
-   "x": 1560,
-   "y": 680,
+   "text": "Jupiter",
+   "x": 350,
+   "y": 370,
    "to": [
-    1250,
-    640
+    350,
+    500
    ],
-   "word": "circulation cells"
+   "word": "Jupiter"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "dodge",
-   "obj": "mv-rollby-u032-puff",
-   "h": 52,
-   "pass": 1.992
+   "type": "binocs"
   },
-  "x": 892,
-  "y": 790,
-  "s": 0.95,
-  "flip": -1,
-  "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
   "outfit": [
-   "doctor"
+   "helmet",
+   "patch"
   ],
-  "says": [
-   {
-    "text": "Whoa!",
-    "shout": true
-   }
-  ],
-  "bside": 1
+  "ride": "mv-core-approach-neptune",
+  "kind": "ride",
+  "x": 1121,
+  "y": 292,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "says": []
  }
 }

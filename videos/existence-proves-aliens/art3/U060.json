@@ -1,66 +1,46 @@
 {
- "centre": "small sample-return capsule with a glowing core, dashed paths from a comet and two asteroids",
+ "centre": "tiny glowing carbon molecule inside a giant gas cloud, radio dish listening from a ridge",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "radio",
+   "word": "Radio telescopes",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Wild 2",
-   "x": 400,
-   "y": 190,
+   "text": "Radio telescope",
+   "x": 330,
+   "y": 410,
    "to": [
-    415,
-    320
+    345,
+    590
    ],
-   "word": "Wild 2"
-  },
-  {
-   "type": "name",
-   "text": "Ryugu",
-   "x": 1380,
-   "y": 150,
-   "to": [
-    1380,
-    270
-   ],
-   "word": "Ryugu"
-  },
-  {
-   "type": "name",
-   "text": "Bennu",
-   "x": 1580,
-   "y": 790,
-   "to": [
-    1565,
-    700
-   ],
-   "word": "Bennu"
+   "word": "Radio telescopes"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "surprised"
    }
   ],
-  "act": "tap",
-  "ride": "mv-path-comet-wild-two",
-  "kind": "ride",
-  "x": 416,
-  "y": 252,
-  "s": 1.25,
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 340,
+  "s": 0.88,
   "flip": 1,
-  "bside": 1,
+  "kind": "bg",
   "outfit": [
-   "helmet",
-   "goldvisor"
+   "headphones",
+   "headband"
   ],
-  "says": [
-   {
-    "text": "Knock knock!",
-    "shout": false
-   }
-  ]
+  "says": [],
+  "bside": 1
  }
 }

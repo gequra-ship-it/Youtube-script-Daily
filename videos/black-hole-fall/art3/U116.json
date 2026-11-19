@@ -1,25 +1,7 @@
 {
- "centre": "a small dark hole wrapped in a faint steady golden glow, seen by the friend with a telescope from the mother ship",
- "focus": [
-  1260,
-  400,
-  1.7
- ],
- "focus_word": "thermal glow",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Hawking radiation",
-   "x": 1260,
-   "y": 235,
-   "to": [
-    1290,
-    330
-   ],
-   "word": "Hawking radiation"
-  }
- ],
+ "centre": "a gold particle escaping into open space while its blue partner falls into the dark horizon",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
@@ -27,17 +9,20 @@
    }
   ],
   "act": {
-   "type": "leanback"
+   "type": "pushaway"
   },
-  "x": 1660,
-  "y": 380,
-  "s": 0.72,
-  "flip": -1,
-  "kind": "bg",
   "outfit": [
-   "glasses"
+   "helmet",
+   "moonboots"
   ],
-  "says": [],
-  "bside": -1
+  "ride": "mv-path-escape-particle-gold",
+  "kind": "ride",
+  "x": 832,
+  "y": 654,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
  }
 }

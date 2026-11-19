@@ -1,18 +1,49 @@
 {
- "centre": "a bright star glowing in an observatory window while two astrophysicists look at it",
- "focus": null,
- "labels": [
+ "centre": "a white-hot plasma bloom, the Big Bang, with a time ruler at the left",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "Big Bang",
+ "sfx": [
   {
-   "type": "say",
-   "text": "Whoa!",
-   "x": 170,
-   "y": 1075,
-   "to": [
-    298,
-    1076
-   ]
+   "name": "bloom",
+   "word": "Big Bang",
+   "vol": 0.7
   }
  ],
- "focus_word": null,
- "sfx": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Big Bang",
+   "x": 540,
+   "y": 610,
+   "to": [
+    540,
+    780
+   ],
+   "word": "Big Bang"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "x": 260,
+  "y": 1200,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "bowtie"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

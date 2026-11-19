@@ -1,17 +1,42 @@
 {
- "centre": "a clock face between the Sun and a faint distant Pluto, a pulse of light travelling the dashed beam",
+ "centre": "a poster-style column of nine planet discs with the tiny last one glowing",
  "focus": [
   540,
-  860,
-  1.6
+  1350,
+  1.8
  ],
- "focus_word": "five and a half hours",
- "sfx": [],
+ "focus_word": null,
  "labels": [
   {
    "type": "num",
-   "text": "5.5 HOURS",
-   "word": "five and a half hours"
+   "text": "76 YEARS",
+   "word": "seventy-six years"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "write",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-core-glide-jupiter-planet",
+  "kind": "ride",
+  "x": 645,
+  "y": 927,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Noted!",
+    "shout": false
+   }
+  ]
+ }
 }

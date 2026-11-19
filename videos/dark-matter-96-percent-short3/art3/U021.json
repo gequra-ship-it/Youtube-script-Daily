@@ -1,7 +1,32 @@
 {
- "centre": "measuring beaker filled with ghost violet liquid and a hanging blank name tag",
+ "centre": "spiral galaxy wrapped in a violet halo web that tugs inward like glue",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "magnetwalk",
+   "dist": 302
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "x": 260,
+  "y": 1200,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Clunk, clunk.",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

@@ -1,31 +1,31 @@
 {
- "centre": "a lensed black hole with a gold disc; an information cube leaves it toward a ghostly 3D box that flattens",
+ "centre": "a quiet morning room: window light falling across the floor, an armchair, a cup, a shelf and a ticking clock",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "black holes",
-   "x": 470,
-   "y": 300,
-   "to": [
-    690,
-    490
-   ],
-   "word": "black holes"
-  },
-  {
-   "type": "name",
-   "text": "depth of space",
-   "x": 1500,
-   "y": 700,
-   "to": [
-    1540,
-    540
-   ],
-   "word": "depth of space"
-  }
- ],
- "track": false
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "rest",
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-swing-hanging-plant",
+  "kind": "ride",
+  "x": 652,
+  "y": 330,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
 }

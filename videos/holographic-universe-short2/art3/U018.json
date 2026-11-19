@@ -1,19 +1,54 @@
 {
- "centre": "nine glowing information cubes rearranging from a grid into a ring above a dim bin",
+ "centre": "an archive cabinet whose middle drawer glows open with a record cube inside",
  "labels": [
   {
    "type": "name",
-   "text": "Deleted",
+   "text": "Records",
    "x": 770,
-   "y": 560,
+   "y": 600,
    "to": [
-    700,
-    740
+    830,
+    730
    ],
-   "word": "deleted"
+   "word": "records"
   }
  ],
- "focus": null,
- "focus_word": null,
- "sfx": []
+ "focus": [
+  540,
+  940,
+  1.7
+ ],
+ "focus_word": "records",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-record-card",
+   "h": 150
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "x": 845,
+  "y": 870,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

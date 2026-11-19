@@ -1,13 +1,30 @@
 {
- "centre": "a swinging hanging lamp lighting a study at night, with a ghosted lattice universe glowing beyond the window",
+ "centre": "a glass cube whose outer faces glow with tiles while star, book and gas-puff cubes float inside, joined to the skin by light threads",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "bloom",
-   "word": "bolder",
-   "vol": 0.5
-  }
- ],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-core-approach-glass-box",
+  "kind": "ride",
+  "x": 1168,
+  "y": 732,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "La la la~",
+    "shout": false
+   }
+  ]
+ }
 }

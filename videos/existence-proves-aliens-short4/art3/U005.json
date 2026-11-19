@@ -1,30 +1,61 @@
 {
- "centre": "a hydrogen atom above a helium atom in thin gas",
+ "centre": "a nearly empty flask with one drop falling in from a dropper, empty jars on shelves",
  "labels": [
   {
    "type": "name",
-   "text": "hydrogen",
-   "x": 790,
-   "y": 740,
+   "text": "Carbon",
+   "x": 250,
+   "y": 520,
    "to": [
-    612,
-    830
+    230,
+    590
    ],
-   "word": "hydrogen"
+   "word": "carbon"
   },
   {
    "type": "name",
-   "text": "helium",
-   "x": 790,
-   "y": 1110,
+   "text": "oxygen",
+   "x": 300,
+   "y": 1260,
    "to": [
-    610,
-    1210
+    540,
+    990
    ],
-   "word": "helium"
+   "word": "oxygen"
   }
  ],
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-water-drop",
+   "serious": false
+  },
+  "outfit": [
+   "goggles"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 540,
+  "y": 873,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
 }

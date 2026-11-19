@@ -1,7 +1,32 @@
 {
- "centre": "a funnel of many candidate dots narrowing through measurement gates to one small bright answer",
+ "centre": "a small bright Titan being uncovered as a dark unknown shroud fades while observation dots appear one by one",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 640,
+  "y": 790,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-fade-unknown-shroud",
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "says": [
+   {
+    "text": "Who, me?",
+    "shout": false
+   }
+  ]
+ }
 }

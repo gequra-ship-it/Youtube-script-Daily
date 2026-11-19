@@ -1,21 +1,11 @@
 {
- "centre": "black hole sphere tiled with glowing horizon squares, magnifier beside it",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Boundary",
-   "x": 250,
-   "y": 520,
-   "to": [
-    400,
-    720
-   ],
-   "word": "boundary"
-  }
+ "centre": "lensed black hole with glowing accretion disc",
+ "focus": [
+  540,
+  860,
+  1.6
  ],
+ "labels": [],
  "frog": {
   "moods": [
    {
@@ -27,20 +17,18 @@
    "to": [
     540,
     860
-   ]
+   ],
+   "vanish": true
   },
-  "x": 260,
-  "y": 560,
-  "s": 1.05,
-  "flip": 1,
+  "ride": null,
   "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 540
-  },
+  "x": 108,
+  "y": 894,
+  "s": 0.9,
+  "flip": 1,
   "outfit": [
-   "lab",
-   "bowler"
+   "glasses",
+   "bowtie"
   ],
   "says": [
    {

@@ -1,19 +1,58 @@
 {
- "centre": "a ghostly wireframe room floating above a flat sheet of glowing information tiles joined by light threads",
+ "centre": "a cosy room corner with an armchair, a hanging lamp casting a shadow and a dashed distance line",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Information",
+   "text": "Corners",
    "x": 740,
-   "y": 1090,
+   "y": 400,
    "to": [
-    700,
-    1230
+    548,
+    336
    ],
-   "word": "information"
+   "word": "corners"
+  },
+  {
+   "type": "name",
+   "text": "Shadows",
+   "x": 230,
+   "y": 1290,
+   "to": [
+    310,
+    1385
+   ],
+   "word": "shadows"
   }
- ]
+ ],
+ "light": "right",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "jetpack"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-swing-hanging-lamp",
+  "kind": "ride",
+  "x": 804,
+  "y": 685,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whoosh!",
+    "shout": true
+   }
+  ]
+ }
 }

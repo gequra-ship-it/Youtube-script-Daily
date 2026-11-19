@@ -1,45 +1,48 @@
 {
- "centre": "a calm galaxy sitting still in a big void with a faded dotted ghost of a rocket engine behind it",
+ "centre": "two galaxies top and bottom with rows of gold dots between them spreading apart",
  "focus": [
-  420,
+  540,
   860,
-  1.5
+  1.4
  ],
- "focus_word": "unfathomable engine",
- "sfx": [],
+ "focus_word": "keeps stretching",
  "labels": [
   {
    "type": "name",
-   "text": "Engine",
-   "x": 300,
-   "y": 640,
+   "text": "Space between",
+   "x": 800,
+   "y": 560,
    "to": [
-    330,
-    790
+    540,
+    880
    ],
-   "word": "engine"
+   "word": "space"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "awe"
    }
   ],
-  "act": {
-   "type": "helmetwipe"
-  },
+  "act": "lean",
   "outfit": [
    "helmet",
-   "antenna"
+   "patch"
   ],
-  "ride": "mv-core-glide-calm-galaxy",
+  "ride": "mv-path-drift-galaxy-top",
   "kind": "ride",
-  "x": 771,
-  "y": 640,
-  "s": 1.44,
-  "flip": -1,
+  "x": 378,
+  "y": 638,
+  "s": 1.09,
+  "flip": 1,
   "bside": -1,
-  "says": []
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
  }
 }

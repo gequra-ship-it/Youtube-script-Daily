@@ -1,11 +1,35 @@
 {
- "centre": "a newborn bright star igniting inside a dark nebula pillar nursery",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "keep forming",
- "sfx": [],
- "labels": []
+ "centre": "a glowing paper party lantern in an empty hall with an open doorway",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-party-balloon-1"
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-ascend-party-balloon-1",
+  "kind": "ride",
+  "x": 840,
+  "y": 1281,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ]
+ }
 }

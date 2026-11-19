@@ -1,7 +1,50 @@
 {
- "centre": "giant ghost orb dwarfing a tiny warm pile of ordinary things",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "a small warm world with three people, a star and a ringed planet: ordinary matter, inside a much bigger ghostly violet web",
+ "focus": [
+  540,
+  900,
+  1.5
+ ],
+ "focus_word": "ordinary matter",
+ "labels": [
+  {
+   "type": "name",
+   "text": "ordinary matter",
+   "x": 540,
+   "y": 690,
+   "to": [
+    540,
+    900
+   ],
+   "word": "ordinary matter"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-core-glide-home-planet",
+  "kind": "ride",
+  "x": 734,
+  "y": 1190,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "There!",
+    "shout": true
+   }
+  ]
+ }
 }

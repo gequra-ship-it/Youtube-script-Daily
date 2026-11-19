@@ -1,38 +1,41 @@
 {
- "centre": "a magnifying glass over a dark circle showing nothing, on a desk of notes",
- "focus": [
-  960,
-  500,
-  1.5
+ "centre": "a far lab dish listening while a probe beyond the glowing horizon line sends signals that curve back into the dark",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Event horizon",
+   "x": 1000,
+   "y": 470,
+   "to": [
+    1060,
+    655
+   ],
+   "word": "event horizon"
+  }
  ],
- "focus_word": "cannot verify",
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "scared"
    }
   ],
   "act": {
-   "type": "helmetwipe"
+   "type": "pushaway"
   },
-  "ride": "mv-core-glide-magnifier-lens",
-  "kind": "ride",
-  "x": 1205,
-  "y": 707,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
   "outfit": [
-   "bowler"
+   "helmet",
+   "headphones"
   ],
-  "says": [
-   {
-    "text": "Phew.",
-    "shout": false
-   }
-  ]
+  "ride": "mv-path-sink-probe",
+  "kind": "ride",
+  "x": 1086,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": []
  }
 }

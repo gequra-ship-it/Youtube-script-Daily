@@ -1,48 +1,39 @@
 {
- "centre": "a dark void swallowing information cubes that fade to nothing",
+ "centre": "a small black hole with swirling gas while books tumble in from a tipped library shelf",
  "labels": [
   {
    "type": "name",
-   "text": "Lost forever",
-   "x": 760,
-   "y": 520,
+   "text": "Black hole",
+   "x": 730,
+   "y": 560,
    "to": [
-    600,
-    880
+    610,
+    800
    ],
-   "word": "lost forever"
+   "word": "black hole"
   }
  ],
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
-   },
-   {
-    "word": "One line",
-    "mood": "worried"
+    "mood": "scared"
    }
   ],
-  "act": "search",
-  "ride": "mv-core-swell-dark-void",
-  "kind": "ride",
-  "x": 754,
-  "y": 1110,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "act": {
+   "type": "duck"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 170,
+  "y": 885,
+  "s": 0.9,
+  "flip": 1,
   "outfit": [
-   "glasses"
+   "cap"
   ],
-  "says": [
-   {
-    "text": "Where is it?",
-    "shout": false
-   }
-  ]
+  "says": [],
+  "bside": 1
  }
 }

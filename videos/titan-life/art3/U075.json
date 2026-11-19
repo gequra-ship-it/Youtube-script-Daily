@@ -1,11 +1,35 @@
 {
- "centre": "a magnifier searching along a methane lakeshore toward an empty specimen vial; a faint dashed ghost cell fades away",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
- "iris": [
-  1500,
-  640
- ]
+ "centre": "a magnifying glass with a question mark between a flask of water and a flask of methane, each with a dashed ghost cell",
+ "focus": [
+  960,
+  500,
+  1.5
+ ],
+ "focus_word": "what life really needs",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-approach-magnifier",
+  "kind": "ride",
+  "x": 1228,
+  "y": 730,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Hmm, hard.",
+    "shout": false
+   }
+  ]
+ }
 }

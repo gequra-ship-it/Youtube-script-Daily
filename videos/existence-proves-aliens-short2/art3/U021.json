@@ -1,30 +1,44 @@
 {
- "centre": "split frame: a tape measure unrolling between two stars above an hourglass trickling sand",
+ "centre": "a wall calendar of twelve months, squeezed, with the history of the universe (big bang, galaxy, star, Earth) gathering around it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Distance",
+   "text": "calendar year",
    "x": 540,
-   "y": 440,
+   "y": 1150,
    "to": [
     540,
-    572
+    1000
    ],
-   "word": "Distance"
-  },
-  {
-   "type": "name",
-   "text": "time",
-   "x": 830,
-   "y": 1040,
-   "to": [
-    640,
-    1110
-   ],
-   "word": "time"
+   "word": "calendar year"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "starcatch"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "x": 260,
+  "y": 1280,
+  "s": 1.21,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Gotcha!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

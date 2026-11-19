@@ -1,18 +1,41 @@
 {
- "centre": "a lit modern city skyline that a dark veil slides over, hidden from distant eyes",
+ "centre": "a bright photon racing from the Sun along a measured lane toward a small Earth",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Anyone see us?",
-   "x": 300,
-   "y": 520,
+   "type": "name",
+   "text": "Light",
+   "x": 720,
+   "y": 620,
    "to": [
-    520,
-    650
-   ]
+    420,
+    690
+   ],
+   "word": "Light"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "helmet",
+   "pocketwatch"
+  ],
+  "ride": "mv-path-light-photon",
+  "kind": "ride",
+  "x": 414,
+  "y": 590,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
 }

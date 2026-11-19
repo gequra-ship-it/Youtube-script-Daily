@@ -1,17 +1,34 @@
 {
- "centre": "a speed dial whose needle swings past the gold light-speed marker into the red zone",
+ "centre": "a stretchy grid sheet curved by a heavy gold ball with a small marble rolling in",
  "focus": [
   540,
-  860,
+  950,
   1.5
  ],
- "focus_word": "299,792",
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "299,792 KM/S",
-   "word": "299,792"
-  }
- ]
+ "focus_word": "General Theory of Relativity",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "salute",
+  "ride": "mv-core-approach-heavy-ball",
+  "kind": "ride",
+  "x": 654,
+  "y": 1020,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Aye aye!",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,45 +1,18 @@
 {
- "centre": "a magnifying lens over the crest of a big swell, showing small ripples riding along it",
- "focus": [
-  960,
-  450,
-  1.6
- ],
- "focus_word": "individual ripples",
- "sfx": [],
+ "centre": "one big swell seen from the side; a small glowing ripple races from its back to its front, a new one appears behind and the front one fades",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "ripples",
-   "x": 1360,
-   "y": 300,
+   "text": "swell",
+   "x": 1500,
+   "y": 420,
    "to": [
-    1060,
-    445
+    1320,
+    640
    ],
-   "word": "ripples"
+   "word": "swell"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "excited"
-   }
-  ],
-  "act": {
-   "type": "pointfar"
-  },
-  "ride": "mv-core-glide-magnifier-lens",
-  "kind": "ride",
-  "x": 1088,
-  "y": 577,
-  "s": 1.25,
-  "flip": -1,
-  "bside": -1,
-  "outfit": [
-   "backpack",
-   "bowler"
-  ],
-  "says": []
- }
+ ]
 }

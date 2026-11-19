@@ -1,31 +1,45 @@
 {
- "centre": "a cosy room corner with an armchair, a hanging lamp casting a shadow and a dashed distance line",
+ "centre": "ghostly bubble universe with galaxies floating above a flat glowing boundary, echoing a tiny credit card hologram",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Corners",
-   "x": 740,
-   "y": 400,
+   "text": "Universe",
+   "x": 800,
+   "y": 1080,
    "to": [
-    548,
-    336
+    610,
+    940
    ],
-   "word": "corners"
-  },
-  {
-   "type": "name",
-   "text": "Shadows",
-   "x": 230,
-   "y": 1290,
-   "to": [
-    310,
-    1385
-   ],
-   "word": "shadows"
+   "word": "universe"
   }
  ],
- "light": "right"
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   },
+   {
+    "word": "Could our",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-path-satellite",
+  "kind": "ride",
+  "x": 672,
+  "y": 410,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": []
+ }
 }

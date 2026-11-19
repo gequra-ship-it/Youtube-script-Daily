@@ -1,11 +1,35 @@
 {
- "centre": "a deep-space observatory with a gold mirror and a sunshield looks down on a field of far galaxies",
- "focus": [
-  540,
-  620,
-  1.6
+ "centre": "a tall speed gauge filling past the half mark toward the gold light-speed mark with a far galaxy sliding up beside it",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "num",
+   "text": "90% LIGHT SPEED",
+   "word": "ninety percent"
+  }
  ],
- "focus_word": "deep-space observatories",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-path-slide-galaxy",
+  "kind": "ride",
+  "x": 706,
+  "y": 1128,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": []
+ }
 }

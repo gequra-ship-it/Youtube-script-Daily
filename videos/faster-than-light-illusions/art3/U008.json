@@ -1,55 +1,43 @@
 {
- "centre": "an old open physics book on a lectern under an arched starry window, a glowing round speed-limit emblem with a photon above it",
+ "centre": "a glowing road across a dark plain to the horizon, with a blank round speed-limit sign and a rocket car skidding to a stop",
  "focus": [
-  960,
-  340,
-  1.6
+  1440,
+  300,
+  1.7
  ],
- "focus_word": "strict cosmic rule",
- "sfx": [],
+ "focus_word": "the letter c",
  "labels": [
   {
    "type": "name",
-   "text": "modern physics",
-   "x": 660,
-   "y": 520,
+   "text": "c",
+   "x": 1230,
+   "y": 170,
    "to": [
-    860,
-    600
+    1400,
+    260
    ],
-   "word": "modern physics"
+   "word": "letter c"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "squint"
    }
   ],
   "act": {
-   "type": "knocked",
-   "obj": "mv-pendulum-pocket-watch-cord"
+   "type": "helmetwipe"
   },
-  "outfit": [
-   "helmet",
-   "moonboots"
-  ],
-  "ride": null,
-  "kind": "bg",
-  "x": 1466,
-  "y": 694,
-  "s": 0.95,
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
   "flip": 1,
-  "bside": 1,
-  "gaze": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
-  "says": [
-   {
-    "text": "Bonk!",
-    "shout": true
-   }
-  ]
+  "kind": "bg",
+  "outfit": [
+   "backpack",
+   "bowler"
+  ],
+  "says": [],
+  "bside": 1
  }
 }

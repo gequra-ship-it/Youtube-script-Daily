@@ -1,35 +1,49 @@
 {
- "centre": "a single water droplet above the sea, sand dune below, breath puffs drifting",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "a breath cloud full of tiny atoms rising from a person seen from behind under the stars",
+ "focus": [
+  580,
+  800,
+  1.6
+ ],
+ "focus_word": "every breath",
+ "labels": [
+  {
+   "type": "name",
+   "text": "atomic matter",
+   "x": 560,
+   "y": 560,
+   "to": [
+    590,
+    700
+   ],
+   "word": "atomic matter"
+  }
+ ],
  "frog": {
   "moods": [
    {
     "mood": "surprised"
-   },
-   {
-    "word": "Every grain",
-    "mood": "happy"
    }
   ],
-  "act": "startle",
-  "outfit": [
-   "goggles",
-   "flippers"
-  ],
-  "ride": "mv-core-drop-water-droplet",
-  "kind": "ride",
-  "x": 671,
-  "y": 1025,
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-breath-cloud"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 854,
+  "y": 1050,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
+  "outfit": [
+   "bowtie"
+  ],
   "says": [
    {
-    "text": "Eek!",
+    "text": "Whoa, it grows!",
     "shout": true
    }
   ]

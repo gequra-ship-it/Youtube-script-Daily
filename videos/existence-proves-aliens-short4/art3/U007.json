@@ -1,23 +1,35 @@
 {
- "centre": "a rocky planet cut open to show an empty dashed core where iron should be",
- "focus": [
-  540,
-  860,
-  1.5
- ],
- "focus_word": "iron",
- "labels": [
-  {
-   "type": "name",
-   "text": "Iron",
-   "x": 620,
-   "y": 1120,
-   "to": [
-    585,
-    815
-   ],
-   "word": "iron"
-  }
- ],
- "sfx": []
+ "centre": "a swollen red giant star between a young blue star above and a cracking unstable star below",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-giant-star"
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 814,
+  "y": 1090,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

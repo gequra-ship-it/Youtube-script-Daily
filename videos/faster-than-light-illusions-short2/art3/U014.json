@@ -1,44 +1,62 @@
 {
- "centre": "a giant pair of steel scissors floating open in space, much bigger than a small planet",
- "focus": [
-  540,
-  860,
-  1.5
- ],
- "focus_word": "giant pair of scissors",
- "sfx": [],
+ "centre": "a shadow band sliding across a lit surface while information (an envelope), energy (a bolt) and mass (a cube) stay where they are",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
  "labels": [
   {
-   "type": "say",
-   "text": "Snip?",
-   "x": 720,
-   "y": 640,
+   "type": "name",
+   "text": "information",
+   "x": 255,
+   "y": 1200,
    "to": [
-    800,
-    700
-   ]
+    255,
+    1100
+   ],
+   "word": "information"
+  },
+  {
+   "type": "name",
+   "text": "energy",
+   "x": 545,
+   "y": 880,
+   "to": [
+    550,
+    990
+   ],
+   "word": "energy"
+  },
+  {
+   "type": "name",
+   "text": "mass",
+   "x": 820,
+   "y": 1200,
+   "to": [
+    810,
+    1100
+   ],
+   "word": "mass"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "excited"
    }
   ],
   "act": {
-   "type": "measure"
+   "type": "pointfar"
   },
-  "ride": "mv-path-comet",
+  "ride": "mv-path-shadow-band",
   "kind": "ride",
-  "x": 226,
-  "y": 500,
-  "s": 1.09,
+  "x": 222,
+  "y": 768,
+  "s": 1.44,
   "flip": 1,
   "bside": 1,
-  "gaze": 1,
   "outfit": [
-   "helmet",
-   "goldvisor"
+   "backpack",
+   "beanie"
   ],
   "says": []
  }

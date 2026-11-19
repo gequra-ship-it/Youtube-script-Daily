@@ -1,47 +1,22 @@
 {
- "centre": "a distant galaxy sending a light wave whose crests stretch out and turn from blue to red toward a telescope",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a small home galaxy on the left and a glowing dashed curved horizon on the right; galaxies beyond it are red and fading",
+ "focus": [
+  1330,
+  520,
+  1.7
+ ],
+ "focus_word": "event horizon",
  "labels": [
   {
    "type": "name",
-   "text": "Infrared",
-   "x": 1450,
-   "y": 340,
+   "text": "Event horizon",
+   "x": 1060,
+   "y": 360,
    "to": [
-    1480,
-    470
+    1235,
+    290
    ],
-   "word": "infrared"
+   "word": "event horizon"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "happy"
-   }
-  ],
-  "act": {
-   "type": "swimstroke",
-   "dist": 422
-  },
-  "outfit": [
-   "diver"
-  ],
-  "x": 1660,
-  "y": 890,
-  "s": 0.8,
-  "flip": -1,
-  "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "says": [
-   {
-    "text": "Blub blub!",
-    "shout": true
-   }
-  ],
-  "bside": -1
- }
+ ]
 }

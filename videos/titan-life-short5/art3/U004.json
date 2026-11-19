@@ -1,18 +1,31 @@
 {
- "centre": "a camera viewfinder showing a top-down aerial view of Titan's dunes, a methane lake and a crater; Dragonfly hovering above beams it back to a tiny Earth",
+ "centre": "Top-down route map of flights hopping between landing sites",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "First look!",
-   "x": 840,
-   "y": 600,
-   "to": [
-    760,
-    490
-   ]
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-path-fly-dragonfly-drone",
+  "kind": "ride",
+  "x": 294,
+  "y": 1306,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "backpack",
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
 }

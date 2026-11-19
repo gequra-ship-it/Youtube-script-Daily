@@ -1,36 +1,33 @@
 {
- "centre": "cell membrane layer: water-loving blue heads facing water above and below, amber tails inside",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "cell membrane",
- "sfx": [],
- "labels": [],
+ "centre": "dashed angular ghost cell (hypothetical, ?) beneath a solid Earth-style blue cell",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "determined"
+    "mood": "scared"
+   },
+   {
+    "word": "It would",
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "stompfoot"
-  },
-  "outfit": [
-   "goggles"
-  ],
-  "ride": "mv-core-glide-cell-membrane",
+  "act": "shiver",
+  "ride": "mv-core-glide-alien-cell",
   "kind": "ride",
-  "x": 277,
-  "y": 750,
+  "x": 636,
+  "y": 816,
   "s": 1.44,
-  "flip": 1,
-  "bside": 1,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "scarf",
+   "cap"
+  ],
   "says": [
    {
-    "text": "Hup!",
-    "shout": true
+    "text": "Brrrr...",
+    "shout": false
    }
   ]
  }

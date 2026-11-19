@@ -1,19 +1,45 @@
 {
- "centre": "Jupiter with its Great Red Spot above Neptune with its dark spot, a ruler of tick marks for centuries beside them",
+ "centre": "dark spot abyss ringed by silky white methane-ice wisps and glinting crystals",
  "focus": null,
  "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Jupiter",
-   "x": 810,
-   "y": 470,
+   "text": "methane ice crystals",
+   "x": 540,
+   "y": 420,
    "to": [
-    620,
-    560
+    262,
+    725
    ],
-   "word": "Jupiter"
+   "word": "methane ice crystals"
   }
  ],
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "windbrella"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-glide-spot",
+  "kind": "ride",
+  "x": 770,
+  "y": 985,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whoa-oa!",
+    "shout": true
+   }
+  ]
+ }
 }

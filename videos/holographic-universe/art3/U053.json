@@ -1,22 +1,39 @@
 {
- "centre": "a glowing info cube inside a teal shield bubble on a slate; an eraser presses against it and only shakes; a cloth slides off a law tablet",
- "focus": [
-  1060,
-  500,
-  1.6
- ],
- "focus_word": "truly erased",
- "sfx": [],
+ "centre": "a ghostly bookcase and loose books tumble along curved paths into a spinning whirlpool black hole and vanish",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "say",
-   "text": "Can't erase me!",
-   "x": 960,
-   "y": 300,
+   "type": "name",
+   "text": "Black hole",
+   "x": 1250,
+   "y": 260,
    "to": [
-    960,
-    400
-   ]
+    1250,
+    470
+   ],
+   "word": "black hole"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck"
+  },
+  "ride": "mv-path-drop-into-bookcase",
+  "kind": "ride",
+  "x": 520,
+  "y": 252,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": []
+ }
 }

@@ -1,42 +1,49 @@
 {
- "centre": "a huge dark navy oval vortex with pale-cyan fringe and white wisps on the blue planet",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a dark navy abyss oval with silky white cloud ribbons sweeping around it and glinting ice crystals",
+ "focus": [
+  1000,
+  450,
+  1.5
+ ],
+ "focus_word": "bright white methane ice crystals",
  "labels": [
   {
    "type": "name",
-   "text": "Great Dark Spot",
-   "x": 1480,
-   "y": 280,
+   "text": "methane ice crystals",
+   "x": 1380,
+   "y": 190,
    "to": [
-    1180,
-    520
+    1260,
+    355
    ],
-   "word": "Great Dark Spot"
+   "word": "methane ice crystals"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "chilly"
    }
   ],
   "act": {
-   "type": "measure"
+   "type": "rubhands"
   },
   "outfit": [
-   "helmet",
-   "jetpack"
+   "diver"
   ],
-  "ride": "mv-core-sway-dark-vortex",
+  "ride": "mv-core-sway-dark-abyss",
   "kind": "ride",
-  "x": 1557,
-  "y": 719,
+  "x": 968,
+  "y": 790,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "says": []
+  "says": [
+   {
+    "text": "Brrr!",
+    "shout": true
+   }
+  ]
  }
 }

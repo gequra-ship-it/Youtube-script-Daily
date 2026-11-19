@@ -1,7 +1,26 @@
 {
- "centre": "Dragonfly drone lifting off easily above Titan's dunes in thick golden air",
+ "centre": "top-down map: dune field, icy crater and methane lake linked by a dashed drone flight route",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "x": 260,
+  "y": 890,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "lab",
+   "bowler"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

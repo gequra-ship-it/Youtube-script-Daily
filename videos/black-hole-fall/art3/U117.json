@@ -1,23 +1,42 @@
 {
- "centre": "a black hole shadow letting one glowing particle escape while a mass gauge drops, with an open ledger book",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a small dark hole wrapped in a faint steady golden glow, seen by the friend with a telescope from the mother ship",
+ "focus": [
+  1260,
+  400,
+  1.7
+ ],
+ "focus_word": "thermal glow",
  "labels": [
   {
    "type": "name",
-   "text": "Escaping particle",
-   "x": 1250,
-   "y": 560,
+   "text": "Hawking radiation",
+   "x": 1260,
+   "y": 235,
    "to": [
-    1070,
-    420
+    1290,
+    330
    ],
-   "word": "escaping particle"
+   "word": "Hawking radiation"
   }
  ],
- "iris": [
-  1610,
-  555
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 1660,
+  "y": 380,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "bowler"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

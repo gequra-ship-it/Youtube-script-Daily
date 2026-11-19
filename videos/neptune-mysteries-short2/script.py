@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # neptune-mysteries-short2 (Miya's Note). Script from miya 2026-11-05; fact-checked per guideline 12-1.
-SCENES = [('S01', 'Part 1', 'ill', 'sh2_1', 'Neptune receives almost no heat from the Sun. So who is driving the wind?'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh2_1',
+  'Winds on Neptune approach two thousand kilometers per hour, faster than the speed of sound on Earth, and the Sun there is barely a whisper of '
+  'heat.'),
  ('S02', 'Part 2', 'ill', 'sh2_2', 'If you were to descend into Neptune’s sky, you would quickly realize that its serene beauty is an illusion.'),
  ('S03', 'Part 3', 'ill', 'sh2_3', 'Neptune is home to the most ferocious and terrifying winds recorded anywhere in our entire solar system.'),
  ('S04', 'Part 4', 'ill', 'sh2_4', 'Near the equator, colossal jet streams blast westward at speeds approaching two thousand kilometers per hour.'),

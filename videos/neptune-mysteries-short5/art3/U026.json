@@ -1,17 +1,23 @@
 {
- "centre": "A bright cluster of icy debris, part of a wide dotted swath spreading along Triton's old orbital arc",
+ "centre": "Triton split along a glowing seam, boulders and glittering dust flying out",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "ripped apart",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
    "text": "Triton",
-   "x": 230,
+   "x": 800,
    "y": 640,
    "to": [
-    480,
-    830
+    620,
+    780
    ],
    "word": "Triton"
   }
@@ -19,24 +25,27 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "squint"
    }
   ],
-  "act": {
-   "type": "binocs"
-  },
-  "outfit": [
-   "helmet",
-   "goldvisor"
-  ],
-  "ride": "mv-core-glide-debris-cluster",
+  "act": "sneeze",
+  "ride": "mv-core-glide-triton",
   "kind": "ride",
-  "x": 666,
-  "y": 944,
+  "x": 718,
+  "y": 960,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "says": []
+  "outfit": [
+   "scarf",
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Achoo!",
+    "shout": false
+   }
+  ]
  }
 }

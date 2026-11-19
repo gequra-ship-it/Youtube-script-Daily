@@ -1,23 +1,30 @@
 {
- "centre": "Titan squeezed by Saturn's pull with heat waves rising from the flexing body",
+ "centre": "warm glowing Titan above a giant Saturn, a faint distant Sun far above",
  "focus": [
   540,
   860,
-  1.5
+  1.6
  ],
- "focus_word": "generates heat",
- "labels": [
-  {
-   "type": "name",
-   "text": "Saturn",
-   "x": 300,
-   "y": 430,
-   "to": [
-    470,
-    430
-   ],
-   "word": "Saturn's"
-  }
- ],
- "sfx": []
+ "focus_word": "giant neighbor",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 260,
+  "y": 600,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

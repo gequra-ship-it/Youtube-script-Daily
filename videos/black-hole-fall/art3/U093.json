@@ -1,19 +1,32 @@
 {
- "centre": "a spacetime grid funnel whose lines converge into a dark tip, a small capsule spiralling down",
+ "centre": "three black holes, small, medium and huge, each with the same tiny central point; you approach the centre of the biggest",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Field lines",
-   "x": 520,
-   "y": 650,
-   "to": [
-    820,
-    600
-   ],
-   "word": "field lines"
-  }
- ]
+ "attractor": [
+  1390,
+  470
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "ride": "mv-path-approach-astronaut-u092",
+  "kind": "ride",
+  "x": 1456,
+  "y": 425,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "says": []
+ }
 }

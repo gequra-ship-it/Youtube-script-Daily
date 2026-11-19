@@ -1,7 +1,29 @@
 {
- "centre": "two closed shoe boxes on two far-apart asteroids, nothing travelling across the empty gap between them",
+ "centre": "an opened box with a left shoe popping up; far away a closed box where the right shoe must be",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "left shoe",
+   "x": 240,
+   "y": 470,
+   "to": [
+    360,
+    690
+   ],
+   "word": "left shoe"
+  },
+  {
+   "type": "name",
+   "text": "right shoe",
+   "x": 800,
+   "y": 1050,
+   "to": [
+    720,
+    1240
+   ],
+   "word": "right shoe"
+  }
+ ]
 }

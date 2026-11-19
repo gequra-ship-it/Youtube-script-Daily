@@ -26,11 +26,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "Tonight, before you go to bed, try flipping a light switch in a dark room.",
-  "dur": 5.64,
+  "text": "Nothing can travel faster than light, and yet a laser pointer can make a dot appear to do exactly that.",
+  "dur": 6.77,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "The darkness vanishes so swiftly that your eyes perceive no delay at all.",
+  "nxt": "The reason is a trick of geometry, not a loophole in physics.",
   "frog_hint": false
  },
  {
@@ -60,11 +60,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "The darkness vanishes so swiftly that your eyes perceive no delay at all.",
-  "dur": 5.64,
-  "transition_in": "wave",
-  "prev": "Tonight, before you go to bed, try flipping a light switch in a dark room.",
-  "nxt": "In that single flick of a finger, countless packets of electromagnetic energy bounce off every surface,",
+  "text": "The reason is a trick of geometry, not a loophole in physics.",
+  "dur": 6.77,
+  "transition_in": "eye",
+  "prev": "Nothing can travel faster than light, and yet a laser pointer can make a dot appear to do exactly that.",
+  "nxt": "Flip a light switch in a dark room, and the darkness vanishes so swiftly that your eyes perceive no delay at all.",
   "frog_hint": true
  },
  {
@@ -94,49 +94,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "In that single flick of a finger, countless packets of electromagnetic energy bounce off every surface,",
-  "dur": 5.64,
-  "transition_in": "zigzag",
-  "prev": "The darkness vanishes so swiftly that your eyes perceive no delay at all.",
-  "nxt": "illuminating your bedroom in mere billionths of a second.",
+  "text": "Flip a light switch in a dark room, and the darkness vanishes so swiftly that your eyes perceive no delay at all.",
+  "dur": 6.77,
+  "transition_in": "iris",
+  "prev": "The reason is a trick of geometry, not a loophole in physics.",
+  "nxt": "",
   "frog_hint": false
  },
  {
   "uid": "U004",
-  "scene": 1,
-  "title": "Flip the Switch",
-  "art_theme": "p01a",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "illuminating your bedroom in mere billionths of a second.",
-  "dur": 5.64,
-  "transition_in": "page",
-  "prev": "In that single flick of a finger, countless packets of electromagnetic energy bounce off every surface,",
-  "nxt": "",
-  "frog_hint": true
- },
- {
-  "uid": "U005",
   "scene": 2,
   "title": "Flip the Switch",
   "art_theme": "p01b",
@@ -167,6 +133,40 @@
   "transition_in": "whip",
   "prev": "",
   "nxt": "Yet modern physics tells us that light in a vacuum travels at a very specific number:",
+  "frog_hint": true
+ },
+ {
+  "uid": "U005",
+  "scene": 2,
+  "title": "Flip the Switch",
+  "art_theme": "p01b",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Yet modern physics tells us that light in a vacuum travels at a very specific number:",
+  "dur": 5.82,
+  "transition_in": "diamond",
+  "prev": "We grow up believing that light represents the absolute pinnacle of speed in our universe.",
+  "nxt": "about 299,792 kilometers per second.",
   "frog_hint": false
  },
  {
@@ -196,18 +196,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "Yet modern physics tells us that light in a vacuum travels at a very specific number:",
+  "text": "about 299,792 kilometers per second.",
   "dur": 5.82,
   "transition_in": "seam",
-  "prev": "We grow up believing that light represents the absolute pinnacle of speed in our universe.",
-  "nxt": "about 299,792 kilometers per second.",
+  "prev": "Yet modern physics tells us that light in a vacuum travels at a very specific number:",
+  "nxt": "",
   "frog_hint": true
  },
  {
   "uid": "U007",
-  "scene": 2,
-  "title": "Flip the Switch",
-  "art_theme": "p01b",
+  "scene": 3,
+  "title": "The Cosmic Speed Limit",
+  "art_theme": "p02a",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -230,11 +230,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "about 299,792 kilometers per second.",
-  "dur": 5.82,
-  "transition_in": "tilt",
-  "prev": "Yet modern physics tells us that light in a vacuum travels at a very specific number:",
-  "nxt": "",
+  "text": "For more than a century, Albert Einstein and the framework of modern physics have taught us a strict cosmic rule.",
+  "dur": 6.98,
+  "transition_in": "page",
+  "prev": "",
+  "nxt": "Nothing can travel faster than this speed, often symbolized simply as the letter c.",
   "frog_hint": false
  },
  {
@@ -264,18 +264,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "For more than a century, Albert Einstein and the framework of modern physics have taught us a strict cosmic rule.",
+  "text": "Nothing can travel faster than this speed, often symbolized simply as the letter c.",
   "dur": 6.98,
-  "transition_in": "diamond",
-  "prev": "",
-  "nxt": "Nothing can travel faster than this speed, often symbolized simply as the letter c.",
+  "transition_in": "tilt",
+  "prev": "For more than a century, Albert Einstein and the framework of modern physics have taught us a strict cosmic rule.",
+  "nxt": "",
   "frog_hint": true
  },
  {
   "uid": "U009",
-  "scene": 3,
+  "scene": 4,
   "title": "The Cosmic Speed Limit",
-  "art_theme": "p02a",
+  "art_theme": "p02b",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -298,11 +298,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "Nothing can travel faster than this speed, often symbolized simply as the letter c.",
-  "dur": 6.98,
-  "transition_in": "push",
-  "prev": "For more than a century, Albert Einstein and the framework of modern physics have taught us a strict cosmic rule.",
-  "nxt": "",
+  "text": "It is not merely a technical limitation of our current technology,",
+  "dur": 5.61,
+  "transition_in": "zigzag",
+  "prev": "",
+  "nxt": "but a fundamental barrier woven into the fabric of space and time.",
   "frog_hint": false
  },
  {
@@ -332,11 +332,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "It is not merely a technical limitation of our current technology,",
+  "text": "but a fundamental barrier woven into the fabric of space and time.",
   "dur": 5.61,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "but a fundamental barrier woven into the fabric of space and time.",
+  "transition_in": "push",
+  "prev": "It is not merely a technical limitation of our current technology,",
+  "nxt": "Accelerating any physical object with mass to this speed would require an infinite amount of energy.",
   "frog_hint": true
  },
  {
@@ -366,18 +366,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "but a fundamental barrier woven into the fabric of space and time.",
+  "text": "Accelerating any physical object with mass to this speed would require an infinite amount of energy.",
   "dur": 5.61,
-  "transition_in": "iris",
-  "prev": "It is not merely a technical limitation of our current technology,",
-  "nxt": "Accelerating any physical object with mass to this speed would require an infinite amount of energy.",
+  "transition_in": "wave",
+  "prev": "but a fundamental barrier woven into the fabric of space and time.",
+  "nxt": "",
   "frog_hint": false
  },
  {
   "uid": "U012",
-  "scene": 4,
-  "title": "The Cosmic Speed Limit",
-  "art_theme": "p02b",
+  "scene": 5,
+  "title": "What the Limit Means",
+  "art_theme": "p03a",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -400,11 +400,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "Accelerating any physical object with mass to this speed would require an infinite amount of energy.",
-  "dur": 5.61,
-  "transition_in": "wipe",
-  "prev": "but a fundamental barrier woven into the fabric of space and time.",
-  "nxt": "",
+  "text": "Before we test that rule, we must ask what this speed limit actually means.",
+  "dur": 6.24,
+  "transition_in": "fade",
+  "prev": "",
+  "nxt": "In physics, it is fundamentally the speed of causality itself.",
   "frog_hint": true
  },
  {
@@ -434,49 +434,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "Before we test that rule, we must ask what this speed limit actually means.",
+  "text": "In physics, it is fundamentally the speed of causality itself.",
   "dur": 6.24,
-  "transition_in": "eye",
-  "prev": "",
-  "nxt": "In physics, it is fundamentally the speed of causality itself.",
+  "transition_in": "wash",
+  "prev": "Before we test that rule, we must ask what this speed limit actually means.",
+  "nxt": "Causality is the simple, unbreakable rule that a cause must always happen before its effect.",
   "frog_hint": false
  },
  {
   "uid": "U014",
-  "scene": 5,
-  "title": "What the Limit Means",
-  "art_theme": "p03a",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "In physics, it is fundamentally the speed of causality itself.",
-  "dur": 6.24,
-  "transition_in": "whip",
-  "prev": "Before we test that rule, we must ask what this speed limit actually means.",
-  "nxt": "Causality is the simple, unbreakable rule that a cause must always happen before its effect.",
-  "frog_hint": true
- },
- {
-  "uid": "U015",
   "scene": 5,
   "title": "What the Limit Means",
   "art_theme": "p03a",
@@ -507,10 +473,10 @@
   "transition_in": "seam",
   "prev": "In physics, it is fundamentally the speed of causality itself.",
   "nxt": "If information could travel infinitely fast, the logical order of events across our universe would instantly dissolve into chaos.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U016",
+  "uid": "U015",
   "scene": 5,
   "title": "What the Limit Means",
   "art_theme": "p03a",
@@ -538,13 +504,13 @@
   },
   "text": "If information could travel infinitely fast, the logical order of events across our universe would instantly dissolve into chaos.",
   "dur": 6.24,
-  "transition_in": "fade",
+  "transition_in": "whip",
   "prev": "Causality is the simple, unbreakable rule that a cause must always happen before its effect.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U017",
+  "uid": "U016",
   "scene": 6,
   "title": "The Laser Pointer",
   "art_theme": "p04a",
@@ -575,6 +541,40 @@
   "transition_in": "slide",
   "prev": "",
   "nxt": "The Moon sits roughly 380,000 kilometers away from where you are standing.",
+  "frog_hint": true
+ },
+ {
+  "uid": "U017",
+  "scene": 6,
+  "title": "The Laser Pointer",
+  "art_theme": "p04a",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "The Moon sits roughly 380,000 kilometers away from where you are standing.",
+  "dur": 6.58,
+  "transition_in": "fade",
+  "prev": "Imagine you are standing on your rooftop on a clear night, looking up at the full Moon.",
+  "nxt": "Now, imagine you hold a laser pointer capable of casting an intensely bright red dot onto the lunar surface.",
   "frog_hint": false
  },
  {
@@ -604,49 +604,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "The Moon sits roughly 380,000 kilometers away from where you are standing.",
+  "text": "Now, imagine you hold a laser pointer capable of casting an intensely bright red dot onto the lunar surface.",
   "dur": 6.58,
-  "transition_in": "match",
-  "prev": "Imagine you are standing on your rooftop on a clear night, looking up at the full Moon.",
-  "nxt": "Now, imagine you hold a laser pointer capable of casting an intensely bright red dot onto the lunar surface.",
+  "transition_in": "eye",
+  "prev": "The Moon sits roughly 380,000 kilometers away from where you are standing.",
+  "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U019",
-  "scene": 6,
-  "title": "The Laser Pointer",
-  "art_theme": "p04a",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "Now, imagine you hold a laser pointer capable of casting an intensely bright red dot onto the lunar surface.",
-  "dur": 6.58,
-  "transition_in": "zoom",
-  "prev": "The Moon sits roughly 380,000 kilometers away from where you are standing.",
-  "nxt": "",
-  "frog_hint": false
- },
- {
-  "uid": "U021",
+  "uid": "U020",
   "scene": 8,
   "title": "A Racing Dot",
   "art_theme": "p05a",
@@ -680,7 +646,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U022",
+  "uid": "U021",
   "scene": 8,
   "title": "A Racing Dot",
   "art_theme": "p05a",
@@ -708,10 +674,44 @@
   },
   "text": "that tiny red dot will race across the entire face of the Moon.",
   "dur": 5.07,
-  "transition_in": "wash",
+  "transition_in": "wipe",
   "prev": "If you sweep your hand across an angle of about half a degree in a fraction of a second,",
   "nxt": "",
   "frog_hint": false
+ },
+ {
+  "uid": "U022",
+  "scene": 9,
+  "title": "A Racing Dot",
+  "art_theme": "p05b",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Because the Moon is thousands of kilometers wide, a swift turn of your wrist causes the dot to travel across the lunar",
+  "dur": 6.45,
+  "transition_in": "slide",
+  "prev": "",
+  "nxt": "terrain at speeds exceeding hundreds of thousands of kilometers per second.",
+  "frog_hint": true
  },
  {
   "uid": "U023",
@@ -740,18 +740,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "Because the Moon is thousands of kilometers wide, a swift turn of your wrist causes the dot to travel across the lunar",
+  "text": "terrain at speeds exceeding hundreds of thousands of kilometers per second.",
   "dur": 6.45,
-  "transition_in": "fade",
-  "prev": "",
-  "nxt": "terrain at speeds exceeding hundreds of thousands of kilometers per second.",
-  "frog_hint": true
+  "transition_in": "iris",
+  "prev": "Because the Moon is thousands of kilometers wide, a swift turn of your wrist causes the dot to travel across the lunar",
+  "nxt": "",
+  "frog_hint": false
  },
  {
   "uid": "U024",
-  "scene": 9,
+  "scene": 10,
   "title": "A Racing Dot",
-  "art_theme": "p05b",
+  "art_theme": "p05c",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -774,12 +774,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "terrain at speeds exceeding hundreds of thousands of kilometers per second.",
-  "dur": 6.45,
-  "transition_in": "slide",
-  "prev": "Because the Moon is thousands of kilometers wide, a swift turn of your wrist causes the dot to travel across the lunar",
-  "nxt": "",
-  "frog_hint": false
+  "text": "If you performed this same thought experiment on a screen placed millions of kilometers away,",
+  "dur": 5.12,
+  "transition_in": "diamond",
+  "prev": "",
+  "nxt": "the illuminated dot would easily sweep across the surface faster",
+  "frog_hint": true
  },
  {
   "uid": "U025",
@@ -808,12 +808,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "If you performed this same thought experiment on a screen placed millions of kilometers away,",
+  "text": "the illuminated dot would easily sweep across the surface faster",
   "dur": 5.12,
-  "transition_in": "page",
-  "prev": "",
-  "nxt": "the illuminated dot would easily sweep across the surface faster",
-  "frog_hint": true
+  "transition_in": "push",
+  "prev": "If you performed this same thought experiment on a screen placed millions of kilometers away,",
+  "nxt": "than 299,792 kilometers per second.",
+  "frog_hint": false
  },
  {
   "uid": "U026",
@@ -842,49 +842,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "the illuminated dot would easily sweep across the surface faster",
-  "dur": 5.12,
-  "transition_in": "eye",
-  "prev": "If you performed this same thought experiment on a screen placed millions of kilometers away,",
-  "nxt": "than 299,792 kilometers per second.",
-  "frog_hint": false
- },
- {
-  "uid": "U027",
-  "scene": 10,
-  "title": "A Racing Dot",
-  "art_theme": "p05c",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
   "text": "than 299,792 kilometers per second.",
   "dur": 5.12,
-  "transition_in": "iris",
+  "transition_in": "wipe",
   "prev": "the illuminated dot would easily sweep across the surface faster",
   "nxt": "Has your laser pointer just broken the ultimate law of physics?",
   "frog_hint": true
  },
  {
-  "uid": "U028",
+  "uid": "U027",
   "scene": 10,
   "title": "A Racing Dot",
   "art_theme": "p05c",
@@ -918,7 +884,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U029",
+  "uid": "U028",
   "scene": 11,
   "title": "An Optical Illusion",
   "art_theme": "p06a",
@@ -952,7 +918,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U030",
+  "uid": "U029",
   "scene": 11,
   "title": "An Optical Illusion",
   "art_theme": "p06a",
@@ -980,13 +946,13 @@
   },
   "text": "The dot on the left side of the Moon and the dot on the right side are not the same physical entity.",
   "dur": 5.64,
-  "transition_in": "match",
+  "transition_in": "wash",
   "prev": "The truth is that the red dot is an optical illusion of motion.",
   "nxt": "When you shine a laser, you are not waving a rigid stick of light across space.",
   "frog_hint": false
  },
  {
-  "uid": "U031",
+  "uid": "U030",
   "scene": 11,
   "title": "An Optical Illusion",
   "art_theme": "p06a",
@@ -1014,10 +980,44 @@
   },
   "text": "When you shine a laser, you are not waving a rigid stick of light across space.",
   "dur": 5.64,
-  "transition_in": "wash",
+  "transition_in": "wave",
   "prev": "The dot on the left side of the Moon and the dot on the right side are not the same physical entity.",
   "nxt": "",
   "frog_hint": true
+ },
+ {
+  "uid": "U031",
+  "scene": 12,
+  "title": "An Optical Illusion",
+  "art_theme": "p06b",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "You are spraying an endless stream of independent photon bullets outward from your device.",
+  "dur": 5.25,
+  "transition_in": "page",
+  "prev": "",
+  "nxt": "The photons hitting the left side of the Moon arrived from Earth,",
+  "frog_hint": false
  },
  {
   "uid": "U032",
@@ -1046,12 +1046,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "You are spraying an endless stream of independent photon bullets outward from your device.",
+  "text": "The photons hitting the left side of the Moon arrived from Earth,",
   "dur": 5.25,
-  "transition_in": "push",
-  "prev": "",
-  "nxt": "The photons hitting the left side of the Moon arrived from Earth,",
-  "frog_hint": false
+  "transition_in": "zigzag",
+  "prev": "You are spraying an endless stream of independent photon bullets outward from your device.",
+  "nxt": "and the photons hitting the right side arrived a moment later from another burst.",
+  "frog_hint": true
  },
  {
   "uid": "U033",
@@ -1080,18 +1080,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "The photons hitting the left side of the Moon arrived from Earth,",
+  "text": "and the photons hitting the right side arrived a moment later from another burst.",
   "dur": 5.25,
-  "transition_in": "wipe",
-  "prev": "You are spraying an endless stream of independent photon bullets outward from your device.",
-  "nxt": "and the photons hitting the right side arrived a moment later from another burst.",
-  "frog_hint": true
+  "transition_in": "diamond",
+  "prev": "The photons hitting the left side of the Moon arrived from Earth,",
+  "nxt": "",
+  "frog_hint": false
  },
  {
   "uid": "U034",
-  "scene": 12,
-  "title": "An Optical Illusion",
-  "art_theme": "p06b",
+  "scene": 13,
+  "title": "Shadows in Deep Space",
+  "art_theme": "p07a",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -1114,12 +1114,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "and the photons hitting the right side arrived a moment later from another burst.",
-  "dur": 5.25,
-  "transition_in": "wave",
-  "prev": "The photons hitting the left side of the Moon arrived from Earth,",
-  "nxt": "",
-  "frog_hint": false
+  "text": "We see a very similar trick when we examine the physics of shadows.",
+  "dur": 4.66,
+  "transition_in": "iris",
+  "prev": "",
+  "nxt": "Imagine standing in front of a powerful spotlight in a vast auditorium,",
+  "frog_hint": true
  },
  {
   "uid": "U035",
@@ -1148,12 +1148,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "We see a very similar trick when we examine the physics of shadows.",
+  "text": "Imagine standing in front of a powerful spotlight in a vast auditorium,",
   "dur": 4.66,
-  "transition_in": "fade",
-  "prev": "",
-  "nxt": "Imagine standing in front of a powerful spotlight in a vast auditorium,",
-  "frog_hint": true
+  "transition_in": "eye",
+  "prev": "We see a very similar trick when we examine the physics of shadows.",
+  "nxt": "casting your shadow onto a giant wall far behind you.",
+  "frog_hint": false
  },
  {
   "uid": "U036",
@@ -1182,12 +1182,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "Imagine standing in front of a powerful spotlight in a vast auditorium,",
+  "text": "casting your shadow onto a giant wall far behind you.",
   "dur": 4.66,
   "transition_in": "slide",
-  "prev": "We see a very similar trick when we examine the physics of shadows.",
-  "nxt": "casting your shadow onto a giant wall far behind you.",
-  "frog_hint": false
+  "prev": "Imagine standing in front of a powerful spotlight in a vast auditorium,",
+  "nxt": "If you slowly raise your hand, your shadow rises across the wall.",
+  "frog_hint": true
  },
  {
   "uid": "U037",
@@ -1216,18 +1216,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "casting your shadow onto a giant wall far behind you.",
+  "text": "If you slowly raise your hand, your shadow rises across the wall.",
   "dur": 4.66,
-  "transition_in": "zoom",
-  "prev": "Imagine standing in front of a powerful spotlight in a vast auditorium,",
-  "nxt": "If you slowly raise your hand, your shadow rises across the wall.",
-  "frog_hint": true
+  "transition_in": "fade",
+  "prev": "casting your shadow onto a giant wall far behind you.",
+  "nxt": "",
+  "frog_hint": false
  },
  {
   "uid": "U038",
-  "scene": 13,
+  "scene": 14,
   "title": "Shadows in Deep Space",
-  "art_theme": "p07a",
+  "art_theme": "p07b",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -1250,12 +1250,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "If you slowly raise your hand, your shadow rises across the wall.",
-  "dur": 4.66,
+  "text": "Now, imagine that the back wall is moved light-years away into deep space, onto a massive interstellar dust cloud.",
+  "dur": 8.84,
   "transition_in": "eye",
-  "prev": "casting your shadow onto a giant wall far behind you.",
-  "nxt": "",
-  "frog_hint": false
+  "prev": "",
+  "nxt": "If you move your fingers in front of the lamp, the shadow cast onto that cosmic cloud would sweep across vast light-years in mere seconds.",
+  "frog_hint": true
  },
  {
   "uid": "U039",
@@ -1284,18 +1284,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "Now, imagine that the back wall is moved light-years away into deep space, onto a massive interstellar dust cloud.",
+  "text": "If you move your fingers in front of the lamp, the shadow cast onto that cosmic cloud would sweep across vast light-years in mere seconds.",
   "dur": 8.84,
   "transition_in": "iris",
-  "prev": "",
-  "nxt": "If you move your fingers in front of the lamp, the shadow cast onto that cosmic cloud would sweep across vast light-years in mere seconds.",
-  "frog_hint": true
+  "prev": "Now, imagine that the back wall is moved light-years away into deep space, onto a massive interstellar dust cloud.",
+  "nxt": "",
+  "frog_hint": false
  },
  {
   "uid": "U040",
-  "scene": 14,
-  "title": "Shadows in Deep Space",
-  "art_theme": "p07b",
+  "scene": 15,
+  "title": "Giant Scissors",
+  "art_theme": "p08a",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -1318,12 +1318,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "If you move your fingers in front of the lamp, the shadow cast onto that cosmic cloud would sweep across vast light-years in mere seconds.",
-  "dur": 8.84,
-  "transition_in": "match",
-  "prev": "Now, imagine that the back wall is moved light-years away into deep space, onto a massive interstellar dust cloud.",
-  "nxt": "",
-  "frog_hint": false
+  "text": "Consider another classic thought experiment involving a giant pair of scissors.",
+  "dur": 7.34,
+  "transition_in": "seam",
+  "prev": "",
+  "nxt": "Picture a pair of blades that stretch across entire astronomical units, extending far past the orbit of Mars.",
+  "frog_hint": true
  },
  {
   "uid": "U041",
@@ -1352,12 +1352,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "Consider another classic thought experiment involving a giant pair of scissors.",
+  "text": "Picture a pair of blades that stretch across entire astronomical units, extending far past the orbit of Mars.",
   "dur": 7.34,
-  "transition_in": "diamond",
-  "prev": "",
-  "nxt": "Picture a pair of blades that stretch across entire astronomical units, extending far past the orbit of Mars.",
-  "frog_hint": true
+  "transition_in": "wash",
+  "prev": "Consider another classic thought experiment involving a giant pair of scissors.",
+  "nxt": "As you slowly close the handles on Earth, the point where the two sharp edges intersect begins to slide outward along the blades.",
+  "frog_hint": false
  },
  {
   "uid": "U042",
@@ -1386,49 +1386,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "Picture a pair of blades that stretch across entire astronomical units, extending far past the orbit of Mars.",
-  "dur": 7.34,
-  "transition_in": "push",
-  "prev": "Consider another classic thought experiment involving a giant pair of scissors.",
-  "nxt": "As you slowly close the handles on Earth, the point where the two sharp edges intersect begins to slide outward along the blades.",
-  "frog_hint": false
- },
- {
-  "uid": "U043",
-  "scene": 15,
-  "title": "Giant Scissors",
-  "art_theme": "p08a",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
   "text": "As you slowly close the handles on Earth, the point where the two sharp edges intersect begins to slide outward along the blades.",
   "dur": 7.34,
-  "transition_in": "whip",
+  "transition_in": "wipe",
   "prev": "Picture a pair of blades that stretch across entire astronomical units, extending far past the orbit of Mars.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U044",
+  "uid": "U043",
   "scene": 16,
   "title": "Giant Scissors",
   "art_theme": "p08b",
@@ -1456,13 +1422,13 @@
   },
   "text": "If the angle between the two blades is infinitesimally small,",
   "dur": 5.22,
-  "transition_in": "diamond",
+  "transition_in": "push",
   "prev": "",
   "nxt": "that point of intersection will race forward toward the tips at a velocity far greater than the speed of light.",
   "frog_hint": false
  },
  {
-  "uid": "U045",
+  "uid": "U044",
   "scene": 16,
   "title": "Giant Scissors",
   "art_theme": "p08b",
@@ -1496,7 +1462,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U046",
+  "uid": "U045",
   "scene": 16,
   "title": "Giant Scissors",
   "art_theme": "p08b",
@@ -1530,7 +1496,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U047",
+  "uid": "U046",
   "scene": 17,
   "title": "The Intersection Point",
   "art_theme": "p09a",
@@ -1557,11 +1523,45 @@
    ]
   },
   "text": "Physicists will tell you that the intersection point is an abstract mathematical concept, not a material object.",
-  "dur": 6.09,
+  "dur": 6.07,
   "transition_in": "tilt",
   "prev": "",
   "nxt": "There is no physical particle moving along the blades;",
   "frog_hint": true
+ },
+ {
+  "uid": "U047",
+  "scene": 17,
+  "title": "The Intersection Point",
+  "art_theme": "p09a",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "There is no physical particle moving along the blades;",
+  "dur": 6.07,
+  "transition_in": "page",
+  "prev": "Physicists will tell you that the intersection point is an abstract mathematical concept, not a material object.",
+  "nxt": "it is simply a geometric location where two pieces of metal overlap in space.",
+  "frog_hint": false
  },
  {
   "uid": "U048",
@@ -1590,12 +1590,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "There is no physical particle moving along the blades;",
-  "dur": 6.09,
-  "transition_in": "wash",
-  "prev": "Physicists will tell you that the intersection point is an abstract mathematical concept, not a material object.",
-  "nxt": "it is simply a geometric location where two pieces of metal overlap in space.",
-  "frog_hint": false
+  "text": "it is simply a geometric location where two pieces of metal overlap in space.",
+  "dur": 6.07,
+  "transition_in": "wave",
+  "prev": "There is no physical particle moving along the blades;",
+  "nxt": "And the biggest apparent violation is still ahead: galaxies that recede from us faster than light.",
+  "frog_hint": true
  },
  {
   "uid": "U049",
@@ -1624,12 +1624,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "it is simply a geometric location where two pieces of metal overlap in space.",
-  "dur": 6.09,
-  "transition_in": "wipe",
-  "prev": "There is no physical particle moving along the blades;",
+  "text": "And the biggest apparent violation is still ahead: galaxies that recede from us faster than light.",
+  "dur": 6.07,
+  "transition_in": "tilt",
+  "prev": "it is simply a geometric location where two pieces of metal overlap in space.",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
   "uid": "U050",
@@ -1658,12 +1658,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "Furthermore, if you close the handles on Earth,",
-  "dur": 5.88,
-  "transition_in": "seam",
+  "text": "Furthermore, if you close the handles on Earth, the mechanical force must travel through the atoms of the blades via electromagnetic interactions.",
+  "dur": 7.84,
+  "transition_in": "fade",
   "prev": "",
-  "nxt": "the mechanical force must travel through the atoms of the blades via electromagnetic interactions.",
-  "frog_hint": false
+  "nxt": "The blades themselves would bend, transmitting the motion through sound waves in the steel, which travel tens of thousands of times slower than light.",
+  "frog_hint": true
  },
  {
   "uid": "U051",
@@ -1692,12 +1692,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "the mechanical force must travel through the atoms of the blades via electromagnetic interactions.",
-  "dur": 5.88,
+  "text": "The blades themselves would bend, transmitting the motion through sound waves in the steel, which travel tens of thousands of times slower than light.",
+  "dur": 7.84,
   "transition_in": "wave",
-  "prev": "Furthermore, if you close the handles on Earth,",
-  "nxt": "The blades themselves would bend, transmitting the motion through sound waves in the steel,",
-  "frog_hint": true
+  "prev": "Furthermore, if you close the handles on Earth, the mechanical force must travel through the atoms of the blades via electromagnetic interactions.",
+  "nxt": "The tips would not even begin to move until more than a year later.",
+  "frog_hint": false
  },
  {
   "uid": "U052",
@@ -1726,49 +1726,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "The blades themselves would bend, transmitting the motion through sound waves in the steel,",
-  "dur": 5.88,
-  "transition_in": "wave",
-  "prev": "the mechanical force must travel through the atoms of the blades via electromagnetic interactions.",
-  "nxt": "which travel tens of thousands of times slower than light. The tips would not even begin to move until more than a year later.",
-  "frog_hint": false
- },
- {
-  "uid": "U053",
-  "scene": 18,
-  "title": "The Intersection Point",
-  "art_theme": "p09b",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "which travel tens of thousands of times slower than light. The tips would not even begin to move until more than a year later.",
-  "dur": 5.88,
-  "transition_in": "page",
-  "prev": "The blades themselves would bend, transmitting the motion through sound waves in the steel,",
+  "text": "The tips would not even begin to move until more than a year later.",
+  "dur": 7.84,
+  "transition_in": "push",
+  "prev": "The blades themselves would bend, transmitting the motion through sound waves in the steel, which travel tens of thousands of times slower than light.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U055",
+  "uid": "U054",
   "scene": 20,
   "title": "Light in Water",
   "art_theme": "p10b",
@@ -1802,7 +1768,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U056",
+  "uid": "U055",
   "scene": 20,
   "title": "Light in Water",
   "art_theme": "p10b",
@@ -1830,13 +1796,13 @@
   },
   "text": "such as an electron ejected from a decaying radioactive fuel rod, entering that same pool of water.",
   "dur": 6.18,
-  "transition_in": "eye",
+  "transition_in": "zoom",
   "prev": "Now, imagine a high-energy particle,",
   "nxt": "That energetic electron might plunge into the water traveling at 250,000 kilometers per second.",
   "frog_hint": false
  },
  {
-  "uid": "U057",
+  "uid": "U056",
   "scene": 20,
   "title": "Light in Water",
   "art_theme": "p10b",
@@ -1864,13 +1830,13 @@
   },
   "text": "That energetic electron might plunge into the water traveling at 250,000 kilometers per second.",
   "dur": 6.18,
-  "transition_in": "iris",
+  "transition_in": "slide",
   "prev": "such as an electron ejected from a decaying radioactive fuel rod, entering that same pool of water.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U058",
+  "uid": "U057",
   "scene": 21,
   "title": "Cherenkov Radiation",
   "art_theme": "p11a",
@@ -1904,7 +1870,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U059",
+  "uid": "U058",
   "scene": 21,
   "title": "Cherenkov Radiation",
   "art_theme": "p11a",
@@ -1932,13 +1898,13 @@
   },
   "text": "What happens when a physical particle outpaces light within a physical medium?",
   "dur": 6.23,
-  "transition_in": "push",
+  "transition_in": "wash",
   "prev": "In that specific environment, the electron is moving faster than the local speed of light in water.",
   "nxt": "The result is one of the most stunning sights in nuclear physics, known as Cherenkov radiation.",
   "frog_hint": true
  },
  {
-  "uid": "U060",
+  "uid": "U059",
   "scene": 21,
   "title": "Cherenkov Radiation",
   "art_theme": "p11a",
@@ -1972,7 +1938,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U061",
+  "uid": "U060",
   "scene": 22,
   "title": "Cherenkov Radiation",
   "art_theme": "p11b",
@@ -2000,13 +1966,13 @@
   },
   "text": "When an aircraft travels faster than the speed of sound in air, it creates an acoustic shock wave, a booming pressure front that shakes the ground.",
   "dur": 10.02,
-  "transition_in": "wave",
+  "transition_in": "whip",
   "prev": "",
   "nxt": "Similarly, when a charged particle travels faster than the phase velocity of light in a medium, it generates an optical shock wave.",
   "frog_hint": true
  },
  {
-  "uid": "U062",
+  "uid": "U061",
   "scene": 22,
   "title": "Cherenkov Radiation",
   "art_theme": "p11b",
@@ -2034,10 +2000,44 @@
   },
   "text": "Similarly, when a charged particle travels faster than the phase velocity of light in a medium, it generates an optical shock wave.",
   "dur": 9.19,
-  "transition_in": "match",
+  "transition_in": "wave",
   "prev": "When an aircraft travels faster than the speed of sound in air, it creates an acoustic shock wave, a booming pressure front that shakes the ground.",
   "nxt": "",
   "frog_hint": false
+ },
+ {
+  "uid": "U062",
+  "scene": 23,
+  "title": "Overtaking Slow Light",
+  "art_theme": "p12a",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Cherenkov radiation proves that the true cosmic speed limit is not simply",
+  "dur": 5.81,
+  "transition_in": "wipe",
+  "prev": "",
+  "nxt": "how fast light happens to be moving inside a room or a glass of water.",
+  "frog_hint": true
  },
  {
   "uid": "U063",
@@ -2066,12 +2066,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "Cherenkov radiation proves that the true cosmic speed limit is not simply",
+  "text": "how fast light happens to be moving inside a room or a glass of water.",
   "dur": 5.81,
   "transition_in": "diamond",
-  "prev": "",
-  "nxt": "how fast light happens to be moving inside a room or a glass of water.",
-  "frog_hint": true
+  "prev": "Cherenkov radiation proves that the true cosmic speed limit is not simply",
+  "nxt": "The true limit is the invariant constant c, the speed of light in the pure vacuum of space.",
+  "frog_hint": false
  },
  {
   "uid": "U064",
@@ -2100,49 +2100,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "how fast light happens to be moving inside a room or a glass of water.",
-  "dur": 5.81,
-  "transition_in": "fade",
-  "prev": "Cherenkov radiation proves that the true cosmic speed limit is not simply",
-  "nxt": "The true limit is the invariant constant c, the speed of light in the pure vacuum of space.",
-  "frog_hint": false
- },
- {
-  "uid": "U065",
-  "scene": 23,
-  "title": "Overtaking Slow Light",
-  "art_theme": "p12a",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
   "text": "The true limit is the invariant constant c, the speed of light in the pure vacuum of space.",
   "dur": 5.81,
-  "transition_in": "zoom",
+  "transition_in": "page",
   "prev": "how fast light happens to be moving inside a room or a glass of water.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U066",
+  "uid": "U065",
   "scene": 24,
   "title": "Overtaking Slow Light",
   "art_theme": "p12b",
@@ -2176,7 +2142,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U067",
+  "uid": "U066",
   "scene": 24,
   "title": "Overtaking Slow Light",
   "art_theme": "p12b",
@@ -2204,13 +2170,13 @@
   },
   "text": "299,792 kilometers per second;",
   "dur": 6.13,
-  "transition_in": "slide",
+  "transition_in": "eye",
   "prev": "The electron in the nuclear pool did not break the universal speed limit of",
   "nxt": "it merely overtook light that had been slowed down by a crowd of molecules. But waves hide an even subtler trick.",
   "frog_hint": true
  },
  {
-  "uid": "U068",
+  "uid": "U067",
   "scene": 24,
   "title": "Overtaking Slow Light",
   "art_theme": "p12b",
@@ -2244,7 +2210,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U069",
+  "uid": "U068",
   "scene": 25,
   "title": "Phase and Group Velocity",
   "art_theme": "p13a",
@@ -2272,13 +2238,13 @@
   },
   "text": "To understand how waves behave, physicists often distinguish between two different concepts: phase velocity and group velocity.",
   "dur": 7.92,
-  "transition_in": "slide",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "Imagine standing on an ocean pier watching long rolling swells travel toward the shore.",
   "frog_hint": true
  },
  {
-  "uid": "U070",
+  "uid": "U069",
   "scene": 25,
   "title": "Phase and Group Velocity",
   "art_theme": "p13a",
@@ -2306,13 +2272,13 @@
   },
   "text": "Imagine standing on an ocean pier watching long rolling swells travel toward the shore.",
   "dur": 7.92,
-  "transition_in": "match",
+  "transition_in": "slide",
   "prev": "To understand how waves behave, physicists often distinguish between two different concepts: phase velocity and group velocity.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U071",
+  "uid": "U070",
   "scene": 26,
   "title": "Phase and Group Velocity",
   "art_theme": "p13b",
@@ -2346,7 +2312,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U072",
+  "uid": "U071",
   "scene": 26,
   "title": "Phase and Group Velocity",
   "art_theme": "p13b",
@@ -2380,7 +2346,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U073",
+  "uid": "U072",
   "scene": 27,
   "title": "Phase and Group Velocity",
   "art_theme": "p13c",
@@ -2408,10 +2374,44 @@
   },
   "text": "The speed of those individual crests is the phase velocity, while the speed of the overall wave packet carrying energy is the group velocity. Here is the strange part.",
   "dur": 12.11,
-  "transition_in": "wash",
+  "transition_in": "seam",
   "prev": "",
   "nxt": "",
   "frog_hint": true
+ },
+ {
+  "uid": "U073",
+  "scene": 28,
+  "title": "Phase and Group Velocity",
+  "art_theme": "p13d",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "In some materials, the crests of a light wave can have a phase velocity greater than c.",
+  "dur": 5.39,
+  "transition_in": "tilt",
+  "prev": "",
+  "nxt": "Yet nothing real rides along with them, and a pattern of crests carries no message.",
+  "frog_hint": false
  },
  {
   "uid": "U074",
@@ -2440,12 +2440,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "In some materials, the crests of a light wave can have a phase velocity greater than c.",
+  "text": "Yet nothing real rides along with them, and a pattern of crests carries no message.",
   "dur": 5.39,
-  "transition_in": "wipe",
-  "prev": "",
-  "nxt": "Yet nothing real rides along with them, and a pattern of crests carries no message.",
-  "frog_hint": false
+  "transition_in": "page",
+  "prev": "In some materials, the crests of a light wave can have a phase velocity greater than c.",
+  "nxt": "The signal itself, the front of the wave, never outruns c.",
+  "frog_hint": true
  },
  {
   "uid": "U075",
@@ -2474,49 +2474,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "Yet nothing real rides along with them, and a pattern of crests carries no message.",
-  "dur": 5.39,
-  "transition_in": "tilt",
-  "prev": "In some materials, the crests of a light wave can have a phase velocity greater than c.",
-  "nxt": "The signal itself, the front of the wave, never outruns c.",
-  "frog_hint": true
- },
- {
-  "uid": "U076",
-  "scene": 28,
-  "title": "Phase and Group Velocity",
-  "art_theme": "p13d",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
   "text": "The signal itself, the front of the wave, never outruns c.",
   "dur": 5.39,
-  "transition_in": "page",
+  "transition_in": "diamond",
   "prev": "Yet nothing real rides along with them, and a pattern of crests carries no message.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U077",
+  "uid": "U076",
   "scene": 29,
   "title": "Entangled Particles",
   "art_theme": "p14a",
@@ -2544,13 +2510,13 @@
   },
   "text": "If waves and optical illusions cannot carry messages faster than light, what about the strange and mysterious world of quantum mechanics?",
   "dur": 7.1,
-  "transition_in": "zoom",
+  "transition_in": "push",
   "prev": "",
   "nxt": "This is where even Einstein himself felt deeply unsettled.",
   "frog_hint": true
  },
  {
-  "uid": "U078",
+  "uid": "U077",
   "scene": 29,
   "title": "Entangled Particles",
   "art_theme": "p14a",
@@ -2584,7 +2550,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U079",
+  "uid": "U078",
   "scene": 30,
   "title": "Entangled Particles",
   "art_theme": "p14b",
@@ -2612,13 +2578,13 @@
   },
   "text": "In the quantum realm, particles can become entangled,",
   "dur": 5.44,
-  "transition_in": "fade",
+  "transition_in": "iris",
   "prev": "",
   "nxt": "meaning their physical properties become inextricably linked regardless of the distance separating them.",
   "frog_hint": true
  },
  {
-  "uid": "U080",
+  "uid": "U079",
   "scene": 30,
   "title": "Entangled Particles",
   "art_theme": "p14b",
@@ -2652,7 +2618,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U081",
+  "uid": "U080",
   "scene": 30,
   "title": "Entangled Particles",
   "art_theme": "p14b",
@@ -2680,13 +2646,13 @@
   },
   "text": "Imagine creating a pair of entangled particles in a laboratory, keeping one particle on Earth,",
   "dur": 5.44,
-  "transition_in": "iris",
+  "transition_in": "slide",
   "prev": "meaning their physical properties become inextricably linked regardless of the distance separating them.",
   "nxt": "and sending the other particle to an astronaut near the rings of Saturn.",
   "frog_hint": true
  },
  {
-  "uid": "U082",
+  "uid": "U081",
   "scene": 30,
   "title": "Entangled Particles",
   "art_theme": "p14b",
@@ -2720,7 +2686,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U083",
+  "uid": "U082",
   "scene": 31,
   "title": "Instant Correlation",
   "art_theme": "p15a",
@@ -2748,10 +2714,44 @@
   },
   "text": "According to quantum mechanics, until you measure those particles, their states remain fundamentally undetermined,",
   "dur": 6.94,
-  "transition_in": "tilt",
+  "transition_in": "zoom",
   "prev": "",
   "nxt": "existing in a cloud of probabilities known as a superposition.",
   "frog_hint": true
+ },
+ {
+  "uid": "U083",
+  "scene": 31,
+  "title": "Instant Correlation",
+  "art_theme": "p15a",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "existing in a cloud of probabilities known as a superposition.",
+  "dur": 6.94,
+  "transition_in": "wipe",
+  "prev": "According to quantum mechanics, until you measure those particles, their states remain fundamentally undetermined,",
+  "nxt": "If one particle spins upward, the other must spin downward, but neither particle has chosen a definite orientation yet.",
+  "frog_hint": false
  },
  {
   "uid": "U084",
@@ -2780,49 +2780,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "existing in a cloud of probabilities known as a superposition.",
-  "dur": 6.94,
-  "transition_in": "page",
-  "prev": "According to quantum mechanics, until you measure those particles, their states remain fundamentally undetermined,",
-  "nxt": "If one particle spins upward, the other must spin downward, but neither particle has chosen a definite orientation yet.",
-  "frog_hint": false
- },
- {
-  "uid": "U085",
-  "scene": 31,
-  "title": "Instant Correlation",
-  "art_theme": "p15a",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
   "text": "If one particle spins upward, the other must spin downward, but neither particle has chosen a definite orientation yet.",
   "dur": 6.94,
-  "transition_in": "diamond",
+  "transition_in": "wash",
   "prev": "existing in a cloud of probabilities known as a superposition.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U086",
+  "uid": "U085",
   "scene": 32,
   "title": "Instant Correlation",
   "art_theme": "p15b",
@@ -2850,13 +2816,13 @@
   },
   "text": "In the standard description, the moment you measure the particle on Earth and find that its spin is pointing up,",
   "dur": 6.63,
-  "transition_in": "push",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "the particle near Saturn is instantly fixed in the opposite state, pointing down.",
   "frog_hint": false
  },
  {
-  "uid": "U087",
+  "uid": "U086",
   "scene": 32,
   "title": "Instant Correlation",
   "art_theme": "p15b",
@@ -2890,7 +2856,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U088",
+  "uid": "U087",
   "scene": 33,
   "title": "Instant Correlation",
   "art_theme": "p15c",
@@ -2918,13 +2884,13 @@
   },
   "text": "The link appears instantaneous, seemingly thousands or millions of times faster than light could ever bridge the distance.",
   "dur": 8.42,
-  "transition_in": "eye",
+  "transition_in": "zoom",
   "prev": "",
   "nxt": "Yet physicists discovered something profound: entanglement cannot be used to send any useful information faster than light.",
   "frog_hint": false
  },
  {
-  "uid": "U089",
+  "uid": "U088",
   "scene": 33,
   "title": "Instant Correlation",
   "art_theme": "p15c",
@@ -2958,7 +2924,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U090",
+  "uid": "U089",
   "scene": 34,
   "title": "The No-Communication Theorem",
   "art_theme": "p16a",
@@ -2986,10 +2952,44 @@
   },
   "text": "This ironclad rule is known in physics as the No-Communication Theorem. Imagine the astronaut near Saturn looking at their particle.",
   "dur": 6.67,
-  "transition_in": "slide",
+  "transition_in": "zoom",
   "prev": "",
   "nxt": "Because the outcomes of quantum measurements are fundamentally random,",
   "frog_hint": false
+ },
+ {
+  "uid": "U090",
+  "scene": 34,
+  "title": "The No-Communication Theorem",
+  "art_theme": "p16a",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Because the outcomes of quantum measurements are fundamentally random,",
+  "dur": 6.67,
+  "transition_in": "match",
+  "prev": "This ironclad rule is known in physics as the No-Communication Theorem. Imagine the astronaut near Saturn looking at their particle.",
+  "nxt": "the astronaut will simply see an unpredictable sequence of spin-up and spin-down results.",
+  "frog_hint": true
  },
  {
   "uid": "U091",
@@ -3018,18 +3018,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "Because the outcomes of quantum measurements are fundamentally random,",
+  "text": "the astronaut will simply see an unpredictable sequence of spin-up and spin-down results.",
   "dur": 6.67,
   "transition_in": "zoom",
-  "prev": "This ironclad rule is known in physics as the No-Communication Theorem. Imagine the astronaut near Saturn looking at their particle.",
-  "nxt": "the astronaut will simply see an unpredictable sequence of spin-up and spin-down results.",
-  "frog_hint": true
+  "prev": "Because the outcomes of quantum measurements are fundamentally random,",
+  "nxt": "",
+  "frog_hint": false
  },
  {
   "uid": "U092",
-  "scene": 34,
+  "scene": 35,
   "title": "The No-Communication Theorem",
-  "art_theme": "p16a",
+  "art_theme": "p16b",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -3052,12 +3052,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "the astronaut will simply see an unpredictable sequence of spin-up and spin-down results.",
-  "dur": 6.67,
-  "transition_in": "fade",
-  "prev": "Because the outcomes of quantum measurements are fundamentally random,",
-  "nxt": "",
-  "frog_hint": false
+  "text": "They have no way of knowing whether you have performed a measurement on Earth or not.",
+  "dur": 7.04,
+  "transition_in": "push",
+  "prev": "",
+  "nxt": "To decode any meaningful message, the astronaut must wait for you to send a classical message,",
+  "frog_hint": true
  },
  {
   "uid": "U093",
@@ -3086,49 +3086,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "They have no way of knowing whether you have performed a measurement on Earth or not.",
-  "dur": 7.04,
-  "transition_in": "wipe",
-  "prev": "",
-  "nxt": "To decode any meaningful message, the astronaut must wait for you to send a classical message,",
-  "frog_hint": true
- },
- {
-  "uid": "U094",
-  "scene": 35,
-  "title": "The No-Communication Theorem",
-  "art_theme": "p16b",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
   "text": "To decode any meaningful message, the astronaut must wait for you to send a classical message,",
   "dur": 7.04,
-  "transition_in": "seam",
+  "transition_in": "tilt",
   "prev": "They have no way of knowing whether you have performed a measurement on Earth or not.",
   "nxt": "via radio waves or light signals, telling them which measurements you made. That classical signal can only travel at the speed of light.",
   "frog_hint": false
  },
  {
-  "uid": "U095",
+  "uid": "U094",
   "scene": 35,
   "title": "The No-Communication Theorem",
   "art_theme": "p16b",
@@ -3162,7 +3128,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U096",
+  "uid": "U095",
   "scene": 36,
   "title": "No Cosmic Telegraph",
   "art_theme": "p17a",
@@ -3190,13 +3156,13 @@
   },
   "text": "Nature seems to protect causality with remarkable elegance.",
   "dur": 8.5,
-  "transition_in": "zigzag",
+  "transition_in": "wipe",
   "prev": "",
   "nxt": "Entanglement provides an instantaneous correlation between two distant points in space, but it adamantly refuses to act as a cosmic telegraph.",
   "frog_hint": false
  },
  {
-  "uid": "U097",
+  "uid": "U096",
   "scene": 36,
   "title": "No Cosmic Telegraph",
   "art_theme": "p17a",
@@ -3224,13 +3190,13 @@
   },
   "text": "Entanglement provides an instantaneous correlation between two distant points in space, but it adamantly refuses to act as a cosmic telegraph.",
   "dur": 8.5,
-  "transition_in": "wash",
+  "transition_in": "iris",
   "prev": "Nature seems to protect causality with remarkable elegance.",
   "nxt": "But if the laws of physics prevent particles, waves, and quantum states from outrunning light, what about the stage upon which all of these things exist? What about space itself?",
   "frog_hint": true
  },
  {
-  "uid": "U098",
+  "uid": "U097",
   "scene": 36,
   "title": "No Cosmic Telegraph",
   "art_theme": "p17a",
@@ -3264,7 +3230,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U099",
+  "uid": "U098",
   "scene": 37,
   "title": "Receding Galaxies",
   "art_theme": "p18a",
@@ -3298,7 +3264,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U100",
+  "uid": "U099",
   "scene": 37,
   "title": "Receding Galaxies",
   "art_theme": "p18a",
@@ -3326,13 +3292,13 @@
   },
   "text": "The universe is filled with billions of galaxies, and almost all of them are moving away from us.",
   "dur": 7.76,
-  "transition_in": "page",
+  "transition_in": "seam",
   "prev": "When we turn our telescopes toward the farthest reaches of the night sky, we encounter the most staggering realization of all.",
   "nxt": "In the early twentieth century, astronomers realized that the farther away a galaxy is, the faster it appears to be receding.",
   "frog_hint": false
  },
  {
-  "uid": "U101",
+  "uid": "U100",
   "scene": 37,
   "title": "Receding Galaxies",
   "art_theme": "p18a",
@@ -3360,13 +3326,13 @@
   },
   "text": "In the early twentieth century, astronomers realized that the farther away a galaxy is, the faster it appears to be receding.",
   "dur": 7.76,
-  "transition_in": "diamond",
+  "transition_in": "match",
   "prev": "The universe is filled with billions of galaxies, and almost all of them are moving away from us.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U103",
+  "uid": "U102",
   "scene": 39,
   "title": "Receding Galaxies",
   "art_theme": "p18c",
@@ -3400,7 +3366,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U104",
+  "uid": "U103",
   "scene": 40,
   "title": "The Raisin Bread Universe",
   "art_theme": "p19a",
@@ -3428,13 +3394,13 @@
   },
   "text": "Imagine baking a loaf of raisin bread in your kitchen oven. As the dough warms and rises, it expands uniformly in every direction.",
   "dur": 8.94,
-  "transition_in": "iris",
+  "transition_in": "fade",
   "prev": "",
   "nxt": "If you observe two raisins that were initially close together, they move apart slowly as the dough stretches between them.",
   "frog_hint": false
  },
  {
-  "uid": "U105",
+  "uid": "U104",
   "scene": 40,
   "title": "The Raisin Bread Universe",
   "art_theme": "p19a",
@@ -3462,13 +3428,13 @@
   },
   "text": "If you observe two raisins that were initially close together, they move apart slowly as the dough stretches between them.",
   "dur": 8.94,
-  "transition_in": "zoom",
+  "transition_in": "slide",
   "prev": "Imagine baking a loaf of raisin bread in your kitchen oven. As the dough warms and rises, it expands uniformly in every direction.",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U106",
+  "uid": "U105",
   "scene": 41,
   "title": "The Raisin Bread Universe",
   "art_theme": "p19b",
@@ -3496,13 +3462,13 @@
   },
   "text": "But if you observe two raisins located on opposite ends of the loaf, the amount of dough expanding between them is far greater.",
   "dur": 6.39,
-  "transition_in": "wipe",
+  "transition_in": "diamond",
   "prev": "",
   "nxt": "From the perspective of either raisin, the other seems to be flying away at a tremendous speed,",
   "frog_hint": false
  },
  {
-  "uid": "U107",
+  "uid": "U106",
   "scene": 41,
   "title": "The Raisin Bread Universe",
   "art_theme": "p19b",
@@ -3536,7 +3502,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U108",
+  "uid": "U107",
   "scene": 41,
   "title": "The Raisin Bread Universe",
   "art_theme": "p19b",
@@ -3564,10 +3530,44 @@
   },
   "text": "even though neither raisin is actually crawling through the bread.",
   "dur": 6.39,
-  "transition_in": "push",
+  "transition_in": "page",
   "prev": "From the perspective of either raisin, the other seems to be flying away at a tremendous speed,",
   "nxt": "",
   "frog_hint": false
+ },
+ {
+  "uid": "U108",
+  "scene": 42,
+  "title": "Stretching Space",
+  "art_theme": "p20a",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "In our cosmos, the galaxies are like those raisins, and spacetime itself is the expanding dough.",
+  "dur": 6.92,
+  "transition_in": "push",
+  "prev": "",
+  "nxt": "Galaxies are not rocketing through the void. Instead, the space between them keeps stretching.",
+  "frog_hint": true
  },
  {
   "uid": "U109",
@@ -3596,49 +3596,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "In our cosmos, the galaxies are like those raisins, and spacetime itself is the expanding dough.",
-  "dur": 6.92,
-  "transition_in": "tilt",
-  "prev": "",
-  "nxt": "Galaxies are not rocketing through the void. Instead, the space between them keeps stretching.",
-  "frog_hint": true
- },
- {
-  "uid": "U110",
-  "scene": 42,
-  "title": "Stretching Space",
-  "art_theme": "p20a",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
   "text": "Galaxies are not rocketing through the void. Instead, the space between them keeps stretching.",
   "dur": 6.92,
-  "transition_in": "seam",
+  "transition_in": "iris",
   "prev": "In our cosmos, the galaxies are like those raisins, and spacetime itself is the expanding dough.",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U111",
+  "uid": "U110",
   "scene": 43,
   "title": "Stretching Space",
   "art_theme": "p20b",
@@ -3672,7 +3638,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U112",
+  "uid": "U111",
   "scene": 43,
   "title": "Stretching Space",
   "art_theme": "p20b",
@@ -3700,13 +3666,13 @@
   },
   "text": "the cumulative rate of expansion across billions of light-years easily outpaces the speed of light.",
   "dur": 7.05,
-  "transition_in": "match",
+  "transition_in": "iris",
   "prev": "Because the expansion of space adds up across vast cosmic distances,",
   "nxt": "The light emitted by those distant galaxies is stretched into longer, redder wavelengths, eventually fading into the deep infrared.",
   "frog_hint": false
  },
  {
-  "uid": "U113",
+  "uid": "U112",
   "scene": 43,
   "title": "Stretching Space",
   "art_theme": "p20b",
@@ -3734,10 +3700,44 @@
   },
   "text": "The light emitted by those distant galaxies is stretched into longer, redder wavelengths, eventually fading into the deep infrared.",
   "dur": 7.05,
-  "transition_in": "iris",
+  "transition_in": "fade",
   "prev": "the cumulative rate of expansion across billions of light-years easily outpaces the speed of light.",
   "nxt": "",
   "frog_hint": true
+ },
+ {
+  "uid": "U113",
+  "scene": 44,
+  "title": "The Event Horizon",
+  "art_theme": "p21a",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "This brings us to a poignant boundary known as the cosmological event horizon. In the standard model of cosmology,",
+  "dur": 8.56,
+  "transition_in": "wash",
+  "prev": "",
+  "nxt": "galaxies beyond a certain distance are carried away so fast that the light they emit today will never be able to reach our eyes.",
+  "frog_hint": false
  },
  {
   "uid": "U114",
@@ -3766,49 +3766,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "This brings us to a poignant boundary known as the cosmological event horizon. In the standard model of cosmology,",
-  "dur": 8.56,
-  "transition_in": "zigzag",
-  "prev": "",
-  "nxt": "galaxies beyond a certain distance are carried away so fast that the light they emit today will never be able to reach our eyes.",
-  "frog_hint": false
- },
- {
-  "uid": "U115",
-  "scene": 44,
-  "title": "The Event Horizon",
-  "art_theme": "p21a",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
   "text": "galaxies beyond a certain distance are carried away so fast that the light they emit today will never be able to reach our eyes.",
   "dur": 8.82,
-  "transition_in": "fade",
+  "transition_in": "wipe",
   "prev": "This brings us to a poignant boundary known as the cosmological event horizon. In the standard model of cosmology,",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U116",
+  "uid": "U115",
   "scene": 45,
   "title": "The Event Horizon",
   "art_theme": "p21b",
@@ -3842,7 +3808,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U117",
+  "uid": "U116",
   "scene": 45,
   "title": "The Event Horizon",
   "art_theme": "p21b",
@@ -3870,13 +3836,13 @@
   },
   "text": "Over hundreds of billions of years, those distant beacons will slip silently out of view,",
   "dur": 6.16,
-  "transition_in": "diamond",
+  "transition_in": "page",
   "prev": "It is as if the galaxy is trying to swim upstream against a cosmic river that flows faster than its swimming stroke.",
   "nxt": "leaving our local group of galaxies isolated in the darkness.",
   "frog_hint": true
  },
  {
-  "uid": "U118",
+  "uid": "U117",
   "scene": 45,
   "title": "The Event Horizon",
   "art_theme": "p21b",
@@ -3904,13 +3870,13 @@
   },
   "text": "leaving our local group of galaxies isolated in the darkness.",
   "dur": 6.16,
-  "transition_in": "seam",
+  "transition_in": "diamond",
   "prev": "Over hundreds of billions of years, those distant beacons will slip silently out of view,",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U119",
+  "uid": "U118",
   "scene": 46,
   "title": "Why It Matters",
   "art_theme": "p22a",
@@ -3944,7 +3910,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U120",
+  "uid": "U119",
   "scene": 46,
   "title": "Why It Matters",
   "art_theme": "p22a",
@@ -3978,7 +3944,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U121",
+  "uid": "U120",
   "scene": 46,
   "title": "Why It Matters",
   "art_theme": "p22a",
@@ -4006,10 +3972,44 @@
   },
   "text": "it is the fundamental architecture that makes our universe stable, orderly, and knowable.",
   "dur": 5.71,
-  "transition_in": "push",
+  "transition_in": "tilt",
   "prev": "The universal speed limit is not an obstacle created to frustrate human ambition;",
   "nxt": "",
   "frog_hint": true
+ },
+ {
+  "uid": "U121",
+  "scene": 47,
+  "title": "Why It Matters",
+  "art_theme": "p22b",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "If you could travel faster than light in a vacuum, you would inevitably violate causality.",
+  "dur": 6.51,
+  "transition_in": "seam",
+  "prev": "",
+  "nxt": "Under the mathematics of special relativity, if you can send a signal faster than light in one reference frame,",
+  "frog_hint": false
  },
  {
   "uid": "U122",
@@ -4038,12 +4038,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "If you could travel faster than light in a vacuum, you would inevitably violate causality.",
+  "text": "Under the mathematics of special relativity, if you can send a signal faster than light in one reference frame,",
   "dur": 6.51,
-  "transition_in": "tilt",
-  "prev": "",
-  "nxt": "Under the mathematics of special relativity, if you can send a signal faster than light in one reference frame,",
-  "frog_hint": false
+  "transition_in": "zigzag",
+  "prev": "If you could travel faster than light in a vacuum, you would inevitably violate causality.",
+  "nxt": "there always exists another reference frame where that signal arrives before it was even sent.",
+  "frog_hint": true
  },
  {
   "uid": "U123",
@@ -4072,18 +4072,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "Under the mathematics of special relativity, if you can send a signal faster than light in one reference frame,",
+  "text": "there always exists another reference frame where that signal arrives before it was even sent.",
   "dur": 6.51,
-  "transition_in": "page",
-  "prev": "If you could travel faster than light in a vacuum, you would inevitably violate causality.",
-  "nxt": "there always exists another reference frame where that signal arrives before it was even sent.",
-  "frog_hint": true
+  "transition_in": "push",
+  "prev": "Under the mathematics of special relativity, if you can send a signal faster than light in one reference frame,",
+  "nxt": "",
+  "frog_hint": false
  },
  {
   "uid": "U124",
-  "scene": 47,
-  "title": "Why It Matters",
-  "art_theme": "p22b",
+  "scene": 48,
+  "title": "Tonight",
+  "art_theme": "p23a",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -4106,12 +4106,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "there always exists another reference frame where that signal arrives before it was even sent.",
-  "dur": 6.51,
-  "transition_in": "wipe",
-  "prev": "Under the mathematics of special relativity, if you can send a signal faster than light in one reference frame,",
-  "nxt": "",
-  "frog_hint": false
+  "text": "Tonight, as you look around your home or gaze up at the quiet stars through your window,",
+  "dur": 5.63,
+  "transition_in": "tilt",
+  "prev": "",
+  "nxt": "take a moment to appreciate the invisible boundaries that hold reality together.",
+  "frog_hint": true
  },
  {
   "uid": "U125",
@@ -4140,18 +4140,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "Tonight, as you look around your home or gaze up at the quiet stars through your window,",
+  "text": "take a moment to appreciate the invisible boundaries that hold reality together.",
   "dur": 5.63,
   "transition_in": "wash",
-  "prev": "",
-  "nxt": "take a moment to appreciate the invisible boundaries that hold reality together.",
-  "frog_hint": true
+  "prev": "Tonight, as you look around your home or gaze up at the quiet stars through your window,",
+  "nxt": "",
+  "frog_hint": false
  },
  {
   "uid": "U126",
-  "scene": 48,
+  "scene": 49,
   "title": "Tonight",
-  "art_theme": "p23a",
+  "art_theme": "p23b",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -4174,12 +4174,12 @@
     "#ff7a5a"
    ]
   },
-  "text": "take a moment to appreciate the invisible boundaries that hold reality together.",
-  "dur": 5.63,
-  "transition_in": "match",
-  "prev": "Tonight, as you look around your home or gaze up at the quiet stars through your window,",
-  "nxt": "",
-  "frog_hint": false
+  "text": "The light from your bedside lamp, the faint glow of your smartphone screen,",
+  "dur": 7.41,
+  "transition_in": "wipe",
+  "prev": "",
+  "nxt": "and the photons streaming from galaxies billions of years old are all honoring the exact same speed limit.",
+  "frog_hint": true
  },
  {
   "uid": "U127",
@@ -4208,49 +4208,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "The light from your bedside lamp, the faint glow of your smartphone screen,",
-  "dur": 7.41,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "and the photons streaming from galaxies billions of years old are all honoring the exact same speed limit.",
-  "frog_hint": true
- },
- {
-  "uid": "U128",
-  "scene": 49,
-  "title": "Tonight",
-  "art_theme": "p23b",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
   "text": "and the photons streaming from galaxies billions of years old are all honoring the exact same speed limit.",
   "dur": 7.41,
-  "transition_in": "fade",
+  "transition_in": "seam",
   "prev": "The light from your bedside lamp, the faint glow of your smartphone screen,",
   "nxt": "That steady, invariant speed is the silent heartbeat of the cosmos, preserving the order of cause and effect across every second of our lives.",
   "frog_hint": false
  },
  {
-  "uid": "U129",
+  "uid": "U128",
   "scene": 49,
   "title": "Tonight",
   "art_theme": "p23b",

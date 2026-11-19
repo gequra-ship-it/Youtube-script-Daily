@@ -1,18 +1,41 @@
 {
- "centre": "light as a glowing orb on the top step of a winners' podium, a rocket and a race car below it",
+ "centre": "a single light beam racing across empty black space above a tape measure unrolling to measure it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Top speed!",
-   "x": 1210,
-   "y": 360,
+   "type": "name",
+   "text": "light in a vacuum",
+   "x": 820,
+   "y": 330,
    "to": [
-    1020,
-    410
-   ]
+    700,
+    462
+   ],
+   "word": "light in a vacuum"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": "mv-path-light-front",
+  "kind": "ride",
+  "x": 668,
+  "y": 536,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
 }

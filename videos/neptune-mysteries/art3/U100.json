@@ -1,52 +1,18 @@
 {
- "centre": "a ripe cantaloupe melon floating above a dimpled pink-cream Triton surface",
- "focus": [
-  960,
-  470,
-  1.8
- ],
- "focus_word": "cantaloupe",
- "sfx": [],
+ "centre": "dark dust and nitrogen plume spouting from a geyser on frozen Triton",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "cantaloupe",
-   "x": 1330,
-   "y": 330,
+   "text": "geysers",
+   "x": 1340,
+   "y": 560,
    "to": [
-    1070,
-    430
+    1000,
+    620
    ],
-   "word": "cantaloupe"
+   "word": "geysers"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "happy"
-   }
-  ],
-  "act": {
-   "type": "hopalong",
-   "obj": "mv-hop-melon-seed"
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 1552,
-  "y": 790,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "behind": null,
-  "outfit": [
-   "facemask"
-  ],
-  "says": [
-   {
-    "text": "Hop hop!",
-    "shout": true
-   }
-  ]
- }
+ ]
 }

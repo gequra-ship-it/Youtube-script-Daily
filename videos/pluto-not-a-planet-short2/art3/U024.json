@@ -1,42 +1,41 @@
 {
- "centre": "a poster-style column of nine planet discs with the tiny last one glowing",
+ "centre": "a screen showing a large heart-marked Pluto with a round play button",
  "focus": [
   540,
-  1350,
-  1.8
+  860,
+  1.5
  ],
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "76 YEARS",
-   "word": "seventy-six years"
-  }
- ],
+ "focus_word": "full video",
  "frog": {
   "moods": [
    {
-    "mood": "determined"
+    "mood": "curious"
    }
   ],
-  "act": "write",
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-play-button",
+   "h": 116
+  },
   "outfit": [
    "helmet",
-   "goldvisor"
+   "antenna"
   ],
-  "ride": "mv-core-glide-jupiter-planet",
-  "kind": "ride",
-  "x": 645,
-  "y": 927,
+  "ride": null,
+  "kind": "bg",
+  "x": 760,
+  "y": 1088,
   "s": 1.09,
   "flip": -1,
-  "bside": 1,
+  "bside": -1,
   "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "says": [
    {
-    "text": "Noted!",
-    "shout": false
+    "text": "Whoa!",
+    "shout": true
    }
   ]
  }

@@ -1,23 +1,50 @@
 {
- "centre": "a glass jar of orange tholin dust on a kitchen shelf, with a small idea bulb",
+ "centre": "a golden hammer made of sunlight striking a cluster of upper-air molecules above Titan's limb",
  "focus": [
   960,
   560,
-  1.5
+  1.6
  ],
- "focus_word": "tholins",
- "sfx": [],
+ "focus_word": "hammer",
  "labels": [
   {
    "type": "name",
-   "text": "Tholins",
-   "x": 1240,
-   "y": 640,
+   "text": "Upper air",
+   "x": 1480,
+   "y": 620,
    "to": [
-    1060,
-    620
+    1480,
+    740
    ],
-   "word": "tholins"
+   "word": "upper air"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": {
+   "type": "fan"
+  },
+  "ride": "mv-path-energetic-particle",
+  "kind": "ride",
+  "x": 438,
+  "y": 270,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Phew...",
+    "shout": false
+   }
+  ]
+ }
 }

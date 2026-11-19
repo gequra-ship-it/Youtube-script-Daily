@@ -1,55 +1,41 @@
 {
- "centre": "a vertical line of galaxies at three distances, each with a longer arrow the farther it is",
+ "centre": "a deep-space observatory with a gold mirror and a sunshield looks down on a field of far galaxies",
  "focus": [
-  600,
   540,
-  1.7
+  620,
+  1.6
  ],
- "focus_word": "faster it appears",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Galaxy",
-   "x": 760,
-   "y": 640,
-   "to": [
-    610,
-    560
-   ],
-   "word": "galaxy"
-  }
- ],
+ "focus_word": "deep-space observatories",
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "happy"
+   },
+   {
+    "word": "For the",
+    "mood": "happy"
    }
   ],
   "act": {
-   "type": "launched",
-   "obj": "mv-popin-tick-near",
-   "h": 0
+   "type": "swimstroke",
+   "dist": 324
   },
   "outfit": [
-   "helmet",
-   "moonboots"
+   "diver"
   ],
-  "x": 330,
-  "y": 1090,
-  "s": 1.09,
-  "flip": 1,
+  "x": 820,
+  "y": 1560,
+  "s": 1.05,
+  "flip": -1,
   "kind": "bg",
   "ride": null,
   "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
   "says": [
    {
-    "text": "Whoa!",
+    "text": "Blub blub!",
     "shout": true
    }
   ],
-  "bside": 1
+  "bside": -1
  }
 }

@@ -1,29 +1,30 @@
 {
- "centre": "glowing idea lamp swinging above a small black hole",
+ "centre": "flat glowing plate above a ghost wire cube joined by light threads",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "excited"
    }
   ],
-  "act": {
-   "type": "leanback"
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 150,
-  "y": 1156,
-  "s": 0.9,
-  "flip": 1,
+  "act": "dance",
+  "ride": "mv-core-approach-wire-cube",
+  "kind": "ride",
+  "x": 788,
+  "y": 1254,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "lab",
    "cap"
   ],
-  "says": [],
-  "bside": 1
+  "says": [
+   {
+    "text": "La la la~",
+    "shout": false
+   }
+  ]
  }
 }

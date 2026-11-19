@@ -1,11 +1,35 @@
 {
- "centre": "Titan, small, beside Saturn; craft travelling from Earth, timeline ticks below",
+ "centre": "Jigsaw with the final centre piece (carrying a sample tube) sliding in",
  "focus": [
   540,
   860,
   1.5
  ],
- "focus_word": "mid twenty thirties",
- "sfx": [],
- "labels": []
+ "focus_word": "new piece",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-slide-puzzle-piece",
+  "kind": "ride",
+  "x": 396,
+  "y": 960,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Hmm, hard.",
+    "shout": false
+   }
+  ]
+ }
 }

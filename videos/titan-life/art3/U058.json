@@ -1,23 +1,35 @@
 {
- "centre": "a stack of glowing building blocks on a shelf between Titan and Earth",
+ "centre": "a large glowing not-equal sign between a cluster of organic molecules and a dashed ghost cell with a question mark",
  "focus": [
   960,
-  560,
+  500,
   1.5
  ],
- "focus_word": "building blocks",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Building blocks",
-   "x": 960,
-   "y": 330,
-   "to": [
-    960,
-    470
-   ],
-   "word": "building blocks"
-  }
- ]
+ "focus_word": "not the same",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "balance",
+  "ride": "mv-core-glide-unequal-sign",
+  "kind": "ride",
+  "x": 1198,
+  "y": 700,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,20 +1,41 @@
 {
- "centre": "the dust cloud fills the frame; a finger shadow sweeps across it along a dashed arc while the fingers near the lamp barely move",
+ "centre": "a giant pair of open scissors floating among stars and far galaxies, a thought-experiment object",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "track": false,
  "labels": [
   {
    "type": "name",
-   "text": "Shadow",
-   "x": 1000,
-   "y": 250,
+   "text": "Scissors",
+   "x": 1300,
+   "y": 220,
    "to": [
-    860,
-    470
+    1250,
+    400
    ],
-   "word": "the shadow"
+   "word": "scissors"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "ride": "mv-core-approach-scissors",
+  "kind": "ride",
+  "x": 1471,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "beanie"
+  ],
+  "says": []
+ }
 }

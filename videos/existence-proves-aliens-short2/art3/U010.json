@@ -1,69 +1,27 @@
 {
- "centre": "scale line from the Sun down to the nearest star, little Voyager 1 just past the Sun",
+ "centre": "close-up of the Voyager 1 probe drifting on, a long faint trail behind it and a tiny distant star far ahead",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "the sun",
-   "x": 280,
-   "y": 380,
-   "to": [
-    480,
-    380
-   ],
-   "word": "the sun"
-  },
-  {
-   "type": "name",
-   "text": "nearest star",
-   "x": 790,
-   "y": 1310,
-   "to": [
-    590,
-    1310
-   ],
-   "word": "nearest star"
-  },
-  {
-   "type": "name",
-   "text": "Voyager 1",
-   "x": 820,
-   "y": 640,
-   "to": [
-    640,
-    590
-   ],
-   "word": "Voyager 1"
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "dizzy"
+   "type": "binocs"
   },
+  "ride": "mv-core-glide-voyager-probe",
+  "kind": "ride",
+  "x": 839,
+  "y": 1234,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
   "outfit": [
    "helmet",
-   "antenna"
+   "patch"
   ],
-  "ride": "mv-path-voyager-probe",
-  "kind": "ride",
-  "x": 511,
-  "y": 609,
-  "s": 1.09,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Wow...",
-    "shout": false
-   }
-  ]
+  "says": []
  }
 }

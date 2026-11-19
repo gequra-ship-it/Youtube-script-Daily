@@ -1,44 +1,37 @@
 {
- "centre": "a pale, still, icy moon (dashed outline: what astronomers assumed) watched by a telescope in an observatory dome on Earth",
+ "centre": "a methane rain cloud above a hillside with a river gully cut into the layered ground",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Shhh... all quiet",
-   "x": 1290,
-   "y": 330,
-   "to": [
-    1060,
-    410
-   ]
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "chilly"
-   },
-   {
-    "word": "Astronomers had",
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "rubhands"
+   "type": "dripped",
+   "obj": "mv-drip-methane-raindrop",
+   "serious": false
   },
-  "ride": "mv-core-glide-icy-moon",
-  "kind": "ride",
-  "x": 880,
-  "y": 360,
-  "s": 1.15,
-  "flip": 1,
+  "ride": null,
+  "kind": "bg",
+  "x": 1470,
+  "y": 528,
+  "s": 0.95,
+  "flip": -1,
   "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "outfit": [
-   "scarf",
-   "beanie"
+   "cap"
   ],
-  "says": []
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
  }
 }

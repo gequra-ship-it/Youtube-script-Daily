@@ -1,19 +1,45 @@
 {
- "centre": "a long steel blade bending as the push travels up it as a sound wave through the steel",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "inside the steel blade: a lattice of atoms joined by springy bonds, with a glowing push passing from atom to atom",
+ "focus": [
+  525,
+  880,
+  1.5
+ ],
+ "focus_word": "atoms",
  "labels": [
   {
    "type": "name",
-   "text": "sound waves",
-   "x": 250,
-   "y": 900,
+   "text": "atoms",
+   "x": 760,
+   "y": 560,
    "to": [
-    380,
-    980
+    690,
+    620
    ],
-   "word": "sound waves"
+   "word": "atoms"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "ride": "mv-path-force-pulse",
+  "kind": "ride",
+  "x": 659,
+  "y": 1420,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bandana",
+   "bowtie"
+  ],
+  "says": []
+ }
 }

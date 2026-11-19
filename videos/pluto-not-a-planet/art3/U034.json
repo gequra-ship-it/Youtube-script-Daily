@@ -1,17 +1,48 @@
 {
- "centre": "a brass balance scale: Earth in one pan and a pale Pluto of equal weight in the other",
+ "centre": "a mass gauge whose level dropped to match the reddish planet Mars, joined by a dashed level line",
  "labels": [
   {
    "type": "num",
-   "text": "1931",
-   "word": "1931"
+   "text": "1948",
+   "word": "1948"
+  },
+  {
+   "type": "name",
+   "text": "Mars",
+   "x": 1180,
+   "y": 330,
+   "to": [
+    1180,
+    430
+   ],
+   "word": "Mars"
   }
  ],
- "focus": [
-  960,
-  440,
-  1.5
- ],
- "focus_word": "the mass of Earth",
- "sfx": []
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "scope",
+  "ride": "mv-core-glide-mars-planet",
+  "kind": "ride",
+  "x": 1450,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "I see it!",
+    "shout": false
+   }
+  ]
+ }
 }

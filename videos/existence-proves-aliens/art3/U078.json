@@ -1,44 +1,40 @@
 {
- "centre": "a radio dish on a farm hill pointing at a quiet starry sky",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Hello? Anyone?",
-   "x": 1240,
-   "y": 400,
-   "to": [
-    975,
-    405
-   ]
-  }
+ "centre": "a probe flying through a haze plume with a tray showing a salt crystal, an organic molecule and a hydrogen pair",
+ "focus": [
+  960,
+  740,
+  1.5
  ],
+ "focus_word": "salts, organic molecules, and hydrogen",
  "frog": {
   "moods": [
    {
     "mood": "curious"
    }
   ],
-  "act": "think",
-  "kind": "bg",
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-hydrogen-pair",
+   "h": 68
+  },
   "ride": null,
-  "behind": null,
-  "x": 1148,
-  "y": 670,
+  "kind": "bg",
+  "x": 1322,
+  "y": 784,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "outfit": [
-   "chef",
-   "bowtie"
+   "cap"
   ],
   "says": [
    {
-    "text": "Beep... beep.",
-    "shout": false
+    "text": "Whoa!",
+    "shout": true
    }
   ]
  }

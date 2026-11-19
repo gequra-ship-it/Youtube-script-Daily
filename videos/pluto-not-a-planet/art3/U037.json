@@ -1,23 +1,39 @@
 {
- "centre": "Pluto with its heart-shaped region and a grey moon Charon about half its width orbiting beside it; a small photo print with the bulge in the corner",
- "labels": [
-  {
-   "type": "name",
-   "text": "Charon",
-   "x": 1270,
-   "y": 230,
-   "to": [
-    1270,
-    320
-   ],
-   "word": "Charon"
-  }
+ "centre": "a gift box lifting its lid to reveal Pluto and its moon Charon above it, beside an open notebook with an orbit sketch",
+ "iris": [
+  700,
+  400
  ],
  "focus": [
-  1270,
-  360,
-  1.7
+  700,
+  390,
+  1.6
  ],
- "focus_word": "large moon",
- "sfx": []
+ "focus_word": "incredible gift",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": "write",
+  "ride": "mv-core-glide-pluto-planet",
+  "kind": "ride",
+  "x": 541,
+  "y": 481,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Noted!",
+    "shout": false
+   }
+  ]
+ }
 }

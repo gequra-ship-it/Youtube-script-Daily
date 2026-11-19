@@ -1,30 +1,53 @@
 {
- "centre": "a ground telescope aims at two icy worlds: egg-shaped Haumea and reddish Makemake; an icy chunk drifts by",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a dictionary open on a desk under a lamp: the definition box is empty, a magnifier searches it",
+ "focus": [
+  715,
+  1115,
+  1.6
+ ],
+ "focus_word": "strict scientific definition",
  "labels": [
   {
    "type": "name",
-   "text": "Haumea",
-   "x": 330,
-   "y": 680,
+   "text": "planet",
+   "x": 500,
+   "y": 920,
    "to": [
-    310,
-    540
+    470,
+    1010
    ],
-   "word": "Haumea"
-  },
-  {
-   "type": "name",
-   "text": "Makemake",
-   "x": 760,
-   "y": 600,
-   "to": [
-    770,
-    720
-   ],
-   "word": "Makemake"
+   "word": "planet"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-path-magnifier-lens",
+  "kind": "ride",
+  "x": 542,
+  "y": 1247,
+  "s": 1.0,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
 }

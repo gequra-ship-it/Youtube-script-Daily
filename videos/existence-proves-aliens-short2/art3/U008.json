@@ -1,54 +1,51 @@
 {
- "centre": "a radio dish on a night hill sending wavy signals up into space, an old radio set beside it",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a tiny glowing radio bubble around the Sun inside the enormous spiral of the Milky Way",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "tiny bubble",
  "labels": [
   {
-   "type": "say",
-   "text": "Hello, space!",
-   "x": 820,
-   "y": 640,
-   "to": [
-    640,
-    800
-   ]
-  },
-  {
    "type": "name",
-   "text": "radio signals",
-   "x": 280,
-   "y": 1330,
+   "text": "tiny bubble",
+   "x": 540,
+   "y": 1010,
    "to": [
-    255,
-    1240
+    540,
+    935
    ],
-   "word": "radio signals"
+   "word": "tiny bubble"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "surprised"
    }
   ],
-  "act": "dance",
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-radio-bubble"
+  },
   "outfit": [
-   "helmet"
+   "helmet",
+   "goldvisor"
   ],
   "kind": "bg",
   "ride": null,
   "behind": null,
-  "x": 724,
-  "y": 922,
+  "x": 664,
+  "y": 940,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "says": [
    {
-    "text": "Beep... beep.",
-    "shout": false
+    "text": "Whoa, it grows!",
+    "shout": true
    }
   ]
  }

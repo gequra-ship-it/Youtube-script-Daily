@@ -1,34 +1,26 @@
 {
- "centre": "jigsaw table seen from above: scattered starry puzzle pieces; the central piece, showing Earth, turns around to face the other way",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "the puzzle",
- "sfx": [],
- "labels": [],
+ "centre": "a vast face-on spiral galaxy turning slowly; dashed search markers pop up across it one by one, each empty; a little probe drifts in from the corner",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
     "mood": "curious"
    }
   ],
-  "act": "think",
-  "x": 1660,
-  "y": 460,
-  "s": 0.77,
-  "flip": -1,
+  "act": {
+   "type": "measure"
+  },
+  "x": 260,
+  "y": 780,
+  "s": 0.88,
+  "flip": 1,
   "kind": "bg",
   "outfit": [
-   "glasses"
+   "alien",
+   "bowtie"
   ],
-  "says": [
-   {
-    "text": "Let me think.",
-    "shout": false
-   }
-  ],
-  "bside": -1
+  "says": [],
+  "bside": 1
  }
 }

@@ -1,30 +1,46 @@
 {
- "centre": "a long dust cloud with a shadow at each end, each made by its own blocked light, and a broken link between them",
+ "centre": "the full Moon with a red laser dot sweeping across its disk, made of separate photons from a pointer below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "one end",
-   "x": 300,
-   "y": 360,
+   "text": "laser dot",
+   "x": 260,
+   "y": 940,
    "to": [
-    470,
-    460
+    380,
+    650
    ],
-   "word": "one end"
-  },
-  {
-   "type": "name",
-   "text": "other end",
-   "x": 820,
-   "y": 1360,
-   "to": [
-    670,
-    1230
-   ],
-   "word": "other end"
+   "word": "laser dot"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "ride": "mv-path-red-dot",
+  "kind": "ride",
+  "x": 476,
+  "y": 692,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "says": [
+   {
+    "text": "Phew.",
+    "shout": false
+   }
+  ]
+ }
 }

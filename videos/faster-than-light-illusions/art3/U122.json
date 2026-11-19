@@ -1,11 +1,32 @@
 {
- "centre": "a ball rolls toward a row of dominoes on a glass table, but the last domino is already lying flat before the first one is touched",
+ "centre": "a split frame: above, a station fires a bright signal dart at a dish; below, another ship passes the other way",
  "focus": [
-  1480,
-  700,
+  470,
+  300,
   1.6
  ],
- "focus_word": "causality",
- "sfx": [],
- "labels": []
+ "focus_word": "signal",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-path-passing-ship",
+  "kind": "ride",
+  "x": 1184,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": []
+ }
 }

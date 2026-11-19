@@ -1,18 +1,43 @@
 {
- "centre": "a big planet driving down a clear glowing lane like a highway",
+ "centre": "huge Earth beside a few tiny pebbles of drifting debris",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "My lane!",
-   "x": 1250,
-   "y": 360,
+   "type": "name",
+   "text": "Earth",
+   "x": 520,
+   "y": 260,
    "to": [
-    1070,
-    470
-   ]
+    650,
+    380
+   ],
+   "word": "Earth"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "If you",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 1660,
+  "y": 890,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "says": [],
+  "bside": -1
+ }
 }

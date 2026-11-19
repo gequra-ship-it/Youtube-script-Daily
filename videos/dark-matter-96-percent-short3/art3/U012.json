@@ -1,38 +1,45 @@
 {
- "centre": "dark mass bending a grid, with a single handle shaped gravity link",
+ "centre": "warm stars tugged by dotted threads toward an unseen halo",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Stars",
+   "x": 250,
+   "y": 680,
+   "to": [
+    410,
+    760
+   ],
+   "word": "stars"
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
-   },
-   {
-    "word": "That is",
-    "mood": "scared"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "slide",
-   "to": [
-    540,
-    971
-   ]
+   "type": "magnetized",
+   "obj": "mv-magnet-star-2"
   },
+  "outfit": [
+   "helmet"
+  ],
+  "x": 292,
+  "y": 844,
+  "s": 1.09,
+  "flip": 1,
   "kind": "bg",
   "ride": null,
-  "x": 162,
-  "y": 779,
-  "s": 1.15,
-  "flip": 1,
-  "outfit": [
-   "bowler"
-  ],
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "says": [
    {
-    "text": "Wheee!",
+    "text": "Whoa-oa!",
     "shout": true
    }
   ],

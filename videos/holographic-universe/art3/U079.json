@@ -1,25 +1,40 @@
 {
- "centre": "a bright orb on a braided teal and magenta thread joining two panels, a curved-grid world and a flat dark boundary",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "pulse",
-   "word": "duality",
-   "vol": 0.5
-  }
+ "centre": "a small solid black hole with a tiled shell beside a huge ghosted universe sphere wearing the same tiled skin",
+ "focus": [
+  1370,
+  490,
+  1.5
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Duality",
-   "x": 960,
-   "y": 170,
+ "focus_word": "whole universe",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
    "to": [
     960,
-    500
-   ],
-   "word": "duality"
-  }
- ]
+    540
+   ]
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-core-glide-ghost-universe",
+  "kind": "ride",
+  "x": 1145,
+  "y": 252,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Whoaaa!",
+    "shout": true
+   }
+  ]
+ }
 }

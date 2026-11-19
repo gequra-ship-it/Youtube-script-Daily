@@ -1,32 +1,18 @@
 {
- "centre": "a close-up of an astronaut's gold visor reflecting a particle, beside a coin spinning down",
+ "centre": "a long tape of random spin-up and spin-down arrow cells filling in one by one, watched by a small astronaut",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": "tap",
-  "ride": "mv-core-approach-helmet",
-  "kind": "ride",
-  "x": 562,
-  "y": 790,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "outfit": [
-   "bowler"
-  ],
-  "says": [
-   {
-    "text": "Hmm, hard.",
-    "shout": false
-   }
-  ]
- }
+ "labels": [
+  {
+   "type": "name",
+   "text": "Astronaut",
+   "x": 300,
+   "y": 590,
+   "to": [
+    300,
+    700
+   ],
+   "word": "astronaut"
+  }
+ ]
 }

@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh5_1',
-  'Is the space you are sitting in right now completely fake? Not necessarily. But physical depth might be an emergent property rather than '
-  'fundamental reality.'),
+  'Look around your room at the walls, the light, the empty space. It feels completely real, and it may be. But physical depth might be an emergent '
+  'property rather than fundamental reality.'),
  ('S02',
   'Part 2',
   'ill',

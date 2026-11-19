@@ -1,37 +1,42 @@
 {
- "centre": "a dark methane lake fed by branching river channels on an amber top-down map of Titan",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "a methane molecule being smashed apart by a sunlit energetic particle, with nitrogen molecules nearby",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "nitrogen and methane molecules",
+ "sfx": [
+  {
+   "name": "static",
+   "word": "smash",
+   "vol": 0.5
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "sleepy"
-   },
-   {
-    "word": "The world",
-    "mood": "chilly"
+    "mood": "squint"
    }
   ],
   "act": {
-   "type": "zerogroll"
+   "type": "shrinkdown"
   },
-  "ride": "mv-core-glide-methane-lake",
+  "ride": "mv-core-approach-methane-molecule",
   "kind": "ride",
-  "x": 1103,
-  "y": 573,
+  "x": 824,
+  "y": 598,
   "s": 0.95,
-  "flip": -1,
-  "bside": 1,
+  "flip": 1,
+  "bside": -1,
   "gaze": 1,
   "outfit": [
-   "scarf",
-   "glasses"
+   "sunglasses",
+   "bowtie"
   ],
   "says": [
    {
-    "text": "Wheee...",
+    "text": "Tiny...",
     "shout": false
    }
   ]

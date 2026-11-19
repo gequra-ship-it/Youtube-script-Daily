@@ -1,52 +1,29 @@
 {
- "centre": "a giant pair of open scissors floating among stars and far galaxies, a thought-experiment object",
+ "centre": "top-down solar-system diagram: scissors blades start at Earth and stretch far past the dotted orbit of Mars",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Scissors",
-   "x": 1300,
-   "y": 220,
+   "text": "Mars",
+   "x": 760,
+   "y": 200,
    "to": [
-    1250,
-    400
+    628,
+    258
    ],
-   "word": "scissors"
+   "word": "Mars"
   },
   {
-   "type": "say",
-   "text": "Snip?",
-   "x": 600,
-   "y": 300,
+   "type": "name",
+   "text": "Orbit of Mars",
+   "x": 830,
+   "y": 820,
    "to": [
-    800,
-    470
-   ]
+    640,
+    790
+   ],
+   "word": "orbit of Mars"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": {
-   "type": "measure"
-  },
-  "ride": "mv-core-approach-scissors",
-  "kind": "ride",
-  "x": 1471,
-  "y": 790,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "lab",
-   "cap"
-  ],
-  "says": []
- }
+ ]
 }

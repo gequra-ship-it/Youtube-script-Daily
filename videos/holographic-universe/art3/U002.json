@@ -1,46 +1,44 @@
 {
- "centre": "a heavy solid stone cube landing on a table beside a book stack and a globe",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "thud",
-   "word": "heavy",
-   "vol": 0.6
-  }
+ "centre": "a faceless seated silhouette from behind at a desk; a long scroll of calculation scribbles unrolls toward a small black hole where an info cube fades",
+ "focus": [
+  880,
+  480,
+  1.4
  ],
+ "focus_word": "calculations",
+ "sfx": [],
  "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "scared"
    }
   ],
   "act": {
-   "type": "dodge",
-   "obj": "mv-rollby-marble",
-   "h": 44,
-   "pass": 1.992
+   "type": "pull",
+   "to": [
+    960,
+    540
+   ]
   },
-  "ride": null,
+  "x": 260,
+  "y": 660,
+  "s": 0.8,
+  "flip": 1,
   "kind": "bg",
-  "x": 1612,
-  "y": 720,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
   "outfit": [
-   "cap"
+   "glasses"
   ],
   "says": [
    {
-    "text": "Whoa!",
+    "text": "AAAAAH!",
     "shout": true
    }
-  ]
+  ],
+  "bside": 1
  }
 }

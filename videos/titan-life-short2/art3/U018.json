@@ -1,34 +1,44 @@
 {
- "centre": "a jar of raw ingredient atoms above scattered building blocks on a shelf that line up into a grid",
+ "centre": "a shared carbon ring building block linked to both Earth above and Titan below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 840,
+   "y": 420,
+   "to": [
+    650,
+    500
+   ],
+   "word": "Earth"
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "determined"
    }
   ],
   "act": {
-   "type": "helmetwipe"
+   "type": "hammer"
   },
-  "ride": "mv-core-glide-raw-ingredient-jar",
+  "ride": "mv-core-sway-shared-building-block",
   "kind": "ride",
-  "x": 699,
-  "y": 840,
+  "x": 704,
+  "y": 980,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "lab",
-   "headband"
+   "hardhat"
   ],
   "says": [
    {
-    "text": "Phew.",
-    "shout": false
+    "text": "Bang! Bang!",
+    "shout": true
    }
   ]
  }

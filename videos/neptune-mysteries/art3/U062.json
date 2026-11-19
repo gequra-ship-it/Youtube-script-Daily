@@ -1,41 +1,36 @@
 {
- "centre": "a hot teal-violet slush sphere clamped between heavy steel slabs over flames, bubbles flattened",
+ "centre": "a methane molecule, carbon with four hydrogen atoms, cracking apart under a heavy slab",
  "focus": null,
- "focus_word": "monstrous pressures",
+ "focus_word": "break apart",
  "sfx": [
   {
-   "name": "thud",
-   "word": "monstrous pressures",
+   "name": "click",
+   "word": "break apart",
    "vol": 0.6
   }
  ],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "dizzy"
-   }
-  ],
-  "act": {
-   "type": "dizzy"
+ "labels": [
+  {
+   "type": "name",
+   "text": "carbon",
+   "x": 960,
+   "y": 700,
+   "to": [
+    960,
+    555
+   ],
+   "word": "carbon"
   },
-  "ride": "mv-core-approach-pressure-sphere",
-  "kind": "ride",
-  "x": 1213,
-  "y": 790,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "sunglasses",
-   "bowtie"
-  ],
-  "says": [
-   {
-    "text": "Wooo-ooo...",
-    "shout": false
-   }
-  ]
- }
+  {
+   "type": "name",
+   "text": "hydrogen",
+   "x": 560,
+   "y": 330,
+   "to": [
+    770,
+    410
+   ],
+   "word": "hydrogen"
+  }
+ ]
 }

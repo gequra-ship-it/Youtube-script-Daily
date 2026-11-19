@@ -1,11 +1,46 @@
 {
- "centre": "a round telescope eyepiece view with a huge galaxy glowing in the dark circle",
- "focus": [
-  540,
-  860,
-  1.5
+ "centre": "our home galaxy in the middle, billions of far galaxies scattered around and four sliding away",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Billions of galaxies",
+   "x": 540,
+   "y": 440,
+   "to": [
+    270,
+    560
+   ],
+   "word": "billions"
+  }
  ],
- "focus_word": "staggering realization",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "countstars"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-path-drift-galaxy-1",
+  "kind": "ride",
+  "x": 357,
+  "y": 584,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Countless...",
+    "shout": false
+   }
+  ]
+ }
 }

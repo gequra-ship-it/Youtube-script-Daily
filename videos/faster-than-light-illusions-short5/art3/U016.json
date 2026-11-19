@@ -1,17 +1,22 @@
 {
- "centre": "a close cross-section of dough with two raisins side by side and a short bracket between them",
- "sfx": [],
+ "centre": "a whole bread loaf side on with one glowing raisin at each far end and a long dotted line under it",
+ "focus": [
+  540,
+  880,
+  1.2
+ ],
+ "focus_word": "opposite ends",
  "labels": [
   {
    "type": "name",
-   "text": "Raisins",
-   "x": 790,
-   "y": 640,
+   "text": "Loaf",
+   "x": 540,
+   "y": 560,
    "to": [
-    660,
-    840
+    540,
+    700
    ],
-   "word": "raisins"
+   "word": "loaf"
   }
  ],
  "frog": {
@@ -21,20 +26,20 @@
    }
   ],
   "act": "scope",
-  "ride": "mv-path-drift-raisin-right",
+  "ride": "mv-path-drift-raisin-left",
   "kind": "ride",
-  "x": 498,
-  "y": 917,
+  "x": 334,
+  "y": 995,
   "s": 1.09,
-  "flip": 1,
-  "bside": -1,
+  "flip": -1,
+  "bside": 1,
   "gaze": 1,
   "outfit": [
-   "beanie"
+   "headband"
   ],
   "says": [
    {
-    "text": "I see it!",
+    "text": "There!",
     "shout": false
    }
   ]

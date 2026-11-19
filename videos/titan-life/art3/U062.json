@@ -1,11 +1,36 @@
 {
- "centre": "a nearly finished jigsaw with one missing centre piece glowing with a question mark",
+ "centre": "a signpost at a bend in a path across Titan dunes, one board with a water drop and one with methane waves",
  "focus": [
   960,
-  500,
-  1.6
+  520,
+  1.5
  ],
- "focus_word": "unsolved problem",
- "sfx": [],
- "labels": []
+ "focus_word": "takes a fascinating turn",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "starcatch"
+  },
+  "ride": "mv-core-sway-signpost",
+  "kind": "ride",
+  "x": 1278,
+  "y": 780,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Gotcha!",
+    "shout": true
+   }
+  ]
+ }
 }

@@ -6,29 +6,34 @@
   1.6
  ],
  "focus_word": "discover",
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
   "act": {
-   "type": "measure"
+   "type": "hopalong",
+   "obj": "mv-hop-speck"
   },
-  "ride": "mv-swing-door",
-  "kind": "ride",
-  "x": 662,
+  "x": 1550,
   "y": 790,
   "s": 0.95,
-  "flip": 1,
-  "bside": -1,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "bside": 1,
   "gaze": 1,
   "outfit": [
    "detective",
    "bowtie"
   ],
-  "says": []
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ]
  }
 }

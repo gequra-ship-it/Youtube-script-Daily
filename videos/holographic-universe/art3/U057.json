@@ -1,36 +1,66 @@
 {
- "centre": "bright clash spark between a quantum wave panel and a curved-grid gravity panel",
+ "centre": "three panels: shuffled picture tiles, a cup lifting off a still-glowing cube, and a cube's bits spread into twinkling dots",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pulse",
-   "word": "clash",
-   "vol": 0.6
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Quantum theory",
-   "x": 490,
-   "y": 165,
+   "text": "Scrambled",
+   "x": 420,
+   "y": 160,
    "to": [
-    490,
-    420
+    420,
+    300
    ],
-   "word": "quantum theory"
+   "word": "scrambled"
   },
   {
    "type": "name",
-   "text": "Gravity",
-   "x": 1430,
-   "y": 165,
+   "text": "Hidden",
+   "x": 960,
+   "y": 160,
    "to": [
-    1430,
-    430
+    960,
+    560
    ],
-   "word": "gravity"
+   "word": "hidden"
+  },
+  {
+   "type": "name",
+   "text": "Spread out",
+   "x": 1500,
+   "y": 160,
+   "to": [
+    1500,
+    300
+   ],
+   "word": "spread out"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 1333,
+  "y": 671,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-sparkle-spread-bits",
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Who, me?",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,42 +1,46 @@
 {
- "centre": "two glowing balls colliding in the middle of a row of three events (a falling ball, a bending beam), each tied by thread to a matching spark on a flat boundary below",
- "focus": null,
- "focus_word": null,
+ "centre": "two glowing balls bumping inside a glowing disc, a dashed thread running to a matching spark on its rim",
+ "focus": [
+  540,
+  860,
+  1.7
+ ],
+ "focus_word": "gravitational event",
  "sfx": [
   {
-   "name": "thud",
-   "word": "collides",
-   "vol": 0.6
+   "name": "pulse",
+   "word": "quantum interactions",
+   "vol": 0.55
   }
  ],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "squint"
+   },
+   {
+    "word": "Every gravitational",
+    "mood": "happy"
    }
   ],
   "act": {
-   "type": "bumped",
-   "obj": "mv-bouncing-ball",
-   "serious": false
+   "type": "leanback"
   },
-  "ride": null,
-  "kind": "bg",
-  "x": 134,
-  "y": 742,
+  "ride": "mv-core-approach-collision-flash",
+  "kind": "ride",
+  "x": 694,
+  "y": 960,
   "s": 1.09,
-  "flip": 1,
-  "bside": -1,
+  "flip": -1,
+  "bside": 1,
   "gaze": 1,
-  "behind": null,
   "outfit": [
-   "bowler"
+   "bowtie"
   ],
   "says": [
    {
-    "text": "Boing!",
-    "shout": true
+    "text": "Pulling...",
+    "shout": false
    }
   ]
  }

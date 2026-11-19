@@ -1,50 +1,51 @@
 {
- "centre": "inside your capsule: a porthole whose blackout shade slides up to show the sky is still full of stars",
+ "centre": "two panels: open axes of space on the left, a one-way time arrow with a clock on the right, a swap arrow between",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Not black?",
-   "x": 640,
-   "y": 240,
+   "type": "name",
+   "text": "space",
+   "x": 510,
+   "y": 215,
    "to": [
-    500,
-    380
-   ]
+    510,
+    300
+   ],
+   "word": "space"
+  },
+  {
+   "type": "name",
+   "text": "time",
+   "x": 1410,
+   "y": 215,
+   "to": [
+    1410,
+    290
+   ],
+   "word": "time"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
-   },
-   {
-    "word": "You might",
-    "mood": "happy"
-   },
-   {
-    "word": "That is",
-    "mood": "happy"
+    "mood": "scared"
    }
   ],
-  "act": "look",
-  "ride": "mv-slide-window-shade-u078",
-  "kind": "ride",
-  "x": 994,
-  "y": 289,
-  "s": 1.25,
-  "flip": -1,
-  "bside": -1,
+  "act": {
+   "type": "pushaway"
+  },
   "outfit": [
-   "cap"
+   "helmet"
   ],
-  "says": [
-   {
-    "text": "Ooh!",
-    "shout": false
-   }
-  ]
+  "ride": "mv-path-probe-capsule",
+  "kind": "ride",
+  "x": 578,
+  "y": 530,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
  }
 }

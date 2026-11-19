@@ -1,11 +1,32 @@
 {
- "centre": "a single snapshot photo of Titan beside a wide landscape panorama unrolling",
- "focus": [
-  1260,
-  520,
-  1.4
- ],
- "focus_word": "landscape",
- "sfx": [],
- "labels": []
+ "centre": "a spacecraft crawling along a long dashed route with year markers from Earth to Saturn",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "Missions to",
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "ride": "mv-path-travel-probe",
+  "kind": "ride",
+  "x": 373,
+  "y": 735,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "says": []
+ }
 }

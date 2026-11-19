@@ -1,30 +1,35 @@
 {
- "centre": "a long column of seven gold cells, each a little stretch, stacked between two galaxies",
+ "centre": "a long rail of tick marks running to a far galaxy, a slow photon on the rail and another galaxy racing ahead of it",
  "focus": [
   540,
-  860,
-  1.4
+  760,
+  1.5
  ],
- "focus_word": "adds up",
- "sfx": [],
- "labels": [],
+ "focus_word": "billions of light-years",
+ "labels": [
+  {
+   "type": "num",
+   "text": "BILLIONS OF LIGHT-YEARS",
+   "word": "billions"
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "excited"
    }
   ],
   "act": {
-   "type": "shrinkdown"
+   "type": "pointfar"
   },
   "outfit": [
    "helmet",
-   "goldvisor"
+   "jetpack"
   ],
-  "ride": "mv-path-drift-galaxy-top",
+  "ride": "mv-path-slide-distant-galaxy",
   "kind": "ride",
-  "x": 378,
-  "y": 618,
+  "x": 616,
+  "y": 742,
   "s": 1.09,
   "flip": 1,
   "bside": -1,

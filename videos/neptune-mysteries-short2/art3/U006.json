@@ -1,11 +1,41 @@
 {
- "centre": "Earth hurricane seen from above, white spiral arms around a dark eye",
- "focus": [
-  540,
-  860,
-  1.7
+ "centre": "small white jet plane with a dashed sound shock cone above Earth horizon",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "speed of sound",
+   "x": 540,
+   "y": 520,
+   "to": [
+    540,
+    830
+   ],
+   "word": "speed of sound"
+  }
  ],
- "focus_word": "hurricanes",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-path-fly-jet",
+  "kind": "ride",
+  "x": 376,
+  "y": 980,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "headphones",
+   "glasses"
+  ],
+  "says": []
+ }
 }

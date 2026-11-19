@@ -1,25 +1,34 @@
 {
- "centre": "balance scale: glowing information cubes on one pan, a small black hole on the other, neither side wins",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "tick",
-   "word": "Both cannot be right",
-   "vol": 0.5
-  }
+ "centre": "a glowing info cube inside a teal shield bubble on a slate; an eraser presses against it and only shakes; a cloth slides off a law tablet",
+ "focus": [
+  1060,
+  500,
+  1.6
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "information",
-   "x": 560,
-   "y": 330,
-   "to": [
-    560,
-    600
-   ],
-   "word": "information"
-  }
- ]
+ "focus_word": "truly erased",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "outfit": [
+   "diver"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 490,
+  "y": 730,
+  "s": 1.0,
+  "flip": 1,
+  "bside": 1,
+  "behind": "mv-slide-cover-cloth",
+  "says": [
+   {
+    "text": "Psst...",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,19 +1,39 @@
 {
- "centre": "Earth's grey Moon beside the smaller cream Triton, width bars below",
+ "centre": "Triton on a dashed orbit around Neptune turning against the planet's spin arrow",
  "focus": null,
- "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Moon",
-   "x": 620,
-   "y": 215,
+   "text": "Neptune",
+   "x": 560,
+   "y": 790,
    "to": [
-    620,
-    300
+    560,
+    640
    ],
-   "word": "Moon"
+   "word": "Neptune"
   }
- ]
+ ],
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 260,
+  "y": 890,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
 }

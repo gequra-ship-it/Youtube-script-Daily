@@ -1,11 +1,22 @@
 {
- "centre": "Earth globe floating above a cupped hand like a handful of sand",
+ "centre": "magnifying lens over the sand showing one tiny glowing sea creature",
  "focus": [
-  960,
-  500,
-  1.7
+  930,
+  520,
+  1.9
  ],
- "focus_word": "Earth",
- "sfx": [],
- "labels": []
+ "focus_word": "one creature",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hello!",
+   "x": 730,
+   "y": 330,
+   "to": [
+    865,
+    505
+   ],
+   "word": "one creature"
+  }
+ ]
 }

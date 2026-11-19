@@ -1,37 +1,42 @@
 {
- "centre": "a pale frozen moon cracked with ice, two smaller frozen worlds beside it, a tiny distant sun far below",
- "focus": [
-  540,
-  860,
-  1.6
+ "centre": "Europa, a cracked ice-and-rust moon, with giant striped Jupiter looming top-left and ringed Saturn with a small moon below",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Europa",
+   "x": 790,
+   "y": 640,
+   "to": [
+    620,
+    830
+   ],
+   "word": "Europa"
+  }
  ],
- "focus_word": "frozen worlds",
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "chilly"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "hug"
-  },
-  "ride": "mv-core-approach-frozen-moon",
+  "act": "magnify",
+  "ride": "mv-core-glide-europa-moon",
   "kind": "ride",
-  "x": 824,
-  "y": 1100,
+  "x": 794,
+  "y": 1070,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "scarf",
-   "cap"
+   "detective",
+   "bowtie"
   ],
   "says": [
    {
-    "text": "So cold...",
+    "text": "A clue!",
     "shout": false
    }
   ]

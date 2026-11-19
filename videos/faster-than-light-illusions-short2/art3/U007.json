@@ -1,31 +1,40 @@
 {
- "centre": "a race up two lanes: a photon of light against a dark shadow patch moving through a lit lane toward a finish line",
+ "centre": "the hand shadow sweeping across the huge lit dust cloud, with a tiny lamp far below and a measuring line of light-years",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "track": false,
  "labels": [
   {
    "type": "name",
-   "text": "darkness",
-   "x": 750,
-   "y": 1180,
+   "text": "light-years",
+   "x": 300,
+   "y": 1300,
    "to": [
-    750,
-    1290
+    400,
+    1232
    ],
-   "word": "darkness"
-  },
-  {
-   "type": "name",
-   "text": "light",
-   "x": 330,
-   "y": 1180,
-   "to": [
-    330,
-    1295
-   ],
-   "word": "light"
+   "word": "light-years"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": "mv-path-hand-shadow",
+  "kind": "ride",
+  "x": 379,
+  "y": 656,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": []
+ }
 }

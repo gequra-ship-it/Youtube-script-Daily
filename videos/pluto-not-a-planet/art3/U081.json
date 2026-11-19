@@ -1,11 +1,42 @@
 {
- "centre": "a desk seen from above: a draft definition being written, crumpled earlier drafts and coffee cups",
+ "centre": "a glass tablet with three slots, the middle holding a bright round planet",
  "focus": [
   960,
-  470,
+  500,
   1.6
  ],
- "focus_word": "drafted a formal definition",
- "sfx": [],
- "labels": []
+ "focus_word": "three strict scientific criteria",
+ "labels": [
+  {
+   "type": "num",
+   "text": "THREE RULES",
+   "word": "three strict"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "look",
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-core-approach-sphere-medallion",
+  "kind": "ride",
+  "x": 1158,
+  "y": 660,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": false
+   }
+  ]
+ }
 }

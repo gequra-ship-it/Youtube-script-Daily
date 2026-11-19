@@ -1,19 +1,65 @@
 {
- "centre": "a thought bubble from an old telescope: an imagined giant ghost world towering over a small Earth",
- "focus": null,
- "focus_word": null,
+ "centre": "a dashed ghost Planet X in the middle pulling Uranus and Neptune toward it with dotted arcs over a bent gravity grid",
+ "attractor": [
+  960,
+  500
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Earth",
-   "x": 880,
-   "y": 700,
+   "text": "Uranus",
+   "x": 470,
+   "y": 340,
    "to": [
-    925,
-    610
+    470,
+    455
    ],
-   "word": "Earth"
+   "word": "Uranus"
+  },
+  {
+   "type": "name",
+   "text": "Neptune",
+   "x": 1450,
+   "y": 340,
+   "to": [
+    1450,
+    455
+   ],
+   "word": "Neptune"
   }
  ],
- "sfx": []
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "magnetized",
+   "obj": "mv-magnet-uranus-planet"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 324,
+  "y": 628,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa-oa!",
+    "shout": true
+   }
+  ]
+ }
 }

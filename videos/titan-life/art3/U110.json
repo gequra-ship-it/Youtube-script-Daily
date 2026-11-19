@@ -1,40 +1,32 @@
 {
- "centre": "a nine-piece jigsaw puzzle with the last piece sliding into place",
- "focus": [
-  960,
-  500,
-  1.5
- ],
- "focus_word": "puzzle",
- "sfx": [],
- "labels": [],
+ "centre": "a lone glowing Earth under a spotlight with faint dashed empty ghost planets around",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "curious"
-   },
-   {
-    "word": "Is organic",
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
-  "act": "tap",
-  "ride": "mv-slide-puzzle-piece",
+  "act": {
+   "type": "wavebig"
+  },
+  "ride": "mv-core-glide-earth-planet",
   "kind": "ride",
-  "x": 729,
-  "y": 603,
+  "x": 1190,
+  "y": 672,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "lab",
-   "headband"
+   "helmet",
+   "goldvisor"
   ],
   "says": [
    {
-    "text": "Hmm, hard.",
-    "shout": false
+    "text": "Hi!",
+    "shout": true
    }
   ]
  }

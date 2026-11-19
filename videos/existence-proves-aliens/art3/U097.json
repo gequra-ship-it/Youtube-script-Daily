@@ -1,18 +1,27 @@
 {
- "centre": "split frame: left, a wild Earth with no lights seen in a telescope eyepiece; right, today's Earth glowing with city lights and a satellite",
+ "centre": "ice-age Earth (huge northern ice sheets) on the left sending a beam of light across space to the right",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "iris": [
+  430,
+  520
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "We're online!",
-   "x": 1640,
-   "y": 800,
+   "type": "num",
+   "text": "100,000 YEARS AGO",
+   "word": "one hundred thousand years ago"
+  },
+  {
+   "type": "name",
+   "text": "Last ice age",
+   "x": 760,
+   "y": 250,
    "to": [
-    1520,
-    650
-   ]
+    520,
+    360
+   ],
+   "word": "last ice age"
   }
  ]
 }

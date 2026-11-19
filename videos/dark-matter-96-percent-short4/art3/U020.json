@@ -1,32 +1,28 @@
 {
- "centre": "split frame: top galaxies hugged by a violet web pulling stars in, bottom empty dark glow with evenly spaced galaxies",
+ "centre": "a grid of space stretching larger, galaxies at nodes and magenta arrows pushing outward",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
-   },
-   {
-    "word": "Dark energy",
-    "mood": "worried"
+    "mood": "surprised"
    }
   ],
-  "act": "listen",
+  "act": {
+   "type": "pushaway"
+  },
   "outfit": [
    "helmet",
-   "antenna"
+   "jetpack"
   ],
   "x": 820,
-  "y": 840,
+  "y": 1040,
   "s": 0.99,
   "flip": -1,
   "kind": "bg",
   "says": [
    {
-    "text": "Nothing...",
+    "text": "Drifting apart...",
     "shout": false
    }
   ],

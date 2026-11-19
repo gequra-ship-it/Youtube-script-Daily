@@ -1,45 +1,22 @@
 {
- "centre": "a ball shooting upward faster and faster, nudged by a faint ghostly violet hand; a person below looks up",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "track": false,
+ "centre": "a tiny bright exploding star far away in the night sky; two astronomers from behind beside an observatory, one pointing up",
+ "focus": [
+  600,
+  640,
+  1.6
+ ],
+ "focus_word": "distant explosions",
  "labels": [
   {
-   "type": "say",
-   "text": "Who's pushing?",
-   "x": 820,
-   "y": 660,
+   "type": "name",
+   "text": "distant explosions",
+   "x": 540,
+   "y": 400,
    "to": [
-    610,
-    850
+    600,
+    610
    ],
-   "word": "something unseen"
+   "word": "distant explosions"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "suspicious"
-   }
-  ],
-  "act": "lean",
-  "ride": "mv-path-rise-ball",
-  "kind": "ride",
-  "x": 464,
-  "y": 878,
-  "s": 1.44,
-  "flip": 1,
-  "bside": 1,
-  "outfit": [
-   "detective",
-   "bowtie"
-  ],
-  "says": [
-   {
-    "text": "Steady...",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

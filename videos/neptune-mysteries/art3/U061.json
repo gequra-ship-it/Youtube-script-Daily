@@ -1,47 +1,40 @@
 {
- "centre": "a thick churning teal-violet slush sphere fed by water, ammonia and methane molecules",
+ "centre": "a hot teal-violet slush sphere clamped between heavy steel slabs over flames, bubbles flattened",
  "focus": null,
- "focus_word": "super-dense slush",
+ "focus_word": "monstrous pressures",
  "sfx": [
   {
-   "name": "bubble",
-   "word": "churning",
-   "vol": 0.5
+   "name": "thud",
+   "word": "monstrous pressures",
+   "vol": 0.6
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "water",
-   "x": 280,
-   "y": 170,
-   "to": [
-    280,
-    265
-   ],
-   "word": "water"
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
   },
-  {
-   "type": "name",
-   "text": "ammonia",
-   "x": 280,
-   "y": 400,
-   "to": [
-    280,
-    495
-   ],
-   "word": "ammonia"
-  },
-  {
-   "type": "name",
-   "text": "methane",
-   "x": 280,
-   "y": 640,
-   "to": [
-    280,
-    725
-   ],
-   "word": "methane"
-  }
- ]
+  "ride": "mv-core-approach-pressure-sphere",
+  "kind": "ride",
+  "x": 1213,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "So dizzy...",
+    "shout": false
+   }
+  ]
+ }
 }

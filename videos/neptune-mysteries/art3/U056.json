@@ -1,39 +1,12 @@
 {
- "centre": "a small gold probe capsule diving down through pale methane cloud wisps into deep blue",
+ "centre": "a round pressure gauge with an amber needle climbing, a squeezed dot column and shrinking air bubbles",
  "focus": null,
- "focus_word": "diving straight down",
+ "focus_word": "pressure climbs",
  "sfx": [
   {
-   "name": "warp",
-   "word": "diving straight down",
+   "name": "tick",
+   "word": "pressure climbs",
    "vol": 0.6
   }
- ],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "determined"
-   }
-  ],
-  "act": "think",
-  "outfit": [
-   "goggles",
-   "flippers"
-  ],
-  "ride": "mv-path-sink-probe-capsule",
-  "kind": "ride",
-  "x": 872,
-  "y": 385,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Let me think.",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

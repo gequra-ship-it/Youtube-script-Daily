@@ -1,44 +1,34 @@
 {
- "centre": "one faint photon of light glowing midway on a long thinning trail from a tiny Sun to a dim Neptune",
+ "centre": "three stacked dashed circulation loops turning in opposite directions, bright dot in the middle",
  "focus": [
   540,
   860,
-  1.7
+  1.5
  ],
- "focus_word": "barely a whisper",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Neptune",
-   "x": 700,
-   "y": 1060,
-   "to": [
-    620,
-    1320
-   ],
-   "word": "Neptune"
-  }
- ],
+ "focus_word": "swirling circulation cells",
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "proud"
    }
   ],
   "act": {
-   "type": "dizzy"
+   "type": "present"
   },
   "x": 820,
-  "y": 720,
-  "s": 0.95,
+  "y": 1280,
+  "s": 0.99,
   "flip": -1,
   "kind": "bg",
   "outfit": [
-   "sunglasses",
-   "bowtie"
+   "facemask"
   ],
-  "says": [],
+  "says": [
+   {
+    "text": "Ta-da!",
+    "shout": true
+   }
+  ],
   "bside": -1
  }
 }

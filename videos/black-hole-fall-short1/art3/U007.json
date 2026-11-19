@@ -1,19 +1,49 @@
 {
- "centre": "a dark hole with background stars shifted away from their true dotted places",
+ "centre": "a straight dotted guess and a golden light beam bending around a dark hole on a warped grid",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "stars",
-   "x": 300,
-   "y": 380,
+   "text": "light",
+   "x": 760,
+   "y": 600,
    "to": [
-    300,
-    555
+    760,
+    700
    ],
-   "word": "stars"
+   "word": "light"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "slide",
+   "to": [
+    330,
+    1060
+   ]
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "x": 708,
+  "y": 868,
+  "s": 1.15,
+  "flip": -1,
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

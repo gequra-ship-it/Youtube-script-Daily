@@ -1,11 +1,51 @@
 {
- "centre": "an angular dashed teal hypothetical cell next to a crossed-out icy copy of an Earth cell",
+ "centre": "a thought bubble holding a dashed ghost cell above a methane lake and a question mark",
  "focus": [
   960,
-  500,
+  480,
   1.5
  ],
- "focus_word": "something else entirely",
- "sfx": [],
- "labels": []
+ "focus_word": "hypothesis",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hypothesis",
+   "x": 1380,
+   "y": 380,
+   "to": [
+    1190,
+    470
+   ],
+   "word": "hypothesis"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Life based",
+    "mood": "happy"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-core-glide-thought-bubble",
+  "kind": "ride",
+  "x": 1338,
+  "y": 710,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
 }

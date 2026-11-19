@@ -1,29 +1,27 @@
 {
- "centre": "you in the white suit stuck mid-move in thick golden molasses layers",
+ "centre": "your capsule gliding calmly through a faint dashed wall that is not really there, a gentle slope of space below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "So... slow...",
-   "x": 260,
-   "y": 470,
-   "to": [
-    500,
-    650
-   ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
   },
-  {
-   "type": "name",
-   "text": "Molasses",
-   "x": 820,
-   "y": 1330,
-   "to": [
-    800,
-    1250
-   ],
-   "word": "molasses"
-  }
- ]
+  "ride": "mv-core-glide-capsule",
+  "kind": "ride",
+  "x": 626,
+  "y": 954,
+  "s": 1.2,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet"
+  ],
+  "says": []
+ }
 }

@@ -1,20 +1,47 @@
 {
- "centre": "a night ocean pier: a small watcher at the pier end, long rolling swells moving right toward the moonlit shore",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a magnifying lens over the crest of a big swell, showing small ripples riding along it",
+ "focus": [
+  960,
+  450,
+  1.6
+ ],
+ "focus_word": "individual ripples",
  "labels": [
   {
    "type": "name",
-   "text": "ocean pier",
-   "x": 380,
+   "text": "ripples",
+   "x": 1360,
    "y": 300,
    "to": [
-    400,
-    615
+    1060,
+    445
    ],
-   "word": "ocean pier"
+   "word": "ripples"
   }
  ],
- "wind": "right"
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-core-glide-magnifier-lens",
+  "kind": "ride",
+  "x": 1088,
+  "y": 577,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "backpack",
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Hold on!",
+    "shout": true
+   }
+  ]
+ }
 }

@@ -26,8 +26,8 @@
     "#ff7a5a"
    ]
   },
-  "text": "Say you fell all the way in. What happens to everything you were?",
-  "dur": 4.81,
+  "text": "Say you fell all the way into a black hole: everything you were ends up at the center, where known physics stops working.",
+  "dur": 8.05,
   "transition_in": "hard",
   "prev": "",
   "nxt": "",
@@ -332,11 +332,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "When you fell into the black hole, you carried an enormous amount of complex information with you.",
-  "dur": 6.56,
+  "text": "When you fell in, you carried an enormous amount of information: a specific arrangement of atoms,",
+  "dur": 5.49,
   "transition_in": "push",
   "prev": "",
-  "nxt": "You had a specific arrangement of atoms, a unique DNA sequence, and a lifetime of memories.",
+  "nxt": "a unique DNA sequence, and a lifetime of memories.",
   "frog_hint": true
  },
  {
@@ -366,10 +366,10 @@
     "#ff7a5a"
    ]
   },
-  "text": "You had a specific arrangement of atoms, a unique DNA sequence, and a lifetime of memories.",
-  "dur": 6.56,
+  "text": "a unique DNA sequence, and a lifetime of memories.",
+  "dur": 5.49,
   "transition_in": "iris",
-  "prev": "When you fell into the black hole, you carried an enormous amount of complex information with you.",
+  "prev": "When you fell in, you carried an enormous amount of information: a specific arrangement of atoms,",
   "nxt": "",
   "frog_hint": false
  },
@@ -401,8 +401,8 @@
    ]
   },
   "text": "If the classical singularity simply crushes all of that into nonexistence,",
-  "dur": 4.78,
-  "transition_in": "fade",
+  "dur": 5.17,
+  "transition_in": "eye",
   "prev": "",
   "nxt": "then one of the fundamental pillars of quantum physics is violated.",
   "frog_hint": true
@@ -435,10 +435,10 @@
    ]
   },
   "text": "then one of the fundamental pillars of quantum physics is violated.",
-  "dur": 4.78,
+  "dur": 5.17,
   "transition_in": "wash",
   "prev": "If the classical singularity simply crushes all of that into nonexistence,",
-  "nxt": "This deep intellectual collision is what physicists call the black hole information paradox,",
+  "nxt": "This deep collision is what physicists call the black hole information paradox.",
   "frog_hint": false
  },
  {
@@ -468,49 +468,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "This deep intellectual collision is what physicists call the black hole information paradox,",
-  "dur": 4.78,
-  "transition_in": "match",
+  "text": "This deep collision is what physicists call the black hole information paradox.",
+  "dur": 5.17,
+  "transition_in": "slide",
   "prev": "then one of the fundamental pillars of quantum physics is violated.",
-  "nxt": "and it has baffled physicists for decades.",
+  "nxt": "",
   "frog_hint": true
  },
  {
   "uid": "U015",
-  "scene": 6,
-  "title": "Part 6",
-  "art_theme": "sh5_6",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "and it has baffled physicists for decades.",
-  "dur": 4.78,
-  "transition_in": "slide",
-  "prev": "This deep intellectual collision is what physicists call the black hole information paradox,",
-  "nxt": "",
-  "frog_hint": false
- },
- {
-  "uid": "U016",
   "scene": 7,
   "title": "Part 7",
   "art_theme": "sh5_7",
@@ -541,6 +507,40 @@
   "transition_in": "wipe",
   "prev": "",
   "nxt": "Using the principles of quantum mechanics near the event horizon,",
+  "frog_hint": false
+ },
+ {
+  "uid": "U016",
+  "scene": 7,
+  "title": "Part 7",
+  "art_theme": "sh5_7",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "Using the principles of quantum mechanics near the event horizon,",
+  "dur": 5.58,
+  "transition_in": "fade",
+  "prev": "In the 1970s, theoretical physicist Stephen Hawking added another layer of mystery to this cosmic puzzle.",
+  "nxt": "he demonstrated that black holes are not completely black.",
   "frog_hint": true
  },
  {
@@ -570,18 +570,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "Using the principles of quantum mechanics near the event horizon,",
+  "text": "he demonstrated that black holes are not completely black.",
   "dur": 5.58,
-  "transition_in": "eye",
-  "prev": "In the 1970s, theoretical physicist Stephen Hawking added another layer of mystery to this cosmic puzzle.",
-  "nxt": "he demonstrated that black holes are not completely black.",
+  "transition_in": "zigzag",
+  "prev": "Using the principles of quantum mechanics near the event horizon,",
+  "nxt": "",
   "frog_hint": false
  },
  {
   "uid": "U018",
-  "scene": 7,
-  "title": "Part 7",
-  "art_theme": "sh5_7",
+  "scene": 8,
+  "title": "Part 8",
+  "art_theme": "sh5_8",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -604,11 +604,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "he demonstrated that black holes are not completely black.",
-  "dur": 5.58,
-  "transition_in": "wave",
-  "prev": "Using the principles of quantum mechanics near the event horizon,",
-  "nxt": "",
+  "text": "A popular way to picture it: in empty space,",
+  "dur": 5.2,
+  "transition_in": "fade",
+  "prev": "",
+  "nxt": "pairs of virtual particles constantly pop into existence and annihilate almost instantly.",
   "frog_hint": true
  },
  {
@@ -638,83 +638,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "A popular way to picture it goes like this. In the vacuum of empty space,",
-  "dur": 4.59,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "pairs of virtual particles are constantly popping into existence",
-  "frog_hint": false
- },
- {
-  "uid": "U020",
-  "scene": 8,
-  "title": "Part 8",
-  "art_theme": "sh5_8",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "pairs of virtual particles are constantly popping into existence",
-  "dur": 4.59,
-  "transition_in": "page",
-  "prev": "A popular way to picture it goes like this. In the vacuum of empty space,",
-  "nxt": "and annihilating each other almost instantaneously.",
-  "frog_hint": true
- },
- {
-  "uid": "U021",
-  "scene": 8,
-  "title": "Part 8",
-  "art_theme": "sh5_8",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "and annihilating each other almost instantaneously.",
-  "dur": 4.59,
+  "text": "pairs of virtual particles constantly pop into existence and annihilate almost instantly.",
+  "dur": 5.2,
   "transition_in": "whip",
-  "prev": "pairs of virtual particles are constantly popping into existence",
+  "prev": "A popular way to picture it: in empty space,",
   "nxt": "",
   "frog_hint": false
  },
  {
-  "uid": "U022",
+  "uid": "U020",
   "scene": 9,
   "title": "Part 9",
   "art_theme": "sh5_9",
@@ -742,13 +674,13 @@
   },
   "text": "But right at the edge of the event horizon, a dramatic split can occur.",
   "dur": 4.98,
-  "transition_in": "zigzag",
+  "transition_in": "wave",
   "prev": "",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U023",
+  "uid": "U021",
   "scene": 10,
   "title": "Part 10",
   "art_theme": "sh5_10",
@@ -782,7 +714,7 @@
   "frog_hint": false
  },
  {
-  "uid": "U024",
+  "uid": "U022",
   "scene": 10,
   "title": "Part 10",
   "art_theme": "sh5_10",
@@ -816,7 +748,7 @@
   "frog_hint": true
  },
  {
-  "uid": "U025",
+  "uid": "U023",
   "scene": 10,
   "title": "Part 10",
   "art_theme": "sh5_10",
@@ -844,13 +776,13 @@
   },
   "text": "To a distant observer, the black hole appears to emit a faint,",
   "dur": 4.26,
-  "transition_in": "tilt",
+  "transition_in": "match",
   "prev": "while its partner escapes outward into the open universe before they can annihilate.",
   "nxt": "steady thermal glow known as Hawking radiation.",
   "frog_hint": false
  },
  {
-  "uid": "U026",
+  "uid": "U024",
   "scene": 10,
   "title": "Part 10",
   "art_theme": "sh5_10",
@@ -878,13 +810,13 @@
   },
   "text": "steady thermal glow known as Hawking radiation.",
   "dur": 4.26,
-  "transition_in": "seam",
+  "transition_in": "tilt",
   "prev": "To a distant observer, the black hole appears to emit a faint,",
   "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U027",
+  "uid": "U025",
   "scene": 11,
   "title": "Part 11",
   "art_theme": "sh5_11",
@@ -911,14 +843,14 @@
    ]
   },
   "text": "The black hole must lose mass to balance the ledger.",
-  "dur": 4.33,
-  "transition_in": "diamond",
+  "dur": 5.41,
+  "transition_in": "page",
   "prev": "",
-  "nxt": "If given enough time, an isolated black hole will not last forever.",
+  "nxt": "Given enough time, an isolated black hole will slowly, quietly evaporate into pure heat and light.",
   "frog_hint": false
  },
  {
-  "uid": "U028",
+  "uid": "U026",
   "scene": 11,
   "title": "Part 11",
   "art_theme": "sh5_11",
@@ -944,49 +876,15 @@
     "#ff7a5a"
    ]
   },
-  "text": "If given enough time, an isolated black hole will not last forever.",
-  "dur": 4.33,
-  "transition_in": "wipe",
+  "text": "Given enough time, an isolated black hole will slowly, quietly evaporate into pure heat and light.",
+  "dur": 5.41,
+  "transition_in": "seam",
   "prev": "The black hole must lose mass to balance the ledger.",
-  "nxt": "It will slowly, quietly evaporate away into pure heat and light.",
+  "nxt": "",
   "frog_hint": true
  },
  {
-  "uid": "U029",
-  "scene": 11,
-  "title": "Part 11",
-  "art_theme": "sh5_11",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "It will slowly, quietly evaporate away into pure heat and light.",
-  "dur": 4.33,
-  "transition_in": "wash",
-  "prev": "If given enough time, an isolated black hole will not last forever.",
-  "nxt": "",
-  "frog_hint": false
- },
- {
-  "uid": "U030",
+  "uid": "U027",
   "scene": 12,
   "title": "Part 12",
   "art_theme": "sh5_12",
@@ -1017,10 +915,10 @@
   "transition_in": "eye",
   "prev": "",
   "nxt": "If a black hole eventually evaporates into a featureless mist of thermal radiation,",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U031",
+  "uid": "U028",
   "scene": 12,
   "title": "Part 12",
   "art_theme": "sh5_12",
@@ -1051,10 +949,10 @@
   "transition_in": "slide",
   "prev": "This opened up a haunting question.",
   "nxt": "what happened to the information of the astronaut who fell inside?",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U032",
+  "uid": "U029",
   "scene": 12,
   "title": "Part 12",
   "art_theme": "sh5_12",
@@ -1085,10 +983,10 @@
   "transition_in": "push",
   "prev": "If a black hole eventually evaporates into a featureless mist of thermal radiation,",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U033",
+  "uid": "U030",
   "scene": 13,
   "title": "Part 13",
   "art_theme": "sh5_13",
@@ -1119,10 +1017,10 @@
   "transition_in": "page",
   "prev": "",
   "nxt": "Or is that information somehow imprinted onto the faint whispers of Hawking radiation,",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U034",
+  "uid": "U031",
   "scene": 13,
   "title": "Part 13",
   "art_theme": "sh5_13",
@@ -1150,13 +1048,13 @@
   },
   "text": "Or is that information somehow imprinted onto the faint whispers of Hawking radiation,",
   "dur": 6.0,
-  "transition_in": "fade",
+  "transition_in": "wash",
   "prev": "Did all your memories, your atoms, and your personal history vanish from the cosmos forever?",
   "nxt": "scrambled beyond all recognition but still preserved in the quantum fabric of reality?",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U035",
+  "uid": "U032",
   "scene": 13,
   "title": "Part 13",
   "art_theme": "sh5_13",
@@ -1184,13 +1082,13 @@
   },
   "text": "scrambled beyond all recognition but still preserved in the quantum fabric of reality?",
   "dur": 6.0,
-  "transition_in": "match",
+  "transition_in": "wipe",
   "prev": "Or is that information somehow imprinted onto the faint whispers of Hawking radiation,",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U036",
+  "uid": "U033",
   "scene": 14,
   "title": "Part 14",
   "art_theme": "sh5_14",
@@ -1221,6 +1119,6 @@
   "transition_in": "iris",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  }
 ]

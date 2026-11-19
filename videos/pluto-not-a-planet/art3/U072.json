@@ -1,35 +1,46 @@
 {
- "centre": "a balance scale with Pluto on the left pan and slightly heavier Eris pulling the right pan down",
+ "centre": "a poster board of nine planet discs with an empty tenth slot and Eris drifting toward it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
-  {
-   "type": "num",
-   "text": "27%",
-   "word": "twenty-seven"
-  },
   {
    "type": "name",
    "text": "Eris",
-   "x": 1500,
-   "y": 330,
+   "x": 1640,
+   "y": 220,
    "to": [
-    1357,
-    520
+    1700,
+    360
    ],
    "word": "Eris"
-  },
-  {
-   "type": "name",
-   "text": "Pluto",
-   "x": 420,
-   "y": 250,
-   "to": [
-    563,
-    490
-   ],
-   "word": "Pluto"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-path-eris-planet",
+  "kind": "ride",
+  "x": 1604,
+  "y": 418,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Huge!",
+    "shout": true
+   }
+  ]
+ }
 }

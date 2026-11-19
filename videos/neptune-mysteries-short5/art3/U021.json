@@ -1,13 +1,34 @@
 {
- "centre": "A glowing clock-like dial with a slowly turning hand above a floating notebook page of calculations",
+ "centre": "Triton on a dotted spiral winding slowly down into Neptune",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "pencil",
-   "word": "calculate",
-   "vol": 0.5
-  }
- ],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hopalong",
+   "obj": "mv-hop-dust"
+  },
+  "x": 116,
+  "y": 530,
+  "s": 1.09,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ]
+ }
 }

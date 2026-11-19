@@ -25,5 +25,39 @@
    ],
    "word": "lasers"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dodge",
+   "obj": "mv-slide-beam-right",
+   "h": 52,
+   "pass": 0.493
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 829,
+  "y": 886,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab",
+   "sailorhat"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

@@ -1,50 +1,31 @@
 {
- "centre": "you in the white suit floating slowly just above the thin glowing event horizon of the black hole",
+ "centre": "your capsule whose time-lapse copies bunch up closer and closer, the journey slowing down",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Event horizon",
-   "x": 330,
-   "y": 1330,
-   "to": [
-    330,
-    1215
-   ],
-   "word": "event horizon"
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "excited"
    }
   ],
   "act": {
-   "type": "pull",
-   "to": [
-    540,
-    1580
-   ],
-   "vanish": true
+   "type": "pointfar"
   },
+  "ride": "mv-core-glide-capsule",
+  "kind": "ride",
+  "x": 664,
+  "y": 950,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
    "helmet",
    "goldvisor"
   ],
-  "x": 329,
-  "y": 830,
-  "s": 1.09,
-  "flip": 1,
-  "kind": "bg",
-  "ride": null,
-  "bside": -1,
-  "gaze": 1,
   "says": [
    {
-    "text": "AAAAAH!",
+    "text": "To the stars!",
     "shout": true
    }
   ]

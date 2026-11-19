@@ -1,27 +1,29 @@
 {
- "centre": "a small cute crab on the dark Pacific floor gazing up at a towering stone wall that rises out of sight",
+ "centre": "Everest as a slender snowy spire sitting on top of a broad, already high continental plateau",
  "focus": null,
  "focus_word": null,
- "iris": [
-  620,
-  780
- ],
  "labels": [
   {
-   "type": "num",
-   "text": "10 KM",
-   "word": "ten kilometers"
+   "type": "name",
+   "text": "Everest",
+   "x": 660,
+   "y": 300,
+   "to": [
+    930,
+    350
+   ],
+   "word": "Everest"
   },
   {
-   "type": "say",
-   "text": "So tall!",
-   "x": 430,
-   "y": 600,
+   "type": "name",
+   "text": "Continental plateau",
+   "x": 760,
+   "y": 520,
    "to": [
     600,
-    740
-   ]
+    700
+   ],
+   "word": "continental plateau"
   }
- ],
- "sfx": []
+ ]
 }

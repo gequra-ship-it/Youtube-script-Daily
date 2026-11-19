@@ -1,35 +1,43 @@
 {
- "centre": "a stretchy grid sheet curved by a heavy gold ball with a small marble rolling in",
- "focus": [
-  540,
-  950,
-  1.5
+ "centre": "split frame: a rocket stopped by a gold gate through space above, a stretching band carrying two galaxies apart below",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Expansion of space",
+   "x": 540,
+   "y": 960,
+   "to": [
+    540,
+    1130
+   ],
+   "word": "expansion"
+  }
  ],
- "focus_word": "General Theory of Relativity",
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "proud"
+    "mood": "squint"
    }
   ],
-  "act": "salute",
-  "ride": "mv-core-approach-heavy-ball",
+  "act": "wind",
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-path-drift-galaxy-left",
   "kind": "ride",
-  "x": 654,
-  "y": 1020,
+  "x": 443,
+  "y": 1249,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "outfit": [
-   "bowtie"
-  ],
   "says": [
    {
-    "text": "Aye aye!",
-    "shout": false
+    "text": "Whooosh!",
+    "shout": true
    }
   ]
  }

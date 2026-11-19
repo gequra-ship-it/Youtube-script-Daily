@@ -1,25 +1,51 @@
 {
- "centre": "cute cut-away hard drive with a spinning platter, a swinging arm and rows of data cells",
+ "centre": "black hole connected by a dotted thread to a tall glass gauge filling with glowing cubes",
  "focus": null,
  "focus_word": null,
+ "iris": [
+  760,
+  500
+ ],
  "sfx": [
   {
-   "name": "tick",
-   "word": "hard drive",
+   "name": "pop",
+   "word": "hold",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "hard drive",
-   "x": 960,
-   "y": 165,
+   "text": "information",
+   "x": 1465,
+   "y": 190,
    "to": [
-    960,
-    300
+    1465,
+    420
    ],
-   "word": "hard drive"
+   "word": "information"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pushaway"
+  },
+  "ride": "mv-path-cube",
+  "kind": "ride",
+  "x": 896,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": []
+ }
 }

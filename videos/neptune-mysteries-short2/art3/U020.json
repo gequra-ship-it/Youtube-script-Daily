@@ -1,44 +1,49 @@
 {
- "centre": "the Great Dark Spot, a dark navy oval with pale cyan fringe on Neptune's cloud deck",
+ "centre": "Voyager 2 with gold bus, big white dish and booms, passing above Neptune",
  "focus": [
   540,
-  860,
-  1.7
+  680,
+  1.6
  ],
- "focus_word": "dark vortex",
+ "focus_word": "Voyager 2",
  "labels": [
   {
    "type": "name",
-   "text": "Great Dark Spot",
-   "x": 540,
-   "y": 520,
+   "text": "Voyager 2",
+   "x": 780,
+   "y": 470,
    "to": [
-    540,
-    800
+    600,
+    640
    ],
-   "word": "Great Dark Spot"
+   "word": "Voyager 2"
   }
  ],
- "sfx": [],
+ "sfx": [
+  {
+   "name": "radio",
+   "word": "captured",
+   "vol": 0.5
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "shock"
    }
   ],
   "act": "scope",
   "outfit": [
    "helmet",
-   "antenna"
+   "jetpack"
   ],
-  "ride": "mv-core-glide-spot",
+  "ride": "mv-path-voyager",
   "kind": "ride",
-  "x": 769,
-  "y": 992,
-  "s": 1.09,
-  "flip": -1,
+  "x": 421,
+  "y": 419,
+  "s": 1.44,
+  "flip": 1,
   "bside": 1,
-  "gaze": 1,
   "says": [
    {
     "text": "I see it!",

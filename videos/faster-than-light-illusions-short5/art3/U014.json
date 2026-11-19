@@ -1,43 +1,44 @@
 {
- "centre": "a kitchen oven with a glowing window and a raisin bread loaf baking inside",
- "sfx": [],
+ "centre": "a raisin bread loaf in a tin growing in all directions, three gold arrows pointing out",
  "labels": [
   {
    "type": "name",
-   "text": "Raisin bread",
-   "x": 800,
-   "y": 420,
+   "text": "Dough",
+   "x": 230,
+   "y": 600,
    "to": [
-    620,
-    880
+    420,
+    850
    ],
-   "word": "raisin bread"
+   "word": "dough"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "surprised"
    }
   ],
   "act": {
-   "type": "dizzy"
+   "type": "backstep",
+   "obj": "mv-core-swell-dough-loaf"
   },
-  "ride": "mv-swing-oven-mitten",
-  "kind": "ride",
-  "x": 174,
-  "y": 698,
+  "outfit": [
+   "helmet"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 755,
+  "y": 1010,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "outfit": [
-   "chef"
-  ],
   "says": [
    {
-    "text": "Wooo-ooo...",
-    "shout": false
+    "text": "Whoa, it grows!",
+    "shout": true
    }
   ]
  }

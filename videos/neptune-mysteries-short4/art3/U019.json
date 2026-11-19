@@ -17,14 +17,15 @@
   540,
   860
  ],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "surprised"
    }
   ],
-  "act": "tap",
+  "act": {
+   "type": "leanback"
+  },
   "ride": "mv-slide-slab-top",
   "kind": "ride",
   "x": 318,
@@ -34,13 +35,8 @@
   "bside": 1,
   "outfit": [
    "scarf",
-   "hardhat"
+   "sunglasses"
   ],
-  "says": [
-   {
-    "text": "Knock knock!",
-    "shout": false
-   }
-  ]
+  "says": []
  }
 }

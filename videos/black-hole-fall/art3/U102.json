@@ -1,19 +1,33 @@
 {
- "centre": "an open rulebook: left page a spacetime well ending in a bright dot, right page a time arrow that stops at a bar",
+ "centre": "a blue slab (relativity) and a gold slab (quantum) colliding with a glowing crack between them above a dark horizon",
  "focus": null,
- "focus_word": "",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "General relativity",
-   "x": 740,
-   "y": 250,
-   "to": [
-    740,
-    380
-   ],
-   "word": "general relativity"
-  }
- ]
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-slide-slab-left",
+  "kind": "ride",
+  "x": 968,
+  "y": 640,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
 }

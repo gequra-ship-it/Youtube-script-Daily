@@ -1,11 +1,48 @@
 {
- "centre": "a glowing summit on the curved edge of the planet with a dashed line from the Earth centre to it",
+ "centre": "a glossy blue glass marble floating over an open textbook page",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Blue marble",
+   "x": 800,
+   "y": 610,
+   "to": [
+    690,
+    760
+   ],
+   "word": "blue marble"
+  }
+ ],
  "focus": [
   540,
-  830,
-  1.9
+  860,
+  1.5
  ],
- "focus_word": "farthest point",
- "sfx": [],
- "labels": []
+ "focus_word": "smooth, perfect blue marble",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "helmet",
+   "scarf"
+  ],
+  "ride": "mv-core-approach-marble",
+  "kind": "ride",
+  "x": 799,
+  "y": 1075,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

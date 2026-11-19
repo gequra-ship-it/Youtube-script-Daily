@@ -4,15 +4,20 @@ SCENES = [('S01',
   'Is Depth an Illusion?',
   'ill',
   'p01a',
-  'Look down at your hands right now. Feel the solid desk beneath your fingers, or the glass of your phone screen. Everything feels unmistakably '
-  'heavy, three-dimensional, and undeniably real.'),
- ('S02', 'Is Depth an Illusion?', 'ill', 'p01b', 'You can reach out and touch it. You can walk around it. You can see how far away it is.'),
+  'The solid desk under your hands may be a flat picture. In the nineteen-seventies, black hole calculations began to hint at it, and in the late '
+  'nineteen-nineties a mathematical result made the idea hard to dismiss. Here is why serious physicists take it seriously.'),
+ ('S02',
+  'Is Depth an Illusion?',
+  'ill',
+  'p01b',
+  'Look down at your hands. You can touch that desk, walk around it, and see exactly how far away it is. Everything about it feels heavy, '
+  'three-dimensional, and real.'),
  ('S03',
   'Is Depth an Illusion?',
   'ill',
   'p02a',
-  'But what if all of this depth is actually a vast cosmic illusion? Could our entire three-dimensional reality be nothing more than a projection? '
-  'It sounds like the kind of question you might ask at three in the morning, and then forget by sunrise.'),
+  'Yet the holographic principle says all of that depth could be described by information on a flat, two-dimensional surface. Could our entire '
+  'three-dimensional reality be a projection? It sounds like a question for three in the morning, forgotten by sunrise.'),
  ('S04',
   'Is Depth an Illusion?',
   'ill',
@@ -71,32 +76,32 @@ SCENES = [('S01',
   'Film and Screen',
   'ill',
   'p08a',
-  'So here is the bold question. Could our entire physical universe be working on that very same mechanism? Could the space you are sitting in, with '
-  'its distances and corners and shadows, be the three-dimensional picture, while the real information lives somewhere flat?'),
+  'So here is the bold idea: our entire physical universe may work on that very same mechanism. The space you are sitting in, with its distances and '
+  'corners and shadows, could be the three-dimensional picture, while the real information lives somewhere flat.'),
  ('S15',
   'Film and Screen',
   'ill',
   'p08b',
-  'We should say it plainly: nobody has proven this. But the reason it is taken seriously is a story that begins with the most extreme objects we '
-  'know.'),
+  'We should say it plainly: nobody has proven this. But the reason it is taken seriously is a story that begins in the nineteen-seventies, with the '
+  'most extreme objects we know.'),
  ('S16',
   'The Ultimate Testing Ground',
   'ill',
   'p09a',
   'To understand how scientists reached this mind-bending idea, we must look at black holes. For decades, black holes have served as extreme testing '
-  'grounds for theoretical physics. Why black holes?'),
+  'grounds for theoretical physics.'),
  ('S17',
   'The Ultimate Testing Ground',
   'ill',
   'p09b',
-  'Because they push our best theories to their limits. In a black hole, the physics of gravity and the physics of the very small are forced to meet '
-  'in the same place, and when they meet, the results are strange.'),
+  'They push our best theories to their limits. In a black hole, the physics of gravity and the physics of the very small are forced to meet in the '
+  'same place, and when they meet, the results are strange.'),
  ('S18',
   'What Is Information?',
   'ill',
   'p10a',
-  'Start with a simple question: what is information? In physics, information is the description of what something is, its properties, how it is '
-  'arranged, what state it is in.'),
+  'Start with what information is. In physics, information is the description of what something is, its properties, how it is arranged, what state '
+  'it is in.'),
  ('S19',
   'What Is Information?',
   'ill',
@@ -113,7 +118,8 @@ SCENES = [('S01',
   'The Line of No Return',
   'ill',
   'p11b',
-  'From the outside, we can never see it again. The book, the gas, the star: gone, and with them, everything that described them.'),
+  'From the outside, we can never see it again. The book, the gas, the star: gone, and with them, everything that described them. But the real '
+  'surprise comes in a few minutes: how much a black hole can remember has nothing to do with its size inside.'),
  ('S22',
   'The Burning Library',
   'ill',

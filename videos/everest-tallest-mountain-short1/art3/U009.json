@@ -1,20 +1,43 @@
 {
- "centre": "the dry ocean floor: Everest on its plateau and a broad volcano rising from the abyss to the same dashed summit line",
+ "centre": "a spinning, clearly flattened Earth with mountains on its bulging equator and outward push arrows",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Mount Everest",
-   "x": 300,
-   "y": 420,
+   "text": "Equatorial bulge",
+   "x": 700,
+   "y": 1260,
    "to": [
-    230,
-    560
+    890,
+    868
    ],
-   "word": "Mount Everest"
+   "word": "equatorial bulge"
   }
  ],
- "motion": "a second giant rises from the drained seafloor; the summit line marches"
+ "motion": "spin arrow marches under the globe; equator arrows nudge outward",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-glide-earth-globe",
+  "kind": "ride",
+  "x": 783,
+  "y": 650,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ]
+ }
 }

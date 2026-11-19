@@ -1,43 +1,59 @@
 {
- "centre": "a stone tablet on which three golden rule bars draw themselves while a quill moves down",
+ "centre": "Pluto under the Sun on its orbit; two green check badges pop in under an orbit icon and a round icon",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "three golden rules",
-   "x": 540,
-   "y": 330,
+   "text": "orbit the Sun",
+   "x": 310,
+   "y": 1050,
    "to": [
-    540,
-    440
+    310,
+    1140
    ],
-   "word": "three golden rules"
+   "word": "orbit the Sun"
+  },
+  {
+   "type": "name",
+   "text": "round",
+   "x": 770,
+   "y": 1050,
+   "to": [
+    770,
+    1110
+   ],
+   "word": "round"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "dizzy"
    }
   ],
-  "act": "think",
-  "ride": "mv-path-quill-pen",
-  "kind": "ride",
-  "x": 746,
-  "y": 590,
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 310,
+  "y": 1348,
   "s": 1.09,
   "flip": 1,
-  "bside": -1,
+  "bside": 1,
   "gaze": 1,
-  "outfit": [
-   "bowler"
-  ],
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
   "says": [
    {
-    "text": "Hmm...",
-    "shout": false
+    "text": "Whoa!",
+    "shout": true
    }
   ]
  }

@@ -1,11 +1,39 @@
 {
- "centre": "dashed beams of starlight falling into the black hole right beside you as you fall",
+ "centre": "inside your capsule: a porthole whose blackout shade slides up to show the sky is still full of stars",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "attractor": [
-  1450,
-  640
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "You might",
+    "mood": "happy"
+   },
+   {
+    "word": "That is",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "ride": "mv-slide-window-shade-u078",
+  "kind": "ride",
+  "x": 994,
+  "y": 289,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Phew.",
+    "shout": false
+   }
+  ]
+ }
 }

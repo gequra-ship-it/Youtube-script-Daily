@@ -1,13 +1,29 @@
 {
- "centre": "A lone Triton, dimming with a shadowed side and a few dust specks drifting off, ghost copies fading below",
- "focus": null,
- "focus_word": null,
+ "centre": "Neptune crowned with a small golden crown and a pale ring, a ghostly dashed Triton fading below",
+ "focus": [
+  540,
+  820,
+  1.6
+ ],
+ "focus_word": "the crown",
  "sfx": [
   {
-   "name": "hush",
-   "word": "will not last",
-   "vol": 0.5
+   "name": "sparkle",
+   "word": "crown",
+   "vol": 0.55
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Neptune",
+   "x": 780,
+   "y": 1060,
+   "to": [
+    630,
+    960
+   ],
+   "word": "Neptune"
+  }
+ ]
 }

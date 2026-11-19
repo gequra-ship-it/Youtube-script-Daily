@@ -1,35 +1,37 @@
 {
- "centre": "tiny glowing marker on a vertical scale between an atom above and a colossal galaxy below",
- "focus": [
-  540,
-  1200,
-  1.5
+ "centre": "a dark cosmos disc with one small bright warm slice pulled out",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "num",
+   "text": "5 PERCENT",
+   "word": "5 percent"
+  }
  ],
- "focus_word": "colossal galaxy",
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "curious"
    }
   ],
-  "act": "dance",
-  "outfit": [
-   "helmet",
-   "jetpack"
-  ],
-  "ride": "mv-core-glide-scale-marker",
+  "act": {
+   "type": "countfingers"
+  },
+  "ride": "mv-core-glide-cosmos-disc",
   "kind": "ride",
-  "x": 644,
-  "y": 920,
+  "x": 814,
+  "y": 1090,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
+  "outfit": [
+   "bowler"
+  ],
   "says": [
    {
-    "text": "La la la~",
+    "text": "One, two...",
     "shout": false
    }
   ]

@@ -1,7 +1,49 @@
 {
- "centre": "a small teal bird arriving early on a stage as spotlights light up and music notes rise",
+ "centre": "the Sun glowing in the middle of a time line that runs down from a Big Bang flash",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Big Bang",
+   "x": 770,
+   "y": 420,
+   "to": [
+    600,
+    420
+   ],
+   "word": "Big Bang"
+  },
+  {
+   "type": "name",
+   "text": "Our sun",
+   "x": 790,
+   "y": 860,
+   "to": [
+    640,
+    860
+   ],
+   "word": "Our sun"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 260,
+  "y": 1120,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

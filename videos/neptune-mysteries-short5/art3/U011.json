@@ -1,30 +1,46 @@
 {
- "centre": "Triton wandering through a dusty icy belt beside little Pluto",
+ "centre": "lone Triton dwarf planet drifting in a vast dark with a far tiny Sun",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Pluto",
-   "x": 800,
-   "y": 380,
+   "text": "dwarf planet",
+   "x": 650,
+   "y": 990,
    "to": [
-    800,
-    470
+    530,
+    930
    ],
-   "word": "Pluto"
-  },
-  {
-   "type": "name",
-   "text": "Kuiper Belt",
-   "x": 330,
-   "y": 500,
-   "to": [
-    440,
-    640
-   ],
-   "word": "Kuiper Belt"
+   "word": "dwarf planet"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-core-glide-triton",
+  "kind": "ride",
+  "x": 266,
+  "y": 1030,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
 }

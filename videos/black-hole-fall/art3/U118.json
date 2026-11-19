@@ -1,35 +1,45 @@
 {
- "centre": "the dark hole shadow slowly shrinking inside a glow of dissolving heat and light, a row of time marks below",
+ "centre": "a black hole shadow letting one glowing particle escape while a mass gauge drops, with an open ledger book",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Escaping particle",
+   "x": 1250,
+   "y": 560,
+   "to": [
+    1070,
+    420
+   ],
+   "word": "escaping particle"
+  }
+ ],
+ "iris": [
+  1610,
+  555
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "scared"
    }
   ],
   "act": {
-   "type": "dizzy"
+   "type": "duck"
   },
   "outfit": [
    "helmet",
-   "antenna"
+   "goldvisor"
   ],
-  "x": 260,
-  "y": 890,
-  "s": 0.76,
+  "ride": "mv-path-escape-particle",
+  "kind": "ride",
+  "x": 1002,
+  "y": 450,
+  "s": 0.95,
   "flip": 1,
-  "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "says": [
-   {
-    "text": "Shh...",
-    "shout": false
-   }
-  ],
-  "bside": 1
+  "bside": -1,
+  "gaze": 1,
+  "says": []
  }
 }

@@ -1,32 +1,32 @@
 {
- "centre": "a small golden pocket watch swinging in front of the vast Milky Way band",
+ "centre": "a small lonely Earth spinning in a vast dark void above a flat signal line",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "scared"
    }
   ],
-  "act": "listen",
-  "ride": "mv-swing-pocket-watch-pendulum",
-  "kind": "ride",
-  "x": 1133,
-  "y": 635,
-  "s": 0.95,
+  "act": "shiver",
+  "x": 1660,
+  "y": 700,
+  "s": 0.76,
   "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
   "outfit": [
-   "cap"
+   "beanie"
   ],
   "says": [
    {
-    "text": "Shh... listen.",
+    "text": "Brrrr...",
     "shout": false
    }
-  ]
+  ],
+  "bside": -1
  }
 }

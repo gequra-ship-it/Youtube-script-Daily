@@ -1,11 +1,30 @@
 {
- "centre": "a glowing rock above a gravity sheet that dips beneath it, with a green arrow of pull",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "physics and gravity",
- "sfx": [],
- "labels": []
+ "centre": "an angular rigid rock being pressed from four sides by green gravity arrows",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "ride": "mv-core-approach-rigid-rock",
+  "kind": "ride",
+  "x": 1108,
+  "y": 610,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "So strong!",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,47 +1,34 @@
 {
- "centre": "a glowing paper party lantern in an empty hall with an open doorway",
+ "centre": "a small teal bird arriving early on a stage as spotlights light up and music notes rise",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Anyone here?",
-   "x": 780,
-   "y": 640,
-   "to": [
-    600,
-    790
-   ]
-  }
- ],
  "frog": {
   "moods": [
    {
     "mood": "excited"
+   },
+   {
+    "word": "Think about",
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "balloonride",
-   "obj": "mv-ascend-party-balloon-1"
-  },
-  "outfit": [
-   "helmet",
-   "jetpack"
-  ],
-  "ride": "mv-ascend-party-balloon-1",
+  "act": "dance",
+  "ride": "mv-core-sway-early-bird",
   "kind": "ride",
-  "x": 840,
-  "y": 1281,
+  "x": 734,
+  "y": 980,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "behind": null,
+  "outfit": [
+   "headphones",
+   "backpack"
+  ],
   "says": [
    {
-    "text": "Up, up!",
-    "shout": true
+    "text": "La la la~",
+    "shout": false
    }
   ]
  }

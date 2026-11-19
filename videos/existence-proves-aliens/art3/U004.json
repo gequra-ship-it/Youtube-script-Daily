@@ -2,41 +2,28 @@
  "centre": "a gold pocket watch hanging from the ceiling, paused, gently swinging in a dark hall with tall starry windows; a person thinks beside it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Why am I here?",
-   "x": 300,
-   "y": 420,
-   "to": [
-    500,
-    560
-   ]
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "squint"
    }
   ],
-  "act": "think",
+  "act": "wind",
   "ride": "mv-swing-pocket-watch-pendulum",
   "kind": "ride",
-  "x": 1148,
-  "y": 650,
-  "s": 0.95,
+  "x": 1050,
+  "y": 385,
+  "s": 1.25,
   "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "bside": -1,
   "outfit": [
-   "bowtie"
+   "scarf",
+   "cap"
   ],
   "says": [
    {
-    "text": "Hmm...",
-    "shout": false
+    "text": "Whooosh!",
+    "shout": true
    }
   ]
  }

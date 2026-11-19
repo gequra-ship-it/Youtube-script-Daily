@@ -1,18 +1,35 @@
 {
- "centre": "a balance scale: a stone on one pan, only an empty dashed outline and a shadow on the other, weighing nothing",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Weighs nothing!",
-   "x": 820,
-   "y": 1130,
-   "to": [
-    820,
-    1012
-   ]
-  }
- ]
+ "centre": "a magnifying glass over a shadow on a lit floor: photons land everywhere except in the dark region",
+ "focus": [
+  560,
+  880,
+  1.6
+ ],
+ "focus_word": "what a shadow actually is",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "countstars"
+  },
+  "ride": "mv-core-glide-magnifier-lens",
+  "kind": "ride",
+  "x": 724,
+  "y": 1041,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "So many...",
+    "shout": false
+   }
+  ]
+ }
 }

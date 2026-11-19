@@ -1,11 +1,40 @@
 {
- "centre": "wide aerial view: methane clouds above, teal rivers branching through carved valleys",
+ "centre": "a cracked, rock-hard sphere of water ice beside a thermometer sinking",
  "focus": [
-  960,
-  640,
-  1.6
+  356,
+  470,
+  1.5
  ],
- "focus_word": "rivers carving valleys",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-frost-crystal",
+   "h": 168
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1365,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

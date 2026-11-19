@@ -1,52 +1,38 @@
 {
- "centre": "a night-sky jigsaw with one empty slot in the middle; a puzzle piece holding a small waving person glides into it",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "click",
-   "word": "a piece of it",
-   "vol": 0.5
-  }
+ "centre": "split frame: left, a radio dish beams a dashed search far into empty deep space; right, a person sits in an armchair in a lamp-lit room, an evidence tag dangling from the chair",
+ "focus": [
+  1400,
+  640,
+  1.6
  ],
- "labels": [
-  {
-   "type": "say",
-   "text": "I fit right in!",
-   "x": 1520,
-   "y": 530,
-   "to": [
-    1520,
-    676
-   ]
-  }
- ],
- "track": false,
+ "focus_word": "sitting right in your chair",
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "curious"
    },
    {
-    "word": "You are",
+    "word": "It may",
     "mood": "happy"
    }
   ],
-  "act": {
-   "type": "shrinkdown"
-  },
+  "act": "magnify",
   "outfit": [
-   "helmet",
-   "goldvisor"
+   "diver"
   ],
-  "ride": "mv-path-puzzle-piece",
+  "ride": "mv-swing-evidence-tag",
   "kind": "ride",
-  "x": 1232,
+  "x": 1700,
   "y": 790,
   "s": 0.95,
   "flip": -1,
-  "bside": -1,
+  "bside": 1,
   "gaze": 1,
-  "says": []
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ]
  }
 }

@@ -1,23 +1,45 @@
 {
- "centre": "a pair of glowing particles, one blue one gold, blinking into being in a faint lattice of empty space",
+ "centre": "the curved edge of the horizon glowing at the bottom, a crack of light splitting a pair of particles",
  "focus": [
   540,
-  860,
+  1250,
   1.6
  ],
- "focus_word": "virtual particles",
- "sfx": [],
+ "focus_word": "event horizon",
  "labels": [
   {
    "type": "name",
-   "text": "virtual particles",
-   "x": 540,
-   "y": 520,
+   "text": "event horizon",
+   "x": 300,
+   "y": 1030,
    "to": [
-    540,
-    830
+    330,
+    1450
    ],
-   "word": "virtual particles"
+   "word": "event horizon"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pushaway"
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-path-particle-inward",
+  "kind": "ride",
+  "x": 598,
+  "y": 1264,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
 }

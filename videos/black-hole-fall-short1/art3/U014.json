@@ -1,50 +1,43 @@
 {
- "centre": "diagram: a dark circle; one bent light ray reaches your eye, another curls into the dark and never comes out",
- "focus": null,
- "focus_word": "",
- "sfx": [],
+ "centre": "a huge dark shadow disc and, far smaller below it, the real hole itself",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "shadow",
  "labels": [
   {
    "type": "name",
-   "text": "Boundary",
-   "x": 250,
-   "y": 560,
+   "text": "surface",
+   "x": 780,
+   "y": 1130,
    "to": [
-    452,
-    612
+    590,
+    1230
    ],
-   "word": "boundary"
+   "word": "surface"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "scared"
    }
   ],
   "act": {
-   "type": "slide",
-   "to": [
-    540,
-    1190
-   ]
+   "type": "pushaway"
   },
+  "ride": "mv-core-glide-shadow-disc",
+  "kind": "ride",
+  "x": 667,
+  "y": 695,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
   "outfit": [
-   "helmet",
-   "antenna"
+   "glasses"
   ],
-  "kind": "bg",
-  "ride": null,
-  "x": 162,
-  "y": 998,
-  "s": 1.15,
-  "flip": 1,
-  "says": [
-   {
-    "text": "Down I go!",
-    "shout": true
-   }
-  ],
-  "bside": 1
+  "says": []
  }
 }

@@ -1,51 +1,40 @@
 {
- "centre": "a dreamy library: tall shelves of colourful books, an open glowing book in the middle with a light thread up to a small spinning globe",
+ "centre": "lensed black hole with a thin glowing teal event-horizon shell; two info cubes fall in and vanish; a small satellite watches from outside",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Library",
-   "x": 1520,
-   "y": 180,
+   "text": "Event horizon",
+   "x": 1180,
+   "y": 250,
    "to": [
-    1520,
-    300
+    1180,
+    362
    ],
-   "word": "library"
+   "word": "event horizon"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "scared"
    }
   ],
   "act": {
-   "type": "launched",
-   "obj": "mv-popin-book-icon-2",
-   "h": 68
+   "type": "pushaway"
   },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
   "ride": null,
   "kind": "bg",
-  "x": 560,
-  "y": 474,
-  "s": 0.95,
+  "x": 744,
+  "y": 498,
+  "s": 0.9,
   "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
-  "outfit": [
-   "bowtie"
-  ],
-  "says": [
-   {
-    "text": "Whoa!",
-    "shout": true
-   }
-  ]
+  "says": [],
+  "bside": 1
  }
 }

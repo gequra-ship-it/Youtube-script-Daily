@@ -1,23 +1,45 @@
 {
- "centre": "all eight planets lined up in true size order, with Pluto only a speck circled at the end, while the dashed Planet X ghost fades away",
+ "centre": "close-up of Pluto: tan globe, big cream heart region, reddish patches and a thin blue haze rim, with a diameter dimension line below",
  "labels": [
   {
-   "type": "name",
-   "text": "Pluto",
-   "x": 1640,
-   "y": 440,
-   "to": [
-    1640,
-    570
-   ],
-   "word": "Pluto"
+   "type": "num",
+   "text": "2,376 KM",
+   "word": "2,376"
   }
  ],
  "focus": [
-  1640,
-  600,
-  2.0
+  960,
+  470,
+  1.5
  ],
- "focus_word": "microscopic",
- "sfx": []
+ "focus_word": "diameter",
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   },
+   {
+    "word": "Pluto has",
+    "mood": "surprised"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-pluto-planet",
+  "kind": "ride",
+  "x": 1321,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Let me see...",
+    "shout": false
+   }
+  ]
+ }
 }

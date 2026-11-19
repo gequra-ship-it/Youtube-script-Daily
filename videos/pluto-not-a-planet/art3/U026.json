@@ -1,11 +1,46 @@
 {
- "centre": "a glass plate on a light table with one speck that has moved",
- "focus": [
-  1220,
-  470,
-  1.8
+ "centre": "Pluto, pale tan world with the cream heart, framed by an underworld cave and Roman columns",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pluto",
+   "x": 1300,
+   "y": 300,
+   "to": [
+    1040,
+    420
+   ],
+   "word": "Pluto"
+  }
  ],
- "focus_word": "a speck shifting position",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-core-glide-pluto-planet",
+  "kind": "ride",
+  "x": 1179,
+  "y": 651,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "halo",
+   "crown"
+  ],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
 }

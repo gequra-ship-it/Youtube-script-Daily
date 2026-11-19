@@ -1,22 +1,50 @@
 {
- "centre": "top view of an archive table where nine glowing record cubes rearrange from a grid into a line; a filing cabinet drawer slides open",
+ "centre": "a dreamy library: tall shelves of colourful books, an open glowing book in the middle with a light thread up to a small spinning globe",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "All kept!",
-   "x": 380,
-   "y": 280,
+   "type": "name",
+   "text": "Library",
+   "x": 1520,
+   "y": 180,
    "to": [
-    380,
-    365
-   ]
+    1520,
+    300
+   ],
+   "word": "library"
   }
  ],
- "iris": [
-  380,
-  580
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-book-icon-2",
+   "h": 68
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 560,
+  "y": 474,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

@@ -1,19 +1,38 @@
 {
- "centre": "an empty chair at a desk piled with crumpled paper while a wall clock races",
+ "centre": "a silhouette at a chalkboard with a dark disc, a decade timeline below and a new layer dropping onto a stack",
  "labels": [
   {
-   "type": "name",
-   "text": "Decades",
-   "x": 780,
-   "y": 300,
-   "to": [
-    780,
-    520
-   ],
-   "word": "decades"
+   "type": "num",
+   "text": "1970S",
+   "word": "1970s"
   }
  ],
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "x": 690,
+  "y": 1000,
+  "s": 1.2,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": "mv-breathe-scientist-body",
+  "bside": -1,
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
 }

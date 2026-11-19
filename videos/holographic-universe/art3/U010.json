@@ -1,42 +1,37 @@
 {
- "centre": "a bold glowing idea orb with a dashed, unproven outline rising from physics books, a coin spinning undecided nearby",
+ "centre": "a planet shivering with a shimmering ghost double, a small honest note card popping in at its side",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Heads or tails?",
-   "x": 1600,
-   "y": 520,
-   "to": [
-    1430,
-    640
-   ]
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "worried"
+   },
+   {
+    "word": "Before we",
+    "mood": "happy"
    }
   ],
-  "act": "idea",
-  "ride": "mv-core-swell-idea-orb",
-  "kind": "ride",
-  "x": 1108,
-  "y": 560,
+  "act": {
+   "type": "bracehold",
+   "obj": "mv-core-tremble-planet"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1160,
+  "y": 662,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "beanie"
+   "bowtie"
   ],
   "says": [
    {
-    "text": "Aha!",
-    "shout": false
+    "text": "Steady...!",
+    "shout": true
    }
   ]
  }

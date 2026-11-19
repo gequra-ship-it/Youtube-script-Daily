@@ -1,34 +1,43 @@
 {
- "centre": "left: the soft white flash of the Big Bang; small hydrogen atoms drift along a dotted route into a star-filled human silhouette on the right",
+ "centre": "a night-sky jigsaw with one empty slot in the middle; a puzzle piece holding a small waving person glides into it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "Big Bang",
-   "x": 330,
-   "y": 230,
-   "to": [
-    330,
-    420
-   ],
-   "word": "Big Bang"
-  },
-  {
-   "type": "name",
-   "text": "hydrogen",
-   "x": 640,
-   "y": 560,
-   "to": [
-    525,
-    440
-   ],
-   "word": "hydrogen"
+   "name": "click",
+   "word": "a piece of it",
+   "vol": 0.5
   }
  ],
- "iris": [
-  1510,
-  520
- ]
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "You are",
+    "mood": "happy"
+   }
+  ],
+  "act": "scope",
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-path-puzzle-piece",
+  "kind": "ride",
+  "x": 1232,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "I see it!",
+    "shout": false
+   }
+  ]
+ }
 }

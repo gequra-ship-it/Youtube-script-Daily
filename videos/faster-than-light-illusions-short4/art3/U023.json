@@ -1,19 +1,28 @@
 {
- "centre": "a heavy iron padlock hanging from the entangled link, swinging slightly: the rule is locked",
+ "centre": "an envelope stuck at the top particle, unable to ride down the entangled link past a light-speed limit sign",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "No-Communication Theorem",
-   "x": 540,
-   "y": 1250,
-   "to": [
-    540,
-    1030
-   ],
-   "word": "No-Communication Theorem"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "listen",
+  "outfit": [
+   "helmet"
+  ],
+  "x": 260,
+  "y": 1120,
+  "s": 1.21,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Beep... beep...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

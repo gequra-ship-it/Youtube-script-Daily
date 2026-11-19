@@ -1,24 +1,43 @@
 {
- "centre": "a mass gauge whose level dropped to match the reddish planet Mars, joined by a dashed level line",
+ "centre": "a drying line in a darkroom with a big hanging photo print of Pluto showing a strange bulge on one side, circled",
  "labels": [
   {
    "type": "num",
-   "text": "1948",
-   "word": "1948"
-  },
-  {
-   "type": "name",
-   "text": "Mars",
-   "x": 1180,
-   "y": 330,
-   "to": [
-    1180,
-    430
-   ],
-   "word": "Mars"
+   "text": "1978",
+   "word": "1978"
   }
  ],
- "focus": null,
- "focus_word": null,
- "sfx": []
+ "focus": [
+  1070,
+  450,
+  1.8
+ ],
+ "focus_word": "strange bulge",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 760,
+  "y": 685,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-glide-blurry-image",
+  "outfit": [
+   "detective",
+   "toga"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
 }

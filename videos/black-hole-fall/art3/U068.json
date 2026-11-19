@@ -1,42 +1,39 @@
 {
- "centre": "a huge dark giant with a thin bright rim and lensed arcs, and our Sun only a tiny glowing dot beside it",
+ "centre": "you choosing the giant supermassive black hole over a tiny stellar-mass one",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Our Sun",
-   "x": 470,
-   "y": 620,
+   "text": "supermassive black hole",
+   "x": 1000,
+   "y": 140,
    "to": [
-    336,
-    712
+    1135,
+    295
    ],
-   "word": "our Sun"
+   "word": "supermassive black hole"
   }
  ],
- "spot": false,
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "scared"
    }
   ],
   "act": {
-   "type": "dizzy"
+   "type": "pushaway"
   },
-  "ride": null,
+  "x": 1660,
+  "y": 780,
+  "s": 0.76,
+  "flip": -1,
   "kind": "bg",
-  "x": 219,
-  "y": 549,
-  "s": 0.9,
-  "flip": 1,
   "outfit": [
-   "helmet",
-   "antenna"
+   "lab",
+   "bowtie"
   ],
   "says": [],
-  "bside": 1
+  "bside": -1
  }
 }

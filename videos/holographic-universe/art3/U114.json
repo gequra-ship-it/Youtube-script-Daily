@@ -1,36 +1,27 @@
 {
- "centre": "an open book seen from above, its scribbled sentences each holding a glowing word capsule (might, suspect)",
+ "centre": "a black hole inside a thin shell tiled with glowing squares, with an arrow from a calculation page",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "page",
-   "word": "every sentence",
-   "vol": 0.5
-  }
- ],
- "labels": [
-  {
-   "type": "name",
-   "text": "might",
-   "x": 560,
-   "y": 175,
-   "to": [
-    620,
-    425
-   ],
-   "word": "might"
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck"
   },
-  {
-   "type": "name",
-   "text": "suspect",
-   "x": 1250,
-   "y": 175,
-   "to": [
-    1250,
-    585
-   ],
-   "word": "suspect"
-  }
- ]
+  "ride": null,
+  "kind": "bg",
+  "x": 678,
+  "y": 493,
+  "s": 0.9,
+  "flip": 1,
+  "outfit": [
+   "glasses",
+   "bowtie"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

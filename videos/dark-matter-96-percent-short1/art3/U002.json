@@ -5,19 +5,30 @@
   860,
   1.5
  ],
- "focus_word": "glowing screen",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "desk",
-   "x": 260,
-   "y": 1010,
-   "to": [
-    200,
-    1140
-   ],
-   "word": "desk"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 420,
+  "y": 1095,
+  "s": 1.2,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": "mv-core-flicker-phone-screen",
+  "bside": -1,
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
 }

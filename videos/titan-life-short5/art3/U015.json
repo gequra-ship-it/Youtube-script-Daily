@@ -1,11 +1,48 @@
 {
- "centre": "Monitor frame whose cover slides away to reveal an amber dune landscape never seen by humans",
- "focus": [
-  540,
-  860,
-  1.5
+ "centre": "a generic Earth drone straining to stay up over green hills, a big gravity arrow pulling it down, only a few faint air wisps",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "gravity",
+   "x": 820,
+   "y": 1010,
+   "to": [
+    580,
+    1050
+   ],
+   "word": "gravity"
+  }
  ],
- "focus_word": "no human has ever seen",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "slide",
+   "to": [
+    540,
+    779
+   ]
+  },
+  "kind": "bg",
+  "ride": null,
+  "x": 918,
+  "y": 587,
+  "s": 1.15,
+  "flip": -1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

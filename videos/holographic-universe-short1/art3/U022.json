@@ -1,54 +1,43 @@
 {
- "centre": "a spiral galaxy inside a glowing cosmic screen, lit by a beam from a flat film strip of information bits",
+ "centre": "a glowing read-out bar sweeping across a flat tile sheet while glowing towers of depth rise behind it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Screen",
-   "x": 800,
-   "y": 1060,
+   "text": "Flat information",
+   "x": 330,
+   "y": 1390,
    "to": [
-    860,
-    980
+    330,
+    1230
    ],
-   "word": "screen"
-  },
-  {
-   "type": "name",
-   "text": "Film",
-   "x": 220,
-   "y": 1150,
-   "to": [
-    260,
-    1260
-   ],
-   "word": "film"
+   "word": "flat information"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "float",
+  "act": "read",
   "outfit": [
-   "helmet",
-   "goldvisor"
+   "diver"
   ],
-  "x": 260,
-  "y": 1120,
-  "s": 1.1,
+  "ride": "mv-path-scanner-bar",
+  "kind": "ride",
+  "x": 304,
+  "y": 1300,
+  "s": 1.09,
   "flip": 1,
-  "kind": "bg",
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Wheee!",
+    "text": "Page 2...",
     "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

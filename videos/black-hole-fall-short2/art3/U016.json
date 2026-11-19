@@ -1,45 +1,47 @@
 {
- "centre": "a quiet black hole shadow with a thin glowing horizon; you, tiny, stuck at its edge; the friend watches through a telescope from the deck",
+ "centre": "a round light detector on the mother ship console catching the last faint photon from the porthole",
  "focus": [
-  560,
-  650,
-  1.6
+  540,
+  900,
+  1.5
  ],
- "focus_word": "never actually cross",
- "sfx": [],
+ "focus_word": "registers",
  "labels": [
   {
    "type": "name",
-   "text": "Event horizon",
-   "x": 790,
-   "y": 470,
+   "text": "Last detectable photon",
+   "x": 640,
+   "y": 640,
    "to": [
-    690,
-    625
+    600,
+    470
    ],
-   "word": "event horizon"
+   "word": "last detectable photon"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "duck"
-  },
+  "act": "rest",
+  "ride": "mv-path-last-photon",
+  "kind": "ride",
+  "x": 526,
+  "y": 490,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
   "outfit": [
-   "helmet",
-   "patch"
+   "glasses"
   ],
-  "ride": null,
-  "kind": "bg",
-  "x": 255,
-  "y": 723,
-  "s": 0.9,
-  "flip": 1,
-  "says": [],
-  "bside": 1
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
  }
 }

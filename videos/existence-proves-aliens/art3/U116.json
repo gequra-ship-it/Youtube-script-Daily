@@ -1,31 +1,32 @@
 {
- "centre": "a steaming coffee mug on a windowsill at dawn, coffee being poured",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "a single glowing music note on an empty staff stretched across a cosmic stage",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "opening note",
  "frog": {
   "moods": [
    {
-    "mood": "sleepy"
+    "mood": "surprised"
    }
   ],
-  "act": "stretch",
-  "x": 1660,
-  "y": 890,
-  "s": 0.76,
-  "flip": -1,
-  "kind": "bg",
+  "act": {
+   "type": "shrinkdown"
+  },
   "outfit": [
-   "beanie",
-   "pocketwatch"
+   "helmet",
+   "patch"
   ],
-  "says": [
-   {
-    "text": "Good morning!",
-    "shout": false
-   }
-  ],
-  "bside": -1
+  "ride": "mv-core-glide-music-note",
+  "kind": "ride",
+  "x": 1133,
+  "y": 645,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
  }
 }

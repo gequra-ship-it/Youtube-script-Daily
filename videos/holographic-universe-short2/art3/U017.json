@@ -1,23 +1,46 @@
 {
- "centre": "an archive cabinet whose middle drawer glows open with a record cube inside",
+ "centre": "a glowing golden information cube with a star, safe above the ash heap with smaller icon cubes rising",
  "labels": [
   {
    "type": "name",
-   "text": "Records",
-   "x": 770,
-   "y": 600,
+   "text": "Information",
+   "x": 700,
+   "y": 540,
    "to": [
-    830,
-    730
+    590,
+    780
    ],
-   "word": "records"
+   "word": "information"
   }
  ],
- "focus": [
-  540,
-  940,
-  1.7
- ],
- "focus_word": "records",
- "sfx": []
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-ascend-info-cube-4",
+  "kind": "ride",
+  "x": 830,
+  "y": 762,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Up, up!",
+    "shout": true
+   }
+  ]
+ }
 }

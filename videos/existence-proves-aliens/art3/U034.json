@@ -1,45 +1,32 @@
 {
- "centre": "a single glass specimen jar on a shelf holding a small glowing Earth, six empty jars beside it",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Just me?",
-   "x": 1130,
-   "y": 330,
-   "to": [
-    985,
-    470
-   ]
-  }
- ],
- "iris": [
+ "centre": "a glowing cluster of tiny green microbes above a warm shallow pool on the young Earth, volcano cones and a big moon behind",
+ "focus": [
   960,
-  500
+  520,
+  1.7
  ],
+ "focus_word": "life arose",
  "frog": {
   "moods": [
    {
-    "mood": "proud"
+    "mood": "happy"
    }
   ],
-  "act": "clap",
-  "ride": "mv-core-sway-earth-jar",
+  "act": "lean",
+  "ride": "mv-core-glide-microbe-cluster",
   "kind": "ride",
-  "x": 1090,
-  "y": 616,
+  "x": 1123,
+  "y": 608,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "gradcap"
+   "glasses"
   ],
   "says": [
    {
-    "text": "Bravo!",
+    "text": "Here we go!",
     "shout": false
    }
   ]

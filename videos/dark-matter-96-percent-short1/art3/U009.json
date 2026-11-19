@@ -1,23 +1,39 @@
 {
- "centre": "a breath cloud full of tiny atoms rising from a person seen from behind under the stars",
+ "centre": "a bright golden Sun above a galaxy full of countless stars",
  "focus": [
-  580,
-  800,
+  540,
+  760,
   1.6
  ],
- "focus_word": "every breath",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "atomic matter",
-   "x": 560,
-   "y": 560,
-   "to": [
-    590,
-    700
-   ],
-   "word": "atomic matter"
-  }
- ]
+ "focus_word": "Sun",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "x": 820,
+  "y": 1120,
+  "s": 0.99,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "lie",
+   "dist": 302
+  },
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

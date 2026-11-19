@@ -1,19 +1,40 @@
 {
- "centre": "a lantern beam searching the black horizon surface where ghostly information cubes glow",
+ "centre": "a magnifying lens examining the tiled glowing edge of a black hole horizon",
  "labels": [
   {
    "type": "name",
-   "text": "Horizon",
-   "x": 770,
-   "y": 760,
+   "text": "Event horizon",
+   "x": 720,
+   "y": 1330,
    "to": [
-    620,
-    1020
+    640,
+    1240
    ],
-   "word": "horizon"
+   "word": "event horizon"
   }
  ],
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pushaway"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-core-glide-magnifier-lens",
+  "kind": "ride",
+  "x": 693,
+  "y": 903,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": []
+ }
 }

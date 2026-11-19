@@ -1,19 +1,61 @@
 {
- "centre": "close view of two long blades crossing; the glowing point where the edges meet slides outward along them",
+ "centre": "top view of the inner solar system: scissor blades from Earth reach far past the orbit of Mars, handles at Earth",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "intersect",
-   "x": 800,
-   "y": 1260,
+   "text": "Mars",
+   "x": 633,
+   "y": 627,
    "to": [
-    560,
-    1220
+    493,
+    587
    ],
-   "word": "intersect"
+   "word": "Mars"
+  },
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 730,
+   "y": 1152,
+   "to": [
+    585,
+    1102
+   ],
+   "word": "Earth"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "As you",
+    "mood": "happy"
+   }
+  ],
+  "act": "wind",
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "x": 820,
+  "y": 1560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "moonhop",
+   "dist": 540
+  },
+  "says": [
+   {
+    "text": "Boing!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

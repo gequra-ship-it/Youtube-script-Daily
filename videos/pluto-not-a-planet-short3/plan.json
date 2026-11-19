@@ -26,8 +26,8 @@
     "#f2f08a"
    ]
   },
-  "text": "Did you know that Pluto does not even circle the Sun on the same level as the other planets?",
-  "dur": 6.66,
+  "text": "Pluto does not circle the Sun on the same level as the other planets.",
+  "dur": 6.17,
   "transition_in": "hard",
   "prev": "",
   "nxt": "The eight major planets glide in nearly flat circles, like toy cars rolling around on a smooth floor.",
@@ -61,9 +61,9 @@
    ]
   },
   "text": "The eight major planets glide in nearly flat circles, like toy cars rolling around on a smooth floor.",
-  "dur": 6.66,
+  "dur": 6.17,
   "transition_in": "wave",
-  "prev": "Did you know that Pluto does not even circle the Sun on the same level as the other planets?",
+  "prev": "Pluto does not circle the Sun on the same level as the other planets.",
   "nxt": "",
   "frog_hint": true
  },
@@ -232,7 +232,7 @@
   },
   "text": "It takes 248 years to complete a single lap.",
   "dur": 5.05,
-  "transition_in": "zoom",
+  "transition_in": "iris",
   "prev": "At its farthest, it drifts out to about seven and a half billion.",
   "nxt": "In fact, since its discovery in 1930, Pluto has not even finished one full orbit.",
   "frog_hint": false
@@ -334,7 +334,7 @@
   },
   "text": "Pluto even spins on its side, tilted about 120 degrees,",
   "dur": 5.64,
-  "transition_in": "match",
+  "transition_in": "eye",
   "prev": "It will do that in the year 2178.",
   "nxt": "so it rotates backward compared with most planets. Pluto came closest to the Sun in 1989.",
   "frog_hint": true
@@ -368,7 +368,7 @@
   },
   "text": "so it rotates backward compared with most planets. Pluto came closest to the Sun in 1989.",
   "dur": 5.64,
-  "transition_in": "iris",
+  "transition_in": "match",
   "prev": "Pluto even spins on its side, tilted about 120 degrees,",
   "nxt": "",
   "frog_hint": false
@@ -402,7 +402,7 @@
   },
   "text": "Neptune's path is almost a perfect circle, but Pluto's oval path cuts inside it.",
   "dur": 5.54,
-  "transition_in": "eye",
+  "transition_in": "zoom",
   "prev": "",
   "nxt": "Most planets keep to their own lanes, never crossing a neighbor's path.",
   "frog_hint": true
@@ -436,7 +436,7 @@
   },
   "text": "Most planets keep to their own lanes, never crossing a neighbor's path.",
   "dur": 5.54,
-  "transition_in": "zoom",
+  "transition_in": "fade",
   "prev": "Neptune's path is almost a perfect circle, but Pluto's oval path cuts inside it.",
   "nxt": "For twenty years, between 1979 and 1999,",
   "frog_hint": false
@@ -470,7 +470,7 @@
   },
   "text": "For twenty years, between 1979 and 1999,",
   "dur": 5.54,
-  "transition_in": "fade",
+  "transition_in": "slide",
   "prev": "Most planets keep to their own lanes, never crossing a neighbor's path.",
   "nxt": "Pluto was closer to the Sun than Neptune was. It crossed its neighbor's path like a cosmic rebel.",
   "frog_hint": true
@@ -639,7 +639,7 @@
    ]
   },
   "text": "They never get closer than about two and a half billion kilometers.",
-  "dur": 4.6,
+  "dur": 4.58,
   "transition_in": "whip",
   "prev": "",
   "nxt": "For decades, astronomers called Pluto an eccentric exception.",
@@ -673,8 +673,8 @@
    ]
   },
   "text": "For decades, astronomers called Pluto an eccentric exception.",
-  "dur": 4.6,
-  "transition_in": "tilt",
+  "dur": 4.58,
+  "transition_in": "seam",
   "prev": "They never get closer than about two and a half billion kilometers.",
   "nxt": "But was it really a planet at all, or the first clue of a hidden realm?",
   "frog_hint": true
@@ -707,14 +707,48 @@
    ]
   },
   "text": "But was it really a planet at all, or the first clue of a hidden realm?",
-  "dur": 4.6,
-  "transition_in": "seam",
+  "dur": 4.58,
+  "transition_in": "tilt",
   "prev": "For decades, astronomers called Pluto an eccentric exception.",
-  "nxt": "",
+  "nxt": "So the two worlds can cross paths on a map, but never meet in space.",
   "frog_hint": false
  },
  {
   "uid": "U022",
+  "scene": 7,
+  "title": "Part 7",
+  "art_theme": "sh3_7",
+  "bg": "night",
+  "pal": {
+   "palette": "aurora",
+   "paper_base": "#e0eceb",
+   "paper_ink": "#10262c",
+   "night_top": "#02101a",
+   "night_bottom": "#06283a",
+   "night_line": "#b5ffe0",
+   "night_glow": "#46f0b0",
+   "dusk_stops": [
+    "#d8f5e0",
+    "#3fc9a0",
+    "#1a4a7a"
+   ],
+   "dusk_ink": "#10262c",
+   "accents": [
+    "#46f0b0",
+    "#4aa8ff",
+    "#b58cff",
+    "#f2f08a"
+   ]
+  },
+  "text": "So the two worlds can cross paths on a map, but never meet in space.",
+  "dur": 4.58,
+  "transition_in": "whip",
+  "prev": "But was it really a planet at all, or the first clue of a hidden realm?",
+  "nxt": "",
+  "frog_hint": true
+ },
+ {
+  "uid": "U023",
   "scene": 8,
   "title": "Part 8",
   "art_theme": "sh3_8",
@@ -742,9 +776,9 @@
   },
   "text": "Watch the full video on our channel to see how this tilted orbit changed astronomy forever.",
   "dur": 7.02,
-  "transition_in": "slide",
+  "transition_in": "wave",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  }
 ]

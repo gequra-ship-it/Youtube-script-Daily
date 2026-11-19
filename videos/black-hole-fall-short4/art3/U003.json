@@ -1,19 +1,41 @@
 {
- "centre": "tiny dark stellar hole on a steep warped grid with three small suns for comparison and a capsule falling in",
+ "centre": "small capsule between a calm giant black hole above and a violent tiny one below",
  "focus": null,
- "focus_word": "",
- "sfx": [],
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
    "text": "black hole",
-   "x": 800,
-   "y": 1090,
+   "x": 790,
+   "y": 380,
    "to": [
-    600,
-    1170
+    670,
+    470
    ],
    "word": "black hole"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pushaway"
+  },
+  "ride": "mv-core-glide-capsule",
+  "kind": "ride",
+  "x": 679,
+  "y": 936,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "says": []
+ }
 }

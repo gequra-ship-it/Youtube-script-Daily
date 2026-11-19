@@ -1,41 +1,44 @@
 {
- "centre": "a light pulse travelling at a steady pace along a long road from Earth to Saturn, past a light-speed limit sign",
+ "centre": "a radio dish on Earth sending an ordinary signal along a wave toward the far receiver",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "speed of light",
-   "x": 220,
-   "y": 760,
+   "text": "radio waves",
+   "x": 700,
+   "y": 860,
    "to": [
-    370,
-    640
+    590,
+    760
    ],
-   "word": "speed of light"
+   "word": "radio waves"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "pointfar"
-  },
+  "act": "tap",
   "outfit": [
-   "helmet"
+   "helmet",
+   "headphones"
   ],
-  "ride": "mv-path-light-pulse",
+  "ride": "mv-path-radio-pulse",
   "kind": "ride",
-  "x": 424,
-  "y": 560,
+  "x": 448,
+  "y": 1034,
   "s": 1.09,
   "flip": 1,
   "bside": 1,
   "gaze": 1,
-  "says": []
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
  }
 }

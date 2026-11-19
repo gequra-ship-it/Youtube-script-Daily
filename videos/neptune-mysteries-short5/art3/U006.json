@@ -1,23 +1,22 @@
 {
- "centre": "Triton driving up a lane against traffic of dim moons going down",
- "focus": [
-  665,
-  860,
-  1.6
+ "centre": "Neptune with a blue spin arrow above, Triton travelling the opposite way on a dashed arc below",
+ "focus": null,
+ "focus_word": null,
+ "attractor": [
+  540,
+  860
  ],
- "focus_word": "retrograde orbit",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "retrograde orbit",
-   "x": 430,
-   "y": 1000,
+   "text": "Neptune",
+   "x": 800,
+   "y": 720,
    "to": [
-    665,
-    880
+    680,
+    780
    ],
-   "word": "retrograde orbit"
+   "word": "Neptune"
   }
  ],
  "frog": {
@@ -33,13 +32,14 @@
    "helmet",
    "moonboots"
   ],
-  "ride": "mv-core-glide-triton",
+  "ride": "mv-path-triton",
   "kind": "ride",
-  "x": 767,
-  "y": 731,
-  "s": 1.44,
-  "flip": -1,
-  "bside": -1,
+  "x": 343,
+  "y": 1289,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
   "says": []
  }
 }

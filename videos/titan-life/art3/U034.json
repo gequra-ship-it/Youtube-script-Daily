@@ -1,34 +1,30 @@
 {
- "centre": "a side view: methane cloud drops rain, a river runs downhill into a sea that fills",
+ "centre": "a dark teal methane droplet between an Earth water cycle and a Titan methane cycle",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "determined"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "jog",
-   "dist": 422
-  },
+  "act": "look",
   "outfit": [
    "goggles",
-   "raincoat"
+   "bowtie"
   ],
-  "x": 1660,
-  "y": 500,
-  "s": 0.81,
-  "flip": 1,
-  "kind": "bg",
+  "ride": "mv-core-glide-methane-droplet",
+  "kind": "ride",
+  "x": 1050,
+  "y": 387,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
   "says": [
    {
-    "text": "Hup hup!",
-    "shout": true
+    "text": "Ooh!",
+    "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

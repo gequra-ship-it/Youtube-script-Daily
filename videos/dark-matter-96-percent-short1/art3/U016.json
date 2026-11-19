@@ -1,13 +1,42 @@
 {
- "centre": "a vast invisible violet web filling the picture, one tiny bright dot of ordinary matter",
+ "centre": "a puzzle with only two pieces filled and nearly every slot an empty dashed ghost",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "95 PERCENT",
-   "word": "95 percent"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "Invisible silent",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "dodge",
+   "obj": "mv-slide-puzzle-piece-2",
+   "h": 196,
+   "pass": 0.493
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 475,
+  "y": 977,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

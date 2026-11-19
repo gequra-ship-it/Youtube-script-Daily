@@ -1,44 +1,36 @@
 {
- "centre": "top view: two steel bars cross; the only 'thing' at the crossing is a highlighted overlap region and its centre spot",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Overlap",
-   "x": 960,
-   "y": 300,
-   "to": [
-    960,
-    480
-   ],
-   "word": "overlap"
-  }
+ "centre": "a row of galaxies at growing distances along a ruler, each with a longer arrow showing it moving faster, beside an old observatory dome",
+ "focus": [
+  1160,
+  440,
+  1.6
  ],
+ "sfx": [],
+ "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "proud"
    }
   ],
-  "act": "look",
+  "act": {
+   "type": "growtall"
+  },
   "outfit": [
    "helmet",
-   "goldvisor"
+   "jetpack"
   ],
-  "ride": "mv-slide-metal-bar",
-  "kind": "ride",
-  "x": 500,
-  "y": 384,
-  "s": 1.25,
-  "flip": 1,
-  "bside": 1,
+  "x": 1660,
+  "y": 620,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
   "says": [
    {
-    "text": "Ooh!",
-    "shout": false
+    "text": "Big!",
+    "shout": true
    }
-  ]
+  ],
+  "bside": -1
  }
 }

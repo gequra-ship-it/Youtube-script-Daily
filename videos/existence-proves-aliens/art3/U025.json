@@ -1,11 +1,42 @@
 {
- "centre": "a survey chart grid of fifteen stars, each with exactly one planet beside it",
- "focus": [
-  960,
-  510,
-  1.5
+ "centre": "a bright star with a small planet circling it, a small space telescope at left, many more distant stars with planets",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Exoplanets",
+   "x": 1420,
+   "y": 250,
+   "to": [
+    1534,
+    382
+   ],
+   "word": "exoplanets"
+  }
  ],
- "focus_word": "at least one planet",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "x": 260,
+  "y": 740,
+  "s": 0.94,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Floaty...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

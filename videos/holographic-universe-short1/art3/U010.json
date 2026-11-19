@@ -1,19 +1,33 @@
 {
- "centre": "magnified rainbow hologram sticker, with its edge-on thin plastic sheet under a magnifier",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "dark navy credit card with gold chip and rainbow hologram security sticker",
+ "focus": [
+  600,
+  860,
+  1.5
+ ],
+ "focus_word": "security sticker",
  "labels": [
   {
    "type": "name",
-   "text": "Thin plastic",
-   "x": 540,
-   "y": 1320,
+   "text": "Credit card",
+   "x": 390,
+   "y": 1110,
    "to": [
-    600,
-    1192
+    420,
+    960
    ],
-   "word": "thin plastic"
+   "word": "credit card"
+  },
+  {
+   "type": "name",
+   "text": "Security sticker",
+   "x": 640,
+   "y": 610,
+   "to": [
+    745,
+    760
+   ],
+   "word": "security sticker"
   }
  ],
  "frog": {
@@ -22,21 +36,20 @@
     "mood": "happy"
    }
   ],
-  "act": "bounce",
-  "ride": "mv-core-heartbeat-hologram-sticker",
+  "act": "lean",
+  "ride": "mv-slide-credit-card",
   "kind": "ride",
-  "x": 924,
-  "y": 1100,
-  "s": 1.09,
-  "flip": -1,
+  "x": 312,
+  "y": 666,
+  "s": 1.44,
+  "flip": 1,
   "bside": 1,
-  "gaze": 1,
   "outfit": [
-   "cap"
+   "bowtie"
   ],
   "says": [
    {
-    "text": "Boing boing.",
+    "text": "Here we go!",
     "shout": false
    }
   ]

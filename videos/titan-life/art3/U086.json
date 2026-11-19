@@ -1,12 +1,32 @@
 {
- "centre": "dashed ghost of a hypothetical microbe cell floating in the dark water ocean below Titan's ice crust",
- "focus": [
-  960,
-  580,
-  1.7
- ],
- "focus_word": "microbial life",
- "sfx": [],
- "labels": [],
- "spot": true
+ "centre": "Titan drawn half amber surface and half blue water, in a line of dull grey worlds under a searching magnifier",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-titan-moon",
+  "kind": "ride",
+  "x": 1228,
+  "y": 750,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
 }

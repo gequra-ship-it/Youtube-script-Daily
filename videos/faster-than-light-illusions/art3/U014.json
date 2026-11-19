@@ -1,39 +1,29 @@
 {
- "centre": "a row of glowing dominoes on a floating glass track in space toppling one after another toward a bell: cause and effect",
+ "centre": "a white cue ball rolling across a table floating in space into a gold ball that then moves: cause before effect",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "causality",
-   "x": 960,
-   "y": 380,
+   "text": "cause",
+   "x": 500,
+   "y": 450,
    "to": [
-    840,
-    560
+    500,
+    640
    ],
-   "word": "causality"
-  }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": {
-   "type": "binocs"
+   "word": "cause"
   },
-  "x": 1660,
-  "y": 890,
-  "s": 0.72,
-  "flip": -1,
-  "kind": "bg",
-  "outfit": [
-   "beanie"
-  ],
-  "says": [],
-  "bside": -1
- }
+  {
+   "type": "name",
+   "text": "effect",
+   "x": 1330,
+   "y": 450,
+   "to": [
+    1180,
+    640
+   ],
+   "word": "effect"
+  }
+ ]
 }

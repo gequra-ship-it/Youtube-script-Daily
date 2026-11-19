@@ -1,11 +1,42 @@
 {
- "centre": "a grid of one hundred dark squares with a single glowing warm square, a warm sun above and small Neptune below",
+ "centre": "one faint photon of light glowing midway on a long thinning trail from a tiny Sun to a dim Neptune",
  "focus": [
   540,
   860,
   1.7
  ],
- "focus_word": "less than one percent",
- "sfx": [],
- "labels": []
+ "focus_word": "barely a whisper",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Neptune",
+   "x": 700,
+   "y": 1060,
+   "to": [
+    620,
+    1320
+   ],
+   "word": "Neptune"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 260,
+  "y": 720,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

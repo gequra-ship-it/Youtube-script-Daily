@@ -1,35 +1,36 @@
 {
- "centre": "a glowing carbon-ring organic molecule being analysed, beside a landed rotorcraft with a sampling arm and a rising bar signal panel",
+ "centre": "Dragonfly drone flying toward the golden-orange globe of Titan",
  "focus": [
-  960,
-  500,
-  1.7
+  1250,
+  540,
+  1.6
  ],
- "focus_word": "organic chemistry",
- "sfx": [],
- "labels": [],
+ "focus_word": "Titan",
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "excited"
+   },
+   {
+    "word": "Each stop",
+    "mood": "happy"
    }
   ],
-  "act": "tap",
-  "ride": "mv-core-glide-organic-molecule",
+  "act": "dance",
+  "ride": "mv-path-approach-dragonfly-drone",
   "kind": "ride",
-  "x": 1228,
-  "y": 730,
+  "x": 532,
+  "y": 332,
   "s": 0.95,
-  "flip": -1,
+  "flip": 1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "lab",
-   "glasses"
+   "beanie"
   ],
   "says": [
    {
-    "text": "Knock knock!",
+    "text": "La la la~",
     "shout": false
    }
   ]

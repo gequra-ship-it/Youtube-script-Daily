@@ -1,23 +1,28 @@
 {
- "centre": "the auditorium's back wall flown away into deep space, now a tiny lit panel far up the beam of the spotlight",
+ "centre": "close view of the lit wall: a giant shadow figure raising its arm while the small person in front waves",
  "focus": [
-  540,
-  500,
-  1.6
+  380,
+  620,
+  1.5
  ],
- "focus_word": "light-years away",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "back wall",
-   "x": 780,
-   "y": 400,
-   "to": [
-    600,
-    465
-   ],
-   "word": "back wall"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "x": 260,
+  "y": 1280,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "bowler"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

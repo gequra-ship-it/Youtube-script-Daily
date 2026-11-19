@@ -1,23 +1,37 @@
 {
- "centre": "winding methane coastline seen from the descending Huygens probe under its parachute",
- "focus": [
-  1000,
-  700,
-  1.6
- ],
- "focus_word": "Coastlines",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Coastlines",
-   "x": 1230,
-   "y": 800,
-   "to": [
-    1080,
-    694
-   ],
-   "word": "Coastlines"
-  }
- ]
+ "centre": "a dark methane lake fed by branching river channels on an amber top-down map of Titan",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   },
+   {
+    "word": "The world",
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "zerogroll"
+  },
+  "ride": "mv-core-glide-methane-lake",
+  "kind": "ride",
+  "x": 1103,
+  "y": 573,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Wheee...",
+    "shout": false
+   }
+  ]
+ }
 }

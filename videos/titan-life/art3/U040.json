@@ -1,49 +1,22 @@
 {
- "centre": "the Huygens probe hanging under its striped parachute, drifting down through orange haze layers toward a coastline far below",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a large rounded pebble in the foreground of Titan's shore, with a coastline and drainage channels behind",
+ "focus": [
+  960,
+  600,
+  1.8
+ ],
+ "focus_word": "rounded pebbles",
  "labels": [
   {
-   "type": "num",
-   "text": "JANUARY 2005",
-   "word": "January of 2005"
-  },
-  {
    "type": "name",
-   "text": "parachute",
-   "x": 1250,
-   "y": 180,
+   "text": "Pebbles",
+   "x": 1160,
+   "y": 690,
    "to": [
-    1060,
-    160
+    1090,
+    570
    ],
-   "word": "parachute"
+   "word": "pebbles"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "squint"
-   }
-  ],
-  "act": "wind",
-  "ride": "mv-path-descend-huygens-probe",
-  "kind": "ride",
-  "x": 855,
-  "y": 252,
-  "s": 1.25,
-  "flip": 1,
-  "bside": 1,
-  "outfit": [
-   "helmet",
-   "goldvisor"
-  ],
-  "says": [
-   {
-    "text": "Whooosh!",
-    "shout": true
-   }
-  ]
- }
+ ]
 }

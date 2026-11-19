@@ -3,23 +3,43 @@
  "focus_word": null,
  "sfx": [
   {
-   "name": "pop",
-   "word": "not of that kind",
+   "name": "page",
+   "word": "story",
    "vol": 0.5
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Anti-de Sitter space",
-   "x": 500,
-   "y": 760,
-   "to": [
-    500,
-    560
-   ],
-   "word": "anti-de Sitter space"
-  }
- ],
- "centre": "ours: a dark round universe with a golden galaxy swirl, crossed out from the ghosted saddle"
+ "centre": "glowing gold story star between two books of different colours",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "The words",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-story-star"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1168,
+  "y": 670,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

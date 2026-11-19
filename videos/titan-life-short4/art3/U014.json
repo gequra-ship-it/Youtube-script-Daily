@@ -1,48 +1,48 @@
 {
- "centre": "a round sphere of liquid blue water sitting in a frozen ice plain, a question mark beside it, a thermometer near the bottom",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "Titan squeezed by Saturn's pull with heat waves rising from the flexing body",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "generates heat",
  "labels": [
   {
-   "type": "say",
-   "text": "Brrr!",
-   "x": 260,
-   "y": 470,
+   "type": "name",
+   "text": "Saturn",
+   "x": 300,
+   "y": 430,
    "to": [
-    220,
-    560
-   ]
+    470,
+    430
+   ],
+   "word": "Saturn's"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "dizzy"
    }
   ],
   "act": {
-   "type": "launched",
-   "obj": "mv-popin-question-mark",
-   "h": 91
+   "type": "dizzy"
   },
-  "outfit": [
-   "goggles"
-  ],
-  "ride": null,
   "kind": "bg",
-  "x": 761,
-  "y": 802,
+  "ride": null,
+  "behind": null,
+  "x": 869,
+  "y": 1145,
   "s": 1.09,
   "flip": -1,
-  "bside": -1,
+  "bside": 1,
   "gaze": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
+  "outfit": [
+   "sunglasses"
+  ],
   "says": [
    {
-    "text": "Whoa!",
+    "text": "Eek!",
     "shout": true
    }
   ]

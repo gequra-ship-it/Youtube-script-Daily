@@ -1,12 +1,10 @@
 {
- "centre": "three black holes, small, medium and huge, each with the same tiny central point; you approach the centre of the biggest",
+ "centre": "a bent space-time funnel, gentle at the rim and steep at the throat; you spiral down toward the core",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "attractor": [
-  1390,
-  470
+  960,
+  800
  ],
  "frog": {
   "moods": [
@@ -15,20 +13,17 @@
    }
   ],
   "act": {
-   "type": "pushaway"
+   "type": "leanback"
   },
-  "ride": "mv-path-approach-astronaut-u092",
-  "kind": "ride",
-  "x": 1455,
-  "y": 425,
-  "s": 0.95,
-  "flip": -1,
-  "bside": -1,
-  "gaze": 1,
+  "x": 260,
+  "y": 700,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
   "outfit": [
-   "helmet",
-   "antenna"
+   "headband"
   ],
-  "says": []
+  "says": [],
+  "bside": 1
  }
 }

@@ -1,35 +1,28 @@
 {
- "centre": "two distance bars from the Sun: the short one to Pluto and the longer one to Neptune",
+ "centre": "two orbit paths crossing at a bright point, Neptune blue and Pluto gold",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "1979-1999",
-   "word": "1979"
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
   },
-  {
-   "type": "name",
-   "text": "Pluto",
-   "x": 1140,
-   "y": 250,
-   "to": [
-    1140,
-    380
-   ],
-   "word": "Pluto"
-  },
-  {
-   "type": "name",
-   "text": "Neptune",
-   "x": 1560,
-   "y": 540,
-   "to": [
-    1560,
-    660
-   ],
-   "word": "Neptune"
-  }
- ]
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": "mv-path-pluto-planet",
+  "kind": "ride",
+  "x": 385,
+  "y": 347,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
 }

@@ -1,39 +1,31 @@
 {
- "centre": "tiny warm pile of planets beside five large ghost-violet orbs",
+ "centre": "sealed glass jar holding a swirl of violet web",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "27 PERCENT",
-   "word": "27 percent"
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "worried"
    }
   ],
-  "act": {
-   "type": "countfingers"
-  },
+  "act": "search",
   "outfit": [
    "helmet",
    "antenna"
   ],
-  "x": 1660,
+  "ride": "mv-core-approach-glass-jar",
+  "kind": "ride",
+  "x": 1168,
   "y": 780,
-  "s": 0.77,
+  "s": 0.95,
   "flip": -1,
-  "kind": "bg",
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "One, two...",
+    "text": "Hello...?",
     "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

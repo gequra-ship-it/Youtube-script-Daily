@@ -1,47 +1,48 @@
 {
- "centre": "a glowing cube with a shield an eraser cannot rub out, beside a forbidden sign",
+ "centre": "a faceless silhouette holding a notebook beside a black hole whose cubes fade",
  "labels": [
   {
    "type": "name",
-   "text": "Quantum physics",
-   "x": 540,
-   "y": 400,
+   "text": "Hawking",
+   "x": 330,
+   "y": 500,
    "to": [
-    540,
-    720
+    330,
+    640
    ],
-   "word": "quantum physics"
+   "word": "Hawking"
   }
  ],
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "frog": {
   "moods": [
    {
-    "mood": "queasy"
-   },
-   {
-    "word": "The fundamental",
-    "mood": "pout"
+    "mood": "surprised"
    }
   ],
-  "act": "bounce",
-  "ride": "mv-core-heartbeat-protected-cube",
-  "kind": "ride",
+  "act": {
+   "type": "bumped",
+   "obj": "mv-bouncing-slip-paper",
+   "serious": false
+  },
   "x": 844,
   "y": 1120,
   "s": 1.09,
   "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "beanie"
+   "glasses",
+   "bowtie"
   ],
   "says": [
    {
-    "text": "Bumpy!",
-    "shout": false
+    "text": "Boing!",
+    "shout": true
    }
   ]
  }

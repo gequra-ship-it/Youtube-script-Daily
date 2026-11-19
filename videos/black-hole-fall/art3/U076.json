@@ -1,37 +1,41 @@
 {
- "centre": "you drifting freely over an open grid; a floating control pad lights left, right, forward, backward and hold",
- "focus": [
-  1360,
-  500,
-  1.6
+ "centre": "your round capsule firing its engine and swinging around on a dotted U-turn back toward a small Earth, away from the black hole",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 330,
+   "y": 290,
+   "to": [
+    330,
+    400
+   ],
+   "word": "Earth"
+  }
  ],
- "focus_word": "left, right",
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "dizzy"
    }
   ],
-  "act": "float",
+  "act": {
+   "type": "dizzy"
+  },
   "outfit": [
    "helmet",
-   "goldvisor"
+   "patch"
   ],
-  "x": 391,
-  "y": 689,
+  "ride": "mv-path-capsule-u075",
+  "kind": "ride",
+  "x": 976,
+  "y": 650,
   "s": 0.95,
-  "flip": 1,
-  "kind": "bg",
-  "ride": null,
+  "flip": -1,
   "bside": -1,
   "gaze": 1,
-  "says": [
-   {
-    "text": "Wheee!",
-    "shout": false
-   }
-  ]
+  "says": []
  }
 }

@@ -1,23 +1,45 @@
 {
- "centre": "the Great Dark Spot compared with Earth, same width marked by dotted guides",
+ "centre": "the Great Dark Spot, a dark navy oval with pale cyan fringe on Neptune's cloud deck",
  "focus": [
   540,
-  1130,
-  1.6
+  860,
+  1.7
  ],
- "focus_word": "entire planet Earth",
+ "focus_word": "dark vortex",
  "labels": [
   {
    "type": "name",
-   "text": "Earth",
-   "x": 790,
-   "y": 1000,
+   "text": "Great Dark Spot",
+   "x": 540,
+   "y": 520,
    "to": [
-    640,
-    1100
+    540,
+    800
    ],
-   "word": "Earth"
+   "word": "Great Dark Spot"
   }
  ],
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-core-glide-spot",
+  "kind": "ride",
+  "x": 769,
+  "y": 992,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
 }

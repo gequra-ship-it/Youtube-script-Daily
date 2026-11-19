@@ -1,34 +1,38 @@
 {
- "centre": "Pluto close-up with its thin blue haze, glowing heart and moon Charon",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "Pluto glowing steadily under a soft beam while an empty title medal drifts away",
+ "focus": [
+  1180,
+  540,
+  1.7
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "happy"
+   },
+   {
+    "word": "Of course",
+    "mood": "smug"
    }
   ],
   "act": {
-   "type": "backstep",
-   "obj": "mv-core-swell-pluto-planet"
+   "type": "wavebig"
   },
-  "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "x": 1292,
-  "y": 790,
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-core-glide-pluto-planet",
+  "kind": "ride",
+  "x": 1450,
+  "y": 772,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "outfit": [
-   "strawhat"
-  ],
   "says": [
    {
-    "text": "Whoa, it grows!",
+    "text": "Hi!",
     "shout": true
    }
   ]

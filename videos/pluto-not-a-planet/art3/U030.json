@@ -1,66 +1,42 @@
 {
- "centre": "a dashed ghost Planet X in the middle pulling Uranus and Neptune toward it with dotted arcs over a bent gravity grid",
- "attractor": [
-  960,
-  500
+ "centre": "a tiny pale dot inside a round telescope eyepiece view where a big dashed giant outline fades away; the telescope stands at the left",
+ "focus": [
+  1230,
+  470,
+  1.8
  ],
+ "focus_word": "refused to look like a giant",
  "labels": [
   {
    "type": "name",
-   "text": "Uranus",
-   "x": 470,
-   "y": 340,
+   "text": "Pluto",
+   "x": 1230,
+   "y": 620,
    "to": [
-    470,
-    455
+    1230,
+    500
    ],
-   "word": "Uranus"
-  },
-  {
-   "type": "name",
-   "text": "Neptune",
-   "x": 1450,
-   "y": 340,
-   "to": [
-    1450,
-    455
-   ],
-   "word": "Neptune"
+   "word": "Pluto"
   }
  ],
- "focus": null,
- "focus_word": null,
- "sfx": [],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "shock"
    }
   ],
   "act": {
-   "type": "magnetized",
-   "obj": "mv-magnet-uranus-planet"
+   "type": "gasp"
   },
-  "outfit": [
-   "helmet",
-   "antenna"
-  ],
-  "ride": null,
+  "x": 1660,
+  "y": 340,
+  "s": 0.76,
+  "flip": -1,
   "kind": "bg",
-  "x": 324,
-  "y": 628,
-  "s": 0.95,
-  "flip": 1,
-  "bside": 1,
-  "gaze": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
-  "says": [
-   {
-    "text": "Whoa-oa!",
-    "shout": true
-   }
-  ]
+  "outfit": [
+   "headband"
+  ],
+  "says": [],
+  "bside": -1
  }
 }

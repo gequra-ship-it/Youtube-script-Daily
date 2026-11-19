@@ -1,23 +1,48 @@
 {
- "centre": "Eight planets lined up on one flat row while Pluto sits off the line, not fitting the ninth slot",
+ "centre": "Pluto crowned above a vast belt of icy debris",
  "focus": [
-  1640,
+  1260,
   400,
-  1.9
+  1.6
  ],
- "focus_word": "Pluto",
- "sfx": [],
+ "focus_word": "dazzling king",
  "labels": [
   {
    "type": "name",
-   "text": "Pluto",
-   "x": 1500,
-   "y": 250,
+   "text": "Kuiper Belt",
+   "x": 1040,
+   "y": 260,
    "to": [
-    1625,
-    390
+    1240,
+    400
    ],
-   "word": "Pluto"
+   "word": "Kuiper Belt"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "salute",
+  "ride": "mv-core-glide-pluto-planet",
+  "kind": "ride",
+  "x": 1481,
+  "y": 663,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "crown",
+   "shield"
+  ],
+  "says": [
+   {
+    "text": "Aye aye!",
+    "shout": false
+   }
+  ]
+ }
 }

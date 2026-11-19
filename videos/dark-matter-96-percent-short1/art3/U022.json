@@ -1,35 +1,29 @@
 {
- "centre": "an old map with one tiny inked island and a vast violet unmapped fog, a compass at its heart",
+ "centre": "an unrolled star map that is almost all dark: a ghostly web (dark matter) and a void of fleeing galaxies (dark energy); only a tiny lit corner",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "happy"
-   },
-   {
-    "word": "It is",
-    "mood": "happy"
-   }
-  ],
-  "act": "rest",
-  "outfit": [
-   "helmet",
-   "patch"
-  ],
-  "x": 820,
-  "y": 1120,
-  "s": 0.99,
-  "flip": -1,
-  "kind": "bg",
-  "says": [
-   {
-    "text": "Let me see...",
-    "shout": false
-   }
-  ],
-  "bside": -1
- }
+ "labels": [
+  {
+   "type": "name",
+   "text": "dark matter",
+   "x": 540,
+   "y": 360,
+   "to": [
+    560,
+    600
+   ],
+   "word": "dark matter"
+  },
+  {
+   "type": "name",
+   "text": "dark energy",
+   "x": 720,
+   "y": 1370,
+   "to": [
+    730,
+    1160
+   ],
+   "word": "dark energy"
+  }
+ ]
 }

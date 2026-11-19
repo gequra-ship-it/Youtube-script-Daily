@@ -1,23 +1,62 @@
 {
- "centre": "a lattice radio mast on a night hill sending a fading wave into space; a 1920s radio in a cottage window",
+ "centre": "a diagram: the Sun, tiny Voyager 1 just setting out, and the nearest star far away",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "num",
-   "text": "1 CENTURY",
-   "word": "one century"
+   "text": "4 LIGHT-YEARS",
+   "word": "four light-years"
   },
   {
-   "type": "say",
-   "text": "Hello, space!",
-   "x": 1250,
-   "y": 420,
+   "type": "name",
+   "text": "Voyager 1",
+   "x": 600,
+   "y": 280,
    "to": [
-    1370,
-    680
-   ]
+    540,
+    400
+   ],
+   "word": "Voyager 1"
+  },
+  {
+   "type": "name",
+   "text": "nearest star",
+   "x": 1580,
+   "y": 680,
+   "to": [
+    1640,
+    500
+   ],
+   "word": "nearest star"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": "mv-path-voyager-probe",
+  "kind": "ride",
+  "x": 656,
+  "y": 478,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hot!",
+    "shout": true
+   }
+  ]
+ }
 }

@@ -1,30 +1,35 @@
 {
- "centre": "two panels: open axes of space on the left, a one-way time arrow with a clock on the right, a swap arrow between",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "space",
-   "x": 510,
-   "y": 215,
-   "to": [
-    510,
-    300
-   ],
-   "word": "space"
-  },
-  {
-   "type": "name",
-   "text": "time",
-   "x": 1410,
-   "y": 215,
-   "to": [
-    1410,
-    290
-   ],
-   "word": "time"
-  }
- ]
+ "centre": "you drifting freely over an open grid; a floating control pad lights left, right, forward, backward and hold",
+ "focus": [
+  1360,
+  500,
+  1.6
+ ],
+ "focus_word": "left, right",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 391,
+  "y": 689,
+  "s": 0.95,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": false
+   }
+  ]
+ }
 }

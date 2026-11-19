@@ -1,51 +1,18 @@
 {
- "centre": "a microbe floating in a dark deep-rock cavern with sulfur crystals, hydrogen bubbles and a heat glow",
- "focus": [
-  1000,
-  720,
-  1.6
- ],
- "focus_word": "sulfur and hydrogen",
- "sfx": [],
+ "centre": "round window on a split frame: waste-barrel vault on the left, Antarctic ice lake on the right, glowing microbes inside",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Sulfur",
-   "x": 600,
-   "y": 850,
+   "text": "Antarctic",
+   "x": 1530,
+   "y": 790,
    "to": [
-    570,
-    740
+    1500,
+    580
    ],
-   "word": "sulfur"
+   "word": "Antarctic ice"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "dizzy"
-   }
-  ],
-  "act": {
-   "type": "dizzy"
-  },
-  "ride": "mv-core-glide-microbe",
-  "kind": "ride",
-  "x": 766,
-  "y": 570,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "outfit": [
-   "sunglasses",
-   "backpack"
-  ],
-  "says": [
-   {
-    "text": "Wooo-ooo...",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

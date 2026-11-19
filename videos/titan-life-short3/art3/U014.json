@@ -1,35 +1,34 @@
 {
- "centre": "dashed angular ghost cell (hypothetical, ?) beneath a solid Earth-style blue cell",
+ "centre": "a magnifying lens sweeping an empty dish of methane liquid where only a fading dashed outline is imagined",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "scared"
-   },
-   {
-    "word": "It would",
-    "mood": "happy"
+    "mood": "squint"
    }
   ],
-  "act": "shiver",
-  "ride": "mv-core-glide-alien-cell",
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-magnifier-lens",
   "kind": "ride",
-  "x": 636,
-  "y": 816,
-  "s": 1.44,
+  "x": 443,
+  "y": 884,
+  "s": 1.17,
   "flip": -1,
-  "bside": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "scarf",
    "bowler"
   ],
   "says": [
    {
-    "text": "Brrrr...",
-    "shout": false
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
    }
   ]
  }

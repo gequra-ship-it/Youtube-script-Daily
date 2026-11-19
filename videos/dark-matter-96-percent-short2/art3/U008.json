@@ -6,30 +6,30 @@
   1.5
  ],
  "focus_word": "actual speed",
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "shock"
+    "mood": "curious"
    }
   ],
-  "act": "scope",
+  "act": {
+   "type": "countstars"
+  },
   "outfit": [
    "helmet",
-   "patch"
+   "goldvisor"
   ],
-  "x": 260,
+  "x": 820,
   "y": 600,
-  "s": 1.21,
-  "flip": 1,
+  "s": 0.99,
+  "flip": -1,
   "kind": "bg",
   "says": [
    {
-    "text": "I see it!",
+    "text": "So many...",
     "shout": false
    }
   ],
-  "bside": 1
+  "bside": -1
  }
 }

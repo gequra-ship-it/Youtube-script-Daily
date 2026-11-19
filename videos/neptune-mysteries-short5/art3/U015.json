@@ -1,7 +1,45 @@
 {
- "centre": "Triton locked into a closed dashed orbit round Neptune after leaving a straight solo track",
+ "centre": "a translucent blue gravity hand gripping Triton above Neptune",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Neptune",
+   "x": 800,
+   "y": 1300,
+   "to": [
+    700,
+    1300
+   ],
+   "word": "Neptune"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "ride": "mv-core-glide-triton",
+  "kind": "ride",
+  "x": 745,
+  "y": 1062,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Huge!",
+    "shout": true
+   }
+  ]
+ }
 }

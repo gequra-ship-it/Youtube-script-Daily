@@ -1,19 +1,44 @@
 {
- "centre": "close-up of you with a glowing spine slowly stretching between two faint tension arrows",
+ "centre": "a tidal-force meter filling segment by segment while you fall past a millimetre ruler",
  "focus": null,
- "focus_word": "",
- "sfx": [],
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Spine",
-   "x": 820,
-   "y": 757,
+   "text": "Tidal forces",
+   "x": 400,
+   "y": 360,
    "to": [
-    552,
-    777
+    240,
+    470
    ],
-   "word": "spine"
+   "word": "tidal forces"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-path-fall-astronaut",
+  "kind": "ride",
+  "x": 456,
+  "y": 799,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "So strong!",
+    "shout": false
+   }
+  ]
+ }
 }

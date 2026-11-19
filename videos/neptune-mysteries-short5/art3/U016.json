@@ -1,56 +1,32 @@
 {
- "centre": "Triton, small cream-pink moon on a dashed orbit swinging backward around huge Neptune",
+ "centre": "Triton locked into a closed dashed orbit round Neptune after leaving a straight solo track",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Neptune",
-   "x": 230,
-   "y": 1060,
-   "to": [
-    300,
-    1200
-   ],
-   "word": "Neptune"
-  },
-  {
-   "type": "name",
-   "text": "Triton",
-   "x": 760,
-   "y": 760,
-   "to": [
-    610,
-    840
-   ],
-   "word": "Triton"
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "determined"
    }
   ],
   "act": {
-   "type": "hopalong",
-   "obj": "mv-hop-pebble"
+   "type": "magnetwalk",
+   "dist": 302
   },
-  "x": 210,
-  "y": 636,
-  "s": 1.09,
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 820,
+  "y": 1280,
+  "s": 1.04,
   "flip": -1,
   "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "bside": 1,
-  "gaze": 1,
   "says": [
    {
-    "text": "Hop hop!",
+    "text": "Magnet boots!",
     "shout": true
    }
-  ]
+  ],
+  "bside": -1
  }
 }

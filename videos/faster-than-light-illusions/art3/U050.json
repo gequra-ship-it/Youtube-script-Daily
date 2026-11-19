@@ -1,23 +1,38 @@
 {
- "centre": "Earth with the scissors' handles in front of it; one handle-and-blade lever turns about the pivot screw as the handles close",
- "focus": [
-  720,
-  520,
-  1.6
- ],
- "focus_word": "close the handles",
- "sfx": [],
+ "centre": "inside the steel: a lattice of atoms joined by spring-like bonds; a glow passes from atom to atom along the middle row",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Earth",
-   "x": 560,
-   "y": 330,
+   "text": "Atoms",
+   "x": 1230,
+   "y": 120,
    "to": [
-    520,
-    400
+    1230,
+    246
    ],
-   "word": "Earth"
+   "word": "atoms"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "bandana"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

@@ -1,49 +1,29 @@
 {
- "centre": "Neptune with a glowing amber heat core and warmth ribbons rising into the void",
- "focus": [
-  960,
-  540,
-  1.7
- ],
- "focus_word": "internal thermal energy",
- "sfx": [
+ "centre": "Neptune and Uranus side by side across the frame, joined by a dashed comparison line",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "pulse",
-   "word": "internal thermal energy",
-   "vol": 0.6
-  }
- ],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "happy"
-   },
-   {
-    "word": "Why should",
-    "mood": "curious"
-   }
-  ],
-  "act": {
-   "type": "swimstroke",
-   "dist": 422
+   "type": "name",
+   "text": "Neptune",
+   "x": 600,
+   "y": 700,
+   "to": [
+    600,
+    540
+   ],
+   "word": "Neptune"
   },
-  "outfit": [
-   "diver"
-  ],
-  "x": 1660,
-  "y": 890,
-  "s": 0.8,
-  "flip": -1,
-  "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "says": [
-   {
-    "text": "Blub blub!",
-    "shout": true
-   }
-  ],
-  "bside": -1
- }
+  {
+   "type": "name",
+   "text": "Uranus",
+   "x": 1350,
+   "y": 410,
+   "to": [
+    1350,
+    560
+   ],
+   "word": "Uranus"
+  }
+ ]
 }

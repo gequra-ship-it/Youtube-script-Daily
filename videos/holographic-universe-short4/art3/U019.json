@@ -1,11 +1,36 @@
 {
- "centre": "open palm held up in front of a ghostly hologram sphere saying no",
+ "centre": "glowing gem joining a pink and a teal speech bubble telling one story",
  "focus": [
   540,
-  1000,
+  860,
   1.5
  ],
- "focus_word": "No",
- "sfx": [],
- "labels": []
+ "focus_word": "same thing",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "countstars"
+  },
+  "ride": "mv-core-approach-gem",
+  "kind": "ride",
+  "x": 654,
+  "y": 940,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "So many...",
+    "shout": false
+   }
+  ]
+ }
 }

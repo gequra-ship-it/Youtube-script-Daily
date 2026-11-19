@@ -1,45 +1,44 @@
 {
- "centre": "a broken golden timeline in space with clocks, arrows and pieces of events flying apart into chaos",
+ "centre": "the observer in dark blue pyjamas standing on a flat city rooftop at night, looking up at the big full Moon",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "chaos",
-   "x": 960,
-   "y": 780,
+   "text": "full Moon",
+   "x": 1000,
+   "y": 160,
    "to": [
-    1010,
-    640
+    1210,
+    250
    ],
-   "word": "chaos"
+   "word": "full Moon"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "jetpack"
-  },
+  "act": "scope",
+  "ride": "mv-core-glide-moon",
+  "kind": "ride",
+  "x": 1566,
+  "y": 528,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
    "helmet",
-   "jetpack"
+   "antenna"
   ],
-  "x": 260,
-  "y": 780,
-  "s": 0.94,
-  "flip": 1,
-  "kind": "bg",
   "says": [
    {
-    "text": "Whoosh!",
-    "shout": true
+    "text": "I see it!",
+    "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

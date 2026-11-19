@@ -1,47 +1,19 @@
 {
- "centre": "a glowing golden information cube with a star, safe above the ash heap with smaller icon cubes rising",
+ "centre": "a small open book burning with a golden flame, smoke curling up and a dotted ghost of the book above",
  "labels": [
   {
    "type": "name",
-   "text": "Information",
-   "x": 700,
-   "y": 540,
+   "text": "Book",
+   "x": 250,
+   "y": 760,
    "to": [
-    590,
-    780
+    470,
+    1000
    ],
-   "word": "information"
+   "word": "book"
   }
  ],
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "dizzy"
-   }
-  ],
-  "act": {
-   "type": "dizzy"
-  },
-  "ride": "mv-ascend-info-cube-4",
-  "kind": "ride",
-  "x": 830,
-  "y": 762,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "behind": null,
-  "outfit": [
-   "sunglasses"
-  ],
-  "says": [
-   {
-    "text": "Up, up!",
-    "shout": true
-   }
-  ]
- }
+ "light": "left"
 }

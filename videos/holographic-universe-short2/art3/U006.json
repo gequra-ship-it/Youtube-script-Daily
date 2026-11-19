@@ -1,45 +1,27 @@
 {
- "centre": "three things stacked: a star, a gas cloud and a book, each with its own description card",
- "labels": [
-  {
-   "type": "name",
-   "text": "Book",
-   "x": 300,
-   "y": 1360,
-   "to": [
-    300,
-    1250
-   ],
-   "word": "book"
-  }
- ],
+ "centre": "a black hole pulling glowing carrier cubes and icons along curved paths",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "scared"
    }
   ],
-  "act": "read",
-  "outfit": [
-   "helmet",
-   "jetpack"
-  ],
-  "ride": "mv-core-drop-book",
+  "act": {
+   "type": "duck"
+  },
+  "ride": "mv-path-pull-star-2",
   "kind": "ride",
-  "x": 206,
-  "y": 1272,
+  "x": 818,
+  "y": 552,
   "s": 1.09,
-  "flip": 1,
+  "flip": -1,
   "bside": -1,
   "gaze": 1,
-  "says": [
-   {
-    "text": "Interesting...",
-    "shout": false
-   }
-  ]
+  "outfit": [
+   "glasses"
+  ],
+  "says": []
  }
 }

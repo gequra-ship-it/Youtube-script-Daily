@@ -1,23 +1,40 @@
 {
- "centre": "you gliding smoothly through the thin glowing horizon line",
+ "centre": "black disc with a compass-drawn dotted circle, a probe and a light beam on a blueprint grid: a boundary that is only mathematics",
  "focus": null,
- "focus_word": null,
- "sfx": [],
+ "focus_word": "",
  "labels": [
   {
-   "type": "say",
-   "text": "Smooth ride!",
-   "x": 600,
-   "y": 250,
+   "type": "name",
+   "text": "Speed of light",
+   "x": 700,
+   "y": 240,
    "to": [
-    775,
-    420
-   ]
+    880,
+    300
+   ],
+   "word": "speed of light"
   }
  ],
- "iris": [
-  1000,
-  470
- ],
- "track": false
+ "spot": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck"
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 872,
+  "y": 528,
+  "s": 0.9,
+  "flip": 1,
+  "says": [],
+  "bside": 1
+ }
 }

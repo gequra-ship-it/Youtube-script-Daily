@@ -1,19 +1,46 @@
 {
- "centre": "a glowing hidden lake sealed under layers of Antarctic ice, above a vault of glowing waste barrels",
+ "centre": "an open doorway standing at the end of a path of floating stones, glowing with a whole galaxy beyond it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Antarctic ice",
-   "x": 300,
-   "y": 700,
+   "text": "Astrobiology",
+   "x": 260,
+   "y": 540,
    "to": [
-    330,
-    830
+    360,
+    820
    ],
-   "word": "Antarctic ice"
+   "word": "astrobiology"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "crouchlook"
+  },
+  "ride": "mv-path-streak-comet",
+  "kind": "ride",
+  "x": 396,
+  "y": 448,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "says": [
+   {
+    "text": "Found it!",
+    "shout": true
+   }
+  ]
+ }
 }

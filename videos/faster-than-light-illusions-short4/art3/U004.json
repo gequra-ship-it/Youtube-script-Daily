@@ -1,42 +1,42 @@
 {
- "centre": "Saturn with its rings, a small astronaut floating nearby while the twin particle arrives",
+ "centre": "a small lab dome on the curve of the Earth: one particle kept in a glass jar, its twin launched up into space",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Saturn",
-   "x": 300,
-   "y": 470,
+   "text": "Earth",
+   "x": 840,
+   "y": 1330,
    "to": [
-    470,
-    640
+    860,
+    1230
    ],
-   "word": "Saturn"
+   "word": "Earth"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "lean",
-  "ride": "mv-core-glide-saturn",
+  "act": "think",
+  "ride": "mv-path-launch-particle",
   "kind": "ride",
-  "x": 961,
-  "y": 992,
+  "x": 517,
+  "y": 1009,
   "s": 1.09,
-  "flip": -1,
-  "bside": 1,
+  "flip": 1,
+  "bside": -1,
   "gaze": 1,
   "outfit": [
-   "cap"
+   "lab",
+   "bowler"
   ],
   "says": [
    {
-    "text": "Here we go!",
+    "text": "Hmm...",
     "shout": false
    }
   ]

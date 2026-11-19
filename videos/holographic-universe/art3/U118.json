@@ -1,7 +1,30 @@
 {
- "centre": "close-up of the stage floor: tiles lift and flip, revealing a glowing lattice whose light holds a ghost cube",
+ "centre": "a glowing lantern hanging at a fork in the road; one path to a bright horizon, one into fog, both lit",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "facepalm",
+  "ride": "mv-swing-lantern",
+  "kind": "ride",
+  "x": 1198,
+  "y": 710,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Oops.",
+    "shout": false
+   }
+  ]
+ }
 }

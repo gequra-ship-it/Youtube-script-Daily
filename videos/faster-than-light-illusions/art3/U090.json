@@ -1,11 +1,30 @@
 {
- "centre": "an astronaut near Saturn gazing at a fuzzy glowing particle floating before them",
- "focus": [
-  1060,
-  470,
-  1.8
- ],
- "focus_word": "their particle",
- "sfx": [],
- "labels": []
+ "centre": "a close-up of an astronaut's gold visor reflecting a particle, beside a coin spinning down",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-approach-helmet",
+  "kind": "ride",
+  "x": 562,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Hmm, hard.",
+    "shout": false
+   }
+  ]
+ }
 }

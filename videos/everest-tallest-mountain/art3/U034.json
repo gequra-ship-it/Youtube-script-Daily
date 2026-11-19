@@ -1,56 +1,29 @@
 {
- "centre": "a curved Earth from high above: the snowy Himalayas on the Asian landmass at left, a dashed voyage route with a ship crossing the open Pacific to the Hawaiian islands",
+ "centre": "the broad dark Mauna Kea volcano rising from the North Pacific floor, only its tip above the waves",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Himalayas",
-   "x": 330,
-   "y": 300,
+   "text": "Mauna Kea",
+   "x": 1390,
+   "y": 175,
    "to": [
-    300,
-    480
+    1000,
+    262
    ],
-   "word": "Himalayas"
+   "word": "Mauna Kea"
   },
   {
    "type": "name",
-   "text": "Hawaii",
-   "x": 1560,
-   "y": 470,
+   "text": "North Pacific Ocean",
+   "x": 1450,
+   "y": 560,
    "to": [
-    1550,
-    595
+    1500,
+    470
    ],
-   "word": "Hawaii"
+   "word": "North Pacific Ocean"
   }
- ],
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "chilly"
-   }
-  ],
-  "act": "shiver",
-  "outfit": [
-   "goggles",
-   "scarf"
-  ],
-  "ride": "mv-path-voyage-ship",
-  "kind": "ride",
-  "x": 738,
-  "y": 576,
-  "s": 0.95,
-  "flip": 1,
-  "bside": 1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Gulp.",
-    "shout": false
-   }
-  ]
- }
+ ]
 }
