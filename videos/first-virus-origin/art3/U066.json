@@ -1,58 +1,29 @@
 {
- "centre": "a giant virus stealing gene pieces from a host cell, a stolen pile at its foot",
+ "centre": "museum display: a giant virus relic on the middle plinth between a cell and a small virus, a cell outline morphing into the shell",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "attractor": [
-  600,
-  460
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Master thieves",
-   "x": 560,
-   "y": 200,
+   "text": "Cellular ancestor",
+   "x": 400,
+   "y": 300,
    "to": [
-    560,
-    330
+    400,
+    470
    ],
-   "word": "master thieves"
+   "word": "cellular ancestor"
   },
   {
-   "type": "say",
-   "text": "Hey, those are mine!",
-   "x": 1400,
-   "y": 180,
+   "type": "name",
+   "text": "Stripped-down parasite",
+   "x": 1500,
+   "y": 330,
    "to": [
-    1360,
-    270
-   ]
+    1500,
+    520
+   ],
+   "word": "stripped-down parasite"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "surprised"
-   },
-   {
-    "word": "Other genomic",
-    "mood": "happy"
-   }
-  ],
-  "act": {
-   "type": "leanback"
-  },
-  "outfit": [
-   "diver",
-   "flippers"
-  ],
-  "x": 1660,
-  "y": 780,
-  "s": 0.76,
-  "flip": -1,
-  "kind": "bg",
-  "says": [],
-  "bside": -1
- }
+ ]
 }

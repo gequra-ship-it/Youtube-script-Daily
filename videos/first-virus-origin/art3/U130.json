@@ -1,11 +1,33 @@
 {
- "centre": "tiny virus flickering above a hydrothermal vent beside an ancient shoreline",
- "focus": [
-  1000,
-  470,
-  1.8
- ],
- "focus_word": "flickered into being",
- "sfx": [],
- "labels": []
+ "centre": "small amber gene fragment breaking away from a DNA helix and wandering over the land",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "ride": "mv-path-fragment-gene",
+  "kind": "ride",
+  "x": 650,
+  "y": 620,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bandana",
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "There!",
+    "shout": true
+   }
+  ]
+ }
 }

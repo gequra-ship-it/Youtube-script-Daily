@@ -1,54 +1,29 @@
 {
- "centre": "a teal virus with a triangle key descends onto the matching triangle receptor of a host cell; a tailor's tape swings",
- "focus": [
-  960,
-  600,
-  1.6
- ],
- "focus_word": "closely tailored",
- "sfx": [],
+ "centre": "on a sea chart, a folded cellular message morphs into a teal virus capsid that sets off on a dashed voyage route",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "say",
-   "text": "Perfect fit!",
-   "x": 640,
-   "y": 330,
+   "type": "name",
+   "text": "Independent voyager",
+   "x": 1440,
+   "y": 620,
    "to": [
-    870,
-    350
-   ]
-  }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": {
-   "type": "knocked",
-   "obj": "mv-swing-tape-measure"
+    1090,
+    540
+   ],
+   "word": "independent voyager"
   },
-  "ride": null,
-  "kind": "bg",
-  "x": 1390,
-  "y": 640,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
-  "outfit": [
-   "doctor",
-   "headlamp"
-  ],
-  "says": [
-   {
-    "text": "Bonk!",
-    "shout": true
-   }
-  ]
- }
+  {
+   "type": "name",
+   "text": "Cellular message",
+   "x": 420,
+   "y": 760,
+   "to": [
+    440,
+    556
+   ],
+   "word": "cellular message"
+  }
+ ]
 }

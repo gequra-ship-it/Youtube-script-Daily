@@ -1,5 +1,34 @@
 {
- "centre": "scientist beside a screen of scrolling coloured genetic-code blocks; rock and hammer set aside on a side table",
- "sfx": [],
- "labels": []
+ "centre": "lantern swinging on a rope over a deep dark shaft, faint lost virus traces in the deep strata",
+ "focus": null,
+ "focus_word": null,
+ "iris": [
+  670,
+  450
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "search",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-swing-lantern",
+  "kind": "ride",
+  "x": 512,
+  "y": 570,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Where is it?",
+    "shout": false
+   }
+  ]
+ }
 }

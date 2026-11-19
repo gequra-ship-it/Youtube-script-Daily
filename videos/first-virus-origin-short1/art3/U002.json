@@ -1,31 +1,20 @@
 {
- "centre": "one big virus capsid drifting in the air among many tiny ones, a hand below",
+ "centre": "a virus sitting on the line between a living sprout and lifeless stones",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "viruses",
-   "x": 540,
-   "y": 650,
-   "to": [
-    540,
-    800
-   ],
-   "word": "viruses"
-  }
- ],
- "wind": "right",
  "frog": {
   "moods": [
    {
     "mood": "curious"
    }
   ],
-  "act": "magnify",
-  "ride": "mv-core-glide-virus-capsid",
-  "kind": "ride",
+  "act": {
+   "type": "heartlisten",
+   "obj": "mv-core-heartbeat-virus-capsid"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
   "x": 704,
   "y": 991,
   "s": 1.09,
@@ -33,12 +22,12 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "doctor",
-   "facemask"
+   "lab",
+   "glasses"
   ],
   "says": [
    {
-    "text": "A clue!",
+    "text": "Thump... thump.",
     "shout": false
    }
   ]

@@ -1,19 +1,43 @@
 {
- "centre": "cracked grey virus capsid that cannot repair itself; spare parts lie unused",
+ "centre": "wall clock ticking above a dusty grey virus while a host cell glides in",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "New parts",
-   "x": 270,
-   "y": 820,
+   "text": "Host cell",
+   "x": 860,
+   "y": 860,
    "to": [
-    260,
-    940
+    940,
+    1000
    ],
-   "word": "new parts"
+   "word": "host cell"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": "snooze",
+  "ride": "mv-path-host-cell",
+  "kind": "ride",
+  "x": 865,
+  "y": 959,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "lab",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Zzz...",
+    "shout": false
+   }
+  ]
+ }
 }

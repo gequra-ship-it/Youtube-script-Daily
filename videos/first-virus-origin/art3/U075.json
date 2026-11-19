@@ -1,30 +1,48 @@
 {
- "centre": "a host cell on a deep-time strata backdrop; a rogue gene fragment slips out through a gap in the membrane",
+ "centre": "a genome blueprint unrolls on a desk; an amber gene block is cut out and pasted into a new slot",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Rogue piece",
-   "x": 1180,
-   "y": 640,
+   "text": "Genome",
+   "x": 960,
+   "y": 740,
    "to": [
-    990,
-    478
-   ],
-   "word": "rogue piece"
-  },
-  {
-   "type": "name",
-   "text": "Host cell",
-   "x": 420,
-   "y": 820,
-   "to": [
-    620,
+    1000,
     650
    ],
-   "word": "host cell"
+   "word": "genome"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "They are",
+    "mood": "happy"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-path-jumping-gene",
+  "kind": "ride",
+  "x": 603,
+  "y": 408,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "backpack",
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
 }

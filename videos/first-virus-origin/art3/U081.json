@@ -1,41 +1,41 @@
 {
- "centre": "split frame: a rod plant virus at a green plant cell on leaf tissue vs a teal human virus at the Y receptors of a human cell",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Plant virus",
-   "x": 620,
-   "y": 120,
-   "to": [
-    800,
-    200
-   ],
-   "word": "plant virus"
+ "centre": "a teal virus with a triangle key descends onto the matching triangle receptor of a host cell; a tailor's tape swings",
+ "focus": [
+  960,
+  600,
+  1.6
+ ],
+ "focus_word": "closely tailored",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "knocked",
+   "obj": "mv-swing-tape-measure"
   },
-  {
-   "type": "name",
-   "text": "Human virus",
-   "x": 1150,
-   "y": 110,
-   "to": [
-    1180,
-    235
-   ],
-   "word": "human virus"
-  },
-  {
-   "type": "name",
-   "text": "Surface receptors",
-   "x": 1560,
-   "y": 300,
-   "to": [
-    1418,
-    362
-   ],
-   "word": "surface receptors"
-  }
- ]
+  "ride": null,
+  "kind": "bg",
+  "x": 1390,
+  "y": 640,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "doctor",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   }
+  ]
+ }
 }

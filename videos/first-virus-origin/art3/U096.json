@@ -1,47 +1,29 @@
 {
- "centre": "lantern swinging on a rope over a deep dark shaft, faint lost virus traces in the deep strata",
+ "centre": "cut-away virus showing protein shell tiles and a coiled nucleic-acid ribbon; a small virus crumbles on a bare stone slab",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "iris": [
-  670,
-  450
- ],
  "labels": [
   {
-   "type": "say",
-   "text": "Anyone down there?",
-   "x": 960,
-   "y": 380,
+   "type": "name",
+   "text": "Protein",
+   "x": 290,
+   "y": 170,
    "to": [
-    712,
-    440
-   ]
+    560,
+    250
+   ],
+   "word": "protein"
+  },
+  {
+   "type": "name",
+   "text": "Nucleic acid",
+   "x": 1000,
+   "y": 260,
+   "to": [
+    700,
+    420
+   ],
+   "word": "nucleic acid"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "squint"
-   }
-  ],
-  "act": "search",
-  "outfit": [
-   "diver"
-  ],
-  "ride": "mv-swing-lantern",
-  "kind": "ride",
-  "x": 512,
-  "y": 570,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Where is it?",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

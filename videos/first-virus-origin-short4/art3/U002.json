@@ -1,39 +1,14 @@
 {
  "centre": "magnifying lens over a DNA double helix where two rungs light up teal",
- "labels": [
-  {
-   "type": "name",
-   "text": "DNA",
-   "x": 170,
-   "y": 560,
-   "to": [
-    350,
-    600
-   ],
-   "word": "DNA"
-  },
-  {
-   "type": "name",
-   "text": "Ancient viruses",
-   "x": 760,
-   "y": 340,
-   "to": [
-    800,
-    430
-   ],
-   "word": "ancient viruses"
-  }
- ],
- "sfx": [],
  "focus": null,
  "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "lean",
+  "act": "read",
   "ride": "mv-core-glide-magnifier-lens",
   "kind": "ride",
   "x": 824,
@@ -43,12 +18,12 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "doctor",
+   "lab",
    "facemask"
   ],
   "says": [
    {
-    "text": "Here we go!",
+    "text": "Interesting...",
     "shout": false
    }
   ]

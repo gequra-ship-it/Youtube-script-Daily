@@ -1,18 +1,30 @@
 {
- "centre": "a balance scale weighing two stories: a shrinking cell versus a pile of stolen genes, a giant virus waiting below",
+ "centre": "a snowball studded with gene pieces rolling and growing down a snowy mountain slope",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Which one is me?",
-   "x": 700,
-   "y": 690,
-   "to": [
-    460,
-    710
-   ]
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "sunshade"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 1660,
+  "y": 500,
+  "s": 0.77,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Bright!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

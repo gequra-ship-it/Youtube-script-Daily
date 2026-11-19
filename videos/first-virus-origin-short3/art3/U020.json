@@ -2,20 +2,7 @@
  "centre": "a bench of petri dishes from above; a magnifier sweeps over them and a giant virus turns up in one dish after another",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "track": false,
- "labels": [
-  {
-   "type": "say",
-   "text": "Found one!",
-   "x": 820,
-   "y": 1300,
-   "to": [
-    820,
-    1200
-   ]
-  }
- ],
  "frog": {
   "moods": [
    {
@@ -40,7 +27,8 @@
   "enter": "cut",
   "delay": 0.02,
   "outfit": [
-   "lab"
+   "lab",
+   "headlamp"
   ],
   "says": [
    {

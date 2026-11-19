@@ -1,41 +1,30 @@
 {
- "centre": "a cutaway protein shell whose six facets close around a coiled genome, fed by a DNA helix card and an RNA strand card",
+ "centre": "a magnifying lens over a tabletop showing a grey virus as still as the sand grain beside it; another virus floats in the wind above",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "wind": "right",
  "labels": [
   {
    "type": "name",
-   "text": "DNA",
+   "text": "grain of sand",
+   "x": 790,
+   "y": 640,
+   "to": [
+    650,
+    830
+   ],
+   "word": "grain of sand"
+  },
+  {
+   "type": "name",
+   "text": "tabletop",
    "x": 300,
-   "y": 330,
+   "y": 1360,
    "to": [
-    300,
-    460
+    420,
+    1290
    ],
-   "word": "DNA"
-  },
-  {
-   "type": "name",
-   "text": "RNA",
-   "x": 780,
-   "y": 330,
-   "to": [
-    760,
-    500
-   ],
-   "word": "RNA"
-  },
-  {
-   "type": "name",
-   "text": "protein shell",
-   "x": 540,
-   "y": 1240,
-   "to": [
-    540,
-    1095
-   ],
-   "word": "protein shell"
+   "word": "tabletop"
   }
  ]
 }

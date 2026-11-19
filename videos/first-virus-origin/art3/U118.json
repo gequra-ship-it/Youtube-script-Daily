@@ -1,41 +1,36 @@
 {
- "centre": "a bacterium bursting open at the centre, its shell halves and new virus capsids flying apart, clouds of carbon, nitrogen and phosphorus dots drifting toward plankton and a copepod",
+ "centre": "a round microscope field of seawater: rod bacteria and diatom plankton with bacteriophages landing one by one, a stopwatch ticking at the left",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "Every second",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Carbon",
-   "x": 430,
-   "y": 220,
+   "text": "Bacteria",
+   "x": 1500,
+   "y": 250,
    "to": [
-    670,
-    290
+    1180,
+    310
    ],
-   "word": "carbon"
+   "word": "bacteria"
   },
   {
    "type": "name",
-   "text": "Nitrogen",
-   "x": 430,
-   "y": 780,
+   "text": "Plankton",
+   "x": 1520,
+   "y": 800,
    "to": [
-    690,
-    660
+    1090,
+    735
    ],
-   "word": "nitrogen"
-  },
-  {
-   "type": "name",
-   "text": "Phosphorus",
-   "x": 1470,
-   "y": 220,
-   "to": [
-    1240,
-    315
-   ],
-   "word": "phosphorus"
+   "word": "plankton"
   }
  ]
 }

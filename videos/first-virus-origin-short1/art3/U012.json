@@ -1,42 +1,58 @@
 {
- "centre": "a still grey virus between a swimming fish, an ignored bacterium and an untouched bowl of food",
+ "centre": "a split frame: one virus carried along a breeze above, another bobbing on the sea below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "wind": "right",
  "labels": [
   {
-   "type": "say",
-   "text": "Busy day!",
-   "x": 600,
-   "y": 400,
+   "type": "name",
+   "text": "air",
+   "x": 220,
+   "y": 420,
    "to": [
-    440,
-    480
-   ]
+    220,
+    540
+   ],
+   "word": "air"
+  },
+  {
+   "type": "name",
+   "text": "water",
+   "x": 860,
+   "y": 1110,
+   "to": [
+    700,
+    1050
+   ],
+   "word": "water"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "chilly"
-   },
-   {
-    "word": "It does",
-    "mood": "happy"
+    "mood": "excited"
    }
   ],
   "act": {
-   "type": "hug"
+   "type": "pointfar"
   },
-  "x": 260,
-  "y": 1080,
-  "s": 1.05,
-  "flip": 1,
-  "kind": "bg",
   "outfit": [
-   "doctor"
+   "goggles",
+   "lab"
   ],
-  "says": [],
-  "bside": 1
+  "ride": "mv-path-virus-air",
+  "kind": "ride",
+  "x": 337,
+  "y": 640,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "There!",
+    "shout": true
+   }
+  ]
  }
 }

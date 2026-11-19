@@ -1,19 +1,38 @@
 {
- "centre": "glowing hanging lantern lighting an old scroll of gene marks, grey cover fading",
+ "centre": "a row of gene blocks reshuffling beneath copied rows on a notebook page",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Silenced",
-   "x": 620,
-   "y": 610,
+   "text": "Copied",
+   "x": 1620,
+   "y": 360,
    "to": [
-    620,
-    690
+    1480,
+    360
    ],
-   "word": "silenced"
+   "word": "copied"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "x": 260,
+  "y": 500,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "lab"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

@@ -1,42 +1,49 @@
 {
- "centre": "wall clock ticking above a dusty grey virus while a host cell glides in",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "teal virus pulsing like something alive inside a large coral cell",
+ "focus": [
+  540,
+  900,
+  1.5
+ ],
+ "focus_word": "inside that cell",
  "labels": [
   {
    "type": "name",
-   "text": "Host cell",
-   "x": 860,
-   "y": 860,
+   "text": "Cell",
+   "x": 760,
+   "y": 600,
    "to": [
-    940,
-    1000
+    868,
+    640
    ],
-   "word": "host cell"
+   "word": "cell"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "sleepy"
+    "mood": "curious"
    }
   ],
-  "act": "snooze",
-  "ride": "mv-path-host-cell",
-  "kind": "ride",
-  "x": 865,
-  "y": 959,
-  "s": 1.44,
-  "flip": -1,
+  "act": {
+   "type": "heartlisten",
+   "obj": "mv-core-heartbeat-virus-capsid"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 360,
+  "y": 1046,
+  "s": 1.09,
+  "flip": 1,
   "bside": -1,
+  "gaze": 1,
   "outfit": [
-   "lab",
-   "glasses"
+   "lab"
   ],
   "says": [
    {
-    "text": "Zzz...",
+    "text": "Thump... thump.",
     "shout": false
    }
   ]

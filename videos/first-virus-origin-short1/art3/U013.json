@@ -1,31 +1,55 @@
 {
- "centre": "a split frame: one virus carried along a breeze above, another bobbing on the sea below",
+ "centre": "a virus particle drifting onto the receptor locks of a living cell",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "wind": "right",
  "labels": [
   {
    "type": "name",
-   "text": "air",
-   "x": 220,
-   "y": 420,
+   "text": "living cell",
+   "x": 540,
+   "y": 1380,
    "to": [
-    220,
-    540
+    540,
+    1200
    ],
-   "word": "air"
+   "word": "living cell"
   },
   {
    "type": "name",
-   "text": "water",
-   "x": 860,
-   "y": 1110,
+   "text": "particle",
+   "x": 560,
+   "y": 400,
    "to": [
-    700,
-    1050
+    300,
+    480
    ],
-   "word": "water"
+   "word": "particle"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-path-virus-particle",
+  "kind": "ride",
+  "x": 417,
+  "y": 560,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ]
+ }
 }

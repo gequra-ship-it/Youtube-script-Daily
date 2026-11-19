@@ -1,30 +1,44 @@
 {
- "centre": "sperm swimming toward a large egg cell; both carry a small teal viral segment",
+ "centre": "teal viral gene segment being stitched by a needle into a grey chromosome",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Sperm",
-   "x": 560,
-   "y": 340,
+   "text": "Chromosome",
+   "x": 420,
+   "y": 720,
    "to": [
-    642,
-    470
+    420,
+    560
    ],
-   "word": "sperm"
-  },
-  {
-   "type": "name",
-   "text": "Egg cell",
-   "x": 1380,
-   "y": 110,
-   "to": [
-    1380,
-    160
-   ],
-   "word": "egg cell"
+   "word": "chromosomes"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-viral-segment",
+  "kind": "ride",
+  "x": 1112,
+  "y": 604,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Off we go!",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,23 +1,44 @@
 {
- "centre": "magnifying lens over a helix showing a teal virus capsid stitched into the strand",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "endogenous retroviruses",
- "sfx": [],
+ "centre": "egg cell holding a teal viral gene block, passed to a baby cell",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Endogenous retroviruses",
-   "x": 640,
-   "y": 300,
+   "text": "Offspring",
+   "x": 1500,
+   "y": 420,
    "to": [
-    640,
-    545
+    1500,
+    570
    ],
-   "word": "endogenous retroviruses"
+   "word": "offspring"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-egg-cell",
+  "kind": "ride",
+  "x": 1114,
+  "y": 616,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

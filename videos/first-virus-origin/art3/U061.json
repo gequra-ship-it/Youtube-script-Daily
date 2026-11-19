@@ -1,11 +1,61 @@
 {
- "centre": "light-microscope field showing a giant fibre-coated virus beside a bacterium, ordinary viruses invisible specks",
- "focus": [
-  1170,
-  470,
-  1.6
+ "centre": "size lineup on a ruler: the huge fuzzy Mimivirus capsid and the tall amphora-shaped Pandoravirus tower over a smaller amber bacterium and a tiny ordinary virus",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Mimivirus",
+   "x": 520,
+   "y": 190,
+   "to": [
+    520,
+    330
+   ],
+   "word": "Mimivirus"
+  },
+  {
+   "type": "name",
+   "text": "Pandoravirus",
+   "x": 1120,
+   "y": 170,
+   "to": [
+    1360,
+    260
+   ],
+   "word": "Pandoravirus"
+  },
+  {
+   "type": "name",
+   "text": "Bacteria",
+   "x": 960,
+   "y": 470,
+   "to": [
+    960,
+    610
+   ],
+   "word": "bacteria"
+  }
  ],
- "focus_word": "distinct, massive entities",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 1660,
+  "y": 500,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "lab",
+   "facemask"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

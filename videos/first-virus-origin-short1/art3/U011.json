@@ -1,31 +1,29 @@
 {
- "centre": "a magnifying lens over a tabletop showing a grey virus as still as the sand grain beside it; another virus floats in the wind above",
+ "centre": "a still grey virus between a swimming fish, an ignored bacterium and an untouched bowl of food",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "wind": "right",
- "labels": [
-  {
-   "type": "name",
-   "text": "grain of sand",
-   "x": 790,
-   "y": 640,
-   "to": [
-    650,
-    830
-   ],
-   "word": "grain of sand"
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "It does",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hug"
   },
-  {
-   "type": "name",
-   "text": "tabletop",
-   "x": 300,
-   "y": 1360,
-   "to": [
-    420,
-    1290
-   ],
-   "word": "tabletop"
-  }
- ]
+  "x": 260,
+  "y": 1080,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "doctor"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

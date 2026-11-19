@@ -1,19 +1,45 @@
 {
- "centre": "an open hand held up, palm toward the viewer",
+ "centre": "one big virus capsid drifting in the air among many tiny ones, a hand below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "palm",
-   "x": 830,
-   "y": 1060,
+   "text": "viruses",
+   "x": 540,
+   "y": 650,
    "to": [
-    600,
-    1000
+    540,
+    800
    ],
-   "word": "palm"
+   "word": "viruses"
   }
- ]
+ ],
+ "wind": "right",
+ "frog": {
+  "moods": [
+   {
+    "mood": "awe"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-virus-capsid",
+  "kind": "ride",
+  "x": 704,
+  "y": 991,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "doctor",
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

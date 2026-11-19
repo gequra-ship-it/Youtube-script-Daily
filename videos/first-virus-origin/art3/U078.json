@@ -1,46 +1,29 @@
 {
- "centre": "the teal virus drifts along a stream current from the faded parent cell to a green single-celled organism",
+ "centre": "the finished teal virus capsid with its gene inside, floating outside the parent cell wall",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Different organism",
-   "x": 1500,
-   "y": 860,
+   "text": "Protective container",
+   "x": 1360,
+   "y": 380,
    "to": [
-    1590,
-    700
+    1060,
+    450
    ],
-   "word": "different organism"
-  }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "excited"
-   }
-  ],
-  "act": {
-   "type": "pointfar"
+   "word": "protective container"
   },
-  "ride": "mv-path-drift-virus",
-  "kind": "ride",
-  "x": 878,
-  "y": 441,
-  "s": 1.18,
-  "flip": 1,
-  "bside": 1,
-  "outfit": [
-   "goggles",
-   "lab"
-  ],
-  "says": [
-   {
-    "text": "There!",
-    "shout": true
-   }
-  ]
- }
+  {
+   "type": "name",
+   "text": "Parent cell",
+   "x": 560,
+   "y": 760,
+   "to": [
+    380,
+    640
+   ],
+   "word": "parent cell"
+  }
+ ]
 }

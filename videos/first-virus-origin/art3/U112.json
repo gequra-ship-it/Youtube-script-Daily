@@ -1,19 +1,43 @@
 {
- "centre": "unborn child in a soft amniotic sac connected by a cord to the placenta, nutrient dots flowing in",
+ "centre": "folded coral protein blob coming out of a small molecular machine",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Placenta",
-   "x": 380,
-   "y": 280,
+   "text": "Syncytin",
+   "x": 1240,
+   "y": 380,
    "to": [
-    660,
-    360
+    1050,
+    470
    ],
-   "word": "placenta"
+   "word": "syncytin"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "write",
+  "ride": "mv-path-gene-ribbon",
+  "kind": "ride",
+  "x": 388,
+  "y": 660,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Noted!",
+    "shout": false
+   }
+  ]
+ }
 }

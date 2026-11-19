@@ -1,55 +1,60 @@
 {
- "centre": "a virus particle drifting onto the receptor locks of a living cell",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "teal virus capsid with a key stalk turning in an amber lock on a coral cell membrane",
+ "focus": [
+  420,
+  1100,
+  1.6
+ ],
+ "focus_word": "turns in a cellular lock",
  "labels": [
   {
    "type": "name",
-   "text": "living cell",
-   "x": 540,
-   "y": 1380,
+   "text": "Key",
+   "x": 250,
+   "y": 1300,
    "to": [
-    540,
-    1200
+    262,
+    1160
    ],
-   "word": "living cell"
+   "word": "key"
   },
   {
    "type": "name",
-   "text": "particle",
+   "text": "Lock",
    "x": 560,
-   "y": 400,
+   "y": 1300,
    "to": [
-    300,
-    480
+    525,
+    1190
    ],
-   "word": "particle"
+   "word": "lock"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "proud"
    }
   ],
-  "act": "magnify",
-  "ride": "mv-path-virus-particle",
+  "act": {
+   "type": "present"
+  },
+  "ride": "mv-core-approach-virus-capsid",
   "kind": "ride",
-  "x": 417,
-  "y": 560,
+  "x": 112,
+  "y": 864,
   "s": 1.09,
   "flip": 1,
-  "bside": 1,
+  "bside": -1,
   "gaze": 1,
   "outfit": [
-   "scarf",
+   "ghost",
    "lab"
   ],
   "says": [
    {
-    "text": "Hmm, interesting.",
-    "shout": false
+    "text": "Ta-da!",
+    "shout": true
    }
   ]
  }

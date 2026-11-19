@@ -1,23 +1,51 @@
 {
- "centre": "a lab: a surprised scientist with both arms up beside a microscope; the debate card on the wall flips upside down",
+ "centre": "a big cell on one cliff and a tiny virus on the far cliff across a deep chasm; a short plank cannot reach and a pebble falls into the gap",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "EARLY TWO THOUSANDS",
-   "word": "early two thousands"
+   "type": "name",
+   "text": "Cellular organism",
+   "x": 380,
+   "y": 170,
+   "to": [
+    360,
+    300
+   ],
+   "word": "cellular organism"
   },
   {
-   "type": "say",
-   "text": "Whoa!",
-   "x": 1590,
-   "y": 360,
+   "type": "name",
+   "text": "Tiny virus",
+   "x": 1500,
+   "y": 380,
    "to": [
-    1385,
-    440
-   ]
+    1500,
+    515
+   ],
+   "word": "tiny virus"
   }
- ]
+ ],
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "x": 260,
+  "y": 660,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "doctor",
+   "glasses"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

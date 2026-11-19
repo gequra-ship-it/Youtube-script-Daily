@@ -1,19 +1,45 @@
 {
- "centre": "two biologists on either side of a petri dish with a virus; the board behind splits chemical versus living",
+ "centre": "today's half-alive virus above a dashed time line leading down into a window on the young Earth",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "iris": [
+  540,
+  1120
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Biologists",
-   "x": 540,
-   "y": 860,
+   "text": "Today",
+   "x": 800,
+   "y": 420,
    "to": [
-    540,
-    1240
+    620,
+    450
    ],
-   "word": "Biologists"
+   "word": "today"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "ride": "mv-core-glide-virus-capsid",
+  "kind": "ride",
+  "x": 687,
+  "y": 553,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "facemask"
+  ],
+  "says": []
+ }
 }

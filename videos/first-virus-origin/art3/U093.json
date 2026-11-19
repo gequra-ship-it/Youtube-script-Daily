@@ -1,41 +1,49 @@
 {
- "centre": "ammonite shell fossil in a cliff cross-section between a bone and a petrified tree trunk",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "magnifying lens over an empty specimen tray with only a faint dashed virus outline",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "viral fossil record",
  "labels": [
   {
    "type": "name",
-   "text": "Bones",
-   "x": 420,
+   "text": "Viral fossil record",
+   "x": 1250,
    "y": 330,
    "to": [
-    420,
-    470
-   ],
-   "word": "Bones"
-  },
-  {
-   "type": "name",
-   "text": "Shells",
-   "x": 960,
-   "y": 340,
-   "to": [
-    960,
-    410
-   ],
-   "word": "shells"
-  },
-  {
-   "type": "name",
-   "text": "Tree trunks",
-   "x": 1480,
-   "y": 300,
-   "to": [
-    1470,
+    1040,
     440
    ],
-   "word": "tree trunks"
+   "word": "viral fossil record"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 820,
+  "y": 716,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-glide-magnifier-lens",
+  "outfit": [
+   "detective",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
 }
