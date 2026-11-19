@@ -1,19 +1,38 @@
 {
- "centre": "slice through Titan: ice crust, hidden ocean, warm glowing rocky interior sending heat up",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "hidden ocean",
-   "x": 300,
-   "y": 980,
-   "to": [
-    300,
-    800
-   ],
-   "word": "hidden ocean"
-  }
- ]
+ "centre": "Titan cutaway with a glowing hot core, heat waves and tidal arrows squeezing and stretching it",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "squeezing",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-titan-cutaway"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 884,
+  "y": 1160,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

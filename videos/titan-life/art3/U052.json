@@ -1,23 +1,41 @@
 {
- "centre": "loose fragments joining into a lumpy orange tholin compound inside the orange haze",
+ "centre": "a large glowing grain of orange tholin drifting down toward a ground that is being carpeted",
  "focus": [
-  965,
-  480,
-  1.6
+  960,
+  500,
+  1.7
  ],
- "focus_word": "orange haze",
- "sfx": [],
- "labels": [
+ "focus_word": "grains",
+ "sfx": [
   {
-   "type": "name",
-   "text": "Tholins",
-   "x": 1280,
-   "y": 330,
-   "to": [
-    1030,
-    440
-   ],
-   "word": "tholins"
+   "name": "glimmer",
+   "word": "drift",
+   "vol": 0.5
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": "snooze",
+  "ride": "mv-core-glide-tholin-grain",
+  "kind": "ride",
+  "x": 1188,
+  "y": 690,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "monocle"
+  ],
+  "says": [
+   {
+    "text": "Zzz...",
+    "shout": false
+   }
+  ]
+ }
 }

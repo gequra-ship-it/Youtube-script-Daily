@@ -1,23 +1,36 @@
 {
- "centre": "a frigid methane lake with faint dashed ghost cells and a question mark: hypothetical organisms only",
+ "centre": "a dashed hypothetical cell in a dark methane lake taking in hydrogen and acetylene molecules",
  "focus": [
   960,
-  700,
+  510,
   1.6
  ],
- "focus_word": "hypothetical organisms",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Hypothetical organisms",
-   "x": 1290,
-   "y": 820,
-   "to": [
-    1040,
-    770
-   ],
-   "word": "hypothetical organisms"
-  }
- ]
+ "focus_word": "hydrogen",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "countstars"
+  },
+  "ride": "mv-path-acetylene-molecule-into-cell",
+  "kind": "ride",
+  "x": 1430,
+  "y": 670,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "So many...",
+    "shout": false
+   }
+  ]
+ }
 }

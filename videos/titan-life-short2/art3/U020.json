@@ -1,41 +1,36 @@
 {
- "centre": "an empty blue mixing bowl on a kitchen counter between a flour sack, eggs and a sugar jar; Titan glows in the window",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Flour",
-   "x": 230,
-   "y": 780,
-   "to": [
-    235,
-    900
-   ],
-   "word": "flour"
+ "centre": "flour, an egg and sugar on a counter beside an empty cake stand with a dashed ghost cake and a question mark",
+ "focus": [
+  780,
+  1160,
+  1.6
+ ],
+ "focus_word": "cake",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "starcatch"
   },
-  {
-   "type": "name",
-   "text": "Eggs",
-   "x": 740,
-   "y": 1180,
-   "to": [
-    712,
-    1010
-   ],
-   "word": "eggs"
-  },
-  {
-   "type": "name",
-   "text": "Sugar",
-   "x": 880,
-   "y": 820,
-   "to": [
-    878,
-    980
-   ],
-   "word": "sugar"
-  }
- ]
+  "ride": "mv-core-approach-question-mark",
+  "kind": "ride",
+  "x": 644,
+  "y": 966,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "chef"
+  ],
+  "says": [
+   {
+    "text": "Gotcha!",
+    "shout": true
+   }
+  ]
+ }
 }

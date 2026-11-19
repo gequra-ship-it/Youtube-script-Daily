@@ -1,14 +1,43 @@
 {
- "centre": "cutaway Titan globe: methane lakes on the surface and a water ocean layer inside, both ringed as possible habitats",
+ "centre": "Titan between two lab flasks: a dark methane flask with a dashed double-walled ghost cell and a clear blue water flask with a dashed ghost cell",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "2 HABITATS",
-   "word": "two completely different"
+   "type": "name",
+   "text": "Hydrocarbon",
+   "x": 540,
+   "y": 252,
+   "to": [
+    540,
+    340
+   ],
+   "word": "hydrocarbon"
   }
  ],
- "spot": true
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-titan-moon",
+  "kind": "ride",
+  "x": 1098,
+  "y": 430,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

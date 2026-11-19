@@ -1,32 +1,31 @@
 {
- "centre": "top-down aerial view: Dragonfly flies over Titan's dunes, a crater and a river channel inside a camera viewfinder",
+ "centre": "a glowing landing-site marker on a top-down amber map, one stop on a dashed hopping flight route across dunes, craters and a methane lake",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "spot": true,
+ "iris": [
+  960,
+  540
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "photo",
-  "ride": "mv-path-dragonfly",
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-core-glide-landing-site",
   "kind": "ride",
-  "x": 677,
-  "y": 430,
-  "s": 1.25,
-  "flip": 1,
-  "bside": 1,
+  "x": 1038,
+  "y": 441,
+  "s": 1.13,
+  "flip": -1,
+  "bside": -1,
   "outfit": [
-   "alien"
+   "backpack",
+   "cap"
   ],
-  "says": [
-   {
-    "text": "Say cheese!",
-    "shout": false
-   }
-  ]
+  "says": []
  }
 }

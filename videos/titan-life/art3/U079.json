@@ -1,11 +1,44 @@
 {
- "centre": "a cutaway of Titan with a haze shell, tan ground, a thick pale ice crust and a glowing blue water ocean hidden beneath",
- "focus": [
-  1010,
-  450,
-  1.6
+ "centre": "Titan, slightly stretched toward giant ringed Saturn by dashed gravity pull lines, while a small probe passes",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Saturn",
+   "x": 1060,
+   "y": 200,
+   "to": [
+    1360,
+    300
+   ],
+   "word": "Saturn's"
+  }
  ],
- "focus_word": "deep beneath its icy crust",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-path-cassini-probe",
+  "kind": "ride",
+  "x": 358,
+  "y": 347,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "says": [
+   {
+    "text": "Tap tap.",
+    "shout": false
+   }
+  ]
+ }
 }

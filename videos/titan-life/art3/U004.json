@@ -5,38 +5,31 @@
   470,
   1.5
  ],
- "focus_word": "minus one hundred and eighty degrees",
- "sfx": [
-  {
-   "name": "crackle",
-   "word": "rock",
-   "vol": 0.5
-  }
- ],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "dizzy"
+   "type": "launched",
+   "obj": "mv-popin-frost-crystal",
+   "h": 168
   },
-  "outfit": [
-   "goggles",
-   "bowtie"
-  ],
   "ride": null,
   "kind": "bg",
   "x": 1365,
   "y": 790,
   "s": 0.95,
   "flip": -1,
-  "bside": -1,
+  "bside": 1,
+  "gaze": 1,
   "behind": null,
   "enter": "cut",
   "delay": 0.02,
+  "outfit": [
+   "explorer"
+  ],
   "says": [
    {
     "text": "Whoa!",

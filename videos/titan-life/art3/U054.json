@@ -1,7 +1,48 @@
 {
- "centre": "a mixing bowl on Titan's dunes slowly filling with orange tholin layers, a cosmic kitchen",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "a glass jar of orange tholin dust on a kitchen shelf, with a small idea bulb",
+ "focus": [
+  960,
+  560,
+  1.5
+ ],
+ "focus_word": "tholins",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Tholins",
+   "x": 1240,
+   "y": 640,
+   "to": [
+    1060,
+    620
+   ],
+   "word": "tholins"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "idea",
+  "ride": "mv-core-glide-tholin-jar",
+  "kind": "ride",
+  "x": 1258,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headphones",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Aha!",
+    "shout": false
+   }
+  ]
+ }
 }

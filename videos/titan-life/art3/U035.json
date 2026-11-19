@@ -1,7 +1,32 @@
 {
- "centre": "a dark teal methane droplet between an Earth water cycle and a Titan methane cycle",
+ "centre": "a methane cloud over mountains, a winding river and a dark lake on Titan",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "magnetwalk",
+   "dist": 288
+  },
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "lab",
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Clunk, clunk.",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

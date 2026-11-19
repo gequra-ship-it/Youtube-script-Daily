@@ -1,34 +1,48 @@
 {
- "centre": "the Cassini spacecraft (gold body, white dish) near ringed Saturn, releasing the small Huygens probe toward orange Titan",
+ "centre": "the Huygens probe hanging under its striped parachute, drifting down through orange haze layers toward a coastline far below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "iris": [
-  540,
-  430
- ],
  "labels": [
   {
-   "type": "name",
-   "text": "Cassini",
-   "x": 300,
-   "y": 300,
-   "to": [
-    470,
-    400
-   ],
-   "word": "Cassini spacecraft"
+   "type": "num",
+   "text": "JANUARY 2005",
+   "word": "January of 2005"
   },
   {
    "type": "name",
-   "text": "Huygens",
-   "x": 640,
-   "y": 680,
+   "text": "parachute",
+   "x": 1250,
+   "y": 180,
    "to": [
-    640,
-    566
+    1060,
+    160
    ],
-   "word": "Huygens probe"
+   "word": "parachute"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "salute",
+  "ride": "mv-path-descend-huygens-probe",
+  "kind": "ride",
+  "x": 855,
+  "y": 252,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "says": [
+   {
+    "text": "Aye aye!",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,35 +1,34 @@
 {
- "centre": "a dashed ghost cell that might copy itself, on dry ground beside a crossed-out water drop",
+ "centre": "a magnifying lens scanning over Titan with a telescope looking up from below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "worried"
-   },
-   {
-    "word": "No one",
-    "mood": "happy"
+    "mood": "squint"
    }
   ],
-  "act": "shrug",
-  "outfit": [
-   "goggles",
-   "bowtie"
-  ],
-  "ride": "mv-core-glide-hypothetical-cell",
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-scan-magnifier",
   "kind": "ride",
-  "x": 710,
-  "y": 788,
-  "s": 1.44,
-  "flip": -1,
-  "bside": -1,
+  "x": 342,
+  "y": 1094,
+  "s": 1.4,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "lab",
+   "beanie"
+  ],
   "says": [
    {
-    "text": "Who knows?",
-    "shout": false
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
    }
   ]
  }

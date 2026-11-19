@@ -1,17 +1,22 @@
 {
- "centre": "a methane molecule being smashed apart by a sunlit energetic particle, with nitrogen molecules nearby",
+ "centre": "loose fragments joining into a lumpy orange tholin compound inside the orange haze",
  "focus": [
-  960,
-  500,
+  965,
+  480,
   1.6
  ],
- "focus_word": "nitrogen and methane molecules",
- "sfx": [
+ "focus_word": "orange haze",
+ "labels": [
   {
-   "name": "static",
-   "word": "smash",
-   "vol": 0.5
+   "type": "name",
+   "text": "Tholins",
+   "x": 1280,
+   "y": 330,
+   "to": [
+    1030,
+    440
+   ],
+   "word": "tholins"
   }
- ],
- "labels": []
+ ]
 }

@@ -1,32 +1,43 @@
 {
- "centre": "warm glowing Titan above a giant Saturn, a faint distant Sun far above",
- "focus": [
-  540,
-  860,
-  1.6
+ "centre": "Titan below Saturn, its globe stretching and relaxing under Saturn's pull while Cassini flies past measuring",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "flexes",
+   "x": 820,
+   "y": 900,
+   "to": [
+    680,
+    990
+   ],
+   "word": "flexes"
+  }
  ],
- "focus_word": "giant neighbor",
- "labels": [],
- "sfx": [],
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "determined"
    }
   ],
-  "act": {
-   "type": "dizzy"
-  },
-  "x": 260,
-  "y": 600,
-  "s": 1.05,
-  "flip": 1,
-  "kind": "bg",
+  "act": "tap",
   "outfit": [
-   "helmet",
-   "moonboots"
+   "goggles"
   ],
-  "says": [],
-  "bside": 1
+  "ride": "mv-path-cassini-spacecraft",
+  "kind": "ride",
+  "x": 274,
+  "y": 1306,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
  }
 }

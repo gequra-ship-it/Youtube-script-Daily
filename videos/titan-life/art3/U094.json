@@ -1,12 +1,54 @@
 {
- "centre": "cutaway Titan with a dashed (suggested) water-ocean layer; arrows of measurement converge on it while a ghost tethered probe hangs unused above",
+ "centre": "the Dragonfly rotorcraft (four coaxial rotor pairs, landing skids) on an assembly stand in a hangar under a work lamp",
  "focus": [
-  1000,
-  470,
-  1.6
+  950,
+  500,
+  1.5
  ],
- "focus_word": "point strongly toward an ocean",
- "sfx": [],
- "labels": [],
- "spot": true
+ "focus_word": "Dragonfly",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Dragonfly",
+   "x": 1500,
+   "y": 640,
+   "to": [
+    1080,
+    540
+   ],
+   "word": "Dragonfly"
+  }
+ ],
+ "spot": true,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "knocked",
+   "obj": "mv-swing-hook-crane"
+  },
+  "x": 1509,
+  "y": 497,
+  "s": 0.95,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "hardhat",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

@@ -1,35 +1,31 @@
 {
- "centre": "a magnifying glass with a question mark between a flask of water and a flask of methane, each with a dashed ghost cell",
- "focus": [
-  960,
-  500,
-  1.5
- ],
- "focus_word": "what life really needs",
- "sfx": [],
- "labels": [],
+ "centre": "a dashed ghost cell glowing between two stone gate pillars, each marked with a water drop, as the narrow gate widens",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
-  "act": "tap",
-  "ride": "mv-core-approach-magnifier",
+  "act": {
+   "type": "zerogroll"
+  },
+  "outfit": [
+   "goggles",
+   "bowtie"
+  ],
+  "ride": "mv-slide-left-pillar",
   "kind": "ride",
-  "x": 1228,
-  "y": 730,
+  "x": 510,
+  "y": 790,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "outfit": [
-   "lab",
-   "beanie"
-  ],
   "says": [
    {
-    "text": "Hmm, hard.",
+    "text": "Wheee...",
     "shout": false
    }
   ]

@@ -1,35 +1,34 @@
 {
- "centre": "porthole in the ice crust showing a dashed ghost cell in dark water, methane lake above",
+ "centre": "a dashed ghost microbe with a '?' (hypothetical) floating in the dark ocean under the ice",
  "focus": [
   540,
   860,
-  1.8
+  1.6
  ],
- "focus_word": "familiar",
- "labels": [],
- "sfx": [],
+ "focus_word": "microbial life",
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "proud"
    }
   ],
-  "act": "lean",
-  "ride": "mv-core-glide-ghost-cell",
-  "kind": "ride",
-  "x": 646,
-  "y": 922,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "act": {
+   "type": "growtall"
+  },
   "outfit": [
-   "bowler"
+   "diver"
   ],
+  "ride": "mv-core-glide-ghost-microbe",
+  "kind": "ride",
+  "x": 694,
+  "y": 872,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
   "says": [
    {
-    "text": "Here we go!",
-    "shout": false
+    "text": "Big!",
+    "shout": true
    }
   ]
  }

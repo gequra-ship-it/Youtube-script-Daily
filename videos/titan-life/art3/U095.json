@@ -1,24 +1,29 @@
 {
- "centre": "the Dragonfly rotorcraft (four coaxial rotor pairs, landing skids) on an assembly stand in a hangar under a work lamp",
+ "centre": "NASA's Dragonfly rotorcraft, a drone with four pairs of spinning rotors, hovering above orange dunes and a crater on Titan",
  "focus": [
-  950,
-  500,
+  960,
+  430,
   1.5
  ],
- "focus_word": "Dragonfly",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Dragonfly",
-   "x": 1500,
-   "y": 640,
-   "to": [
-    1080,
-    540
-   ],
-   "word": "Dragonfly"
-  }
- ],
- "spot": true
+ "focus_word": "fly across",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "aviator"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

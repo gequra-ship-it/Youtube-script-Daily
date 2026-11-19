@@ -1,11 +1,34 @@
 {
- "centre": "a dashed ghost microbe with a '?' (hypothetical) floating in the dark ocean under the ice",
+ "centre": "small Titan globe with a cutaway wedge on a line of dim planets, ghost question planets below",
  "focus": [
   540,
   860,
   1.6
  ],
- "focus_word": "microbial life",
- "sfx": [],
- "labels": []
+ "focus_word": "combination",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-titan-globe",
+  "kind": "ride",
+  "x": 734,
+  "y": 1010,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
 }

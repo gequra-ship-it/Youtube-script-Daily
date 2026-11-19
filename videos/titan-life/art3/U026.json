@@ -1,23 +1,39 @@
 {
- "centre": "a beaker of dark liquid methane staying liquid next to a block of rock-hard ice",
+ "centre": "a swelling methane cloud in a hazy amber sky above icy hills, one big drop falling",
  "focus": [
-  1010,
-  560,
-  1.7
+  960,
+  420,
+  1.6
  ],
- "focus_word": "hydrocarbons",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Methane",
-   "x": 1280,
-   "y": 420,
-   "to": [
-    1060,
-    560
-   ],
-   "word": "methane"
-  }
- ]
+ "focus_word": "Clouds of methane",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-methane-cloud"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1348,
+  "y": 535,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "umbrella",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

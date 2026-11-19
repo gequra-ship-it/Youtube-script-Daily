@@ -1,11 +1,36 @@
 {
- "centre": "Titan cutaway: ice crust, deep water ocean, core, surface methane lakes, drone above",
+ "centre": "Glowing living cell with a blue water droplet and an amber methane droplet drifting toward it",
  "focus": [
   540,
   860,
   1.5
  ],
- "focus_word": "show us why",
- "sfx": [],
- "labels": []
+ "focus_word": "alive",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "ride": "mv-path-methane-droplet",
+  "kind": "ride",
+  "x": 820,
+  "y": 910,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
 }

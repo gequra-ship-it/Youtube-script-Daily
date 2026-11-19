@@ -1,19 +1,30 @@
 {
- "centre": "a single bright blue water drop coming into sharp focus between small orange Titan and blue Earth",
+ "centre": "video screen with a play triangle in front of glowing amber Titan",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Water",
-   "x": 800,
-   "y": 900,
-   "to": [
-    600,
-    920
-   ],
-   "word": "water"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-video-screen",
+  "kind": "ride",
+  "x": 954,
+  "y": 1050,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "clockhat"
+  ],
+  "says": [
+   {
+    "text": "Tick tock...",
+    "shout": false
+   }
+  ]
+ }
 }

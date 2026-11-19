@@ -1,23 +1,48 @@
 {
- "centre": "an astronomer's study at night: through the window Saturn and Titan, a small fuzzy orange dot, in plain view; stacked notebooks of decades, blank orange sketches, a tossed paper ball",
+ "centre": "a glowing orange haze bank standing between a telescope on the left and a faint Titan on the right",
  "focus": [
-  1340,
-  330,
+  480,
+  640,
   1.7
  ],
- "focus_word": "in plain view",
- "sfx": [],
+ "focus_word": "ordinary telescope",
  "labels": [
   {
    "type": "name",
-   "text": "moon",
-   "x": 1480,
-   "y": 200,
+   "text": "Telescope",
+   "x": 420,
+   "y": 440,
    "to": [
-    1392,
-    290
+    430,
+    610
    ],
-   "word": "a whole moon"
+   "word": "telescope"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 645,
+  "y": 690,
+  "s": 1.0,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": "mv-tilt-telescope-tube",
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Psst...",
+    "shout": false
+   }
+  ]
+ }
 }

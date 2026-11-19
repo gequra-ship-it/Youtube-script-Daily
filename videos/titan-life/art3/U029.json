@@ -1,11 +1,43 @@
 {
- "centre": "a dashed ghost cell hovering over a dark methane lake under an amber sky, hypothetical life only",
+ "centre": "a polar shore of Titan: a slow wave rolling across a dark sea of liquid methane and ethane under orange haze",
  "focus": [
-  960,
-  500,
-  1.7
+  1220,
+  590,
+  1.6
  ],
- "focus_word": "living thing",
- "sfx": [],
- "labels": []
+ "focus_word": "slow wave",
+ "iris": [
+  1220,
+  590
+ ],
+ "wind": "left",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

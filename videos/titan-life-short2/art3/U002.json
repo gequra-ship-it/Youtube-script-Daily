@@ -1,7 +1,54 @@
 {
- "centre": "a golden haze curtain half-drawn over a ghostly dashed landscape and a question mark",
+ "centre": "Cassini spacecraft with its white dish, releasing the small Huygens probe toward orange Titan",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Cassini",
+   "x": 790,
+   "y": 820,
+   "to": [
+    580,
+    760
+   ],
+   "word": "Cassini"
+  },
+  {
+   "type": "name",
+   "text": "Huygens",
+   "x": 250,
+   "y": 790,
+   "to": [
+    500,
+    846
+   ],
+   "word": "Huygens"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "wind",
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-core-glide-cassini-spacecraft",
+  "kind": "ride",
+  "x": 764,
+  "y": 853,
+  "s": 1.13,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
 }
