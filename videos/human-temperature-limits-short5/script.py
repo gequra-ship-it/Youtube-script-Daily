@@ -4,7 +4,7 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh5_1',
-  'Did you know that only about fourteen degrees Celsius separates a living body from the edge of death? The universe around us swings across '
+  'Only about fourteen degrees Celsius separates a living body from the edge of death. It is real, while the universe around us swings across '
   'enormous extremes, from near absolute zero in deep space to millions of degrees inside stars.'),
  ('S02',
   'Part 2',

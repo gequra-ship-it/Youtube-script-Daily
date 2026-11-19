@@ -4,7 +4,7 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh3_1',
-  'Can a person with no heartbeat, no breathing, and an ice-cold body still wake up alive? In emergency medicine, doctors live by a famous rule: a '
+  'In emergency medicine, a person with no heartbeat, no breathing, and an ice-cold body may still wake up alive. Doctors live by a famous rule: a '
   'hypothermia patient is not dead until they are warm and dead.'),
  ('S02',
   'Part 2',

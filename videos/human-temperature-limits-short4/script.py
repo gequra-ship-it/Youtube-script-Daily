@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh4_1',
-  'Have you ever heard of terminal burrowing? It is one of the most unsettling behaviors documented in forensic medicine. When a person reaches the '
-  'final stages of severe hypothermia, something strange can happen to their behavior.'),
+  'In the final stages of severe hypothermia, some victims crawl into tiny, enclosed spaces. It is real, and it is called terminal burrowing, one of '
+  'the most unsettling behaviors documented in forensic medicine.'),
  ('S02',
   'Part 2',
   'ill',

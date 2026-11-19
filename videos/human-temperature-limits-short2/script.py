@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh2_1',
-  'Why do rescuers sometimes find freezing victims partly undressed in the snow? When temperatures drop to dangerous levels, severe hypothermia can '
-  'cause a bizarre and tragic behavior known as paradoxical undressing.'),
+  'Rescuers sometimes find freezing victims partly undressed in the snow. It is real: severe hypothermia can cause a bizarre and tragic behavior '
+  'known as paradoxical undressing.'),
  ('S02',
   'Part 2',
   'ill',

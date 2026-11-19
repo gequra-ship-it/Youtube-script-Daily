@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh1_1',
-  'Could you survive fifty degrees Celsius in a scorching desert? Surprisingly, yes, for a while, as long as the air is dry and you have plenty of '
-  'water to drink.'),
+  'A person can survive fifty degrees Celsius in a scorching desert for a while, as long as the air is dry and there is plenty of water to drink. '
+  'Add humidity, and everything changes.'),
  ('S02',
   'Part 2',
   'ill',
