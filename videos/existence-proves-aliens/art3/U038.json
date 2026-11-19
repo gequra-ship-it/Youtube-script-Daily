@@ -1,51 +1,46 @@
 {
- "centre": "split frame: Earth with the Moon on its orbit (left) and a far spiral galaxy turning with a star on the same kind of orbit (right), a dashed gold link between them",
+ "centre": "Earth hops off a gold VIP pedestal behind a velvet rope and joins a crowd of ordinary worlds",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Moon",
-   "x": 720,
-   "y": 400,
+   "text": "Earth",
+   "x": 560,
+   "y": 470,
    "to": [
-    650,
-    528
+    730,
+    530
    ],
-   "word": "Moon"
-  },
-  {
-   "type": "name",
-   "text": "Farthest galaxies",
-   "x": 1450,
-   "y": 815,
-   "to": [
-    1450,
-    700
-   ],
-   "word": "farthest galaxies"
+   "word": "Earth"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "happy"
    }
   ],
   "act": {
-   "type": "helmetwipe"
+   "type": "starcatch"
   },
   "outfit": [
    "helmet",
    "moonboots"
   ],
-  "x": 1660,
-  "y": 890,
-  "s": 0.72,
-  "flip": -1,
-  "kind": "bg",
-  "says": [],
-  "bside": -1
+  "ride": "mv-path-earth-globe",
+  "kind": "ride",
+  "x": 874,
+  "y": 624,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Gotcha!",
+    "shout": true
+   }
+  ]
  }
 }

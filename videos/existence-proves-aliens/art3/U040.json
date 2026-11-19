@@ -1,18 +1,53 @@
 {
- "centre": "top-down cosmic game table: five identical game boards with identical rule cards; on ours an Earth piece with a sprout hops, the other boards hold unknown dashed pieces; dice are tossed",
+ "centre": "a ball-and-stick carbon atom with four bonds in the middle and a water molecule floating on the right, tiny water molecules beside far galaxies, an icy comet passing",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Only us?",
-   "x": 1200,
-   "y": 300,
+   "type": "name",
+   "text": "Carbon",
+   "x": 960,
+   "y": 710,
    "to": [
-    1000,
-    420
-   ]
+    960,
+    552
+   ],
+   "word": "Carbon"
+  },
+  {
+   "type": "name",
+   "text": "Water",
+   "x": 1460,
+   "y": 700,
+   "to": [
+    1460,
+    562
+   ],
+   "word": "water"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "idea",
+  "outfit": [
+   "goggles"
+  ],
+  "ride": "mv-core-approach-carbon-atom",
+  "kind": "ride",
+  "x": 1080,
+  "y": 315,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Aha!",
+    "shout": false
+   }
+  ]
+ }
 }

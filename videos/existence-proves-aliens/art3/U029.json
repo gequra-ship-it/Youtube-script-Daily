@@ -1,11 +1,59 @@
 {
- "centre": "Earth globe sitting on a long timeline ribbon unrolling left to right, a curved Earth limb below",
+ "centre": "two near-equal planets side by side: Earth with green land and a slightly larger ocean exoplanet, in a green habitable band above a star's glowing limb",
  "focus": [
   960,
   500,
-  1.5
+  1.6
  ],
- "focus_word": "our own planet",
- "sfx": [],
- "labels": []
+ "focus_word": "roughly Earth-sized",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth-sized",
+   "x": 760,
+   "y": 260,
+   "to": [
+    800,
+    390
+   ],
+   "word": "Earth-sized"
+  },
+  {
+   "type": "name",
+   "text": "Habitable zone",
+   "x": 1450,
+   "y": 300,
+   "to": [
+    1130,
+    400
+   ],
+   "word": "habitable zone"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Pulling...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

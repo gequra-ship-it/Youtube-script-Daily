@@ -1,45 +1,22 @@
 {
- "centre": "a wall calendar of twelve months, squeezed, with the history of the universe (big bang, galaxy, star, Earth) gathering around it",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a tower clock a moment before midnight, a gold wedge marks the last ten seconds; the last December day glows above",
+ "focus": [
+  540,
+  820,
+  1.6
+ ],
+ "focus_word": "midnight",
  "labels": [
   {
    "type": "name",
-   "text": "calendar year",
-   "x": 540,
-   "y": 1150,
+   "text": "last ten seconds",
+   "x": 330,
+   "y": 620,
    "to": [
-    540,
-    1000
+    500,
+    758
    ],
-   "word": "calendar year"
+   "word": "last ten seconds"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": {
-   "type": "binocs"
-  },
-  "outfit": [
-   "helmet",
-   "patch"
-  ],
-  "x": 260,
-  "y": 1280,
-  "s": 1.21,
-  "flip": 1,
-  "kind": "bg",
-  "says": [
-   {
-    "text": "Ooh!",
-    "shout": true
-   }
-  ],
-  "bside": 1
- }
+ ]
 }

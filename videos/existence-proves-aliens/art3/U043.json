@@ -1,22 +1,31 @@
 {
- "centre": "an open palm seen from above with a smear of wet sand and a tiny pink sea worm wriggling on it",
- "focus": [
-  975,
-  742,
-  1.9
- ],
- "focus_word": "tiny living sea creature",
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Hi there!",
-   "x": 1160,
-   "y": 600,
-   "to": [
-    905,
-    728
-   ]
-  }
- ]
+ "centre": "two cupped hands lifting a single wet handful of sand from a night beach",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-core-approach-sand-scoop",
+  "kind": "ride",
+  "x": 1308,
+  "y": 750,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "umbrella",
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Boom-cha!",
+    "shout": false
+   }
+  ]
+ }
 }

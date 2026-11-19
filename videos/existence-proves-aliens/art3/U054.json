@@ -1,11 +1,22 @@
 {
- "centre": "left a golden sulfur crystal cluster, right a pink glowing phosphorus lump, dust scattered along the Milky Way band",
+ "centre": "cooking pot with six glowing ingredient orbs gathering above it",
  "focus": [
-  430,
-  650,
-  1.7
+  960,
+  400,
+  1.6
  ],
- "focus_word": "sulfur",
- "sfx": [],
- "labels": []
+ "focus_word": "ingredients",
+ "labels": [
+  {
+   "type": "say",
+   "text": "Yum!",
+   "x": 1250,
+   "y": 470,
+   "to": [
+    1075,
+    560
+   ],
+   "word": "ingredients"
+  }
+ ]
 }

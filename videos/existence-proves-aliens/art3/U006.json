@@ -1,45 +1,28 @@
 {
- "centre": "night meadow: a stargazer points up at a strange light while a radio dish on the right listens to a dashed signal from a far star; a small satellite crosses the sky",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "What is that light?",
-   "x": 250,
-   "y": 450,
-   "to": [
-    430,
-    600
-   ]
-  }
+ "centre": "a magnifying glass held up in space; inside the lens a living, city-lit Earth; dashed clue strings link it to distant star systems with question-mark ghost planets",
+ "focus": [
+  960,
+  500,
+  1.6
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "chilly"
    }
   ],
-  "act": "peek",
+  "act": {
+   "type": "hug"
+  },
+  "x": 260,
+  "y": 340,
+  "s": 0.8,
+  "flip": 1,
   "kind": "bg",
-  "ride": null,
-  "behind": "mv-core-ping-radio-dish",
-  "x": 1340,
-  "y": 612,
-  "s": 1.0,
-  "flip": -1,
-  "bside": -1,
-  "gaze": 1,
   "outfit": [
-   "headphones",
-   "goggles"
+   "detective"
   ],
-  "says": [
-   {
-    "text": "Beep... beep.",
-    "shout": false
-   }
-  ]
+  "says": [],
+  "bside": 1
  }
 }

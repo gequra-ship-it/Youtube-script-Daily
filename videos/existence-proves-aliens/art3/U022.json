@@ -1,24 +1,46 @@
 {
- "centre": "an old candle-lit study at night: a skeptic scholar raises a finger beside a desk with a candle and a star chart showing one star and an empty orbit; a pendulum clock ticks, a brass telescope aims at the starry window",
- "focus": null,
- "focus_word": null,
+ "centre": "a single glowing drop of life falling toward a vast night ocean that reflects a sky crowded with galaxies",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "single drop of life",
  "sfx": [
   {
-   "name": "tick",
-   "word": "For generations",
-   "vol": 0.5
+   "name": "drip",
+   "word": "single drop",
+   "vol": 0.6
   }
  ],
- "labels": [
-  {
-   "type": "say",
-   "text": "Planets? Very rare.",
-   "x": 640,
-   "y": 360,
-   "to": [
-    728,
-    512
-   ]
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "How could",
+    "mood": "curious"
+   }
+  ],
+  "act": "dance",
+  "outfit": [
+   "goggles",
+   "flippers"
+  ],
+  "ride": "mv-core-drop-life-droplet",
+  "kind": "ride",
+  "x": 1118,
+  "y": 620,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "La la la~",
+    "shout": false
+   }
+  ]
+ }
 }

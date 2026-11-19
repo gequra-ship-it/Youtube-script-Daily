@@ -1,60 +1,31 @@
 {
- "centre": "two near-equal planets side by side: Earth with green land and a slightly larger ocean exoplanet, in a green habitable band above a star's glowing limb",
+ "centre": "large side-view space telescope with a light beam to a boxed star field where twelve planets get ringed one by one",
  "focus": [
-  960,
-  500,
-  1.6
+  1420,
+  330,
+  1.8
  ],
- "focus_word": "roughly Earth-sized",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Earth-sized",
-   "x": 760,
-   "y": 260,
-   "to": [
-    800,
-    390
-   ],
-   "word": "Earth-sized"
-  },
-  {
-   "type": "name",
-   "text": "Habitable zone",
-   "x": 1450,
-   "y": 300,
-   "to": [
-    1130,
-    400
-   ],
-   "word": "habitable zone"
-  }
- ],
+ "focus_word": "thousands of planets",
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "chilly"
    }
   ],
   "act": {
-   "type": "zerogroll"
+   "type": "rubhands"
   },
   "outfit": [
    "helmet",
-   "antenna"
+   "patch"
   ],
-  "x": 260,
-  "y": 780,
-  "s": 0.85,
+  "ride": "mv-core-approach-space-telescope",
+  "kind": "ride",
+  "x": 620,
+  "y": 404,
+  "s": 1.25,
   "flip": 1,
-  "kind": "bg",
-  "says": [
-   {
-    "text": "Wheee...",
-    "shout": false
-   }
-  ],
-  "bside": 1
+  "bside": 1,
+  "says": []
  }
 }

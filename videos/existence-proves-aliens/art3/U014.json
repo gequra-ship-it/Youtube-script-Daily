@@ -1,30 +1,58 @@
 {
- "centre": "split frame: an exploding star scattering glowing fragments (left) linked by dotted trails to an X-ray lightbox with a bone and a blood drop (right)",
+ "centre": "left: the soft white flash of the Big Bang; small hydrogen atoms drift along a dotted route into a star-filled human silhouette on the right",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "calcium",
-   "x": 1300,
-   "y": 650,
+   "text": "Big Bang",
+   "x": 330,
+   "y": 230,
    "to": [
-    1330,
-    450
+    330,
+    420
    ],
-   "word": "calcium"
+   "word": "Big Bang"
   },
   {
    "type": "name",
-   "text": "iron",
-   "x": 1590,
-   "y": 640,
+   "text": "hydrogen",
+   "x": 640,
+   "y": 560,
    "to": [
-    1590,
-    500
+    525,
+    440
    ],
-   "word": "iron"
+   "word": "hydrogen"
   }
- ]
+ ],
+ "iris": [
+  1510,
+  520
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "ride": "mv-path-hydrogen-atom",
+  "kind": "ride",
+  "x": 598,
+  "y": 468,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "So strong!",
+    "shout": false
+   }
+  ]
+ }
 }

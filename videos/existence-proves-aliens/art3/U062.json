@@ -1,23 +1,65 @@
 {
- "centre": "glowing green seedling bud pushing up out of a crack in dark layered rock",
- "focus": [
-  960,
-  520,
-  1.6
- ],
- "focus_word": "tough",
- "sfx": [],
+ "centre": "small sample-return capsule with a glowing core, dashed paths from a comet and two asteroids",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "say",
-   "text": "Still growing!",
-   "x": 1260,
-   "y": 440,
+   "type": "name",
+   "text": "Wild 2",
+   "x": 400,
+   "y": 190,
    "to": [
-    1010,
-    520
+    415,
+    320
    ],
-   "word": "tough"
+   "word": "Wild 2"
+  },
+  {
+   "type": "name",
+   "text": "Ryugu",
+   "x": 1380,
+   "y": 150,
+   "to": [
+    1380,
+    270
+   ],
+   "word": "Ryugu"
+  },
+  {
+   "type": "name",
+   "text": "Bennu",
+   "x": 1580,
+   "y": 790,
+   "to": [
+    1565,
+    700
+   ],
+   "word": "Bennu"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-path-comet-wild-two",
+  "kind": "ride",
+  "x": 416,
+  "y": 252,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,11 +1,33 @@
 {
- "centre": "balance scale with one glowing marble on one pan and an empty pan",
- "focus": [
-  640,
-  550,
-  1.8
- ],
- "focus_word": "sample size of one",
+ "centre": "round cutaway of solid rock with glowing microbe-filled pores, beside a black smoker vent on the seabed",
+ "focus": null,
+ "focus_word": null,
  "sfx": [],
- "labels": []
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-core-glide-rock-cutaway",
+  "kind": "ride",
+  "x": 1258,
+  "y": 720,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Look closer...",
+    "shout": false
+   }
+  ]
+ }
 }

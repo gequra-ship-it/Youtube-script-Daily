@@ -1,40 +1,29 @@
 {
- "centre": "a faint distant spiral galaxy coming into focus above a listening radio dish",
- "focus": [
-  540,
-  860,
-  1.8
- ],
- "focus_word": "cosmos is empty",
- "sfx": [],
- "labels": [],
+ "centre": "the bright core of an enormous spiral galaxy that fills the frame, with a tiny marker for our Sun",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "determined"
+    "mood": "scared"
    }
   ],
-  "act": {
-   "type": "jog",
-   "dist": 324
-  },
+  "act": "hide",
   "outfit": [
-   "diver"
+   "helmet",
+   "antenna"
   ],
+  "x": 820,
+  "y": 1280,
+  "s": 0.99,
+  "flip": -1,
   "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "x": 734,
-  "y": 1238,
-  "s": 1.09,
-  "flip": 1,
-  "bside": 1,
-  "gaze": 1,
   "says": [
    {
-    "text": "Hup hup!",
+    "text": "Can't look!",
     "shout": true
    }
-  ]
+  ],
+  "bside": -1
  }
 }

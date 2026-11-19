@@ -1,49 +1,53 @@
 {
- "centre": "a white-hot plasma bloom, the Big Bang, with a time ruler at the left",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "Big Bang",
- "sfx": [
-  {
-   "name": "bloom",
-   "word": "Big Bang",
-   "vol": 0.7
-  }
- ],
+ "centre": "a hydrogen atom above a helium atom in thin gas",
  "labels": [
   {
    "type": "name",
-   "text": "Big Bang",
-   "x": 540,
-   "y": 610,
+   "text": "hydrogen",
+   "x": 790,
+   "y": 740,
    "to": [
-    540,
-    780
+    612,
+    830
    ],
-   "word": "Big Bang"
+   "word": "hydrogen"
+  },
+  {
+   "type": "name",
+   "text": "helium",
+   "x": 790,
+   "y": 1110,
+   "to": [
+    610,
+    1210
+   ],
+   "word": "helium"
   }
  ],
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "shrinkdown"
-  },
-  "x": 260,
-  "y": 1200,
-  "s": 1.05,
-  "flip": 1,
-  "kind": "bg",
+  "act": "listen",
   "outfit": [
-   "bowtie"
+   "helmet",
+   "goldvisor"
   ],
-  "says": [],
-  "bside": 1
+  "x": 820,
+  "y": 560,
+  "s": 0.99,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Nothing...",
+    "shout": false
+   }
+  ],
+  "bside": -1
  }
 }

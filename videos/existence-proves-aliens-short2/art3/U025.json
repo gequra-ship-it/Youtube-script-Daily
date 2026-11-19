@@ -1,18 +1,31 @@
 {
- "centre": "a small planet: a tiny walker in a forest on top, a lit village far away on the other side, a dashed arc between",
+ "centre": "a bright spiral galaxy turning above an observatory whose telescope points at it; a comet crosses the sky",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "We're here!",
-   "x": 790,
-   "y": 1250,
-   "to": [
-    742,
-    1050
-   ]
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "scope",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-path-comet",
+  "kind": "ride",
+  "x": 806,
+  "y": 462,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "There!",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,22 +1,36 @@
 {
- "centre": "ice-age night tundra: an early modern human and a Neanderthal with upright spears by a campfire, a woolly mammoth walking past, a stone hand axe on a rock",
+ "centre": "a vintage radio with a round gold speaker between an old TV and a wifi router; their signals fade out before the window sky",
  "focus": [
   960,
-  760,
-  1.6
+  500,
+  1.5
  ],
- "focus_word": "stone tools",
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Brrr, cold!",
-   "x": 840,
-   "y": 600,
-   "to": [
-    1045,
-    574
-   ]
-  }
- ]
+ "focus_word": "radio broadcasts",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "listen",
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1198,
+  "y": 760,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headphones",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Beep... beep.",
+    "shout": false
+   }
+  ]
+ }
 }

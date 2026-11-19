@@ -1,18 +1,33 @@
 {
- "centre": "a warm rocky planet resting on a pedestal of carbon, oxygen and iron slabs, a sprout of life hatching beside it, all inside a dashed what-if outline",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Maybe?",
-   "x": 1420,
-   "y": 470,
-   "to": [
-    1236,
-    566
-   ]
-  }
- ]
+ "centre": "a row of star life stages (cloud, young blue star, yellow star, swelling red giant, white dwarf, new cloud) with a dashed loop back to the start; fainter generations repeat below",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "lived, died",
+ "frog": {
+  "moods": [
+   {
+    "mood": "sad"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 1660,
+  "y": 660,
+  "s": 0.77,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Floaty...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

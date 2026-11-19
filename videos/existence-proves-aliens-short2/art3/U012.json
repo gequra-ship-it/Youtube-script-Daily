@@ -1,19 +1,22 @@
 {
- "centre": "from a hypothetical alien world: our Sun is a faint yellow star in the Milky Way band, a dashed ghost telescope aims at it",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "ice-age Earth with great white ice sheets, a pulse of its light leaving toward a distant ghost telescope",
+ "focus": [
+  540,
+  1060,
+  1.5
+ ],
+ "focus_word": "last ice age",
  "labels": [
   {
    "type": "name",
-   "text": "across the galaxy",
-   "x": 400,
-   "y": 640,
+   "text": "ice age",
+   "x": 720,
+   "y": 1250,
    "to": [
-    520,
-    840
+    600,
+    1225
    ],
-   "word": "across the galaxy"
+   "word": "ice age"
   }
  ],
  "frog": {
@@ -22,22 +25,24 @@
     "mood": "curious"
    }
   ],
-  "act": "write",
+  "act": "scope",
   "outfit": [
    "helmet",
-   "jetpack"
+   "moonboots"
   ],
-  "x": 820,
-  "y": 1000,
-  "s": 0.99,
-  "flip": -1,
-  "kind": "bg",
+  "ride": "mv-path-escape-light-pulse",
+  "kind": "ride",
+  "x": 455,
+  "y": 906,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Noted!",
+    "text": "I see it!",
     "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

@@ -1,47 +1,18 @@
 {
- "centre": "an open doorway standing at the end of a path of floating stones, glowing with a whole galaxy beyond it",
+ "centre": "a glowing black-smoker vent chimney on the deep ocean floor with tiny living cells around it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Astrobiology",
-   "x": 260,
-   "y": 540,
+   "text": "Vents",
+   "x": 800,
+   "y": 700,
    "to": [
-    360,
-    820
+    590,
+    1010
    ],
-   "word": "astrobiology"
+   "word": "vents"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": {
-   "type": "crouchlook"
-  },
-  "ride": "mv-path-streak-comet",
-  "kind": "ride",
-  "x": 396,
-  "y": 448,
-  "s": 1.09,
-  "flip": 1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "helmet",
-   "jetpack"
-  ],
-  "says": [
-   {
-    "text": "Found it!",
-    "shout": true
-   }
-  ]
- }
+ ]
 }

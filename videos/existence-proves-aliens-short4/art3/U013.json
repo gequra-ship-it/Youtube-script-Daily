@@ -1,19 +1,46 @@
 {
- "centre": "a young glowing molten Earth, hot rocks clumping onto it",
+ "centre": "a spiral galaxy rich with golden heavy-element dust",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Earth",
-   "x": 270,
-   "y": 610,
+   "text": "galaxy",
+   "x": 820,
+   "y": 470,
    "to": [
-    470,
-    790
+    690,
+    700
    ],
-   "word": "Earth"
+   "word": "galaxy"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   },
+   {
+    "word": "And the",
+    "mood": "happy"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "x": 820,
+  "y": 1280,
+  "s": 1.04,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

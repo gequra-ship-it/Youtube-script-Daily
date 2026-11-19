@@ -2,27 +2,13 @@
  "centre": "a paper calendar page hanging from two rings, swinging over the sunlit sea",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "1977",
-   "word": "1977"
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
-   },
-   {
-    "word": "Then in",
-    "mood": "surprised"
+    "mood": "worried"
    }
   ],
-  "act": {
-   "type": "sunshade"
-  },
+  "act": "nervous",
   "ride": "mv-swing-calendar-page",
   "kind": "ride",
   "x": 704,
@@ -32,12 +18,13 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "toga"
+   "lab",
+   "cap"
   ],
   "says": [
    {
-    "text": "Hot!",
-    "shout": true
+    "text": "Uh-oh...",
+    "shout": false
    }
   ]
  }

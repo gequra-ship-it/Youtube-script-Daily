@@ -1,40 +1,44 @@
 {
- "centre": "Milky Way seen from above; our Sun marked on one edge, a ghostly hypothetical astronomer on a planet at the far side",
+ "centre": "night side of Earth with city lights fading out, a phone screen dimming and a satellite crossing overhead",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Milky Way",
-   "x": 400,
-   "y": 1260,
+   "text": "satellites",
+   "x": 700,
+   "y": 470,
    "to": [
-    470,
-    1060
+    560,
+    600
    ],
-   "word": "Milky Way"
+   "word": "satellites"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "shock"
+    "mood": "squint"
    }
   ],
-  "act": {
-   "type": "gasp"
-  },
+  "act": "wind",
+  "ride": "mv-path-satellite",
+  "kind": "ride",
+  "x": 279,
+  "y": 733,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
    "helmet",
-   "moonboots"
+   "jetpack"
   ],
-  "x": 260,
-  "y": 1160,
-  "s": 1.05,
-  "flip": 1,
-  "kind": "bg",
-  "says": [],
-  "bside": 1
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
  }
 }

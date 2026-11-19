@@ -1,18 +1,66 @@
 {
- "centre": "a small icy moon squeezed and stretched between gold gravity arrows above a huge gas planet, warm glow in its cracks",
+ "centre": "a spacecraft flying through an icy plume above a moon, with salt crystals, an organic molecule and hydrogen floating in it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Squish!",
-   "x": 800,
-   "y": 560,
+   "type": "name",
+   "text": "Salts",
+   "x": 215,
+   "y": 1190,
    "to": [
-    640,
-    790
-   ]
+    430,
+    1015
+   ],
+   "word": "salts"
+  },
+  {
+   "type": "name",
+   "text": "Hydrogen",
+   "x": 240,
+   "y": 620,
+   "to": [
+    480,
+    765
+   ],
+   "word": "hydrogen"
+  },
+  {
+   "type": "name",
+   "text": "Organic molecules",
+   "x": 740,
+   "y": 600,
+   "to": [
+    610,
+    850
+   ],
+   "word": "organic molecules"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-path-spacecraft-probe",
+  "kind": "ride",
+  "x": 252,
+  "y": 964,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
 }

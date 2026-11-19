@@ -1,35 +1,34 @@
 {
- "centre": "a row of star life stages (cloud, young blue star, yellow star, swelling red giant, white dwarf, new cloud) with a dashed loop back to the start; fainter generations repeat below",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "lived, died",
- "sfx": [],
- "labels": [],
+ "centre": "an early guest (humanity) waves just inside the open door of an empty party hall whose great window opens onto the stars; empty table and chairs, a mirror ball",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "sad"
+    "mood": "excited"
    }
   ],
-  "act": "float",
-  "outfit": [
-   "helmet",
-   "jetpack"
-  ],
-  "x": 1660,
-  "y": 660,
-  "s": 0.77,
+  "act": {
+   "type": "balloonride",
+   "obj": "mv-ascend-balloon"
+  },
+  "ride": "mv-ascend-balloon",
+  "kind": "ride",
+  "x": 1530,
+  "y": 643,
+  "s": 0.95,
   "flip": -1,
-  "kind": "bg",
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "explorer"
+  ],
   "says": [
    {
-    "text": "Wheee!",
-    "shout": false
+    "text": "Up, up!",
+    "shout": true
    }
-  ],
-  "bside": -1
+  ]
  }
 }

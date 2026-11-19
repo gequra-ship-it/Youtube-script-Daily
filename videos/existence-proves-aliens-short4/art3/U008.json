@@ -1,37 +1,29 @@
 {
- "centre": "a swollen red giant star between a young blue star above and a cracking unstable star below",
- "labels": [],
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "surprised"
-   }
-  ],
-  "act": {
-   "type": "backstep",
-   "obj": "mv-core-swell-giant-star"
-  },
-  "outfit": [
-   "helmet",
-   "moonboots"
-  ],
-  "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "x": 814,
-  "y": 1090,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Whoa, it grows!",
-    "shout": true
-   }
-  ]
- }
+ "centre": "an exploding supernova star with coloured lumps of new elements scattering across a cosmic web",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "supernovas",
+ "sfx": [
+  {
+   "name": "bloom",
+   "word": "supernovas",
+   "vol": 0.7
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Supernovas",
+   "x": 540,
+   "y": 560,
+   "to": [
+    540,
+    780
+   ],
+   "word": "supernovas"
+  }
+ ]
 }

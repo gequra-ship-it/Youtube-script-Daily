@@ -1,46 +1,30 @@
 {
- "centre": "a glowing photon racing down a space highway past a speed limit sign",
+ "centre": "a small golden pocket watch swinging in front of the vast Milky Way band",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "300,000 KM/S",
-   "word": "three hundred thousand kilometers"
-  },
-  {
-   "type": "say",
-   "text": "Top speed!",
-   "x": 1500,
-   "y": 250,
-   "to": [
-    1460,
-    335
-   ]
-  }
- ],
  "frog": {
   "moods": [
    {
     "mood": "curious"
    }
   ],
-  "act": {
-   "type": "binocs"
-  },
-  "outfit": [
-   "helmet",
-   "jetpack"
-  ],
-  "ride": "mv-path-light-beam-photon",
+  "act": "listen",
+  "ride": "mv-swing-pocket-watch-pendulum",
   "kind": "ride",
-  "x": 1038,
-  "y": 520,
+  "x": 1133,
+  "y": 635,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "says": []
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Shh... listen.",
+    "shout": false
+   }
+  ]
  }
 }
