@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh5_1',
-  "Could Megalodon still be alive, lurking in the pitch-black abyss of the Mariana Trench? It is one of the internet's favorite legends, "
-  'fueled by movies and mystery videos.'),
+  "Megalodon is said to still lurk in the pitch-black abyss of the Mariana Trench, one of the internet's favorite legends. The real biology tells a "
+  'very different story.'),
  ('S02',
   'Part 2',
   'ill',
@@ -15,32 +15,29 @@ SCENES = [('S01',
   'Part 3',
   'ill',
   'sh5_3',
-  'The water there is close to freezing, the pressure is crushing, and there is no sunlight at all. And that is just the beginning of the '
-  'problem.'),
+  'The water there is close to freezing, the pressure is crushing, and there is no sunlight at all. And that is just the beginning of the problem.'),
  ('S04',
   'Part 4',
   'ill',
   'sh5_4',
-  'Megalodon was a warm-bodied predator that needed enormous amounts of food. One estimate suggests close to one hundred thousand calories '
-  'a day.'),
+  'Megalodon was a warm-bodied predator that needed enormous amounts of food. One estimate suggests close to one hundred thousand calories a day.'),
  ('S05',
   'Part 5',
   'ill',
   'sh5_5',
-  'It ate large prey, such as whales and seals, which live in sunlit coastal ecosystems, not at the bottom of a trench. Large whales and '
-  'seals do not feed in those depths.'),
+  'It ate large prey, such as whales and seals, which live in sunlit coastal ecosystems, not at the bottom of a trench. Large whales and seals do '
+  'not feed in those depths.'),
  ('S06',
   'Part 6',
   'ill',
   'sh5_6',
-  'There is almost no food of that kind, so a giant like Megalodon would starve. Now consider the evidence we would expect if it were '
-  'alive.'),
+  'There is almost no food of that kind, so a giant like Megalodon would starve. Now consider the evidence we would expect if it were alive.'),
  ('S07',
   'Part 7',
   'ill',
   'sh5_7',
-  'A predator that large would leave bite marks on living whales. We would find freshly shed teeth washing up on modern beaches. Instead, '
-  'the Megalodon teeth people find are fossils, millions of years old.'),
+  'A predator that large would leave bite marks on living whales. We would find freshly shed teeth washing up on modern beaches. Instead, the '
+  'Megalodon teeth people find are fossils, millions of years old.'),
  ('S08',
   'Part 8',
   'ill',
@@ -50,15 +47,15 @@ SCENES = [('S01',
   'Part 9',
   'ill',
   'sh5_9',
-  'Earlier studies suggested a younger date, about two and a half million years ago, and the most recent fossil teeth are still millions '
-  'of years old.'),
+  'Earlier studies suggested a younger date, about two and a half million years ago, and the most recent fossil teeth are still millions of years '
+  'old.'),
  ('S10', 'Part 10', 'ill', 'sh5_10', 'Scientists also point out that the trench is not a hidden world full of ancient sea monsters.'),
  ('S11',
   'Part 11',
   'ill',
   'sh5_11',
-  'Its deepest waters are home to small, specialized animals that are adapted to the cold and the pressure, not to a warm-bodied giant '
-  'that needs whales.'),
+  'Its deepest waters are home to small, specialized animals that are adapted to the cold and the pressure, not to a warm-bodied giant that needs '
+  'whales.'),
  ('S12',
   'Part 12',
   'ill',
@@ -68,11 +65,11 @@ SCENES = [('S01',
   'Part 13',
   'ill',
   'sh5_13',
-  'Probably because the real animal was so extraordinary that it is easy to imagine it still out there. But the truth is more interesting '
-  'than any horror story. Megalodon was not defeated by a monster.'),
+  'Probably because the real animal was so extraordinary that it is easy to imagine it still out there. But the truth is more interesting than any '
+  'horror story. Megalodon was not defeated by a monster.'),
  ('S14',
   'Part 14',
   'ill',
   'sh5_14',
-  'It faded as its world changed, through climate, food, and competition. Megalodon is gone, and the real reason is far more fascinating '
-  'than a hidden monster. You can hear the whole story in the longer video.')]
+  'It faded as its world changed, through climate, food, and competition. Megalodon is gone, and the real reason is far more fascinating than a '
+  'hidden monster. You can hear the whole story in the longer video.')]

@@ -4,7 +4,7 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh4_1',
-  'How can the loss of a few shallow bays hurt the largest predator in ocean history? Because every giant starts life as a fragile baby.'),
+  'The loss of a few shallow bays may have hurt the largest predator in ocean history. Every giant starts life as a fragile baby.'),
  ('S02', 'Part 2', 'ill', 'sh4_2', 'Megalodon gave birth to live young, like many modern sharks, and newborns need a safe place to grow.'),
  ('S03',
   'Part 3',
@@ -20,32 +20,32 @@ SCENES = [('S01',
   'Part 5',
   'ill',
   'sh4_5',
-  'In sunlit bays like these, young sharks could hunt small fish in relative safety, away from larger predators. Now think about what '
-  'happens when the climate cools.'),
+  'In sunlit bays like these, young sharks could hunt small fish in relative safety, away from larger predators. Now think about what happens when '
+  'the climate cools.'),
  ('S06',
   'Part 6',
   'ill',
   'sh4_6',
-  'As polar ice caps lock up more and more water, global sea levels fall. Shallow coastal waters are the first places to shrink. Many '
-  'nurseries may have dried up or disappeared into the open sea.'),
+  'As polar ice caps lock up more and more water, global sea levels fall. Shallow coastal waters are the first places to shrink. Many nurseries may '
+  'have dried up or disappeared into the open sea.'),
  ('S07',
   'Part 7',
   'ill',
   'sh4_7',
-  'Imagine being a newborn shark in that world. Instead of a calm, warm bay, you find yourself in deeper, colder water, exposed to bigger '
-  'predators and harsh currents.'),
+  'Imagine being a newborn shark in that world. Instead of a calm, warm bay, you find yourself in deeper, colder water, exposed to bigger predators '
+  'and harsh currents.'),
  ('S08',
   'Part 8',
   'ill',
   'sh4_8',
-  'Fewer pups would have survived to adulthood, and for a species of long-lived giants, that is a serious problem. Adults can live for '
-  'decades, so the damage would not show up right away.'),
+  'Fewer pups would have survived to adulthood, and for a species of long-lived giants, that is a serious problem. Adults can live for decades, so '
+  'the damage would not show up right away.'),
  ('S09',
   'Part 9',
   'ill',
   'sh4_9',
-  'For a long time, the population would look healthy, because the old giants were still there. The damage was happening to the generation '
-  'that was never born.'),
+  'For a long time, the population would look healthy, because the old giants were still there. The damage was happening to the generation that was '
+  'never born.'),
  ('S10',
   'Part 10',
   'ill',
@@ -55,14 +55,14 @@ SCENES = [('S01',
   'Part 11',
   'ill',
   'sh4_11',
-  "It would have been a slow, invisible wound, striking at the foundation of the species' future. Scientists see this as one possible "
-  'factor, not the whole answer.'),
+  "It would have been a slow, invisible wound, striking at the foundation of the species' future. Scientists see this as one possible factor, not "
+  'the whole answer.'),
  ('S12',
   'Part 12',
   'ill',
   'sh4_12',
-  'The nursery idea is a hypothesis, and researchers are still debating how much it mattered. But the lesson is clear. No matter how '
-  'unstoppable an adult predator may seem, its future depends on protecting its young.'),
+  'The nursery idea is a hypothesis, and researchers are still debating how much it mattered. But the lesson is clear. No matter how unstoppable an '
+  'adult predator may seem, its future depends on protecting its young.'),
  ('S13',
   'Part 13',
   'ill',
