@@ -1,11 +1,36 @@
 {
- "centre": "tiny sand island with one small fire, left off a chart where ship routes pass around it",
- "focus": [
-  960,
-  500,
-  1.9
+ "centre": "the campfire on its ring of stones kept burning by the community gathered around it at dusk",
+ "focus": null,
+ "sfx": [
+  {
+   "name": "crackle",
+   "word": "fire",
+   "vol": 0.6
+  }
  ],
- "focus_word": "forgotten",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 1660,
+  "y": 890,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "sailorhat"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

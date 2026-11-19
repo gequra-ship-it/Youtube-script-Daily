@@ -1,46 +1,61 @@
 {
- "centre": "a survivor standing on a low dune beside a small fire, watching an empty sunset horizon for a sail",
+ "centre": "a campfire on a stone ring on the night beach, two survivors warming their hands, a pool of warm light, cold wind from the left and a tall column of signal smoke",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "A sail? Not yet.",
-   "x": 640,
-   "y": 420,
+   "type": "name",
+   "text": "Light",
+   "x": 560,
+   "y": 600,
    "to": [
-    490,
-    545
-   ]
+    800,
+    700
+   ],
+   "word": "light"
+  },
+  {
+   "type": "name",
+   "text": "Warmth",
+   "x": 1440,
+   "y": 600,
+   "to": [
+    1180,
+    690
+   ],
+   "word": "warmth"
+  },
+  {
+   "type": "name",
+   "text": "Signal",
+   "x": 1240,
+   "y": 280,
+   "to": [
+    1010,
+    300
+   ],
+   "word": "signal"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "dizzy"
    }
   ],
   "act": {
-   "type": "chinrub"
+   "type": "dizzy"
   },
   "outfit": [
-   "goggles",
-   "lifering"
+   "helmet",
+   "headphones"
   ],
-  "ride": "mv-path-flying-tern-bird",
-  "kind": "ride",
-  "x": 936,
-  "y": 326,
-  "s": 0.95,
+  "x": 260,
+  "y": 340,
+  "s": 0.88,
   "flip": 1,
-  "bside": 1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Hmm...",
-    "shout": false
-   }
-  ]
+  "kind": "bg",
+  "says": [],
+  "bside": 1
  }
 }

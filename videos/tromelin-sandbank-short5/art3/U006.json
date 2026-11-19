@@ -1,18 +1,46 @@
 {
- "centre": "about sixty pebbles laid out on the sand from above, one for each person who stayed behind, with fading footprints, a tern and a crab",
+ "centre": "a rowboat with two sailors crossing the white surf toward the beach where survivors stand by a small fire",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "How many?",
-   "x": 840,
-   "y": 1140,
+   "type": "name",
+   "text": "survivors",
+   "x": 540,
+   "y": 1210,
    "to": [
-    830,
-    1240
-   ]
+    390,
+    1260
+   ],
+   "word": "survivors"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   },
+   {
+    "word": "On the",
+    "mood": "happy"
+   }
+  ],
+  "act": "rest",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-rescue-boat",
+  "kind": "ride",
+  "x": 492,
+  "y": 768,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,1 +1,50 @@
-{"centre": "a blazing equatorial sun over flat bare sand with a dashed, crossed-out ghost of a tree and one lone survivor with no shade", "focus": null, "sfx": [], "labels": [{"type": "name", "text": "tree", "x": 220, "y": 1360, "to": [225, 1090], "word": "tree"}]}
+{
+ "centre": "a flat low strip of white sand with a lagoon ring, a few tiny survivors and nothing else on it under a grey cloud",
+ "focus": [
+  540,
+  890,
+  1.7
+ ],
+ "focus_word": "barren",
+ "labels": [
+  {
+   "type": "name",
+   "text": "island",
+   "x": 540,
+   "y": 1060,
+   "to": [
+    540,
+    910
+   ],
+   "word": "island"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "The island",
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-glide-sand-island",
+  "kind": "ride",
+  "x": 540,
+  "y": 866,
+  "s": 1.0,
+  "flip": -1,
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

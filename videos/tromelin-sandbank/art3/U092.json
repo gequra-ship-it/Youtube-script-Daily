@@ -1,20 +1,38 @@
 {
- "centre": "the women of the island at golden hour: one carries water from the well, one gathered eggs, one tends the fire, one holds a baby",
+ "centre": "a small sailing craft with a few castaways heading out across an empty sea toward the horizon, two figures and the fire on the shore",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "light": "left",
- "labels": [
-  {
-   "type": "name",
-   "text": "well",
-   "x": 300,
-   "y": 640,
-   "to": [
-    300,
-    750
-   ],
-   "word": "well"
-  }
- ]
+ "iris": [
+  900,
+  540
+ ],
+ "wind": "right",
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   },
+   {
+    "word": "They were",
+    "mood": "worried"
+   }
+  ],
+  "act": "listen",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-raft-craft",
+  "kind": "ride",
+  "x": 936,
+  "y": 487,
+  "s": 1.17,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Shh... listen.",
+    "shout": false
+   }
+  ]
+ }
 }

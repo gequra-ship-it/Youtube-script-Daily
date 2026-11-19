@@ -1,23 +1,47 @@
 {
- "centre": "the young commander in a blue coat and tricorne hat standing on the corvette's deck with a spyglass",
- "focus": [
-  900,
-  560,
-  1.5
- ],
- "focus_word": "young naval officer",
- "sfx": [],
+ "centre": "the corvette La Dauphine, a dark-hulled sailing ship with a stern lantern, sailing toward the small flat island",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
+   "type": "num",
+   "text": "15 YEARS 4 MONTHS",
+   "word": "fifteen years"
+  },
+  {
    "type": "name",
-   "text": "Tromelin",
-   "x": 1180,
-   "y": 330,
+   "text": "La Dauphine",
+   "x": 640,
+   "y": 250,
    "to": [
-    930,
+    610,
     420
    ],
-   "word": "Tromelin"
+   "word": "La Dauphine"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "search",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-corvette-ship",
+  "kind": "ride",
+  "x": 760,
+  "y": 469,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Where is it?",
+    "shout": false
+   }
+  ]
+ }
 }

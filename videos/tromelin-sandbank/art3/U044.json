@@ -2,7 +2,6 @@
  "centre": "heap of iron nails beside planks and rolled sailcloth washed onto the sand",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -22,7 +21,9 @@
     "mood": "curious"
    }
   ],
-  "act": "look",
+  "act": {
+   "type": "binocs"
+  },
   "outfit": [
    "goggles",
    "lifering"
@@ -38,7 +39,7 @@
   "says": [
    {
     "text": "Ooh!",
-    "shout": false
+    "shout": true
    }
   ]
  }

@@ -1,11 +1,49 @@
 {
- "centre": "pale sun resting on an empty horizon where blue sea meets blue sky",
- "focus": [
-  960,
-  500,
-  1.5
+ "centre": "a low setting sun over an empty sea, a lone survivor woman standing on the beach watching the horizon",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "standing on that beach",
+   "vol": 0.5
+  }
  ],
- "focus_word": "empty",
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "num",
+   "text": "10 YEARS",
+   "word": "ten years"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "awe"
+   },
+   {
+    "word": "Would you",
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-core-glide-setting-sun",
+  "kind": "ride",
+  "x": 1103,
+  "y": 605,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sunglasses",
+   "flippers"
+  ],
+  "says": [
+   {
+    "text": "Let me think.",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,23 +1,26 @@
 {
- "centre": "a small stone monument of upright slabs capped with coral, a warm flame on top, survivors standing in front",
- "focus": [
-  540,
-  700,
-  1.6
- ],
- "focus_word": "monument",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "monument",
-   "x": 780,
-   "y": 560,
-   "to": [
-    650,
-    700
-   ],
-   "word": "monument"
-  }
- ]
+ "centre": "two women on the beach in the evening, one gently resting her hand on the other's shoulder, a small fire burning beside them, an empty horizon",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "rubhands"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 820,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "says": [],
+  "bside": -1
+ }
 }

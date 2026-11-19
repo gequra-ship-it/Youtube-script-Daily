@@ -1,18 +1,47 @@
 {
- "centre": "six Malagasy women gathered close in front of their low hut of sandstone slabs topped with coral blocks, one holding the baby",
+ "centre": "a small wooden craft with one sail carrying a few castaways away toward an empty horizon, two women watching from the beach",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Together.",
-   "x": 800,
-   "y": 760,
+   "type": "name",
+   "text": "a craft",
+   "x": 300,
+   "y": 830,
    "to": [
-    800,
-    1120
-   ]
+    470,
+    960
+   ],
+   "word": "built a craft"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   },
+   {
+    "word": "They were",
+    "mood": "worried"
+   }
+  ],
+  "act": "listen",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-craft-boat",
+  "kind": "ride",
+  "x": 586,
+  "y": 1058,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Shh... listen.",
+    "shout": false
+   }
+  ]
+ }
 }

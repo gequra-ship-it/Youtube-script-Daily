@@ -1,1 +1,37 @@
-{"centre": "sailors stepping from the beached boat meeting a small group of survivor women on the white sand near their stone hut and fire", "focus": null, "sfx": [{"name": "step", "word": "found", "vol": 0.5}], "labels": [{"type": "name", "text": "Survivors", "x": 1270, "y": 300, "to": [1270, 480], "word": "survivors"}]}
+{
+ "centre": "a small rowing boat with two sailors pushing through the white surf toward the beach, the corvette waiting offshore with its lantern",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "through the surf",
+   "vol": 0.6
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-path-rescue-boat",
+  "kind": "ride",
+  "x": 1074,
+  "y": 626,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "lifevest",
+   "captainhat"
+  ],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

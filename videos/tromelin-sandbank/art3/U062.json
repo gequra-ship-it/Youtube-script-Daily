@@ -1,43 +1,35 @@
 {
- "centre": "top-down view of the whole low sand island in its lagoon with birds, a turtle and fish around",
+ "centre": "an old sea chart with the tiny island speck fading while newer papers slide over it on the colonial office table",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Island",
-   "x": 1480,
-   "y": 330,
-   "to": [
-    1320,
-    480
-   ],
-   "word": "island"
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "lean",
-  "outfit": [
-   "diver"
-  ],
-  "ride": "mv-core-glide-sand-island",
-  "kind": "ride",
-  "x": 1468,
-  "y": 584,
+  "act": {
+   "type": "knocked",
+   "obj": "mv-pendulum-spider-thread"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 198,
+  "y": 324,
   "s": 0.95,
-  "flip": -1,
+  "flip": 1,
   "bside": 1,
-  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "explorer",
+   "toga"
+  ],
   "says": [
    {
-    "text": "Steady...",
-    "shout": false
+    "text": "Bonk!",
+    "shout": true
    }
   ]
  }

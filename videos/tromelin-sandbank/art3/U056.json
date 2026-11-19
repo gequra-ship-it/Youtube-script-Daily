@@ -1,30 +1,33 @@
 {
- "centre": "sealed letter on the governor desk while his raised palm refuses it",
+ "centre": "an officer with cupped hands pleading before the governor at his desk in a colonial hall",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "chilly"
-   }
-  ],
-  "act": {
-   "type": "rubhands"
+ "labels": [
+  {
+   "type": "name",
+   "text": "First officer",
+   "x": 700,
+   "y": 300,
+   "to": [
+    700,
+    440
+   ],
+   "word": "first officer"
   },
-  "ride": "mv-slide-letter-sheet",
-  "kind": "ride",
-  "x": 902,
-  "y": 662,
-  "s": 0.95,
-  "flip": -1,
-  "bside": -1,
-  "gaze": 1,
-  "outfit": [
-   "scarf",
-   "captainhat"
-  ],
-  "says": []
- }
+  {
+   "type": "name",
+   "text": "Governor",
+   "x": 1420,
+   "y": 330,
+   "to": [
+    1420,
+    470
+   ],
+   "word": "governor"
+  }
+ ],
+ "iris": [
+  720,
+  620
+ ]
 }

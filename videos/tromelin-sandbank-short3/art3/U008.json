@@ -2,18 +2,7 @@
  "centre": "the officer pleads with cupped hands; behind his desk the governor raises a palm: no, beside a frosted window",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
-  {
-   "type": "say",
-   "text": "No ship.",
-   "x": 820,
-   "y": 700,
-   "to": [
-    660,
-    870
-   ]
-  },
   {
    "type": "name",
    "text": "governor",
@@ -25,5 +14,30 @@
    ],
    "word": "governor"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "But the",
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "rubhands"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 820,
+  "y": 760,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "says": [],
+  "bside": -1
+ }
 }

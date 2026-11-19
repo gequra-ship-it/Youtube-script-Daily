@@ -1,59 +1,33 @@
 {
- "centre": "a low setting sun over an empty sea, a lone survivor woman standing on the beach watching the horizon",
+ "centre": "a warm campfire with survivors sitting close together, two sharing one cloth",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "wind",
-   "word": "standing on that beach",
-   "vol": 0.5
-  }
- ],
- "labels": [
-  {
-   "type": "num",
-   "text": "10 YEARS",
-   "word": "ten years"
-  },
-  {
-   "type": "say",
-   "text": "Will they come?",
-   "x": 700,
-   "y": 420,
-   "to": [
-    445,
-    562
-   ]
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "awe"
-   },
-   {
-    "word": "Would you",
-    "mood": "curious"
+    "mood": "scared"
    }
   ],
-  "act": "think",
-  "ride": "mv-core-glide-setting-sun",
-  "kind": "ride",
-  "x": 1103,
-  "y": 605,
-  "s": 0.95,
+  "act": "shiver",
+  "x": 1660,
+  "y": 340,
+  "s": 0.76,
   "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
   "outfit": [
-   "sunglasses",
-   "flippers"
+   "doctor",
+   "shellhat"
   ],
   "says": [
    {
-    "text": "Let me think.",
+    "text": "Eek...",
     "shout": false
    }
-  ]
+  ],
+  "bside": -1
  }
 }

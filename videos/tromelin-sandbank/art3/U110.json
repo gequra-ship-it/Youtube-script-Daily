@@ -1,23 +1,54 @@
 {
- "centre": "an old map of the Indian Ocean with Madagascar, Mauritius and a red pin on the tiny speck of Tromelin",
+ "centre": "a sleeping-calm baby boy in a woven basket cradle with a yellow cloth, soft warm glow",
  "focus": [
-  1038,
-  305,
-  1.8
+  930,
+  450,
+  1.6
  ],
- "focus_word": "on maps today",
- "sfx": [],
+ "focus_word": "Jacques Moyse",
+ "iris": [
+  960,
+  500
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Tromelin",
-   "x": 1268,
-   "y": 265,
+   "text": "Jacques Moyse",
+   "x": 960,
+   "y": 210,
    "to": [
-    1046,
-    325
+    920,
+    440
    ],
-   "word": "named Tromelin"
+   "word": "Jacques Moyse"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "bob"
+  },
+  "ride": "mv-core-sway-baby-cradle",
+  "kind": "ride",
+  "x": 1228,
+  "y": 730,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "nightcap",
+   "lifering"
+  ],
+  "says": [
+   {
+    "text": "Blub!",
+    "shout": true
+   }
+  ]
+ }
 }

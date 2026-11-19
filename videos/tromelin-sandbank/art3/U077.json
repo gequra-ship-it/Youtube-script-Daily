@@ -1,29 +1,48 @@
 {
- "centre": "a round archaeologists' sieve on a stand, a small team arriving on the sunny sand island from a white launch",
- "focus": [
-  960,
-  620,
-  1.5
- ],
- "focus_word": "a French team",
- "sfx": [],
- "light": "left",
+ "centre": "an old scroll unrolling on an archive table beside a small bundle of old documents, a magnifying glass moving in to check it",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "num",
-   "text": "2006",
-   "word": "2006"
-  },
-  {
    "type": "name",
-   "text": "French team",
-   "x": 960,
-   "y": 330,
+   "text": "Old documents",
+   "x": 380,
+   "y": 360,
    "to": [
-    1000,
-    640
+    370,
+    520
    ],
-   "word": "French team"
+   "word": "old documents"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-magnifying-glass",
+  "kind": "ride",
+  "x": 1694,
+  "y": 480,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "feathercap"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
 }

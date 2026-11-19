@@ -1,1 +1,43 @@
-{"centre": "cutaway of a sand island with a pale fresh-water lens floating above darker sea water while rain soaks in", "focus": null, "sfx": [], "labels": [{"type": "name", "text": "rain", "x": 860, "y": 420, "to": [760, 460], "word": "rain"}], "frog": {"moods": [{"mood": "curious"}], "act": {"type": "dripped", "obj": "mv-drip-rain-drop-1", "serious": false}, "outfit": ["diver"], "ride": null, "kind": "bg", "x": 380, "y": 767, "s": 1.09, "flip": 1, "bside": -1, "behind": null, "enter": "cut", "delay": 0.02, "says": [{"text": "Drip...", "shout": false}]}}
+{
+ "centre": "cutaway of a small flat sand island sitting in the open sea",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "sand islands",
+   "x": 540,
+   "y": 1240,
+   "to": [
+    540,
+    960
+   ],
+   "word": "sand islands"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "sailorhat"
+  ],
+  "ride": "mv-core-glide-sand-island",
+  "kind": "ride",
+  "x": 810,
+  "y": 757,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ },
+ "lock": true
+}

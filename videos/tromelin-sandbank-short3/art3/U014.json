@@ -2,7 +2,6 @@
  "centre": "one rescue ship turns back from the island while another lies tilted on the reef in the white surf",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "num",
@@ -20,5 +19,31 @@
    ],
    "word": "reef"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-ship-turn-back",
+  "kind": "ride",
+  "x": 476,
+  "y": 663,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,7 +1,29 @@
 {
- "centre": "three small survivors sitting by a dim fire, a row of copper bowls with the last ones faded",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "copper bowl patched with riveted pieces on a flat stone inside a stone hut, scraps being lined up",
+ "focus": [
+  960,
+  540,
+  1.6
+ ],
+ "focus_word": "scrap of metal",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "cheer",
+  "ride": "mv-core-approach-patched-copper-bowl",
+  "kind": "ride",
+  "x": 1148,
+  "y": 700,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sailorhat"
+  ],
+  "says": []
+ }
 }

@@ -1,52 +1,46 @@
 {
- "centre": "the finished small boat at the water's edge, with a much wider crowd of survivors on the beach below it",
+ "centre": "two Malagasy survivors carrying a timber plank toward the boat while a woman watches the horizon",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Not enough room",
-   "x": 790,
-   "y": 640,
+   "type": "name",
+   "text": "Malagasy survivors",
+   "x": 470,
+   "y": 940,
    "to": [
-    640,
-    830
-   ]
+    460,
+    1030
+   ],
+   "word": "Malagasy survivors"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "worried"
-   },
-   {
-    "word": "The boat",
     "mood": "happy"
    }
   ],
   "act": {
-   "type": "steadyit",
-   "obj": "mv-core-wobble-boat-providence"
+   "type": "swimstroke",
+   "dist": 324
   },
   "outfit": [
-   "diver",
-   "flippers"
+   "diver"
   ],
+  "x": 260,
+  "y": 1560,
+  "s": 1.05,
+  "flip": 1,
   "kind": "bg",
   "ride": null,
   "behind": null,
-  "x": 719,
-  "y": 919,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
   "says": [
    {
-    "text": "Careful!",
+    "text": "Blub blub!",
     "shout": true
    }
-  ]
+  ],
+  "bside": 1
  }
 }

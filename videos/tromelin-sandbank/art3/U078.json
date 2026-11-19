@@ -1,51 +1,56 @@
 {
- "centre": "a brass ship's porthole showing an underwater wreck, between a naval cap with diving mask and an archaeologist digging in a trench",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a round archaeologists' sieve on a stand, a small team arriving on the sunny sand island from a white launch",
+ "focus": [
+  960,
+  620,
+  1.5
+ ],
+ "focus_word": "a French team",
+ "light": "left",
  "labels": [
   {
-   "type": "name",
-   "text": "naval officer",
-   "x": 375,
-   "y": 440,
-   "to": [
-    376,
-    570
-   ],
-   "word": "naval officer"
+   "type": "num",
+   "text": "2006",
+   "word": "2006"
   },
   {
    "type": "name",
-   "text": "underwater archaeologist",
+   "text": "French team",
    "x": 960,
-   "y": 200,
+   "y": 330,
    "to": [
-    960,
-    330
+    1000,
+    640
    ],
-   "word": "underwater archaeologist"
+   "word": "French team"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "happy"
    }
   ],
   "act": {
-   "type": "pushaway"
+   "type": "wavebig"
   },
+  "ride": "mv-core-glide-sieve-frame",
+  "kind": "ride",
+  "x": 1123,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "goggles"
+   "beret",
+   "lifering"
   ],
-  "ride": null,
-  "kind": "bg",
-  "x": 538,
-  "y": 456,
-  "s": 0.9,
-  "flip": 1,
-  "says": [],
-  "bside": 1
+  "says": [
+   {
+    "text": "Hi!",
+    "shout": true
+   }
+  ]
  }
 }

@@ -1,23 +1,33 @@
 {
- "centre": "a big hourglass with golden sand running, between two calendar pages full of day dots",
- "focus": [
-  960,
-  470,
-  1.5
- ],
- "focus_word": "five thousand days",
- "sfx": [
-  {
-   "name": "sand",
-   "word": "days",
-   "vol": 0.5
-  }
- ],
- "labels": [
-  {
-   "type": "num",
-   "text": "5,000 DAYS",
-   "word": "five thousand days"
-  }
- ]
+ "centre": "a survivor walking along the beach with a bundle of driftwood on her head, footprints behind her, driftwood, a plank, a rope and a barrel washed up ahead",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "hideshell"
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": "mv-path-flying-tern-bird",
+  "kind": "ride",
+  "x": 1230,
+  "y": 228,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Eep.",
+    "shout": false
+   }
+  ]
+ }
 }

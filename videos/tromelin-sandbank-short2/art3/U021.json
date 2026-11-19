@@ -1,30 +1,38 @@
 {
- "centre": "the small boat with French sailors aboard sailing away while Malagasy survivors stand on the beach",
+ "centre": "the finished small boat at the water's edge, with a much wider crowd of survivors on the beach below it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "French sailors",
-   "x": 300,
-   "y": 720,
-   "to": [
-    480,
-    860
-   ],
-   "word": "French sailors"
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   },
+   {
+    "word": "The boat",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "steadyit",
+   "obj": "mv-core-wobble-boat-providence"
   },
-  {
-   "type": "name",
-   "text": "Malagasy survivors",
-   "x": 540,
-   "y": 1110,
-   "to": [
-    540,
-    1250
-   ],
-   "word": "Malagasy survivors"
-  }
- ]
+  "outfit": [
+   "diver"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 719,
+  "y": 919,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Careful!",
+    "shout": true
+   }
+  ]
+ }
 }

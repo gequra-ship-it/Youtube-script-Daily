@@ -1,58 +1,47 @@
 {
- "centre": "an old scroll unrolling on an archive table beside a small bundle of old documents, a magnifying glass moving in to check it",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a big hourglass with golden sand running, between two calendar pages full of day dots",
+ "focus": [
+  960,
+  470,
+  1.5
+ ],
+ "focus_word": "five thousand days",
+ "sfx": [
+  {
+   "name": "sand",
+   "word": "days",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "Really true?",
-   "x": 1320,
-   "y": 170,
-   "to": [
-    1470,
-    240
-   ]
-  },
-  {
-   "type": "name",
-   "text": "Old documents",
-   "x": 380,
-   "y": 360,
-   "to": [
-    370,
-    520
-   ],
-   "word": "old documents"
+   "type": "num",
+   "text": "5,000 DAYS",
+   "word": "five thousand days"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "push",
-   "from": 0.6
-  },
-  "ride": "mv-path-magnifying-glass",
+  "act": "look",
+  "ride": "mv-core-approach-hourglass",
   "kind": "ride",
-  "x": 1694,
-  "y": 480,
-  "s": 1.2,
+  "x": 1103,
+  "y": 665,
+  "s": 0.95,
   "flip": -1,
-  "bside": -1,
+  "bside": 1,
   "gaze": 1,
   "outfit": [
-   "laurel"
+   "shellhat"
   ],
   "says": [
    {
-    "text": "Heave-ho!",
-    "t": 1.0,
-    "dur": 1.6,
-    "shout": true
+    "text": "Ooh!",
+    "shout": false
    }
   ]
  }

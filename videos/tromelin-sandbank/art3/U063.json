@@ -1,19 +1,44 @@
 {
- "centre": "a sooty tern sitting on its nest scrape on a crowded sand dune of nesting terns, a withered twig on bare sand at the left",
+ "centre": "top-down view of the whole low sand island in its lagoon with birds, a turtle and fish around",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Seabirds",
-   "x": 1500,
-   "y": 470,
+   "text": "Island",
+   "x": 1480,
+   "y": 330,
    "to": [
-    1300,
-    590
+    1320,
+    480
    ],
-   "word": "seabirds"
+   "word": "island"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-glide-sand-island",
+  "kind": "ride",
+  "x": 1468,
+  "y": 584,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Off we go!",
+    "shout": false
+   }
+  ]
+ }
 }

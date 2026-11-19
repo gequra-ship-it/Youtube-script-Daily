@@ -1,55 +1,30 @@
 {
- "centre": "a sleeping-calm baby boy in a woven basket cradle with a yellow cloth, soft warm glow",
- "focus": [
-  930,
-  450,
-  1.6
- ],
- "focus_word": "Jacques Moyse",
- "sfx": [],
- "iris": [
-  960,
-  500
- ],
+ "centre": "a rowing boat with sailors and rescued women crossing the reef surf from the sandbank to the corvette, Isle de France on the horizon at sunrise",
+ "focus": null,
+ "focus_word": null,
+ "wind": "right",
  "labels": [
   {
    "type": "name",
-   "text": "Jacques Moyse",
-   "x": 960,
-   "y": 210,
+   "text": "Corvette",
+   "x": 1440,
+   "y": 200,
    "to": [
-    920,
-    440
+    1440,
+    520
    ],
-   "word": "Jacques Moyse"
-  }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "happy"
-   }
-  ],
-  "act": {
-   "type": "bob"
+   "word": "corvette"
   },
-  "ride": "mv-core-sway-baby-cradle",
-  "kind": "ride",
-  "x": 1228,
-  "y": 730,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "nightcap",
-   "flippers"
-  ],
-  "says": [
-   {
-    "text": "Blub!",
-    "shout": true
-   }
-  ]
- }
+  {
+   "type": "name",
+   "text": "Isle de France",
+   "x": 560,
+   "y": 250,
+   "to": [
+    820,
+    360
+   ],
+   "word": "Isle de France"
+  }
+ ]
 }

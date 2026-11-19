@@ -2,7 +2,6 @@
  "centre": "the Providence seen from above, packed with sailors' hats, rowing out through the white reef surf",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "num",
@@ -20,5 +19,32 @@
    ],
    "word": "surf"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-providence-boat",
+  "kind": "ride",
+  "x": 438,
+  "y": 1211,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
 }

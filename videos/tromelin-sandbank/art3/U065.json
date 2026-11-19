@@ -1,45 +1,59 @@
 {
- "centre": "four foods coming together on a flat beach-stone slab: eggs in a copper bowl, a roasted seabird, turtle meat on a shell plate and a grilled fish, a bowl of water in the middle",
- "focus": [
-  960,
-  520,
-  1.4
- ],
- "focus_word": "the foundation",
- "sfx": [],
+ "centre": "split day and night beach: sooty terns sitting on eggs in the sun at left, a sea turtle crawling up the moonlit sand to its egg pit at right",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Birds",
-   "x": 1180,
-   "y": 260,
+   "text": "Sooty terns",
+   "x": 560,
+   "y": 480,
    "to": [
-    1160,
-    400
+    430,
+    680
    ],
-   "word": "Birds"
+   "word": "sooty terns"
   },
   {
    "type": "name",
-   "text": "Turtle meat",
-   "x": 420,
-   "y": 640,
+   "text": "Sea turtles",
+   "x": 1500,
+   "y": 430,
    "to": [
-    740,
-    620
+    1440,
+    690
    ],
-   "word": "turtle meat"
-  },
-  {
-   "type": "name",
-   "text": "Fish",
-   "x": 1460,
-   "y": 640,
-   "to": [
-    1160,
-    620
-   ],
-   "word": "fish"
+   "word": "Sea turtles"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   },
+   {
+    "word": "Sea turtles",
+    "mood": "happy"
+   }
+  ],
+  "act": "think",
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": "mv-path-flying-tern-bird",
+  "kind": "ride",
+  "x": 259,
+  "y": 408,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,24 +1,44 @@
 {
- "centre": "a survivor feeding the stone-ringed campfire with a driftwood stick on the beach at dusk, a pile of driftwood and a nailed wreck plank beside her, a log drifting ashore",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "an archaeologist's finds tray in the dig square holding a flint, a C-shaped steel fire striker, iron nails and a burned piece of ship timber, a spark between flint and striker",
+ "focus": [
+  960,
+  470,
+  1.5
+ ],
+ "focus_word": "fire strikers",
  "labels": [
   {
-   "type": "num",
-   "text": "15 YEARS",
-   "word": "fifteen years"
+   "type": "name",
+   "text": "Flint",
+   "x": 700,
+   "y": 200,
+   "to": [
+    730,
+    380
+   ],
+   "word": "flint"
   },
   {
    "type": "name",
-   "text": "Driftwood",
-   "x": 340,
-   "y": 560,
+   "text": "Fire striker",
+   "x": 1000,
+   "y": 200,
    "to": [
-    340,
-    690
+    1000,
+    380
    ],
-   "word": "driftwood"
+   "word": "fire strikers"
+  },
+  {
+   "type": "name",
+   "text": "Nails",
+   "x": 1300,
+   "y": 200,
+   "to": [
+    1200,
+    360
+   ],
+   "word": "nails"
   }
  ]
 }

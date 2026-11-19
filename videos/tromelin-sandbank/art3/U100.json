@@ -1,17 +1,59 @@
 {
- "centre": "wall calendar on a driftwood post with the last day circled in red and a sail far on the horizon",
- "focus": [
-  960,
-  505,
-  1.8
- ],
- "focus_word": "November",
- "sfx": [],
+ "centre": "big surf wave breaking on the reef with a wrecked ship tilted beyond and a small rescue ship turning back",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "num",
-   "text": "NOVEMBER 1776",
-   "word": "November of 1776"
+   "type": "name",
+   "text": "Reef",
+   "x": 1330,
+   "y": 470,
+   "to": [
+    1300,
+    570
+   ],
+   "word": "reef"
+  },
+  {
+   "type": "name",
+   "text": "Surf",
+   "x": 760,
+   "y": 470,
+   "to": [
+    820,
+    580
+   ],
+   "word": "surf"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   },
+   {
+    "word": "Rescue attempts",
+    "mood": "surprised"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-rescue-ship",
+  "kind": "ride",
+  "x": 821,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
 }

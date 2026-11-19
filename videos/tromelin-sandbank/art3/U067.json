@@ -1,1 +1,32 @@
-{"centre": "three calm panels: raw fish on a stone, a cold moonlit night with a shivering survivor, a dark sea beside a cold hearth", "focus": null, "focus_word": null, "sfx": [{"name": "wind", "word": "cold nights", "vol": 0.5}], "labels": []}
+{
+ "centre": "a warm campfire flame on a ring of stones, with eggs, a fish and a tern on the left and driftwood on the right",
+ "focus": null,
+ "sfx": [
+  {
+   "name": "crackle",
+   "word": "fire",
+   "vol": 0.6
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 260,
+  "y": 380,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "explorer",
+   "lifering"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

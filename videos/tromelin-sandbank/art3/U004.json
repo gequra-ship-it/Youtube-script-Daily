@@ -1,22 +1,40 @@
 {
- "centre": "a driftwood plank in the sand with tally marks scratched for a week, then a month",
+ "centre": "a tiny sand speck in a huge empty sea with a scale bar",
  "focus": [
   960,
-  540,
-  1.5
+  500,
+  2.0
  ],
- "focus_word": "A month?",
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "One week...",
-   "x": 1420,
-   "y": 420,
-   "to": [
-    1160,
-    420
-   ]
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "unrolled",
+   "obj": "mv-unroll-ruler",
+   "frac": 0.7
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1123,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

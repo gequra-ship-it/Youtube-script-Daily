@@ -1,40 +1,23 @@
 {
- "centre": "a small campfire still burning on the sand while a rescue boat nears through the surf",
+ "centre": "a survivor feeding the stone-ringed campfire with a driftwood stick on the beach at dusk, a pile of driftwood and a nailed wreck plank beside her, a log drifting ashore",
  "focus": null,
- "sfx": [
+ "focus_word": null,
+ "labels": [
   {
-   "name": "crackle",
-   "word": "fire",
-   "vol": 0.5
-  }
- ],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "dizzy"
-   }
-  ],
-  "act": {
-   "type": "dizzy"
+   "type": "num",
+   "text": "15 YEARS",
+   "word": "fifteen years"
   },
-  "ride": "mv-path-corvette-ship",
-  "kind": "ride",
-  "x": 528,
-  "y": 526,
-  "s": 0.95,
-  "flip": 1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "lifevest",
-   "shellhat"
-  ],
-  "says": [
-   {
-    "text": "So dizzy...",
-    "shout": false
-   }
-  ]
- }
+  {
+   "type": "name",
+   "text": "Driftwood",
+   "x": 340,
+   "y": 560,
+   "to": [
+    340,
+    690
+   ],
+   "word": "driftwood"
+  }
+ ]
 }

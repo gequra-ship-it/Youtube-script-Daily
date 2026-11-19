@@ -1,33 +1,44 @@
 {
- "centre": "a warm campfire flame on a ring of stones, with eggs, a fish and a tern on the left and driftwood on the right",
- "focus": null,
- "sfx": [
-  {
-   "name": "crackle",
-   "word": "fire",
-   "vol": 0.6
-  }
+ "centre": "four foods coming together on a flat beach-stone slab: eggs in a copper bowl, a roasted seabird, turtle meat on a shell plate and a grilled fish, a bowl of water in the middle",
+ "focus": [
+  960,
+  520,
+  1.4
  ],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "dizzy"
-   }
-  ],
-  "act": {
-   "type": "dizzy"
+ "focus_word": "the foundation",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Birds",
+   "x": 1180,
+   "y": 260,
+   "to": [
+    1160,
+    400
+   ],
+   "word": "Birds"
   },
-  "x": 260,
-  "y": 380,
-  "s": 0.8,
-  "flip": 1,
-  "kind": "bg",
-  "outfit": [
-   "explorer",
-   "lifering"
-  ],
-  "says": [],
-  "bside": 1
- }
+  {
+   "type": "name",
+   "text": "Turtle meat",
+   "x": 420,
+   "y": 640,
+   "to": [
+    740,
+    620
+   ],
+   "word": "turtle meat"
+  },
+  {
+   "type": "name",
+   "text": "Fish",
+   "x": 1460,
+   "y": 640,
+   "to": [
+    1160,
+    620
+   ],
+   "word": "fish"
+  }
+ ]
 }

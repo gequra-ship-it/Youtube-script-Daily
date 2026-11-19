@@ -1,17 +1,24 @@
 {
- "centre": "a low glowing sun on the horizon above survivors who carry a bowl, lift a log together and point to the light",
- "focus": [
-  960,
-  520,
-  1.5
- ],
- "focus_word": "hope",
+ "centre": "a heart of beach stones with one small fire inside, pale gadgets fading on the sand",
+ "focus": null,
  "sfx": [
   {
-   "name": "wind",
-   "word": "adapt",
+   "name": "crackle",
+   "word": "survival",
    "vol": 0.5
   }
  ],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Technology",
+   "x": 430,
+   "y": 470,
+   "to": [
+    400,
+    630
+   ],
+   "word": "technology"
+  }
+ ]
 }

@@ -1,19 +1,56 @@
 {
- "centre": "cutaway of a small flat sand island sitting in the open sea",
+ "centre": "cutaway of a deep narrow well in the sand with water rising at the bottom and a bucket hanging in the shaft",
  "focus": null,
- "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "drinkable",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "sand islands",
-   "x": 540,
-   "y": 1240,
+   "text": "well",
+   "x": 780,
+   "y": 760,
    "to": [
-    540,
-    960
+    610,
+    830
    ],
-   "word": "sand islands"
+   "word": "well"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-water-drop",
+   "serious": false
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 570,
+  "y": 1157,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ]
+ }
 }

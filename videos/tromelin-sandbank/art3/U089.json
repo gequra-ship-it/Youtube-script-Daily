@@ -1,11 +1,42 @@
 {
- "centre": "copper bowl patched with riveted pieces on a flat stone inside a stone hut, scraps being lined up",
+ "centre": "a copper bowl on a flat stone, eight riveted patches appearing one by one while a hand taps it with a hammer",
  "focus": [
   960,
-  540,
+  560,
   1.6
  ],
- "focus_word": "scrap of metal",
- "sfx": [],
- "labels": []
+ "focus_word": "eight times",
+ "labels": [
+  {
+   "type": "num",
+   "text": "8 TIMES",
+   "word": "eight times"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "eat",
+  "ride": "mv-core-glide-copper-bowl",
+  "kind": "ride",
+  "x": 1188,
+  "y": 650,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "chef",
+   "flippers"
+  ],
+  "says": [
+   {
+    "text": "Nom nom.",
+    "shout": false
+   }
+  ]
+ }
 }

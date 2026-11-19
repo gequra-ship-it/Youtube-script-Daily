@@ -1,23 +1,43 @@
 {
- "centre": "young naval officer Tromelin in a navy coat and tricorne hat holding a spyglass, in an oval portrait frame",
- "focus": [
-  540,
-  900,
-  1.5
- ],
- "focus_word": "young naval officer",
- "sfx": [],
+ "centre": "the corvette La Dauphine with a lantern sailing toward a flat white sand island where a small fire burns",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Tromelin",
-   "x": 760,
+   "text": "La Dauphine",
+   "x": 360,
    "y": 560,
    "to": [
-    600,
-    700
+    320,
+    760
    ],
-   "word": "Tromelin"
+   "word": "La Dauphine"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-corvette-ship",
+  "kind": "ride",
+  "x": 528,
+  "y": 828,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

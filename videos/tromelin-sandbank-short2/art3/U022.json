@@ -1,23 +1,61 @@
 {
- "centre": "a balance scale at the shore holding the small Providence boat on one side and the survivors on the other",
- "focus": [
-  540,
-  820,
-  1.5
- ],
- "focus_word": "decision",
- "sfx": [],
+ "centre": "the small boat with French sailors aboard sailing away while Malagasy survivors stand on the beach",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "decision",
+   "text": "French sailors",
+   "x": 300,
+   "y": 720,
+   "to": [
+    480,
+    860
+   ],
+   "word": "French sailors"
+  },
+  {
+   "type": "name",
+   "text": "Malagasy survivors",
    "x": 540,
-   "y": 640,
+   "y": 1110,
    "to": [
     540,
-    800
+    1250
    ],
-   "word": "decision"
+   "word": "Malagasy survivors"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "The Malagasy",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "paddle"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-boat-providence",
+  "kind": "ride",
+  "x": 672,
+  "y": 924,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Shark?!",
+    "shout": true
+   }
+  ]
+ }
 }

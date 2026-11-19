@@ -1,18 +1,53 @@
 {
- "centre": "three French sailors on the beach planning, one pointing at a dashed escape route over the sea; a full water bucket",
+ "centre": "a crude well shaft reaching the fresh-water layer, two survivors with a copper bowl at the rim",
  "focus": null,
- "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "That way!",
-   "x": 230,
-   "y": 980,
+   "type": "name",
+   "text": "well",
+   "x": 540,
+   "y": 560,
    "to": [
-    258,
-    1112
-   ]
+    540,
+    740
+   ],
+   "word": "well"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "That single",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    544,
+    1240
+   ],
+   "vanish": true
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 306,
+  "y": 1243,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

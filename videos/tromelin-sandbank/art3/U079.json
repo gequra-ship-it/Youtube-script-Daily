@@ -1,23 +1,61 @@
 {
- "centre": "a timeline with three dig-season markers, a trowel, a brush and a sieve, and a calendar grid of forty-five days",
- "focus": [
-  1410,
-  420,
-  1.5
- ],
- "focus_word": "forty-five days",
- "sfx": [
-  {
-   "name": "page",
-   "word": "2008",
-   "vol": 0.5
-  }
- ],
+ "centre": "a brass ship's porthole showing an underwater wreck, between a naval cap with diving mask and an archaeologist digging in a trench",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "num",
-   "text": "45 DAYS",
-   "word": "forty-five days"
+   "type": "name",
+   "text": "naval officer",
+   "x": 375,
+   "y": 440,
+   "to": [
+    376,
+    570
+   ],
+   "word": "naval officer"
+  },
+  {
+   "type": "name",
+   "text": "underwater archaeologist",
+   "x": 960,
+   "y": 200,
+   "to": [
+    960,
+    330
+   ],
+   "word": "underwater archaeologist"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    442
+   ],
+   "vanish": true
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 538,
+  "y": 456,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

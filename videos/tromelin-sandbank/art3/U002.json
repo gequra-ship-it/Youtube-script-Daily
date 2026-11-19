@@ -1,1 +1,33 @@
-{"centre": "a bare flat strip of white sand and coral under an empty sky, dotted ghost tree and river crossed out by absence", "focus": null, "sfx": [{"name": "wind", "word": "no trees", "vol": 0.5}], "labels": []}
+{
+ "centre": "a lone survivor on a white beach watching the brown three-masted ship shrink toward the horizon",
+ "focus": null,
+ "light": "right",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "bob"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-sailing-ship-utile",
+  "kind": "ride",
+  "x": 1128,
+  "y": 492,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Blub!",
+    "shout": true
+   }
+  ]
+ }
+}

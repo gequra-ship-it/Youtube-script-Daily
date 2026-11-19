@@ -1,41 +1,39 @@
 {
- "centre": "a campfire on a stone ring on the night beach, two survivors warming their hands, a pool of warm light, cold wind from the left and a tall column of signal smoke",
+ "centre": "a small campfire still burning on the sand while a rescue boat nears through the surf",
  "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "Light",
-   "x": 560,
-   "y": 600,
-   "to": [
-    800,
-    700
-   ],
-   "word": "light"
-  },
-  {
-   "type": "name",
-   "text": "Warmth",
-   "x": 1440,
-   "y": 600,
-   "to": [
-    1180,
-    690
-   ],
-   "word": "warmth"
-  },
-  {
-   "type": "name",
-   "text": "Signal",
-   "x": 1240,
-   "y": 280,
-   "to": [
-    1010,
-    300
-   ],
-   "word": "signal"
+   "name": "crackle",
+   "word": "fire",
+   "vol": 0.5
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-path-corvette-ship",
+  "kind": "ride",
+  "x": 528,
+  "y": 526,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lifevest",
+   "sailorhat"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ]
+ }
 }

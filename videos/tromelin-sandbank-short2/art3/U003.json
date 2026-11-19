@@ -1,19 +1,55 @@
 {
- "centre": "the sun rising over the sea behind survivors standing on a flat bare sandbank",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a big curling surf wave breaking over the reef, small survivors wading to the sand",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "churning surf",
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "churning surf",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "sandbank",
-   "x": 760,
-   "y": 1110,
+   "text": "surf",
+   "x": 540,
+   "y": 640,
    "to": [
-    700,
-    1060
+    540,
+    770
    ],
-   "word": "sandbank"
+   "word": "surf"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "goggles"
+  ],
+  "ride": "mv-core-glide-surf-wave",
+  "kind": "ride",
+  "x": 924,
+  "y": 970,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ },
+ "lock": true
 }
