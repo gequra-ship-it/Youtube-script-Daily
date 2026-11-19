@@ -1,41 +1,52 @@
 {
- "centre": "three test cards: orbits the Sun (check), round (check), crowded lane not cleared (cross)",
- "focus": [
-  1530,
-  520,
-  1.6
+ "centre": "eight planets in a row with Pluto drifting out of the line-up",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "num",
+   "text": "8 PLANETS",
+   "word": "eight"
+  },
+  {
+   "type": "name",
+   "text": "Pluto",
+   "x": 1520,
+   "y": 380,
+   "to": [
+    1385,
+    515
+   ],
+   "word": "Pluto"
+  }
  ],
- "focus_word": "has not cleared its neighborhood",
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "excited"
+   },
+   {
+    "word": "Our solar",
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "dizzy"
-  },
+  "act": "dance",
+  "ride": "mv-path-drift-pluto-planet",
+  "kind": "ride",
+  "x": 1304,
+  "y": 558,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
   "outfit": [
-   "helmet",
-   "antenna"
+   "headband"
   ],
-  "x": 1660,
-  "y": 890,
-  "s": 0.72,
-  "flip": -1,
-  "kind": "bg",
-  "roam": {
-   "kind": "moonhop",
-   "dist": 288
-  },
   "says": [
    {
-    "text": "Boing!",
-    "shout": true
+    "text": "La la la~",
+    "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

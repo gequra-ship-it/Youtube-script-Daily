@@ -1,38 +1,40 @@
 {
- "centre": "three tall monoliths, the third dark with a violet gem, and a lone small Pluto before them",
- "focus": [
-  1400,
-  460,
-  1.6
- ],
- "focus_word": "third rule",
- "sfx": [],
- "labels": [],
+ "centre": "a young green-blue planet gathering icy rocks from a dusty disk around it",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "surprised"
    },
    {
-    "word": "The object",
-    "mood": "determined"
+    "word": "When a",
+    "mood": "scared"
    }
   ],
   "act": {
-   "type": "leanback"
+   "type": "slide",
+   "to": [
+    960,
+    531
+   ]
   },
   "outfit": [
    "helmet",
-   "moonboots"
+   "patch"
   ],
-  "ride": "mv-core-glide-pluto-planet",
-  "kind": "ride",
-  "x": 635,
-  "y": 790,
-  "s": 0.95,
+  "kind": "bg",
+  "ride": null,
+  "x": 384,
+  "y": 315,
+  "s": 0.9,
   "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "says": []
+  "says": [
+   {
+    "text": "Down I go!",
+    "shout": true
+   }
+  ],
+  "bside": 1
  }
 }

@@ -1,19 +1,33 @@
 {
- "centre": "an imagined grey cratered snowball inside a thought bubble in the dark",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Dead snowball",
-   "x": 1450,
-   "y": 300,
-   "to": [
-    1160,
-    440
-   ],
-   "word": "snowball"
-  }
- ]
+ "centre": "Pluto glowing alive with colour and a blue haze, Charon circling",
+ "focus": [
+  960,
+  500,
+  1.5
+ ],
+ "focus_word": "mesmerizing",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-core-approach-living-pluto",
+  "kind": "ride",
+  "x": 1263,
+  "y": 825,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Zoooom!",
+    "shout": true
+   }
+  ]
+ }
 }

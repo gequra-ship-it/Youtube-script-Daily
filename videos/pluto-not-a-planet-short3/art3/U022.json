@@ -1,33 +1,35 @@
 {
- "centre": "a big play button under Pluto's tilted orbit",
+ "centre": "a dark curtain sliding aside to reveal a band of icy bodies behind Pluto",
  "focus": [
-  540,
-  1060,
+  700,
+  900,
   1.4
  ],
- "focus_word": "Watch the full video",
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "excited"
    }
   ],
   "act": {
-   "type": "helmetwipe"
+   "type": "jetpack"
   },
   "outfit": [
    "helmet",
-   "goldvisor"
+   "jetpack"
   ],
-  "ride": "mv-core-approach-play-button",
+  "ride": "mv-slide-mist-curtain",
   "kind": "ride",
-  "x": 768,
-  "y": 763,
+  "x": 592,
+  "y": 485,
   "s": 1.44,
-  "flip": -1,
+  "flip": 1,
   "bside": -1,
-  "says": []
+  "says": [
+   {
+    "text": "Whoosh!",
+    "shout": true
+   }
+  ]
  }
 }

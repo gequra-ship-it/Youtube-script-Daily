@@ -1,42 +1,43 @@
 {
- "centre": "eyepiece view: still stars and one speck jumping back and forth",
+ "centre": "a dense Milky Way band of tiny points of light scanned by a moving magnifier",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Over here!",
-   "x": 1420,
-   "y": 300,
-   "to": [
-    962,
-    412
-   ]
+   "type": "num",
+   "text": "FEBRUARY 18, 1930",
+   "word": "February 18, 1930"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "squint"
    }
   ],
-  "act": "float",
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
   "outfit": [
    "helmet",
-   "jetpack"
+   "shield"
   ],
-  "x": 1660,
-  "y": 540,
-  "s": 0.81,
-  "flip": -1,
-  "kind": "bg",
+  "ride": "mv-path-magnifier-loupe",
+  "kind": "ride",
+  "x": 398,
+  "y": 886,
+  "s": 1.28,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Floaty...",
-    "shout": false
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
    }
-  ],
-  "bside": -1
+  ]
  }
 }

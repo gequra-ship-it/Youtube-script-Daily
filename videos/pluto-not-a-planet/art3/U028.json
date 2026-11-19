@@ -1,11 +1,45 @@
 {
- "centre": "a half-finished jigsaw on a table under a lamp: pieces slide in, one pale odd-shaped piece with a small planet does not fit",
- "focus": [
-  1390,
-  650,
-  1.7
+ "centre": "a thought bubble from an old telescope: an imagined giant ghost world towering over a small Earth",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Earth",
+   "x": 880,
+   "y": 700,
+   "to": [
+    925,
+    610
+   ],
+   "word": "Earth"
+  }
  ],
- "focus_word": "uncomfortable puzzle",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "ride": "mv-core-approach-giant-planet",
+  "kind": "ride",
+  "x": 1503,
+  "y": 645,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "So small...",
+    "shout": false
+   }
+  ]
+ }
 }

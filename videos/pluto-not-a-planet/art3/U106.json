@@ -1,43 +1,35 @@
 {
- "centre": "the New Horizons probe heading across a vast dark gap toward distant Pluto framed in a viewfinder",
- "focus": [
-  1380,
-  440,
-  1.8
- ],
- "focus_word": "close look",
- "sfx": [],
+ "centre": "the probe streaking in a flyby above the huge curve of Pluto",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "num",
-   "text": "JULY 2015",
-   "word": "July 2015"
+   "text": "ABOUT 5 BILLION KM",
+   "word": "five billion kilometers"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "determined"
+    "mood": "excited"
    }
   ],
-  "act": "rest",
-  "ride": "mv-path-approaching-probe",
+  "act": {
+   "type": "pointfar"
+  },
+  "ride": "mv-path-flyby-probe",
   "kind": "ride",
-  "x": 477,
-  "y": 790,
+  "x": 719,
+  "y": 429,
   "s": 0.95,
   "flip": 1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
    "helmet",
-   "patch"
+   "moonboots"
   ],
-  "says": [
-   {
-    "text": "Ahh...",
-    "shout": false
-   }
-  ]
+  "says": []
  }
 }

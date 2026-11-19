@@ -1,40 +1,39 @@
 {
- "centre": "Pluto with a vertical measuring line across its width",
+ "centre": "Earth's Moon with a measuring line and a dashed ghost of small Pluto",
  "focus": [
   540,
   860,
-  1.6
+  1.5
  ],
- "focus_word": "2,376 kilometers",
- "sfx": [],
+ "focus_word": "3,474 kilometers",
  "labels": [
   {
    "type": "num",
-   "text": "2,376 KM",
-   "word": "2,376 kilometers"
+   "text": "3,474 KM",
+   "word": "3,474 kilometers"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "determined"
+    "mood": "curious"
    }
   ],
   "act": "tap",
-  "ride": "mv-core-glide-pluto-planet",
+  "ride": "mv-core-glide-moon-body",
   "kind": "ride",
-  "x": 341,
-  "y": 1015,
+  "x": 699,
+  "y": 975,
   "s": 1.09,
-  "flip": 1,
-  "bside": -1,
+  "flip": -1,
+  "bside": 1,
   "gaze": 1,
   "outfit": [
-   "cap"
+   "bowtie"
   ],
   "says": [
    {
-    "text": "Knock knock!",
+    "text": "Hmm, hard.",
     "shout": false
    }
   ]

@@ -1,40 +1,37 @@
 {
- "centre": "a gift box lifting its lid to reveal Pluto and its moon Charon above it, beside an open notebook with an orbit sketch",
- "iris": [
-  700,
-  400
- ],
- "labels": [],
+ "centre": "giant Jupiter, Saturn and Neptune sitting undisturbed while a tiny Pluto gives a feeble dashed nudge that falls short",
  "focus": [
-  700,
-  390,
-  1.6
+  1630,
+  740,
+  1.8
  ],
- "focus_word": "incredible gift",
- "sfx": [],
+ "focus_word": "not a mighty giant",
  "frog": {
   "moods": [
    {
-    "mood": "shock"
+    "mood": "squint"
+   },
+   {
+    "word": "Pluto was",
+    "mood": "happy"
    }
   ],
-  "act": "write",
-  "ride": "mv-core-glide-pluto-planet",
+  "act": "wind",
+  "ride": "mv-core-glide-jupiter-planet",
   "kind": "ride",
-  "x": 541,
-  "y": 481,
-  "s": 0.95,
+  "x": 297,
+  "y": 252,
+  "s": 1.25,
   "flip": 1,
-  "bside": -1,
-  "gaze": 1,
+  "bside": 1,
   "outfit": [
-   "lab",
-   "headband"
+   "glasses",
+   "bowtie"
   ],
   "says": [
    {
-    "text": "Noted!",
-    "shout": false
+    "text": "Whooosh!",
+    "shout": true
    }
   ]
  }

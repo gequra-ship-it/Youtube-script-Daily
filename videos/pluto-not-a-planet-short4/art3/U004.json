@@ -1,54 +1,22 @@
 {
- "centre": "close-up of Eris (pale grey-white) with its small moon Dysnomia circling",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "diagram: the Sun and nine planets down the board, Eris pops into a tenth slot at the bottom",
+ "focus": [
+  540,
+  1226,
+  1.6
+ ],
+ "focus_word": "the tenth planet",
  "labels": [
   {
    "type": "name",
-   "text": "Dysnomia",
-   "x": 820,
-   "y": 740,
+   "text": "Eris",
+   "x": 790,
+   "y": 1226,
    "to": [
-    770,
-    850
+    592,
+    1226
    ],
-   "word": "Dysnomia"
-  },
-  {
-   "type": "say",
-   "text": "Call me Xena!",
-   "x": 540,
-   "y": 640,
-   "to": [
-    540,
-    760
-   ]
+   "word": "Eris"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "determined"
-   }
-  ],
-  "act": "lean",
-  "ride": "mv-core-glide-eris-planet",
-  "kind": "ride",
-  "x": 381,
-  "y": 975,
-  "s": 1.09,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "outfit": [
-   "cap"
-  ],
-  "says": [
-   {
-    "text": "Here we go!",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

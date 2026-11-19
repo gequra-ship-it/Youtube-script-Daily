@@ -1,23 +1,34 @@
 {
- "centre": "a cutaway of Pluto crust with a glacier, a dashed ice volcano and a ghosted ocean beneath",
- "focus": [
-  1000,
-  760,
-  1.5
- ],
- "focus_word": "hints of a vast liquid water ocean",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Ocean",
-   "x": 1380,
-   "y": 680,
-   "to": [
-    1300,
-    780
-   ],
-   "word": "ocean"
-  }
- ]
+ "centre": "Pluto close-up with its thin blue haze, glowing heart and moon Charon",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-pluto-planet"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1292,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

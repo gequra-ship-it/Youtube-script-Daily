@@ -42,5 +42,5 @@ SCENES = [('S01',
   'ill',
   'sh3_7',
   'They never get closer than about two and a half billion kilometers. For decades, astronomers called Pluto an eccentric exception. But was it '
-  'really a planet at all, or the first clue of a hidden realm?'),
+  'really a planet at all, or the first clue of a hidden realm? So the two worlds can cross paths on a map, but never meet in space.'),
  ('S08', 'Part 8', 'ill', 'sh3_8', 'Watch the full video on our channel to see how this tilted orbit changed astronomy forever.')]

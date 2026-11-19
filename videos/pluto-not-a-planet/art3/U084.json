@@ -1,50 +1,34 @@
 {
- "centre": "Earth with its grey Moon orbiting it and tiny Pluto, each passing a green check",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Moon",
-   "x": 760,
-   "y": 330,
-   "to": [
-    990,
-    410
-   ],
-   "word": "Moons"
-  }
+ "centre": "a glowing rock above a gravity sheet that dips beneath it, with a green arrow of pull",
+ "focus": [
+  960,
+  500,
+  1.6
  ],
+ "focus_word": "physics and gravity",
  "frog": {
   "moods": [
    {
-    "mood": "determined"
-   },
-   {
-    "word": "Both Earth",
-    "mood": "smug"
+    "mood": "squint"
    }
   ],
-  "act": {
-   "type": "magnetwalk",
-   "dist": 461
-  },
-  "outfit": [
-   "helmet",
-   "moonboots"
-  ],
-  "x": 1660,
-  "y": 780,
-  "s": 0.77,
+  "act": "balance",
+  "ride": "mv-core-glide-lumpy-rock",
+  "kind": "ride",
+  "x": 1190,
+  "y": 692,
+  "s": 0.95,
   "flip": -1,
-  "kind": "bg",
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "pocketwatch"
+  ],
   "says": [
    {
-    "text": "Magnet boots!",
-    "shout": true
+    "text": "Tick tock...",
+    "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

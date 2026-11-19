@@ -1,19 +1,29 @@
 {
- "centre": "a new display box with a small round world sliding onto an empty shelf under the row of eight planets",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Dwarf planets",
-   "x": 1420,
-   "y": 560,
-   "to": [
-    1140,
-    560
-   ],
-   "word": "dwarf planets"
-  }
- ]
+ "centre": "three test cards: orbits the Sun (check), round (check), crowded lane not cleared (cross)",
+ "focus": [
+  1530,
+  520,
+  1.6
+ ],
+ "focus_word": "has not cleared its neighborhood",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
 }

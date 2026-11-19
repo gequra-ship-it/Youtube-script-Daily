@@ -1,23 +1,48 @@
 {
- "centre": "a tall bar for all icy neighbours beside a sliver of a bar for tiny Pluto",
+ "centre": "tiny Pluto inside a crowded diagonal belt of icy bodies, tied by a dotted line to Neptune",
  "focus": [
-  1165,
-  830,
+  960,
+  500,
   1.8
  ],
- "focus_word": "tiny fraction",
- "sfx": [],
+ "focus_word": "Kuiper Belt",
  "labels": [
   {
    "type": "name",
-   "text": "Pluto",
-   "x": 1380,
-   "y": 700,
+   "text": "Neptune",
+   "x": 1400,
+   "y": 250,
    "to": [
-    1200,
-    780
+    1580,
+    300
    ],
-   "word": "Pluto"
+   "word": "Neptune"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "countstars"
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Countless...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

@@ -1,36 +1,34 @@
 {
- "centre": "Pluto orbit curve dipping inside Neptune circular orbit near the Sun at the right",
+ "centre": "two distance bars from the Sun: the short one to Pluto and the longer one to Neptune",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "num",
-   "text": "20 YEARS",
-   "word": "twenty"
-  }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "excited"
-   }
-  ],
-  "act": {
-   "type": "pointfar"
+   "text": "1979-1999",
+   "word": "1979"
   },
-  "outfit": [
-   "helmet",
-   "jetpack"
-  ],
-  "ride": "mv-path-pluto-planet",
-  "kind": "ride",
-  "x": 915,
-  "y": 340,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "says": []
- }
+  {
+   "type": "name",
+   "text": "Pluto",
+   "x": 1140,
+   "y": 250,
+   "to": [
+    1140,
+    380
+   ],
+   "word": "Pluto"
+  },
+  {
+   "type": "name",
+   "text": "Neptune",
+   "x": 1560,
+   "y": 540,
+   "to": [
+    1560,
+    660
+   ],
+   "word": "Neptune"
+  }
+ ]
 }

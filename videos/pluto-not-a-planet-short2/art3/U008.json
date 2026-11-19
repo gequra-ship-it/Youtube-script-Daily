@@ -1,64 +1,40 @@
 {
- "centre": "five moons of different sizes and colours in a zigzag, with a small dashed Pluto below",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "Earth above with an equal-sized dashed ghost of Pluto below and an equals sign between",
+ "focus": [
+  540,
+  1040,
+  1.5
+ ],
+ "focus_word": "as massive as Earth",
  "labels": [
   {
-   "type": "name",
-   "text": "Europa",
-   "x": 250,
-   "y": 1020,
-   "to": [
-    250,
-    1085
-   ],
-   "word": "Europa"
-  },
-  {
-   "type": "name",
-   "text": "Titan",
-   "x": 540,
-   "y": 720,
-   "to": [
-    540,
-    780
-   ],
-   "word": "Titan"
-  },
-  {
-   "type": "name",
-   "text": "Triton",
-   "x": 800,
-   "y": 1120,
-   "to": [
-    800,
-    1180
-   ],
-   "word": "Triton"
+   "type": "num",
+   "text": "1931",
+   "word": "1931"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "determined"
    }
   ],
   "act": "lean",
-  "ride": "mv-core-glide-titan-moon",
+  "ride": "mv-core-glide-earth-planet",
   "kind": "ride",
-  "x": 701,
-  "y": 978,
+  "x": 725,
+  "y": 1002,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "bowler"
+   "lab",
+   "shield"
   ],
   "says": [
    {
-    "text": "Here we go!",
+    "text": "Off we go!",
     "shout": false
    }
   ]

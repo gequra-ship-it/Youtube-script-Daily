@@ -1,19 +1,38 @@
 {
- "centre": "a vast ring of icy debris around the Sun and its small planet system, seen from above",
+ "centre": "a huge heap of leftover rocks and ice chunks like a junkyard, one more chunk dropping onto it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Kuiper Belt",
-   "x": 1500,
-   "y": 200,
-   "to": [
-    1330,
-    330
-   ],
-   "word": "Kuiper Belt"
+   "type": "num",
+   "text": "4.5 BILLION YEARS AGO",
+   "word": "four and a half billion"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": "stretch",
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-core-sway-icy-chunk",
+  "kind": "ride",
+  "x": 1400,
+  "y": 538,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Good morning!",
+    "shout": false
+   }
+  ]
+ }
 }

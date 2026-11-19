@@ -1,43 +1,49 @@
 {
- "centre": "a photographic plate showing a blurry Pluto with a bulge, under a magnifier",
+ "centre": "Pluto with its grey moon Charon, about half its width, up and to the right",
  "focus": [
+  780,
   640,
-  790,
   1.8
  ],
- "focus_word": "strange bulge",
- "sfx": [],
+ "focus_word": "Charon",
  "labels": [
   {
-   "type": "num",
-   "text": "1978",
-   "word": "1978"
+   "type": "name",
+   "text": "Charon",
+   "x": 780,
+   "y": 530,
+   "to": [
+    780,
+    640
+   ],
+   "word": "Charon"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
   "act": {
-   "type": "launched",
-   "obj": "mv-popin-magnifier-lens",
-   "h": 296
+   "type": "dodge",
+   "obj": "mv-slide-charon-moon",
+   "h": 118,
+   "pass": 0.493
   },
   "ride": null,
   "kind": "bg",
-  "x": 687,
-  "y": 990,
+  "x": 894,
+  "y": 699,
   "s": 1.09,
-  "flip": -1,
+  "flip": 1,
   "bside": -1,
   "gaze": 1,
   "behind": null,
   "enter": "cut",
   "delay": 0.02,
   "outfit": [
-   "shield"
+   "bowler"
   ],
   "says": [
    {

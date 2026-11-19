@@ -1,7 +1,44 @@
 {
- "centre": "a telescope on a hill sweeping the dark sky while icy specks appear one by one",
+ "centre": "Pluto, the biggest and brightest, in a wide swarm of small dim icy bodies",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Pluto",
+   "x": 1180,
+   "y": 330,
+   "to": [
+    990,
+    450
+   ],
+   "word": "Pluto"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "It was",
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "rubhands"
+  },
+  "ride": "mv-core-approach-pluto-planet",
+  "kind": "ride",
+  "x": 1042,
+  "y": 418,
+  "s": 1.19,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "scarf",
+   "headband"
+  ],
+  "says": []
+ }
 }

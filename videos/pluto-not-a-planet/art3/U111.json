@@ -1,11 +1,37 @@
 {
- "centre": "a tiny sun low over a smooth pale nitrogen-ice plain with cell patterns",
+ "centre": "a map panel with a bright ice basin measured by a yellow width line",
  "focus": [
-  960,
-  700,
+  970,
+  540,
   1.5
  ],
- "focus_word": "smooth nitrogen ice",
- "sfx": [],
- "labels": []
+ "focus_word": "one thousand kilometers",
+ "labels": [
+  {
+   "type": "num",
+   "text": "ABOUT 1,000 KM",
+   "word": "one thousand kilometers"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "x": 260,
+  "y": 540,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "lab",
+   "headband"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

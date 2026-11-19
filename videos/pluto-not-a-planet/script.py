@@ -4,15 +4,14 @@ SCENES = [('S01',
   'My Very Educated Mother',
   'ill',
   'p01a',
-  'In 2006, Pluto did not shrink, move, or die. A vote of astronomers in Europe simply decided it was not a planet, and here is the story behind '
-  'that vote. Take a moment and think back to your old elementary school classroom. If you were sitting at a wooden desk anytime before 2006, you '
-  'probably memorized a simple sentence. My Very Educated Mother Just Served Us Nine Pizzas. That last word, pizza, stood for Pluto.'),
+  'In 2006, Pluto did not shrink, move, or die. A vote of astronomers in Europe simply decided it was not a planet. Here is why. Take a moment and '
+  'think back to your old elementary school classroom. If you were sitting at a wooden desk anytime before 2006, you probably memorized a simple '
+  'sentence. My Very Educated Mother Just Served Us Nine Pizzas. That last word, pizza, stood for Pluto.'),
  ('S02',
   'My Very Educated Mother',
   'ill',
   'p01b',
-  'Posters of nine pristine spheres hung on classroom walls across the entire globe. Millions of us grew up believing that the boundary of our solar '
-  'system was safely guarded by a lonely, icy ninth planet.'),
+  'Millions of us grew up believing that the boundary of our solar system was safely guarded by a lonely, icy ninth planet.'),
  ('S03',
   'Overnight Change',
   'ill',
@@ -39,8 +38,7 @@ SCENES = [('S01',
   'ill',
   'p04a',
   'Lowell searched the skies until his death, but the phantom world remained elusive. In 1929, the observatory hired a young farm boy from Kansas '
-  'named Clyde Tombaugh. Tombaugh possessed no university degree in astronomy, but he had an extraordinary work ethic. Night after night, he endured '
-  'freezing temperatures to photograph small patches of the night sky through a telescope.'),
+  'named Clyde Tombaugh. Night after night, he endured freezing temperatures to photograph small patches of the night sky through a telescope.'),
  ('S08', 'Planet X', 'ill', 'p04b', 'Each patch was photographed multiple times, spaced several days apart.'),
  ('S09',
   'The Blink Comparator',

@@ -1,42 +1,51 @@
 {
- "centre": "an extremely stretched oval orbit with the Sun at one end and small Pluto at the far end, a dotted circle for contrast",
+ "centre": "a long row of year ticks above a huge far-out oval orbit; Pluto at the far edge, tiny Neptune circle near the Sun",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
+   "type": "num",
+   "text": "248 EARTH YEARS",
+   "word": "248 Earth years"
+  },
+  {
    "type": "name",
-   "text": "Pluto",
-   "x": 1480,
-   "y": 330,
+   "text": "Neptune",
+   "x": 460,
+   "y": 470,
    "to": [
-    1591,
-    540
+    393.24149524059965,
+    522.5009635558774
    ],
-   "word": "Pluto"
+   "word": "Neptune"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "dizzy"
    }
   ],
   "act": {
-   "type": "helmetwipe"
+   "type": "dizzy"
   },
-  "outfit": [
-   "helmet",
-   "goldvisor"
-  ],
   "ride": "mv-path-pluto-planet",
   "kind": "ride",
-  "x": 1493,
-  "y": 600,
+  "x": 1563,
+  "y": 689,
   "s": 0.95,
   "flip": -1,
   "bside": -1,
   "gaze": 1,
-  "says": []
+  "outfit": [
+   "sunglasses",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ]
  }
 }
