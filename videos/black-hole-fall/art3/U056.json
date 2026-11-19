@@ -1,47 +1,34 @@
 {
- "centre": "an imagined wall with a painted line that fades, leaving only the quiet black shadow",
+ "centre": "you falling head-first, faster and faster, toward the black shadow",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Where's the wall?",
-   "x": 360,
-   "y": 250,
-   "to": [
-    445,
-    430
-   ],
-   "word": "nothing of the sort"
-  }
- ],
+ "track": false,
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
-   },
-   {
-    "word": "But you",
-    "mood": "curious"
+    "mood": "excited"
    }
   ],
-  "act": "look",
+  "act": {
+   "type": "jetpack"
+  },
   "outfit": [
    "helmet",
-   "moonboots"
+   "jetpack"
   ],
-  "x": 1660,
-  "y": 780,
-  "s": 0.81,
-  "flip": -1,
-  "kind": "bg",
+  "ride": "mv-path-fall-astronaut",
+  "kind": "ride",
+  "x": 538,
+  "y": 385,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Whoa...",
-    "shout": false
+    "text": "Zoooom!",
+    "shout": true
    }
-  ],
-  "bside": -1
+  ]
  }
 }

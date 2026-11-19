@@ -1,19 +1,38 @@
 {
- "centre": "a magnifying lens over the glowing edge of a black disc showing tiny particle pairs",
+ "centre": "a black disc whose edge leaks a warm faint glow",
  "labels": [
   {
    "type": "name",
-   "text": "Event horizon",
-   "x": 800,
-   "y": 600,
+   "text": "Black hole",
+   "x": 540,
+   "y": 520,
    "to": [
-    700,
-    880
+    540,
+    700
    ],
-   "word": "event horizon"
+   "word": "black holes"
   }
  ],
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 820,
+  "y": 1280,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "beanie"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

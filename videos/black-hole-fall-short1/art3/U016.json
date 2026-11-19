@@ -1,50 +1,44 @@
 {
- "centre": "a black disc with a bright ring and three glowing light points circling it",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a dark hole wrapped in a glowing shell of light, a small capsule drifting toward it",
+ "focus": [
+  540,
+  780,
+  1.5
+ ],
+ "focus_word": "photon sphere",
  "labels": [
   {
    "type": "name",
-   "text": "light",
-   "x": 820,
-   "y": 560,
+   "text": "photon sphere",
+   "x": 700,
+   "y": 470,
    "to": [
-    690,
-    740
+    620,
+    590
    ],
-   "word": "light"
+   "word": "photon sphere"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "scared"
    }
   ],
   "act": {
-   "type": "slide",
-   "to": [
-    540,
-    908
-   ]
+   "type": "leanback"
   },
+  "ride": null,
+  "kind": "bg",
+  "x": 108,
+  "y": 811,
+  "s": 0.9,
+  "flip": 1,
   "outfit": [
    "helmet",
    "patch"
   ],
-  "kind": "bg",
-  "ride": null,
-  "x": 918,
-  "y": 716,
-  "s": 1.15,
-  "flip": -1,
-  "says": [
-   {
-    "text": "Whoa-oa!",
-    "shout": true
-   }
-  ],
-  "bside": -1
+  "says": [],
+  "bside": 1
  }
 }

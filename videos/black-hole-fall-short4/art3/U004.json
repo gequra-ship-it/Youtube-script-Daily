@@ -1,19 +1,41 @@
 {
- "centre": "astronaut stretched thin high above a glowing dashed event-horizon boundary; beacon and suit strips torn loose",
+ "centre": "tiny dark stellar hole on a steep warped grid with three small suns for comparison and a capsule falling in",
  "focus": null,
- "focus_word": null,
- "sfx": [],
+ "focus_word": "",
  "labels": [
   {
    "type": "name",
-   "text": "Boundary",
-   "x": 240,
-   "y": 1250,
+   "text": "black hole",
+   "x": 800,
+   "y": 1090,
    "to": [
-    300,
-    1340
+    600,
+    1170
    ],
-   "word": "boundary"
+   "word": "black hole"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-path-fall-capsule",
+  "kind": "ride",
+  "x": 426,
+  "y": 616,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "says": []
+ }
 }

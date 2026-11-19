@@ -1,49 +1,42 @@
 {
- "centre": "you floating feet first toward the hole: a long coral arrow pulls the feet, a short gold arrow the head, a bracket marks two metres",
+ "centre": "a dark horizon disc with a bright dot at the very middle, a short dashed arrow to the edge, and you floating just outside",
  "focus": [
-  1380,
-  560,
-  1.5
+  1060,
+  500,
+  1.6
  ],
- "focus_word": "two meters",
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "2 M",
-   "word": "two meters"
-  }
- ],
+ "focus_word": "extraordinarily close",
  "spot": false,
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "scared"
    }
   ],
   "act": {
-   "type": "slide",
+   "type": "pull",
    "to": [
     960,
-    576
-   ]
+    500
+   ],
+   "vanish": true
   },
+  "ride": null,
+  "kind": "bg",
+  "x": 390,
+  "y": 538,
+  "s": 0.9,
+  "flip": 1,
   "outfit": [
    "helmet",
-   "moonboots"
+   "antenna"
   ],
-  "kind": "bg",
-  "ride": null,
-  "x": 1536,
-  "y": 360,
-  "s": 0.9,
-  "flip": -1,
   "says": [
    {
-    "text": "Down I go!",
+    "text": "Whoaaa!",
     "shout": true
    }
   ],
-  "bside": -1
+  "bside": 1
  }
 }

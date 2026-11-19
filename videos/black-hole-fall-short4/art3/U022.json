@@ -1,42 +1,42 @@
 {
- "centre": "a tidal-force meter filling segment by segment while you fall past a millimetre ruler",
+ "centre": "you falling feet-first between dashed field lines that converge to a dark point below; the outside universe shrinks to a bright window above",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Tidal forces",
-   "x": 400,
-   "y": 360,
+   "text": "Field lines",
+   "x": 300,
+   "y": 1300,
    "to": [
-    240,
-    470
+    307,
+    1114
    ],
-   "word": "tidal forces"
+   "word": "field lines"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "proud"
+    "mood": "excited"
    }
   ],
-  "act": "flex",
-  "outfit": [
-   "helmet"
-  ],
-  "ride": "mv-path-fall-astronaut",
+  "act": "dance",
+  "ride": "mv-path-descend-astronaut",
   "kind": "ride",
-  "x": 456,
-  "y": 799,
+  "x": 708,
+  "y": 1022,
   "s": 1.09,
-  "flip": 1,
-  "bside": -1,
+  "flip": -1,
+  "bside": 1,
   "gaze": 1,
+  "outfit": [
+   "strawhat",
+   "bowtie"
+  ],
   "says": [
    {
-    "text": "So strong!",
+    "text": "La la la~",
     "shout": false
    }
   ]

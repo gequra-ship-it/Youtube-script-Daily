@@ -1,35 +1,40 @@
 {
- "centre": "a gold particle racing away from the hole in the corner toward open starry space",
+ "centre": "a black hole with a faint warm glow and a thermometer whose liquid barely rises",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Hawking radiation",
+   "x": 540,
+   "y": 420,
+   "to": [
+    540,
+    570
+   ],
+   "word": "Hawking radiation"
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "worried"
+    "mood": "scared"
    }
   ],
   "act": {
-   "type": "helmetwipe"
+   "type": "leanback"
   },
+  "ride": null,
+  "kind": "bg",
+  "x": 108,
+  "y": 738,
+  "s": 0.9,
+  "flip": 1,
   "outfit": [
    "helmet",
-   "moonboots"
+   "patch"
   ],
-  "ride": "mv-path-particle-escaping",
-  "kind": "ride",
-  "x": 621,
-  "y": 1420,
-  "s": 1.09,
-  "flip": -1,
-  "bside": -1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Phew...",
-    "shout": false
-   }
-  ]
+  "says": [],
+  "bside": 1
  }
 }

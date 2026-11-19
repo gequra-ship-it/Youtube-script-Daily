@@ -1,18 +1,42 @@
 {
- "centre": "you (left) facing a glowing copy of yourself seen from behind, hovering just in front of you",
+ "centre": "top-down diagram: black hole with a dotted light orbit; a photon leaves your back, goes all the way round and enters your visor",
  "focus": null,
- "focus_word": "",
- "sfx": [],
+ "focus_word": null,
+ "track": false,
  "labels": [
   {
-   "type": "say",
-   "text": "Is that me?",
-   "x": 300,
-   "y": 520,
+   "type": "name",
+   "text": "Photons",
+   "x": 800,
+   "y": 1210,
    "to": [
-    362,
-    690
-   ]
+    583,
+    1106
+   ],
+   "word": "Photons"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": "look",
+  "outfit": [
+   "helmet"
+  ],
+  "x": 260,
+  "y": 1280,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Whoa...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

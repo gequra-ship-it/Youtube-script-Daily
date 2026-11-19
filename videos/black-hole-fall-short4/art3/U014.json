@@ -1,35 +1,40 @@
 {
- "centre": "split frame: helmet with a short pull arrow on top, boots with a huge pull arrow below, a gauge between them pegged at maximum",
+ "centre": "tiny astronaut tumbling down a dotted path toward a small, quiet black hole in a wide star field",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "MILLIONS OF G",
-   "word": "millions"
-  },
-  {
    "type": "name",
-   "text": "Boots",
-   "x": 220,
-   "y": 1330,
+   "text": "Small black hole",
+   "x": 720,
+   "y": 1390,
    "to": [
-    400,
-    1180
+    575,
+    1280
    ],
-   "word": "boots"
-  },
-  {
-   "type": "name",
-   "text": "Helmet",
-   "x": 220,
-   "y": 720,
-   "to": [
-    400,
-    640
-   ],
-   "word": "helmet"
+   "word": "small black hole"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck"
+  },
+  "ride": "mv-path-fall-astronaut",
+  "kind": "ride",
+  "x": 449,
+  "y": 560,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": []
+ }
 }

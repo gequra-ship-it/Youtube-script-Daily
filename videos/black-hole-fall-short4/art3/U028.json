@@ -1,19 +1,36 @@
 {
- "centre": "split frame: white suit fabric strips and the orange beacon drifting apart above; a molecule in a microscope view whose bonds pull apart below",
+ "centre": "close-up of your boots with a growing crowd of downward pull arrows appearing beneath the soles",
  "focus": null,
- "focus_word": "",
- "sfx": [],
+ "focus_word": null,
+ "iris": [
+  540,
+  690
+ ],
  "labels": [
   {
-   "type": "name",
-   "text": "Molecules",
-   "x": 850,
-   "y": 1000,
-   "to": [
-    665,
-    1060
-   ],
-   "word": "molecules"
+   "type": "num",
+   "text": "MILLIONS OF G",
+   "word": "millions"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "measure"
+  },
+  "x": 260,
+  "y": 720,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "cap"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

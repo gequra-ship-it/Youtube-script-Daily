@@ -1,7 +1,47 @@
 {
- "centre": "the bright circle of the outside universe shrinking behind you while a deep darkness opens ahead",
+ "centre": "a simulation screen: the whole outside universe squeezed into one bright circle behind you, darkness everywhere else",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Outside universe",
+   "x": 560,
+   "y": 260,
+   "to": [
+    870,
+    400
+   ],
+   "word": "outside universe"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "crawl",
+   "dist": 576
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "x": 1660,
+  "y": 890,
+  "s": 0.8,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "says": [
+   {
+    "text": "Hup...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

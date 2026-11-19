@@ -1,28 +1,41 @@
 {
- "centre": "a spinning galaxy with a black dot at its heart linked to a huge dark horizon that holds the whole solar system as tiny dots",
- "focus": [
-  1400,
-  540,
-  1.5
- ],
- "focus_word": "billions of kilometers",
- "sfx": [],
- "iris": [
-  480,
-  520
- ],
+ "centre": "a huge dark giant with a thin bright rim and lensed arcs, and our Sun only a tiny glowing dot beside it",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Billions of kilometers",
-   "x": 1560,
-   "y": 300,
+   "text": "Our Sun",
+   "x": 470,
+   "y": 620,
    "to": [
-    1340,
-    520
+    336,
+    712
    ],
-   "word": "billions of kilometers"
+   "word": "our Sun"
   }
  ],
- "spot": false
+ "spot": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 219,
+  "y": 549,
+  "s": 0.9,
+  "flip": 1,
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

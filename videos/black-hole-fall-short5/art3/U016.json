@@ -1,37 +1,46 @@
 {
- "centre": "a silhouette at a chalkboard with a dark disc, a decade timeline below and a new layer dropping onto a stack",
+ "centre": "a magnifying lens over the glowing edge of a black disc showing tiny particle pairs",
  "labels": [
   {
-   "type": "num",
-   "text": "1970S",
-   "word": "1970s"
+   "type": "name",
+   "text": "Event horizon",
+   "x": 800,
+   "y": 600,
+   "to": [
+    700,
+    880
+   ],
+   "word": "event horizon"
   }
  ],
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "squint"
    }
   ],
-  "act": "peek",
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
   "outfit": [
    "helmet",
-   "patch"
+   "moonboots"
   ],
-  "x": 690,
-  "y": 1000,
-  "s": 1.2,
-  "flip": -1,
-  "kind": "bg",
-  "ride": null,
-  "behind": "mv-breathe-scientist-body",
-  "bside": -1,
+  "ride": "mv-path-sweep-lens",
+  "kind": "ride",
+  "x": 202,
+  "y": 1309,
+  "s": 1.4,
+  "flip": 1,
+  "bside": 1,
   "says": [
    {
-    "text": "Peek-a-boo!",
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
     "shout": true
    }
   ]

@@ -1,19 +1,44 @@
 {
- "centre": "an empty wireframe cube floating in space with nothing inside, quiet wavy foam lines below",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a black disk with a thin bright rim that is wrapped in a faint golden glow, lensed arcs beside it",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "not completely black",
  "labels": [
   {
    "type": "name",
-   "text": "Vacuum",
+   "text": "Event horizon",
    "x": 1400,
-   "y": 240,
+   "y": 330,
    "to": [
-    1130,
-    420
+    1085,
+    455
    ],
-   "word": "vacuum"
+   "word": "event horizon"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pushaway"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 538,
+  "y": 514,
+  "s": 0.9,
+  "flip": 1,
+  "says": [],
+  "bside": 1
+ }
 }

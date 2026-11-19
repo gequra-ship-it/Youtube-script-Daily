@@ -26,15 +26,49 @@
     "#ff7a5a"
    ]
   },
-  "text": "What kills you is not the black hole itself, but the difference in pull across your body.",
-  "dur": 6.15,
+  "text": "A black hole can stretch your body apart before you ever reach its edge.",
+  "dur": 5.5,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "",
+  "nxt": "What kills you is not the black hole itself, but the difference in pull across your body.",
   "frog_hint": false
  },
  {
   "uid": "U002",
+  "scene": 1,
+  "title": "Part 1",
+  "art_theme": "sh4_1",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "What kills you is not the black hole itself, but the difference in pull across your body.",
+  "dur": 5.5,
+  "transition_in": "wave",
+  "prev": "A black hole can stretch your body apart before you ever reach its edge.",
+  "nxt": "",
+  "frog_hint": true
+ },
+ {
+  "uid": "U003",
   "scene": 2,
   "title": "Part 2",
   "art_theme": "sh4_2",
@@ -65,10 +99,10 @@
   "transition_in": "whip",
   "prev": "",
   "nxt": "Fall toward a stellar-mass black hole, an object only a few times heavier than our Sun,",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U003",
+  "uid": "U004",
   "scene": 2,
   "title": "Part 2",
   "art_theme": "sh4_2",
@@ -99,10 +133,10 @@
   "transition_in": "push",
   "prev": "The size of the black hole makes all the difference between peaceful wonder and instant destruction.",
   "nxt": "and your body is destroyed before you even reach the boundary.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U004",
+  "uid": "U005",
   "scene": 2,
   "title": "Part 2",
   "art_theme": "sh4_2",
@@ -130,43 +164,9 @@
   },
   "text": "and your body is destroyed before you even reach the boundary.",
   "dur": 5.5,
-  "transition_in": "page",
+  "transition_in": "diamond",
   "prev": "Fall toward a stellar-mass black hole, an object only a few times heavier than our Sun,",
   "nxt": "",
-  "frog_hint": true
- },
- {
-  "uid": "U005",
-  "scene": 3,
-  "title": "Part 3",
-  "art_theme": "sh4_3",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "Why does mass matter so much?",
-  "dur": 4.61,
-  "transition_in": "wave",
-  "prev": "",
-  "nxt": "The answer lies in tidal forces, the very same physics that creates ocean tides on our planet.",
   "frog_hint": false
  },
  {
@@ -196,18 +196,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "The answer lies in tidal forces, the very same physics that creates ocean tides on our planet.",
+  "text": "Why does mass matter so much?",
   "dur": 4.61,
-  "transition_in": "seam",
-  "prev": "Why does mass matter so much?",
-  "nxt": "",
+  "transition_in": "page",
+  "prev": "",
+  "nxt": "The answer lies in tidal forces, the very same physics that creates ocean tides on our planet.",
   "frog_hint": true
  },
  {
   "uid": "U007",
-  "scene": 4,
-  "title": "Part 4",
-  "art_theme": "sh4_4",
+  "scene": 3,
+  "title": "Part 3",
+  "art_theme": "sh4_3",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -230,11 +230,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "Gravity weakens with distance, which means that any object falling feet-first feels a",
-  "dur": 6.02,
-  "transition_in": "fade",
-  "prev": "",
-  "nxt": "stronger gravitational pull at its feet than at its head.",
+  "text": "The answer lies in tidal forces, the very same physics that creates ocean tides on our planet.",
+  "dur": 4.61,
+  "transition_in": "tilt",
+  "prev": "Why does mass matter so much?",
+  "nxt": "",
   "frog_hint": false
  },
  {
@@ -264,11 +264,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "stronger gravitational pull at its feet than at its head.",
+  "text": "Gravity weakens with distance, which means that any object falling feet-first feels a",
   "dur": 6.02,
   "transition_in": "eye",
-  "prev": "Gravity weakens with distance, which means that any object falling feet-first feels a",
-  "nxt": "On Earth, this difference across the height of a human body is so microscopic that our senses cannot detect it.",
+  "prev": "",
+  "nxt": "stronger gravitational pull at its feet than at its head.",
   "frog_hint": true
  },
  {
@@ -298,15 +298,49 @@
     "#ff7a5a"
    ]
   },
-  "text": "On Earth, this difference across the height of a human body is so microscopic that our senses cannot detect it.",
+  "text": "stronger gravitational pull at its feet than at its head.",
   "dur": 6.02,
-  "transition_in": "iris",
-  "prev": "stronger gravitational pull at its feet than at its head.",
-  "nxt": "",
+  "transition_in": "fade",
+  "prev": "Gravity weakens with distance, which means that any object falling feet-first feels a",
+  "nxt": "On Earth, this difference across the height of a human body is so microscopic that our senses cannot detect it.",
   "frog_hint": false
  },
  {
   "uid": "U010",
+  "scene": 4,
+  "title": "Part 4",
+  "art_theme": "sh4_4",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "On Earth, this difference across the height of a human body is so microscopic that our senses cannot detect it.",
+  "dur": 6.02,
+  "transition_in": "slide",
+  "prev": "stronger gravitational pull at its feet than at its head.",
+  "nxt": "",
+  "frog_hint": true
+ },
+ {
+  "uid": "U011",
   "scene": 5,
   "title": "Part 5",
   "art_theme": "sh4_5",
@@ -337,40 +371,6 @@
   "transition_in": "zoom",
   "prev": "",
   "nxt": "perhaps only thirty kilometers across. Because the center is so extraordinarily close to the surface,",
-  "frog_hint": true
- },
- {
-  "uid": "U011",
-  "scene": 5,
-  "title": "Part 5",
-  "art_theme": "sh4_5",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "perhaps only thirty kilometers across. Because the center is so extraordinarily close to the surface,",
-  "dur": 6.24,
-  "transition_in": "slide",
-  "prev": "But near a small, stellar-mass black hole, the event horizon is tiny,",
-  "nxt": "the steepness of the gravitational slope across just two meters of space becomes catastrophic.",
   "frog_hint": false
  },
  {
@@ -400,15 +400,49 @@
     "#ff7a5a"
    ]
   },
-  "text": "the steepness of the gravitational slope across just two meters of space becomes catastrophic.",
+  "text": "perhaps only thirty kilometers across. Because the center is so extraordinarily close to the surface,",
   "dur": 6.24,
   "transition_in": "match",
-  "prev": "perhaps only thirty kilometers across. Because the center is so extraordinarily close to the surface,",
-  "nxt": "",
+  "prev": "But near a small, stellar-mass black hole, the event horizon is tiny,",
+  "nxt": "the steepness of the gravitational slope across just two meters of space becomes catastrophic.",
   "frog_hint": true
  },
  {
   "uid": "U013",
+  "scene": 5,
+  "title": "Part 5",
+  "art_theme": "sh4_5",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "the steepness of the gravitational slope across just two meters of space becomes catastrophic.",
+  "dur": 6.24,
+  "transition_in": "iris",
+  "prev": "perhaps only thirty kilometers across. Because the center is so extraordinarily close to the surface,",
+  "nxt": "",
+  "frog_hint": false
+ },
+ {
+  "uid": "U014",
   "scene": 6,
   "title": "Part 6",
   "art_theme": "sh4_6",
@@ -436,13 +470,13 @@
   },
   "text": "If you fell into a small black hole,",
   "dur": 4.65,
-  "transition_in": "tilt",
+  "transition_in": "push",
   "prev": "",
   "nxt": "the difference between the pull on your boots and the pull on your helmet would be millions of times Earth's gravity.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U014",
+  "uid": "U015",
   "scene": 6,
   "title": "Part 6",
   "art_theme": "sh4_6",
@@ -473,10 +507,10 @@
   "transition_in": "wash",
   "prev": "If you fell into a small black hole,",
   "nxt": "At the exact same time, the gravitational field lines would converge inward toward the center,",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U015",
+  "uid": "U016",
   "scene": 6,
   "title": "Part 6",
   "art_theme": "sh4_6",
@@ -507,10 +541,10 @@
   "transition_in": "wipe",
   "prev": "the difference between the pull on your boots and the pull on your helmet would be millions of times Earth's gravity.",
   "nxt": "squeezing your shoulders tightly together.",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U016",
+  "uid": "U017",
   "scene": 6,
   "title": "Part 6",
   "art_theme": "sh4_6",
@@ -538,43 +572,9 @@
   },
   "text": "squeezing your shoulders tightly together.",
   "dur": 4.65,
-  "transition_in": "diamond",
+  "transition_in": "zigzag",
   "prev": "At the exact same time, the gravitational field lines would converge inward toward the center,",
   "nxt": "",
-  "frog_hint": true
- },
- {
-  "uid": "U017",
-  "scene": 7,
-  "title": "Part 7",
-  "art_theme": "sh4_7",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "Physicists have a wonderfully descriptive, almost humorous term for this horrifying process: spaghettification.",
-  "dur": 5.63,
-  "transition_in": "zigzag",
-  "prev": "",
-  "nxt": "Your body would be stretched into a thin, fragile thread of matter,",
   "frog_hint": false
  },
  {
@@ -604,11 +604,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "Your body would be stretched into a thin, fragile thread of matter,",
+  "text": "Physicists have a wonderfully descriptive, almost humorous term for this horrifying process: spaghettification.",
   "dur": 5.63,
-  "transition_in": "wave",
-  "prev": "Physicists have a wonderfully descriptive, almost humorous term for this horrifying process: spaghettification.",
-  "nxt": "pulled apart cell by cell, long before your boots touched the horizon.",
+  "transition_in": "seam",
+  "prev": "",
+  "nxt": "Your body would be stretched into a thin, fragile thread of matter,",
   "frog_hint": true
  },
  {
@@ -638,18 +638,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "pulled apart cell by cell, long before your boots touched the horizon.",
+  "text": "Your body would be stretched into a thin, fragile thread of matter,",
   "dur": 5.63,
-  "transition_in": "zigzag",
-  "prev": "Your body would be stretched into a thin, fragile thread of matter,",
-  "nxt": "",
+  "transition_in": "diamond",
+  "prev": "Physicists have a wonderfully descriptive, almost humorous term for this horrifying process: spaghettification.",
+  "nxt": "pulled apart cell by cell, long before your boots touched the horizon.",
   "frog_hint": false
  },
  {
   "uid": "U020",
-  "scene": 8,
-  "title": "Part 8",
-  "art_theme": "sh4_8",
+  "scene": 7,
+  "title": "Part 7",
+  "art_theme": "sh4_7",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -672,11 +672,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "Now swap in a supermassive black hole. At its horizon the ride is gentle.",
-  "dur": 6.8,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "But as you draw near the central singularity, the gravitational field lines converge with absolute brutality.",
+  "text": "pulled apart cell by cell, long before your boots touched the horizon.",
+  "dur": 5.63,
+  "transition_in": "seam",
+  "prev": "Your body would be stretched into a thin, fragile thread of matter,",
+  "nxt": "",
   "frog_hint": true
  },
  {
@@ -706,15 +706,49 @@
     "#ff7a5a"
    ]
   },
-  "text": "But as you draw near the central singularity, the gravitational field lines converge with absolute brutality.",
+  "text": "Now swap in a supermassive black hole. At its horizon the ride is gentle.",
   "dur": 6.8,
-  "transition_in": "diamond",
-  "prev": "Now swap in a supermassive black hole. At its horizon the ride is gentle.",
-  "nxt": "",
+  "transition_in": "zigzag",
+  "prev": "",
+  "nxt": "But as you draw near the central singularity, the gravitational field lines converge with absolute brutality.",
   "frog_hint": false
  },
  {
   "uid": "U022",
+  "scene": 8,
+  "title": "Part 8",
+  "art_theme": "sh4_8",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
+  "text": "But as you draw near the central singularity, the gravitational field lines converge with absolute brutality.",
+  "dur": 6.8,
+  "transition_in": "whip",
+  "prev": "Now swap in a supermassive black hole. At its horizon the ride is gentle.",
+  "nxt": "",
+  "frog_hint": true
+ },
+ {
+  "uid": "U023",
   "scene": 9,
   "title": "Part 9",
   "art_theme": "sh4_9",
@@ -742,43 +776,9 @@
   },
   "text": "The tidal forces that were harmless at the horizon grow rapidly stronger with every millimeter you fall.",
   "dur": 6.99,
-  "transition_in": "push",
+  "transition_in": "page",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
- },
- {
-  "uid": "U023",
-  "scene": 10,
-  "title": "Part 10",
-  "art_theme": "sh4_10",
-  "bg": "night",
-  "pal": {
-   "palette": "deepfield",
-   "paper_base": "#e2e5ee",
-   "paper_ink": "#12182c",
-   "night_top": "#02030c",
-   "night_bottom": "#0a1030",
-   "night_line": "#e6ecff",
-   "night_glow": "#ffc65a",
-   "dusk_stops": [
-    "#f3dcb0",
-    "#6f78c8",
-    "#161c52"
-   ],
-   "dusk_ink": "#12182c",
-   "accents": [
-    "#ffc65a",
-    "#6f8cff",
-    "#d6e4ff",
-    "#ff7a5a"
-   ]
-  },
-  "text": "First, you feel a faint, persistent tension stretching your spine,",
-  "dur": 4.93,
-  "transition_in": "fade",
-  "prev": "",
-  "nxt": "as if someone were pulling your boots while holding your shoulders.",
   "frog_hint": false
  },
  {
@@ -808,11 +808,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "as if someone were pulling your boots while holding your shoulders.",
+  "text": "First, you feel a faint, persistent tension stretching your spine,",
   "dur": 4.93,
-  "transition_in": "whip",
-  "prev": "First, you feel a faint, persistent tension stretching your spine,",
-  "nxt": "Within fractions of a second, that gentle tug turns into an irresistible, tearing force.",
+  "transition_in": "wave",
+  "prev": "",
+  "nxt": "as if someone were pulling your boots while holding your shoulders.",
   "frog_hint": true
  },
  {
@@ -842,18 +842,18 @@
     "#ff7a5a"
    ]
   },
-  "text": "Within fractions of a second, that gentle tug turns into an irresistible, tearing force.",
+  "text": "as if someone were pulling your boots while holding your shoulders.",
   "dur": 4.93,
-  "transition_in": "tilt",
-  "prev": "as if someone were pulling your boots while holding your shoulders.",
-  "nxt": "",
+  "transition_in": "iris",
+  "prev": "First, you feel a faint, persistent tension stretching your spine,",
+  "nxt": "Within fractions of a second, that gentle tug turns into an irresistible, tearing force.",
   "frog_hint": false
  },
  {
   "uid": "U026",
-  "scene": 11,
-  "title": "Part 11",
-  "art_theme": "sh4_11",
+  "scene": 10,
+  "title": "Part 10",
+  "art_theme": "sh4_10",
   "bg": "night",
   "pal": {
    "palette": "deepfield",
@@ -876,11 +876,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "The difference in gravitational acceleration between the top of your head",
-  "dur": 5.4,
-  "transition_in": "page",
-  "prev": "",
-  "nxt": "and the soles of your feet spikes into thousands of gravities, then millions.",
+  "text": "Within fractions of a second, that gentle tug turns into an irresistible, tearing force.",
+  "dur": 4.93,
+  "transition_in": "zigzag",
+  "prev": "as if someone were pulling your boots while holding your shoulders.",
+  "nxt": "",
   "frog_hint": true
  },
  {
@@ -910,11 +910,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "and the soles of your feet spikes into thousands of gravities, then millions.",
+  "text": "The difference in gravitational acceleration between the top of your head",
   "dur": 5.4,
-  "transition_in": "iris",
-  "prev": "The difference in gravitational acceleration between the top of your head",
-  "nxt": "Your spacesuit is shredded, the bonds between your molecules are pulled apart,",
+  "transition_in": "tilt",
+  "prev": "",
+  "nxt": "and the soles of your feet spikes into thousands of gravities, then millions.",
   "frog_hint": false
  },
  {
@@ -944,11 +944,11 @@
     "#ff7a5a"
    ]
   },
-  "text": "Your spacesuit is shredded, the bonds between your molecules are pulled apart,",
+  "text": "and the soles of your feet spikes into thousands of gravities, then millions.",
   "dur": 5.4,
-  "transition_in": "wipe",
-  "prev": "and the soles of your feet spikes into thousands of gravities, then millions.",
-  "nxt": "and finally, the very atoms of your body are stretched into long, thin ribbons of matter.",
+  "transition_in": "slide",
+  "prev": "The difference in gravitational acceleration between the top of your head",
+  "nxt": "Your spacesuit is shredded, the bonds between your molecules are pulled apart,",
   "frog_hint": true
  },
  {
@@ -978,11 +978,45 @@
     "#ff7a5a"
    ]
   },
+  "text": "Your spacesuit is shredded, the bonds between your molecules are pulled apart,",
+  "dur": 5.4,
+  "transition_in": "fade",
+  "prev": "and the soles of your feet spikes into thousands of gravities, then millions.",
+  "nxt": "and finally, the very atoms of your body are stretched into long, thin ribbons of matter.",
+  "frog_hint": false
+ },
+ {
+  "uid": "U030",
+  "scene": 11,
+  "title": "Part 11",
+  "art_theme": "sh4_11",
+  "bg": "night",
+  "pal": {
+   "palette": "deepfield",
+   "paper_base": "#e2e5ee",
+   "paper_ink": "#12182c",
+   "night_top": "#02030c",
+   "night_bottom": "#0a1030",
+   "night_line": "#e6ecff",
+   "night_glow": "#ffc65a",
+   "dusk_stops": [
+    "#f3dcb0",
+    "#6f78c8",
+    "#161c52"
+   ],
+   "dusk_ink": "#12182c",
+   "accents": [
+    "#ffc65a",
+    "#6f8cff",
+    "#d6e4ff",
+    "#ff7a5a"
+   ]
+  },
   "text": "and finally, the very atoms of your body are stretched into long, thin ribbons of matter.",
   "dur": 5.4,
-  "transition_in": "wash",
+  "transition_in": "match",
   "prev": "Your spacesuit is shredded, the bonds between your molecules are pulled apart,",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  }
 ]

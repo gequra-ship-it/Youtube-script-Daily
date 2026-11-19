@@ -1,19 +1,39 @@
 {
- "centre": "tiny astronaut tumbling down a dotted path toward a small, quiet black hole in a wide star field",
+ "centre": "dark centre at the bottom of a very steep warped grid with a small astronaut and a two-metre bracket",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "name",
-   "text": "Small black hole",
-   "x": 720,
-   "y": 1390,
-   "to": [
-    575,
-    1280
-   ],
-   "word": "small black hole"
+   "type": "num",
+   "text": "2 M",
+   "word": "two meters"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "zerogroll"
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "ride": "mv-path-fall-astronaut",
+  "kind": "ride",
+  "x": 670,
+  "y": 674,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Wheee...",
+    "shout": false
+   }
+  ]
+ }
 }

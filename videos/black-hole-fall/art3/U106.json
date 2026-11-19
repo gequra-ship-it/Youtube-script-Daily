@@ -1,55 +1,41 @@
 {
- "centre": "three glass display cases: a lattice of atoms, a DNA double helix, and a glowing brain with firing sparks and floating memory photos",
+ "centre": "wide field: the astronaut drifts toward a far black hole with a tall glowing stack of books strapped on the back, one page slipping away",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "DNA",
-   "x": 960,
-   "y": 860,
+   "text": "Information",
+   "x": 330,
+   "y": 200,
    "to": [
-    960,
-    740
+    560,
+    290
    ],
-   "word": "DNA"
-  },
-  {
-   "type": "name",
-   "text": "Memories",
-   "x": 1500,
-   "y": 205,
-   "to": [
-    1440,
-    280
-   ],
-   "word": "memories"
+   "word": "information"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "surprised"
    }
   ],
-  "act": {
-   "type": "countfingers"
-  },
-  "ride": "mv-core-sway-dna-helix",
-  "kind": "ride",
-  "x": 1078,
-  "y": 760,
+  "act": "look",
+  "x": 818,
+  "y": 590,
   "s": 0.95,
   "flip": -1,
+  "kind": "bg",
+  "ride": null,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "headband"
+   "cap"
   ],
   "says": [
    {
-    "text": "One... two...",
+    "text": "Whoa...",
     "shout": false
    }
   ]

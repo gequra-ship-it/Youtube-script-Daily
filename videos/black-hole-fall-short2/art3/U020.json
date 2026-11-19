@@ -1,18 +1,43 @@
 {
- "centre": "you, floating and puzzled with arms out, above the huge quiet black hole; the mother ship far away",
+ "centre": "a timeline road whose tick marks bunch up ever closer toward the horizon line; your marker slows and never reaches it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Wait, what?",
+   "type": "name",
+   "text": "Their timeline",
    "x": 790,
-   "y": 690,
+   "y": 980,
    "to": [
-    575,
-    840
-   ]
+    600,
+    980
+   ],
+   "word": "their timeline"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "scope",
+  "ride": "mv-path-astronaut-marker",
+  "kind": "ride",
+  "x": 436,
+  "y": 1325,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "I see it!",
+    "shout": false
+   }
+  ]
+ }
 }

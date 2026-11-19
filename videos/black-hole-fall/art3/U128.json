@@ -1,18 +1,31 @@
 {
- "centre": "the friend on the mother ship deck looks through a telescope; the dashed sight line stops dead at the black hole's thin glowing horizon marked with one-way chevrons",
+ "centre": "a huge round steel vault door with a wheel handle set into a dark wall",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Nothing gets out.",
-   "x": 640,
-   "y": 380,
-   "to": [
-    420,
-    470
-   ]
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "starcatch"
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "x": 260,
+  "y": 780,
+  "s": 0.85,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Gotcha!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

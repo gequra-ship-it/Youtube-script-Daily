@@ -1,32 +1,43 @@
 {
- "centre": "you stepping over a thin dotted coordinate line; a one-way ratchet wheel turning beside it",
- "focus": [
-  960,
-  760,
-  1.6
+ "centre": "you drifting calmly across the thin glowing dashed edge of the dark horizon, unharmed",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Point of no return",
+   "x": 1050,
+   "y": 230,
+   "to": [
+    1300,
+    330
+   ],
+   "word": "point of no return"
+  }
  ],
- "focus_word": "boots",
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "float",
-  "outfit": [
-   "helmet",
-   "patch"
-  ],
-  "x": 707,
-  "y": 716,
+  "act": "look",
+  "ride": "mv-path-drift-astronaut-u073",
+  "kind": "ride",
+  "x": 928,
+  "y": 611,
   "s": 0.95,
   "flip": 1,
-  "kind": "bg",
-  "ride": null,
-  "bside": -1,
+  "bside": 1,
   "gaze": 1,
-  "says": []
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": false
+   }
+  ]
  }
 }

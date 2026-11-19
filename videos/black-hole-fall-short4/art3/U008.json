@@ -1,30 +1,45 @@
 {
- "centre": "diagram board: astronaut standing feet-down toward a small black hole icon, long gold pull arrow at the feet, short blue one at the head",
+ "centre": "astronaut falling feet-first with gravity arrows that grow longer toward the feet",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Feet",
-   "x": 250,
-   "y": 1110,
+   "text": "feet",
+   "x": 800,
+   "y": 1190,
    "to": [
-    430,
-    1010
+    600,
+    1170
    ],
    "word": "feet"
-  },
-  {
-   "type": "name",
-   "text": "Head",
-   "x": 250,
-   "y": 400,
-   "to": [
-    430,
-    510
-   ],
-   "word": "head"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "ride": "mv-path-fall-astronaut",
+  "kind": "ride",
+  "x": 388,
+  "y": 819,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Pulling...",
+    "shout": false
+   }
+  ]
+ }
 }

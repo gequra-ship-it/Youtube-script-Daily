@@ -1,19 +1,48 @@
 {
- "centre": "you choosing the giant supermassive black hole over a tiny stellar-mass one",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "you floating feet first toward the hole: a long coral arrow pulls the feet, a short gold arrow the head, a bracket marks two metres",
+ "focus": [
+  1380,
+  560,
+  1.5
+ ],
+ "focus_word": "two meters",
  "labels": [
   {
-   "type": "name",
-   "text": "supermassive black hole",
-   "x": 1000,
-   "y": 140,
-   "to": [
-    1135,
-    295
-   ],
-   "word": "supermassive black hole"
+   "type": "num",
+   "text": "2 M",
+   "word": "two meters"
   }
- ]
+ ],
+ "spot": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "slide",
+   "to": [
+    960,
+    576
+   ]
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "x": 384,
+  "y": 360,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "Whoa-oa!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

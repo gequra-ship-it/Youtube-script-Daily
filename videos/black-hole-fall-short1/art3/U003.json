@@ -1,11 +1,35 @@
 {
- "centre": "dark circle with stretched starlight arcs and mirrored star copies around it (gravitational lensing illusion)",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
- "iris": [
-  300,
-  470
- ]
+ "centre": "view from inside your helmet: starfield with an empty dark patch inside the visor's target brackets, nothing visible there",
+ "focus": [
+  540,
+  820,
+  1.6
+ ],
+ "focus_word": "cannot see the black hole",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "countstars"
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 260,
+  "y": 840,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "So many...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }
