@@ -1,30 +1,30 @@
 {
- "centre": "an architect in a grey vest points at a tower; a measuring tape rises from the foundation (cut-away below ground) to the tip of the spire",
+ "centre": "cut-away: Everest on a high continental plateau vs a broad volcano rising from the deep seafloor; a golden crown flies from Everest to the volcano",
  "focus": null,
- "labels": [
-  {
-   "type": "name",
-   "text": "Foundation",
-   "x": 900,
-   "y": 840,
-   "to": [
-    1180,
-    780
-   ],
-   "word": "foundation"
-  },
-  {
-   "type": "name",
-   "text": "Spire",
-   "x": 1100,
-   "y": 170,
-   "to": [
-    1318,
-    160
-   ],
-   "word": "spire"
-  }
- ],
  "focus_word": null,
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "starry"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-crown",
+  "kind": "ride",
+  "x": 518,
+  "y": 228,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Off we go!",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,32 +1,30 @@
 {
- "centre": "a glowing blue Earth with a small peak on its equator reaching toward a star",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "a cut-away shield volcano built from many stacked lava layers",
+ "focus": [
+  540,
+  1050,
+  1.6
+ ],
+ "focus_word": "Layer after layer",
  "frog": {
   "moods": [
    {
-    "mood": "chilly"
+    "mood": "surprised"
    }
   ],
-  "act": "shiver",
+  "act": {
+   "type": "leanback"
+  },
+  "x": 260,
+  "y": 640,
+  "s": 1.16,
+  "flip": 1,
+  "kind": "bg",
   "outfit": [
-   "helmet"
+   "scarf",
+   "explorer"
   ],
-  "ride": "mv-core-approach-globe",
-  "kind": "ride",
-  "x": 834,
-  "y": 1070,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "Brrrr...",
-    "shout": false
-   }
-  ]
+  "says": [],
+  "bside": 1
  }
 }

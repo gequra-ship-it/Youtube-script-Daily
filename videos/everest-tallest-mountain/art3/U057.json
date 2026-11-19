@@ -2,7 +2,6 @@
  "centre": "a perfect circle outline morphing into a slightly flattened bulging ellipse (oblate Earth)",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -15,5 +14,31 @@
    ],
    "word": "oblate spheroid"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-core-glide-earth-spheroid",
+  "kind": "ride",
+  "x": 1248,
+  "y": 685,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Gulp.",
+    "shout": false
+   }
+  ]
+ }
 }

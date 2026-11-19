@@ -1,24 +1,31 @@
 {
- "centre": "a climber in an orange down suit and goggles on a fixed rope high on an icy ridge, the thin dark death zone above",
+ "centre": "climbing boots on a snowy ledge above a cut-away of rock layers, one layer hiding a softly glowing fossil",
  "focus": [
-  500,
-  900,
-  1.5
+  540,
+  1040,
+  1.6
  ],
- "focus_word": "death zone",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Death zone",
-   "x": 300,
-   "y": 480,
-   "to": [
-    300,
-    600
-   ],
-   "word": "death zone"
-  }
- ],
- "motion": "the climber breathes slowly (scaleY) on the rope"
+ "focus_word": "holds a secret",
+ "motion": "the hidden fossil glows softly (glint)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "x": 820,
+  "y": 1560,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

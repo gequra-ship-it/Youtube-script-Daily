@@ -1,30 +1,44 @@
 {
- "centre": "a white cue ball rolling across a table floating in space into a gold ball that then moves: cause before effect",
+ "centre": "a broken golden timeline in space with clocks, arrows and pieces of events flying apart into chaos",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "cause",
-   "x": 500,
-   "y": 450,
+   "text": "chaos",
+   "x": 960,
+   "y": 780,
    "to": [
-    500,
+    1010,
     640
    ],
-   "word": "cause"
-  },
-  {
-   "type": "name",
-   "text": "effect",
-   "x": 1330,
-   "y": 450,
-   "to": [
-    1180,
-    640
-   ],
-   "word": "effect"
+   "word": "chaos"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "pushoff",
+   "dist": 461
+  },
+  "outfit": [
+   "helmet"
+  ],
+  "x": 260,
+  "y": 780,
+  "s": 0.85,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Push off!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

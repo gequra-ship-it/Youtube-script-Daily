@@ -1,51 +1,22 @@
 {
- "centre": "Earth on the left and the small Moon far to the right, a dotted distance line between them with a light pulse travelling along it",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "the observer's hand holding a laser pointer up toward a big full Moon, a beam of separate red photons ending in a bright red dot on the lunar surface",
+ "focus": [
+  1380,
+  360,
+  1.8
+ ],
+ "focus_word": "bright red dot",
  "labels": [
   {
-   "type": "num",
-   "text": "380,000 KM",
-   "word": "380,000"
-  },
-  {
    "type": "name",
-   "text": "Moon",
-   "x": 1540,
-   "y": 300,
+   "text": "red dot",
+   "x": 1220,
+   "y": 250,
    "to": [
-    1540,
-    430
+    1372,
+    354
    ],
-   "word": "Moon"
+   "word": "red dot"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": {
-   "type": "countstars"
-  },
-  "ride": "mv-path-light-pulse",
-  "kind": "ride",
-  "x": 672,
-  "y": 504,
-  "s": 0.95,
-  "flip": 1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "headband"
-  ],
-  "says": [
-   {
-    "text": "Countless...",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

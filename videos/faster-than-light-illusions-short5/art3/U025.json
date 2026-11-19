@@ -1,17 +1,27 @@
 {
- "centre": "a long rail of tick marks running to a far galaxy, a slow photon on the rail and another galaxy racing ahead of it",
+ "centre": "a galaxy sending a wave across the frame that turns from blue to gold to red as its waves stretch longer",
  "focus": [
   540,
-  760,
-  1.5
+  860,
+  1.4
  ],
- "focus_word": "billions of light-years",
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "BILLIONS OF LIGHT-YEARS",
-   "word": "billions"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 260,
+  "y": 1040,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
 }

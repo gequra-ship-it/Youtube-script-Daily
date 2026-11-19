@@ -1,19 +1,40 @@
 {
- "centre": "two distant particles joined by a wavy ghostly veil, a small friendly ghost rising between them",
+ "centre": "a photon crawling slowly down a long dashed road from Earth toward Saturn, while the entangled link is lit at once",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Spooky!",
-   "x": 760,
-   "y": 640,
+   "type": "name",
+   "text": "light",
+   "x": 470,
+   "y": 520,
    "to": [
-    600,
-    760
+    330,
+    515
    ],
-   "word": "spooky"
+   "word": "light"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-core-glide-saturn",
+  "kind": "ride",
+  "x": 934,
+  "y": 1183,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": []
+ }
 }

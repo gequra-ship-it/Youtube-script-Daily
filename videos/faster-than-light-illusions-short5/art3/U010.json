@@ -1,41 +1,38 @@
 {
- "centre": "one huge spiral galaxy filling the frame, packed with countless glittering stars",
- "sfx": [],
+ "centre": "a speed dial whose needle swings past the gold light-speed marker into the red zone",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "299,792",
  "labels": [
   {
-   "type": "name",
-   "text": "Galaxy",
-   "x": 220,
-   "y": 520,
-   "to": [
-    380,
-    700
-   ],
-   "word": "galaxy"
+   "type": "num",
+   "text": "299,792 KM/S",
+   "word": "299,792"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "squint"
    }
   ],
-  "act": "write",
+  "act": {
+   "type": "leanback"
+  },
+  "ride": "mv-path-slide-galaxy",
+  "kind": "ride",
+  "x": 311,
+  "y": 1256,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "helmet",
-   "patch"
+   "beanie"
   ],
-  "x": 820,
-  "y": 1280,
-  "s": 0.99,
-  "flip": -1,
-  "kind": "bg",
-  "says": [
-   {
-    "text": "Noted!",
-    "shout": false
-   }
-  ],
-  "bside": -1
+  "says": []
  }
 }

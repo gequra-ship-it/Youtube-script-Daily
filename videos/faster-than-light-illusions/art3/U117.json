@@ -1,51 +1,22 @@
 {
- "centre": "a row of galaxy-beacons on a dark cosmic sea, bright and large near us; the far ones dim out one by one",
+ "centre": "three galaxies huddled in a small pool of light, a dwarf galaxy orbiting; everything else around fades into black",
  "focus": [
-  1340,
-  450,
-  1.8
+  940,
+  520,
+  1.6
  ],
- "focus_word": "distant beacons",
- "sfx": [],
+ "focus_word": "local group",
  "labels": [
   {
    "type": "name",
-   "text": "Beacons",
-   "x": 1190,
-   "y": 320,
+   "text": "Local Group",
+   "x": 960,
+   "y": 310,
    "to": [
-    1340,
+    1000,
     420
    ],
-   "word": "beacons"
+   "word": "local group"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "happy"
-   }
-  ],
-  "act": {
-   "type": "tiptoe",
-   "dist": 576
-  },
-  "x": 1660,
-  "y": 890,
-  "s": 0.88,
-  "flip": -1,
-  "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "outfit": [
-   "headband"
-  ],
-  "says": [
-   {
-    "text": "Shh...",
-    "shout": false
-   }
-  ],
-  "bside": -1
- }
+ ]
 }

@@ -1,41 +1,57 @@
 {
- "centre": "side profile of Everest above a dashed sea-level line, a gold altitude bar growing to the summit height, a small plane passing high above",
+ "centre": "magnifying lens over the yellow-brown limestone band of Everest's summit pyramid, showing an ammonite, a crinoid and a shell",
  "focus": [
-  1250,
-  360,
-  1.5
+  1000,
+  490,
+  1.6
  ],
- "focus_word": "8,848 meters",
+ "focus_word": "marine fossils",
  "labels": [
   {
-   "type": "num",
-   "text": "8,848 M",
-   "word": "8,848 meters"
+   "type": "name",
+   "text": "Limestone",
+   "x": 640,
+   "y": 380,
+   "to": [
+    700,
+    470
+   ],
+   "word": "limestone"
+  },
+  {
+   "type": "name",
+   "text": "Marine fossils",
+   "x": 1330,
+   "y": 340,
+   "to": [
+    1060,
+    440
+   ],
+   "word": "marine fossils"
   }
  ],
- "sfx": [],
  "frog": {
   "moods": [
    {
     "mood": "chilly"
    }
   ],
-  "act": "shiver",
+  "act": "lean",
   "outfit": [
    "goggles",
-   "scarf"
+   "raincoat"
   ],
-  "ride": "mv-path-plane",
+  "ride": "mv-core-approach-lens",
   "kind": "ride",
-  "x": 415,
-  "y": 228,
+  "x": 1238,
+  "y": 690,
   "s": 0.95,
-  "flip": 1,
+  "flip": -1,
   "bside": 1,
   "gaze": 1,
   "says": [
    {
-    "text": "Eek...",
+    "text": "Steady...",
     "shout": false
    }
   ]

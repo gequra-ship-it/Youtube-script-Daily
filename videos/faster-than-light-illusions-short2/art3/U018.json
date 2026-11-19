@@ -1,23 +1,43 @@
 {
- "centre": "geometry diagram on a dark board: two blade edges meeting at a tiny angle, with a magnified inset of that angle",
- "focus": [
-  330,
-  900,
-  1.5
- ],
- "focus_word": "infinitesimally small",
- "sfx": [],
+ "centre": "close view of two long blades crossing; the glowing point where the edges meet slides outward along them",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "angle",
-   "x": 330,
-   "y": 640,
+   "text": "intersect",
+   "x": 800,
+   "y": 1260,
    "to": [
-    330,
-    900
+    560,
+    1220
    ],
-   "word": "angle"
+   "word": "intersect"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-cut-point",
+  "kind": "ride",
+  "x": 426,
+  "y": 1290,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

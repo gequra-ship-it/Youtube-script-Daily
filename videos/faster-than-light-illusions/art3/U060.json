@@ -1,23 +1,34 @@
 {
- "centre": "an eerie blue-glowing reactor pool seen from above, golden fuel rods shining under the water",
+ "centre": "a jet streaking across a night sky trailing a golden shock-wave cone, houses below shaking",
  "focus": [
   960,
-  540,
+  420,
   1.5
  ],
- "focus_word": "Cherenkov radiation",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Cherenkov radiation",
-   "x": 1250,
-   "y": 330,
-   "to": [
-    1150,
-    520
-   ],
-   "word": "Cherenkov radiation"
-  }
- ]
+ "focus_word": "aircraft",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-path-fly-jet",
+  "kind": "ride",
+  "x": 904,
+  "y": 335,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "headphones",
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Zoooom!",
+    "shout": true
+   }
+  ]
+ }
 }

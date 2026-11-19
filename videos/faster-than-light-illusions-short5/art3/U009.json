@@ -1,5 +1,40 @@
 {
- "centre": "a rocket climbing a straight road that ends at a glowing gold line, nothing passes it",
- "sfx": [],
- "labels": []
+ "centre": "one huge spiral galaxy filling the frame, packed with countless glittering stars",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Galaxy",
+   "x": 220,
+   "y": 520,
+   "to": [
+    380,
+    700
+   ],
+   "word": "galaxy"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "write",
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 260,
+  "y": 1280,
+  "s": 1.21,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Noted!",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

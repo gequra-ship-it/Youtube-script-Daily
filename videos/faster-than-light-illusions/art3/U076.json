@@ -1,30 +1,48 @@
 {
- "centre": "a wave train with a sharp bright front edge travelling right side by side with a gold photon at c, never passing it, above a ruler road with a limit post",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a door standing open in deep space, warm light and a fuzzy cloud of glowing quantum dots inside; faded waves drift away on the left",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "quantum mechanics",
  "labels": [
   {
    "type": "name",
-   "text": "front of the wave",
-   "x": 560,
+   "text": "quantum mechanics",
+   "x": 1400,
    "y": 300,
    "to": [
-    760,
+    1060,
     420
    ],
-   "word": "front of the wave"
-  },
-  {
-   "type": "name",
-   "text": "c",
-   "x": 900,
-   "y": 680,
-   "to": [
-    790,
-    540
-   ],
-   "word": "outruns c"
+   "word": "quantum mechanics"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "cupshout"
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "x": 1660,
+  "y": 620,
+  "s": 0.77,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Anyone out there?",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

@@ -1,13 +1,54 @@
 {
- "centre": "a giant speed dial in space with its needle quivering at the very top end, a light streak behind it",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "an old open physics book on a lectern under an arched starry window, a glowing round speed-limit emblem with a photon above it",
+ "focus": [
+  960,
+  340,
+  1.6
+ ],
+ "focus_word": "strict cosmic rule",
  "labels": [
   {
-   "type": "num",
-   "text": "299,792 KM/S",
-   "word": "299,792"
+   "type": "name",
+   "text": "modern physics",
+   "x": 660,
+   "y": 520,
+   "to": [
+    860,
+    600
+   ],
+   "word": "modern physics"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "knocked",
+   "obj": "mv-pendulum-pocket-watch-cord"
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1466,
+  "y": 694,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   }
+  ]
+ }
 }

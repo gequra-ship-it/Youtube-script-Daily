@@ -1,37 +1,53 @@
 {
- "centre": "a magnifying glass over a shadow on a lit floor: photons land everywhere except in the dark region",
- "focus": [
-  560,
-  880,
-  1.6
+ "centre": "a race up two lanes: a photon of light against a dark shadow patch moving through a lit lane toward a finish line",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
+ "labels": [
+  {
+   "type": "name",
+   "text": "darkness",
+   "x": 750,
+   "y": 1180,
+   "to": [
+    750,
+    1290
+   ],
+   "word": "darkness"
+  },
+  {
+   "type": "name",
+   "text": "light",
+   "x": 330,
+   "y": 1180,
+   "to": [
+    330,
+    1295
+   ],
+   "word": "light"
+  }
  ],
- "focus_word": "what a shadow actually is",
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "squint"
    }
   ],
   "act": {
-   "type": "countstars"
+   "type": "leanback"
   },
-  "ride": "mv-core-glide-magnifier-lens",
-  "kind": "ride",
-  "x": 724,
-  "y": 1041,
-  "s": 1.44,
-  "flip": -1,
-  "bside": -1,
   "outfit": [
-   "bowtie"
+   "helmet",
+   "goldvisor"
   ],
-  "says": [
-   {
-    "text": "So many...",
-    "shout": false
-   }
-  ]
+  "ride": "mv-path-photon",
+  "kind": "ride",
+  "x": 444,
+  "y": 1402,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
  }
 }

@@ -1,8 +1,45 @@
 {
- "centre": "a whole loaf of raisin bread with one raisin at each far end and a long red bracket spanning all the dough between",
+ "centre": "a big raisin with eyes on the left watching a small distant raisin zip away to the right with speed streaks",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "track": false
+ "labels": [
+  {
+   "type": "say",
+   "text": "So fast!",
+   "x": 780,
+   "y": 370,
+   "to": [
+    540,
+    590
+   ],
+   "word": "tremendous speed"
+  }
+ ],
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-path-receding-raisin",
+  "kind": "ride",
+  "x": 1306,
+  "y": 583,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "aviator",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
 }

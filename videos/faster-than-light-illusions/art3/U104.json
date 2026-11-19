@@ -1,23 +1,48 @@
 {
- "centre": "a raisin-bread loaf rising inside the glowing window of a kitchen oven",
+ "centre": "two raisins close together in a slice of dough, a small bracket between them slowly widening",
  "focus": [
   960,
-  570,
-  1.6
+  540,
+  1.8
  ],
- "focus_word": "raisin bread",
- "sfx": [],
+ "focus_word": "close together",
  "labels": [
   {
    "type": "name",
-   "text": "Raisin bread",
-   "x": 1290,
-   "y": 400,
+   "text": "Raisins",
+   "x": 960,
+   "y": 300,
    "to": [
-    1100,
-    560
+    880,
+    490
    ],
-   "word": "raisin bread"
+   "word": "raisins"
   }
- ]
+ ],
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "scope",
+  "ride": "mv-path-right-raisin",
+  "kind": "ride",
+  "x": 929,
+  "y": 590,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "There!",
+    "shout": false
+   }
+  ]
+ }
 }

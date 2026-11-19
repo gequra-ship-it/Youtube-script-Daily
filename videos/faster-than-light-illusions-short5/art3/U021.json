@@ -1,17 +1,47 @@
 {
- "centre": "a raisin bread slice on top linked by dotted lines to galaxies spread on a glowing cosmic patch below",
- "sfx": [],
+ "centre": "a calm galaxy sitting still in a big void with a faded dotted ghost of a rocket engine behind it",
+ "focus": [
+  420,
+  860,
+  1.5
+ ],
+ "focus_word": "unfathomable engine",
  "labels": [
   {
    "type": "name",
-   "text": "Galaxies",
-   "x": 840,
-   "y": 1010,
+   "text": "Engine",
+   "x": 300,
+   "y": 640,
    "to": [
-    700,
-    1120
+    330,
+    790
    ],
-   "word": "galaxies"
+   "word": "engine"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "wind",
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-core-glide-calm-galaxy",
+  "kind": "ride",
+  "x": 771,
+  "y": 640,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Zoooom!",
+    "shout": true
+   }
+  ]
+ }
 }

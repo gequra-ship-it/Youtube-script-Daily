@@ -1,19 +1,41 @@
 {
- "centre": "the far blade tips waiting motionless near Mars while a calendar page flips below: more than a year must pass",
+ "centre": "a photon streaking across the top lane while a snail carrying a sound wave creeps along the steel blade below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "track": false,
  "labels": [
   {
    "type": "name",
-   "text": "tips",
-   "x": 420,
-   "y": 470,
+   "text": "light",
+   "x": 540,
+   "y": 620,
    "to": [
-    610,
-    540
+    540,
+    720
    ],
-   "word": "tips"
+   "word": "light"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-path-photon",
+  "kind": "ride",
+  "x": 144,
+  "y": 693,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": []
+ }
 }

@@ -1,19 +1,48 @@
 {
- "centre": "the observer in dark blue pyjamas standing on a flat city rooftop at night, looking up at the big full Moon",
+ "centre": "Earth on the left and the small Moon far to the right, a dotted distance line between them with a light pulse travelling along it",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
+   "type": "num",
+   "text": "380,000 KM",
+   "word": "380,000"
+  },
+  {
    "type": "name",
-   "text": "full Moon",
-   "x": 1000,
-   "y": 160,
+   "text": "Moon",
+   "x": 1540,
+   "y": 300,
    "to": [
-    1210,
-    250
+    1540,
+    430
    ],
-   "word": "full Moon"
+   "word": "Moon"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "write",
+  "ride": "mv-path-light-pulse",
+  "kind": "ride",
+  "x": 672,
+  "y": 504,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Noted!",
+    "shout": false
+   }
+  ]
+ }
 }

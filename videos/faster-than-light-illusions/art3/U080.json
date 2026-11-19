@@ -1,19 +1,52 @@
 {
- "centre": "two particles far apart across a starfield, linked by a faint dotted thread; the blue one drifts even farther away",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a glowing gold particle kept in a glass bell jar on a lab bench; the physicist points at it while its partner leaves in a small capsule toward the window",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "one particle on Earth",
+ "iris": [
+  520,
+  560
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "distance",
-   "x": 880,
-   "y": 700,
+   "text": "laboratory",
+   "x": 1180,
+   "y": 390,
    "to": [
-    880,
-    622
+    1040,
+    470
    ],
-   "word": "distance"
+   "word": "laboratory"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-path-launch-capsule",
+  "kind": "ride",
+  "x": 1114,
+  "y": 638,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
 }

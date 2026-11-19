@@ -1,44 +1,56 @@
 {
- "centre": "climbing boots on a snowy ledge above a cut-away of rock layers, one layer hiding a softly glowing fossil",
- "focus": [
-  540,
-  1040,
-  1.6
- ],
- "focus_word": "holds a secret",
- "sfx": [],
+ "centre": "a magnifying lens showing an ammonite, a shell and a crinoid from the yellow limestone band near the summit",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "say",
-   "text": "Psst, down here!",
-   "x": 540,
-   "y": 1230,
+   "type": "name",
+   "text": "Limestone",
+   "x": 820,
+   "y": 470,
    "to": [
-    540,
-    1120
-   ]
+    680,
+    570
+   ],
+   "word": "limestone"
+  },
+  {
+   "type": "name",
+   "text": "Marine fossils",
+   "x": 300,
+   "y": 1380,
+   "to": [
+    480,
+    1080
+   ],
+   "word": "marine fossils"
   }
  ],
- "motion": "the hidden fossil glows softly (glint)",
+ "motion": "the magnifier glides closer to show the fossils",
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "chilly"
    }
   ],
-  "act": {
-   "type": "pointfar"
-  },
-  "x": 820,
-  "y": 1560,
-  "s": 0.95,
-  "flip": -1,
-  "kind": "bg",
+  "act": "lean",
   "outfit": [
-   "scarf",
-   "sunglasses"
+   "goggles",
+   "scarf"
   ],
-  "says": [],
-  "bside": -1
+  "ride": "mv-core-approach-magnifier-lens",
+  "kind": "ride",
+  "x": 844,
+  "y": 1390,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
  }
 }

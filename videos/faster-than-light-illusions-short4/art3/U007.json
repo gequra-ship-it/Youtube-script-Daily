@@ -1,30 +1,47 @@
 {
- "centre": "diagram on a dark board: top particle with a spin-up arrow, bottom particle with a spin-down arrow",
+ "centre": "a soft cloud of probability dots, densest in the middle, with faint ghost copies of the particle",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "upward",
-   "x": 790,
-   "y": 520,
+   "text": "superposition",
+   "x": 540,
+   "y": 1270,
    "to": [
-    575,
-    520
+    540,
+    1080
    ],
-   "word": "upward"
-  },
-  {
-   "type": "name",
-   "text": "downward",
-   "x": 300,
-   "y": 1260,
-   "to": [
-    520,
-    1230
-   ],
-   "word": "downward"
+   "word": "superposition"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-probability-cloud"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 890,
+  "y": 1172,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
 }

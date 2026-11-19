@@ -1,11 +1,31 @@
 {
- "centre": "a small friendly ship flies along a wide glowing open lane and through a gate topped by a round speed-limit sign; the lane is guided by lamps, not blocked by walls",
- "focus": [
-  1250,
-  330,
-  1.6
- ],
- "focus_word": "obstacle",
- "sfx": [],
- "labels": []
+ "centre": "a blueprint board on which a cathedral-like lattice of arches draws itself, a small galaxy glowing inside each arch, a plumb bob hanging beside",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "balance",
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": "mv-swing-plumb-bob",
+  "kind": "ride",
+  "x": 1678,
+  "y": 364,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
 }

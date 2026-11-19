@@ -1,19 +1,53 @@
 {
- "centre": "a seashell sitting on the snowy summit above a sea of clouds",
+ "centre": "a map of an ancient sea: the India block drifting north toward the long Eurasian coast",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Wait, up here?",
+   "type": "name",
+   "text": "India",
    "x": 800,
-   "y": 760,
+   "y": 1220,
    "to": [
-    620,
-    860
-   ]
+    600,
+    1240
+   ],
+   "word": "India"
+  },
+  {
+   "type": "name",
+   "text": "Eurasia",
+   "x": 300,
+   "y": 430,
+   "to": [
+    400,
+    520
+   ],
+   "word": "Eurasia"
   }
  ],
- "motion": "the shell drifts gently on the summit (calm glide)"
+ "motion": "India travels north along a path until it meets Eurasia",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "ride": "mv-path-india-plate",
+  "kind": "ride",
+  "x": 386,
+  "y": 1420,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": []
+ }
 }

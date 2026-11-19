@@ -1,11 +1,43 @@
 {
- "centre": "close-up of the astronaut holding a glass capsule with the particle, Saturn reflected in the gold visor",
- "focus": [
-  540,
-  820,
-  1.5
+ "centre": "a heavy iron padlock hanging from the entangled link, swinging slightly: the rule is locked",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "No-Communication Theorem",
+   "x": 540,
+   "y": 1250,
+   "to": [
+    540,
+    1030
+   ],
+   "word": "No-Communication Theorem"
+  }
  ],
- "focus_word": "looking at their particle",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-swing-padlock",
+  "kind": "ride",
+  "x": 694,
+  "y": 1050,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Let me think.",
+    "shout": false
+   }
+  ]
+ }
 }

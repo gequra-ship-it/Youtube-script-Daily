@@ -1,54 +1,47 @@
 {
- "centre": "two raisins pinned to a stretching net of dough fibres, a red cross over an unused crawl path",
- "focus": [
-  540,
-  835,
-  1.5
- ],
- "focus_word": "crawling",
- "sfx": [],
+ "centre": "a raisin bread slice on top linked by dotted lines to galaxies spread on a glowing cosmic patch below",
  "labels": [
   {
    "type": "name",
-   "text": "Raisin",
-   "x": 270,
-   "y": 520,
+   "text": "Galaxies",
+   "x": 840,
+   "y": 1010,
    "to": [
-    255,
-    650
+    700,
+    1120
    ],
-   "word": "raisin"
+   "word": "galaxies"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "surprised"
    }
   ],
   "act": {
-   "type": "launched",
-   "obj": "mv-popin-no-crawl-cross",
-   "h": 70
+   "type": "slide",
+   "to": [
+    540,
+    1200
+   ]
   },
-  "ride": null,
-  "kind": "bg",
-  "x": 535,
-  "y": 870,
-  "s": 1.09,
-  "flip": 1,
-  "bside": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
   "outfit": [
-   "glasses"
+   "helmet",
+   "moonboots"
   ],
+  "kind": "bg",
+  "ride": null,
+  "x": 918,
+  "y": 1008,
+  "s": 1.15,
+  "flip": -1,
   "says": [
    {
-    "text": "Whoa!",
+    "text": "Wheee!",
     "shout": true
    }
-  ]
+  ],
+  "bside": -1
  }
 }

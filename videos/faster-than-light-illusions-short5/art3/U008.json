@@ -1,11 +1,34 @@
 {
- "centre": "a road toward a far galaxy blocked by a lowered striped barrier gate with a warning triangle",
- "focus": [
-  540,
-  880,
-  1.5
- ],
- "focus_word": "special relativity",
- "sfx": [],
- "labels": []
+ "centre": "a rocket climbing a straight road that ends at a glowing gold line, nothing passes it",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-path-climb-rocket",
+  "kind": "ride",
+  "x": 656,
+  "y": 1208,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
 }

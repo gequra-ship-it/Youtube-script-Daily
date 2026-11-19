@@ -1,23 +1,42 @@
 {
- "centre": "a magnifying lens over almost-closed scissors blades shows the tiny angle between the two edges",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "infinitesimally small",
- "sfx": [],
+ "centre": "almost-closed scissors across the frame: the meeting point races toward the tips while a photon on the lane below lags behind",
+ "focus": null,
+ "focus_word": null,
+ "track": false,
  "labels": [
   {
    "type": "name",
-   "text": "Angle",
-   "x": 760,
-   "y": 300,
+   "text": "Speed of light",
+   "x": 819,
+   "y": 840,
    "to": [
-    904,
-    500
+    605,
+    760
    ],
-   "word": "angle"
+   "word": "speed of light"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-path-race-cut-point",
+  "kind": "ride",
+  "x": 675,
+  "y": 598,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
 }

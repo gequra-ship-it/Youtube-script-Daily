@@ -1,7 +1,50 @@
 {
- "centre": "two raisins resting in a gridded slice of dough while a crossed-out little legged raisin shows nobody crawls",
+ "centre": "split frame: a raisin loaf on the left and a round patch of cosmos with galaxies on the right, linked by dotted arrows",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "labels": [
+  {
+   "type": "name",
+   "text": "Spacetime",
+   "x": 960,
+   "y": 250,
+   "to": [
+    480,
+    480
+   ],
+   "word": "spacetime"
+  }
+ ],
+ "track": false,
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "slide",
+   "to": [
+    960,
+    670
+   ]
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "x": 384,
+  "y": 454,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

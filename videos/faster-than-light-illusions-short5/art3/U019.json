@@ -1,7 +1,53 @@
 {
- "centre": "a big near raisin in the foreground watching a small far raisin streak away up and right",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "two raisins pinned to a stretching net of dough fibres, a red cross over an unused crawl path",
+ "focus": [
+  540,
+  835,
+  1.5
+ ],
+ "focus_word": "crawling",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Raisin",
+   "x": 270,
+   "y": 520,
+   "to": [
+    255,
+    650
+   ],
+   "word": "raisin"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-no-crawl-cross",
+   "h": 70
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 535,
+  "y": 870,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "bowler"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

@@ -1,19 +1,53 @@
 {
- "centre": "our home galaxy in the middle, billions of far galaxies scattered around and four sliding away",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a vertical line of galaxies at three distances, each with a longer arrow the farther it is",
+ "focus": [
+  600,
+  540,
+  1.7
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Billions of galaxies",
-   "x": 540,
-   "y": 440,
+   "text": "Galaxy",
+   "x": 760,
+   "y": 640,
    "to": [
-    270,
+    610,
     560
    ],
-   "word": "billions"
+   "word": "galaxy"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-tick-near",
+   "h": 0
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "x": 330,
+  "y": 1090,
+  "s": 1.09,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

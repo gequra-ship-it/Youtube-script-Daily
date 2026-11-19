@@ -1,29 +1,54 @@
 {
- "centre": "one big swell seen from the side; a small glowing ripple races from its back to its front, a new one appears behind and the front one fades",
+ "centre": "a two-lane race in space: a coral crest marker races ahead on the top lane, a glowing gold energy packet moves slower on the lower lane toward a chequered finish flag",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Wheee!",
-   "x": 760,
-   "y": 330,
+   "type": "name",
+   "text": "phase velocity",
+   "x": 480,
+   "y": 190,
    "to": [
-    700,
-    410
-   ]
+    600,
+    290
+   ],
+   "word": "phase velocity"
   },
   {
    "type": "name",
-   "text": "swell",
-   "x": 1500,
-   "y": 420,
+   "text": "group velocity",
+   "x": 470,
+   "y": 790,
    "to": [
-    1320,
-    640
+    520,
+    690
    ],
-   "word": "swell"
+   "word": "group velocity"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "Here is",
+    "mood": "confused"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "ride": "mv-path-energy-packet",
+  "kind": "ride",
+  "x": 652,
+  "y": 628,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": []
+ }
 }
