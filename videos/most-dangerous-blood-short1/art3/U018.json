@@ -1,45 +1,58 @@
 {
- "centre": "a surprised person shrugging, Y-shaped antibodies already floating around them, while the blood bag on the IV stand beside them has a no sign",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "microscope counting grid: rod-shaped bacteria carry little sugar chains that look just like the sugar markers on a red blood cell below; a dashed line links the matching sugars",
+ "focus": [
+  540,
+  1000,
+  1.5
+ ],
+ "focus_word": "similar sugars",
  "labels": [
   {
-   "type": "say",
-   "text": "Already here?",
-   "x": 590,
-   "y": 880,
+   "type": "name",
+   "text": "Bacteria",
+   "x": 300,
+   "y": 640,
    "to": [
-    395,
-    925
-   ]
+    300,
+    490
+   ],
+   "word": "bacteria"
+  },
+  {
+   "type": "name",
+   "text": "Similar sugars",
+   "x": 720,
+   "y": 900,
+   "to": [
+    560,
+    980
+   ],
+   "word": "similar sugars"
   }
  ],
- "motion": "the unused blood bag swings gently on its hook; the person's own antibodies float around them",
+ "motion": "one bacterium swims along a short path, the other wiggles; the dashed match line marches from the bacterial sugar to the cell sugar",
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "suspicious"
    }
   ],
-  "act": {
-   "type": "nodyes"
-  },
-  "ride": "mv-swing-blood-bag",
+  "act": "lean",
+  "ride": "mv-path-bacterium-1",
   "kind": "ride",
-  "x": 849,
-  "y": 826,
-  "s": 1.09,
-  "flip": -1,
+  "x": 454,
+  "y": 470,
+  "s": 1.44,
+  "flip": 1,
   "bside": 1,
-  "gaze": 1,
   "outfit": [
-   "glasses"
+   "lab",
+   "facemask"
   ],
   "says": [
    {
-    "text": "Got it!",
-    "shout": true
+    "text": "Off we go!",
+    "shout": false
    }
   ]
  }

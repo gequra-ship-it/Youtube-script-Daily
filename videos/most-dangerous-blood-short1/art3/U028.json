@@ -1,24 +1,51 @@
 {
- "centre": "a clump of red cells stuck together by Y-shaped antibodies under a red warning glow, one cell cracking open; a heart monitor and a flashing alarm lamp on the wall, a worried doctor",
- "focus": [
-  540,
-  900,
-  1.5
- ],
- "focus_word": "acute hemolytic transfusion reaction",
- "sfx": [],
+ "centre": "a big shield with a red cell and flags on it, a small label tag hanging in the corner",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Transfusion reaction",
-   "x": 500,
-   "y": 1130,
+   "text": "Defense system",
+   "x": 540,
+   "y": 1260,
    "to": [
-    520,
-    980
+    540,
+    1050
    ],
-   "word": "hemolytic transfusion reaction"
+   "word": "defense system"
   }
  ],
- "motion": "scattered cells and antibodies converge into a clump; the alarm lamp pulses; the monitor line marches"
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "It is",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swingride",
+   "obj": "mv-swing-label-tag"
+  },
+  "ride": "mv-swing-label-tag",
+  "kind": "ride",
+  "x": 200,
+  "y": 761,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ]
+ }
 }

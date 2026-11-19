@@ -1,1 +1,43 @@
-{"centre": "magnifying glass over one golden grain of sand on a long beach", "focus": [960, 500, 1.8], "focus_word": "single grain of sand", "sfx": [{"name": "sand", "word": "sand", "vol": 0.5}], "labels": [{"type": "name", "text": "grain of sand", "x": 1320, "y": 420, "to": [975, 505], "word": "grain of sand"}]}
+{
+ "centre": "two pinned charts: a small crowd in India with one golden person, and a huge dense crowd in Europe with one tiny golden dot",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "num",
+   "text": "1 IN 10,000",
+   "word": "one in ten thousand"
+  },
+  {
+   "type": "name",
+   "text": "Europe",
+   "x": 1640,
+   "y": 250,
+   "to": [
+    1470,
+    260
+   ],
+   "word": "Europe"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "x": 260,
+  "y": 340,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "headlamp"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

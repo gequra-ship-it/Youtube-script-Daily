@@ -1,35 +1,37 @@
 {
- "centre": "microscope counting grid: rod-shaped bacteria carry little sugar chains that look just like the sugar markers on a red blood cell below; a dashed line links the matching sugars",
- "focus": [
-  540,
-  1000,
-  1.5
- ],
- "focus_word": "similar sugars",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Bacteria",
-   "x": 300,
-   "y": 640,
-   "to": [
-    300,
-    490
-   ],
-   "word": "bacteria"
+ "centre": "a baby mobile with a sugar cube, a germ capsule and a star over a crib, a small antibody pops up",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-antibody",
+   "h": 153
   },
-  {
-   "type": "name",
-   "text": "Similar sugars",
-   "x": 720,
-   "y": 900,
-   "to": [
-    560,
-    980
-   ],
-   "word": "similar sugars"
-  }
- ],
- "motion": "one bacterium swims along a short path, the other wiggles; the dashed match line marches from the bacterial sugar to the cell sugar"
+  "ride": null,
+  "kind": "bg",
+  "x": 800,
+  "y": 1411,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "propcap"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

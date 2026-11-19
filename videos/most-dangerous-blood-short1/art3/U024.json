@@ -1,30 +1,46 @@
 {
- "centre": "a donor cell with yellow flags arriving among cells with blue flags, a warning sign below",
+ "centre": "a teal Y-shaped antibody gripping the yellow flags of two donor cells like handcuffs, a handcuff icon below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Antibodies",
+   "x": 540,
+   "y": 640,
+   "to": [
+    540,
+    860
+   ],
+   "word": "Antibodies"
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "worried"
+    "mood": "excited"
    }
   ],
-  "act": "facepalm",
-  "ride": "mv-path-donor-cell",
+  "act": {
+   "type": "swingride",
+   "obj": "mv-swing-handcuff"
+  },
+  "ride": "mv-swing-handcuff",
   "kind": "ride",
-  "x": 409,
-  "y": 720,
-  "s": 1.44,
+  "x": 500,
+  "y": 1367,
+  "s": 1.09,
   "flip": 1,
   "bside": 1,
+  "gaze": 1,
+  "behind": null,
   "outfit": [
    "lab"
   ],
   "says": [
    {
-    "text": "Oh no...",
-    "shout": false
+    "text": "Wheee!",
+    "shout": true
    }
   ]
  }

@@ -1,45 +1,46 @@
 {
- "centre": "frozen cooler box with snowflake, plane flying between countries",
+ "centre": "small plane carrying a golden cooler along a dashed route across the sea to another continent; below, the calm golden-glow carrier",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Frozen blood",
-   "x": 540,
-   "y": 1060,
+   "text": "Another continent",
+   "x": 760,
+   "y": 760,
    "to": [
-    540,
-    930
+    880,
+    600
    ],
-   "word": "frozen blood"
+   "word": "another continent"
   }
  ],
- "sfx": [],
- "focus": null,
- "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "chilly"
+    "mood": "excited"
+   },
+   {
+    "word": "Yet consider",
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "hugself"
-  },
-  "ride": "mv-path-plane",
+  "act": "dance",
+  "ride": "mv-path-cargo-plane",
   "kind": "ride",
-  "x": 394,
-  "y": 640,
+  "x": 357,
+  "y": 890,
   "s": 1.09,
   "flip": 1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "scarf",
-   "lab"
+   "doctor",
+   "facemask"
   ],
   "says": [
    {
-    "text": "Brr...",
+    "text": "La la la~",
     "shout": false
    }
   ]

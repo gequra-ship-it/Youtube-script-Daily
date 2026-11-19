@@ -1,24 +1,37 @@
 {
- "centre": "globe with a few tiny golden dots; below a cupped hand holding just three golden drops",
+ "centre": "approximately badge between three source pages",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "FEWER THAN 50",
-   "word": "fifty"
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-source-page-1",
+   "h": 170
   },
-  {
-   "type": "name",
-   "text": "Active donors",
-   "x": 830,
-   "y": 1060,
-   "to": [
-    590,
-    1160
-   ],
-   "word": "active donors"
-  }
- ]
+  "ride": null,
+  "kind": "bg",
+  "x": 220,
+  "y": 590,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

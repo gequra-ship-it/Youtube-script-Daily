@@ -1,8 +1,29 @@
 {
- "centre": "a dim old ward: an early glass transfusion bottle on a stand runs its tube toward an empty bed, a red warning glow behind, a just-snuffed candle smoking, a die tossed on the floor",
+ "centre": "a donor cell with yellow flags arriving among cells with blue flags, a warning sign below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "a die is tossed across the floor (the gamble), smoke curls up from the extinguished candle"
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "facepalm",
+  "ride": "mv-path-donor-cell",
+  "kind": "ride",
+  "x": 409,
+  "y": 720,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Oh no...",
+    "shout": false
+   }
+  ]
+ }
 }

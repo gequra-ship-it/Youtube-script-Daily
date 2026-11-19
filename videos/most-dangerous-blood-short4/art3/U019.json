@@ -1,23 +1,46 @@
 {
- "centre": "open freezer with frosty shelves of blood bags, one golden; a wall calendar flips over the years",
- "focus": [
-  560,
-  820,
-  1.6
- ],
- "focus_word": "rare unit",
- "sfx": [],
+ "centre": "frozen cooler box with snowflake, plane flying between countries",
  "labels": [
   {
    "type": "name",
-   "text": "Red cells",
-   "x": 560,
-   "y": 1000,
+   "text": "Frozen blood",
+   "x": 540,
+   "y": 1060,
    "to": [
-    560,
-    860
+    540,
+    930
    ],
-   "word": "Red cells"
+   "word": "frozen blood"
   }
- ]
+ ],
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "hugself"
+  },
+  "ride": "mv-path-plane",
+  "kind": "ride",
+  "x": 394,
+  "y": 640,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "doctor"
+  ],
+  "says": [
+   {
+    "text": "Brr...",
+    "shout": false
+   }
+  ]
+ }
 }

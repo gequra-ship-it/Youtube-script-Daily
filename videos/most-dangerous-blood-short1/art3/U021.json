@@ -1,25 +1,38 @@
 {
- "centre": "a 1901 laboratory: a scientist with round glasses and a moustache raises a finger beside a bench with a rack of blood test tubes and a brass microscope, a gas lamp hanging above",
+ "centre": "a tumbling dice and warning sign above, a calm blood bag with a green check below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "num",
-   "text": "1901",
-   "word": "1901"
-  },
-  {
    "type": "name",
-   "text": "Karl Landsteiner",
-   "x": 290,
-   "y": 720,
+   "text": "Transfusion",
+   "x": 540,
+   "y": 1370,
    "to": [
-    270,
-    1000
+    540,
+    1230
    ],
-   "word": "Karl Landsteiner"
+   "word": "transfusion"
   }
  ],
- "motion": "the hanging gas lamp swings gently (pendulum); the scientist breathes"
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "x": 260,
+  "y": 600,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "headlamp"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

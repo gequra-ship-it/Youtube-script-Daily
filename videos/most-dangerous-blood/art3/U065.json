@@ -1,1 +1,56 @@
-{"centre": "notebook page with a golden smooth red cell and a golden stamp", "focus": null, "focus_word": null, "sfx": [{"name": "pencil", "word": "named", "vol": 0.55}], "labels": [{"type": "name", "text": "Rh-null", "x": 960, "y": 790, "to": [960, 555], "word": "Rh-null"}]}
+{
+ "centre": "notebook page with a golden smooth red cell and a golden stamp",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "pencil",
+   "word": "named",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Rh-null",
+   "x": 960,
+   "y": 790,
+   "to": [
+    960,
+    555
+   ],
+   "word": "Rh-null"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "shockwave",
+   "obj": "mv-slam-stamp"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 1386,
+  "y": 728,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Yikes!",
+    "shout": true
+   }
+  ]
+ }
+}

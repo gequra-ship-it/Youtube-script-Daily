@@ -2,7 +2,6 @@
  "centre": "golden seal with ribbon",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -19,29 +18,25 @@
  "frog": {
   "moods": [
    {
-    "mood": "excited"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "swingride",
-   "obj": "mv-swing-name-tag"
-  },
+  "act": "listen",
   "ride": "mv-swing-name-tag",
   "kind": "ride",
-  "x": 900,
-  "y": 541,
+  "x": 776,
+  "y": 480,
   "s": 1.09,
-  "flip": -1,
-  "bside": 1,
+  "flip": 1,
+  "bside": -1,
   "gaze": 1,
-  "behind": null,
   "outfit": [
    "facemask"
   ],
   "says": [
    {
-    "text": "Wheee!",
-    "shout": true
+    "text": "Shh... listen.",
+    "shout": false
    }
   ]
  }

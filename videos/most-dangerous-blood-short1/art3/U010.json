@@ -1,13 +1,31 @@
 {
- "centre": "a big glass jug filled with about five liters of red blood",
+ "centre": "a long blood vessel packed with many tiny red cell ships streaming along",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "5 L",
-   "word": "five liters"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-core-glide-ship-cell",
+  "kind": "ride",
+  "x": 654,
+  "y": 970,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lifevest",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Hmm, interesting.",
+    "shout": false
+   }
+  ]
+ }
 }

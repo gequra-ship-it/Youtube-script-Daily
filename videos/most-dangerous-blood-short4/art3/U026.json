@@ -1,18 +1,52 @@
 {
- "centre": "glass jar full of grey beads with only three golden ones hidden among them; a researcher shrugs beside a tally clipboard",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "magnifying glass over a registry page of tested donors",
+ "iris": [
+  540,
+  860
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "How many?",
-   "x": 230,
-   "y": 860,
+   "type": "name",
+   "text": "Specialist lab",
+   "x": 780,
+   "y": 1380,
    "to": [
-    230,
-    1018
-   ]
+    825,
+    1520
+   ],
+   "word": "specialist laboratory"
   }
- ]
+ ],
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hopalong",
+   "obj": "mv-hop-lab-flask"
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 914,
+  "y": 1420,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ]
+ }
 }

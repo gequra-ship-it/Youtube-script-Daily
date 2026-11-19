@@ -1,1 +1,54 @@
-{"centre": "red blood bag stopped by a fence of antibodies", "labels": [], "sfx": [], "focus": null, "focus_word": null}
+{
+ "centre": "golden blood bag with two people giving it: someone else or oneself",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Someone else",
+   "x": 220,
+   "y": 1010,
+   "to": [
+    220,
+    1150
+   ],
+   "word": "someone else"
+  },
+  {
+   "type": "name",
+   "text": "Themselves",
+   "x": 860,
+   "y": 1010,
+   "to": [
+    860,
+    1150
+   ],
+   "word": "themselves"
+  }
+ ],
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "starry"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-core-glide-golden-blood-bag",
+  "kind": "ride",
+  "x": 669,
+  "y": 965,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

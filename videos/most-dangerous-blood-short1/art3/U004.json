@@ -1,19 +1,43 @@
 {
- "centre": "a red blood cell sitting in a little wooden hull sailing a waterway like a ship",
+ "centre": "a big red cell covered in many small antigen flags",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Ship",
-   "x": 540,
-   "y": 1230,
+   "text": "Antigens",
+   "x": 830,
+   "y": 1140,
    "to": [
-    540,
-    850
+    595,
+    420
    ],
-   "word": "ship"
+   "word": "antigens"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "wind",
+  "ride": "mv-core-glide-red-cell",
+  "kind": "ride",
+  "x": 848,
+  "y": 1210,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "pirate",
+   "lab"
+  ],
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
+ }
 }

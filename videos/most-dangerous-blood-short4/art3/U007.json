@@ -1,1 +1,41 @@
-{"centre": "rack of four golden vials with A, B, AB and bare flags", "focus": null, "focus_word": null, "sfx": [], "labels": [{"type": "name", "text": "Every ABO type", "x": 280, "y": 430, "to": [420, 640], "word": "every ABO type"}]}
+{
+ "centre": "golden puzzle piece with an A flag next to an empty gap",
+ "focus": [
+  560,
+  860,
+  1.5
+ ],
+ "focus_word": "ABO match",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-gap-mark",
+   "h": 60
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 740,
+  "y": 1170,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "facemask"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
+}

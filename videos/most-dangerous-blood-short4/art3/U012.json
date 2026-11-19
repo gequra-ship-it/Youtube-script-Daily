@@ -1,25 +1,24 @@
 {
- "centre": "magnified red cell with an unusual mix of flags and a star-shaped marker, beside a calm patient and an IV stand",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "big teal Y antibody surrounded by small antibodies and purple flags",
  "labels": [
   {
    "type": "name",
-   "text": "Rare Rh type",
-   "x": 760,
-   "y": 990,
+   "text": "Antibodies",
+   "x": 540,
+   "y": 520,
    "to": [
-    760,
-    800
+    540,
+    780
    ],
-   "word": "rare Rh types"
+   "word": "antibodies"
   }
  ],
- "iris": [
-  740,
-  700
+ "focus": [
+  540,
+  860,
+  1.6
  ],
+ "focus_word": "antibodies",
  "frog": {
   "moods": [
    {
@@ -27,29 +26,28 @@
    }
   ],
   "act": {
-   "type": "dripped",
-   "obj": "mv-drip-iv-drop",
-   "serious": false
+   "type": "launched",
+   "obj": "mv-popin-antibody-1",
+   "h": 103
   },
   "ride": null,
   "kind": "bg",
-  "x": 470,
-  "y": 1122,
+  "x": 284,
+  "y": 685,
   "s": 1.09,
   "flip": 1,
-  "bside": -1,
+  "bside": 1,
   "gaze": 1,
   "behind": null,
   "enter": "cut",
   "delay": 0.02,
   "outfit": [
-   "doctor",
-   "headlamp"
+   "lab"
   ],
   "says": [
    {
-    "text": "Drip...",
-    "shout": false
+    "text": "Whoa!",
+    "shout": true
    }
   ]
  }

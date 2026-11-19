@@ -1,51 +1,33 @@
 {
- "centre": "a clean syringe icon inside a soft teal shield between a smiling expecting mother and a doctor offering it",
- "focus": [
-  960,
-  470,
-  1.6
- ],
- "focus_word": "anti-D immunoglobulin",
- "sfx": [],
+ "centre": "teal antibodies from the mother's immune cell drifting across a soft boundary toward the baby's red cell with its green D flag, under a red warning glow",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Anti-D immunoglobulin",
-   "x": 960,
-   "y": 200,
+   "text": "Antibodies",
+   "x": 560,
+   "y": 260,
    "to": [
-    960,
-    330
+    560,
+    380
    ],
-   "word": "anti-D immunoglobulin"
+   "word": "antibodies"
+  },
+  {
+   "type": "name",
+   "text": "D antigen",
+   "x": 1180,
+   "y": 220,
+   "to": [
+    1450,
+    320
+   ],
+   "word": "D antigen"
   }
  ],
- "frog": {
-  "moods": [
-   {
-    "mood": "squint"
-   }
-  ],
-  "act": {
-   "type": "peer"
-  },
-  "ride": "mv-slide-syringe",
-  "kind": "ride",
-  "x": 882,
-  "y": 634,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "outfit": [
-   "doctor",
-   "glasses"
-  ],
-  "says": [
-   {
-    "text": "Hmm?",
-    "shout": false
-   }
-  ]
- }
+ "attractor": [
+  1400,
+  540
+ ]
 }

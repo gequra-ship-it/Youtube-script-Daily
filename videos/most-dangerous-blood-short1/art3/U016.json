@@ -1,42 +1,28 @@
 {
- "centre": "a hanging type O blood bag with an emergency siren light and a stopwatch",
+ "centre": "a bare red cell with no flags while antibodies drift past it, two missing flags crossed out",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Type O",
-   "x": 540,
-   "y": 1290,
-   "to": [
-    540,
-    950
-   ],
-   "word": "type O"
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "angry"
    }
   ],
-  "act": "tap",
-  "ride": "mv-swing-blood-bag",
+  "act": "lean",
+  "ride": "mv-core-glide-bare-cell",
   "kind": "ride",
-  "x": 699,
-  "y": 1020,
+  "x": 774,
+  "y": 1059,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "facemask"
+   "doctor"
   ],
   "says": [
    {
-    "text": "Knock knock!",
+    "text": "Steady...",
     "shout": false
    }
   ]

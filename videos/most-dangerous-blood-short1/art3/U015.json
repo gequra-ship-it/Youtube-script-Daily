@@ -1,20 +1,40 @@
 {
- "centre": "a smooth red cell with no flags at all floating in pale plasma; antibodies all around, some already gripping a blue A flag and a yellow B flag",
+ "centre": "a hanging type O blood bag with an emergency siren light and a stopwatch",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
    "text": "Type O",
    "x": 540,
-   "y": 1150,
+   "y": 1290,
    "to": [
     540,
-    900
+    950
    ],
    "word": "type O"
   }
  ],
- "motion": "the A flag and then the B flag pop in, each already held by antibodies; free antibodies float in the plasma"
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-swing-blood-bag",
+  "kind": "ride",
+  "x": 699,
+  "y": 1020,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
 }

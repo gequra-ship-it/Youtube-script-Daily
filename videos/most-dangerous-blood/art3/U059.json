@@ -1,19 +1,50 @@
 {
- "centre": "an open field-guide book of tiny blood-group flags on a stand, a magnifying glass gliding over them, under a soft golden glow",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a clean syringe icon inside a soft teal shield between a smiling expecting mother and a doctor offering it",
+ "focus": [
+  960,
+  470,
+  1.6
+ ],
+ "focus_word": "anti-D immunoglobulin",
  "labels": [
   {
    "type": "name",
-   "text": "Tiny flags",
-   "x": 760,
-   "y": 230,
+   "text": "Anti-D immunoglobulin",
+   "x": 960,
+   "y": 200,
    "to": [
-    720,
-    400
+    960,
+    330
    ],
-   "word": "tiny flags"
+   "word": "anti-D immunoglobulin"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "ride": "mv-slide-syringe",
+  "kind": "ride",
+  "x": 882,
+  "y": 634,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "doctor",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
 }
