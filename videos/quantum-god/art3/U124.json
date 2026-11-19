@@ -1,7 +1,52 @@
 {
- "centre": "a distant bright orb across an abyss of stars, a small figure at the cliff edge",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "a glowing bit cube dissolving into particles that become a planet, star and galaxy",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "information",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Information",
+   "x": 960,
+   "y": 300,
+   "to": [
+    960,
+    430
+   ],
+   "word": "information"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "slide",
+   "to": [
+    960,
+    536
+   ]
+  },
+  "kind": "bg",
+  "ride": null,
+  "x": 384,
+  "y": 320,
+  "s": 0.9,
+  "flip": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Whoa-oa!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

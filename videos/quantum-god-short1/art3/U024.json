@@ -1,23 +1,48 @@
 {
- "centre": "glowing knot at the heart of a woven fabric of light threads",
+ "centre": "high-tech lens looking at a still-blurry electron above a lab machine with dials",
  "labels": [
   {
    "type": "name",
-   "text": "Fabric of the cosmos",
+   "text": "Laboratory equipment",
    "x": 540,
-   "y": 470,
+   "y": 660,
    "to": [
     540,
-    640
+    760
    ],
-   "word": "fabric of the cosmos"
+   "word": "laboratory equipment"
   }
  ],
  "focus": [
   540,
-  860,
+  1000,
   1.5
  ],
- "focus_word": "fabric of the cosmos",
- "sfx": []
+ "focus_word": "laboratory equipment",
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "facepalm",
+  "ride": "mv-core-sway-lens-view",
+  "kind": "ride",
+  "x": 724,
+  "y": 1000,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "sailorhat"
+  ],
+  "says": [
+   {
+    "text": "Oh no...",
+    "shout": false
+   }
+  ]
+ }
 }

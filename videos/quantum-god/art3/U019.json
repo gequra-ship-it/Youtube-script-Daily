@@ -1,25 +1,47 @@
 {
- "centre": "a faceless thinker with a notebook beside planets set in perfect even rows on a golden rail",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "tick",
-   "word": "laws",
-   "vol": 0.5
-  }
+ "centre": "a neat grid 'fabric of reality' peeled back to show glowing ripple waves; Bohr's silhouette and three young physicists",
+ "focus": [
+  700,
+  560,
+  1.5
  ],
+ "focus_word": "something strange",
  "labels": [
   {
    "type": "name",
-   "text": "Rational laws",
-   "x": 1300,
-   "y": 240,
+   "text": "Niels Bohr",
+   "x": 1240,
+   "y": 360,
    "to": [
-    1130,
-    490
+    1240,
+    560
    ],
-   "word": "rational laws"
+   "word": "Niels Bohr"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "idea",
+  "ride": "mv-slide-fabric-flap",
+  "kind": "ride",
+  "x": 876,
+  "y": 512,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Aha!",
+    "shout": false
+   }
+  ]
+ }
 }

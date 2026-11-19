@@ -1,46 +1,35 @@
 {
- "centre": "a glass bulb struck by a stray gold photon and a bumping gas molecule",
+ "centre": "a glass bulb holding a ghosted twin electron and a calm wave on a shelf",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "photon",
+   "name": "glimmer",
+   "word": "answer",
    "vol": 0.6
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Stray photon",
-   "x": 1480,
-   "y": 200,
+   "text": "Decoherence",
+   "x": 1400,
+   "y": 330,
    "to": [
-    1500,
-    296
+    1070,
+    440
    ],
-   "word": "stray photon"
-  },
-  {
-   "type": "name",
-   "text": "Gas molecule",
-   "x": 430,
-   "y": 800,
-   "to": [
-    420,
-    660
-   ],
-   "word": "gas molecule"
+   "word": "Decoherence"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "photo",
-  "ride": "mv-core-tremble-glass-bulb",
+  "act": "look",
+  "ride": "mv-core-sway-glass-bulb",
   "kind": "ride",
   "x": 1298,
   "y": 780,
@@ -49,11 +38,11 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "headband"
+   "bowtie"
   ],
   "says": [
    {
-    "text": "Say cheese!",
+    "text": "Ooh!",
     "shout": false
    }
   ]

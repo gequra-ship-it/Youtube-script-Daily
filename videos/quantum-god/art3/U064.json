@@ -1,36 +1,36 @@
 {
- "centre": "a solid teal marble with fading ghost copies behind it",
- "sfx": [],
+ "centre": "a dulled bulb with a crack leaking teal dots that fade into the surroundings",
  "focus": null,
  "focus_word": null,
- "labels": [],
+ "sfx": [
+  {
+   "name": "static",
+   "word": "leaks",
+   "vol": 0.6
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "squint"
    }
   ],
-  "act": {
-   "type": "bumped",
-   "obj": "mv-bouncing-ball",
-   "serious": false
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 1708,
-  "y": 790,
+  "act": "balance",
+  "ride": "mv-core-glide-dull-bulb",
+  "kind": "ride",
+  "x": 1298,
+  "y": 780,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "behind": null,
   "outfit": [
-   "ghost"
+   "glasses"
   ],
   "says": [
    {
-    "text": "Boing!",
-    "shout": true
+    "text": "Steady...",
+    "shout": false
    }
   ]
  }

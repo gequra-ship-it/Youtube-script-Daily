@@ -1,19 +1,49 @@
 {
- "centre": "a boiling sea of glowing quantum foam cells with tiny wormhole tubes, imagined",
+ "centre": "a heavy star resting in a smooth curved spacetime sheet under geometric vault arches, a planet orbiting",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Quantum Foam",
-   "x": 960,
-   "y": 220,
+   "text": "Einstein",
+   "x": 520,
+   "y": 470,
+   "to": [
+    340,
+    600
+   ],
+   "word": "Einstein"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "slide",
    "to": [
     960,
-    400
-   ],
-   "word": "Quantum Foam"
-  }
- ]
+    772
+   ]
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "x": 384,
+  "y": 556,
+  "s": 0.9,
+  "flip": 1,
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

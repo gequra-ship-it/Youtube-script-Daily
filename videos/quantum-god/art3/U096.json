@@ -1,50 +1,29 @@
 {
- "centre": "inside a sealed lab: a friendly physicist at a bench with an emitter, a two-slit plate, a gold detector and a striped screen",
+ "centre": "Wigner silhouette with a glasses shape on a planet limb, a golden medal rising in the sky to his right",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "click",
-   "word": "measuring",
-   "vol": 0.5
-  }
- ],
  "labels": [
   {
-   "type": "say",
-   "text": "Measuring now...",
-   "x": 300,
-   "y": 230,
+   "type": "name",
+   "text": "Eugene Wigner",
+   "x": 560,
+   "y": 200,
    "to": [
-    470,
-    330
-   ]
+    720,
+    290
+   ],
+   "word": "Eugene Wigner"
+  },
+  {
+   "type": "name",
+   "text": "Nobel Prize",
+   "x": 1560,
+   "y": 650,
+   "to": [
+    1380,
+    470
+   ],
+   "word": "Nobel Prize"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": "tap",
-  "ride": "mv-path-electron-u096",
-  "kind": "ride",
-  "x": 910,
-  "y": 622,
-  "s": 0.95,
-  "flip": 1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "lab",
-   "headband"
-  ],
-  "says": [
-   {
-    "text": "Hmm, hard.",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

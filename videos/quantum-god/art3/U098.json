@@ -1,56 +1,37 @@
 {
- "centre": "Wigner stands outside a sealed lab door; through its window two ghost copies of his friend overlap in superposition",
+ "centre": "inside a sealed lab: a friendly physicist at a bench with an emitter, a two-slit plate, a gold detector and a striped screen",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "name",
-   "text": "Wigner",
-   "x": 420,
-   "y": 240,
-   "to": [
-    620,
-    330
-   ],
-   "word": "Wigner"
-  },
-  {
-   "type": "name",
-   "text": "sealed laboratory",
-   "x": 1240,
-   "y": 180,
-   "to": [
-    1000,
-    340
-   ],
-   "word": "sealed laboratory"
+   "name": "click",
+   "word": "measuring",
+   "vol": 0.5
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "starcatch"
-  },
-  "ride": "mv-swing-tag-string-u098",
+  "act": "tap",
+  "ride": "mv-path-electron-u096",
   "kind": "ride",
-  "x": 1190,
-  "y": 692,
+  "x": 910,
+  "y": 622,
   "s": 0.95,
-  "flip": -1,
+  "flip": 1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "lab"
+   "lab",
+   "bowler"
   ],
   "says": [
    {
-    "text": "Gotcha!",
-    "shout": true
+    "text": "Tap tap.",
+    "shout": false
    }
   ]
  }

@@ -1,25 +1,20 @@
 {
- "centre": "detector screen showing two neat bright bars",
+ "centre": "a group of electron balls rising toward a barrier with two gaps",
  "labels": [
   {
    "type": "name",
-   "text": "Detector screen",
-   "x": 540,
-   "y": 540,
+   "text": "Electrons",
+   "x": 820,
+   "y": 1040,
    "to": [
-    540,
-    640
+    750,
+    1160
    ],
-   "word": "detector screen"
+   "word": "electrons"
   }
  ],
- "focus": [
-  540,
-  860,
-  1.5
- ],
- "focus_word": "two neat lines",
- "sfx": [],
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
@@ -27,16 +22,17 @@
    }
   ],
   "act": "lean",
-  "ride": "mv-path-ascend-electron-2",
+  "ride": "mv-path-ascend-electron-1",
   "kind": "ride",
-  "x": 555,
-  "y": 1231,
+  "x": 432,
+  "y": 943,
   "s": 1.09,
   "flip": 1,
   "bside": -1,
   "gaze": 1,
   "outfit": [
-   "flippers"
+   "lab",
+   "sailorhat"
   ],
   "says": [
    {

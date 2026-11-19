@@ -1,29 +1,39 @@
 {
- "centre": "a sealed steel box with a keyhole that a detector scans, finding nothing hidden",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "hidden variables",
+ "centre": "a vertical timeline with flashes at irregular times and a die at the middle",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "hidden",
+   "name": "pop",
+   "word": "random",
    "vol": 0.6
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Hidden variables",
-   "x": 400,
-   "y": 520,
-   "to": [
-    450,
-    680
-   ],
-   "word": "hidden variables"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "helmetwipe"
+  },
+  "ride": "mv-core-sway-dice-marker",
+  "kind": "ride",
+  "x": 646,
+  "y": 922,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Phew.",
+    "shout": false
+   }
+  ]
+ }
 }

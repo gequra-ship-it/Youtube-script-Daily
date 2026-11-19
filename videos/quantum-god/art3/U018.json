@@ -1,25 +1,48 @@
 {
- "centre": "a big brass clockwork gear with planets on arms (cosmic order) beside Einstein's faceless silhouette at a chalkboard",
+ "centre": "a faceless thinker with a notebook beside planets set in perfect even rows on a golden rail",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
    "name": "tick",
-   "word": "cosmic order",
+   "word": "laws",
    "vol": 0.5
   }
  ],
  "labels": [
   {
    "type": "name",
-   "text": "Albert Einstein",
-   "x": 560,
-   "y": 230,
+   "text": "Rational laws",
+   "x": 1300,
+   "y": 240,
    "to": [
-    560,
-    440
+    1130,
+    490
    ],
-   "word": "Albert Einstein"
+   "word": "rational laws"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "ride": "mv-path-planet",
+  "kind": "ride",
+  "x": 780,
+  "y": 582,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
 }

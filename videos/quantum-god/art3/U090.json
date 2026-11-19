@@ -1,47 +1,29 @@
 {
- "centre": "a glowing electron whose wave fans out side-on and keeps spreading, right past a gold detector",
- "focus": [
-  1000,
-  500,
-  1.5
- ],
- "focus_word": "never collapses",
- "sfx": [],
+ "centre": "a glowing trunk rising from an open notebook and splitting into many translucent branching worlds; Everett silhouette by the desk",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "say",
-   "text": "Still spreading!",
-   "x": 1300,
-   "y": 700,
+   "type": "name",
+   "text": "Hugh Everett",
+   "x": 360,
+   "y": 210,
    "to": [
-    1010,
-    540
-   ]
+    360,
+    310
+   ],
+   "word": "Hugh Everett"
+  },
+  {
+   "type": "name",
+   "text": "Many-Worlds",
+   "x": 1420,
+   "y": 760,
+   "to": [
+    1200,
+    520
+   ],
+   "word": "Many-Worlds"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "dizzy"
-   }
-  ],
-  "act": "faint",
-  "ride": "mv-core-heartbeat-electron-u090",
-  "kind": "ride",
-  "x": 1062,
-  "y": 370,
-  "s": 1.25,
-  "flip": -1,
-  "bside": -1,
-  "outfit": [
-   "goggles",
-   "lifering"
-  ],
-  "says": [
-   {
-    "text": "Too much...",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

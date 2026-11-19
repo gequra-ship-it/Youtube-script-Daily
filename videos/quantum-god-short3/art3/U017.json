@@ -1,17 +1,43 @@
 {
- "centre": "a pair of particles shown appearing, glowing, then fading in three stacked stages",
+ "centre": "a glowing ball lifting out of a dark well as if borrowed from nothing",
  "focus": [
   540,
   860,
-  1.5
+  1.6
  ],
- "focus_word": "vanish again",
+ "focus_word": "borrow energy",
  "sfx": [
   {
-   "name": "pop",
-   "word": "pop",
+   "name": "bloom",
+   "word": "borrow",
    "vol": 0.6
   }
  ],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": {
+   "type": "zerogroll"
+  },
+  "ride": "mv-path-energy-spark",
+  "kind": "ride",
+  "x": 384,
+  "y": 1040,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Wheee...",
+    "shout": false
+   }
+  ]
+ }
 }

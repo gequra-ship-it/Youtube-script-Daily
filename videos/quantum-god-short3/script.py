@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # quantum-god-short3 (Miya's Note). Script from miya 2026-10-13/10-24; fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'Nothing is never really nothing. Here is what physics says about empty space and chance.'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh3_1',
+  'Two neighboring atoms sit side by side, and one decays at an exact microsecond while the other does not. Standard quantum mechanics says there is no reason, and no hidden '
+  'cause has ever been found.'),
  ('S02',
   'Part 2',
   'ill',

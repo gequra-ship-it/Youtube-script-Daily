@@ -1,29 +1,54 @@
 {
- "centre": "a lab monitor where a spread-out wave snaps into one sharp spike and a single bright dot",
+ "centre": "a sealed lab box floating in space with a glowing gold porthole showing a tiny friend inside; Wigner stands outside on a plank",
  "focus": [
   960,
-  560,
+  470,
   1.6
  ],
- "focus_word": "single definitive result",
- "sfx": [
-  {
-   "name": "click",
-   "word": "complete",
-   "vol": 0.5
-  }
- ],
+ "focus_word": "Wigner's Friend",
  "labels": [
   {
    "type": "name",
-   "text": "single definitive result",
-   "x": 1180,
-   "y": 420,
+   "text": "Wigner's Friend",
+   "x": 1360,
+   "y": 220,
    "to": [
-    966,
-    640
+    968,
+    470
    ],
-   "word": "single definitive result"
+   "word": "Wigner's Friend"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    470
+   ],
+   "vanish": true
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 538,
+  "y": 485,
+  "s": 0.9,
+  "flip": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

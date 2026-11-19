@@ -1,27 +1,31 @@
 {
- "centre": "a glowing time tile dissolving into sparks that drift away, an empty hourglass below",
+ "centre": "a pink clock face whose hands fade away below an equation strip with an empty slot",
  "focus": [
-  720,
+  540,
   860,
   1.6
  ],
- "focus_word": "has vanished",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "t",
-   "x": 860,
-   "y": 1080,
-   "to": [
-    740,
-    900
-   ],
-   "word": "the letter t"
-  }
- ],
- "iris": [
-  720,
-  860
- ]
+ "focus_word": "the variable for time",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "search",
+  "ride": "mv-core-approach-clock",
+  "kind": "ride",
+  "x": 784,
+  "y": 1060,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Where is it?",
+    "shout": false
+   }
+  ]
+ }
 }

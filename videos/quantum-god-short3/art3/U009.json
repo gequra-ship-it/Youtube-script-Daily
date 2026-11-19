@@ -1,13 +1,37 @@
 {
- "centre": "a vertical timeline with flashes at irregular times and a die at the middle",
+ "centre": "a clock face with no hands being searched by a magnifier",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "pop",
-   "word": "random",
+   "name": "tick",
+   "word": "clock",
    "vol": 0.6
   }
  ],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "search",
+  "ride": "mv-swing-magnifier-lens",
+  "kind": "ride",
+  "x": 894,
+  "y": 820,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "pocketwatch"
+  ],
+  "says": [
+   {
+    "text": "Tick tock...",
+    "shout": false
+   }
+  ]
+ }
 }

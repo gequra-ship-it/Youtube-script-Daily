@@ -1,36 +1,42 @@
 {
- "centre": "a clock face with no hands being searched by a magnifier",
- "focus": null,
- "focus_word": null,
+ "centre": "a pair of dice mid-tumble over a dark table",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "no reason",
  "sfx": [
   {
-   "name": "tick",
-   "word": "clock",
+   "name": "woodblock",
+   "word": "reason",
    "vol": 0.6
   }
  ],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "curious"
    }
   ],
-  "act": "search",
-  "ride": "mv-swing-magnifier-lens",
+  "act": {
+   "type": "countstars"
+  },
+  "ride": "mv-core-glide-dice",
   "kind": "ride",
-  "x": 894,
-  "y": 820,
+  "x": 317,
+  "y": 989,
   "s": 1.09,
-  "flip": -1,
-  "bside": 1,
+  "flip": 1,
+  "bside": -1,
   "gaze": 1,
   "outfit": [
-   "pocketwatch"
+   "bandana",
+   "bowtie"
   ],
   "says": [
    {
-    "text": "Tick tock...",
+    "text": "So many...",
     "shout": false
    }
   ]

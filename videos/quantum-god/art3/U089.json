@@ -1,29 +1,32 @@
 {
- "centre": "a glowing wave ribbon flowing on across an oscilloscope screen while a dashed ghost clamp (a collapse mechanism) fades away unused",
+ "centre": "a neat brass-style clockwork of meshed gears dissolving on the right into tangled threads",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Schrödinger equation",
-   "x": 520,
-   "y": 700,
-   "to": [
-    560,
-    560
-   ],
-   "word": "Schrödinger equation"
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "moonbounce",
+   "dist": 461
   },
-  {
-   "type": "say",
-   "text": "Not needed!",
-   "x": 1300,
-   "y": 300,
-   "to": [
-    1020,
-    300
-   ]
-  }
- ]
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Boing!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

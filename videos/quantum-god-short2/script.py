@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # quantum-god-short2 (Miya's Note). Script from miya 2026-10-13/10-24; fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh2_1', 'Two particles, linked across vast distances. Einstein found the idea unbearable, and for decades nobody knew whether he was right.'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh2_1',
+  'Measure one of two entangled particles, and quantum theory says the other is instantly fixed, however far away. Einstein called it spooky action at a distance, and a Nobel '
+  'Prize later went to the experiments that tested it.'),
  ('S02',
   'Part 2',
   'ill',

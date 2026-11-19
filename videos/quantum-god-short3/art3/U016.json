@@ -1,44 +1,16 @@
 {
- "centre": "a glowing ball lifting out of a dark well as if borrowed from nothing",
+ "centre": "a dial whose needle leaves blurred ghost copies, beside an energy bar and gear",
  "focus": [
   540,
   860,
   1.6
  ],
- "focus_word": "borrow energy",
+ "focus_word": "uncertainty relation",
  "sfx": [
   {
-   "name": "bloom",
-   "word": "borrow",
+   "name": "tick",
+   "word": "energy",
    "vol": 0.6
   }
- ],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "sleepy"
-   }
-  ],
-  "act": {
-   "type": "zerogroll"
-  },
-  "ride": "mv-path-energy-spark",
-  "kind": "ride",
-  "x": 384,
-  "y": 1040,
-  "s": 1.09,
-  "flip": 1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "beanie"
-  ],
-  "says": [
-   {
-    "text": "Wheee...",
-    "shout": false
-   }
-  ]
- }
+ ]
 }

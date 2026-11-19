@@ -1,47 +1,18 @@
 {
- "centre": "an unstable atom, a cluster of orange-gold balls with one flashing",
- "focus": [
-  540,
-  860,
-  1.7
- ],
- "focus_word": "radioactive decay",
- "sfx": [
+ "centre": "a glowing cluster of orange-gold atoms above a magnifying lens that finds only empty space, and an empty dashed box",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
   {
-   "name": "tick",
-   "word": "decay",
-   "vol": 0.6
+   "type": "name",
+   "text": "hidden cause",
+   "x": 540,
+   "y": 720,
+   "to": [
+    540,
+    620
+   ],
+   "word": "hidden cause"
   }
- ],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "worried"
-   }
-  ],
-  "act": {
-   "type": "bracehold",
-   "obj": "mv-core-tremble-atom-cluster"
-  },
-  "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "x": 719,
-  "y": 1001,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "headphones",
-   "cap"
-  ],
-  "says": [
-   {
-    "text": "Steady...!",
-    "shout": true
-   }
-  ]
- }
+ ]
 }

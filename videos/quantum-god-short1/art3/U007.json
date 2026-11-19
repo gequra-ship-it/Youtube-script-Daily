@@ -1,19 +1,29 @@
 {
- "centre": "side view of glowing ripple sheets with a bright crest",
+ "centre": "screen glowing with alternating bright and dark interference bands",
  "labels": [
   {
    "type": "name",
-   "text": "Wave",
-   "x": 800,
+   "text": "Interference pattern",
+   "x": 540,
    "y": 520,
    "to": [
-    720,
-    600
+    540,
+    640
    ],
-   "word": "wave"
+   "word": "interference pattern"
   }
  ],
- "focus": null,
- "focus_word": null,
- "sfx": []
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "interference pattern",
+ "sfx": [
+  {
+   "name": "shimmer",
+   "word": "materialized",
+   "vol": 0.5
+  }
+ ]
 }

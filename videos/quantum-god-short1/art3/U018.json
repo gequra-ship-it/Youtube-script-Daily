@@ -1,42 +1,52 @@
 {
- "centre": "ghosted overlapping blurry electron copies hovering above a closed box with a magnifier",
- "labels": [],
+ "centre": "a wide glowing wave collapsing into one sharp spike with a point on top",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Wave function",
+   "x": 300,
+   "y": 520,
+   "to": [
+    540,
+    650
+   ],
+   "word": "wave function"
+  }
+ ],
  "focus": [
   540,
-  860,
+  820,
   1.5
  ],
- "focus_word": "no definite state",
- "sfx": [],
+ "focus_word": "collapse of the wave function",
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "collapse",
+   "vol": 0.55
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "dizzy"
    }
   ],
-  "act": {
-   "type": "launched",
-   "obj": "mv-popin-magnifying-lens",
-   "h": 190
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 825,
-  "y": 760,
-  "s": 1.09,
+  "act": "faint",
+  "ride": "mv-core-glide-wave-spike",
+  "kind": "ride",
+  "x": 672,
+  "y": 690,
+  "s": 1.44,
   "flip": -1,
   "bside": -1,
-  "gaze": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
   "outfit": [
-   "shellhat"
+   "captainhat"
   ],
   "says": [
    {
-    "text": "Whoa!",
-    "shout": true
+    "text": "Too much...",
+    "shout": false
    }
   ]
  }

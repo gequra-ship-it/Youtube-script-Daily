@@ -1,21 +1,25 @@
 {
- "centre": "a night window with a ghostly moon beside an empty armchair, nobody watching",
- "focus": [
-  960,
-  430,
-  1.6
- ],
- "focus_word": "when no one is watching",
+ "centre": "an electron with up and down arrows at once, a gold detector with an eye lens, then one definite arrow",
+ "focus": null,
+ "focus_word": null,
  "sfx": [
   {
-   "name": "hush",
-   "word": "no one",
+   "name": "click",
+   "word": "measurement",
    "vol": 0.6
   }
  ],
- "labels": [],
- "iris": [
-  960,
-  430
+ "labels": [
+  {
+   "type": "name",
+   "text": "Measurement",
+   "x": 1245,
+   "y": 300,
+   "to": [
+    1245,
+    420
+   ],
+   "word": "measurement"
+  }
  ]
 }

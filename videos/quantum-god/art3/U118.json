@@ -1,22 +1,40 @@
 {
- "centre": "two ghost cats in one open steel box, one sitting and one lying, superposed",
- "focus": [
-  960,
-  560,
-  1.5
- ],
- "focus_word": "both dead and alive",
- "sfx": [],
+ "centre": "a cutaway steel box: atom, Geiger counter, hammer over a poison vial, and a black cat",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "say",
-   "text": "Which one am I?",
-   "x": 640,
-   "y": 300,
+   "type": "name",
+   "text": "Radioactive atom",
+   "x": 520,
+   "y": 200,
    "to": [
-    840,
-    520
-   ]
+    510,
+    510
+   ],
+   "word": "radioactive atom"
+  },
+  {
+   "type": "name",
+   "text": "Geiger counter",
+   "x": 760,
+   "y": 780,
+   "to": [
+    700,
+    680
+   ],
+   "word": "Geiger counter"
+  },
+  {
+   "type": "name",
+   "text": "Poison",
+   "x": 1200,
+   "y": 200,
+   "to": [
+    1025,
+    600
+   ],
+   "word": "poison"
   }
  ]
 }

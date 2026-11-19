@@ -1,38 +1,47 @@
 {
- "centre": "a tiny climber with a lantern on a glowing trail up a night mountain to a golden summit light",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
- "iris": [
-  1380,
-  270
+ "centre": "glowing photon source between two detector stations",
+ "focus": [
+  960,
+  520,
+  1.6
+ ],
+ "focus_word": "entangled photons",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Entangled photons",
+   "x": 960,
+   "y": 320,
+   "to": [
+    960,
+    470
+   ],
+   "word": "entangled photons"
+  }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "excited"
    }
   ],
-  "act": {
-   "type": "binocs"
-  },
-  "ride": "mv-path-person-climber",
+  "act": "idea",
+  "ride": "mv-core-sway-source",
   "kind": "ride",
-  "x": 994,
-  "y": 762,
+  "x": 1168,
+  "y": 670,
   "s": 0.95,
-  "flip": 1,
+  "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
    "lab",
-   "bowtie"
+   "headband"
   ],
   "says": [
    {
-    "text": "Ooh!",
-    "shout": true
+    "text": "Eureka!",
+    "shout": false
    }
   ]
  }

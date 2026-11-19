@@ -1,11 +1,44 @@
 {
- "centre": "two glowing particles braided together turning as one entangled pair between wave sheets",
- "focus": [
-  540,
-  860,
-  1.6
+ "centre": "glowing round theory disc with one missing piece floating away (incomplete), over a manuscript page",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "EPR Paradox",
+   "x": 540,
+   "y": 1170,
+   "to": [
+    520,
+    900
+   ],
+   "word": "EPR Paradox"
+  }
  ],
- "focus_word": "entangled",
- "labels": [],
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "think",
+  "ride": "mv-core-glide-puzzle-disc-u004",
+  "kind": "ride",
+  "x": 824,
+  "y": 1100,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "bandana",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
+ }
 }

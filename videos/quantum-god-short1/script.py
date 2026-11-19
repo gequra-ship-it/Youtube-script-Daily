@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 # quantum-god-short1 (Miya's Note). Script from miya 2026-10-13/10-24; fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh1_1', 'Fire an electron at two narrow slits. What happens next is one of the strangest results in science.'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh1_1',
+  'One electron at a time was fired at two slits, and a wave pattern slowly built up on the screen. That result was real, and it is stranger than it sounds.'),
  ('S02',
   'Part 2',
   'ill',

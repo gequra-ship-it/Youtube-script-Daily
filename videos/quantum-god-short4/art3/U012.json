@@ -1,23 +1,48 @@
 {
- "centre": "a sealed lab box with a tiny friend inside and Wigner waiting at its door",
- "focus": [
-  420,
-  920,
-  1.6
- ],
- "focus_word": "Wigner's Friend",
- "sfx": [],
+ "centre": "Wigner's silhouette with a glasses shape beside a swinging gold prize medal",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Wigner's Friend",
-   "x": 410,
-   "y": 560,
+   "text": "Eugene Wigner",
+   "x": 300,
+   "y": 600,
    "to": [
-    360,
-    900
+    380,
+    930
    ],
-   "word": "Wigner's Friend"
+   "word": "Eugene Wigner"
   }
- ]
+ ],
+ "iris": [
+  380,
+  1100
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "clap",
+  "ride": "mv-swing-medal-pendulum",
+  "kind": "ride",
+  "x": 864,
+  "y": 940,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Bravo!",
+    "shout": false
+   }
+  ]
+ }
 }

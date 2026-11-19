@@ -1,50 +1,34 @@
 {
- "centre": "a heavy star resting in a smooth curved spacetime sheet under geometric vault arches, a planet orbiting",
+ "centre": "a tiny climber with a lantern on a glowing trail up a night mountain to a golden summit light",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Einstein",
-   "x": 520,
-   "y": 470,
-   "to": [
-    340,
-    600
-   ],
-   "word": "Einstein"
-  }
+ "iris": [
+  1380,
+  270
  ],
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "slide",
-   "to": [
-    960,
-    772
-   ]
-  },
+  "act": "lean",
+  "ride": "mv-path-person-climber",
+  "kind": "ride",
+  "x": 994,
+  "y": 762,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "helmet",
-   "antenna"
+   "lab"
   ],
-  "kind": "bg",
-  "ride": null,
-  "x": 1536,
-  "y": 556,
-  "s": 0.9,
-  "flip": -1,
   "says": [
    {
-    "text": "Wheee!",
-    "shout": true
+    "text": "Here we go!",
+    "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

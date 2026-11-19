@@ -1,29 +1,47 @@
 {
- "centre": "a bright hub node in a web of glowing threads reaching across the whole sky",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "a glowing source lamp where two particles are born, each flying off with a sealed instruction card",
+ "focus": [
+  1450,
+  400,
+  1.6
+ ],
+ "focus_word": "pre-programmed instructions",
+ "labels": [
+  {
+   "type": "name",
+   "text": "local hidden variables",
+   "x": 1250,
+   "y": 230,
+   "to": [
+    1430,
+    380
+   ],
+   "word": "local hidden variables"
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "photo",
-  "ride": "mv-core-swell-hub-node",
-  "kind": "ride",
-  "x": 1052,
-  "y": 383,
-  "s": 1.25,
-  "flip": -1,
-  "bside": -1,
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 598,
+  "y": 558,
+  "s": 1.0,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": "mv-scroll-electron-left-u075",
   "outfit": [
-   "cap"
+   "lab",
+   "headband"
   ],
   "says": [
    {
-    "text": "Click!",
+    "text": "Psst...",
     "shout": false
    }
   ]

@@ -1,11 +1,41 @@
 {
- "centre": "a dreamlike glowing hourglass with its sand grains frozen mid-fall",
+ "centre": "a column of glowing symbol-shapes stacking up: operator, wave, equals bars, and an empty void",
  "focus": [
   540,
-  900,
+  960,
   1.5
  ],
- "focus_word": "time may not flow",
- "sfx": [],
- "labels": []
+ "focus_word": "equals zero",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-operator-glyph",
+   "h": 240
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 540,
+  "y": 660,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

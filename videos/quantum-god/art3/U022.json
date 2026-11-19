@@ -1,19 +1,51 @@
 {
- "centre": "a quiet night sky through an observatory window, Bohr's silhouette seen from behind, a small die on the sill",
+ "centre": "a plate with two narrow gaps between a glowing emitter and a striped screen on a lab bench",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "click",
+   "word": "experiment",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "Bohr",
-   "x": 360,
-   "y": 560,
+   "text": "Double-slit experiment",
+   "x": 900,
+   "y": 110,
    "to": [
-    800,
-    720
+    900,
+    260
    ],
-   "word": "Bohr"
+   "word": "double-slit experiment"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-path-electron",
+  "kind": "ride",
+  "x": 510,
+  "y": 582,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
 }

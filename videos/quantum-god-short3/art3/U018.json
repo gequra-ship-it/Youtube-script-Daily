@@ -1,13 +1,48 @@
 {
- "centre": "a gold detector with an eye-like lens over a glowing measured signal line",
- "focus": null,
- "focus_word": null,
+ "centre": "a pair of particles shown appearing, glowing, then fading in three stacked stages",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "vanish again",
  "sfx": [
   {
-   "name": "click",
-   "word": "measured",
+   "name": "pop",
+   "word": "pop",
    "vol": 0.6
   }
  ],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-appearing-pair",
+   "h": 176
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 540,
+  "y": 608,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "nightcap"
+  ],
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ]
+ }
 }

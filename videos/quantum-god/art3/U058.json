@@ -1,25 +1,39 @@
 {
- "centre": "an electron with up and down arrows at once, a gold detector with an eye lens, then one definite arrow",
+ "centre": "an open book with a glowing electron orb hovering above its pages",
  "focus": null,
  "focus_word": null,
  "sfx": [
   {
-   "name": "click",
-   "word": "measurement",
+   "name": "sparkle",
+   "word": "superposition",
    "vol": 0.6
   }
  ],
- "labels": [
-  {
-   "type": "name",
-   "text": "Measurement",
-   "x": 1245,
-   "y": 300,
-   "to": [
-    1245,
-    420
-   ],
-   "word": "measurement"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "zerogroll"
+  },
+  "ride": "mv-core-approach-book",
+  "kind": "ride",
+  "x": 1458,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Wheee...",
+    "shout": false
+   }
+  ]
+ }
 }

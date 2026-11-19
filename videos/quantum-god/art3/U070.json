@@ -1,32 +1,18 @@
 {
- "centre": "two glowing spheres joined by a braided thread of light",
+ "centre": "a glowing sphere with a missing wedge, an incomplete theory",
+ "labels": [
+  {
+   "type": "name",
+   "text": "EPR Paradox",
+   "x": 960,
+   "y": 250,
+   "to": [
+    960,
+    380
+   ],
+   "word": "EPR Paradox"
+  }
+ ],
  "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": "think",
-  "ride": "mv-core-heartbeat-sphere-left",
-  "kind": "ride",
-  "x": 413,
-  "y": 709,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "outfit": [
-   "headband"
-  ],
-  "says": [
-   {
-    "text": "But why?",
-    "shout": false
-   }
-  ]
- }
+ "focus_word": null
 }

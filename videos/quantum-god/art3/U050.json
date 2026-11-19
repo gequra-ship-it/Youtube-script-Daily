@@ -1,25 +1,18 @@
 {
- "centre": "a transparent glass chamber of empty space with tiny spark pairs popping inside",
+ "centre": "an open box holding an orange-gold atom cluster, ghosted dashed hidden gears, a magnifier sweeping over and finding nothing",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "sparkle",
-   "word": "vacuum",
-   "vol": 0.6
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Empty space",
-   "x": 1390,
-   "y": 520,
+   "text": "hidden variables",
+   "x": 1500,
+   "y": 760,
    "to": [
     1140,
-    500
+    700
    ],
-   "word": "empty space"
+   "word": "hidden variables"
   }
  ],
  "frog": {
@@ -28,28 +21,23 @@
     "mood": "curious"
    }
   ],
-  "act": {
-   "type": "launched",
-   "obj": "mv-popin-pair",
-   "h": 52
-  },
-  "outfit": [
-   "helmet",
-   "moonboots"
-  ],
+  "act": "peek",
   "ride": null,
   "kind": "bg",
-  "x": 467,
-  "y": 656,
-  "s": 0.95,
-  "flip": 1,
+  "x": 814,
+  "y": 756,
+  "s": 1.0,
+  "flip": -1,
   "bside": -1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
+  "gaze": 1,
+  "behind": "mv-flicker-atom-cluster",
+  "outfit": [
+   "lab",
+   "cap"
+  ],
   "says": [
    {
-    "text": "Whoa!",
+    "text": "Peek-a-boo!",
     "shout": true
    }
   ]

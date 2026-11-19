@@ -1,23 +1,50 @@
 {
- "centre": "single sharp point electron heading to a screen of two plain bars",
+ "centre": "big gold detector eye looking down at fading stripes",
  "labels": [
   {
    "type": "name",
-   "text": "Point particle",
+   "text": "Observation",
    "x": 780,
-   "y": 980,
+   "y": 700,
    "to": [
-    560,
-    870
+    620,
+    830
    ],
-   "word": "single point particle"
+   "word": "observation"
   }
  ],
- "focus": [
-  540,
-  700,
-  1.5
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "click",
+   "word": "observation",
+   "vol": 0.55
+  }
  ],
- "focus_word": "two plain lines",
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "scope",
+  "ride": "mv-core-sway-detector-eye",
+  "kind": "ride",
+  "x": 692,
+  "y": 968,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "sailorhat"
+  ],
+  "says": [
+   {
+    "text": "There!",
+    "shout": false
+   }
+  ]
+ }
 }

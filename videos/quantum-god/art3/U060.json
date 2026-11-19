@@ -1,20 +1,21 @@
 {
- "centre": "a closed eye above a long timeline of forming stars and planets before any life",
- "focus": null,
- "focus_word": null,
+ "centre": "a night window with a ghostly moon beside an empty armchair, nobody watching",
+ "focus": [
+  960,
+  430,
+  1.6
+ ],
+ "focus_word": "when no one is watching",
  "sfx": [
   {
-   "name": "clock",
-   "word": "billions of years",
+   "name": "hush",
+   "word": "no one",
    "vol": 0.6
   }
  ],
- "labels": [
-  {
-   "type": "num",
-   "text": "BILLIONS OF YEARS",
-   "word": "billions of years"
-  }
+ "iris": [
+  960,
+  430
  ],
  "frog": {
   "moods": [
@@ -22,18 +23,17 @@
     "mood": "curious"
    }
   ],
-  "act": {
-   "type": "measure"
-  },
-  "x": 260,
-  "y": 500,
-  "s": 0.88,
-  "flip": 1,
-  "kind": "bg",
+  "act": "float",
   "outfit": [
-   "cap"
+   "helmet",
+   "moonboots"
   ],
+  "x": 1660,
+  "y": 620,
+  "s": 0.81,
+  "flip": -1,
+  "kind": "bg",
   "says": [],
-  "bside": 1
+  "bside": -1
  }
 }

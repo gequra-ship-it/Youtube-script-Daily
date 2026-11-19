@@ -1,34 +1,43 @@
 {
- "centre": "a golden knot where a smooth curved-space grid (left) meets a grainy quantum field (right)",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "Theory of Everything",
- "sfx": [],
+ "centre": "one cube half teal half magenta seen differently by two observers",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "General Relativity",
-   "x": 480,
-   "y": 250,
+   "text": "Two observers",
+   "x": 960,
+   "y": 170,
    "to": [
-    480,
-    450
+    960,
+    380
    ],
-   "word": "General Relativity"
-  },
-  {
-   "type": "name",
-   "text": "Quantum Mechanics",
-   "x": 1440,
-   "y": 250,
-   "to": [
-    1440,
-    480
-   ],
-   "word": "Quantum Mechanics"
+   "word": "two observers"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "scope",
+  "ride": "mv-core-approach-cube",
+  "kind": "ride",
+  "x": 1228,
+  "y": 730,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "There!",
+    "shout": false
+   }
+  ]
+ }
 }

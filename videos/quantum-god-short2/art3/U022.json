@@ -1,60 +1,18 @@
 {
- "centre": "a plain gold prize medal with an entangled-pair relief swinging on a teal ribbon; Zeilinger silhouette below",
- "focus": [
-  540,
-  860,
-  1.5
- ],
- "focus_word": "Nobel Prize",
+ "centre": "two faceless silhouettes (Aspect, Clauser) under spotlights on a stage, a third spotlight waiting",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Anton Zeilinger",
-   "x": 700,
-   "y": 1020,
+   "text": "Aspect",
+   "x": 300,
+   "y": 820,
    "to": [
-    830,
-    1180
+    300,
+    1000
    ],
-   "word": "Anton Zeilinger"
-  },
-  {
-   "type": "name",
-   "text": "Nobel Prize",
-   "x": 540,
-   "y": 1120,
-   "to": [
-    540,
-    940
-   ],
-   "word": "Nobel Prize"
+   "word": "Aspect"
   }
- ],
- "sfx": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": "tap",
-  "ride": "mv-swing-medal-u022",
-  "kind": "ride",
-  "x": 295,
-  "y": 1062,
-  "s": 1.09,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
-  "outfit": [
-   "lab",
-   "cap"
-  ],
-  "says": [
-   {
-    "text": "Knock knock!",
-    "shout": false
-   }
-  ]
- }
+ ]
 }
