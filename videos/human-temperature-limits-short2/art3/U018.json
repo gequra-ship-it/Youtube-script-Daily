@@ -1,30 +1,53 @@
 {
- "centre": "a doctor in a white coat and a rescuer in an orange jacket beside an easel board showing a vessel that widens",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "an ice cube with a warm amber glow inside, beside a thermometer with a very low red column, frosted window behind",
+ "focus": [
+  460,
+  860,
+  1.5
+ ],
+ "focus_word": "feel like freezing",
  "labels": [
   {
    "type": "name",
-   "text": "Doctors",
-   "x": 240,
-   "y": 830,
+   "text": "Hypothermia",
+   "x": 380,
+   "y": 620,
    "to": [
-    240,
-    1030
+    250,
+    900
    ],
-   "word": "doctors"
-  },
-  {
-   "type": "name",
-   "text": "Rescuers",
-   "x": 850,
-   "y": 830,
-   "to": [
-    850,
-    1030
-   ],
-   "word": "rescuers"
+   "word": "Hypothermia"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "Hypothermia does",
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "x": 820,
+  "y": 1080,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "outfit": [
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Eek...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

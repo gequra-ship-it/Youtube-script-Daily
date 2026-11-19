@@ -1,18 +1,34 @@
 {
- "centre": "investigator thinking in front of a corkboard of snow-scene photo cards joined by red string; a calendar page flies off",
+ "centre": "a lone bundled-up walker in beanie and scarf pushing through a sub-zero blizzard, wind gusts and bent pines",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "say",
-   "text": "But why?",
-   "x": 230,
-   "y": 1120,
-   "to": [
-    352,
-    1100
-   ]
+   "name": "wind",
+   "word": "blizzard",
+   "vol": 0.6
   }
- ]
+ ],
+ "wind": "right",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck"
+  },
+  "x": 820,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

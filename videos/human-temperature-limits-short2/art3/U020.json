@@ -1,47 +1,53 @@
 {
- "centre": "a soft pink brain with a coral nugget, wrapped in a warm amber glow over a quilt; sleepy moons float, a snail creeps",
- "focus": [
-  540,
-  840,
-  1.5
- ],
- "focus_word": "brain slows down",
- "sfx": [],
+ "centre": "a brass alarm bell hanging from a wall bracket in fog; its ring lines, pain sparks and shivering zigzags fade away",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Brain",
-   "x": 540,
-   "y": 630,
+   "text": "Alarm",
+   "x": 760,
+   "y": 680,
    "to": [
-    540,
-    760
+    580,
+    860
    ],
-   "word": "brain"
+   "word": "alarm"
+  },
+  {
+   "type": "name",
+   "text": "Shivering",
+   "x": 820,
+   "y": 1130,
+   "to": [
+    830,
+    950
+   ],
+   "word": "shivering"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "sleepy"
+    "mood": "chilly"
    }
   ],
-  "act": "rest",
-  "ride": "mv-core-glide-brain",
+  "act": "listen",
+  "ride": "mv-core-sway-alarm-bell",
   "kind": "ride",
-  "x": 770,
-  "y": 1003,
+  "x": 683,
+  "y": 990,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "nightcap",
-   "scarf"
+   "scarf",
+   "sunglasses"
   ],
   "says": [
    {
-    "text": "Ahh...",
+    "text": "Shh... listen.",
     "shout": false
    }
   ]

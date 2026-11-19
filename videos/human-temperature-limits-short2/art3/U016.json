@@ -1,19 +1,22 @@
 {
- "centre": "a side-view head with a tangled grey-blue thought knot inside, an investigator thinking in front of a corkboard",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a magnifying glass over a footprint in the snow, clothes scattered all around (coat, scarf, glove, boot, beanie)",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "crime",
  "labels": [
   {
    "type": "name",
-   "text": "Investigators",
-   "x": 300,
-   "y": 800,
+   "text": "Scene",
+   "x": 540,
+   "y": 460,
    "to": [
-    250,
-    960
+    330,
+    600
    ],
-   "word": "Investigators"
+   "word": "scene"
   }
  ],
  "frog": {
@@ -22,22 +25,22 @@
     "mood": "chilly"
    }
   ],
-  "act": "magnify",
-  "ride": "mv-core-approach-thought-knot",
+  "act": "shiver",
+  "ride": "mv-core-glide-magnifier-lens",
   "kind": "ride",
-  "x": 704,
-  "y": 940,
+  "x": 764,
+  "y": 1020,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
    "scarf",
-   "sunglasses"
+   "hardhat"
   ],
   "says": [
    {
-    "text": "A clue!",
+    "text": "Brrrr...",
     "shout": false
    }
   ]

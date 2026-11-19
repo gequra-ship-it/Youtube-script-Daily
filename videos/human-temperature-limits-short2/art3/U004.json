@@ -1,25 +1,27 @@
 {
- "centre": "magnifying glass with a bright lens over a cold-case file on the desk, snowflake mark under the glass",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "page",
-   "word": "study",
-   "vol": 0.5
-  }
+ "centre": "four coat pegs in a two-by-two grid; three jackets stay, the fourth slides away leaving a dashed empty outline",
+ "focus": [
+  750,
+  1050,
+  1.5
  ],
+ "focus_word": "clothing removed",
  "labels": [
   {
+   "type": "num",
+   "text": "1 IN 4",
+   "word": "one in four"
+  },
+  {
    "type": "name",
-   "text": "forensic study",
-   "x": 640,
-   "y": 380,
+   "text": "clothing removed",
+   "x": 700,
+   "y": 1290,
    "to": [
-    420,
-    470
+    750,
+    1150
    ],
-   "word": "forensic study"
+   "word": "clothing removed"
   }
  ],
  "frog": {
@@ -28,22 +30,21 @@
     "mood": "chilly"
    }
   ],
-  "act": "lean",
-  "ride": "mv-core-glide-magnifier-lens",
+  "act": "shiver",
+  "ride": "mv-slide-jacket-removed",
   "kind": "ride",
-  "x": 804,
-  "y": 1080,
-  "s": 1.09,
+  "x": 659,
+  "y": 913,
+  "s": 1.44,
   "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "bside": -1,
   "outfit": [
-   "lab",
-   "explorer"
+   "scarf",
+   "sunglasses"
   ],
   "says": [
    {
-    "text": "Here we go!",
+    "text": "Eek...",
     "shout": false
    }
   ]

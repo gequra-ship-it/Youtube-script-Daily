@@ -1,18 +1,25 @@
 {
- "centre": "tired Everyman in beanie and scarf on the snow, dashed ghost flames at the feet and a thought bubble with a campfire: a false feeling of burning heat",
+ "centre": "everyman in a light t-shirt with arms up, a warm false-heat glow around him, his coat tossed away over the snow",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "tear",
+   "word": "tear off",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "So hot...",
-   "x": 180,
-   "y": 960,
+   "type": "name",
+   "text": "Clothes",
+   "x": 800,
+   "y": 520,
    "to": [
-    352,
-    1100
-   ]
+    770,
+    680
+   ],
+   "word": "clothes"
   }
  ]
 }

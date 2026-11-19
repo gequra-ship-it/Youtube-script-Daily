@@ -1,23 +1,25 @@
 {
- "centre": "open cold hand whose blood vessels narrow toward pale fingertips, beside a besieged fortress",
- "focus": [
-  1290,
-  600,
-  1.6
+ "centre": "heat meter filling up, fed by a contracting muscle, beside a stopwatch",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "tick",
+   "word": "within minutes",
+   "vol": 0.5
+  }
  ],
- "focus_word": "fingers",
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Blood vessels",
-   "x": 1640,
-   "y": 440,
+   "text": "Heat production",
+   "x": 1240,
+   "y": 170,
    "to": [
-    1335,
-    640
+    1000,
+    280
    ],
-   "word": "blood vessels"
+   "word": "heat production"
   }
  ]
 }

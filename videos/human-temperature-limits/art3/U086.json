@@ -1,23 +1,46 @@
 {
- "centre": "a big calm open eye with fully dilated black pupil and pale blue iris, a monitor with a flat line beside it",
+ "centre": "a pale coral heart quivering with jagged squiggles instead of a beat, above an ECG line that is chaotic then runs flat",
  "focus": [
   960,
   500,
-  1.9
+  1.7
  ],
- "focus_word": "pupils",
- "sfx": [],
+ "focus_word": "quiver",
  "labels": [
   {
    "type": "name",
-   "text": "pupils",
-   "x": 1250,
-   "y": 330,
+   "text": "ventricular fibrillation",
+   "x": 1380,
+   "y": 300,
    "to": [
-    1030,
-    450
+    1050,
+    440
    ],
-   "word": "pupils"
+   "word": "ventricular fibrillation"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "Eventually it",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "x": 260,
+  "y": 340,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "glasses"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

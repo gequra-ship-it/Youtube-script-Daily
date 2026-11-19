@@ -1,23 +1,29 @@
 {
- "centre": "a calm everyman in beanie and scarf on a snow plain; a yellow danger sign peeks up from behind a snowbank beside him",
- "focus": [
-  400,
-  1100,
-  1.5
- ],
- "focus_word": "danger",
- "sfx": [],
+ "centre": "a glowing light bulb (the hypothesis) on a notebook page, beside an empty dashed proof-seal outline and a pencil",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Danger",
-   "x": 330,
-   "y": 900,
+   "text": "Hypothesis",
+   "x": 540,
+   "y": 560,
    "to": [
-    326,
-    1140
+    540,
+    760
    ],
-   "word": "danger"
+   "word": "hypothesis"
+  },
+  {
+   "type": "name",
+   "text": "Fact",
+   "x": 790,
+   "y": 1040,
+   "to": [
+    760,
+    1130
+   ],
+   "word": "fact"
   }
  ]
 }

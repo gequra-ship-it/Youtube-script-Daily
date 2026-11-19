@@ -1,25 +1,35 @@
 {
- "centre": "two orange-jacket rescuers on a snowy slope, one pointing along a headlamp beam at a scarf and beanie half buried in snow",
- "focus": null,
- "focus_word": null,
- "sfx": [
-  {
-   "name": "step",
-   "word": "rescuers",
-   "vol": 0.5
-  }
+ "centre": "coral heart whose rhythm line slows on a monitor strip beside a drowsy Everyman and an inviting snow bed",
+ "focus": [
+  1450,
+  420,
+  1.7
  ],
- "labels": [
-  {
-   "type": "say",
-   "text": "What is that?",
-   "x": 760,
-   "y": 250,
-   "to": [
-    526,
-    435
-   ],
-   "word": "unsettling"
-  }
- ]
+ "focus_word": "heart rate is dropping",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "listen",
+  "ride": "mv-core-drop-snow-clump",
+  "kind": "ride",
+  "x": 370,
+  "y": 782,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "nightcap",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Did you hear that?",
+    "shout": false
+   }
+  ]
+ }
 }

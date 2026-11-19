@@ -1,11 +1,31 @@
 {
- "centre": "bed in a frosty bedroom with a dark gap underneath and a hanging blanket edge",
- "focus": [
-  560,
-  1100,
-  1.6
- ],
- "focus_word": "terminal burrowing",
- "sfx": [],
- "labels": []
+ "centre": "magnifying glass over a forensic case sketch of a bed with a dark gap",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-core-glide-magnifier-lens",
+  "kind": "ride",
+  "x": 804,
+  "y": 1170,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ]
+ }
 }

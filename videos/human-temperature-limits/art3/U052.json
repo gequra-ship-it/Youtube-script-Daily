@@ -1,33 +1,30 @@
 {
- "centre": "shivering person with chattering teeth; inset of contracting muscle fibres",
- "focus": [
-  900,
-  470,
-  1.5
- ],
- "focus_word": "teeth chatter",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Muscles",
-   "x": 480,
-   "y": 235,
-   "to": [
-    480,
-    430
-   ],
-   "word": "Muscles"
+ "centre": "person in thin clothing alone on a freezing snowy night under a street lamp",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   },
+   {
+    "word": "At first",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "hug"
   },
-  {
-   "type": "say",
-   "text": "Brrr!",
-   "x": 1250,
-   "y": 330,
-   "to": [
-    975,
-    482
-   ]
-  }
- ]
+  "x": 1660,
+  "y": 340,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

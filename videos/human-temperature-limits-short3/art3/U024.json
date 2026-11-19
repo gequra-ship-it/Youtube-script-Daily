@@ -2,7 +2,6 @@
  "centre": "two rescuers in orange jackets carrying a blanketed patient on a stretcher through snow to an ambulance",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -19,22 +18,29 @@
  "frog": {
   "moods": [
    {
-    "mood": "chilly"
+    "mood": "scared"
    }
   ],
-  "act": {
-   "type": "rubhands"
-  },
-  "x": 260,
-  "y": 600,
-  "s": 1.05,
-  "flip": 1,
+  "act": "shiver",
+  "x": 820,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
   "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
   "outfit": [
    "scarf",
-   "headlamp"
+   "explorer"
   ],
-  "says": [],
-  "bside": 1
+  "says": [
+   {
+    "text": "Eek...",
+    "shout": false
+   }
+  ],
+  "bside": -1
  }
 }

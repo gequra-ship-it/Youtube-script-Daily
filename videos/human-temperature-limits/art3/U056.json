@@ -1,50 +1,63 @@
 {
- "centre": "pale numb hand with icy fingertips by a frosted window, a match slipping from the fingers",
+ "centre": "glowing coral heart in the warm core of a body diagram, brain in the head, icy ears and nose",
  "focus": [
-  870,
+  990,
   520,
-  1.7
+  1.5
  ],
- "focus_word": "fingers",
- "sfx": [],
+ "focus_word": "warm core",
  "labels": [
   {
-   "type": "say",
-   "text": "Oops!",
-   "x": 1230,
-   "y": 330,
+   "type": "name",
+   "text": "Heart",
+   "x": 1330,
+   "y": 640,
    "to": [
-    994,
-    478
-   ]
+    1045,
+    610
+   ],
+   "word": "heart"
+  },
+  {
+   "type": "name",
+   "text": "Brain",
+   "x": 1310,
+   "y": 235,
+   "to": [
+    1035,
+    215
+   ],
+   "word": "brain"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "curious"
    }
   ],
-  "act": "shiver",
-  "x": 1660,
-  "y": 340,
-  "s": 0.76,
-  "flip": -1,
-  "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 288
+  "act": {
+   "type": "heartlisten",
+   "obj": "mv-core-heartbeat-heart"
   },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1114,
+  "y": 668,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
    "scarf",
-   "explorer"
+   "lab"
   ],
   "says": [
    {
-    "text": "Brrrr...",
+    "text": "Thump... thump.",
     "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

@@ -1,23 +1,44 @@
 {
- "centre": "a thermostat dial (cold blue to hot red) set inside a soft brain, the needle wavering on the hot side, snowy window behind",
- "focus": [
-  540,
-  860,
-  1.6
- ],
- "focus_word": "thermostat",
- "sfx": [],
+ "centre": "stage curtains slide open to uncover a human silhouette with a glowing furnace in the chest, ice on one side and a hot sun on the other",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Thermostat",
-   "x": 700,
-   "y": 560,
+   "text": "Human",
+   "x": 540,
+   "y": 600,
    "to": [
-    600,
-    800
+    540,
+    760
    ],
-   "word": "thermostat"
+   "word": "human"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 285,
+  "y": 1460,
+  "s": 1.2,
+  "flip": 1,
+  "bside": 1,
+  "behind": "mv-slide-curtain-left",
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
 }

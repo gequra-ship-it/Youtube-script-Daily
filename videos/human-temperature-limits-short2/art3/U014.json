@@ -1,25 +1,55 @@
 {
- "centre": "everyman in a light t-shirt with arms up, a warm false-heat glow around him, his coat tossed away over the snow",
+ "centre": "three clothing layers stacked (coat, sweater, thin shirt); the outer two slide away while a thermometer column drops",
  "focus": null,
  "focus_word": null,
- "sfx": [
-  {
-   "name": "tear",
-   "word": "tear off",
-   "vol": 0.6
-  }
- ],
  "labels": [
   {
    "type": "name",
-   "text": "Clothes",
-   "x": 800,
-   "y": 520,
+   "text": "Layer",
+   "x": 520,
+   "y": 640,
    "to": [
-    770,
-    680
+    520,
+    820
    ],
-   "word": "clothes"
+   "word": "layer"
+  },
+  {
+   "type": "name",
+   "text": "Cold",
+   "x": 860,
+   "y": 1360,
+   "to": [
+    860,
+    1255
+   ],
+   "word": "cold"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-slide-coat-layer",
+  "kind": "ride",
+  "x": 382,
+  "y": 1046,
+  "s": 1.09,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Gulp.",
+    "shout": false
+   }
+  ]
+ }
 }

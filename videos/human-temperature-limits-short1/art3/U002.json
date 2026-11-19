@@ -29,12 +29,14 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "excited"
+   },
+   {
+    "word": "Add humidity",
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "crouchlook"
-  },
+  "act": "dance",
   "outfit": [
    "goggles",
    "raincoat"
@@ -48,8 +50,8 @@
   "bside": -1,
   "says": [
    {
-    "text": "Found it!",
-    "shout": true
+    "text": "La la la~",
+    "shout": false
    }
   ]
  }

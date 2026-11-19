@@ -1,34 +1,41 @@
 {
- "centre": "magnified skin cross-section with a coiled sweat gland whose duct opens at a pore and pushes out a sweat droplet; a stopwatch ticks above",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "sweat glands",
- "sfx": [],
+ "centre": "notebook diagram: skin patch with a sweat drop, breathing lungs exhaling warm air, brain with a glowing hypothalamus",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Sweat gland",
-   "x": 680,
-   "y": 640,
+   "text": "Skin",
+   "x": 410,
+   "y": 330,
    "to": [
-    905,
-    650
+    410,
+    440
    ],
-   "word": "sweat glands"
+   "word": "skin"
   },
   {
-   "type": "say",
-   "text": "Out I go!",
-   "x": 1200,
-   "y": 250,
+   "type": "name",
+   "text": "Lungs",
+   "x": 720,
+   "y": 740,
    "to": [
-    980,
-    296
-   ]
+    870,
+    600
+   ],
+   "word": "lungs"
+  },
+  {
+   "type": "name",
+   "text": "Brain",
+   "x": 1500,
+   "y": 690,
+   "to": [
+    1500,
+    590
+   ],
+   "word": "brain"
   }
  ],
- "motion": "sweat droplet rises out of the pore (rise), stopwatch hand turns second by second (rotor)"
+ "motion": "sweat drop drips from the skin (drip), lungs swell with breath, warm breath curls rise (steam), hypothalamus glints"
 }

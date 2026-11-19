@@ -1,41 +1,40 @@
 {
- "centre": "a museum timeline of comfort: hide clothing with a stitched seam, a hide shelter, a radiator, an air conditioner with a turning fan",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a crackling campfire glowing as a warm pocket in an ice-age snowfield, two people warming their hands",
+ "focus": [
+  960,
+  560,
+  1.6
+ ],
+ "focus_word": "pockets of warmth",
+ "sfx": [
+  {
+   "name": "crackle",
+   "word": "fire",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "clothing",
-   "x": 330,
-   "y": 260,
+   "text": "ice ages",
+   "x": 1400,
+   "y": 300,
    "to": [
-    330,
+    1470,
     420
    ],
-   "word": "clothing"
+   "word": "ice ages"
   },
   {
    "type": "name",
-   "text": "shelters",
-   "x": 760,
-   "y": 290,
+   "text": "fire",
+   "x": 1160,
+   "y": 420,
    "to": [
-    760,
-    460
+    990,
+    520
    ],
-   "word": "shelters"
-  },
-  {
-   "type": "name",
-   "text": "air conditioning",
-   "x": 1500,
-   "y": 290,
-   "to": [
-    1530,
-    400
-   ],
-   "word": "air conditioning"
+   "word": "fire"
   }
  ]
 }

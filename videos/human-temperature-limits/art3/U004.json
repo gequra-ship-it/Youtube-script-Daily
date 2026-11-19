@@ -1,14 +1,23 @@
 {
- "centre": "a big glass thermometer whose red column rises and stops at the 37 degree mark, the everyman pointing at it on squared notebook paper",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a translucent body outline with a glowing little furnace burning in the chest, day sun on the left and night moon on the right",
+ "focus": [
+  960,
+  480,
+  1.7
+ ],
+ "focus_word": "invisible furnace",
  "labels": [
   {
-   "type": "num",
-   "text": "37 \u00b0C",
-   "word": "thirty-seven degrees"
+   "type": "name",
+   "text": "furnace",
+   "x": 1200,
+   "y": 400,
+   "to": [
+    1030,
+    470
+   ],
+   "word": "furnace"
   }
  ],
- "motion": "red column fills up to the 37 mark (fill), person breathes"
+ "motion": "furnace fire flickers, clock minute hand keeps turning (day and night without a break)"
 }

@@ -1,19 +1,16 @@
 {
- "centre": "Everyman balancing on a narrow plank between an icy cliff and a hot cliff",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "narrow glowing arched window between an ice wall and a fire wall, a tiny person inside",
+ "focus": [
+  960,
+  480,
+  1.7
+ ],
+ "focus_word": "fourteen degrees Celsius",
  "labels": [
   {
-   "type": "say",
-   "text": "Steady...",
-   "x": 1200,
-   "y": 170,
-   "to": [
-    968,
-    220
-   ],
-   "word": "narrow"
+   "type": "num",
+   "text": "14 °C",
+   "word": "fourteen degrees"
   }
  ]
 }

@@ -1,19 +1,37 @@
 {
- "centre": "map with a warm land and a cold land, a dashed border, footprints crossing into the cold side and a snowflake flag planted there",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "glass thermometer whose red column sinks below a dashed 35 degree line while cold arrows reach the Everyman's core",
+ "focus": [
+  1250,
+  440,
+  1.6
+ ],
+ "focus_word": "thirty-five degrees Celsius",
  "labels": [
   {
-   "type": "name",
-   "text": "Hypothermia",
-   "x": 1470,
-   "y": 220,
-   "to": [
-    1460,
-    300
-   ],
-   "word": "clinical hypothermia"
+   "type": "num",
+   "text": "BELOW 35 °C",
+   "word": "thirty-five degrees"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "shiver"
+  },
+  "x": 260,
+  "y": 540,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "bside": 1,
+  "lock": true
+ }
 }

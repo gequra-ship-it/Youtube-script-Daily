@@ -1,28 +1,28 @@
 {
- "centre": "half-hot half-cold temperature dial on a post on the Moon, needle swinging",
- "focus": [
-  960,
-  500,
-  1.6
- ],
- "focus_word": "swings",
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "ABOVE 100 \u00b0C",
-   "word": "one hundred degrees"
+ "centre": "round brass porthole showing dark space with a star and a crescent Moon",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
   },
-  {
-   "type": "name",
-   "text": "Moon",
-   "x": 480,
-   "y": 690,
-   "to": [
-    620,
-    668
-   ],
-   "word": "Moon"
-  }
- ]
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "ride": "mv-core-approach-universe-window",
+  "kind": "ride",
+  "x": 1128,
+  "y": 630,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
 }

@@ -1,23 +1,48 @@
 {
- "centre": "an ice cube with a warm amber glow inside, beside a thermometer with a very low red column, frosted window behind",
+ "centre": "a soft pink brain with a coral nugget, wrapped in a warm amber glow over a quilt; sleepy moons float, a snail creeps",
  "focus": [
-  460,
-  860,
+  540,
+  840,
   1.5
  ],
- "focus_word": "feel like freezing",
- "sfx": [],
+ "focus_word": "brain slows down",
  "labels": [
   {
    "type": "name",
-   "text": "Hypothermia",
-   "x": 380,
-   "y": 620,
+   "text": "Brain",
+   "x": 540,
+   "y": 630,
    "to": [
-    250,
-    900
+    540,
+    760
    ],
-   "word": "Hypothermia"
+   "word": "brain"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-core-glide-brain",
+  "kind": "ride",
+  "x": 770,
+  "y": 1003,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "nightcap",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
 }

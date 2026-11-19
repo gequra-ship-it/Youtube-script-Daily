@@ -1,19 +1,33 @@
 {
- "centre": "Everyman thinking at a signpost between icy peaks and hot dunes",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "surgical lamp over a patient under a frosty cooling blanket",
+ "focus": [
+  410,
+  390,
+  1.8
+ ],
+ "focus_word": "heart and brain surgery",
  "labels": [
   {
-   "type": "say",
-   "text": "Where's the edge?",
-   "x": 560,
-   "y": 260,
+   "type": "name",
+   "text": "Heart",
+   "x": 290,
+   "y": 215,
    "to": [
-    830,
-    410
+    330,
+    395
    ],
-   "word": "boundaries"
+   "word": "heart"
+  },
+  {
+   "type": "name",
+   "text": "Brain",
+   "x": 530,
+   "y": 215,
+   "to": [
+    470,
+    385
+   ],
+   "word": "brain"
   }
  ]
 }

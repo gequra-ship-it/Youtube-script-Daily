@@ -1,18 +1,29 @@
 {
- "centre": "Everyman pointing at a tall ice-to-fire temperature scale with one narrow glowing band bracketed",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a hot spring pool with steam, and a magnifying lens showing smiling microbes",
+ "focus": [
+  1400,
+  430,
+  1.8
+ ],
+ "focus_word": "microbes",
+ "sfx": [
+  {
+   "name": "bubble",
+   "word": "hot springs",
+   "vol": 0.6
+  }
+ ],
  "labels": [
   {
-   "type": "say",
-   "text": "Not too hot!",
-   "x": 330,
-   "y": 470,
+   "type": "name",
+   "text": "hot springs",
+   "x": 1090,
+   "y": 585,
    "to": [
-    600,
-    492
-   ]
+    930,
+    680
+   ],
+   "word": "hot springs"
   }
  ]
 }

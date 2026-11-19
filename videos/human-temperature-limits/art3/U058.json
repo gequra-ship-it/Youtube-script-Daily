@@ -1,34 +1,46 @@
 {
- "centre": "large six-armed ice crystal inside a cell, its arms tearing the cell membrane, under a microscope",
- "focus": [
-  960,
-  500,
-  1.7
- ],
- "focus_word": "microscopic ice crystals",
- "sfx": [],
+ "centre": "close-up fingertip in a notebook sketch, white frost and ice crystals creeping from the tip",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
    "type": "name",
-   "text": "Ice crystal",
-   "x": 1250,
-   "y": 300,
+   "text": "Frostbite",
+   "x": 720,
+   "y": 730,
    "to": [
-    1050,
-    420
+    700,
+    560
    ],
-   "word": "ice crystals"
-  },
-  {
-   "type": "name",
-   "text": "Cell membrane",
-   "x": 760,
-   "y": 670,
-   "to": [
-    850,
-    630
-   ],
-   "word": "cell membranes"
+   "word": "frostbite"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shiver",
+  "x": 1660,
+  "y": 740,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "outfit": [
+   "scarf",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }
