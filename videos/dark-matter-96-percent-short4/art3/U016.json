@@ -1,33 +1,33 @@
 {
- "centre": "a grid of glowing cells of empty space appearing one after another, a few holding tiny galaxies",
+ "centre": "a gigantic violet-black orb filling the frame beside a tiny warm galaxy",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "squint"
+   },
+   {
+    "word": "It represents",
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "pushaway"
-  },
+  "act": "search",
   "outfit": [
    "helmet",
-   "moonboots"
+   "antenna"
   ],
-  "x": 260,
-  "y": 760,
-  "s": 1.1,
-  "flip": 1,
+  "x": 820,
+  "y": 640,
+  "s": 1.04,
+  "flip": -1,
   "kind": "bg",
   "says": [
    {
-    "text": "Drifting apart...",
+    "text": "Where is it?",
     "shout": false
    }
   ],
-  "bside": 1
+  "bside": -1
  }
 }

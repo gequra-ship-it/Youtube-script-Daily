@@ -2,17 +2,13 @@
  "centre": "an open rulebook with a falling curve on the left page and a rising ghost curve on the right",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "countstars"
-  },
+  "act": "lean",
   "ride": "mv-core-approach-book",
   "kind": "ride",
   "x": 780,
@@ -21,11 +17,11 @@
   "flip": -1,
   "bside": -1,
   "outfit": [
-   "bowler"
+   "cap"
   ],
   "says": [
    {
-    "text": "So many...",
+    "text": "Here we go!",
     "shout": false
    }
   ]

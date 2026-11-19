@@ -1,53 +1,46 @@
 {
- "centre": "a sailing ship gliding over water we cannot see: only its wake foam shows something is there",
+ "centre": "empty sealed lab jar on a bench with nothing inside",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "track": false,
- "wind": "right",
  "labels": [
   {
    "type": "name",
-   "text": "the ship",
-   "x": 300,
-   "y": 520,
+   "text": "Laboratory",
+   "x": 780,
+   "y": 640,
    "to": [
-    470,
-    720
+    560,
+    800
    ],
-   "word": "the ship"
+   "word": "laboratory"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
-   },
-   {
-    "word": "But you",
-    "mood": "curious"
-   },
-   {
-    "word": "Remember what",
     "mood": "happy"
    }
   ],
   "act": {
-   "type": "binocs"
+   "type": "hopalong",
+   "obj": "mv-hop-test-tube-rack"
   },
   "outfit": [
-   "goggles"
+   "helmet",
+   "jetpack"
   ],
-  "ride": "mv-path-ship",
-  "kind": "ride",
-  "x": 455,
-  "y": 821,
-  "s": 1.44,
+  "ride": null,
+  "kind": "bg",
+  "x": 676,
+  "y": 1204,
+  "s": 1.09,
   "flip": 1,
-  "bside": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
   "says": [
    {
-    "text": "Ooh!",
+    "text": "Hop hop!",
     "shout": true
    }
   ]

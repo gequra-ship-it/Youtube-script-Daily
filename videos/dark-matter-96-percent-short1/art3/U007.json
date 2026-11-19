@@ -1,13 +1,35 @@
 {
- "centre": "a dark cosmos disc with one small bright warm slice pulled out",
+ "centre": "a single water droplet above the sea, sand dune below, breath puffs drifting",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "5 PERCENT",
-   "word": "5 percent"
-  }
- ]
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "Every grain",
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "ride": "mv-core-drop-water-droplet",
+  "kind": "ride",
+  "x": 671,
+  "y": 1025,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
 }

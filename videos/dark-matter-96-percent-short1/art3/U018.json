@@ -1,32 +1,33 @@
 {
- "centre": "a magnifying glass over faint footprints in snow leading into the dark",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "a tilted spiral galaxy turning, golden core, magenta and teal arms",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "galaxies spin",
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": "rest",
-  "ride": "mv-core-glide-magnifier",
-  "kind": "ride",
-  "x": 834,
-  "y": 1108,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "act": "float",
   "outfit": [
-   "bowtie"
+   "helmet",
+   "antenna"
   ],
+  "x": 820,
+  "y": 560,
+  "s": 1.04,
+  "flip": -1,
+  "kind": "bg",
   "says": [
    {
-    "text": "Ahh...",
+    "text": "Wheee!",
     "shout": false
    }
-  ]
+  ],
+  "bside": -1
  }
 }

@@ -2,15 +2,15 @@
  "centre": "clear cube of empty space filled with an even violet glow and a tag tied to its corner",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "sleepy"
    }
   ],
-  "act": "listen",
+  "act": {
+   "type": "zerogroll"
+  },
   "outfit": [
    "helmet",
    "goldvisor"
@@ -25,7 +25,7 @@
   "gaze": 1,
   "says": [
    {
-    "text": "Nothing...",
+    "text": "Wheee...",
     "shout": false
    }
   ]

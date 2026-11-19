@@ -1,34 +1,34 @@
 {
- "centre": "spiral galaxy wrapped in a violet halo web that tugs inward like glue",
+ "centre": "jigsaw board with the first violet piece sliding in and many empty slots",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "squint"
+   },
+   {
+    "word": "Dark matter",
+    "mood": "worried"
    }
   ],
-  "act": {
-   "type": "moonbounce",
-   "dist": 302
-  },
+  "act": "search",
   "outfit": [
-   "helmet",
-   "moonboots"
+   "helmet"
   ],
-  "x": 260,
-  "y": 1200,
-  "s": 1.21,
+  "ride": "mv-slide-puzzle-piece",
+  "kind": "ride",
+  "x": 684,
+  "y": 960,
+  "s": 1.09,
   "flip": 1,
-  "kind": "bg",
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Boing!",
-    "shout": true
+    "text": "Where is it?",
+    "shout": false
    }
-  ],
-  "bside": 1
+  ]
  }
 }

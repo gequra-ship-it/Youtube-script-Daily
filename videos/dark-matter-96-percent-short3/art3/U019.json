@@ -1,19 +1,33 @@
 {
- "centre": "empty sealed lab jar on a bench with nothing inside",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Laboratory",
-   "x": 780,
-   "y": 640,
-   "to": [
-    560,
-    800
-   ],
-   "word": "laboratory"
-  }
- ]
+ "centre": "notebook graph where the measured galaxy curve sits above the curve from visible matter, with the gap shaded",
+ "focus": [
+  580,
+  900,
+  1.6
+ ],
+ "focus_word": "gap",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "float",
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 820,
+  "y": 560,
+  "s": 1.04,
+  "flip": -1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
 }

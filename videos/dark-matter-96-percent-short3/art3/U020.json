@@ -1,35 +1,40 @@
 {
- "centre": "notebook graph where the measured galaxy curve sits above the curve from visible matter, with the gap shaded",
- "focus": [
-  580,
-  900,
-  1.6
- ],
- "focus_word": "gap",
- "sfx": [],
- "labels": [],
+ "centre": "measuring beaker filled with ghost violet liquid and a hanging blank name tag",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "happy"
+   },
+   {
+    "word": "That is",
+    "mood": "happy"
+   },
+   {
+    "word": "We know",
+    "mood": "happy"
    }
   ],
-  "act": "float",
-  "outfit": [
-   "helmet",
-   "antenna"
-  ],
-  "x": 820,
-  "y": 560,
-  "s": 0.99,
+  "act": {
+   "type": "starcatch"
+  },
+  "ride": "mv-swing-name-tag",
+  "kind": "ride",
+  "x": 844,
+  "y": 904,
+  "s": 1.09,
   "flip": -1,
-  "kind": "bg",
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
   "says": [
    {
-    "text": "Wheee!",
-    "shout": false
+    "text": "Gotcha!",
+    "shout": true
    }
-  ],
-  "bside": -1
+  ]
  }
 }

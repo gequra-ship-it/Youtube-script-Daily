@@ -1,7 +1,50 @@
 {
- "centre": "top: a fist holding galaxies together; bottom: an open palm pushing galaxies apart",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "a blank paper name-tag swinging on a string in front of a deep violet-black mystery",
+ "focus": [
+  540,
+  740,
+  1.6
+ ],
+ "focus_word": "name",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Dark energy",
+   "x": 540,
+   "y": 910,
+   "to": [
+    540,
+    745
+   ],
+   "word": "dark energy"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "outfit": [
+   "helmet",
+   "jetpack"
+  ],
+  "ride": "mv-swing-tag",
+  "kind": "ride",
+  "x": 734,
+  "y": 760,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "So cold...",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -6,8 +6,6 @@
   1.8
  ],
  "focus_word": "explosion",
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
@@ -25,14 +23,19 @@
   "act": "float",
   "outfit": [
    "helmet",
-   "patch"
+   "jetpack"
   ],
   "x": 260,
   "y": 660,
   "s": 0.94,
   "flip": 1,
   "kind": "bg",
-  "says": [],
+  "says": [
+   {
+    "text": "Floaty...",
+    "shout": false
+   }
+  ],
   "bside": 1
  }
 }

@@ -1,37 +1,42 @@
 {
- "centre": "ghostly mystery blob at the end of a footprint trail followed by a faceless detective",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "cosmic pie with a medium violet ghost slice for 27 percent",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "27 percent",
+ "labels": [
+  {
+   "type": "num",
+   "text": "27 PERCENT",
+   "word": "27 percent"
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
-   },
-   {
-    "word": "What could",
     "mood": "curious"
    }
   ],
-  "act": "lean",
+  "act": {
+   "type": "countfingers"
+  },
   "outfit": [
    "helmet",
-   "jetpack"
+   "moonboots"
   ],
-  "ride": "mv-core-approach-mystery-blob",
-  "kind": "ride",
-  "x": 842,
-  "y": 1018,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "x": 260,
+  "y": 1160,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
   "says": [
    {
-    "text": "Here we go!",
+    "text": "One, two...",
     "shout": false
    }
-  ]
+  ],
+  "bside": 1
  }
 }

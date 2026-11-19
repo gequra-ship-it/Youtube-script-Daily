@@ -1,7 +1,32 @@
 {
- "centre": "glowing magenta orb at a crack in an eerie void above a stargazing telescope",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "tiny glowing marker on a vertical scale between an atom above and a colossal galaxy below",
+ "focus": [
+  540,
+  1200,
+  1.5
+ ],
+ "focus_word": "colossal galaxy",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "outfit": [
+   "helmet",
+   "goldvisor"
+  ],
+  "ride": "mv-core-glide-scale-marker",
+  "kind": "ride",
+  "x": 644,
+  "y": 920,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
 }

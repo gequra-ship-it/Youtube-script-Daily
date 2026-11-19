@@ -1,11 +1,32 @@
 {
- "centre": "teal ball thrown upward from a hand over a planet horizon, slowing",
- "focus": [
-  540,
-  900,
-  1.6
- ],
- "focus_word": "Throw a ball upward",
- "sfx": [],
- "labels": []
+ "centre": "six galaxies tied by dotted gravity threads, all pulling on each other",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": {
+   "type": "slowwalk",
+   "dist": 302
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 260,
+  "y": 720,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Sooo slow...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

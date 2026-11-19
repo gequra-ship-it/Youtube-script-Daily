@@ -1,7 +1,35 @@
 {
- "centre": "two ghostly orbs, a halo around a galaxy and drifting galaxies, with a measuring dial between them",
- "focus": null,
+ "centre": "a glowing screen with a white play triangle at the end of a trail of clue dots",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-core-approach-play-button",
+  "kind": "ride",
+  "x": 944,
+  "y": 1220,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "explorer",
+   "pocketwatch"
+  ],
+  "says": [
+   {
+    "text": "A clue!",
+    "shout": false
+   }
+  ]
+ }
 }
