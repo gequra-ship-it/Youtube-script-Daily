@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 # dinosaur-extinction-mystery-short3 (Miya's Note). Script from miya 2026-11-09; fact-checked per guideline 12-1 (see ../dinosaur-extinction-mystery/script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'Why were the giants the first to fall? To answer that, you have to picture the world after the fires.'),
- ('S02',
-  'Part 2',
-  'ill',
-  'sh3_2',
-  'The sky is gray and thick with soot. The sun is a dim smear, if you can see it at all. For years the days feel like twilight.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'Picture the world after the fires: a gray sky thick with soot, and a sun that is a dim smear.'),
+ ('S02', 'Part 2', 'ill', 'sh3_2', 'It was real, and it is why the giants fell first. For years the days feel like twilight.'),
  ('S03',
   'Part 3',
   'ill',

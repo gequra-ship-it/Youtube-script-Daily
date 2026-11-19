@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh2_1',
-  'Imagine a mountain of rock roughly ten to fifteen kilometers across, traveling at tens of thousands of kilometers per hour. When it slammed into '
-  'a shallow sea, the energy released was comparable to billions of atomic bombs detonating all at once.'),
+  'Imagine a mountain of rock roughly ten to fifteen kilometers across, traveling at tens of thousands of kilometers per hour. It was real: when it '
+  'slammed into a shallow sea, the energy released was comparable to billions of atomic bombs detonating all at once.'),
  ('S02',
   'Part 2',
   'ill',

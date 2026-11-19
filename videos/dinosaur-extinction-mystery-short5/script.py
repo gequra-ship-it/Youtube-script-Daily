@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 # dinosaur-extinction-mystery-short5 (Miya's Note). Script from miya 2026-11-09; fact-checked per guideline 12-1 (see ../dinosaur-extinction-mystery/script-check.md).
-SCENES = [('S01',
-  'Part 1',
-  'ill',
-  'sh5_1',
-  'Who could endure a planet stripped of light and warmth? In this dark and broken world, being large and powerful was no longer an advantage.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh5_1', 'In a planet stripped of light and warmth, being large and powerful was no longer an advantage. It was real.'),
  ('S02',
   'Part 2',
   'ill',

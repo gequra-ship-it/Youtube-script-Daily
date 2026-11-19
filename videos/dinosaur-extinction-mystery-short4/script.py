@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh4_1',
-  'Was the asteroid striking a healthy planet alone, or was Earth already under strain? Geologists have found evidence of colossal volcanic '
-  'eruptions in what is now India, forming the massive Deccan Traps.'),
+  'Colossal volcanic eruptions in what is now India, forming the Deccan Traps, may have strained Earth even before the asteroid struck. It was real, '
+  'and it raises a question: was the asteroid striking a healthy planet alone?'),
  ('S02',
   'Part 2',
   'ill',
