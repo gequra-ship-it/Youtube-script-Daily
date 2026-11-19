@@ -1,19 +1,23 @@
 {
- "centre": "an adult Megalodon gliding calmly above the sea floor, a cracked whale vertebra below",
+ "centre": "Megalodon's head with its jaws opening and closing, pressing arrows, and a bite-force gauge pushed into the red",
+ "focus": [
+  1450,
+  430,
+  1.6
+ ],
+ "focus_word": "strongest ever estimated",
  "labels": [
   {
-   "type": "say",
-   "text": "Crack!",
-   "x": 640,
-   "y": 560,
+   "type": "name",
+   "text": "bite force",
+   "x": 1450,
+   "y": 220,
    "to": [
-    470,
-    650
-   ]
+    1450,
+    330
+   ],
+   "word": "bite force"
   }
  ],
- "motion": "core glide (Megalodon) + nudge (the cracked bone half shoves apart)",
- "focus": null,
- "focus_word": null,
- "sfx": []
+ "motion": "joint (lower jaw hinges) + joint (gauge needle trembles near the maximum)"
 }

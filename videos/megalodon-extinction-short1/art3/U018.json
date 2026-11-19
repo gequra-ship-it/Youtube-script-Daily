@@ -1,20 +1,44 @@
 {
- "centre": "a globe (Americas, Europe, Africa, Australia edge); small tooth markers pop up one by one on the coasts of many continents",
+ "centre": "a close-up Megalodon head whose lower jaw opens and closes above a large fossil whale bone with bite grooves on the seafloor",
+ "focus": [
+  560,
+  1210,
+  1.5
+ ],
+ "focus_word": "crush the bones",
  "labels": [
   {
    "type": "name",
-   "text": "continents",
-   "x": 540,
-   "y": 1340,
+   "text": "bones",
+   "x": 270,
+   "y": 1360,
    "to": [
-    700,
-    1000
+    400,
+    1240
    ],
-   "word": "continents"
+   "word": "bones"
   }
  ],
- "motion": "ticks (tooth markers appear across continents)",
- "focus": null,
- "focus_word": null,
- "sfx": []
+ "motion": "jaw joint (bite) + core squeeze (the bone, word crush)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "rubhands"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 820,
+  "y": 1040,
+  "s": 0.95,
+  "flip": -1,
+  "kind": "bg",
+  "says": [],
+  "bside": -1
+ }
 }

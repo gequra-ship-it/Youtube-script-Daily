@@ -1,12 +1,38 @@
 {
- "centre": "an empty museum display case: only a dashed ghost of a skeleton fading away, a few teeth and vertebrae on the base",
- "focus": [
-  950,
-  700,
-  1.7
- ],
- "focus_word": "never find",
- "motion": "fade (ghost outline of the missing skeleton fades away)",
- "sfx": [],
- "labels": []
+ "centre": "a towering fossil skeleton of a big animal on a museum plinth, a small visitor looking up",
+ "motion": "glide (skeleton) + lamp swing + visitor breathes",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "knocked",
+   "obj": "mv-swing-lamp"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 1446,
+  "y": 283,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Bonk!",
+    "shout": true
+   }
+  ]
+ }
 }

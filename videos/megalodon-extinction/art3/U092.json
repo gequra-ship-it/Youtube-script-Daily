@@ -2,7 +2,6 @@
  "centre": "an agile great white sweeping on an S-curve from warm golden water into cool icy water",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -31,12 +30,10 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "squint"
    }
   ],
-  "act": {
-   "type": "binocs"
-  },
+  "act": "wind",
   "outfit": [
    "diver"
   ],
@@ -47,6 +44,11 @@
   "s": 1.25,
   "flip": 1,
   "bside": 1,
-  "says": []
+  "says": [
+   {
+    "text": "Whooosh!",
+    "shout": true
+   }
+  ]
  }
 }

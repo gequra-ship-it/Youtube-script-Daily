@@ -1,39 +1,44 @@
 {
- "centre": "a movie screen with a cartoon shark leaping at a cruise ship slides away and reveals the calm real Megalodon swimming",
+ "centre": "Megalodon swimming left above a yellow city bus of the same length that slides in along the sand; dashed guides mark equal length",
  "labels": [
   {
-   "type": "say",
-   "text": "No tricks needed",
-   "x": 300,
-   "y": 1300,
+   "type": "name",
+   "text": "Megalodon",
+   "x": 700,
+   "y": 420,
    "to": [
-    620,
-    920
-   ]
+    600,
+    640
+   ],
+   "word": "Megalodon"
   }
  ],
- "motion": "slide out (movie screen) reveals swim (real Megalodon)",
+ "motion": "swim (Megalodon) + slide (bus arrives under it) + seaweed sway",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "frog": {
   "moods": [
    {
-    "mood": "shock"
+    "mood": "hurt"
    }
   ],
-  "act": {
-   "type": "gasp"
-  },
+  "act": "lean",
   "outfit": [
-   "diver"
+   "diver",
+   "flippers"
   ],
-  "x": 260,
-  "y": 1120,
-  "s": 1.05,
+  "ride": "mv-slide-city-bus",
+  "kind": "ride",
+  "x": 309,
+  "y": 987,
+  "s": 1.44,
   "flip": 1,
-  "kind": "bg",
-  "says": [],
-  "bside": 1
+  "bside": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
  }
 }

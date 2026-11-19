@@ -6,7 +6,6 @@
   1.6
  ],
  "focus_word": "thick layers of blubber",
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -20,5 +19,31 @@
    "word": "blubber"
   }
  ],
- "motion": "the big whale grows out from the small one's side; small whale swims"
+ "motion": "the big whale grows out from the small one's side; small whale swims",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 260,
+  "y": 780,
+  "s": 0.94,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
 }

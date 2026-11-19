@@ -1,8 +1,34 @@
 {
- "centre": "Megalodon in empty deep water fading away, leaving only a dashed outline of where it was",
- "motion": "fade (Megalodon vanishes, its dashed outline stays) + bubbles rise",
+ "centre": "Megalodon patrolling warm open ocean past a reef, a row of fifteen stone marks on the sand",
+ "motion": "path (shark patrols) + ticks (15 marks) + fish school",
+ "labels": [
+  {
+   "type": "num",
+   "text": "15 MILLION YEARS",
+   "word": "fifteen million"
+  }
+ ],
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-swim-megalodon-shark",
+  "kind": "ride",
+  "x": 1074,
+  "y": 371,
+  "s": 1.25,
+  "flip": 1,
+  "bside": -1,
+  "says": []
+ }
 }

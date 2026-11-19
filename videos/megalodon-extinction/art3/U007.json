@@ -1,23 +1,32 @@
 {
- "centre": "close-up of the real Megalodon's calm head, a magnifying glass revealing the sensory pores on its snout",
- "focus": [
-  470,
-  540,
-  1.6
- ],
- "focus_word": "far more fascinating",
- "labels": [
-  {
-   "type": "say",
-   "text": "Look closer.",
-   "x": 760,
-   "y": 330,
-   "to": [
-    600,
-    640
-   ]
-  }
- ],
- "motion": "float (magnifying glass in hand) + eye blink + tail/fin joints",
- "sfx": []
+ "centre": "an old TV set showing a cartoon shark leaping out of the water at a small ship; a popcorn bucket beside it",
+ "track": false,
+ "motion": "path (cartoon shark leaps up toward the ship, camera not tracking) + tilt (ship rocks) + toss (popcorn kernel)",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "hide",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-leap-shark",
+  "kind": "ride",
+  "x": 938,
+  "y": 425,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Can't look!",
+    "shout": true
+   }
+  ]
+ }
 }

@@ -1,20 +1,26 @@
 {
- "centre": "the whole Megalodon, huge and stocky, swimming left through sunlit open water; tiny fish beside it for scale",
- "labels": [
-  {
-   "type": "name",
-   "text": "Megalodon",
-   "x": 420,
-   "y": 250,
-   "to": [
-    700,
-    470
-   ],
-   "word": "Megalodon"
-  }
- ],
- "motion": "swim (Megalodon travels left) with tail chain + fin joint",
+ "centre": "a reconstructed Megalodon jaw frame on a plinth, rows of teeth, a small person silhouette standing inside for scale",
+ "motion": "ticks (teeth appear one by one along the jaws) + person breathes",
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 540,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
 }

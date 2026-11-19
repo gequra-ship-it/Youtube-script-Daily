@@ -1,24 +1,31 @@
 {
- "centre": "Megalodon lying on a giant platform scale, a length bracket above it and a big dial whose needle swings near the top",
+ "centre": "view from below: Megalodon and a great white swim up side by side as dark silhouettes, a dashed bus outline behind the giant and a dashed car outline behind the smaller shark",
  "labels": [
   {
-   "type": "num",
-   "text": "15 M",
-   "word": "fifteen meters"
+   "type": "name",
+   "text": "bus",
+   "x": 180,
+   "y": 1340,
+   "to": [
+    300,
+    1250
+   ],
+   "word": "bus"
   },
   {
-   "type": "say",
-   "text": "So heavy!",
-   "x": 820,
-   "y": 1360,
+   "type": "name",
+   "text": "large car",
+   "x": 800,
+   "y": 1300,
    "to": [
-    640,
-    1260
-   ]
+    790,
+    1150
+   ],
+   "word": "large car"
   }
  ],
- "motion": "needle joint swings on the dial; Megalodon tail + fin joints",
+ "motion": "two float groups (sharks gliding upward) with tail joints",
+ "light": "right",
  "focus": null,
- "focus_word": null,
- "sfx": []
+ "focus_word": null
 }

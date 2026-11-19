@@ -2,21 +2,16 @@
  "centre": "a warm sunny sea with a low sun while a cold, pale blue front with icebergs slides in from the right",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "motion": "a cold blue panel with icebergs sweeps across the warm sea; an ice floe bobs",
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "growtall"
-  },
+  "act": "lean",
   "outfit": [
-   "diver",
-   "flippers"
+   "diver"
   ],
   "ride": "mv-slide-cold-panel",
   "kind": "ride",
@@ -27,8 +22,8 @@
   "bside": -1,
   "says": [
    {
-    "text": "Huge!",
-    "shout": true
+    "text": "Steady...",
+    "shout": false
    }
   ]
  }

@@ -1,19 +1,19 @@
 {
- "centre": "on blueprint paper a dashed outline of the whole Megalodon draws itself out from a single fossil tooth, then a length bar grows under it",
+ "centre": "top view of a desk: calipers close on a dark fossil tooth, a small white great white tooth and a card with a living great white for comparison",
  "labels": [
   {
-   "type": "say",
-   "text": "From one tooth",
-   "x": 330,
-   "y": 1300,
+   "type": "name",
+   "text": "living sharks",
+   "x": 750,
+   "y": 660,
    "to": [
-    807.0,
-    915.4
-   ]
+    760,
+    470
+   ],
+   "word": "living sharks"
   }
  ],
- "motion": "draw (reconstruction outline) + grow (length bar)",
+ "motion": "nudge (caliper jaw slides onto the tooth)",
  "focus": null,
- "focus_word": null,
- "sfx": []
+ "focus_word": null
 }

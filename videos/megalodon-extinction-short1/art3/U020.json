@@ -1,44 +1,30 @@
 {
- "centre": "split view at sunset: sky and a bobbing buoy above, below the surface Megalodon patrols along a dashed route through open ocean",
+ "centre": "a vertical time ribbon (warm gold above, cooler teal below) beside two scenes: warm Miocene coastal shallows with a palm and reef above, the cooler early Pliocene sea below, Megalodon in both",
  "labels": [
   {
-   "type": "num",
-   "text": "15 MILLION YEARS",
-   "word": "fifteen million years"
+   "type": "name",
+   "text": "Miocene",
+   "x": 420,
+   "y": 520,
+   "to": [
+    160,
+    560
+   ],
+   "word": "Miocene"
+  },
+  {
+   "type": "name",
+   "text": "early Pliocene",
+   "x": 470,
+   "y": 1060,
+   "to": [
+    160,
+    1100
+   ],
+   "word": "early Pliocene"
   }
  ],
- "motion": "swim (Megalodon on patrol) + dash (route) + bob (buoy)",
+ "motion": "unfold (time ribbon) + two swims",
  "focus": null,
- "focus_word": null,
- "sfx": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   },
-   {
-    "word": "Now think",
-    "mood": "happy"
-   }
-  ],
-  "act": {
-   "type": "peer"
-  },
-  "outfit": [
-   "diver",
-   "flippers"
-  ],
-  "x": 820,
-  "y": 760,
-  "s": 0.99,
-  "flip": -1,
-  "kind": "bg",
-  "says": [
-   {
-    "text": "Hmm?",
-    "shout": false
-   }
-  ],
-  "bside": -1
- }
+ "focus_word": null
 }

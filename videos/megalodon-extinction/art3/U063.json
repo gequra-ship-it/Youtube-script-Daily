@@ -2,18 +2,7 @@
  "centre": "a Megalodon pup sinking from the light into deep cold water where a bigger dark predator lurks",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
-  {
-   "type": "say",
-   "text": "It's cold down here",
-   "x": 700,
-   "y": 360,
-   "to": [
-    1060,
-    480
-   ]
-  },
   {
    "type": "name",
    "text": "Bigger predators",
@@ -26,5 +15,29 @@
    "word": "bigger predators"
   }
  ],
- "motion": "pup descends along a path; predator swims toward it"
+ "motion": "pup descends along a path; predator swims toward it",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-descend-pup-shark",
+  "kind": "ride",
+  "x": 1040,
+  "y": 458,
+  "s": 1.25,
+  "flip": 1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Hnnng!",
+    "shout": false
+   }
+  ]
+ }
 }

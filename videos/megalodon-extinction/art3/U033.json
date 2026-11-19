@@ -1,31 +1,45 @@
 {
- "centre": "split picture: an ordinary fish in cold blue water with a low thermometer, Megalodon in warm water with a high thermometer",
+ "centre": "a fossil tooth on a lab tray under a desk lamp, a bubbling flask beside it, two scientists at the bench",
+ "motion": "approach (tooth) + lamp pulse + flask bubbles + scientists breathe",
  "labels": [
   {
    "type": "name",
-   "text": "ordinary fish",
-   "x": 420,
-   "y": 360,
+   "text": "Fossilized teeth",
+   "x": 1190,
+   "y": 420,
    "to": [
-    440,
-    510
+    980,
+    620
    ],
-   "word": "ordinary fish"
-  },
-  {
-   "type": "name",
-   "text": "Megalodon",
-   "x": 1480,
-   "y": 240,
-   "to": [
-    1460,
-    480
-   ],
-   "word": "Megalodon"
+   "word": "fossilized teeth"
   }
  ],
- "motion": "fill (both thermometers rise: cold stays low, Megalodon's runs high) + shiver (cold fish)",
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-approach-fossil-tooth",
+  "kind": "ride",
+  "x": 1104,
+  "y": 727,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -6,7 +6,6 @@
   1.8
  ],
  "focus_word": "Isthmus of Panama",
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -20,5 +19,26 @@
    "word": "Isthmus of Panama"
   }
  ],
- "motion": "the two land masses slide together and close the gap"
+ "motion": "the two land masses slide together and close the gap",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-slide-south-land",
+  "kind": "ride",
+  "x": 1100,
+  "y": 642,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "says": []
+ }
 }

@@ -2,7 +2,6 @@
  "centre": "a Megalodon mother with her newborn pup swimming toward a sheltered warm cove of seagrass and rock",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -16,5 +15,30 @@
    "word": "newborns"
   }
  ],
- "motion": "pup travels along a path into the cove (camera follows); mother swims"
+ "motion": "pup travels along a path into the cove (camera follows); mother swims",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "rest",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-newborn-pup-shark",
+  "kind": "ride",
+  "x": 1068,
+  "y": 672,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Safe at last.",
+    "shout": false
+   }
+  ]
+ }
 }

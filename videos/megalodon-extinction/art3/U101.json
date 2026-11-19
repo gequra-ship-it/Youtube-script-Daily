@@ -2,7 +2,6 @@
  "centre": "a pod of four killer whales swimming in a tight wedge formation toward a ball of fish",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -17,5 +16,30 @@
   }
  ],
  "track": false,
- "motion": "path (the whole pod moves together) + fish ball jiggles"
+ "motion": "path (the whole pod moves together) + fish ball jiggles",
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "nervous",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-u101-orca-pod",
+  "kind": "ride",
+  "x": 647,
+  "y": 318,
+  "s": 1.25,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Uh-oh...",
+    "shout": false
+   }
+  ]
+ }
 }

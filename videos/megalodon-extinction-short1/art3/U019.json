@@ -1,31 +1,19 @@
 {
- "centre": "a vertical time ribbon (warm gold above, cooler teal below) beside two scenes: warm Miocene coastal shallows with a palm and reef above, the cooler early Pliocene sea below, Megalodon in both",
+ "centre": "a globe (Americas, Europe, Africa, Australia edge); small tooth markers pop up one by one on the coasts of many continents",
  "labels": [
   {
    "type": "name",
-   "text": "Miocene",
-   "x": 420,
-   "y": 520,
+   "text": "continents",
+   "x": 540,
+   "y": 1340,
    "to": [
-    160,
-    560
+    700,
+    1000
    ],
-   "word": "Miocene"
-  },
-  {
-   "type": "name",
-   "text": "early Pliocene",
-   "x": 470,
-   "y": 1060,
-   "to": [
-    160,
-    1100
-   ],
-   "word": "early Pliocene"
+   "word": "continents"
   }
  ],
- "motion": "unfold (time ribbon) + two swims",
+ "motion": "ticks (tooth markers appear across continents)",
  "focus": null,
- "focus_word": null,
- "sfx": []
+ "focus_word": null
 }

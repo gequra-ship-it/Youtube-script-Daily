@@ -1,14 +1,30 @@
 {
- "centre": "Megalodon with a glowing warm core in cool blue water, two thermometers showing the gap",
- "motion": "swim + warm core + thermometer gap grows",
+ "centre": "split picture: an ordinary fish in cold blue water with a low thermometer, Megalodon in warm water with a high thermometer",
  "labels": [
   {
-   "type": "num",
-   "text": "7 °C WARMER",
-   "word": "seven degrees"
+   "type": "name",
+   "text": "ordinary fish",
+   "x": 420,
+   "y": 360,
+   "to": [
+    440,
+    510
+   ],
+   "word": "ordinary fish"
+  },
+  {
+   "type": "name",
+   "text": "Megalodon",
+   "x": 1480,
+   "y": 240,
+   "to": [
+    1460,
+    480
+   ],
+   "word": "Megalodon"
   }
  ],
+ "motion": "fill (both thermometers rise: cold stays low, Megalodon's runs high) + shiver (cold fish)",
  "focus": null,
- "focus_word": null,
- "sfx": []
+ "focus_word": null
 }

@@ -6,29 +6,14 @@
   1.4
  ],
  "focus_word": "warm-bodied predator",
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "So hungry",
-   "x": 1300,
-   "y": 760,
-   "to": [
-    1060,
-    680
-   ]
-  }
- ],
  "motion": "lamp (warm body glow pulses) + path (food stream toward the mouth)",
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "measure"
-  },
+  "act": "rest",
   "outfit": [
    "diver"
   ],
@@ -39,6 +24,11 @@
   "s": 1.25,
   "flip": -1,
   "bside": -1,
-  "says": []
+  "says": [
+   {
+    "text": "Home sweet home.",
+    "shout": false
+   }
+  ]
  }
 }

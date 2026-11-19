@@ -1,19 +1,35 @@
 {
- "centre": "inside a submarine looking out of a big window at the modern sea: only a faint dashed ghost of Megalodon drifts past, a few real fish, a lantern swinging inside",
- "labels": [
-  {
-   "type": "say",
-   "text": "Still out there?",
-   "x": 640,
-   "y": 1340,
-   "to": [
-    560,
-    1100
-   ]
-  }
- ],
- "motion": "swim (dashed ghost outline) + pendulum (lantern)",
+ "centre": "Megalodon in dark open water slowly fades to nothing while a single tooth sinks down toward the seafloor",
+ "motion": "fade (Megalodon disappears on the word disappeared) + sink (tooth)",
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "swimstroke",
+   "dist": 324
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 820,
+  "y": 1560,
+  "s": 1.05,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "says": [
+   {
+    "text": "Blub blub!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

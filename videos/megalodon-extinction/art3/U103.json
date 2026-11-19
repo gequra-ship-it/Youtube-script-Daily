@@ -6,7 +6,32 @@
   1.5
  ],
  "focus_word": "coordinated pack",
- "sfx": [],
- "labels": [],
- "motion": "path (pod advances) + swim (megalodon) + tail joints"
+ "motion": "path (pod advances) + swim (megalodon) + tail joints",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "peer"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-u103-orca-pod",
+  "kind": "ride",
+  "x": 1332,
+  "y": 314,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
 }

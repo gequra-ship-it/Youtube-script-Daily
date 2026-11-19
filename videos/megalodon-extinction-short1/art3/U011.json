@@ -1,19 +1,30 @@
 {
- "centre": "an empty museum display case: only a dashed outline of the shark is drawn in, with a few teeth on the plinth and a small visitor looking",
+ "centre": "a Megalodon lying on the seafloor shown with its pale cartilage skeleton; body and cartilage fade away, leaving only vertebrae and teeth; above, a crossed-out bone next to a rubbery cartilage strip",
  "labels": [
   {
-   "type": "say",
-   "text": "Where is it?",
-   "x": 760,
-   "y": 1060,
+   "type": "name",
+   "text": "cartilage",
+   "x": 750,
+   "y": 600,
    "to": [
-    910,
-    1180
-   ]
+    750,
+    480
+   ],
+   "word": "cartilage"
+  },
+  {
+   "type": "name",
+   "text": "bone",
+   "x": 290,
+   "y": 600,
+   "to": [
+    290,
+    470
+   ],
+   "word": "bone"
   }
  ],
- "motion": "draw (dashed outline) + swing (hanging sign) + visitor breathes",
+ "motion": "fade (body and cartilage disappear after the word rots away)",
  "focus": null,
- "focus_word": null,
- "sfx": []
+ "focus_word": null
 }

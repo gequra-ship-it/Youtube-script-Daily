@@ -2,7 +2,6 @@
  "centre": "a table globe in a study: the Americas, the changing geography of the Pliocene, five million years ago",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "num",
@@ -10,5 +9,28 @@
    "word": "five million years ago"
   }
  ],
- "motion": "globe drifts toward us; pencil rolls across the desk"
+ "motion": "globe drifts toward us; pencil rolls across the desk",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-approach-globe",
+  "kind": "ride",
+  "x": 1238,
+  "y": 740,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": []
+ }
 }

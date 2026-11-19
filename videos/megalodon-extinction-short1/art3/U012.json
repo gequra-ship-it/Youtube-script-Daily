@@ -1,35 +1,33 @@
 {
- "centre": "a cross-section of rock layers under the sea with scattered fossil teeth appearing one by one and two rare vertebrae rising into view",
- "focus": [
-  600,
-  775,
-  1.6
- ],
- "focus_word": "fossilized vertebrae",
- "labels": [
-  {
-   "type": "name",
-   "text": "fossil teeth",
-   "x": 420,
-   "y": 1000,
-   "to": [
-    420,
-    910
-   ],
-   "word": "fossil teeth"
+ "centre": "an empty museum display case: only a dashed outline of the shark is drawn in, with a few teeth on the plinth and a small visitor looking",
+ "motion": "draw (dashed outline) + swing (hanging sign) + visitor breathes",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "peer"
   },
-  {
-   "type": "name",
-   "text": "vertebrae",
-   "x": 760,
-   "y": 880,
-   "to": [
-    650,
-    790
-   ],
-   "word": "vertebrae"
-  }
- ],
- "motion": "ticks (teeth) + rise (vertebrae)",
- "sfx": []
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-swing-sign-string",
+  "kind": "ride",
+  "x": 694,
+  "y": 458,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Hmm?",
+    "shout": false
+   }
+  ]
+ }
 }

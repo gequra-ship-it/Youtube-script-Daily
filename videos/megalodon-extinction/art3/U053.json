@@ -2,7 +2,6 @@
  "centre": "a globe seen from the side: white polar ice caps grow from the top and bottom while the warm coral-gold equatorial band shrinks",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -27,5 +26,30 @@
    "word": "warm tropical waters"
   }
  ],
- "motion": "ice caps grow, the warm band narrows toward the equator"
+ "motion": "ice caps grow, the warm band narrows toward the equator",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": {
+   "type": "present"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 540,
+  "s": 0.94,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Ta-da!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
 }

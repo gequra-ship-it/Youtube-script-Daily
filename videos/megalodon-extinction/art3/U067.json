@@ -2,7 +2,6 @@
  "centre": "a Megalodon looking at its usual prey, an early whale and a sea cow, as they fade to dashed ghost outlines",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -16,5 +15,26 @@
    "word": "food supply"
   }
  ],
- "motion": "prey group fades out to ghost outlines; Megalodon swims"
+ "motion": "prey group fades out to ghost outlines; Megalodon swims",
+ "frog": {
+  "moods": [
+   {
+    "mood": "shock"
+   }
+  ],
+  "act": {
+   "type": "gasp"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "x": 1660,
+  "y": 780,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "says": [],
+  "bside": -1
+ }
 }

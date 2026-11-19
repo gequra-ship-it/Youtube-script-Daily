@@ -1,14 +1,32 @@
 {
- "centre": "an open hand laid on a desk beside a ruler, a coral bar measuring wrist to middle fingertip",
- "labels": [
-  {
-   "type": "num",
-   "text": "ABOUT 7 INCHES",
-   "word": "seven inches"
-  }
- ],
- "motion": "grow (measurement bar rises from the wrist to the fingertip)",
+ "centre": "a giant fossil Megalodon tooth on a pedestal, an open hand beside it as long as the tooth, a serrated hunting knife at the right",
+ "motion": "approach (tooth) + glint on its edge + knife pops in",
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-approach-fossil-tooth",
+  "kind": "ride",
+  "x": 1200,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
 }

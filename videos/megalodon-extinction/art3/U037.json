@@ -1,8 +1,32 @@
 {
  "centre": "a big price tag with a flame on it swinging from a string beside a glowing Megalodon, a coin stack",
  "motion": "swing (price tag) + coins pop + tail",
- "labels": [],
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-swing-price-tag",
+  "kind": "ride",
+  "x": 1494,
+  "y": 548,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "So strong!",
+    "shout": false
+   }
+  ]
+ }
 }

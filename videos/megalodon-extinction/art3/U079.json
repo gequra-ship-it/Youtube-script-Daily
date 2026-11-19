@@ -2,7 +2,6 @@
  "centre": "migration loop between polar feeding grounds (ice, krill) and warm breeding waters (mother and calf); a whale travels the route",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -27,5 +26,30 @@
    "word": "warmer breeding waters"
   }
  ],
- "motion": "a whale travels the dashed migration route (camera follows); route dashes march"
+ "motion": "a whale travels the dashed migration route (camera follows); route dashes march",
+ "frog": {
+  "moods": [
+   {
+    "mood": "awe"
+   }
+  ],
+  "act": "rest",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-whale-migrating",
+  "kind": "ride",
+  "x": 524,
+  "y": 368,
+  "s": 0.95,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
 }

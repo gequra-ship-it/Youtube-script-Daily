@@ -26,11 +26,11 @@
     "#d9694a"
    ]
   },
-  "text": "Imagine a shark as long as a city bus. In movies, Megalodon bites cruise ships in half.",
-  "dur": 7.08,
+  "text": "Imagine a shark as long as a city bus. It was real.",
+  "dur": 5.06,
   "transition_in": "hard",
   "prev": "",
-  "nxt": "The real animal needs no exaggeration, because the scale of this ancient giant is shocking enough.",
+  "nxt": "In movies, Megalodon bites cruise ships in half.",
   "frog_hint": false
  },
  {
@@ -60,18 +60,18 @@
     "#d9694a"
    ]
   },
-  "text": "The real animal needs no exaggeration, because the scale of this ancient giant is shocking enough.",
-  "dur": 7.08,
+  "text": "In movies, Megalodon bites cruise ships in half.",
+  "dur": 5.06,
   "transition_in": "eye",
-  "prev": "Imagine a shark as long as a city bus. In movies, Megalodon bites cruise ships in half.",
-  "nxt": "",
+  "prev": "Imagine a shark as long as a city bus. It was real.",
+  "nxt": "The real animal needs no exaggeration, because the scale of this ancient giant is shocking enough.",
   "frog_hint": true
  },
  {
   "uid": "U003",
-  "scene": 2,
-  "title": "Part 2",
-  "art_theme": "sh1_2",
+  "scene": 1,
+  "title": "Part 1",
+  "art_theme": "sh1_1",
   "bg": "dusk",
   "pal": {
    "palette": "ocean",
@@ -94,11 +94,11 @@
     "#d9694a"
    ]
   },
-  "text": "A modern great white shark rarely grows much longer than six meters,",
-  "dur": 5.38,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "so beside Megalodon it would look small, reaching only about a third of that length.",
+  "text": "The real animal needs no exaggeration, because the scale of this ancient giant is shocking enough.",
+  "dur": 5.06,
+  "transition_in": "iris",
+  "prev": "In movies, Megalodon bites cruise ships in half.",
+  "nxt": "",
   "frog_hint": false
  },
  {
@@ -128,15 +128,49 @@
     "#d9694a"
    ]
   },
-  "text": "so beside Megalodon it would look small, reaching only about a third of that length.",
+  "text": "A modern great white shark rarely grows much longer than six meters,",
   "dur": 5.38,
-  "transition_in": "page",
-  "prev": "A modern great white shark rarely grows much longer than six meters,",
-  "nxt": "",
+  "transition_in": "wave",
+  "prev": "",
+  "nxt": "so beside Megalodon it would look small, reaching only about a third of that length.",
   "frog_hint": true
  },
  {
   "uid": "U005",
+  "scene": 2,
+  "title": "Part 2",
+  "art_theme": "sh1_2",
+  "bg": "dusk",
+  "pal": {
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
+   "dusk_stops": [
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
+   ],
+   "dusk_ink": "#1a2b3a",
+   "accents": [
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
+   ]
+  },
+  "text": "so beside Megalodon it would look small, reaching only about a third of that length.",
+  "dur": 5.38,
+  "transition_in": "diamond",
+  "prev": "A modern great white shark rarely grows much longer than six meters,",
+  "nxt": "",
+  "frog_hint": false
+ },
+ {
+  "uid": "U006",
   "scene": 3,
   "title": "Part 3",
   "art_theme": "sh1_3",
@@ -164,13 +198,13 @@
   },
   "text": "Picture the two swimming side by side: one the size of a large car, the other the size of a bus.",
   "dur": 7.16,
-  "transition_in": "wave",
+  "transition_in": "page",
   "prev": "",
   "nxt": "",
-  "frog_hint": false
+  "frog_hint": true
  },
  {
-  "uid": "U006",
+  "uid": "U007",
   "scene": 4,
   "title": "Part 4",
   "art_theme": "sh1_4",
@@ -201,40 +235,6 @@
   "transition_in": "zigzag",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
- },
- {
-  "uid": "U007",
-  "scene": 5,
-  "title": "Part 5",
-  "art_theme": "sh1_5",
-  "bg": "dusk",
-  "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
-   "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
-   ],
-   "dusk_ink": "#1a2b3a",
-   "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
-   ]
-  },
-  "text": "A single tooth could be about as long as an adult human hand,",
-  "dur": 4.38,
-  "transition_in": "fade",
-  "prev": "",
-  "nxt": "shaped like a triangle, with fine serrations along both edges.",
   "frog_hint": false
  },
  {
@@ -264,11 +264,11 @@
     "#d9694a"
    ]
   },
-  "text": "shaped like a triangle, with fine serrations along both edges.",
+  "text": "A single tooth could be about as long as an adult human hand,",
   "dur": 4.38,
-  "transition_in": "whip",
-  "prev": "A single tooth could be about as long as an adult human hand,",
-  "nxt": "Hundreds of them lined its jaws. How do we know all this?",
+  "transition_in": "seam",
+  "prev": "",
+  "nxt": "shaped like a triangle, with fine serrations along both edges.",
   "frog_hint": true
  },
  {
@@ -298,15 +298,49 @@
     "#d9694a"
    ]
   },
-  "text": "Hundreds of them lined its jaws. How do we know all this?",
+  "text": "shaped like a triangle, with fine serrations along both edges.",
   "dur": 4.38,
   "transition_in": "push",
-  "prev": "shaped like a triangle, with fine serrations along both edges.",
-  "nxt": "",
+  "prev": "A single tooth could be about as long as an adult human hand,",
+  "nxt": "Hundreds of them lined its jaws. How do we know all this?",
   "frog_hint": false
  },
  {
   "uid": "U010",
+  "scene": 5,
+  "title": "Part 5",
+  "art_theme": "sh1_5",
+  "bg": "dusk",
+  "pal": {
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
+   "dusk_stops": [
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
+   ],
+   "dusk_ink": "#1a2b3a",
+   "accents": [
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
+   ]
+  },
+  "text": "Hundreds of them lined its jaws. How do we know all this?",
+  "dur": 4.38,
+  "transition_in": "whip",
+  "prev": "shaped like a triangle, with fine serrations along both edges.",
+  "nxt": "",
+  "frog_hint": true
+ },
+ {
+  "uid": "U011",
   "scene": 6,
   "title": "Part 6",
   "art_theme": "sh1_6",
@@ -337,10 +371,10 @@
   "transition_in": "tilt",
   "prev": "",
   "nxt": "So there is no complete Megalodon skeleton in any museum.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U011",
+  "uid": "U012",
   "scene": 6,
   "title": "Part 6",
   "art_theme": "sh1_6",
@@ -368,43 +402,9 @@
   },
   "text": "So there is no complete Megalodon skeleton in any museum.",
   "dur": 6.3,
-  "transition_in": "iris",
+  "transition_in": "wipe",
   "prev": "Here is the strange part. Sharks have skeletons made of cartilage, not bone, and cartilage rots away after death.",
   "nxt": "",
-  "frog_hint": false
- },
- {
-  "uid": "U012",
-  "scene": 7,
-  "title": "Part 7",
-  "art_theme": "sh1_7",
-  "bg": "dusk",
-  "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
-   "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
-   ],
-   "dusk_ink": "#1a2b3a",
-   "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
-   ]
-  },
-  "text": "Nearly everything we know comes from fossil teeth and a few rare fossilized vertebrae.",
-  "dur": 4.88,
-  "transition_in": "seam",
-  "prev": "",
-  "nxt": "Scientists measure those teeth, compare them with the teeth of living sharks,",
   "frog_hint": true
  },
  {
@@ -434,11 +434,11 @@
     "#d9694a"
    ]
   },
-  "text": "Scientists measure those teeth, compare them with the teeth of living sharks,",
+  "text": "Nearly everything we know comes from fossil teeth and a few rare fossilized vertebrae.",
   "dur": 4.88,
-  "transition_in": "wash",
-  "prev": "Nearly everything we know comes from fossil teeth and a few rare fossilized vertebrae.",
-  "nxt": "and estimate the size of the animal that owned them.",
+  "transition_in": "fade",
+  "prev": "",
+  "nxt": "Scientists measure those teeth, compare them with the teeth of living sharks,",
   "frog_hint": false
  },
  {
@@ -468,18 +468,18 @@
     "#d9694a"
    ]
   },
-  "text": "and estimate the size of the animal that owned them.",
+  "text": "Scientists measure those teeth, compare them with the teeth of living sharks,",
   "dur": 4.88,
-  "transition_in": "match",
-  "prev": "Scientists measure those teeth, compare them with the teeth of living sharks,",
-  "nxt": "",
+  "transition_in": "slide",
+  "prev": "Nearly everything we know comes from fossil teeth and a few rare fossilized vertebrae.",
+  "nxt": "and estimate the size of the animal that owned them.",
   "frog_hint": true
  },
  {
   "uid": "U015",
-  "scene": 8,
-  "title": "Part 8",
-  "art_theme": "sh1_8",
+  "scene": 7,
+  "title": "Part 7",
+  "art_theme": "sh1_7",
   "bg": "dusk",
   "pal": {
    "palette": "ocean",
@@ -502,11 +502,11 @@
     "#d9694a"
    ]
   },
-  "text": "That is why you will always hear the word estimate.",
-  "dur": 4.14,
-  "transition_in": "wipe",
-  "prev": "",
-  "nxt": "Studies of its jaws suggest a bite force among the strongest ever estimated for any animal,",
+  "text": "and estimate the size of the animal that owned them.",
+  "dur": 4.88,
+  "transition_in": "wash",
+  "prev": "Scientists measure those teeth, compare them with the teeth of living sharks,",
+  "nxt": "",
   "frog_hint": false
  },
  {
@@ -536,11 +536,11 @@
     "#d9694a"
    ]
   },
-  "text": "Studies of its jaws suggest a bite force among the strongest ever estimated for any animal,",
+  "text": "That is why you will always hear the word estimate.",
   "dur": 4.14,
   "transition_in": "slide",
-  "prev": "That is why you will always hear the word estimate.",
-  "nxt": "enough to crush the bones of large prey.",
+  "prev": "",
+  "nxt": "Studies of its jaws suggest a bite force among the strongest ever estimated for any animal,",
   "frog_hint": true
  },
  {
@@ -570,15 +570,49 @@
     "#d9694a"
    ]
   },
-  "text": "enough to crush the bones of large prey.",
+  "text": "Studies of its jaws suggest a bite force among the strongest ever estimated for any animal,",
   "dur": 4.14,
-  "transition_in": "diamond",
-  "prev": "Studies of its jaws suggest a bite force among the strongest ever estimated for any animal,",
-  "nxt": "",
+  "transition_in": "zigzag",
+  "prev": "That is why you will always hear the word estimate.",
+  "nxt": "enough to crush the bones of large prey.",
   "frog_hint": false
  },
  {
   "uid": "U018",
+  "scene": 8,
+  "title": "Part 8",
+  "art_theme": "sh1_8",
+  "bg": "dusk",
+  "pal": {
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
+   "dusk_stops": [
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
+   ],
+   "dusk_ink": "#1a2b3a",
+   "accents": [
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
+   ]
+  },
+  "text": "enough to crush the bones of large prey.",
+  "dur": 4.14,
+  "transition_in": "page",
+  "prev": "Studies of its jaws suggest a bite force among the strongest ever estimated for any animal,",
+  "nxt": "",
+  "frog_hint": true
+ },
+ {
+  "uid": "U019",
   "scene": 9,
   "title": "Part 9",
   "art_theme": "sh1_9",
@@ -609,10 +643,10 @@
   "transition_in": "wave",
   "prev": "",
   "nxt": "from warm coastal waters of the Miocene epoch to the early Pliocene.",
-  "frog_hint": true
+  "frog_hint": false
  },
  {
-  "uid": "U019",
+  "uid": "U020",
   "scene": 9,
   "title": "Part 9",
   "art_theme": "sh1_9",
@@ -640,43 +674,9 @@
   },
   "text": "from warm coastal waters of the Miocene epoch to the early Pliocene.",
   "dur": 6.23,
-  "transition_in": "zigzag",
+  "transition_in": "seam",
   "prev": "And it did not live in one small corner of the sea. Its teeth have been found in rocks on many continents,",
   "nxt": "",
-  "frog_hint": false
- },
- {
-  "uid": "U020",
-  "scene": 10,
-  "title": "Part 10",
-  "art_theme": "sh1_10",
-  "bg": "dusk",
-  "pal": {
-   "palette": "ocean",
-   "paper_base": "#dfe6e6",
-   "paper_ink": "#1a2b3a",
-   "night_top": "#04101f",
-   "night_bottom": "#0b2236",
-   "night_line": "#7fd6e0",
-   "night_glow": "#5fe0d0",
-   "dusk_stops": [
-    "#f2d9a8",
-    "#7fb3c9",
-    "#2b5877"
-   ],
-   "dusk_ink": "#1a2b3a",
-   "accents": [
-    "#2f8fa3",
-    "#5ec2b7",
-    "#e8d9a0",
-    "#d9694a"
-   ]
-  },
-  "text": "Megalodon patrolled the world's oceans for more than fifteen million years. Now think about that.",
-  "dur": 6.94,
-  "transition_in": "zoom",
-  "prev": "",
-  "nxt": "An animal this large, this powerful, with this many millions of years of success, simply disappeared.",
   "frog_hint": true
  },
  {
@@ -706,18 +706,18 @@
     "#d9694a"
    ]
   },
-  "text": "An animal this large, this powerful, with this many millions of years of success, simply disappeared.",
+  "text": "Megalodon patrolled the world's oceans for more than fifteen million years. Now think about that.",
   "dur": 6.94,
-  "transition_in": "diamond",
-  "prev": "Megalodon patrolled the world's oceans for more than fifteen million years. Now think about that.",
-  "nxt": "",
+  "transition_in": "fade",
+  "prev": "",
+  "nxt": "An animal this large, this powerful, with this many millions of years of success, simply disappeared.",
   "frog_hint": false
  },
  {
   "uid": "U022",
-  "scene": 11,
-  "title": "Part 11",
-  "art_theme": "sh1_11",
+  "scene": 10,
+  "title": "Part 10",
+  "art_theme": "sh1_10",
   "bg": "dusk",
   "pal": {
    "palette": "ocean",
@@ -740,11 +740,11 @@
     "#d9694a"
    ]
   },
-  "text": "If size and strength were enough to guarantee survival, Megalodon would still be out there. So what went wrong?",
-  "dur": 5.27,
-  "transition_in": "fade",
-  "prev": "",
-  "nxt": "The answer is not a single catastrophe.",
+  "text": "An animal this large, this powerful, with this many millions of years of success, simply disappeared.",
+  "dur": 6.94,
+  "transition_in": "whip",
+  "prev": "Megalodon patrolled the world's oceans for more than fifteen million years. Now think about that.",
+  "nxt": "",
   "frog_hint": true
  },
  {
@@ -774,15 +774,49 @@
     "#d9694a"
    ]
   },
-  "text": "The answer is not a single catastrophe.",
+  "text": "If size and strength were enough to guarantee survival, Megalodon would still be out there. So what went wrong?",
   "dur": 5.27,
-  "transition_in": "tilt",
-  "prev": "If size and strength were enough to guarantee survival, Megalodon would still be out there. So what went wrong?",
-  "nxt": "",
+  "transition_in": "diamond",
+  "prev": "",
+  "nxt": "The answer is not a single catastrophe.",
   "frog_hint": false
  },
  {
   "uid": "U024",
+  "scene": 11,
+  "title": "Part 11",
+  "art_theme": "sh1_11",
+  "bg": "dusk",
+  "pal": {
+   "palette": "ocean",
+   "paper_base": "#dfe6e6",
+   "paper_ink": "#1a2b3a",
+   "night_top": "#04101f",
+   "night_bottom": "#0b2236",
+   "night_line": "#7fd6e0",
+   "night_glow": "#5fe0d0",
+   "dusk_stops": [
+    "#f2d9a8",
+    "#7fb3c9",
+    "#2b5877"
+   ],
+   "dusk_ink": "#1a2b3a",
+   "accents": [
+    "#2f8fa3",
+    "#5ec2b7",
+    "#e8d9a0",
+    "#d9694a"
+   ]
+  },
+  "text": "The answer is not a single catastrophe.",
+  "dur": 5.27,
+  "transition_in": "eye",
+  "prev": "If size and strength were enough to guarantee survival, Megalodon would still be out there. So what went wrong?",
+  "nxt": "",
+  "frog_hint": true
+ },
+ {
+  "uid": "U025",
   "scene": 12,
   "title": "Part 12",
   "art_theme": "sh1_12",
@@ -810,9 +844,9 @@
   },
   "text": "It was a slow chain of changes across the whole planet, and it is the main story of the longer video.",
   "dur": 7.92,
-  "transition_in": "page",
+  "transition_in": "tilt",
   "prev": "",
   "nxt": "",
-  "frog_hint": true
+  "frog_hint": false
  }
 ]

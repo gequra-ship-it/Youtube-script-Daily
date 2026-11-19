@@ -2,7 +2,6 @@
  "centre": "the same prey in the middle (a small whale, a seal, a large fish) with Megalodon closing in from the left and a great white from the right",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -42,13 +41,14 @@
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "scared"
    }
   ],
-  "act": "lean",
+  "act": {
+   "type": "hideshell"
+  },
   "outfit": [
-   "diver",
-   "flippers"
+   "diver"
   ],
   "ride": "mv-path-megalodon-shark",
   "kind": "ride",
@@ -59,7 +59,7 @@
   "bside": 1,
   "says": [
    {
-    "text": "Off we go!",
+    "text": "Eep.",
     "shout": false
    }
   ]

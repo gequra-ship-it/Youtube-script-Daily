@@ -1,19 +1,54 @@
 {
- "centre": "front view of a reconstructed Megalodon jaw frame; rows of teeth appear one after another; a single loose tooth rises onto the plinth",
+ "centre": "a giant close-up fossil tooth; a dashed triangle draws itself over the crown and a magnifying lens slides down the finely serrated edge",
+ "focus": [
+  770,
+  1000,
+  1.6
+ ],
+ "focus_word": "fine serrations",
  "labels": [
   {
-   "type": "say",
-   "text": "Hundreds!",
-   "x": 280,
-   "y": 1400,
+   "type": "name",
+   "text": "serrations",
+   "x": 640,
+   "y": 1180,
    "to": [
-    460,
+    780,
     1080
-   ]
+   ],
+   "word": "serrations"
   }
  ],
- "motion": "ticks (teeth appear) + rise (loose tooth on the plinth)",
- "focus": null,
- "focus_word": null,
- "sfx": []
+ "motion": "draw (triangle) + path (magnifier lens along the edge)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-path-magnifier-lens",
+  "kind": "ride",
+  "x": 519,
+  "y": 820,
+  "s": 1.11,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
 }

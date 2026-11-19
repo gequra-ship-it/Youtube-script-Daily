@@ -2,7 +2,29 @@
  "centre": "a small great white swimming from the warm reef water on the left toward cooler icy water on the right, adapting to the changing sea, while a huge Megalodon stays behind in the warm reef",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "motion": "swim (great white) + tail joints + seaweed sway"
+ "motion": "swim (great white) + tail joints + seaweed sway",
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "It is",
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
 }

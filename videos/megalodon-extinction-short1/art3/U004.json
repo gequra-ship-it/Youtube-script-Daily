@@ -1,30 +1,24 @@
 {
- "centre": "huge Megalodon on top; below it a length bar split into thirds, and a small great white exactly one third long",
+ "centre": "close side view of a modern great white shark over a yellow tape measure that rolls out to its length",
  "labels": [
   {
-   "type": "name",
-   "text": "Megalodon",
-   "x": 300,
-   "y": 380,
-   "to": [
-    460,
-    580
-   ],
-   "word": "Megalodon"
+   "type": "num",
+   "text": "6 M",
+   "word": "six meters"
   },
   {
-   "type": "say",
-   "text": "Just a third?",
-   "x": 690,
-   "y": 1180,
+   "type": "name",
+   "text": "great white shark",
+   "x": 540,
+   "y": 470,
    "to": [
-    420,
-    1080
-   ]
+    600,
+    700
+   ],
+   "word": "great white shark"
   }
  ],
- "motion": "ticks (the three thirds appear one by one) + glide/swim",
  "focus": null,
- "focus_word": null,
- "sfx": []
+ "motion": "grow (tape measure) + swim (great white) + kelp sway",
+ "focus_word": null
 }
