@@ -2,17 +2,13 @@
  "centre": "golden crater hidden under the sea, a cloud sliding away",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
     "mood": "curious"
    }
   ],
-  "act": {
-   "type": "binocs"
-  },
+  "act": "lean",
   "ride": "mv-slide-cloud",
   "kind": "ride",
   "x": 870,
@@ -22,12 +18,12 @@
   "bside": 1,
   "outfit": [
    "bandage",
-   "leafhat"
+   "strawhat"
   ],
   "says": [
    {
-    "text": "Ooh!",
-    "shout": true
+    "text": "Here we go!",
+    "shout": false
    }
   ]
  }

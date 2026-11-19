@@ -1,39 +1,33 @@
 {
- "centre": "magnifying glass showing a tiny small mammal",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "closely",
- "sfx": [],
- "labels": [],
+ "centre": "the sun returning over an empty plain; ghost dinosaur silhouettes fading; a stone crown toppling off a rock",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "proud"
-   },
-   {
-    "word": "Survival was",
-    "mood": "happy"
+    "mood": "surprised"
    }
   ],
-  "act": "flex",
-  "ride": "mv-core-glide-magnifier-lens",
-  "kind": "ride",
-  "x": 1238,
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-sun"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1258,
   "y": 740,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "bee"
+   "sunglasses"
   ],
   "says": [
    {
-    "text": "So strong!",
-    "shout": false
+    "text": "Whoa, it grows!",
+    "shout": true
    }
   ]
  }

@@ -1,30 +1,36 @@
 {
- "centre": "glowing seed on the surface above a burrow with a small mammal",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [],
+ "centre": "magnifying glass showing a tiny small mammal",
+ "focus": [
+  960,
+  500,
+  1.8
+ ],
+ "focus_word": "closely",
  "frog": {
   "moods": [
    {
+    "mood": "proud"
+   },
+   {
+    "word": "Survival was",
     "mood": "happy"
    }
   ],
-  "act": "lean",
-  "ride": "mv-core-glide-seed",
+  "act": "flex",
+  "ride": "mv-core-glide-magnifier-lens",
   "kind": "ride",
-  "x": 1060,
-  "y": 560,
+  "x": 1238,
+  "y": 740,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "flowercrown"
+   "explorer"
   ],
   "says": [
    {
-    "text": "Off we go!",
+    "text": "So strong!",
     "shout": false
    }
   ]

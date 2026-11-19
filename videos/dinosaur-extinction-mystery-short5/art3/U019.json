@@ -1,40 +1,42 @@
 {
- "centre": "a small mammal stepping out of its burrow into an open sunny meadow as the giant shadow lifts, with a row from shrew to primate to human",
+ "centre": "a glowing rocky asteroid with a warm trail passing a blue-green Earth",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Hi, ancestor!",
-   "x": 640,
-   "y": 1110,
+   "type": "name",
+   "text": "Asteroid",
+   "x": 780,
+   "y": 700,
    "to": [
-    780,
-    1200
-   ]
+    620,
+    820
+   ],
+   "word": "asteroid"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "awe"
+    "mood": "curious"
    }
   ],
   "act": "lean",
-  "ride": "mv-slide-dinosaur-foot-shadow",
+  "ride": "mv-core-glide-asteroid-glowing-rock",
   "kind": "ride",
-  "x": 306,
-  "y": 268,
-  "s": 1.44,
-  "flip": 1,
+  "x": 692,
+  "y": 958,
+  "s": 1.09,
+  "flip": -1,
   "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "explorer"
+   "helmet",
+   "patch"
   ],
   "says": [
    {
-    "text": "Steady...",
+    "text": "Off we go!",
     "shout": false
    }
   ]

@@ -1,39 +1,43 @@
 {
- "centre": "glowing amber molten-glass bead with more beads falling in a hot sky",
- "focus": [
-  960,
-  500,
-  1.6
+ "centre": "dust and rock plume rising from a crater above the atmosphere line",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Atmosphere",
+   "x": 1440,
+   "y": 470,
+   "to": [
+    1300,
+    420
+   ],
+   "word": "atmosphere"
+  }
  ],
- "focus_word": "molten glass",
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "chilly"
+   },
+   {
+    "word": "Vast amounts",
+    "mood": "awe"
    }
   ],
   "act": {
-   "type": "dizzy"
+   "type": "rubhands"
   },
-  "ride": "mv-path-fall-glass-bead-2",
-  "kind": "ride",
-  "x": 1137,
-  "y": 495,
-  "s": 0.95,
-  "flip": 1,
-  "bside": -1,
-  "gaze": 1,
+  "x": 1660,
+  "y": 740,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
   "outfit": [
    "umbrella",
-   "sunglasses"
+   "hardhat"
   ],
-  "says": [
-   {
-    "text": "Wooo-ooo...",
-    "shout": false
-   }
-  ]
+  "says": [],
+  "bside": -1
  }
 }

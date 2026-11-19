@@ -1,36 +1,33 @@
 {
- "centre": "a small rock held in a cupped hand before an open door",
- "focus": [
-  960,
-  500,
-  1.8
- ],
- "focus_word": "one stray rock",
- "sfx": [],
- "labels": [],
+ "centre": "sun breaking through ash clouds over grey ground with green sprouts",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "surprised"
    }
   ],
-  "act": "rest",
-  "outfit": [
-   "helmet",
-   "goldvisor"
-  ],
-  "ride": "mv-core-approach-stone-rock",
-  "kind": "ride",
-  "x": 1082,
-  "y": 726,
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-sun"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1090,
+  "y": 592,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
+  "outfit": [
+   "explorer"
+  ],
   "says": [
    {
-    "text": "Safe at last.",
-    "shout": false
+    "text": "Whoa, it grows!",
+    "shout": true
    }
   ]
  }

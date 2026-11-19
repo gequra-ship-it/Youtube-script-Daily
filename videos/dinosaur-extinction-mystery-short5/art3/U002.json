@@ -1,33 +1,29 @@
 {
- "centre": "a cracked heavy boulder between a drooping T. rex and a tiny mammal",
- "labels": [],
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a small shrew-like mammal and a sparrow lit warmly in front of a fading giant T. rex ghost",
+ "focus": [
+  560,
+  1190,
+  1.6
+ ],
+ "focus_word": "modest creatures",
  "frog": {
   "moods": [
    {
-    "mood": "proud"
+    "mood": "shock"
    }
   ],
-  "act": "flex",
+  "act": {
+   "type": "gasp"
+  },
+  "x": 260,
+  "y": 1000,
+  "s": 1.05,
+  "flip": 1,
+  "kind": "bg",
   "outfit": [
-   "helmet",
-   "backpack"
+   "explorer"
   ],
-  "ride": "mv-core-approach-cracked-boulder",
-  "kind": "ride",
-  "x": 694,
-  "y": 960,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "says": [
-   {
-    "text": "So strong!",
-    "shout": false
-   }
-  ]
+  "says": [],
+  "bside": 1
  }
 }

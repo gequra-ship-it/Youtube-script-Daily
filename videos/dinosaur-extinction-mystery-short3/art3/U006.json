@@ -1,28 +1,31 @@
 {
- "centre": "frozen globe spinning slowly in a cold twilight",
+ "centre": "small green seedling in soil under a dark cloud ceiling",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
     "mood": "chilly"
    }
   ],
-  "act": {
-   "type": "rubhands"
-  },
-  "x": 820,
-  "y": 560,
-  "s": 0.95,
+  "act": "shiver",
+  "ride": "mv-core-sway-sprout-plant",
+  "kind": "ride",
+  "x": 684,
+  "y": 1075,
+  "s": 1.09,
   "flip": -1,
-  "kind": "bg",
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
    "scarf",
    "headlamp"
   ],
-  "says": [],
-  "bside": -1
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ]
  }
 }

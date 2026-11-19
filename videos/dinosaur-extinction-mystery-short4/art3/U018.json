@@ -1,18 +1,43 @@
 {
- "centre": "wobbling stack of five stones with a small glowing asteroid pebble landing on top, cracked ground",
+ "centre": "healthy sauropod eating from a fern tree and a horned dinosaur in a calm meadow; a small asteroid far in the sky",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
+ "sfx": [
   {
-   "type": "say",
-   "text": "Careful now",
-   "x": 810,
-   "y": 1000,
-   "to": [
-    660,
-    1070
-   ]
+   "name": "rustle",
+   "word": "healthy",
+   "vol": 0.5
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "push",
+   "from": 0.6
+  },
+  "ride": "mv-path-fall-asteroid-rock",
+  "kind": "ride",
+  "x": 1011,
+  "y": 426,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "backpack"
+  ],
+  "says": [
+   {
+    "text": "Heave-ho!",
+    "t": 1.0,
+    "dur": 1.6,
+    "shout": true
+   }
+  ]
+ }
 }

@@ -1,19 +1,41 @@
 {
- "centre": "very wide crater bowl with a width bracket",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Crater",
-   "x": 960,
-   "y": 380,
-   "to": [
-    960,
-    640
-   ],
-   "word": "crater"
-  }
- ]
+ "centre": "ground rock flowing up like a liquid splash crown",
+ "focus": [
+  960,
+  520,
+  1.6
+ ],
+ "focus_word": "almost like a liquid",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "When something",
+    "mood": "happy"
+   }
+  ],
+  "act": "wind",
+  "x": 1660,
+  "y": 890,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "run",
+   "dist": 288
+  },
+  "outfit": [
+   "umbrella",
+   "strawhat"
+  ],
+  "says": [
+   {
+    "text": "Hop hop!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
 }

@@ -1,36 +1,29 @@
 {
- "centre": "giant sauropod squeezed between two closing rock walls",
+ "centre": "ammonite fossil set in layers of rock",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "chilly"
    }
   ],
-  "act": {
-   "type": "push",
-   "from": 0.6
-  },
-  "ride": "mv-slide-rock-wall-right",
-  "kind": "ride",
-  "x": 1167,
-  "y": 1417,
-  "s": 1.4,
-  "flip": -1,
-  "bside": -1,
+  "act": "shiver",
   "outfit": [
-   "scarf",
-   "explorer"
+   "diver"
   ],
+  "ride": "mv-core-approach-ammonite-fossil",
+  "kind": "ride",
+  "x": 689,
+  "y": 965,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "says": [
    {
-    "text": "Heave-ho!",
-    "t": 1.0,
-    "dur": 1.6,
-    "shout": true
+    "text": "Eek...",
+    "shout": false
    }
   ]
  }

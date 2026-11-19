@@ -1,14 +1,30 @@
 {
- "centre": "museum wall of four framed animals; dinosaur and ammonite pictures fade to empty outlines, a small mammal remains",
+ "centre": "a golden crown on a stone block, huge dinosaur silhouette behind, question mark above",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "num",
-   "text": "3 QUARTERS OF SPECIES",
-   "word": "three quarters"
-  }
- ],
- "motion": "three portraits fade one after another (vanish), lamp glows, shrew blinks"
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "flex",
+  "ride": "mv-core-glide-crown",
+  "kind": "ride",
+  "x": 784,
+  "y": 1010,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "crown"
+  ],
+  "says": [
+   {
+    "text": "So strong!",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,39 +1,34 @@
 {
- "centre": "fossil ammonite in a stone beneath a pavement, glowing clay line below",
+ "centre": "a small rock held in a cupped hand before an open door",
  "focus": [
   960,
   500,
   1.8
  ],
- "focus_word": "stones",
- "sfx": [],
- "labels": [],
+ "focus_word": "one stray rock",
  "frog": {
   "moods": [
    {
     "mood": "happy"
    }
   ],
-  "act": {
-   "type": "hopalong",
-   "obj": "mv-hop-sparrow-bird"
-  },
-  "ride": null,
-  "kind": "bg",
-  "x": 1472,
-  "y": 360,
+  "act": "rest",
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "ride": "mv-core-approach-stone-rock",
+  "kind": "ride",
+  "x": 1082,
+  "y": 726,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "behind": null,
-  "outfit": [
-   "leafhat"
-  ],
   "says": [
    {
-    "text": "Hop hop!",
-    "shout": true
+    "text": "Safe at last.",
+    "shout": false
    }
   ]
  }

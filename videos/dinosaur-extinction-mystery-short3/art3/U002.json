@@ -1,49 +1,33 @@
 {
- "centre": "thick dark soot cloud filling the grey sky",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Soot",
-   "x": 760,
-   "y": 1000,
-   "to": [
-    640,
-    900
-   ],
-   "word": "soot"
-  }
+ "centre": "a dim smeared sun behind grey haze bands over a dark horizon",
+ "focus": [
+  540,
+  860,
+  1.6
  ],
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
+    "mood": "shock"
+   },
+   {
+    "word": "For years",
+    "mood": "happy"
    }
   ],
   "act": {
-   "type": "backstep",
-   "obj": "mv-core-swell-soot-cloud"
+   "type": "gasp"
   },
+  "x": 260,
+  "y": 640,
+  "s": 1.05,
+  "flip": 1,
   "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "x": 744,
-  "y": 975,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
   "outfit": [
    "scarf",
-   "sunglasses"
+   "raincoat"
   ],
-  "says": [
-   {
-    "text": "Whoa, it grows!",
-    "shout": true
-   }
-  ]
+  "says": [],
+  "bside": 1
  }
 }

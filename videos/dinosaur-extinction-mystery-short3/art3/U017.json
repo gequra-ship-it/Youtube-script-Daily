@@ -1,40 +1,45 @@
 {
- "centre": "a rat-sized mammal curled up asleep in a warm burrow chamber under frosty cold ground",
+ "centre": "a single plump seed above a rat-sized mammal in its burrow",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "Burrow",
-   "x": 800,
-   "y": 740,
+   "text": "Seeds",
+   "x": 300,
+   "y": 1330,
    "to": [
-    700,
-    830
+    300,
+    1430
    ],
-   "word": "burrow"
+   "word": "seeds"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "chilly"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "hug"
-  },
-  "x": 820,
-  "y": 1120,
-  "s": 1.0,
-  "flip": -1,
+  "act": "peek",
+  "ride": null,
   "kind": "bg",
+  "x": 656,
+  "y": 1460,
+  "s": 1.2,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": "mv-breathe-small-mammal",
   "outfit": [
    "scarf",
-   "raincoat"
+   "strawhat"
   ],
-  "says": [],
-  "bside": -1
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
  }
 }

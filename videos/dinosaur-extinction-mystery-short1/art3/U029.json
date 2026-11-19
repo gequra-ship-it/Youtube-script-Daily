@@ -1,46 +1,23 @@
 {
- "centre": "a window at home with a coffee mug on the sill; outside a sparrow flies in toward a street-tree branch while a faint T. rex outline hides in the sky",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "a round brown-and-cream sparrow with a black bib perched on a branch, a huge ghostly T. rex shadow behind it",
+ "focus": [
+  590,
+  780,
+  1.5
+ ],
+ "focus_word": "sparrow",
  "labels": [
   {
    "type": "name",
-   "text": "Living dinosaur",
-   "x": 330,
-   "y": 460,
+   "text": "Sparrow",
+   "x": 800,
+   "y": 600,
    "to": [
-    262,
-    548
+    620,
+    760
    ],
-   "word": "living dinosaur"
+   "word": "sparrow"
   }
  ],
- "motion": "sparrow flies along a path to the branch, wing flaps, coffee steam rises",
- "frog": {
-  "moods": [
-   {
-    "mood": "happy"
-   }
-  ],
-  "act": "lean",
-  "ride": "mv-path-sparrow-bird",
-  "kind": "ride",
-  "x": 358,
-  "y": 590,
-  "s": 1.09,
-  "flip": 1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "dino",
-   "raincoat"
-  ],
-  "says": [
-   {
-    "text": "Here we go!",
-    "shout": false
-   }
-  ]
- }
+ "motion": "sparrow breathes, blinks and flicks its tail, a leaf zigzags down"
 }

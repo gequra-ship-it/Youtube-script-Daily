@@ -1,52 +1,32 @@
 {
- "centre": "a small mammal asleep in a cozy den underground; fire above on the left, frost and icicles above on the right",
- "focus": [
-  975,
-  670,
-  1.6
- ],
- "focus_word": "burrow underground",
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Wake me later",
-   "x": 1290,
-   "y": 610,
-   "to": [
-    1085,
-    662
-   ]
-  }
- ],
+ "centre": "glowing seed on the surface above a burrow with a small mammal",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
-    "mood": "dizzy"
+    "mood": "proud"
    }
   ],
   "act": {
-   "type": "dizzy"
+   "type": "growtall"
   },
-  "x": 260,
-  "y": 540,
-  "s": 0.88,
-  "flip": 1,
-  "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 288
-  },
+  "ride": "mv-core-glide-seed",
+  "kind": "ride",
+  "x": 1060,
+  "y": 560,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "scarf",
-   "explorer"
+   "bee"
   ],
   "says": [
    {
-    "text": "So dizzy...",
-    "shout": false
+    "text": "Big!",
+    "shout": true
    }
-  ],
-  "bside": 1
+  ]
  }
 }

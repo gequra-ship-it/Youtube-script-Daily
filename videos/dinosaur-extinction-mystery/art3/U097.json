@@ -1,37 +1,29 @@
 {
- "centre": "the sun returning over an empty plain; ghost dinosaur silhouettes fading; a stone crown toppling off a rock",
+ "centre": "soil cross-section: a mammal in its burrow, a beetle on a dead log with mushrooms, a small bird pecking on bare ground",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "surprised"
-   }
-  ],
-  "act": {
-   "type": "backstep",
-   "obj": "mv-core-swell-sun"
+ "labels": [
+  {
+   "type": "name",
+   "text": "Small mammals",
+   "x": 700,
+   "y": 760,
+   "to": [
+    450,
+    735
+   ],
+   "word": "Small mammals"
   },
-  "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "x": 1258,
-  "y": 740,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "sunglasses",
-   "backpack"
-  ],
-  "says": [
-   {
-    "text": "Whoa, it grows!",
-    "shout": true
-   }
-  ]
- }
+  {
+   "type": "name",
+   "text": "Small birds",
+   "x": 1500,
+   "y": 330,
+   "to": [
+    1460,
+    450
+   ],
+   "word": "small birds"
+  }
+ ]
 }

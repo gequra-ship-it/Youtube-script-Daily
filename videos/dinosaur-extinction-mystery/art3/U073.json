@@ -1,43 +1,50 @@
 {
- "centre": "a lone bare burnt tree under a thick gray soot sky",
+ "centre": "grey barren plain: a giant herbivore silhouette fades first, then the hunter silhouette behind it",
  "focus": null,
  "focus_word": null,
- "sfx": [
+ "labels": [
   {
-   "name": "wind",
-   "word": "gray",
-   "vol": 0.5
+   "type": "name",
+   "text": "giant herbivores",
+   "x": 760,
+   "y": 300,
+   "to": [
+    700,
+    560
+   ],
+   "word": "herbivores"
+  },
+  {
+   "type": "name",
+   "text": "hunters",
+   "x": 1560,
+   "y": 380,
+   "to": [
+    1400,
+    560
+   ],
+   "word": "hunters"
   }
  ],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "chilly"
-   },
-   {
-    "word": "The sky",
-    "mood": "happy"
+    "mood": "shock"
    }
   ],
-  "act": "think",
-  "ride": "mv-core-sway-tree-bare",
-  "kind": "ride",
-  "x": 1167,
-  "y": 790,
-  "s": 0.95,
+  "act": {
+   "type": "gasp"
+  },
+  "x": 1660,
+  "y": 340,
+  "s": 0.76,
   "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "kind": "bg",
   "outfit": [
    "scarf",
-   "headlamp"
+   "raincoat"
   ],
-  "says": [
-   {
-    "text": "But why?",
-    "shout": false
-   }
-  ]
+  "says": [],
+  "bside": -1
  }
 }

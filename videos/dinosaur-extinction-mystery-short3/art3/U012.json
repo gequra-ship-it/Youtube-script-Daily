@@ -1,32 +1,32 @@
 {
- "centre": "ammonite fossil set in layers of rock",
+ "centre": "tall teetering stack of stones on a tiny base",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "chilly"
+    "mood": "surprised"
    }
   ],
-  "act": "shiver",
-  "outfit": [
-   "diver"
-  ],
-  "ride": "mv-core-approach-ammonite-fossil",
-  "kind": "ride",
-  "x": 689,
-  "y": 965,
+  "act": {
+   "type": "bumped",
+   "obj": "mv-bouncing-pebble-ball",
+   "serious": false
+  },
+  "ride": null,
+  "kind": "bg",
+  "x": 942,
+  "y": 1378,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "says": [
-   {
-    "text": "Eek...",
-    "shout": false
-   }
-  ]
+  "behind": null,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [],
+  "lock": true
  }
 }

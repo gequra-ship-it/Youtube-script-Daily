@@ -1,11 +1,33 @@
 {
- "centre": "a green sprout with a bud coming up out of ash-covered ground, a calm fossil skeleton in the rock below",
- "focus": [
-  970,
-  450,
-  1.7
- ],
- "focus_word": "the resilience of life",
- "sfx": [],
- "labels": []
+ "centre": "stray asteroid with a warm trail passing a small mammal watching from a rock",
+ "focus": null,
+ "focus_word": null,
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "wavebig"
+  },
+  "ride": "mv-core-glide-asteroid-rock",
+  "kind": "ride",
+  "x": 482,
+  "y": 558,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "says": [
+   {
+    "text": "Hi!",
+    "shout": true
+   }
+  ]
+ }
 }

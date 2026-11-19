@@ -1,7 +1,37 @@
 {
- "centre": "small pale sun being covered by thick soot haze",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": []
+ "centre": "pale shrunken sun over frosty bare trees",
+ "focus": [
+  960,
+  500,
+  1.7
+ ],
+ "focus_word": "cold",
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "cold",
+   "vol": 0.5
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "x": 260,
+  "y": 340,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [],
+  "bside": 1
+ }
 }

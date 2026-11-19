@@ -1,48 +1,34 @@
 {
- "centre": "a person in an ordinary living room reaching toward a glowing orb holding a tiny impact scene (the moment held in mind)",
- "focus": [
-  1180,
-  430,
-  1.7
- ],
- "focus_word": "hold that moment",
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Way too big!",
-   "x": 1500,
-   "y": 500,
-   "to": [
-    1475,
-    568
-   ]
-  }
- ],
+ "centre": "tsunami wave rolling toward a layered coastal cliff",
+ "focus": null,
+ "focus_word": null,
  "frog": {
   "moods": [
    {
     "mood": "happy"
    }
   ],
-  "act": "lean",
-  "ride": "mv-core-glide-memory-orb",
-  "kind": "ride",
-  "x": 1340,
-  "y": 560,
-  "s": 0.95,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
+  "act": {
+   "type": "swimstroke",
+   "dist": 422
+  },
   "outfit": [
-   "umbrella",
-   "explorer"
+   "goggles",
+   "bowtie"
   ],
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
   "says": [
    {
-    "text": "Steady...",
-    "shout": false
+    "text": "Blub blub!",
+    "shout": true
    }
-  ]
+  ],
+  "bside": 1
  }
 }

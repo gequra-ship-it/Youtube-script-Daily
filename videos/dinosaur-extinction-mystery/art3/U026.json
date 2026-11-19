@@ -2,7 +2,6 @@
  "centre": "glowing asteroid rock on a museum pedestal as proof",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -19,10 +18,12 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "proud"
    }
   ],
-  "act": "magnify",
+  "act": {
+   "type": "present"
+  },
   "ride": "mv-swing-hanging-lamp",
   "kind": "ride",
   "x": 1628,
@@ -32,12 +33,12 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "bee"
+   "leafhat"
   ],
   "says": [
    {
-    "text": "Hmm, interesting.",
-    "shout": false
+    "text": "Ta-da!",
+    "shout": true
    }
   ]
  }

@@ -1,33 +1,32 @@
 {
- "centre": "stray asteroid with a warm trail passing a small mammal watching from a rock",
+ "centre": "glowing lantern at the fork of a winding branching trail beside a faded straight staircase",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
     "mood": "curious"
+   },
+   {
+    "word": "But this",
+    "mood": "curious"
    }
   ],
-  "act": "lean",
-  "ride": "mv-core-glide-asteroid-rock",
-  "kind": "ride",
-  "x": 482,
-  "y": 558,
-  "s": 0.95,
+  "act": "read",
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
   "flip": 1,
-  "bside": -1,
-  "gaze": 1,
+  "kind": "bg",
   "outfit": [
-   "helmet",
-   "jetpack"
+   "bee"
   ],
   "says": [
    {
-    "text": "Here we go!",
+    "text": "Interesting...",
     "shout": false
    }
-  ]
+  ],
+  "bside": 1
  }
 }

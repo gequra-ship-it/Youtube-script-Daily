@@ -5,43 +5,31 @@
   860,
   1.6
  ],
- "focus_word": "planet",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Earth",
-   "x": 540,
-   "y": 1110,
-   "to": [
-    540,
-    960
-   ],
-   "word": "Earth"
-  }
- ],
  "frog": {
   "moods": [
    {
-    "mood": "scared"
+    "mood": "curious"
    }
   ],
-  "act": "shiver",
-  "outfit": [
-   "helmet",
-   "jetpack"
-  ],
+  "act": {
+   "type": "measure"
+  },
   "ride": "mv-core-approach-earth-globe",
   "kind": "ride",
-  "x": 654,
-  "y": 714,
-  "s": 1.44,
+  "x": 774,
+  "y": 1050,
+  "s": 1.09,
   "flip": -1,
-  "bside": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "umbrella",
+   "explorer"
+  ],
   "says": [
    {
-    "text": "Brrrr...",
-    "shout": false
+    "text": "Mountain-high!",
+    "shout": true
    }
   ]
  }

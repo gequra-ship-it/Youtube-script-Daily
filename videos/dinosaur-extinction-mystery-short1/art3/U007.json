@@ -1,44 +1,23 @@
 {
- "centre": "cliff cross-section with one thin glowing clay line and a magnifier beside it",
+ "centre": "a small globe with three sample pins above a cliff of rock layers; one thin glowing clay line draws itself across",
  "focus": [
   540,
-  861,
-  1.8
+  1150,
+  1.5
  ],
- "focus_word": "thin ribbon of clay",
+ "focus_word": "boundary line",
  "labels": [
   {
-   "type": "num",
-   "text": "A FEW CM THICK",
-   "word": "few centimeters"
+   "type": "name",
+   "text": "Boundary line",
+   "x": 300,
+   "y": 1240,
+   "to": [
+    300,
+    1158
+   ],
+   "word": "boundary line"
   }
  ],
- "sfx": [],
- "frog": {
-  "moods": [
-   {
-    "mood": "curious"
-   }
-  ],
-  "act": "peek",
-  "ride": null,
-  "kind": "bg",
-  "x": 675,
-  "y": 790,
-  "s": 1.2,
-  "flip": -1,
-  "bside": -1,
-  "gaze": 1,
-  "behind": "mv-hover-magnifier-lens",
-  "outfit": [
-   "detective",
-   "bowtie"
-  ],
-  "says": [
-   {
-    "text": "Peek-a-boo!",
-    "shout": true
-   }
-  ]
- }
+ "motion": "clay line draws on, globe floats, survey flag waves"
 }

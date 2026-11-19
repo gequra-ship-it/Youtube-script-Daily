@@ -1,11 +1,34 @@
 {
- "centre": "map of the Gulf of Mexico with the Yucatan peninsula and a glowing pin",
+ "centre": "colour-ringed gravity map of a circular anomaly, with a compass needle below",
  "focus": [
-  560,
-  1140,
-  1.8
+  540,
+  860,
+  1.6
  ],
- "focus_word": "Yucatan Peninsula",
- "labels": [],
- "sfx": []
+ "focus_word": "circular pattern",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-glide-gravity-map",
+  "kind": "ride",
+  "x": 924,
+  "y": 1200,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Hmm, hard.",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,35 +1,36 @@
 {
- "centre": "giant rock far bigger than the tallest mountain, a tiny bullet streak below",
+ "centre": "a person in an ordinary living room reaching toward a glowing orb holding a tiny impact scene (the moment held in mind)",
  "focus": [
-  1200,
-  500,
-  1.5
+  1180,
+  430,
+  1.7
  ],
- "focus_word": "mountain of rock",
- "sfx": [],
- "labels": [],
+ "focus_word": "hold that moment",
  "frog": {
   "moods": [
    {
     "mood": "squint"
    }
   ],
-  "act": "wind",
-  "ride": "mv-core-glide-asteroid-rock",
+  "act": {
+   "type": "peer"
+  },
+  "ride": "mv-core-glide-memory-orb",
   "kind": "ride",
-  "x": 1356,
-  "y": 298,
-  "s": 1.25,
+  "x": 1340,
+  "y": 560,
+  "s": 0.95,
   "flip": -1,
-  "bside": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "helmet",
-   "raincoat"
+   "umbrella",
+   "flowercrown"
   ],
   "says": [
    {
-    "text": "Whooosh!",
-    "shout": true
+    "text": "Hmm?",
+    "shout": false
    }
   ]
  }

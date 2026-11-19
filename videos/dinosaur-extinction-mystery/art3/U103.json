@@ -1,42 +1,18 @@
 {
- "centre": "a small sparrow on a branch on the left; a huge faint T. rex silhouette fading behind it on the right",
+ "centre": "close-up of a small sparrow (brown, cream, black bib) perched on a branch outside a window",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "Still here!",
-   "x": 690,
-   "y": 300,
+   "type": "name",
+   "text": "Sparrow",
+   "x": 1440,
+   "y": 330,
    "to": [
-    600,
-    362
-   ]
+    1060,
+    420
+   ],
+   "word": "sparrow"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "surprised"
-   },
-   {
-    "word": "Only the",
-    "mood": "happy"
-   }
-  ],
-  "act": {
-   "type": "leanback"
-  },
-  "x": 1660,
-  "y": 660,
-  "s": 0.76,
-  "flip": -1,
-  "kind": "bg",
-  "outfit": [
-   "dino"
-  ],
-  "says": [],
-  "bside": -1
- }
+ ]
 }

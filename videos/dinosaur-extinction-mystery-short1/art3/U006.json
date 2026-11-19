@@ -1,19 +1,43 @@
 {
- "centre": "a puzzled scientist at a study desk with a fossil skull, a cork board of clues tied with red string into a question mark",
- "focus": null,
- "focus_word": null,
- "sfx": [],
+ "centre": "cliff cross-section with one thin glowing clay line and a magnifier beside it",
+ "focus": [
+  540,
+  861,
+  1.8
+ ],
+ "focus_word": "thin ribbon of clay",
  "labels": [
   {
-   "type": "say",
-   "text": "Hmm...",
-   "x": 170,
-   "y": 720,
-   "to": [
-    300,
-    862
-   ]
+   "type": "num",
+   "text": "A FEW CM THICK",
+   "word": "few centimeters"
   }
  ],
- "motion": "scientist breathes, lamp glows, crumpled paper ball tossed away"
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "ride": null,
+  "kind": "bg",
+  "x": 675,
+  "y": 790,
+  "s": 1.2,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-hover-magnifier-lens",
+  "outfit": [
+   "detective",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
 }

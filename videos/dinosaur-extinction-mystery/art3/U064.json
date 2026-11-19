@@ -1,56 +1,49 @@
 {
- "centre": "a magnifier lens over the thin clay layer showing tiny round glass beads inside it",
+ "centre": "magnifier over the thin clay line showing black soot specks",
  "focus": [
   960,
   500,
   1.8
  ],
- "focus_word": "tiny glass beads",
- "sfx": [],
+ "focus_word": "Soot",
  "labels": [
   {
    "type": "name",
-   "text": "glass beads",
-   "x": 1300,
-   "y": 330,
+   "text": "Clay layer",
+   "x": 500,
+   "y": 380,
    "to": [
-    990,
-    470
+    600,
+    498
    ],
-   "word": "glass beads"
+   "word": "clay layer"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "happy"
+    "mood": "dizzy"
    }
   ],
   "act": {
-   "type": "dodge",
-   "obj": "mv-rollby-glass-bead",
-   "h": 52,
-   "pass": 2.067
+   "type": "dizzy"
   },
-  "ride": null,
-  "kind": "bg",
-  "x": 542,
-  "y": 790,
+  "ride": "mv-core-glide-magnifier-lens",
+  "kind": "ride",
+  "x": 1238,
+  "y": 760,
   "s": 0.95,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
-  "behind": null,
-  "enter": "cut",
-  "delay": 0.02,
   "outfit": [
-   "lab",
-   "bee"
+   "umbrella",
+   "backpack"
   ],
   "says": [
    {
-    "text": "Whoa!",
-    "shout": true
+    "text": "So dizzy...",
+    "shout": false
    }
   ]
  }

@@ -1,11 +1,39 @@
 {
- "centre": "a tiny rat-sized mammal peeking out from behind an ash-covered rock beside a giant footprint",
- "focus": [
-  590,
-  880,
-  1.8
+ "centre": "a rat-sized mammal curled up asleep in a warm burrow chamber under frosty cold ground",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Burrow",
+   "x": 800,
+   "y": 740,
+   "to": [
+    700,
+    830
+   ],
+   "word": "burrow"
+  }
  ],
- "focus_word": "small animal",
- "sfx": [],
- "labels": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": {
+   "type": "hug"
+  },
+  "x": 820,
+  "y": 1120,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

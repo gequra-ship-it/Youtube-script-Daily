@@ -1,11 +1,35 @@
 {
- "centre": "a leaf losing its green, cracks in the base of a food pyramid",
+ "centre": "a small frosted green sprout under a dim grey sky",
  "focus": [
-  960,
-  500,
-  1.7
+  1000,
+  640,
+  1.8
  ],
- "focus_word": "Photosynthesis",
- "sfx": [],
- "labels": []
+ "focus_word": "plants",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "With little",
+    "mood": "determined"
+   }
+  ],
+  "act": {
+   "type": "duck"
+  },
+  "ride": "mv-core-sway-sprout-plant",
+  "kind": "ride",
+  "x": 1086,
+  "y": 578,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": []
+ }
 }

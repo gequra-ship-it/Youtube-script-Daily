@@ -1,42 +1,18 @@
 {
- "centre": "a small shrew-like mammal and a sparrow lit warmly in front of a fading giant T. rex ghost",
- "focus": [
-  560,
-  1190,
-  1.6
- ],
- "focus_word": "modest creatures",
- "sfx": [],
+ "centre": "fallen dead log with a scavenging shrew and beetle on top, a second shrew curled in its burrow below",
+ "focus": null,
+ "focus_word": null,
  "labels": [
   {
-   "type": "say",
-   "text": "Small and quick!",
-   "x": 330,
-   "y": 1050,
+   "type": "name",
+   "text": "burrow",
+   "x": 700,
+   "y": 1210,
    "to": [
-    512,
-    1188
-   ]
+    470,
+    1262
+   ],
+   "word": "burrow"
   }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "shock"
-   }
-  ],
-  "act": {
-   "type": "gasp"
-  },
-  "x": 260,
-  "y": 1000,
-  "s": 1.05,
-  "flip": 1,
-  "kind": "bg",
-  "outfit": [
-   "explorer"
-  ],
-  "says": [],
-  "bside": 1
- }
+ ]
 }

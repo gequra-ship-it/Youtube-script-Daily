@@ -1,18 +1,39 @@
 {
- "centre": "a contribution dial between a volcano icon and an asteroid icon, its needle swinging; two researchers",
+ "centre": "glowing lava fissure on the stepped Deccan Traps plateau, gas plumes rising, a thermometer climbing",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
-   "type": "say",
-   "text": "How much, though?",
-   "x": 1560,
-   "y": 330,
+   "type": "name",
+   "text": "Lava flows",
+   "x": 380,
+   "y": 650,
    "to": [
-    1450,
-    527
-   ]
+    470,
+    738
+   ],
+   "word": "lava flows"
   }
- ]
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 1660,
+  "y": 340,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "lab",
+   "scarf"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

@@ -1,18 +1,34 @@
 {
- "centre": "shiny golden puzzle piece that does not fit the empty slot; careful scientist thinking",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Hmm, not so fast.",
-   "x": 260,
-   "y": 900,
-   "to": [
-    255,
-    1060
-   ]
-  }
- ]
+ "centre": "glowing asteroid with warm trail over a grey landscape, volcano smoke and a sauropod silhouette",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "crises",
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-approach-asteroid-rock",
+  "kind": "ride",
+  "x": 824,
+  "y": 1050,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
 }

@@ -1,23 +1,30 @@
 {
- "centre": "a tree of life: dry branches ending in faded dinosaur silhouettes, one green living branch ending in a small bird",
+ "centre": "a small mammal asleep in a cozy den underground; fire above on the left, frost and icicles above on the right",
  "focus": [
-  1290,
-  300,
-  1.7
+  975,
+  670,
+  1.6
  ],
- "focus_word": "birds",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Birds",
-   "x": 1560,
-   "y": 250,
-   "to": [
-    1320,
-    290
-   ],
-   "word": "birds"
-  }
- ]
+ "focus_word": "burrow underground",
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "x": 1660,
+  "y": 540,
+  "s": 0.72,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "scarf",
+   "leafhat"
+  ],
+  "says": [],
+  "bside": -1
+ }
 }

@@ -1,19 +1,43 @@
 {
- "centre": "space rock studded with silver sparkles beneath a crust slice with a single speck",
+ "centre": "a small globe with three glowing site pins and a paper plane flying a dotted route",
  "labels": [
   {
    "type": "name",
-   "text": "Space rock",
-   "x": 820,
-   "y": 1080,
+   "text": "Gubbio, Italy",
+   "x": 300,
+   "y": 620,
    "to": [
-    640,
-    930
+    505,
+    790
    ],
-   "word": "space rocks"
+   "word": "Gubbio"
   }
  ],
  "focus": null,
  "focus_word": null,
- "sfx": []
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-glide-globe",
+  "kind": "ride",
+  "x": 774,
+  "y": 1050,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
 }

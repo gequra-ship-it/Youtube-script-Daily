@@ -1,44 +1,34 @@
 {
- "centre": "a sparrow flying in to land on a branch seen through a modern window",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "living dinosaur",
-   "x": 560,
-   "y": 400,
-   "to": [
-    320,
-    500
-   ],
-   "word": "living dinosaur"
-  }
+ "centre": "a sparrow hopping on paving stones, casting a giant T. rex shadow on the garden wall behind it",
+ "focus": [
+  560,
+  690,
+  1.5
  ],
+ "focus_word": "ancestry",
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
-  "act": "think",
-  "ride": "mv-path-landing-sparrow",
-  "kind": "ride",
-  "x": 451,
-  "y": 576,
-  "s": 1.09,
-  "flip": 1,
-  "bside": 1,
-  "gaze": 1,
+  "act": {
+   "type": "leap",
+   "dist": 367
+  },
+  "x": 820,
+  "y": 1560,
+  "s": 1.05,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
   "outfit": [
-   "dino"
+   "bunny",
+   "backpack"
   ],
-  "says": [
-   {
-    "text": "Hmm...",
-    "shout": false
-   }
-  ]
+  "says": [],
+  "bside": -1,
+  "lock": true
  }
 }

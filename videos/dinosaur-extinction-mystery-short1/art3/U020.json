@@ -1,48 +1,40 @@
 {
- "centre": "Earth on an atlas page; a space rock with a glowing trail points at it while a magnifying glass circles the globe searching for the scar",
+ "centre": "a small Earth with a plaster on its wound, green sprouts growing in the foreground",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Where is it?",
-   "x": 860,
-   "y": 640,
-   "to": [
-    740,
-    720
-   ]
-  }
- ],
- "motion": "magnifier circles the globe (camera follows), asteroid floats",
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "curious"
+   },
+   {
+    "word": "Earth heals",
+    "mood": "hurt"
    }
   ],
   "act": {
-   "type": "push",
-   "from": 0.6
+   "type": "launched",
+   "obj": "mv-popin-bandage",
+   "h": 159
   },
-  "outfit": [
-   "helmet",
-   "antenna"
-  ],
-  "ride": "mv-path-magnifier-lens",
-  "kind": "ride",
-  "x": 890,
-  "y": 912,
-  "s": 1.07,
+  "ride": null,
+  "kind": "bg",
+  "x": 540,
+  "y": 939,
+  "s": 1.09,
   "flip": -1,
-  "bside": -1,
+  "bside": 1,
   "gaze": 1,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "bandage",
+   "beanie"
+  ],
   "says": [
    {
-    "text": "Heave-ho!",
-    "t": 1.0,
-    "dur": 1.6,
+    "text": "Whoa!",
     "shout": true
    }
   ]

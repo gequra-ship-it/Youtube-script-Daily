@@ -2,15 +2,15 @@
  "centre": "a mountain-sized rock streaking toward a calm dinosaur herd",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
-    "mood": "sad"
+    "mood": "excited"
    }
   ],
-  "act": "wish",
+  "act": {
+   "type": "pointfar"
+  },
   "outfit": [
    "helmet",
    "raincoat"
@@ -25,8 +25,8 @@
   "gaze": 1,
   "says": [
    {
-    "text": "Please...",
-    "shout": false
+    "text": "There!",
+    "shout": true
    }
   ]
  }

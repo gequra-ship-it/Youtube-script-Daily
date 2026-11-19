@@ -1,34 +1,42 @@
 {
- "centre": "glowing lantern at the fork of a winding branching trail beside a faded straight staircase",
+ "centre": "a giant dinosaur leg sliding away to reveal small mammals stepping into sunlight; a dotted line leads to a small person on a hill",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Small mammals",
+   "x": 900,
+   "y": 520,
+   "to": [
+    920,
+    690
+   ],
+   "word": "small mammals"
+  }
+ ],
  "frog": {
   "moods": [
    {
-    "mood": "curious"
-   },
-   {
-    "word": "But this",
-    "mood": "curious"
+    "mood": "awe"
    }
   ],
-  "act": "read",
-  "x": 1660,
-  "y": 890,
-  "s": 0.72,
+  "act": "lean",
+  "ride": "mv-slide-sauropod-giant-body",
+  "kind": "ride",
+  "x": 576,
+  "y": 252,
+  "s": 1.25,
   "flip": -1,
-  "kind": "bg",
+  "bside": 1,
   "outfit": [
-   "flowercrown"
+   "backpack"
   ],
   "says": [
    {
-    "text": "Interesting...",
+    "text": "Here we go!",
     "shout": false
    }
-  ],
-  "bside": -1
+  ]
  }
 }

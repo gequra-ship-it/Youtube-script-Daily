@@ -1,49 +1,36 @@
 {
- "centre": "volcano cone on a map of India with two lava streams running down",
+ "centre": "map of the Gulf of Mexico with the buried crater ring and a cross-section below",
  "focus": null,
  "focus_word": null,
- "sfx": [],
+ "sfx": [
+  {
+   "name": "pop",
+   "word": "is the proof",
+   "vol": 0.5
+  }
+ ],
  "labels": [
   {
    "type": "name",
-   "text": "India",
-   "x": 210,
-   "y": 1190,
+   "text": "Gulf of Mexico",
+   "x": 470,
+   "y": 530,
    "to": [
-    330,
-    880
+    470,
+    590
    ],
-   "word": "India"
-  }
- ],
- "frog": {
-  "moods": [
-   {
-    "mood": "worried"
-   }
-  ],
-  "act": {
-   "type": "bracehold",
-   "obj": "mv-core-tremble-volcano"
+   "word": "Gulf of Mexico"
   },
-  "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "x": 734,
-  "y": 960,
-  "s": 1.09,
-  "flip": -1,
-  "bside": 1,
-  "gaze": 1,
-  "outfit": [
-   "umbrella",
-   "headlamp"
-  ],
-  "says": [
-   {
-    "text": "Steady...!",
-    "shout": true
-   }
-  ]
- }
+  {
+   "type": "name",
+   "text": "Crater",
+   "x": 540,
+   "y": 1230,
+   "to": [
+    560,
+    1090
+   ],
+   "word": "crater"
+  }
+ ]
 }

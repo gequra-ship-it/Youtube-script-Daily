@@ -1,35 +1,36 @@
 {
- "centre": "gold-rimmed magnifier over four clue tiles: stone, glass bead, soot, silver iridium",
+ "centre": "gold round medallion hanging between a crater cross-section above and a volcano below",
  "focus": [
   540,
   860,
   1.5
  ],
- "focus_word": "clue",
- "sfx": [],
- "labels": [],
+ "focus_word": "crater",
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "surprised"
    }
   ],
-  "act": "tap",
-  "ride": "mv-core-glide-magnifier-lens",
+  "act": {
+   "type": "gasp"
+  },
+  "ride": "mv-swing-medallion-tag",
   "kind": "ride",
-  "x": 744,
-  "y": 1025,
+  "x": 734,
+  "y": 1010,
   "s": 1.09,
   "flip": -1,
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "umbrella"
+   "umbrella",
+   "raincoat"
   ],
   "says": [
    {
-    "text": "Knock knock!",
-    "shout": false
+    "text": "Aha!",
+    "shout": true
    }
   ]
  }

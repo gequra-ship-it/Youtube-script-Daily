@@ -1,47 +1,37 @@
 {
- "centre": "a healthy, smiling sauropod in a lush fern valley; a tiny asteroid far away; a tossed die with one pip",
- "focus": null,
- "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "say",
-   "text": "Feeling great!",
-   "x": 1220,
-   "y": 360,
-   "to": [
-    1048,
-    413
-   ]
-  }
+ "centre": "a branching tree of life with a few faded branch tips",
+ "focus": [
+  960,
+  500,
+  1.3
  ],
+ "focus_word": "extinction",
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "sad"
+   },
+   {
+    "word": "Because it",
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "push",
-   "from": 0.6
-  },
-  "ride": "mv-path-asteroid-fall-rock",
+  "act": "cry",
+  "ride": "mv-core-sway-tree-diagram",
   "kind": "ride",
-  "x": 1820,
-  "y": 204,
-  "s": 1.0,
-  "flip": -1,
+  "x": 476,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
   "bside": -1,
   "gaze": 1,
   "outfit": [
-   "helmet"
+   "strawhat"
   ],
   "says": [
    {
-    "text": "Heave-ho!",
-    "t": 1.0,
-    "dur": 1.6,
-    "shout": true
+    "text": "Sniff...",
+    "shout": false
    }
   ]
  }

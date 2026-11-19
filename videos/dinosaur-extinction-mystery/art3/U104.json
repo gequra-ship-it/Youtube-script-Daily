@@ -1,41 +1,32 @@
 {
- "centre": "a coffee mug steaming on a kitchen windowsill and people on a city sidewalk, with rock layers and the thin clay line beneath both",
+ "centre": "a small sparrow on a branch on the left; a huge faint T. rex silhouette fading behind it on the right",
  "focus": null,
  "focus_word": null,
- "iris": [
-  600,
-  470
- ],
- "sfx": [],
- "labels": [],
  "frog": {
   "moods": [
    {
+    "mood": "sad"
+   },
+   {
+    "word": "Only the",
     "mood": "happy"
    }
   ],
-  "act": {
-   "type": "hopalong",
-   "obj": "mv-hop-sparrow-bird"
-  },
-  "x": 1458,
-  "y": 666,
-  "s": 0.95,
-  "flip": -1,
+  "act": "wish",
+  "x": 260,
+  "y": 660,
+  "s": 0.88,
+  "flip": 1,
   "kind": "bg",
-  "ride": null,
-  "behind": null,
-  "bside": 1,
-  "gaze": 1,
   "outfit": [
-   "laurel",
-   "shield"
+   "dino"
   ],
   "says": [
    {
-    "text": "Hop hop!",
-    "shout": true
+    "text": "Please...",
+    "shout": false
    }
-  ]
+  ],
+  "bside": 1
  }
 }

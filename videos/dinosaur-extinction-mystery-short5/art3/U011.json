@@ -1,43 +1,44 @@
 {
- "centre": "a sparrow standing on a rock in the sunset while giant dinosaur silhouettes fade on the horizon",
+ "centre": "a sparrow flying in to land on a branch seen through a modern window",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
-   "text": "sparrow",
-   "x": 760,
-   "y": 1000,
+   "text": "living dinosaur",
+   "x": 560,
+   "y": 400,
    "to": [
-    560,
-    1110
+    320,
+    500
    ],
-   "word": "sparrow"
+   "word": "living dinosaur"
   }
  ],
  "frog": {
   "moods": [
    {
-    "mood": "surprised"
-   },
-   {
-    "word": "Remember the",
-    "mood": "happy"
+    "mood": "curious"
    }
   ],
-  "act": {
-   "type": "leanback"
-  },
-  "x": 260,
-  "y": 560,
-  "s": 1.16,
+  "act": "think",
+  "ride": "mv-path-landing-sparrow",
+  "kind": "ride",
+  "x": 451,
+  "y": 576,
+  "s": 1.09,
   "flip": 1,
-  "kind": "bg",
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "leafhat"
+   "dino",
+   "backpack"
   ],
-  "says": [],
-  "bside": 1
+  "says": [
+   {
+    "text": "Hmm...",
+    "shout": false
+   }
+  ]
  }
 }

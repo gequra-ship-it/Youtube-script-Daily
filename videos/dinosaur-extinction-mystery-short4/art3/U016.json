@@ -1,11 +1,35 @@
 {
- "centre": "glowing light bulb with a small rock and a lava drop inside, rock layers with a bone below",
+ "centre": "gold-rimmed magnifier over four clue tiles: stone, glass bead, soot, silver iridium",
  "focus": [
   540,
   860,
   1.5
  ],
- "focus_word": "extinction",
- "sfx": [],
- "labels": []
+ "focus_word": "clue",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-glide-magnifier-lens",
+  "kind": "ride",
+  "x": 744,
+  "y": 1025,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "umbrella",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
 }

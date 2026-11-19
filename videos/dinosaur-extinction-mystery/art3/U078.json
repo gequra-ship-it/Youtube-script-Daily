@@ -1,48 +1,39 @@
 {
- "centre": "a giant sauropod beside a towering stack of fern bundles (one day's food); a tiny mammal with a single leaf",
+ "centre": "a four-tier food pyramid (plants, small animals, big plant eaters, hunters) shaking",
  "focus": [
-  1480,
-  560,
-  1.5
+  960,
+  600,
+  1.4
  ],
- "focus_word": "enormous amount of food",
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "food every day",
-   "x": 1250,
-   "y": 420,
-   "to": [
-    1420,
-    450
-   ],
-   "word": "food every day"
-  }
- ],
+ "focus_word": "foundation",
  "frog": {
   "moods": [
    {
-    "mood": "shock"
-   },
-   {
-    "word": "A giant",
-    "mood": "awe"
+    "mood": "worried"
    }
   ],
   "act": {
-   "type": "gasp"
+   "type": "bracehold",
+   "obj": "mv-core-tremble-food-pyramid"
   },
-  "x": 1660,
-  "y": 380,
-  "s": 0.72,
-  "flip": -1,
   "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1323,
+  "y": 790,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
    "scarf",
-   "hardhat"
+   "sunglasses"
   ],
-  "says": [],
-  "bside": -1
+  "says": [
+   {
+    "text": "Steady...!",
+    "shout": true
+   }
+  ]
  }
 }

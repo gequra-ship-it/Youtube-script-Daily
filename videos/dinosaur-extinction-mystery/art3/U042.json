@@ -2,7 +2,6 @@
  "centre": "map of the Gulf of Mexico with a dashed ring at the Yucatan Peninsula",
  "focus": null,
  "focus_word": null,
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -30,12 +29,10 @@
  "frog": {
   "moods": [
    {
-    "mood": "curious"
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "peekover"
-  },
+  "act": "lean",
   "ride": "mv-core-glide-crater-ring",
   "kind": "ride",
   "x": 1218,
@@ -45,11 +42,11 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "bee"
+   "leafhat"
   ],
   "says": [
    {
-    "text": "Psst?",
+    "text": "Steady...",
     "shout": false
    }
   ]

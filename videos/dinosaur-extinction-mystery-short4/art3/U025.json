@@ -1,11 +1,36 @@
 {
- "centre": "four colourful puzzle pieces fitting together into a square",
+ "centre": "lantern hanging from a branch lighting a small circle in thick fog, faint footprints leading in",
  "focus": [
   540,
   860,
-  1.5
+  1.6
  ],
- "focus_word": "clues",
- "sfx": [],
- "labels": []
+ "focus_word": "still finding out",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": {
+   "type": "present"
+  },
+  "ride": "mv-swing-lantern-lamp",
+  "kind": "ride",
+  "x": 708,
+  "y": 642,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "umbrella",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Look!",
+    "shout": true
+   }
+  ]
+ }
 }

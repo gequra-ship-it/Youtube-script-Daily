@@ -6,7 +6,6 @@
   1.6
  ],
  "focus_word": "space rocks",
- "sfx": [],
  "labels": [
   {
    "type": "name",
@@ -23,15 +22,15 @@
  "frog": {
   "moods": [
    {
-    "mood": "squint"
+    "mood": "curious"
    }
   ],
   "act": {
-   "type": "helmetwipe"
+   "type": "countstars"
   },
   "outfit": [
    "helmet",
-   "antenna"
+   "goldvisor"
   ],
   "ride": "mv-core-glide-asteroid-rock",
   "kind": "ride",
@@ -43,7 +42,7 @@
   "gaze": 1,
   "says": [
    {
-    "text": "Phew.",
+    "text": "So many...",
     "shout": false
    }
   ]

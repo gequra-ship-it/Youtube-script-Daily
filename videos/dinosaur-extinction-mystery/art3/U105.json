@@ -1,53 +1,37 @@
 {
- "centre": "a giant dinosaur leg sliding away to reveal small mammals stepping into sunlight; a dotted line leads to a small person on a hill",
+ "centre": "a coffee mug steaming on a kitchen windowsill and people on a city sidewalk, with rock layers and the thin clay line beneath both",
  "focus": null,
  "focus_word": null,
- "sfx": [],
- "labels": [
-  {
-   "type": "name",
-   "text": "Small mammals",
-   "x": 900,
-   "y": 520,
-   "to": [
-    920,
-    690
-   ],
-   "word": "small mammals"
-  },
-  {
-   "type": "say",
-   "text": "Hi, ancestor!",
-   "x": 1500,
-   "y": 330,
-   "to": [
-    1560,
-    474
-   ]
-  }
+ "iris": [
+  600,
+  470
  ],
  "frog": {
   "moods": [
    {
-    "mood": "proud"
+    "mood": "happy"
    }
   ],
   "act": {
-   "type": "growtall"
+   "type": "hopalong",
+   "obj": "mv-hop-sparrow-bird"
   },
-  "ride": "mv-slide-sauropod-giant-body",
-  "kind": "ride",
-  "x": 576,
-  "y": 252,
-  "s": 1.25,
+  "x": 1458,
+  "y": 666,
+  "s": 0.95,
   "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
   "bside": 1,
+  "gaze": 1,
   "outfit": [
-   "leafhat"
+   "laurel",
+   "toga"
   ],
   "says": [
    {
-    "text": "Big!",
+    "text": "Hop hop!",
     "shout": true
    }
   ]

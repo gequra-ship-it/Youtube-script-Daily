@@ -1,36 +1,40 @@
 {
- "centre": "lantern hanging from a branch lighting a small circle in thick fog, faint footprints leading in",
+ "centre": "magnifier on a rope showing it is braided from two strands (asteroid and volcano); a bell hangs at its end",
  "focus": [
   540,
   860,
   1.6
  ],
- "focus_word": "still finding out",
- "sfx": [],
- "labels": [],
+ "focus_word": "one single cause",
+ "sfx": [
+  {
+   "name": "bell",
+   "word": "remember this story",
+   "vol": 0.5
+  }
+ ],
  "frog": {
   "moods": [
    {
     "mood": "curious"
    }
   ],
-  "act": "magnify",
-  "ride": "mv-swing-lantern-lamp",
+  "act": {
+   "type": "peer"
+  },
+  "ride": "mv-core-glide-magnifier-lens",
   "kind": "ride",
-  "x": 708,
-  "y": 642,
-  "s": 1.44,
+  "x": 764,
+  "y": 1060,
+  "s": 1.09,
   "flip": -1,
-  "bside": -1,
+  "bside": 1,
+  "gaze": 1,
   "outfit": [
    "umbrella",
-   "sunglasses"
+   "scarf"
   ],
-  "says": [
-   {
-    "text": "A clue!",
-    "shout": false
-   }
-  ]
+  "says": [],
+  "lock": true
  }
 }
