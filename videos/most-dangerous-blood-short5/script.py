@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh5_1',
-  "What happens if a person with the world's rarest blood is badly hurt? Imagine a serious accident on a lonely road. The local hospital cannot pull "
-  'a matching unit from its shelves.'),
+  "Imagine a serious accident on a lonely road, and a hospital that cannot pull a matching unit from its shelves. For people with the world's rarest "
+  'blood, it is a real risk.'),
  ('S02',
   'Part 2',
   'ill',

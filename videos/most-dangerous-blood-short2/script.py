@@ -4,8 +4,8 @@ SCENES = [('S01',
   'Part 1',
   'ill',
   'sh2_1',
-  'How can a type O patient reject type O blood? It sounds impossible, and it was a real medical puzzle. Consider a rare condition called the Bombay '
-  'phenotype.'),
+  'A type O patient once rejected type O blood, and the clumping showed up right in the test tube. It was a real medical puzzle. Consider a rare '
+  'condition called the Bombay phenotype.'),
  ('S02',
   'Part 2',
   'ill',

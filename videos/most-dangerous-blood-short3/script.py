@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # most-dangerous-blood-short3 (Miya's Note). Script from miya 2026-11-09; fact-checked per guideline 12-1 (see ../most-dangerous-blood/script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'The Rh factor is not what you think. Look at the small plus or minus sign after your blood type.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'Look at the small plus or minus sign after your blood type: the Rh factor is not what you think.'),
  ('S02',
   'Part 2',
   'ill',

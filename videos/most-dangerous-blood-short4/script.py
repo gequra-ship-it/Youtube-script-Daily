@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 # most-dangerous-blood-short4 (Miya's Note). Script from miya 2026-11-09; fact-checked per guideline 12-1 (see ../most-dangerous-blood/script-check.md).
-SCENES = [('S01',
-  'Part 1',
-  'ill',
-  'sh4_1',
-  'What makes a blood type golden? Since the discovery of Rh-null blood in 1961, only a small number of people have been identified with it.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh4_1', 'Since 1961, only a small number of people have been identified with golden blood, called Rh-null.'),
  ('S02',
   'Part 2',
   'ill',
