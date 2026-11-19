@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # tromelin-sandbank-short3 (Miya's Note). Script from miya 2026-11-09; fact-checked per guideline 12-1 (see ../tromelin-sandbank/script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'Fifteen years is a long time to wait for a ship.'),
+SCENES = [('S01', 'Part 1', 'ill', 'sh3_1', 'Seven women and one baby were still waiting for a ship after fifteen years on a sandbank. It was real.'),
  ('S02',
   'Part 2',
   'ill',

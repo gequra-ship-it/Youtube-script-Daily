@@ -5,7 +5,7 @@ SCENES = [('S01', 'Part 1', 'ill', 'sh1_1', 'Imagine a ship breaking apart on a 
   'Part 2',
   'ill',
   'sh1_2',
-  'The island it struck is called Tromelin: a strip of sand and coral about seventeen hundred meters long, with no trees and no river.'),
+  'It was real: the island it struck is called Tromelin, a strip of sand and coral about seventeen hundred meters long, with no trees and no river.'),
  ('S03',
   'Part 3',
   'ill',

@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 # tromelin-sandbank-short5 (Miya's Note). Script from miya 2026-11-09; fact-checked per guideline 12-1 (see ../tromelin-sandbank/script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh5_1', 'After fifteen years of watching an empty horizon, a sail finally appeared.'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh5_1',
+  'After fifteen years of watching an empty horizon, a sail finally appeared. It was real, and the rescuers found a fire still lit.'),
  ('S02',
   'Part 2',
   'ill',

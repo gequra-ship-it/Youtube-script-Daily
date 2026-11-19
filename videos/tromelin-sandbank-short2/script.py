@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 # tromelin-sandbank-short2 (Miya's Note). Script from miya 2026-11-09; fact-checked per guideline 12-1 (see ../tromelin-sandbank/script-check.md).
-SCENES = [('S01', 'Part 1', 'ill', 'sh2_1', 'More than one hundred and fifty people, one small boat, and an island with no water. What do you do?'),
+SCENES = [('S01',
+  'Part 1',
+  'ill',
+  'sh2_1',
+  'More than one hundred and fifty people, one small boat, and an island with no water. It was real, and not everyone could leave.'),
  ('S02',
   'Part 2',
   'ill',

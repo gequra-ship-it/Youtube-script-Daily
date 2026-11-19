@@ -1,23 +1,23 @@
 # -*- coding: utf-8 -*-
 # tromelin-sandbank (Miya's Note). Script from miya 2026-11-09 (dated 2026-10-16); fact-checked per guideline 12-1 (see script-check.md).
-SCENES = [('S01', 'The Last Ship', 'ill', 'p01a', 'Imagine the ship that brought you here sails over the horizon, and it never comes back.'),
+SCENES = [('S01',
+  'The Last Ship',
+  'ill',
+  'p01a',
+  'In 1761, around sixty Malagasy men and women were left behind on a sandbank in the Indian Ocean, and fifteen years later, seven women and one '
+  'baby were still alive.'),
  ('S02',
   'The Last Ship',
   'ill',
   'p01b',
-  'There are no trees, no soil, no river, only a flat strip of white sand and coral, less than two kilometers long, in the middle of the Indian '
-  'Ocean.'),
- ('S03',
-  'The Last Ship',
-  'ill',
-  'p01c',
-  'Could you last a week? A month? In 1761, around sixty Malagasy men and women were left behind on exactly this kind of island, called Tromelin.'),
+  'Imagine the ship that brought you here sails over the horizon, and it never comes back. There are no trees, no soil, no river, only a flat strip '
+  'of white sand and coral, less than two kilometers long, in the middle of the Indian Ocean.'),
+ ('S03', 'The Last Ship', 'ill', 'p01c', 'Could you last a week? A month? They were left behind on exactly this kind of island, called Tromelin.'),
  ('S04',
   'The Last Ship',
   'ill',
   'p01d',
-  'Fifteen years later, seven women and one baby were still alive. How does anyone survive that long on a sandbank that offers almost nothing, and '
-  'why did the world forget them?'),
+  'How does anyone survive that long on a sandbank that offers almost nothing, and why did the world forget them?'),
  ('S05',
   'A Speck in the Ocean',
   'ill',
@@ -103,8 +103,8 @@ SCENES = [('S01', 'The Last Ship', 'ill', 'p01a', 'Imagine the ship that brought
   'Sand and Water',
   'ill',
   'p07b',
-  'There was no fruit, no edible roots, and, most frightening of all, no stream of fresh water. How long could anyone last in an open-air prison '
-  'made of blinding white sand?'),
+  'There was no fruit, no edible roots, and, most frightening of all, no stream of fresh water. It was an open-air prison made of blinding white '
+  'sand.'),
  ('S25',
   'Sand and Water',
   'ill',
@@ -133,7 +133,12 @@ SCENES = [('S01', 'The Last Ship', 'ill', 'p01a', 'Imagine the ship that brought
   'ill',
   'p10a',
   'But the moment of completion brought a cruel revelation. The boat was too small to carry everyone. Only the French sailors would board.'),
- ('S33', 'A Boat Too Small', 'ill', 'p10b', 'The Malagasy survivors were told they had to remain behind.'),
+ ('S33',
+  'A Boat Too Small',
+  'ill',
+  'p10b',
+  'The Malagasy survivors were told they had to remain behind. What happened to them over the next fifteen years is a story the world almost '
+  'forgot.'),
  ('S34',
   'A Boat Too Small',
   'ill',
@@ -203,7 +208,7 @@ SCENES = [('S01', 'The Last Ship', 'ill', 'p01a', 'Imagine the ship that brought
   'Food and Fire',
   'ill',
   'p17a',
-  'Think about the dedication that took. There were no forests to cut for firewood. Someone had to walk the beaches every day, collecting whatever '
+  'What kind of dedication did that take? There were no forests to cut for firewood. Someone had to walk the beaches every day, collecting whatever '
   'the ocean left behind.'),
  ('S49', 'Food and Fire', 'ill', 'p17b', 'Fifteen years is more than five thousand days.'),
  ('S50',
