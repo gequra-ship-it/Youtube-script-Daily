@@ -1,7 +1,7 @@
 """Upload rendered videos to YouTube as PRIVATE + scheduled (miya publishes / sets the long thumbnail and end screen in Studio).
 Called by the `youtube` job of .github/workflows/render-chunked.yml after the Drive upload.
 Env: SLUGS_JSON  ([{"slug":..,"n":..}, ...] from the plan job), ROOT_ID, YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN
-     (rclone is already configured). Never prints secrets.
+     (rclone is already configured), UPLOAD_EXISTING=true (manual run only: "<slug> 0" lines upload the video that is already on Drive). Never prints secrets.
 Rules (2026-11-20, from the channel as miya uploaded it):
   - category 27, language en, not made for kids, license youtube, embeddable, stats public
   - long -> playlist "Deep Dives - <Life & Biology|Space & Science>", short -> "Bite-Sized Knowledge - <...>"
@@ -10,7 +10,8 @@ Rules (2026-11-20, from the channel as miya uploaded it):
   - videos alternate Life & Biology / Space & Science (starting opposite to the last scheduled long)
   - slots: Tue/Thu/Sat/Sun (KST), long 07:00, shorts 08:00 08:30 09:00 09:30 10:00; next date after the last scheduled video
   - short thumbnail (<name>_thumbnail_A.png) is set here; the LONG thumbnail and end screen stay manual (miya)
-  - a title that already exists on the channel is skipped (no duplicate uploads)"""
+  - a title that already exists on the channel is skipped (no duplicate uploads)
+  - "<slug> 0" lines (no render) are ignored unless UPLOAD_EXISTING=true"""
 import os, re, sys, json, glob, time, subprocess, datetime as dt, pathlib
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
@@ -68,9 +69,10 @@ def desc_tags(d):
     return d, out[:8]
 
 rows = json.loads(os.environ["SLUGS_JSON"])
+existing_ok = os.environ.get("UPLOAD_EXISTING") == "true"
 groups = {}
 for r in rows:
-    if int(r["n"]) <= 0: continue
+    if int(r["n"]) <= 0 and not existing_ok: continue
     m = re.match(r"^(.*)-short([0-9]?)$", r["slug"])
     base, num = (m.group(1), int(m.group(2) or 1)) if m else (r["slug"], 0)
     groups.setdefault(base, []).append((num, r["slug"]))
