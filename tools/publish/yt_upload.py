@@ -7,6 +7,7 @@ Rules (2026-11-20, from the channel as miya uploaded it):
   - long -> playlist "Deep Dives - <Life & Biology|Space & Science>", short -> "Bite-Sized Knowledge - <...>"
   - 01.* Drive folder = Life & Biology, 02.* = Space & Science
   - hashtags "#Miya's Note #tag..." ; tags = "Miya's Note" + hashtags
+  - videos alternate Life & Biology / Space & Science (starting opposite to the last scheduled long)
   - slots: Tue/Thu/Sat/Sun (KST), long 07:00, shorts 08:00 08:30 09:00 09:30 10:00; next date after the last scheduled video
   - short thumbnail (<name>_thumbnail_A.png) is set here; the LONG thumbnail and end screen stay manual (miya)
   - a title that already exists on the channel is skipped (no duplicate uploads)"""
@@ -28,7 +29,7 @@ yt = build("youtube", "v3", credentials=creds)
 ROOT = os.environ.get("ROOT_ID", "")
 
 # ---- channel state ----
-playlists, titles, last = {}, set(), None
+playlists, titles, last, lastlong = {}, set(), None, None   # lastlong = (time, category) of the latest scheduled LONG video
 for p in yt.playlists().list(part="snippet", mine=True, maxResults=50).execute()["items"]:
     playlists[p["snippet"]["title"]] = p["id"]
     ids, tok = [], None
@@ -44,6 +45,8 @@ for p in yt.playlists().list(part="snippet", mine=True, maxResults=50).execute()
             if pa:
                 t = dt.datetime.fromisoformat(pa.replace("Z", "+00:00")).astimezone(KST)
                 if last is None or t > last: last = t
+                if p["snippet"]["title"].startswith("Deep Dives - ") and (lastlong is None or t > lastlong[0]):
+                    lastlong = (t, p["snippet"]["title"].split(" - ", 1)[1])
 tomorrow = (dt.datetime.now(KST) + dt.timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
 cur = max(tomorrow, (last + dt.timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)) if last else tomorrow
 def next_date():
@@ -71,9 +74,25 @@ for r in rows:
     m = re.match(r"^(.*)-short([0-9]?)$", r["slug"])
     base, num = (m.group(1), int(m.group(2) or 1)) if m else (r["slug"], 0)
     groups.setdefault(base, []).append((num, r["slug"]))
+# ---- order: Life & Biology / Space & Science alternate, starting with the category that did NOT have the last scheduled long ----
+def gcat(items):
+    f = f"render/{items[0][1]}/.dest"
+    dest = pathlib.Path(f).read_text().strip() if os.path.exists(f) else ""
+    return ("Life & Biology" if "/01." in "/" + dest else "Space & Science" if "/02." in "/" + dest else "?"), dest
+byc = {"Life & Biology": [], "Space & Science": [], "?": []}
+for base, items in groups.items():
+    c, dest = gcat(sorted(items)); byc[c].append((dest, base, items))
+for c in byc: byc[c].sort()          # Drive folder number order (NN_)
+want = "Space & Science" if (lastlong and lastlong[1] == "Life & Biology") else "Life & Biology"
+order = []
+while byc["Life & Biology"] or byc["Space & Science"]:
+    pick = want if byc[want] else ("Space & Science" if want == "Life & Biology" else "Life & Biology")
+    order.append(byc[pick].pop(0)[1:]); want = "Space & Science" if pick == "Life & Biology" else "Life & Biology"
+order += [x[1:] for x in byc["?"]]
+print("last long category:", lastlong[1] if lastlong else None, "| order:", [b for b, _ in order])
 failed = 0
 pending_thumbs = []   # (video id, png): set AFTER processing finished, else YouTube's own frame overwrites it (seen 2026-11-20)
-for base, items in groups.items():
+for base, items in order:
     day = next_date()
     for num, slug in sorted(items):
         try:
