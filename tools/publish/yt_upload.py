@@ -10,7 +10,7 @@ Rules (2026-11-20, from the channel as miya uploaded it):
   - slots: Tue/Thu/Sat/Sun (KST), long 07:00, shorts 08:00 08:30 09:00 09:30 10:00; next date after the last scheduled video
   - short thumbnail (<name>_thumbnail_A.png) is set here; the LONG thumbnail and end screen stay manual (miya)
   - a title that already exists on the channel is skipped (no duplicate uploads)"""
-import os, re, sys, json, glob, subprocess, datetime as dt, pathlib
+import os, re, sys, json, glob, time, subprocess, datetime as dt, pathlib
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
@@ -72,6 +72,7 @@ for r in rows:
     base, num = (m.group(1), int(m.group(2) or 1)) if m else (r["slug"], 0)
     groups.setdefault(base, []).append((num, r["slug"]))
 failed = 0
+pending_thumbs = []   # (video id, png): set AFTER processing finished, else YouTube's own frame overwrites it (seen 2026-11-20)
 for base, items in groups.items():
     day = next_date()
     for num, slug in sorted(items):
@@ -106,11 +107,29 @@ for base, items in groups.items():
             else: print("  WARN no playlist for category", cat)
             if num:
                 th = sorted(glob.glob(f"render/{slug}/deliver/*_thumbnail_A.png"))
-                if th: yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(th[0])).execute()
+                if th: pending_thumbs.append((vid, th[0]))
             os.remove(local)
         except HttpError as e:
             failed += 1; print("API error", e.resp.status, str(e)[:300], "| slug", slug)
             if e.resp.status in (403, 429): sys.exit(1)   # quota: stop; videos not yet uploaded stay for a manual run
         except Exception as e:
             failed += 1; print("ERROR", slug, type(e).__name__, str(e)[:300])
+# ---- short thumbnails: wait until each video finished processing, then set (retry once if the portrait variant is missing) ----
+def processed(v):
+    st = yt.videos().list(part="processingDetails", id=v).execute()["items"][0].get("processingDetails", {})
+    return st.get("processingStatus") in ("succeeded", "failed", "terminated")
+def has_short_thumb(v):
+    return "shortsAspectRatio" in yt.videos().list(part="snippet", id=v).execute()["items"][0]["snippet"]["thumbnails"]
+deadline = time.time() + 40 * 60
+for vid, png in pending_thumbs:
+    try:
+        while not processed(vid) and time.time() < deadline: time.sleep(20)
+        for attempt in (1, 2):
+            yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(png)).execute()
+            time.sleep(5)
+            if has_short_thumb(vid): break
+        print("thumbnail", "OK" if has_short_thumb(vid) else "NOT VISIBLE", vid)
+    except HttpError as e:
+        failed += 1; print("thumbnail API error", e.resp.status, str(e)[:200], vid)
+        if e.resp.status in (403, 429): break
 sys.exit(1 if failed else 0)
