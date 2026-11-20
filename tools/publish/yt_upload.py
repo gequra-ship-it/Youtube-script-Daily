@@ -7,6 +7,7 @@ Rules (2026-11-20, from the channel as miya uploaded it):
   - long -> playlist "Deep Dives - <Life & Biology|Space & Science>", short -> "Bite-Sized Knowledge - <...>"
   - 01.* Drive folder = Life & Biology, 02.* = Space & Science
   - hashtags "#Miya's Note #tag..." ; tags = "Miya's Note" + hashtags
+  - description: < and > removed, max 4900 bytes (YouTube answers invalidDescription otherwise)
   - videos alternate Life & Biology / Space & Science (starting opposite to the last scheduled long)
   - slots: Tue/Thu/Sat/Sun (KST), long 07:00, shorts 08:00 08:30 09:00 09:30 10:00; next date after the last scheduled video
   - short thumbnail (<name>_thumbnail_A.png) is set here; the LONG thumbnail and end screen stay manual (miya)
@@ -63,6 +64,8 @@ def meta(p):
     return m.group(1).strip(), m.group(2).strip()
 def desc_tags(d):
     d = d.replace("#MiyasNote", "#Miya's Note")
+    d = d.replace("<", "").replace(">", "")
+    while len(d.encode("utf-8")) > 4900: d = d[:-50]
     out, seen = ["Miya's Note"], {"miya's note"}
     for h in re.findall(r"#([A-Za-z0-9]+)", d):
         if h.lower() not in seen: seen.add(h.lower()); out.append(h)
