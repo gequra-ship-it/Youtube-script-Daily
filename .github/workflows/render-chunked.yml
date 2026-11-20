@@ -7,6 +7,7 @@ name: render-chunked
 # "<slug> 0" = no render: only render/<slug>/deliver/ (thumbnails, metadata) is uploaded to Drive (this replaced render.yml + .deliver_only, 2026-11-14).
 # A file with no slug lines (only # comments) does nothing.
 # After the Drive upload the `youtube` job uploads each rendered video to YouTube as private + scheduled (docs/youtube-upload.md, 2026-11-20).
+# Manual run with upload_existing=true: "<slug> 0" lines also upload the video already on Drive to YouTube (for videos that were never uploaded).
 on:
   workflow_dispatch:
     inputs:
@@ -17,6 +18,10 @@ on:
         description: 'optional: id of an earlier run whose chunk artifacts to merge again (skips rendering)'
         required: false
         default: ''
+      upload_existing:
+        description: 'true = "<slug> 0" lines upload the video already on Drive to YouTube (private + scheduled)'
+        required: false
+        default: 'false'
   push:
     branches: [render-pipeline]
     paths: ["render/.chunked", ".github/workflows/render-chunked.yml"]
@@ -152,6 +157,7 @@ jobs:
       YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
       YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
       SLUGS_JSON: ${{ needs.plan.outputs.slugs }}
+      UPLOAD_EXISTING: ${{ github.event.inputs.upload_existing }}
     steps:
       - uses: actions/checkout@v5
       - name: Upload to YouTube (private, scheduled)
