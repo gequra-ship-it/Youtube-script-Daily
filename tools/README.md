@@ -10,10 +10,11 @@ Script (English narration) → narration wavs → pictures → render folder →
 |---|---|---|
 | `tools/` | importable libraries + `chunk_prep.py` (called by the render workflow, do not move) | `paths motions frog frog_rig fxlib labels_lib sfx_lib sfx_pick bgm_lib rhythm palettes axis_lib concepts picev pivots caption_hl thumb_lib figlib hands body tts_text facing` |
 | `tools/build/` | pipeline steps, in order | `tts.sh audio_prep align build3 frog_place gen_text thumb_shot chunk_plan clip_prep svg_opt remake remap_art restyle_motion ws_setup.sh` |
-| `tools/check/` | gates and checks (report only) | `final_check attachcheck pivotlive originlive pivcheck entrycheck figcheck eyecheck variety_check used_check motion_check freezecheck mvcheck partaxis` |
+| `tools/check/` | gates and checks (report only) | `final_check attachcheck pivotlive originlive pivcheck entrycheck figcheck eyecheck variety_check used_check title_unique motion_check freezecheck mvcheck partaxis` |
 | `tools/fix/` | repair helpers that rewrite pictures | `axisfix armfix scalefix galaxyfix corefix splitlimbs splitclumps joinpart setbase gearmesh fallwrap` |
 | `tools/preview/` | strips and contact sheets | `motionaudit motion_preview frogshot labelshot svgshot grpinfo` |
 | `tools/writing/` | script and title helpers | `hookscore (+hooks.json) title_lint` |
+| `tools/publish/` | YouTube upload after miya's OK (guideline 22) and weekly stats | `yt_upload yt_stats` |
 | `tools/assets/` | shared page assets: gsap + 14 plugins, anime.js, lucide icons, fonts, logo, grain, frog | |
 | `tools/briefs/`, `tools/ref/` | agent briefs, reference drawings | |
 

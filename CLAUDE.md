@@ -1,6 +1,6 @@
 # Miya's Note 레포 안내 (Claude가 세션 시작 때 읽는 파일)
 
-> 최종 수정: 2026-11-15 · 이 파일은 요약과 길잡이다. 규칙의 원본은 지침서이고, 이 파일과 지침서가 다르면 지침서가 우선이다.
+> 최종 수정: 2026-11-22 · 이 파일은 요약과 길잡이다. 규칙의 원본은 지침서이고, 이 파일과 지침서가 다르면 지침서가 우선이다.
 
 영어 지식 유튜브 채널 Miya's Note의 대본 생성·영상 제작·렌더 레포다. **영상 작업(대본 → 음성 → 썸네일 → 그림 → 렌더 → Drive)을 하기 전에 지침서 핵심 파일을 끝까지 읽고 따른다.**
 
@@ -32,7 +32,7 @@
 
 | 폴더 | 내용 |
 |---|---|
-| `tools/build/` `check/` `fix/` `preview/` `writing/` | 실행 도구(용도별) |
+| `tools/build/` `check/` `fix/` `preview/` `writing/` `publish/` | 실행 도구(용도별). `publish/` = YouTube 업로드·통계(22장) |
 | `tools/*.py` | 공용 라이브러리(`motions`, `frog`, `fxlib`, `paths` 등)와 `chunk_prep.py` |
 | `tools/assets/` | 공용 렌더 자산(GSAP, 글꼴, 로고, 질감). 렌더 폴더에는 링크로만 들어간다 |
 | `videos/<slug>/` | 영상별 원본(`script.py`, `config.py`, `plan.json`, `art3/`, `thumb/`) |
@@ -47,8 +47,10 @@
 | `render/.chunked`의 `<slug> <구간 수>` | 구간 병렬 렌더 뒤 Drive 업로드(20-7) |
 | `render/.chunked`의 `<slug> 0` | 렌더 없이 `deliver/`(썸네일·메타데이터)만 업로드 |
 | `.github/workflows/render-chunked.yml` | 워크플로 자체. 고치는 푸시도 `.chunked`의 줄을 전부 실행한다 |
+| `render/.upload`의 `<롱폼 슬러그>` | YouTube에 비공개 예약 업로드(롱폼 + 숏츠 5). **miya가 Drive의 렌더를 확인하고 OK한 뒤에만** 넣는다(22장) |
+| `.github/workflows/youtube-upload.yml` | 워크플로 자체. 고치는 푸시도 `.upload`의 줄을 전부 실행한다 |
 
-- `.chunked`의 모든 줄이 푸시마다 다시 실행된다. 끝난 영상의 줄은 지운다(15-5).
+- `.chunked`의 모든 줄이 푸시마다 다시 실행된다. 끝난 영상의 줄은 지운다(15-5). `.upload`의 줄은 다시 실행해도 안전하다(같은 제목은 건너뜀).
 - 구간 수는 `python3 tools/build/chunk_plan.py render/<slug>`. `final_check`를 통과한 빌드(`.checked`)에만 사양을 내놓는다.
 - Drive 경로는 `render/<slug>/.dest`(18장): `Miya's Note/<01. Life & History | 02. Space & Science>/NN_<slug>`, 숏츠는 그 아래 `short/`. 폴더 이름이 바뀌면 `.dest`도 바꾼다.
 - 병렬로 여러 영상을 만들 때는 Drive 폴더 번호와 `render/.chunked`가 겹치지 않게 푸시 전에 rebase한다.
@@ -60,7 +62,7 @@
 | 주제 | 규칙 | 지침서 |
 |---|---|---|
 | 언어 | 영상에 들리고 보이는 것(내레이션, 자막, 화면 텍스트, 칠판)은 영어만. 채널명은 "Miya's Note" | 0장 |
-| 작업 순서 | 대본 확인 → TTS → 썸네일 3장(사용자 통과 뒤에만 다음) → 그림 → 렌더 | 12-1 |
+| 작업 순서 | 대본 확인 → TTS → 썸네일 3장(사용자 통과 뒤에만 다음) → 그림 → 렌더 → miya 확인·OK → YouTube 업로드 | 12-1 ⑥, 22장 |
 | 사실 확인 | A~D 등급. 존재하지 않는 사례·연구·숫자·인용·인물을 지어내지 않는다 | 12-1 |
 | 확인 표시 | 확인하지 않은 것을 확인했다고 쓰지 않는다. "확인 / 미확인" 구분을 유지한다 | 21-4 |
 | 보고 | 단계마다 알리지 않는다. 최종 렌더가 Drive에 올라갔을 때, 질문받았을 때, 결정이 필요할 때만 1~3줄. 수정은 예시 이미지 몇 장으로 먼저 확인받는다 | 21-4 |
@@ -96,3 +98,4 @@
 - 2026-10-26~11-11: 개구리·축·방향·소리·다양성·렌더 멈춤·`used/` 규칙 요약 추가(자세한 경위는 각 장 개정 이력).
 - 2026-11-14 (miya): 레포 구조 개편 반영. 렌더 워크플로를 `render-chunked.yml` 하나로. 문서 유지 규칙 형식으로 줄임(20KB → 요약 표 + 장 번호).
 - 2026-11-15 (miya): 지침서 핵심 파일 이름 `docs/miyas-note-guideline.md`.
+- 2026-11-22 (miya): 렌더 뒤 miya OK를 받고 `render/.upload`로 YouTube에 올리는 단계(22장) 추가.
