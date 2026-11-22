@@ -1,0 +1,45 @@
+{
+ "centre": "a borehole squeezed to a narrow waist by creeping rock and pressure arrows, gas bubbles rising",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "crushing pressure",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "crushing pressure",
+   "vol": 0.6
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "bracehold",
+  "x": 820,
+  "y": 640,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Eek...",
+    "shout": false
+   }
+  ],
+  "bside": -1,
+  "lock": true
+ }
+}

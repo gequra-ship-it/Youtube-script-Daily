@@ -1,0 +1,60 @@
+{
+ "centre": "grey drilling mud foaming up out of the wellhead on the Arctic platform, two surprised crew members in fur hats",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Whoa!",
+   "x": 215,
+   "y": 660,
+   "to": [
+    215,
+    822
+   ]
+  },
+  {
+   "type": "name",
+   "text": "Arctic platform",
+   "x": 540,
+   "y": 1260,
+   "to": [
+    540,
+    1172
+   ],
+   "word": "Arctic platform"
+  }
+ ],
+ "motion": "mud foam swells over the wellhead; crew breathe, startled",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-mud-bubble"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 705,
+  "y": 1084,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
+}

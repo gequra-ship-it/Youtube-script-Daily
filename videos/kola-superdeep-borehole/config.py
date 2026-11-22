@@ -7,6 +7,6 @@ TITLE = 'Deepest Artificial Hole: Secrets Found 12km Below'
 DESC = ['In 1970 Soviet scientists began drilling into the Arctic crust. They reached 12,262 meters and found plankton fossils, water in dry rock, hydrogen-boiling mud, and 180 degree heat that made solid granite creep like clay.']
 HASHTAGS = '#MiyasNote #KolaBorehole #Geology #Earth #Science'
 SOURCES = ['Kola Superdeep Borehole (Wikipedia): SG-3 drilling history, 12,262 m depth, 180 C at the bottom', 'Nautilus: The Soviets drilled the deepest hole ever', 'Atlas Obscura: Kola Superdeep Borehole', 'ZME Science: the world\'s deepest hole lies beneath a rusty metal cap', 'NOAA Ocean Exploration: Challenger Deep, Mariana Trench, about 10,900 m deep']
-CHAPTERS = [(1, 'Beneath Our Shoes'), (3, 'The Goal'), (6, 'The Derrick'), (8, 'Fossils at Six Kilometers'), (10, 'The Missing Boundary'), (12, 'Water in Dry Rock'), (15, 'A Chemical Reactor'), (17, 'The Broken Pipe'), (20, 'The Heat Wall'), (22, 'Rock Like Clay'), (24, 'Technology Reaches Its Limit'), (26, 'The Well to Hell'), (28, 'The Real Story'), (29, 'An Alien World Below'), (31, 'The Abandoned Site'), (33, 'The Welded Cap'), (35, 'A Pinprick'), (38, 'Under Your Living Room'), (40, 'A Monument'), (42, 'Tomorrow')]
+CHAPTERS = [(1, 'Beneath Our Shoes'), (3, 'The Goal'), (8, 'Fossils at Six Kilometers'), (10, 'The Missing Boundary'), (12, 'Water in Dry Rock'), (17, 'The Broken Pipe'), (20, 'The Heat Wall'), (26, 'The Well to Hell'), (33, 'The Welded Cap'), (42, 'Tomorrow')]
 PAL_DEFAULT = 'ice'
 PAL = dict()

@@ -1,0 +1,49 @@
+{
+ "centre": "close cutaway: rock has crept back into the shaft and pinched it shut; a hot drill bit grinds back down through it, chips flying; a row of bits tallies each descent",
+ "focus": [
+  760,
+  440,
+  1.8
+ ],
+ "focus_word": "crept back",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Rock",
+   "x": 1040,
+   "y": 440,
+   "to": [
+    800,
+    470
+   ],
+   "word": "rock"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-descend-drill-bit",
+  "kind": "ride",
+  "x": 858,
+  "y": 412,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

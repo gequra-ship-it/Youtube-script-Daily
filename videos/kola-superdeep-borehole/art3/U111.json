@@ -1,0 +1,43 @@
+{
+ "centre": "window looking out on a starry night sky and crescent moon, with a telescope beside it",
+ "focus": [
+  1000,
+  360,
+  1.5
+ ],
+ "labels": [],
+ "focus_word": "night sky",
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "silent",
+   "vol": 0.4
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "outfit": [
+   "helmet",
+   "patch"
+  ],
+  "x": 480,
+  "y": 760,
+  "s": 1.0,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": "mv-sway-telescope-tripod",
+  "bside": 1,
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "centre": "a glowing drill bit at the bottom of a thin shaft, pushing into dark unexplored rock below the frontier line",
+ "focus": [
+  960,
+  570,
+  1.8
+ ],
+ "focus_word": "no human tool",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "12,000 M",
+   "word": "twelve thousand meters"
+  },
+  {
+   "type": "name",
+   "text": "Drill",
+   "x": 1240,
+   "y": 520,
+   "to": [
+    995,
+    560
+   ],
+   "word": "drill"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-path-descend-drill-bit",
+  "kind": "ride",
+  "x": 852,
+  "y": 660,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Boom-cha!",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "centre": "Soviet engineers beside a hard granite boulder above a blocky brittle granite crust; deep below, a soft glowing blob of hot rock waits",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "spot": false,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Granite",
+   "x": 820,
+   "y": 470,
+   "to": [
+    850,
+    560
+   ],
+   "word": "granite"
+  }
+ ],
+ "motion": "hot rock blob swells slowly at the bottom of the shaft (the different problem)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-hot-rock-blob"
+  },
+  "outfit": [
+   "helmet",
+   "raincoat"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 745,
+  "y": 1367,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
+}

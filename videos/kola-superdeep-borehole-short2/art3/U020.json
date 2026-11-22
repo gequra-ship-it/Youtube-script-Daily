@@ -1,0 +1,47 @@
+{
+ "centre": "a worn, blunted drill bit stuck at the glowing hot bottom of the shaft; worn bits pile up on the surface",
+ "focus": [
+  540,
+  860,
+  1.6
+ ],
+ "focus_word": "bits wore out",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Bits",
+   "x": 790,
+   "y": 760,
+   "to": [
+    600,
+    880
+   ],
+   "word": "bits"
+  }
+ ],
+ "light": "left",
+ "motion": "heat glow flickers, wisps rise; a worn bit rolls away on the surface; calm glide on the stuck bit",
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "shrug",
+  "ride": "mv-core-glide-worn-drill-bit",
+  "kind": "ride",
+  "x": 667,
+  "y": 921,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [],
+  "lock": true
+ }
+}

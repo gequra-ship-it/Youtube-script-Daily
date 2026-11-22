@@ -1,0 +1,42 @@
+{
+ "centre": "an ocean cutaway with the Mariana Trench dipping down beside a dry shaft that goes deeper",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "Mariana Trench",
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "Mariana Trench",
+   "vol": 0.5
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "swimstroke",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-path-swim-fish",
+  "kind": "ride",
+  "x": 336,
+  "y": 662,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Gulp.",
+    "shout": false
+   }
+  ],
+  "lock": true
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "centre": "cluster of pale mineral crystals in dark rock, squeezed by pressure arrows so water beads and drips out",
+ "focus": [
+  540,
+  900,
+  1.5
+ ],
+ "focus_word": "mineral crystals",
+ "sfx": [],
+ "labels": [],
+ "motion": "crystal cluster squeezes (word 'squeezed'), side pressure arrows nudge in, a water droplet drips out",
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck",
+   "obj": "mv-core-squeeze-crystal"
+  },
+  "outfit": [
+   "goggles",
+   "scarf"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 316,
+  "y": 1014,
+  "s": 1.09,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

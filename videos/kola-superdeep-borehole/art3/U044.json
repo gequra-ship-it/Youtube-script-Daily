@@ -1,0 +1,51 @@
+{
+ "centre": "a pressurised steel chemical reactor tank with a glowing porthole, valve wheel and pressure gauge",
+ "focus": [
+  960,
+  540,
+  1.7
+ ],
+ "focus_word": "pressurized chemical reactor",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Chemical reactor",
+   "x": 520,
+   "y": 560,
+   "to": [
+    820,
+    560
+   ],
+   "word": "chemical reactor"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": {
+   "type": "bracehold",
+   "obj": "mv-core-tremble-reactor"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1148,
+  "y": 782,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Steady...!",
+    "shout": true
+   }
+  ]
+ }
+}

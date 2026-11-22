@@ -1,0 +1,41 @@
+{
+ "centre": "a small glowing pocket of water in pitch dark deep rock, far below a faint sun at the surface whose light line fades out",
+ "focus": [
+  960,
+  640,
+  1.6
+ ],
+ "focus_word": "never seen daylight",
+ "sfx": [
+  {
+   "name": "hush",
+   "word": "daylight",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-glide-water-pocket",
+  "kind": "ride",
+  "x": 1114,
+  "y": 553,
+  "s": 1.25,
+  "flip": -1,
+  "bside": -1,
+  "says": [
+   {
+    "text": "Gulp.",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "centre": "fossil marker halfway down the shaft between surface derrick and the glowing bottom",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "About halfway",
+   "x": 800,
+   "y": 780,
+   "to": [
+    620,
+    850
+   ],
+   "word": "halfway down"
+  }
+ ],
+ "motion": "marker glides; heat waves rise",
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "magnify",
+  "ride": "mv-core-glide-halfway-marker",
+  "kind": "ride",
+  "x": 734,
+  "y": 1010,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Look closer...",
+    "shout": false
+   }
+  ]
+ }
+}

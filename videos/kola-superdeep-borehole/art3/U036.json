@@ -1,0 +1,47 @@
+{
+ "centre": "a field of rock grains with tiny pores squeezed to slits under a heavy rock mass and pressure arrows",
+ "focus": [
+  960,
+  530,
+  1.8
+ ],
+ "focus_word": "squeezed shut",
+ "sfx": [
+  {
+   "name": "stone",
+   "word": "squeezed",
+   "vol": 0.5
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "duck",
+   "obj": "mv-core-squeeze-pore-grain"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1116,
+  "y": 615,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

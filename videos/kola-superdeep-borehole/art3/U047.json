@@ -1,0 +1,54 @@
+{
+ "centre": "a twisted steel pipe column wedged across a narrow dark shaft, hot glow far below",
+ "focus": [
+  960,
+  500,
+  1.6
+ ],
+ "focus_word": "twisted steel column",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Steel column",
+   "x": 560,
+   "y": 520,
+   "to": [
+    900,
+    520
+   ],
+   "word": "steel column"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "dripped",
+   "obj": "mv-drip-grit",
+   "serious": false
+  },
+  "x": 866,
+  "y": 360,
+  "s": 0.95,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Drip...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

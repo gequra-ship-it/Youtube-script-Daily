@@ -1,0 +1,51 @@
+{
+ "centre": "a newsstand with a tabloid front page showing a dark hole with a hot glow, two startled readers",
+ "focus": [
+  960,
+  470,
+  1.7
+ ],
+ "focus_word": "the well to hell",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "The well to hell",
+   "x": 1250,
+   "y": 330,
+   "to": [
+    1040,
+    420
+   ],
+   "word": "the well to hell"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "shiver",
+  "x": 260,
+  "y": 460,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Eek...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "centre": "a welded rusted steel plate seen from above, hole sealed shut on cracked concrete with snow drifts",
+ "focus": [
+  540,
+  860,
+  1.8
+ ],
+ "focus_word": "sealed shut",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "sealed shut",
+   "vol": 0.55
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-core-glide-welded-cap",
+  "kind": "ride",
+  "x": 696,
+  "y": 972,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "headlamp"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "centre": "close cutaway: old shaft with a stuck pipe below, a new bypass branch curving off at the 7,000 m mark with a drill bit; two crew at a control console",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "7,000 M",
+   "word": "seven thousand meters"
+  },
+  {
+   "type": "name",
+   "text": "New bypass branch",
+   "x": 1560,
+   "y": 470,
+   "to": [
+    1300,
+    680
+   ],
+   "word": "bypass branch"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": "balance",
+  "ride": "mv-path-descend-bypass-drill-bit",
+  "kind": "ride",
+  "x": 1046,
+  "y": 581,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "sunglasses"
+  ],
+  "says": [
+   {
+    "text": "Steady...",
+    "shout": false
+   }
+  ]
+ }
+}

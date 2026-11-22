@@ -1,0 +1,55 @@
+{
+ "centre": "a heat-resistant microphone hanging on a cable from a tripod pulley over the borehole mouth, a researcher at the winch",
+ "focus": [
+  984,
+  560,
+  1.8
+ ],
+ "focus_word": "heat-resistant microphone",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "12 KM",
+   "word": "twelve-kilometer"
+  },
+  {
+   "type": "name",
+   "text": "Microphone",
+   "x": 1300,
+   "y": 560,
+   "to": [
+    1010,
+    585
+   ],
+   "word": "microphone"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "dizzy"
+   }
+  ],
+  "act": {
+   "type": "dizzy"
+  },
+  "ride": "mv-swing-microphone",
+  "kind": "ride",
+  "x": 1102,
+  "y": 660,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "diver"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ]
+ }
+}

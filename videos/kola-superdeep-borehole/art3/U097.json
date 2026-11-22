@@ -1,0 +1,43 @@
+{
+ "centre": "round steel vault door set in layered rock with a turning wheel and a warning lamp",
+ "focus": [
+  960,
+  500,
+  1.5
+ ],
+ "labels": [],
+ "focus_word": "locked vault",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "locked",
+   "vol": 0.6
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-core-glide-vault-door",
+  "kind": "ride",
+  "x": 1206,
+  "y": 708,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "centre": "a drill string descending a thin shaft through a wide cutaway of ancient banded Baltic Shield rock",
+ "focus": [
+  960,
+  700,
+  1.5
+ ],
+ "focus_word": "ancient Baltic Shield rock",
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "pull",
+   "to": [
+    960,
+    540
+   ]
+  },
+  "x": 1660,
+  "y": 780,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "outfit": [
+   "scarf",
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "AAAAAH!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

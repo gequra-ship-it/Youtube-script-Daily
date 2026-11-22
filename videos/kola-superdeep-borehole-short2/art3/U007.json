@@ -1,0 +1,42 @@
+{
+ "centre": "a slab of ancient granite sagging in the middle like hot plastic between two supports",
+ "focus": [
+  540,
+  960,
+  1.6
+ ],
+ "focus_word": "stopped acting like brittle rock",
+ "sfx": [],
+ "spot": false,
+ "labels": [],
+ "motion": "heat waves flicker above the slab; a brittle chip drips away",
+ "frog": {
+  "moods": [
+   {
+    "mood": "hot"
+   }
+  ],
+  "act": "fan",
+  "x": 820,
+  "y": 560,
+  "s": 1.0,
+  "flip": -1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 540
+  },
+  "outfit": [
+   "scarf",
+   "explorer"
+  ],
+  "says": [
+   {
+    "text": "Wooo-ooo...",
+    "shout": false
+   }
+  ],
+  "bside": -1,
+  "lock": true
+ }
+}

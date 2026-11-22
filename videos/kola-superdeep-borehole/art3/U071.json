@@ -1,0 +1,55 @@
+{
+ "centre": "a microphone on a cable dangling in a dark borehole with sound-wave squiggles, beside a tabloid page",
+ "focus": [
+  430,
+  880,
+  1.7
+ ],
+ "focus_word": "microphone",
+ "sfx": [
+  {
+   "name": "wind",
+   "word": "screams",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Microphone",
+   "x": 690,
+   "y": 770,
+   "to": [
+    400,
+    900
+   ],
+   "word": "microphone"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   }
+  ],
+  "act": "hide",
+  "ride": "mv-swing-microphone",
+  "kind": "ride",
+  "x": 313,
+  "y": 790,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "scarf",
+   "hardhat"
+  ],
+  "says": [
+   {
+    "text": "Can't look!",
+    "shout": true
+   }
+  ]
+ }
+}

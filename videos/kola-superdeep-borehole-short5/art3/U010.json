@@ -1,0 +1,52 @@
+{
+ "centre": "Mount Everest silhouette set inside a schematic borehole, with a long dark empty shaft still left beneath it",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "spot": false,
+ "labels": [
+  {
+   "type": "num",
+   "text": "3 KM",
+   "word": "three kilometers"
+  },
+  {
+   "type": "name",
+   "text": "Mountain",
+   "x": 760,
+   "y": 520,
+   "to": [
+    600,
+    640
+   ],
+   "word": "mountain"
+  }
+ ],
+ "motion": "Everest slides down into the hole and settles; empty shaft stays below",
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "measure",
+  "ride": "mv-slide-everest-mountain",
+  "kind": "ride",
+  "x": 700,
+  "y": 755,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "explorer",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Brrrr...",
+    "shout": false
+   }
+  ],
+  "lock": true
+ }
+}

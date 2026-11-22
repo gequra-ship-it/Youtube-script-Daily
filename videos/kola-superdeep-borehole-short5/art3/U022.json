@@ -1,0 +1,42 @@
+{
+ "centre": "a probe with a big white dish antenna leaving the Sun behind along a dotted path",
+ "focus": [
+  540,
+  860,
+  1.5
+ ],
+ "focus_word": "beyond the edge",
+ "sfx": [
+  {
+   "name": "swish",
+   "word": "solar system",
+   "vol": 0.5
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "ride": "mv-core-glide-space-probe",
+  "kind": "ride",
+  "x": 802,
+  "y": 998,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "helmet",
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Eek...",
+    "shout": false
+   }
+  ]
+ }
+}

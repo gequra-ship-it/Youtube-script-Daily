@@ -1,0 +1,43 @@
+{
+ "centre": "a round microscope field of crystalline rock containing round, spiky and disc-shaped plankton fossils",
+ "focus": [
+  960,
+  500,
+  1.5
+ ],
+ "focus_word": "microfossils",
+ "labels": [
+  {
+   "type": "num",
+   "text": "2 BILLION YEARS",
+   "word": "two billion years"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "chilly"
+   }
+  ],
+  "act": "shiver",
+  "x": 260,
+  "y": 780,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "roam": {
+   "kind": "walk",
+   "dist": 288
+  },
+  "outfit": [
+   "scarf"
+  ],
+  "says": [
+   {
+    "text": "Eek...",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}
