@@ -1,6 +1,6 @@
 ## 15. HTML → MP4 렌더링 (최종 결과물)
 
-> 최종 수정: 2026-11-15 · 본문은 지금 유효한 규칙만 담는다. 바뀐 경위는 맨 아래 개정 이력.
+> 최종 수정: 2026-11-22 · 본문은 지금 유효한 규칙만 담는다. 바뀐 경위는 맨 아래 개정 이력.
 
 MP4는 별도 컴포지션(렌더 원본 `render/<슬러그>/`)으로 렌더한다. 13장 애니메틱은 그대로 렌더되지 않는다. SVG 그림 기준 MP4라는 것을 알리고, AI 생성 클립이 있으면 교체한다.
 
@@ -88,6 +88,8 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 | `.outname` | Drive 파일 이름 |
 | `.skip_deliver` | `deliver/`를 다시 올리지 않는다 |
 | `.checked` | `final_check` 통과 표시(15-8). 렌더를 시작시키지 않는다 |
+
+- 이 워크플로는 YouTube에 올리지 않는다. 올리는 것은 miya OK 뒤 `render/.upload`(22장).
 
 **Drive 업로드**
 - `rclone copyto … gdrive:<폴더>/… --drive-root-folder-id <Video & Thumbnail 폴더 ID>`.
@@ -201,4 +203,5 @@ MP4는 서버에서 렌더해 Drive로 바로 올린다(대화·GitHub를 거치
 - 2026-11-14: 공용 자산을 `tools/assets` 링크로, GSAP 3.14.2 → 3.15.0 표기, Chromium 경로는 `paths.chrome()`, 저장소 "비공개" 표기 삭제.
 - 2026-11-14 (miya): 문서 유지 규칙 형식으로 정리(현재 규칙만, 이력은 여기).
 - 2026-11-14 (miya): `render.yml`(한 작업 방식, `render/.slug`, `.deliver_only`)을 없애고 `render-chunked.yml` 하나로 통합. 썸네일만 올리기는 `.chunked`의 `<슬러그> 0`.
+- 2026-11-22 (miya): 렌더 워크플로는 YouTube에 올리지 않고 `render/.upload`로 따로 올린다(22장).
 - 2026-11-15 (miya): 저장소 표기 `Youtube-script-Daily`, 워크플로 액션을 Node 24 기반 버전으로.
