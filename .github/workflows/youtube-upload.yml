@@ -2,7 +2,7 @@ name: youtube-upload
 
 # YouTube upload after miya's OK (2026-11-22). Render + Drive upload (render-chunked.yml) never upload to YouTube by themselves.
 # After miya checked the rendered video on Drive and said OK, put one line "<video slug>" (the long-form slug, e.g. pluto-not-a-planet) in render/.upload
-# and push to render-pipeline: the long video and its <slug>-short1..5 are uploaded to YouTube as private + scheduled (rules: docs/youtube-upload.md).
+# and push to render-pipeline: the long video and its <slug>-short1..5 are uploaded to YouTube as private + scheduled (rules: docs/guideline/22-youtube-upload.md).
 # Lines are idempotent (a title already on the channel is skipped), so old lines may stay. Comments only = nothing.
 # Manual: Actions > youtube-upload > Run workflow (slugs = comma separated).
 on:
@@ -48,6 +48,9 @@ jobs:
           print('slugs=' + json.dumps(rows)); print('count=' + str(len(rows)))
           EOF
           cat "$GITHUB_OUTPUT"
+      - name: Check titles (stops before uploading on a duplicate title)
+        if: ${{ steps.l.outputs.count != '0' }}
+        run: python3 tools/check/title_unique.py $(grep -v '^#' spec.txt | awk 'NF{print $1}')
       - name: Upload to YouTube (private, scheduled)
         if: ${{ steps.l.outputs.count != '0' && env.YT_REFRESH_TOKEN != '' && env.RCLONE_CONF != '' }}
         env:

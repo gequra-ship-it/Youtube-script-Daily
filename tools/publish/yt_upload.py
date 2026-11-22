@@ -2,7 +2,7 @@
 Called by .github/workflows/youtube-upload.yml AFTER miya OK'd the rendered video (render/.upload).
 Env: SLUGS_JSON  ([{"slug":..,"n":..}, ...]; n<=0 rows are ignored unless UPLOAD_EXISTING=true), ROOT_ID, YT_CLIENT_ID, YT_CLIENT_SECRET,
      YT_REFRESH_TOKEN (rclone is already configured). Never prints secrets.
-Rules (2026-11-22, from the channel as miya uploaded it): see docs/youtube-upload.md
+Rules (2026-11-22, from the channel as miya uploaded it): see docs/guideline/22-youtube-upload.md
   - category 27, language en, not made for kids, license youtube, embeddable, stats public
   - long -> playlist "Deep Dives - ...", short -> "Bite-Sized Knowledge - ..." (found by name: Deep/Bite + Life/Space)
   - 01.* Drive folder = Life, 02.* = Space
