@@ -1,0 +1,274 @@
+# -*- coding: utf-8 -*-
+# kola-superdeep-borehole (Miya's Note). Script pasted by miya 2026-11-22; fact-checked per guideline 12-1 (see script-check.md).
+
+SCENES = [('S01',
+  'Beneath Our Shoes',
+  'ill',
+  'p01a',
+  'We know more about the topography of the Moon than the ground directly beneath our shoes. You walk out your front door every morning, stepping '
+  'onto asphalt that feels completely stationary, solid, and eternal. Yet beneath that thin crust lies a violent, pressurized furnace that humanity '
+  'has barely scratched.'),
+ ('S02',
+  'Beneath Our Shoes',
+  'ill',
+  'p01b',
+  'If our planet were an apple, human civilization has not even pierced the outer waxy skin. In fact, our deepest physical descent into the solid '
+  'rock of Earth spans only a fraction of its total radius. That extreme frontier was not conquered in space, but in a desolate corner of the Arctic '
+  'tundra.'),
+ ('S03',
+  'The Goal',
+  'chalk',
+  'p02a',
+  'On May twenty-fourth, 1970, Soviet geologists assembled an enormous industrial rig on the Kola Peninsula, situated deep inside the Arctic Circle '
+  'near the Norwegian border. Their goal was audacious: drill fifteen thousand meters into the continental crust to directly touch the mysteries of '
+  'our planet.'),
+ ('S04',
+  'The Goal',
+  'ill',
+  'p02b',
+  'Until then, everything scientists believed about the deep crust was based solely on indirect acoustic echoes from distant earthquakes. No one had '
+  'ever touched rock from ten kilometers below the surface. Could human technology actually bore through miles of solid granite without the planet '
+  'fighting back?'),
+ ('S05', 'The Goal', 'ill', 'p02c', 'The engineers believed so, setting off a grueling scientific expedition that would last more than two decades.'),
+ ('S06',
+  'The Derrick',
+  'ill',
+  'p03a',
+  'Standing amidst howling subzero winds, the massive Uralmash drilling derrick looked like an isolated rocket launch tower. The drill bit had to '
+  'endure crushing pressures, relentless vibration, and abrasive crystalline minerals day and night. By 1979, the Kola drill bit shattered the '
+  'previous world depth record of nine thousand five hundred eighty-three meters, held by an oil well in Oklahoma.'),
+ ('S07',
+  'The Derrick',
+  'ill',
+  'p03b',
+  'That milestone proved that heavy drilling machinery could plunge past nine kilometers of ancient Baltic Shield rock. But as the steel teeth '
+  'ground deeper, the subterranean realm began breaking the fundamental laws laid out in geological textbooks.'),
+ ('S08',
+  'Fossils at Six Kilometers',
+  'ill',
+  'p04a',
+  'By the time the project reached six thousand meters, the first major anomaly shocked the scientific community. Geologists extracted cylindrical '
+  'rock cores and analyzed their microscopic structures under laboratory lights. To their absolute astonishment, they discovered the fossilized '
+  'remains of twenty-four distinct species of microscopic single-celled marine plankton.'),
+ ('S09',
+  'Fossils at Six Kilometers',
+  'ill',
+  'p04b',
+  'These organic microfossils were encased in crystalline metamorphic rock dating back nearly two billion years. How could delicate biological '
+  'structures survive billions of years under immense tectonic pressure and soaring subterranean heat? The discovery showed that traces of ancient '
+  'life can endure far more punishment than most scientists had imagined.'),
+ ('S10',
+  'The Missing Boundary',
+  'ill',
+  'p05a',
+  'The next surprise came from the seismic maps. Geophysicists had predicted a clear boundary at around seven kilometers down. Standard models '
+  'claimed that lighter granitic rocks would abruptly end, giving way to an ultra-dense layer of basalt. This expected structural change, known as '
+  'the Conrad discontinuity, was considered settled science across the globe.'),
+ ('S11',
+  'The Missing Boundary',
+  'ill',
+  'p05b',
+  'Yet as the Kola bit churned through seven kilometers, eight kilometers, and nine kilometers, the anticipated basalt layer never appeared.'),
+ ('S12',
+  'Water in Dry Rock',
+  'ill',
+  'p06a',
+  'Instead of solid basalt, the drill encountered fractured granite continuing endlessly into the dark depths of the crust. The seismic signal had '
+  'been real, but it came from a change in how the rock was altered and cracked, not from a new kind of rock. And the absence of basalt was merely '
+  'the beginning of the puzzle.'),
+ ('S13',
+  'Water in Dry Rock',
+  'ill',
+  'p06b',
+  'Several kilometers down, where the rock bore a crushing weight, the crew struck free-flowing liquid water. According to classical thinking, every '
+  'microscopic pore in the rock should have been squeezed shut under that unfathomable load. How could water possibly flow through rock that was '
+  'supposed to be compressed as tight as solid glass?'),
+ ('S14',
+  'Water in Dry Rock',
+  'ill',
+  'p06c',
+  'Scientists suspect this water was not surface rainfall, but moisture squeezed directly out of ancient mineral crystals under intense pressure.'),
+ ('S15',
+  'A Chemical Reactor',
+  'ill',
+  'p07a',
+  'That deep water had never seen daylight. It sat in eternal darkness, hot and rich in dissolved minerals, filling cracks in the crystalline rock. '
+  'When the drilling mud returned to the surface, technicians described it as boiling, because it was so full of gas. Hydrogen poured out of the '
+  'borehole, foaming alongside helium, methane, and carbon dioxide.'),
+ ('S16',
+  'A Chemical Reactor',
+  'ill',
+  'p07b',
+  'Drilling into the deep crust was not like boring through dry concrete; it was like puncturing a pressurized chemical reactor.'),
+ ('S17',
+  'The Broken Pipe',
+  'ill',
+  'p08a',
+  'In 1983, the drill pushed past an unprecedented twelve thousand meters, into territory where no human tool had ever wandered. Then, in the autumn '
+  'of 1984, disaster struck when a five-kilometer section of the heavy drill pipe snapped off inside the shaft. The twisted steel column was left '
+  'wedged thousands of meters down, beyond any hope of retrieval.'),
+ ('S18',
+  'The Broken Pipe',
+  'ill',
+  'p08b',
+  'Years of grueling excavation were erased in a split second of metallic failure. Undeterred, the drilling team backtracked up to seven thousand '
+  'meters and carefully drilled a new bypass branch. They spent five agonizing years re-drilling the missing depth, until they finally reached '
+  'twelve thousand two hundred sixty-two meters in 1989.'),
+ ('S19',
+  'Down Versus Up',
+  'chalk',
+  'p08c',
+  'That depth remains the deepest artificial vertical hole ever excavated into the solid Earth. It is deeper than the Mariana Trench is deep, about '
+  'ten thousand nine hundred meters, and far deeper than Mount Everest is tall. Oil wells have since been drilled to longer measured lengths, but '
+  'only by bending sideways; none has gone farther straight down.'),
+ ('S20',
+  'The Heat Wall',
+  'chalk',
+  'p09a',
+  'At twelve kilometers beneath the surface, however, the planet revealed its most insurmountable barrier: extreme, unexpected heat. Scientists had '
+  'originally calculated that the temperature at twelve kilometers would reach roughly one hundred degrees Celsius. Instead, the rock soared to a '
+  'blistering one hundred eighty degrees Celsius, nearly double their forecast. The temperature climbed with depth much faster than the models '
+  'predicted.'),
+ ('S21',
+  'The Heat Wall',
+  'ill',
+  'p09b',
+  'The drill bits, working in an environment hotter than boiling water, began wearing out at a terrifying rate. The weight of the rock overhead '
+  'pressed down with roughly three thousand times the pressure of the air around us. Yet the hole had crossed only roughly one third of the '
+  'continental crust in that region.'),
+ ('S22',
+  'Rock Like Clay',
+  'ill',
+  'p10a',
+  'Under that heat and crushing pressure, the deep granite stopped behaving like the brittle rock we see on surface mountains. Geologists reported '
+  'that the stone acted more like a dense, hot plastic. Whenever the crew pulled the drill string back to the surface to replace worn bits, a '
+  'surreal problem appeared.'),
+ ('S23',
+  'Rock Like Clay',
+  'ill',
+  'p10b',
+  'The hole did not stay open like an empty pipe; the surrounding rock tended to flow and squeeze inward on the void. Every descent required '
+  'technicians to re-drill rock that had crept back into place. The earth was closing its wound, fighting human intrusion with plastic deformation.'),
+ ('S24',
+  'Technology Reaches Its Limit',
+  'ill',
+  'p11a',
+  'The mechanical strain on the machinery became unsustainable, and the drill bits frequently seized up in the hot, viscous slurry. Each meter '
+  'forward required painstaking effort, and the harsh environment wore out specialized equipment again and again. It became painfully evident that '
+  'standard drilling technology could not survive the combination of extreme temperature, high-pressure gas, and shifting rock walls.'),
+ ('S25',
+  'Technology Reaches Its Limit',
+  'ill',
+  'p11b',
+  'The physical properties of matter at twelve kilometers down simply refused to conform to surface engineering logic. Humanity had reached the '
+  'boundary of twentieth-century drilling technology.'),
+ ('S26',
+  'The Well to Hell',
+  'ill',
+  'p12a',
+  'During this period of intense technological struggle, strange rumors began spreading beyond the Soviet border, eventually sweeping across global '
+  'tabloids. A sensational urban legend claimed that Soviet researchers had lowered a heat-resistant microphone into the twelve-kilometer abyss. '
+  'According to the myth, the microphone recorded the chilling screams of tormented souls echoing from the center of the Earth.'),
+ ('S27',
+  'The Well to Hell',
+  'ill',
+  'p12b',
+  'The story was so vivid that it terrified millions and earned the Kola project the infamous nickname, the well to hell. Even today, audio clips '
+  'claiming to capture these subterranean screams circulate widely across the internet.'),
+ ('S28',
+  'The Real Story',
+  'ill',
+  'p13a',
+  'The reality is far simpler: the story was a hoax. No microphone was ever lowered into the hole to record screams, and the clips online are not '
+  'recordings from the borehole. Ordinary electronics could not have survived one hundred eighty degrees Celsius at the bottom anyway. The real '
+  'drama at the Kola Peninsula was far more fascinating than any supernatural ghost story.'),
+ ('S29',
+  'An Alien World Below',
+  'ill',
+  'p14a',
+  'The true terror beneath the Arctic tundra was not mythological hellfire, but the raw, crushing physics of planetary mechanics. You had hot water '
+  'seeping through cracked granite, gas bubbling out of the crust, and dense rock creeping like molasses. It was an alien world operating right '
+  'beneath the feet of ordinary people, entirely detached from our sunlit experience.'),
+ ('S30',
+  'An Alien World Below',
+  'ill',
+  'p14b',
+  'The Kola borehole proved that the interior of our planet is dynamic, unpredictable, and chemically alive. We did not need to invent monsters when '
+  'the physical laws of nature were already this astonishing.'),
+ ('S31',
+  'The Abandoned Site',
+  'ill',
+  'p15a',
+  'By 1992, the Soviet Union had dissolved, funding for pure scientific drilling had dried up, and the heat had become an insurmountable barrier. '
+  'Drilling at the site stopped for good. The massive industrial complex was abandoned to the harsh Arctic elements, leaving behind crumbling '
+  'concrete foundations and rusted iron scrap.'),
+ ('S32', 'The Abandoned Site', 'ill', 'p15b', 'Nature slowly began reclaiming the desolate research outpost under thick blankets of polar snow.'),
+ ('S33',
+  'The Welded Cap',
+  'ill',
+  'p16a',
+  'If you were to trek through the windswept ruins of the Pechengsky District today, you might easily walk past the historic site without noticing '
+  'it. Amidst shattered concrete slabs and twisted rebar sits an unassuming, heavy steel plate bolted to the ground. That weathered metal lid, '
+  'roughly twenty-three centimeters in diameter, is welded shut with thick industrial bolts.'),
+ ('S34',
+  'The Welded Cap',
+  'ill',
+  'p16b',
+  'Beneath that small metal circle lies an empty, dark conduit plunging straight down toward the furnace of the Earth.'),
+ ('S35',
+  'A Pinprick',
+  'chalk',
+  'p17a',
+  'Twelve thousand two hundred sixty-two meters sounds immense when compared to human architecture, easily eclipsing Mount Everest turned upside '
+  'down. Yet in the grand scale of planetary dimensions, that historic hole reaches a mere zero point two percent of the way to the center of the '
+  'Earth.'),
+ ('S36',
+  'A Pinprick',
+  'ill',
+  'p17b',
+  'The mantle, where slow currents drive entire continents across oceans, remains completely untouched by human tools. The whole planet is about six '
+  'thousand three hundred seventy kilometers from surface to center, so twelve kilometers is a pinprick.'),
+ ('S37',
+  'A Pinprick',
+  'ill',
+  'p17c',
+  'Our species has transmitted signals across interstellar space and landed rovers on distant red sands, yet the ground more than seven miles '
+  'beneath our feet remains largely out of reach. The solid earth is not a quiet foundation; it is a locked vault.'),
+ ('S38',
+  'Under Your Living Room',
+  'ill',
+  'p18a',
+  'Think about that the next time you sit in your living room, enjoying a quiet evening while the floor beneath you remains perfectly still. Beneath '
+  'your cozy room, past the basement foundations and the subterranean utility lines, lies an unimaginably violent frontier.'),
+ ('S39',
+  'Under Your Living Room',
+  'ill',
+  'p18b',
+  'Miles down, ancient water seeps through cracked rock, hydrogen gas leaks through fractured granite, and ancient stone creeps under primeval heat. '
+  'The surface world where we build cities and live out our fleeting lives is merely a fragile, beautiful crust floating on an untamed world.'),
+ ('S40',
+  'A Monument',
+  'ill',
+  'p19a',
+  'The Kola Superdeep Borehole stands as a profound monument to human curiosity, reminding us that true discovery requires confronting our own '
+  'physical limits. Those Soviet scientists set out to pierce the unknown, and the planet responded by shattering several of their most confident '
+  'assumptions.'),
+ ('S41',
+  'A Monument',
+  'ill',
+  'p19b',
+  'Layer after layer of the deep crust defied theoretical models, teaching humanity that nature is always vastly stranger than our neat equations. '
+  'We traveled twelve kilometers downward only to realize that the ground we take for granted is an alien landscape waiting to be understood.'),
+ ('S42',
+  'Tomorrow',
+  'ill',
+  'p20a',
+  'As you step outside tomorrow and feel the pavement supporting your weight, remember the small welded cap resting in the frozen Arctic tundra. It '
+  'seals a doorway into an immense, dark abyss that humanity barely brushed before being turned away.'),
+ ('S43',
+  'Tomorrow',
+  'ill',
+  'p20b',
+  'We often look upward at the vast, silent night sky, searching for mysteries among the stars and wondering what secrets lie hidden in the cosmos. '
+  'Perhaps the greatest unexplored wilderness in the entire universe is not floating millions of light-years away, but sleeping silently beneath our '
+  'feet.')]
