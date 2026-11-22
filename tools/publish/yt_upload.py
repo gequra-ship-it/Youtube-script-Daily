@@ -1,18 +1,16 @@
-"""Upload rendered videos to YouTube as PRIVATE + scheduled (miya publishes / sets the long thumbnail and end screen in Studio).
-Called by the `youtube` job of .github/workflows/render-chunked.yml after the Drive upload.
-Env: SLUGS_JSON  ([{"slug":..,"n":..}, ...] from the plan job), ROOT_ID, YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN
-     (rclone is already configured), UPLOAD_EXISTING=true (manual run only: "<slug> 0" lines upload the video that is already on Drive). Never prints secrets.
-Rules (2026-11-20, from the channel as miya uploaded it):
+"""Upload videos to YouTube as PRIVATE + scheduled (miya publishes / sets the long thumbnail and end screen in Studio).
+Called by .github/workflows/youtube-upload.yml AFTER miya OK'd the rendered video (render/.upload).
+Env: SLUGS_JSON  ([{"slug":..,"n":..}, ...]; n<=0 rows are ignored unless UPLOAD_EXISTING=true), ROOT_ID, YT_CLIENT_ID, YT_CLIENT_SECRET,
+     YT_REFRESH_TOKEN (rclone is already configured). Never prints secrets.
+Rules (2026-11-22, from the channel as miya uploaded it): see docs/youtube-upload.md
   - category 27, language en, not made for kids, license youtube, embeddable, stats public
-  - long -> playlist "Deep Dives - <Life & Biology|Space & Science>", short -> "Bite-Sized Knowledge - <...>"
-  - 01.* Drive folder = Life & Biology, 02.* = Space & Science
-  - hashtags "#Miya's Note #tag..." ; tags = "Miya's Note" + hashtags
-  - description: < and > removed, max 4900 bytes (YouTube answers invalidDescription otherwise)
-  - videos alternate Life & Biology / Space & Science (starting opposite to the last scheduled long)
+  - long -> playlist "Deep Dives - ...", short -> "Bite-Sized Knowledge - ..." (found by name: Deep/Bite + Life/Space)
+  - 01.* Drive folder = Life, 02.* = Space
+  - hashtags "#Miya's Note #tag..." ; tags = "Miya's Note" + hashtags; description without < >, max 4900 bytes
+  - videos alternate Life / Space (starting opposite to the last scheduled long)
   - slots: Tue/Thu/Sat/Sun (KST), long 07:00, shorts 08:00 08:30 09:00 09:30 10:00; next date after the last scheduled video
-  - short thumbnail (<name>_thumbnail_A.png) is set here; the LONG thumbnail and end screen stay manual (miya)
-  - a title that already exists on the channel is skipped (no duplicate uploads)
-  - "<slug> 0" lines (no render) are ignored unless UPLOAD_EXISTING=true"""
+  - short thumbnail (<name>_thumbnail_A.png) is set after YouTube finished processing; LONG thumbnail and end screen stay manual (miya)
+  - a title that already exists on the channel is skipped (no duplicate uploads)"""
 import os, re, sys, json, glob, time, subprocess, datetime as dt, pathlib
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
@@ -30,10 +28,16 @@ creds.refresh(Request())
 yt = build("youtube", "v3", credentials=creds)
 ROOT = os.environ.get("ROOT_ID", "")
 
+def cat_of(text):
+    t = text.lower()
+    return "life" if "life" in t else "space" if "space" in t else "?"
+
 # ---- channel state ----
-playlists, titles, last, lastlong = {}, set(), None, None   # lastlong = (time, category) of the latest scheduled LONG video
+playlists, titles, last, lastlong = {}, set(), None, None   # playlists: (kind, cat) -> id; lastlong = (time, cat) of the latest scheduled LONG
 for p in yt.playlists().list(part="snippet", mine=True, maxResults=50).execute()["items"]:
-    playlists[p["snippet"]["title"]] = p["id"]
+    pt = p["snippet"]["title"]
+    kind = "long" if pt.lower().startswith("deep") else "short" if pt.lower().startswith("bite") else None
+    if kind: playlists[(kind, cat_of(pt))] = p["id"]
     ids, tok = [], None
     while True:
         r = yt.playlistItems().list(part="snippet", playlistId=p["id"], maxResults=50, pageToken=tok).execute()
@@ -47,14 +51,14 @@ for p in yt.playlists().list(part="snippet", mine=True, maxResults=50).execute()
             if pa:
                 t = dt.datetime.fromisoformat(pa.replace("Z", "+00:00")).astimezone(KST)
                 if last is None or t > last: last = t
-                if p["snippet"]["title"].startswith("Deep Dives - ") and (lastlong is None or t > lastlong[0]):
-                    lastlong = (t, p["snippet"]["title"].split(" - ", 1)[1])
+                if kind == "long" and (lastlong is None or t > lastlong[0]): lastlong = (t, cat_of(pt))
 tomorrow = (dt.datetime.now(KST) + dt.timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
 cur = max(tomorrow, (last + dt.timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)) if last else tomorrow
 def next_date():
     global cur
     while cur.weekday() not in DAYS: cur += dt.timedelta(days=1)
     d = cur; cur += dt.timedelta(days=1); return d
+print("playlists:", sorted(f"{k[0]}-{k[1]}" for k in playlists))
 print("last scheduled (KST):", last, "| next free date starts at", cur.date())
 
 def sh(*a): subprocess.run(a, check=True)
@@ -79,20 +83,20 @@ for r in rows:
     m = re.match(r"^(.*)-short([0-9]?)$", r["slug"])
     base, num = (m.group(1), int(m.group(2) or 1)) if m else (r["slug"], 0)
     groups.setdefault(base, []).append((num, r["slug"]))
-# ---- order: Life & Biology / Space & Science alternate, starting with the category that did NOT have the last scheduled long ----
+# ---- order: Life / Space alternate, starting with the category that did NOT have the last scheduled long ----
 def gcat(items):
     f = f"render/{items[0][1]}/.dest"
     dest = pathlib.Path(f).read_text().strip() if os.path.exists(f) else ""
-    return ("Life & Biology" if "/01." in "/" + dest else "Space & Science" if "/02." in "/" + dest else "?"), dest
-byc = {"Life & Biology": [], "Space & Science": [], "?": []}
+    return ("life" if "/01." in "/" + dest else "space" if "/02." in "/" + dest else "?"), dest
+byc = {"life": [], "space": [], "?": []}
 for base, items in groups.items():
     c, dest = gcat(sorted(items)); byc[c].append((dest, base, items))
 for c in byc: byc[c].sort()          # Drive folder number order (NN_)
-want = "Space & Science" if (lastlong and lastlong[1] == "Life & Biology") else "Life & Biology"
+want = "space" if (lastlong and lastlong[1] == "life") else "life"
 order = []
-while byc["Life & Biology"] or byc["Space & Science"]:
-    pick = want if byc[want] else ("Space & Science" if want == "Life & Biology" else "Life & Biology")
-    order.append(byc[pick].pop(0)[1:]); want = "Space & Science" if pick == "Life & Biology" else "Life & Biology"
+while byc["life"] or byc["space"]:
+    pick = want if byc[want] else ("space" if want == "life" else "life")
+    order.append(byc[pick].pop(0)[1:]); want = "space" if pick == "life" else "life"
 order += [x[1:] for x in byc["?"]]
 print("last long category:", lastlong[1] if lastlong else None, "| order:", [b for b, _ in order])
 failed = 0
@@ -107,7 +111,7 @@ for base, items in order:
             if title.strip().lower() in titles: print("skip (title exists):", title); continue
             dest = pathlib.Path(f"render/{slug}/.dest").read_text().strip() if os.path.exists(f"render/{slug}/.dest") else base
             outn = pathlib.Path(f"render/{slug}/.outname").read_text().strip() if os.path.exists(f"render/{slug}/.outname") else slug
-            cat = "Life & Biology" if "/01." in "/" + dest else "Space & Science" if "/02." in "/" + dest else None
+            cat = "life" if "/01." in "/" + dest else "space" if "/02." in "/" + dest else "?"
             h, mi = SHORT_T.get(num, (10, 0)) if num else (7, 0)
             when = day.replace(hour=h, minute=mi)
             publish_at = when.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -124,18 +128,18 @@ for base, items in order:
             while resp is None: _, resp = req.next_chunk()
             vid = resp["id"]; titles.add(title.strip().lower())
             print("uploaded:", title, "| scheduled", when.strftime("%Y-%m-%d %H:%M KST"), "|", vid)
-            pl = playlists.get(("Bite-Sized Knowledge - " if num else "Deep Dives - ") + (cat or ""))
+            pl = playlists.get(("short" if num else "long", cat))
             if pl:
                 yt.playlistItems().insert(part="snippet", body={"snippet": {"playlistId": pl,
                     "resourceId": {"kind": "youtube#video", "videoId": vid}}}).execute()
-            else: print("  WARN no playlist for category", cat)
+            else: print("  WARN no playlist for", "short" if num else "long", cat)
             if num:
                 th = sorted(glob.glob(f"render/{slug}/deliver/*_thumbnail_A.png"))
                 if th: pending_thumbs.append((vid, th[0]))
             os.remove(local)
         except HttpError as e:
             failed += 1; print("API error", e.resp.status, str(e)[:300], "| slug", slug)
-            if e.resp.status in (403, 429): sys.exit(1)   # quota: stop; videos not yet uploaded stay for a manual run
+            if e.resp.status in (403, 429): sys.exit(1)   # quota: stop; the rest uploads when the same line is run again
         except Exception as e:
             failed += 1; print("ERROR", slug, type(e).__name__, str(e)[:300])
 # ---- short thumbnails: wait until each video finished processing, then set (retry once if the portrait variant is missing) ----
