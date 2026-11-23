@@ -1,6 +1,6 @@
 """Weekly channel stats -> stats/yt_stats_<date>.csv (per video, from 2026-10-30 to today).
 Env: YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN. Never prints secrets.
-Impressions / CTR are not requested: the Analytics API metrics list for this report is unverified, so they stay manual (Studio)."""
+Also writes yt_traffic_<date>.csv (traffic sources per day) and yt_impressions_<date>.csv (impressions/CTR; metric names unverified, skipped if refused)."""
 import os, csv, sys, datetime as dt, pathlib
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
@@ -36,3 +36,19 @@ with open(f, "w", newline="", encoding="utf-8") as fh:
         t = info.get(x[0], ("", "", "", ""))
         w.writerow([x[0], t[0], t[1], t[2], t[3]] + x[1:])
 print("wrote", f, len(rows), "videos")
+
+# ---- extra reports (best effort: a failure here never stops the main CSV) ----
+def extra(name, **q):
+    try:
+        r = an.reports().query(ids="channel==MINE", startDate=START, endDate=today, **q).execute()
+    except HttpError as e:
+        print(name, "NOT AVAILABLE:", e.resp.status, str(e)[:200]); return
+    g = out / f"{name}_{today}.csv"
+    with open(g, "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow([h["name"] for h in r["columnHeaders"]]); w.writerows(r.get("rows", []))
+    print("wrote", g, len(r.get("rows", [])), "rows")
+# channel traffic sources per day
+extra("yt_traffic", metrics="views,estimatedMinutesWatched", dimensions="day,insightTrafficSourceType", sort="day")
+# thumbnail impressions / CTR per video (metric names unverified; skipped if the API refuses)
+extra("yt_impressions", metrics="videoThumbnailImpressions,videoThumbnailImpressionsClickRate", dimensions="video", sort="-videoThumbnailImpressions", maxResults=200)

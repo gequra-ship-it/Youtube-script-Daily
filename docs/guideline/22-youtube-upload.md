@@ -39,7 +39,7 @@
 - 채널 상태(마지막 예약일, 재생목록)는 매번 YouTube에서 읽는다. 두 영상을 동시에 올려도 `concurrency`로 차례대로 돈다.
 
 ### 22-4. 도구와 비밀값
-- Actions: `youtube-upload.yml` → `tools/publish/yt_upload.py`. 주간 통계 `yt-stats.yml` → `tools/publish/yt_stats.py`(`stats/yt_stats_<날짜>.csv`, 예약 실행은 기본 브랜치 `main`에서만 돈다. 노출수·CTR은 Analytics API로 받는지 미확인이라 Studio에서 본다).
+- Actions: `youtube-upload.yml` → `tools/publish/yt_upload.py`. 주간 통계 `yt-stats.yml` → `tools/publish/yt_stats.py`(`stats/yt_stats_<날짜>.csv`, 예약 실행은 기본 브랜치 `main`에서만 돈다. 트래픽 소스는 `yt_traffic_<날짜>.csv`, 노출수·CTR은 `yt_impressions_<날짜>.csv`에 시도한다(API가 거부하면 파일이 없다 → Studio에서 본다)).
 - miya PC(`Desktop\miya's note`, 원본은 프로젝트 파일 `youtube-api/`): `upload_new.py`(Drive에만 있고 채널에 없는 영상 올리기: `python upload_new.py --skip=<폴더> --go`), `reupload.py`(다시 렌더한 영상으로 교체), `fix_thumbs.py`(숏츠 썸네일 재설정). 같은 규칙을 쓴다.
 - 비밀값은 GitHub Actions secrets `YT_CLIENT_ID`·`YT_CLIENT_SECRET`·`YT_REFRESH_TOKEN`·`RCLONE_CONF`. **읽거나 출력하지 않는다.**
 
