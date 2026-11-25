@@ -1,0 +1,53 @@
+{
+ "centre": "a fossil slab of Sacabambaspis in a museum specimen drawer with a blank name card",
+ "focus": [
+  560,
+  860,
+  1.5
+ ],
+ "focus_word": "named it",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "1986"
+  },
+  {
+   "type": "name",
+   "text": "Sacabambaspis janvieri",
+   "x": 540,
+   "y": 540,
+   "to": [
+    560,
+    840
+   ],
+   "word": "Sacabambaspis janvieri"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-slide-name-card",
+  "kind": "ride",
+  "x": 396,
+  "y": 1135,
+  "s": 1.44,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
+}

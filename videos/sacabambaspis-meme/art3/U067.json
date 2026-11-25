@@ -1,0 +1,55 @@
+{
+ "centre": "billowing cloud of mud from a flood, sweeping over a shallow sea floor with tumbled fish and brachiopod shells",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "splash",
+   "word": "floods",
+   "vol": 0.55
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Brachiopods",
+   "x": 560,
+   "y": 760,
+   "to": [
+    645,
+    845
+   ],
+   "word": "brachiopods"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "backstep",
+   "obj": "mv-core-swell-mud-cloud"
+  },
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1148,
+  "y": 665,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Whoa, it grows!",
+    "shout": true
+   }
+  ]
+ }
+}

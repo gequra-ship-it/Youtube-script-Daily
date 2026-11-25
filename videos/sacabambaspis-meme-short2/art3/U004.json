@@ -1,0 +1,43 @@
+{
+ "centre": "sea scorpion with spiny claws above a small jawless fish that cannot bite",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Uh-oh.",
+   "x": 640,
+   "y": 1010,
+   "to": [
+    590,
+    1097
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "tearful"
+   }
+  ],
+  "act": "lean",
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-approach-eurypterid-scorpion",
+  "kind": "ride",
+  "x": 837,
+  "y": 952,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ]
+ }
+}

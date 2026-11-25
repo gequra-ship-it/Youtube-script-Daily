@@ -1,0 +1,77 @@
+{
+ "centre": "a bony armor shield hanging on a coat hanger like a coat, beside a fading skeleton outline and a dish of mineral crystals",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "skeleton",
+   "x": 380,
+   "y": 400,
+   "to": [
+    390,
+    560
+   ],
+   "word": "skeleton"
+  },
+  {
+   "type": "name",
+   "text": "minerals",
+   "x": 1560,
+   "y": 520,
+   "to": [
+    1560,
+    700
+   ],
+   "word": "minerals"
+  },
+  {
+   "type": "name",
+   "text": "coat",
+   "x": 1380,
+   "y": 300,
+   "to": [
+    1060,
+    560
+   ],
+   "word": "coat"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   },
+   {
+    "word": "The first",
+    "mood": "happy"
+   },
+   {
+    "word": "It was",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "present"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-swing-coat-hanger",
+  "kind": "ride",
+  "x": 683,
+  "y": 738,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Ta-da!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "centre": "magnifying glass held up beside a glass flow tank with a model of the fish",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Hmm, let me see",
+   "x": 1330,
+   "y": 270,
+   "to": [
+    1480,
+    470
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "binocs"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-approach-magnifier",
+  "kind": "ride",
+  "x": 1703,
+  "y": 705,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Ooh!",
+    "shout": true
+   }
+  ]
+ }
+}

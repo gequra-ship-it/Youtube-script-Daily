@@ -1,0 +1,56 @@
+{
+ "centre": "modern fish with paired side fins that steer and brake; a shark behind",
+ "focus": [
+  660,
+  935,
+  1.7
+ ],
+ "focus_word": "paired fins",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "paired fins",
+   "x": 790,
+   "y": 1060,
+   "to": [
+    660,
+    935
+   ],
+   "word": "paired fins"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "Modern fish",
+    "mood": "happy"
+   },
+   {
+    "word": "They work",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 1160,
+  "s": 1.1,
+  "flip": 1,
+  "kind": "bg",
+  "says": [
+   {
+    "text": "Small!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

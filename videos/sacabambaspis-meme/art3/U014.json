@@ -1,0 +1,44 @@
+{
+ "centre": "Ordovician globe: a huge landmass, Gondwana, spread over the southern half, small continents near the dashed equator",
+ "focus": [
+  960,
+  590,
+  1.7
+ ],
+ "focus_word": "Gondwana",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Gondwana",
+   "x": 1340,
+   "y": 640,
+   "to": [
+    1000,
+    590
+   ],
+   "word": "Gondwana"
+  }
+ ],
+ "motion": "core reveal (globe appears) + unroll (map scroll)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   }
+  ],
+  "act": {
+   "type": "shrinkdown"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "x": 260,
+  "y": 340,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
+  "says": [],
+  "bside": 1
+ }
+}

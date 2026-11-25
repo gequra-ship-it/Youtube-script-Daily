@@ -1,0 +1,51 @@
+{
+ "centre": "a Sacabambaspis fossil in a specimen tray; a rubber stamp marks the blank species card, a tag swings on the specimen cabinet",
+ "focus": [
+  720,
+  600,
+  1.6
+ ],
+ "focus_word": "named the species",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Sacabambaspis janvieri",
+   "x": 720,
+   "y": 400,
+   "to": [
+    740,
+    600
+   ],
+   "word": "Sacabambaspis janvieri"
+  }
+ ],
+ "motion": "core stamp (the stamp group: naming = official mark) + swing (specimen tag)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   }
+  ],
+  "act": {
+   "type": "sunshade"
+  },
+  "ride": "mv-swing-specimen-tag",
+  "kind": "ride",
+  "x": 1590,
+  "y": 598,
+  "s": 0.95,
+  "flip": 1,
+  "bside": -1,
+  "gaze": 1,
+  "outfit": [
+   "raincoat"
+  ],
+  "says": [
+   {
+    "text": "Bright!",
+    "shout": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "centre": "Sacabambaspis swimming in a warm, sunlit shallow sea (split view: sky and coast above, sea scorpion and algae below)",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Just wait!",
+   "x": 1320,
+   "y": 420,
+   "to": [
+    1193,
+    573
+   ]
+  }
+ ],
+ "motion": "core pop (fish, word 'surprise') + tail chain + claw joints (sea scorpion) + sway (seaweed)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "And the",
+    "mood": "happy"
+   }
+  ],
+  "act": "startle",
+  "outfit": [
+   "goggles",
+   "lifering"
+  ],
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 1250,
+  "y": 606,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Oh!",
+    "shout": true
+   }
+  ]
+ }
+}

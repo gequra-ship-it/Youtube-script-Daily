@@ -1,0 +1,45 @@
+{
+ "centre": "small oval patch of rock packed with about thirty tiny fish fossils, surrounded by empty rock",
+ "focus": [
+  960,
+  500,
+  1.9
+ ],
+ "focus_word": "about thirty specimens",
+ "sfx": [],
+ "labels": [
+  {
+   "type": "num",
+   "text": "ABOUT 30 SPECIMENS",
+   "word": "about thirty"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": {
+   "type": "growtall"
+  },
+  "outfit": [
+   "diver",
+   "flippers"
+  ],
+  "ride": "mv-core-approach-fossil-cluster",
+  "kind": "ride",
+  "x": 1143,
+  "y": 626,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Big!",
+    "shout": true
+   }
+  ]
+ }
+}

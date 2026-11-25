@@ -1,0 +1,67 @@
+{
+ "centre": "a round magnifying lens over a limb shows skin, muscle and the bone hidden deep inside",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "skin",
+   "x": 520,
+   "y": 300,
+   "to": [
+    600,
+    420
+   ],
+   "word": "skin"
+  },
+  {
+   "type": "name",
+   "text": "muscle",
+   "x": 1360,
+   "y": 300,
+   "to": [
+    1060,
+    440
+   ],
+   "word": "muscle"
+  },
+  {
+   "type": "name",
+   "text": "bone",
+   "x": 640,
+   "y": 720,
+   "to": [
+    900,
+    505
+   ],
+   "word": "bone"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "peek",
+  "outfit": [
+   "diver"
+  ],
+  "ride": null,
+  "kind": "bg",
+  "x": 825,
+  "y": 688,
+  "s": 1.0,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "behind": "mv-core-approach-lens",
+  "says": [
+   {
+    "text": "Peek-a-boo!",
+    "shout": true
+   }
+  ]
+ }
+}

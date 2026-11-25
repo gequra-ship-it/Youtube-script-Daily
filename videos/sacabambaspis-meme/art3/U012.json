@@ -1,0 +1,53 @@
+{
+ "centre": "brass pocket clock whose minute hand runs backwards; a pin slides back along a timeline to the Ordovician band",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "track": false,
+ "labels": [
+  {
+   "type": "num",
+   "text": "485-443 MILLION YEARS AGO",
+   "word": "485"
+  },
+  {
+   "type": "name",
+   "text": "Ordovician Period",
+   "x": 520,
+   "y": 690,
+   "to": [
+    520,
+    800
+   ],
+   "word": "Ordovician"
+  }
+ ],
+ "motion": "core approach (clock) + rotor backwards (minute hand) + path (pin travels back in time)",
+ "frog": {
+  "moods": [
+   {
+    "mood": "sleepy"
+   }
+  ],
+  "act": {
+   "type": "bowhead"
+  },
+  "outfit": [
+   "diver"
+  ],
+  "ride": "mv-core-approach-clock-dial",
+  "kind": "ride",
+  "x": 1122,
+  "y": 614,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "...",
+    "shout": false
+   }
+  ]
+ }
+}
