@@ -1,0 +1,47 @@
+{
+ "centre": "party table fully set with a cake, coat rack hung with future helmets",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Full house!",
+   "x": 760,
+   "y": 560,
+   "to": [
+    660,
+    740
+   ]
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": {
+   "type": "swingride",
+   "obj": "mv-pendulum-helmet-1"
+  },
+  "ride": "mv-pendulum-helmet-1",
+  "kind": "ride",
+  "x": 125,
+  "y": 763,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "behind": null,
+  "outfit": [
+   "partyhat"
+  ],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ]
+ }
+}

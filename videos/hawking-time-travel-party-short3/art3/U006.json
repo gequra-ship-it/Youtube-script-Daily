@@ -1,0 +1,55 @@
+{
+ "centre": "glowing golden keystone in the foundation of a temple of science, hit by a lightning bolt",
+ "focus": [
+  540,
+  869,
+  1.6
+ ],
+ "focus_word": "causality",
+ "labels": [
+  {
+   "type": "name",
+   "text": "Causality",
+   "x": 540,
+   "y": 1110,
+   "to": [
+    540,
+    900
+   ],
+   "word": "causality"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "scared"
+   },
+   {
+    "word": "It strikes",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "duck",
+   "obj": "mv-core-stamp-keystone"
+  },
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "x": 734,
+  "y": 1019,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband"
+  ],
+  "says": [
+   {
+    "text": "Eek!",
+    "shout": true
+   }
+  ]
+ }
+}

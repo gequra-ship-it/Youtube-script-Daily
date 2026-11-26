@@ -1,0 +1,44 @@
+{
+ "centre": "glass bell jar over a tiny party table on a lab bench",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "An experiment!",
+   "x": 830,
+   "y": 560,
+   "to": [
+    720,
+    700
+   ]
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": "tap",
+  "ride": "mv-core-approach-jar",
+  "kind": "ride",
+  "x": 844,
+  "y": 1150,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "lab",
+   "beanie"
+  ],
+  "says": [
+   {
+    "text": "Knock knock!",
+    "shout": false
+   }
+  ]
+ }
+}

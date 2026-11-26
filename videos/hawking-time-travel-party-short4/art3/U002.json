@@ -1,0 +1,43 @@
+{
+ "centre": "a glowing pocket clock in deep space on a dotted path that leads a small walker toward a bright doorway of the future",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Into tomorrow!",
+   "x": 330,
+   "y": 1100,
+   "to": [
+    305,
+    1150
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "It is",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "ride": "mv-core-approach-clock-pocket",
+  "kind": "ride",
+  "x": 658,
+  "y": 711,
+  "s": 1.44,
+  "flip": -1,
+  "bside": -1,
+  "outfit": [
+   "backpack",
+   "headband"
+  ],
+  "says": []
+ }
+}

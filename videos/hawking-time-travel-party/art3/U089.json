@@ -1,0 +1,46 @@
+{
+ "centre": "a billiard table where a ball's path loops back and glances off its own earlier route, dashed lines",
+ "focus": [
+  960,
+  520,
+  1.7
+ ],
+ "focus_word": "billiard balls",
+ "sfx": [
+  {
+   "name": "click",
+   "word": "colliding",
+   "vol": 0.6
+  }
+ ],
+ "labels": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   },
+   {
+    "word": "Researchers have",
+    "mood": "happy"
+   }
+  ],
+  "act": "lean",
+  "ride": "mv-path-cue-ball",
+  "kind": "ride",
+  "x": 0,
+  "y": 122,
+  "s": 1.0,
+  "flip": 1,
+  "outfit": [
+   "lab",
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Here we go!",
+    "shout": false
+   }
+  ],
+  "bside": 1
+ }
+}

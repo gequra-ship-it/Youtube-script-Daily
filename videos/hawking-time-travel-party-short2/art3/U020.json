@@ -1,0 +1,41 @@
+{
+ "centre": "a dashed protective dome over a shelf of old books and an unrolling scroll, bolts bouncing off it",
+ "focus": [
+  540,
+  1020,
+  1.5
+ ],
+ "focus_word": "historians",
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "unrolled",
+   "obj": "mv-unroll-scroll",
+   "frac": 0.7
+  },
+  "outfit": [
+   "helmet",
+   "antenna"
+  ],
+  "x": 625,
+  "y": 1051,
+  "s": 1.09,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

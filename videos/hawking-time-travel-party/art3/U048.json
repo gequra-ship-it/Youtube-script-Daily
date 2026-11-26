@@ -1,0 +1,54 @@
+{
+ "centre": "glowing tunnel of rings with a bright far end",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Wormhole",
+   "x": 520,
+   "y": 250,
+   "to": [
+    700,
+    360
+   ],
+   "word": "wormhole"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "surprised"
+   },
+   {
+    "word": "Holding one",
+    "mood": "scared"
+   }
+  ],
+  "act": {
+   "type": "slide",
+   "to": [
+    960,
+    576
+   ]
+  },
+  "kind": "bg",
+  "ride": null,
+  "x": 1536,
+  "y": 360,
+  "s": 0.9,
+  "flip": -1,
+  "outfit": [
+   "hardhat",
+   "bowtie"
+  ],
+  "says": [
+   {
+    "text": "Whoa-oa!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "centre": "the International Space Station gliding above Earth's curve, a row of moon phases for the months, two clocks below (station and ground)",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Space Station",
+   "x": 540,
+   "y": 640,
+   "to": [
+    540,
+    800
+   ],
+   "word": "International Space Station"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "rest",
+  "outfit": [
+   "helmet",
+   "pocketwatch"
+  ],
+  "ride": "mv-path-iss-station",
+  "kind": "ride",
+  "x": 456,
+  "y": 795,
+  "s": 1.4,
+  "flip": 1,
+  "bside": 1,
+  "says": [
+   {
+    "text": "Tick tock...",
+    "shout": false
+   }
+  ]
+ }
+}

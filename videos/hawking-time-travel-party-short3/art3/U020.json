@@ -1,0 +1,50 @@
+{
+ "centre": "a glowing node where a timeline splits; a new gold branch grows to a new world",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "New branch",
+   "x": 820,
+   "y": 690,
+   "to": [
+    690,
+    640
+   ],
+   "word": "new branch"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "curious"
+   }
+  ],
+  "act": {
+   "type": "launched",
+   "obj": "mv-popin-world-bubble",
+   "h": 260
+  },
+  "outfit": [
+   "helmet",
+   "moonboots"
+  ],
+  "x": 770,
+  "y": 600,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "enter": "cut",
+  "delay": 0.02,
+  "says": [
+   {
+    "text": "Whoa!",
+    "shout": true
+   }
+  ],
+  "bside": -1
+ }
+}

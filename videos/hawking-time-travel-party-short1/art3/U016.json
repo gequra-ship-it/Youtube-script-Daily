@@ -1,0 +1,52 @@
+{
+ "centre": "tiny lit room on a long winding ribbon of centuries, a dart flying past it",
+ "focus": [
+  540,
+  860,
+  1.8
+ ],
+ "focus_word": "a single room in a single moment",
+ "labels": [
+  {
+   "type": "name",
+   "text": "a single room",
+   "x": 760,
+   "y": 790,
+   "to": [
+    560,
+    855
+   ],
+   "word": "a single room"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "Maybe they",
+    "mood": "happy"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-path-dart",
+  "kind": "ride",
+  "x": 230,
+  "y": 1312,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "La la la~",
+    "shout": false
+   }
+  ]
+ }
+}

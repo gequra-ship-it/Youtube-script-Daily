@@ -1,0 +1,46 @@
+{
+ "centre": "empty chair at the party table under a blank banner",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Anyone?",
+   "x": 700,
+   "y": 1060,
+   "to": [
+    560,
+    1120
+   ],
+   "word": "Nobody came"
+  }
+ ],
+ "sfx": [],
+ "frog": {
+  "moods": [
+   {
+    "mood": "squint"
+   },
+   {
+    "word": "Nobody",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "leanback"
+  },
+  "ride": "mv-core-glide-chair-empty",
+  "kind": "ride",
+  "x": 673,
+  "y": 1340,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "backpack",
+   "bowtie"
+  ],
+  "says": []
+ }
+}

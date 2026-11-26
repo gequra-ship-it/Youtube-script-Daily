@@ -1,0 +1,55 @@
+{
+ "centre": "a runner heads up a golden path to a bright open doorway (tomorrow) while an old door below is shut with a padlock (yesterday)",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "name",
+   "text": "Tomorrow",
+   "x": 760,
+   "y": 360,
+   "to": [
+    760,
+    470
+   ],
+   "word": "tomorrow"
+  },
+  {
+   "type": "name",
+   "text": "Yesterday",
+   "x": 260,
+   "y": 900,
+   "to": [
+    260,
+    1010
+   ],
+   "word": "yesterday"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "wave",
+  "x": 659,
+  "y": 1148,
+  "s": 1.09,
+  "flip": -1,
+  "kind": "bg",
+  "ride": null,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "headband",
+   "pocketwatch"
+  ],
+  "says": [
+   {
+    "text": "Hi there!",
+    "shout": false
+   }
+  ]
+ }
+}

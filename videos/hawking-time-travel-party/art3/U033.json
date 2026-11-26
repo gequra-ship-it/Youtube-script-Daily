@@ -1,0 +1,41 @@
+{
+ "centre": "returned spacecraft standing upright with open hatch",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "You look so young!",
+   "x": 1450,
+   "y": 440,
+   "to": [
+    1305,
+    545
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "proud"
+   }
+  ],
+  "act": "salute",
+  "x": 1660,
+  "y": 890,
+  "s": 0.76,
+  "flip": -1,
+  "kind": "bg",
+  "outfit": [
+   "tophat"
+  ],
+  "says": [
+   {
+    "text": "Aye aye!",
+    "shout": false
+   }
+  ],
+  "bside": -1
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "centre": "broken egg shell pieces flying back together under a cupped hand",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Back together!",
+   "x": 300,
+   "y": 1000,
+   "to": [
+    480,
+    1150
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "leap",
+   "dist": 367
+  },
+  "x": 260,
+  "y": 1560,
+  "s": 1.0,
+  "flip": 1,
+  "kind": "bg",
+  "ride": null,
+  "behind": null,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Wheee!",
+    "shout": true
+   }
+  ],
+  "bside": 1
+ }
+}

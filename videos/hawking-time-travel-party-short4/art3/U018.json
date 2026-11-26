@@ -1,0 +1,42 @@
+{
+ "centre": "Earth in the middle with blank calendar pages flying off it; a returning ship above; below, a young astronaut beside an elderly twin",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "You look young!",
+   "x": 800,
+   "y": 1080,
+   "to": [
+    700,
+    1190
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "determined"
+   }
+  ],
+  "act": "rest",
+  "ride": "mv-core-glide-earth-planet",
+  "kind": "ride",
+  "x": 741,
+  "y": 991,
+  "s": 1.09,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "cap"
+  ],
+  "says": [
+   {
+    "text": "Safe at last.",
+    "shout": false
+   }
+  ]
+ }
+}

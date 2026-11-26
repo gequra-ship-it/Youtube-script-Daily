@@ -1,0 +1,43 @@
+{
+ "centre": "round clock with cream face, hands turning forward",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [],
+ "labels": [
+  {
+   "type": "say",
+   "text": "Off to tomorrow!",
+   "x": 1500,
+   "y": 330,
+   "to": [
+    1440,
+    470
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   },
+   {
+    "word": "It is",
+    "mood": "happy"
+   }
+  ],
+  "act": {
+   "type": "pointfar"
+  },
+  "x": 260,
+  "y": 890,
+  "s": 0.88,
+  "flip": 1,
+  "kind": "bg",
+  "outfit": [
+   "backpack",
+   "glasses"
+  ],
+  "says": [],
+  "bside": 1
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "centre": "three vignettes: ice cube in a warm drink, ink spreading in water, papers sliding off a desk",
+ "focus": null,
+ "focus_word": null,
+ "sfx": [
+  {
+   "name": "drip",
+   "word": "ink",
+   "vol": 0.5
+  }
+ ],
+ "labels": [
+  {
+   "type": "name",
+   "text": "Ice cube",
+   "x": 450,
+   "y": 300,
+   "to": [
+    450,
+    460
+   ],
+   "word": "ice cube"
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "happy"
+   }
+  ],
+  "act": "rest",
+  "outfit": [
+   "goggles"
+  ],
+  "ride": "mv-slide-paper-stack",
+  "kind": "ride",
+  "x": 1286,
+  "y": 740,
+  "s": 0.95,
+  "flip": -1,
+  "bside": -1,
+  "gaze": 1,
+  "says": [
+   {
+    "text": "Ahh...",
+    "shout": false
+   }
+  ]
+ }
+}

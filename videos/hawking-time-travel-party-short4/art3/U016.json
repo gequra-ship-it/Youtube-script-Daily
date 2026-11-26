@@ -1,0 +1,42 @@
+{
+ "centre": "a city map from above: the true position pin stays put while a coral pin drifts away along a dashed trail",
+ "focus": null,
+ "focus_word": null,
+ "labels": [
+  {
+   "type": "say",
+   "text": "Wrong street!",
+   "x": 790,
+   "y": 470,
+   "to": [
+    800,
+    600
+   ]
+  }
+ ],
+ "frog": {
+  "moods": [
+   {
+    "mood": "excited"
+   }
+  ],
+  "act": "dance",
+  "ride": "mv-path-drift-pin",
+  "kind": "ride",
+  "x": 544,
+  "y": 1040,
+  "s": 1.09,
+  "flip": 1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Boom-cha!",
+    "shout": false
+   }
+  ]
+ }
+}
