@@ -4,5 +4,30 @@
  "focus_word": null,
  "sfx": [],
  "labels": [],
- "motion": "an eraser rubs out clumsy lines along a path; rewind button approaches"
+ "motion": "an eraser rubs out clumsy lines along a path; rewind button approaches",
+ "frog": {
+  "moods": [
+   {
+    "mood": "worried"
+   }
+  ],
+  "act": "facepalm",
+  "ride": "mv-core-approach-rewind-button",
+  "kind": "ride",
+  "x": 1188,
+  "y": 690,
+  "s": 0.95,
+  "flip": -1,
+  "bside": 1,
+  "gaze": 1,
+  "outfit": [
+   "glasses"
+  ],
+  "says": [
+   {
+    "text": "Oops.",
+    "shout": false
+   }
+  ]
+ }
 }

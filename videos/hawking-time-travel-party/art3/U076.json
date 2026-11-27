@@ -16,26 +16,19 @@
     "mood": "squint"
    }
   ],
-  "act": "wind",
-  "x": 1660,
-  "y": 890,
-  "s": 0.72,
-  "flip": -1,
-  "kind": "bg",
-  "roam": {
-   "kind": "walk",
-   "dist": 288
+  "act": {
+   "type": "leanback"
   },
+  "x": 260,
+  "y": 890,
+  "s": 0.8,
+  "flip": 1,
+  "kind": "bg",
   "outfit": [
    "backpack",
-   "headband"
+   "cap"
   ],
-  "says": [
-   {
-    "text": "Whooosh!",
-    "shout": true
-   }
-  ],
-  "bside": -1
+  "says": [],
+  "bside": 1
  }
 }

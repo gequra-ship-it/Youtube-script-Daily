@@ -11,12 +11,10 @@
  "frog": {
   "moods": [
    {
-    "mood": "proud"
+    "mood": "happy"
    }
   ],
-  "act": {
-   "type": "present"
-  },
+  "act": "lean",
   "ride": "mv-core-approach-machine",
   "kind": "ride",
   "x": 1188,
@@ -26,12 +24,13 @@
   "bside": 1,
   "gaze": 1,
   "outfit": [
-   "hardhat"
+   "hardhat",
+   "bowtie"
   ],
   "says": [
    {
-    "text": "Ta-da!",
-    "shout": true
+    "text": "Here we go!",
+    "shout": false
    }
   ]
  }
